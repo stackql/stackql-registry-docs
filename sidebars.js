@@ -14,6 +14,7 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   docsSidebar: [
+    'stackql-provider-registry',
     {
       type: 'html', 
       value: '<a href="https://stackql-registry-docs.netlify.app/providers/aws/">aws</a>',
