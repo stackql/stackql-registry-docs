@@ -37,13 +37,13 @@ const sidebars = {
           label: 'aws',
           href: 'https://stackql-registry-docs.netlify.app/providers/aws/'
         },
-        {
-          type: 'category', 
-          label: 'aws',
-          // collapsible: true,
-          // collapsed: false,
-          items: ['ec2'],
-        },
+        // {
+        //   type: 'category', 
+        //   label: 'aws',
+        //   // collapsible: true,
+        //   // collapsed: false,
+        //   items: ['ec2'],
+        // },
         {
           type: 'html', 
           value: '<a href="https://stackql-registry-docs.netlify.app/providers/aws/">aws</a>',
