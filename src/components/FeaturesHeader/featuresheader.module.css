@@ -1,0 +1,18 @@
+.cardsContainer {
+    text-rendering: optimizeLegibility;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex: 1 1 0px;
+}
+
+.cardsLeftCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardsRightCol {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+}

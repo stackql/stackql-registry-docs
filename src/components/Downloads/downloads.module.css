@@ -1,0 +1,30 @@
+.downloads {
+    display: flex;
+    align-items: center;
+    padding: 2rem 0 0;
+    width: 100%;
+}
+
+@media only screen and (min-width: 997px) {
+    html[data-theme='light'] .downloads {
+        background-image: linear-gradient(180deg, #fff 60%, #004165 0%);
+    }    
+}
+
+@media only screen and (max-width: 768px) {
+    .downloads {
+        padding: 0rem 0 0;
+    }
+}
+
+.downloadDiv {
+    margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .downloadDiv {
+        margin-bottom: 3rem;
+    }
+}
+
+  

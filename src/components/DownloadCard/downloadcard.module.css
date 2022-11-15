@@ -1,0 +1,42 @@
+.downloadCard {
+    border: 1px solid var(--gamma-light-blue);
+    color: var(--gamma-blue);
+    opacity: 1;
+    transition:box-shadow .28s ease-in-out, -webkit-box-shadow .28s ease-in-out;
+}
+
+.downloadCard:hover {
+    opacity: 1;
+    color: var(--ifm-color-primary-dark);
+    box-shadow:0 2px 6px 0 rgba(60,64,67,0.05),0 8px 16px 6px rgba(60,64,67,0.15) !important;    
+}
+
+.downloadCardLift:hover {
+    transform: translate3d(0,-5px,0);
+}
+
+.downloadIcon {
+    font-size: 3rem;  
+}
+
+html[data-theme='dark'] .downloadIcon {
+    color: var(--white) !important;
+}
+
+.downloadTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;    
+}
+
+html[data-theme='dark'] .downloadTitle {
+    color: var(--white) !important;
+}
+
+.downloadDesc {
+ font-size: 1rem;
+}
+
+html[data-theme='dark'] .downloadDesc {
+    color: var(--white) !important;
+}

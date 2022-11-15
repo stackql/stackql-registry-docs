@@ -1,0 +1,69 @@
+{
+  "name": "react-animated-term",
+  "version": "2.0.0",
+  "description": "React component for rendering animated terminals",
+  "license": "MIT",
+  "repository": "https://github.com/dongy7/react-animated-term",
+  "author": {
+    "name": "Dong Yeop Lee",
+    "email": "dong@dongyeop.com",
+    "url": "https://dongyeop.com"
+  },
+  "keywords": [
+    "react",
+    "terminal",
+    "console",
+    "animation",
+    "animated"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "nps build",
+    "test": "jest",
+    "lint": "eslint .",
+    "validate": "npm run lint && npm run test",
+    "prettier": "nps prettier",
+    "start": "webpack-dev-server --progress --mode development"
+  },
+  "peerDependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^22.4.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-react": "^7.8.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^22.4.3",
+    "nps": "^5.9.0",
+    "nps-utils": "^1.7.0",
+    "prettier": "1.12.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

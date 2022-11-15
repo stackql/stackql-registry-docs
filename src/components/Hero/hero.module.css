@@ -1,0 +1,71 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttons {
+  display: flex;
+  float: left;
+  align-items: center;
+  justify-content: center;
+}
+
+.allPlatformsDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.allPlatformsLink {
+  background-color: var(--ifm-hero-background-color);
+  color: var(--ifm-hero-text-color);  
+}
+
+.allPlatformsLink:hover {
+  background-color: var(--ifm-hero-background-color);
+  color: var(--ifm-hero-text-color);  
+}
+
+/* Laptops and Desktops */
+@media (min-width: 1158px){
+  .heroColDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 1157px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+  .heroColDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+  }  
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+  .heroColDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+  }  
+}

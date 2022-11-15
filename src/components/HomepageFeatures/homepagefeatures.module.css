@@ -1,0 +1,60 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0 0;
+  width: 100%;
+}
+
+.featureDiv {
+  margin-bottom: 0rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .featureDiv {
+    margin-bottom: 3rem;
+  }
+}
+
+.featureIcon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: var(--gamma-light-blue);
+}
+
+.learnMore {
+  vertical-align: middle;
+  text-align: right;
+  line-height: 24px;
+}
+
+.learnMoreLink {
+  color: #5c6bc0;
+  font-size: large;
+  font-weight: bold;
+}
+
+.learnMoreLink:hover {
+  text-decoration: none;
+  color: var(--gamma-light-blue);
+}
+
+/* Laptops and Desktops */
+/*
+@media (min-width: 1025px){
+
+}
+*/
+
+/* Mobile Devices */
+/*
+@media (max-width: 480px) {
+	
+}
+*/
+
+/* Tablets */
+/*
+@media (min-width: 481px) and (max-width: 1024px) {
+
+}
+*/

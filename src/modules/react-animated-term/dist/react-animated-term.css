@@ -1,0 +1,290 @@
+:root {
+  --keyword-font-weight: 600;
+}
+
+.Terminal-btn {
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Terminal-btn-close {
+  background-color: rgb(255, 95, 86);
+}
+
+.Terminal-btn-minimize {
+  background-color: rgb(255, 189, 46);
+}
+
+.Terminal-btn-maximize {
+  background-color: rgb(39, 201, 63);
+}
+
+.Terminal-keyword {
+  color: #0000ff;
+  font-weight: var(--keyword-font-weight);
+}
+
+.Terminal-term-code {
+  height: 100%;
+}
+
+.Terminal-body-animated {
+  position: absolute;
+}
+
+.Terminal-prompt {
+  color: rgb(204, 204, 204);
+}
+
+.Terminal-code {
+  margin: 0;
+  font-size: var(--terminal-code-font-size);
+  font-family: Menlo, DejaVu Sans Mono, Consolas, Lucida Console, monospace;
+  line-height: var(--terminal-code-line-height);
+  white-space: pre-wrap;
+}
+
+.Terminal-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(51, 51, 51);
+  background: rgb(0, 0, 0);
+}
+
+.Terminal-term {
+  width: 100%;
+}
+
+.Terminal-header {
+  position: absolute;
+  width: 100%;
+}
+
+.Terminal-body {
+  width: 100%;
+  height: 100%;
+}
+
+.Terminal-console {
+  font-size: var(--console-text-font-size);
+  font-family: Menlo, DejaVu Sans Mono, Consolas, Lucida Console, monospace;
+  line-height: var(--console-text-line-height);
+  color: rgb(255, 255, 255);
+}
+
+.Terminal-cursor {
+  display: inline-block;
+  background: rgb(248, 28, 229);
+  vertical-align: middle;
+}
+
+.Terminal-control-btn {
+  position: absolute;
+  display: inline-block;
+  background: transparent;
+  color: white;
+  font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  cursor: pointer;
+}
+
+.Terminal-control-btn-white {
+  color: black;
+}
+
+/* Laptops and Desktops */
+@media (min-width: 1158px){
+  :root {
+    --terminal-code-font-size: 17px;
+    --terminal-code-line-height: 20px;
+    --console-text-font-size: 12px;
+    --console-text-line-height: 24px;
+  }
+  .Terminal-btn {
+    width: 12px;
+    height: 12px;
+  }
+  .Terminal-btn-close {
+    left: 13px;
+  }
+  .Terminal-btn-minimize {
+    left: 33px;
+  }  
+  .Terminal-btn-maximize {
+    left: 53px;
+  }
+  .Terminal-window {
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  }
+  .Terminal-window-white {
+    background: #fff;
+    border-style: solid;
+    border-color: transparent;
+  }  
+  .Terminal-console-white {
+    color: #000;
+  }  
+  .Terminal-term {
+    height: 240px;
+  }
+  .Terminal-header {
+    top: 18px;
+  }  
+  .Terminal-body {
+    margin-top: 45px;
+  }
+  .Terminal-console {
+    margin: 0px 16px;
+  }
+  .Terminal-console-code {
+    margin: 40px 16px;
+  }
+  .Terminal-cursor {
+    width: 6px;
+    height: 15px;
+  }
+  .Terminal-control-btn {
+    bottom: 52px;
+    right: 8px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    border: 2px solid white;
+  }
+  .Terminal-control-btn-white {
+    border: 2px solid black;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 1157px) {
+  :root {
+    --terminal-code-font-size: 14px;
+    --terminal-code-line-height: 16px;
+    --console-text-font-size: 10px;
+    --console-text-line-height: 19px;
+  }
+  .Terminal-btn {
+    width: 9px;
+    height: 9px;
+  }
+  .Terminal-btn-close {
+    left: 9.75px;
+  }
+  .Terminal-btn-minimize {
+    left: 24.75px;
+  }  
+  .Terminal-btn-maximize {
+    left: 39.75px;
+  }
+  .Terminal-window {
+    border-radius: 3.75px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 0.75px 4.5px, rgba(0, 0, 0, 0.12) 0px 0.75px 3px;
+  }
+  .Terminal-window-white {
+    background: #fff;
+    border-style: solid;
+    border-color: transparent;
+  }  
+  .Terminal-console-white {
+    color: #000;
+  }  
+  .Terminal-term {
+    height: 180px;
+  }
+  .Terminal-header {
+    top: 13.5px;
+  }  
+  .Terminal-body {
+    margin-top: 33.75px;
+  }
+  .Terminal-console {
+    margin: 0px 12px;
+  }
+  .Terminal-console-code {
+    margin: 30px 12px;
+  }
+  .Terminal-cursor {
+    width: 4.5px;
+    height: 11.25px;
+  }
+  .Terminal-control-btn {
+    bottom: 39px;
+    right: 6px;
+    border-radius: 2.25px;
+    padding: 3.75px 7.5px;
+    border: 1.5px solid white;
+  }
+  .Terminal-control-btn-white {
+    border: 1.5px solid black;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  :root {
+    --terminal-code-font-size: 10px;
+    --terminal-code-line-height: 11px;
+    --console-text-font-size: 7px;
+    --console-text-line-height: 13px;
+  }
+  .Terminal-btn {
+    width: 6px;
+    height: 6px;
+  }
+  .Terminal-btn-close {
+    left: 6.5px;
+  }
+  .Terminal-btn-minimize {
+    left: 16.5px;
+  }  
+  .Terminal-btn-maximize {
+    left: 26.5px;
+  }  
+  .Terminal-window {
+    border-radius: 2.5px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 0.5px 3px, rgba(0, 0, 0, 0.12) 0px 0.5px 2px;
+  }
+  .Terminal-window-white {
+    background: #fff;
+    border-style: solid;
+    border-color: transparent;
+  }
+  .Terminal-console-white {
+    color: #000;
+  }      
+  .Terminal-term {
+    height: 120px;
+  }
+  .Terminal-header {
+    top: 9px;
+  }  
+  .Terminal-body {
+    margin-top: 22.5px;
+  }
+  .Terminal-console {
+    margin: 0px 8px;
+  }
+  .Terminal-console-code {
+    margin: 20px 8px;
+  }
+  .Terminal-cursor {
+    width: 3px;
+    height: 7.5px;
+  }
+  .Terminal-control-btn {
+    bottom: 26px;
+    right: 4px;
+    border-radius: 1.5px;
+    padding: 2.5px 5px;
+    border: 1px solid white;
+  }
+  .Terminal-control-btn-white {
+    border: 1px solid black;
+  }  
+}
