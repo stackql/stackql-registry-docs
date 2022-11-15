@@ -16,9 +16,17 @@ const sidebars = {
   docsSidebar: [
     'stackql-provider-registry',
     {
-      type: 'html', 
-      value: '<a href="https://stackql-registry-docs.netlify.app/providers/aws/">aws</a>',
-    },
+      type: 'category',
+      label: 'Available Providers',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          type: 'html', 
+          value: '<a href="https://stackql-registry-docs.netlify.app/providers/aws/">aws</a>',
+        },
+      ]
+    }
   ],
 };
 
