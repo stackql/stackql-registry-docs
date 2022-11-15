@@ -40,7 +40,7 @@ const sidebars = {
         {
           type: 'link', 
           label: 'aws',
-          href: '/providers/aws/',
+          href: '/providers/aws/ec2',
           autoAddBaseUrl: true
         },
         // {
