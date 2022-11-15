@@ -34,7 +34,7 @@ const sidebars = {
         {
           type: 'link', 
           label: 'aws',
-          href: '/providers/aws/ec2/'
+          href: 'https://stackql-registry-docs.netlify.app/providers/aws/'
         }
       ]
     },
