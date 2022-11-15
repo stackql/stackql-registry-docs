@@ -604,3 +604,7 @@ html[data-theme='dark'] .contactFormHeading {
 	margin: 0;
 	padding: 0;
 }
+
+.custom_sidebar_html_level2 {
+	padding-left: 12px;
+}
