@@ -34,7 +34,6 @@ const sidebars = {
         {
           type: 'link', 
           label: 'aws',
-          collapsed: true,
           href: '/providers/aws'
         }
       ]
