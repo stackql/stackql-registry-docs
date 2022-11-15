@@ -1,8 +1,0 @@
-[build]
-  publish = "build"
-  command = "yarn build"
-  
-[[redirects]]
-  from = "/*"
-  to = "https://stackql-aws-docs.netlify.app/providers/aws/*:splat"
-  status = 200
