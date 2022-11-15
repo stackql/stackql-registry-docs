@@ -47,7 +47,7 @@ const sidebars = {
         {
           type: 'html', 
           value: '<a href="https://stackql-registry-docs.netlify.app/providers/aws/">aws</a>',
-          className: 'custom_sidebar_html_level2'
+          // className: 'custom_sidebar_html_level2'
         },
       ]
     },
