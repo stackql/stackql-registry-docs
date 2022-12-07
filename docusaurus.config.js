@@ -10,6 +10,8 @@ const TwitterSvg =
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const registry = process.env.REGISTRY
+const routePath = registry === 'root'? '/' : `/providers/${registry}`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -40,9 +42,9 @@ const config = {
         sitemap: {},
         pages: {},
         docs: {
-          routeBasePath: '/',
+          routeBasePath: routePath,
           sidebarPath: require.resolve('./sidebars.js'),
-          path: 'docs',
+          path: `docs/${registry}`,
 		      sidebarCollapsible: true, 
           editUrl: 'https://github.com/stackql/registry.stackql.io/edit/main/',
         },
