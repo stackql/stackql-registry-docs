@@ -10,8 +10,7 @@ const TwitterSvg =
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-const registry = process.env.REGISTRY
-const routePath = registry === 'root'? '/' : `/providers/${registry}`
+const registry = process.env.REGISTRY || 'root'
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -42,7 +41,7 @@ const config = {
         sitemap: {},
         pages: {},
         docs: {
-          routeBasePath: routePath,
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           path: `docs/${registry}`,
 		      sidebarCollapsible: true, 
