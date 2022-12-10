@@ -10,7 +10,8 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: /img/providers/aws/stackql-aws-provider-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.pngx
+id: aws-doc
 ---
 Cloud services from AWS.  
     
