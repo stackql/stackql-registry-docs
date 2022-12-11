@@ -5,7 +5,9 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "start:aws": "export REGISTRY=aws && docusaurus start",
     "build": "docusaurus build",
+    "build:aws": "export REGISTRY=aws &&  build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

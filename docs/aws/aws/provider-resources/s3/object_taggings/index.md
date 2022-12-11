@@ -1,0 +1,34 @@
+---
+title: object_taggings
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - object_taggings
+  - s3
+  - aws    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage AWS resources using SQL
+custom_edit_url: null
+image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>object_taggings</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>aws.s3.object_taggings</code></td></tr>
+</tbody></table>
+
+## Fields
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `object_taggings_Get` | `SELECT` | `Key, tagging` | &lt;p&gt;Returns the tag-set of an object. You send the GET request against the tagging subresource associated with the object.&lt;/p&gt; &lt;p&gt;To use this operation, you must have permission to perform the &lt;code&gt;s3:GetObjectTagging&lt;/code&gt; action. By default, the GET action returns information about current version of an object. For a versioned bucket, you can have multiple versions of an object in your bucket. To retrieve tags of any other version, use the versionId query parameter. You also need permission for the &lt;code&gt;s3:GetObjectVersionTagging&lt;/code&gt; action.&lt;/p&gt; &lt;p&gt; By default, the bucket owner has this permission and can grant this permission to others.&lt;/p&gt; &lt;p&gt; For information about the Amazon S3 object tagging feature, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"&gt;Object Tagging&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;The following actions are related to &lt;code&gt;GetObjectTagging&lt;/code&gt;:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html"&gt;DeleteObjectTagging&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html"&gt;GetObjectAttributes&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html"&gt;PutObjectTagging&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+| `object_taggings_Delete` | `DELETE` | `Key, tagging` | &lt;p&gt;Removes the entire tag set from the specified object. For more information about managing object tags, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"&gt; Object Tagging&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;To use this operation, you must have permission to perform the &lt;code&gt;s3:DeleteObjectTagging&lt;/code&gt; action.&lt;/p&gt; &lt;p&gt;To delete tags of a specific object version, add the &lt;code&gt;versionId&lt;/code&gt; query parameter in the request. You will need permission for the &lt;code&gt;s3:DeleteObjectVersionTagging&lt;/code&gt; action.&lt;/p&gt; &lt;p&gt;The following operations are related to &lt;code&gt;DeleteBucketMetricsConfiguration&lt;/code&gt;:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html"&gt;PutObjectTagging&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html"&gt;GetObjectTagging&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+| `object_taggings_Put` | `EXEC` | `Key, tagging` | &lt;p&gt;Sets the supplied tag-set to an object that already exists in a bucket.&lt;/p&gt; &lt;p&gt;A tag is a key-value pair. You can associate tags with an object by sending a PUT request against the tagging subresource that is associated with the object. You can retrieve tags by sending a GET request. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html"&gt;GetObjectTagging&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;For tagging-related restrictions related to characters and encodings, see &lt;a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html"&gt;Tag Restrictions&lt;/a&gt;. Note that Amazon S3 limits the maximum number of tags to 10 tags per object.&lt;/p&gt; &lt;p&gt;To use this operation, you must have permission to perform the &lt;code&gt;s3:PutObjectTagging&lt;/code&gt; action. By default, the bucket owner has this permission and can grant this permission to others.&lt;/p&gt; &lt;p&gt;To put tags of any other version, use the &lt;code&gt;versionId&lt;/code&gt; query parameter. You also need permission for the &lt;code&gt;s3:PutObjectVersionTagging&lt;/code&gt; action.&lt;/p&gt; &lt;p&gt;For information about the Amazon S3 object tagging feature, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"&gt;Object Tagging&lt;/a&gt;.&lt;/p&gt; &lt;p class="title"&gt; &lt;b&gt;Special Errors&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Code: InvalidTagError &lt;/i&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Cause: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"&gt;Object Tagging&lt;/a&gt;.&lt;/i&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Code: MalformedXMLError &lt;/i&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Cause: The XML provided does not match the schema.&lt;/i&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Code: OperationAbortedError &lt;/i&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Cause: A conflicting conditional action is currently in progress against this resource. Please try again.&lt;/i&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Code: InternalError&lt;/i&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Cause: The service was unable to apply the provided tag to the object.&lt;/i&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p class="title"&gt; &lt;b&gt;Related Resources&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html"&gt;GetObjectTagging&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html"&gt;DeleteObjectTagging&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
