@@ -12,6 +12,7 @@ description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.pngx
 id: aws-doc
+slug: /providers/aws
 ---
 Cloud services from AWS.  
     
