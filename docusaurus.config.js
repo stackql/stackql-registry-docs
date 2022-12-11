@@ -43,7 +43,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          path: `docs/${registry}`,
+          path: `docs/${registry}-docs`,
 		      sidebarCollapsible: true, 
           editUrl: 'https://github.com/stackql/registry.stackql.io/edit/main/',
         },
