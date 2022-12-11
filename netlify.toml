@@ -1,5 +1,5 @@
 [[redirects]]
 from = "/providers/aws/*"
-to = "https://stackql-aws-docs.netlify.app/"
+to = "https://stackql-aws-docs.netlify.app/providers/aws/*"
 status = 200
 force = false
