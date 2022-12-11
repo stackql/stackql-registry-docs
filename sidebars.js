@@ -34,7 +34,7 @@ const itemBaseUrl = isLocal? `http://localhost:3001/${registry}` : `https://stac
 
 const providerDocItems = providers.map(provider =>{
   const name = provider.name
-  const itemBaseUrl = isLocal? `http://localhost:${provider.localPort}` : `providers/${name}`
+  const itemBaseUrl = isLocal? `http://localhost:${provider.localPort}` : `https://stackql-${name}-docs.netlify.app/`
   if(registry === name){
     return  {
         type: 'category',
