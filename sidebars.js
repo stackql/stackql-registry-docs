@@ -51,7 +51,7 @@ const providerDocItems = providers.map(provider =>{
   }
   return {
     type: 'html', 
-    value: `<a href="${`https://stackql-${name}-docs.netlify.app/`}">${name}</a>`,
+    value: `<a href="${itemBaseUrl}">${name}</a>`,
   }
 })
 
