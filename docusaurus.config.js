@@ -25,7 +25,9 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'stackql', 
   projectName: 'registry.stackql.io', 
-
+  customFields: {
+    registry: process.env.REGISTRY || 'root'
+  },
   plugins: [
     '@docusaurus/plugin-ideal-image',
   ],
