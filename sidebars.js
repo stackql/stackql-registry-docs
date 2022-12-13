@@ -14,13 +14,17 @@ const isLocal = process.env.NODE_ENV=== 'development'
 const registry = process.env.REGISTRY || 'root'
 
 
+
 const providers = [{name: 'aws', localPort: 3001}]
+const getProviderSiteUrl = (name) =>{
+  return `https://stackql-${name}-docs.netlify.app/providers/${name}`
+}
+
 
 
 const providerDocItems = providers.map(provider =>{
   const name = provider.name
   //TODO: move item url into providers file, create getUrl as function
-  const itemBaseUrl = `https://stackql-${name}-docs.netlify.app/providers/${name}`
   if(registry === name){
     return  {
         type: 'category',
@@ -37,7 +41,7 @@ const providerDocItems = providers.map(provider =>{
   }
   return {
     type: 'html', 
-    value: `<a href="${itemBaseUrl}">${name}</a>`,
+    value: `<a href="${getProviderSiteUrl(name)}">${name}</a>`,
   }
 })
 

@@ -12,7 +12,7 @@ custom_edit_url: null
 image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
 slug: /
 ---
-import RegistryPage from '/pages/shared-stackql-provider-registry.md';
+import RegistryPage from '@site/src/shared/shared-stackql-provider-registry.md';
 
 <RegistryPage/>
 
