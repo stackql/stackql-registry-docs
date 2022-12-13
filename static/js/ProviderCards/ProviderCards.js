@@ -12,7 +12,7 @@ const ProviderCards = () =>{
       </div>
       <div class="row">
       <div class="col col--12 cardTitleCol">
-      <p class="text--truncate cardDescription">provider.description</p>
+      <p class="text--truncate cardDescription">{provider.description}</p>
       </div>
       </div>
     </a>
