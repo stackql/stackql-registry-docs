@@ -13,7 +13,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 slug: /
 ---
 
-import RegistryPage from '../shared/shared-stackql-provider-registry.mdx';
+import RegistryPage from '../shared/shared-stackql-provider-registry.md';
 
 <RegistryPage/>
 ---
