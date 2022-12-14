@@ -41,7 +41,7 @@ const providerDocItems = providers.map(provider =>{
   }
   return {
     type: 'html', 
-    value: `<a href="${getProviderSiteUrl(name)}">${name}</a>`,
+    value: `<a href="${getProviderSiteUrl(name)}" style="padding:0.75rem">${name}</a>`,
   }
 })
 
