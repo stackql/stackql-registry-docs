@@ -67,11 +67,11 @@ stackql.exe shell --auth=$Auth
 ## Services
 <div class="row">
 <div class="providerDocColumn">
-<a href="provider-resources/cloud_control/">cloud_control</a><br />
-<a href="provider-resources/ec2/">ec2</a><br />
+<a href="/providers/aws/cloud_control/">cloud_control</a><br />
+<a href="/providers/aws/ec2/">ec2</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="provider-resources/s3/">s3</a><br />
+<a href="/providers/aws/s3/">s3</a><br />
 </div>
 </div>
 
