@@ -14,13 +14,14 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: find changed files
         run: cd $GITHUB_WORKSPACE; git diff-tree --no-commit-id --name-only -r $GITHUB_SHA > diff.txt
     
       - uses: actions/checkout@v3
       - name: find updated providers
         run: |
-          # cat diff.txt
+          cat diff.txt
           allproviders=()
           uniqproviders=()
           while IFS="" read -r p || [ -n "$p" ]
