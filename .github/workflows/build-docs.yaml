@@ -1,0 +1,28 @@
+name: build-docs-actions
+run-name: building docs
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+jobs:
+  find-provider-on-change:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          aws:
+            - 'docs/aws-docs/**'
+          azure:
+            - 'docs/azure-docs/**'
+
+    - name: Get Provider name
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const pathOutput = `${{ steps.step-id.outputs.output-name }}`
+          const script = require('./.github/workflows/get-netlify-vars.js')
+          await script({github, context, core, pathOutput})
