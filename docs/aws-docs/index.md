@@ -14,7 +14,7 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.pngx
 id: aws-doc
 slug: /providers/aws
 ---
-Cloud services from AWS.  Test
+Cloud services from AWS.
     
 
 See also:   
