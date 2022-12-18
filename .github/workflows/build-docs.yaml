@@ -15,6 +15,7 @@ jobs:
     - uses: Stockopedia/action-get-changed-files@v1
       id: get-changed
       with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         foldersOnly: true # to only include folders in the output
         format: json # either json, csv or newline
 
