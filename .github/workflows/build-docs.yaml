@@ -25,7 +25,6 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const pathOutput = '${{ steps.find-provider-on-change.outputs.aws }}'
-          console.log(pathOutput)
-          const script = require('./.github/workflows/get-netlify-vars.js')
-          await script({github, context, core, pathOutput})
+          console.log('${{ steps.find-provider-on-change.outputs.aws }}')
+          // const script = require('./.github/workflows/get-netlify-vars.js')
+          // await script({github, context, core, pathOutput})
