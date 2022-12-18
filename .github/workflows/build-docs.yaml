@@ -8,12 +8,12 @@ on:
     branches:
       - main
 jobs:
-  find-provider-on-change:
+  deploy-netlify:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: dorny/paths-filter@v2
-      id: filter
+      id: filter-changed-provider
       with:
         filters: |
           aws:
@@ -24,7 +24,7 @@ jobs:
     - name: Get Provider name
       uses: actions/github-script@v6
       env:
-        PROVIDER_CHANGED: ${{ steps.find-provider-on-change.outputs.aws }}
+        PROVIDER_CHANGED: ${{ steps.filter-changed-provider.outputs }}
       with:
         script: |
           console.log(process.env.PROVIDER_CHANGED)
