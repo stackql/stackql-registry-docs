@@ -1,5 +1,4 @@
 module.exports = async ({ github, context, core, pathOutput }) => {
-console.log(pathOutput)
-
+console.log('path output is %o', pathOutput)
 
 }

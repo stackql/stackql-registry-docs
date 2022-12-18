@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-The AAD Domain Services API. 
+The AAD Domain Services API.  test
     
 
 ## Overview
