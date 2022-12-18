@@ -24,7 +24,7 @@ jobs:
     - name: Get Provider name
       uses: actions/github-script@v6
       env:
-        PROVIDER_CHANGED: ${{ steps.filter.outputs }}
+        PROVIDER_CHANGED: ${{ steps.find-provider-test.outputs }}
       with:
         script: |
           console.log(process.env.PROVIDER_CHANGED)
