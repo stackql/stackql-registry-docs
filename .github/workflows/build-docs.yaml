@@ -32,12 +32,14 @@ jobs:
           done < diff.txt
           rm diff.txt
           uniqproviders=($(for i in "${allproviders[@]}"; do echo "${i}"; done | sort -u))
-          printf "%s\n" "${uniqproviders[@]}" >> $GITHUB_ENV
+          providers=$( printf '%s' "${uniqproviders[@]}" )
+          echo "PROVIDERS=$(echo $providers)" >> $GITHUB_ENV
 
 
       - name: Get Provider name
         uses: actions/github-script@v6
         with:
           script: |
+            console.log(process.env.PROVIDERS)
             const script = require('./.github/workflows/get-netlify-vars.js')
-            await script({github, context, core, ${{ steps.find-provider-on-change.outputs}}})
+            await script({github, context, core})
