@@ -27,6 +27,6 @@ jobs:
         PROVIDER_CHANGED: ${{ steps.filter.outputs.aws }}
       with:
         script: |
-          console.log(JSON.stringify('${{ steps.filter.outputs }}'))
+          console.log(JSON.stringify(${{ steps.filter.outputs }}))
           // const script = require('./.github/workflows/get-netlify-vars.js')
           // await script({github, context, core, ${{ steps.find-provider-on-change.outputs}}})
