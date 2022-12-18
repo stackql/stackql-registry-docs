@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: Stockopedia/action-get-changed-files@v1
-      id: get-changed
+      id: get-changed-folder
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         foldersOnly: true # to only include folders in the output
@@ -22,7 +22,7 @@ jobs:
     - name: Get Provider name
       uses: actions/github-script@v6
       env:
-        PROVIDER_CHANGED: ${{ steps.changed.outputs.changed }}
+        PROVIDER_CHANGED: ${{ steps.get-changed-folder.outputs.changed }}
       with:
         script: |
           console.log(process.env.PROVIDER_CHANGED)
