@@ -11,20 +11,33 @@ jobs:
   find-provider-on-change:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: Stockopedia/action-get-changed-files@v1
-      id: get-changed-folder
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        foldersOnly: true # to only include folders in the output
-        format: json # either json, csv or newline
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: find changed files
+        run: cd $GITHUB_WORKSPACE; git diff-tree --no-commit-id --name-only -r $GITHUB_SHA > diff.txt
+    
+      - uses: actions/checkout@v3
+      - name: find updated providers
+        run: |
+          # cat diff.txt
+          allproviders=()
+          uniqproviders=()
+          while IFS="" read -r p || [ -n "$p" ]
+          do
+            if [[ $p == docs/*/providers/* ]]; then
+              provider="$(echo $p | cut -d'/' -f4)"
+              allproviders+=( $provider )
+            fi
+          done < diff.txt
+          rm diff.txt
+          uniqproviders=($(for i in "${allproviders[@]}"; do echo "${i}"; done | sort -u))
+          printf "%s\n" "${uniqproviders[@]}" > providers.txt
 
-    - name: Get Provider name
-      uses: actions/github-script@v6
-      env:
-        PROVIDER_CHANGED: ${{ steps.get-changed-folder.outputs.changed }}
-      with:
-        script: |
-          console.log(process.env.PROVIDER_CHANGED)
-          // const script = require('./.github/workflows/get-netlify-vars.js')
-          // await script({github, context, core, ${{ steps.find-provider-on-change.outputs}}})
+
+      - name: Get Provider name
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const script = require('./.github/workflows/get-netlify-vars.js')
+            await script({github, context, core, ${{ steps.find-provider-on-change.outputs}}})
