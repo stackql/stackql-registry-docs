@@ -8,7 +8,7 @@ on:
     branches:
       - main
 jobs:
-  deploy-netlify:
+  find-provider-on-change:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -24,9 +24,9 @@ jobs:
     - name: Get Provider name
       uses: actions/github-script@v6
       env:
-        PROVIDER_CHANGED: ${{ steps.filter.outputs.aws }}
+        PROVIDER_CHANGED: ${{ steps.find-provider-on-change.outputs }}
       with:
         script: |
           console.log(process.env.PROVIDER_CHANGED)
           // const script = require('./.github/workflows/get-netlify-vars.js')
-          // await script({github, context, core, ${{ steps.filter.outputs}}})
+          // await script({github, context, core, ${{ steps.find-provider-on-change.outputs}}})
