@@ -33,6 +33,7 @@ jobs:
           rm diff.txt
           uniqproviders=($(for i in "${allproviders[@]}"; do echo "${i}"; done | sort -u))
           providers=$( printf '%s' "${uniqproviders[@]}" )
+          echo $providers
           echo "PROVIDERS=$(echo $providers)" >> $GITHUB_ENV
 
 
