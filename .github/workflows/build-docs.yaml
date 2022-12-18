@@ -17,8 +17,7 @@ jobs:
 
       - name: find changed files
         run: cd $GITHUB_WORKSPACE; git diff-tree --no-commit-id --name-only -r $GITHUB_SHA > diff.txt
-    
-      - uses: actions/checkout@v3
+
       - name: find updated providers
         run: |
           cat diff.txt
@@ -33,7 +32,7 @@ jobs:
           done < diff.txt
           rm diff.txt
           uniqproviders=($(for i in "${allproviders[@]}"; do echo "${i}"; done | sort -u))
-          printf "%s\n" "${uniqproviders[@]}" > providers.txt
+          printf "%s\n" "${uniqproviders[@]}" >> $GITHUB_ENV
 
 
       - name: Get Provider name
