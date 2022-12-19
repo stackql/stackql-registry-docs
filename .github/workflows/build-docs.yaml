@@ -20,28 +20,29 @@ jobs:
 
       - name: find updated providers
         run: |
-          cat diff.txt
-          allproviders=()
-          uniqproviders=()
-          while IFS="" read -r p || [ -n "$p" ]
-          do
-            if [[ $p == docs/*/providers/* ]]; then
-              provider="$(echo $p | cut -d'/' -f4)"
-              allproviders+=( $provider )
-            fi
-          done < diff.txt
-          rm diff.txt
-          uniqproviders=($(for i in "${allproviders[@]}"; do echo "${i}"; done | sort -u))
-          echo ${uniqproviders[@]}
-          echo "PROVIDERS=$(echo ${uniqproviders[@]})" >> $GITHUB_ENV
+          node -v
+          # cat diff.txt
+          # allproviders=()
+          # uniqproviders=()
+          # while IFS="" read -r p || [ -n "$p" ]
+          # do
+          #   if [[ $p == docs/*/providers/* ]]; then 
+          #     provider="$(echo $p | cut -d'/' -f4)"
+          #     allproviders+=( $provider )
+          #   fi
+          # done < diff.txt
+          # rm diff.txt
+          # uniqproviders=($(for i in "${allproviders[@]}"; do echo "${i}"; done | sort -u))
+          # echo ${uniqproviders[@]}
+          # echo "PROVIDERS=$(echo ${uniqproviders[@]})" >> $GITHUB_ENV
 
 
-      - name: Get Provider name
-        uses: actions/github-script@v6
-        env:
-          PROVIDERS: ${{ env.PROVIDERS }}
-        with:
-          script: |
-            console.log(process.env.PROVIDERS)
-            const script = require('./.github/workflows/get-netlify-vars.js')
-            await script({github, context, core})
+      # - name: Get Provider name
+      #   uses: actions/github-script@v6
+      #   env:
+      #     PROVIDERS: ${{ env.PROVIDERS }}
+      #   with:
+      #     script: |
+      #       console.log(process.env.PROVIDERS)
+      #       const script = require('./.github/workflows/get-netlify-vars.js')
+      #       await script({github, context, core})
