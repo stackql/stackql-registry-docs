@@ -20,7 +20,7 @@ jobs:
 
       - name: find updated providers
         run: |
-          node -v
+          node ci-scripts/get-netlify-vars.js
           # cat diff.txt
           # allproviders=()
           # uniqproviders=()
