@@ -1,12 +1,10 @@
 name: build-docs-actions
 run-name: building docs
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  push
+  # push:
+  #   branches:
+  #     - main
 jobs:
   find-provider-on-change:
     runs-on: ubuntu-latest
