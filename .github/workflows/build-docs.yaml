@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: find changed files
+        run: cd $GITHUB_WORKSPACE; git diff-tree --no-commit-id --name-only -r $GITHUB_SHA > diff.txt
 
       - name: find updated providers
         uses: actions/github-script@v6
