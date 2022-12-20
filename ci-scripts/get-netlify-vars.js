@@ -20,12 +20,13 @@ module.exports = async ({ github, context, core, pathOutput }) => {
 
     console.log('changedFiles', changedFiles)
    
-    const diffs = fs.readFileSync('diff.txt', 'utf-8').split('\n').filter(Boolean)
-    console.log(diffs)
-    const providers = diffs.map(diff => {
+    const providers = changedFiles.map(diff => {
         if(isMatchRegex(diff)){
             return diff.split('/')[2].split('-docs')[0]
         }}).filter(Boolean)
-    console.log(providers)
+
+    const uniqueProviders = [...new Set(providers)]
+
+    console.log('uniqueProviders', uniqueProviders)
 
 }
