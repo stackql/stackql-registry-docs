@@ -23,7 +23,7 @@ module.exports = async ({ github, context, core, pathOutput }) => {
    
     const providers = changedFiles.map(diff => {
         if(isMatchRegex(diff)){
-            return diff.split('/')[2].split('-docs')[0]
+            return diff.split('/')[1].split('-docs')[0]
         }
         
         globalChange = true;
