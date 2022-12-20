@@ -1,6 +1,10 @@
 const fs = require('fs');
 
-const regex = /^docs/[a-zA-Z0-9_-]+-docs/providers/[a-zA-Z0-9_-]+$/;
+
+
+const regex = /^docs\/[a-zA-Z0-9_-]+-docs\/providers\/[a-zA-Z0-9_-]+$/;
+
+
 
 const isMatchRegex = (path) => regex.test(path);
 
