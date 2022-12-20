@@ -21,6 +21,7 @@ jobs:
         uses: tj-actions/changed-files@v35
 
       - name: find updated providers
+        id: provider-to-deploy
         uses: actions/github-script@v6
         env: 
           CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
@@ -28,6 +29,13 @@ jobs:
           script: |
             const script = require('./ci-scripts/get-netlify-vars.js')
             await script({github, context, core})
+
+      - name: find updated providers
+        env: 
+          PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
+        run:
+          echo $PROVIDERS_TO_DEPLOY
+
 
 
       # - name: Get Provider name

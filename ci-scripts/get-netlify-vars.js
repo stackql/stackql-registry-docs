@@ -4,9 +4,9 @@ const fs = require('fs');
 
 const regex = /^docs\/[a-zA-Z0-9_-]+-docs\/*/;;
 
-
-
 const isMatchRegex = (path) => regex.test(path);
+
+const allProviders = ['aws', 'azure']   
 
 module.exports = async ({ github, context, core, pathOutput }) => {
 //1. set different config to each site as github action env vars
@@ -34,5 +34,10 @@ module.exports = async ({ github, context, core, pathOutput }) => {
 
     console.log('uniqueProviders', uniqueProviders)
     console.log('globalChange', globalChange)
+
+    const providersToDeploy = globalChange ? allProviders : uniqueProviders
+
+    process.env.GITHUB_OUTPUT=`provider_to_deploy=${providersToDeploy.join(',')}`
+
 
 }
