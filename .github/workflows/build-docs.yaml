@@ -4,9 +4,7 @@ on:
   # push:
   #   branches:
   #     - main
-  # Compare the last commit of main -> to the current commit of a PR branch. 
-  # (Note: To compare changes between the last pushed commit to the remote PR branch set `since_last_remote_commit: true`)
-  pull_request:
+  pull_request: ## TODO: remove this and only leave push main after finished testing
     branches:
       - main
 

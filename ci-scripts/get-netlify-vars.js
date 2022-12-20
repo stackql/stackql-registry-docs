@@ -13,7 +13,7 @@ module.exports = async ({ github, context, core, pathOutput }) => {
 //2. use provider to set out, so next step will use those Netlify configs
 //3. If it multiple, or updating root, output multiple configs, and loop as matrix in next step
     const changedFiles = process.env.CHANGED_FILES
-    console.log('changedFiles', changedFiles)
+    console.log('changedFiles', changedFiles).split(' ').filter(Boolean)
     const diffs = fs.readFileSync('diff.txt', 'utf-8').split('\n').filter(Boolean)
     console.log(diffs)
     const providers = diffs.map(diff => {
