@@ -8,6 +8,9 @@ const isMatchRegex = (path) => regex.test(path);
 
 const allProviders = ['aws', 'azure']   
 
+const appendToOutput = (providers) => {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `provider_to_deploy=${providers.join(',')}}`) }
+
 module.exports = async ({ github, context, core, pathOutput }) => {
 //1. set different config to each site as github action env vars
 //2. use provider to set out, so next step will use those Netlify configs
@@ -36,8 +39,6 @@ module.exports = async ({ github, context, core, pathOutput }) => {
     console.log('globalChange', globalChange)
 
     const providersToDeploy = globalChange ? allProviders : uniqueProviders
-
-    process.env.GITHUB_OUTPUT=process.env.GITHUB_OUTPUT + `provider_to_deploy=${providersToDeploy.join(',')}`
-
+    appendToOutput(providersToDeploy)
 
 }
