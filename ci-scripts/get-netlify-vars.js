@@ -37,7 +37,7 @@ module.exports = async ({ github, context, core, pathOutput }) => {
 
     const providersToDeploy = globalChange ? allProviders : uniqueProviders
 
-    process.env.GITHUB_OUTPUT=`provider_to_deploy=${providersToDeploy.join(',')}`
+    process.env.GITHUB_OUTPUT=process.env.GITHUB_OUTPUT + `provider_to_deploy=${providersToDeploy.join(',')}`
 
 
 }
