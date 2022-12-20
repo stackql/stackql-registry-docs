@@ -9,7 +9,11 @@ const isMatchRegex = (path) => regex.test(path);
 const allProviders = ['aws', 'azure']   
 
 const appendToOutput = (providers) => {
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, `name=provider_to_deploy::${providers.join(',')}}`) }
+    const output = process.env['GITHUB_OUTPUT']
+    const providerStr = providers.join(',')
+    fs.appendFileSync(output, `provider_to_deploy=${providerStr}${os.EOL}`)
+
+}
 
 module.exports = async ({ github, context, core, pathOutput }) => {
 //1. set different config to each site as github action env vars
