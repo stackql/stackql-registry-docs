@@ -52,6 +52,17 @@ jobs:
         run:
           echo "Deploy ${PROVIDERS_TO_DEPLOY}"
 
+      - name: Publish
+        # uses: netlify/actions/build@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_${{matrix.provider | toUpperCase}} }}
+          NETLIFY_BASE: site
+          NETLIFY_CMD: npm build
+          NETLIFY_DIR: site/_build
+        run:
+          echo "After concat is ${NETLIFY_SITE_ID}"
+
 
 
 
