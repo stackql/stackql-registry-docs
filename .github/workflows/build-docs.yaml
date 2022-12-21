@@ -38,6 +38,7 @@ jobs:
   
   deploy-to-netlify:
     runs-on: ubuntu-latest
+    needs: find-provider-on-change
     steps:
       - name: show updated providers in second job
         env: 
