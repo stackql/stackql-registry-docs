@@ -11,6 +11,8 @@ on:
 jobs:
   find-provider-on-change:
     runs-on: ubuntu-latest
+    outputs: 
+      providers: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -42,7 +44,7 @@ jobs:
     steps:
       - name: show updated providers in second job
         env: 
-          PROVIDERS_TO_DEPLOY: ${{ needs.find-provider-on-change.steps.provider-to-deploy.outputs.provider_to_deploy }}
+          PROVIDERS_TO_DEPLOY: ${{ needs.find-provider-on-change.outputs.providers }}
         run:
           echo "Deploy ${PROVIDERS_TO_DEPLOY}"
 
