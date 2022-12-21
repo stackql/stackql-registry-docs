@@ -10,7 +10,6 @@ const allProviders = ['aws', 'azure', rootName]
 
 const appendToOutput = (providers) => {
     const output = process.env['GITHUB_OUTPUT']
-    const providerStr = providers.join(',')
     fs.appendFileSync(output, `provider_to_deploy=${JSON.stringify(providers)}${os.EOL}`)
 
 }
@@ -26,7 +25,6 @@ module.exports = async ({ github, context, core, pathOutput }) => {
         throw Error('No changed files found')
     }
 
-    console.log('changedFiles', changedFiles)
    
     const providers = changedFiles.map(diff => {
         if(isMatchRegex(diff)){
