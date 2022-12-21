@@ -5,13 +5,13 @@ const os = require('os');
 const regex = /^docs\/[a-zA-Z0-9_-]+-docs\/*/;;
 
 const isMatchRegex = (path) => regex.test(path);
-
-const allProviders = ['aws', 'azure']   
+const rootName = 'registry'
+const allProviders = ['aws', 'azure', rootName]   
 
 const appendToOutput = (providers) => {
     const output = process.env['GITHUB_OUTPUT']
     const providerStr = providers.join(',')
-    fs.appendFileSync(output, `provider_to_deploy=${providerStr}${os.EOL}`)
+    fs.appendFileSync(output, `provider_to_deploy=${JSON.stringify(providerStr)}${os.EOL}`)
 
 }
 
