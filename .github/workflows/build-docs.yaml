@@ -36,15 +36,19 @@ jobs:
         env: 
           PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
         run:
-          echo "Deploy ${PROVIDERS_TO_DEPLOY}"
+          echo "find updated providers -> ${PROVIDERS_TO_DEPLOY}"
   
   deploy-to-netlify:
     runs-on: ubuntu-latest
     needs: find-provider-on-change
+    strategy:
+      fail-fast: false
+      matrix:
+        providers: ${{needs.find-provider-on-change.outputs.providers)}}
     steps:
-      - name: show updated providers in second job
+      - name: show updated providers in matrix
         env: 
-          PROVIDERS_TO_DEPLOY: ${{ needs.find-provider-on-change.outputs.providers }}
+          PROVIDERS_TO_DEPLOY: ${{ matrix.providers }}
         run:
           echo "Deploy ${PROVIDERS_TO_DEPLOY}"
 
