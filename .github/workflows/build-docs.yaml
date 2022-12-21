@@ -44,11 +44,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        providers: ${{needs.find-provider-on-change.outputs.providers)}}
+        provider: ${{fromJson(needs.find-provider-on-change.outputs.providers)}}
     steps:
       - name: show updated providers in matrix
         env: 
-          PROVIDERS_TO_DEPLOY: ${{ matrix.providers }}
+          PROVIDERS_TO_DEPLOY: ${{ matrix.provider }}
         run:
           echo "Deploy ${PROVIDERS_TO_DEPLOY}"
 
