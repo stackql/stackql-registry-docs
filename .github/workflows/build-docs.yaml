@@ -58,7 +58,7 @@ jobs:
       
       - name: Build
         env:
-          NODE_OPTION: "--max_old_space_size=24576"
+          NODE_OPTIONS: "--max_old_space_size=24576"
         run: npm run build:${{matrix.provider}}
 
 
