@@ -38,9 +38,7 @@ jobs:
         run:
           echo "find updated providers -> ${PROVIDERS_TO_DEPLOY}"
 
-      - name: install
-        run:
-          npm install
+ 
   
   deploy-to-netlify:
     runs-on: ubuntu-latest
@@ -51,20 +49,12 @@ jobs:
         provider: ${{fromJson(needs.find-provider-on-change.outputs.providers)}}
 
     steps:
-      - name: show updated providers in matrix
-        id: set-keys
-        if: ${{ matrix.provider == 'aws' }}
-        env: 
-          PROVIDER_TO_DEPLOY: ${{ matrix.provider }}
-        run:
-          PROVIDER_NAME="$(echo "$PROVIDER_TO_DEPLOY")"
-
-          echo "Deploy $PROVIDER_NAME"
-          echo "key name is NETLIFY_SITE_ID_$PROVIDER_NAME"
-          echo "::set-output name=netlify_site_id_key::NETLIFY_SITE_ID_$PROVIDER_NAME"
-
       - name: Checkout
         uses: actions/checkout@v2
+      
+      - name: install
+        run:
+          npm install
       
       - name: Build
         run: npm run build:${{matrix.provider}}
@@ -72,25 +62,9 @@ jobs:
 
       - name: Publish
         uses: netlify/actions/cli@master
+        if: ${{matrix.provider == 'aws'}}
         env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets[format('NETLIFY_SITE_ID_{0}', matrix.provider)] }}
-          NETLIFY_BASE: site
-          NETLIFY_CMD: ${{ format('npm run build::{0}', matrix.provider) }}
-          NETLIFY_DIR: site/_build
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         with:
           args: deploy --prod --dir ./build
-
-
-
-
-      # - name: Get Provider name
-      #   uses: actions/github-script@v6
-      #   env:
-      #     PROVIDERS: ${{ env.PROVIDERS }}
-      #   with:
-      #     script: |
-      #       console.log(process.env.PROVIDERS)
-      #       const script = require('./.github/workflows/get-netlify-vars.js')
-      #       await script({github, context, core})
