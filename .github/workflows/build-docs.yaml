@@ -50,8 +50,9 @@ jobs:
       - name: show updated providers in matrix
         id: set-keys
         env: 
-          PROVIDERS_TO_DEPLOY: ${{ matrix.provider | uppercase}}
+          PROVIDERS_TO_DEPLOY: ${{ matrix.provider }}
         run:
+          $PROVIDERS_TO_DEPLOY="$(echo "$PROVIDERS_TO_DEPLOY" | awk '{print toupper($0)}')
           echo "Deploy $PROVIDERS_TO_DEPLOY"
           echo "key name is NETLIFY_SITE_ID_$PROVIDERS_TO_DEPLOY"
           echo "::set-output name=netlify_site_id_key::NETLIFY_SITE_ID_$PROVIDERS_TO_DEPLOY"
