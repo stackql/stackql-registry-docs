@@ -7,7 +7,7 @@
     "start": "docusaurus start",
     "start:aws": "export REGISTRY=aws && docusaurus start",
     "start:azure": "export REGISTRY=azure && docusaurus start",
-    "build": "docusaurus build",
+    "build:root": "docusaurus build",
     "build:aws": "export REGISTRY=aws && docusaurus build",
     "build:azure": "export REGISTRY=azure && docusaurus build",
     "swizzle": "docusaurus swizzle",

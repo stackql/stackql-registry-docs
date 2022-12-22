@@ -5,7 +5,7 @@ const os = require('os');
 const regex = /^docs\/[a-zA-Z0-9_-]+-docs\/*/;;
 
 const isMatchRegex = (path) => regex.test(path);
-const rootName = 'registry'
+const rootName = 'root'
 const allProviders = ['aws', 'azure', rootName]   
 
 const appendToOutput = (providers) => {
