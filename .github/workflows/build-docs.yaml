@@ -38,21 +38,13 @@ jobs:
         run:
           echo "find updated providers -> ${PROVIDERS_TO_DEPLOY}"
 
-  install: 
-    runs-on: ubuntu-latest
-    needs: find-provider-on-change
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: install
         run:
           npm install
-
+  
   deploy-to-netlify:
     runs-on: ubuntu-latest
-    needs: install
+    needs: find-provider-on-change
     strategy:
       fail-fast: false
       matrix:
@@ -61,7 +53,6 @@ jobs:
     steps:
       - name: show updated providers in matrix
         id: set-keys
-        if: ${{ matrix.provider == 'aws' }}
         env: 
           PROVIDER_TO_DEPLOY: ${{ matrix.provider }}
         run:
@@ -73,7 +64,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
-
       
       - name: Build
         run: npm run build:${{matrix.provider}}
