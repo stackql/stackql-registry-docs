@@ -1,7 +1,10 @@
 name: build-docs-actions
 run-name: building docs
 on:
-  push:
+  # push:
+  #   branches:
+  #     - main
+  pull_request: ## TODO: remove this and only leave push main after finished testing
     branches:
       - main
 
@@ -53,8 +56,8 @@ jobs:
         run:
           npm install
       
-      - name: Build
-        run: npm run build:${{matrix.provider}}
+      # - name: Build
+      #   run: npm run build:${{matrix.provider}}
 
 
       - name: Publish
@@ -63,4 +66,4 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets[format('NETLIFY_SITE_ID_{0}', matrix.provider)] }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         with:
-          args: deploy --prod --dir ./build --message "Deploy from Github Action"
+          args: deploy --prod --build --dir ./build
