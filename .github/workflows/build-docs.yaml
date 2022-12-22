@@ -60,16 +60,14 @@ jobs:
 
 
       - name: Publish
-        # uses: netlify/actions/build@master
+        uses: netlify/actions/build@master
+        if: ${{ matrix.provider == 'aws' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets[format('NETLIFY_SITE_ID_{0}', matrix.provider)] }}
           NETLIFY_BASE: site
           NETLIFY_CMD: ${{ format('npm run build::{0}', matrix.provider) }}
           NETLIFY_DIR: site/_build
-        run:
-          echo "After concat is ${NETLIFY_SITE_ID}"
-          echo "After concat is ${NETLIFY_CMD}"
 
 
 
