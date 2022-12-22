@@ -68,7 +68,7 @@ jobs:
       
       - name: Build
         if: ${{ matrix.provider == 'aws' }}
-        run: npm run build::${{matrix.provider}}
+        run: npm run build:${{matrix.provider}}
 
 
       - name: Publish
@@ -82,7 +82,7 @@ jobs:
           NETLIFY_DIR: site/_build
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         with:
-          args: deploy --prod
+          args: deploy --prod --dir ./build
 
 
 
