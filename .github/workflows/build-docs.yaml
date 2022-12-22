@@ -45,11 +45,12 @@ jobs:
       fail-fast: false
       matrix:
         provider: ${{fromJson(needs.find-provider-on-change.outputs.providers)}}
+
     steps:
       - name: show updated providers in matrix
         id: set-keys
         env: 
-          PROVIDERS_TO_DEPLOY: ${{ matrix.provider }}
+          PROVIDERS_TO_DEPLOY: ${{ matrix.provider | uppercase}}
         run:
           echo "Deploy $PROVIDERS_TO_DEPLOY"
           echo "key name is NETLIFY_SITE_ID_$PROVIDERS_TO_DEPLOY"
