@@ -53,6 +53,7 @@ jobs:
     steps:
       - name: show updated providers in matrix
         id: set-keys
+        if: ${{ matrix.provider == 'aws' }}
         env: 
           PROVIDER_TO_DEPLOY: ${{ matrix.provider }}
         run:
