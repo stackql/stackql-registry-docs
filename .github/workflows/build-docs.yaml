@@ -57,6 +57,8 @@ jobs:
           npm install
       
       - name: Build
+        env:
+          NODE_OPTION: --max_old_space_size=24576
         run: npm run build:${{matrix.provider}}
 
 
@@ -65,6 +67,5 @@ jobs:
         env:
           NETLIFY_SITE_ID: ${{ secrets[format('NETLIFY_SITE_ID_{0}', matrix.provider)] }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NODE_OPTION: --max_old_space_size=49152
         with:
           args: deploy --prod --dir ./build
