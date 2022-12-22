@@ -69,6 +69,7 @@ jobs:
           NETLIFY_DIR: site/_build
         run:
           echo "After concat is ${NETLIFY_SITE_ID}"
+          echo "After concat is ${NETLIFY_CMD}"
 
 
 
