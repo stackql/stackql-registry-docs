@@ -58,6 +58,18 @@ jobs:
           echo "key name is NETLIFY_SITE_ID_$PROVIDER_NAME"
           echo "::set-output name=netlify_site_id_key::NETLIFY_SITE_ID_$PROVIDER_NAME"
 
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: install
+        if: ${{ matrix.provider == 'aws' }}
+        run:
+          npm install
+      
+      - name: Build
+        if: ${{ matrix.provider == 'aws' }}
+        run: npm run build::${{matrix.provider}}
+
 
       - name: Publish
         uses: netlify/actions/cli@master
