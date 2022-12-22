@@ -51,9 +51,9 @@ jobs:
         env: 
           PROVIDERS_TO_DEPLOY: ${{ matrix.provider }}
         run:
-          echo "Deploy ${PROVIDERS_TO_DEPLOY}"
-          echo "key name is NETLIFY_SITE_ID_${PROVIDERS_TO_DEPLOY}"
-          echo "::set-output name=netlify_site_id_key::NETLIFY_SITE_ID_${PROVIDERS_TO_DEPLOY}"
+          echo "Deploy $PROVIDERS_TO_DEPLOY"
+          echo "key name is NETLIFY_SITE_ID_$PROVIDERS_TO_DEPLOY"
+          echo "::set-output name=netlify_site_id_key::NETLIFY_SITE_ID_$PROVIDERS_TO_DEPLOY"
 
 
       - name: Publish
