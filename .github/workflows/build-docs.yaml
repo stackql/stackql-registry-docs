@@ -52,10 +52,10 @@ jobs:
         env: 
           PROVIDER_TO_DEPLOY: ${{ matrix.provider }}
         run:
-          PROVIDER_TO_DEPLOY_UPPER="$(echo "$PROVIDER_TO_DEPLOY" | awk '{print toupper($0)}')"
-          echo "Deploy $PROVIDER_TO_DEPLOY_UPPER"
-          echo "key name is NETLIFY_SITE_ID_$PROVIDER_TO_DEPLOY_UPPER"
-          echo "::set-output name=netlify_site_id_key::NETLIFY_SITE_ID_$PROVIDER_TO_DEPLOY_UPPER"
+          export PROVIDER_NAME="$(echo "$PROVIDER_TO_DEPLOY" | awk '{print toupper($0)}')"
+          echo "Deploy $PROVIDER_NAME"
+          echo "key name is NETLIFY_SITE_ID_$PROVIDER_NAME"
+          echo "::set-output name=netlify_site_id_key::NETLIFY_SITE_ID_$PROVIDER_NAME"
 
 
       - name: Publish
