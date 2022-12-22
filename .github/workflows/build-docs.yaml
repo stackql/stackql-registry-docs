@@ -1,0 +1,68 @@
+name: build-docs-actions
+run-name: building docs
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  find-provider-on-change:
+    runs-on: ubuntu-latest
+    outputs: 
+      providers: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v35
+
+      - name: find updated providers
+        id: provider-to-deploy
+        uses: actions/github-script@v6
+        env: 
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        with:
+          script: |
+            const script = require('./ci-scripts/get-providers-to-deploy.js')
+            await script({github, context, core})
+
+      - name: show updated providers
+        env: 
+          PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
+        run:
+          echo "find updated providers -> ${PROVIDERS_TO_DEPLOY}"
+
+ 
+  
+  deploy-to-netlify:
+    runs-on: ubuntu-latest
+    needs: find-provider-on-change
+    strategy:
+      fail-fast: false
+      matrix:
+        provider: ${{fromJson(needs.find-provider-on-change.outputs.providers)}}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: install
+        run:
+          npm install
+      
+      - name: Build
+        env:
+          NODE_OPTIONS: "--max_old_space_size=24576"
+        run: npm run build:${{matrix.provider}}
+
+
+      - name: Publish
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_SITE_ID: ${{ secrets[format('NETLIFY_SITE_ID_{0}', matrix.provider)] }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        with:
+          args: deploy --prod --dir ./build --message "Deploy from Github Action"

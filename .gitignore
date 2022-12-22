@@ -27,3 +27,4 @@ pystackql/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.github/actions/deploy-provider/dist
