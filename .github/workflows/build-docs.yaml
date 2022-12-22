@@ -62,7 +62,6 @@ jobs:
 
       - name: Publish
         uses: netlify/actions/cli@master
-        if: ${{matrix.provider == 'aws'}}
         env:
           NETLIFY_SITE_ID: ${{ secrets[format('NETLIFY_SITE_ID_{0}', matrix.provider)] }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
