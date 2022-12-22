@@ -47,16 +47,19 @@ jobs:
         provider: ${{fromJson(needs.find-provider-on-change.outputs.providers)}}
     steps:
       - name: show updated providers in matrix
+        id: set-keys
         env: 
           PROVIDERS_TO_DEPLOY: ${{ matrix.provider }}
         run:
           echo "Deploy ${PROVIDERS_TO_DEPLOY}"
+          echo "::set-output name=netlify_site_id_key::NETLIFY_SITE_ID_$MY_OUTPUT"
+
 
       - name: Publish
         # uses: netlify/actions/build@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NETLIFY_SITE_ID: '${{ secrets["NETLIFY_SITE_ID_${{matrix.provider}}"] }}'
+          NETLIFY_SITE_ID: '${{ secrets[steps.set-keys.outputs.netlify_site_id_key] }}'
           NETLIFY_BASE: site
           NETLIFY_CMD: npm build
           NETLIFY_DIR: site/_build
