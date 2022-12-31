@@ -4,7 +4,7 @@ import siteConfig from '@generated/docusaurus.config';
 export const providers = [
     {name: 'aws', description: 'Cloud computing by Amazon Web Services.', title: 'AWS'},
     {name: 'azure', description: 'Cloud computing services offered by Microsoft.', title: 'Microsoft Azure'},
-
+    {name: 'firebase', description: 'Mobile and web application development platform.', title: 'Firebase'},
 ]
 
 export const getProviderSiteUrl = (name: string) =>{
