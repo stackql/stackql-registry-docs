@@ -15,7 +15,7 @@ const registry = process.env.REGISTRY || 'root'
 
 
 
-const providers = [{name: 'aws'}, {name: 'azure'}]
+const providers = [{name: 'aws'}, {name: 'azure'}, {name: 'firebase'}]
 const getProviderSiteUrl = (name) =>{
   return `https://stackql-${name}-docs.netlify.app/providers/${name}`
 }
