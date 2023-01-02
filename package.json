@@ -41,6 +41,7 @@
     "docusaurus-plugin-smartlook": "^1.0.1",
     "file-loader": "^6.2.0",
     "google-map-react": "^2.1.10",
+    "netlify-cli": "^12.5.0",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
