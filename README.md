@@ -1,12 +1,16 @@
-# registry.stackql.io
+# stackql-registry-docs
 
-This repository contains documentation for StackQL providers, which is published to [registry.stackql.io](https://registry.stackql.io).  
+This repository contains documentation for StackQL providers, which is published to [registry.stackql.io](https://registry.stackql.io).  This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.  
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6d4dae53-745b-470e-a964-2c0676bfe165/deploy-status)](https://app.netlify.com/sites/registry-stackql-io/deploys)
+[![GitHub Actions](https://github.com/stackql/stackql-registry-docs/actions/workflows/build-docs.yaml/badge.svg?branch=main)](https://github.com/stackql/stackql-registry-docs/actions/workflows/build-docs.yaml)  
+
+[registry.stackql.io](https://registry.stackql.io) [![Netlify Status](https://api.netlify.com/api/v1/badges/75f838a9-79ea-41dc-96f9-a40dff50cfca/deploy-status)](https://app.netlify.com/sites/stackql-registry-docs/deploys)  
+
+[aws.stackql.io](https://aws.stackql.io) [![Netlify Status](https://api.netlify.com/api/v1/badges/ef161c4a-63ea-4bcc-a5cb-5eaed30ed55f/deploy-status)](https://app.netlify.com/sites/stackql-aws-docs/deploys)  
+
 
 ## Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 
