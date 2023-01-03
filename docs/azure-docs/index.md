@@ -23,7 +23,7 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL azure v0.3.0;
+REGISTRY PULL azure v23.01.00104;
 ```
 
 ## Authentication

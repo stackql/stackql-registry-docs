@@ -15,9 +15,10 @@ const registry = process.env.REGISTRY || 'root'
 
 
 
-const providers = [{name: 'aws'}, {name: 'azure'}, {name: 'firebase'}]
+const providers = [{name: 'aws'}, {name: 'azure'}, {name: 'firebase'}, {name: 'google'}]
 const getProviderSiteUrl = (name) =>{
-  return `https://stackql-${name}-docs.netlify.app/providers/${name}`
+  // return `https://stackql-${name}-docs.netlify.app/providers/${name}`
+  return `https://${name}-docs.stackql.io/providers/${name}`
 }
 
 
@@ -41,7 +42,7 @@ const providerDocItems = providers.map(provider =>{
   }
   return {
     type: 'html', 
-    value: `<a href="${getProviderSiteUrl(name)}" style="padding:0.75rem">${name}</a>`,
+    value: `<a href="${getProviderSiteUrl(name)}">${name}</a>`,
   }
 })
 
