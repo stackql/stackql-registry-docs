@@ -23,7 +23,6 @@ module.exports = async ({ github, context, core, pathOutput }) => {
     if(!changedFiles){
         throw Error('No changed files found')
     }
-
    
     const providers = changedFiles.map(diff => {
         if(isMatchRegex(diff)){
@@ -34,9 +33,7 @@ module.exports = async ({ github, context, core, pathOutput }) => {
 
     }).filter(Boolean)
 
-    // const uniqueProviders = [...new Set(providers)]
-
-    const uniqueProviders = ['root']
+    const uniqueProviders = [...new Set(providers)]
 
     console.log('uniqueProviders', uniqueProviders)
     console.log('globalChange', globalChange)
