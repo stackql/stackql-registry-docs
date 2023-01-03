@@ -58,6 +58,13 @@ jobs:
           NODE_OPTIONS: "--max_old_space_size=24576"
         run: npm run build:${{matrix.provider}}
 
+      - name: add redirects to root site
+        if: ${{ matrix.provider }} == 'root'
+        run:
+          echo "adding _redirects file to build.."
+          touch _redirects
+          echo "/aws/*  https://aws-docs.stackql.io/providers/aws/:splat  200" >> _redirects
+          echo "/providers/aws/*  https://aws-docs.stackql.io/providers/aws/:splat  200" >> _redirects
 
       - name: Publish
         uses: netlify/actions/cli@master
