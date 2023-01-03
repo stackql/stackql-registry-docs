@@ -34,9 +34,7 @@ jobs:
           PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
         run:
           echo "find updated providers -> ${PROVIDERS_TO_DEPLOY}"
-
- 
-  
+   
   deploy-to-netlify:
     runs-on: ubuntu-latest
     needs: find-provider-on-change
