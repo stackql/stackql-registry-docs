@@ -6,12 +6,11 @@ const regex = /^docs\/[a-zA-Z0-9_-]+-docs\/*/;;
 
 const isMatchRegex = (path) => regex.test(path);
 const rootName = 'root'
-const allProviders = ['aws', 'azure', 'firebase', 'github', 'google', rootName]   
+const allProviders = ['aws', 'azure', 'firebase', 'github', 'google', 'k8s', 'netlify', 'okta', 'sumologic', rootName]   
 
 const appendToOutput = (providers) => {
     const output = process.env['GITHUB_OUTPUT']
     fs.appendFileSync(output, `provider_to_deploy=${JSON.stringify(providers)}${os.EOL}`)
-
 }
 
 module.exports = async ({ github, context, core, pathOutput }) => {

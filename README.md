@@ -13,7 +13,10 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Firebase | [![Netlify Status](https://api.netlify.com/api/v1/badges/6d8fec42-fba2-4d62-afef-30a821863314/deploy-status)](https://app.netlify.com/sites/stackql-firebase-docs/deploys) | [firebase-docs.stackql.io](https://firebase-docs.stackql.io) |  
 | Netlify Deploy GitHub | [![Netlify Status](https://api.netlify.com/api/v1/badges/625d7d38-37a9-4224-a9c8-6ee58141b109/deploy-status)](https://app.netlify.com/sites/stackql-github-docs/deploys) | [github-docs.stackql.io](https://github-docs.stackql.io) |
 | Netlify Deploy Google | [![Netlify Status](https://api.netlify.com/api/v1/badges/028e0d31-604b-4852-8b9b-77a71ead6b93/deploy-status)](https://app.netlify.com/sites/stackql-google-docs/deploys) | [google-docs.stackql.io](https://google-docs.stackql.io) |
-
+| Netlify Deploy K8S | [![Netlify Status](https://api.netlify.com/api/v1/badges/d11ea6c5-7a43-42d5-ac76-555112295b9b/deploy-status)](https://app.netlify.com/sites/stackql-k8s-docs/deploys) | [k8s-docs.stackql.io](https://k8s-docs.stackql.io) |
+| Netlify Deploy Netlify | [![Netlify Status](https://api.netlify.com/api/v1/badges/7d81e59f-e1de-480f-a6d5-5a52f83deb40/deploy-status)](https://app.netlify.com/sites/stackql-netlify-docs/deploys) | [netlify-docs.stackql.io](https://netlify-docs.stackql.io) |
+| Netlify Deploy Okta | [![Netlify Status](https://api.netlify.com/api/v1/badges/83d3788d-bbcf-4063-a2e7-65577e3f13f5/deploy-status)](https://app.netlify.com/sites/stackql-okta-docs/deploys) | [okta-docs.stackql.io](https://okta-docs.stackql.io) |
+| Netlify Deploy Sumologic | [![Netlify Status](https://api.netlify.com/api/v1/badges/6c864774-8494-41be-8e2c-441b6d1e368c/deploy-status)](https://app.netlify.com/sites/stackql-sumologic-docs/deploys) | [sumologic-docs.stackql.io](https://sumologic-docs.stackql.io) |
 
 ## Adding Docs for a New Provider
 
