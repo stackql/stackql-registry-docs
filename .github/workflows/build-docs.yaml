@@ -63,6 +63,9 @@ jobs:
           touch ./build/_redirects
           echo "/aws/*  https://aws-docs.stackql.io/providers/aws/:splat  200" >> ./build/_redirects
           echo "/providers/aws/*  https://aws-docs.stackql.io/providers/aws/:splat  200" >> ./build/_redirects
+          echo "/test/*  /  200" >> ./build/_redirects
+          tree ./build
+          cat ./build/_redirects
 
       - name: Publish
         uses: netlify/actions/cli@master
