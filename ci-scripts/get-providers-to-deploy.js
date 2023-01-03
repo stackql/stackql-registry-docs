@@ -34,7 +34,9 @@ module.exports = async ({ github, context, core, pathOutput }) => {
 
     }).filter(Boolean)
 
-    const uniqueProviders = [...new Set(providers)]
+    // const uniqueProviders = [...new Set(providers)]
+
+    const uniqueProviders = ['root']
 
     console.log('uniqueProviders', uniqueProviders)
     console.log('globalChange', globalChange)
