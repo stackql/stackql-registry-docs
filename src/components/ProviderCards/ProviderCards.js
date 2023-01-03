@@ -1,8 +1,21 @@
 import React from 'react';
 import {providers, getProviderSiteUrl} from '@site/src/configs/providers'
 
-const ProviderCards = () =>{
-  return providers.map(provider =>{
+const moveCurrentProviderToTop = (allProviders, currentProvider) => {
+  const currentProviderIndex = allProviders.findIndex(provider => provider.name === currentProvider)
+  if(currentProviderIndex > -1){
+    const currentProvider = allProviders.splice(currentProviderIndex, 1)
+    allProviders.unshift(currentProvider[0])
+  }
+  return allProviders
+}
+
+const ProviderCards = props => {  
+  const { currentProvider } = props;
+
+  const orderedProviders = moveCurrentProviderToTop(providers, currentProvider);
+
+  return orderedProviders.map(provider =>{
     const {name, title} = provider
     return <article class="col col--4 margin-bottom--lg">
     <a class="card padding--lg cardContainer" href={getProviderSiteUrl(name)}>
