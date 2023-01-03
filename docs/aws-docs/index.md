@@ -23,7 +23,7 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL aws v0.1.3;
+REGISTRY PULL aws v23.01.00108;
 ```
 
 ## Authentication

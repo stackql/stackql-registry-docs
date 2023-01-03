@@ -23,7 +23,7 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL firebase v1.0.2;
+REGISTRY PULL firebase v23.01.00104;
 ```
 
 ## Authentication
