@@ -31,6 +31,9 @@ Adding docs for a new provider requires creating a new web property (subdomain) 
 - update `package.json` with new `start` and `build` scripts
 - update frontmatter in the `index.md` at the root of the new providers docs, set `slug` to `/providers/{provider}` and `id` to `{provider}-doc`
 - update `allProviders` in `ci-scripts/get-providers-to-deploy.js` with the new provider
+- add the new provider docs to `docs/{provider}-docs` (following directory structure of existing providers)
+- update `stackql-provider-registry.mdx` in the root of the new provider to add the `currentProvider` prop, e.g. `<RegistryPage currentProvider="okta" />`
+- add the root site redirects for provider vanity urls to `.github/workflows/build-docs.yaml` to the `add redirects to root site` step of the `deploy-to-netlify` job
 
 ## Updating Existing Provider Docs
 
