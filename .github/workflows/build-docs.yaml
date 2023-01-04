@@ -35,7 +35,7 @@ jobs:
       - name: show updated providers
         env: 
           PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
-        run:
+        run: |
           echo "found updated providers -> ${PROVIDERS_TO_DEPLOY}"
           node ci-scripts/format-slack-message-payload.js "Provider doc builds starting for ${PROVIDERS_TO_DEPLOY}" ":page_with_curl:"
           cat slack-message.json
