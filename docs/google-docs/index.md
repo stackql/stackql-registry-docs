@@ -15,7 +15,6 @@ id: google-doc
 slug: /providers/google
 ---
 Cloud computing services offered by Google.  
-    
 
 See also:   
 [[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)

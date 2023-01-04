@@ -33,12 +33,13 @@ jobs:
           PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
         run: |
           echo "found updated providers -> ${PROVIDERS_TO_DEPLOY}"
+          echo "PROVIDERS_TO_DEPLOY=${PROVIDERS_TO_DEPLOY}" >> $GITHUB_ENV
 
       - name: prepare Slack message
         env: 
-          PROVIDER: ${{ matrix.provider }}
+          PROVIDERS_TO_DEPLOY: ${{ env.PROVIDERS_TO_DEPLOY }}
         run: |
-          node ci-scripts/format-slack-message-payload.js "Provider doc builds starting for ${PROVIDERS_TO_DEPLOY}" ":page_with_curl:"
+          node ci-scripts/format-slack-message-payload.js "Provider doc builds starting for *${PROVIDERS_TO_DEPLOY}*" ":page_with_curl:"
 
       - name: Send Slack message
         id: slack

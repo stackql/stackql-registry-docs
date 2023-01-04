@@ -14,7 +14,7 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 id: github-doc
 slug: /providers/github
 ---
-Web-based version-control and collaboration.    
+Web-based version-control and collaboration.  
 
 See also:   
 [[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)

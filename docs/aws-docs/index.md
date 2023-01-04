@@ -14,9 +14,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.pngx
 id: aws-doc
 slug: /providers/aws
 ---
-Cloud services from AWS.
+Cloud services from AWS.  
     
-
 See also:   
 [[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
 * * * 

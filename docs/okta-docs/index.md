@@ -15,7 +15,7 @@ id: okta-doc
 slug: /providers/okta
 ---
 Authentication and authorization services.  
-
+ 
 See also:   
 [[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
 * * * 

@@ -15,7 +15,6 @@ id: sumologic-doc
 slug: /providers/sumologic
 ---
 Cloud-native, real-time, unified logs and metrics analytics platform.  
-    
 
 See also:   
 [[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
