@@ -24,12 +24,12 @@ See also:
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;&nbsp;&nbsp;<b>4</b></span><br />
+<span>total services:&nbsp;<b>4</b></span><br />
 <span>total methods:&nbsp;<b>780</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>344</b></span><br />
-<span>total selectable resources:&nbsp;<b>248</b></span><br />
+<span>total resources:&nbsp;<b>344</b></span><br />
+<span>selectable resources:&nbsp;<b>248</b></span><br />
 </div>
 </div>
 
