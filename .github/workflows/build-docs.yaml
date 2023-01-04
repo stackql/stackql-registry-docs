@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   find-provider-on-change:
     runs-on: ubuntu-latest
@@ -32,20 +31,20 @@ jobs:
       - name: show updated providers
         env: 
           PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
-        run:
-          echo "find updated providers -> ${PROVIDERS_TO_DEPLOY}"
+        run: |
+          echo "found updated providers -> ${PROVIDERS_TO_DEPLOY}"
 
-      - name: Send custom JSON data to Slack workflow
+      - name: prepare Slack message
+        env: 
+          PROVIDER: ${{ matrix.provider }}
+        run: |
+          node ci-scripts/format-slack-message-payload.js "Provider doc builds starting for *${PROVIDERS_TO_DEPLOY}*" ":page_with_curl:"
+
+      - name: Send Slack message
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          # For posting a rich message using Block Kit
-          payload: |
-            {
-              "text": "Provider doc builds starting for ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}",
-              "type": "mrkdwn",
-              "icon_emoji": ":page_with_curl:"
-            }
+          payload-file-path: slack-message.json
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK          
@@ -97,3 +96,18 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         with:
           args: deploy --prod --dir ./build --message "Deploy from Github Action"
+
+      - name: prepare Slack message
+        env: 
+          PROVIDER: ${{ matrix.provider }}
+        run: |
+          node ci-scripts/format-slack-message-payload.js "Deployment finished for *${PROVIDER}*" ":rocket:"
+
+      - name: Send Slack message
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload-file-path: slack-message.json
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
