@@ -44,7 +44,7 @@ jobs:
             {
               "text": "Provider doc builds starting for ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}",
               "type": "mrkdwn",
-              "icon_emoji": "":page_with_curl:"
+              "icon_emoji": ":page_with_curl:"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
