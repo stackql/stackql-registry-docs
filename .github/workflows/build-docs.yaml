@@ -51,6 +51,7 @@ jobs:
               "icon_emoji": ":page_with_curl:"
             }
         env:
+          PROVIDERS_TO_DEPLOY: ${{ env.PROVIDERS_TO_DEPLOY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK          
 
