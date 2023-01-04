@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches: 
-    - main
-
 jobs:
   find-provider-on-change:
     runs-on: ubuntu-latest
@@ -37,13 +33,17 @@ jobs:
           PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
         run: |
           echo "found updated providers -> ${PROVIDERS_TO_DEPLOY}"
-          node ci-scripts/format-slack-message-payload.js "Provider doc builds starting for __${PROVIDERS_TO_DEPLOY}__" ":page_with_curl:"
 
-      - name: Send custom JSON data to Slack workflow
+      - name: prepare Slack message
+        env: 
+          PROVIDER: ${{ matrix.provider }}
+        run: |
+          node ci-scripts/format-slack-message-payload.js "Provider doc builds starting for *${PROVIDERS_TO_DEPLOY}*" ":page_with_curl:"
+
+      - name: Send Slack message
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          # For posting a rich message using Block Kit
           payload-file-path: slack-message.json
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -101,13 +101,12 @@ jobs:
         env: 
           PROVIDER: ${{ matrix.provider }}
         run: |
-          node ci-scripts/format-slack-message-payload.js "Deployment finished for __${PROVIDER}__" ":rocket:"
+          node ci-scripts/format-slack-message-payload.js "Deployment finished for *${PROVIDER}*" ":rocket:"
 
-      - name: Send custom JSON data to Slack workflow
+      - name: Send Slack message
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          # For posting a rich message using Block Kit
           payload-file-path: slack-message.json
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
