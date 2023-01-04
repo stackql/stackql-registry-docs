@@ -46,7 +46,7 @@ jobs:
           # For posting a rich message using Block Kit
           payload: |
             {
-              "text": "Provider doc builds starting for ${PROVIDERS_TO_DEPLOY}",
+              "text": "Provider doc builds starting for {{ env.PROVIDERS_TO_DEPLOY }}",
               "type": "mrkdwn",
               "icon_emoji": ":page_with_curl:"
             }
