@@ -37,21 +37,16 @@ jobs:
           PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
         run:
           echo "found updated providers -> ${PROVIDERS_TO_DEPLOY}"
-          echo "PROVIDERS_TO_DEPLOY=${PROVIDERS_TO_DEPLOY}" >> $GITHUB_ENV
+          node ci-scripts/format-slack-message-payload.js "Provider doc builds starting for ${PROVIDERS_TO_DEPLOY}" ":page_with_curl:"
+          cat slack-message.json
 
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
           # For posting a rich message using Block Kit
-          payload: |
-            {
-              "text": "Provider doc builds starting for {{ env.PROVIDERS_TO_DEPLOY }}",
-              "type": "mrkdwn",
-              "icon_emoji": ":page_with_curl:"
-            }
+          payload-file-path: slack-message.json
         env:
-          PROVIDERS_TO_DEPLOY: ${{ env.PROVIDERS_TO_DEPLOY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK          
 
