@@ -21,6 +21,21 @@ See also:
 [[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
 * * * 
 
+:::info Provider Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total services:&nbsp;&nbsp;&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>100</b></span><br />
+</div>
+<div class="providerDocColumn">
+<span>total resources:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>37</b></span><br />
+<span>total selectable resources:&nbsp;<b>28</b></span><br />
+</div>
+</div>
+
+:::
+
 ## Installation
 ```bash
 REGISTRY PULL firebase v23.01.00104;

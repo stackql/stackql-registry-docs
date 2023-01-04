@@ -16,5 +16,5 @@ export const providers = [
 export const getProviderSiteUrl = (name: string) =>{
     const registry = siteConfig.customFields?.registry
     // return registry === name? `/providers/${name}`: `https://stackql-${name}-docs.netlify.app/providers/${name}`
-    return registry === name? `/providers/${name}`: `https://${name}-docs.stackql.io/providers/${name}`
+    return registry === name? `/providers/${name}`: `https://${name}.stackql.io/providers/${name}`
 }

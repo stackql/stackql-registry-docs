@@ -27,7 +27,7 @@ const providers = [
 
 const getProviderSiteUrl = (name) =>{
   // return `https://stackql-${name}-docs.netlify.app/providers/${name}`
-  return `https://${name}-docs.stackql.io/providers/${name}`
+  return `https://${name}.stackql.io/providers/${name}`
 }
 
 const providerDocItems = providers.map(provider =>{
