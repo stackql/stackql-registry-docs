@@ -38,7 +38,7 @@ jobs:
         env: 
           PROVIDER: ${{ matrix.provider }}
         run: |
-          node ci-scripts/format-slack-message-payload.js "Provider doc builds starting for *${PROVIDERS_TO_DEPLOY}*" ":page_with_curl:"
+          node ci-scripts/format-slack-message-payload.js "Provider doc builds starting for ${PROVIDERS_TO_DEPLOY}" ":page_with_curl:"
 
       - name: Send Slack message
         id: slack
@@ -87,7 +87,6 @@ jobs:
           else
             echo "skipping redirects for ${PROVIDER}"
           fi
-          cat ./build/_redirects
 
       - name: Publish
         uses: netlify/actions/cli@master
@@ -101,7 +100,7 @@ jobs:
         env: 
           PROVIDER: ${{ matrix.provider }}
         run: |
-          node ci-scripts/format-slack-message-payload.js "Deployment finished for * ${PROVIDER} *" ":rocket:"
+          node ci-scripts/format-slack-message-payload.js "Deployment finished for *${PROVIDER}*" ":rocket:"
 
       - name: Send Slack message
         id: slack
