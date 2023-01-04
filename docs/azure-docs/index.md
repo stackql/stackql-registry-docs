@@ -14,8 +14,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 id: azure-doc
 slug: /providers/azure
 ---
- Cloud computing services operated by Microsoft.  
-    
+Cloud computing services operated by Microsoft.  
 
 See also:   
 [[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)

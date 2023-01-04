@@ -15,7 +15,7 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 id: k8s-doc
 slug: /providers/k8s
 ---
-Open source container management platform.   
+Open source container management platform.  
 
 See also:   
 [[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
