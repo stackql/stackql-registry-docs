@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs';
+var fs = require('fs');
 
 // take arguments for the message payload
 const args = process.argv.slice(2);
@@ -11,4 +11,5 @@ const payload = {
     icon_emoji: icon_emoji,
 };
 
-writeFileSync('slack-message.json', JSON.stringify(payload));
+// write to a file
+fs.writeFileSync('slack-message.json', JSON.stringify(payload));
