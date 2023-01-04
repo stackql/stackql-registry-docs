@@ -34,7 +34,29 @@ jobs:
           PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
         run:
           echo "find updated providers -> ${PROVIDERS_TO_DEPLOY}"
-   
+
+      - name: Send custom JSON data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          # For posting a rich message using Block Kit
+          payload: |
+            {
+              "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK          
+
   deploy-to-netlify:
     runs-on: ubuntu-latest
     needs: find-provider-on-change
@@ -63,12 +85,17 @@ jobs:
           if [ $PROVIDER == "root" ]; then
             echo "adding vanity url redirects to _redirects file.."
             touch ./build/_redirects
-            echo "/aws  https://aws.stackql.io/providers/aws/  302" >> ./build/_redirects
-            echo "/providers/aws  https://aws.stackql.io/providers/aws/  302" >> ./build/_redirects
-            cat ./build/_redirects
+            array=( aws azure firebase github google k8s netlify okta sumologic )
+            for i in "${array[@]}"
+            do
+              echo "adding redirects for $i"
+              echo "/${i}  https://${i}.stackql.io/providers/${i}/  302" >> ./build/_redirects
+              echo "/providers/${i}  https://${i}.stackql.io/providers/${i}/  302" >> ./build/_redirects
+            done
           else
             echo "skipping redirects for ${PROVIDER}"
           fi
+          cat ./build/_redirects
 
       - name: Publish
         uses: netlify/actions/cli@master
