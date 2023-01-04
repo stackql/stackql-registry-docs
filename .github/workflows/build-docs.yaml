@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
-
+  pull_request:
+    branches: 
+    - main
+    
 jobs:
   find-provider-on-change:
     runs-on: ubuntu-latest
@@ -42,7 +45,7 @@ jobs:
           # For posting a rich message using Block Kit
           payload: |
             {
-              "text": "Provider doc builds starting for ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}",
+              "text": "Provider doc builds starting",
               "type": "mrkdwn",
               "icon_emoji": ":page_with_curl:"
             }
