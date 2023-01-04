@@ -29,13 +29,11 @@ module.exports = async ({ github, context, core, pathOutput }) => {
             return diff.split('/')[1].split('-docs')[0]
         }
         
-        // if(!(diff.startsWith('.github'))) globalChange = true;
+        if(!(diff.startsWith('.github'))) globalChange = true;
 
     }).filter(Boolean)
 
-    // const uniqueProviders = [...new Set(providers)]
-
-    const uniqueProviders = ['root']
+    const uniqueProviders = [...new Set(providers)]
 
     console.log('uniqueProviders', uniqueProviders)
     console.log('globalChange', globalChange)

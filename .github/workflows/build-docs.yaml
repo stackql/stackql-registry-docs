@@ -101,7 +101,7 @@ jobs:
         env: 
           PROVIDER: ${{ matrix.provider }}
         run: |
-          node ci-scripts/format-slack-message-payload.js "Deployment finished for *${PROVIDER}*" ":rocket:"
+          node ci-scripts/format-slack-message-payload.js "Deployment finished for * ${PROVIDER} *" ":rocket:"
 
       - name: Send Slack message
         id: slack
