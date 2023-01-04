@@ -55,50 +55,50 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK          
 
-  deploy-to-netlify:
-    runs-on: ubuntu-latest
-    needs: find-provider-on-change
-    strategy:
-      fail-fast: false
-      matrix:
-        provider: ${{fromJson(needs.find-provider-on-change.outputs.providers)}}
+  # deploy-to-netlify:
+  #   runs-on: ubuntu-latest
+  #   needs: find-provider-on-change
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       provider: ${{fromJson(needs.find-provider-on-change.outputs.providers)}}
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
       
-      - name: install
-        run:
-          npm install
+  #     - name: install
+  #       run:
+  #         npm install
       
-      - name: Build
-        env:
-          NODE_OPTIONS: "--max_old_space_size=24576"
-        run: npm run build:${{matrix.provider}}
+  #     - name: Build
+  #       env:
+  #         NODE_OPTIONS: "--max_old_space_size=24576"
+  #       run: npm run build:${{matrix.provider}}
 
-      - name: add redirects to root site
-        env:
-          PROVIDER: ${{ matrix.provider }}
-        run: |
-          if [ $PROVIDER == "root" ]; then
-            echo "adding vanity url redirects to _redirects file.."
-            touch ./build/_redirects
-            array=( aws azure firebase github google k8s netlify okta sumologic )
-            for i in "${array[@]}"
-            do
-              echo "adding redirects for $i"
-              echo "/${i}  https://${i}.stackql.io/providers/${i}/  302" >> ./build/_redirects
-              echo "/providers/${i}  https://${i}.stackql.io/providers/${i}/  302" >> ./build/_redirects
-            done
-          else
-            echo "skipping redirects for ${PROVIDER}"
-          fi
-          cat ./build/_redirects
+  #     - name: add redirects to root site
+  #       env:
+  #         PROVIDER: ${{ matrix.provider }}
+  #       run: |
+  #         if [ $PROVIDER == "root" ]; then
+  #           echo "adding vanity url redirects to _redirects file.."
+  #           touch ./build/_redirects
+  #           array=( aws azure firebase github google k8s netlify okta sumologic )
+  #           for i in "${array[@]}"
+  #           do
+  #             echo "adding redirects for $i"
+  #             echo "/${i}  https://${i}.stackql.io/providers/${i}/  302" >> ./build/_redirects
+  #             echo "/providers/${i}  https://${i}.stackql.io/providers/${i}/  302" >> ./build/_redirects
+  #           done
+  #         else
+  #           echo "skipping redirects for ${PROVIDER}"
+  #         fi
+  #         cat ./build/_redirects
 
-      - name: Publish
-        uses: netlify/actions/cli@master
-        env:
-          NETLIFY_SITE_ID: ${{ secrets[format('NETLIFY_SITE_ID_{0}', matrix.provider)] }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        with:
-          args: deploy --prod --dir ./build --message "Deploy from Github Action"
+  #     - name: Publish
+  #       uses: netlify/actions/cli@master
+  #       env:
+  #         NETLIFY_SITE_ID: ${{ secrets[format('NETLIFY_SITE_ID_{0}', matrix.provider)] }}
+  #         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  #       with:
+  #         args: deploy --prod --dir ./build --message "Deploy from Github Action"
