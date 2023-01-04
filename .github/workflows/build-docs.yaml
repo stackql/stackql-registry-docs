@@ -7,7 +7,7 @@ on:
   pull_request:
     branches: 
     - main
-    
+
 jobs:
   find-provider-on-change:
     runs-on: ubuntu-latest
@@ -36,7 +36,8 @@ jobs:
         env: 
           PROVIDERS_TO_DEPLOY: ${{ steps.provider-to-deploy.outputs.provider_to_deploy }}
         run:
-          echo "find updated providers -> ${PROVIDERS_TO_DEPLOY}"
+          echo "found updated providers -> ${PROVIDERS_TO_DEPLOY}"
+          echo "PROVIDERS_TO_DEPLOY=${PROVIDERS_TO_DEPLOY}" >> $GITHUB_ENV
 
       - name: Send custom JSON data to Slack workflow
         id: slack
@@ -45,7 +46,7 @@ jobs:
           # For posting a rich message using Block Kit
           payload: |
             {
-              "text": "Provider doc builds starting",
+              "text": "Provider doc builds starting for ${{ env.PROVIDERS_TO_DEPLOY }}",
               "type": "mrkdwn",
               "icon_emoji": ":page_with_curl:"
             }
