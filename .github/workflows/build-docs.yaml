@@ -61,12 +61,10 @@ jobs:
           PROVIDER: ${{ matrix.provider }}
         run: |
           if [ $PROVIDER == "root" ]; then
-            echo "adding _redirects file to ${PROVIDER} build.."
+            echo "adding vanity url redirects to _redirects file.."
             touch ./build/_redirects
-            echo "/aws/*  https://aws-docs.stackql.io/providers/aws/:splat  200" >> ./build/_redirects
-            echo "/providers/aws/*  https://aws-docs.stackql.io/providers/aws/:splat  200" >> ./build/_redirects
-            echo "/test/*  /  200" >> ./build/_redirects
-            tree ./build
+            echo "/aws  https://aws.stackql.io/providers/aws/  302" >> ./build/_redirects
+            echo "/providers/aws  https://aws.stackql.io/providers/aws/  302" >> ./build/_redirects
             cat ./build/_redirects
           else
             echo "skipping redirects for ${PROVIDER}"
