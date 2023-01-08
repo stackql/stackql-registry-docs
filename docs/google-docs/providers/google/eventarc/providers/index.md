@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,7 +27,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. In `projects/{project}/locations/{location}/providers/{provider_id}` format. |
+| `name` | `string` | Output only. In `projects/&#123;project&#125;/locations/&#123;location&#125;/providers/&#123;provider_id&#125;` format. |
 | `displayName` | `string` | Output only. Human friendly name for the Provider. For example "Cloud Storage". |
 | `eventTypes` | `array` | Output only. Event types for this provider. |
 ## Methods

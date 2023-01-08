@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -29,19 +29,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the experiment. Format: projects//locations//agents//environments//experiments/.. |
 | `description` | `string` | The human-readable description of the experiment. |
-| `variantsHistory` | `array` | The history of updates to the experiment variants. |
-| `createTime` | `string` | Creation time of this experiment. |
-| `experimentLength` | `string` | Maximum number of days to run the experiment/rollout. If auto-rollout is not enabled, default value and maximum will be 30 days. If auto-rollout is enabled, default value and maximum will be 6 days. |
-| `definition` | `object` | Definition of the experiment. |
-| `lastUpdateTime` | `string` | Last update time of this experiment. |
-| `endTime` | `string` | End time of this experiment. |
-| `state` | `string` | The current state of the experiment. Transition triggered by Experiments.StartExperiment: DRAFT-&gt;RUNNING. Transition triggered by Experiments.CancelExperiment: DRAFT-&gt;DONE or RUNNING-&gt;DONE. |
-| `displayName` | `string` | Required. The human-readable name of the experiment (unique in an environment). Limit of 64 characters. |
-| `startTime` | `string` | Start time of this experiment. |
-| `rolloutConfig` | `object` | The configuration for auto rollout. |
-| `rolloutFailureReason` | `string` | The reason why rollout has failed. Should only be set when state is ROLLOUT_FAILED. |
 | `result` | `object` | The inference result which includes an objective metric to optimize and the confidence interval. |
+| `endTime` | `string` | End time of this experiment. |
+| `experimentLength` | `string` | Maximum number of days to run the experiment/rollout. If auto-rollout is not enabled, default value and maximum will be 30 days. If auto-rollout is enabled, default value and maximum will be 6 days. |
+| `lastUpdateTime` | `string` | Last update time of this experiment. |
+| `displayName` | `string` | Required. The human-readable name of the experiment (unique in an environment). Limit of 64 characters. |
+| `state` | `string` | The current state of the experiment. Transition triggered by Experiments.StartExperiment: DRAFT-&gt;RUNNING. Transition triggered by Experiments.CancelExperiment: DRAFT-&gt;DONE or RUNNING-&gt;DONE. |
+| `createTime` | `string` | Creation time of this experiment. |
 | `rolloutState` | `object` | State of the auto-rollout process. |
+| `startTime` | `string` | Start time of this experiment. |
+| `definition` | `object` | Definition of the experiment. |
+| `rolloutFailureReason` | `string` | The reason why rollout has failed. Should only be set when state is ROLLOUT_FAILED. |
+| `rolloutConfig` | `object` | The configuration for auto rollout. |
+| `variantsHistory` | `array` | The history of updates to the experiment variants. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

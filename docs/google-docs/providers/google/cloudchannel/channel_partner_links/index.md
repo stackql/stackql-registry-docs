@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,14 +27,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Resource name for the channel partner link, in the format accounts/{account_id}/channelPartnerLinks/{id}. |
+| `name` | `string` | Output only. Resource name for the channel partner link, in the format accounts/&#123;account_id&#125;/channelPartnerLinks/&#123;id&#125;. |
+| `createTime` | `string` | Output only. Timestamp of when the channel partner link is created. |
 | `inviteLinkUri` | `string` | Output only. URI of the web page where partner accepts the link invitation. |
 | `linkState` | `string` | Required. State of the channel partner link. |
 | `publicId` | `string` | Output only. Public identifier that a customer must use to generate a transfer token to move to this distributor-reseller combination. |
 | `resellerCloudIdentityId` | `string` | Required. Cloud Identity ID of the linked reseller. |
 | `updateTime` | `string` | Output only. Timestamp of when the channel partner link is updated. |
 | `channelPartnerCloudIdentityInfo` | `object` | Cloud Identity information for the Cloud Channel Customer. |
-| `createTime` | `string` | Output only. Timestamp of when the channel partner link is created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

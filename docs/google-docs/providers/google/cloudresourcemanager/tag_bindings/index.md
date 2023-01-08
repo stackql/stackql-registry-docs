@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,12 +27,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The name of the TagBinding. This is a String of the form: `tagBindings/{full-resource-name}/{tag-value-name}` (e.g. `tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F123/tagValues/456`). |
-| `parent` | `string` | The full resource name of the resource the TagValue is bound to. E.g. `//cloudresourcemanager.googleapis.com/projects/123` |
+| `name` | `string` | Output only. The name of the TagBinding. This is a String of the form: `tagBindings/&#123;full-resource-name&#125;/&#123;tag-value-name&#125;` (e.g. `tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F123/tagValues/456`). |
 | `tagValue` | `string` | The TagValue of the TagBinding. Must be of the form `tagValues/456`. |
+| `parent` | `string` | The full resource name of the resource the TagValue is bound to. E.g. `//cloudresourcemanager.googleapis.com/projects/123` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `tagBindings_list` | `SELECT` |  | Lists the TagBindings for the given cloud resource, as specified with `parent`. NOTE: The `parent` field is expected to be a full resource name: https://cloud.google.com/apis/design/resource_names#full_resource_name |
-| `tagBindings_create` | `INSERT` |  | Creates a TagBinding between a TagValue and a cloud resource (currently project, folder, or organization). |
+| `tagBindings_list` | `SELECT` |  | Lists the TagBindings for the given Google Cloud resource, as specified with `parent`. NOTE: The `parent` field is expected to be a full resource name: https://cloud.google.com/apis/design/resource_names#full_resource_name |
+| `tagBindings_create` | `INSERT` |  | Creates a TagBinding between a TagValue and a Google Cloud resource. |
 | `tagBindings_delete` | `DELETE` | `tagBindingsId` | Deletes a TagBinding. |

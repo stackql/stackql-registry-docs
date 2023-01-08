@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -30,4 +30,4 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_catalogs_placements_predict` | `EXEC` | `catalogsId, locationsId, placementsId, projectsId` | Makes a recommendation prediction. |
-| `projects_locations_catalogs_placements_search` | `EXEC` | `catalogsId, locationsId, placementsId, projectsId` | Performs a search. This feature is only available for users who have Retail Search enabled. Please enable Retail Search on Cloud Console before using this feature. |
+| `projects_locations_catalogs_placements_search` | `EXEC` | `catalogsId, locationsId, placementsId, projectsId` | Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. |

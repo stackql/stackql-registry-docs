@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,7 +27,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. The resource name of the dns peering zone. Format: projects/{project}/locations/{location}/instances/{instance}/dnsPeerings/{dns_peering} |
+| `name` | `string` | Required. The resource name of the dns peering zone. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/instances/&#123;instance&#125;/dnsPeerings/&#123;dns_peering&#125; |
 | `description` | `string` | Optional. Optional description of the dns zone. |
 | `targetNetwork` | `string` | Optional. Optional target network to which dns peering should happen. |
 | `targetProject` | `string` | Optional. Optional target project to which dns peering should happen. |

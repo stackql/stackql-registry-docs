@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -33,6 +33,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `browseUri` | `string` | Link to the browse repo page on the Bitbucket Server instance. |
 | `displayName` | `string` | Display name of the repository. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `projects_locations_bitbucketServerConfigs_repos_list` | `SELECT` | `bitbucketServerConfigsId, locationsId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `projects_locations_bitbucketServerConfigs_repos_list` | `SELECT` | `bitbucketServerConfigsId, locationsId, projectsId` | List all repositories for a given `BitbucketServerConfig`. This API is experimental. |
+| `projects_locations_gitLabConfigs_repos_list` | `SELECT` | `gitLabConfigsId, locationsId, projectsId` | List all repositories for a given `GitLabConfig`. This API is experimental |

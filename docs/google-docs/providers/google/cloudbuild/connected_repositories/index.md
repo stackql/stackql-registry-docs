@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,6 +27,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `projects_locations_bitbucketServerConfigs_connectedRepositories_batchCreate` | `INSERT` | `bitbucketServerConfigsId, locationsId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `projects_locations_bitbucketServerConfigs_connectedRepositories_batchCreate` | `INSERT` | `bitbucketServerConfigsId, locationsId, projectsId` | Batch connecting Bitbucket Server repositories to Cloud Build. |
+| `projects_locations_gitLabConfigs_connectedRepositories_batchCreate` | `INSERT` | `gitLabConfigsId, locationsId, projectsId` | Batch connecting GitLab repositories to Cloud Build. This API is experimental. |

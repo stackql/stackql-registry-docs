@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -30,6 +30,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `name` | `string` | Output only. The name of the clone. |
 | `state` | `string` | Output only. State of the clone job. |
 | `stateTime` | `string` | Output only. The time the state was last updated. |
+| `steps` | `array` | Output only. The clone steps list representing its progress. |
 | `computeEngineTargetDetails` | `object` | ComputeEngineTargetDetails is a collection of details for creating a VM in a target Compute Engine project. |
 | `createTime` | `string` | Output only. The time the clone job was created (as an API call, not when it was actually created in the target). |
 | `endTime` | `string` | Output only. The time the clone job was ended. |

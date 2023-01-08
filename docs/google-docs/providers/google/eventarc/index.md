@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 Build event-driven applications on Google Cloud Platform.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>16</b></span><br />
+<span>total selectable resources:&nbsp;<b>16</b></span><br />
+<span>total methods:&nbsp;<b>39</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Build event-driven applications on Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Eventarc API</td></tr>
 <tr><td><b>Description</b></td><td>Build event-driven applications on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>eventarc:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>eventarc:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -39,7 +50,7 @@ Build event-driven applications on Google Cloud Platform.
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/eventarc/locations/">locations</a><br />
-<a href="/providers/google/eventarc/locations_google_channel_config/">locations_google_channel_config</a><br />
+<a href="/providers/google/eventarc/locations__google_channel_config/">locations__google_channel_config</a><br />
 <a href="/providers/google/eventarc/operations/">operations</a><br />
 <a href="/providers/google/eventarc/providers/">providers</a><br />
 <a href="/providers/google/eventarc/triggers/">triggers</a><br />

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,7 +27,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Resource name of the API. Format: projects/{project}/locations/global/apis/{api} |
+| `name` | `string` | Output only. Resource name of the API. Format: projects/&#123;project&#125;/locations/global/apis/&#123;api&#125; |
 | `state` | `string` | Output only. State of the API. |
 | `updateTime` | `string` | Output only. Updated time. |
 | `createTime` | `string` | Output only. Created time. |

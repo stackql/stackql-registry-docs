@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,7 +27,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Immutable. The name of the hub. Hub names must be unique. They use the following form: `projects/{project_number}/locations/global/hubs/{hub_id}` |
+| `name` | `string` | Immutable. The name of the hub. Hub names must be unique. They use the following form: `projects/&#123;project_number&#125;/locations/global/hubs/&#123;hub_id&#125;` |
 | `description` | `string` | An optional description of the hub. |
 | `labels` | `object` | Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
 | `routingVpcs` | `array` | The VPC networks associated with this hub's spokes. This field is read-only. Network Connectivity Center automatically populates it based on the set of spokes attached to the hub. |
@@ -38,8 +38,8 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_global_hubs_get` | `SELECT` | `hubsId, projectsId` | Gets details about the specified hub. |
-| `projects_locations_global_hubs_list` | `SELECT` | `projectsId` | Lists hubs in a given project. |
-| `projects_locations_global_hubs_create` | `INSERT` | `projectsId` | Creates a new hub in the specified project. |
-| `projects_locations_global_hubs_delete` | `DELETE` | `hubsId, projectsId` | Deletes the specified hub. |
-| `projects_locations_global_hubs_patch` | `EXEC` | `hubsId, projectsId` | Updates the description and/or labels of the specified hub. |
+| `projects_locations_global_hubs_get` | `SELECT` | `hubsId, projectsId` | Gets details about a Network Connectivity Center hub. |
+| `projects_locations_global_hubs_list` | `SELECT` | `projectsId` | Lists the Network Connectivity Center hubs associated with a given project. |
+| `projects_locations_global_hubs_create` | `INSERT` | `projectsId` | Creates a new Network Connectivity Center hub in the specified project. |
+| `projects_locations_global_hubs_delete` | `DELETE` | `hubsId, projectsId` | Deletes a Network Connectivity Center hub. |
+| `projects_locations_global_hubs_patch` | `EXEC` | `hubsId, projectsId` | Updates the description and/or labels of a Network Connectivity Center hub. |

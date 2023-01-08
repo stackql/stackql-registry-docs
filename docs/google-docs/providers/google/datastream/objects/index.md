@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,12 +28,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The object resource's name. |
-| `sourceObject` | `object` | Represents an identifier of an object in the data source. |
-| `updateTime` | `string` | Output only. The last update time of the object. |
 | `backfillJob` | `object` | Represents a backfill job on a specific stream object. |
 | `createTime` | `string` | Output only. The creation time of the object. |
 | `displayName` | `string` | Required. Display name. |
 | `errors` | `array` | Output only. Active errors on the object. |
+| `sourceObject` | `object` | Represents an identifier of an object in the data source. |
+| `updateTime` | `string` | Output only. The last update time of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

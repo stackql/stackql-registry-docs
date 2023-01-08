@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -29,10 +29,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `name` | `string` | A user-defined name of the Certificate Map. Certificate Map names must be unique globally and match pattern `projects/*/locations/*/certificateMaps/*`. |
 | `description` | `string` | One or more paragraphs of text description of a certificate map. |
-| `createTime` | `string` | Output only. The creation timestamp of a Certificate Map. |
-| `gclbTargets` | `array` | Output only. A list of GCLB targets which use this Certificate Map. |
+| `gclbTargets` | `array` | Output only. A list of GCLB targets that use this Certificate Map. A Target Proxy is only present on this list if it's attached to a Forwarding Rule. |
 | `labels` | `object` | Set of labels associated with a Certificate Map. |
 | `updateTime` | `string` | Output only. The update timestamp of a Certificate Map. |
+| `createTime` | `string` | Output only. The creation timestamp of a Certificate Map. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

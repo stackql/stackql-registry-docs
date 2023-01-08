@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,13 +28,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the notification. |
-| `topic` | `string` | The Cloud PubSub topic to which this subscription publishes. Formatted as: '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}' |
+| `etag` | `string` | HTTP 1.1 Entity tag for this subscription notification. |
 | `event_types` | `array` | If present, only send notifications about listed event types. If empty, sent notifications for all event types. |
 | `payload_format` | `string` | The desired content of the Payload. |
 | `selfLink` | `string` | The canonical URL of this notification. |
+| `topic` | `string` | The Cloud PubSub topic to which this subscription publishes. Formatted as: '//pubsub.googleapis.com/projects/&#123;project-identifier&#125;/topics/&#123;my-topic&#125;' |
 | `custom_attributes` | `object` | An optional list of additional attributes to attach to each Cloud PubSub message published for this notification subscription. |
 | `object_name_prefix` | `string` | If present, only apply this notification configuration to object names that begin with this prefix. |
-| `etag` | `string` | HTTP 1.1 Entity tag for this subscription notification. |
 | `kind` | `string` | The kind of item this is. For notifications, this is always storage#notification. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

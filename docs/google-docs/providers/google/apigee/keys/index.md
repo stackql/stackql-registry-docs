@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,15 +27,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `expiresAt` | `string` | Time the developer app expires in milliseconds since epoch. |
+| `consumerSecret` | `string` | Secret key. |
 | `attributes` | `array` | List of attributes associated with the credential. |
 | `expiresInSeconds` | `string` | Input only. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
-| `consumerKey` | `string` | Consumer key. |
-| `apiProducts` | `array` | List of API products for which the credential can be used. **Note**: Do not specify the list of API products when creating a consumer key and secret for a developer app. Instead, use the UpdateDeveloperAppKey API to make the association after the consumer key and secret are created. |
-| `consumerSecret` | `string` | Secret key. |
-| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
 | `issuedAt` | `string` | Time the developer app was created in milliseconds since epoch. |
 | `scopes` | `array` | Scopes to apply to the app. The specified scope names must already be defined for the API product that you associate with the app. |
+| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
+| `consumerKey` | `string` | Consumer key. |
+| `expiresAt` | `string` | Time the developer app expires in milliseconds since epoch. |
+| `apiProducts` | `array` | List of API products for which the credential can be used. **Note**: Do not specify the list of API products when creating a consumer key and secret for a developer app. Instead, use the UpdateDeveloperAppKey API to make the association after the consumer key and secret are created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

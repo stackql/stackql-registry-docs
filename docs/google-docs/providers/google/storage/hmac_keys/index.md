@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,15 +28,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the HMAC key, including the Project ID and the Access ID. |
-| `accessId` | `string` | The ID of the HMAC Key. |
-| `selfLink` | `string` | The link to this resource. |
+| `state` | `string` | The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED. |
 | `projectId` | `string` | Project ID owning the service account to which the key authenticates. |
+| `selfLink` | `string` | The link to this resource. |
+| `timeCreated` | `string` | The creation time of the HMAC key in RFC 3339 format. |
 | `etag` | `string` | HTTP 1.1 Entity tag for the HMAC key. |
 | `updated` | `string` | The last modification time of the HMAC key metadata in RFC 3339 format. |
-| `state` | `string` | The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED. |
-| `timeCreated` | `string` | The creation time of the HMAC key in RFC 3339 format. |
-| `kind` | `string` | The kind of item this is. For HMAC Key metadata, this is always storage#hmacKeyMetadata. |
+| `accessId` | `string` | The ID of the HMAC Key. |
 | `serviceAccountEmail` | `string` | The email address of the key's associated service account. |
+| `kind` | `string` | The kind of item this is. For HMAC Key metadata, this is always storage#hmacKeyMetadata. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

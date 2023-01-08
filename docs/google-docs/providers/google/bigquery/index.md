@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 A data platform for customers to create, manage, share and query data.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>34</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ A data platform for customers to create, manage, share and query data.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery API</td></tr>
 <tr><td><b>Description</b></td><td>A data platform for customers to create, manage, share and query data.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigquery:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bigquery:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -30,10 +41,10 @@ A data platform for customers to create, manage, share and query data.
 <div class="providerDocColumn">
 <a href="/providers/google/bigquery/datasets/">datasets</a><br />
 <a href="/providers/google/bigquery/jobs/">jobs</a><br />
-<a href="/providers/google/bigquery/jobs_query_results/">jobs_query_results</a><br />
+<a href="/providers/google/bigquery/jobs__query_results/">jobs__query_results</a><br />
 <a href="/providers/google/bigquery/models/">models</a><br />
 <a href="/providers/google/bigquery/projects/">projects</a><br />
-<a href="/providers/google/bigquery/projects_service_account/">projects_service_account</a><br />
+<a href="/providers/google/bigquery/projects__service_account/">projects__service_account</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/bigquery/routines/">routines</a><br />

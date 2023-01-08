@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,19 +27,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The relative resource name of the asset, of the form: projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}. |
+| `name` | `string` | Output only. The relative resource name of the asset, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;/assets/&#123;asset_id&#125;. |
 | `description` | `string` | Optional. Description of the asset. |
-| `createTime` | `string` | Output only. The time when the asset was created. |
 | `uid` | `string` | Output only. System generated globally unique ID for the asset. This ID will be different if the asset is deleted and re-created with the same name. |
-| `discoveryStatus` | `object` | Status of discovery for an asset. |
-| `updateTime` | `string` | Output only. The time when the asset was last updated. |
 | `labels` | `object` | Optional. User defined labels for the asset. |
-| `displayName` | `string` | Optional. User friendly display name. |
 | `resourceSpec` | `object` | Identifies the cloud resource that is referenced by this asset. |
+| `updateTime` | `string` | Output only. The time when the asset was last updated. |
+| `createTime` | `string` | Output only. The time when the asset was created. |
 | `resourceStatus` | `object` | Status of the resource referenced by an asset. |
-| `state` | `string` | Output only. Current state of the asset. |
-| `securityStatus` | `object` | Security policy status of the asset. Data security policy, i.e., readers, writers & owners, should be specified in the lake/zone/asset IAM policy. |
 | `discoverySpec` | `object` | Settings to manage the metadata discovery and publishing for an asset. |
+| `securityStatus` | `object` | Security policy status of the asset. Data security policy, i.e., readers, writers & owners, should be specified in the lake/zone/asset IAM policy. |
+| `state` | `string` | Output only. Current state of the asset. |
+| `discoveryStatus` | `object` | Status of discovery for an asset. |
+| `displayName` | `string` | Optional. User friendly display name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

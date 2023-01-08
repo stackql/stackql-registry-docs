@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,18 +27,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The relative resource name of the zone, of the form: projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}. |
+| `name` | `string` | Output only. The relative resource name of the zone, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;. |
 | `description` | `string` | Optional. Description of the zone. |
-| `resourceSpec` | `object` | Settings for resources attached as assets within a zone. |
 | `state` | `string` | Output only. Current state of the zone. |
 | `updateTime` | `string` | Output only. The time when the zone was last updated. |
-| `uid` | `string` | Output only. System generated globally unique ID for the zone. This ID will be different if the zone is deleted and re-created with the same name. |
-| `displayName` | `string` | Optional. User friendly display name. |
-| `labels` | `object` | Optional. User defined labels for the zone. |
-| `createTime` | `string` | Output only. The time when the zone was created. |
-| `type` | `string` | Required. Immutable. The type of the zone. |
+| `resourceSpec` | `object` | Settings for resources attached as assets within a zone. |
 | `assetStatus` | `object` | Aggregated status of the underlying assets of a lake or zone. |
+| `displayName` | `string` | Optional. User friendly display name. |
+| `type` | `string` | Required. Immutable. The type of the zone. |
+| `createTime` | `string` | Output only. The time when the zone was created. |
 | `discoverySpec` | `object` | Settings to manage the metadata discovery and publishing in a zone. |
+| `labels` | `object` | Optional. User defined labels for the zone. |
+| `uid` | `string` | Output only. System generated globally unique ID for the zone. This ID will be different if the zone is deleted and re-created with the same name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

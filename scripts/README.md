@@ -2,30 +2,21 @@
 
 Used to generate markdown docs for stackql providers using provider metadata from the [StackQL Provider Registry](https://github.com/stackql/stackql-provider-registry).  
 
-## Steps
+## Setup
 
-1. Run the prequisite steps (to download the latest `stackql` binary for linux along with the `pystackql` Python package), run the following command:
+Add or update the required provider metadata to [docgen/provider_data.py](https://github.com/stackql/registry.stackql.io/blob/main/scripts/docgen/provider_data.py).
 
-```bash
-sh ./docgen_prereqs.sh
-```
-
-2. Add the necessary provider level metadata to [docgen/provider_data.py](https://github.com/stackql/registry.stackql.io/blob/main/scripts/docgen/provider_data.py).  
-
-3. Run the following command to generate the markdown docs:
+## Usage
 
 ```bash
-python3 docgen/generate_docs.py <provider> <version>
+sh docgen.sh <provider> <version>
 ```
 
 for example...  
 
 ```bash
-python3 docgen/generate_docs.py azure v0.3.0
-python3 docgen/generate_docs.py aws v0.1.3
+sh docgen.sh google v23.01.00113
 ```
 
-This command would generate the docs for the `v0.3.0` version of the `azure` StackQL provider, the docs would be created in the `docs/azure` folder, once they are verified the docs can be moved to `/docs/providers/azure`.  
-
-The [stackql-provider-registry.md](https://github.com/stackql/registry.stackql.io/blob/main/docs/stackql-provider-registry.md) page should be updated as well to include a tile for `azure`.  
+This command would generate the docs for the `v23.01.00113` version of the `google` StackQL provider, the docs would be created in the `docs/google` folder, once they are verified the docs can be moved to `/docs/providers/google`.  
 

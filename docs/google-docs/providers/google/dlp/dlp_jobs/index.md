@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -29,14 +29,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `name` | `string` | The server-assigned name. |
 | `type` | `string` | The type of job. |
-| `jobTriggerName` | `string` | If created by a job trigger, the resource name of the trigger that instantiated the job. |
 | `endTime` | `string` | Time when the job finished. |
-| `state` | `string` | State of a job. |
-| `createTime` | `string` | Time when the job was created. |
-| `inspectDetails` | `object` | The results of an inspect DataSource job. |
-| `errors` | `array` | A stream of errors encountered running the job. |
 | `startTime` | `string` | Time when the job started. |
+| `createTime` | `string` | Time when the job was created. |
+| `state` | `string` | State of a job. |
+| `inspectDetails` | `object` | The results of an inspect DataSource job. |
 | `riskDetails` | `object` | Result of a risk analysis operation request. |
+| `errors` | `array` | A stream of errors encountered running the job. |
+| `jobTriggerName` | `string` | If created by a job trigger, the resource name of the trigger that instantiated the job. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,8 +47,8 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `projects_locations_dlpJobs_list` | `SELECT` | `locationsId, projectsId` | Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/dlp/docs/inspecting-storage and https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. |
 | `projects_dlpJobs_create` | `INSERT` | `projectsId` | Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/dlp/docs/inspecting-storage and https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. |
 | `projects_locations_dlpJobs_create` | `INSERT` | `locationsId, projectsId` | Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/dlp/docs/inspecting-storage and https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. |
-| `projects_dlpJobs_delete` | `DELETE` | `dlpJobsId, projectsId` | Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be cancelled if possible. See https://cloud.google.com/dlp/docs/inspecting-storage and https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. |
-| `projects_locations_dlpJobs_delete` | `DELETE` | `dlpJobsId, locationsId, projectsId` | Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be cancelled if possible. See https://cloud.google.com/dlp/docs/inspecting-storage and https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. |
+| `projects_dlpJobs_delete` | `DELETE` | `dlpJobsId, projectsId` | Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/dlp/docs/inspecting-storage and https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. |
+| `projects_locations_dlpJobs_delete` | `DELETE` | `dlpJobsId, locationsId, projectsId` | Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/dlp/docs/inspecting-storage and https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. |
 | `projects_dlpJobs_cancel` | `EXEC` | `dlpJobsId, projectsId` | Starts asynchronous cancellation on a long-running DlpJob. The server makes a best effort to cancel the DlpJob, but success is not guaranteed. See https://cloud.google.com/dlp/docs/inspecting-storage and https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. |
 | `projects_locations_dlpJobs_cancel` | `EXEC` | `dlpJobsId, locationsId, projectsId` | Starts asynchronous cancellation on a long-running DlpJob. The server makes a best effort to cancel the DlpJob, but success is not guaranteed. See https://cloud.google.com/dlp/docs/inspecting-storage and https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. |
 | `projects_locations_dlpJobs_finish` | `EXEC` | `dlpJobsId, locationsId, projectsId` | Finish a running hybrid DlpJob. Triggers the finalization steps and running of any enabled actions that have not yet run. |

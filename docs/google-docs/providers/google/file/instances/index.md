@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,19 +27,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name of the instance, in the format `projects/{project}/locations/{location}/instances/{instance}`. |
+| `name` | `string` | Output only. The resource name of the instance, in the format `projects/&#123;project&#125;/locations/&#123;location&#125;/instances/&#123;instance&#125;`. |
 | `description` | `string` | The description of the instance (2048 characters or less). |
-| `fileShares` | `array` | File system shares on the instance. For this version, only a single file share is supported. |
+| `satisfiesPzs` | `boolean` | Output only. Reserved for future use. |
+| `labels` | `object` | Resource labels to represent user provided metadata. |
+| `statusMessage` | `string` | Output only. Additional information about the instance state, if available. |
+| `state` | `string` | Output only. The instance state. |
 | `etag` | `string` | Server-specified ETag for the instance resource to prevent simultaneous updates from overwriting each other. |
 | `tier` | `string` | The service tier of the instance. |
 | `createTime` | `string` | Output only. The time when the instance was created. |
-| `labels` | `object` | Resource labels to represent user provided metadata. |
-| `statusMessage` | `string` | Output only. Additional information about the instance state, if available. |
+| `fileShares` | `array` | File system shares on the instance. For this version, only a single file share is supported. |
+| `suspensionReasons` | `array` | Output only. Field indicates all the reasons the instance is in "SUSPENDED" state. |
 | `kmsKeyName` | `string` | KMS key name used for data encryption. |
 | `networks` | `array` | VPC networks to which the instance is connected. For this version, only a single network is supported. |
-| `satisfiesPzs` | `boolean` | Output only. Reserved for future use. |
-| `suspensionReasons` | `array` | Output only. Field indicates all the reasons the instance is in "SUSPENDED" state. |
-| `state` | `string` | Output only. The instance state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

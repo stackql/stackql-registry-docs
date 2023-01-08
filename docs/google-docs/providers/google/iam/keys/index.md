@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,16 +27,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name of the service account key in the following format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. |
-| `keyType` | `string` | The key type. |
+| `name` | `string` | The resource name of the service account key in the following format `projects/&#123;PROJECT_ID&#125;/serviceAccounts/&#123;ACCOUNT&#125;/keys/&#123;key&#125;`. |
 | `validAfterTime` | `string` | The key can be used after this timestamp. |
-| `privateKeyData` | `string` | The private key data. Only provided in `CreateServiceAccountKey` responses. Make sure to keep the private key data secure because it allows for the assertion of the service account identity. When base64 decoded, the private key data can be used to authenticate with Google API client libraries and with gcloud auth activate-service-account. |
-| `keyAlgorithm` | `string` | Specifies the algorithm (and possibly key size) for the key. |
-| `keyOrigin` | `string` | The key origin. |
-| `disabled` | `boolean` | The key status. |
+| `keyType` | `string` | The key type. |
 | `validBeforeTime` | `string` | The key can be used before this timestamp. For system-managed key pairs, this timestamp is the end time for the private key signing operation. The public key could still be used for verification for a few hours after this time. |
-| `privateKeyType` | `string` | The output format for the private key. Only provided in `CreateServiceAccountKey` responses, not in `GetServiceAccountKey` or `ListServiceAccountKey` responses. Google never exposes system-managed private keys, and never retains user-managed private keys. |
+| `privateKeyData` | `string` | The private key data. Only provided in `CreateServiceAccountKey` responses. Make sure to keep the private key data secure because it allows for the assertion of the service account identity. When base64 decoded, the private key data can be used to authenticate with Google API client libraries and with gcloud auth activate-service-account. |
+| `keyOrigin` | `string` | The key origin. |
 | `publicKeyData` | `string` | The public key data. Only provided in `GetServiceAccountKey` responses. |
+| `disabled` | `boolean` | The key status. |
+| `keyAlgorithm` | `string` | Specifies the algorithm (and possibly key size) for the key. |
+| `privateKeyType` | `string` | The output format for the private key. Only provided in `CreateServiceAccountKey` responses, not in `GetServiceAccountKey` or `ListServiceAccountKey` responses. Google never exposes system-managed private keys, and never retains user-managed private keys. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

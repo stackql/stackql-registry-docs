@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 A fully managed and highly scalable data discovery and metadata management service.   
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>20</b></span><br />
+<span>total selectable resources:&nbsp;<b>17</b></span><br />
+<span>total methods:&nbsp;<b>70</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ A fully managed and highly scalable data discovery and metadata management servi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Cloud Data Catalog API</td></tr>
 <tr><td><b>Description</b></td><td>A fully managed and highly scalable data discovery and metadata management service. </td></tr>
-<tr><td><b>Id</b></td><td><code>datacatalog:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datacatalog:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -37,9 +48,10 @@ A fully managed and highly scalable data discovery and metadata management servi
 <a href="/providers/google/datacatalog/entry_groups_iam_policies/">entry_groups_iam_policies</a><br />
 <a href="/providers/google/datacatalog/enum_values/">enum_values</a><br />
 <a href="/providers/google/datacatalog/fields/">fields</a><br />
-<a href="/providers/google/datacatalog/policy_tags/">policy_tags</a><br />
+<a href="/providers/google/datacatalog/operations/">operations</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/datacatalog/policy_tags/">policy_tags</a><br />
 <a href="/providers/google/datacatalog/policy_tags_iam_bindings/">policy_tags_iam_bindings</a><br />
 <a href="/providers/google/datacatalog/policy_tags_iam_policies/">policy_tags_iam_policies</a><br />
 <a href="/providers/google/datacatalog/tag_templates/">tag_templates</a><br />

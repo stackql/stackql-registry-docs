@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,19 +27,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Resource name. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id}` This field is ignored when you create an OS policy assignment. |
+| `name` | `string` | Resource name. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/osPolicyAssignments/&#123;os_policy_assignment_id&#125;` This field is ignored when you create an OS policy assignment. |
 | `description` | `string` | OS policy assignment description. Length of the description is limited to 1024 characters. |
-| `instanceFilter` | `object` | Filters to select target VMs for an assignment. If more than one filter criteria is specified below, a VM will be selected if and only if it satisfies all of them. |
 | `osPolicies` | `array` | Required. List of OS policies to be applied to the VMs. |
-| `rollout` | `object` | Message to configure the rollout at the zonal level for the OS policy assignment. |
-| `baseline` | `boolean` | Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision. For a given OS policy assignment, there is only one revision with a value of `true` for this field. |
-| `deleted` | `boolean` | Output only. Indicates that this revision deletes the OS policy assignment. |
-| `reconciling` | `boolean` | Output only. Indicates that reconciliation is in progress for the revision. This value is `true` when the `rollout_state` is one of: * IN_PROGRESS * CANCELLING |
-| `etag` | `string` | The etag for this OS policy assignment. If this is provided on update, it must match the server's etag. |
-| `rolloutState` | `string` | Output only. OS policy assignment rollout state |
-| `uid` | `string` | Output only. Server generated unique id for the OS policy assignment resource. |
 | `revisionId` | `string` | Output only. The assignment revision ID A new revision is committed whenever a rollout is triggered for a OS policy assignment |
+| `rolloutState` | `string` | Output only. OS policy assignment rollout state |
+| `baseline` | `boolean` | Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision. For a given OS policy assignment, there is only one revision with a value of `true` for this field. |
+| `reconciling` | `boolean` | Output only. Indicates that reconciliation is in progress for the revision. This value is `true` when the `rollout_state` is one of: * IN_PROGRESS * CANCELLING |
 | `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
+| `uid` | `string` | Output only. Server generated unique id for the OS policy assignment resource. |
+| `etag` | `string` | The etag for this OS policy assignment. If this is provided on update, it must match the server's etag. |
+| `instanceFilter` | `object` | Filters to select target VMs for an assignment. If more than one filter criteria is specified below, a VM will be selected if and only if it satisfies all of them. |
+| `rollout` | `object` | Message to configure the rollout at the zonal level for the OS policy assignment. |
+| `deleted` | `boolean` | Output only. Indicates that this revision deletes the OS policy assignment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

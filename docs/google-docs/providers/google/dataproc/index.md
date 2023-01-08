@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 Manages Hadoop-based clusters and jobs on Google Cloud Platform.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>17</b></span><br />
+<span>total selectable resources:&nbsp;<b>17</b></span><br />
+<span>total methods:&nbsp;<b>82</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Manages Hadoop-based clusters and jobs on Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Dataproc API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Hadoop-based clusters and jobs on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataproc:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dataproc:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -36,10 +47,11 @@ Manages Hadoop-based clusters and jobs on Google Cloud Platform.
 <a href="/providers/google/dataproc/clusters_iam_bindings/">clusters_iam_bindings</a><br />
 <a href="/providers/google/dataproc/clusters_iam_policies/">clusters_iam_policies</a><br />
 <a href="/providers/google/dataproc/jobs/">jobs</a><br />
+<a href="/providers/google/dataproc/jobs_iam_bindings/">jobs_iam_bindings</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/dataproc/jobs_iam_bindings/">jobs_iam_bindings</a><br />
 <a href="/providers/google/dataproc/jobs_iam_policies/">jobs_iam_policies</a><br />
+<a href="/providers/google/dataproc/node_groups/">node_groups</a><br />
 <a href="/providers/google/dataproc/operations/">operations</a><br />
 <a href="/providers/google/dataproc/operations_iam_bindings/">operations_iam_bindings</a><br />
 <a href="/providers/google/dataproc/operations_iam_policies/">operations_iam_policies</a><br />

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,12 +27,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the feedback message in a feedback thread. Format: 'project/{project_id}/datasets/{dataset_id}/annotatedDatasets/{annotated_dataset_id}/feedbackThreads/{feedback_thread_id}/feedbackMessage/{feedback_message_id}' |
-| `operatorFeedbackMetadata` | `object` | Metadata describing the feedback from the operator. |
+| `name` | `string` | Name of the feedback message in a feedback thread. Format: 'project/&#123;project_id&#125;/datasets/&#123;dataset_id&#125;/annotatedDatasets/&#123;annotated_dataset_id&#125;/feedbackThreads/&#123;feedback_thread_id&#125;/feedbackMessage/&#123;feedback_message_id&#125;' |
 | `requesterFeedbackMetadata` | `object` | Metadata describing the feedback from the labeling task requester. |
 | `body` | `string` | String content of the feedback. Maximum of 10000 characters. |
 | `createTime` | `string` | Create time. |
 | `image` | `string` | The image storing this feedback if the feedback is an image representing operator's comments. |
+| `operatorFeedbackMetadata` | `object` | Metadata describing the feedback from the operator. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

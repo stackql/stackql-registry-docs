@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name for the Key in the format "projects/{project}/keys/{key}". |
-| `iosSettings` | `object` | Settings specific to keys that can be used by iOS apps. |
-| `displayName` | `string` | Human-readable display name of this key. Modifiable by user. |
+| `name` | `string` | The resource name for the Key in the format "projects/&#123;project&#125;/keys/&#123;key&#125;". |
 | `wafSettings` | `object` | Settings specific to keys that can be used for WAF (Web Application Firewall). |
 | `labels` | `object` | See Creating and managing labels. |
 | `webSettings` | `object` | Settings specific to keys that can be used by websites. |
+| `displayName` | `string` | Human-readable display name of this key. Modifiable by user. |
 | `androidSettings` | `object` | Settings specific to keys that can be used by Android apps. |
+| `iosSettings` | `object` | Settings specific to keys that can be used by iOS apps. |
 | `createTime` | `string` | The timestamp corresponding to the creation of this Key. |
 | `testingOptions` | `object` | Options for user acceptance testing. |
 ## Methods

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,19 +27,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `appFamily` | `string` | Developer app family. |
-| `organizationName` | `string` | Output only. Name of the Apigee organization in which the developer resides. |
-| `firstName` | `string` | Required. First name of the developer. |
-| `lastName` | `string` | Required. Last name of the developer. |
-| `status` | `string` | Output only. Status of the developer. Valid values are `active` and `inactive`. |
-| `userName` | `string` | Required. User name of the developer. Not used by Apigee hybrid. |
+| `apps` | `array` | List of apps associated with the developer. |
+| `email` | `string` | Required. Email address of the developer. This value is used to uniquely identify the developer in Apigee hybrid. Note that the email address has to be in lowercase only. |
 | `accessType` | `string` | Access type. |
 | `createdAt` | `string` | Output only. Time at which the developer was created in milliseconds since epoch. |
-| `email` | `string` | Required. Email address of the developer. This value is used to uniquely identify the developer in Apigee hybrid. Note that the email address has to be in lowercase only. |
-| `lastModifiedAt` | `string` | Output only. Time at which the developer was last modified in milliseconds since epoch. |
-| `attributes` | `array` | Optional. Developer attributes (name/value pairs). The custom attribute limit is 18. |
-| `apps` | `array` | List of apps associated with the developer. |
 | `companies` | `array` | List of companies associated with the developer. |
+| `userName` | `string` | Required. User name of the developer. Not used by Apigee hybrid. |
+| `appFamily` | `string` | Developer app family. |
+| `lastName` | `string` | Required. Last name of the developer. |
+| `status` | `string` | Output only. Status of the developer. Valid values are `active` and `inactive`. |
+| `attributes` | `array` | Optional. Developer attributes (name/value pairs). The custom attribute limit is 18. |
+| `organizationName` | `string` | Output only. Name of the Apigee organization in which the developer resides. |
+| `lastModifiedAt` | `string` | Output only. Time at which the developer was last modified in milliseconds since epoch. |
+| `firstName` | `string` | Required. First name of the developer. |
 | `developerId` | `string` | ID of the developer. **Note**: IDs are generated internally by Apigee and are not guaranteed to stay the same over time. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

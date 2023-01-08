@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,17 +28,17 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The stream's name. |
+| `backfillAll` | `object` | Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded. |
+| `sourceConfig` | `object` | The configuration of the stream source. |
 | `displayName` | `string` | Required. Display name. |
+| `customerManagedEncryptionKey` | `string` | Immutable. A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data will be encrypted using an internal Stream-specific encryption key provisioned through KMS. |
+| `destinationConfig` | `object` | The configuration of the stream destination. |
 | `updateTime` | `string` | Output only. The last update time of the stream. |
-| `createTime` | `string` | Output only. The creation time of the stream. |
 | `labels` | `object` | Labels. |
 | `state` | `string` | The state of the stream. |
-| `customerManagedEncryptionKey` | `string` | Immutable. A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data will be encrypted using an internal Stream-specific encryption key provisioned through KMS. |
-| `backfillNone` | `object` | Backfill strategy to disable automatic backfill for the Stream's objects. |
-| `destinationConfig` | `object` | The configuration of the stream destination. |
-| `sourceConfig` | `object` | The configuration of the stream source. |
-| `backfillAll` | `object` | Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded. |
 | `errors` | `array` | Output only. Errors on the Stream. |
+| `backfillNone` | `object` | Backfill strategy to disable automatic backfill for the Stream's objects. |
+| `createTime` | `string` | Output only. The creation time of the stream. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

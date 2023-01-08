@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,12 +28,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | For example, www.example.com. |
+| `routingPolicy` | `object` | A RRSetRoutingPolicy represents ResourceRecordSet data that is returned dynamically with the response varying based on configured properties such as geolocation or by weighted random selection. |
+| `rrdatas` | `array` | As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) -- see examples. |
 | `signatureRrdatas` | `array` | As defined in RFC 4034 (section 3.2). |
 | `ttl` | `integer` | Number of seconds that this ResourceRecordSet can be cached by resolvers. |
 | `type` | `string` | The identifier of a supported record type. See the list of Supported DNS record types. |
 | `kind` | `string` |  |
-| `routingPolicy` | `object` | A RRSetRoutingPolicy represents ResourceRecordSet data that is returned dynamically with the response varying based on configured properties such as geolocation or by weighted random selection. |
-| `rrdatas` | `array` | As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) -- see examples. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

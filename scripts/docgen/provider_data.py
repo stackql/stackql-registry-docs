@@ -2,37 +2,37 @@ provider_data = {
 'firebase': {
     'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
     'description': 'Application development platform for creating mobile and web applications.',
-    'image': 'https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png' 
+    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
 },
 'github': {
     'meta_description': 'Query, deploy and manage GitHub resources using SQL',
     'description': 'Web-based version-control and collaboration.',
-    'image': 'https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png' 
+    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
 },
 'google': {
     'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
     'description': 'Cloud computing services offered by Google.',
-    'image': 'https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png' 
+    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
 },
 'k8s': {
     'meta_description': 'Query, deploy and manage Kubernetes resources using SQL',
     'description': 'Open source container management platform.',
-    'image': 'https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png' 
+    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
 },
 'netlify': {
     'meta_description': 'Query, deploy and manage Netlify resources using SQL',
     'description': 'Web development and content distribution platform.',
-    'image': 'https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png' 
+    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
 },
 'okta': {
     'meta_description': 'Query, deploy and manage Okta resources using SQL',
     'description': 'Authentication and authorization services.',
-    'image': 'https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png' 
+    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
 },
 'aws': {
     'meta_description': 'Query, deploy and manage AWS resources using SQL',
     'description': 'Cloud services from AWS.',
-    'image': 'https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png' 
+    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
 },
 'azure': {
     'meta_description': 'Query, deploy and manage Azure resources using SQL',

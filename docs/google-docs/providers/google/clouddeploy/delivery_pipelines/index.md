@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,17 +27,17 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Optional. Name of the `DeliveryPipeline`. Format is projects/{project}/ locations/{location}/deliveryPipelines/a-z{0,62}. |
+| `name` | `string` | Optional. Name of the `DeliveryPipeline`. Format is projects/&#123;project&#125;/ locations/&#123;location&#125;/deliveryPipelines/a-z&#123;0,62&#125;. |
 | `description` | `string` | Description of the `DeliveryPipeline`. Max length is 255 characters. |
-| `serialPipeline` | `object` | SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`. |
+| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
+| `suspended` | `boolean` | When suspended, no new releases or rollouts can be created, but in-progress ones will complete. |
 | `uid` | `string` | Output only. Unique identifier of the `DeliveryPipeline`. |
 | `createTime` | `string` | Output only. Time at which the pipeline was created. |
 | `labels` | `object` | Labels are attributes that can be set and used by both the user and by Google Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be &lt;= 128 bytes. |
-| `suspended` | `boolean` | When suspended, no new releases or rollouts can be created, but in-progress ones will complete. |
-| `annotations` | `object` | User annotations. These attributes can only be set and used by the user, and not by Google Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and size limitations. |
-| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
-| `updateTime` | `string` | Output only. Most recent time at which the pipeline was updated. |
 | `condition` | `object` | PipelineCondition contains all conditions relevant to a Delivery Pipeline. |
+| `updateTime` | `string` | Output only. Most recent time at which the pipeline was updated. |
+| `annotations` | `object` | User annotations. These attributes can only be set and used by the user, and not by Google Cloud Deploy. |
+| `serialPipeline` | `object` | SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

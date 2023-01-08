@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -29,13 +29,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the repository, for example: "projects/p1/locations/us-central1/repositories/repo1". |
 | `description` | `string` | The user-provided description of the repository. |
-| `format` | `string` | The format of packages that are stored in the repository. |
-| `createTime` | `string` | The time when the repository was created. |
 | `mavenConfig` | `object` | MavenRepositoryConfig is maven related repository details. Provides additional configuration details for repositories of the maven format type. |
 | `updateTime` | `string` | The time when the repository was last updated. |
-| `sizeBytes` | `string` | Output only. The size, in bytes, of all artifact storage in this repository. Repositories that are generally available or in public preview use this to calculate storage costs. |
 | `kmsKeyName` | `string` | The Cloud KMS resource name of the customer managed encryption key that's used to encrypt the contents of the Repository. Has the form: `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`. This value may not be changed after the Repository has been created. |
+| `createTime` | `string` | The time when the repository was created. |
 | `labels` | `object` | Labels with user-defined metadata. This field may contain up to 64 entries. Label keys and values may be no longer than 63 characters. Label keys must begin with a lowercase letter and may only contain lowercase letters, numeric characters, underscores, and dashes. |
+| `satisfiesPzs` | `boolean` | Output only. If set, the repository satisfies physical zone separation. |
+| `format` | `string` | The format of packages that are stored in the repository. |
+| `sizeBytes` | `string` | Output only. The size, in bytes, of all artifact storage in this repository. Repositories that are generally available or in public preview use this to calculate storage costs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

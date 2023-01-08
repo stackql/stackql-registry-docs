@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,19 +27,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. The unique name of the domain using the form: `projects/{project_id}/locations/global/domains/{domain_name}`. |
-| `fqdn` | `string` | Output only. The fully-qualified domain name of the exposed domain used by clients to connect to the service. Similar to what would be chosen for an Active Directory set up on an internal network. |
+| `name` | `string` | Required. The unique name of the domain using the form: `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;`. |
 | `locations` | `array` | Required. Locations where domain needs to be provisioned. regions e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location will use a /26 block. |
-| `state` | `string` | Output only. The current state of this domain. |
-| `updateTime` | `string` | Output only. The last update time. |
 | `reservedIpRange` | `string` | Required. The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger. Ranges must be unique and non-overlapping with existing subnets in [Domain].[authorized_networks]. |
+| `updateTime` | `string` | Output only. The last update time. |
 | `auditLogsEnabled` | `boolean` | Optional. Configuration for audit logs. True if audit logs are enabled, else false. Default is audit logs disabled. |
+| `state` | `string` | Output only. The current state of this domain. |
+| `statusMessage` | `string` | Output only. Additional information about the current status of this domain, if available. |
+| `trusts` | `array` | Output only. The current trusts associated with the domain. |
+| `fqdn` | `string` | Output only. The fully-qualified domain name of the exposed domain used by clients to connect to the service. Similar to what would be chosen for an Active Directory set up on an internal network. |
 | `authorizedNetworks` | `array` | Optional. The full names of the Google Compute Engine [networks](/compute/docs/networks-and-firewalls#networks) the domain instance is connected to. Networks can be added using UpdateDomain. The domain is only available on networks listed in `authorized_networks`. If CIDR subnets overlap between networks, domain creation will fail. |
 | `createTime` | `string` | Output only. The time the instance was created. |
-| `trusts` | `array` | Output only. The current trusts associated with the domain. |
-| `statusMessage` | `string` | Output only. Additional information about the current status of this domain, if available. |
-| `admin` | `string` | Optional. The name of delegated administrator account used to perform Active Directory operations. If not specified, `setupadmin` will be used. |
 | `labels` | `object` | Optional. Resource labels that can contain user-provided metadata. |
+| `admin` | `string` | Optional. The name of delegated administrator account used to perform Active Directory operations. If not specified, `setupadmin` will be used. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,6 +49,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `projects_locations_global_domains_delete` | `DELETE` | `domainsId, projectsId` | Deletes a domain. |
 | `projects_locations_global_domains_attachTrust` | `EXEC` | `domainsId, projectsId` | Adds an AD trust to a domain. |
 | `projects_locations_global_domains_detachTrust` | `EXEC` | `domainsId, projectsId` | Removes an AD trust. |
+| `projects_locations_global_domains_extendSchema` | `EXEC` | `domainsId, projectsId` | Extend Schema for Domain |
 | `projects_locations_global_domains_patch` | `EXEC` | `domainsId, projectsId` | Updates the metadata and configuration of a domain. |
 | `projects_locations_global_domains_reconfigureTrust` | `EXEC` | `domainsId, projectsId` | Updates the DNS conditional forwarder. |
 | `projects_locations_global_domains_resetAdminPassword` | `EXEC` | `domainsId, projectsId` | Resets a domain's administrator password. |

@@ -15,10 +15,6 @@ id: netlify-doc
 slug: /providers/netlify
 ---
 Web development and content distribution platform.  
- 
-See also:   
-[[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
-* * * 
 
 :::info Provider Summary
 
@@ -34,6 +30,10 @@ See also:
 </div>
 
 :::
+
+See also:   
+[[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
+* * * 
 
 ## Installation
 ```bash

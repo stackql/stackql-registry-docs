@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,19 +27,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `producerNetwork` | `string` | Output only. The VPC host network that is used to host managed service instances. In the format, projects/{project}/global/networks/{network} where {project} is the project number e.g. '12345' and {network} is the network name. |
-| `consumerExportSubnetRoutesWithPublicIp` | `boolean` | Export subnet routes with public ip flag value for peering from consumer to producer. |
 | `vpcScReferenceArchitectureEnabled` | `boolean` | Output only. Indicates whether the VPC Service Controls reference architecture is configured for the producer VPC host network. |
-| `consumerImportSubnetRoutesWithPublicIp` | `boolean` | Import subnet routes with public ip flag value for peering from consumer to producer. |
+| `consumerImportCustomRoutes` | `boolean` | Import custom routes flag value for peering from consumer to producer. |
+| `usedIpRanges` | `array` | Output only. The IP ranges already in use by consumer or producer |
+| `cloudsqlConfigs` | `array` | Represents one or multiple Cloud SQL configurations. |
+| `consumerExportCustomRoutes` | `boolean` | Export custom routes flag value for peering from consumer to producer. |
+| `producerImportSubnetRoutesWithPublicIp` | `boolean` | Import subnet routes with public ip flag value for peering from producer to consumer. |
 | `reservedRanges` | `array` | Output only. The reserved ranges associated with this private service access connection. |
 | `producerExportCustomRoutes` | `boolean` | Export custom routes flag value for peering from producer to consumer. |
 | `producerExportSubnetRoutesWithPublicIp` | `boolean` | Export subnet routes with public ip flag value for peering from producer to consumer. |
 | `producerImportCustomRoutes` | `boolean` | Import custom routes flag value for peering from producer to consumer. |
-| `producerImportSubnetRoutesWithPublicIp` | `boolean` | Import subnet routes with public ip flag value for peering from producer to consumer. |
-| `consumerExportCustomRoutes` | `boolean` | Export custom routes flag value for peering from consumer to producer. |
-| `usedIpRanges` | `array` | Output only. The IP ranges already in use by consumer or producer |
-| `cloudsqlConfigs` | `array` | Represents one or multiple Cloud SQL configurations. |
-| `consumerImportCustomRoutes` | `boolean` | Import custom routes flag value for peering from consumer to producer. |
+| `consumerExportSubnetRoutesWithPublicIp` | `boolean` | Export subnet routes with public ip flag value for peering from consumer to producer. |
+| `producerNetwork` | `string` | Output only. The VPC host network that is used to host managed service instances. In the format, projects/&#123;project&#125;/global/networks/&#123;network&#125; where &#123;project&#125; is the project number e.g. '12345' and &#123;network&#125; is the network name. |
+| `consumerImportSubnetRoutesWithPublicIp` | `boolean` | Import subnet routes with public ip flag value for peering from consumer to producer. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

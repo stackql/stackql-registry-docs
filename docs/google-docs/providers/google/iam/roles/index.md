@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the role. When Role is used in CreateRole, the role name must not be set. When Role is used in output and other input such as UpdateRole, the role name is the complete path, e.g., roles/logging.viewer for predefined roles and organizations/{ORGANIZATION_ID}/roles/logging.viewer for custom roles. |
+| `name` | `string` | The name of the role. When Role is used in CreateRole, the role name must not be set. When Role is used in output and other input such as UpdateRole, the role name is the complete path, e.g., roles/logging.viewer for predefined roles and organizations/&#123;ORGANIZATION_ID&#125;/roles/logging.viewer for custom roles. |
 | `description` | `string` | Optional. A human-readable description for the role. |
+| `stage` | `string` | The current launch stage of the role. If the `ALPHA` launch stage has been selected for a role, the `stage` field will not be included in the returned definition for the role. |
 | `title` | `string` | Optional. A human-readable title for the role. Typically this is limited to 100 UTF-8 bytes. |
 | `deleted` | `boolean` | The current deleted state of the role. This field is read only. It will be ignored in calls to CreateRole and UpdateRole. |
 | `etag` | `string` | Used to perform a consistent read-modify-write. |
 | `includedPermissions` | `array` | The names of the permissions this role grants when bound in an IAM policy. |
-| `stage` | `string` | The current launch stage of the role. If the `ALPHA` launch stage has been selected for a role, the `stage` field will not be included in the returned definition for the role. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

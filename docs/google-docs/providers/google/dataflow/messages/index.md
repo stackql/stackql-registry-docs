@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `jobMessages` | `array` | Messages in ascending timestamp order. |
 | `nextPageToken` | `string` | The token to obtain the next page of results if there are more. |
 | `autoscalingEvents` | `array` | Autoscaling events in ascending timestamp order. |
-| `jobMessages` | `array` | Messages in ascending timestamp order. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

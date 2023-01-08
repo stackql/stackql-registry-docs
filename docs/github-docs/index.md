@@ -16,10 +16,6 @@ slug: /providers/github
 ---
 Web-based version-control and collaboration.  
 
-See also:   
-[[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
-* * * 
-
 :::info Provider Summary
 
 <div class="row">
@@ -34,6 +30,10 @@ See also:
 </div>
 
 :::
+
+See also:   
+[[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
+* * * 
 
 ## Installation
 ```bash

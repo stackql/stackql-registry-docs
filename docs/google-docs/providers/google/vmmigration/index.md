@@ -11,18 +11,29 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Use the Migrate for Compute Engine API to programmatically migrate workloads.   
+Use the Migrate to Virtual Machines API to programmatically migrate workloads.   
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>13</b></span><br />
+<span>total selectable resources:&nbsp;<b>12</b></span><br />
+<span>total methods:&nbsp;<b>52</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.vmmigration</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>VM Migration API</td></tr>
-<tr><td><b>Description</b></td><td>Use the Migrate for Compute Engine API to programmatically migrate workloads. </td></tr>
-<tr><td><b>Id</b></td><td><code>vmmigration:v1.0.3</code></td></tr>
+<tr><td><b>Title</b></td><td>Migrate to Virtual Machines API</td></tr>
+<tr><td><b>Description</b></td><td>Use the Migrate to Virtual Machines API to programmatically migrate workloads. </td></tr>
+<tr><td><b>Id</b></td><td><code>vmmigration:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -32,7 +43,7 @@ Use the Migrate for Compute Engine API to programmatically migrate workloads.
 <a href="/providers/google/vmmigration/cutover_jobs/">cutover_jobs</a><br />
 <a href="/providers/google/vmmigration/datacenter_connectors/">datacenter_connectors</a><br />
 <a href="/providers/google/vmmigration/groups/">groups</a><br />
-<a href="/providers/google/vmmigration/groups_group_migration/">groups_group_migration</a><br />
+<a href="/providers/google/vmmigration/groups__group_migration/">groups__group_migration</a><br />
 <a href="/providers/google/vmmigration/locations/">locations</a><br />
 <a href="/providers/google/vmmigration/migrating_vms/">migrating_vms</a><br />
 </div>
@@ -40,7 +51,7 @@ Use the Migrate for Compute Engine API to programmatically migrate workloads.
 <a href="/providers/google/vmmigration/operations/">operations</a><br />
 <a href="/providers/google/vmmigration/replication_cycles/">replication_cycles</a><br />
 <a href="/providers/google/vmmigration/sources/">sources</a><br />
-<a href="/providers/google/vmmigration/sources_inventory/">sources_inventory</a><br />
+<a href="/providers/google/vmmigration/sources__inventory/">sources__inventory</a><br />
 <a href="/providers/google/vmmigration/target_projects/">target_projects</a><br />
 <a href="/providers/google/vmmigration/utilization_reports/">utilization_reports</a><br />
 </div>

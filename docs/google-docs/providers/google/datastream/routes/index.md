@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,12 +28,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource's name. |
-| `destinationPort` | `integer` | Destination port for connection |
-| `displayName` | `string` | Required. Display name. |
-| `labels` | `object` | Labels. |
 | `updateTime` | `string` | Output only. The update time of the resource. |
 | `createTime` | `string` | Output only. The create time of the resource. |
 | `destinationAddress` | `string` | Required. Destination address for connection |
+| `destinationPort` | `integer` | Destination port for connection |
+| `displayName` | `string` | Required. Display name. |
+| `labels` | `object` | Labels. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

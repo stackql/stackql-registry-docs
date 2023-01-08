@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,13 +28,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource's name. |
-| `createTime` | `string` | Output only. The create time of the resource. |
-| `displayName` | `string` | Required. Display name. |
 | `error` | `object` | Represent a user-facing Error. |
 | `labels` | `object` | Labels. |
 | `state` | `string` | Output only. The state of the Private Connection. |
 | `updateTime` | `string` | Output only. The update time of the resource. |
 | `vpcPeeringConfig` | `object` | The VPC Peering configuration is used to create VPC peering between Datastream and the consumer's VPC. |
+| `createTime` | `string` | Output only. The create time of the resource. |
+| `displayName` | `string` | Required. Display name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

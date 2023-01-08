@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -29,5 +29,5 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `explain` | `EXEC` | `projectsId` | Performs explanation on the data in the request. {% dynamic include "/ai-platform/includes/___explain-request" %}  |
-| `predict` | `EXEC` | `projectsId` | Performs online prediction on the data in the request. {% dynamic include "/ai-platform/includes/___predict-request" %}  |
+| `explain` | `EXEC` | `projectsId` | Performs explanation on the data in the request. &#123;% dynamic include "/ai-platform/includes/___explain-request" %&#125;  |
+| `predict` | `EXEC` | `projectsId` | Performs online prediction on the data in the request. &#123;% dynamic include "/ai-platform/includes/___predict-request" %&#125;  |
