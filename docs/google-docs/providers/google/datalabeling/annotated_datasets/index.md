@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,16 +27,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. AnnotatedDataset resource name in format of: projects/{project_id}/datasets/{dataset_id}/annotatedDatasets/ {annotated_dataset_id} |
+| `name` | `string` | Output only. AnnotatedDataset resource name in format of: projects/&#123;project_id&#125;/datasets/&#123;dataset_id&#125;/annotatedDatasets/ &#123;annotated_dataset_id&#125; |
 | `description` | `string` | Output only. The description of the AnnotatedDataset. It is specified in HumanAnnotationConfig when user starts a labeling task. Maximum of 10000 characters. |
+| `metadata` | `object` | Metadata on AnnotatedDataset. |
+| `createTime` | `string` | Output only. Time the AnnotatedDataset was created. |
 | `labelStats` | `object` | Statistics about annotation specs. |
 | `completedExampleCount` | `string` | Output only. Number of examples that have annotation in the annotated dataset. |
-| `annotationSource` | `string` | Output only. Source of the annotation. |
 | `annotationType` | `string` | Output only. Type of the annotation. It is specified when starting labeling task. |
-| `createTime` | `string` | Output only. Time the AnnotatedDataset was created. |
 | `exampleCount` | `string` | Output only. Number of examples in the annotated dataset. |
 | `blockingResources` | `array` | Output only. The names of any related resources that are blocking changes to the annotated dataset. |
-| `metadata` | `object` | Metadata on AnnotatedDataset. |
+| `annotationSource` | `string` | Output only. Source of the annotation. |
 | `displayName` | `string` | Output only. The display name of the AnnotatedDataset. It is specified in HumanAnnotationConfig when user starts a labeling task. Maximum of 64 characters. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

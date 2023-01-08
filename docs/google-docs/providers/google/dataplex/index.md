@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 Dataplex API is used to manage the lifecycle of data lakes.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>48</b></span><br />
+<span>total selectable resources:&nbsp;<b>48</b></span><br />
+<span>total methods:&nbsp;<b>121</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Dataplex API is used to manage the lifecycle of data lakes.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Dataplex API</td></tr>
 <tr><td><b>Description</b></td><td>Dataplex API is used to manage the lifecycle of data lakes.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataplex:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dataplex:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -33,6 +44,9 @@ Dataplex API is used to manage the lifecycle of data lakes.
 <a href="/providers/google/dataplex/assets_iam_audit_configs/">assets_iam_audit_configs</a><br />
 <a href="/providers/google/dataplex/assets_iam_bindings/">assets_iam_bindings</a><br />
 <a href="/providers/google/dataplex/assets_iam_policies/">assets_iam_policies</a><br />
+<a href="/providers/google/dataplex/attributes_iam_audit_configs/">attributes_iam_audit_configs</a><br />
+<a href="/providers/google/dataplex/attributes_iam_bindings/">attributes_iam_bindings</a><br />
+<a href="/providers/google/dataplex/attributes_iam_policies/">attributes_iam_policies</a><br />
 <a href="/providers/google/dataplex/content/">content</a><br />
 <a href="/providers/google/dataplex/content_iam_audit_configs/">content_iam_audit_configs</a><br />
 <a href="/providers/google/dataplex/content_iam_bindings/">content_iam_bindings</a><br />
@@ -41,13 +55,23 @@ Dataplex API is used to manage the lifecycle of data lakes.
 <a href="/providers/google/dataplex/contentitems_iam_audit_configs/">contentitems_iam_audit_configs</a><br />
 <a href="/providers/google/dataplex/contentitems_iam_bindings/">contentitems_iam_bindings</a><br />
 <a href="/providers/google/dataplex/contentitems_iam_policies/">contentitems_iam_policies</a><br />
+<a href="/providers/google/dataplex/data_attribute_bindings_iam_audit_configs/">data_attribute_bindings_iam_audit_configs</a><br />
+<a href="/providers/google/dataplex/data_attribute_bindings_iam_bindings/">data_attribute_bindings_iam_bindings</a><br />
+<a href="/providers/google/dataplex/data_attribute_bindings_iam_policies/">data_attribute_bindings_iam_policies</a><br />
+<a href="/providers/google/dataplex/data_scans/">data_scans</a><br />
+<a href="/providers/google/dataplex/data_scans_iam_audit_configs/">data_scans_iam_audit_configs</a><br />
+<a href="/providers/google/dataplex/data_scans_iam_bindings/">data_scans_iam_bindings</a><br />
+<a href="/providers/google/dataplex/data_scans_iam_policies/">data_scans_iam_policies</a><br />
+<a href="/providers/google/dataplex/data_taxonomies_iam_audit_configs/">data_taxonomies_iam_audit_configs</a><br />
+</div>
+<div class="providerDocColumn">
+<a href="/providers/google/dataplex/data_taxonomies_iam_bindings/">data_taxonomies_iam_bindings</a><br />
+<a href="/providers/google/dataplex/data_taxonomies_iam_policies/">data_taxonomies_iam_policies</a><br />
 <a href="/providers/google/dataplex/entities/">entities</a><br />
 <a href="/providers/google/dataplex/environments/">environments</a><br />
 <a href="/providers/google/dataplex/environments_iam_audit_configs/">environments_iam_audit_configs</a><br />
 <a href="/providers/google/dataplex/environments_iam_bindings/">environments_iam_bindings</a><br />
 <a href="/providers/google/dataplex/environments_iam_policies/">environments_iam_policies</a><br />
-</div>
-<div class="providerDocColumn">
 <a href="/providers/google/dataplex/jobs/">jobs</a><br />
 <a href="/providers/google/dataplex/lakes/">lakes</a><br />
 <a href="/providers/google/dataplex/lakes_iam_audit_configs/">lakes_iam_audit_configs</a><br />

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,14 +27,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name of the processor version. Format: `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}` |
-| `kmsKeyVersionName` | `string` | The KMS key version with which data is encrypted. |
+| `name` | `string` | The resource name of the processor version. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processors/&#123;processor&#125;/processorVersions/&#123;processor_version&#125;` |
+| `kmsKeyName` | `string` | The KMS key name used for encryption. |
+| `googleManaged` | `boolean` | Denotes that this ProcessorVersion is managed by google. |
 | `state` | `string` | The state of the processor version. |
-| `createTime` | `string` | The time the processor version was created. |
 | `deprecationInfo` | `object` | Information about the upcoming deprecation of this processor version. |
 | `displayName` | `string` | The display name of the processor version. |
-| `googleManaged` | `boolean` | Denotes that this ProcessorVersion is managed by google. |
-| `kmsKeyName` | `string` | The KMS key name used for encryption. |
+| `documentSchema` | `object` | The schema defines the output of the processed document by a processor. |
+| `kmsKeyVersionName` | `string` | The KMS key version with which data is encrypted. |
+| `createTime` | `string` | The time the processor version was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

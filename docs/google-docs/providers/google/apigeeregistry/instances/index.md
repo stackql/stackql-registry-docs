@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,12 +27,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Format: `projects/*/locations/*/instance`. Currently only locations/global is supported. |
-| `updateTime` | `string` | Output only. Last update timestamp. |
+| `name` | `string` | Format: `projects/*/locations/*/instance`. Currently only `locations/global` is supported. |
 | `config` | `object` | Available configurations to provision an Instance. |
 | `createTime` | `string` | Output only. Creation timestamp. |
 | `state` | `string` | Output only. The current state of the Instance. |
 | `stateMessage` | `string` | Output only. Extra information of Instance.State if the state is `FAILED`. |
+| `updateTime` | `string` | Output only. Last update timestamp. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,7 +27,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `array` | Required. An ordered sequence of property names and their index attributes. |
+| `properties` | `array` | Required. An ordered sequence of property names and their index attributes. Requires: * A maximum of 100 properties. |
 | `state` | `string` | Output only. The state of the index. |
 | `ancestor` | `string` | Required. The index's ancestor mode. Must not be ANCESTOR_MODE_UNSPECIFIED. |
 | `indexId` | `string` | Output only. The resource ID of the index. |

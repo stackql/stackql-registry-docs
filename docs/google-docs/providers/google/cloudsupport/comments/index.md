@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,12 +28,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name for the comment. |
+| `body` | `string` | The full comment body. Maximum of 120000 characters. This can contain rich text syntax. |
 | `createTime` | `string` | Output only. The time when this comment was created. |
 | `creator` | `object` | An object containing information about the effective user and authenticated principal responsible for an action. |
 | `plainTextBody` | `string` | Output only. An automatically generated plain text version of body with all rich text syntax stripped. |
-| `body` | `string` | The full comment body. Maximum of 120000 characters. This can contain rich text syntax. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `cases_comments_list` | `SELECT` | `parent` | Retrieve all Comments associated with the Case object. |
-| `cases_comments_create` | `INSERT` | `parent` | Add a new comment to the specified Case. |
+| `cases_comments_create` | `INSERT` | `parent` | Add a new comment to the specified Case. The comment object must have the following fields set: body. |

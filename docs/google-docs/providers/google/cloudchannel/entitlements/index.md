@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,18 +27,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Resource name of an entitlement in the form: accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}. |
-| `offer` | `string` | Required. The offer resource name for which the entitlement is to be created. Takes the form: accounts/{account_id}/offers/{offer_id}. |
+| `name` | `string` | Output only. Resource name of an entitlement in the form: accounts/&#123;account_id&#125;/customers/&#123;customer_id&#125;/entitlements/&#123;entitlement_id&#125;. |
+| `commitmentSettings` | `object` | Commitment settings for commitment-based offers. |
+| `provisionedService` | `object` | Service provisioned for an entitlement. |
 | `createTime` | `string` | Output only. The time at which the entitlement is created. |
-| `updateTime` | `string` | Output only. The time at which the entitlement is updated. |
-| `trialSettings` | `object` | Settings for trial offers. |
+| `suspensionReasons` | `array` | Output only. Enumerable of all current suspension reasons for an entitlement. |
 | `purchaseOrderId` | `string` | Optional. This purchase order (PO) information is for resellers to use for their company tracking usage. If a purchaseOrderId value is given, it appears in the API responses and shows up in the invoice. The property accepts up to 80 plain text characters. This is only supported for Google Workspace entitlements. |
 | `provisioningState` | `string` | Output only. Current provisioning state of the entitlement. |
-| `suspensionReasons` | `array` | Output only. Enumerable of all current suspension reasons for an entitlement. |
-| `commitmentSettings` | `object` | Commitment settings for commitment-based offers. |
+| `offer` | `string` | Required. The offer resource name for which the entitlement is to be created. Takes the form: accounts/&#123;account_id&#125;/offers/&#123;offer_id&#125;. |
+| `updateTime` | `string` | Output only. The time at which the entitlement is updated. |
 | `parameters` | `array` | Extended entitlement parameters. When creating an entitlement, valid parameter names and values are defined in the Offer.parameter_definitions. The response may include the following output-only Parameters: - assigned_units: The number of licenses assigned to users. - max_units: The maximum assignable units for a flexible offer. - num_units: The total commitment for commitment-based offers. |
 | `associationInfo` | `object` | Association links that an entitlement has to other entitlements. |
-| `provisionedService` | `object` | Service provisioned for an entitlement. |
+| `trialSettings` | `object` | Settings for trial offers. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

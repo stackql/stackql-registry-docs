@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 Allows developers to manage billing for their Google Cloud Platform projects programmatically.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>14</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Allows developers to manage billing for their Google Cloud Platform projects pro
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Billing API</td></tr>
 <tr><td><b>Description</b></td><td>Allows developers to manage billing for their Google Cloud Platform projects programmatically.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudbilling:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudbilling:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -35,7 +46,7 @@ Allows developers to manage billing for their Google Cloud Platform projects pro
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/cloudbilling/projects/">projects</a><br />
-<a href="/providers/google/cloudbilling/projects_billing_info/">projects_billing_info</a><br />
+<a href="/providers/google/cloudbilling/projects__billing_info/">projects__billing_info</a><br />
 <a href="/providers/google/cloudbilling/services/">services</a><br />
 <a href="/providers/google/cloudbilling/skus/">skus</a><br />
 </div>

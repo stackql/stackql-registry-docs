@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,11 +27,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Globally unique identifier of this tenancy unit "services/{service}/{collection id}/{resource id}/tenancyUnits/{unit}" |
+| `name` | `string` | Globally unique identifier of this tenancy unit "services/&#123;service&#125;/&#123;collection id&#125;/&#123;resource id&#125;/tenancyUnits/&#123;unit&#125;" |
+| `createTime` | `string` | Output only. @OutputOnly The time this tenancy unit was created. |
 | `service` | `string` | Output only. Google Cloud API name of the managed service owning this tenancy unit. For example 'serviceconsumermanagement.googleapis.com'. |
 | `tenantResources` | `array` | Resources constituting the tenancy unit. There can be at most 512 tenant resources in a tenancy unit. |
 | `consumer` | `string` | Output only. @OutputOnly Cloud resource name of the consumer of this service. For example 'projects/123456'. |
-| `createTime` | `string` | Output only. @OutputOnly The time this tenancy unit was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

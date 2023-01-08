@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 You can use OS Login to manage access to your VM instances using IAM roles.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>7</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ You can use OS Login to manage access to your VM instances using IAM roles.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud OS Login API</td></tr>
 <tr><td><b>Description</b></td><td>You can use OS Login to manage access to your VM instances using IAM roles.</td></tr>
-<tr><td><b>Id</b></td><td><code>oslogin:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>oslogin:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -33,6 +44,6 @@ You can use OS Login to manage access to your VM instances using IAM roles.
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/oslogin/users/">users</a><br />
-<a href="/providers/google/oslogin/users_login_profile/">users_login_profile</a><br />
+<a href="/providers/google/oslogin/users__login_profile/">users__login_profile</a><br />
 </div>
 </div>

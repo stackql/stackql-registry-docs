@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `createTime` | `string` | Creation time of the rollout. Readonly. |
+| `createdBy` | `string` | The user who created the Rollout. Readonly. |
 | `deleteServiceStrategy` | `object` | Strategy used to delete a service. This strategy is a placeholder only used by the system generated rollout to delete a service. |
 | `rolloutId` | `string` | Optional. Unique identifier of this Rollout. Must be no longer than 63 characters and only lower case letters, digits, '.', '_' and '-' are allowed. If not specified by client, the server will generate one. The generated id will have the form of , where "date" is the create date in ISO 8601 format. "revision number" is a monotonically increasing positive number that is reset every day for each service. An example of the generated rollout_id is '2016-02-16r1' |
 | `serviceName` | `string` | The name of the service associated with this Rollout. |
 | `status` | `string` | The status of this rollout. Readonly. In case of a failed rollout, the system will automatically rollback to the current Rollout version. Readonly. |
-| `trafficPercentStrategy` | `object` | Strategy that specifies how clients of Google Service Controller want to send traffic to use different config versions. This is generally used by API proxy to split traffic based on your configured percentage for each config version. One example of how to gradually rollout a new service configuration using this strategy: Day 1 Rollout { id: "example.googleapis.com/rollout_20160206" traffic_percent_strategy { percentages: { "example.googleapis.com/20160201": 70.00 "example.googleapis.com/20160206": 30.00 } } } Day 2 Rollout { id: "example.googleapis.com/rollout_20160207" traffic_percent_strategy: { percentages: { "example.googleapis.com/20160206": 100.00 } } } |
-| `createTime` | `string` | Creation time of the rollout. Readonly. |
-| `createdBy` | `string` | The user who created the Rollout. Readonly. |
+| `trafficPercentStrategy` | `object` | Strategy that specifies how clients of Google Service Controller want to send traffic to use different config versions. This is generally used by API proxy to split traffic based on your configured percentage for each config version. One example of how to gradually rollout a new service configuration using this strategy: Day 1 Rollout &#123; id: "example.googleapis.com/rollout_20160206" traffic_percent_strategy &#123; percentages: &#123; "example.googleapis.com/20160201": 70.00 "example.googleapis.com/20160206": 30.00 &#125; &#125; &#125; Day 2 Rollout &#123; id: "example.googleapis.com/rollout_20160207" traffic_percent_strategy: &#123; percentages: &#123; "example.googleapis.com/20160206": 100.00 &#125; &#125; &#125; |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

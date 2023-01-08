@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 TPU API provides customers with access to Google TPU technology.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>19</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ TPU API provides customers with access to Google TPU technology.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud TPU API</td></tr>
 <tr><td><b>Description</b></td><td>TPU API provides customers with access to Google TPU technology.</td></tr>
-<tr><td><b>Id</b></td><td><code>tpu:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>tpu:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -33,7 +44,8 @@ TPU API provides customers with access to Google TPU technology.
 <a href="/providers/google/tpu/nodes/">nodes</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/tpu/nodes__guest_attributes/">nodes__guest_attributes</a><br />
 <a href="/providers/google/tpu/operations/">operations</a><br />
-<a href="/providers/google/tpu/tensorflow_versions/">tensorflow_versions</a><br />
+<a href="/providers/google/tpu/runtime_versions/">runtime_versions</a><br />
 </div>
 </div>

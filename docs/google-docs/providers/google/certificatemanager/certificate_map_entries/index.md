@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -29,13 +29,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `name` | `string` | A user-defined name of the Certificate Map Entry. Certificate Map Entry names must be unique globally and match pattern `projects/*/locations/*/certificateMaps/*/certificateMapEntries/*`. |
 | `description` | `string` | One or more paragraphs of text description of a certificate map entry. |
+| `updateTime` | `string` | Output only. The update timestamp of a Certificate Map Entry. |
 | `certificates` | `array` | A set of Certificates defines for the given `hostname`. There can be defined up to fifteen certificates in each Certificate Map Entry. Each certificate must match pattern `projects/*/locations/*/certificates/*`. |
-| `createTime` | `string` | Output only. The creation timestamp of a Certificate Map Entry. |
-| `hostname` | `string` | A Hostname (FQDN, e.g. `example.com`) or a wildcard hostname expression (`*.example.com`) for a set of hostnames with common suffix. Used as Server Name Indication (SNI) for selecting a proper certificate. |
 | `labels` | `object` | Set of labels associated with a Certificate Map Entry. |
 | `matcher` | `string` | A predefined matcher for particular cases, other than SNI selection. |
 | `state` | `string` | Output only. A serving state of this Certificate Map Entry. |
-| `updateTime` | `string` | Output only. The update timestamp of a Certificate Map Entry. |
+| `hostname` | `string` | A Hostname (FQDN, e.g. `example.com`) or a wildcard hostname expression (`*.example.com`) for a set of hostnames with common suffix. Used as Server Name Indication (SNI) for selecting a proper certificate. |
+| `createTime` | `string` | Output only. The creation timestamp of a Certificate Map Entry. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

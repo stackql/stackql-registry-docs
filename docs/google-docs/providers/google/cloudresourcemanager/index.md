@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 Creates, reads, and updates metadata for Google Cloud Platform resource containers.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>25</b></span><br />
+<span>total selectable resources:&nbsp;<b>25</b></span><br />
+<span>total methods:&nbsp;<b>65</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Creates, reads, and updates metadata for Google Cloud Platform resource containe
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Resource Manager API</td></tr>
 <tr><td><b>Description</b></td><td>Creates, reads, and updates metadata for Google Cloud Platform resource containers.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudresourcemanager:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudresourcemanager:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources

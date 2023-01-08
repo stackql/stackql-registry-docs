@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,29 +33,18 @@ Enables users to create and manage connections to Google Cloud services and thir
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Connectors API</td></tr>
 <tr><td><b>Description</b></td><td>Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.</td></tr>
-<tr><td><b>Id</b></td><td><code>connectors:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>connectors:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/connectors/actions/">actions</a><br />
 <a href="/providers/google/connectors/connections/">connections</a><br />
-<a href="/providers/google/connectors/connections_connection_schema_metadata/">connections_connection_schema_metadata</a><br />
-<a href="/providers/google/connectors/connections_iam_audit_configs/">connections_iam_audit_configs</a><br />
-<a href="/providers/google/connectors/connections_iam_bindings/">connections_iam_bindings</a><br />
-<a href="/providers/google/connectors/connections_iam_policies/">connections_iam_policies</a><br />
-<a href="/providers/google/connectors/connectors/">connectors</a><br />
-<a href="/providers/google/connectors/locations/">locations</a><br />
-<a href="/providers/google/connectors/locations_runtime_config/">locations_runtime_config</a><br />
+<a href="/providers/google/connectors/entities/">entities</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/connectors/operations/">operations</a><br />
-<a href="/providers/google/connectors/providers/">providers</a><br />
-<a href="/providers/google/connectors/providers_iam_audit_configs/">providers_iam_audit_configs</a><br />
-<a href="/providers/google/connectors/providers_iam_bindings/">providers_iam_bindings</a><br />
-<a href="/providers/google/connectors/providers_iam_policies/">providers_iam_policies</a><br />
-<a href="/providers/google/connectors/runtime_action_schemas/">runtime_action_schemas</a><br />
-<a href="/providers/google/connectors/runtime_entity_schemas/">runtime_entity_schemas</a><br />
-<a href="/providers/google/connectors/versions/">versions</a><br />
+<a href="/providers/google/connectors/entities__entities_with_conditions/">entities__entities_with_conditions</a><br />
+<a href="/providers/google/connectors/entity_types/">entity_types</a><br />
 </div>
 </div>

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `auditLogConfigs` | `array` | The configuration for logging of each type of permission. |
 | `exemptedMembers` | `array` | This is deprecated and has no effect. Do not use. |
 | `service` | `string` | Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all services. |
-| `auditLogConfigs` | `array` | The configuration for logging of each type of permission. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,16 +28,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource's name. |
-| `gcsProfile` | `object` | Cloud Storage bucket profile. |
-| `updateTime` | `string` | Output only. The update time of the resource. |
-| `mysqlProfile` | `object` | MySQL database profile. |
-| `labels` | `object` | Labels. |
-| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. |
-| `createTime` | `string` | Output only. The create time of the resource. |
+| `bigqueryProfile` | `object` | BigQuery warehouse profile. |
 | `oracleProfile` | `object` | Oracle database profile. |
-| `privateConnectivity` | `object` | Private Connectivity |
+| `labels` | `object` | Labels. |
 | `forwardSshConnectivity` | `object` | Forward SSH Tunnel connectivity. |
+| `privateConnectivity` | `object` | Private Connectivity |
+| `mysqlProfile` | `object` | MySQL database profile. |
+| `updateTime` | `string` | Output only. The update time of the resource. |
+| `postgresqlProfile` | `object` | PostgreSQL database profile. |
+| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. |
 | `displayName` | `string` | Required. Display name. |
+| `gcsProfile` | `object` | Cloud Storage bucket profile. |
+| `createTime` | `string` | Output only. The create time of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

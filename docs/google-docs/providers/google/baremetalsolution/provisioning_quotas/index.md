@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,14 +28,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the provisioning quota. |
-| `networkBandwidth` | `string` | Network bandwidth, Gbps |
-| `assetType` | `string` | The asset type of this provisioning quota. |
+| `instanceQuota` | `object` | A resource budget. |
 | `gcpService` | `string` | The gcp service of the provisioning quota. |
-| `location` | `string` | The specific location of the provisioining quota. |
 | `serverCount` | `string` | Server count. |
 | `availableCount` | `integer` | The available count of the provisioning quota. |
-| `instanceQuota` | `object` | A resource budget. |
+| `location` | `string` | The specific location of the provisioining quota. |
+| `networkBandwidth` | `string` | Network bandwidth, Gbps |
 | `storageGib` | `string` | Storage size (GB). |
+| `assetType` | `string` | The asset type of this provisioning quota. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

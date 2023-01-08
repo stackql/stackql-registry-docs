@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,16 +27,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Resource name of the Message, of the form `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`. Assigned by the server. |
-| `labels` | `object` | User-supplied key-value pairs used to organize HL7v2 stores. Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: \p{Ll}\p{Lo}{0,62} Label values are optional, must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: [\p{Ll}\p{Lo}\p{N}_-]{0,63} No more than 64 labels can be associated with a given store. |
-| `sendTime` | `string` | The datetime the sending application sent this message. MSH-7. |
-| `patientIds` | `array` | All patient IDs listed in the PID-2, PID-3, and PID-4 segments of this message. |
-| `schematizedData` | `object` | The content of an HL7v2 message in a structured format as specified by a schema. |
-| `sendFacility` | `string` | The hospital that this message came from. MSH-4. |
-| `createTime` | `string` | Output only. The datetime when the message was created. Set by the server. |
-| `messageType` | `string` | The message type for this message. MSH-9.1. |
+| `name` | `string` | Resource name of the Message, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/hl7V2Stores/&#123;hl7_v2_store_id&#125;/messages/&#123;message_id&#125;`. Assigned by the server. |
 | `data` | `string` | Raw message bytes. |
+| `sendFacility` | `string` | The hospital that this message came from. MSH-4. |
+| `sendTime` | `string` | The datetime the sending application sent this message. MSH-7. |
+| `createTime` | `string` | Output only. The datetime when the message was created. Set by the server. |
+| `schematizedData` | `object` | The content of an HL7v2 message in a structured format as specified by a schema. |
+| `labels` | `object` | User-supplied key-value pairs used to organize HL7v2 stores. Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: \p&#123;Ll&#125;\p&#123;Lo&#125;&#123;0,62&#125; Label values are optional, must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: [\p&#123;Ll&#125;\p&#123;Lo&#125;\p&#123;N&#125;_-]&#123;0,63&#125; No more than 64 labels can be associated with a given store. |
+| `messageType` | `string` | The message type for this message. MSH-9.1. |
 | `parsedData` | `object` | The content of a HL7v2 message in a structured format. |
+| `patientIds` | `array` | All patient IDs listed in the PID-2, PID-3, and PID-4 segments of this message. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

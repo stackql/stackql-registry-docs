@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -30,46 +30,47 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | The name of the resource, provided by the client when initially creating the resource. The resource name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `lastStartTimestamp` | `string` | [Output Only] Last start timestamp in RFC3339 text format. |
-| `resourcePolicies` | `array` | Resource policies applied to this instance. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#instance for instances. |
-| `canIpForward` | `boolean` | Allows this instance to send and receive packets with non-matching destination or source IPs. This is required if you plan to use this instance to forward routes. For more information, see Enabling IP Forwarding . |
-| `confidentialInstanceConfig` | `object` | A set of Confidential Instance options. |
-| `shieldedInstanceConfig` | `object` | A set of Shielded Instance options. |
-| `displayDevice` | `object` | A set of Display Device options |
-| `startRestricted` | `boolean` | [Output Only] Whether a VM has been restricted for start because Compute Engine has detected suspicious activity. |
-| `hostname` | `string` | Specifies the hostname of the instance. The specified hostname must be RFC1035 compliant. If hostname is not specified, the default hostname is [INSTANCE_NAME].c.[PROJECT_ID].internal when using the global DNS, and [INSTANCE_NAME].[ZONE].c.[PROJECT_ID].internal when using zonal DNS. |
-| `deletionProtection` | `boolean` | Whether the resource should be protected against deletion. |
-| `params` | `object` | Additional instance params. |
-| `advancedMachineFeatures` | `object` | Specifies options for controlling advanced machine features. Options that would traditionally be configured in a BIOS belong here. Features that require operating system support may have corresponding entries in the GuestOsFeatures of an Image (e.g., whether or not the OS in the Image supports nested virtualization being enabled or disabled). |
-| `scheduling` | `object` | Sets the scheduling options for an Instance. NextID: 21 |
-| `machineType` | `string` | Full or partial URL of the machine type resource to use for this instance, in the format: zones/zone/machineTypes/machine-type. This is provided by the client when the instance is created. For example, the following is a valid partial url to a predefined machine type: zones/us-central1-f/machineTypes/n1-standard-1 To create a custom machine type, provide a URL to a machine type in the following format, where CPUS is 1 or an even number up to 32 (2, 4, 6, ... 24, etc), and MEMORY is the total memory for this instance. Memory must be a multiple of 256 MB and must be supplied in MB (e.g. 5 GB of memory is 5120 MB): zones/zone/machineTypes/custom-CPUS-MEMORY For example: zones/us-central1-f/machineTypes/custom-4-5120 For a full list of restrictions, read the Specifications for custom machine types. |
-| `disks` | `array` | Array of disks associated with this instance. Persistent disks must be created before you can assign them. |
-| `keyRevocationActionType` | `string` | KeyRevocationActionType of the instance. Supported options are "STOP" and "NONE". The default value is "NONE" if it is not specified. |
-| `zone` | `string` | [Output Only] URL of the zone where the instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
-| `networkPerformanceConfig` | `object` |  |
-| `metadata` | `object` | A metadata key/value entry. |
-| `sourceMachineImageEncryptionKey` | `object` |  |
-| `selfLink` | `string` | [Output Only] Server-defined URL for this resource. |
-| `lastStopTimestamp` | `string` | [Output Only] Last stop timestamp in RFC3339 text format. |
-| `reservationAffinity` | `object` | Specifies the reservations that this instance can consume from. |
 | `minCpuPlatform` | `string` | Specifies a minimum CPU platform for the VM instance. Applicable values are the friendly names of CPU platforms, such as minCpuPlatform: "Intel Haswell" or minCpuPlatform: "Intel Sandy Bridge". |
-| `tags` | `object` | A set of instance tags. |
-| `sourceMachineImage` | `string` | Source machine image |
-| `lastSuspendedTimestamp` | `string` | [Output Only] Last suspended timestamp in RFC3339 text format. |
-| `serviceAccounts` | `array` | A list of service accounts, with their specified scopes, authorized for this instance. Only one service account per VM instance is supported. Service accounts generate access tokens that can be accessed through the metadata server and used to authenticate applications on the instance. See Service Accounts for more information. |
-| `statusMessage` | `string` | [Output Only] An optional, human-readable explanation of the status. |
-| `status` | `string` | [Output Only] The status of the instance. One of the following values: PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING, SUSPENDED, REPAIRING, and TERMINATED. For more information about the status of the instance, see Instance life cycle. |
-| `shieldedInstanceIntegrityPolicy` | `object` | The policy describes the baseline against which Instance boot integrity is measured. |
-| `labelFingerprint` | `string` | A fingerprint for this request, which is essentially a hash of the label's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels. To see the latest fingerprint, make get() request to the instance. |
-| `labels` | `object` | Labels to apply to this instance. These can be later modified by the setLabels method. |
-| `privateIpv6GoogleAccess` | `string` | The private IPv6 google access type for the VM. If not specified, use INHERIT_FROM_SUBNETWORK as default. |
-| `networkInterfaces` | `array` | An array of network configurations for this instance. These specify how interfaces are configured to interact with other network services, such as connecting to the internet. Multiple interfaces are supported per instance. |
-| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
-| `guestAccelerators` | `array` | A list of the type and count of accelerator cards attached to the instance. |
-| `cpuPlatform` | `string` | [Output Only] The CPU platform used by this instance. |
-| `fingerprint` | `string` | Specifies a fingerprint for this resource, which is essentially a hash of the instance's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update the instance. You must always provide an up-to-date fingerprint hash in order to update the instance. To see the latest fingerprint, make get() request to the instance. |
+| `disks` | `array` | Array of disks associated with this instance. Persistent disks must be created before you can assign them. |
+| `sourceMachineImageEncryptionKey` | `object` |  |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
+| `privateIpv6GoogleAccess` | `string` | The private IPv6 google access type for the VM. If not specified, use INHERIT_FROM_SUBNETWORK as default. |
+| `hostname` | `string` | Specifies the hostname of the instance. The specified hostname must be RFC1035 compliant. If hostname is not specified, the default hostname is [INSTANCE_NAME].c.[PROJECT_ID].internal when using the global DNS, and [INSTANCE_NAME].[ZONE].c.[PROJECT_ID].internal when using zonal DNS. |
+| `networkPerformanceConfig` | `object` |  |
+| `lastStopTimestamp` | `string` | [Output Only] Last stop timestamp in RFC3339 text format. |
+| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
+| `shieldedInstanceConfig` | `object` | A set of Shielded Instance options. |
+| `tags` | `object` | A set of instance tags. |
+| `lastSuspendedTimestamp` | `string` | [Output Only] Last suspended timestamp in RFC3339 text format. |
+| `machineType` | `string` | Full or partial URL of the machine type resource to use for this instance, in the format: zones/zone/machineTypes/machine-type. This is provided by the client when the instance is created. For example, the following is a valid partial url to a predefined machine type: zones/us-central1-f/machineTypes/n1-standard-1 To create a custom machine type, provide a URL to a machine type in the following format, where CPUS is 1 or an even number up to 32 (2, 4, 6, ... 24, etc), and MEMORY is the total memory for this instance. Memory must be a multiple of 256 MB and must be supplied in MB (e.g. 5 GB of memory is 5120 MB): zones/zone/machineTypes/custom-CPUS-MEMORY For example: zones/us-central1-f/machineTypes/custom-4-5120 For a full list of restrictions, read the Specifications for custom machine types. |
+| `displayDevice` | `object` | A set of Display Device options |
+| `serviceAccounts` | `array` | A list of service accounts, with their specified scopes, authorized for this instance. Only one service account per VM instance is supported. Service accounts generate access tokens that can be accessed through the metadata server and used to authenticate applications on the instance. See Service Accounts for more information. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for this resource. |
+| `labelFingerprint` | `string` | A fingerprint for this request, which is essentially a hash of the label's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels. To see the latest fingerprint, make get() request to the instance. |
+| `metadata` | `object` | A metadata key/value entry. |
+| `shieldedInstanceIntegrityPolicy` | `object` | The policy describes the baseline against which Instance boot integrity is measured. |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#instance for instances. |
+| `lastStartTimestamp` | `string` | [Output Only] Last start timestamp in RFC3339 text format. |
+| `labels` | `object` | Labels to apply to this instance. These can be later modified by the setLabels method. |
+| `deletionProtection` | `boolean` | Whether the resource should be protected against deletion. |
+| `statusMessage` | `string` | [Output Only] An optional, human-readable explanation of the status. |
+| `scheduling` | `object` | Sets the scheduling options for an Instance. |
+| `status` | `string` | [Output Only] The status of the instance. One of the following values: PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING, SUSPENDED, REPAIRING, and TERMINATED. For more information about the status of the instance, see Instance life cycle. |
+| `guestAccelerators` | `array` | A list of the type and count of accelerator cards attached to the instance. |
+| `fingerprint` | `string` | Specifies a fingerprint for this resource, which is essentially a hash of the instance's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update the instance. You must always provide an up-to-date fingerprint hash in order to update the instance. To see the latest fingerprint, make get() request to the instance. |
+| `advancedMachineFeatures` | `object` | Specifies options for controlling advanced machine features. Options that would traditionally be configured in a BIOS belong here. Features that require operating system support may have corresponding entries in the GuestOsFeatures of an Image (e.g., whether or not the OS in the Image supports nested virtualization being enabled or disabled). |
+| `reservationAffinity` | `object` | Specifies the reservations that this instance can consume from. |
+| `cpuPlatform` | `string` | [Output Only] The CPU platform used by this instance. |
+| `canIpForward` | `boolean` | Allows this instance to send and receive packets with non-matching destination or source IPs. This is required if you plan to use this instance to forward routes. For more information, see Enabling IP Forwarding . |
+| `params` | `object` | Additional instance params. |
+| `startRestricted` | `boolean` | [Output Only] Whether a VM has been restricted for start because Compute Engine has detected suspicious activity. |
+| `keyRevocationActionType` | `string` | KeyRevocationActionType of the instance. Supported options are "STOP" and "NONE". The default value is "NONE" if it is not specified. |
+| `resourcePolicies` | `array` | Resource policies applied to this instance. |
+| `confidentialInstanceConfig` | `object` | A set of Confidential Instance options. |
+| `resourceStatus` | `object` | Contains output only fields. Use this sub-message for actual values set on Instance attributes as compared to the value requested by the user (intent) in their instance CRUD calls. |
+| `sourceMachineImage` | `string` | Source machine image |
+| `networkInterfaces` | `array` | An array of network configurations for this instance. These specify how interfaces are configured to interact with other network services, such as connecting to the internet. Multiple interfaces are supported per instance. |
+| `zone` | `string` | [Output Only] URL of the zone where the instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

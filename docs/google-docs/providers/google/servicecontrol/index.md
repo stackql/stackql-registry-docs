@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 Provides admission control and telemetry reporting for services integrated with Service Infrastructure.   
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>0</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Provides admission control and telemetry reporting for services integrated with 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Control API</td></tr>
 <tr><td><b>Description</b></td><td>Provides admission control and telemetry reporting for services integrated with Service Infrastructure. </td></tr>
-<tr><td><b>Id</b></td><td><code>servicecontrol:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>servicecontrol:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources

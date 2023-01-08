@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,13 +28,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The unique identifier of the test case. TestCases.CreateTestCase will populate the name automatically. Otherwise use format: `projects//locations//agents/ /testCases/`. |
+| `creationTime` | `string` | Output only. When the test was created. |
+| `displayName` | `string` | Required. The human-readable name of the test case, unique within the agent. Limit of 200 characters. |
+| `lastTestResult` | `object` | Represents a result from running a test case in an agent environment. |
 | `notes` | `string` | Additional freeform notes about the test case. Limit of 400 characters. |
 | `tags` | `array` | Tags are short descriptions that users may apply to test cases for organizational and filtering purposes. Each tag should start with "#" and has a limit of 30 characters. |
 | `testCaseConversationTurns` | `array` | The conversation turns uttered when the test case was created, in chronological order. These include the canonical set of agent utterances that should occur when the agent is working properly. |
 | `testConfig` | `object` | Represents configurations for a test case. |
-| `creationTime` | `string` | Output only. When the test was created. |
-| `displayName` | `string` | Required. The human-readable name of the test case, unique within the agent. Limit of 200 characters. |
-| `lastTestResult` | `object` | Represents a result from running a test case in an agent environment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

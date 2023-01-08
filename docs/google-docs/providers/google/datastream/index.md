@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>31</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Datastream API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>datastream:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datastream:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -30,7 +41,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 <div class="providerDocColumn">
 <a href="/providers/google/datastream/connection_profiles/">connection_profiles</a><br />
 <a href="/providers/google/datastream/locations/">locations</a><br />
-<a href="/providers/google/datastream/locations_static_ips/">locations_static_ips</a><br />
+<a href="/providers/google/datastream/locations__static_ips/">locations__static_ips</a><br />
 <a href="/providers/google/datastream/objects/">objects</a><br />
 </div>
 <div class="providerDocColumn">

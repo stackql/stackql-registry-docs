@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 Backup for GKE is a managed Kubernetes workload backup and restore service for GKE clusters.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>27</b></span><br />
+<span>total selectable resources:&nbsp;<b>26</b></span><br />
+<span>total methods:&nbsp;<b>60</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Backup for GKE is a managed Kubernetes workload backup and restore service for G
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Backup for GKE API</td></tr>
 <tr><td><b>Description</b></td><td>Backup for GKE is a managed Kubernetes workload backup and restore service for GKE clusters.</td></tr>
-<tr><td><b>Id</b></td><td><code>gkebackup:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gkebackup:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -37,7 +48,7 @@ Backup for GKE is a managed Kubernetes workload backup and restore service for G
 <a href="/providers/google/gkebackup/backups_iam_bindings/">backups_iam_bindings</a><br />
 <a href="/providers/google/gkebackup/backups_iam_policies/">backups_iam_policies</a><br />
 <a href="/providers/google/gkebackup/locations/">locations</a><br />
-<a href="/providers/google/gkebackup/locations_operations/">locations_operations</a><br />
+<a href="/providers/google/gkebackup/locations__operations/">locations__operations</a><br />
 <a href="/providers/google/gkebackup/operations/">operations</a><br />
 <a href="/providers/google/gkebackup/restore_plans/">restore_plans</a><br />
 <a href="/providers/google/gkebackup/restore_plans_iam_audit_configs/">restore_plans_iam_audit_configs</a><br />

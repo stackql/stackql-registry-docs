@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 Accesses the NoSQL document database built for automatic scaling, high performance, and ease of application development.   
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>37</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Accesses the NoSQL document database built for automatic scaling, high performan
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Firestore API</td></tr>
 <tr><td><b>Description</b></td><td>Accesses the NoSQL document database built for automatic scaling, high performance, and ease of application development. </td></tr>
-<tr><td><b>Id</b></td><td><code>firestore:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>firestore:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -30,9 +41,9 @@ Accesses the NoSQL document database built for automatic scaling, high performan
 <div class="providerDocColumn">
 <a href="/providers/google/firestore/databases/">databases</a><br />
 <a href="/providers/google/firestore/documents/">documents</a><br />
-<a href="/providers/google/firestore/documents_collection_ids/">documents_collection_ids</a><br />
-<a href="/providers/google/firestore/documents_document/">documents_document</a><br />
-<a href="/providers/google/firestore/documents_documents/">documents_documents</a><br />
+<a href="/providers/google/firestore/documents__collection_ids/">documents__collection_ids</a><br />
+<a href="/providers/google/firestore/documents__document/">documents__document</a><br />
+<a href="/providers/google/firestore/documents__documents/">documents__documents</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/firestore/documents_en/">documents_en</a><br />

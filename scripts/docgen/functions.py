@@ -1,8 +1,6 @@
 import os, sys, json, pandas as pd
 from math import ceil
 from provider_data import *
-from pystackql import StackQL
-iql = StackQL(exe="./stackql")
 
 def make_web_safe(str):
     safe_str = str
@@ -35,6 +33,7 @@ def write_file(fileName, contents):
 
 def generate_front_matter(title, meta_description, description, image, keyword2=None, keyword3=None):
     if keyword2 is None and keyword3 is None:
+        # provider level
         return """---
 title: %s
 hide_title: false
@@ -48,11 +47,16 @@ keywords:
 description: %s
 custom_edit_url: null
 image: %s
+id: %s-doc
+slug: /providers/%s
+
 ---
 %s  
     
-""" % (title, title, meta_description, image, description)
+""" % (title, title, meta_description, image, title, title, description)
+
     elif keyword3 is None and keyword2 is not None:
+        # service level
         return """---
 title: %s
 hide_title: false
@@ -71,7 +75,9 @@ image: %s
 %s  
     
 """ % (title, title, keyword2, meta_description, image, description)
+
     else:
+        # resource level
         return """---
 title: %s
 hide_title: false
@@ -192,6 +198,11 @@ def generate_resource_overview(provider, serviceName, resourceObj):
 
 """ % (resourceObj["name"], resourceObj["id"], make_web_safe(resourceObj["description"]))
 
+def generate_select_not_supported():
+    output = "## Fields\n"
+    output = output + "`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  \n"
+    return output
+
 def generate_fields_table(fields):
     output = "## Fields\n"
     if fields.shape[0] > 1:
@@ -205,8 +216,6 @@ def generate_fields_table(fields):
             output = output + "|:-----|:---------|:------------|\n"
             for fieldIx, fieldRow in fields.iterrows():
                 output = output + "| `%s` | `%s` | %s |\n" % (fieldRow["name"], fieldRow["type"], make_markdown_table_safe(fieldRow["description"]))
-    else:
-        output = output + "`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  \n"
     return output
 
 def generate_methods_table(methods):
@@ -250,3 +259,30 @@ def run_stackql_query(query, retries):
 
 def create_html_link(url, title):
     return """<a href="%s">%s</a>""" % (url, title)
+
+def generate_provider_summary(num_services, num_methods, num_resources, num_selectable_resources):
+    output = ":::info Provider Summary\n\n"
+    output = output + '<div class="row">\n'
+    output = output + '<div class="providerDocColumn">\n'
+    output = output + '<span>total services:&nbsp;<b>%s</b></span><br />\n' % num_services
+    output = output + '<span>total methods:&nbsp;<b>%s</b></span><br />\n' % num_methods
+    output = output + '</div>\n'
+    output = output + '<div class="providerDocColumn">\n'
+    output = output + '<span>total resources:&nbsp;<b>%s</b></span><br />\n' % num_resources
+    output = output + '<span>total selectable resources:&nbsp;<b>%s</b></span><br />\n' % num_selectable_resources
+    output = output + '</div>\n'
+    output = output + '</div>\n\n'
+    output = output + ":::\n"
+    return output
+
+def generate_service_summary(num_methods, num_resources, num_selectable_resources):
+    output = ":::info Service Summary\n\n"
+    output = output + '<div class="row">\n'
+    output = output + '<div class="providerDocColumn">\n'
+    output = output + '<span>total resources:&nbsp;<b>%s</b></span><br />\n' % num_resources
+    output = output + '<span>total selectable resources:&nbsp;<b>%s</b></span><br />\n' % num_selectable_resources
+    output = output + '<span>total methods:&nbsp;<b>%s</b></span><br />\n' % num_methods
+    output = output + '</div>\n'
+    output = output + '</div>\n\n'
+    output = output + ":::\n"
+    return output

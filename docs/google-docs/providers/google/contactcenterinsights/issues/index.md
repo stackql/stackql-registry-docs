@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Immutable. The resource name of the issue. Format: projects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue} |
-| `updateTime` | `string` | Output only. The most recent time that this issue was updated. |
+| `name` | `string` | Immutable. The resource name of the issue. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/issueModels/&#123;issue_model&#125;/issues/&#123;issue&#125; |
 | `createTime` | `string` | Output only. The time at which this issue was created. |
 | `displayName` | `string` | The representative name for the issue. |
+| `sampleUtterances` | `array` | Output only. Resource names of the sample representative utterances that match to this issue. |
+| `updateTime` | `string` | Output only. The most recent time that this issue was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_issueModels_issues_get` | `SELECT` | `issueModelsId, issuesId, locationsId, projectsId` | Gets an issue. |
 | `projects_locations_issueModels_issues_list` | `SELECT` | `issueModelsId, locationsId, projectsId` | Lists issues. |
+| `projects_locations_issueModels_issues_delete` | `DELETE` | `issueModelsId, issuesId, locationsId, projectsId` | Deletes an issue. |
 | `projects_locations_issueModels_issues_patch` | `EXEC` | `issueModelsId, issuesId, locationsId, projectsId` | Updates an issue. |

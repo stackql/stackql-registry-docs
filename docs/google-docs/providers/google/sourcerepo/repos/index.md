@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -28,10 +28,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name of the repository, of the form `projects//repos/`. The repo name may contain slashes. eg, `projects/myproject/repos/name/with/slash` |
+| `pubsubConfigs` | `object` | How this repository publishes a change in the repository through Cloud Pub/Sub. Keyed by the topic names. |
 | `size` | `string` | The disk usage of the repo, in bytes. Read-only field. Size is only returned by GetRepo. |
 | `url` | `string` | URL to clone the repository from Google Cloud Source Repositories. Read-only field. |
 | `mirrorConfig` | `object` | Configuration to automatically mirror a repository from another hosting service, for example GitHub or Bitbucket. |
-| `pubsubConfigs` | `object` | How this repository publishes a change in the repository through Cloud Pub/Sub. Keyed by the topic names. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

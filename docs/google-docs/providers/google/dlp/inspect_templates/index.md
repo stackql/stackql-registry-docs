@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -44,10 +44,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `projects_inspectTemplates_list` | `SELECT` | `projectsId` | Lists InspectTemplates. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `projects_locations_inspectTemplates_get` | `SELECT` | `inspectTemplatesId, locationsId, projectsId` | Gets an InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `projects_locations_inspectTemplates_list` | `SELECT` | `locationsId, projectsId` | Lists InspectTemplates. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
-| `organizations_inspectTemplates_create` | `INSERT` | `organizationsId` | Creates an InspectTemplate for re-using frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
-| `organizations_locations_inspectTemplates_create` | `INSERT` | `locationsId, organizationsId` | Creates an InspectTemplate for re-using frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
-| `projects_inspectTemplates_create` | `INSERT` | `projectsId` | Creates an InspectTemplate for re-using frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
-| `projects_locations_inspectTemplates_create` | `INSERT` | `locationsId, projectsId` | Creates an InspectTemplate for re-using frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
+| `organizations_inspectTemplates_create` | `INSERT` | `organizationsId` | Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
+| `organizations_locations_inspectTemplates_create` | `INSERT` | `locationsId, organizationsId` | Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
+| `projects_inspectTemplates_create` | `INSERT` | `projectsId` | Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
+| `projects_locations_inspectTemplates_create` | `INSERT` | `locationsId, projectsId` | Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `organizations_inspectTemplates_delete` | `DELETE` | `inspectTemplatesId, organizationsId` | Deletes an InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `organizations_locations_inspectTemplates_delete` | `DELETE` | `inspectTemplatesId, locationsId, organizationsId` | Deletes an InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `projects_inspectTemplates_delete` | `DELETE` | `inspectTemplatesId, projectsId` | Deletes an InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |

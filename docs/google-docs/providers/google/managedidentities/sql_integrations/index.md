@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
   
     
@@ -27,11 +27,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The unique name of the SQL integration in the form of `projects/{project_id}/locations/global/domains/{domain_name}/sqlIntegrations/{sql_integration}` |
-| `createTime` | `string` | Output only. The time the SQL integration was created. |
-| `sqlInstance` | `string` | The full resource name of an integrated SQL instance |
+| `name` | `string` | The unique name of the SQL integration in the form of `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;/sqlIntegrations/&#123;sql_integration&#125;` |
 | `state` | `string` | Output only. The current state of the SQL integration. |
 | `updateTime` | `string` | Output only. The time the SQL integration was updated. |
+| `createTime` | `string` | Output only. The time the SQL integration was created. |
+| `sqlInstance` | `string` | The full resource name of an integrated SQL instance |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

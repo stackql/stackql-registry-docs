@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 API for provisioning and managing identity resources.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>41</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ API for provisioning and managing identity resources.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Identity API</td></tr>
 <tr><td><b>Description</b></td><td>API for provisioning and managing identity resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudidentity:v1.0.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudidentity:v23.01.00114</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -34,8 +45,9 @@ API for provisioning and managing identity resources.
 <a href="/providers/google/cloudidentity/groups/">groups</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/cloudidentity/groups_security_settings/">groups_security_settings</a><br />
+<a href="/providers/google/cloudidentity/groups__security_settings/">groups__security_settings</a><br />
 <a href="/providers/google/cloudidentity/memberships/">memberships</a><br />
-<a href="/providers/google/cloudidentity/memberships_membership_graph/">memberships_membership_graph</a><br />
+<a href="/providers/google/cloudidentity/memberships__membership_graph/">memberships__membership_graph</a><br />
+<a href="/providers/google/cloudidentity/userinvitations/">userinvitations</a><br />
 </div>
 </div>
