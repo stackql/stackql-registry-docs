@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
   
     
@@ -25,11 +25,6 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | Resource name of the bucket. |
-| `location` | `string` | Output only. Location of the storage bucket. |
-| `reconciling` | `boolean` | Output only. Represents whether a bucket is being moved to a new location, in which case reconciling is set to true. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

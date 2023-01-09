@@ -13,19 +13,20 @@ custom_edit_url: null
 image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 id: firebase-doc
 slug: /providers/firebase
+
 ---
 Application development platform for creating mobile and web applications.  
-
+    
 :::info Provider Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>9</b></span><br />
-<span>total methods:&nbsp;<b>100</b></span><br />
+<span>total methods:&nbsp;<b>138</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>37</b></span><br />
-<span>selectable resources:&nbsp;<b>28</b></span><br />
+<span>total resources:&nbsp;<b>53</b></span><br />
+<span>total selectable resources:&nbsp;<b>41</b></span><br />
 </div>
 </div>
 
@@ -37,11 +38,12 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL firebase v23.01.00104;
+REGISTRY PULL firebase v23.01.00114;
 ```
 
 ## Authentication
 ```javascript
+
 {
   "firebase": {
     /**
@@ -55,7 +57,8 @@ REGISTRY PULL firebase v23.01.00104;
       */
     "credentialsfilepath": string, 
   }
-}
+}  
+
 ```
 ### Example (Mac/Linux)
 ```bash
@@ -74,14 +77,14 @@ stackql.exe shell --auth=$Auth
 ## Services
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/firebase/fcm/">fcm</a><br />
-<a href="/providers/firebase/fcmdata/">fcmdata</a><br />
+<a href="/providers/firebase/firebase/">firebase</a><br />
 <a href="/providers/firebase/firebaseappcheck/">firebaseappcheck</a><br />
 <a href="/providers/firebase/firebasedatabase/">firebasedatabase</a><br />
 <a href="/providers/firebase/firebasedynamiclinks/">firebasedynamiclinks</a><br />
+<a href="/providers/firebase/firebasehosting/">firebasehosting</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/firebase/firebasehosting/">firebasehosting</a><br />
+<a href="/providers/firebase/firebaseml/">firebaseml</a><br />
 <a href="/providers/firebase/firebaserules/">firebaserules</a><br />
 <a href="/providers/firebase/firebasestorage/">firebasestorage</a><br />
 <a href="/providers/firebase/toolresults/">toolresults</a><br />

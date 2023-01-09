@@ -1,13 +1,43 @@
 provider_data = {
+'googleworkspace': {
+    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
+    'description': 'Productivity and collaboration tools for businesses.',
+    'image': '/img/providers/googleworkspace/stackql-googleworkspace-provider-featured-image.png' 
+},
+'googlemybusiness': {
+    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
+    'description': 'Tools for businesses to manage their online presence.',
+    'image': '/img/providers/googlemybusiness/stackql-googlemybusiness-provider-featured-image.png' 
+},
+'googledevelopers': {
+    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
+    'description': 'Developer APIs by Google.',
+    'image': '/img/providers/googledevelopers/stackql-googledevelopers-provider-featured-image.png' 
+},
+'googleanalytics': {
+    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
+    'description': 'Web tracking and analytics service.',
+    'image': '/img/providers/googleanalytics/stackql-googleanalytics-provider-featured-image.png' 
+},
+'googleads': {
+    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
+    'description': 'Online advertising platform by Google.',
+    'image': '/img/providers/googleads/stackql-googleads-provider-featured-image.png' 
+},
+'youtube': {
+    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
+    'description': 'Online video sharing and social media platform.',
+    'image': '/img/providers/youtube/stackql-youtube-provider-featured-image.png' 
+},  
 'firebase': {
     'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
     'description': 'Application development platform for creating mobile and web applications.',
-    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
+    'image': '/img/providers/firebase/stackql-firebase-provider-featured-image.png' 
 },
 'github': {
     'meta_description': 'Query, deploy and manage GitHub resources using SQL',
     'description': 'Web-based version-control and collaboration.',
-    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
+    'image': '/img/providers/github/stackql-github-provider-featured-image.png' 
 },
 'google': {
     'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
@@ -17,22 +47,22 @@ provider_data = {
 'k8s': {
     'meta_description': 'Query, deploy and manage Kubernetes resources using SQL',
     'description': 'Open source container management platform.',
-    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
+    'image': '/img/providers/k8s/stackql-k8s-provider-featured-image.png' 
 },
 'netlify': {
     'meta_description': 'Query, deploy and manage Netlify resources using SQL',
     'description': 'Web development and content distribution platform.',
-    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
+    'image': '/img/providers/netlify/stackql-netlify-provider-featured-image.png' 
 },
 'okta': {
     'meta_description': 'Query, deploy and manage Okta resources using SQL',
     'description': 'Authentication and authorization services.',
-    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
+    'image': '/img/providers/okta/stackql-okta-provider-featured-image.png' 
 },
 'aws': {
     'meta_description': 'Query, deploy and manage AWS resources using SQL',
     'description': 'Cloud services from AWS.',
-    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
+    'image': '/img/providers/aws/stackql-aws-provider-featured-image.png' 
 },
 'azure': {
     'meta_description': 'Query, deploy and manage Azure resources using SQL',
@@ -42,6 +72,186 @@ provider_data = {
 }
 
 auth_blocks = {
+'googleworkspace': {
+    'auth': """
+{
+  "googleworkspace": {
+    /**
+      * Type of authentication to use, suported values include: service_account, interactive
+      * @type String
+      */
+    "type": string, 
+    /**
+      * path to service account key file.
+      * @type String
+      */
+    "credentialsfilepath": string, 
+  }
+}
+""",
+    'example': {
+        'linux':
+"""
+AUTH='{ "googleworkspace": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+stackql shell --auth="${AUTH}"
+""",
+        'windows':
+"""
+$Auth = "{ 'googleworkspace': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+stackql.exe shell --auth=$Auth
+"""
+    }
+},
+'googlemybusiness': {
+    'auth': """
+{
+  "googlemybusiness": {
+    /**
+      * Type of authentication to use, suported values include: service_account, interactive
+      * @type String
+      */
+    "type": string, 
+    /**
+      * path to service account key file.
+      * @type String
+      */
+    "credentialsfilepath": string, 
+  }
+}
+""",
+    'example': {
+        'linux':
+"""
+AUTH='{ "googlemybusiness": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+stackql shell --auth="${AUTH}"
+""",
+        'windows':
+"""
+$Auth = "{ 'googlemybusiness': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+stackql.exe shell --auth=$Auth
+"""
+    }
+},
+'googledevelopers': {
+    'auth': """
+{
+  "googledevelopers": {
+    /**
+      * Type of authentication to use, suported values include: service_account, interactive
+      * @type String
+      */
+    "type": string, 
+    /**
+      * path to service account key file.
+      * @type String
+      */
+    "credentialsfilepath": string, 
+  }
+}
+""",
+    'example': {
+        'linux':
+"""
+AUTH='{ "googledevelopers": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+stackql shell --auth="${AUTH}"
+""",
+        'windows':
+"""
+$Auth = "{ 'googledevelopers': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+stackql.exe shell --auth=$Auth
+"""
+    }
+},
+'googleanalytics': {
+    'auth': """
+{
+  "googleanalytics": {
+    /**
+      * Type of authentication to use, suported values include: service_account, interactive
+      * @type String
+      */
+    "type": string, 
+    /**
+      * path to service account key file.
+      * @type String
+      */
+    "credentialsfilepath": string, 
+  }
+}
+""",
+    'example': {
+        'linux':
+"""
+AUTH='{ "googleanalytics": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+stackql shell --auth="${AUTH}"
+""",
+        'windows':
+"""
+$Auth = "{ 'googleanalytics': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+stackql.exe shell --auth=$Auth
+"""
+    }
+},
+'googleads': {
+    'auth': """
+{
+  "googleads": {
+    /**
+      * Type of authentication to use, suported values include: service_account, interactive
+      * @type String
+      */
+    "type": string, 
+    /**
+      * path to service account key file.
+      * @type String
+      */
+    "credentialsfilepath": string, 
+  }
+}
+""",
+    'example': {
+        'linux':
+"""
+AUTH='{ "googleads": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+stackql shell --auth="${AUTH}"
+""",
+        'windows':
+"""
+$Auth = "{ 'googleads': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+stackql.exe shell --auth=$Auth
+"""
+    }
+},
+'youtube': {
+    'auth': """
+{
+  "youtube": {
+    /**
+      * Type of authentication to use, suported values include: service_account, interactive
+      * @type String
+      */
+    "type": string, 
+    /**
+      * path to service account key file.
+      * @type String
+      */
+    "credentialsfilepath": string, 
+  }
+}
+""",
+    'example': {
+        'linux':
+"""
+AUTH='{ "youtube": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+stackql shell --auth="${AUTH}"
+""",
+        'windows':
+"""
+$Auth = "{ 'youtube': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+stackql.exe shell --auth=$Auth
+"""
+    }
+},  
 'firebase': {
     'auth': """
 {

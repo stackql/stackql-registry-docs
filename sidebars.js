@@ -14,15 +14,21 @@ const isLocal = process.env.NODE_ENV=== 'development'
 const registry = process.env.REGISTRY || 'root'
 
 const providers = [
-  {name: 'aws'}, 
+  {name: 'google'},
   {name: 'azure'}, 
-  {name: 'firebase'}, 
-  {name: 'github'}, 
-  {name: 'google'}, 
-  {name: 'k8s'}, 
+  {name: 'aws'}, 
+  {name: 'github'},
   {name: 'netlify'},
   {name: 'okta'},
   {name: 'sumologic'},
+  {name: 'firebase'}, 
+  {name: 'k8s'}, 
+  {name: 'googleworkspace'},
+  {name: 'googlemybusiness'},
+  {name: 'googledevelopers'},
+  {name: 'googleanalytics'},
+  {name: 'googleads'},
+  {name: 'youtube'},
 ]
 
 const getProviderSiteUrl = (name) =>{

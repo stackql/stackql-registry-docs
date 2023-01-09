@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
   
     
@@ -27,7 +27,7 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. The relative resource name of the debug token, in the format: ``` projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ``` |
+| `name` | `string` | Required. The relative resource name of the debug token, in the format: ``` projects/&#123;project_number&#125;/apps/&#123;app_id&#125;/debugTokens/&#123;debug_token_id&#125; ``` |
 | `token` | `string` | Required. Input only. Immutable. The secret token itself. Must be provided during creation, and must be a UUID4, case insensitive. This field is immutable once set, and cannot be provided during an UpdateDebugToken request. You can, however, delete this debug token using DeleteDebugToken to revoke it. For security reasons, this field will never be populated in any response. |
 | `displayName` | `string` | Required. A human readable display name used to identify this debug token. |
 ## Methods

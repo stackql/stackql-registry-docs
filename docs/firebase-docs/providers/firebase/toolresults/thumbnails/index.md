@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
   
     

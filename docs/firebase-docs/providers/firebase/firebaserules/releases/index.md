@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. Format: `projects/{project_id}/releases/{release_id}` |
+| `name` | `string` | Required. Format: `projects/&#123;project_id&#125;/releases/&#123;release_id&#125;` |
+| `updateTime` | `string` | Output only. Time the release was updated. |
 | `createTime` | `string` | Output only. Time the release was created. |
 | `rulesetName` | `string` | Required. Name of the `Ruleset` referred to by this `Release`. The `Ruleset` must exist for the `Release` to be created. |
-| `updateTime` | `string` | Output only. Time the release was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
