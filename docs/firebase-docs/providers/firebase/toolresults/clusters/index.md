@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `clusterId` | `string` | A unique identifier for the cluster. @OutputOnly |
 | `keyScreen` | `object` |  |
 | `screens` | `array` | Full list of screens. |
 | `activity` | `string` | A string that describes the activity of every screen in the cluster. |
-| `clusterId` | `string` | A unique identifier for the cluster. @OutputOnly |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

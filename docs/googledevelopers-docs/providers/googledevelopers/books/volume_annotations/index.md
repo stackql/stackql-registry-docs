@@ -1,0 +1,48 @@
+---
+title: volume_annotations
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - volume_annotations
+  - books
+  - googledevelopers    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+custom_edit_url: null
+image: /img/providers/googledevelopers/stackql-googledevelopers-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>volume_annotations</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>googledevelopers.books.volume_annotations</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `string` | Unique id of this volume annotation. |
+| `selectedText` | `string` | Excerpt from the volume. |
+| `annotationDataId` | `string` | The annotation data id for this volume annotation. |
+| `annotationDataLink` | `string` | Link to get data for this annotation. |
+| `pageIds` | `array` | Pages the annotation spans. |
+| `volumeId` | `string` | The Volume this annotation is for. |
+| `kind` | `string` | Resource Type |
+| `data` | `string` | Data for this annotation. |
+| `deleted` | `boolean` | Indicates that this annotation is deleted. |
+| `selfLink` | `string` | URL to this resource. |
+| `annotationType` | `string` | The type of annotation this is. |
+| `contentRanges` | `object` | The content ranges to identify the selected text. |
+| `layerId` | `string` | The Layer this annotation is for. |
+| `updated` | `string` | Timestamp for the last time this anntoation was updated. (RFC 3339 UTC date-time format). |
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `layers_volumeAnnotations_get` | `SELECT` | `annotationId, layerId, volumeId` | Gets the volume annotation. |
+| `layers_volumeAnnotations_list` | `SELECT` | `contentVersion, layerId, volumeId` | Gets the volume annotations for a volume and layer. |
