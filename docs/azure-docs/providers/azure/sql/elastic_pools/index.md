@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `tags` | `object` | Resource tags. |
 | `kind` | `string` | Kind of elastic pool. This is metadata used for the Azure portal experience. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties of an elastic pool |
 | `sku` | `object` | An ARM Resource SKU. |
-| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

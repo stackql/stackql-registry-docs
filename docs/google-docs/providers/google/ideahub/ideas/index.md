@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Used to fetch the next page in a subsequent request. |
 | `ideas` | `array` | Results for the ListIdeasRequest. |
+| `nextPageToken` | `string` | Used to fetch the next page in a subsequent request. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

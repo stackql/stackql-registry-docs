@@ -3,14 +3,16 @@ title: licenses
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - licenses
+  - licenses
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -29,15 +31,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `description` | `string` |
 | `spdx_id` | `string` |
 | `limitations` | `array` |
-| `conditions` | `array` |
-| `permissions` | `array` |
-| `featured` | `boolean` |
-| `implementation` | `string` |
-| `key` | `string` |
-| `url` | `string` |
-| `node_id` | `string` |
 | `body` | `string` |
+| `url` | `string` |
+| `permissions` | `array` |
+| `conditions` | `array` |
 | `html_url` | `string` |
+| `key` | `string` |
+| `node_id` | `string` |
+| `implementation` | `string` |
+| `featured` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

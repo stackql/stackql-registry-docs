@@ -9,6 +9,7 @@ export const providers = [
     {name: 'netlify', description: 'Web development and content distribution platform.', title: 'Netlify'},
     {name: 'okta', description: 'Authentication and authorization services.', title: 'Okta'},
     {name: 'sumologic', description: 'Unified logs and metrics analytics platform.', title: 'Sumologic'},
+    {name: 'azure_extras', description: 'Additional Azure cloud computing services by Microsoft.', title: 'Azure Extras'},
     {name: 'firebase', description: 'Mobile and web application development platform.', title: 'Firebase'},
     {name: 'k8s', description: 'Open source container management platform.', title: 'Kubernetes'},
     {name: 'googleworkspace', description: 'Productivity and collaboration tools for businesses.', title: 'Google Workspace'},
@@ -21,6 +22,5 @@ export const providers = [
 
 export const getProviderSiteUrl = (name: string) =>{
     const registry = siteConfig.customFields?.registry
-    // return registry === name? `/providers/${name}`: `https://stackql-${name}-docs.netlify.app/providers/${name}`
-    return registry === name? `/providers/${name}`: `https://${name}.stackql.io/providers/${name}`
+    return registry === name? `/providers/${name}`: `https://${name.replace('_', '-')}.stackql.io/providers/${name}`
 }

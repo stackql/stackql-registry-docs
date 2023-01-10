@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,27 +27,27 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `clientToken` | `string` | &lt;p&gt;Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring idempotency&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;Constraints: Maximum 64 ASCII characters&lt;/p&gt; |
 | `excessCapacityTerminationPolicy` | `string` | Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet. |
-| `onDemandOptions` | `object` | Describes the configuration of On-Demand Instances in an EC2 Fleet. |
-| `validFrom` | `string` | The start date and time of the request, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). The default is to start fulfilling the request immediately.  |
-| `fleetId` | `string` | The ID of the EC2 Fleet. |
-| `targetCapacitySpecification` | `object` | &lt;p&gt;The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is &lt;code&gt;maintain&lt;/code&gt;, you can specify a target capacity of 0 and add capacity later.&lt;/p&gt; &lt;p&gt;You can use the On-Demand Instance &lt;code&gt;MaxTotalPrice&lt;/code&gt; parameter, the Spot Instance &lt;code&gt;MaxTotalPrice&lt;/code&gt;, or both to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity. The &lt;code&gt;MaxTotalPrice&lt;/code&gt; parameters are located in &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html"&gt;OnDemandOptions&lt;/a&gt; and &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions"&gt;SpotOptions&lt;/a&gt;.&lt;/p&gt; |
-| `replaceUnhealthyInstances` | `boolean` | Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type &lt;code&gt;maintain&lt;/code&gt;. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks"&gt;EC2 Fleet health checks&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
-| `launchTemplateConfigs` | `array` | The launch template and overrides. |
-| `createTime` | `string` | The creation date and time of the EC2 Fleet. |
-| `errorSet` | `array` | Information about the instances that could not be launched by the fleet. Valid only when &lt;b&gt;Type&lt;/b&gt; is set to &lt;code&gt;instant&lt;/code&gt;. |
-| `validUntil` | `string` | The end date and time of the request, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.  |
-| `fleetInstanceSet` | `array` | Information about the instances that were launched by the fleet. Valid only when &lt;b&gt;Type&lt;/b&gt; is set to &lt;code&gt;instant&lt;/code&gt;. |
-| `fleetState` | `string` | The state of the EC2 Fleet. |
-| `tagSet` | `array` | The tags for an EC2 Fleet resource. |
 | `context` | `string` | Reserved. |
-| `spotOptions` | `object` | Describes the configuration of Spot Instances in an EC2 Fleet. |
-| `fulfilledCapacity` | `number` | The number of units fulfilled by this request compared to the set target capacity. |
-| `fulfilledOnDemandCapacity` | `number` | The number of units fulfilled by this request compared to the set target On-Demand capacity. |
+| `validFrom` | `string` | The start date and time of the request, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). The default is to start fulfilling the request immediately.  |
+| `onDemandOptions` | `object` | Describes the configuration of On-Demand Instances in an EC2 Fleet. |
 | `type` | `string` | The type of request. Indicates whether the EC2 Fleet only &lt;code&gt;requests&lt;/code&gt; the target capacity, or also attempts to &lt;code&gt;maintain&lt;/code&gt; it. If you request a certain target capacity, EC2 Fleet only places the required requests; it does not attempt to replenish instances if capacity is diminished, and it does not submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically replenishes any interrupted Spot Instances. Default: &lt;code&gt;maintain&lt;/code&gt;. |
 | `activityStatus` | `string` | The progress of the EC2 Fleet. If there is an error, the status is &lt;code&gt;error&lt;/code&gt;. After all requests are placed, the status is &lt;code&gt;pending_fulfillment&lt;/code&gt;. If the size of the EC2 Fleet is equal to or greater than its target capacity, the status is &lt;code&gt;fulfilled&lt;/code&gt;. If the size of the EC2 Fleet is decreased, the status is &lt;code&gt;pending_termination&lt;/code&gt; while instances are terminating. |
+| `fleetId` | `string` | The ID of the EC2 Fleet. |
+| `fleetState` | `string` | The state of the EC2 Fleet. |
+| `errorSet` | `array` | Information about the instances that could not be launched by the fleet. Valid only when &lt;b&gt;Type&lt;/b&gt; is set to &lt;code&gt;instant&lt;/code&gt;. |
+| `clientToken` | `string` | &lt;p&gt;Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring idempotency&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;Constraints: Maximum 64 ASCII characters&lt;/p&gt; |
+| `launchTemplateConfigs` | `array` | The launch template and overrides. |
+| `spotOptions` | `object` | Describes the configuration of Spot Instances in an EC2 Fleet. |
+| `replaceUnhealthyInstances` | `boolean` | Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type &lt;code&gt;maintain&lt;/code&gt;. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks"&gt;EC2 Fleet health checks&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
+| `tagSet` | `array` | The tags for an EC2 Fleet resource. |
 | `terminateInstancesWithExpiration` | `boolean` | Indicates whether running instances should be terminated when the EC2 Fleet expires.  |
+| `targetCapacitySpecification` | `object` | &lt;p&gt;The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is &lt;code&gt;maintain&lt;/code&gt;, you can specify a target capacity of 0 and add capacity later.&lt;/p&gt; &lt;p&gt;You can use the On-Demand Instance &lt;code&gt;MaxTotalPrice&lt;/code&gt; parameter, the Spot Instance &lt;code&gt;MaxTotalPrice&lt;/code&gt;, or both to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity. The &lt;code&gt;MaxTotalPrice&lt;/code&gt; parameters are located in &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html"&gt;OnDemandOptions&lt;/a&gt; and &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions"&gt;SpotOptions&lt;/a&gt;.&lt;/p&gt; |
+| `validUntil` | `string` | The end date and time of the request, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.  |
+| `fleetInstanceSet` | `array` | Information about the instances that were launched by the fleet. Valid only when &lt;b&gt;Type&lt;/b&gt; is set to &lt;code&gt;instant&lt;/code&gt;. |
+| `fulfilledCapacity` | `number` | The number of units fulfilled by this request compared to the set target capacity. |
+| `createTime` | `string` | The creation date and time of the EC2 Fleet. |
+| `fulfilledOnDemandCapacity` | `number` | The number of units fulfilled by this request compared to the set target On-Demand capacity. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

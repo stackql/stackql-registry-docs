@@ -3,14 +3,16 @@ title: sites_assets
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - sites_assets
+  - asset
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -27,16 +29,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `site_id` | `string` |
+| `created_at` | `string` |
+| `creator_id` | `string` |
 | `updated_at` | `string` |
 | `url` | `string` |
-| `size` | `integer` |
 | `visibility` | `string` |
-| `creator_id` | `string` |
-| `key` | `string` |
+| `size` | `integer` |
 | `state` | `string` |
 | `content_type` | `string` |
-| `created_at` | `string` |
+| `site_id` | `string` |
+| `key` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

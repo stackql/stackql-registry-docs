@@ -3,14 +3,16 @@ title: latest_releases
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - latest_releases
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,27 +29,27 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` |  |
+| `published_at` | `string` |  |
+| `reactions` | `object` |  |
 | `body` | `string` |  |
 | `draft` | `boolean` | true to create a draft (unpublished) release, false to create a published one. |
-| `mentions_count` | `integer` |  |
-| `discussion_url` | `string` | The URL of the release discussion. |
-| `assets_url` | `string` |  |
+| `url` | `string` |  |
 | `node_id` | `string` |  |
 | `author` | `object` | Simple User |
-| `reactions` | `object` |  |
-| `target_commitish` | `string` | Specifies the commitish value that determines where the Git tag is created from. |
+| `created_at` | `string` |  |
+| `mentions_count` | `integer` |  |
 | `prerelease` | `boolean` | Whether to identify the release as a prerelease or a full release. |
+| `upload_url` | `string` |  |
+| `assets` | `array` |  |
+| `tarball_url` | `string` |  |
 | `body_html` | `string` |  |
 | `tag_name` | `string` | The name of the tag. |
-| `created_at` | `string` |  |
-| `published_at` | `string` |  |
-| `upload_url` | `string` |  |
-| `url` | `string` |  |
-| `tarball_url` | `string` |  |
-| `html_url` | `string` |  |
-| `zipball_url` | `string` |  |
-| `assets` | `array` |  |
 | `body_text` | `string` |  |
+| `assets_url` | `string` |  |
+| `discussion_url` | `string` | The URL of the release discussion. |
+| `zipball_url` | `string` |  |
+| `target_commitish` | `string` | Specifies the commitish value that determines where the Git tag is created from. |
+| `html_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

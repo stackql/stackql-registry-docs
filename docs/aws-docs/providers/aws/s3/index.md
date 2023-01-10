@@ -11,9 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Amazon Simple Storage Service (Amazon S3).  
+s3  
+    
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>39</b></span><br />
+<span>total selectable resources:&nbsp;<b>32</b></span><br />
+<span>total methods:&nbsp;<b>93</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -21,7 +33,7 @@ Amazon Simple Storage Service (Amazon S3).
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>S3</td></tr>
 <tr><td><b>Description</b></td><td>s3</td></tr>
-<tr><td><b>Id</b></td><td><code>s3:v0.1.3</code></td></tr>
+<tr><td><b>Id</b></td><td><code>s3:v23.01.00108</code></td></tr>
 </tbody></table>
 
 ## Resources

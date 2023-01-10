@@ -29,16 +29,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the customer. Format: accounts/&#123;account_id&#125;/customers/&#123;customer_id&#125; |
 | `cloudIdentityId` | `string` | Output only. The customer's Cloud Identity ID if the customer has a Cloud Identity resource. |
-| `cloudIdentityInfo` | `object` | Cloud Identity information for the Cloud Channel Customer. |
-| `updateTime` | `string` | Output only. Time when the customer was updated. |
-| `channelPartnerId` | `string` | Cloud Identity ID of the customer's channel partner. Populated only if a channel partner exists for this customer. |
-| `domain` | `string` | Required. The customer's primary domain. Must match the primary contact email's domain. |
 | `languageCode` | `string` | Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see https://www.unicode.org/reports/tr35/#Unicode_locale_identifier. |
-| `primaryContactInfo` | `object` | Contact information for a customer account. |
-| `orgDisplayName` | `string` | Required. Name of the organization that the customer entity represents. |
-| `createTime` | `string` | Output only. Time when the customer was created. |
-| `alternateEmail` | `string` | Secondary contact email. You need to provide an alternate email to create different domains if a primary contact email already exists. Users will receive a notification with credentials when you create an admin.google.com account. Secondary emails are also recovery email addresses. Alternate emails are optional when you create Team customers. |
 | `orgPostalAddress` | `object` | Represents a postal address, e.g. for postal delivery or payments addresses. Given a postal address, a postal service can deliver items to a premise, P.O. Box or similar. It is not intended to model geographical locations (roads, towns, mountains). In typical usage an address would be created via user input or from importing existing data, depending on the type of process. Advice on address input / editing: - Use an internationalization-ready address widget such as https://github.com/google/libaddressinput) - Users should not be presented with UI elements for input or editing of fields outside countries where that field is used. For more guidance on how to use this schema, please see: https://support.google.com/business/answer/6397478 |
+| `primaryContactInfo` | `object` | Contact information for a customer account. |
+| `channelPartnerId` | `string` | Cloud Identity ID of the customer's channel partner. Populated only if a channel partner exists for this customer. |
+| `updateTime` | `string` | Output only. Time when the customer was updated. |
+| `alternateEmail` | `string` | Secondary contact email. You need to provide an alternate email to create different domains if a primary contact email already exists. Users will receive a notification with credentials when you create an admin.google.com account. Secondary emails are also recovery email addresses. Alternate emails are optional when you create Team customers. |
+| `createTime` | `string` | Output only. Time when the customer was created. |
+| `orgDisplayName` | `string` | Required. Name of the organization that the customer entity represents. |
+| `domain` | `string` | Required. The customer's primary domain. Must match the primary contact email's domain. |
+| `cloudIdentityInfo` | `object` | Cloud Identity information for the Cloud Channel Customer. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

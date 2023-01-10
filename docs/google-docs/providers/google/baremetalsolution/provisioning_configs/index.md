@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The system-generated name of the provisioning config. This follows the UUID format. |
-| `updateTime` | `string` | Output only. Last update timestamp. |
-| `instances` | `array` | Instances to be created. |
-| `location` | `string` | Optional. Location name of this ProvisioningConfig. It is optional only for Intake UI transition period. |
 | `cloudConsoleUri` | `string` | Output only. URI to Cloud Console UI view of this provisioning config. |
-| `vpcScEnabled` | `boolean` | If true, VPC SC is enabled for the cluster. |
-| `networks` | `array` | Networks to be created. |
-| `ticketId` | `string` | A generated ticket id to track provisioning request. |
-| `state` | `string` | Output only. State of ProvisioningConfig. |
-| `volumes` | `array` | Volumes to be created. |
-| `customId` | `string` | Optional. The user-defined identifier of the provisioning config. |
 | `email` | `string` | Email provided to send a confirmation with provisioning config to. Deprecated in favour of email field in request messages. |
+| `networks` | `array` | Networks to be created. |
+| `state` | `string` | Output only. State of ProvisioningConfig. |
+| `instances` | `array` | Instances to be created. |
 | `handoverServiceAccount` | `string` | A service account to enable customers to access instance credentials upon handover. |
+| `ticketId` | `string` | A generated ticket id to track provisioning request. |
+| `customId` | `string` | Optional. The user-defined identifier of the provisioning config. |
 | `statusMessage` | `string` | Optional status messages associated with the FAILED state. |
+| `volumes` | `array` | Volumes to be created. |
+| `location` | `string` | Optional. Location name of this ProvisioningConfig. It is optional only for Intake UI transition period. |
+| `updateTime` | `string` | Output only. Last update timestamp. |
+| `vpcScEnabled` | `boolean` | If true, VPC SC is enabled for the cluster. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `connectivityStatus` | `array` | Gets the list of Connectivity Status to the Resources on which the service depends upon. |
 | `dnsServers` | `array` | Gets the list of DNS servers IPV4 addresses. |
+| `connectivityStatus` | `array` | Gets the list of Connectivity Status to the Resources on which the service depends upon. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

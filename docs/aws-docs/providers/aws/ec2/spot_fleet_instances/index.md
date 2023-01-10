@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceId` | `string` | The ID of the instance. |
 | `instanceType` | `string` | The instance type. |
 | `spotInstanceRequestId` | `string` | The ID of the Spot Instance request. |
 | `instanceHealth` | `string` | The health status of the instance. If the status of either the instance status check or the system status check is &lt;code&gt;impaired&lt;/code&gt;, the health status of the instance is &lt;code&gt;unhealthy&lt;/code&gt;. Otherwise, the health status is &lt;code&gt;healthy&lt;/code&gt;. |
+| `instanceId` | `string` | The ID of the instance. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

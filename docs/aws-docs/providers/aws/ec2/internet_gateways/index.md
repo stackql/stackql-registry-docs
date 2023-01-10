@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | Any tags assigned to the internet gateway. |
-| `attachmentSet` | `array` | Any VPCs attached to the internet gateway. |
 | `internetGatewayId` | `string` | The ID of the internet gateway. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the internet gateway. |
+| `tagSet` | `array` | Any tags assigned to the internet gateway. |
+| `attachmentSet` | `array` | Any VPCs attached to the internet gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

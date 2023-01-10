@@ -27,9 +27,9 @@ image: /img/providers/googlemybusiness/stackql-googlemybusiness-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `diffMask` | `string` | The fields that Google updated. |
 | `location` | `object` | A location. See the [help center article] (https://support.google.com/business/answer/3038177) for a detailed description of these fields, or the [category endpoint](/my-business/reference/rest/v4/categories) for a list of valid business categories. |
 | `pendingMask` | `string` | The fields that have pending edits that haven't yet been pushed to Maps and Search. |
-| `diffMask` | `string` | The fields that Google updated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

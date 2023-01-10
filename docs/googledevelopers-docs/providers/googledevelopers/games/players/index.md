@@ -28,18 +28,18 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `object` | A representation of the individual components of the name. |
-| `avatarImageUrl` | `string` | The base URL for the image that represents the player. |
-| `profileSettings` | `object` | Profile settings |
-| `title` | `string` | The player's title rewarded for their game activities. |
-| `gamePlayerId` | `string` | Per-application unique player identifier. |
-| `originalPlayerId` | `string` | The player ID that was used for this player the first time they signed into the game in question. This is only populated for calls to player.get for the requesting player, only if the player ID has subsequently changed, and only to clients that support remapping player IDs. |
 | `friendStatus` | `string` | The friend status of the given player, relative to the requester. This is unset if the player is not sharing their friends list with the game. |
-| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#player` |
-| `displayName` | `string` | The name to display for the player. |
+| `experienceInfo` | `object` | 1P/3P metadata about the player's experience. |
 | `bannerUrlLandscape` | `string` | The url to the landscape mode player banner image. |
 | `playerId` | `string` | The ID of the player. |
+| `displayName` | `string` | The name to display for the player. |
+| `profileSettings` | `object` | Profile settings |
+| `originalPlayerId` | `string` | The player ID that was used for this player the first time they signed into the game in question. This is only populated for calls to player.get for the requesting player, only if the player ID has subsequently changed, and only to clients that support remapping player IDs. |
+| `title` | `string` | The player's title rewarded for their game activities. |
+| `gamePlayerId` | `string` | Per-application unique player identifier. |
+| `avatarImageUrl` | `string` | The base URL for the image that represents the player. |
 | `bannerUrlPortrait` | `string` | The url to the portrait mode player banner image. |
-| `experienceInfo` | `object` | 1P/3P metadata about the player's experience. |
+| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#player` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

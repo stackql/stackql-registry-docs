@@ -27,10 +27,10 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `clusterId` | `string` | A unique identifier for the cluster. @OutputOnly |
 | `keyScreen` | `object` |  |
 | `screens` | `array` | Full list of screens. |
 | `activity` | `string` | A string that describes the activity of every screen in the cluster. |
+| `clusterId` | `string` | A unique identifier for the cluster. @OutputOnly |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

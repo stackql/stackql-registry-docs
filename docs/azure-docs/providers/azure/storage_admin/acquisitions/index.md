@@ -27,15 +27,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `susbcriptionid` | `string` | ID of the subscription associated with the page BLOB. |
+| `maximumblobsize` | `integer` | The maximum size of the page BLOB. |
 | `blob` | `string` | The name of the page BLOB. |
 | `status` | `string` | The status of page BLOB acquisition. |
-| `storageaccount` | `string` | The storage account that holds the page BLOB. |
 | `acquisitionid` | `string` | The ID of page BLOB acquisition. |
 | `container` | `string` | The container associated with the page BLOB. |
-| `maximumblobsize` | `integer` | The maximum size of the page BLOB. |
 | `filePath` | `string` | The file path of the page BLOB file on storage cluster. |
 | `filePathUnc` | `string` | The file path unc of the page BLOB file on storage cluster. |
+| `susbcriptionid` | `string` | ID of the subscription associated with the page BLOB. |
+| `storageaccount` | `string` | The storage account that holds the page BLOB. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

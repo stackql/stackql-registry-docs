@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,8 +27,8 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `moveStatus` | `string` | The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform. |
 | `publicIp` | `string` | The Elastic IP address. |
+| `moveStatus` | `string` | The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

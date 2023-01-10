@@ -29,24 +29,24 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this order. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this order. |
-| `sellerOrderId` | `string` | Seller order ID associated with this order. |
-| `siteNames` | `array` | Free-form site names this order is associated with. |
-| `planningTermId` | `string` | ID of the terms and conditions template used in this order. |
-| `lastModifiedInfo` | `object` | Modification timestamp. |
-| `approverUserProfileIds` | `array` | IDs for users that have to approve documents created for this order. |
-| `subaccountId` | `string` | Subaccount ID of this order. |
-| `siteId` | `array` | Site IDs this order is associated with. |
-| `sellerOrganizationName` | `string` | Name of the seller organization. |
-| `notes` | `string` | Notes of this order. |
-| `buyerInvoiceId` | `string` | Buyer invoice ID associated with this order. |
-| `comments` | `string` | Comments in this order. |
-| `advertiserId` | `string` | Advertiser ID of this order. |
-| `termsAndConditions` | `string` | Terms and conditions of this order. |
-| `contacts` | `array` | Contacts for this order. |
 | `buyerOrganizationName` | `string` | Name of the buyer organization. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#order". |
-| `accountId` | `string` | Account ID of this order. |
+| `siteNames` | `array` | Free-form site names this order is associated with. |
+| `sellerOrderId` | `string` | Seller order ID associated with this order. |
+| `approverUserProfileIds` | `array` | IDs for users that have to approve documents created for this order. |
+| `buyerInvoiceId` | `string` | Buyer invoice ID associated with this order. |
 | `projectId` | `string` | Project ID of this order. |
+| `contacts` | `array` | Contacts for this order. |
+| `sellerOrganizationName` | `string` | Name of the seller organization. |
+| `termsAndConditions` | `string` | Terms and conditions of this order. |
+| `advertiserId` | `string` | Advertiser ID of this order. |
+| `lastModifiedInfo` | `object` | Modification timestamp. |
+| `accountId` | `string` | Account ID of this order. |
+| `siteId` | `array` | Site IDs this order is associated with. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#order". |
+| `notes` | `string` | Notes of this order. |
+| `comments` | `string` | Comments in this order. |
+| `subaccountId` | `string` | Subaccount ID of this order. |
+| `planningTermId` | `string` | ID of the terms and conditions template used in this order. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

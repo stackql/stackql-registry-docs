@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Id of the object. |
 | `name` | `string` | Name of the object. |
-| `type` | `string` | Type of the object. |
 | `properties` | `object` | Data Store Type properties. |
+| `type` | `string` | Type of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

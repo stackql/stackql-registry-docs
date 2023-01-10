@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -27,12 +27,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sourceId` | `string` | Identifier for the archive source. |
 | `succeeded` | `integer` | The total number of archive jobs with succeeded status for the archive source. |
 | `failed` | `integer` | The total number of archive jobs with failed status for the archive source. |
 | `ingesting` | `integer` | The total number of archive jobs with ingesting status for the archive source. |
 | `pending` | `integer` | The total number of archive jobs with pending status for the archive source. |
 | `scanning` | `integer` | The total number of archive jobs with scanning status for the archive source. |
+| `sourceId` | `string` | Identifier for the archive source. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

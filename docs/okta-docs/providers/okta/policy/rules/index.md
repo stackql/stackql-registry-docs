@@ -3,14 +3,16 @@ title: rules
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - rules
+  - policy
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -28,15 +30,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `lastUpdated` | `string` |
-| `status` | `string` |
 | `type` | `string` |
-| `_links` | `object` |
-| `priority` | `integer` |
-| `created` | `string` |
-| `system` | `boolean` |
 | `_embedded` | `object` |
 | `conditions` | `object` |
+| `status` | `string` |
+| `created` | `string` |
+| `lastUpdated` | `string` |
+| `system` | `boolean` |
+| `priority` | `integer` |
+| `_links` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

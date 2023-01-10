@@ -29,16 +29,16 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this floodlight activity group. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this floodlight activity group. This is a required field. Must be less than 65 characters long and cannot contain quotes. |
-| `subaccountId` | `string` | Subaccount ID of this floodlight activity group. This is a read-only field that can be left blank. |
-| `advertiserId` | `string` | Advertiser ID of this floodlight activity group. If this field is left blank, the value will be copied over either from the floodlight configuration's advertiser or from the existing activity group's advertiser. |
-| `accountId` | `string` | Account ID of this floodlight activity group. This is a read-only field that can be left blank. |
-| `floodlightConfigurationId` | `string` | Floodlight configuration ID of this floodlight activity group. This is a required field. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#floodlightActivityGroup". |
-| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `tagString` | `string` | Value of the type= parameter in the floodlight tag, which the ad servers use to identify the activity group that the activity belongs to. This is optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among activity groups of the same floodlight configuration. This field is read-only after insertion. |
-| `type` | `string` | Type of the floodlight activity group. This is a required field that is read-only after insertion. |
 | `floodlightConfigurationIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `type` | `string` | Type of the floodlight activity group. This is a required field that is read-only after insertion. |
+| `accountId` | `string` | Account ID of this floodlight activity group. This is a read-only field that can be left blank. |
+| `advertiserId` | `string` | Advertiser ID of this floodlight activity group. If this field is left blank, the value will be copied over either from the floodlight configuration's advertiser or from the existing activity group's advertiser. |
+| `tagString` | `string` | Value of the type= parameter in the floodlight tag, which the ad servers use to identify the activity group that the activity belongs to. This is optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among activity groups of the same floodlight configuration. This field is read-only after insertion. |
+| `floodlightConfigurationId` | `string` | Floodlight configuration ID of this floodlight activity group. This is a required field. |
 | `idDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#floodlightActivityGroup". |
+| `subaccountId` | `string` | Subaccount ID of this floodlight activity group. This is a read-only field that can be left blank. |
+| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

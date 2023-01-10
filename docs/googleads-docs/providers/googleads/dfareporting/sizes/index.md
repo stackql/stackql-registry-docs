@@ -28,10 +28,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this size. This is a read-only, auto-generated field. |
-| `iab` | `boolean` | IAB standard size. This is a read-only, auto-generated field. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#size". |
 | `width` | `integer` | Width of this size. Acceptable values are 0 to 32767, inclusive. |
 | `height` | `integer` | Height of this size. Acceptable values are 0 to 32767, inclusive. |
+| `iab` | `boolean` | IAB standard size. This is a read-only, auto-generated field. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

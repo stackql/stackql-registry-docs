@@ -8,14 +8,15 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
 image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 id: sumologic-doc
 slug: /providers/sumologic
+
 ---
 Cloud-native, real-time, unified logs and metrics analytics platform.  
-
+    
 :::info Provider Summary
 
 <div class="row">
@@ -25,7 +26,7 @@ Cloud-native, real-time, unified logs and metrics analytics platform.
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>150</b></span><br />
-<span>selectable resources:&nbsp;<b>83</b></span><br />
+<span>total selectable resources:&nbsp;<b>83</b></span><br />
 </div>
 </div>
 
@@ -45,17 +46,8 @@ REGISTRY PULL sumologic v23.01.00104;
 
 {
   "sumologic": {
-    /**
-      * Type of authentication to use, suported values include: basic
-      * @type String
-      */
-    "type": string, 
-    /**
-      * Environment variable name containing the api key or credentials.
-      * Variable value must be a base64 encoded string of the form: username:password
-      * @type String
-      */
-    "credentialsenvvar": string, 
+    "type": string, // authentication type to use, suported values:  basic
+    "credentialsenvvar": string, // env var name containing the base64 encoded string in the form: username:password
   }
 }
 
@@ -73,7 +65,7 @@ stackql shell --auth="${AUTH}"
 
 $env:SUMO_CREDS = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("youraccessid:YOURACCESSTOKEN"))
 $Auth = "{ 'sumologic': { 'type': 'basic', 'credentialsenvvar': 'SUMO_CREDS' } }"
-stackql shell --auth=$Auth
+stackql.exe shell --auth=$Auth
 
 ```
 ## Services

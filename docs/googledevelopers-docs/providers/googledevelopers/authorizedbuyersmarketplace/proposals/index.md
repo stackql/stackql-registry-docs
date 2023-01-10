@@ -29,23 +29,23 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The name of the proposal serving as a unique identifier. Format: buyers/&#123;accountId&#125;/proposals/&#123;proposalId&#125; |
 | `publisherProfile` | `string` | Immutable. Reference to the seller on the proposal. Format: `buyers/&#123;buyerAccountId&#125;/publisherProfiles/&#123;publisherProfileId&#125;` Note: This field may be set only when creating the resource. Modifying this field while updating the resource will result in an error. |
+| `updateTime` | `string` | Output only. The time when the proposal was last revised. |
+| `proposalRevision` | `string` | Output only. The revision number for the proposal. Each update to the proposal or deal causes the proposal revision number to auto-increment. The buyer keeps track of the last revision number they know of and pass it in when making an update. If the head revision number on the server has since incremented, then an ABORTED error is returned during the update operation to let the buyer know that a subsequent update was made. |
 | `lastUpdaterOrCommentorRole` | `string` | Output only. The role of the last user that either updated the proposal or left a comment. |
-| `buyerContacts` | `array` | Contact information for the buyer. |
-| `state` | `string` | Output only. Indicates the state of the proposal. |
 | `termsAndConditions` | `string` | Output only. The terms and conditions associated with this proposal. Accepting a proposal implies acceptance of this field. This is created by the seller, the buyer can only view it. |
 | `dealType` | `string` | Output only. Type of deal the proposal contains. |
-| `notes` | `array` | A list of notes from the buyer and the seller attached to this proposal. |
-| `sellerContacts` | `array` | Output only. Contact information for the seller. |
-| `proposalRevision` | `string` | Output only. The revision number for the proposal. Each update to the proposal or deal causes the proposal revision number to auto-increment. The buyer keeps track of the last revision number they know of and pass it in when making an update. If the head revision number on the server has since incremented, then an ABORTED error is returned during the update operation to let the buyer know that a subsequent update was made. |
-| `client` | `string` | Output only. Refers to a Client. Format: `buyers/&#123;buyerAccountId&#125;/clients/&#123;clientAccountid&#125;` |
-| `isRenegotiating` | `boolean` | Output only. True if the proposal was previously finalized and is now being renegotiated. |
 | `buyerPrivateData` | `object` | Buyers are allowed to store certain types of private data in a proposal or deal. |
-| `originatorRole` | `string` | Output only. Indicates whether the buyer/seller created the proposal. |
-| `pausingConsented` | `boolean` | Whether pausing is allowed for the proposal. This is a negotiable term between buyers and publishers. |
-| `displayName` | `string` | Output only. The descriptive name for the proposal. Maximum length of 255 unicode characters is allowed. Control characters are not allowed. Buyers cannot update this field. Note: Not to be confused with name, which is a unique identifier of the proposal. |
 | `buyer` | `string` | Output only. Refers to a buyer in The Realtime-bidding API. Format: `buyers/&#123;buyerAccountId&#125;` |
+| `originatorRole` | `string` | Output only. Indicates whether the buyer/seller created the proposal. |
+| `sellerContacts` | `array` | Output only. Contact information for the seller. |
+| `buyerContacts` | `array` | Contact information for the buyer. |
+| `client` | `string` | Output only. Refers to a Client. Format: `buyers/&#123;buyerAccountId&#125;/clients/&#123;clientAccountid&#125;` |
+| `state` | `string` | Output only. Indicates the state of the proposal. |
+| `pausingConsented` | `boolean` | Whether pausing is allowed for the proposal. This is a negotiable term between buyers and publishers. |
+| `notes` | `array` | A list of notes from the buyer and the seller attached to this proposal. |
 | `billedBuyer` | `string` | Output only. When the client field is populated, this field refers to the buyer who creates and manages the client buyer and gets billed on behalf of the client buyer; when the buyer field is populated, this field is the same value as buyer. Format : `buyers/&#123;buyerAccountId&#125;` |
-| `updateTime` | `string` | Output only. The time when the proposal was last revised. |
+| `isRenegotiating` | `boolean` | Output only. True if the proposal was previously finalized and is now being renegotiated. |
+| `displayName` | `string` | Output only. The descriptive name for the proposal. Maximum length of 255 unicode characters is allowed. Control characters are not allowed. Buyers cannot update this field. Note: Not to be confused with name, which is a unique identifier of the proposal. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

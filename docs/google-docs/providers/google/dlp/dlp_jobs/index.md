@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The server-assigned name. |
-| `type` | `string` | The type of job. |
-| `endTime` | `string` | Time when the job finished. |
 | `startTime` | `string` | Time when the job started. |
-| `createTime` | `string` | Time when the job was created. |
 | `state` | `string` | State of a job. |
-| `inspectDetails` | `object` | The results of an inspect DataSource job. |
-| `riskDetails` | `object` | Result of a risk analysis operation request. |
-| `errors` | `array` | A stream of errors encountered running the job. |
 | `jobTriggerName` | `string` | If created by a job trigger, the resource name of the trigger that instantiated the job. |
+| `createTime` | `string` | Time when the job was created. |
+| `inspectDetails` | `object` | The results of an inspect DataSource job. |
+| `endTime` | `string` | Time when the job finished. |
+| `riskDetails` | `object` | Result of a risk analysis operation request. |
+| `type` | `string` | The type of job. |
+| `errors` | `array` | A stream of errors encountered running the job. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

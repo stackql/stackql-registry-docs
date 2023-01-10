@@ -3,14 +3,16 @@ title: members
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - members
+  - teams
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,25 +29,25 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `integer` |
 | `name` | `string` |
-| `html_url` | `string` |
-| `starred_at` | `string` |
-| `organizations_url` | `string` |
-| `repos_url` | `string` |
-| `site_admin` | `boolean` |
-| `type` | `string` |
-| `subscriptions_url` | `string` |
 | `following_url` | `string` |
+| `starred_at` | `string` |
+| `node_id` | `string` |
+| `url` | `string` |
+| `site_admin` | `boolean` |
 | `starred_url` | `string` |
+| `organizations_url` | `string` |
+| `html_url` | `string` |
+| `gravatar_id` | `string` |
+| `gists_url` | `string` |
+| `repos_url` | `string` |
+| `subscriptions_url` | `string` |
 | `avatar_url` | `string` |
+| `type` | `string` |
+| `followers_url` | `string` |
+| `received_events_url` | `string` |
 | `events_url` | `string` |
 | `email` | `string` |
 | `login` | `string` |
-| `followers_url` | `string` |
-| `received_events_url` | `string` |
-| `gravatar_id` | `string` |
-| `node_id` | `string` |
-| `url` | `string` |
-| `gists_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

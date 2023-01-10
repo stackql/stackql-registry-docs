@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `object` | The name of a metric. |
+| `unit` | `string` | The units used for the metric. |
 | `currentValue` | `number` | The current value of the metric. |
 | `limit` | `number` | The quota limit for the metric. |
 | `nextResetTime` | `string` | The time that the metric's value will reset. |
 | `quotaPeriod` | `string` | The quota period that determines the length of time between value resets. |
-| `unit` | `string` | The units used for the metric. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

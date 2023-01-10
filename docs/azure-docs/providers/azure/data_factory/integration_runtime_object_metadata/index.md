@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | List of SSIS object metadata. |
 | `nextLink` | `string` | The link to the next page of results, if any remaining results exist. |
+| `value` | `array` | List of SSIS object metadata. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Redis Enterprise Cache  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>23</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Redis Enterprise Cache
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Redis Enterprise Cache (Microsoft.Cache)</td></tr>
 <tr><td><b>Description</b></td><td>Redis Enterprise Cache</td></tr>
-<tr><td><b>Id</b></td><td><code>redis_enterprise:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>redis_enterprise:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

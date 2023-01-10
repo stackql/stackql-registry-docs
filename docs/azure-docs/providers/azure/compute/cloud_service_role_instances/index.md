@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name. |
+| `sku` | `object` | The role instance SKU. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource Type. |
 | `location` | `string` | Resource Location. |
 | `properties` | `object` | Role instance properties. |
-| `sku` | `object` | The role instance SKU. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

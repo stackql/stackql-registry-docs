@@ -3,14 +3,16 @@ title: community
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - community
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,11 +28,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype |
 |:-----|:---------|
 | `description` | `string` |
-| `updated_at` | `string` |
-| `content_reports_enabled` | `boolean` |
 | `documentation` | `string` |
 | `files` | `object` |
 | `health_percentage` | `integer` |
+| `updated_at` | `string` |
+| `content_reports_enabled` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource Identifier of the ARM resource. |
 | `name` | `string` | The name of the ARM resource. |
-| `properties` | `object` | The properties of an Azure Cosmos DB MongoDB database event |
 | `type` | `string` | The type of Azure resource. |
+| `properties` | `object` | The properties of an Azure Cosmos DB MongoDB database event |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

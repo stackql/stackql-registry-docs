@@ -28,16 +28,16 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The identifier for this resource. |
-| `published` | `string` | RFC 3339 date-time when this comment was published. |
-| `blog` | `object` | Data about the blog containing this comment. |
-| `post` | `object` | Data about the post containing this comment. |
-| `inReplyTo` | `object` | Data about the comment this is in reply to. |
-| `selfLink` | `string` | The API REST URL to fetch this resource from. |
-| `updated` | `string` | RFC 3339 date-time when this comment was last updated. |
 | `content` | `string` | The actual content of the comment. May include HTML markup. |
 | `status` | `string` | The status of the comment (only populated for admin users). |
-| `author` | `object` | The author of this Comment. |
 | `kind` | `string` | The kind of this entry. Always blogger#comment. |
+| `updated` | `string` | RFC 3339 date-time when this comment was last updated. |
+| `author` | `object` | The author of this Comment. |
+| `inReplyTo` | `object` | Data about the comment this is in reply to. |
+| `post` | `object` | Data about the post containing this comment. |
+| `published` | `string` | RFC 3339 date-time when this comment was published. |
+| `selfLink` | `string` | The API REST URL to fetch this resource from. |
+| `blog` | `object` | Data about the blog containing this comment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

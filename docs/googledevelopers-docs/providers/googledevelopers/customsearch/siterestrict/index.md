@@ -27,21 +27,21 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `fileFormat` | `string` | The file format of the search result. |
-| `formattedUrl` | `string` | The URL displayed after the snippet for each search result. |
-| `image` | `object` | Image belonging to a custom search result. |
-| `htmlTitle` | `string` | The title of the search result, in HTML. |
-| `title` | `string` | The title of the search result, in plain text. |
-| `mime` | `string` | The MIME type of the search result. |
 | `displayLink` | `string` | An abridged version of this search result’s URL, e.g. www.example.com. |
 | `labels` | `array` | Encapsulates all information about refinement labels. |
-| `kind` | `string` | A unique identifier for the type of current object. For this API, it is `customsearch#result.` |
-| `htmlFormattedUrl` | `string` | The HTML-formatted URL displayed after the snippet for each search result. |
-| `snippet` | `string` | The snippet of the search result, in plain text. |
+| `mime` | `string` | The MIME type of the search result. |
 | `pagemap` | `object` | Contains [PageMap](https://developers.google.com/custom-search/docs/structured_data#pagemaps) information for this search result. |
-| `htmlSnippet` | `string` | The snippet of the search result, in HTML. |
+| `snippet` | `string` | The snippet of the search result, in plain text. |
 | `cacheId` | `string` | Indicates the ID of Google's cached version of the search result. |
+| `htmlTitle` | `string` | The title of the search result, in HTML. |
+| `fileFormat` | `string` | The file format of the search result. |
+| `htmlFormattedUrl` | `string` | The HTML-formatted URL displayed after the snippet for each search result. |
+| `image` | `object` | Image belonging to a custom search result. |
+| `formattedUrl` | `string` | The URL displayed after the snippet for each search result. |
+| `title` | `string` | The title of the search result, in plain text. |
 | `link` | `string` | The full URL to which the search result is pointing, e.g. http://www.example.com/foo/bar. |
+| `htmlSnippet` | `string` | The snippet of the search result, in HTML. |
+| `kind` | `string` | A unique identifier for the type of current object. For this API, it is `customsearch#result.` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

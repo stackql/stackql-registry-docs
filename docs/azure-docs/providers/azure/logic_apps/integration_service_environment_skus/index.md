@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sku` | `object` | The sku. |
 | `capacity` | `object` | The integration service environment sku capacity. |
 | `resourceType` | `string` | The resource type. |
+| `sku` | `object` | The sku. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

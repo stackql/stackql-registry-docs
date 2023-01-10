@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `stages` | `array` | The stages of the job execution. |
 | `nextPageToken` | `string` | If present, this response does not contain all requested tasks. To obtain the next page of results, repeat the request with page_token set to this value. |
+| `stages` | `array` | The stages of the job execution. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

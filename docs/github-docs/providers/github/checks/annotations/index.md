@@ -3,14 +3,16 @@ title: annotations
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - annotations
+  - checks
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,16 +27,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `start_column` | `integer` |
+| `path` | `string` |
 | `start_line` | `integer` |
+| `title` | `string` |
 | `end_column` | `integer` |
-| `message` | `string` |
-| `raw_details` | `string` |
+| `blob_href` | `string` |
 | `annotation_level` | `string` |
 | `end_line` | `integer` |
-| `path` | `string` |
-| `title` | `string` |
-| `blob_href` | `string` |
+| `raw_details` | `string` |
+| `message` | `string` |
+| `start_column` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

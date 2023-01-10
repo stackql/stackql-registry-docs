@@ -28,23 +28,23 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this floodlight configuration. This is a read-only, auto-generated field. |
-| `advertiserId` | `string` | Advertiser ID of the parent advertiser of this floodlight configuration. |
-| `exposureToConversionEnabled` | `boolean` | Whether the exposure-to-conversion report is enabled. This report shows detailed pathway information on up to 10 of the most recent ad exposures seen by a user before converting. |
-| `thirdPartyAuthenticationTokens` | `array` | List of third-party authentication tokens enabled for this configuration. |
-| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
 | `firstDayOfWeek` | `string` | Day that will be counted as the first day of the week in reports. This is a required field. |
-| `inAppAttributionTrackingEnabled` | `boolean` | Whether in-app attribution tracking is enabled. |
-| `naturalSearchConversionAttributionOption` | `string` | Types of attribution options for natural search conversions. |
-| `lookbackConfiguration` | `object` | Lookback configuration settings. |
-| `accountId` | `string` | Account ID of this floodlight configuration. This is a read-only field that can be left blank. |
-| `customViewabilityMetric` | `object` | Custom Viewability Metric |
-| `omnitureSettings` | `object` | Omniture Integration Settings. |
-| `userDefinedVariableConfigurations` | `array` | List of user defined variables enabled for this configuration. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#floodlightConfiguration". |
-| `analyticsDataSharingEnabled` | `boolean` | Whether advertiser data is shared with Google Analytics. |
-| `tagSettings` | `object` | Dynamic and Image Tag Settings. |
-| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `exposureToConversionEnabled` | `boolean` | Whether the exposure-to-conversion report is enabled. This report shows detailed pathway information on up to 10 of the most recent ad exposures seen by a user before converting. |
+| `lookbackConfiguration` | `object` | Lookback configuration settings. |
+| `inAppAttributionTrackingEnabled` | `boolean` | Whether in-app attribution tracking is enabled. |
+| `customViewabilityMetric` | `object` | Custom Viewability Metric |
+| `advertiserId` | `string` | Advertiser ID of the parent advertiser of this floodlight configuration. |
+| `userDefinedVariableConfigurations` | `array` | List of user defined variables enabled for this configuration. |
 | `subaccountId` | `string` | Subaccount ID of this floodlight configuration. This is a read-only field that can be left blank. |
+| `tagSettings` | `object` | Dynamic and Image Tag Settings. |
+| `analyticsDataSharingEnabled` | `boolean` | Whether advertiser data is shared with Google Analytics. |
+| `naturalSearchConversionAttributionOption` | `string` | Types of attribution options for natural search conversions. |
+| `omnitureSettings` | `object` | Omniture Integration Settings. |
+| `thirdPartyAuthenticationTokens` | `array` | List of third-party authentication tokens enabled for this configuration. |
+| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `accountId` | `string` | Account ID of this floodlight configuration. This is a read-only field that can be left blank. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

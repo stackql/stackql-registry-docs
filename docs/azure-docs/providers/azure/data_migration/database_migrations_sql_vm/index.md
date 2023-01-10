@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `properties` | `object` | Database Migration Resource properties for SQL Virtual Machine. |
 | `systemData` | `object` |  |
 | `type` | `string` |  |
+| `properties` | `object` | Database Migration Resource properties for SQL Virtual Machine. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

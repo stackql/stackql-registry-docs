@@ -28,12 +28,12 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID for this upload. |
-| `accountId` | `string` | Account Id to which this upload belongs. |
-| `customDataSourceId` | `string` | Custom data source Id to which this data import belongs. |
-| `errors` | `array` | Data import errors collection. |
 | `kind` | `string` | Resource type for Analytics upload. |
 | `status` | `string` | Upload status. Possible values: PENDING, COMPLETED, FAILED, DELETING, DELETED. |
 | `uploadTime` | `string` | Time this file is uploaded. |
+| `accountId` | `string` | Account Id to which this upload belongs. |
+| `customDataSourceId` | `string` | Custom data source Id to which this data import belongs. |
+| `errors` | `array` | Data import errors collection. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

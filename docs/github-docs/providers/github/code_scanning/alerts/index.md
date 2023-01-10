@@ -3,14 +3,16 @@ title: alerts
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - alerts
+  - code_scanning
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,19 +27,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `url` | `string` | The REST API URL of the alert resource. |
-| `rule` | `object` |  |
-| `dismissed_reason` | `string` | **Required when the state is dismissed.** The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`. |
-| `tool` | `object` |  |
-| `state` | `string` | State of a code scanning alert. |
-| `html_url` | `string` | The GitHub URL of the alert resource. |
-| `most_recent_instance` | `object` |  |
 | `number` | `integer` | The security alert number. |
-| `dismissed_at` | `string` | The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `fixed_at` | `string` | The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `dismissed_by` | `object` | Simple User |
+| `state` | `string` | State of a code scanning alert. |
+| `tool` | `object` |  |
+| `dismissed_reason` | `string` | **Required when the state is dismissed.** The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`. |
 | `instances_url` | `string` | The REST API URL for fetching the list of instances for an alert. |
+| `url` | `string` | The REST API URL of the alert resource. |
+| `most_recent_instance` | `object` |  |
+| `dismissed_at` | `string` | The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `html_url` | `string` | The GitHub URL of the alert resource. |
+| `rule` | `object` |  |
+| `fixed_at` | `string` | The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `dismissed_by` | `object` | Simple User |
 | `updated_at` | `string` | The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

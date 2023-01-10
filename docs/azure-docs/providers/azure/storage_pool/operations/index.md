@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the operation being performed on this particular object |
+| `origin` | `string` | The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX. |
 | `actionType` | `string` | Indicates the action type. |
 | `display` | `object` | Metadata about an operation. |
 | `isDataAction` | `boolean` | Indicates whether the operation applies to data-plane. |
-| `origin` | `string` | The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

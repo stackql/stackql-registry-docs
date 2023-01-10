@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,12 +28,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A description of the pool allocation. |
-| `cidr` | `string` | The CIDR for the allocation. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is &lt;code&gt;10.24.34.0/23&lt;/code&gt;. An IPv6 CIDR example is &lt;code&gt;2001:DB8::/32&lt;/code&gt;. |
-| `ipamPoolAllocationId` | `string` | The ID of an allocation. |
-| `resourceId` | `string` | The ID of the resource. |
 | `resourceOwner` | `string` | The owner of the resource. |
 | `resourceRegion` | `string` | The Amazon Web Services Region of the resource. |
 | `resourceType` | `string` | The type of the resource. |
+| `cidr` | `string` | The CIDR for the allocation. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is &lt;code&gt;10.24.34.0/23&lt;/code&gt;. An IPv6 CIDR example is &lt;code&gt;2001:DB8::/32&lt;/code&gt;. |
+| `ipamPoolAllocationId` | `string` | The ID of an allocation. |
+| `resourceId` | `string` | The ID of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

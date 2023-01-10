@@ -13,9 +13,10 @@ custom_edit_url: null
 image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 id: netlify-doc
 slug: /providers/netlify
+
 ---
 Web development and content distribution platform.  
-
+    
 :::info Provider Summary
 
 <div class="row">
@@ -25,7 +26,7 @@ Web development and content distribution platform.
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>51</b></span><br />
-<span>selectable resources:&nbsp;<b>31</b></span><br />
+<span>total selectable resources:&nbsp;<b>31</b></span><br />
 </div>
 </div>
 
@@ -42,32 +43,20 @@ REGISTRY PULL netlify v23.01.00104;
 
 ## Authentication
 ```javascript
+
 {
   "netlify": {
-    /**
-      * Type of authentication to use, suported values include: api_key
-      * @type String
-      */
-    "type": string, 
-    /**
-      * Environment variable name containing the api key or credentials.
-      * @type String
-      */
-    "credentialsenvvar": string, 
-    /**
-      * Value prepended to the request header, e.g. "Bearer "
-      * Must be set to "Bearer "
-      * @type String
-      */
-    "valuePrefix": string, 
+    "type": string, // authentication type to use, suported values include: bearer
+    "credentialsenvvar": string, // env var name containing the acces token
   }
 }
+
 ```
 ### Example (Mac/Linux)
 ```bash
 
 NETLIFY_TOKEN=yourtoken
-AUTH='{ "netlify": { "type": "api_key",  "credentialsenvvar": "NETLIFY_TOKEN", "valuePrefix": "Bearer " }}'
+AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "NETLIFY_TOKEN" }}'
 stackql shell --auth="${AUTH}"
 
 ```
@@ -75,7 +64,7 @@ stackql shell --auth="${AUTH}"
 ```powershell
 
 $env:NETLIFY_TOKEN = "yourtoken"
-$Auth = "{ 'netlify': { 'type': 'api_key',  'credentialsenvvar': 'NETLIFY_TOKEN', 'valuePrefix': 'Bearer ' }}"
+$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'NETLIFY_TOKEN' }}"
 stackql.exe shell --auth=$Auth
 
 ```

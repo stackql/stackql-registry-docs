@@ -27,9 +27,9 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `historyId` | `string` | The ID of the mailbox's current history record. |
 | `nextPageToken` | `string` | Page token to retrieve the next page of results in the list. |
 | `history` | `array` | List of history records. Any `messages` contained in the response will typically only have `id` and `threadId` fields populated. |
+| `historyId` | `string` | The ID of the mailbox's current history record. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

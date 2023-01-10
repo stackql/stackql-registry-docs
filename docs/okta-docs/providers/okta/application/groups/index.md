@@ -3,14 +3,16 @@ title: groups
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - groups
+  - application
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -26,11 +28,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `lastUpdated` | `string` |
+| `priority` | `integer` |
 | `profile` | `object` |
 | `_embedded` | `object` |
 | `_links` | `object` |
-| `lastUpdated` | `string` |
-| `priority` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

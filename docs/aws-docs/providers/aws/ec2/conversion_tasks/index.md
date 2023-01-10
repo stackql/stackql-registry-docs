@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `importInstance` | `object` | Describes an import instance task. |
 | `importVolume` | `object` | Describes an import volume task. |
 | `state` | `string` | The state of the conversion task. |
 | `statusMessage` | `string` | The status message related to the conversion task. |
 | `tagSet` | `array` | Any tags assigned to the task. |
 | `conversionTaskId` | `string` | The ID of the conversion task. |
 | `expirationTime` | `string` | The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel the task. |
+| `importInstance` | `object` | Describes an import instance task. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

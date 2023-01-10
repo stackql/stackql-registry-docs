@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier in the tenant subscription context. |
+| `planId` | `string` | Plan identifier in the tenant subscription context. |
 | `provisioningState` | `string` | Provisioning state for subscriptions service resources, for example, resource provider registration. |
 | `acquisitionId` | `string` | Acquisition identifier. |
 | `acquisitionTime` | `string` | Acquisition time. |
 | `externalReferenceId` | `string` | External reference identifier. |
-| `planId` | `string` | Plan identifier in the tenant subscription context. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

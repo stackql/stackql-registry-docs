@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `awsService` | `string` | The Amazon Web Services service. |
 | `coIp` | `string` | The customer-owned IP address. |
 | `allocationId` | `string` | The allocation ID of the address. |
 | `awsAccountId` | `string` | The Amazon Web Services account ID. |
+| `awsService` | `string` | The Amazon Web Services service. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

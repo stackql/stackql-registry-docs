@@ -13,9 +13,10 @@ custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 id: github-doc
 slug: /providers/github
+
 ---
 Web-based version-control and collaboration.  
-
+    
 :::info Provider Summary
 
 <div class="row">
@@ -25,7 +26,7 @@ Web-based version-control and collaboration.
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>244</b></span><br />
-<span>selectable resources:&nbsp;<b>237</b></span><br />
+<span>total selectable resources:&nbsp;<b>237</b></span><br />
 </div>
 </div>
 
@@ -42,21 +43,14 @@ REGISTRY PULL github v23.01.00104;
 
 ## Authentication
 ```javascript
+
 {
   "github": {
-    /**
-      * Type of authentication to use, suported values include: basic
-      * @type String
-      */
-    "type": string, 
-    /**
-      * Environment variable name containing the api key or credentials.
-      * Variable value must be a base64 encoded string of the form: username:password
-      * @type String
-      */
-    "credentialsenvvar": string, 
+    "type": string, // authentication type to use, suported values:  basic
+    "credentialsenvvar": string, // env var name containing the base64 encoded string in the form: username:password
   }
 }
+
 ```
 ### Example (Mac/Linux)
 ```bash

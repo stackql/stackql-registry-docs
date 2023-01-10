@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `kind` | `string` | Kind of service endpoint policy. This is metadata used for the Azure portal experience. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Service Endpoint Policy resource. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `kind` | `string` | Kind of service endpoint policy. This is metadata used for the Azure portal experience. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

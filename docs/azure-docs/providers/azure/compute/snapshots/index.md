@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `tags` | `object` | Resource tags |
 | `type` | `string` | Resource type |
-| `properties` | `object` | Snapshot resource properties. |
-| `location` | `string` | Resource location |
 | `managedBy` | `string` | Unused. Always Null. |
 | `sku` | `object` | The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot |
+| `tags` | `object` | Resource tags |
 | `extendedLocation` | `object` | The complex type of the extended location. |
+| `location` | `string` | Resource location |
+| `properties` | `object` | Snapshot resource properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

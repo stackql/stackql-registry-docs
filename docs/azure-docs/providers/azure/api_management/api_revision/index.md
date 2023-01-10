@@ -28,13 +28,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | Description of the API Revision. |
-| `apiId` | `string` | Identifier of the API Revision. |
-| `apiRevision` | `string` | Revision number of API. |
 | `createdDateTime` | `string` | The time the API Revision was created. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard. |
 | `isCurrent` | `boolean` | Indicates if API revision is accessible via the gateway. |
 | `isOnline` | `boolean` | Indicates if API revision is the current api revision. |
 | `privateUrl` | `string` | Gateway URL for accessing the non-current API Revision. |
 | `updatedDateTime` | `string` | The time the API Revision were updated. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard. |
+| `apiId` | `string` | Identifier of the API Revision. |
+| `apiRevision` | `string` | Revision number of API. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Location identifier. |
 | `name` | `string` | Location name. |
-| `displayName` | `string` | Display name of the location. |
 | `latitude` | `string` | Latitude of the location. |
 | `longitude` | `string` | Longitude of the location. |
+| `displayName` | `string` | Display name of the location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

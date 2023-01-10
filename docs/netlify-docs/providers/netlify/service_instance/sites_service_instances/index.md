@@ -3,14 +3,16 @@ title: sites_service_instances
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - sites_service_instances
+  - service_instance
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -27,16 +29,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `created_at` | `string` |
-| `env` | `object` |
-| `auth_url` | `string` |
+| `updated_at` | `string` |
 | `external_attributes` | `object` |
-| `service_path` | `string` |
-| `config` | `object` |
+| `service_name` | `string` |
 | `service_slug` | `string` |
 | `snippets` | `array` |
+| `auth_url` | `string` |
+| `service_path` | `string` |
 | `url` | `string` |
-| `service_name` | `string` |
-| `updated_at` | `string` |
+| `config` | `object` |
+| `env` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

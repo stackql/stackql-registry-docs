@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,18 +28,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `hourlyPrice` | `string` | The hourly price for a single instance. |
-| `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
+| `firstSlotStartTime` | `string` | The time period for the first schedule to start. |
+| `maxTermDurationInDays` | `integer` | The maximum term. The only possible value is 365 days. |
+| `availableInstanceCount` | `integer` | The number of available instances. |
 | `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
+| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
+| `minTermDurationInDays` | `integer` | The minimum term. The only possible value is 365 days. |
+| `instanceType` | `string` | The instance type. You can specify one of the C3, C4, M4, or R3 instance types. |
+| `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
+| `slotDurationInHours` | `integer` | The number of hours in the schedule. |
+| `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
 | `availabilityZone` | `string` | The Availability Zone. |
 | `purchaseToken` | `string` | The purchase token. This token expires in two hours. |
-| `availableInstanceCount` | `integer` | The number of available instances. |
-| `maxTermDurationInDays` | `integer` | The maximum term. The only possible value is 365 days. |
-| `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
-| `instanceType` | `string` | The instance type. You can specify one of the C3, C4, M4, or R3 instance types. |
-| `slotDurationInHours` | `integer` | The number of hours in the schedule. |
-| `firstSlotStartTime` | `string` | The time period for the first schedule to start. |
-| `minTermDurationInDays` | `integer` | The minimum term. The only possible value is 365 days. |
-| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

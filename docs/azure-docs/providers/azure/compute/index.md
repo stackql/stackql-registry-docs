@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 The Compute Management Client.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>49</b></span><br />
+<span>total selectable resources:&nbsp;<b>44</b></span><br />
+<span>total methods:&nbsp;<b>279</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ The Compute Management Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Compute Management Client (Microsoft.Compute)</td></tr>
 <tr><td><b>Description</b></td><td>The Compute Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>compute:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>compute:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

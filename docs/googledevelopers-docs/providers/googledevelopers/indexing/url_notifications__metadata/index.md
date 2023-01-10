@@ -27,9 +27,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `url` | `string` | URL to which this metadata refers. |
 | `latestRemove` | `object` | `UrlNotification` is the resource used in all Indexing API calls. It describes one event in the life cycle of a Web Document. |
 | `latestUpdate` | `object` | `UrlNotification` is the resource used in all Indexing API calls. It describes one event in the life cycle of a Web Document. |
+| `url` | `string` | URL to which this metadata refers. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

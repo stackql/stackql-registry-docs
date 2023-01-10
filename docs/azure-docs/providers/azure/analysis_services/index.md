@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 The Azure Analysis Services Web API provides a RESTful set of web services that enables users to create, retrieve, update, and delete Analysis Services servers  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>16</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ The Azure Analysis Services Web API provides a RESTful set of web services that 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Analysis Services (Microsoft.AnalysisServices)</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Analysis Services Web API provides a RESTful set of web services that enables users to create, retrieve, update, and delete Analysis Services servers</td></tr>
-<tr><td><b>Id</b></td><td><code>analysis_services:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>analysis_services:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

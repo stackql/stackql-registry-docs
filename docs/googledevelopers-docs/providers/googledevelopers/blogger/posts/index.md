@@ -28,25 +28,25 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The identifier of this Post. |
-| `selfLink` | `string` | The API REST URL to fetch this resource from. |
-| `published` | `string` | RFC 3339 date-time when this Post was published. |
-| `location` | `object` | The location for geotagged posts. |
-| `url` | `string` | The URL where this Post is displayed. |
-| `kind` | `string` | The kind of this entity. Always blogger#post. |
-| `images` | `array` | Display image for the Post. |
-| `author` | `object` | The author of this Post. |
 | `replies` | `object` | The container of comments on this Post. |
+| `url` | `string` | The URL where this Post is displayed. |
+| `readerComments` | `string` | Comment control and display setting for readers of this post. |
+| `blog` | `object` | Data about the blog containing this Post. |
+| `published` | `string` | RFC 3339 date-time when this Post was published. |
+| `images` | `array` | Display image for the Post. |
 | `title` | `string` | The title of the Post. |
-| `content` | `string` | The content of the Post. May contain HTML markup. |
-| `titleLink` | `string` | The title link URL, similar to atom's related link. |
 | `etag` | `string` | Etag of the resource. |
+| `customMetaData` | `string` | The JSON meta-data for the Post. |
+| `location` | `object` | The location for geotagged posts. |
+| `author` | `object` | The author of this Post. |
+| `kind` | `string` | The kind of this entity. Always blogger#post. |
+| `content` | `string` | The content of the Post. May contain HTML markup. |
+| `trashed` | `string` | RFC 3339 date-time when this Post was last trashed. |
+| `selfLink` | `string` | The API REST URL to fetch this resource from. |
 | `status` | `string` | Status of the post. Only set for admin-level requests. |
 | `updated` | `string` | RFC 3339 date-time when this Post was last updated. |
-| `trashed` | `string` | RFC 3339 date-time when this Post was last trashed. |
-| `customMetaData` | `string` | The JSON meta-data for the Post. |
-| `readerComments` | `string` | Comment control and display setting for readers of this post. |
+| `titleLink` | `string` | The title link URL, similar to atom's related link. |
 | `labels` | `array` | The list of labels this Post was tagged with. |
-| `blog` | `object` | Data about the blog containing this Post. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

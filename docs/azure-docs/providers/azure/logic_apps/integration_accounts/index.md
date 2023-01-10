@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets the resource name. |
-| `sku` | `object` | The integration account sku. |
-| `tags` | `object` | The resource tags. |
 | `type` | `string` | Gets the resource type. |
 | `location` | `string` | The resource location. |
 | `properties` | `object` | The integration account properties. |
+| `sku` | `object` | The integration account sku. |
+| `tags` | `object` | The resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,12 +28,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A description of the resource being exported. |
+| `exportTaskId` | `string` | The ID of the export task. |
+| `exportToS3` | `object` | Describes the format and location for the export task. |
 | `instanceExport` | `object` | Describes an instance to export. |
 | `state` | `string` | The state of the export task. |
 | `statusMessage` | `string` | The status message related to the export task. |
 | `tagSet` | `array` | The tags for the export task. |
-| `exportTaskId` | `string` | The ID of the export task. |
-| `exportToS3` | `object` | Describes the format and location for the export task. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

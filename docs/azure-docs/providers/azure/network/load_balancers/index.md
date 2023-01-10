@@ -31,11 +31,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `name` | `string` | Resource name. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Properties of the load balancer. |
-| `tags` | `object` | Resource tags. |
-| `location` | `string` | Resource location. |
 | `sku` | `object` | SKU of a load balancer. |
-| `extendedLocation` | `object` | ExtendedLocation complex type. |
+| `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
+| `location` | `string` | Resource location. |
+| `extendedLocation` | `object` | ExtendedLocation complex type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

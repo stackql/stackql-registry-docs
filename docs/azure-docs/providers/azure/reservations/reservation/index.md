@@ -30,12 +30,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `id` | `string` | Identifier of the reservation |
 | `name` | `string` | Name of the reservation |
 | `location` | `string` | The Azure Region where the reserved resource lives. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Type of resource. "Microsoft.Capacity/reservationOrders/reservations" |
-| `properties` | `object` | The properties of the reservations |
 | `kind` | `string` | Resource Provider type to be reserved. |
-| `etag` | `integer` |  |
 | `sku` | `object` |  |
+| `etag` | `integer` |  |
+| `properties` | `object` | The properties of the reservations |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

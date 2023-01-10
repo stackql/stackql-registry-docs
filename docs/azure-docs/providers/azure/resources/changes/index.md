@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID |
 | `name` | `string` | Resource name |
+| `location` | `string` | Resource location |
+| `properties` | `object` | The properties of a change |
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Resource type |
 | `extendedLocation` | `object` | Resource extended location. |
-| `location` | `string` | Resource location |
-| `properties` | `object` | The properties of a change |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

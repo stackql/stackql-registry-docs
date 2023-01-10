@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource identifier of the ARM resource. |
 | `name` | `string` | The name of the ARM resource. |
+| `type` | `string` | The type of Azure resource. |
 | `databaseName` | `string` | The name of the gremlin database available for restore. |
 | `graphNames` | `array` | The names of the graphs available for restore. |
-| `type` | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

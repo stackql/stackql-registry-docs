@@ -27,14 +27,14 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `stepId` | `string` | A tool results step ID. @OutputOnly |
+| `appStartTime` | `object` |  |
 | `executionId` | `string` | A tool results execution ID. @OutputOnly |
 | `graphicsStats` | `object` | Graphics statistics for the App. The information is collected from 'adb shell dumpsys graphicsstats'. For more info see: https://developer.android.com/training/testing/performance.html Statistics will only be present for API 23+. |
 | `historyId` | `string` | A tool results history ID. @OutputOnly |
 | `perfEnvironment` | `object` | Encapsulates performance environment info |
 | `perfMetrics` | `array` | Set of resource collected |
 | `projectId` | `string` | The cloud project @OutputOnly |
-| `stepId` | `string` | A tool results step ID. @OutputOnly |
-| `appStartTime` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

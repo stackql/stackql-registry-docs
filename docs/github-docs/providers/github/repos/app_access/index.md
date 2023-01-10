@@ -3,14 +3,16 @@ title: app_access
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - app_access
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -28,20 +30,20 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `integer` | Unique identifier of the GitHub app |
 | `name` | `string` | The name of the GitHub app |
 | `description` | `string` |  |
-| `html_url` | `string` |  |
-| `webhook_secret` | `string` |  |
-| `client_secret` | `string` |  |
 | `events` | `array` | The list of events for the GitHub app |
-| `updated_at` | `string` |  |
+| `created_at` | `string` |  |
+| `node_id` | `string` |  |
 | `external_url` | `string` |  |
 | `slug` | `string` | The slug name of the GitHub app |
 | `pem` | `string` |  |
-| `installations_count` | `integer` | The number of installations associated with the GitHub app |
-| `permissions` | `object` | The set of permissions for the GitHub app |
-| `node_id` | `string` |  |
-| `owner` | `object` | Simple User |
+| `client_secret` | `string` |  |
 | `client_id` | `string` |  |
-| `created_at` | `string` |  |
+| `permissions` | `object` | The set of permissions for the GitHub app |
+| `webhook_secret` | `string` |  |
+| `installations_count` | `integer` | The number of installations associated with the GitHub app |
+| `owner` | `object` | Simple User |
+| `html_url` | `string` |  |
+| `updated_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

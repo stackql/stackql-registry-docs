@@ -30,14 +30,14 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | `id` | `string` | Targetable remarketing list ID. |
 | `name` | `string` | Name of the targetable remarketing list. Is no greater than 128 characters long. |
 | `description` | `string` | Targetable remarketing list description. |
-| `listSource` | `string` | Product from which this targetable remarketing list was originated. |
-| `subaccountId` | `string` | Subaccount ID of this remarketing list. This is a read-only, auto-generated field that is only returned in GET requests. |
-| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `lifeSpan` | `string` | Number of days that a user should remain in the targetable remarketing list without an impression. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#targetableRemarketingList". |
-| `listSize` | `string` | Number of users currently in the list. This is a read-only field. |
 | `accountId` | `string` | Account ID of this remarketing list. This is a read-only, auto-generated field that is only returned in GET requests. |
 | `active` | `boolean` | Whether this targetable remarketing list is active. |
+| `listSize` | `string` | Number of users currently in the list. This is a read-only field. |
+| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `subaccountId` | `string` | Subaccount ID of this remarketing list. This is a read-only, auto-generated field that is only returned in GET requests. |
+| `lifeSpan` | `string` | Number of days that a user should remain in the targetable remarketing list without an impression. |
+| `listSource` | `string` | Product from which this targetable remarketing list was originated. |
 | `advertiserId` | `string` | Dimension value for the advertiser ID that owns this targetable remarketing list. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

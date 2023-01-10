@@ -27,11 +27,11 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `state` | `string` | The state that this invitation is in. |
+| `studentId` | `string` | ID of the student (in standard format) |
 | `creationTime` | `string` | The time that this invitation was created. Read-only. |
 | `invitationId` | `string` | Unique identifier for this invitation. Read-only. |
 | `invitedEmailAddress` | `string` | Email address that the invitation was sent to. This field is only visible to domain administrators. |
-| `state` | `string` | The state that this invitation is in. |
-| `studentId` | `string` | ID of the student (in standard format) |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

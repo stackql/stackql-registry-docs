@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | It should match what is used to GET the operation result |
 | `name` | `string` | It must match the last segment of the "id" field, and will typically be a GUID / system generated value |
+| `error` | `object` | The resource management error response. |
 | `properties` | `object` | Operation Extended Info |
 | `startTime` | `string` | Start time of the operation |
 | `status` | `string` |  |
 | `endTime` | `string` | End time of the operation |
-| `error` | `object` | The resource management error response. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

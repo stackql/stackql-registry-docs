@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `certificateS3BucketName` | `string` | The name of the Amazon S3 bucket in which the Amazon S3 object is stored. |
-| `certificateS3ObjectKey` | `string` | The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: &lt;code&gt;role_arn&lt;/code&gt;/&lt;code&gt;certificate_arn&lt;/code&gt;.  |
 | `encryptionKmsKeyId` | `string` | The ID of the KMS customer master key (CMK) used to encrypt the private key. |
 | `associatedRoleArn` | `string` | The ARN of the associated IAM role. |
+| `certificateS3BucketName` | `string` | The name of the Amazon S3 bucket in which the Amazon S3 object is stored. |
+| `certificateS3ObjectKey` | `string` | The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: &lt;code&gt;role_arn&lt;/code&gt;/&lt;code&gt;certificate_arn&lt;/code&gt;.  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

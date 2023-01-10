@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Synapse  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>73</b></span><br />
+<span>total selectable resources:&nbsp;<b>69</b></span><br />
+<span>total methods:&nbsp;<b>224</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Synapse
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Synapse (Microsoft.Synapse)</td></tr>
 <tr><td><b>Description</b></td><td>Synapse</td></tr>
-<tr><td><b>Id</b></td><td><code>synapse:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>synapse:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

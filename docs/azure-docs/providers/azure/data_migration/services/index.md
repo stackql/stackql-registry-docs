@@ -29,14 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `etag` | `string` | HTTP strong entity tag value. Ignored if submitted |
-| `systemData` | `object` |  |
-| `type` | `string` |  |
 | `properties` | `object` | Properties of the Database Migration Service instance |
-| `sku` | `object` | An Azure SKU instance |
-| `location` | `string` |  |
-| `tags` | `object` |  |
 | `kind` | `string` | The resource kind. Only 'vm' (the default) is supported. |
+| `systemData` | `object` |  |
+| `tags` | `object` |  |
+| `etag` | `string` | HTTP strong entity tag value. Ignored if submitted |
+| `sku` | `object` | An Azure SKU instance |
+| `type` | `string` |  |
+| `location` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

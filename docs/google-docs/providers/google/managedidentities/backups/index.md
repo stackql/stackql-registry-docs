@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The unique name of the Backup in the form of `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;/backups/&#123;name&#125;` |
-| `type` | `string` | Output only. Indicates whether it’s an on-demand backup or scheduled. |
 | `updateTime` | `string` | Output only. Last update time. |
 | `createTime` | `string` | Output only. The time the backups was created. |
 | `labels` | `object` | Optional. Resource labels to represent user provided metadata. |
 | `state` | `string` | Output only. The current state of the backup. |
 | `statusMessage` | `string` | Output only. Additional information about the current status of this backup, if available. |
+| `type` | `string` | Output only. Indicates whether it’s an on-demand backup or scheduled. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

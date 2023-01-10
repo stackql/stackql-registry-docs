@@ -3,14 +3,16 @@ title: access_restrictions
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - access_restrictions
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `apps` | `array` |
 | `apps_url` | `string` |
 | `teams` | `array` |
 | `teams_url` | `string` |
 | `url` | `string` |
 | `users` | `array` |
 | `users_url` | `string` |
+| `apps` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

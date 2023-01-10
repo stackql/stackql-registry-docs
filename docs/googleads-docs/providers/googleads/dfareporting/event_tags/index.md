@@ -29,22 +29,22 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this event tag. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this event tag. This is a required field and must be less than 256 characters long. |
-| `url` | `string` | Payload URL for this event tag. The URL on a click-through event tag should have a landing page URL appended to the end of it. This field is required on insertion. |
-| `urlEscapeLevels` | `integer` | Number of times the landing page URL should be URL-escaped before being appended to the click-through event tag URL. Only applies to click-through event tags as specified by the event tag type. |
-| `siteIds` | `array` | Filter list of site IDs associated with this event tag. The siteFilterType determines whether this is a allowlist or blocklist filter. |
-| `advertiserId` | `string` | Advertiser ID of this event tag. This field or the campaignId field is required on insertion. |
-| `status` | `string` | Status of this event tag. Must be ENABLED for this event tag to fire. This is a required field. |
 | `accountId` | `string` | Account ID of this event tag. This is a read-only field that can be left blank. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#eventTag". |
-| `enabledByDefault` | `boolean` | Whether this event tag should be automatically enabled for all of the advertiser's campaigns and ads. |
 | `campaignIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#eventTag". |
 | `sslCompliant` | `boolean` | Whether this tag is SSL-compliant or not. This is a read-only field. |
-| `subaccountId` | `string` | Subaccount ID of this event tag. This is a read-only field that can be left blank. |
-| `excludeFromAdxRequests` | `boolean` | Whether to remove this event tag from ads that are trafficked through Display & Video 360 to Ad Exchange. This may be useful if the event tag uses a pixel that is unapproved for Ad Exchange bids on one or more networks, such as the Google Display Network. |
 | `type` | `string` | Event tag type. Can be used to specify whether to use a third-party pixel, a third-party JavaScript URL, or a third-party click-through URL for either impression or click tracking. This is a required field. |
-| `campaignId` | `string` | Campaign ID of this event tag. This field or the advertiserId field is required on insertion. |
-| `siteFilterType` | `string` | Site filter type for this event tag. If no type is specified then the event tag will be applied to all sites. |
 | `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `urlEscapeLevels` | `integer` | Number of times the landing page URL should be URL-escaped before being appended to the click-through event tag URL. Only applies to click-through event tags as specified by the event tag type. |
+| `excludeFromAdxRequests` | `boolean` | Whether to remove this event tag from ads that are trafficked through Display & Video 360 to Ad Exchange. This may be useful if the event tag uses a pixel that is unapproved for Ad Exchange bids on one or more networks, such as the Google Display Network. |
+| `advertiserId` | `string` | Advertiser ID of this event tag. This field or the campaignId field is required on insertion. |
+| `enabledByDefault` | `boolean` | Whether this event tag should be automatically enabled for all of the advertiser's campaigns and ads. |
+| `campaignId` | `string` | Campaign ID of this event tag. This field or the advertiserId field is required on insertion. |
+| `subaccountId` | `string` | Subaccount ID of this event tag. This is a read-only field that can be left blank. |
+| `url` | `string` | Payload URL for this event tag. The URL on a click-through event tag should have a landing page URL appended to the end of it. This field is required on insertion. |
+| `siteFilterType` | `string` | Site filter type for this event tag. If no type is specified then the event tag will be applied to all sites. |
+| `status` | `string` | Status of this event tag. Must be ENABLED for this event tag to fire. This is a required field. |
+| `siteIds` | `array` | Filter list of site IDs associated with this event tag. The siteFilterType determines whether this is a allowlist or blocklist filter. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

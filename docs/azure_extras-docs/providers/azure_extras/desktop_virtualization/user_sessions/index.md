@@ -1,0 +1,43 @@
+---
+title: user_sessions
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - user_sessions
+  - desktop_virtualization
+  - azure_extras    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>user_sessions</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_extras.desktop_virtualization.user_sessions</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `name` | `string` | The name of the resource |
+| `properties` | `object` | Schema for UserSession properties. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `UserSessions_Get` | `SELECT` | `hostPoolName, resourceGroupName, sessionHostName, subscriptionId, userSessionId` | Get a userSession. |
+| `UserSessions_List` | `SELECT` | `hostPoolName, resourceGroupName, sessionHostName, subscriptionId` | List userSessions. |
+| `UserSessions_ListByHostPool` | `SELECT` | `hostPoolName, resourceGroupName, subscriptionId` | List userSessions. |
+| `UserSessions_Delete` | `DELETE` | `hostPoolName, resourceGroupName, sessionHostName, subscriptionId, userSessionId` | Remove a userSession. |
+| `UserSessions_Disconnect` | `EXEC` | `hostPoolName, resourceGroupName, sessionHostName, subscriptionId, userSessionId` | Disconnect a userSession. |
+| `UserSessions_SendMessage` | `EXEC` | `hostPoolName, resourceGroupName, sessionHostName, subscriptionId, userSessionId` | Send a message to a user. |

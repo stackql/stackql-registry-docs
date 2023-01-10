@@ -28,21 +28,21 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the insertion order. |
-| `insertionOrderType` | `string` | The type of insertion order. If this field is unspecified in creation, the value defaults to `RTB`. |
-| `integrationDetails` | `object` | Integration details of an entry. |
-| `campaignId` | `string` | Required. Immutable. The unique ID of the campaign that the insertion order belongs to. |
-| `performanceGoal` | `object` | Settings that control the performance goal of a campaign or insertion order. |
-| `updateTime` | `string` | Output only. The timestamp when the insertion order was last updated. Assigned by the system. |
-| `reservationType` | `string` | Output only. The reservation type of the insertion order. |
-| `advertiserId` | `string` | Output only. The unique ID of the advertiser the insertion order belongs to. |
-| `frequencyCap` | `object` | Settings that control the number of times a user may be shown with the same ad during a given time period. |
-| `pacing` | `object` | Settings that control the rate at which a budget is spent. |
 | `insertionOrderId` | `string` | Output only. The unique ID of the insertion order. Assigned by the system. |
-| `billableOutcome` | `string` | Immutable. The billable outcome of the insertion order. |
+| `campaignId` | `string` | Required. Immutable. The unique ID of the campaign that the insertion order belongs to. |
 | `entityStatus` | `string` | Required. Controls whether or not the insertion order can spend its budget and bid on inventory. * For CreateInsertionOrder method, only `ENTITY_STATUS_DRAFT` is allowed. To activate an insertion order, use UpdateInsertionOrder method and update the status to `ENTITY_STATUS_ACTIVE` after creation. * An insertion order cannot be changed back to `ENTITY_STATUS_DRAFT` status from any other status. * An insertion order cannot be set to `ENTITY_STATUS_ACTIVE` if its parent campaign is not active. |
+| `frequencyCap` | `object` | Settings that control the number of times a user may be shown with the same ad during a given time period. |
+| `integrationDetails` | `object` | Integration details of an entry. |
+| `reservationType` | `string` | Output only. The reservation type of the insertion order. |
+| `pacing` | `object` | Settings that control the rate at which a budget is spent. |
+| `billableOutcome` | `string` | Immutable. The billable outcome of the insertion order. |
+| `updateTime` | `string` | Output only. The timestamp when the insertion order was last updated. Assigned by the system. |
 | `bidStrategy` | `object` | Settings that control the bid strategy. Bid strategy determines the bid price. |
-| `partnerCosts` | `array` | The partner costs associated with the insertion order. If absent or empty in CreateInsertionOrder method, the newly created insertion order will inherit partner costs from the partner settings. |
 | `displayName` | `string` | Required. The display name of the insertion order. Must be UTF-8 encoded with a maximum size of 240 bytes. |
+| `partnerCosts` | `array` | The partner costs associated with the insertion order. If absent or empty in CreateInsertionOrder method, the newly created insertion order will inherit partner costs from the partner settings. |
+| `advertiserId` | `string` | Output only. The unique ID of the advertiser the insertion order belongs to. |
+| `insertionOrderType` | `string` | The type of insertion order. If this field is unspecified in creation, the value defaults to `RTB`. |
+| `performanceGoal` | `object` | Settings that control the performance goal of a campaign or insertion order. |
 | `budget` | `object` | Settings that control how insertion order budget is allocated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

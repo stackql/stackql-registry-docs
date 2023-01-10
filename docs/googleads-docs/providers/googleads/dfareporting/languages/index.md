@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `languages` | `array` | Language collection. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#languagesListResponse". |
+| `languages` | `array` | Language collection. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

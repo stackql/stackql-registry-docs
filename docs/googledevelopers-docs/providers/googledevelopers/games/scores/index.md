@@ -27,16 +27,16 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `socialRank` | `object` | A score rank in a leaderboard. |
-| `scoreString` | `string` | The formatted value of this score. |
-| `friendsRank` | `object` | A score rank in a leaderboard. |
 | `timeSpan` | `string` | The time span of this score. |
-| `publicRank` | `object` | A score rank in a leaderboard. |
 | `scoreTag` | `string` | Additional information about the score. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. |
-| `scoreValue` | `string` | The numerical value of this score. |
 | `writeTimestamp` | `string` | The timestamp at which this score was recorded, in milliseconds since the epoch in UTC. |
 | `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#playerLeaderboardScore`. |
 | `leaderboard_id` | `string` | The ID of the leaderboard this score is in. |
+| `scoreString` | `string` | The formatted value of this score. |
+| `scoreValue` | `string` | The numerical value of this score. |
+| `friendsRank` | `object` | A score rank in a leaderboard. |
+| `publicRank` | `object` | A score rank in a leaderboard. |
+| `socialRank` | `object` | A score rank in a leaderboard. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

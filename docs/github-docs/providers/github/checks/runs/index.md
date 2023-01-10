@@ -3,14 +3,16 @@ title: runs
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - runs
+  - checks
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,21 +29,21 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` | The id of the check. |
 | `name` | `string` | The name of the check. |
-| `html_url` | `string` |  |
-| `details_url` | `string` |  |
-| `node_id` | `string` |  |
+| `deployment` | `object` | A deployment created as the result of an Actions check run from a workflow that references an environment |
+| `head_sha` | `string` | The SHA of the commit that is being checked. |
 | `output` | `object` |  |
+| `started_at` | `string` |  |
+| `check_suite` | `object` |  |
+| `html_url` | `string` |  |
+| `pull_requests` | `array` |  |
+| `url` | `string` |  |
+| `external_id` | `string` |  |
+| `status` | `string` | The phase of the lifecycle that the check is currently in. |
+| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `node_id` | `string` |  |
 | `completed_at` | `string` |  |
 | `conclusion` | `string` |  |
-| `status` | `string` | The phase of the lifecycle that the check is currently in. |
-| `head_sha` | `string` | The SHA of the commit that is being checked. |
-| `started_at` | `string` |  |
-| `external_id` | `string` |  |
-| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `deployment` | `object` | A deployment created as the result of an Actions check run from a workflow that references an environment |
-| `url` | `string` |  |
-| `check_suite` | `object` |  |
-| `pull_requests` | `array` |  |
+| `details_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

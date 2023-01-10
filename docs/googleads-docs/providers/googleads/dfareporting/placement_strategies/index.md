@@ -29,8 +29,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this placement strategy. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this placement strategy. This is a required field. It must be less than 256 characters long and unique among placement strategies of the same account. |
-| `accountId` | `string` | Account ID of this placement strategy.This is a read-only field that can be left blank. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#placementStrategy". |
+| `accountId` | `string` | Account ID of this placement strategy.This is a read-only field that can be left blank. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

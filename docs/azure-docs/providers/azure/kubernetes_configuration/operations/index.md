@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name, in format of &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125; |
-| `origin` | `string` | Origin of the operation |
 | `display` | `object` | Display metadata associated with the operation. |
 | `isDataAction` | `boolean` | The flag that indicates whether the operation applies to data plane. |
+| `origin` | `string` | Origin of the operation |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

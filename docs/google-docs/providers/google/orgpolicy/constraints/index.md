@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Page token used to retrieve the next page. This is currently not used. |
 | `constraints` | `array` | The collection of constraints that are available on the targeted resource. |
+| `nextPageToken` | `string` | Page token used to retrieve the next page. This is currently not used. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

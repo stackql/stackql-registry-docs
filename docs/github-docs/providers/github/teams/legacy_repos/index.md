@@ -3,14 +3,16 @@ title: legacy_repos
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - legacy_repos
+  - teams
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -28,88 +30,88 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `integer` |  |
 | `name` | `string` |  |
 | `description` | `string` |  |
-| `is_template` | `boolean` |  |
-| `merges_url` | `string` |  |
-| `delete_branch_on_merge` | `boolean` |  |
-| `permissions` | `object` |  |
-| `statuses_url` | `string` |  |
-| `branches_url` | `string` |  |
-| `open_issues_count` | `integer` |  |
-| `git_url` | `string` |  |
-| `subscribers_count` | `integer` |  |
-| `created_at` | `string` |  |
-| `commits_url` | `string` |  |
-| `homepage` | `string` |  |
-| `git_commits_url` | `string` |  |
-| `hooks_url` | `string` |  |
-| `role_name` | `string` |  |
-| `has_downloads` | `boolean` |  |
-| `watchers_count` | `integer` |  |
-| `open_issues` | `integer` |  |
-| `size` | `integer` |  |
-| `mirror_url` | `string` |  |
-| `tags_url` | `string` |  |
-| `events_url` | `string` |  |
-| `assignees_url` | `string` |  |
-| `subscription_url` | `string` |  |
-| `deployments_url` | `string` |  |
-| `private` | `boolean` |  |
-| `network_count` | `integer` |  |
-| `disabled` | `boolean` |  |
-| `ssh_url` | `string` |  |
-| `clone_url` | `string` |  |
-| `forks` | `integer` |  |
-| `git_refs_url` | `string` |  |
-| `trees_url` | `string` |  |
-| `has_issues` | `boolean` |  |
-| `has_projects` | `boolean` |  |
-| `stargazers_url` | `string` |  |
-| `subscribers_url` | `string` |  |
-| `template_repository` | `object` | A git repository |
-| `collaborators_url` | `string` |  |
-| `labels_url` | `string` |  |
 | `compare_url` | `string` |  |
-| `language` | `string` |  |
-| `archived` | `boolean` |  |
-| `forks_url` | `string` |  |
-| `milestones_url` | `string` |  |
-| `visibility` | `string` |  |
-| `issue_comment_url` | `string` |  |
-| `allow_forking` | `boolean` |  |
-| `temp_clone_token` | `string` |  |
-| `updated_at` | `string` |  |
-| `forks_count` | `integer` |  |
-| `html_url` | `string` |  |
-| `watchers` | `integer` |  |
-| `node_id` | `string` |  |
-| `license` | `object` |  |
-| `languages_url` | `string` |  |
-| `topics` | `array` |  |
-| `keys_url` | `string` |  |
-| `downloads_url` | `string` |  |
-| `issues_url` | `string` |  |
-| `pulls_url` | `string` |  |
-| `has_pages` | `boolean` |  |
-| `blobs_url` | `string` |  |
-| `owner` | `object` | Simple User |
-| `url` | `string` |  |
-| `contributors_url` | `string` |  |
-| `svn_url` | `string` |  |
-| `pushed_at` | `string` |  |
-| `teams_url` | `string` |  |
-| `code_of_conduct` | `object` | Code Of Conduct |
-| `full_name` | `string` |  |
-| `archive_url` | `string` |  |
-| `contents_url` | `string` |  |
-| `comments_url` | `string` |  |
-| `fork` | `boolean` |  |
-| `notifications_url` | `string` |  |
-| `issue_events_url` | `string` |  |
-| `stargazers_count` | `integer` |  |
 | `releases_url` | `string` |  |
-| `has_wiki` | `boolean` |  |
+| `topics` | `array` |  |
+| `subscribers_count` | `integer` |  |
+| `issue_comment_url` | `string` |  |
+| `forks_count` | `integer` |  |
+| `temp_clone_token` | `string` |  |
+| `archived` | `boolean` |  |
+| `watchers` | `integer` |  |
+| `stargazers_count` | `integer` |  |
+| `milestones_url` | `string` |  |
+| `subscription_url` | `string` |  |
+| `fork` | `boolean` |  |
+| `has_projects` | `boolean` |  |
+| `svn_url` | `string` |  |
+| `contents_url` | `string` |  |
+| `trees_url` | `string` |  |
 | `git_tags_url` | `string` |  |
+| `has_downloads` | `boolean` |  |
+| `downloads_url` | `string` |  |
+| `has_wiki` | `boolean` |  |
+| `keys_url` | `string` |  |
+| `branches_url` | `string` |  |
+| `languages_url` | `string` |  |
+| `template_repository` | `object` | A git repository |
+| `pushed_at` | `string` |  |
+| `blobs_url` | `string` |  |
+| `node_id` | `string` |  |
+| `assignees_url` | `string` |  |
+| `language` | `string` |  |
+| `deployments_url` | `string` |  |
+| `network_count` | `integer` |  |
+| `git_refs_url` | `string` |  |
+| `notifications_url` | `string` |  |
+| `issues_url` | `string` |  |
+| `disabled` | `boolean` |  |
+| `delete_branch_on_merge` | `boolean` |  |
+| `html_url` | `string` |  |
+| `created_at` | `string` |  |
 | `default_branch` | `string` |  |
+| `stargazers_url` | `string` |  |
+| `has_issues` | `boolean` |  |
+| `events_url` | `string` |  |
+| `url` | `string` |  |
+| `comments_url` | `string` |  |
+| `visibility` | `string` |  |
+| `collaborators_url` | `string` |  |
+| `size` | `integer` |  |
+| `forks_url` | `string` |  |
+| `subscribers_url` | `string` |  |
+| `git_commits_url` | `string` |  |
+| `issue_events_url` | `string` |  |
+| `code_of_conduct` | `object` | Code Of Conduct |
+| `watchers_count` | `integer` |  |
+| `merges_url` | `string` |  |
+| `tags_url` | `string` |  |
+| `updated_at` | `string` |  |
+| `permissions` | `object` |  |
+| `role_name` | `string` |  |
+| `teams_url` | `string` |  |
+| `clone_url` | `string` |  |
+| `contributors_url` | `string` |  |
+| `private` | `boolean` |  |
+| `git_url` | `string` |  |
+| `mirror_url` | `string` |  |
+| `full_name` | `string` |  |
+| `commits_url` | `string` |  |
+| `statuses_url` | `string` |  |
+| `is_template` | `boolean` |  |
+| `homepage` | `string` |  |
+| `open_issues` | `integer` |  |
+| `pulls_url` | `string` |  |
+| `ssh_url` | `string` |  |
+| `hooks_url` | `string` |  |
+| `license` | `object` |  |
+| `forks` | `integer` |  |
+| `owner` | `object` | Simple User |
+| `labels_url` | `string` |  |
+| `archive_url` | `string` |  |
+| `allow_forking` | `boolean` |  |
+| `open_issues_count` | `integer` |  |
+| `has_pages` | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

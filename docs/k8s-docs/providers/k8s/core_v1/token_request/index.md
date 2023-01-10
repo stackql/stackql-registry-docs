@@ -3,15 +3,16 @@ title: token_request
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - kubernetes
-  - k8s
+  - token_request
+  - core_v1
+  - k8s    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Kubernetes resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ---
   
     

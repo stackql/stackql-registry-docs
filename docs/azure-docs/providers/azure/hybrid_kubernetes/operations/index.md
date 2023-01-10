@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | The list of connected cluster API operations. |
 | `nextLink` | `string` | The link to fetch the next page of connected cluster API operations. |
+| `value` | `array` | The list of connected cluster API operations. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

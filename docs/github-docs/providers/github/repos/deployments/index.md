@@ -3,14 +3,16 @@ title: deployments
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - deployments
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,22 +29,22 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the deployment |
 | `description` | `string` |  |
-| `ref` | `string` | The ref to deploy. This can be a branch, tag, or sha. |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `created_at` | `string` |  |
-| `repository_url` | `string` |  |
-| `statuses_url` | `string` |  |
-| `creator` | `object` | Simple User |
-| `production_environment` | `boolean` | Specifies if the given environment is one that end-users directly interact with. Default: false. |
-| `environment` | `string` | Name for the target deployment environment. |
-| `url` | `string` |  |
-| `updated_at` | `string` |  |
-| `original_environment` | `string` |  |
-| `task` | `string` | Parameter to specify a task to execute |
-| `node_id` | `string` |  |
 | `sha` | `string` |  |
+| `creator` | `object` | Simple User |
+| `task` | `string` | Parameter to specify a task to execute |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `statuses_url` | `string` |  |
+| `url` | `string` |  |
+| `original_environment` | `string` |  |
 | `payload` | `` |  |
+| `environment` | `string` | Name for the target deployment environment. |
+| `node_id` | `string` |  |
+| `production_environment` | `boolean` | Specifies if the given environment is one that end-users directly interact with. Default: false. |
+| `repository_url` | `string` |  |
 | `transient_environment` | `boolean` | Specifies if the given environment is will no longer exist at some point in the future. Default: false. |
+| `ref` | `string` | The ref to deploy. This can be a branch, tag, or sha. |
+| `updated_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

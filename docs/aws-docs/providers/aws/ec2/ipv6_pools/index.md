@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,9 +28,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description for the address pool. |
-| `poolCidrBlockSet` | `array` | The CIDR blocks for the address pool. |
 | `poolId` | `string` | The ID of the address pool. |
 | `tagSet` | `array` | Any tags for the address pool. |
+| `poolCidrBlockSet` | `array` | The CIDR blocks for the address pool. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

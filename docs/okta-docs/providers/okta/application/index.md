@@ -3,6 +3,7 @@ title: application
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - application
   - okta
   - stackql
   - infrastructure-as-code
@@ -10,17 +11,28 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
-Okta application management.  
+Okta application management api.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>32</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>okta.application</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Application API</td></tr>
-<tr><td><b>Description</b></td><td>Okta application management.</td></tr>
+<tr><td><b>Description</b></td><td>Okta application management api.</td></tr>
 <tr><td><b>Id</b></td><td><code>application:v1</code></td></tr>
 </tbody></table>
 

@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Serial Console  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Serial Console
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Serial Console (Microsoft.SerialConsole)</td></tr>
 <tr><td><b>Description</b></td><td>Serial Console</td></tr>
-<tr><td><b>Id</b></td><td><code>serial_console:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>serial_console:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

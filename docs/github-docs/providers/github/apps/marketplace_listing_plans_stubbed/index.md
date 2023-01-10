@@ -3,14 +3,16 @@ title: marketplace_listing_plans_stubbed
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - marketplace_listing_plans_stubbed
+  - apps
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -28,16 +30,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `integer` |
 | `name` | `string` |
 | `description` | `string` |
+| `state` | `string` |
+| `unit_name` | `string` |
+| `url` | `string` |
+| `price_model` | `string` |
 | `accounts_url` | `string` |
 | `number` | `integer` |
-| `state` | `string` |
-| `url` | `string` |
 | `yearly_price_in_cents` | `integer` |
-| `price_model` | `string` |
-| `has_free_trial` | `boolean` |
-| `unit_name` | `string` |
 | `monthly_price_in_cents` | `integer` |
 | `bullets` | `array` |
+| `has_free_trial` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

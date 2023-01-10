@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
+| `volumeId` | `string` | The volume ID. |
+| `volumeStatus` | `object` | Describes the status of a volume. |
 | `actionsSet` | `array` | The details of the operation. |
 | `attachmentStatuses` | `array` | Information about the instances to which the volume is attached. |
 | `availabilityZone` | `string` | The Availability Zone of the volume. |
 | `eventsSet` | `array` | A list of events associated with the volume. |
-| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
-| `volumeId` | `string` | The volume ID. |
-| `volumeStatus` | `object` | Describes the status of a volume. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

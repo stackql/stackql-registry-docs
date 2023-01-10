@@ -29,17 +29,17 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this targeting template. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this targeting template. This field is required. It must be less than 256 characters long and unique within an advertiser. |
-| `keyValueTargetingExpression` | `object` | Key Value Targeting Expression. |
-| `dayPartTargeting` | `object` | Day Part Targeting. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#targetingTemplate". |
+| `geoTargeting` | `object` | Geographical Targeting. |
+| `accountId` | `string` | Account ID of this targeting template. This field, if left unset, will be auto-generated on insert and is read-only after insert. |
 | `subaccountId` | `string` | Subaccount ID of this targeting template. This field, if left unset, will be auto-generated on insert and is read-only after insert. |
-| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `advertiserId` | `string` | Advertiser ID of this targeting template. This is a required field on insert and is read-only after insert. |
 | `languageTargeting` | `object` | Language Targeting. |
 | `technologyTargeting` | `object` | Technology Targeting. |
+| `dayPartTargeting` | `object` | Day Part Targeting. |
 | `listTargetingExpression` | `object` | Remarketing List Targeting Expression. |
-| `advertiserId` | `string` | Advertiser ID of this targeting template. This is a required field on insert and is read-only after insert. |
-| `accountId` | `string` | Account ID of this targeting template. This field, if left unset, will be auto-generated on insert and is read-only after insert. |
-| `geoTargeting` | `object` | Geographical Targeting. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#targetingTemplate". |
+| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `keyValueTargetingExpression` | `object` | Key Value Targeting Expression. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

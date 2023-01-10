@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the project. Values are of the form `projects/`. |
-| `enablePrivateKeyCheck` | `boolean` | Reject a Git push that contains a private key. |
 | `pubsubConfigs` | `object` | How this project publishes a change in the repositories through Cloud Pub/Sub. Keyed by the topic names. |
+| `enablePrivateKeyCheck` | `boolean` | Reject a Git push that contains a private key. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

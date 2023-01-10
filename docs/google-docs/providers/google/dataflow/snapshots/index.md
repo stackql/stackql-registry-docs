@@ -31,12 +31,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `description` | `string` | User specified description of the snapshot. Maybe empty. |
 | `diskSizeBytes` | `string` | The disk byte size of the snapshot. Only available for snapshots in READY state. |
 | `projectId` | `string` | The project this snapshot belongs to. |
-| `region` | `string` | Cloud region where this snapshot lives in, e.g., "us-central1". |
-| `sourceJobId` | `string` | The job this snapshot was created from. |
 | `state` | `string` | State of the snapshot. |
-| `pubsubMetadata` | `array` | Pub/Sub snapshot metadata. |
 | `ttl` | `string` | The time after which this snapshot will be automatically deleted. |
 | `creationTime` | `string` | The time this snapshot was created. |
+| `region` | `string` | Cloud region where this snapshot lives in, e.g., "us-central1". |
+| `pubsubMetadata` | `array` | Pub/Sub snapshot metadata. |
+| `sourceJobId` | `string` | The job this snapshot was created from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

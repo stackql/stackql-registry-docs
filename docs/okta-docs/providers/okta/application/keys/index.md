@@ -3,14 +3,16 @@ title: keys
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - keys
+  - application
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -25,22 +27,22 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `created` | `string` |
-| `x5c` | `array` |
-| `_links` | `object` |
-| `lastUpdated` | `string` |
-| `e` | `string` |
-| `use` | `string` |
-| `status` | `string` |
-| `x5u` | `string` |
-| `kty` | `string` |
-| `false` | `string` |
-| `kid` | `string` |
-| `expiresAt` | `string` |
 | `x5t#S256` | `string` |
+| `x5c` | `array` |
+| `e` | `string` |
 | `alg` | `string` |
+| `kid` | `string` |
 | `x5t` | `string` |
+| `status` | `string` |
+| `expiresAt` | `string` |
+| `x5u` | `string` |
+| `created` | `string` |
+| `lastUpdated` | `string` |
 | `key_ops` | `array` |
+| `false` | `string` |
+| `_links` | `object` |
+| `use` | `string` |
+| `kty` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

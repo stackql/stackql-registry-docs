@@ -11,17 +11,29 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
-Secure and elastic compute capacity.  
+ec2  
+    
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>241</b></span><br />
+<span>total selectable resources:&nbsp;<b>170</b></span><br />
+<span>total methods:&nbsp;<b>523</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>aws.ec2</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>IAM</td></tr>
-<tr><td><b>Description</b></td><td>iam</td></tr>
-<tr><td><b>Id</b></td><td><code>iam:v0.1.3</code></td></tr>
+<tr><td><b>Title</b></td><td>EC2</td></tr>
+<tr><td><b>Description</b></td><td>ec2</td></tr>
+<tr><td><b>Id</b></td><td><code>ec2:v23.01.00108</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -171,7 +183,6 @@ Secure and elastic compute capacity.
 <a href="/providers/aws/ec2/public_ipv4_pool_cidr/">public_ipv4_pool_cidr</a><br />
 <a href="/providers/aws/ec2/public_ipv4_pools/">public_ipv4_pools</a><br />
 <a href="/providers/aws/ec2/queued_reserved_instances/">queued_reserved_instances</a><br />
-<a href="/providers/aws/ec2/raw_resource/">raw_resource</a><br />
 <a href="/providers/aws/ec2/regions/">regions</a><br />
 <a href="/providers/aws/ec2/replace_root_volume_tasks/">replace_root_volume_tasks</a><br />
 <a href="/providers/aws/ec2/reserved_instances/">reserved_instances</a><br />

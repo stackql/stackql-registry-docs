@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Specifies the resource identifier of the location.  |
 | `name` | `string` | Specifies the name of the location. Use List Locations to get all supported locations.  |
-| `properties` | `` | location properties |
 | `type` | `string` | Specifies the type of the location.  |
+| `properties` | `` | location properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

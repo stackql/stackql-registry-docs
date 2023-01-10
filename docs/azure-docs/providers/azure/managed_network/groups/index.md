@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Responsibility role under which this Managed Network Group will be created |
 | `properties` | `object` | Properties of a Managed Network Group |
+| `kind` | `string` | Responsibility role under which this Managed Network Group will be created |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

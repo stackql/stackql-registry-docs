@@ -27,13 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Gets the Kind. |
-| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Properties of the storage account. |
 | `sku` | `object` | The SKU of the storage account. |
 | `tags` | `object` | Resource tags. |
 | `extendedLocation` | `object` | The complex type of the extended location. |
 | `identity` | `object` | Identity for the resource. |
+| `kind` | `string` | Gets the Kind. |
+| `location` | `string` | The geo-location where the resource lives |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,10 +29,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this account permission. |
 | `name` | `string` | Name of this account permission. |
-| `permissionGroupId` | `string` | Permission group of this account permission. |
 | `accountProfiles` | `array` | Account profiles associated with this account permission. Possible values are: - "ACCOUNT_PROFILE_BASIC" - "ACCOUNT_PROFILE_STANDARD"  |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountPermission". |
 | `level` | `string` | Administrative level required to enable this account permission. |
+| `permissionGroupId` | `string` | Permission group of this account permission. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

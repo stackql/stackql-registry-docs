@@ -28,15 +28,15 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the campaign. |
-| `advertiserId` | `string` | Output only. The unique ID of the advertiser the campaign belongs to. |
 | `campaignId` | `string` | Output only. The unique ID of the campaign. Assigned by the system. |
-| `campaignBudgets` | `array` | The list of budgets available to this campaign. If this field is not set, the campaign uses an unlimited budget. |
-| `entityStatus` | `string` | Required. Controls whether or not the insertion orders under this campaign can spend their budgets and bid on inventory. * Accepted values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. * For CreateCampaign method, `ENTITY_STATUS_ARCHIVED` is not allowed. |
-| `campaignFlight` | `object` | Settings that track the planned spend and duration of a campaign. |
-| `campaignGoal` | `object` | Settings that control the goal of a campaign. |
 | `displayName` | `string` | Required. The display name of the campaign. Must be UTF-8 encoded with a maximum size of 240 bytes. |
-| `updateTime` | `string` | Output only. The timestamp when the campaign was last updated. Assigned by the system. |
 | `frequencyCap` | `object` | Settings that control the number of times a user may be shown with the same ad during a given time period. |
+| `campaignGoal` | `object` | Settings that control the goal of a campaign. |
+| `updateTime` | `string` | Output only. The timestamp when the campaign was last updated. Assigned by the system. |
+| `campaignBudgets` | `array` | The list of budgets available to this campaign. If this field is not set, the campaign uses an unlimited budget. |
+| `advertiserId` | `string` | Output only. The unique ID of the advertiser the campaign belongs to. |
+| `campaignFlight` | `object` | Settings that track the planned spend and duration of a campaign. |
+| `entityStatus` | `string` | Required. Controls whether or not the insertion orders under this campaign can spend their budgets and bid on inventory. * Accepted values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. * For CreateCampaign method, `ENTITY_STATUS_ARCHIVED` is not allowed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

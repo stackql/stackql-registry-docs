@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,14 +27,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `creationTime` | `string` | The time the transit gateway multicast domain was created. |
-| `options` | `object` | Describes the options for a transit gateway multicast domain. |
 | `ownerId` | `string` |  The ID of the Amazon Web Services account that owns the transit gateway multicast domain. |
 | `state` | `string` | The state of the transit gateway multicast domain. |
 | `tagSet` | `array` | The tags for the transit gateway multicast domain. |
 | `transitGatewayId` | `string` | The ID of the transit gateway. |
 | `transitGatewayMulticastDomainArn` | `string` | The Amazon Resource Name (ARN) of the transit gateway multicast domain. |
 | `transitGatewayMulticastDomainId` | `string` | The ID of the transit gateway multicast domain. |
+| `creationTime` | `string` | The time the transit gateway multicast domain was created. |
+| `options` | `object` | Describes the options for a transit gateway multicast domain. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

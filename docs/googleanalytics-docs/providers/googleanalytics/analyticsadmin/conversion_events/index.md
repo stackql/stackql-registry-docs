@@ -28,10 +28,10 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of this conversion event. Format: properties/&#123;property&#125;/conversionEvents/&#123;conversion_event&#125; |
-| `createTime` | `string` | Output only. Time when this conversion event was created in the property. |
 | `custom` | `boolean` | Output only. If set to true, this conversion event refers to a custom event. If set to false, this conversion event refers to a default event in GA. Default events typically have special meaning in GA. Default events are usually created for you by the GA system, but in some cases can be created by property admins. Custom events count towards the maximum number of custom conversion events that may be created per property. |
 | `deletable` | `boolean` | Output only. If set, this event can currently be deleted via DeleteConversionEvent. |
 | `eventName` | `string` | Immutable. The event name for this conversion event. Examples: 'click', 'purchase' |
+| `createTime` | `string` | Output only. Time when this conversion event was created in the property. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

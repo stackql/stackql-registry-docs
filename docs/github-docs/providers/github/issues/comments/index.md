@@ -3,14 +3,16 @@ title: comments
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - comments
+  - issues
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,18 +29,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the issue comment |
 | `body_html` | `string` |  |
-| `issue_url` | `string` |  |
-| `body_text` | `string` |  |
 | `node_id` | `string` |  |
-| `url` | `string` | URL for the issue comment |
-| `user` | `object` | Simple User |
-| `updated_at` | `string` |  |
 | `author_association` | `string` | How the author is associated with the repository. |
+| `created_at` | `string` |  |
+| `user` | `object` | Simple User |
+| `url` | `string` | URL for the issue comment |
+| `body_text` | `string` |  |
+| `updated_at` | `string` |  |
+| `issue_url` | `string` |  |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `reactions` | `object` |  |
 | `html_url` | `string` |  |
 | `body` | `string` | Contents of the issue comment |
-| `created_at` | `string` |  |
-| `reactions` | `object` |  |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

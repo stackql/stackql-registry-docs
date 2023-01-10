@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the operation. |
-| `origin` | `string` | Origin result |
 | `display` | `object` | An operation available at the listed Azure resource provider. |
 | `nextLink` | `string` | The URL to use for getting the next set of results. |
+| `origin` | `string` | Origin result |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

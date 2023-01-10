@@ -3,14 +3,16 @@ title: zones
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - zones
+  - networkzone
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -27,18 +29,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `gateways` | `array` |
-| `type` | `string` |
-| `proxies` | `array` |
-| `proxyType` | `string` |
 | `asns` | `array` |
-| `locations` | `array` |
 | `status` | `string` |
 | `created` | `string` |
-| `lastUpdated` | `string` |
 | `system` | `boolean` |
-| `_links` | `object` |
+| `proxies` | `array` |
+| `lastUpdated` | `string` |
+| `proxyType` | `string` |
 | `usage` | `string` |
+| `gateways` | `array` |
+| `_links` | `object` |
+| `locations` | `array` |
+| `type` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

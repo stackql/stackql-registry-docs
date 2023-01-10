@@ -28,22 +28,22 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Variable display name. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
-| `variableId` | `string` | The Variable ID uniquely identifies the GTM Variable. |
-| `fingerprint` | `string` | The fingerprint of the GTM Variable as computed at storage time. This value is recomputed whenever the variable is modified. |
+| `containerId` | `string` | GTM Container ID. |
 | `parameter` | `array` | The variable's parameters. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
 | `path` | `string` | GTM Variable's API relative path. |
+| `fingerprint` | `string` | The fingerprint of the GTM Variable as computed at storage time. This value is recomputed whenever the variable is modified. |
 | `enablingTriggerId` | `array` | For mobile containers only: A list of trigger IDs for enabling conditional variables; the variable is enabled if one of the enabling triggers is true while all the disabling triggers are false. Treated as an unordered set. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
-| `scheduleEndMs` | `string` | The end timestamp in milliseconds to schedule a variable. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
 | `formatValue` | `object` |  |
-| `type` | `string` | GTM Variable Type. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
-| `workspaceId` | `string` | GTM Workspace ID. |
-| `scheduleStartMs` | `string` | The start timestamp in milliseconds to schedule a variable. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
-| `parentFolderId` | `string` | Parent folder id. |
-| `accountId` | `string` | GTM Account ID. |
-| `disablingTriggerId` | `array` | For mobile containers only: A list of trigger IDs for disabling conditional variables; the variable is enabled if one of the enabling trigger is true while all the disabling trigger are false. Treated as an unordered set. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
-| `containerId` | `string` | GTM Container ID. |
 | `notes` | `string` | User notes on how to apply this variable in the container. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
+| `accountId` | `string` | GTM Account ID. |
+| `parentFolderId` | `string` | Parent folder id. |
+| `disablingTriggerId` | `array` | For mobile containers only: A list of trigger IDs for disabling conditional variables; the variable is enabled if one of the enabling trigger is true while all the disabling trigger are false. Treated as an unordered set. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
+| `variableId` | `string` | The Variable ID uniquely identifies the GTM Variable. |
+| `scheduleEndMs` | `string` | The end timestamp in milliseconds to schedule a variable. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
+| `workspaceId` | `string` | GTM Workspace ID. |
+| `type` | `string` | GTM Variable Type. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
 | `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
+| `scheduleStartMs` | `string` | The start timestamp in milliseconds to schedule a variable. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

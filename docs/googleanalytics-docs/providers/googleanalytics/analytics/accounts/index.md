@@ -29,13 +29,13 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Account ID. |
 | `name` | `string` | Account name. |
-| `childLink` | `object` | Child link for an account entry. Points to the list of web properties for this account. |
-| `updated` | `string` | Time the account was last modified. |
-| `created` | `string` | Time the account was created. |
-| `selfLink` | `string` | Link for this account. |
 | `starred` | `boolean` | Indicates whether this account is starred or not. |
-| `permissions` | `object` | Permissions the user has for this account. |
+| `updated` | `string` | Time the account was last modified. |
+| `childLink` | `object` | Child link for an account entry. Points to the list of web properties for this account. |
 | `kind` | `string` | Resource type for Analytics account. |
+| `created` | `string` | Time the account was created. |
+| `permissions` | `object` | Permissions the user has for this account. |
+| `selfLink` | `string` | Link for this account. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

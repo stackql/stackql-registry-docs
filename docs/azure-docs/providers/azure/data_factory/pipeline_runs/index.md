@@ -27,19 +27,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `invokedBy` | `object` | Provides entity name and id that started the pipeline run. |
-| `runStart` | `string` | The start time of a pipeline run in ISO8601 format. |
-| `runGroupId` | `string` | Identifier that correlates all the recovery runs of a pipeline run. |
-| `pipelineName` | `string` | The pipeline name. |
 | `durationInMs` | `integer` | The duration of a pipeline run. |
-| `isLatest` | `boolean` | Indicates if the recovered pipeline run is the latest in its group. |
-| `runDimensions` | `object` | Run dimensions emitted by Pipeline run. |
 | `lastUpdated` | `string` | The last updated timestamp for the pipeline run event in ISO8601 format. |
-| `parameters` | `object` | The full or partial list of parameter name, value pair used in the pipeline run. |
+| `invokedBy` | `object` | Provides entity name and id that started the pipeline run. |
+| `isLatest` | `boolean` | Indicates if the recovered pipeline run is the latest in its group. |
+| `runGroupId` | `string` | Identifier that correlates all the recovery runs of a pipeline run. |
+| `runDimensions` | `object` | Run dimensions emitted by Pipeline run. |
 | `status` | `string` | The status of a pipeline run. Possible values: Queued, InProgress, Succeeded, Failed, Canceling, Cancelled |
-| `message` | `string` | The message from a pipeline run. |
+| `parameters` | `object` | The full or partial list of parameter name, value pair used in the pipeline run. |
+| `pipelineName` | `string` | The pipeline name. |
 | `runEnd` | `string` | The end time of a pipeline run in ISO8601 format. |
+| `message` | `string` | The message from a pipeline run. |
 | `runId` | `string` | Identifier of a run. |
+| `runStart` | `string` | The start time of a pipeline run in ISO8601 format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

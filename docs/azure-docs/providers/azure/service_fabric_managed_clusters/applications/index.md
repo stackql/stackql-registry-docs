@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure resource identifier. |
 | `name` | `string` | Azure resource name. |
-| `type` | `string` | Azure resource type. |
-| `identity` | `object` | Describes the managed identities for an Azure resource. |
 | `location` | `string` | Resource location depends on the parent resource. |
 | `properties` | `object` | The application resource properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Azure resource tags. |
+| `type` | `string` | Azure resource type. |
+| `identity` | `object` | Describes the managed identities for an Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,16 +27,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `StatusMessage` | `string` |
-| `EventTime` | `number` |
-| `TypeName` | `string` |
 | `ResourceModel` | `string` |
-| `RequestToken` | `string` |
+| `Operation` | `string` |
+| `RetryAfter` | `number` |
+| `OperationStatus` | `string` |
 | `ErrorCode` | `string` |
 | `Identifier` | `string` |
-| `Operation` | `string` |
-| `OperationStatus` | `string` |
-| `RetryAfter` | `number` |
+| `TypeName` | `string` |
+| `RequestToken` | `string` |
+| `StatusMessage` | `string` |
+| `EventTime` | `number` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

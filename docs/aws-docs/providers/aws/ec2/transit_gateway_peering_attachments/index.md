@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `accepterTgwInfo` | `object` | Information about the transit gateway in the peering attachment. |
 | `creationTime` | `string` | The time the transit gateway peering attachment was created. |
 | `requesterTgwInfo` | `object` | Information about the transit gateway in the peering attachment. |
 | `state` | `string` | The state of the transit gateway peering attachment. Note that the &lt;code&gt;initiating&lt;/code&gt; state has been deprecated. |
 | `status` | `object` | The status of the transit gateway peering attachment. |
 | `tagSet` | `array` | The tags for the transit gateway peering attachment. |
 | `transitGatewayAttachmentId` | `string` | The ID of the transit gateway peering attachment. |
+| `accepterTgwInfo` | `object` | Information about the transit gateway in the peering attachment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

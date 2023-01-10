@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | String Id used to locate any resource on Azure. |
 | `name` | `string` | Name of this resource. |
-| `kind` | `string` | Specifies the kind of blueprint artifact. |
 | `type` | `string` | Type of this resource. |
+| `kind` | `string` | Specifies the kind of blueprint artifact. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

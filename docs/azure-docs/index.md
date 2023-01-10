@@ -13,9 +13,10 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 id: azure-doc
 slug: /providers/azure
----
-Cloud computing services operated by Microsoft.  
 
+---
+ Cloud computing services operated by Microsoft.  
+    
 :::info Provider Summary
 
 <div class="row">
@@ -25,7 +26,7 @@ Cloud computing services operated by Microsoft.
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>1777</b></span><br />
-<span>selectable resources:&nbsp;<b>1584</b></span><br />
+<span>total selectable resources:&nbsp;<b>1584</b></span><br />
 </div>
 </div>
 
@@ -45,22 +46,8 @@ REGISTRY PULL azure v23.01.00104;
 
 {
   "azure": {
-    /**
-      * Type of authentication to use, suported values include: api_key
-      * @type String
-      */
-    "type": string, 
-    /**
-      * Environment variable name containing the api token obtained using the azure cli or SDK.
-      * @type String
-      */
-    "credentialsenvvar": string, 
-    /**
-      * Value prepended to the request header, e.g. "Bearer "
-      * Must be set to "Bearer "
-      * @type String
-      */
-    "valuePrefix": string, 
+    "type": string, // authentication type to use, suported values include: bearer
+    "credentialsenvvar": string, // env var name containing the access token
   }
 }
 
@@ -70,7 +57,7 @@ REGISTRY PULL azure v23.01.00104;
 
 AZ_ACCESS_TOKEN_RAW=$(az account get-access-token --query accessToken --output tsv)
 export AZ_ACCESS_TOKEN=`echo $AZ_ACCESS_TOKEN_RAW | tr -d '\r'`
-AUTH='{ "azure": { "type": "api_key", "valuePrefix": "Bearer ", "credentialsenvvar": "AZ_ACCESS_TOKEN" } }'
+AUTH='{ "azure": { "type": "bearer", "credentialsenvvar": "AZ_ACCESS_TOKEN" } }'
 stackql shell --auth="${AUTH}"
 
 ```
@@ -78,7 +65,7 @@ stackql shell --auth="${AUTH}"
 ```powershell
 
 $Env:AZ_ACCESS_TOKEN = "$(az account get-access-token --query accessToken --output tsv)".Trim("`r")
-$Auth = "{ 'azure': { 'type': 'api_key', 'valuePrefix': 'Bearer ', 'credentialsenvvar': 'AZ_ACCESS_TOKEN' } }"
+$Auth = "{ 'azure': { 'type': 'bearer', 'credentialsenvvar': 'AZ_ACCESS_TOKEN' } }"
 stackql.exe shell --auth=$Auth
 
 ```

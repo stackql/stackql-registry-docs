@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Storage Pool  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>18</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Storage Pool
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Storage Pool (Microsoft.StoragePool)</td></tr>
 <tr><td><b>Description</b></td><td>Storage Pool</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_pool:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storage_pool:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

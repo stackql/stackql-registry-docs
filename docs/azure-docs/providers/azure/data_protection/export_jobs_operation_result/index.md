@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `blobSasKey` | `string` | SAS key to access the blob. |
 | `blobUrl` | `string` | URL of the blob into which the serialized string of list of jobs is exported. |
 | `excelFileBlobSasKey` | `string` | SAS key to access the ExcelFile blob. |
 | `excelFileBlobUrl` | `string` | URL of the blob into which the ExcelFile is uploaded. |
-| `blobSasKey` | `string` | SAS key to access the blob. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

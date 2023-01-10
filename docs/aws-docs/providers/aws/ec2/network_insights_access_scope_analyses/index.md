@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,17 +27,17 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `warningMessage` | `string` | The warning message. |
+| `networkInsightsAccessScopeAnalysisArn` | `string` | The Amazon Resource Name (ARN) of the Network Access Scope analysis. |
+| `networkInsightsAccessScopeAnalysisId` | `string` | The ID of the Network Access Scope analysis. |
+| `networkInsightsAccessScopeId` | `string` | The ID of the Network Access Scope. |
 | `analyzedEniCount` | `integer` | The number of network interfaces analyzed. |
 | `endDate` | `string` | The analysis end date. |
-| `networkInsightsAccessScopeAnalysisArn` | `string` | The Amazon Resource Name (ARN) of the Network Access Scope analysis. |
-| `startDate` | `string` | The analysis start date. |
-| `tagSet` | `array` | The tags. |
-| `warningMessage` | `string` | The warning message. |
 | `statusMessage` | `string` | The status message. |
 | `findingsFound` | `string` | Indicates whether there are findings. |
-| `networkInsightsAccessScopeId` | `string` | The ID of the Network Access Scope. |
-| `networkInsightsAccessScopeAnalysisId` | `string` | The ID of the Network Access Scope analysis. |
 | `status` | `string` | The status. |
+| `startDate` | `string` | The analysis start date. |
+| `tagSet` | `array` | The tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

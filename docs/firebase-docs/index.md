@@ -46,18 +46,10 @@ REGISTRY PULL firebase v23.01.00114;
 
 {
   "firebase": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values:  service_account
+    "credentialsfilepath": string, // path to service account key file
   }
-}  
+}
 
 ```
 ### Example (Mac/Linux)

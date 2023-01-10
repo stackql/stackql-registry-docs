@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `listUpdateResponses` | `array` | The list updates requested by the clients. The number of responses here may be less than the number of requests sent by clients. This is the case, for example, if the server has no updates for a particular list. |
 | `minimumWaitDuration` | `string` | The minimum duration the client must wait before issuing any update request. If this field is not set clients may update as soon as they want. |
+| `listUpdateResponses` | `array` | The list updates requested by the clients. The number of responses here may be less than the number of requests sent by clients. This is the case, for example, if the server has no updates for a particular list. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

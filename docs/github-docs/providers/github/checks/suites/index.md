@@ -3,14 +3,16 @@ title: suites
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - suites
+  - checks
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,23 +28,23 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
+| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `node_id` | `string` |  |
+| `rerequestable` | `boolean` |  |
 | `created_at` | `string` |  |
 | `head_branch` | `string` |  |
 | `before` | `string` |  |
-| `latest_check_runs_count` | `integer` |  |
-| `updated_at` | `string` |  |
 | `repository` | `object` | Minimal Repository |
-| `after` | `string` |  |
-| `head_commit` | `object` | Simple Commit |
-| `check_runs_url` | `string` |  |
-| `conclusion` | `string` |  |
-| `head_sha` | `string` | The SHA of the head commit that is being checked. |
-| `runs_rerequestable` | `boolean` |  |
-| `rerequestable` | `boolean` |  |
-| `pull_requests` | `array` |  |
-| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `status` | `string` |  |
-| `node_id` | `string` |  |
+| `after` | `string` |  |
+| `pull_requests` | `array` |  |
+| `updated_at` | `string` |  |
+| `latest_check_runs_count` | `integer` |  |
+| `check_runs_url` | `string` |  |
+| `head_sha` | `string` | The SHA of the head commit that is being checked. |
+| `head_commit` | `object` | Simple Commit |
+| `runs_rerequestable` | `boolean` |  |
+| `conclusion` | `string` |  |
 | `url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |

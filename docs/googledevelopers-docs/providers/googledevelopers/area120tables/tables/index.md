@@ -28,12 +28,12 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the table. Table names have the form `tables/&#123;table&#125;`. |
-| `timeZone` | `string` | The time zone of the table. IANA Time Zone Database time zone, e.g. "America/New_York". |
-| `updateTime` | `string` | Time when the table was last updated excluding updates to individual rows |
-| `columns` | `array` | List of columns in this table. Order of columns matches the display order. |
 | `createTime` | `string` | Time when the table was created. |
 | `displayName` | `string` | The human readable title of the table. |
 | `savedViews` | `array` | Saved views for this table. |
+| `timeZone` | `string` | The time zone of the table. IANA Time Zone Database time zone, e.g. "America/New_York". |
+| `updateTime` | `string` | Time when the table was last updated excluding updates to individual rows |
+| `columns` | `array` | List of columns in this table. Order of columns matches the display order. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

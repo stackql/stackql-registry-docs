@@ -3,14 +3,16 @@ title: reviews
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - reviews
+  - pulls
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,18 +28,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the review |
-| `body_html` | `string` |  |
-| `body_text` | `string` |  |
-| `pull_request_url` | `string` |  |
-| `commit_id` | `string` | A commit SHA for the review. |
-| `state` | `string` |  |
-| `html_url` | `string` |  |
-| `user` | `object` | Simple User |
 | `node_id` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `_links` | `object` |  |
-| `body` | `string` | The text of the review. |
 | `submitted_at` | `string` |  |
+| `user` | `object` | Simple User |
+| `pull_request_url` | `string` |  |
+| `body` | `string` | The text of the review. |
+| `body_html` | `string` |  |
+| `state` | `string` |  |
+| `body_text` | `string` |  |
+| `_links` | `object` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `commit_id` | `string` | A commit SHA for the review. |
+| `html_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

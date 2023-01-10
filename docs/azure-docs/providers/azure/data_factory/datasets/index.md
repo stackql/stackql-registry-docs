@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `etag` | `string` | Etag identifies change in the resource. |
 | `properties` | `object` | The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents. |
 | `type` | `string` | The resource type. |
+| `etag` | `string` | Etag identifies change in the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

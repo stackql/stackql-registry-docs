@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the developer app. |
-| `scopes` | `array` | Scopes to apply to the developer app. The specified scopes must already exist for the API product that you associate with the developer app. |
-| `keyExpiresIn` | `string` | Expiration time, in milliseconds, for the consumer key that is generated for the developer app. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
-| `appFamily` | `string` | Developer app family. |
-| `apiProducts` | `array` | List of API products associated with the developer app. |
-| `appId` | `string` | ID of the developer app. |
 | `credentials` | `array` | Output only. Set of credentials for the developer app consisting of the consumer key/secret pairs associated with the API products. |
-| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
-| `callbackUrl` | `string` | Callback URL used by OAuth 2.0 authorization servers to communicate authorization codes back to developer apps. |
 | `lastModifiedAt` | `string` | Output only. Time the developer app was modified in milliseconds since epoch. |
+| `keyExpiresIn` | `string` | Expiration time, in milliseconds, for the consumer key that is generated for the developer app. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
 | `attributes` | `array` | List of attributes for the developer app. |
-| `createdAt` | `string` | Output only. Time the developer app was created in milliseconds since epoch. |
+| `callbackUrl` | `string` | Callback URL used by OAuth 2.0 authorization servers to communicate authorization codes back to developer apps. |
+| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
+| `appFamily` | `string` | Developer app family. |
+| `scopes` | `array` | Scopes to apply to the developer app. The specified scopes must already exist for the API product that you associate with the developer app. |
+| `appId` | `string` | ID of the developer app. |
 | `developerId` | `string` | ID of the developer. |
+| `apiProducts` | `array` | List of API products associated with the developer app. |
+| `createdAt` | `string` | Output only. Time the developer app was created in milliseconds since epoch. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

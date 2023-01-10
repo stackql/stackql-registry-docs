@@ -28,13 +28,13 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the achievement. |
+| `token` | `string` | The token for this resource. |
 | `achievementType` | `string` | The type of the achievement. |
 | `draft` | `object` | An achievement configuration detail. |
 | `initialState` | `string` | The initial state of the achievement. |
 | `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfiguration`. |
 | `published` | `object` | An achievement configuration detail. |
 | `stepsToUnlock` | `integer` | Steps to unlock. Only applicable to incremental achievements. |
-| `token` | `string` | The token for this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,12 +27,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `state` | `string` | The state of the prefix list reference. |
-| `transitGatewayAttachment` | `object` | Describes a transit gateway prefix list attachment. |
 | `transitGatewayRouteTableId` | `string` | The ID of the transit gateway route table. |
 | `blackhole` | `boolean` | Indicates whether traffic that matches this route is dropped. |
 | `prefixListId` | `string` | The ID of the prefix list. |
 | `prefixListOwnerId` | `string` | The ID of the prefix list owner. |
+| `state` | `string` | The state of the prefix list reference. |
+| `transitGatewayAttachment` | `object` | Describes a transit gateway prefix list attachment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

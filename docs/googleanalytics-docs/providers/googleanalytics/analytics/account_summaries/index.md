@@ -29,9 +29,9 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Account ID. |
 | `name` | `string` | Account name. |
+| `kind` | `string` | Resource type for Analytics AccountSummary. |
 | `starred` | `boolean` | Indicates whether this account is starred or not. |
 | `webProperties` | `array` | List of web properties under this account. |
-| `kind` | `string` | Resource type for Analytics AccountSummary. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

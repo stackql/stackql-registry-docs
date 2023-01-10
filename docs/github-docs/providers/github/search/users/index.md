@@ -3,14 +3,16 @@ title: users
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - users
+  - search
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,38 +29,38 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `integer` |
 | `name` | `string` |
-| `public_gists` | `integer` |
-| `bio` | `string` |
-| `created_at` | `string` |
-| `company` | `string` |
-| `blog` | `string` |
-| `avatar_url` | `string` |
-| `html_url` | `string` |
-| `subscriptions_url` | `string` |
-| `text_matches` | `array` |
-| `location` | `string` |
-| `public_repos` | `integer` |
-| `received_events_url` | `string` |
-| `email` | `string` |
-| `following_url` | `string` |
-| `followers` | `integer` |
-| `gravatar_id` | `string` |
-| `following` | `integer` |
-| `organizations_url` | `string` |
-| `gists_url` | `string` |
-| `hireable` | `boolean` |
-| `type` | `string` |
-| `score` | `number` |
-| `node_id` | `string` |
-| `repos_url` | `string` |
-| `login` | `string` |
-| `suspended_at` | `string` |
-| `site_admin` | `boolean` |
-| `url` | `string` |
-| `followers_url` | `string` |
-| `updated_at` | `string` |
 | `starred_url` | `string` |
+| `html_url` | `string` |
+| `hireable` | `boolean` |
+| `blog` | `string` |
+| `public_repos` | `integer` |
+| `login` | `string` |
+| `bio` | `string` |
+| `updated_at` | `string` |
+| `node_id` | `string` |
+| `followers_url` | `string` |
+| `created_at` | `string` |
+| `email` | `string` |
+| `location` | `string` |
+| `repos_url` | `string` |
 | `events_url` | `string` |
+| `following_url` | `string` |
+| `url` | `string` |
+| `score` | `number` |
+| `avatar_url` | `string` |
+| `received_events_url` | `string` |
+| `gravatar_id` | `string` |
+| `subscriptions_url` | `string` |
+| `organizations_url` | `string` |
+| `site_admin` | `boolean` |
+| `followers` | `integer` |
+| `suspended_at` | `string` |
+| `company` | `string` |
+| `gists_url` | `string` |
+| `public_gists` | `integer` |
+| `following` | `integer` |
+| `type` | `string` |
+| `text_matches` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

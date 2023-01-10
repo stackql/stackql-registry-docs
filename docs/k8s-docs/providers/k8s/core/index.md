@@ -3,7 +3,7 @@ title: core
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - kubernetes
+  - core
   - k8s
   - stackql
   - infrastructure-as-code
@@ -11,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Kubernetes resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ---
 core  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>1</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ core
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Kubernetes - core</td></tr>
 <tr><td><b>Description</b></td><td>core</td></tr>
-<tr><td><b>Id</b></td><td><code>core:v0.1.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>core:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,12 +29,12 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this directory site. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this directory site. |
+| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
 | `inpageTagFormats` | `array` | Tag types for regular placements. Acceptable values are: - "STANDARD" - "IFRAME_JAVASCRIPT_INPAGE" - "INTERNAL_REDIRECT_INPAGE" - "JAVASCRIPT_INPAGE"  |
 | `interstitialTagFormats` | `array` | Tag types for interstitial placements. Acceptable values are: - "IFRAME_JAVASCRIPT_INTERSTITIAL" - "INTERNAL_REDIRECT_INTERSTITIAL" - "JAVASCRIPT_INTERSTITIAL"  |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#directorySite". |
 | `settings` | `object` | Directory Site Settings |
 | `url` | `string` | URL of this directory site. |
-| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

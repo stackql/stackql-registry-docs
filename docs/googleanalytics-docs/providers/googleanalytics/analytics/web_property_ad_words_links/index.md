@@ -29,11 +29,11 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Entity Google Ads link ID |
 | `name` | `string` | Name of the link. This field is required when creating a Google Ads link. |
+| `kind` | `string` | Resource type for entity Google Ads link. |
 | `profileIds` | `array` | IDs of linked Views (Profiles) represented as strings. |
 | `selfLink` | `string` | URL link for this Google Analytics - Google Ads link. |
 | `adWordsAccounts` | `array` | A list of Google Ads client accounts. These cannot be MCC accounts. This field is required when creating a Google Ads link. It cannot be empty. |
 | `entity` | `object` | Web property being linked. |
-| `kind` | `string` | Resource type for entity Google Ads link. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Gets or sets the identifier. |
 | `name` | `string` | Gets or sets the name. |
-| `tags` | `object` | Tags on the azure resource. |
-| `type` | `string` | Gets or sets the type. |
 | `properties` | `object` | The account properties |
-| `sku` | `object` | Gets or sets the Sku. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | Gets or sets the type. |
 | `identity` | `object` | The Managed Identity of the resource |
 | `location` | `string` | Gets or sets the location. |
+| `sku` | `object` | Gets or sets the Sku. |
+| `tags` | `object` | Tags on the azure resource. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

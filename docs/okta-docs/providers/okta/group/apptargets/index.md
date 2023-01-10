@@ -3,14 +3,16 @@ title: apptargets
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - apptargets
+  - group
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -28,14 +30,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `signOnModes` | `array` |
-| `website` | `string` |
-| `_links` | `object` |
-| `verificationStatus` | `string` |
-| `category` | `string` |
-| `displayName` | `string` |
-| `status` | `string` |
 | `lastUpdated` | `string` |
+| `signOnModes` | `array` |
+| `verificationStatus` | `string` |
+| `displayName` | `string` |
+| `category` | `string` |
+| `status` | `string` |
+| `_links` | `object` |
+| `website` | `string` |
 | `features` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |

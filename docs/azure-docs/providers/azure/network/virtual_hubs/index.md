@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `kind` | `string` | Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Parameters for VirtualHub. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `kind` | `string` | Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

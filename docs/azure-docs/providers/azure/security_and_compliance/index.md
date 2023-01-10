@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Security and Compliance  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>21</b></span><br />
+<span>total selectable resources:&nbsp;<b>20</b></span><br />
+<span>total methods:&nbsp;<b>74</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Security and Compliance
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Security and Compliance (Microsoft.SecurityAndCompliance)</td></tr>
 <tr><td><b>Description</b></td><td>Security and Compliance</td></tr>
-<tr><td><b>Id</b></td><td><code>security_and_compliance:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>security_and_compliance:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

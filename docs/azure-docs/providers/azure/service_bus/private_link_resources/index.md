@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | A link for the next page of private link resources. |
 | `value` | `array` | A collection of private link resources |
+| `nextLink` | `string` | A link for the next page of private link resources. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

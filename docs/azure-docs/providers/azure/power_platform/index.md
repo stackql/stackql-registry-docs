@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Power Platform  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>19</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Power Platform
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Power Platform (Microsoft.PowerPlatform)</td></tr>
 <tr><td><b>Description</b></td><td>Power Platform</td></tr>
-<tr><td><b>Id</b></td><td><code>power_platform:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>power_platform:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

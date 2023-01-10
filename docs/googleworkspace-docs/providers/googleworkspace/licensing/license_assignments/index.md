@@ -27,14 +27,14 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Identifies the resource as a LicenseAssignment, which is `licensing#licenseAssignment`. |
-| `productId` | `string` | A product's unique identifier. For more information about products in this version of the API, see Product and SKU IDs. |
-| `productName` | `string` | Display Name of the product. |
 | `selfLink` | `string` | Link to this page. |
 | `skuId` | `string` | A product SKU's unique identifier. For more information about available SKUs in this version of the API, see Products and SKUs. |
 | `skuName` | `string` | Display Name of the sku of the product. |
 | `userId` | `string` | The user's current primary email address. If the user's email address changes, use the new email address in your API requests. Since a `userId` is subject to change, do not use a `userId` value as a key for persistent data. This key could break if the current user's email address changes. If the `userId` is suspended, the license status changes. |
 | `etags` | `string` | ETag of the resource. |
+| `kind` | `string` | Identifies the resource as a LicenseAssignment, which is `licensing#licenseAssignment`. |
+| `productId` | `string` | A product's unique identifier. For more information about products in this version of the API, see Product and SKU IDs. |
+| `productName` | `string` | Display Name of the product. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,8 +27,8 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceFamily` | `string` | The instance family. |
 | `cpuCredits` | `string` | The default credit option for CPU usage of the instance family. Valid values are &lt;code&gt;standard&lt;/code&gt; and &lt;code&gt;unlimited&lt;/code&gt;. |
+| `instanceFamily` | `string` | The instance family. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The full qualified ARM ID of an event. |
 | `name` | `string` | The ID that uniquely identifies an event.  |
-| `properties` | `object` | price sheet result. It contains the pricesheet associated with billing period |
-| `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
 | `etag` | `string` | The etag for the resource. |
+| `properties` | `object` | price sheet result. It contains the pricesheet associated with billing period |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

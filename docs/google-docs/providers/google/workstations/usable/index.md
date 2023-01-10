@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
 | `unreachable` | `array` | Unreachable resources. |
 | `workstations` | `array` | The requested workstations. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

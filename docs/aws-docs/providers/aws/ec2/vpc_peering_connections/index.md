@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,12 +27,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `vpcPeeringConnectionId` | `string` | The ID of the VPC peering connection. |
-| `accepterVpcInfo` | `object` | Describes a VPC in a VPC peering connection. |
 | `expirationTime` | `string` | The time that an unaccepted VPC peering connection will expire. |
 | `requesterVpcInfo` | `object` | Describes a VPC in a VPC peering connection. |
 | `status` | `object` | Describes the status of a VPC peering connection. |
 | `tagSet` | `array` | Any tags assigned to the resource. |
+| `vpcPeeringConnectionId` | `string` | The ID of the VPC peering connection. |
+| `accepterVpcInfo` | `object` | Describes a VPC in a VPC peering connection. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

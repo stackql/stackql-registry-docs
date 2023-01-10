@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#regionsListResponse". |
 | `regions` | `array` | Region collection. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#regionsListResponse". |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

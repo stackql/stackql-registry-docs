@@ -28,13 +28,13 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique id for this annotation data. |
+| `volumeId` | `string` | The volume id for this data. * |
+| `encodedData` | `string` | Base64 encoded data for this annotation data. |
+| `layerId` | `string` | The Layer id for this data. * |
+| `updated` | `string` | Timestamp for the last time this data was updated. (RFC 3339 UTC date-time format). |
+| `annotationType` | `string` | The type of annotation this data is for. |
 | `data` | `object` |  |
 | `kind` | `string` | Resource Type |
-| `annotationType` | `string` | The type of annotation this data is for. |
-| `layerId` | `string` | The Layer id for this data. * |
-| `volumeId` | `string` | The volume id for this data. * |
-| `updated` | `string` | Timestamp for the last time this data was updated. (RFC 3339 UTC date-time format). |
-| `encodedData` | `string` | Base64 encoded data for this annotation data. |
 | `selfLink` | `string` | URL for this resource. * |
 ## Methods
 | Name | Accessible by | Required Params | Description |

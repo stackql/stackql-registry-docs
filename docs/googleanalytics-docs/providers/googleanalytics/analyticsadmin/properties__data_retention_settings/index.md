@@ -28,8 +28,8 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name for this DataRetentionSetting resource. Format: properties/&#123;property&#125;/dataRetentionSettings |
-| `eventDataRetention` | `string` | The length of time that event-level data is retained. |
 | `resetUserDataOnNewActivity` | `boolean` | If true, reset the retention period for the user identifier with every event from that user. |
+| `eventDataRetention` | `string` | The length of time that event-level data is retained. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

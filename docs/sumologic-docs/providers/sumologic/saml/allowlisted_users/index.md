@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `firstName` | `string` | First name of the user. |
 | `isActive` | `boolean` | Checks if the user is active. |
 | `lastLogin` | `string` | Timestamp of the last login of the user. |
 | `lastName` | `string` | Last name of the user. |
 | `userId` | `string` | Unique identifier of the user. |
 | `canManageSaml` | `boolean` | If the user can manage SAML Configurations. |
 | `email` | `string` | Email of the user. |
+| `firstName` | `string` | First name of the user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

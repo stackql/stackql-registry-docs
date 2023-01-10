@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Use these APIs to create Source Control Configuration resources through ARM, for Kubernetes Clusters.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>18</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Use these APIs to create Source Control Configuration resources through ARM, for
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Source Control Configuration Client (Microsoft.KubernetesConfiguration)</td></tr>
 <tr><td><b>Description</b></td><td>Use these APIs to create Source Control Configuration resources through ARM, for Kubernetes Clusters.</td></tr>
-<tr><td><b>Id</b></td><td><code>kubernetes_configuration:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>kubernetes_configuration:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

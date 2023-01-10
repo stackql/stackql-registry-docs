@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,16 +27,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resourceOwnerId` | `string` | The ID of the Amazon Web Services account that owns the resource. |
-| `resourceId` | `string` | The ID of the resource. |
-| `transitGatewayAttachmentId` | `string` | The ID of the attachment. |
+| `state` | `string` | The attachment state. Note that the &lt;code&gt;initiating&lt;/code&gt; state has been deprecated. |
 | `tagSet` | `array` | The tags for the attachment. |
 | `transitGatewayOwnerId` | `string` | The ID of the Amazon Web Services account that owns the transit gateway. |
 | `association` | `object` | Describes an association. |
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
+| `resourceId` | `string` | The ID of the resource. |
+| `resourceOwnerId` | `string` | The ID of the Amazon Web Services account that owns the resource. |
 | `resourceType` | `string` | The resource type. Note that the &lt;code&gt;tgw-peering&lt;/code&gt; resource type has been deprecated. |
+| `transitGatewayId` | `string` | The ID of the transit gateway. |
+| `transitGatewayAttachmentId` | `string` | The ID of the attachment. |
 | `creationTime` | `string` | The creation time. |
-| `state` | `string` | The attachment state. Note that the &lt;code&gt;initiating&lt;/code&gt; state has been deprecated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

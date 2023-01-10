@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The relative resource name of the settings. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example: "organizations/&#123;organization_id&#125;/organizationSettings". |
-| `enableAssetDiscovery` | `boolean` | A flag that indicates if Asset Discovery should be enabled. If the flag is set to `true`, then discovery of assets will occur. If it is set to `false, all historical assets will remain, but discovery of future assets will not occur. |
 | `assetDiscoveryConfig` | `object` | The configuration used for Asset Discovery runs. |
+| `enableAssetDiscovery` | `boolean` | A flag that indicates if Asset Discovery should be enabled. If the flag is set to `true`, then discovery of assets will occur. If it is set to `false, all historical assets will remain, but discovery of future assets will not occur. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

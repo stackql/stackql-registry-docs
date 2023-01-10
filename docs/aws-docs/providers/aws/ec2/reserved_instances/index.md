@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,24 +27,24 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `end` | `string` | The time when the Reserved Instance expires. |
-| `instanceTenancy` | `string` | The tenancy of the instance. |
-| `offeringType` | `string` | The Reserved Instance offering type. |
-| `offeringClass` | `string` | The offering class of the Reserved Instance. |
-| `scope` | `string` | The scope of the Reserved Instance. |
-| `tagSet` | `array` | Any tags assigned to the resource. |
-| `recurringCharges` | `array` | The recurring charge tag assigned to the resource. |
-| `usagePrice` | `number` | The usage price of the Reserved Instance, per hour. |
 | `fixedPrice` | `number` | The purchase price of the Reserved Instance. |
 | `instanceType` | `string` | The instance type on which the Reserved Instance can be used. |
-| `currencyCode` | `string` | The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is &lt;code&gt;USD&lt;/code&gt;. |
 | `productDescription` | `string` | The Reserved Instance product platform description. |
-| `availabilityZone` | `string` | The Availability Zone in which the Reserved Instance can be used. |
-| `duration` | `integer` | The duration of the Reserved Instance, in seconds. |
-| `start` | `string` | The date and time the Reserved Instance started. |
-| `instanceCount` | `integer` | The number of reservations purchased. |
-| `reservedInstancesId` | `string` | The ID of the Reserved Instance. |
 | `state` | `string` | The state of the Reserved Instance purchase. |
+| `instanceTenancy` | `string` | The tenancy of the instance. |
+| `scope` | `string` | The scope of the Reserved Instance. |
+| `reservedInstancesId` | `string` | The ID of the Reserved Instance. |
+| `availabilityZone` | `string` | The Availability Zone in which the Reserved Instance can be used. |
+| `currencyCode` | `string` | The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is &lt;code&gt;USD&lt;/code&gt;. |
+| `recurringCharges` | `array` | The recurring charge tag assigned to the resource. |
+| `instanceCount` | `integer` | The number of reservations purchased. |
+| `start` | `string` | The date and time the Reserved Instance started. |
+| `duration` | `integer` | The duration of the Reserved Instance, in seconds. |
+| `end` | `string` | The time when the Reserved Instance expires. |
+| `offeringType` | `string` | The Reserved Instance offering type. |
+| `tagSet` | `array` | Any tags assigned to the resource. |
+| `offeringClass` | `string` | The offering class of the Reserved Instance. |
+| `usagePrice` | `number` | The usage price of the Reserved Instance, per hour. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

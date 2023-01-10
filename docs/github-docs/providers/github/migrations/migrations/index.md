@@ -3,14 +3,16 @@ title: migrations
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - migrations
+  - migrations
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,22 +28,22 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `url` | `string` |  |
-| `exclude_metadata` | `boolean` |  |
-| `node_id` | `string` |  |
-| `lock_repositories` | `boolean` |  |
-| `exclude_git_data` | `boolean` |  |
-| `archive_url` | `string` |  |
-| `exclude_attachments` | `boolean` |  |
-| `exclude_owner_projects` | `boolean` |  |
-| `exclude_releases` | `boolean` |  |
 | `exclude` | `array` |  |
+| `lock_repositories` | `boolean` |  |
+| `updated_at` | `string` |  |
+| `archive_url` | `string` |  |
+| `exclude_metadata` | `boolean` |  |
+| `exclude_releases` | `boolean` |  |
+| `exclude_attachments` | `boolean` |  |
+| `exclude_git_data` | `boolean` |  |
 | `repositories` | `array` |  |
 | `state` | `string` |  |
-| `created_at` | `string` |  |
-| `guid` | `string` |  |
 | `owner` | `object` | Simple User |
-| `updated_at` | `string` |  |
+| `url` | `string` |  |
+| `exclude_owner_projects` | `boolean` |  |
+| `node_id` | `string` |  |
+| `guid` | `string` |  |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

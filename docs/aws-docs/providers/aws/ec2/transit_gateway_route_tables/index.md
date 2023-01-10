@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `creationTime` | `string` | The creation time. |
 | `defaultAssociationRouteTable` | `boolean` | Indicates whether this is the default association route table for the transit gateway. |
 | `defaultPropagationRouteTable` | `boolean` | Indicates whether this is the default propagation route table for the transit gateway. |
 | `state` | `string` | The state of the transit gateway route table. |
 | `tagSet` | `array` | Any tags assigned to the route table. |
 | `transitGatewayId` | `string` | The ID of the transit gateway. |
 | `transitGatewayRouteTableId` | `string` | The ID of the transit gateway route table. |
+| `creationTime` | `string` | The creation time. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

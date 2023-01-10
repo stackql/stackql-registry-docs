@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource Name. |
+| `kind` | `string` | The kind of storage account |
+| `location` | `string` | Resource Location. |
 | `properties` | `object` | Properties of a storage account. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource Type. |
-| `kind` | `string` | The kind of storage account |
-| `location` | `string` | Resource Location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

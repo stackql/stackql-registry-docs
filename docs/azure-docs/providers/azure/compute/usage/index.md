@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `object` | The Usage Names. |
+| `limit` | `integer` | The maximum permitted usage of the resource. |
 | `unit` | `string` | An enum describing the unit of usage measurement. |
 | `currentValue` | `integer` | The current usage of the resource. |
-| `limit` | `integer` | The maximum permitted usage of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

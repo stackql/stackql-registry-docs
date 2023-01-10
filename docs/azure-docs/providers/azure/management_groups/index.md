@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Management Groups  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>20</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Management Groups
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Management Groups (Microsoft.Management)</td></tr>
 <tr><td><b>Description</b></td><td>Management Groups</td></tr>
-<tr><td><b>Id</b></td><td><code>management_groups:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>management_groups:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

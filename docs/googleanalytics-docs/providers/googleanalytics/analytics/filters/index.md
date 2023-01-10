@@ -29,19 +29,19 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Filter ID. |
 | `name` | `string` | Name of this filter. |
-| `parentLink` | `object` | Parent link for this filter. Points to the account to which this filter belongs. |
-| `updated` | `string` | Time this filter was last modified. |
-| `advancedDetails` | `object` | Details for the filter of the type ADVANCED. |
-| `excludeDetails` | `object` | JSON template for an Analytics filter expression. |
-| `kind` | `string` | Resource type for Analytics filter. |
-| `type` | `string` | Type of this filter. Possible values are INCLUDE, EXCLUDE, LOWERCASE, UPPERCASE, SEARCH_AND_REPLACE and ADVANCED. |
-| `uppercaseDetails` | `object` | Details for the filter of the type UPPER. |
-| `created` | `string` | Time this filter was created. |
-| `selfLink` | `string` | Link for this filter. |
-| `includeDetails` | `object` | JSON template for an Analytics filter expression. |
 | `accountId` | `string` | Account ID to which this filter belongs. |
+| `type` | `string` | Type of this filter. Possible values are INCLUDE, EXCLUDE, LOWERCASE, UPPERCASE, SEARCH_AND_REPLACE and ADVANCED. |
+| `includeDetails` | `object` | JSON template for an Analytics filter expression. |
+| `updated` | `string` | Time this filter was last modified. |
+| `created` | `string` | Time this filter was created. |
 | `lowercaseDetails` | `object` | Details for the filter of the type LOWER. |
 | `searchAndReplaceDetails` | `object` | Details for the filter of the type SEARCH_AND_REPLACE. |
+| `kind` | `string` | Resource type for Analytics filter. |
+| `excludeDetails` | `object` | JSON template for an Analytics filter expression. |
+| `uppercaseDetails` | `object` | Details for the filter of the type UPPER. |
+| `parentLink` | `object` | Parent link for this filter. Points to the account to which this filter belongs. |
+| `selfLink` | `string` | Link for this filter. |
+| `advancedDetails` | `object` | Details for the filter of the type ADVANCED. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

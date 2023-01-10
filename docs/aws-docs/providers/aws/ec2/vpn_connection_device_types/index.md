@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `platform` | `string` | Customer gateway device platform. |
 | `software` | `string` | Customer gateway device software version. |
 | `vendor` | `string` | Customer gateway device vendor. |
 | `vpnConnectionDeviceTypeId` | `string` | Customer gateway device identifier. |
-| `platform` | `string` | Customer gateway device platform. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

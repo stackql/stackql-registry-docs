@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Service Map  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Service Map
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Map (Microsoft.OperationalInsights)</td></tr>
 <tr><td><b>Description</b></td><td>Service Map</td></tr>
-<tr><td><b>Id</b></td><td><code>service_map:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_map:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

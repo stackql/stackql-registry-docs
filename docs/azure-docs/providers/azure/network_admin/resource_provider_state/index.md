@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | URI of the resource. |
 | `name` | `string` | Name of the resource. |
-| `tags` | `object` | List of key value pairs. |
-| `type` | `string` | Type of resource. |
 | `location` | `string` | Region location of resource. |
 | `properties` | `object` | Admin overview properties. |
+| `tags` | `object` | List of key value pairs. |
+| `type` | `string` | Type of resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

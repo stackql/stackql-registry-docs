@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure resource Id |
 | `name` | `string` | Azure resource name. |
-| `type` | `string` | Azure resource type |
-| `location` | `string` | Resource location |
 | `properties` | `object` | Properties that contain a workbook template. |
 | `tags` | `object` | Resource tags |
+| `type` | `string` | Azure resource type |
+| `location` | `string` | Resource location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

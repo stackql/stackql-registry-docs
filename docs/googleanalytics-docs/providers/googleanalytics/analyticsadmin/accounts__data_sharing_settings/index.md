@@ -28,11 +28,11 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name. Format: accounts/&#123;account&#125;/dataSharingSettings Example: "accounts/1000/dataSharingSettings" |
-| `sharingWithGoogleAnySalesEnabled` | `boolean` | Allows any of Google sales to access the data in order to suggest configuration changes to improve results. |
 | `sharingWithGoogleAssignedSalesEnabled` | `boolean` | Allows Google sales teams that are assigned to the customer to access the data in order to suggest configuration changes to improve results. Sales team restrictions still apply when enabled. |
 | `sharingWithGoogleProductsEnabled` | `boolean` | Allows Google to use the data to improve other Google products or services. |
 | `sharingWithGoogleSupportEnabled` | `boolean` | Allows Google support to access the data in order to help troubleshoot issues. |
 | `sharingWithOthersEnabled` | `boolean` | Allows Google to share the data anonymously in aggregate form with others. |
+| `sharingWithGoogleAnySalesEnabled` | `boolean` | Allows any of Google sales to access the data in order to suggest configuration changes to improve results. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

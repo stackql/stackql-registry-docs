@@ -27,14 +27,14 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `subAccountId` | `string` | The sub account ID this profile belongs to if applicable. |
+| `subAccountName` | `string` | The sub account name this profile belongs to if applicable. |
+| `userName` | `string` | The user name. |
 | `accountId` | `string` | The account ID to which this profile belongs. |
 | `accountName` | `string` | The account name this profile belongs to. |
 | `etag` | `string` | Etag of this resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#userProfile". |
 | `profileId` | `string` | The unique ID of the user profile. |
-| `subAccountId` | `string` | The sub account ID this profile belongs to if applicable. |
-| `subAccountName` | `string` | The sub account name this profile belongs to if applicable. |
-| `userName` | `string` | The user name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

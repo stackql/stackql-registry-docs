@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Resource Connector  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Resource Connector
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Resource Connector (Microsoft.ResourceConnector)</td></tr>
 <tr><td><b>Description</b></td><td>Resource Connector</td></tr>
-<tr><td><b>Id</b></td><td><code>resource_connector:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>resource_connector:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -27,44 +27,44 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `relations` | `array` | The person's relations. |
+| `miscKeywords` | `array` | The person's miscellaneous keywords. |
+| `ageRanges` | `array` | Output only. The person's age ranges. |
+| `locations` | `array` | The person's locations. |
 | `events` | `array` | The person's events. |
 | `locales` | `array` | The person's locale preferences. |
-| `userDefined` | `array` | The person's user defined data. |
-| `residences` | `array` | **DEPRECATED**: (Please use `person.locations` instead) The person's residences. |
-| `etag` | `string` | The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the resource. Used for web cache validation. |
+| `emailAddresses` | `array` | The person's email addresses. For `people.connections.list` and `otherContacts.list` the number of email addresses is limited to 100. If a Person has more email addresses the entire set can be obtained by calling GetPeople. |
 | `calendarUrls` | `array` | The person's calendar URLs. |
+| `clientData` | `array` | The person's client data. |
 | `photos` | `array` | Output only. The person's photos. |
 | `taglines` | `array` | Output only. **DEPRECATED**: No data will be returned The person's taglines. |
-| `fileAses` | `array` | The person's file-ases. |
-| `resourceName` | `string` | The resource name for the person, assigned by the server. An ASCII string in the form of `people/&#123;person_id&#125;`. |
-| `addresses` | `array` | The person's street addresses. |
-| `braggingRights` | `array` | **DEPRECATED**: No data will be returned The person's bragging rights. |
-| `names` | `array` | The person's names. This field is a singleton for contact sources. |
-| `relationshipStatuses` | `array` | Output only. **DEPRECATED**: No data will be returned The person's relationship statuses. |
-| `interests` | `array` | The person's interests. |
-| `ageRanges` | `array` | Output only. The person's age ranges. |
-| `phoneNumbers` | `array` | The person's phone numbers. For `people.connections.list` and `otherContacts.list` the number of phone numbers is limited to 100. If a Person has more phone numbers the entire set can be obtained by calling GetPeople. |
-| `occupations` | `array` | The person's occupations. |
-| `externalIds` | `array` | The person's external IDs. |
 | `organizations` | `array` | The person's past or current organizations. |
-| `relations` | `array` | The person's relations. |
-| `clientData` | `array` | The person's client data. |
-| `relationshipInterests` | `array` | Output only. **DEPRECATED**: No data will be returned The person's relationship interests. |
-| `imClients` | `array` | The person's instant messaging clients. |
-| `miscKeywords` | `array` | The person's miscellaneous keywords. |
-| `birthdays` | `array` | The person's birthdays. This field is a singleton for contact sources. |
-| `sipAddresses` | `array` | The person's SIP addresses. |
-| `emailAddresses` | `array` | The person's email addresses. For `people.connections.list` and `otherContacts.list` the number of email addresses is limited to 100. If a Person has more email addresses the entire set can be obtained by calling GetPeople. |
-| `memberships` | `array` | The person's group memberships. |
-| `metadata` | `object` | The metadata about a person. |
-| `biographies` | `array` | The person's biographies. This field is a singleton for contact sources. |
-| `skills` | `array` | The person's skills. |
-| `nicknames` | `array` | The person's nicknames. |
-| `genders` | `array` | The person's genders. This field is a singleton for contact sources. |
-| `urls` | `array` | The person's associated URLs. |
-| `locations` | `array` | The person's locations. |
 | `coverPhotos` | `array` | Output only. The person's cover photos. |
+| `phoneNumbers` | `array` | The person's phone numbers. For `people.connections.list` and `otherContacts.list` the number of phone numbers is limited to 100. If a Person has more phone numbers the entire set can be obtained by calling GetPeople. |
+| `userDefined` | `array` | The person's user defined data. |
+| `metadata` | `object` | The metadata about a person. |
+| `occupations` | `array` | The person's occupations. |
+| `residences` | `array` | **DEPRECATED**: (Please use `person.locations` instead) The person's residences. |
+| `urls` | `array` | The person's associated URLs. |
+| `externalIds` | `array` | The person's external IDs. |
+| `skills` | `array` | The person's skills. |
+| `relationshipStatuses` | `array` | Output only. **DEPRECATED**: No data will be returned The person's relationship statuses. |
+| `nicknames` | `array` | The person's nicknames. |
+| `relationshipInterests` | `array` | Output only. **DEPRECATED**: No data will be returned The person's relationship interests. |
+| `fileAses` | `array` | The person's file-ases. |
+| `braggingRights` | `array` | **DEPRECATED**: No data will be returned The person's bragging rights. |
+| `birthdays` | `array` | The person's birthdays. This field is a singleton for contact sources. |
+| `interests` | `array` | The person's interests. |
+| `sipAddresses` | `array` | The person's SIP addresses. |
+| `imClients` | `array` | The person's instant messaging clients. |
+| `memberships` | `array` | The person's group memberships. |
+| `etag` | `string` | The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the resource. Used for web cache validation. |
+| `biographies` | `array` | The person's biographies. This field is a singleton for contact sources. |
+| `resourceName` | `string` | The resource name for the person, assigned by the server. An ASCII string in the form of `people/&#123;person_id&#125;`. |
 | `ageRange` | `string` | Output only. **DEPRECATED** (Please use `person.ageRanges` instead) The person's age range. |
+| `addresses` | `array` | The person's street addresses. |
+| `genders` | `array` | The person's genders. This field is a singleton for contact sources. |
+| `names` | `array` | The person's names. This field is a singleton for contact sources. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

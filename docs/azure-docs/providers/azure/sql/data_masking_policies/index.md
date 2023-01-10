@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | The properties of a database data masking policy. |
 | `kind` | `string` | The kind of data masking policy. Metadata, used for Azure portal. |
 | `location` | `string` | The location of the data masking policy. |
+| `properties` | `object` | The properties of a database data masking policy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

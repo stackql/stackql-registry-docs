@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,10 +28,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description for the snapshot. |
-| `recycleBinEnterTime` | `string` | The date and time when the snaphsot entered the Recycle Bin. |
-| `recycleBinExitTime` | `string` | The date and time when the snapshot is to be permanently deleted from the Recycle Bin. |
 | `snapshotId` | `string` | The ID of the snapshot. |
 | `volumeId` | `string` | The ID of the volume from which the snapshot was created. |
+| `recycleBinEnterTime` | `string` | The date and time when the snaphsot entered the Recycle Bin. |
+| `recycleBinExitTime` | `string` | The date and time when the snapshot is to be permanently deleted from the Recycle Bin. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

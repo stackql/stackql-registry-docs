@@ -3,14 +3,16 @@ title: meta
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - meta
+  - meta
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,18 +27,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
+| `packages` | `array` |
+| `ssh_key_fingerprints` | `object` |
 | `ssh_keys` | `array` |
-| `git` | `array` |
-| `api` | `array` |
-| `pages` | `array` |
+| `dependabot` | `array` |
 | `verifiable_password_authentication` | `boolean` |
 | `web` | `array` |
-| `hooks` | `array` |
+| `pages` | `array` |
 | `actions` | `array` |
-| `packages` | `array` |
+| `api` | `array` |
+| `hooks` | `array` |
 | `importer` | `array` |
-| `dependabot` | `array` |
-| `ssh_key_fingerprints` | `object` |
+| `git` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

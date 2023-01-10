@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID of the API key inside an Application Insights component. It is auto generated when the API key is created. |
 | `name` | `string` | The name of the API key. |
+| `linkedReadProperties` | `array` | The read access rights of this API Key. |
 | `linkedWriteProperties` | `array` | The write access rights of this API Key. |
 | `apiKey` | `string` | The API key value. It will be only return once when the API Key was created. |
 | `createdDate` | `string` | The create date of this API key. |
-| `linkedReadProperties` | `array` | The read access rights of this API Key. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

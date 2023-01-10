@@ -27,11 +27,11 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `savedQueryId` | `string` | A unique identifier for the saved query. |
 | `createTime` | `string` | Output only. The server-generated timestamp when the saved query was created. |
 | `displayName` | `string` | The name of the saved query. |
 | `matterId` | `string` | Output only. The matter ID of the matter the saved query is saved in. The server does not use this field during create and always uses matter ID in the URL. |
 | `query` | `object` | The query definition used for search and export. |
-| `savedQueryId` | `string` | A unique identifier for the saved query. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Service Fabric Mesh  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>36</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Service Fabric Mesh
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Fabric Mesh (Microsoft.ServiceFabricMesh)</td></tr>
 <tr><td><b>Description</b></td><td>Service Fabric Mesh</td></tr>
-<tr><td><b>Id</b></td><td><code>service_fabric_mesh:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_fabric_mesh:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

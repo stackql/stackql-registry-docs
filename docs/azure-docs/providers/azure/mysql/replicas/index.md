@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `properties` | `object` | The properties of a server. |
 | `sku` | `object` | The resource model definition representing SKU |
 | `tags` | `object` | Resource tags. |
 | `identity` | `object` | Azure Active Directory identity configuration for a resource. |
 | `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties of a server. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

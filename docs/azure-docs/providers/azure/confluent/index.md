@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Fully Managed Apache Kafka® on Azure  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Fully Managed Apache Kafka® on Azure
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Fully Managed Apache Kafka® on Azure (Microsoft.Confluent)</td></tr>
 <tr><td><b>Description</b></td><td>Fully Managed Apache Kafka® on Azure</td></tr>
-<tr><td><b>Id</b></td><td><code>confluent:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>confluent:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

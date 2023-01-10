@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource identifier of the database account. |
 | `name` | `string` | The name of the database account. |
-| `type` | `string` | The type of Azure resource. |
 | `properties` | `object` | Properties of a private link resource. |
+| `type` | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

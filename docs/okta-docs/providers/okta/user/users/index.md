@@ -3,14 +3,16 @@ title: users
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - users
+  - user
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -26,19 +28,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `transitioningToStatus` | `string` |
-| `credentials` | `object` |
-| `_embedded` | `object` |
-| `status` | `string` |
-| `created` | `string` |
-| `lastUpdated` | `string` |
-| `activated` | `string` |
-| `statusChanged` | `string` |
 | `profile` | `object` |
+| `activated` | `string` |
 | `passwordChanged` | `string` |
-| `_links` | `object` |
+| `statusChanged` | `string` |
+| `status` | `string` |
 | `type` | `object` |
+| `_embedded` | `object` |
+| `_links` | `object` |
+| `transitioningToStatus` | `string` |
 | `lastLogin` | `string` |
+| `lastUpdated` | `string` |
+| `credentials` | `object` |
+| `created` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `purchase` | `array` | The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it. |
-| `totalHourlyPrice` | `string` | The potential total hourly price of the reservation per hour. |
 | `totalUpfrontPrice` | `string` | The potential total upfront price. This is billed immediately. |
 | `currencyCode` | `string` | The currency in which the &lt;code&gt;totalUpfrontPrice&lt;/code&gt; and &lt;code&gt;totalHourlyPrice&lt;/code&gt; amounts are specified. At this time, the only supported currency is &lt;code&gt;USD&lt;/code&gt;. |
+| `purchase` | `array` | The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it. |
+| `totalHourlyPrice` | `string` | The potential total hourly price of the reservation per hour. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

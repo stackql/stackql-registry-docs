@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The id of the long running operation. |
 | `name` | `string` | The name of the long running operation. |
-| `error` | `object` | The details of the error. |
 | `properties` | `object` | The URL to download the generated report. |
 | `status` | `object` | The status of the long running operation. |
 | `type` | `string` | The type of the long running operation. |
+| `error` | `object` | The details of the error. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

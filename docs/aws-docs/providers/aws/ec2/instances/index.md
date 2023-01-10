@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,62 +27,62 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `iamInstanceProfile` | `object` | Describes an IAM instance profile. |
-| `platform` | `string` | The value is &lt;code&gt;Windows&lt;/code&gt; for Windows instances; otherwise blank. |
-| `rootDeviceName` | `string` | The device name of the root device volume (for example, &lt;code&gt;/dev/sda1&lt;/code&gt;). |
+| `platformDetails` | `string` | The platform details value for the instance. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html"&gt;AMI billing information fields&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
+| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
 | `reason` | `string` | The reason for the most recent state transition. This might be an empty string. |
-| `placement` | `object` | Describes the placement of an instance. |
 | `privateIpAddress` | `string` | The private IPv4 address assigned to the instance. |
-| `privateDnsName` | `string` | &lt;p&gt;(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the &lt;code&gt;running&lt;/code&gt; state. &lt;/p&gt; &lt;p&gt;[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.&lt;/p&gt; |
-| `monitoring` | `object` | Describes the monitoring of an instance. |
-| `virtualizationType` | `string` | The virtualization type of the instance. |
+| `usageOperation` | `string` | The usage operation value for the instance. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html"&gt;AMI billing information fields&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
 | `instanceState` | `object` | Describes the current state of an instance. |
-| `stateReason` | `object` | Describes a state change. |
 | `ipv6Address` | `string` | The IPv6 address assigned to the instance. |
 | `vpcId` | `string` | [EC2-VPC] The ID of the VPC in which the instance is running. |
-| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
-| `bootMode` | `string` | The boot mode of the instance. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html"&gt;Boot modes&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
-| `licenseSet` | `array` | The license configurations for the instance. |
-| `imageId` | `string` | The ID of the AMI used to launch the instance. |
-| `dnsName` | `string` | (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the &lt;code&gt;running&lt;/code&gt; state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC. |
-| `enaSupport` | `boolean` | Specifies whether enhanced networking with ENA is enabled. |
-| `subnetId` | `string` | [EC2-VPC] The ID of the subnet in which the instance is running. |
-| `usageOperationUpdateTime` | `string` | The time that the usage operation was last updated. |
-| `elasticInferenceAcceleratorAssociationSet` | `array` |  The elastic inference accelerator associated with the instance. |
-| `spotInstanceRequestId` | `string` | If the request is a Spot Instance request, the ID of the request. |
-| `usageOperation` | `string` | The usage operation value for the instance. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html"&gt;AMI billing information fields&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
-| `sriovNetSupport` | `string` | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled. |
-| `kernelId` | `string` | The kernel associated with this instance, if applicable. |
-| `blockDeviceMapping` | `array` | Any block device mapping entries for the instance. |
-| `enclaveOptions` | `object` | Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. |
-| `architecture` | `string` | The architecture of the image. |
-| `capacityReservationSpecification` | `object` | Describes the instance's Capacity Reservation targeting preferences. The action returns the &lt;code&gt;capacityReservationPreference&lt;/code&gt; response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any &lt;code&gt;open&lt;/code&gt; Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the &lt;code&gt;capacityReservationTarget&lt;/code&gt; response element if the instance explicily targets a specific Capacity Reservation or Capacity Reservation group. |
-| `ipAddress` | `string` | &lt;p&gt;The public IPv4 address, or the Carrier IP address assigned to the instance, if applicable.&lt;/p&gt; &lt;p&gt;A Carrier IP address only applies to an instance launched in a subnet associated with a Wavelength Zone.&lt;/p&gt; |
-| `metadataOptions` | `object` | The metadata options for the instance. |
-| `instanceType` | `string` | The instance type. |
-| `amiLaunchIndex` | `integer` | The AMI launch index, which can be used to find this instance in the launch group. |
-| `productCodes` | `array` | The product codes attached to this instance, if applicable. |
-| `launchTime` | `string` | The time the instance was launched. |
-| `hibernationOptions` | `object` | Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites"&gt;hibernation prerequisites&lt;/a&gt;. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"&gt;Hibernate your instance&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
-| `hypervisor` | `string` | The hypervisor type of the instance. The value &lt;code&gt;xen&lt;/code&gt; is used for both Xen and Nitro hypervisors. |
-| `cpuOptions` | `object` | The CPU options for the instance. |
-| `sourceDestCheck` | `boolean` | Indicates whether source/destination checking is enabled. |
-| `elasticGpuAssociationSet` | `array` | The Elastic GPU associated with the instance. |
-| `tpmSupport` | `string` | If the instance is configured for NitroTPM support, the value is &lt;code&gt;v2.0&lt;/code&gt;. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html"&gt;NitroTPM&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
-| `clientToken` | `string` | The idempotency token you provided when you launched the instance, if applicable. |
-| `maintenanceOptions` | `object` | The maintenance options for the instance. |
-| `keyName` | `string` | The name of the key pair, if this instance was launched with an associated key pair. |
-| `capacityReservationId` | `string` | The ID of the Capacity Reservation. |
-| `tagSet` | `array` | Any tags assigned to the instance. |
-| `privateDnsNameOptions` | `object` | Describes the options for instance hostnames. |
-| `ebsOptimized` | `boolean` | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. |
-| `rootDeviceType` | `string` | The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume. |
 | `instanceId` | `string` | The ID of the instance. |
-| `networkInterfaceSet` | `array` | [EC2-VPC] The network interfaces for the instance. |
-| `platformDetails` | `string` | The platform details value for the instance. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html"&gt;AMI billing information fields&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
-| `ramdiskId` | `string` | The RAM disk associated with this instance, if applicable. |
+| `imageId` | `string` | The ID of the AMI used to launch the instance. |
+| `privateDnsNameOptions` | `object` | Describes the options for instance hostnames. |
+| `launchTime` | `string` | The time the instance was launched. |
+| `maintenanceOptions` | `object` | The maintenance options for the instance. |
+| `elasticInferenceAcceleratorAssociationSet` | `array` |  The elastic inference accelerator associated with the instance. |
+| `rootDeviceType` | `string` | The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume. |
+| `enclaveOptions` | `object` | Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. |
+| `tagSet` | `array` | Any tags assigned to the instance. |
+| `capacityReservationId` | `string` | The ID of the Capacity Reservation. |
+| `ebsOptimized` | `boolean` | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. |
+| `platform` | `string` | The value is &lt;code&gt;Windows&lt;/code&gt; for Windows instances; otherwise blank. |
+| `elasticGpuAssociationSet` | `array` | The Elastic GPU associated with the instance. |
 | `groupSet` | `array` | The security groups for the instance. |
+| `productCodes` | `array` | The product codes attached to this instance, if applicable. |
+| `bootMode` | `string` | The boot mode of the instance. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html"&gt;Boot modes&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
+| `usageOperationUpdateTime` | `string` | The time that the usage operation was last updated. |
+| `cpuOptions` | `object` | The CPU options for the instance. |
+| `stateReason` | `object` | Describes a state change. |
+| `architecture` | `string` | The architecture of the image. |
+| `privateDnsName` | `string` | &lt;p&gt;(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the &lt;code&gt;running&lt;/code&gt; state. &lt;/p&gt; &lt;p&gt;[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.&lt;/p&gt; |
+| `networkInterfaceSet` | `array` | [EC2-VPC] The network interfaces for the instance. |
+| `sourceDestCheck` | `boolean` | Indicates whether source/destination checking is enabled. |
+| `keyName` | `string` | The name of the key pair, if this instance was launched with an associated key pair. |
+| `clientToken` | `string` | The idempotency token you provided when you launched the instance, if applicable. |
+| `tpmSupport` | `string` | If the instance is configured for NitroTPM support, the value is &lt;code&gt;v2.0&lt;/code&gt;. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html"&gt;NitroTPM&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
+| `virtualizationType` | `string` | The virtualization type of the instance. |
+| `placement` | `object` | Describes the placement of an instance. |
+| `iamInstanceProfile` | `object` | Describes an IAM instance profile. |
+| `amiLaunchIndex` | `integer` | The AMI launch index, which can be used to find this instance in the launch group. |
+| `instanceType` | `string` | The instance type. |
+| `subnetId` | `string` | [EC2-VPC] The ID of the subnet in which the instance is running. |
+| `metadataOptions` | `object` | The metadata options for the instance. |
+| `rootDeviceName` | `string` | The device name of the root device volume (for example, &lt;code&gt;/dev/sda1&lt;/code&gt;). |
+| `ipAddress` | `string` | &lt;p&gt;The public IPv4 address, or the Carrier IP address assigned to the instance, if applicable.&lt;/p&gt; &lt;p&gt;A Carrier IP address only applies to an instance launched in a subnet associated with a Wavelength Zone.&lt;/p&gt; |
+| `blockDeviceMapping` | `array` | Any block device mapping entries for the instance. |
 | `instanceLifecycle` | `string` | Indicates whether this is a Spot Instance or a Scheduled Instance. |
+| `hibernationOptions` | `object` | Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites"&gt;hibernation prerequisites&lt;/a&gt;. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"&gt;Hibernate your instance&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. |
+| `dnsName` | `string` | (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the &lt;code&gt;running&lt;/code&gt; state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC. |
+| `capacityReservationSpecification` | `object` | Describes the instance's Capacity Reservation targeting preferences. The action returns the &lt;code&gt;capacityReservationPreference&lt;/code&gt; response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any &lt;code&gt;open&lt;/code&gt; Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the &lt;code&gt;capacityReservationTarget&lt;/code&gt; response element if the instance explicily targets a specific Capacity Reservation or Capacity Reservation group. |
+| `kernelId` | `string` | The kernel associated with this instance, if applicable. |
+| `enaSupport` | `boolean` | Specifies whether enhanced networking with ENA is enabled. |
+| `monitoring` | `object` | Describes the monitoring of an instance. |
+| `licenseSet` | `array` | The license configurations for the instance. |
+| `ramdiskId` | `string` | The RAM disk associated with this instance, if applicable. |
+| `spotInstanceRequestId` | `string` | If the request is a Spot Instance request, the ID of the request. |
+| `hypervisor` | `string` | The hypervisor type of the instance. The value &lt;code&gt;xen&lt;/code&gt; is used for both Xen and Nitro hypervisors. |
+| `sriovNetSupport` | `string` | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `adCode` | `string` | The ad code snippet. |
 | `kind` | `string` | Kind this is, in this case adsensehost#adCode. |
+| `adCode` | `string` | The ad code snippet. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

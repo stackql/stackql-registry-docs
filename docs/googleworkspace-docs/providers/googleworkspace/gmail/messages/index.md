@@ -28,14 +28,14 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The immutable ID of the message. |
-| `raw` | `string` | The entire email message in an RFC 2822 formatted and base64url encoded string. Returned in `messages.get` and `drafts.get` responses when the `format=RAW` parameter is supplied. |
-| `labelIds` | `array` | List of IDs of labels applied to this message. |
-| `sizeEstimate` | `integer` | Estimated size in bytes of the message. |
-| `threadId` | `string` | The ID of the thread the message belongs to. To add a message or draft to a thread, the following criteria must be met: 1. The requested `threadId` must be specified on the `Message` or `Draft.Message` you supply with your request. 2. The `References` and `In-Reply-To` headers must be set in compliance with the [RFC 2822](https://tools.ietf.org/html/rfc2822) standard. 3. The `Subject` headers must match.  |
 | `payload` | `object` | A single MIME message part. |
-| `historyId` | `string` | The ID of the last history record that modified this message. |
-| `snippet` | `string` | A short part of the message text. |
+| `raw` | `string` | The entire email message in an RFC 2822 formatted and base64url encoded string. Returned in `messages.get` and `drafts.get` responses when the `format=RAW` parameter is supplied. |
+| `threadId` | `string` | The ID of the thread the message belongs to. To add a message or draft to a thread, the following criteria must be met: 1. The requested `threadId` must be specified on the `Message` or `Draft.Message` you supply with your request. 2. The `References` and `In-Reply-To` headers must be set in compliance with the [RFC 2822](https://tools.ietf.org/html/rfc2822) standard. 3. The `Subject` headers must match.  |
 | `internalDate` | `string` | The internal message creation timestamp (epoch ms), which determines ordering in the inbox. For normal SMTP-received email, this represents the time the message was originally accepted by Google, which is more reliable than the `Date` header. However, for API-migrated mail, it can be configured by client to be based on the `Date` header. |
+| `labelIds` | `array` | List of IDs of labels applied to this message. |
+| `snippet` | `string` | A short part of the message text. |
+| `sizeEstimate` | `integer` | Estimated size in bytes of the message. |
+| `historyId` | `string` | The ID of the last history record that modified this message. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

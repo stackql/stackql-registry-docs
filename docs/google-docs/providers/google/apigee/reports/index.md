@@ -28,27 +28,27 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Unique identifier for the report T his is a legacy field used to encode custom report unique id |
+| `environment` | `string` | Output only. Environment name |
+| `tags` | `array` | Legacy field: not used. This field contains a list of tags associated with custom report |
+| `fromTime` | `string` | Legacy field: not used. Contains the from time for the report |
+| `chartType` | `string` | This field contains the chart type for the report |
+| `displayName` | `string` | This is the display name for the report |
+| `offset` | `string` | Legacy field: not used. This field contains the offset for the data |
+| `comments` | `array` | Legacy field: not used. This field contains a list of comments associated with custom report |
+| `lastViewedAt` | `string` | Output only. Last viewed time of this entity as milliseconds since epoch |
+| `sortByCols` | `array` | Legacy field: not used much. Contains the list of sort by columns |
+| `lastModifiedAt` | `string` | Output only. Modified time of this entity as milliseconds since epoch. json key: lastModifiedAt |
+| `toTime` | `string` | Legacy field: not used. Contains the end time for the report |
+| `topk` | `string` | Legacy field: not used. This field contains the top k parameter value for restricting the result |
+| `sortOrder` | `string` | Legacy field: not used much. Contains the sort order for the sort columns |
+| `properties` | `array` | This field contains report properties such as ui metadata etc. |
+| `dimensions` | `array` | This contains the list of dimensions for the report |
+| `filter` | `string` | This field contains the filter expression |
+| `limit` | `string` | Legacy field: not used This field contains the limit for the result retrieved |
+| `timeUnit` | `string` | This field contains the time unit of aggregation for the report |
+| `organization` | `string` | Output only. Organization name |
 | `createdAt` | `string` | Output only. Unix time when the app was created json key: createdAt |
 | `metrics` | `array` | Required. This contains the list of metrics |
-| `fromTime` | `string` | Legacy field: not used. Contains the from time for the report |
-| `lastViewedAt` | `string` | Output only. Last viewed time of this entity as milliseconds since epoch |
-| `sortOrder` | `string` | Legacy field: not used much. Contains the sort order for the sort columns |
-| `displayName` | `string` | This is the display name for the report |
-| `filter` | `string` | This field contains the filter expression |
-| `timeUnit` | `string` | This field contains the time unit of aggregation for the report |
-| `comments` | `array` | Legacy field: not used. This field contains a list of comments associated with custom report |
-| `limit` | `string` | Legacy field: not used This field contains the limit for the result retrieved |
-| `chartType` | `string` | This field contains the chart type for the report |
-| `toTime` | `string` | Legacy field: not used. Contains the end time for the report |
-| `environment` | `string` | Output only. Environment name |
-| `organization` | `string` | Output only. Organization name |
-| `tags` | `array` | Legacy field: not used. This field contains a list of tags associated with custom report |
-| `topk` | `string` | Legacy field: not used. This field contains the top k parameter value for restricting the result |
-| `offset` | `string` | Legacy field: not used. This field contains the offset for the data |
-| `lastModifiedAt` | `string` | Output only. Modified time of this entity as milliseconds since epoch. json key: lastModifiedAt |
-| `properties` | `array` | This field contains report properties such as ui metadata etc. |
-| `sortByCols` | `array` | Legacy field: not used much. Contains the list of sort by columns |
-| `dimensions` | `array` | This contains the list of dimensions for the report |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

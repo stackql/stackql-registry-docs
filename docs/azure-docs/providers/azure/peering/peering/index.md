@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the resource. |
 | `name` | `string` | The name of the resource. |
-| `kind` | `string` | The kind of the peering. |
-| `location` | `string` | The location of the resource. |
 | `properties` | `object` | The properties that define connectivity to the Microsoft Cloud Edge. |
 | `sku` | `object` | The SKU that defines the tier and kind of the peering. |
 | `tags` | `object` | The resource tags. |
 | `type` | `string` | The type of the resource. |
+| `kind` | `string` | The kind of the peering. |
+| `location` | `string` | The location of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

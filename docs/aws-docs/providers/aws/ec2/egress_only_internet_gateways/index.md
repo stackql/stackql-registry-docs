@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `egressOnlyInternetGatewayId` | `string` | The ID of the egress-only internet gateway. |
 | `tagSet` | `array` | The tags assigned to the egress-only internet gateway. |
 | `attachmentSet` | `array` | Information about the attachment of the egress-only internet gateway. |
-| `egressOnlyInternetGatewayId` | `string` | The ID of the egress-only internet gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

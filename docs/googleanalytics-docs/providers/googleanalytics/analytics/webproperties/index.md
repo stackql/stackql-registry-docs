@@ -29,23 +29,23 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Web property ID of the form UA-XXXXX-YY. |
 | `name` | `string` | Name of this web property. |
-| `starred` | `boolean` | Indicates whether this web property is starred or not. |
-| `permissions` | `object` | Permissions the user has for this web property. |
-| `defaultProfileId` | `string` | Default view (profile) ID. |
 | `level` | `string` | Level for this web property. Possible values are STANDARD or PREMIUM. |
-| `kind` | `string` | Resource type for Analytics WebProperty. |
-| `profileCount` | `integer` | View (Profile) count for this web property. |
-| `created` | `string` | Time this web property was created. |
-| `childLink` | `object` | Child link for this web property. Points to the list of views (profiles) for this web property. |
+| `starred` | `boolean` | Indicates whether this web property is starred or not. |
 | `updated` | `string` | Time this web property was last modified. |
-| `dataRetentionTtl` | `string` | The length of time for which user and event data is retained.<br />This property cannot be set on insert. |
 | `dataRetentionResetOnNewActivity` | `boolean` | Set to true to reset the retention period of the user identifier with each new event from that user (thus setting the expiration date to current time plus retention period).<br />Set to false to delete data associated with the user identifier automatically after the rentention period.<br />This property cannot be set on insert. |
-| `selfLink` | `string` | Link for this web property. |
+| `internalWebPropertyId` | `string` | Internal ID for this web property. |
 | `industryVertical` | `string` | The industry vertical/category selected for this web property. |
 | `parentLink` | `object` | Parent link for this web property. Points to the account to which this web property belongs. |
-| `internalWebPropertyId` | `string` | Internal ID for this web property. |
+| `kind` | `string` | Resource type for Analytics WebProperty. |
 | `websiteUrl` | `string` | Website url for this web property. |
 | `accountId` | `string` | Account ID to which this web property belongs. |
+| `defaultProfileId` | `string` | Default view (profile) ID. |
+| `selfLink` | `string` | Link for this web property. |
+| `profileCount` | `integer` | View (Profile) count for this web property. |
+| `permissions` | `object` | Permissions the user has for this web property. |
+| `dataRetentionTtl` | `string` | The length of time for which user and event data is retained.<br />This property cannot be set on insert. |
+| `created` | `string` | Time this web property was created. |
+| `childLink` | `object` | Child link for this web property. Points to the list of views (profiles) for this web property. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,15 +27,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `localGatewayId` | `string` | The ID of the local gateway. |
+| `localAddress` | `string` | The local address. |
+| `localBgpAsn` | `integer` | The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway. |
+| `peerBgpAsn` | `integer` | The peer BGP ASN. |
+| `vlan` | `integer` | The ID of the VLAN. |
 | `peerAddress` | `string` | The peer address. |
 | `tagSet` | `array` | The tags assigned to the virtual interface. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway virtual interface. |
-| `peerBgpAsn` | `integer` | The peer BGP ASN. |
-| `localGatewayId` | `string` | The ID of the local gateway. |
 | `localGatewayVirtualInterfaceId` | `string` | The ID of the virtual interface. |
-| `localBgpAsn` | `integer` | The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway. |
-| `vlan` | `integer` | The ID of the VLAN. |
-| `localAddress` | `string` | The local address. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway virtual interface. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

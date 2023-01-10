@@ -3,14 +3,16 @@ title: sites_deploys
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - sites_deploys
+  - deploy
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -27,35 +29,35 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `required` | `array` |
-| `framework` | `string` |
-| `commit_url` | `string` |
 | `user_id` | `string` |
-| `error_message` | `string` |
-| `build_id` | `string` |
-| `state` | `string` |
-| `created_at` | `string` |
-| `title` | `string` |
-| `locked` | `boolean` |
-| `deploy_url` | `string` |
-| `url` | `string` |
-| `review_id` | `number` |
-| `site_id` | `string` |
-| `skipped` | `boolean` |
-| `published_at` | `string` |
-| `ssl_url` | `string` |
-| `branch` | `string` |
-| `admin_url` | `string` |
-| `updated_at` | `string` |
-| `context` | `string` |
-| `function_schedules` | `array` |
-| `screenshot_url` | `string` |
-| `commit_ref` | `string` |
-| `review_url` | `string` |
 | `required_functions` | `array` |
-| `draft` | `boolean` |
+| `context` | `string` |
+| `updated_at` | `string` |
+| `title` | `string` |
+| `published_at` | `string` |
+| `commit_ref` | `string` |
+| `build_id` | `string` |
+| `created_at` | `string` |
+| `branch` | `string` |
+| `screenshot_url` | `string` |
+| `admin_url` | `string` |
+| `review_id` | `number` |
+| `framework` | `string` |
 | `deploy_ssl_url` | `string` |
+| `state` | `string` |
+| `required` | `array` |
+| `deploy_url` | `string` |
+| `function_schedules` | `array` |
 | `site_capabilities` | `object` |
+| `ssl_url` | `string` |
+| `url` | `string` |
+| `locked` | `boolean` |
+| `review_url` | `string` |
+| `skipped` | `boolean` |
+| `draft` | `boolean` |
+| `commit_url` | `string` |
+| `error_message` | `string` |
+| `site_id` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `location` | `string` | Location of the workspace that contains this firewall rule. |
 | `properties` | `object` | Represents the properties of a Sql pool replication link. |
 | `type` | `string` | Type of resource this is. |
-| `location` | `string` | Location of the workspace that contains this firewall rule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

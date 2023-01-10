@@ -27,9 +27,9 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `disposition` | `string` | The state that a message should be left in after it has been forwarded. |
 | `emailAddress` | `string` | Email address to which all incoming messages are forwarded. This email address must be a verified member of the forwarding addresses. |
 | `enabled` | `boolean` | Whether all incoming mail is automatically forwarded to another address. |
-| `disposition` | `string` | The state that a message should be left in after it has been forwarded. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

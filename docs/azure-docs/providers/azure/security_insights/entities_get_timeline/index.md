@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | The timeline result values. |
 | `metaData` | `object` | Expansion result metadata. |
+| `value` | `array` | The timeline result values. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

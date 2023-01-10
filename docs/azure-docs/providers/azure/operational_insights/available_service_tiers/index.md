@@ -27,13 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `capacityReservationLevel` | `integer` | The capacity reservation level in GB per day. Returned for the Capacity Reservation Service Tier. |
+| `defaultRetention` | `integer` | The default retention for the Service Tier, in days. |
 | `enabled` | `boolean` | True if the Service Tier is enabled for the workspace. |
 | `lastSkuUpdate` | `string` | Time when the sku was last updated for the workspace. Returned for the Capacity Reservation Service Tier. |
 | `maximumRetention` | `integer` | The maximum retention for the Service Tier, in days. |
 | `minimumRetention` | `integer` | The minimum retention for the Service Tier, in days. |
 | `serviceTier` | `string` | The name of the Service Tier. |
-| `capacityReservationLevel` | `integer` | The capacity reservation level in GB per day. Returned for the Capacity Reservation Service Tier. |
-| `defaultRetention` | `integer` | The default retention for the Service Tier, in days. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

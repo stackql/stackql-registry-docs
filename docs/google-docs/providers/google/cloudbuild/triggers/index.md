@@ -30,30 +30,30 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | Output only. Unique identifier of the trigger. |
 | `name` | `string` | User-assigned name of the trigger. Must be unique within the project. Trigger names must meet the following requirements: + They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character. |
 | `description` | `string` | Human-readable description of this trigger. |
-| `filename` | `string` | Path, from the source root, to the build configuration file (i.e. cloudbuild.yaml). |
-| `createTime` | `string` | Output only. Time when the trigger was created. |
+| `repositoryEventConfig` | `object` | The configuration of a trigger that creates a build whenever an event from Repo API is received. |
 | `bitbucketServerTriggerConfig` | `object` | BitbucketServerTriggerConfig describes the configuration of a trigger that creates a build whenever a Bitbucket Server event is received. |
-| `serviceAccount` | `string` | The service account used for all user-controlled operations including UpdateBuildTrigger, RunBuildTrigger, CreateBuild, and CancelBuild. If no service account is set, then the standard Cloud Build service account ([PROJECT_NUM]@system.gserviceaccount.com) will be used instead. Format: `projects/&#123;PROJECT_ID&#125;/serviceAccounts/&#123;ACCOUNT_ID_OR_EMAIL&#125;` |
-| `includedFiles` | `array` | If any of the files altered in the commit pass the ignored_files filter and included_files is empty, then as far as this filter is concerned, we should trigger the build. If any of the files altered in the commit pass the ignored_files filter and included_files is not empty, then we make sure that at least one of those files matches a included_files glob. If not, then we do not trigger a build. |
-| `disabled` | `boolean` | If true, the trigger will never automatically execute a build. |
-| `webhookConfig` | `object` | WebhookConfig describes the configuration of a trigger that creates a build whenever a webhook is sent to a trigger's webhook URL. |
-| `gitFileSource` | `object` | GitFileSource describes a file within a (possibly remote) code repository. |
-| `triggerTemplate` | `object` | Location of the source in a Google Cloud Source Repository. |
 | `includeBuildLogs` | `string` | If set to INCLUDE_BUILD_LOGS_WITH_STATUS, log url will be shown on GitHub page when build status is final. Setting this field to INCLUDE_BUILD_LOGS_WITH_STATUS for non GitHub triggers results in INVALID_ARGUMENT error. |
 | `pubsubConfig` | `object` | PubsubConfig describes the configuration of a trigger that creates a build whenever a Pub/Sub message is published. |
-| `substitutions` | `object` | Substitutions for Build resource. The keys must match the following regular expression: `^_[A-Z0-9_]+$`. |
-| `github` | `object` | GitHubEventsConfig describes the configuration of a trigger that creates a build whenever a GitHub event is received. |
-| `eventType` | `string` | EventType allows the user to explicitly set the type of event to which this BuildTrigger should respond. This field will be validated against the rest of the configuration if it is set. |
-| `tags` | `array` | Tags for annotation of a `BuildTrigger` |
+| `webhookConfig` | `object` | WebhookConfig describes the configuration of a trigger that creates a build whenever a webhook is sent to a trigger's webhook URL. |
+| `serviceAccount` | `string` | The service account used for all user-controlled operations including UpdateBuildTrigger, RunBuildTrigger, CreateBuild, and CancelBuild. If no service account is set, then the standard Cloud Build service account ([PROJECT_NUM]@system.gserviceaccount.com) will be used instead. Format: `projects/&#123;PROJECT_ID&#125;/serviceAccounts/&#123;ACCOUNT_ID_OR_EMAIL&#125;` |
+| `filename` | `string` | Path, from the source root, to the build configuration file (i.e. cloudbuild.yaml). |
 | `ignoredFiles` | `array` | ignored_files and included_files are file glob matches using https://golang.org/pkg/path/filepath/#Match extended with support for "**". If ignored_files and changed files are both empty, then they are not used to determine whether or not to trigger a build. If ignored_files is not empty, then we ignore any files that match any of the ignored_file globs. If the change has no files that are outside of the ignored_files globs, then we do not trigger a build. |
-| `gitlabEnterpriseEventsConfig` | `object` | GitLabEventsConfig describes the configuration of a trigger that creates a build whenever a GitLab event is received. |
-| `filter` | `string` | A Common Expression Language string. |
+| `eventType` | `string` | EventType allows the user to explicitly set the type of event to which this BuildTrigger should respond. This field will be validated against the rest of the configuration if it is set. |
 | `approvalConfig` | `object` | ApprovalConfig describes configuration for manual approval of a build. |
-| `resourceName` | `string` | The `Trigger` name with format: `projects/&#123;project&#125;/locations/&#123;location&#125;/triggers/&#123;trigger&#125;`, where &#123;trigger&#125; is a unique identifier generated by the service. |
-| `build` | `object` | A build resource in the Cloud Build API. At a high level, a `Build` describes where to find source code, how to build it (for example, the builder image to run on the source), and where to store the built artifacts. Fields can include the following variables, which will be expanded when the build is created: - $PROJECT_ID: the project ID of the build. - $PROJECT_NUMBER: the project number of the build. - $LOCATION: the location/region of the build. - $BUILD_ID: the autogenerated ID of the build. - $REPO_NAME: the source repository name specified by RepoSource. - $BRANCH_NAME: the branch name specified by RepoSource. - $TAG_NAME: the tag name specified by RepoSource. - $REVISION_ID or $COMMIT_SHA: the commit SHA specified by RepoSource or resolved from the specified branch or tag. - $SHORT_SHA: first 7 characters of $REVISION_ID or $COMMIT_SHA. |
 | `autodetect` | `boolean` | Autodetect build configuration. The following precedence is used (case insensitive): 1. cloudbuild.yaml 2. cloudbuild.yml 3. cloudbuild.json 4. Dockerfile Currently only available for GitHub App Triggers. |
+| `resourceName` | `string` | The `Trigger` name with format: `projects/&#123;project&#125;/locations/&#123;location&#125;/triggers/&#123;trigger&#125;`, where &#123;trigger&#125; is a unique identifier generated by the service. |
+| `gitlabEnterpriseEventsConfig` | `object` | GitLabEventsConfig describes the configuration of a trigger that creates a build whenever a GitLab event is received. |
+| `disabled` | `boolean` | If true, the trigger will never automatically execute a build. |
 | `sourceToBuild` | `object` | GitRepoSource describes a repo and ref of a code repository. |
-| `repositoryEventConfig` | `object` | The configuration of a trigger that creates a build whenever an event from Repo API is received. |
+| `includedFiles` | `array` | If any of the files altered in the commit pass the ignored_files filter and included_files is empty, then as far as this filter is concerned, we should trigger the build. If any of the files altered in the commit pass the ignored_files filter and included_files is not empty, then we make sure that at least one of those files matches a included_files glob. If not, then we do not trigger a build. |
+| `filter` | `string` | A Common Expression Language string. |
+| `createTime` | `string` | Output only. Time when the trigger was created. |
+| `substitutions` | `object` | Substitutions for Build resource. The keys must match the following regular expression: `^_[A-Z0-9_]+$`. |
+| `build` | `object` | A build resource in the Cloud Build API. At a high level, a `Build` describes where to find source code, how to build it (for example, the builder image to run on the source), and where to store the built artifacts. Fields can include the following variables, which will be expanded when the build is created: - $PROJECT_ID: the project ID of the build. - $PROJECT_NUMBER: the project number of the build. - $LOCATION: the location/region of the build. - $BUILD_ID: the autogenerated ID of the build. - $REPO_NAME: the source repository name specified by RepoSource. - $BRANCH_NAME: the branch name specified by RepoSource. - $TAG_NAME: the tag name specified by RepoSource. - $REVISION_ID or $COMMIT_SHA: the commit SHA specified by RepoSource or resolved from the specified branch or tag. - $SHORT_SHA: first 7 characters of $REVISION_ID or $COMMIT_SHA. |
+| `gitFileSource` | `object` | GitFileSource describes a file within a (possibly remote) code repository. |
+| `triggerTemplate` | `object` | Location of the source in a Google Cloud Source Repository. |
+| `github` | `object` | GitHubEventsConfig describes the configuration of a trigger that creates a build whenever a GitHub event is received. |
+| `tags` | `array` | Tags for annotation of a `BuildTrigger` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

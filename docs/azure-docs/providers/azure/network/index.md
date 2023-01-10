@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>136</b></span><br />
+<span>total selectable resources:&nbsp;<b>127</b></span><br />
+<span>total methods:&nbsp;<b>613</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ The Microsoft Azure Network management API provides a RESTful set of web service
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Network Management Client (Microsoft.Network)</td></tr>
 <tr><td><b>Description</b></td><td>The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.</td></tr>
-<tr><td><b>Id</b></td><td><code>network:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>network:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

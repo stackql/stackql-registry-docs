@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Container Instance Management Client  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>18</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Container Instance Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Container Instance Management Client (Microsoft.ContainerInstance)</td></tr>
 <tr><td><b>Description</b></td><td>Container Instance Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>container_instance:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container_instance:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

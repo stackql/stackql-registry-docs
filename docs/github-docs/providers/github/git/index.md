@@ -3,17 +3,29 @@ title: git
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - stackql
+  - git
   - github
+  - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
 Raw Git functionality.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>13</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -21,7 +33,7 @@ Raw Git functionality.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - git</td></tr>
 <tr><td><b>Description</b></td><td>Raw Git functionality.</td></tr>
-<tr><td><b>Id</b></td><td><code>git:v0.3.1</code></td></tr>
+<tr><td><b>Id</b></td><td><code>git:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

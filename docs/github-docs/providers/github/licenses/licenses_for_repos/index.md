@@ -3,14 +3,16 @@ title: licenses_for_repos
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - licenses_for_repos
+  - licenses
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,18 +28,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `license` | `object` | License Simple |
-| `_links` | `object` |  |
-| `content` | `string` |  |
-| `sha` | `string` |  |
-| `size` | `integer` |  |
-| `html_url` | `string` |  |
-| `git_url` | `string` |  |
-| `download_url` | `string` |  |
-| `encoding` | `string` |  |
-| `url` | `string` |  |
 | `type` | `string` |  |
+| `git_url` | `string` |  |
 | `path` | `string` |  |
+| `size` | `integer` |  |
+| `license` | `object` | License Simple |
+| `url` | `string` |  |
+| `content` | `string` |  |
+| `download_url` | `string` |  |
+| `_links` | `object` |  |
+| `encoding` | `string` |  |
+| `html_url` | `string` |  |
+| `sha` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

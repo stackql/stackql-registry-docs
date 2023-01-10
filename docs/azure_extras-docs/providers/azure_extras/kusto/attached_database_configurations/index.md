@@ -1,0 +1,39 @@
+---
+title: attached_database_configurations
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - attached_database_configurations
+  - kusto
+  - azure_extras    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>attached_database_configurations</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_extras.kusto.attached_database_configurations</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `location` | `string` | Resource location. |
+| `properties` | `object` | Class representing the an attached database configuration properties of kind specific. |
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `AttachedDatabaseConfigurations_Get` | `SELECT` | `attachedDatabaseConfigurationName, clusterName, resourceGroupName, subscriptionId` | Returns an attached database configuration. |
+| `AttachedDatabaseConfigurations_ListByCluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Returns the list of attached database configurations of the given Kusto cluster. |
+| `AttachedDatabaseConfigurations_CreateOrUpdate` | `INSERT` | `attachedDatabaseConfigurationName, clusterName, resourceGroupName, subscriptionId` | Creates or updates an attached database configuration. |
+| `AttachedDatabaseConfigurations_Delete` | `DELETE` | `attachedDatabaseConfigurationName, clusterName, resourceGroupName, subscriptionId` | Deletes the attached database configuration with the given name. |
+| `AttachedDatabaseConfigurations_CheckNameAvailability` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, data__name, data__type` | Checks that the attached database configuration resource name is valid and is not already in use. |

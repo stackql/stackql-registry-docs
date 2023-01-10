@@ -3,6 +3,7 @@ title: authenticator
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - authenticator
   - okta
   - stackql
   - infrastructure-as-code
@@ -10,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
 Okta authenticator management.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>4</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>

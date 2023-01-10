@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the Mesh resource. It matches pattern `projects/*/locations/global/meshes/`. |
 | `description` | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
-| `selfLink` | `string` | Output only. Server-defined URL of this resource |
-| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
 | `createTime` | `string` | Output only. The timestamp when the resource was created. |
 | `interceptionPort` | `integer` | Optional. If set to a valid TCP port (1-65535), instructs the SIDECAR proxy to listen on the specified port of localhost (127.0.0.1) address. The SIDECAR proxy will expect all traffic to be redirected to this port regardless of its actual ip:port destination. If unset, a port '15001' is used as the interception port. This will is applicable only for sidecar proxy deployments. |
 | `labels` | `object` | Optional. Set of label tags associated with the Mesh resource. |
+| `selfLink` | `string` | Output only. Server-defined URL of this resource |
+| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

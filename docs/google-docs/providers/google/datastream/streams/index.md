@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The stream's name. |
-| `backfillAll` | `object` | Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded. |
-| `sourceConfig` | `object` | The configuration of the stream source. |
-| `displayName` | `string` | Required. Display name. |
-| `customerManagedEncryptionKey` | `string` | Immutable. A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data will be encrypted using an internal Stream-specific encryption key provisioned through KMS. |
-| `destinationConfig` | `object` | The configuration of the stream destination. |
 | `updateTime` | `string` | Output only. The last update time of the stream. |
-| `labels` | `object` | Labels. |
+| `backfillAll` | `object` | Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded. |
 | `state` | `string` | The state of the stream. |
 | `errors` | `array` | Output only. Errors on the Stream. |
-| `backfillNone` | `object` | Backfill strategy to disable automatic backfill for the Stream's objects. |
+| `displayName` | `string` | Required. Display name. |
+| `customerManagedEncryptionKey` | `string` | Immutable. A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data will be encrypted using an internal Stream-specific encryption key provisioned through KMS. |
+| `sourceConfig` | `object` | The configuration of the stream source. |
+| `labels` | `object` | Labels. |
 | `createTime` | `string` | Output only. The creation time of the stream. |
+| `destinationConfig` | `object` | The configuration of the stream destination. |
+| `backfillNone` | `object` | Backfill strategy to disable automatic backfill for the Stream's objects. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

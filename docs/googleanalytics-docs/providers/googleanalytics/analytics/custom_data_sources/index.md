@@ -30,19 +30,19 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | `id` | `string` | Custom data source ID. |
 | `name` | `string` | Name of this custom data source. |
 | `description` | `string` | Description of custom data source. |
-| `uploadType` | `string` | Upload type of the custom data source. |
-| `type` | `string` | Type of the custom data source. |
-| `webPropertyId` | `string` | Web property ID of the form UA-XXXXX-YY to which this custom data source belongs. |
-| `created` | `string` | Time this custom data source was created. |
-| `selfLink` | `string` | Link for this Analytics custom data source. |
 | `schema` | `array` | Collection of schema headers of the custom data source. |
-| `childLink` | `object` |  |
-| `parentLink` | `object` | Parent link for this custom data source. Points to the web property to which this custom data source belongs. |
-| `accountId` | `string` | Account ID to which this custom data source belongs. |
-| `importBehavior` | `string` |  |
+| `selfLink` | `string` | Link for this Analytics custom data source. |
 | `profilesLinked` | `array` | IDs of views (profiles) linked to the custom data source. |
-| `updated` | `string` | Time this custom data source was last modified. |
+| `webPropertyId` | `string` | Web property ID of the form UA-XXXXX-YY to which this custom data source belongs. |
 | `kind` | `string` | Resource type for Analytics custom data source. |
+| `type` | `string` | Type of the custom data source. |
+| `parentLink` | `object` | Parent link for this custom data source. Points to the web property to which this custom data source belongs. |
+| `childLink` | `object` |  |
+| `importBehavior` | `string` |  |
+| `uploadType` | `string` | Upload type of the custom data source. |
+| `accountId` | `string` | Account ID to which this custom data source belongs. |
+| `updated` | `string` | Time this custom data source was last modified. |
+| `created` | `string` | Time this custom data source was created. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

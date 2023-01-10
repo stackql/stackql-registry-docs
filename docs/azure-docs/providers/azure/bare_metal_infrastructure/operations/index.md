@@ -28,8 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the operation being performed on this particular object. This name should match the action name that appears in RBAC / the event service. |
-| `display` | `object` | Detailed BareMetal operation information |
 | `isDataAction` | `boolean` | indicates whether an operation is a data action or not. |
+| `display` | `object` | Detailed BareMetal operation information |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

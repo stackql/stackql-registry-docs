@@ -3,14 +3,16 @@ title: commit_pull_requests
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - commit_pull_requests
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,41 +28,41 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `requested_reviewers` | `array` |  |
-| `number` | `integer` |  |
-| `merged_at` | `string` |  |
-| `diff_url` | `string` |  |
-| `user` | `object` | Simple User |
-| `locked` | `boolean` |  |
+| `html_url` | `string` |  |
+| `closed_at` | `string` |  |
+| `node_id` | `string` |  |
 | `issue_url` | `string` |  |
+| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
 | `milestone` | `object` | A collection of related issues and pull requests. |
 | `_links` | `object` |  |
-| `base` | `object` |  |
-| `state` | `string` |  |
-| `assignee` | `object` | Simple User |
-| `patch_url` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `html_url` | `string` |  |
-| `comments_url` | `string` |  |
-| `commits_url` | `string` |  |
-| `head` | `object` |  |
-| `updated_at` | `string` |  |
-| `requested_teams` | `array` |  |
-| `auto_merge` | `object` | The status of auto merging a pull request. |
 | `assignees` | `array` |  |
-| `labels` | `array` |  |
-| `title` | `string` |  |
-| `review_comments_url` | `string` |  |
-| `node_id` | `string` |  |
+| `base` | `object` |  |
+| `number` | `integer` |  |
 | `statuses_url` | `string` |  |
-| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
-| `created_at` | `string` |  |
-| `closed_at` | `string` |  |
-| `url` | `string` |  |
+| `title` | `string` |  |
+| `head` | `object` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `merged_at` | `string` |  |
+| `updated_at` | `string` |  |
+| `labels` | `array` |  |
 | `body` | `string` |  |
-| `merge_commit_sha` | `string` |  |
+| `commits_url` | `string` |  |
+| `state` | `string` |  |
+| `patch_url` | `string` |  |
+| `comments_url` | `string` |  |
+| `user` | `object` | Simple User |
+| `auto_merge` | `object` | The status of auto merging a pull request. |
+| `created_at` | `string` |  |
+| `assignee` | `object` | Simple User |
 | `review_comment_url` | `string` |  |
+| `merge_commit_sha` | `string` |  |
+| `url` | `string` |  |
+| `review_comments_url` | `string` |  |
 | `active_lock_reason` | `string` |  |
+| `diff_url` | `string` |  |
+| `requested_reviewers` | `array` |  |
+| `requested_teams` | `array` |  |
+| `locked` | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

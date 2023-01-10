@@ -3,14 +3,16 @@ title: release_assets
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - release_assets
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -28,16 +30,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `integer` |  |
 | `name` | `string` | The file name of the asset. |
 | `browser_download_url` | `string` |  |
-| `uploader` | `object` | Simple User |
-| `node_id` | `string` |  |
-| `url` | `string` |  |
-| `label` | `string` |  |
-| `content_type` | `string` |  |
 | `created_at` | `string` |  |
-| `size` | `integer` |  |
+| `node_id` | `string` |  |
 | `state` | `string` | State of the release asset. |
-| `updated_at` | `string` |  |
+| `content_type` | `string` |  |
 | `download_count` | `integer` |  |
+| `label` | `string` |  |
+| `uploader` | `object` | Simple User |
+| `size` | `integer` |  |
+| `updated_at` | `string` |  |
+| `url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

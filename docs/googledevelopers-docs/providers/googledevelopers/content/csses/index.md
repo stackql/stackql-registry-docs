@@ -27,12 +27,12 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `labelIds` | `array` | A list of label IDs that are assigned to this CSS domain by its CSS group. Only populated for CSS group users. |
-| `cssDomainId` | `string` | Output only. Immutable. The CSS domain ID. |
 | `cssGroupId` | `string` | Output only. Immutable. The ID of the CSS group this CSS domain is affiliated with. Only populated for CSS group users. |
 | `displayName` | `string` | Output only. Immutable. The CSS domain's display name, used when space is constrained. |
 | `fullName` | `string` | Output only. Immutable. The CSS domain's full name. |
 | `homepageUri` | `string` | Output only. Immutable. The CSS domain's homepage. |
+| `labelIds` | `array` | A list of label IDs that are assigned to this CSS domain by its CSS group. Only populated for CSS group users. |
+| `cssDomainId` | `string` | Output only. Immutable. The CSS domain ID. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

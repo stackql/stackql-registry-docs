@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Cost Management Client  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>12</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>32</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Cost Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cost Management Client (Microsoft.CostManagement)</td></tr>
 <tr><td><b>Description</b></td><td>Cost Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>cost_management:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cost_management:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -3,14 +3,16 @@ title: sites
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - sites
+  - site
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -27,36 +29,36 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `state` | `string` |
-| `capabilities` | `object` |
-| `created_at` | `string` |
-| `build_settings` | `object` |
+| `published_deploy` | `object` |
+| `plan` | `string` |
+| `url` | `string` |
+| `admin_url` | `string` |
+| `custom_domain` | `string` |
+| `build_image` | `string` |
+| `deploy_url` | `string` |
+| `prerender` | `string` |
 | `git_provider` | `string` |
 | `id_domain` | `string` |
-| `url` | `string` |
-| `password` | `string` |
-| `domain_aliases` | `array` |
-| `build_image` | `string` |
-| `published_deploy` | `object` |
-| `user_id` | `string` |
-| `screenshot_url` | `string` |
-| `prerender` | `string` |
-| `account_slug` | `string` |
-| `ssl_url` | `string` |
-| `plan` | `string` |
-| `deploy_url` | `string` |
 | `managed_dns` | `boolean` |
-| `force_ssl` | `boolean` |
-| `deploy_hook` | `string` |
-| `account_name` | `string` |
-| `ssl` | `boolean` |
 | `session_id` | `string` |
-| `notification_email` | `string` |
-| `admin_url` | `string` |
-| `processing_settings` | `object` |
+| `ssl` | `boolean` |
+| `domain_aliases` | `array` |
+| `account_name` | `string` |
+| `ssl_url` | `string` |
+| `password` | `string` |
+| `capabilities` | `object` |
+| `state` | `string` |
 | `updated_at` | `string` |
+| `account_slug` | `string` |
+| `force_ssl` | `boolean` |
+| `screenshot_url` | `string` |
+| `notification_email` | `string` |
+| `created_at` | `string` |
 | `default_hooks_data` | `object` |
-| `custom_domain` | `string` |
+| `build_settings` | `object` |
+| `user_id` | `string` |
+| `processing_settings` | `object` |
+| `deploy_hook` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

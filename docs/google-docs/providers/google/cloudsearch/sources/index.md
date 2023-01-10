@@ -27,10 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `operators` | `array` | List of all operators applicable for this source. |
 | `shortName` | `string` | A short name or alias for the source. This value can be used with the 'source' operator. |
 | `source` | `object` | Defines sources for the suggest/search APIs. |
 | `displayName` | `string` | Display name of the data source. |
-| `operators` | `array` | List of all operators applicable for this source. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

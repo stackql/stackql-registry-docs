@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the resource. |
 | `name` | `string` | The name of the resource. |
-| `properties` | `object` | The properties that define a CDN peering prefix |
 | `type` | `string` | The type of the resource. |
+| `properties` | `object` | The properties that define a CDN peering prefix |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

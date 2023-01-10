@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of the operation. |
 | `name` | `string` | Name of the operation. |
+| `error` | `object` | Error information associated with operation status call. |
 | `properties` | `object` | Base class for additional information of operation status. |
 | `startTime` | `string` | Operation start time. Format: ISO-8601. |
 | `status` | `string` | Operation status. |
 | `endTime` | `string` | Operation end time. Format: ISO-8601. |
-| `error` | `object` | Error information associated with operation status call. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

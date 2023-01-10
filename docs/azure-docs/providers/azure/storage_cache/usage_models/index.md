@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `display` | `object` | Localized information describing this usage model. |
 | `modelName` | `string` | Non-localized keyword name for this usage model. |
 | `targetType` | `string` | The type of Storage Target to which this model is applicable (only nfs3 as of this version). |
+| `display` | `object` | Localized information describing this usage model. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

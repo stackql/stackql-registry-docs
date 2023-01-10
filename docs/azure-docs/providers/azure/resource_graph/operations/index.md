@@ -28,8 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name: &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125; |
-| `origin` | `string` | The origin of operations. |
 | `display` | `` | Display metadata associated with the operation. |
+| `origin` | `string` | The origin of operations. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

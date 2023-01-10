@@ -27,9 +27,9 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ampHead` | `string` | Output only. The AdSense code snippet to add to the head of an AMP page. |
 | `adCode` | `string` | Output only. The AdSense code snippet to add to the head of an HTML page. |
 | `ampBody` | `string` | Output only. The AdSense code snippet to add to the body of an AMP page. |
+| `ampHead` | `string` | Output only. The AdSense code snippet to add to the head of an AMP page. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

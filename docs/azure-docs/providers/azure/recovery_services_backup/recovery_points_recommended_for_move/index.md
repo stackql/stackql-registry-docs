@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | List of resources. |
 | `nextLink` | `string` | The uri to fetch the next page of resources. Call ListNext() fetches next page of resources. |
+| `value` | `array` | List of resources. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
+| `properties` | `object` | Azure Data Factory nested object which serves as a compute resource for activities. |
 | `type` | `string` | The resource type. |
 | `etag` | `string` | Etag identifies change in the resource. |
-| `properties` | `object` | Azure Data Factory nested object which serves as a compute resource for activities. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

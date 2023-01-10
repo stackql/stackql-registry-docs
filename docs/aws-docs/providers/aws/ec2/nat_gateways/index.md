@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,18 +27,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `failureCode` | `string` | If the NAT gateway could not be created, specifies the error code for the failure. (&lt;code&gt;InsufficientFreeAddressesInSubnet&lt;/code&gt; \| &lt;code&gt;Gateway.NotAttached&lt;/code&gt; \| &lt;code&gt;InvalidAllocationID.NotFound&lt;/code&gt; \| &lt;code&gt;Resource.AlreadyAssociated&lt;/code&gt; \| &lt;code&gt;InternalError&lt;/code&gt; \| &lt;code&gt;InvalidSubnetID.NotFound&lt;/code&gt;) |
-| `natGatewayAddressSet` | `array` | Information about the IP addresses and network interface associated with the NAT gateway. |
-| `deleteTime` | `string` | The date and time the NAT gateway was deleted, if applicable. |
-| `failureMessage` | `string` | &lt;p&gt;If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again."&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found."&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `natGatewayId` | `string` | The ID of the NAT gateway. |
-| `subnetId` | `string` | The ID of the subnet in which the NAT gateway is located. |
-| `tagSet` | `array` | The tags for the NAT gateway. |
-| `createTime` | `string` | The date and time the NAT gateway was created. |
-| `state` | `string` | &lt;p&gt;The state of the NAT gateway.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;pending&lt;/code&gt;: The NAT gateway is being created and is not ready to process traffic.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;failed&lt;/code&gt;: The NAT gateway could not be created. Check the &lt;code&gt;failureCode&lt;/code&gt; and &lt;code&gt;failureMessage&lt;/code&gt; fields for the reason.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;available&lt;/code&gt;: The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;deleting&lt;/code&gt;: The NAT gateway is in the process of being terminated and may still be processing traffic.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;deleted&lt;/code&gt;: The NAT gateway has been terminated and is no longer processing traffic.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `connectivityType` | `string` | Indicates whether the NAT gateway supports public or private connectivity. |
 | `provisionedBandwidth` | `object` | Reserved. If you need to sustain traffic greater than the &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"&gt;documented limits&lt;/a&gt;, contact us through the &lt;a href="https://console.aws.amazon.com/support/home?"&gt;Support Center&lt;/a&gt;. |
+| `failureCode` | `string` | If the NAT gateway could not be created, specifies the error code for the failure. (&lt;code&gt;InsufficientFreeAddressesInSubnet&lt;/code&gt; \| &lt;code&gt;Gateway.NotAttached&lt;/code&gt; \| &lt;code&gt;InvalidAllocationID.NotFound&lt;/code&gt; \| &lt;code&gt;Resource.AlreadyAssociated&lt;/code&gt; \| &lt;code&gt;InternalError&lt;/code&gt; \| &lt;code&gt;InvalidSubnetID.NotFound&lt;/code&gt;) |
+| `tagSet` | `array` | The tags for the NAT gateway. |
+| `deleteTime` | `string` | The date and time the NAT gateway was deleted, if applicable. |
+| `createTime` | `string` | The date and time the NAT gateway was created. |
+| `subnetId` | `string` | The ID of the subnet in which the NAT gateway is located. |
+| `natGatewayAddressSet` | `array` | Information about the IP addresses and network interface associated with the NAT gateway. |
+| `natGatewayId` | `string` | The ID of the NAT gateway. |
 | `vpcId` | `string` | The ID of the VPC in which the NAT gateway is located. |
+| `state` | `string` | &lt;p&gt;The state of the NAT gateway.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;pending&lt;/code&gt;: The NAT gateway is being created and is not ready to process traffic.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;failed&lt;/code&gt;: The NAT gateway could not be created. Check the &lt;code&gt;failureCode&lt;/code&gt; and &lt;code&gt;failureMessage&lt;/code&gt; fields for the reason.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;available&lt;/code&gt;: The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;deleting&lt;/code&gt;: The NAT gateway is in the process of being terminated and may still be processing traffic.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;deleted&lt;/code&gt;: The NAT gateway has been terminated and is no longer processing traffic.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+| `failureMessage` | `string` | &lt;p&gt;If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated"&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again."&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found."&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+| `connectivityType` | `string` | Indicates whether the NAT gateway supports public or private connectivity. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

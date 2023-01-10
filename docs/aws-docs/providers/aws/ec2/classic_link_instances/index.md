@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `groupSet` | `array` | A list of security groups. |
-| `instanceId` | `string` | The ID of the instance. |
 | `tagSet` | `array` | Any tags assigned to the instance. |
 | `vpcId` | `string` | The ID of the VPC. |
+| `groupSet` | `array` | A list of security groups. |
+| `instanceId` | `string` | The ID of the instance. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

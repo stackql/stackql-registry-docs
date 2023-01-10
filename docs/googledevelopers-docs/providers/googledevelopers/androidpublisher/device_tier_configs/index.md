@@ -27,9 +27,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `deviceGroups` | `array` | Definition of device groups for the app. |
 | `deviceTierConfigId` | `string` | Output only. The device tier config ID. |
 | `deviceTierSet` | `object` | A set of device tiers. A tier set determines what variation of app content gets served to a specific device, for device-targeted content. You should assign a priority level to each tier, which determines the ordering by which they are evaluated by Play. See the documentation of DeviceTier.level for more details. |
-| `deviceGroups` | `array` | Definition of device groups for the app. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

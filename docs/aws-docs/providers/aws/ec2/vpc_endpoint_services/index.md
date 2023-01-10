@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,21 +27,21 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `acceptanceRequired` | `boolean` | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner. |
-| `tagSet` | `array` | Any tags assigned to the service. |
-| `payerResponsibility` | `string` | The payer responsibility. |
-| `serviceName` | `string` | The Amazon Resource Name (ARN) of the service. |
+| `serviceId` | `string` | The ID of the endpoint service. |
+| `privateDnsNameSet` | `array` | The private DNS names assigned to the VPC endpoint service.  |
+| `availabilityZoneSet` | `array` | The Availability Zones in which the service is available. |
 | `vpcEndpointPolicySupported` | `boolean` | Indicates whether the service supports endpoint policies. |
+| `payerResponsibility` | `string` | The payer responsibility. |
 | `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
 | `privateDnsName` | `string` | The private DNS name for the service. |
-| `serviceType` | `array` | The type of service. |
-| `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
-| `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
-| `privateDnsNameSet` | `array` | The private DNS names assigned to the VPC endpoint service.  |
+| `tagSet` | `array` | Any tags assigned to the service. |
+| `serviceName` | `string` | The Amazon Resource Name (ARN) of the service. |
 | `privateDnsNameVerificationState` | `string` | &lt;p&gt;The verification state of the VPC endpoint service.&lt;/p&gt; &lt;p&gt;Consumers of the endpoint service cannot use the private name when the state is not &lt;code&gt;verified&lt;/code&gt;.&lt;/p&gt; |
+| `serviceType` | `array` | The type of service. |
 | `owner` | `string` | The Amazon Web Services account ID of the service owner. |
-| `availabilityZoneSet` | `array` | The Availability Zones in which the service is available. |
-| `serviceId` | `string` | The ID of the endpoint service. |
+| `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
+| `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
+| `acceptanceRequired` | `boolean` | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

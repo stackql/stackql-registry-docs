@@ -27,10 +27,10 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `guardianProfile` | `object` | Global information for a user. |
 | `invitedEmailAddress` | `string` | The email address to which the initial guardian invitation was sent. This field is only visible to domain administrators. |
 | `studentId` | `string` | Identifier for the student to whom the guardian relationship applies. |
 | `guardianId` | `string` | Identifier for the guardian. |
-| `guardianProfile` | `object` | Global information for a user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

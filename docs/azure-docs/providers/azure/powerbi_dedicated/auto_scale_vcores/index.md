@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | An identifier that represents the PowerBI Dedicated resource. |
 | `name` | `string` | The name of the PowerBI Dedicated resource. |
-| `tags` | `object` | Key-value pairs of additional resource provisioning properties. |
 | `type` | `string` | The type of the PowerBI Dedicated resource. |
 | `location` | `string` | Location of the PowerBI Dedicated resource. |
 | `properties` | `object` | Properties of an auto scale v-core resource. |
 | `sku` | `object` | Represents the SKU name and Azure pricing tier for auto scale v-core resource. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Key-value pairs of additional resource provisioning properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

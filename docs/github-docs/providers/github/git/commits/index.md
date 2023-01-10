@@ -3,14 +3,16 @@ title: commits
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - commits
+  - git
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,16 +27,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tree` | `object` |  |
-| `parents` | `array` |  |
-| `committer` | `object` | Identifying information for the git-user |
-| `message` | `string` | Message describing the purpose of the commit |
-| `node_id` | `string` |  |
 | `html_url` | `string` |  |
-| `url` | `string` |  |
-| `author` | `object` | Identifying information for the git-user |
-| `verification` | `object` |  |
+| `node_id` | `string` |  |
+| `message` | `string` | Message describing the purpose of the commit |
 | `sha` | `string` | SHA for the commit |
+| `verification` | `object` |  |
+| `parents` | `array` |  |
+| `author` | `object` | Identifying information for the git-user |
+| `committer` | `object` | Identifying information for the git-user |
+| `tree` | `object` |  |
+| `url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

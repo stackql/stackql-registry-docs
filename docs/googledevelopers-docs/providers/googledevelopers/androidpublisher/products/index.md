@@ -27,20 +27,20 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `regionCode` | `string` | ISO 3166-1 alpha-2 billing region code of the user at the time the product was granted. |
-| `purchaseType` | `integer` | The type of purchase of the inapp product. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values are: 0. Test (i.e. purchased from a license testing account) 1. Promo (i.e. purchased using a promo code) 2. Rewarded (i.e. from watching a video ad instead of paying) |
-| `purchaseState` | `integer` | The purchase state of the order. Possible values are: 0. Purchased 1. Canceled 2. Pending |
+| `obfuscatedExternalProfileId` | `string` | An obfuscated version of the id that is uniquely associated with the user's profile in your app. Only present if specified using https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedprofileid when the purchase was made. |
 | `purchaseTimeMillis` | `string` | The time the product was purchased, in milliseconds since the epoch (Jan 1, 1970). |
 | `acknowledgementState` | `integer` | The acknowledgement state of the inapp product. Possible values are: 0. Yet to be acknowledged 1. Acknowledged |
-| `purchaseToken` | `string` | The purchase token generated to identify this purchase. May not be present. |
-| `productId` | `string` | The inapp product SKU. May not be present. |
-| `kind` | `string` | This kind represents an inappPurchase object in the androidpublisher service. |
 | `consumptionState` | `integer` | The consumption state of the inapp product. Possible values are: 0. Yet to be consumed 1. Consumed |
-| `developerPayload` | `string` | A developer-specified string that contains supplemental information about an order. |
-| `obfuscatedExternalProfileId` | `string` | An obfuscated version of the id that is uniquely associated with the user's profile in your app. Only present if specified using https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedprofileid when the purchase was made. |
-| `obfuscatedExternalAccountId` | `string` | An obfuscated version of the id that is uniquely associated with the user's account in your app. Only present if specified using https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid when the purchase was made. |
-| `quantity` | `integer` | The quantity associated with the purchase of the inapp product. If not present, the quantity is 1. |
 | `orderId` | `string` | The order id associated with the purchase of the inapp product. |
+| `regionCode` | `string` | ISO 3166-1 alpha-2 billing region code of the user at the time the product was granted. |
+| `purchaseToken` | `string` | The purchase token generated to identify this purchase. May not be present. |
+| `purchaseState` | `integer` | The purchase state of the order. Possible values are: 0. Purchased 1. Canceled 2. Pending |
+| `quantity` | `integer` | The quantity associated with the purchase of the inapp product. If not present, the quantity is 1. |
+| `kind` | `string` | This kind represents an inappPurchase object in the androidpublisher service. |
+| `developerPayload` | `string` | A developer-specified string that contains supplemental information about an order. |
+| `obfuscatedExternalAccountId` | `string` | An obfuscated version of the id that is uniquely associated with the user's account in your app. Only present if specified using https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid when the purchase was made. |
+| `purchaseType` | `integer` | The type of purchase of the inapp product. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values are: 0. Test (i.e. purchased from a license testing account) 1. Promo (i.e. purchased using a promo code) 2. Rewarded (i.e. from watching a video ad instead of paying) |
+| `productId` | `string` | The inapp product SKU. May not be present. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

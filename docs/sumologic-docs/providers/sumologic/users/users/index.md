@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -28,18 +28,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier for the user. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `isLocked` | `boolean` | This has the value `true` if the user's account has been locked. If a user tries to log into their account several times and fails, his or her account will be locked for security reasons. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `roleIds` | `array` | List of roleIds associated with the user. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
 | `firstName` | `string` | First name of the user. |
-| `isActive` | `boolean` | True if the user is active. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
+| `roleIds` | `array` | List of roleIds associated with the user. |
 | `email` | `string` | Email address of the user. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `isMfaEnabled` | `boolean` | True if multi factor authentication is enabled for the user. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `lastLoginTimestamp` | `string` | Timestamp of the last login for the user in UTC. Will be null if the user has never logged in. |
 | `lastName` | `string` | Last name of the user. |
+| `isActive` | `boolean` | True if the user is active. |
+| `isMfaEnabled` | `boolean` | True if multi factor authentication is enabled for the user. |
+| `isLocked` | `boolean` | This has the value `true` if the user's account has been locked. If a user tries to log into their account several times and fails, his or her account will be locked for security reasons. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

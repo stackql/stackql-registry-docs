@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `regionName` | `string` | The name of the Region. |
 | `optInStatus` | `string` | The Region opt-in status. The possible values are &lt;code&gt;opt-in-not-required&lt;/code&gt;, &lt;code&gt;opted-in&lt;/code&gt;, and &lt;code&gt;not-opted-in&lt;/code&gt;. |
 | `regionEndpoint` | `string` | The Region service endpoint. |
-| `regionName` | `string` | The name of the Region. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

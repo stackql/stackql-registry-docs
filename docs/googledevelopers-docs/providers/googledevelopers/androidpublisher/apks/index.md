@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `apks` | `array` | All APKs. |
 | `kind` | `string` | The kind of this response ("androidpublisher#apksListResponse"). |
+| `apks` | `array` | All APKs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,16 +28,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description for the IPAM. |
-| `ipamArn` | `string` | The ARN of the IPAM. |
-| `ipamRegion` | `string` | The Amazon Web Services Region of the IPAM. |
-| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the IPAM. |
 | `publicDefaultScopeId` | `string` | The ID of the IPAM's default public scope. |
-| `tagSet` | `array` | The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key &lt;code&gt;Owner&lt;/code&gt; and the value &lt;code&gt;TeamA&lt;/code&gt;, specify &lt;code&gt;tag:Owner&lt;/code&gt; for the filter name and &lt;code&gt;TeamA&lt;/code&gt; for the filter value. |
-| `operatingRegionSet` | `array` | &lt;p&gt;The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.&lt;/p&gt; &lt;p&gt;For more information about operating Regions, see &lt;a href="/vpc/latest/ipam/create-ipam.html"&gt;Create an IPAM&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.&lt;/p&gt; |
-| `scopeCount` | `integer` | The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see &lt;a href="/vpc/latest/ipam/quotas-ipam.html"&gt;Quotas in IPAM&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.  |
-| `ipamId` | `string` | The ID of the IPAM. |
-| `state` | `string` | The state of the IPAM. |
+| `ipamRegion` | `string` | The Amazon Web Services Region of the IPAM. |
 | `privateDefaultScopeId` | `string` | The ID of the IPAM's default private scope. |
+| `operatingRegionSet` | `array` | &lt;p&gt;The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.&lt;/p&gt; &lt;p&gt;For more information about operating Regions, see &lt;a href="/vpc/latest/ipam/create-ipam.html"&gt;Create an IPAM&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.&lt;/p&gt; |
+| `state` | `string` | The state of the IPAM. |
+| `ipamId` | `string` | The ID of the IPAM. |
+| `scopeCount` | `integer` | The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see &lt;a href="/vpc/latest/ipam/quotas-ipam.html"&gt;Quotas in IPAM&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.  |
+| `tagSet` | `array` | The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key &lt;code&gt;Owner&lt;/code&gt; and the value &lt;code&gt;TeamA&lt;/code&gt;, specify &lt;code&gt;tag:Owner&lt;/code&gt; for the filter name and &lt;code&gt;TeamA&lt;/code&gt; for the filter value. |
+| `ipamArn` | `string` | The ARN of the IPAM. |
+| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the IPAM. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,14 +28,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `targetConfigurationValueSet` | `array` | The values of the target Convertible Reserved Instances. |
-| `isValidExchange` | `boolean` | If &lt;code&gt;true&lt;/code&gt;, the exchange is valid. If &lt;code&gt;false&lt;/code&gt;, the exchange cannot be completed. |
-| `outputReservedInstancesWillExpireAt` | `string` | The new end date of the reservation term. |
-| `targetConfigurationValueRollup` | `object` | The cost associated with the Reserved Instance. |
-| `validationFailureReason` | `string` | Describes the reason why the exchange cannot be completed. |
-| `paymentDue` | `string` | The total true upfront charge for the exchange. |
 | `currencyCode` | `string` | The currency of the transaction. |
-| `reservedInstanceValueSet` | `array` | The configuration of your Convertible Reserved Instances. |
 | `reservedInstanceValueRollup` | `object` | The cost associated with the Reserved Instance. |
+| `targetConfigurationValueRollup` | `object` | The cost associated with the Reserved Instance. |
+| `reservedInstanceValueSet` | `array` | The configuration of your Convertible Reserved Instances. |
+| `isValidExchange` | `boolean` | If &lt;code&gt;true&lt;/code&gt;, the exchange is valid. If &lt;code&gt;false&lt;/code&gt;, the exchange cannot be completed. |
+| `paymentDue` | `string` | The total true upfront charge for the exchange. |
+| `validationFailureReason` | `string` | Describes the reason why the exchange cannot be completed. |
+| `outputReservedInstancesWillExpireAt` | `string` | The new end date of the reservation term. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

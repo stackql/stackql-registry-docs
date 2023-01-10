@@ -30,16 +30,16 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | `id` | `string` | The identifier for this resource. |
 | `name` | `string` | The name of this blog. This is displayed as the title. |
 | `description` | `string` | The description of this blog. This is displayed underneath the title. |
-| `updated` | `string` | RFC 3339 date-time when this blog was last updated. |
-| `kind` | `string` | The kind of this entry. Always blogger#blog. |
-| `published` | `string` | RFC 3339 date-time when this blog was published. |
-| `locale` | `object` | The locale this Blog is set to. |
 | `pages` | `object` | The container of pages in this blog. |
-| `posts` | `object` | The container of posts in this blog. |
-| `customMetaData` | `string` | The JSON custom meta-data for the Blog. |
-| `selfLink` | `string` | The API REST URL to fetch this resource from. |
-| `status` | `string` | The status of the blog. |
 | `url` | `string` | The URL where this blog is published. |
+| `status` | `string` | The status of the blog. |
+| `kind` | `string` | The kind of this entry. Always blogger#blog. |
+| `posts` | `object` | The container of posts in this blog. |
+| `updated` | `string` | RFC 3339 date-time when this blog was last updated. |
+| `selfLink` | `string` | The API REST URL to fetch this resource from. |
+| `locale` | `object` | The locale this Blog is set to. |
+| `published` | `string` | RFC 3339 date-time when this blog was published. |
+| `customMetaData` | `string` | The JSON custom meta-data for the Blog. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

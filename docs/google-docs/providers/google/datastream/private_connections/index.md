@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource's name. |
-| `error` | `object` | Represent a user-facing Error. |
-| `labels` | `object` | Labels. |
-| `state` | `string` | Output only. The state of the Private Connection. |
 | `updateTime` | `string` | Output only. The update time of the resource. |
 | `vpcPeeringConfig` | `object` | The VPC Peering configuration is used to create VPC peering between Datastream and the consumer's VPC. |
 | `createTime` | `string` | Output only. The create time of the resource. |
 | `displayName` | `string` | Required. Display name. |
+| `error` | `object` | Represent a user-facing Error. |
+| `labels` | `object` | Labels. |
+| `state` | `string` | Output only. The state of the Private Connection. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

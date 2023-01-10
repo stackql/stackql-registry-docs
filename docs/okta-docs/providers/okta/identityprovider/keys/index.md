@@ -3,14 +3,16 @@ title: keys
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - keys
+  - identityprovider
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -26,21 +28,21 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype |
 |:-----|:---------|
 | `x5u` | `string` |
-| `created` | `string` |
-| `use` | `string` |
-| `alg` | `string` |
-| `status` | `string` |
-| `x5c` | `array` |
 | `expiresAt` | `string` |
-| `lastUpdated` | `string` |
-| `x5t` | `string` |
-| `false` | `string` |
-| `kty` | `string` |
-| `_links` | `object` |
 | `e` | `string` |
 | `key_ops` | `array` |
-| `x5t#S256` | `string` |
+| `status` | `string` |
+| `x5c` | `array` |
 | `kid` | `string` |
+| `created` | `string` |
+| `lastUpdated` | `string` |
+| `kty` | `string` |
+| `use` | `string` |
+| `x5t` | `string` |
+| `alg` | `string` |
+| `_links` | `object` |
+| `false` | `string` |
+| `x5t#S256` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

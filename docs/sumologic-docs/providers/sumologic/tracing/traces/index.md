@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -28,13 +28,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Trace identifier. |
+| `metrics` | `object` | Calculated trace metrics. |
+| `rootOperationName` | `string` | The name of the operation given to the root span. |
+| `rootResource` | `string` | Root resource on which the trace was started. Examples: `db.query`, `http.request`, `rpc.call`, `container` |
 | `rootService` | `string` | Root service which started the trace. Examples: `user-service`, `authentication-service`, `payment-service`, `/shopping-cart` |
 | `rootStatus` | `object` |  |
 | `startedAt` | `string` | Date and time the trace was started in [ISO 8601 / RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 | `criticalPathServiceBreakdownSummary` | `object` |  |
-| `metrics` | `object` | Calculated trace metrics. |
-| `rootOperationName` | `string` | The name of the operation given to the root span. |
-| `rootResource` | `string` | Root resource on which the trace was started. Examples: `db.query`, `http.request`, `rpc.call`, `container` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

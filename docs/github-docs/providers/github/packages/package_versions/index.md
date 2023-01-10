@@ -3,14 +3,16 @@ title: package_versions
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - package_versions
+  - packages
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -28,14 +30,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `integer` | Unique identifier of the package version. |
 | `name` | `string` | The name of the package version. |
 | `description` | `string` |  |
-| `created_at` | `string` |  |
-| `metadata` | `object` |  |
 | `updated_at` | `string` |  |
-| `license` | `string` |  |
-| `package_html_url` | `string` |  |
-| `deleted_at` | `string` |  |
 | `url` | `string` |  |
+| `deleted_at` | `string` |  |
+| `license` | `string` |  |
 | `html_url` | `string` |  |
+| `metadata` | `object` |  |
+| `package_html_url` | `string` |  |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

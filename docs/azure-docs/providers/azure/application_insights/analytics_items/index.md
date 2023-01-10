@@ -27,15 +27,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `TimeModified` | `string` | Date and time in UTC of the last modification that was made to this item. |
-| `Version` | `string` | This instance's version of the data model. This can change as new features are added. |
-| `Scope` | `string` | Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component. |
-| `TimeCreated` | `string` | Date and time in UTC when this item was created. |
-| `Type` | `string` | Enum indicating the type of the Analytics item. |
 | `Properties` | `object` | A set of properties that can be defined in the context of a specific item type. Each type may have its own properties. |
-| `Content` | `string` | The content of this item |
 | `Id` | `string` | Internally assigned unique id of the item definition. |
 | `Name` | `string` | The user-defined name of the item. |
+| `TimeCreated` | `string` | Date and time in UTC when this item was created. |
+| `Version` | `string` | This instance's version of the data model. This can change as new features are added. |
+| `Scope` | `string` | Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component. |
+| `TimeModified` | `string` | Date and time in UTC of the last modification that was made to this item. |
+| `Content` | `string` | The content of this item |
+| `Type` | `string` | Enum indicating the type of the Analytics item. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

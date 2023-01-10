@@ -30,33 +30,33 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | `id` | `string` | The ID of this API. |
 | `name` | `string` | The name of this API. |
 | `description` | `string` | The description of this API. |
-| `resources` | `object` | The resources in this API. |
-| `rootUrl` | `string` | The root URL under which all API services live. |
-| `schemas` | `object` | The schemas for this API. |
-| `discoveryVersion` | `string` | Indicate the version of the Discovery API used to generate this doc. |
-| `kind` | `string` | The kind for this response. |
-| `documentationLink` | `string` | A link to human readable documentation for the API. |
-| `title` | `string` | The title of this API. |
-| `auth` | `object` | Authentication information. |
-| `ownerDomain` | `string` | The domain of the owner of this API. Together with the ownerName and a packagePath values, this can be used to generate a library for this API which would have a unique fully qualified name. |
-| `baseUrl` | `string` | [DEPRECATED] The base URL for REST requests. |
-| `revision` | `string` | The version of this API. |
-| `methods` | `object` | API-level methods for this API. |
-| `version` | `string` | The version of this API. |
-| `version_module` | `boolean` |  |
-| `exponentialBackoffDefault` | `boolean` | Enable exponential backoff for suitable methods in the generated clients. |
-| `basePath` | `string` | [DEPRECATED] The base path for REST requests. |
-| `labels` | `array` | Labels for the status of this API, such as labs or deprecated. |
-| `protocol` | `string` | The protocol described by this document. |
-| `icons` | `object` | Links to 16x16 and 32x32 icons representing the API. |
-| `batchPath` | `string` | The path for REST batch requests. |
-| `etag` | `string` | The ETag for this response. |
-| `features` | `array` | A list of supported features for this API. |
 | `packagePath` | `string` | The package of the owner of this API. See ownerDomain. |
+| `revision` | `string` | The version of this API. |
+| `title` | `string` | The title of this API. |
+| `icons` | `object` | Links to 16x16 and 32x32 icons representing the API. |
+| `basePath` | `string` | [DEPRECATED] The base path for REST requests. |
+| `version` | `string` | The version of this API. |
+| `resources` | `object` | The resources in this API. |
+| `baseUrl` | `string` | [DEPRECATED] The base URL for REST requests. |
+| `etag` | `string` | The ETag for this response. |
+| `version_module` | `boolean` |  |
+| `kind` | `string` | The kind for this response. |
+| `schemas` | `object` | The schemas for this API. |
+| `ownerName` | `string` | The name of the owner of this API. See ownerDomain. |
+| `exponentialBackoffDefault` | `boolean` | Enable exponential backoff for suitable methods in the generated clients. |
+| `discoveryVersion` | `string` | Indicate the version of the Discovery API used to generate this doc. |
+| `batchPath` | `string` | The path for REST batch requests. |
+| `auth` | `object` | Authentication information. |
+| `methods` | `object` | API-level methods for this API. |
+| `rootUrl` | `string` | The root URL under which all API services live. |
+| `features` | `array` | A list of supported features for this API. |
+| `protocol` | `string` | The protocol described by this document. |
+| `ownerDomain` | `string` | The domain of the owner of this API. Together with the ownerName and a packagePath values, this can be used to generate a library for this API which would have a unique fully qualified name. |
+| `documentationLink` | `string` | A link to human readable documentation for the API. |
+| `parameters` | `object` | Common parameters that apply across all apis. |
 | `servicePath` | `string` | The base path for all REST requests. |
 | `canonicalName` | `string` | Indicates how the API name should be capitalized and split into various parts. Useful for generating pretty class names. |
-| `ownerName` | `string` | The name of the owner of this API. See ownerDomain. |
-| `parameters` | `object` | Common parameters that apply across all apis. |
+| `labels` | `array` | Labels for the status of this API, such as labs or deprecated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Instruction resource name, format: projects/&#123;project_id&#125;/instructions/&#123;instruction_id&#125; |
 | `description` | `string` | Optional. User-provided description of the instruction. The description can be up to 10000 characters long. |
-| `blockingResources` | `array` | Output only. The names of any related resources that are blocking changes to the instruction. |
-| `displayName` | `string` | Required. The display name of the instruction. Maximum of 64 characters. |
 | `updateTime` | `string` | Output only. Last update time of instruction. |
-| `createTime` | `string` | Output only. Creation time of instruction. |
-| `dataType` | `string` | Required. The data type of this instruction. |
-| `pdfInstruction` | `object` | Instruction from a PDF file. |
 | `csvInstruction` | `object` | Deprecated: this instruction format is not supported any more. Instruction from a CSV file. |
+| `createTime` | `string` | Output only. Creation time of instruction. |
+| `pdfInstruction` | `object` | Instruction from a PDF file. |
+| `displayName` | `string` | Required. The display name of the instruction. Maximum of 64 characters. |
+| `dataType` | `string` | Required. The data type of this instruction. |
+| `blockingResources` | `array` | Output only. The names of any related resources that are blocking changes to the instruction. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

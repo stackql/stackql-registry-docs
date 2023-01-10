@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `localGatewayRouteTableArn` | `string` | The Amazon Resource Name (ARN) of the local gateway route table. |
-| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
 | `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway route table. |
 | `state` | `string` | The state of the local gateway route table. |
 | `tagSet` | `array` | The tags assigned to the local gateway route table. |
 | `localGatewayId` | `string` | The ID of the local gateway. |
+| `localGatewayRouteTableArn` | `string` | The Amazon Resource Name (ARN) of the local gateway route table. |
+| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -30,12 +30,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource Name. |
 | `kind` | `string` | Kind of resource. |
-| `identity` | `object` | Managed service identity. |
 | `properties` | `object` | Site resource specific properties |
 | `tags` | `object` | Resource tags. |
+| `identity` | `object` | Managed service identity. |
 | `type` | `string` | Resource type. |
-| `extendedLocation` | `object` | Extended Location. |
 | `location` | `string` | Resource Location. |
+| `extendedLocation` | `object` | Extended Location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

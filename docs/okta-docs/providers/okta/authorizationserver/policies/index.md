@@ -3,14 +3,16 @@ title: policies
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - policies
+  - authorizationserver
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -28,15 +30,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `system` | `boolean` |
-| `_embedded` | `object` |
-| `status` | `string` |
-| `_links` | `object` |
+| `lastUpdated` | `string` |
 | `priority` | `integer` |
 | `created` | `string` |
-| `lastUpdated` | `string` |
-| `type` | `string` |
 | `conditions` | `object` |
+| `_embedded` | `object` |
+| `_links` | `object` |
+| `type` | `string` |
+| `status` | `string` |
+| `system` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

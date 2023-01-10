@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Various APIs for managing resources in attestation service. This primarily encompasses per-provider management.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>13</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Various APIs for managing resources in attestation service. This primarily encom
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Attestation Management Client (Microsoft.Attestation)</td></tr>
 <tr><td><b>Description</b></td><td>Various APIs for managing resources in attestation service. This primarily encompasses per-provider management.</td></tr>
-<tr><td><b>Id</b></td><td><code>attestation:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>attestation:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

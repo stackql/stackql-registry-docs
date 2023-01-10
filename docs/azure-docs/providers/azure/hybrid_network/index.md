@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Hybrid Network  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>39</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Hybrid Network
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Hybrid Network (Microsoft.HybridNetwork)</td></tr>
 <tr><td><b>Description</b></td><td>Hybrid Network</td></tr>
-<tr><td><b>Id</b></td><td><code>hybrid_network:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>hybrid_network:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -13,9 +13,10 @@ custom_edit_url: null
 image: /img/providers/okta/stackql-okta-provider-featured-image.png
 id: okta-doc
 slug: /providers/okta
+
 ---
 Authentication and authorization services.  
-
+    
 :::info Provider Summary
 
 <div class="row">
@@ -25,7 +26,7 @@ Authentication and authorization services.
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>73</b></span><br />
-<span>selectable resources:&nbsp;<b>66</b></span><br />
+<span>total selectable resources:&nbsp;<b>66</b></span><br />
 </div>
 </div>
 
@@ -42,20 +43,14 @@ REGISTRY PULL okta v23.01.00104;
 
 ## Authentication
 ```javascript
+
 {
-    "okta": {
-     /**
-      * Type of authentication to use, suported values include:  api_key
-      * @type String
-      */
-     "type": string, 
-     /**
-      * Environment variable name containing the api key or credentials.
-      * @type String
-      */
-     "credentialsenvvar": string, 
-    }
+  "okta": {
+    "type": string, // authentication type to use, suported values: api_key
+    "credentialsenvvar": string, // env var name containing the api key
+  }
 }
+
 ```
 ### Example (Mac/Linux)
 ```bash

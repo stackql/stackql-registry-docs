@@ -3,14 +3,16 @@ title: alerts
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - alerts
+  - secret_scanning
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,17 +27,17 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resolved_by` | `object` | Simple User |
-| `resolved_at` | `string` | The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `url` | `string` | The REST API URL of the alert resource. |
 | `resolution` | `string` | **Required when the `state` is `resolved`.** The reason for resolving the alert. Can be one of `false_positive`, `wont_fix`, `revoked`, or `used_in_tests`. |
-| `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `number` | `integer` | The security alert number. |
-| `locations_url` | `string` | The REST API URL of the code locations for this alert. |
 | `state` | `string` | Sets the state of the secret scanning alert. Can be either `open` or `resolved`. You must provide `resolution` when you set the state to `resolved`. |
-| `secret_type` | `string` | The type of secret that secret scanning detected. |
-| `html_url` | `string` | The GitHub URL of the alert resource. |
+| `resolved_at` | `string` | The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `resolved_by` | `object` | Simple User |
+| `locations_url` | `string` | The REST API URL of the code locations for this alert. |
 | `secret` | `string` | The secret that was detected. |
+| `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `secret_type` | `string` | The type of secret that secret scanning detected. |
+| `number` | `integer` | The security alert number. |
+| `url` | `string` | The REST API URL of the alert resource. |
+| `html_url` | `string` | The GitHub URL of the alert resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

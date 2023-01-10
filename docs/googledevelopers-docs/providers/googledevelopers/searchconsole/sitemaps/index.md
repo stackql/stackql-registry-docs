@@ -27,15 +27,15 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `path` | `string` | The url of the sitemap. |
-| `errors` | `string` | Number of errors in the sitemap. These are issues with the sitemap itself that need to be fixed before it can be processed correctly. |
-| `isPending` | `boolean` | If true, the sitemap has not been processed. |
 | `lastSubmitted` | `string` | Date & time in which this sitemap was submitted. Date format is in RFC 3339 format (yyyy-mm-dd). |
-| `isSitemapsIndex` | `boolean` | If true, the sitemap is a collection of sitemaps. |
-| `warnings` | `string` | Number of warnings for the sitemap. These are generally non-critical issues with URLs in the sitemaps. |
-| `contents` | `array` | The various content types in the sitemap. |
-| `lastDownloaded` | `string` | Date & time in which this sitemap was last downloaded. Date format is in RFC 3339 format (yyyy-mm-dd). |
+| `path` | `string` | The url of the sitemap. |
 | `type` | `string` | The type of the sitemap. For example: `rssFeed`. |
+| `lastDownloaded` | `string` | Date & time in which this sitemap was last downloaded. Date format is in RFC 3339 format (yyyy-mm-dd). |
+| `isSitemapsIndex` | `boolean` | If true, the sitemap is a collection of sitemaps. |
+| `isPending` | `boolean` | If true, the sitemap has not been processed. |
+| `errors` | `string` | Number of errors in the sitemap. These are issues with the sitemap itself that need to be fixed before it can be processed correctly. |
+| `contents` | `array` | The various content types in the sitemap. |
+| `warnings` | `string` | Number of warnings for the sitemap. These are generally non-critical issues with URLs in the sitemaps. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

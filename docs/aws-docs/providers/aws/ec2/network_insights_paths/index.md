@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,16 +27,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | The tags associated with the path. |
-| `networkInsightsPathId` | `string` | The ID of the path. |
 | `source` | `string` | The Amazon Web Services resource that is the source of the path. |
 | `destinationPort` | `integer` | The destination port. |
-| `protocol` | `string` | The protocol. |
-| `destinationIp` | `string` | The IP address of the Amazon Web Services resource that is the destination of the path. |
-| `networkInsightsPathArn` | `string` | The Amazon Resource Name (ARN) of the path. |
-| `createdDate` | `string` | The time stamp when the path was created. |
-| `destination` | `string` | The Amazon Web Services resource that is the destination of the path. |
+| `tagSet` | `array` | The tags associated with the path. |
 | `sourceIp` | `string` | The IP address of the Amazon Web Services resource that is the source of the path. |
+| `createdDate` | `string` | The time stamp when the path was created. |
+| `networkInsightsPathArn` | `string` | The Amazon Resource Name (ARN) of the path. |
+| `protocol` | `string` | The protocol. |
+| `networkInsightsPathId` | `string` | The ID of the path. |
+| `destination` | `string` | The Amazon Web Services resource that is the destination of the path. |
+| `destinationIp` | `string` | The IP address of the Amazon Web Services resource that is the destination of the path. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token for the next page of results. If empty, there are no more pages remaining. |
 | `processes` | `array` | List of processes matching request parameters. |
+| `nextPageToken` | `string` | Token for the next page of results. If empty, there are no more pages remaining. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

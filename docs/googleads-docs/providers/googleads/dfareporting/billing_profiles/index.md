@@ -29,17 +29,17 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this billing profile. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this billing profile. This is a required field and must be less than 256 characters long and must be unique among billing profile in the same account. |
-| `secondaryPaymentsCustomerId` | `string` | The ID of the secondary payment customer the billing profile belongs to. This is a read-only field. |
-| `paymentsAccountId` | `string` | The ID of the payment account the billing profile belongs to. This is a read-only field. |
-| `status` | `string` | Status of this billing profile.This is a read-only field. |
+| `isDefault` | `boolean` | True if the billing profile is the account default profile. This is a read-only field. |
+| `paymentsCustomerId` | `string` | The ID of the payment customer the billing profile belongs to. This is a read-only field. |
 | `purchaseOrder` | `string` | Purchase order (PO) for this billing profile. This PO number is used in the invoices for all of the advertisers in this billing profile. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#billingProfile". |
-| `paymentsCustomerId` | `string` | The ID of the payment customer the billing profile belongs to. This is a read-only field. |
+| `status` | `string` | Status of this billing profile.This is a read-only field. |
 | `consolidatedInvoice` | `boolean` | Consolidated invoice option for this billing profile. Used to get a single, consolidated invoice across the chosen invoice level. |
-| `isDefault` | `boolean` | True if the billing profile is the account default profile. This is a read-only field. |
-| `invoiceLevel` | `string` | Invoice level for this billing profile. Used to group fees into separate invoices by account, advertiser, or campaign. |
 | `countryCode` | `string` | Country code of this billing profile.This is a read-only field. |
+| `paymentsAccountId` | `string` | The ID of the payment account the billing profile belongs to. This is a read-only field. |
+| `invoiceLevel` | `string` | Invoice level for this billing profile. Used to group fees into separate invoices by account, advertiser, or campaign. |
 | `currencyCode` | `string` | Billing currency code in ISO 4217 format.This is a read-only field. |
+| `secondaryPaymentsCustomerId` | `string` | The ID of the secondary payment customer the billing profile belongs to. This is a read-only field. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

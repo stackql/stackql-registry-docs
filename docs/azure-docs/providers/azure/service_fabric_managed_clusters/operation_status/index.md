@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the operation. |
+| `error` | `object` | The error details. |
 | `percentComplete` | `number` | The completion percentage of the operation. |
 | `startTime` | `string` | The start time of the operation. |
 | `status` | `string` | The status of the operation. |
 | `endTime` | `string` | The end time of the operation. |
-| `error` | `object` | The error details. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

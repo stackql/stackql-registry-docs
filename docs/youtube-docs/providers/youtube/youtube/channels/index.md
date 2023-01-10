@@ -28,18 +28,18 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube uses to uniquely identify the channel. |
-| `brandingSettings` | `object` | Branding properties of a YouTube channel. |
+| `snippet` | `object` | Basic details about a channel, including title, description and thumbnails. |
 | `contentOwnerDetails` | `object` | The contentOwnerDetails object encapsulates channel data that is relevant for YouTube Partners linked with the channel. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#channel". |
+| `brandingSettings` | `object` | Branding properties of a YouTube channel. |
+| `contentDetails` | `object` | Details about the content of a channel. |
 | `etag` | `string` | Etag of this resource. |
 | `topicDetails` | `object` | Freebase topic information related to the channel. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#channel". |
 | `status` | `object` | JSON template for the status part of a channel. |
+| `auditDetails` | `object` | The auditDetails object encapsulates channel data that is relevant for YouTube Partners during the audit process. |
+| `conversionPings` | `object` | The conversionPings object encapsulates information about conversion pings that need to be respected by the channel. |
 | `statistics` | `object` | Statistics about a channel: number of subscribers, number of videos in the channel, etc. |
 | `localizations` | `object` | Localizations for different languages |
-| `conversionPings` | `object` | The conversionPings object encapsulates information about conversion pings that need to be respected by the channel. |
-| `snippet` | `object` | Basic details about a channel, including title, description and thumbnails. |
-| `auditDetails` | `object` | The auditDetails object encapsulates channel data that is relevant for YouTube Partners during the audit process. |
-| `contentDetails` | `object` | Details about the content of a channel. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

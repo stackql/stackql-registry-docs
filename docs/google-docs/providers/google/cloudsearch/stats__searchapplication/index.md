@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `stats` | `array` | Search application stats by date. |
 | `averageSearchApplicationCount` | `string` | Average search application count for the given date range. |
+| `stats` | `array` | Search application stats by date. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `dhcpConfigurationSet` | `array` | One or more DHCP options in the set. |
-| `dhcpOptionsId` | `string` | The ID of the set of DHCP options. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the DHCP options set. |
 | `tagSet` | `array` | Any tags assigned to the DHCP options set. |
+| `dhcpConfigurationSet` | `array` | One or more DHCP options in the set. |
+| `dhcpOptionsId` | `string` | The ID of the set of DHCP options. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

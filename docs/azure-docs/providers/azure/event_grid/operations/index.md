@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the operation. |
+| `isDataAction` | `boolean` | This Boolean is used to determine if the operation is a data plane action or not. |
 | `origin` | `string` | Origin of the operation. |
 | `properties` | `object` | Properties of the operation. |
 | `display` | `object` | Information about an operation |
-| `isDataAction` | `boolean` | This Boolean is used to determine if the operation is a data plane action or not. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

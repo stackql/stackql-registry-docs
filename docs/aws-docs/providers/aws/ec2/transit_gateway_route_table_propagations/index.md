@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resourceType` | `string` | The type of resource. Note that the &lt;code&gt;tgw-peering&lt;/code&gt; resource type has been deprecated. |
 | `state` | `string` | The state of the resource. |
 | `transitGatewayAttachmentId` | `string` | The ID of the attachment. |
 | `resourceId` | `string` | The ID of the resource. |
+| `resourceType` | `string` | The type of resource. Note that the &lt;code&gt;tgw-peering&lt;/code&gt; resource type has been deprecated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

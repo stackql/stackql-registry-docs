@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Service Bus  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>66</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Service Bus
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Bus (Microsoft.ServiceBus)</td></tr>
 <tr><td><b>Description</b></td><td>Service Bus</td></tr>
-<tr><td><b>Id</b></td><td><code>service_bus:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_bus:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

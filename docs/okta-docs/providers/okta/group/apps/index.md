@@ -3,14 +3,16 @@ title: apps
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - apps
+  - group
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -27,20 +29,20 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `status` | `string` |
-| `signOnMode` | `string` |
-| `licensing` | `object` |
-| `settings` | `object` |
 | `_embedded` | `object` |
-| `features` | `array` |
+| `credentials` | `object` |
 | `label` | `string` |
 | `_links` | `object` |
-| `accessibility` | `object` |
-| `credentials` | `object` |
-| `visibility` | `object` |
-| `profile` | `object` |
 | `created` | `string` |
+| `licensing` | `object` |
+| `visibility` | `object` |
 | `lastUpdated` | `string` |
+| `settings` | `object` |
+| `profile` | `object` |
+| `accessibility` | `object` |
+| `signOnMode` | `string` |
+| `features` | `array` |
+| `status` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

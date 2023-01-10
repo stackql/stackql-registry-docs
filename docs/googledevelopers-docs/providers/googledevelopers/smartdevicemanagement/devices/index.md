@@ -28,9 +28,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name of the device. For example: "enterprises/XYZ/devices/123". |
+| `parentRelations` | `array` | Assignee details of the device. |
 | `traits` | `object` | Output only. Device traits. |
 | `type` | `string` | Output only. Type of the device for general display purposes. For example: "THERMOSTAT". The device type should not be used to deduce or infer functionality of the actual device it is assigned to. Instead, use the returned traits for the device. |
-| `parentRelations` | `array` | Assignee details of the device. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

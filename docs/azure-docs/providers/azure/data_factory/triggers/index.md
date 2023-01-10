@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
+| `type` | `string` | The resource type. |
 | `etag` | `string` | Etag identifies change in the resource. |
 | `properties` | `object` | Azure data factory nested object which contains information about creating pipeline run |
-| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

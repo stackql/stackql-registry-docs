@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `kind` | `string` | This is always `sql#instancesListServerCas`. |
 | `activeVersion` | `string` |  |
 | `certs` | `array` | List of server CA certificates for the instance. |
-| `kind` | `string` | This is always `sql#instancesListServerCas`. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

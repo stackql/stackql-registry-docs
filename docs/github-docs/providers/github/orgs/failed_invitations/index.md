@@ -3,14 +3,16 @@ title: failed_invitations
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - failed_invitations
+  - orgs
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,16 +28,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `role` | `string` |  |
 | `created_at` | `string` |  |
-| `failed_reason` | `string` |  |
-| `node_id` | `string` |  |
 | `login` | `string` |  |
 | `invitation_teams_url` | `string` |  |
+| `team_count` | `integer` |  |
+| `node_id` | `string` |  |
 | `email` | `string` |  |
+| `failed_reason` | `string` |  |
 | `inviter` | `object` | Simple User |
 | `failed_at` | `string` |  |
-| `team_count` | `integer` |  |
+| `role` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

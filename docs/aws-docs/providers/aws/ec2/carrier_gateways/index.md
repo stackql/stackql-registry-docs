@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -36,5 +36,5 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `carrier_gateways_Describe` | `SELECT` |  | Describes one or more of your carrier gateways. |
-| `carrier_gateway_Create` | `INSERT` | `VpcId` | Creates a carrier gateway. For more information about carrier gateways, see &lt;a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway"&gt;Carrier gateways&lt;/a&gt; in the &lt;i&gt;Amazon Web Services Wavelength Developer Guide&lt;/i&gt;. |
 | `carrier_gateway_Delete` | `DELETE` | `CarrierGatewayId` | &lt;p&gt;Deletes a carrier gateway.&lt;/p&gt; &lt;important&gt; &lt;p&gt;If you do not delete the route that contains the carrier gateway as the Target, the route is a blackhole route. For information about how to delete a route, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html"&gt;DeleteRoute&lt;/a&gt;.&lt;/p&gt; &lt;/important&gt; |
+| `carrier_gateway_Create` | `EXEC` | `VpcId` | Creates a carrier gateway. For more information about carrier gateways, see &lt;a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway"&gt;Carrier gateways&lt;/a&gt; in the &lt;i&gt;Amazon Web Services Wavelength Developer Guide&lt;/i&gt;. |

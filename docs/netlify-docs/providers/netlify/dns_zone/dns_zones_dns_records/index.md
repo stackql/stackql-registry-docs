@@ -3,14 +3,16 @@ title: dns_zones_dns_records
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - dns_zones_dns_records
+  - dns_zone
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -26,16 +28,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `flag` | `integer` |
-| `dns_zone_id` | `string` |
-| `hostname` | `string` |
-| `site_id` | `string` |
-| `tag` | `string` |
-| `type` | `string` |
-| `priority` | `integer` |
-| `value` | `string` |
-| `managed` | `boolean` |
 | `ttl` | `integer` |
+| `dns_zone_id` | `string` |
+| `type` | `string` |
+| `value` | `string` |
+| `tag` | `string` |
+| `site_id` | `string` |
+| `hostname` | `string` |
+| `managed` | `boolean` |
+| `priority` | `integer` |
+| `flag` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

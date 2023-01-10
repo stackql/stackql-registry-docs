@@ -28,9 +28,9 @@ image: /img/providers/googlemybusiness/stackql-googlemybusiness-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The chain's resource name, in the format `chains/&#123;chain_id&#125;`. |
-| `websites` | `array` | Websites of the chain. |
 | `chainNames` | `array` | Names of the chain. |
 | `locationCount` | `integer` | Number of locations that are part of this chain. |
+| `websites` | `array` | Websites of the chain. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

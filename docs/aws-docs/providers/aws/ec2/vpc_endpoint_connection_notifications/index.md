@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `vpcEndpointId` | `string` | The ID of the VPC endpoint. |
+| `connectionEvents` | `array` | The events for the notification. Valid values are &lt;code&gt;Accept&lt;/code&gt;, &lt;code&gt;Connect&lt;/code&gt;, &lt;code&gt;Delete&lt;/code&gt;, and &lt;code&gt;Reject&lt;/code&gt;. |
 | `connectionNotificationArn` | `string` | The ARN of the SNS topic for the notification. |
 | `connectionNotificationId` | `string` | The ID of the notification. |
 | `connectionNotificationState` | `string` | The state of the notification. |
 | `connectionNotificationType` | `string` | The type of notification. |
 | `serviceId` | `string` | The ID of the endpoint service. |
-| `vpcEndpointId` | `string` | The ID of the VPC endpoint. |
-| `connectionEvents` | `array` | The events for the notification. Valid values are &lt;code&gt;Accept&lt;/code&gt;, &lt;code&gt;Connect&lt;/code&gt;, &lt;code&gt;Delete&lt;/code&gt;, and &lt;code&gt;Reject&lt;/code&gt;. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

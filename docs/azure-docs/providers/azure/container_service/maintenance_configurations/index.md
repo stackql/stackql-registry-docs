@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `type` | `string` | Resource type |
 | `properties` | `object` | Properties used to configure planned maintenance for a Managed Cluster. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

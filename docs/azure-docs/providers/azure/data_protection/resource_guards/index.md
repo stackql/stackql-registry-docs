@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id represents the complete path to the resource. |
 | `name` | `string` | Resource name associated with the resource. |
-| `eTag` | `string` | Optional ETag. |
 | `identity` | `object` | Identity details |
-| `location` | `string` | Resource location. |
-| `properties` | `object` |  |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| `properties` | `object` |  |
+| `eTag` | `string` | Optional ETag. |
 | `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
+| `location` | `string` | Resource location. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Specifies the resource ID. |
 | `name` | `string` | Specifies the name of the resource. |
+| `tags` | `object` | Contains resource tags defined as key/value pairs. |
 | `type` | `string` | Specifies the type of the resource. |
 | `location` | `string` | Specifies the location of the resource. |
 | `properties` | `object` | The set of properties specific to the Azure ML web service resource. |
-| `tags` | `object` | Contains resource tags defined as key/value pairs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

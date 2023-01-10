@@ -3,14 +3,16 @@ title: sessions
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - sessions
+  - session
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -27,15 +29,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `expiresAt` | `string` |
+| `createdAt` | `string` |
+| `lastFactorVerification` | `string` |
 | `login` | `string` |
 | `userId` | `string` |
-| `createdAt` | `string` |
+| `_links` | `object` |
+| `idp` | `object` |
 | `status` | `string` |
 | `amr` | `array` |
-| `_links` | `object` |
 | `lastPasswordVerification` | `string` |
-| `idp` | `object` |
-| `lastFactorVerification` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -28,12 +28,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier for the transformation rule. |
-| `enabled` | `boolean` | True if the rule is enabled. |
 | `ruleDefinition` | `object` | The properties that define a transformation rule. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
 | `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
+| `enabled` | `boolean` | True if the rule is enabled. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

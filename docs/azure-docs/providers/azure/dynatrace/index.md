@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Observability with Dynatrace for Azure  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>22</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Observability with Dynatrace for Azure
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dynatrace for Azure (Dynatrace.Observability)</td></tr>
 <tr><td><b>Description</b></td><td>Observability with Dynatrace for Azure</td></tr>
-<tr><td><b>Id</b></td><td><code>dynatrace:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dynatrace:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

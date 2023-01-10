@@ -3,14 +3,16 @@ title: public_repos
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - public_repos
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -28,88 +30,88 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `integer` |  |
 | `name` | `string` |  |
 | `description` | `string` |  |
-| `issue_events_url` | `string` |  |
-| `watchers` | `integer` |  |
-| `full_name` | `string` |  |
-| `statuses_url` | `string` |  |
-| `collaborators_url` | `string` |  |
-| `issue_comment_url` | `string` |  |
-| `assignees_url` | `string` |  |
-| `language` | `string` |  |
-| `languages_url` | `string` |  |
-| `size` | `integer` |  |
-| `node_id` | `string` |  |
-| `downloads_url` | `string` |  |
-| `owner` | `object` | Simple User |
-| `topics` | `array` |  |
-| `subscription_url` | `string` |  |
-| `stargazers_count` | `integer` |  |
-| `keys_url` | `string` |  |
-| `compare_url` | `string` |  |
-| `license` | `object` |  |
-| `branches_url` | `string` |  |
-| `contents_url` | `string` |  |
-| `labels_url` | `string` |  |
-| `comments_url` | `string` |  |
-| `has_issues` | `boolean` |  |
-| `open_issues_count` | `integer` |  |
-| `deployments_url` | `string` |  |
-| `allow_forking` | `boolean` |  |
-| `has_pages` | `boolean` |  |
-| `trees_url` | `string` |  |
-| `git_refs_url` | `string` |  |
-| `pulls_url` | `string` |  |
-| `milestones_url` | `string` |  |
-| `archived` | `boolean` |  |
-| `subscribers_url` | `string` |  |
-| `notifications_url` | `string` |  |
-| `stargazers_url` | `string` |  |
-| `watchers_count` | `integer` |  |
-| `is_template` | `boolean` |  |
-| `forks_count` | `integer` |  |
-| `visibility` | `string` |  |
-| `blobs_url` | `string` |  |
-| `clone_url` | `string` |  |
-| `private` | `boolean` |  |
-| `merges_url` | `string` |  |
-| `has_projects` | `boolean` |  |
-| `commits_url` | `string` |  |
-| `events_url` | `string` |  |
-| `issues_url` | `string` |  |
-| `network_count` | `integer` |  |
-| `code_of_conduct` | `object` | Code Of Conduct |
-| `created_at` | `string` |  |
-| `ssh_url` | `string` |  |
-| `teams_url` | `string` |  |
-| `fork` | `boolean` |  |
-| `updated_at` | `string` |  |
-| `contributors_url` | `string` |  |
-| `temp_clone_token` | `string` |  |
-| `git_commits_url` | `string` |  |
-| `html_url` | `string` |  |
-| `open_issues` | `integer` |  |
-| `default_branch` | `string` |  |
 | `archive_url` | `string` |  |
-| `git_tags_url` | `string` |  |
-| `delete_branch_on_merge` | `boolean` |  |
-| `disabled` | `boolean` |  |
-| `releases_url` | `string` |  |
-| `svn_url` | `string` |  |
-| `hooks_url` | `string` |  |
-| `tags_url` | `string` |  |
-| `has_wiki` | `boolean` |  |
-| `forks_url` | `string` |  |
-| `mirror_url` | `string` |  |
-| `subscribers_count` | `integer` |  |
+| `is_template` | `boolean` |  |
+| `subscribers_url` | `string` |  |
+| `compare_url` | `string` |  |
+| `milestones_url` | `string` |  |
+| `updated_at` | `string` |  |
+| `has_pages` | `boolean` |  |
 | `git_url` | `string` |  |
-| `template_repository` | `object` | A git repository |
+| `watchers` | `integer` |  |
+| `delete_branch_on_merge` | `boolean` |  |
+| `git_commits_url` | `string` |  |
+| `open_issues` | `integer` |  |
+| `assignees_url` | `string` |  |
 | `homepage` | `string` |  |
-| `url` | `string` |  |
+| `svn_url` | `string` |  |
+| `owner` | `object` | Simple User |
+| `branches_url` | `string` |  |
+| `size` | `integer` |  |
+| `downloads_url` | `string` |  |
+| `network_count` | `integer` |  |
+| `subscribers_count` | `integer` |  |
 | `role_name` | `string` |  |
-| `permissions` | `object` |  |
-| `has_downloads` | `boolean` |  |
+| `issues_url` | `string` |  |
+| `mirror_url` | `string` |  |
+| `license` | `object` |  |
+| `ssh_url` | `string` |  |
+| `allow_forking` | `boolean` |  |
+| `subscription_url` | `string` |  |
+| `deployments_url` | `string` |  |
+| `language` | `string` |  |
+| `notifications_url` | `string` |  |
+| `labels_url` | `string` |  |
+| `stargazers_count` | `integer` |  |
+| `tags_url` | `string` |  |
+| `statuses_url` | `string` |  |
+| `watchers_count` | `integer` |  |
+| `has_issues` | `boolean` |  |
+| `clone_url` | `string` |  |
+| `has_projects` | `boolean` |  |
+| `fork` | `boolean` |  |
+| `releases_url` | `string` |  |
+| `template_repository` | `object` | A git repository |
+| `default_branch` | `string` |  |
 | `pushed_at` | `string` |  |
+| `node_id` | `string` |  |
+| `git_refs_url` | `string` |  |
+| `full_name` | `string` |  |
+| `merges_url` | `string` |  |
+| `disabled` | `boolean` |  |
+| `events_url` | `string` |  |
+| `commits_url` | `string` |  |
+| `open_issues_count` | `integer` |  |
+| `has_wiki` | `boolean` |  |
+| `blobs_url` | `string` |  |
+| `git_tags_url` | `string` |  |
+| `temp_clone_token` | `string` |  |
+| `issue_comment_url` | `string` |  |
+| `teams_url` | `string` |  |
+| `html_url` | `string` |  |
 | `forks` | `integer` |  |
+| `visibility` | `string` |  |
+| `collaborators_url` | `string` |  |
+| `url` | `string` |  |
+| `forks_url` | `string` |  |
+| `topics` | `array` |  |
+| `created_at` | `string` |  |
+| `keys_url` | `string` |  |
+| `code_of_conduct` | `object` | Code Of Conduct |
+| `forks_count` | `integer` |  |
+| `permissions` | `object` |  |
+| `contributors_url` | `string` |  |
+| `has_downloads` | `boolean` |  |
+| `languages_url` | `string` |  |
+| `archived` | `boolean` |  |
+| `contents_url` | `string` |  |
+| `trees_url` | `string` |  |
+| `comments_url` | `string` |  |
+| `private` | `boolean` |  |
+| `hooks_url` | `string` |  |
+| `issue_events_url` | `string` |  |
+| `stargazers_url` | `string` |  |
+| `pulls_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Azure Data Factory Management Client  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>21</b></span><br />
+<span>total selectable resources:&nbsp;<b>17</b></span><br />
+<span>total methods:&nbsp;<b>91</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Azure Data Factory Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Data Factory Management Client (Microsoft.DataFactory)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Data Factory Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>data_factory:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_factory:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

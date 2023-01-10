@@ -46,16 +46,8 @@ REGISTRY PULL google v23.01.00114;
 
 {
   "google": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values include: service_account, interactive
+    "credentialsfilepath": string, // path to service account key file
   }
 }
 

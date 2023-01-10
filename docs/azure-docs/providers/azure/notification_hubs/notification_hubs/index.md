@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `location` | `string` | Resource location |
 | `properties` | `object` | NotificationHub properties. |
 | `sku` | `object` | The Sku description for a namespace |
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Resource type |
+| `location` | `string` | Resource location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
