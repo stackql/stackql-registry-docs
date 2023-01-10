@@ -5,6 +5,7 @@ hide_table_of_contents: false
 keywords:
   - kubernetes
   - k8s
+  - container orchestration
   - stackql
   - infrastructure-as-code
   - configuration-as-data

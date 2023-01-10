@@ -3,7 +3,7 @@ title: googlemybusiness
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - googlemybusiness
+  - google my business
   - stackql
   - infrastructure-as-code
   - configuration-as-data

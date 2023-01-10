@@ -3,7 +3,7 @@ title: googleworkspace
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - googleworkspace
+  - google workspace
   - stackql
   - infrastructure-as-code
   - configuration-as-data

@@ -4,6 +4,7 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - okta
+  - identity
   - stackql
   - infrastructure-as-code
   - configuration-as-data

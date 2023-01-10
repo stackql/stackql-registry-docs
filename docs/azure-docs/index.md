@@ -4,6 +4,8 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - azure
+  - microsoft azure
+  - microsoft
   - stackql
   - infrastructure-as-code
   - configuration-as-data

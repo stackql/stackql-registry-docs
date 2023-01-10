@@ -3,7 +3,7 @@ title: googleanalytics
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - googleanalytics
+  - google analytics
   - stackql
   - infrastructure-as-code
   - configuration-as-data
