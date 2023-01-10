@@ -9,6 +9,7 @@ const rootName = 'root'
 const allProviders = [
     'aws', 
     'azure', 
+    'azure_extras',
     'firebase', 
     'github', 
     'google', 
@@ -22,7 +23,6 @@ const allProviders = [
     'googlemybusiness',
     'googleworkspace',
     'youtube',
-    'azure_extras',                        
     rootName];
        
 const appendToOutput = (providers) => {
