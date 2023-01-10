@@ -27,18 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `cacheHit` | `boolean` | Whether the query result was fetched from the query cache. |
-| `rows` | `array` | An object with as many results as can be contained within the maximum permitted reply size. To get any additional rows, you can call GetQueryResults and specify the jobReference returned above. Present only when the query completes successfully. |
-| `schema` | `object` |  |
-| `totalBytesProcessed` | `string` | The total number of bytes processed for this query. |
 | `etag` | `string` | A hash of this response. |
 | `kind` | `string` | The resource type of the response. |
 | `numDmlAffectedRows` | `string` | [Output-only] The number of rows affected by a DML statement. Present only for DML statements INSERT, UPDATE or DELETE. |
-| `pageToken` | `string` | A token used for paging results. |
+| `schema` | `object` |  |
+| `cacheHit` | `boolean` | Whether the query result was fetched from the query cache. |
+| `jobReference` | `object` |  |
+| `totalBytesProcessed` | `string` | The total number of bytes processed for this query. |
 | `totalRows` | `string` | The total number of rows in the complete query result set, which can be more than the number of rows in this single page of results. Present only when the query completes successfully. |
 | `jobComplete` | `boolean` | Whether the query has completed or not. If rows or totalRows are present, this will always be true. If this is false, totalRows will not be available. |
-| `jobReference` | `object` |  |
 | `errors` | `array` | [Output-only] The first errors or warnings encountered during the running of the job. The final message includes the number of errors that caused the process to stop. Errors here do not necessarily mean that the job has completed or was unsuccessful. |
+| `pageToken` | `string` | A token used for paging results. |
+| `rows` | `array` | An object with as many results as can be contained within the maximum permitted reply size. To get any additional rows, you can call GetQueryResults and specify the jobReference returned above. Present only when the query completes successfully. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

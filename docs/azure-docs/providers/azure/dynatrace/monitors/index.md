@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | The properties of the managed service identities assigned to this resource. |
-| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Properties specific to the monitor resource. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
+| `identity` | `object` | The properties of the managed service identities assigned to this resource. |
+| `location` | `string` | The geo-location where the resource lives |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

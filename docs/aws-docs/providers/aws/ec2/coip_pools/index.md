@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,11 +27,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | The tags. |
-| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
 | `poolArn` | `string` | The ARN of the address pool. |
 | `poolCidrSet` | `array` | The address ranges of the address pool. |
 | `poolId` | `string` | The ID of the address pool. |
+| `tagSet` | `array` | The tags. |
+| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

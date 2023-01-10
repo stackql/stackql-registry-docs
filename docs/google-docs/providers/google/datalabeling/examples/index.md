@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the example, in format of: projects/&#123;project_id&#125;/datasets/&#123;dataset_id&#125;/annotatedDatasets/ &#123;annotated_dataset_id&#125;/examples/&#123;example_id&#125; |
+| `textPayload` | `object` | Container of information about a piece of text. |
 | `videoPayload` | `object` | Container of information of a video. |
 | `annotations` | `array` | Output only. Annotations for the piece of data in Example. One piece of data can have multiple annotations. |
 | `imagePayload` | `object` | Container of information about an image. |
-| `textPayload` | `object` | Container of information about a piece of text. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

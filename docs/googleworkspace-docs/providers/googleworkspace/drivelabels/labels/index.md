@@ -29,25 +29,25 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Output only. Globally unique identifier of this label. ID makes up part of the label `name`, but unlike `name`, ID is consistent between revisions. Matches the regex: `([a-zA-Z0-9])+` |
 | `name` | `string` | Output only. Resource name of the label. Will be in the form of either: `labels/&#123;id&#125;` or `labels/&#123;id&#125;@&#123;revision_id&#125;` depending on the request. See `id` and `revision_id` below. |
-| `disabler` | `object` | Information about a user. |
-| `lifecycle` | `object` | The lifecycle state of an object, such as label, field, or choice. The lifecycle enforces the following transitions: * `UNPUBLISHED_DRAFT` (starting state) * `UNPUBLISHED_DRAFT` -&gt; `PUBLISHED` * `UNPUBLISHED_DRAFT` -&gt; (Deleted) * `PUBLISHED` -&gt; `DISABLED` * `DISABLED` -&gt; `PUBLISHED` * `DISABLED` -&gt; (Deleted) The published and disabled states have some distinct characteristics: * Published—Some kinds of changes might be made to an object in this state, in which case `has_unpublished_changes` will be true. Also, some kinds of changes are not permitted. Generally, any change that would invalidate or cause new restrictions on existing metadata related to the label are rejected. * Disabled—When disabled, the configured `DisabledPolicy` takes effect. |
+| `revisionCreateTime` | `string` | Output only. The time this label revision was created. |
+| `disableTime` | `string` | Output only. The time this label was disabled. This value has no meaning when the label is not disabled. |
+| `lockStatus` | `object` | Contains information about whether a label component should be considered locked. |
+| `appliedCapabilities` | `object` | The capabilities a user has on this label's applied metadata. |
 | `appliedLabelPolicy` | `object` | Behavior of this label when it's applied to Drive items. |
 | `labelType` | `string` | Required. The type of label. |
-| `revisionId` | `string` | Output only. Revision ID of the label. Revision ID might be part of the label `name` depending on the request issued. A new revision is created whenever revisioned properties of a label are changed. Matches the regex: `([a-zA-Z0-9])+` |
-| `createTime` | `string` | Output only. The time this label was created. |
-| `creator` | `object` | Information about a user. |
-| `publisher` | `object` | Information about a user. |
-| `appliedCapabilities` | `object` | The capabilities a user has on this label's applied metadata. |
-| `displayHints` | `object` | UI display hints for rendering the label. |
-| `lockStatus` | `object` | Contains information about whether a label component should be considered locked. |
-| `revisionCreator` | `object` | Information about a user. |
-| `fields` | `array` | List of fields in descending priority order. |
-| `publishTime` | `string` | Output only. The time this label was published. This value has no meaning when the label is not published. |
-| `disableTime` | `string` | Output only. The time this label was disabled. This value has no meaning when the label is not disabled. |
-| `revisionCreateTime` | `string` | Output only. The time this label revision was created. |
 | `properties` | `object` | Basic properties of the label. |
-| `schemaCapabilities` | `object` | The capabilities related to this label when editing the label. |
+| `lifecycle` | `object` | The lifecycle state of an object, such as label, field, or choice. The lifecycle enforces the following transitions: * `UNPUBLISHED_DRAFT` (starting state) * `UNPUBLISHED_DRAFT` -&gt; `PUBLISHED` * `UNPUBLISHED_DRAFT` -&gt; (Deleted) * `PUBLISHED` -&gt; `DISABLED` * `DISABLED` -&gt; `PUBLISHED` * `DISABLED` -&gt; (Deleted) The published and disabled states have some distinct characteristics: * Published—Some kinds of changes might be made to an object in this state, in which case `has_unpublished_changes` will be true. Also, some kinds of changes are not permitted. Generally, any change that would invalidate or cause new restrictions on existing metadata related to the label are rejected. * Disabled—When disabled, the configured `DisabledPolicy` takes effect. |
+| `creator` | `object` | Information about a user. |
+| `revisionId` | `string` | Output only. Revision ID of the label. Revision ID might be part of the label `name` depending on the request issued. A new revision is created whenever revisioned properties of a label are changed. Matches the regex: `([a-zA-Z0-9])+` |
+| `publishTime` | `string` | Output only. The time this label was published. This value has no meaning when the label is not published. |
+| `revisionCreator` | `object` | Information about a user. |
+| `createTime` | `string` | Output only. The time this label was created. |
 | `learnMoreUri` | `string` | Custom URL to present to users to allow them to learn more about this label and how it should be used. |
+| `fields` | `array` | List of fields in descending priority order. |
+| `publisher` | `object` | Information about a user. |
+| `schemaCapabilities` | `object` | The capabilities related to this label when editing the label. |
+| `displayHints` | `object` | UI display hints for rendering the label. |
+| `disabler` | `object` | Information about a user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

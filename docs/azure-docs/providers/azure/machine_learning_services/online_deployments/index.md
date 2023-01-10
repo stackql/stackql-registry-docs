@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| `kind` | `string` | Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` |  |
 | `sku` | `object` | The resource model definition representing SKU |
 | `tags` | `object` | Resource tags. |
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `kind` | `string` | Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Azure Blueprints Client provides access to blueprint definitions, assignments, and artifacts, and related blueprint operations.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>21</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Azure Blueprints Client provides access to blueprint definitions, assignments, a
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Blueprint Client (Microsoft.Blueprint)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Blueprints Client provides access to blueprint definitions, assignments, and artifacts, and related blueprint operations.</td></tr>
-<tr><td><b>Id</b></td><td><code>blueprint:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>blueprint:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

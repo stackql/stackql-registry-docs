@@ -27,13 +27,13 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `disableTime` | `string` | Output only. If a key pair is set to `DISABLED`, the time that the key pair's state changed from `ENABLED` to `DISABLED`. This field is present only when the key pair is in state `DISABLED`. |
-| `enablementState` | `string` | Output only. The current state of the key pair. |
 | `keyPairId` | `string` | Output only. The immutable ID for the client-side encryption S/MIME key pair. |
 | `pem` | `string` | Output only. The public key and its certificate chain, in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format. |
 | `pkcs7` | `string` | Input only. The public key and its certificate chain. The chain must be in [PKCS#7](https://en.wikipedia.org/wiki/PKCS_7) format and use PEM encoding and ASCII armor. |
 | `privateKeyMetadata` | `array` | Metadata for instances of this key pair's private key. |
 | `subjectEmailAddresses` | `array` | Output only. The email address identities that are specified on the leaf certificate. |
+| `disableTime` | `string` | Output only. If a key pair is set to `DISABLED`, the time that the key pair's state changed from `ENABLED` to `DISABLED`. This field is present only when the key pair is in state `DISABLED`. |
+| `enablementState` | `string` | Output only. The current state of the key pair. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

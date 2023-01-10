@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `identity` | `object` | Identity for the resource. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties specific to ExpressRoutePort resources. |
 | `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

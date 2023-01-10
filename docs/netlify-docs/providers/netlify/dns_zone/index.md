@@ -3,6 +3,7 @@ title: dns_zone
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - dns_zone
   - netlify
   - stackql
   - infrastructure-as-code
@@ -10,10 +11,21 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
 dnsZone  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -21,7 +33,7 @@ dnsZone
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Netlify's API documentation - dns_zone</td></tr>
 <tr><td><b>Description</b></td><td>dnsZone</td></tr>
-<tr><td><b>Id</b></td><td><code>dns_zone:v0.2.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dns_zone:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -27,10 +27,10 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `maxFolderSize` | `integer` | An optional limit on the number of messages that an IMAP folder may contain. Legal values are 0, 1000, 2000, 5000 or 10000. A value of zero is interpreted to mean that there is no limit. |
-| `autoExpunge` | `boolean` | If this value is true, Gmail will immediately expunge a message when it is marked as deleted in IMAP. Otherwise, Gmail will wait for an update from the client before expunging messages marked as deleted. |
 | `enabled` | `boolean` | Whether IMAP is enabled for the account. |
 | `expungeBehavior` | `string` | The action that will be executed on a message when it is marked as deleted and expunged from the last visible IMAP folder. |
+| `maxFolderSize` | `integer` | An optional limit on the number of messages that an IMAP folder may contain. Legal values are 0, 1000, 2000, 5000 or 10000. A value of zero is interpreted to mean that there is no limit. |
+| `autoExpunge` | `boolean` | If this value is true, Gmail will immediately expunge a message when it is marked as deleted in IMAP. Otherwise, Gmail will wait for an update from the client before expunging messages marked as deleted. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

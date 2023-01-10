@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Software Plan  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>8</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Software Plan
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Software Plan (Microsoft.SoftwarePlan)</td></tr>
 <tr><td><b>Description</b></td><td>Software Plan</td></tr>
-<tr><td><b>Id</b></td><td><code>softwareplan:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>softwareplan:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

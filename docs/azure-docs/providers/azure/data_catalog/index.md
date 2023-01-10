@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 The Azure Data Catalog Resource Provider Services API.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>6</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ The Azure Data Catalog Resource Provider Services API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Data Catalog Resource Provider (Microsoft.DataCatalog)</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Data Catalog Resource Provider Services API.</td></tr>
-<tr><td><b>Id</b></td><td><code>data_catalog:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_catalog:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

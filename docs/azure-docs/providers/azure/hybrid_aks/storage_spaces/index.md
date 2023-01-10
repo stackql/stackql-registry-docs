@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extendedLocation` | `object` |  |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | HybridAKSStorageSpec defines the desired state of HybridAKSStorage |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
+| `extendedLocation` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

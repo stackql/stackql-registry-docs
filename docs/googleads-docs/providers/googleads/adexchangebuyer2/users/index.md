@@ -27,10 +27,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `userId` | `string` | The unique numerical ID of the client user that has accepted an invitation. The value of this field is ignored in an update operation. |
 | `clientAccountId` | `string` | Numerical account ID of the client buyer with which the user is associated; the buyer must be a client of the current sponsor buyer. The value of this field is ignored in an update operation. |
 | `email` | `string` | User's email address. The value of this field is ignored in an update operation. |
 | `status` | `string` | The status of the client user. |
-| `userId` | `string` | The unique numerical ID of the client user that has accepted an invitation. The value of this field is ignored in an update operation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

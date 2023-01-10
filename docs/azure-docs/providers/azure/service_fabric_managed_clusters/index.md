@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Service Fabric Managed Clusters  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>13</b></span><br />
+<span>total selectable resources:&nbsp;<b>12</b></span><br />
+<span>total methods:&nbsp;<b>45</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Service Fabric Managed Clusters
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Fabric Managed Clusters (Microsoft.ServiceFabric)</td></tr>
 <tr><td><b>Description</b></td><td>Service Fabric Managed Clusters</td></tr>
-<tr><td><b>Id</b></td><td><code>service_fabric_managed_clusters:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_fabric_managed_clusters:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

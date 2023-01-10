@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -29,13 +29,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier for the dynamic parsing rule. |
 | `name` | `string` | Name of the dynamic parsing rule. Use a name that makes it easy to identify the rule. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 | `enabled` | `boolean` | Is the dynamic parsing rule enabled. |
-| `scope` | `string` | Scope of the dynamic parsing rule. This could be a sourceCategory, sourceHost, or any other metadata that describes the data you want to extract from. Think of the Scope as the first portion of an ad hoc search, before the first pipe ( \| ). You'll use the Scope to run a search against the rule. |
-| `isSystemRule` | `boolean` | Whether the rule has been defined by the system, rather than by a user. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `scope` | `string` | Scope of the dynamic parsing rule. This could be a sourceCategory, sourceHost, or any other metadata that describes the data you want to extract from. Think of the Scope as the first portion of an ad hoc search, before the first pipe ( \| ). You'll use the Scope to run a search against the rule. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `isSystemRule` | `boolean` | Whether the rule has been defined by the system, rather than by a user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,14 +28,14 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the custom bidding algorithm. |
-| `sharedAdvertiserIds` | `array` | The IDs of the advertisers who have access to this algorithm. If advertiser_id is set, this field will only consist of that value. This field will not be set if the algorithm [`owner`](/display-video/api/reference/rest/v1/customBiddingAlgorithms#CustomBiddingAlgorithm.FIELDS.oneof_owner) is a partner and is being retrieved using an advertiser [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor). |
+| `partnerId` | `string` | Immutable. The unique ID of the partner that owns the custom bidding algorithm. |
 | `displayName` | `string` | Required. The display name of the custom bidding algorithm. Must be UTF-8 encoded with a maximum size of 240 bytes. |
 | `advertiserId` | `string` | Immutable. The unique ID of the advertiser that owns the custom bidding algorithm. |
-| `entityStatus` | `string` | Controls whether or not the custom bidding algorithm can be used as a bidding strategy. Accepted values are: * `ENTITY_STATUS_ACTIVE` * `ENTITY_STATUS_ARCHIVED` |
 | `customBiddingAlgorithmId` | `string` | Output only. The unique ID of the custom bidding algorithm. Assigned by the system. |
-| `customBiddingAlgorithmType` | `string` | Required. Immutable. The type of custom bidding algorithm. |
 | `modelDetails` | `array` | Output only. The details of custom bidding models for each advertiser who has access. This field may only include the details of the queried advertiser if the algorithm [`owner`](/display-video/api/reference/rest/v1/customBiddingAlgorithms#CustomBiddingAlgorithm.FIELDS.oneof_owner) is a partner and is being retrieved using an advertiser [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor). |
-| `partnerId` | `string` | Immutable. The unique ID of the partner that owns the custom bidding algorithm. |
+| `sharedAdvertiserIds` | `array` | The IDs of the advertisers who have access to this algorithm. If advertiser_id is set, this field will only consist of that value. This field will not be set if the algorithm [`owner`](/display-video/api/reference/rest/v1/customBiddingAlgorithms#CustomBiddingAlgorithm.FIELDS.oneof_owner) is a partner and is being retrieved using an advertiser [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor). |
+| `customBiddingAlgorithmType` | `string` | Required. Immutable. The type of custom bidding algorithm. |
+| `entityStatus` | `string` | Controls whether or not the custom bidding algorithm can be used as a bidding strategy. Accepted values are: * `ENTITY_STATUS_ACTIVE` * `ENTITY_STATUS_ARCHIVED` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

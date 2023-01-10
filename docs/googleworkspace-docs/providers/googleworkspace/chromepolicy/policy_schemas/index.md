@@ -28,18 +28,18 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Format: name=customers/&#123;customer&#125;/policySchemas/&#123;schema_namespace&#125; |
-| `fieldDescriptions` | `array` | Output only. Detailed description of each field that is part of the schema. |
-| `additionalTargetKeyNames` | `array` | Output only. Additional key names that will be used to identify the target of the policy value. When specifying a `policyTargetKey`, each of the additional keys specified here will have to be included in the `additionalTargetKeys` map. |
-| `policyApiLifeycle` | `object` |  |
-| `schemaName` | `string` | Output only. The fully qualified name of the policy schema. This value is used to fill the field `policy_schema` in PolicyValue when calling BatchInheritOrgUnitPolicies BatchModifyOrgUnitPolicies BatchModifyGroupPolicies or BatchDeleteGroupPolicies. |
 | `definition` | `object` | Describes a complete .proto file. |
 | `policyApiLifecycle` | `object` |  |
-| `notices` | `array` | Output only. Special notice messages related to setting certain values in certain fields in the schema. |
-| `policyDescription` | `string` | Output only. Description about the policy schema for user consumption. |
 | `validTargetResources` | `array` | Output only. Information about applicable target resources for the policy. |
-| `accessRestrictions` | `array` | Output only. Specific access restrictions related to this policy. |
-| `supportUri` | `string` | Output only. URI to related support article for this schema. |
 | `categoryTitle` | `string` | Title of the category in which a setting belongs. |
+| `policyDescription` | `string` | Output only. Description about the policy schema for user consumption. |
+| `additionalTargetKeyNames` | `array` | Output only. Additional key names that will be used to identify the target of the policy value. When specifying a `policyTargetKey`, each of the additional keys specified here will have to be included in the `additionalTargetKeys` map. |
+| `fieldDescriptions` | `array` | Output only. Detailed description of each field that is part of the schema. |
+| `policyApiLifeycle` | `object` |  |
+| `schemaName` | `string` | Output only. The fully qualified name of the policy schema. This value is used to fill the field `policy_schema` in PolicyValue when calling BatchInheritOrgUnitPolicies BatchModifyOrgUnitPolicies BatchModifyGroupPolicies or BatchDeleteGroupPolicies. |
+| `supportUri` | `string` | Output only. URI to related support article for this schema. |
+| `accessRestrictions` | `array` | Output only. Specific access restrictions related to this policy. |
+| `notices` | `array` | Output only. Special notice messages related to setting certain values in certain fields in the schema. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

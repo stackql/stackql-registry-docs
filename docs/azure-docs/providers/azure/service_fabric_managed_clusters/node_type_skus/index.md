@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `sku` | `object` | Describes a node type supported sku. |
 | `capacity` | `object` | Provides information about how node type can be scaled. |
 | `resourceType` | `string` | The type of resource the sku applies to.  &lt;br /&gt;&lt;br /&gt;Value: Microsoft.ServiceFabric/managedClusters/nodeTypes. |
-| `sku` | `object` | Describes a node type supported sku. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

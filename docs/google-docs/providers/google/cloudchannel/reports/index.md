@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `reports` | `array` | The reports available to the partner. |
 | `nextPageToken` | `string` | Pass this token to FetchReportResultsRequest.page_token to retrieve the next page of results. |
+| `reports` | `array` | The reports available to the partner. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

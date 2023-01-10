@@ -27,9 +27,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `accountId` | `string` | Required. The ID of the account to which these account tax settings belong. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#accountTax`". |
 | `rules` | `array` | Tax rules. Updating the tax rules will enable "US" taxes (not reversible). Defining no rules is equivalent to not charging tax at all. |
+| `accountId` | `string` | Required. The ID of the account to which these account tax settings belong. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

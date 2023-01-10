@@ -29,30 +29,30 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | View (Profile) ID. |
 | `name` | `string` | Name of this view (profile). |
-| `siteSearchQueryParameters` | `string` | The site search query parameters for this view (profile). |
-| `stripSiteSearchCategoryParameters` | `boolean` | Whether or not Analytics will strip search category parameters from the URLs in your reports. |
-| `accountId` | `string` | Account ID to which this view (profile) belongs. |
-| `currency` | `string` | The currency type associated with this view (profile), defaults to USD. The supported values are:<br />USD, JPY, EUR, GBP, AUD, KRW, BRL, CNY, DKK, RUB, SEK, NOK, PLN, TRY, TWD, HKD, THB, IDR, ARS, MXN, VND, PHP, INR, CHF, CAD, CZK, NZD, HUF, BGN, LTL, ZAR, UAH, AED, BOB, CLP, COP, EGP, HRK, ILS, MAD, MYR, PEN, PKR, RON, RSD, SAR, SGD, VEF, LVL |
-| `websiteUrl` | `string` | Website URL for this view (profile). |
-| `permissions` | `object` | Permissions the user has for this view (profile). |
-| `childLink` | `object` | Child link for this view (profile). Points to the list of goals for this view (profile). |
-| `internalWebPropertyId` | `string` | Internal ID for the web property to which this view (profile) belongs. |
 | `updated` | `string` | Time this view (profile) was last modified. |
-| `eCommerceTracking` | `boolean` | Indicates whether ecommerce tracking is enabled for this view (profile). |
 | `type` | `string` | View (Profile) type. Supported types: WEB or APP. |
-| `kind` | `string` | Resource type for Analytics view (profile). |
-| `defaultPage` | `string` | Default page for this view (profile). |
-| `siteSearchCategoryParameters` | `string` | Site search category parameters for this view (profile). |
 | `enhancedECommerceTracking` | `boolean` | Indicates whether enhanced ecommerce tracking is enabled for this view (profile). This property can only be enabled if ecommerce tracking is enabled. |
-| `excludeQueryParameters` | `string` | The query parameters that are excluded from this view (profile). |
-| `starred` | `boolean` | Indicates whether this view (profile) is starred or not. |
-| `parentLink` | `object` | Parent link for this view (profile). Points to the web property to which this view (profile) belongs. |
+| `botFilteringEnabled` | `boolean` | Indicates whether bot filtering is enabled for this view (profile). |
+| `kind` | `string` | Resource type for Analytics view (profile). |
+| `webPropertyId` | `string` | Web property ID of the form UA-XXXXX-YY to which this view (profile) belongs. |
+| `siteSearchCategoryParameters` | `string` | Site search category parameters for this view (profile). |
+| `selfLink` | `string` | Link for this view (profile). |
+| `childLink` | `object` | Child link for this view (profile). Points to the list of goals for this view (profile). |
 | `timezone` | `string` | Time zone for which this view (profile) has been configured. Time zones are identified by strings from the TZ database. |
 | `created` | `string` | Time this view (profile) was created. |
+| `websiteUrl` | `string` | Website URL for this view (profile). |
+| `permissions` | `object` | Permissions the user has for this view (profile). |
+| `currency` | `string` | The currency type associated with this view (profile), defaults to USD. The supported values are:<br />USD, JPY, EUR, GBP, AUD, KRW, BRL, CNY, DKK, RUB, SEK, NOK, PLN, TRY, TWD, HKD, THB, IDR, ARS, MXN, VND, PHP, INR, CHF, CAD, CZK, NZD, HUF, BGN, LTL, ZAR, UAH, AED, BOB, CLP, COP, EGP, HRK, ILS, MAD, MYR, PEN, PKR, RON, RSD, SAR, SGD, VEF, LVL |
+| `eCommerceTracking` | `boolean` | Indicates whether ecommerce tracking is enabled for this view (profile). |
 | `stripSiteSearchQueryParameters` | `boolean` | Whether or not Analytics will strip search query parameters from the URLs in your reports. |
-| `webPropertyId` | `string` | Web property ID of the form UA-XXXXX-YY to which this view (profile) belongs. |
-| `botFilteringEnabled` | `boolean` | Indicates whether bot filtering is enabled for this view (profile). |
-| `selfLink` | `string` | Link for this view (profile). |
+| `parentLink` | `object` | Parent link for this view (profile). Points to the web property to which this view (profile) belongs. |
+| `starred` | `boolean` | Indicates whether this view (profile) is starred or not. |
+| `siteSearchQueryParameters` | `string` | The site search query parameters for this view (profile). |
+| `defaultPage` | `string` | Default page for this view (profile). |
+| `internalWebPropertyId` | `string` | Internal ID for the web property to which this view (profile) belongs. |
+| `accountId` | `string` | Account ID to which this view (profile) belongs. |
+| `stripSiteSearchCategoryParameters` | `boolean` | Whether or not Analytics will strip search category parameters from the URLs in your reports. |
+| `excludeQueryParameters` | `string` | The query parameters that are excluded from this view (profile). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

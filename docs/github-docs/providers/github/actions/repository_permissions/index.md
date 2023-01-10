@@ -3,15 +3,16 @@ title: repository_permissions
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - stackql
-  - github
+  - repository_permissions
   - actions
+  - github    
+  - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `selected_actions_url` | `string` | The API URL to use to get or set the actions that are allowed to run, when `allowed_actions` is set to `selected`. |
 | `allowed_actions` | `string` | The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`. |
 | `enabled` | `boolean` | Whether GitHub Actions is enabled on the repository. |
+| `selected_actions_url` | `string` | The API URL to use to get or set the actions that are allowed to run, when `allowed_actions` is set to `selected`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

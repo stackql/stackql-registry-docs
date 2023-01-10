@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `globalState` | `string` | State of the program. `ENABLED` if there are offers for at least one region. |
 | `regionStatuses` | `array` | Status of the program in each region. Regions with the same status and review eligibility are grouped together in `regionCodes`. |
+| `globalState` | `string` | State of the program. `ENABLED` if there are offers for at least one region. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

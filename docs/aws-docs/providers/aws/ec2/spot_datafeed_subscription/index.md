@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,11 +27,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `prefix` | `string` | The prefix for the data feed files. |
 | `state` | `string` | The state of the Spot Instance data feed subscription. |
 | `bucket` | `string` | The name of the Amazon S3 bucket where the Spot Instance data feed is located. |
 | `fault` | `object` | Describes a Spot Instance state change. |
 | `ownerId` | `string` | The Amazon Web Services account ID of the account. |
-| `prefix` | `string` | The prefix for the data feed files. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

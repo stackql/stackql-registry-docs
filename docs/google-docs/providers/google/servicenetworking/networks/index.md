@@ -27,19 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `vpcScReferenceArchitectureEnabled` | `boolean` | Output only. Indicates whether the VPC Service Controls reference architecture is configured for the producer VPC host network. |
+| `consumerImportSubnetRoutesWithPublicIp` | `boolean` | Import subnet routes with public ip flag value for peering from consumer to producer. |
+| `consumerExportSubnetRoutesWithPublicIp` | `boolean` | Export subnet routes with public ip flag value for peering from consumer to producer. |
+| `producerImportSubnetRoutesWithPublicIp` | `boolean` | Import subnet routes with public ip flag value for peering from producer to consumer. |
+| `consumerExportCustomRoutes` | `boolean` | Export custom routes flag value for peering from consumer to producer. |
+| `producerImportCustomRoutes` | `boolean` | Import custom routes flag value for peering from producer to consumer. |
+| `reservedRanges` | `array` | Output only. The reserved ranges associated with this private service access connection. |
 | `consumerImportCustomRoutes` | `boolean` | Import custom routes flag value for peering from consumer to producer. |
+| `producerExportCustomRoutes` | `boolean` | Export custom routes flag value for peering from producer to consumer. |
+| `producerNetwork` | `string` | Output only. The VPC host network that is used to host managed service instances. In the format, projects/&#123;project&#125;/global/networks/&#123;network&#125; where &#123;project&#125; is the project number e.g. '12345' and &#123;network&#125; is the network name. |
+| `vpcScReferenceArchitectureEnabled` | `boolean` | Output only. Indicates whether the VPC Service Controls reference architecture is configured for the producer VPC host network. |
+| `producerExportSubnetRoutesWithPublicIp` | `boolean` | Export subnet routes with public ip flag value for peering from producer to consumer. |
 | `usedIpRanges` | `array` | Output only. The IP ranges already in use by consumer or producer |
 | `cloudsqlConfigs` | `array` | Represents one or multiple Cloud SQL configurations. |
-| `consumerExportCustomRoutes` | `boolean` | Export custom routes flag value for peering from consumer to producer. |
-| `producerImportSubnetRoutesWithPublicIp` | `boolean` | Import subnet routes with public ip flag value for peering from producer to consumer. |
-| `reservedRanges` | `array` | Output only. The reserved ranges associated with this private service access connection. |
-| `producerExportCustomRoutes` | `boolean` | Export custom routes flag value for peering from producer to consumer. |
-| `producerExportSubnetRoutesWithPublicIp` | `boolean` | Export subnet routes with public ip flag value for peering from producer to consumer. |
-| `producerImportCustomRoutes` | `boolean` | Import custom routes flag value for peering from producer to consumer. |
-| `consumerExportSubnetRoutesWithPublicIp` | `boolean` | Export subnet routes with public ip flag value for peering from consumer to producer. |
-| `producerNetwork` | `string` | Output only. The VPC host network that is used to host managed service instances. In the format, projects/&#123;project&#125;/global/networks/&#123;network&#125; where &#123;project&#125; is the project number e.g. '12345' and &#123;network&#125; is the network name. |
-| `consumerImportSubnetRoutesWithPublicIp` | `boolean` | Import subnet routes with public ip flag value for peering from consumer to producer. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

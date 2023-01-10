@@ -28,9 +28,9 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Format: `projects/&#123;project_id&#125;/releases/&#123;release_id&#125;` |
+| `rulesetName` | `string` | Required. Name of the `Ruleset` referred to by this `Release`. The `Ruleset` must exist for the `Release` to be created. |
 | `updateTime` | `string` | Output only. Time the release was updated. |
 | `createTime` | `string` | Output only. Time the release was created. |
-| `rulesetName` | `string` | Required. Name of the `Ruleset` referred to by this `Release`. The `Ruleset` must exist for the `Release` to be created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

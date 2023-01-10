@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,15 +27,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `serviceId` | `string` | The ID of the service to which the endpoint is connected. |
+| `vpcEndpointId` | `string` | The ID of the VPC endpoint. |
 | `ipAddressType` | `string` | The IP address type for the endpoint. |
-| `dnsEntrySet` | `array` | The DNS entries for the VPC endpoint. |
 | `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
 | `vpcEndpointOwner` | `string` | The ID of the Amazon Web Services account that owns the VPC endpoint. |
 | `creationTimestamp` | `string` | The date and time that the VPC endpoint was created. |
-| `serviceId` | `string` | The ID of the service to which the endpoint is connected. |
-| `vpcEndpointId` | `string` | The ID of the VPC endpoint. |
-| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the network load balancers for the service. |
 | `vpcEndpointState` | `string` | The state of the VPC endpoint. |
+| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the network load balancers for the service. |
+| `dnsEntrySet` | `array` | The DNS entries for the VPC endpoint. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

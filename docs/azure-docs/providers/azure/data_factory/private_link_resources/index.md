@@ -25,7 +25,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

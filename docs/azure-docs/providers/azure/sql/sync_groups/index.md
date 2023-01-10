@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of a sync group. |
 | `sku` | `object` | An ARM Resource SKU. |
+| `properties` | `object` | Properties of a sync group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

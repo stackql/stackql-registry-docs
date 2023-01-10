@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of the resource. |
 | `name` | `string` | Name of the resource. |
-| `properties` | `object` | Operation Attempt Properties. |
 | `type` | `string` | Type of Resource. |
 | `location` | `string` | Location of the resource. |
+| `properties` | `object` | Operation Attempt Properties. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,11 +28,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description of the Traffic Mirror filter. |
+| `tagSet` | `array` | The tags assigned to the Traffic Mirror filter. |
+| `trafficMirrorFilterId` | `string` | The ID of the Traffic Mirror filter. |
 | `egressFilterRuleSet` | `array` | Information about the egress rules that are associated with the Traffic Mirror filter. |
 | `ingressFilterRuleSet` | `array` | Information about the ingress rules that are associated with the Traffic Mirror filter. |
 | `networkServiceSet` | `array` | The network service traffic that is associated with the Traffic Mirror filter. |
-| `tagSet` | `array` | The tags assigned to the Traffic Mirror filter. |
-| `trafficMirrorFilterId` | `string` | The ID of the Traffic Mirror filter. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

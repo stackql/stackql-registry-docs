@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 DataLake Store Account Management Client  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>26</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ DataLake Store Account Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DataLake Store Account Management Client (Microsoft.DataLakeStore)</td></tr>
 <tr><td><b>Description</b></td><td>DataLake Store Account Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>data_lake_store:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_lake_store:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

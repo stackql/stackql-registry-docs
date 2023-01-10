@@ -29,15 +29,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the environment, of the form: projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/environment/&#123;environment_id&#125; |
 | `description` | `string` | Optional. Description of the environment. |
-| `infrastructureSpec` | `object` | Configuration for the underlying infrastructure used to run workloads. |
 | `displayName` | `string` | Optional. User friendly display name. |
-| `labels` | `object` | Optional. User defined labels for the environment. |
-| `sessionStatus` | `object` |  |
-| `state` | `string` | Output only. Current state of the environment. |
 | `uid` | `string` | Output only. System generated globally unique ID for the environment. This ID will be different if the environment is deleted and re-created with the same name. |
-| `createTime` | `string` | Output only. Environment creation time. |
-| `endpoints` | `object` |  |
 | `sessionSpec` | `object` |  |
+| `sessionStatus` | `object` |  |
+| `createTime` | `string` | Output only. Environment creation time. |
+| `state` | `string` | Output only. Current state of the environment. |
+| `endpoints` | `object` |  |
+| `labels` | `object` | Optional. User defined labels for the environment. |
+| `infrastructureSpec` | `object` | Configuration for the underlying infrastructure used to run workloads. |
 | `updateTime` | `string` | Output only. The time when the environment was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

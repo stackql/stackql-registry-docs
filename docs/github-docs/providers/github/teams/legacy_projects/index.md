@@ -3,14 +3,16 @@ title: legacy_projects
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - legacy_projects
+  - teams
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,20 +29,20 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` |  |
-| `body` | `string` |  |
-| `created_at` | `string` |  |
-| `state` | `string` |  |
-| `columns_url` | `string` |  |
-| `node_id` | `string` |  |
-| `organization_permission` | `string` | The organization permission for this project. Only present when owner is an organization. |
-| `html_url` | `string` |  |
 | `private` | `boolean` | Whether the project is private or not. Only present when owner is an organization. |
 | `url` | `string` |  |
-| `number` | `integer` |  |
-| `permissions` | `object` |  |
-| `updated_at` | `string` |  |
+| `columns_url` | `string` |  |
 | `creator` | `object` | Simple User |
+| `html_url` | `string` |  |
+| `updated_at` | `string` |  |
+| `number` | `integer` |  |
+| `node_id` | `string` |  |
+| `permissions` | `object` |  |
+| `created_at` | `string` |  |
+| `organization_permission` | `string` | The organization permission for this project. Only present when owner is an organization. |
 | `owner_url` | `string` |  |
+| `body` | `string` |  |
+| `state` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

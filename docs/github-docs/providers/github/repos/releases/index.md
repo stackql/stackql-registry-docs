@@ -3,14 +3,16 @@ title: releases
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - releases
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,27 +29,27 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` |  |
-| `node_id` | `string` |  |
-| `reactions` | `object` |  |
-| `draft` | `boolean` | true to create a draft (unpublished) release, false to create a published one. |
-| `html_url` | `string` |  |
-| `tarball_url` | `string` |  |
-| `assets` | `array` |  |
 | `body` | `string` |  |
-| `author` | `object` | Simple User |
-| `body_html` | `string` |  |
-| `created_at` | `string` |  |
-| `prerelease` | `boolean` | Whether to identify the release as a prerelease or a full release. |
-| `tag_name` | `string` | The name of the tag. |
-| `mentions_count` | `integer` |  |
-| `target_commitish` | `string` | Specifies the commitish value that determines where the Git tag is created from. |
-| `zipball_url` | `string` |  |
-| `body_text` | `string` |  |
-| `published_at` | `string` |  |
-| `url` | `string` |  |
-| `upload_url` | `string` |  |
 | `discussion_url` | `string` | The URL of the release discussion. |
 | `assets_url` | `string` |  |
+| `tarball_url` | `string` |  |
+| `target_commitish` | `string` | Specifies the commitish value that determines where the Git tag is created from. |
+| `published_at` | `string` |  |
+| `html_url` | `string` |  |
+| `body_html` | `string` |  |
+| `author` | `object` | Simple User |
+| `upload_url` | `string` |  |
+| `mentions_count` | `integer` |  |
+| `prerelease` | `boolean` | Whether to identify the release as a prerelease or a full release. |
+| `node_id` | `string` |  |
+| `body_text` | `string` |  |
+| `reactions` | `object` |  |
+| `tag_name` | `string` | The name of the tag. |
+| `url` | `string` |  |
+| `assets` | `array` |  |
+| `created_at` | `string` |  |
+| `draft` | `boolean` | true to create a draft (unpublished) release, false to create a published one. |
+| `zipball_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

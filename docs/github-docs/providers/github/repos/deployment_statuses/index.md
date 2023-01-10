@@ -3,14 +3,16 @@ title: deployment_statuses
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - deployment_statuses
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,19 +29,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `description` | `string` | A short description of the status. |
-| `environment` | `string` | The environment of the deployment that the status is for. |
-| `state` | `string` | The state of the status. |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `deployment_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `repository_url` | `string` |  |
-| `url` | `string` |  |
-| `target_url` | `string` | Deprecated: the URL to associate with this status. |
 | `created_at` | `string` |  |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `creator` | `object` | Simple User |
+| `environment` | `string` | The environment of the deployment that the status is for. |
+| `url` | `string` |  |
+| `repository_url` | `string` |  |
 | `environment_url` | `string` | The URL for accessing your environment. |
 | `log_url` | `string` | The URL to associate with this status. |
+| `target_url` | `string` | Deprecated: the URL to associate with this status. |
+| `deployment_url` | `string` |  |
+| `updated_at` | `string` |  |
 | `node_id` | `string` |  |
+| `state` | `string` | The state of the status. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

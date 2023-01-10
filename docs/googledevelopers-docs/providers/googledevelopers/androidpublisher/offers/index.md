@@ -27,16 +27,16 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `offerId` | `string` | Required. Immutable. Unique ID of this subscription offer. Must be unique within the base plan. |
 | `targeting` | `object` | Defines the rule a user needs to satisfy to receive this offer. |
-| `offerTags` | `array` | List of up to 20 custom tags specified for this offer, and returned to the app through the billing library. |
-| `packageName` | `string` | Required. Immutable. The package name of the app the parent subscription belongs to. |
-| `phases` | `array` | Required. The phases of this subscription offer. Must contain at least one entry, and may contain at most five. Users will always receive all these phases in the specified order. Phases may not be added, removed, or reordered after initial creation. |
-| `otherRegionsConfig` | `object` | Configuration for any new locations Play may launch in specified on a subscription offer. |
-| `productId` | `string` | Required. Immutable. The ID of the parent subscription this offer belongs to. |
-| `state` | `string` | Output only. The current state of this offer. Can be changed using Activate and Deactivate actions. NB: the base plan state supersedes this state, so an active offer may not be available if the base plan is not active. |
+| `offerId` | `string` | Required. Immutable. Unique ID of this subscription offer. Must be unique within the base plan. |
 | `regionalConfigs` | `array` | Required. The region-specific configuration of this offer. Must contain at least one entry. |
 | `basePlanId` | `string` | Required. Immutable. The ID of the base plan to which this offer is an extension. |
+| `otherRegionsConfig` | `object` | Configuration for any new locations Play may launch in specified on a subscription offer. |
+| `packageName` | `string` | Required. Immutable. The package name of the app the parent subscription belongs to. |
+| `phases` | `array` | Required. The phases of this subscription offer. Must contain at least one entry, and may contain at most five. Users will always receive all these phases in the specified order. Phases may not be added, removed, or reordered after initial creation. |
+| `productId` | `string` | Required. Immutable. The ID of the parent subscription this offer belongs to. |
+| `state` | `string` | Output only. The current state of this offer. Can be changed using Activate and Deactivate actions. NB: the base plan state supersedes this state, so an active offer may not be available if the base plan is not active. |
+| `offerTags` | `array` | List of up to 20 custom tags specified for this offer, and returned to the app through the billing library. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

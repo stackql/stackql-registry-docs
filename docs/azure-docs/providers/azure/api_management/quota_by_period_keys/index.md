@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `counterKey` | `string` | The Key value of the Counter. Must not be empty. |
 | `periodEndTime` | `string` | The date of the end of Counter Period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.<br /> |
 | `periodKey` | `string` | Identifier of the Period for which the counter was collected. Must not be empty. |
 | `periodStartTime` | `string` | The date of the start of Counter Period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.<br /> |
 | `value` | `object` | Quota counter value details. |
+| `counterKey` | `string` | The Key value of the Counter. Must not be empty. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

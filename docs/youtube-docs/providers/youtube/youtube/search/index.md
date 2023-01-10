@@ -28,9 +28,9 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `object` | A resource id is a generic reference that points to another YouTube resource. |
+| `etag` | `string` | Etag of this resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#searchResult". |
 | `snippet` | `object` | Basic details about a search result, including title, description and thumbnails of the item referenced by the search result. |
-| `etag` | `string` | Etag of this resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

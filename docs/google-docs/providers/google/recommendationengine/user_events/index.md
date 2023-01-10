@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `userEvents` | `array` | The user events. |
 | `nextPageToken` | `string` | If empty, the list is complete. If nonempty, the token to pass to the next request's ListUserEvents.page_token. |
+| `userEvents` | `array` | The user events. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

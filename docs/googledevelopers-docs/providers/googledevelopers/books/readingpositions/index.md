@@ -27,13 +27,13 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `gbTextPosition` | `string` | Position in a volume for text-based content. |
-| `kind` | `string` | Resource type for a reading position. |
 | `pdfPosition` | `string` | Position in a PDF file. |
 | `updated` | `string` | Timestamp when this reading position was last updated (formatted UTC timestamp with millisecond resolution). |
 | `volumeId` | `string` | Volume id associated with this reading position. |
 | `epubCfiPosition` | `string` | Position in an EPUB as a CFI. |
 | `gbImagePosition` | `string` | Position in a volume for image-based content. |
+| `gbTextPosition` | `string` | Position in a volume for text-based content. |
+| `kind` | `string` | Resource type for a reading position. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

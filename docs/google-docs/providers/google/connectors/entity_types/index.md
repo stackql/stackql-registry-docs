@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `types` | `array` | List of metadata related to all entity types. |
 | `unsupportedTypeNames` | `array` | List of entity type names which contain unsupported Datatypes. Check datatype.proto for more information. |
 | `nextPageToken` | `string` | Next page token if more entity types available. |
+| `types` | `array` | List of metadata related to all entity types. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `vpcId` | `string` | The ID of the VPC. |
 | `classicLinkEnabled` | `boolean` | Indicates whether the VPC is enabled for ClassicLink. |
 | `tagSet` | `array` | Any tags assigned to the VPC. |
-| `vpcId` | `string` | The ID of the VPC. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

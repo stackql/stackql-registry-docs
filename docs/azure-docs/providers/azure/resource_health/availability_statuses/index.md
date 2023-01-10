@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure Resource Manager Identity for the availabilityStatuses resource. |
 | `name` | `string` | current. |
+| `type` | `string` | Microsoft.ResourceHealth/AvailabilityStatuses. |
 | `location` | `string` | Azure Resource Manager geo location of the resource. |
 | `properties` | `object` | Properties of availability state. |
-| `type` | `string` | Microsoft.ResourceHealth/AvailabilityStatuses. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

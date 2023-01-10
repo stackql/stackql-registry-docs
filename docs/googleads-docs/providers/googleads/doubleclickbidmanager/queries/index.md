@@ -27,10 +27,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `params` | `object` | Parameters of a query or report. |
 | `queryId` | `string` | Output only. Query ID. |
 | `schedule` | `object` | Information on when and how frequently to run a query. |
 | `metadata` | `object` | Query metadata. |
-| `params` | `object` | Parameters of a query or report. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

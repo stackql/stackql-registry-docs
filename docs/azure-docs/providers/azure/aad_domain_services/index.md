@@ -13,16 +13,27 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-The AAD Domain Services API. 
+The AAD Domain Services api.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>13</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.aad_domain_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Domain Services Resource Provider (Microsoft.Aad)</td></tr>
-<tr><td><b>Description</b></td><td>The AAD Domain Services API.</td></tr>
-<tr><td><b>Id</b></td><td><code>aad_domain_services:v0.3.0</code></td></tr>
+<tr><td><b>Description</b></td><td>The AAD Domain Services api.</td></tr>
+<tr><td><b>Id</b></td><td><code>aad_domain_services:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

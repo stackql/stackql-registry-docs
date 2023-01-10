@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -27,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `totalCount` | `integer` | Total number of values for a field matching the query. Can be approximated when it's above 3000. |
 | `fieldValues` | `array` | List of filter field values. |
 | `next` | `string` | Next continuation token. |
+| `totalCount` | `integer` | Total number of values for a field matching the query. Can be approximated when it's above 3000. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

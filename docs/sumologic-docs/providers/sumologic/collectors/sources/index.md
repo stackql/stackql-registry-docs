@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -29,23 +29,23 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` | Source identifer. |
 | `name` | `string` | Source name. |
-| `encoding` | `string` | Source encoding. |
-| `forceTimeZone` | `boolean` | Source forceTimeZone. |
-| `url` | `string` | Source url. |
-| `automaticDateParsing` | `boolean` | Source automaticDateParsing. |
 | `cutoffTimestamp` | `integer` | Source cutoffTimestamp. |
-| `fields` | `object` | Source fields. |
-| `denylist` | `array` | Source denylist. |
-| `sourceType` | `string` | Source sourceType. |
-| `pathExpression` | `string` | Source pathExpression. |
-| `hostName` | `string` | Source hostName. |
-| `category` | `string` | Source category. |
-| `multilineProcessingEnabled` | `boolean` | Source multilineProcessingEnabled. |
-| `filters` | `array` | Source filters. |
 | `messagePerRequest` | `boolean` | Source messagePerRequest. |
-| `useAutolineMatching` | `boolean` | Source useAutolineMatching. |
-| `hashAlgorithm` | `string` | Source hashAlgorithm. |
+| `fields` | `object` | Source fields. |
 | `alive` | `boolean` | Source alive. |
+| `hashAlgorithm` | `string` | Source hashAlgorithm. |
+| `denylist` | `array` | Source denylist. |
+| `automaticDateParsing` | `boolean` | Source automaticDateParsing. |
+| `useAutolineMatching` | `boolean` | Source useAutolineMatching. |
+| `sourceType` | `string` | Source sourceType. |
+| `forceTimeZone` | `boolean` | Source forceTimeZone. |
+| `multilineProcessingEnabled` | `boolean` | Source multilineProcessingEnabled. |
+| `category` | `string` | Source category. |
+| `filters` | `array` | Source filters. |
+| `url` | `string` | Source url. |
+| `hostName` | `string` | Source hostName. |
+| `encoding` | `string` | Source encoding. |
+| `pathExpression` | `string` | Source pathExpression. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

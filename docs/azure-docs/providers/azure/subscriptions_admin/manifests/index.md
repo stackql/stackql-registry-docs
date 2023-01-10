@@ -28,24 +28,24 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The unique identifier of the registration. |
-| `providerType` | `string` | The resource provider type. |
-| `resourceTags` | `object` | The resource tags. |
-| `subscriptionId` | `string` | The subscription ID under which RP is registered. |
-| `resourceGroupName` | `string` | The name of the resource group. |
-| `displayName` | `string` | The display name. |
-| `providerLocation` | `string` | The location of the provider. |
-| `alwaysRoutable` | `boolean` | A value indicating whether the manifest is always routable by all subscriptions. |
-| `resourceTypes` | `object` | List of the resource types. |
-| `metadata` | `object` | The metadata. |
-| `linkedNotificationRules` | `object` | List of the linked notification rules. |
 | `namespace` | `string` | The namespace. |
-| `resourceLocation` | `string` | The location of the resource. |
-| `resourceHydrationAccounts` | `object` | List of the resource hydration accounts. |
-| `extensionCollection` | `object` | The manifest extension collection definition. |
-| `routingResourceManagerType` | `string` | Resource manager type. |
-| `enabled` | `boolean` | A value indicating whether this resource provider is enabled. |
-| `provisioningState` | `string` | The provisioning state. |
+| `linkedNotificationRules` | `object` | List of the linked notification rules. |
 | `providerAuthorization` | `object` | The resource provider authorization information. |
+| `displayName` | `string` | The display name. |
+| `routingResourceManagerType` | `string` | Resource manager type. |
+| `resourceHydrationAccounts` | `object` | List of the resource hydration accounts. |
+| `providerLocation` | `string` | The location of the provider. |
+| `extensionCollection` | `object` | The manifest extension collection definition. |
+| `providerType` | `string` | The resource provider type. |
+| `resourceTypes` | `object` | List of the resource types. |
+| `resourceTags` | `object` | The resource tags. |
+| `resourceLocation` | `string` | The location of the resource. |
+| `provisioningState` | `string` | The provisioning state. |
+| `enabled` | `boolean` | A value indicating whether this resource provider is enabled. |
+| `alwaysRoutable` | `boolean` | A value indicating whether the manifest is always routable by all subscriptions. |
+| `resourceGroupName` | `string` | The name of the resource group. |
+| `metadata` | `object` | The metadata. |
+| `subscriptionId` | `string` | The subscription ID under which RP is registered. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

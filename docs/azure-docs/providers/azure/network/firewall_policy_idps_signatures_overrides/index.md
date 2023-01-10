@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Will contain the resource id of the signature override resource |
 | `name` | `string` | Contains the name of the resource (default) |
-| `properties` | `object` | Will contain the properties of the resource (the actual signature overrides) |
 | `type` | `string` | Will contain the type of the resource: Microsoft.Network/firewallPolicies/intrusionDetectionSignaturesOverrides |
+| `properties` | `object` | Will contain the properties of the resource (the actual signature overrides) |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

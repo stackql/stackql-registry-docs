@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Use these APIs to manage Azure CDN resources through the Azure Resource Manager. You must make sure that requests made to these resources are secure.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>26</b></span><br />
+<span>total selectable resources:&nbsp;<b>19</b></span><br />
+<span>total methods:&nbsp;<b>110</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Use these APIs to manage Azure CDN resources through the Azure Resource Manager.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cdn Management Client (Microsoft.Cdn)</td></tr>
 <tr><td><b>Description</b></td><td>Use these APIs to manage Azure CDN resources through the Azure Resource Manager. You must make sure that requests made to these resources are secure.</td></tr>
-<tr><td><b>Id</b></td><td><code>cdn:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cdn:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

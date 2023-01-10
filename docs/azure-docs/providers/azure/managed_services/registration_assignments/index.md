@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The fully qualified path of the registration assignment. |
 | `name` | `string` | The name of the registration assignment. |
-| `properties` | `object` | The properties of the registration assignment. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments). |
+| `properties` | `object` | The properties of the registration assignment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

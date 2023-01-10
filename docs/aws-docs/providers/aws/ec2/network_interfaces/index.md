@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,31 +28,31 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A description. |
-| `macAddress` | `string` | The MAC address. |
-| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
-| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the network interface. |
-| `privateIpAddressesSet` | `array` | The private IPv4 addresses associated with the network interface. |
-| `association` | `object` | Describes association information for an Elastic IP address (IPv4 only), or a Carrier IP address (for a network interface which resides in a subnet in a Wavelength Zone). |
-| `tagSet` | `array` | Any tags assigned to the network interface. |
-| `ipv6Address` | `string` | The IPv6 globally unique address associated with the network interface. |
-| `ipv4PrefixSet` | `array` | The IPv4 prefixes that are assigned to the network interface. |
-| `ipv6PrefixSet` | `array` | The IPv6 prefixes that are assigned to the network interface. |
-| `networkInterfaceId` | `string` | The ID of the network interface. |
-| `attachment` | `object` | Describes a network interface attachment. |
-| `interfaceType` | `string` | The type of network interface. |
-| `denyAllIgwTraffic` | `boolean` | Indicates whether a network interface with an IPv6 address is unreachable from the public internet. If the value is &lt;code&gt;true&lt;/code&gt;, inbound traffic from the internet is dropped and you cannot assign an elastic IP address to the network interface. The network interface is reachable from peered VPCs and resources connected through a transit gateway, including on-premises networks. |
-| `privateIpAddress` | `string` | The IPv4 address of the network interface within the subnet. |
-| `subnetId` | `string` | The ID of the subnet. |
-| `sourceDestCheck` | `boolean` | Indicates whether source/destination checking is enabled. |
-| `requesterId` | `string` | The alias or Amazon Web Services account ID of the principal or service that created the network interface. |
-| `status` | `string` | The status of the network interface. |
-| `availabilityZone` | `string` | The Availability Zone. |
 | `privateDnsName` | `string` | The private DNS name. |
 | `ipv6AddressesSet` | `array` | The IPv6 addresses associated with the network interface. |
-| `vpcId` | `string` | The ID of the VPC. |
-| `groupSet` | `array` | Any security groups for the network interface. |
-| `ipv6Native` | `boolean` | Indicates whether this is an IPv6 only network interface. |
+| `subnetId` | `string` | The ID of the subnet. |
+| `macAddress` | `string` | The MAC address. |
+| `requesterId` | `string` | The alias or Amazon Web Services account ID of the principal or service that created the network interface. |
+| `interfaceType` | `string` | The type of network interface. |
+| `privateIpAddress` | `string` | The IPv4 address of the network interface within the subnet. |
+| `ipv4PrefixSet` | `array` | The IPv4 prefixes that are assigned to the network interface. |
+| `ipv6Address` | `string` | The IPv6 globally unique address associated with the network interface. |
+| `denyAllIgwTraffic` | `boolean` | Indicates whether a network interface with an IPv6 address is unreachable from the public internet. If the value is &lt;code&gt;true&lt;/code&gt;, inbound traffic from the internet is dropped and you cannot assign an elastic IP address to the network interface. The network interface is reachable from peered VPCs and resources connected through a transit gateway, including on-premises networks. |
+| `availabilityZone` | `string` | The Availability Zone. |
+| `networkInterfaceId` | `string` | The ID of the network interface. |
 | `requesterManaged` | `boolean` | Indicates whether the network interface is being managed by Amazon Web Services. |
+| `tagSet` | `array` | Any tags assigned to the network interface. |
+| `association` | `object` | Describes association information for an Elastic IP address (IPv4 only), or a Carrier IP address (for a network interface which resides in a subnet in a Wavelength Zone). |
+| `ipv6Native` | `boolean` | Indicates whether this is an IPv6 only network interface. |
+| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the network interface. |
+| `attachment` | `object` | Describes a network interface attachment. |
+| `privateIpAddressesSet` | `array` | The private IPv4 addresses associated with the network interface. |
+| `status` | `string` | The status of the network interface. |
+| `ipv6PrefixSet` | `array` | The IPv6 prefixes that are assigned to the network interface. |
+| `vpcId` | `string` | The ID of the VPC. |
+| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
+| `groupSet` | `array` | Any security groups for the network interface. |
+| `sourceDestCheck` | `boolean` | Indicates whether source/destination checking is enabled. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

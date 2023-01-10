@@ -27,19 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `testExecutions` | `array` | Output only. The list of test executions that the service creates for this matrix. |
+| `environmentMatrix` | `object` | The matrix of environments in which the test is to be executed. |
 | `flakyTestAttempts` | `integer` | The number of times a TestExecution should be re-attempted if one or more of its test cases fail for any reason. The maximum number of reruns allowed is 10. Default is 0, which implies no reruns. |
 | `outcomeSummary` | `string` | Output Only. The overall outcome of the test. Only set when the test matrix state is FINISHED. |
-| `state` | `string` | Output only. Indicates the current progress of the test matrix. |
 | `timestamp` | `string` | Output only. The time this test matrix was initially created. |
-| `clientInfo` | `object` | Information about the client which invoked the test. |
 | `failFast` | `boolean` | If true, only a single attempt at most will be made to run each execution/shard in the matrix. Flaky test attempts are not affected. Normally, 2 or more attempts are made if a potential infrastructure issue is detected. This feature is for latency sensitive workloads. The incidence of execution failures may be significantly greater for fail-fast matrices and support is more limited because of that expectation. |
-| `testSpecification` | `object` | A description of how to run the test. |
-| `invalidMatrixDetails` | `string` | Output only. Describes why the matrix is considered invalid. Only useful for matrices in the INVALID state. |
-| `projectId` | `string` | The cloud project that owns the test matrix. |
-| `testExecutions` | `array` | Output only. The list of test executions that the service creates for this matrix. |
 | `resultStorage` | `object` | Locations where the results of running the test are stored. |
-| `environmentMatrix` | `object` | The matrix of environments in which the test is to be executed. |
+| `state` | `string` | Output only. Indicates the current progress of the test matrix. |
 | `testMatrixId` | `string` | Output only. Unique id set by the service. |
+| `clientInfo` | `object` | Information about the client which invoked the test. |
+| `testSpecification` | `object` | A description of how to run the test. |
+| `projectId` | `string` | The cloud project that owns the test matrix. |
+| `invalidMatrixDetails` | `string` | Output only. Describes why the matrix is considered invalid. Only useful for matrices in the INVALID state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

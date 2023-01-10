@@ -28,16 +28,16 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource path name. |
-| `grantRangeAllowlists` | `array` | Only ranges that are within the allowlists are available for new grants. |
-| `grants` | `array` | Output only. Grants held by the device. |
-| `displayName` | `string` | Device display name. |
-| `state` | `string` | Output only. Device state. |
-| `currentChannels` | `array` | Output only. Current channels with scores. |
-| `serialNumber` | `string` | A serial number assigned to the device by the device manufacturer. |
-| `activeConfig` | `object` | Information about the device configuration. |
+| `deviceMetadata` | `object` | Device data overridable by both SAS Portal and registration requests. |
 | `fccId` | `string` | The FCC identifier of the device. |
 | `preloadedConfig` | `object` | Information about the device configuration. |
-| `deviceMetadata` | `object` | Device data overridable by both SAS Portal and registration requests. |
+| `serialNumber` | `string` | A serial number assigned to the device by the device manufacturer. |
+| `state` | `string` | Output only. Device state. |
+| `currentChannels` | `array` | Output only. Current channels with scores. |
+| `activeConfig` | `object` | Information about the device configuration. |
+| `grants` | `array` | Output only. Grants held by the device. |
+| `grantRangeAllowlists` | `array` | Only ranges that are within the allowlists are available for new grants. |
+| `displayName` | `string` | Device display name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

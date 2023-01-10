@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties for a server key execution. |
 | `kind` | `string` | Kind of encryption protector. This is metadata used for the Azure portal experience. |
 | `location` | `string` | Resource location. |
+| `properties` | `object` | Properties for a server key execution. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

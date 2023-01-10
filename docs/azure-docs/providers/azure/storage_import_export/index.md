@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Storage Import Export  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Storage Import Export
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Storage Import Export (Microsoft.ImportExport)</td></tr>
 <tr><td><b>Description</b></td><td>Storage Import Export</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_import_export:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storage_import_export:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the record set. |
 | `name` | `string` | The name of the record set. |
-| `properties` | `object` | Represents the properties of the records in the record set. |
 | `type` | `string` | The type of the record set. |
 | `etag` | `string` | The etag of the record set. |
+| `properties` | `object` | Represents the properties of the records in the record set. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

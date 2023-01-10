@@ -3,14 +3,16 @@ title: shared_storage
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - shared_storage
+  - billing
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `estimated_storage_for_month` | `integer` | Estimated sum of free and paid storage space (GB) used in billing cycle. |
 | `days_left_in_billing_cycle` | `integer` | Numbers of days left in billing cycle. |
 | `estimated_paid_storage_for_month` | `integer` | Estimated storage space (GB) used in billing cycle. |
+| `estimated_storage_for_month` | `integer` | Estimated sum of free and paid storage space (GB) used in billing cycle. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

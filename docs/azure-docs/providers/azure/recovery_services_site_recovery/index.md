@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Recovery Services Site Recovery  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>28</b></span><br />
+<span>total selectable resources:&nbsp;<b>28</b></span><br />
+<span>total methods:&nbsp;<b>137</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Recovery Services Site Recovery
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Recovery Services Site Recovery (Microsoft.RecoveryServices)</td></tr>
 <tr><td><b>Description</b></td><td>Recovery Services Site Recovery</td></tr>
-<tr><td><b>Id</b></td><td><code>recovery_services_site_recovery:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recovery_services_site_recovery:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

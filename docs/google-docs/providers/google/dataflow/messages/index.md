@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `autoscalingEvents` | `array` | Autoscaling events in ascending timestamp order. |
 | `jobMessages` | `array` | Messages in ascending timestamp order. |
 | `nextPageToken` | `string` | The token to obtain the next page of results if there are more. |
-| `autoscalingEvents` | `array` | Autoscaling events in ascending timestamp order. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

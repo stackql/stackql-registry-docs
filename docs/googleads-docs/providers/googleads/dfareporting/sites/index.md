@@ -29,17 +29,17 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this site. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this site.This is a required field. Must be less than 128 characters long. If this site is under a subaccount, the name must be unique among sites of the same subaccount. Otherwise, this site is a top-level site, and the name must be unique among top-level sites of the same account. |
-| `accountId` | `string` | Account ID of this site. This is a read-only field that can be left blank. |
-| `siteContacts` | `array` | Site contacts. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#site". |
 | `videoSettings` | `object` | Video Settings |
-| `approved` | `boolean` | Whether this site is approved. |
 | `subaccountId` | `string` | Subaccount ID of this site. This is a read-only field that can be left blank. |
-| `siteSettings` | `object` | Site Settings |
-| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `directorySiteIdDimensionValue` | `object` | Represents a DimensionValue resource. |
 | `directorySiteId` | `string` | Directory site associated with this site. This is a required field that is read-only after insertion. |
+| `accountId` | `string` | Account ID of this site. This is a read-only field that can be left blank. |
 | `keyName` | `string` | Key name of this site. This is a read-only, auto-generated field. |
+| `approved` | `boolean` | Whether this site is approved. |
+| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#site". |
+| `siteContacts` | `array` | Site contacts. |
+| `siteSettings` | `object` | Site Settings |
+| `directorySiteIdDimensionValue` | `object` | Represents a DimensionValue resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure resource Id |
 | `name` | `string` | Azure resource name |
-| `type` | `string` | Azure resource type |
 | `properties` | `object` | Properties that define an Log Analytics QueryPack-Query resource. |
 | `systemData` | `object` | Read only system data |
+| `type` | `string` | Azure resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

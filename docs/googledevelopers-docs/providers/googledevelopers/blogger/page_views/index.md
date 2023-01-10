@@ -27,9 +27,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `blogId` | `string` | Blog Id. |
 | `counts` | `array` | The container of posts in this blog. |
 | `kind` | `string` | The kind of this entry. Always blogger#page_views. |
-| `blogId` | `string` | Blog Id. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

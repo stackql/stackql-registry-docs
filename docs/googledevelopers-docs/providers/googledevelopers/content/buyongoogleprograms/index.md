@@ -27,15 +27,15 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `onlineSalesChannel` | `string` | The channels through which the merchant is selling. |
 | `customerServiceVerifiedPhoneNumber` | `string` | Output only. The verified phone number specified for BuyOnGoogle program. It might be different than account level phone number. |
-| `customerServiceVerifiedEmail` | `string` | Output only. The customer service verified email. |
-| `customerServicePendingPhoneNumber` | `string` | The pending phone number specified for BuyOnGoogle program. It might be different than account level phone number. In order to update this field the customer_service_pending_phone_region_code must also be set. After verification this field becomes empty. |
-| `customerServicePendingEmail` | `string` | The customer service pending email. After verification this field becomes empty. |
-| `customerServicePendingPhoneRegionCode` | `string` | Two letter country code for the pending phone number, for example `CA` for Canadian numbers. See the [ISO 3166-1 alpha-2](https://wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) officially assigned codes. In order to update this field the customer_service_pending_phone_number must also be set. After verification this field becomes empty. |
-| `customerServiceVerifiedPhoneRegionCode` | `string` | Output only. Two letter country code for the verified phone number, for example `CA` for Canadian numbers. See the [ISO 3166-1 alpha-2](https://wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) officially assigned codes. |
 | `participationStage` | `string` | Output only. The current participation stage for the program. |
 | `businessModel` | `array` | The business models in which merchant participates. |
+| `customerServicePendingPhoneNumber` | `string` | The pending phone number specified for BuyOnGoogle program. It might be different than account level phone number. In order to update this field the customer_service_pending_phone_region_code must also be set. After verification this field becomes empty. |
+| `customerServicePendingEmail` | `string` | The customer service pending email. After verification this field becomes empty. |
+| `customerServiceVerifiedPhoneRegionCode` | `string` | Output only. Two letter country code for the verified phone number, for example `CA` for Canadian numbers. See the [ISO 3166-1 alpha-2](https://wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) officially assigned codes. |
+| `customerServiceVerifiedEmail` | `string` | Output only. The customer service verified email. |
+| `customerServicePendingPhoneRegionCode` | `string` | Two letter country code for the pending phone number, for example `CA` for Canadian numbers. See the [ISO 3166-1 alpha-2](https://wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) officially assigned codes. In order to update this field the customer_service_pending_phone_number must also be set. After verification this field becomes empty. |
+| `onlineSalesChannel` | `string` | The channels through which the merchant is selling. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

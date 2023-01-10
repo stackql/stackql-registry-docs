@@ -28,18 +28,18 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Client display name. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable tagmanager.accounts.containers.workspaces.clients.update |
-| `containerId` | `string` | GTM Container ID. |
 | `priority` | `integer` | Priority determines relative firing order. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable tagmanager.accounts.containers.workspaces.clients.update |
 | `path` | `string` | GTM client's API relative path. |
-| `type` | `string` | Client type. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable tagmanager.accounts.containers.workspaces.clients.update |
-| `accountId` | `string` | GTM Account ID. |
-| `fingerprint` | `string` | The fingerprint of the GTM Client as computed at storage time. This value is recomputed whenever the client is modified. |
-| `notes` | `string` | User notes on how to apply this tag in the container. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update |
-| `clientId` | `string` | The Client ID uniquely identifies the GTM client. |
-| `parameter` | `array` | The client's parameters. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable tagmanager.accounts.containers.workspaces.clients.update |
-| `parentFolderId` | `string` | Parent folder id. |
-| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
 | `workspaceId` | `string` | GTM Workspace ID. |
+| `parameter` | `array` | The client's parameters. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable tagmanager.accounts.containers.workspaces.clients.update |
+| `fingerprint` | `string` | The fingerprint of the GTM Client as computed at storage time. This value is recomputed whenever the client is modified. |
+| `parentFolderId` | `string` | Parent folder id. |
+| `notes` | `string` | User notes on how to apply this tag in the container. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update |
+| `accountId` | `string` | GTM Account ID. |
+| `clientId` | `string` | The Client ID uniquely identifies the GTM client. |
+| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
+| `containerId` | `string` | GTM Container ID. |
+| `type` | `string` | Client type. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable tagmanager.accounts.containers.workspaces.clients.update |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

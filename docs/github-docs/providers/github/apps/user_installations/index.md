@@ -3,14 +3,16 @@ title: user_installations
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - user_installations
+  - apps
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,25 +28,25 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the installation. |
+| `permissions` | `object` | The permissions granted to the user-to-server access token. |
+| `has_multiple_single_files` | `boolean` |  |
+| `html_url` | `string` |  |
+| `app_slug` | `string` |  |
 | `contact_email` | `string` |  |
-| `repositories_url` | `string` |  |
+| `events` | `array` |  |
 | `updated_at` | `string` |  |
 | `target_type` | `string` |  |
 | `single_file_name` | `string` |  |
-| `app_id` | `integer` |  |
-| `single_file_paths` | `array` |  |
-| `account` | `` |  |
-| `events` | `array` |  |
-| `permissions` | `object` | The permissions granted to the user-to-server access token. |
-| `repository_selection` | `string` | Describe whether all repositories have been selected or there's a selection involved |
-| `created_at` | `string` |  |
+| `repositories_url` | `string` |  |
 | `suspended_by` | `object` | Simple User |
-| `access_tokens_url` | `string` |  |
-| `suspended_at` | `string` |  |
+| `account` | `` |  |
 | `target_id` | `integer` | The ID of the user or organization this token is being scoped to. |
-| `has_multiple_single_files` | `boolean` |  |
-| `app_slug` | `string` |  |
-| `html_url` | `string` |  |
+| `single_file_paths` | `array` |  |
+| `app_id` | `integer` |  |
+| `created_at` | `string` |  |
+| `access_tokens_url` | `string` |  |
+| `repository_selection` | `string` | Describe whether all repositories have been selected or there's a selection involved |
+| `suspended_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

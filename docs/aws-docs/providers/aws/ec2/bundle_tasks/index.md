@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,14 +27,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `bundleId` | `string` | The ID of the bundle task. |
-| `error` | `object` | Describes an error for &lt;a&gt;BundleInstance&lt;/a&gt;. |
 | `instanceId` | `string` | The ID of the instance associated with this bundle task. |
 | `progress` | `string` | The level of task completion, as a percent (for example, 20%). |
 | `startTime` | `string` | The time this task started. |
 | `state` | `string` | The state of the task. |
 | `storage` | `object` | Describes the storage location for an instance store-backed AMI. |
 | `updateTime` | `string` | The time of the most recent update for the task. |
+| `bundleId` | `string` | The ID of the bundle task. |
+| `error` | `object` | Describes an error for &lt;a&gt;BundleInstance&lt;/a&gt;. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

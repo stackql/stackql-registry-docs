@@ -27,8 +27,8 @@ image: /img/providers/googlemybusiness/stackql-googlemybusiness-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If the number of attributes exceeded the requested page size, this field will be populated with a token to fetch the next page of attributes on a subsequent call to `attributes.list`. If there are no more attributes, this field will not be present in the response. |
 | `attributeMetadata` | `array` | A collection of attribute metadata for the available attributes. |
+| `nextPageToken` | `string` | If the number of attributes exceeded the requested page size, this field will be populated with a token to fetch the next page of attributes on a subsequent call to `attributes.list`. If there are no more attributes, this field will not be present in the response. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

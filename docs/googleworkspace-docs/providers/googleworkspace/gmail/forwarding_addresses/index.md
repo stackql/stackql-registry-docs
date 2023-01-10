@@ -27,8 +27,8 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `verificationStatus` | `string` | Indicates whether this address has been verified and is usable for forwarding. Read-only. |
 | `forwardingEmail` | `string` | An email address to which messages can be forwarded. |
+| `verificationStatus` | `string` | Indicates whether this address has been verified and is usable for forwarding. Read-only. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

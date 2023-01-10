@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,13 +27,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `vpcId` | `string` | The ID of the VPC. |
+| `associationSet` | `array` | The associations between the route table and one or more subnets or a gateway. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the route table. |
 | `propagatingVgwSet` | `array` | Any virtual private gateway (VGW) propagating routes. |
 | `routeSet` | `array` | The routes in the route table. |
 | `routeTableId` | `string` | The ID of the route table. |
 | `tagSet` | `array` | Any tags assigned to the route table. |
-| `vpcId` | `string` | The ID of the VPC. |
-| `associationSet` | `array` | The associations between the route table and one or more subnets or a gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

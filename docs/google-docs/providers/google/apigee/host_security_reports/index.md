@@ -27,19 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `displayName` | `string` | Display Name specified by the user. |
-| `error` | `string` | Error is set when query fails. |
 | `state` | `string` | Query state could be "enqueued", "running", "completed", "expired" and "failed". |
-| `reportDefinitionId` | `string` | Report Definition ID. |
-| `created` | `string` | Creation time of the query. |
-| `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
-| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
 | `result` | `object` | Contains informations about the security report results. |
-| `resultRows` | `string` | ResultRows is available only after the query is completed. |
+| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
+| `error` | `string` | Error is set when query fails. |
 | `updated` | `string` | Output only. Last updated timestamp for the query. |
-| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
+| `created` | `string` | Creation time of the query. |
 | `queryParams` | `object` | Metadata for the security report. |
+| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
 | `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
+| `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
+| `reportDefinitionId` | `string` | Report Definition ID. |
+| `resultRows` | `string` | ResultRows is available only after the query is completed. |
+| `displayName` | `string` | Display Name specified by the user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

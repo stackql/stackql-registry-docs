@@ -27,11 +27,11 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `accountId` | `string` | The Account ID uniquely identifies the GTM Account. |
-| `containerAccess` | `array` | GTM Container access permissions. @mutable tagmanager.accounts.permissions.create @mutable tagmanager.accounts.permissions.update |
 | `emailAddress` | `string` | User's email address. @mutable tagmanager.accounts.permissions.create |
 | `path` | `string` | GTM UserPermission's API relative path. |
 | `accountAccess` | `object` | Defines the Google Tag Manager Account access permissions. |
+| `accountId` | `string` | The Account ID uniquely identifies the GTM Account. |
+| `containerAccess` | `array` | GTM Container access permissions. @mutable tagmanager.accounts.permissions.create @mutable tagmanager.accounts.permissions.update |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,12 +27,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `status` | `object` | Describes the state of a target network association. |
 | `targetNetworkId` | `string` | The ID of the subnet specified as the target network. |
 | `vpcId` | `string` | The ID of the VPC in which the target network (subnet) is located. |
 | `associationId` | `string` | The ID of the association. |
 | `clientVpnEndpointId` | `string` | The ID of the Client VPN endpoint with which the target network is associated. |
 | `securityGroups` | `array` | The IDs of the security groups applied to the target network association. |
+| `status` | `object` | Describes the state of a target network association. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

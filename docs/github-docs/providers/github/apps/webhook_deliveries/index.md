@@ -3,14 +3,16 @@ title: webhook_deliveries
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - webhook_deliveries
+  - apps
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,19 +28,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the delivery. |
-| `response` | `object` |  |
 | `event` | `string` | The event that triggered the delivery. |
-| `redelivery` | `boolean` | Whether the delivery is a redelivery. |
-| `repository_id` | `integer` | The id of the repository associated with this event. |
-| `url` | `string` | The URL target of the delivery. |
-| `duration` | `number` | Time spent delivering. |
-| `status_code` | `integer` | Status code received when delivery was made. |
-| `installation_id` | `integer` | The id of the GitHub App installation associated with this event. |
 | `status` | `string` | Description of the status of the attempted delivery |
-| `action` | `string` | The type of activity for the event that triggered the delivery. |
-| `request` | `object` |  |
 | `delivered_at` | `string` | Time when the delivery was delivered. |
+| `repository_id` | `integer` | The id of the repository associated with this event. |
+| `installation_id` | `integer` | The id of the GitHub App installation associated with this event. |
+| `url` | `string` | The URL target of the delivery. |
+| `redelivery` | `boolean` | Whether the delivery is a redelivery. |
+| `action` | `string` | The type of activity for the event that triggered the delivery. |
+| `duration` | `number` | Time spent delivering. |
+| `response` | `object` |  |
 | `guid` | `string` | Unique identifier for the event (shared with all deliveries for all webhooks that subscribe to this event). |
+| `status_code` | `integer` | Status code received when delivery was made. |
+| `request` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `template` | `object` |  |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#ordersGetTestOrderTemplateResponse`". |
+| `template` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -9,20 +9,31 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
-accessKeys  
+AccessKeys  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sumologic.access_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Sumo Logic API - access_keys</td></tr>
-<tr><td><b>Description</b></td><td>accessKeys</td></tr>
-<tr><td><b>Id</b></td><td><code>access_keys:v0.1.1</code></td></tr>
+<tr><td><b>Description</b></td><td>AccessKeys</td></tr>
+<tr><td><b>Id</b></td><td><code>access_keys:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

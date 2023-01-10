@@ -3,14 +3,16 @@ title: comments
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - comments
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,19 +28,19 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `body` | `string` |  |
 | `created_at` | `string` |  |
-| `html_url` | `string` |  |
-| `node_id` | `string` |  |
-| `path` | `string` |  |
-| `reactions` | `object` |  |
-| `commit_id` | `string` |  |
-| `position` | `integer` |  |
+| `url` | `string` |  |
 | `author_association` | `string` | How the author is associated with the repository. |
+| `reactions` | `object` |  |
+| `user` | `object` | Simple User |
+| `html_url` | `string` |  |
+| `commit_id` | `string` |  |
 | `line` | `integer` |  |
 | `updated_at` | `string` |  |
-| `url` | `string` |  |
-| `user` | `object` | Simple User |
+| `position` | `integer` |  |
+| `node_id` | `string` |  |
+| `body` | `string` |  |
+| `path` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

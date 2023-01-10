@@ -28,14 +28,14 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Folder display name. @mutable tagmanager.accounts.containers.workspaces.folders.create @mutable tagmanager.accounts.containers.workspaces.folders.update |
-| `path` | `string` | GTM Folder's API relative path. |
-| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
-| `containerId` | `string` | GTM Container ID. |
-| `fingerprint` | `string` | The fingerprint of the GTM Folder as computed at storage time. This value is recomputed whenever the folder is modified. |
-| `workspaceId` | `string` | GTM Workspace ID. |
-| `accountId` | `string` | GTM Account ID. |
-| `folderId` | `string` | The Folder ID uniquely identifies the GTM Folder. |
 | `notes` | `string` | User notes on how to apply this folder in the container. @mutable tagmanager.accounts.containers.workspaces.folders.create @mutable tagmanager.accounts.containers.workspaces.folders.update |
+| `path` | `string` | GTM Folder's API relative path. |
+| `fingerprint` | `string` | The fingerprint of the GTM Folder as computed at storage time. This value is recomputed whenever the folder is modified. |
+| `containerId` | `string` | GTM Container ID. |
+| `workspaceId` | `string` | GTM Workspace ID. |
+| `folderId` | `string` | The Folder ID uniquely identifies the GTM Folder. |
+| `accountId` | `string` | GTM Account ID. |
+| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

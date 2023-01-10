@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Resource location. |
-| `properties` | `object` | The properties of a SQL virtual machine group. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
+| `location` | `string` | Resource location. |
+| `properties` | `object` | The properties of a SQL virtual machine group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

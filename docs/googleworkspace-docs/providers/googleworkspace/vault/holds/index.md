@@ -28,12 +28,12 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the hold. |
-| `accounts` | `array` | If set, the hold applies to the specified accounts and **orgUnit** must be empty. |
-| `corpus` | `string` | The service to be searched. |
-| `holdId` | `string` | The unique immutable ID of the hold. Assigned during creation. |
 | `orgUnit` | `object` | The organizational unit covered by a hold. This structure is immutable. |
 | `query` | `object` | Service-specific options for holds. |
 | `updateTime` | `string` | The last time this hold was modified. |
+| `accounts` | `array` | If set, the hold applies to the specified accounts and **orgUnit** must be empty. |
+| `corpus` | `string` | The service to be searched. |
+| `holdId` | `string` | The unique immutable ID of the hold. Assigned during creation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

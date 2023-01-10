@@ -28,12 +28,12 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube assigns to uniquely identify the broadcast. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#liveBroadcast". |
 | `snippet` | `object` | Basic broadcast information. |
 | `statistics` | `object` | Statistics about the live broadcast. These represent a snapshot of the values at the time of the request. Statistics are only returned for live broadcasts. |
 | `status` | `object` | Live broadcast state. |
 | `contentDetails` | `object` | Detailed settings of a broadcast. |
 | `etag` | `string` | Etag of this resource. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#liveBroadcast". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

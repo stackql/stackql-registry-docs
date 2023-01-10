@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `stats` | `object` | Additional statistics about a ResultSet or PartialResultSet. |
 | `metadata` | `object` | Metadata about a ResultSet or PartialResultSet. |
 | `rows` | `array` | Each element in `rows` is a row whose format is defined by metadata.row_type. The ith element in each row matches the ith field in metadata.row_type. Elements are encoded based on type as described here. |
+| `stats` | `object` | Additional statistics about a ResultSet or PartialResultSet. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Recovery Services Backup  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>50</b></span><br />
+<span>total selectable resources:&nbsp;<b>36</b></span><br />
+<span>total methods:&nbsp;<b>76</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Recovery Services Backup
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Recovery Services Backup (Microsoft.RecoveryServices)</td></tr>
 <tr><td><b>Description</b></td><td>Recovery Services Backup</td></tr>
-<tr><td><b>Id</b></td><td><code>recovery_services_backup:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recovery_services_backup:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,10 +29,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the user list that must follow the pattern `buyers/&#123;buyer&#125;/userLists/&#123;user_list&#125;`, where `&#123;buyer&#125;` represents the account ID of the buyer who owns the user list. For a bidder accessing user lists on behalf of a child seat buyer, `&#123;buyer&#125;` represents the account ID of the child seat buyer. `&#123;user_list&#125;` is an int64 identifier assigned by Google to uniquely identify a user list. |
 | `description` | `string` | The description for the user list. |
+| `urlRestriction` | `object` | Represents the URL restriction (for the URL captured by the pixel callback) for a user list. |
 | `displayName` | `string` | Required. Display name of the user list. This must be unique across all user lists for a given account. |
 | `membershipDurationDays` | `string` | Required. The number of days a user's cookie stays on the user list. The field must be between 0 and 540 inclusive. |
 | `status` | `string` | Output only. The status of the user list. A new user list starts out as open. |
-| `urlRestriction` | `object` | Represents the URL restriction (for the URL captured by the pixel callback) for a user list. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

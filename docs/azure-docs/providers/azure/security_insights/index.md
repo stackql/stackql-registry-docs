@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Security Insights  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>34</b></span><br />
+<span>total selectable resources:&nbsp;<b>30</b></span><br />
+<span>total methods:&nbsp;<b>110</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Security Insights
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Security Insights (Microsoft.OperationalInsights)</td></tr>
 <tr><td><b>Description</b></td><td>Security Insights</td></tr>
-<tr><td><b>Id</b></td><td><code>security_insights:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>security_insights:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -30,10 +30,10 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | `id` | `string` | The identifier for this User. |
 | `kind` | `string` | The kind of this entity. Always blogger#user. |
 | `created` | `string` | The timestamp of when this profile was created, in seconds since epoch. |
+| `locale` | `object` | This user's locale |
 | `selfLink` | `string` | The API REST URL to fetch this resource from. |
 | `url` | `string` | The user's profile page. |
 | `about` | `string` | Profile summary information. |
-| `locale` | `object` | This user's locale |
 | `displayName` | `string` | The display name. |
 | `blogs` | `object` | The container of blogs for this user. |
 ## Methods

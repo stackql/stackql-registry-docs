@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
+| `properties` | `object` | The nested object which contains the information and credential which can be used to connect with related store or compute resource. |
 | `type` | `string` | The resource type. |
 | `etag` | `string` | Etag identifies change in the resource. |
-| `properties` | `object` | The nested object which contains the information and credential which can be used to connect with related store or compute resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

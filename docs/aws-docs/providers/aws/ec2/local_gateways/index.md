@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,11 +27,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `tagSet` | `array` | The tags assigned to the local gateway. |
 | `localGatewayId` | `string` | The ID of the local gateway. |
 | `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway. |
 | `state` | `string` | The state of the local gateway. |
-| `tagSet` | `array` | The tags assigned to the local gateway. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

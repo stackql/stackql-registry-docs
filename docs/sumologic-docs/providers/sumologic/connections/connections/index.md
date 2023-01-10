@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -30,11 +30,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `string` | Unique identifier for the connection. |
 | `name` | `string` | Name of the connection. |
 | `description` | `string` | Description of the connection. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `type` | `string` | Type of connection. Valid values are `WebhookConnection`, `ServiceNowConnection`. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The workflow config's name. |
-| `recentScheduledExecutionRecords` | `array` | Output only. Records of the 10 most recent scheduled execution attempts. Updated whenever automatic creation of a compilation result is triggered by cron_schedule. |
 | `releaseConfig` | `string` | Required. The name of the release config whose release_compilation_result should be executed. Must be in the format `projects/*/locations/*/repositories/*/releaseConfigs/*`. |
 | `timeZone` | `string` | Optional. Specifies the time zone to be used when interpreting cron_schedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC. |
 | `cronSchedule` | `string` | Optional. Optional schedule (in cron format) for automatic execution of this workflow config. |
 | `invocationConfig` | `object` | Includes various configuration options for a workflow invocation. If both `included_targets` and `included_tags` are unset, all actions will be included. |
+| `recentScheduledExecutionRecords` | `array` | Output only. Records of the 10 most recent scheduled execution attempts. Updated whenever automatic creation of a compilation result is triggered by cron_schedule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

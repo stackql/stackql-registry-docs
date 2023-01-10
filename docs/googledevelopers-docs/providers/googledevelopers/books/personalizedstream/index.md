@@ -27,9 +27,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `clusters` | `array` |  |
 | `kind` | `string` | Resorce type. |
 | `totalClusters` | `integer` |  |
+| `clusters` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

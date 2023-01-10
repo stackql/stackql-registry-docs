@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 The Batch Management Client.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>46</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ The Batch Management Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Batch Management Client (Microsoft.Batch)</td></tr>
 <tr><td><b>Description</b></td><td>The Batch Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>batch:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>batch:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

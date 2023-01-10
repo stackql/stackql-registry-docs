@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The resource name of the issue model. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/issueModels/&#123;issue_model&#125; |
-| `inputDataConfig` | `object` | Configs for the input data used to create the issue model. |
 | `issueCount` | `string` | Output only. Number of issues in this issue model. |
 | `state` | `string` | Output only. State of the model. |
 | `trainingStats` | `object` | Aggregated statistics about an issue model. |
 | `updateTime` | `string` | Output only. The most recent time at which the issue model was updated. |
 | `createTime` | `string` | Output only. The time at which this issue model was created. |
 | `displayName` | `string` | The representative name for the issue model. |
+| `inputDataConfig` | `object` | Configs for the input data used to create the issue model. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

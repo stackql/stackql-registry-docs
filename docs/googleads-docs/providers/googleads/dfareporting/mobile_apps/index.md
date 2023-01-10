@@ -28,10 +28,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this mobile app. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#mobileApp". |
-| `publisherName` | `string` | Publisher name. |
 | `title` | `string` | Title of this mobile app. |
 | `directory` | `string` | Mobile app directory. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#mobileApp". |
+| `publisherName` | `string` | Publisher name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

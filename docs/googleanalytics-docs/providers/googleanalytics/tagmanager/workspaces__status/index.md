@@ -27,8 +27,8 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `mergeConflict` | `array` | The merge conflict after sync. |
 | `workspaceChange` | `array` | Entities that have been changed in the workspace. |
+| `mergeConflict` | `array` | The merge conflict after sync. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

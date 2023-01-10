@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,21 +27,21 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `previousSlotEndTime` | `string` | The time that the previous schedule ended or will end. |
-| `nextSlotStartTime` | `string` | The time for the next schedule to start. |
-| `termStartDate` | `string` | The start date for the Scheduled Instance. |
-| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
+| `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
+| `scheduledInstanceId` | `string` | The Scheduled Instance ID. |
+| `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
 | `slotDurationInHours` | `integer` | The number of hours in the schedule. |
 | `termEndDate` | `string` | The end date for the Scheduled Instance. |
-| `createDate` | `string` | The date when the Scheduled Instance was purchased. |
+| `previousSlotEndTime` | `string` | The time that the previous schedule ended or will end. |
 | `instanceType` | `string` | The instance type. |
-| `scheduledInstanceId` | `string` | The Scheduled Instance ID. |
+| `termStartDate` | `string` | The start date for the Scheduled Instance. |
+| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
+| `availabilityZone` | `string` | The Availability Zone. |
+| `hourlyPrice` | `string` | The hourly price for a single instance. |
+| `createDate` | `string` | The date when the Scheduled Instance was purchased. |
 | `instanceCount` | `integer` | The number of instances. |
 | `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
-| `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
-| `hourlyPrice` | `string` | The hourly price for a single instance. |
-| `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
-| `availabilityZone` | `string` | The Availability Zone. |
+| `nextSlotStartTime` | `string` | The time for the next schedule to start. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

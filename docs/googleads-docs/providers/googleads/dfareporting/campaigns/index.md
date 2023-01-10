@@ -29,31 +29,31 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this campaign. This is a read-only auto-generated field. |
 | `name` | `string` | Name of this campaign. This is a required field and must be less than 512 characters long and unique among campaigns of the same advertiser. |
-| `clickThroughUrlSuffixProperties` | `object` | Click Through URL Suffix settings. |
-| `creativeOptimizationConfiguration` | `object` | Creative optimization settings. |
-| `archived` | `boolean` | Whether this campaign has been archived. |
-| `defaultClickThroughEventTagProperties` | `object` | Properties of inheriting and overriding the default click-through event tag. A campaign may override the event tag defined at the advertiser level, and an ad may also override the campaign's setting further. |
-| `advertiserId` | `string` | Advertiser ID of this campaign. This is a required field. |
 | `idDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `endDate` | `string` |  |
 | `adBlockingConfiguration` | `object` | Campaign ad blocking settings. |
-| `additionalCreativeOptimizationConfigurations` | `array` | Additional creative optimization configurations for the campaign. |
-| `defaultLandingPageId` | `string` | The default landing page ID for this campaign. |
-| `measurementPartnerLink` | `object` |  |
-| `createInfo` | `object` | Modification timestamp. |
-| `comment` | `string` | Arbitrary comments about this campaign. Must be less than 256 characters long. |
-| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `eventTagOverrides` | `array` | Overrides that can be used to activate or deactivate advertiser event tags. |
-| `externalId` | `string` | External ID for this campaign. |
-| `accountId` | `string` | Account ID of this campaign. This is a read-only field that can be left blank. |
-| `subaccountId` | `string` | Subaccount ID of this campaign. This is a read-only field that can be left blank. |
-| `creativeGroupIds` | `array` | List of creative group IDs that are assigned to the campaign. |
 | `billingInvoiceCode` | `string` | Billing invoice code included in the Campaign Manager client billing invoices associated with the campaign. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#campaign". |
-| `lastModifiedInfo` | `object` | Modification timestamp. |
-| `advertiserGroupId` | `string` | Advertiser group ID of the associated advertiser. |
-| `audienceSegmentGroups` | `array` | Audience segment groups assigned to this campaign. Cannot have more than 300 segment groups. |
+| `advertiserId` | `string` | Advertiser ID of this campaign. This is a required field. |
+| `endDate` | `string` |  |
 | `startDate` | `string` |  |
+| `createInfo` | `object` | Modification timestamp. |
+| `accountId` | `string` | Account ID of this campaign. This is a read-only field that can be left blank. |
+| `additionalCreativeOptimizationConfigurations` | `array` | Additional creative optimization configurations for the campaign. |
+| `advertiserGroupId` | `string` | Advertiser group ID of the associated advertiser. |
+| `subaccountId` | `string` | Subaccount ID of this campaign. This is a read-only field that can be left blank. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#campaign". |
+| `creativeGroupIds` | `array` | List of creative group IDs that are assigned to the campaign. |
+| `archived` | `boolean` | Whether this campaign has been archived. |
+| `measurementPartnerLink` | `object` |  |
+| `creativeOptimizationConfiguration` | `object` | Creative optimization settings. |
+| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `defaultLandingPageId` | `string` | The default landing page ID for this campaign. |
+| `comment` | `string` | Arbitrary comments about this campaign. Must be less than 256 characters long. |
+| `clickThroughUrlSuffixProperties` | `object` | Click Through URL Suffix settings. |
+| `eventTagOverrides` | `array` | Overrides that can be used to activate or deactivate advertiser event tags. |
+| `audienceSegmentGroups` | `array` | Audience segment groups assigned to this campaign. Cannot have more than 300 segment groups. |
+| `defaultClickThroughEventTagProperties` | `object` | Properties of inheriting and overriding the default click-through event tag. A campaign may override the event tag defined at the advertiser level, and an ad may also override the campaign's setting further. |
+| `externalId` | `string` | External ID for this campaign. |
+| `lastModifiedInfo` | `object` | Modification timestamp. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

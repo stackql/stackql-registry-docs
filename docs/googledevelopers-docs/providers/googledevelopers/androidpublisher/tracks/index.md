@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `releases` | `array` | In a read request, represents all active releases in the track. In an update request, represents desired changes. |
 | `track` | `string` | Identifier of the track. |
+| `releases` | `array` | In a read request, represents all active releases in the track. In an update request, represents desired changes. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

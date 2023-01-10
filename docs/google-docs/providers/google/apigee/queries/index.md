@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Asynchronous Query Name. |
-| `state` | `string` | Query state could be "enqueued", "running", "completed", "failed". |
-| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
-| `queryParams` | `object` |  |
-| `result` | `object` |  |
-| `updated` | `string` | Last updated timestamp for the query. |
-| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostQueries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
-| `reportDefinitionId` | `string` | Asynchronous Report ID. |
-| `error` | `string` | Error is set when query fails. |
-| `created` | `string` | Creation time of the query. |
 | `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
 | `resultRows` | `string` | ResultRows is available only after the query is completed. |
 | `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
+| `state` | `string` | Query state could be "enqueued", "running", "completed", "failed". |
+| `error` | `string` | Error is set when query fails. |
+| `updated` | `string` | Last updated timestamp for the query. |
+| `reportDefinitionId` | `string` | Asynchronous Report ID. |
+| `result` | `object` |  |
+| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
+| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostQueries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
+| `created` | `string` | Creation time of the query. |
+| `queryParams` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

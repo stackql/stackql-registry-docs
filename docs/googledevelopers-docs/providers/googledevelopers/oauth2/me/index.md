@@ -29,15 +29,15 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `id` | `string` | The obfuscated ID of the user. |
 | `name` | `string` | The user's full name. |
-| `locale` | `string` | The user's preferred locale. |
 | `email` | `string` | The user's email address. |
-| `gender` | `string` | The user's gender. |
-| `link` | `string` | URL of the profile page. |
-| `family_name` | `string` | The user's last name. |
 | `hd` | `string` | The hosted domain e.g. example.com if the user is Google apps user. |
-| `picture` | `string` | URL of the user's picture image. |
+| `family_name` | `string` | The user's last name. |
 | `given_name` | `string` | The user's first name. |
+| `locale` | `string` | The user's preferred locale. |
+| `picture` | `string` | URL of the user's picture image. |
+| `gender` | `string` | The user's gender. |
 | `verified_email` | `boolean` | Boolean flag which is true if the email address is verified. Always verified because we only return the user's primary email address. |
+| `link` | `string` | URL of the profile page. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

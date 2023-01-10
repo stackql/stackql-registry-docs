@@ -3,14 +3,16 @@ title: hooks_types
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - hooks_types
+  - hook_type
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -26,8 +28,8 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
-| `events` | `array` |
 | `fields` | `array` |
+| `events` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

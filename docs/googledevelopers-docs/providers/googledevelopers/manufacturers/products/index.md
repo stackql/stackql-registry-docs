@@ -28,13 +28,13 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name in the format `&#123;target_country&#125;:&#123;content_language&#125;:&#123;product_id&#125;`. `target_country` - The target country of the product as a CLDR territory code (for example, US). `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#id. |
+| `attributes` | `object` | Attributes of the product. For more information, see https://support.google.com/manufacturers/answer/6124116. |
+| `contentLanguage` | `string` | The content language of the product as a two-letter ISO 639-1 language code (for example, en). |
+| `destinationStatuses` | `array` | The status of the destinations. |
 | `issues` | `array` | A server-generated list of issues associated with the product. |
 | `parent` | `string` | Parent ID in the format `accounts/&#123;account_id&#125;`. `account_id` - The ID of the Manufacturer Center account. |
 | `productId` | `string` | The ID of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#id. |
 | `targetCountry` | `string` | The target country of the product as a CLDR territory code (for example, US). |
-| `attributes` | `object` | Attributes of the product. For more information, see https://support.google.com/manufacturers/answer/6124116. |
-| `contentLanguage` | `string` | The content language of the product as a two-letter ISO 639-1 language code (for example, en). |
-| `destinationStatuses` | `array` | The status of the destinations. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

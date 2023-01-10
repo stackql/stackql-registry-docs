@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Azure Cosmos DB Database Service Resource Provider REST API  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>39</b></span><br />
+<span>total selectable resources:&nbsp;<b>22</b></span><br />
+<span>total methods:&nbsp;<b>220</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Azure Cosmos DB Database Service Resource Provider REST API
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cosmos DB (Microsoft.DocumentDB)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Cosmos DB Database Service Resource Provider REST API</td></tr>
-<tr><td><b>Id</b></td><td><code>cosmos_db:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cosmos_db:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets the workflow run name. |
-| `type` | `string` | Gets the workflow run type. |
 | `properties` | `object` | The workflow run properties. |
+| `type` | `string` | Gets the workflow run type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

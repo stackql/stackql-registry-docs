@@ -3,14 +3,16 @@ title: gist_forks
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - gist_forks
+  - gists
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,25 +29,25 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `description` | `string` |  |
-| `comments_url` | `string` |  |
-| `commits_url` | `string` |  |
+| `git_push_url` | `string` |  |
 | `forks` | `array` |  |
 | `truncated` | `boolean` |  |
-| `created_at` | `string` |  |
-| `git_pull_url` | `string` |  |
-| `comments` | `integer` |  |
-| `url` | `string` |  |
-| `node_id` | `string` |  |
 | `fork_of` | `object` | Gist |
 | `forks_url` | `string` |  |
-| `user` | `string` |  |
 | `owner` | `object` | Simple User |
-| `history` | `array` |  |
+| `created_at` | `string` |  |
+| `comments_url` | `string` |  |
+| `user` | `string` |  |
 | `files` | `object` |  |
-| `git_push_url` | `string` |  |
-| `html_url` | `string` |  |
-| `updated_at` | `string` |  |
+| `git_pull_url` | `string` |  |
+| `node_id` | `string` |  |
+| `comments` | `integer` |  |
 | `public` | `boolean` |  |
+| `history` | `array` |  |
+| `updated_at` | `string` |  |
+| `commits_url` | `string` |  |
+| `url` | `string` |  |
+| `html_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

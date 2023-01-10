@@ -29,16 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID |
 | `name` | `string` | Resource name |
-| `sku` | `object` | SKU for the resource. |
-| `type` | `string` | Resource type |
-| `extendedLocation` | `object` | Resource extended location. |
-| `identity` | `object` | Identity for the resource. |
-| `kind` | `string` | The kind of the resource. |
 | `tags` | `object` | Resource tags |
-| `plan` | `object` | Plan for the resource. |
 | `properties` | `object` | The resource properties. |
 | `managedBy` | `string` | ID of the resource that manages this resource. |
+| `sku` | `object` | SKU for the resource. |
+| `extendedLocation` | `object` | Resource extended location. |
+| `kind` | `string` | The kind of the resource. |
+| `identity` | `object` | Identity for the resource. |
+| `plan` | `object` | Plan for the resource. |
 | `location` | `string` | Resource location |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

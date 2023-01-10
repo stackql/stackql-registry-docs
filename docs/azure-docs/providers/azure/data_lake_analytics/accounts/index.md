@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `type` | `string` | The resource type. |
 | `location` | `string` | The resource location. |
 | `properties` | `object` | The account specific properties that are associated with an underlying Data Lake Analytics account. Returned only when retrieving a specific account. |
 | `tags` | `object` | The resource tags. |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

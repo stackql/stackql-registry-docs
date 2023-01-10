@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name: &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125;. |
-| `origin` | `string` | The origin of the operation. |
 | `properties` | `object` | Additional properties. |
 | `display` | `object` | The operation supported by EnterpriseKnowledgeGraph Service Management. |
+| `origin` | `string` | The origin of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -3,14 +3,16 @@ title: clientgrants
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - clientgrants
+  - user
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -26,17 +28,17 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `scopeId` | `string` |
-| `created` | `string` |
-| `source` | `string` |
-| `createdBy` | `object` |
-| `issuer` | `string` |
-| `status` | `string` |
-| `_embedded` | `object` |
 | `_links` | `object` |
-| `userId` | `string` |
-| `clientId` | `string` |
 | `lastUpdated` | `string` |
+| `status` | `string` |
+| `source` | `string` |
+| `userId` | `string` |
+| `scopeId` | `string` |
+| `_embedded` | `object` |
+| `created` | `string` |
+| `issuer` | `string` |
+| `clientId` | `string` |
+| `createdBy` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `availabilityZoneId` | `string` | The Availability Zone. |
 | `region` | `string` | The Region. |
 | `score` | `integer` | The placement score, on a scale from &lt;code&gt;1&lt;/code&gt; to &lt;code&gt;10&lt;/code&gt;. A score of &lt;code&gt;10&lt;/code&gt; indicates that your Spot request is highly likely to succeed in this Region or Availability Zone. A score of &lt;code&gt;1&lt;/code&gt; indicates that your Spot request is not likely to succeed.  |
+| `availabilityZoneId` | `string` | The Availability Zone. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

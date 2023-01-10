@@ -29,18 +29,18 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Classroom-assigned identifier of this course work material, unique per course. Read-only. |
 | `description` | `string` | Optional description of this course work material. The text must be a valid UTF-8 string containing no more than 30,000 characters. |
-| `scheduledTime` | `string` | Optional timestamp when this course work material is scheduled to be published. |
-| `state` | `string` | Status of this course work material. If unspecified, the default state is `DRAFT`. |
 | `materials` | `array` | Additional materials. A course work material must have no more than 20 material items. |
-| `updateTime` | `string` | Timestamp of the most recent change to this course work material. Read-only. |
 | `courseId` | `string` | Identifier of the course. Read-only. |
-| `creationTime` | `string` | Timestamp when this course work material was created. Read-only. |
-| `assigneeMode` | `string` | Assignee mode of the course work material. If unspecified, the default value is `ALL_STUDENTS`. |
-| `title` | `string` | Title of this course work material. The title must be a valid UTF-8 string containing between 1 and 3000 characters. |
-| `alternateLink` | `string` | Absolute link to this course work material in the Classroom web UI. This is only populated if `state` is `PUBLISHED`. Read-only. |
-| `individualStudentsOptions` | `object` | Assignee details about a coursework/announcement. This field is set if and only if `assigneeMode` is `INDIVIDUAL_STUDENTS`. |
 | `creatorUserId` | `string` | Identifier for the user that created the course work material. Read-only. |
+| `assigneeMode` | `string` | Assignee mode of the course work material. If unspecified, the default value is `ALL_STUDENTS`. |
+| `scheduledTime` | `string` | Optional timestamp when this course work material is scheduled to be published. |
+| `alternateLink` | `string` | Absolute link to this course work material in the Classroom web UI. This is only populated if `state` is `PUBLISHED`. Read-only. |
+| `state` | `string` | Status of this course work material. If unspecified, the default state is `DRAFT`. |
+| `updateTime` | `string` | Timestamp of the most recent change to this course work material. Read-only. |
+| `title` | `string` | Title of this course work material. The title must be a valid UTF-8 string containing between 1 and 3000 characters. |
+| `individualStudentsOptions` | `object` | Assignee details about a coursework/announcement. This field is set if and only if `assigneeMode` is `INDIVIDUAL_STUDENTS`. |
 | `topicId` | `string` | Identifier for the topic that this course work material is associated with. Must match an existing topic in the course. |
+| `creationTime` | `string` | Timestamp when this course work material was created. Read-only. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

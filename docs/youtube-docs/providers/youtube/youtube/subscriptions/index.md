@@ -28,11 +28,11 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube uses to uniquely identify the subscription. |
+| `etag` | `string` | Etag of this resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#subscription". |
 | `snippet` | `object` | Basic details about a subscription, including title, description and thumbnails of the subscribed item. |
 | `subscriberSnippet` | `object` | Basic details about a subscription's subscriber including title, description, channel ID and thumbnails. |
 | `contentDetails` | `object` | Details about the content to witch a subscription refers. |
-| `etag` | `string` | Etag of this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

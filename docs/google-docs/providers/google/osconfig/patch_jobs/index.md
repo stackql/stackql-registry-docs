@@ -29,19 +29,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Unique identifier for this patch job in the form `projects/*/patchJobs/*` |
 | `description` | `string` | Description of the patch job. Length of the description is limited to 1024 characters. |
-| `dryRun` | `boolean` | If this patch job is a dry run, the agent reports that it has finished without running any updates on the VM instance. |
-| `patchConfig` | `object` | Patch configuration specifications. Contains details on how to apply the patch(es) to a VM instance. |
-| `rollout` | `object` | Patch rollout configuration specifications. Contains details on the concurrency control when applying patch(es) to all targeted VMs. |
-| `updateTime` | `string` | Last time this patch job was updated. |
+| `errorMessage` | `string` | If this patch job failed, this message provides information about the failure. |
+| `displayName` | `string` | Display name for this patch job. This is not a unique identifier. |
 | `instanceFilter` | `object` | A filter to target VM instances for patching. The targeted VMs must meet all criteria specified. So if both labels and zones are specified, the patch job targets only VMs with those labels and in those zones. |
 | `patchDeployment` | `string` | Output only. Name of the patch deployment that created this patch job. |
-| `errorMessage` | `string` | If this patch job failed, this message provides information about the failure. |
-| `duration` | `string` | Duration of the patch job. After the duration ends, the patch job times out. |
-| `state` | `string` | The current state of the PatchJob. |
-| `createTime` | `string` | Time this patch job was created. |
-| `displayName` | `string` | Display name for this patch job. This is not a unique identifier. |
+| `updateTime` | `string` | Last time this patch job was updated. |
 | `instanceDetailsSummary` | `object` | A summary of the current patch state across all instances that this patch job affects. Contains counts of instances in different states. These states map to `InstancePatchState`. List patch job instance details to see the specific states of each instance. |
+| `patchConfig` | `object` | Patch configuration specifications. Contains details on how to apply the patch(es) to a VM instance. |
+| `rollout` | `object` | Patch rollout configuration specifications. Contains details on the concurrency control when applying patch(es) to all targeted VMs. |
+| `createTime` | `string` | Time this patch job was created. |
 | `percentComplete` | `number` | Reflects the overall progress of the patch job in the range of 0.0 being no progress to 100.0 being complete. |
+| `state` | `string` | The current state of the PatchJob. |
+| `duration` | `string` | Duration of the patch job. After the duration ends, the patch job times out. |
+| `dryRun` | `boolean` | If this patch job is a dry run, the agent reports that it has finished without running any updates on the VM instance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

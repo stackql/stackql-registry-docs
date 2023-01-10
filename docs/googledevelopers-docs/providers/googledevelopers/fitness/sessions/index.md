@@ -27,10 +27,10 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `hasMoreData` | `boolean` | Flag to indicate server has more data to transfer. DO NOT USE THIS FIELD. It is never populated in responses from the server. |
 | `nextPageToken` | `string` | The sync token which is used to sync further changes. This will only be provided if both startTime and endTime are omitted from the request. |
 | `session` | `array` | Sessions with an end time that is between startTime and endTime of the request. |
 | `deletedSession` | `array` | If includeDeleted is set to true in the request, and startTime and endTime are omitted, this will include sessions which were deleted since the last sync. |
+| `hasMoreData` | `boolean` | Flag to indicate server has more data to transfer. DO NOT USE THIS FIELD. It is never populated in responses from the server. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

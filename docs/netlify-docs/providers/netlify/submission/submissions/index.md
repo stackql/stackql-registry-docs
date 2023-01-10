@@ -3,14 +3,16 @@ title: submissions
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - submissions
+  - submission
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -27,15 +29,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `last_name` | `string` |
-| `site_url` | `string` |
-| `body` | `string` |
 | `email` | `string` |
-| `company` | `string` |
-| `first_name` | `string` |
-| `summary` | `string` |
-| `data` | `object` |
+| `site_url` | `string` |
 | `number` | `integer` |
+| `data` | `object` |
+| `first_name` | `string` |
+| `body` | `string` |
+| `company` | `string` |
+| `last_name` | `string` |
+| `summary` | `string` |
 | `created_at` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |

@@ -29,20 +29,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the scan, of the form: projects/&#123;project&#125;/locations/&#123;location_id&#125;/dataScans/&#123;datascan_id&#125;. where &#123;project&#125; refers to a project_id or project_number and location_id refers to a GCP region. |
 | `description` | `string` | Optional. Description of the scan. * Must be between 1-1024 characters. |
-| `executionStatus` | `object` | Status of the data scan execution. |
-| `dataProfileSpec` | `object` | DataProfileScan related setting. |
-| `data` | `object` | The data source for DataScan. |
-| `dataQualitySpec` | `object` | DataQualityScan related setting. |
-| `state` | `string` | Output only. Current state of the DataScan. |
-| `dataQualityResult` | `object` | The output of a DataQualityScan. |
-| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
 | `updateTime` | `string` | Output only. The time when the scan was last updated. |
-| `labels` | `object` | Optional. User-defined labels for the scan. |
-| `createTime` | `string` | Output only. The time when the scan was created. |
+| `dataProfileSpec` | `object` | DataProfileScan related setting. |
 | `uid` | `string` | Output only. System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name. |
-| `executionSpec` | `object` | DataScan execution settings. |
+| `executionStatus` | `object` | Status of the data scan execution. |
 | `displayName` | `string` | Optional. User friendly display name. * Must be between 1-256 characters. |
+| `executionSpec` | `object` | DataScan execution settings. |
+| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
+| `data` | `object` | The data source for DataScan. |
+| `dataQualityResult` | `object` | The output of a DataQualityScan. |
+| `state` | `string` | Output only. Current state of the DataScan. |
+| `labels` | `object` | Optional. User-defined labels for the scan. |
+| `dataQualitySpec` | `object` | DataQualityScan related setting. |
 | `type` | `string` | Output only. The type of DataScan. |
+| `createTime` | `string` | Output only. The time when the scan was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

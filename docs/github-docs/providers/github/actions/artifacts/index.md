@@ -3,15 +3,16 @@ title: artifacts
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - stackql
-  - github
+  - artifacts
   - actions
+  - github    
+  - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -30,12 +31,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `name` | `string` | The name of the artifact. |
 | `node_id` | `string` |  |
 | `archive_download_url` | `string` |  |
-| `created_at` | `string` |  |
 | `size_in_bytes` | `integer` | The size in bytes of the artifact. |
 | `expired` | `boolean` | Whether or not the artifact has expired. |
+| `updated_at` | `string` |  |
 | `url` | `string` |  |
 | `expires_at` | `string` |  |
-| `updated_at` | `string` |  |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

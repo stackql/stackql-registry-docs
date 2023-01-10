@@ -3,14 +3,16 @@ title: team_access
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - team_access
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -28,16 +30,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `integer` |  |
 | `name` | `string` |  |
 | `description` | `string` |  |
-| `members_url` | `string` |  |
 | `node_id` | `string` |  |
+| `permission` | `string` |  |
+| `privacy` | `string` |  |
+| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
+| `members_url` | `string` |  |
+| `url` | `string` |  |
 | `permissions` | `object` |  |
+| `slug` | `string` |  |
 | `repositories_url` | `string` |  |
 | `html_url` | `string` |  |
-| `slug` | `string` |  |
-| `privacy` | `string` |  |
-| `url` | `string` |  |
-| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
-| `permission` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

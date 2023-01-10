@@ -27,16 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `locations` | `array` | The collection of locations where this resource type can be created. |
-| `resourceType` | `string` | The resource type. |
-| `properties` | `object` | The properties. |
-| `zoneMappings` | `array` |  |
-| `aliases` | `array` | The aliases that are supported by this resource type. |
 | `locationMappings` | `array` | The location mappings that are supported by this resource type. |
 | `apiVersions` | `array` | The API version. |
-| `capabilities` | `string` | The additional capabilities offered by this resource type. |
 | `apiProfiles` | `array` | The API profiles for the resource provider. |
 | `defaultApiVersion` | `string` | The default API version. |
+| `aliases` | `array` | The aliases that are supported by this resource type. |
+| `zoneMappings` | `array` |  |
+| `capabilities` | `string` | The additional capabilities offered by this resource type. |
+| `properties` | `object` | The properties. |
+| `resourceType` | `string` | The resource type. |
+| `locations` | `array` | The collection of locations where this resource type can be created. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

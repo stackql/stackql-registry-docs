@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `replayResults` | `array` | The results of running a Replay. |
 | `nextPageToken` | `string` | A token that you can use to retrieve the next page of ReplayResult objects. If this field is omitted, there are no subsequent pages. |
+| `replayResults` | `array` | The results of running a Replay. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

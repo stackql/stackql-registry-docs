@@ -3,15 +3,16 @@ title: workflow_run_approvals
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - stackql
-  - github
+  - workflow_run_approvals
   - actions
+  - github    
+  - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `comment` | `string` | The comment submitted with the deployment review |
 | `environments` | `array` | The list of environments that were approved or rejected |
 | `state` | `string` | Whether deployment to the environment(s) was approved or rejected |
 | `user` | `object` | Simple User |
+| `comment` | `string` | The comment submitted with the deployment review |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

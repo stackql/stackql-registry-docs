@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id represents the complete path to the resource. |
 | `name` | `string` | Resource name associated with the resource. |
+| `location` | `string` | Resource location. |
 | `properties` | `object` | Base class for container with backup items. Containers with specific workloads are derived from this class. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 | `eTag` | `string` | Optional ETag. |
-| `location` | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

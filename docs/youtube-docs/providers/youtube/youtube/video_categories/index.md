@@ -28,9 +28,9 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube uses to uniquely identify the video category. |
-| `snippet` | `object` | Basic details about a video category, such as its localized title. |
 | `etag` | `string` | Etag of this resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#videoCategory". |
+| `snippet` | `object` | Basic details about a video category, such as its localized title. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

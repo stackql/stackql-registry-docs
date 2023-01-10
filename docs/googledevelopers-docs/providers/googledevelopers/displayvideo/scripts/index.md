@@ -28,13 +28,13 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the custom bidding script. |
-| `script` | `object` | The reference to the uploaded custom bidding script file. |
 | `state` | `string` | Output only. The state of the custom bidding script. |
 | `active` | `boolean` | Output only. Whether the script is currently being used for scoring by the parent algorithm. |
 | `createTime` | `string` | Output only. The time when the script was created. |
 | `customBiddingAlgorithmId` | `string` | Output only. The unique ID of the custom bidding algorithm the script belongs to. |
 | `customBiddingScriptId` | `string` | Output only. The unique ID of the custom bidding script. |
 | `errors` | `array` | Output only. Error details of a rejected custom bidding script. This field will only be populated when Script.state is REJECTED. |
+| `script` | `object` | The reference to the uploaded custom bidding script file. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

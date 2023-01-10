@@ -3,14 +3,16 @@ title: trustedorigins
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - trustedorigins
+  - trustedorigin
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -28,13 +30,13 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `string` |
 | `name` | `string` |
 | `created` | `string` |
-| `scopes` | `array` |
+| `createdBy` | `string` |
 | `lastUpdated` | `string` |
 | `origin` | `string` |
-| `createdBy` | `string` |
-| `_links` | `object` |
 | `status` | `string` |
+| `_links` | `object` |
 | `lastUpdatedBy` | `string` |
+| `scopes` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

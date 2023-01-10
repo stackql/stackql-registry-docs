@@ -30,19 +30,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] An optional textual description of the resource. |
-| `guestCpus` | `integer` | [Output Only] The number of virtual CPUs that are available to the instance. |
-| `kind` | `string` | [Output Only] The type of the resource. Always compute#machineType for machine types. |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `memoryMb` | `integer` | [Output Only] The amount of physical memory available to the instance, defined in MB. |
-| `maximumPersistentDisks` | `integer` | [Output Only] Maximum persistent disks allowed. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `scratchDisks` | `array` | [Output Only] A list of extended scratch disks assigned to the instance. |
 | `accelerators` | `array` | [Output Only] A list of accelerator configurations assigned to this machine type. |
-| `imageSpaceGb` | `integer` | [Deprecated] This property is deprecated and will never be populated with any relevant values. |
-| `isSharedCpu` | `boolean` | [Output Only] Whether this machine type has a shared CPU. See Shared-core machine types for more information. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `deprecated` | `object` | Deprecation status for a public resource. |
+| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | `maximumPersistentDisksSizeGb` | `string` | [Output Only] Maximum total persistent disks size (GB) allowed. |
+| `kind` | `string` | [Output Only] The type of the resource. Always compute#machineType for machine types. |
+| `imageSpaceGb` | `integer` | [Deprecated] This property is deprecated and will never be populated with any relevant values. |
+| `maximumPersistentDisks` | `integer` | [Output Only] Maximum persistent disks allowed. |
 | `zone` | `string` | [Output Only] The name of the zone where the machine type resides, such as us-central1-a. |
+| `isSharedCpu` | `boolean` | [Output Only] Whether this machine type has a shared CPU. See Shared-core machine types for more information. |
+| `guestCpus` | `integer` | [Output Only] The number of virtual CPUs that are available to the instance. |
+| `memoryMb` | `integer` | [Output Only] The amount of physical memory available to the instance, defined in MB. |
+| `deprecated` | `object` | Deprecation status for a public resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

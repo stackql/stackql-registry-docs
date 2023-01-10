@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The operation id. |
 | `name` | `string` | The operation name. |
-| `error` | `object` | The error detail. |
 | `startTime` | `string` | The operation start time. |
 | `status` | `string` | The operation status. |
 | `endTime` | `string` | The operation end time. |
+| `error` | `object` | The error detail. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

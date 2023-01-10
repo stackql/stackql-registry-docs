@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of a database blob auditing policy. |
 | `kind` | `string` | Resource kind. |
+| `properties` | `object` | Properties of a database blob auditing policy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

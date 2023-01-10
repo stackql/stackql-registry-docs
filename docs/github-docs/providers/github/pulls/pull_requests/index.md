@@ -3,14 +3,16 @@ title: pull_requests
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - pull_requests
+  - pulls
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,53 +28,53 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `base` | `object` |  |
-| `review_comments_url` | `string` |  |
-| `rebaseable` | `boolean` |  |
-| `deletions` | `integer` |  |
-| `number` | `integer` | Number uniquely identifying the pull request within its repository. |
-| `commits` | `integer` |  |
-| `comments_url` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `title` | `string` | The title of the pull request. |
-| `updated_at` | `string` |  |
-| `maintainer_can_modify` | `boolean` | Indicates whether maintainers can modify the pull request. |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `merge_commit_sha` | `string` |  |
-| `url` | `string` |  |
-| `changed_files` | `integer` |  |
-| `html_url` | `string` |  |
-| `merged` | `boolean` |  |
-| `merged_by` | `object` | Simple User |
-| `milestone` | `object` | A collection of related issues and pull requests. |
-| `head` | `object` |  |
-| `mergeable_state` | `string` |  |
-| `requested_teams` | `array` |  |
-| `_links` | `object` |  |
-| `state` | `string` | State of this Pull Request. Either `open` or `closed`. |
-| `statuses_url` | `string` |  |
-| `issue_url` | `string` |  |
 | `assignee` | `object` | Simple User |
-| `auto_merge` | `object` | The status of auto merging a pull request. |
+| `head` | `object` |  |
+| `state` | `string` | State of this Pull Request. Either `open` or `closed`. |
+| `url` | `string` |  |
 | `comments` | `integer` |  |
+| `html_url` | `string` |  |
+| `requested_teams` | `array` |  |
+| `closed_at` | `string` |  |
+| `additions` | `integer` |  |
+| `assignees` | `array` |  |
+| `base` | `object` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `merged_by` | `object` | Simple User |
+| `review_comments_url` | `string` |  |
+| `auto_merge` | `object` | The status of auto merging a pull request. |
+| `created_at` | `string` |  |
+| `user` | `object` | Simple User |
+| `labels` | `array` |  |
+| `body` | `string` |  |
+| `comments_url` | `string` |  |
+| `changed_files` | `integer` |  |
+| `patch_url` | `string` |  |
+| `commits_url` | `string` |  |
+| `node_id` | `string` |  |
+| `merged` | `boolean` |  |
+| `active_lock_reason` | `string` |  |
+| `number` | `integer` | Number uniquely identifying the pull request within its repository. |
 | `merged_at` | `string` |  |
 | `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
 | `diff_url` | `string` |  |
-| `created_at` | `string` |  |
 | `requested_reviewers` | `array` |  |
-| `review_comment_url` | `string` |  |
-| `labels` | `array` |  |
-| `assignees` | `array` |  |
-| `body` | `string` |  |
-| `patch_url` | `string` |  |
-| `node_id` | `string` |  |
-| `commits_url` | `string` |  |
-| `review_comments` | `integer` |  |
-| `closed_at` | `string` |  |
-| `mergeable` | `boolean` |  |
-| `user` | `object` | Simple User |
+| `commits` | `integer` |  |
+| `deletions` | `integer` |  |
+| `milestone` | `object` | A collection of related issues and pull requests. |
 | `locked` | `boolean` |  |
-| `additions` | `integer` |  |
+| `mergeable_state` | `string` |  |
+| `_links` | `object` |  |
+| `statuses_url` | `string` |  |
+| `merge_commit_sha` | `string` |  |
+| `review_comments` | `integer` |  |
+| `rebaseable` | `boolean` |  |
+| `issue_url` | `string` |  |
+| `mergeable` | `boolean` |  |
+| `title` | `string` | The title of the pull request. |
+| `maintainer_can_modify` | `boolean` | Indicates whether maintainers can modify the pull request. |
+| `updated_at` | `string` |  |
+| `review_comment_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,14 +28,14 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `state` | `string` | The state of the VPC attachment. Note that the &lt;code&gt;initiating&lt;/code&gt; state has been deprecated. |
+| `transitGatewayId` | `string` | The ID of the transit gateway. |
 | `subnetIds` | `array` | The IDs of the subnets. |
+| `vpcId` | `string` | The ID of the VPC. |
+| `vpcOwnerId` | `string` | The ID of the Amazon Web Services account that owns the VPC. |
 | `tagSet` | `array` | The tags for the VPC attachment. |
+| `transitGatewayAttachmentId` | `string` | The ID of the attachment. |
 | `creationTime` | `string` | The creation time. |
 | `options` | `object` | Describes the VPC attachment options. |
-| `vpcOwnerId` | `string` | The ID of the Amazon Web Services account that owns the VPC. |
-| `vpcId` | `string` | The ID of the VPC. |
-| `transitGatewayAttachmentId` | `string` | The ID of the attachment. |
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

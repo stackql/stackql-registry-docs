@@ -27,24 +27,24 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `buyer` | `object` | Represents a buyer of inventory. Each buyer is identified by a unique Authorized Buyers account ID. |
-| `lastUpdaterOrCommentorRole` | `string` | Output only. The role of the last user that either updated the proposal or left a comment. |
+| `seller` | `object` | Represents a seller of inventory. Each seller is identified by a unique Ad Manager account ID. |
+| `buyerPrivateData` | `object` | Buyers are allowed to store certain types of private data in a proposal/deal. |
 | `proposalId` | `string` | Output only. The unique ID of the proposal. |
-| `proposalRevision` | `string` | Output only. The revision number for the proposal. Each update to the proposal or the deal causes the proposal revision number to auto-increment. The buyer keeps track of the last revision number they know of and pass it in when making an update. If the head revision number on the server has since incremented, then an ABORTED error is returned during the update operation to let the buyer know that a subsequent update was made. |
-| `notes` | `array` | Output only. The notes associated with this proposal. |
+| `buyerContacts` | `array` | Contact information for the buyer. |
+| `lastUpdaterOrCommentorRole` | `string` | Output only. The role of the last user that either updated the proposal or left a comment. |
+| `buyer` | `object` | Represents a buyer of inventory. Each buyer is identified by a unique Authorized Buyers account ID. |
+| `updateTime` | `string` | Output only. The time when the proposal was last revised. |
+| `billedBuyer` | `object` | Represents a buyer of inventory. Each buyer is identified by a unique Authorized Buyers account ID. |
+| `privateAuctionId` | `string` | Output only. Private auction ID if this proposal is a private auction proposal. |
+| `displayName` | `string` | The name for the proposal. |
+| `termsAndConditions` | `string` | Output only. The terms and conditions set by the publisher for this proposal. |
+| `deals` | `array` | The deals associated with this proposal. For Private Auction proposals (whose deals have NonGuaranteedAuctionTerms), there will only be one deal. |
+| `sellerContacts` | `array` | Output only. Contact information for the seller. |
 | `proposalState` | `string` | Output only. The current state of the proposal. |
 | `originatorRole` | `string` | Output only. Indicates whether the buyer/seller created the proposal. |
 | `isSetupComplete` | `boolean` | Output only. True, if the buyside inventory setup is complete for this proposal. |
-| `termsAndConditions` | `string` | Output only. The terms and conditions set by the publisher for this proposal. |
-| `deals` | `array` | The deals associated with this proposal. For Private Auction proposals (whose deals have NonGuaranteedAuctionTerms), there will only be one deal. |
-| `billedBuyer` | `object` | Represents a buyer of inventory. Each buyer is identified by a unique Authorized Buyers account ID. |
-| `sellerContacts` | `array` | Output only. Contact information for the seller. |
-| `displayName` | `string` | The name for the proposal. |
-| `buyerContacts` | `array` | Contact information for the buyer. |
-| `privateAuctionId` | `string` | Output only. Private auction ID if this proposal is a private auction proposal. |
-| `updateTime` | `string` | Output only. The time when the proposal was last revised. |
-| `buyerPrivateData` | `object` | Buyers are allowed to store certain types of private data in a proposal/deal. |
-| `seller` | `object` | Represents a seller of inventory. Each seller is identified by a unique Ad Manager account ID. |
+| `notes` | `array` | Output only. The notes associated with this proposal. |
+| `proposalRevision` | `string` | Output only. The revision number for the proposal. Each update to the proposal or the deal causes the proposal revision number to auto-increment. The buyer keeps track of the last revision number they know of and pass it in when making an update. If the head revision number on the server has since incremented, then an ABORTED error is returned during the update operation to let the buyer know that a subsequent update was made. |
 | `isRenegotiating` | `boolean` | Output only. True if the proposal is being renegotiated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource Id for the resource. |
 | `name` | `string` | The name of the resource |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. |
-| `identity` | `object` | Defines the MSI properties of the Move Collection. |
 | `location` | `string` | The geo-location where the resource lives. |
 | `properties` | `object` | Defines the move collection properties. |
 | `tags` | `object` | Resource tags. |
+| `identity` | `object` | Defines the MSI properties of the Move Collection. |
 | `etag` | `string` | The etag of the resource. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

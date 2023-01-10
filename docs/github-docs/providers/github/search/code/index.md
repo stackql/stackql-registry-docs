@@ -3,14 +3,16 @@ title: code
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - code
+  - search
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,18 +28,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `git_url` | `string` |  |
-| `language` | `string` |  |
 | `path` | `string` |  |
-| `sha` | `string` |  |
-| `file_size` | `integer` |  |
-| `url` | `string` |  |
-| `line_numbers` | `array` |  |
-| `last_modified_at` | `string` |  |
-| `repository` | `object` | Minimal Repository |
-| `score` | `number` |  |
-| `text_matches` | `array` |  |
+| `language` | `string` |  |
 | `html_url` | `string` |  |
+| `last_modified_at` | `string` |  |
+| `line_numbers` | `array` |  |
+| `repository` | `object` | Minimal Repository |
+| `url` | `string` |  |
+| `git_url` | `string` |  |
+| `file_size` | `integer` |  |
+| `score` | `number` |  |
+| `sha` | `string` |  |
+| `text_matches` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,8 +27,8 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `configFileContents` | `string` | The contents of the JSON configuration file. |
 | `configFilename` | `string` | The filename that the configuration artifact for the `AndroidApp` is typically saved as. For example: `google-services.json` |
+| `configFileContents` | `string` | The contents of the JSON configuration file. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

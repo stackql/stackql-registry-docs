@@ -28,8 +28,8 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The relative resource name of the debug token, in the format: ``` projects/&#123;project_number&#125;/apps/&#123;app_id&#125;/debugTokens/&#123;debug_token_id&#125; ``` |
-| `token` | `string` | Required. Input only. Immutable. The secret token itself. Must be provided during creation, and must be a UUID4, case insensitive. This field is immutable once set, and cannot be provided during an UpdateDebugToken request. You can, however, delete this debug token using DeleteDebugToken to revoke it. For security reasons, this field will never be populated in any response. |
 | `displayName` | `string` | Required. A human readable display name used to identify this debug token. |
+| `token` | `string` | Required. Input only. Immutable. The secret token itself. Must be provided during creation, and must be a UUID4, case insensitive. This field is immutable once set, and cannot be provided during an UpdateDebugToken request. You can, however, delete this debug token using DeleteDebugToken to revoke it. For security reasons, this field will never be populated in any response. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

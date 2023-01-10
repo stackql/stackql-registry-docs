@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token to retrieve the next page of results. Pass this value in the ListFilteredBidRequestsRequest.pageToken field in the subsequent call to the filteredBidRequests.list method to retrieve the next page of results. |
 | `calloutStatusRows` | `array` | List of rows, with counts of filtered bid requests aggregated by callout status. |
+| `nextPageToken` | `string` | A token to retrieve the next page of results. Pass this value in the ListFilteredBidRequestsRequest.pageToken field in the subsequent call to the filteredBidRequests.list method to retrieve the next page of results. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

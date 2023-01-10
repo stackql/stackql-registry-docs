@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,11 +27,11 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `subnet` | `object` | Describes the subnet association with the transit gateway multicast domain. |
+| `transitGatewayAttachmentId` | `string` | The ID of the transit gateway attachment. |
 | `resourceId` | `string` | The ID of the resource. |
 | `resourceOwnerId` | `string` |  The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource. |
 | `resourceType` | `string` | The type of resource, for example a VPC attachment. |
-| `subnet` | `object` | Describes the subnet association with the transit gateway multicast domain. |
-| `transitGatewayAttachmentId` | `string` | The ID of the transit gateway attachment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

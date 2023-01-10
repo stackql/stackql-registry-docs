@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Web Apps  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>30</b></span><br />
+<span>total selectable resources:&nbsp;<b>21</b></span><br />
+<span>total methods:&nbsp;<b>696</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Web Apps
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Web Apps (Microsoft.Web)</td></tr>
 <tr><td><b>Description</b></td><td>Web Apps</td></tr>
-<tr><td><b>Id</b></td><td><code>web_apps:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>web_apps:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

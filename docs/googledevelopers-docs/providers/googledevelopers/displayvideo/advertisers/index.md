@@ -28,19 +28,19 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the advertiser. |
-| `generalConfig` | `object` | General settings of an advertiser. |
-| `entityStatus` | `string` | Required. Controls whether or not insertion orders and line items of the advertiser can spend their budgets and bid on inventory. * Accepted values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_PAUSED` and `ENTITY_STATUS_SCHEDULED_FOR_DELETION`. * If set to `ENTITY_STATUS_SCHEDULED_FOR_DELETION`, the advertiser will be deleted 30 days from when it was first scheduled for deletion. |
-| `servingConfig` | `object` | Targeting settings related to ad serving of an advertiser. |
-| `integrationDetails` | `object` | Integration details of an entry. |
-| `partnerId` | `string` | Required. Immutable. The unique ID of the partner that the advertiser belongs to. |
-| `dataAccessConfig` | `object` | Settings that control how advertiser related data may be accessed. |
-| `billingConfig` | `object` | Billing related settings of an advertiser. |
-| `displayName` | `string` | Required. The display name of the advertiser. Must be UTF-8 encoded with a maximum size of 240 bytes. |
-| `advertiserId` | `string` | Output only. The unique ID of the advertiser. Assigned by the system. |
-| `creativeConfig` | `object` | Creatives related settings of an advertiser. |
-| `adServerConfig` | `object` | Ad server related settings of an advertiser. |
 | `updateTime` | `string` | Output only. The timestamp when the advertiser was last updated. Assigned by the system. |
+| `generalConfig` | `object` | General settings of an advertiser. |
 | `prismaEnabled` | `boolean` | Whether integration with Mediaocean (Prisma) is enabled. By enabling this, you agree to the following: On behalf of my company, I authorize Mediaocean (Prisma) to send budget segment plans to Google, and I authorize Google to send corresponding reporting and invoices from DV360 to Mediaocean for the purposes of budget planning, billing, and reconciliation for this advertiser. |
+| `billingConfig` | `object` | Billing related settings of an advertiser. |
+| `advertiserId` | `string` | Output only. The unique ID of the advertiser. Assigned by the system. |
+| `dataAccessConfig` | `object` | Settings that control how advertiser related data may be accessed. |
+| `servingConfig` | `object` | Targeting settings related to ad serving of an advertiser. |
+| `partnerId` | `string` | Required. Immutable. The unique ID of the partner that the advertiser belongs to. |
+| `creativeConfig` | `object` | Creatives related settings of an advertiser. |
+| `entityStatus` | `string` | Required. Controls whether or not insertion orders and line items of the advertiser can spend their budgets and bid on inventory. * Accepted values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_PAUSED` and `ENTITY_STATUS_SCHEDULED_FOR_DELETION`. * If set to `ENTITY_STATUS_SCHEDULED_FOR_DELETION`, the advertiser will be deleted 30 days from when it was first scheduled for deletion. |
+| `adServerConfig` | `object` | Ad server related settings of an advertiser. |
+| `integrationDetails` | `object` | Integration details of an entry. |
+| `displayName` | `string` | Required. The display name of the advertiser. Must be UTF-8 encoded with a maximum size of 240 bytes. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -3,14 +3,16 @@ title: issues_and_pull_requests
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - issues_and_pull_requests
+  - search
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,39 +28,39 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
+| `node_id` | `string` |  |
+| `assignee` | `object` | Simple User |
+| `draft` | `boolean` |  |
+| `labels_url` | `string` |  |
+| `active_lock_reason` | `string` |  |
+| `timeline_url` | `string` |  |
+| `repository` | `object` | A git repository |
+| `body_html` | `string` |  |
+| `assignees` | `array` |  |
+| `html_url` | `string` |  |
+| `comments` | `integer` |  |
+| `labels` | `array` |  |
+| `user` | `object` | Simple User |
+| `text_matches` | `array` |  |
+| `title` | `string` |  |
 | `comments_url` | `string` |  |
 | `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `updated_at` | `string` |  |
-| `events_url` | `string` |  |
-| `score` | `number` |  |
-| `url` | `string` |  |
-| `body_html` | `string` |  |
-| `milestone` | `object` | A collection of related issues and pull requests. |
-| `assignee` | `object` | Simple User |
-| `body_text` | `string` |  |
-| `pull_request` | `object` |  |
-| `body` | `string` |  |
-| `labels` | `array` |  |
-| `labels_url` | `string` |  |
-| `node_id` | `string` |  |
-| `locked` | `boolean` |  |
-| `repository_url` | `string` |  |
-| `repository` | `object` | A git repository |
-| `title` | `string` |  |
-| `user` | `object` | Simple User |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `comments` | `integer` |  |
-| `assignees` | `array` |  |
-| `timeline_url` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `text_matches` | `array` |  |
-| `draft` | `boolean` |  |
-| `number` | `integer` |  |
-| `state` | `string` |  |
-| `html_url` | `string` |  |
 | `reactions` | `object` |  |
-| `created_at` | `string` |  |
+| `pull_request` | `object` |  |
+| `events_url` | `string` |  |
+| `url` | `string` |  |
+| `state` | `string` |  |
+| `score` | `number` |  |
+| `body_text` | `string` |  |
+| `milestone` | `object` | A collection of related issues and pull requests. |
+| `locked` | `boolean` |  |
 | `closed_at` | `string` |  |
+| `body` | `string` |  |
+| `number` | `integer` |  |
+| `updated_at` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `repository_url` | `string` |  |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 The billing client allows you to view and manage your billing details programmatically.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>21</b></span><br />
+<span>total selectable resources:&nbsp;<b>19</b></span><br />
+<span>total methods:&nbsp;<b>79</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ The billing client allows you to view and manage your billing details programmat
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Billing Management Client (Microsoft.Billing)</td></tr>
 <tr><td><b>Description</b></td><td>The billing client allows you to view and manage your billing details programmatically.</td></tr>
-<tr><td><b>Id</b></td><td><code>billing:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>billing:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

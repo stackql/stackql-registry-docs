@@ -3,14 +3,16 @@ title: dns_zones
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - dns_zones
+  - dns_zone
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -27,20 +29,20 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `errors` | `array` |
-| `account_name` | `string` |
 | `account_slug` | `string` |
-| `supported_record_types` | `array` |
-| `records` | `array` |
-| `created_at` | `string` |
-| `updated_at` | `string` |
-| `ipv6_enabled` | `boolean` |
 | `domain` | `string` |
+| `ipv6_enabled` | `boolean` |
+| `supported_record_types` | `array` |
+| `updated_at` | `string` |
+| `created_at` | `string` |
+| `dns_servers` | `array` |
+| `errors` | `array` |
+| `records` | `array` |
+| `site_id` | `string` |
+| `user_id` | `string` |
 | `dedicated` | `boolean` |
 | `account_id` | `string` |
-| `dns_servers` | `array` |
-| `user_id` | `string` |
-| `site_id` | `string` |
+| `account_name` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

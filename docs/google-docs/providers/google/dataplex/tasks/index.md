@@ -30,16 +30,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Output only. The relative resource name of the task, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/ tasks/&#123;task_id&#125;. |
 | `description` | `string` | Optional. Description of the task. |
 | `executionStatus` | `object` | Status of the task execution (e.g. Jobs). |
-| `labels` | `object` | Optional. User-defined labels for the task. |
-| `notebook` | `object` | Config for running scheduled notebooks. |
-| `uid` | `string` | Output only. System generated globally unique ID for the task. This ID will be different if the task is deleted and re-created with the same name. |
 | `updateTime` | `string` | Output only. The time when the task was last updated. |
-| `triggerSpec` | `object` | Task scheduling and trigger settings. |
 | `displayName` | `string` | Optional. User friendly display name. |
-| `createTime` | `string` | Output only. The time when the task was created. |
 | `executionSpec` | `object` | Execution related settings, like retry and service_account. |
-| `spark` | `object` | User-specified config for running a Spark task. |
 | `state` | `string` | Output only. Current state of the task. |
+| `labels` | `object` | Optional. User-defined labels for the task. |
+| `triggerSpec` | `object` | Task scheduling and trigger settings. |
+| `notebook` | `object` | Config for running scheduled notebooks. |
+| `spark` | `object` | User-specified config for running a Spark task. |
+| `uid` | `string` | Output only. System generated globally unique ID for the task. This ID will be different if the task is deleted and re-created with the same name. |
+| `createTime` | `string` | Output only. The time when the task was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

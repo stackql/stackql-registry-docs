@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `managedBy` | `string` | Fully qualified resource ID of the sql pool |
 | `properties` | `object` | The properties of a database data masking policy. |
 | `kind` | `string` | The kind of data masking policy. Metadata, used for Azure portal. |
 | `location` | `string` | The location of the data masking policy. |
-| `managedBy` | `string` | Fully qualified resource ID of the sql pool |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

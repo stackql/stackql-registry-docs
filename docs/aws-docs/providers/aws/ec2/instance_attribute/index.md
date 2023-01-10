@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,22 +27,22 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `enclaveOptions` | `object` | Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. |
-| `disableApiTermination` | `object` | Describes a value for a resource attribute that is a Boolean value. |
-| `enaSupport` | `object` | Describes a value for a resource attribute that is a Boolean value. |
-| `instanceInitiatedShutdownBehavior` | `object` | Describes a value for a resource attribute that is a String. |
-| `sourceDestCheck` | `object` | Describes a value for a resource attribute that is a Boolean value. |
-| `groupSet` | `array` | The security groups associated with the instance. |
-| `rootDeviceName` | `object` | Describes a value for a resource attribute that is a String. |
-| `kernel` | `object` | Describes a value for a resource attribute that is a String. |
-| `instanceId` | `string` | The ID of the instance. |
-| `sriovNetSupport` | `object` | Describes a value for a resource attribute that is a String. |
-| `ramdisk` | `object` | Describes a value for a resource attribute that is a String. |
-| `userData` | `object` | Describes a value for a resource attribute that is a String. |
-| `instanceType` | `object` | Describes a value for a resource attribute that is a String. |
 | `blockDeviceMapping` | `array` | The block device mapping of the instance. |
+| `instanceType` | `object` | Describes a value for a resource attribute that is a String. |
+| `enaSupport` | `object` | Describes a value for a resource attribute that is a Boolean value. |
+| `sourceDestCheck` | `object` | Describes a value for a resource attribute that is a Boolean value. |
+| `enclaveOptions` | `object` | Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. |
+| `instanceId` | `string` | The ID of the instance. |
+| `rootDeviceName` | `object` | Describes a value for a resource attribute that is a String. |
 | `productCodes` | `array` | A list of product codes. |
+| `groupSet` | `array` | The security groups associated with the instance. |
+| `ramdisk` | `object` | Describes a value for a resource attribute that is a String. |
 | `ebsOptimized` | `object` | Describes a value for a resource attribute that is a Boolean value. |
+| `instanceInitiatedShutdownBehavior` | `object` | Describes a value for a resource attribute that is a String. |
+| `kernel` | `object` | Describes a value for a resource attribute that is a String. |
+| `userData` | `object` | Describes a value for a resource attribute that is a String. |
+| `sriovNetSupport` | `object` | Describes a value for a resource attribute that is a String. |
+| `disableApiTermination` | `object` | Describes a value for a resource attribute that is a Boolean value. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

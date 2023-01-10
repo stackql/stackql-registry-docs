@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `restrictions` | `array` | The set of restrictions that make up this schema. |
 | `kind` | `string` | Deprecated. |
+| `restrictions` | `array` | The set of restrictions that make up this schema. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

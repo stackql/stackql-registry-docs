@@ -30,13 +30,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Output only. The relative resource name of the content, of the form: projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/content/&#123;content_id&#125; |
 | `description` | `string` | Optional. Description of the content. |
 | `path` | `string` | Required. The path for the Content file, represented as directory structure. Unique within a lake. Limited to alphanumerics, hyphens, underscores, dots and slashes. |
-| `sqlScript` | `object` | Configuration for the Sql Script content. |
-| `labels` | `object` | Optional. User defined labels for the content. |
-| `uid` | `string` | Output only. System generated globally unique ID for the content. This ID will be different if the content is deleted and re-created with the same name. |
-| `updateTime` | `string` | Output only. The time when the content was last updated. |
-| `dataText` | `string` | Required. Content data in string format. |
-| `notebook` | `object` | Configuration for Notebook content. |
 | `createTime` | `string` | Output only. Content creation time. |
+| `labels` | `object` | Optional. User defined labels for the content. |
+| `notebook` | `object` | Configuration for Notebook content. |
+| `sqlScript` | `object` | Configuration for the Sql Script content. |
+| `updateTime` | `string` | Output only. The time when the content was last updated. |
+| `uid` | `string` | Output only. System generated globally unique ID for the content. This ID will be different if the content is deleted and re-created with the same name. |
+| `dataText` | `string` | Required. Content data in string format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

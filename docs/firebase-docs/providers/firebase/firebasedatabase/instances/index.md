@@ -28,10 +28,10 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The fully qualified resource name of the database instance, in the form: `projects/&#123;project-number&#125;/locations/&#123;location-id&#125;/instances/&#123;database-id&#125;`. |
-| `databaseUrl` | `string` | Output only. Output Only. The globally unique hostname of the database. |
 | `project` | `string` | Output only. The resource name of the project this instance belongs to. For example: `projects/&#123;project-number&#125;`. |
 | `state` | `string` | Output only. The database's lifecycle state. Read-only. |
 | `type` | `string` | Immutable. The database instance type. On creation only USER_DATABASE is allowed, which is also the default when omitted. |
+| `databaseUrl` | `string` | Output only. Output Only. The globally unique hostname of the database. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

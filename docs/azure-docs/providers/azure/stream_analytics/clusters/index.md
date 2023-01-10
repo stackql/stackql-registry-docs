@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | The properties associated with a Stream Analytics cluster. |
 | `sku` | `object` | The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests. |
 | `tags` | `object` | Resource tags. |
 | `etag` | `string` | The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties associated with a Stream Analytics cluster. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,23 +29,23 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the note in the form of `projects/[PROVIDER_ID]/notes/[NOTE_ID]`. |
 | `shortDescription` | `string` | A one sentence description of this note. |
-| `expirationTime` | `string` | Time of expiration for this note. Empty if note does not expire. |
-| `package` | `object` | PackageNote represents a particular package version. |
-| `build` | `object` | Note holding the version of the provider's builder and the signature of the provenance message in the build details occurrence. |
-| `dsseAttestation` | `object` |  |
-| `relatedNoteNames` | `array` | Other notes related to this note. |
-| `vulnerability` | `object` | A security vulnerability that can be found in resources. |
-| `compliance` | `object` |  |
-| `attestation` | `object` | Note kind that represents a logical attestation "role" or "authority". For example, an organization might have one `Authority` for "QA" and one for "build". This note is intended to act strictly as a grouping mechanism for the attached occurrences (Attestations). This grouping mechanism also provides a security boundary, since IAM ACLs gate the ability for a principle to attach an occurrence to a given note. It also provides a single point of lookup to find all attached attestation occurrences, even if they don't all live in the same project. |
-| `upgrade` | `object` | An Upgrade Note represents a potential upgrade of a package to a given version. For each package version combination (i.e. bash 4.0, bash 4.1, bash 4.1.2), there will be an Upgrade Note. For Windows, windows_update field represents the information related to the update. |
 | `updateTime` | `string` | Output only. The time this note was last updated. This field can be used as a filter in list requests. |
 | `relatedUrl` | `array` | URLs associated with this note. |
-| `discovery` | `object` | A note that indicates a type of analysis a provider would perform. This note exists in a provider's project. A `Discovery` occurrence is created in a consumer's project at the start of analysis. |
+| `package` | `object` | PackageNote represents a particular package version. |
 | `image` | `object` | Basis describes the base image portion (Note) of the DockerImage relationship. Linked occurrences are derived from this or an equivalent image via: FROM Or an equivalent reference, e.g., a tag of the resource_url. |
-| `kind` | `string` | Output only. The type of analysis. This field can be used as a filter in list requests. |
-| `longDescription` | `string` | A detailed description of this note. |
+| `dsseAttestation` | `object` |  |
 | `deployment` | `object` | An artifact that can be deployed in some runtime. |
 | `createTime` | `string` | Output only. The time this note was created. This field can be used as a filter in list requests. |
+| `longDescription` | `string` | A detailed description of this note. |
+| `kind` | `string` | Output only. The type of analysis. This field can be used as a filter in list requests. |
+| `vulnerability` | `object` | A security vulnerability that can be found in resources. |
+| `discovery` | `object` | A note that indicates a type of analysis a provider would perform. This note exists in a provider's project. A `Discovery` occurrence is created in a consumer's project at the start of analysis. |
+| `build` | `object` | Note holding the version of the provider's builder and the signature of the provenance message in the build details occurrence. |
+| `expirationTime` | `string` | Time of expiration for this note. Empty if note does not expire. |
+| `relatedNoteNames` | `array` | Other notes related to this note. |
+| `upgrade` | `object` | An Upgrade Note represents a potential upgrade of a package to a given version. For each package version combination (i.e. bash 4.0, bash 4.1, bash 4.1.2), there will be an Upgrade Note. For Windows, windows_update field represents the information related to the update. |
+| `compliance` | `object` |  |
+| `attestation` | `object` | Note kind that represents a logical attestation "role" or "authority". For example, an organization might have one `Authority` for "QA" and one for "build". This note is intended to act strictly as a grouping mechanism for the attached occurrences (Attestations). This grouping mechanism also provides a security boundary, since IAM ACLs gate the ability for a principle to attach an occurrence to a given note. It also provides a single point of lookup to find all attached attestation occurrences, even if they don't all live in the same project. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -3,14 +3,16 @@ title: source_imports
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - source_imports
+  - migrations
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,29 +27,29 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tfvc_project` | `string` |  |
-| `large_files_count` | `integer` |  |
-| `error_message` | `string` |  |
-| `failed_step` | `string` |  |
-| `use_lfs` | `boolean` |  |
-| `authors_count` | `integer` |  |
-| `authors_url` | `string` |  |
-| `status` | `string` |  |
-| `repository_url` | `string` |  |
-| `url` | `string` |  |
-| `push_percent` | `integer` |  |
-| `commit_count` | `integer` |  |
-| `large_files_size` | `integer` |  |
 | `svn_root` | `string` |  |
-| `vcs_url` | `string` | The URL of the originating repository. |
-| `project_choices` | `array` |  |
-| `message` | `string` |  |
-| `svc_root` | `string` |  |
-| `html_url` | `string` |  |
-| `status_text` | `string` |  |
-| `import_percent` | `integer` |  |
+| `large_files_size` | `integer` |  |
 | `vcs` | `string` |  |
+| `tfvc_project` | `string` |  |
+| `repository_url` | `string` |  |
+| `html_url` | `string` |  |
+| `svc_root` | `string` |  |
+| `failed_step` | `string` |  |
+| `commit_count` | `integer` |  |
+| `status` | `string` |  |
+| `push_percent` | `integer` |  |
+| `url` | `string` |  |
+| `authors_count` | `integer` |  |
+| `status_text` | `string` |  |
+| `error_message` | `string` |  |
+| `project_choices` | `array` |  |
+| `large_files_count` | `integer` |  |
 | `has_large_files` | `boolean` |  |
+| `import_percent` | `integer` |  |
+| `use_lfs` | `boolean` |  |
+| `vcs_url` | `string` | The URL of the originating repository. |
+| `authors_url` | `string` |  |
+| `message` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

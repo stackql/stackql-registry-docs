@@ -28,13 +28,13 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name of the attachment, in the form "spaces/*/messages/*/attachments/*". |
-| `source` | `string` | The source of the attachment. |
 | `thumbnailUri` | `string` | Output only. The thumbnail URL which should be used to preview the attachment to a human user. Chat apps should not use this URL to download attachment content. |
 | `attachmentDataRef` | `object` |  |
 | `contentName` | `string` | The original file name for the content, not the full path. |
 | `contentType` | `string` | The content type (MIME type) of the file. |
 | `downloadUri` | `string` | Output only. The download URL which should be used to allow a human user to download the attachment. Chat apps should not use this URL to download attachment content. |
 | `driveDataRef` | `object` | A reference to the data of a drive attachment. |
+| `source` | `string` | The source of the attachment. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,11 +27,11 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `fullDescription` | `string` | Full description of the app. |
 | `language` | `string` | Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). |
 | `shortDescription` | `string` | Short description of the app. |
 | `title` | `string` | Localized title of the app. |
 | `video` | `string` | URL of a promotional YouTube video for the app. |
+| `fullDescription` | `string` | Full description of the app. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

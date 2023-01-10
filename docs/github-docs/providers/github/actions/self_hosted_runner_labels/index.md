@@ -3,15 +3,16 @@ title: self_hosted_runner_labels
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - stackql
-  - github
+  - self_hosted_runner_labels
   - actions
+  - github    
+  - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,8 +27,8 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `labels` | `array` |
 | `total_count` | `integer` |
+| `labels` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

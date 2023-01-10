@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `zones` | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
-| `extendedLocation` | `object` | ExtendedLocation complex type. |
 | `properties` | `object` | Custom IP prefix properties. |
+| `type` | `string` | Resource type. |
+| `zones` | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
+| `tags` | `object` | Resource tags. |
+| `location` | `string` | Resource location. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `extendedLocation` | `object` | ExtendedLocation complex type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

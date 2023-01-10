@@ -3,14 +3,16 @@ title: installations
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - installations
+  - apps
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,25 +28,25 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the installation. |
-| `updated_at` | `string` |  |
-| `suspended_at` | `string` |  |
-| `repository_selection` | `string` | Describe whether all repositories have been selected or there's a selection involved |
-| `permissions` | `object` | The permissions granted to the user-to-server access token. |
-| `target_type` | `string` |  |
 | `single_file_paths` | `array` |  |
+| `target_type` | `string` |  |
 | `access_tokens_url` | `string` |  |
-| `repositories_url` | `string` |  |
-| `account` | `` |  |
-| `app_id` | `integer` |  |
-| `contact_email` | `string` |  |
-| `target_id` | `integer` | The ID of the user or organization this token is being scoped to. |
-| `created_at` | `string` |  |
+| `suspended_at` | `string` |  |
 | `single_file_name` | `string` |  |
-| `app_slug` | `string` |  |
-| `has_multiple_single_files` | `boolean` |  |
-| `html_url` | `string` |  |
+| `account` | `` |  |
+| `target_id` | `integer` | The ID of the user or organization this token is being scoped to. |
+| `repositories_url` | `string` |  |
+| `updated_at` | `string` |  |
 | `events` | `array` |  |
+| `app_id` | `integer` |  |
 | `suspended_by` | `object` | Simple User |
+| `created_at` | `string` |  |
+| `contact_email` | `string` |  |
+| `permissions` | `object` | The permissions granted to the user-to-server access token. |
+| `repository_selection` | `string` | Describe whether all repositories have been selected or there's a selection involved |
+| `html_url` | `string` |  |
+| `has_multiple_single_files` | `boolean` |  |
+| `app_slug` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Kind of the endpoint for the data connection |
 | `location` | `string` | Resource location. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `kind` | `string` | Kind of the endpoint for the data connection |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

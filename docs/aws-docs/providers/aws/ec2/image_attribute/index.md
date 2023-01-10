@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,17 +28,17 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `object` | Describes a value for a resource attribute that is a String. |
-| `productCodes` | `array` | The product codes. |
-| `launchPermission` | `array` | The launch permissions. |
 | `imageId` | `string` | The ID of the AMI. |
-| `uefiData` | `object` | Describes a value for a resource attribute that is a String. |
-| `lastLaunchedTime` | `object` | Describes a value for a resource attribute that is a String. |
-| `bootMode` | `object` | Describes a value for a resource attribute that is a String. |
+| `launchPermission` | `array` | The launch permissions. |
 | `kernel` | `object` | Describes a value for a resource attribute that is a String. |
+| `lastLaunchedTime` | `object` | Describes a value for a resource attribute that is a String. |
+| `productCodes` | `array` | The product codes. |
 | `ramdisk` | `object` | Describes a value for a resource attribute that is a String. |
-| `tpmSupport` | `object` | Describes a value for a resource attribute that is a String. |
 | `blockDeviceMapping` | `array` | The block device mapping entries. |
+| `uefiData` | `object` | Describes a value for a resource attribute that is a String. |
+| `tpmSupport` | `object` | Describes a value for a resource attribute that is a String. |
 | `sriovNetSupport` | `object` | Describes a value for a resource attribute that is a String. |
+| `bootMode` | `object` | Describes a value for a resource attribute that is a String. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

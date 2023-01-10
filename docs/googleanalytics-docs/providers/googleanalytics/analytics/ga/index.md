@@ -28,22 +28,22 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique ID for this data response. |
-| `nextLink` | `string` | Link to next page for this Analytics data query. |
-| `previousLink` | `string` | Link to previous page for this Analytics data query. |
-| `rows` | `array` | Analytics data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as specified in the request. |
 | `kind` | `string` | Resource type. |
-| `itemsPerPage` | `integer` | The maximum number of rows the response can contain, regardless of the actual number of rows returned. Its value ranges from 1 to 10,000 with a value of 1000 by default, or otherwise specified by the max-results query parameter. |
-| `sampleSize` | `string` | The number of samples used to calculate the result. |
 | `query` | `object` | Analytics data request query parameters. |
-| `sampleSpace` | `string` | Total size of the sample space from which the samples were selected. |
-| `profileInfo` | `object` | Information for the view (profile), for which the Analytics data was requested. |
-| `columnHeaders` | `array` | Column headers that list dimension names followed by the metric names. The order of dimensions and metrics is same as specified in the request. |
-| `dataLastRefreshed` | `string` | The last refreshed time in seconds for Analytics data. |
+| `rows` | `array` | Analytics data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as specified in the request. |
+| `previousLink` | `string` | Link to previous page for this Analytics data query. |
 | `selfLink` | `string` | Link to this page. |
 | `totalResults` | `integer` | The total number of rows for the query, regardless of the number of rows in the response. |
+| `itemsPerPage` | `integer` | The maximum number of rows the response can contain, regardless of the actual number of rows returned. Its value ranges from 1 to 10,000 with a value of 1000 by default, or otherwise specified by the max-results query parameter. |
+| `nextLink` | `string` | Link to next page for this Analytics data query. |
 | `dataTable` | `object` |  |
-| `containsSampledData` | `boolean` | Determines if Analytics data contains samples. |
+| `columnHeaders` | `array` | Column headers that list dimension names followed by the metric names. The order of dimensions and metrics is same as specified in the request. |
+| `dataLastRefreshed` | `string` | The last refreshed time in seconds for Analytics data. |
+| `profileInfo` | `object` | Information for the view (profile), for which the Analytics data was requested. |
 | `totalsForAllResults` | `object` | Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as the metric order specified in the request. |
+| `containsSampledData` | `boolean` | Determines if Analytics data contains samples. |
+| `sampleSize` | `string` | The number of samples used to calculate the result. |
+| `sampleSpace` | `string` | Total size of the sample space from which the samples were selected. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

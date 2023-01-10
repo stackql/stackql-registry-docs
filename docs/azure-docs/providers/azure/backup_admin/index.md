@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 The Admin Backup Management Client.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>9</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ The Admin Backup Management Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Backup Management Client (Microsoft.Backup.Admin)</td></tr>
 <tr><td><b>Description</b></td><td>The Admin Backup Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>backup_admin:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>backup_admin:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

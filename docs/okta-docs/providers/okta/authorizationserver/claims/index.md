@@ -3,14 +3,16 @@ title: claims
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - claims
+  - authorizationserver
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -27,15 +29,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `status` | `string` |
-| `value` | `string` |
-| `_links` | `object` |
-| `alwaysIncludeInToken` | `boolean` |
 | `conditions` | `object` |
-| `system` | `boolean` |
-| `valueType` | `string` |
-| `claimType` | `string` |
 | `group_filter_type` | `string` |
+| `system` | `boolean` |
+| `alwaysIncludeInToken` | `boolean` |
+| `status` | `string` |
+| `_links` | `object` |
+| `valueType` | `string` |
+| `value` | `string` |
+| `claimType` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,16 +29,16 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Custom dimension ID. |
 | `name` | `string` | Name of the custom dimension. |
-| `updated` | `string` | Time the custom dimension was last modified. |
-| `webPropertyId` | `string` | Property ID. |
-| `created` | `string` | Time the custom dimension was created. |
 | `selfLink` | `string` | Link for the custom dimension |
-| `active` | `boolean` | Boolean indicating whether the custom dimension is active. |
-| `accountId` | `string` | Account ID. |
 | `kind` | `string` | Kind value for a custom dimension. Set to "analytics#customDimension". It is a read-only field. |
-| `index` | `integer` | Index of the custom dimension. |
+| `created` | `string` | Time the custom dimension was created. |
 | `parentLink` | `object` | Parent link for the custom dimension. Points to the property to which the custom dimension belongs. |
+| `updated` | `string` | Time the custom dimension was last modified. |
+| `accountId` | `string` | Account ID. |
 | `scope` | `string` | Scope of the custom dimension: HIT, SESSION, USER or PRODUCT. |
+| `webPropertyId` | `string` | Property ID. |
+| `index` | `integer` | Index of the custom dimension. |
+| `active` | `boolean` | Boolean indicating whether the custom dimension is active. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

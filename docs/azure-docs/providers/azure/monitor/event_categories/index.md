@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `localizedValue` | `string` | the locale specific value. |
 | `value` | `string` | the invariant value. |
+| `localizedValue` | `string` | the locale specific value. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

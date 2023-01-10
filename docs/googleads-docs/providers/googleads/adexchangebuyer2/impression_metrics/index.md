@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `impressionMetricsRows` | `array` | List of rows, each containing a set of impression metrics. |
 | `nextPageToken` | `string` | A token to retrieve the next page of results. Pass this value in the ListImpressionMetricsRequest.pageToken field in the subsequent call to the impressionMetrics.list method to retrieve the next page of results. |
+| `impressionMetricsRows` | `array` | List of rows, each containing a set of impression metrics. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

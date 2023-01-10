@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token to pass to subsequent calls in order to retrieve subsequent results. This will not be set if there are no more results to return. |
 | `users` | `array` | The resulting users. |
+| `nextPageToken` | `string` | A token to pass to subsequent calls in order to retrieve subsequent results. This will not be set if there are no more results to return. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

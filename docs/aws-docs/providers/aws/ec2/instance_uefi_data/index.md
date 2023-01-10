@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,8 +27,8 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceId` | `string` | The ID of the instance from which to retrieve the UEFI data. |
 | `uefiData` | `string` | Base64 representation of the non-volatile UEFI variable store. |
+| `instanceId` | `string` | The ID of the instance from which to retrieve the UEFI data. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

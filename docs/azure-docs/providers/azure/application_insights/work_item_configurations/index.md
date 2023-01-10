@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ConfigProperties` | `string` | Serialized JSON object for detailed properties |
 | `ConnectorId` | `string` | Connector identifier where work item is created |
 | `Id` | `string` | Unique Id for work item |
 | `IsDefault` | `boolean` | Boolean value indicating whether configuration is default |
 | `ConfigDisplayName` | `string` | Configuration friendly name |
+| `ConfigProperties` | `string` | Serialized JSON object for detailed properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,17 +27,17 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `optimizingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;optimizing&lt;/code&gt; state. |
-| `state` | `string` | The state of fast snapshot restores. |
 | `disablingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;disabling&lt;/code&gt; state. |
-| `ownerAlias` | `string` | The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use. |
-| `enabledTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;enabled&lt;/code&gt; state. |
+| `state` | `string` | The state of fast snapshot restores. |
 | `snapshotId` | `string` | The ID of the snapshot. |
-| `enablingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;enabling&lt;/code&gt; state. |
+| `optimizingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;optimizing&lt;/code&gt; state. |
 | `disabledTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;disabled&lt;/code&gt; state. |
 | `stateTransitionReason` | `string` | &lt;p&gt;The reason for the state transition. The possible values are as follows:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;Client.UserInitiated&lt;/code&gt; - The state successfully transitioned to &lt;code&gt;enabling&lt;/code&gt; or &lt;code&gt;disabling&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;Client.UserInitiated - Lifecycle state transition&lt;/code&gt; - The state successfully transitioned to &lt;code&gt;optimizing&lt;/code&gt;, &lt;code&gt;enabled&lt;/code&gt;, or &lt;code&gt;disabled&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot. |
+| `enablingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;enabling&lt;/code&gt; state. |
+| `enabledTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;enabled&lt;/code&gt; state. |
 | `availabilityZone` | `string` | The Availability Zone. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot. |
+| `ownerAlias` | `string` | The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

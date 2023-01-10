@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,12 +27,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `Checksum` | `object` | Contains all the possible checksum or digest values for an object. |
 | `ETag` | `string` | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL. |
 | `ObjectParts` | `object` | A collection of parts associated with a multipart upload. |
 | `ObjectSize` | `integer` | The size of the object in bytes. |
 | `StorageClass` | `string` | &lt;p&gt;Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html"&gt;Storage Classes&lt;/a&gt;.&lt;/p&gt; |
-| `Checksum` | `object` | Contains all the possible checksum or digest values for an object. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `object_attributes_Get` | `SELECT` | `Key, attributes, x-amz-object-attributes` |
+| `object_attributes_Get` | `SELECT` | `Key, x-amz-object-attributes` |

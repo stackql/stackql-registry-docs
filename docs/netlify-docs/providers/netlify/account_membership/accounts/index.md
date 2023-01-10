@@ -3,14 +3,16 @@ title: accounts
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - accounts
+  - account_membership
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -27,20 +29,20 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `billing_period` | `string` |
+| `type_id` | `string` |
+| `type_name` | `string` |
+| `capabilities` | `object` |
 | `slug` | `string` |
+| `billing_email` | `string` |
+| `billing_name` | `string` |
+| `billing_period` | `string` |
 | `created_at` | `string` |
 | `roles_allowed` | `array` |
-| `type_name` | `string` |
-| `billing_name` | `string` |
-| `owner_ids` | `array` |
 | `payment_method_id` | `string` |
-| `billing_details` | `string` |
-| `capabilities` | `object` |
-| `updated_at` | `string` |
-| `billing_email` | `string` |
 | `type` | `string` |
-| `type_id` | `string` |
+| `updated_at` | `string` |
+| `owner_ids` | `array` |
+| `billing_details` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

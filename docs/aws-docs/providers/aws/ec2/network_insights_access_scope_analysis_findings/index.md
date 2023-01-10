@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `findingComponentSet` | `array` | The finding components. |
 | `findingId` | `string` | The ID of the finding. |
 | `networkInsightsAccessScopeAnalysisId` | `string` | The ID of the Network Access Scope analysis. |
 | `networkInsightsAccessScopeId` | `string` | The ID of the Network Access Scope. |
+| `findingComponentSet` | `array` | The finding components. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

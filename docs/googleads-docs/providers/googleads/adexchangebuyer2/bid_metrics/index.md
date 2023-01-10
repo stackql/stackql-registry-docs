@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `bidMetricsRows` | `array` | List of rows, each containing a set of bid metrics. |
 | `nextPageToken` | `string` | A token to retrieve the next page of results. Pass this value in the ListBidMetricsRequest.pageToken field in the subsequent call to the bidMetrics.list method to retrieve the next page of results. |
+| `bidMetricsRows` | `array` | List of rows, each containing a set of bid metrics. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

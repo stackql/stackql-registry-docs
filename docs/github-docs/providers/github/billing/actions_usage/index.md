@@ -3,14 +3,16 @@ title: actions_usage
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - actions_usage
+  - billing
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,10 +27,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `included_minutes` | `integer` | The amount of free GitHub Actions minutes available. |
 | `minutes_used_breakdown` | `object` |  |
 | `total_minutes_used` | `integer` | The sum of the free and paid GitHub Actions minutes used. |
 | `total_paid_minutes_used` | `integer` | The total paid GitHub Actions minutes used. |
-| `included_minutes` | `integer` | The amount of free GitHub Actions minutes available. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

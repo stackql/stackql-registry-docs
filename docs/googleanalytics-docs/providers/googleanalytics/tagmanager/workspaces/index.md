@@ -29,12 +29,12 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `name` | `string` | Workspace display name. @mutable tagmanager.accounts.containers.workspaces.create @mutable tagmanager.accounts.containers.workspaces.update |
 | `description` | `string` | Workspace description. @mutable tagmanager.accounts.containers.workspaces.create @mutable tagmanager.accounts.containers.workspaces.update |
-| `fingerprint` | `string` | The fingerprint of the GTM Workspace as computed at storage time. This value is recomputed whenever the workspace is modified. |
-| `path` | `string` | GTM Workspace's API relative path. |
-| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
 | `workspaceId` | `string` | The Workspace ID uniquely identifies the GTM Workspace. |
 | `accountId` | `string` | GTM Account ID. |
 | `containerId` | `string` | GTM Container ID. |
+| `fingerprint` | `string` | The fingerprint of the GTM Workspace as computed at storage time. This value is recomputed whenever the workspace is modified. |
+| `path` | `string` | GTM Workspace's API relative path. |
+| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

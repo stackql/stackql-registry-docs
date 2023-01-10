@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the resource. E.g.: `projects/myproject/locations/US/reservations/team1-prod/assignments/123`. The assignment_id must only contain lower case alphanumeric characters or dashes and the max length is 64 characters. |
+| `assignee` | `string` | The resource which will use the reservation. E.g. `projects/myproject`, `folders/123`, or `organizations/456`. |
 | `jobType` | `string` | Which type of jobs will use the reservation. |
 | `state` | `string` | Output only. State of the assignment. |
-| `assignee` | `string` | The resource which will use the reservation. E.g. `projects/myproject`, `folders/123`, or `organizations/456`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

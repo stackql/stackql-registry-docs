@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,10 +28,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `object` | Describes a value for a resource attribute that is a String. |
+| `groupSet` | `array` | The security groups associated with the network interface. |
 | `networkInterfaceId` | `string` | The ID of the network interface. |
 | `sourceDestCheck` | `object` | Describes a value for a resource attribute that is a Boolean value. |
 | `attachment` | `object` | Describes a network interface attachment. |
-| `groupSet` | `array` | The security groups associated with the network interface. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

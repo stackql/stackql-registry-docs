@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The tag name ID. |
+| `count` | `object` | Tag count. |
 | `tagName` | `string` | The tag name. |
 | `values` | `array` | The list of tag values. |
-| `count` | `object` | Tag count. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

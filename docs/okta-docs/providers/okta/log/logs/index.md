@@ -3,14 +3,16 @@ title: logs
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - okta
+  - logs
+  - log
+  - okta    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Okta resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ---
   
     
@@ -25,22 +27,22 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
+| `transaction` | `object` |
+| `displayMessage` | `string` |
+| `legacyEventType` | `string` |
 | `securityContext` | `object` |
 | `version` | `string` |
+| `authenticationContext` | `object` |
 | `published` | `string` |
+| `target` | `array` |
 | `eventType` | `string` |
 | `actor` | `object` |
-| `legacyEventType` | `string` |
-| `displayMessage` | `string` |
-| `outcome` | `object` |
-| `debugContext` | `object` |
 | `severity` | `string` |
-| `request` | `object` |
-| `transaction` | `object` |
-| `authenticationContext` | `object` |
-| `uuid` | `string` |
-| `target` | `array` |
 | `client` | `object` |
+| `outcome` | `object` |
+| `request` | `object` |
+| `debugContext` | `object` |
+| `uuid` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

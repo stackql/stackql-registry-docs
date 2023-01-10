@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The location name. |
-| `reason` | `string` | The reason for the capability not being available. |
-| `status` | `string` | The status of the capability. |
 | `supportedManagedInstanceVersions` | `array` | The list of supported managed instance versions. |
 | `supportedServerVersions` | `array` | The list of supported server versions. |
+| `reason` | `string` | The reason for the capability not being available. |
+| `status` | `string` | The status of the capability. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

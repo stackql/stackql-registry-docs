@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | The ETag of the virtual network link. |
-| `location` | `string` | The Azure Region where the resource lives |
 | `properties` | `object` | Represents the properties of the Private DNS zone. |
 | `tags` | `object` | Resource tags. |
+| `etag` | `string` | The ETag of the virtual network link. |
+| `location` | `string` | The Azure Region where the resource lives |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

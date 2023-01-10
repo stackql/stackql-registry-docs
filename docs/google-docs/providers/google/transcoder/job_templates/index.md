@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the job template. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/jobTemplates/&#123;job_template&#125;` |
-| `labels` | `object` | The labels associated with this job template. You can use these to organize and group your job templates. |
 | `config` | `object` | Job configuration |
+| `labels` | `object` | The labels associated with this job template. You can use these to organize and group your job templates. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

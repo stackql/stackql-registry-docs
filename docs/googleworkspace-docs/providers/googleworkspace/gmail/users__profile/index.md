@@ -27,10 +27,10 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `emailAddress` | `string` | The user's email address. |
-| `historyId` | `string` | The ID of the mailbox's current history record. |
 | `messagesTotal` | `integer` | The total number of messages in the mailbox. |
 | `threadsTotal` | `integer` | The total number of threads in the mailbox. |
+| `emailAddress` | `string` | The user's email address. |
+| `historyId` | `string` | The ID of the mailbox's current history record. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

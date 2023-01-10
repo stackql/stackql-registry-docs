@@ -29,10 +29,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of this taxonomy in URL format. Note: Policy tag manager generates unique taxonomy IDs. |
 | `description` | `string` | Optional. Description of this taxonomy. If not set, defaults to empty. The description must contain only Unicode characters, tabs, newlines, carriage returns, and page breaks, and be at most 2000 bytes long when encoded in UTF-8. |
-| `policyTagCount` | `integer` | Output only. Number of policy tags in this taxonomy. |
 | `taxonomyTimestamps` | `object` | Timestamps associated with this resource in a particular system. |
 | `activatedPolicyTypes` | `array` | Optional. A list of policy types that are activated for this taxonomy. If not set, defaults to an empty list. |
 | `displayName` | `string` | Required. User-defined name of this taxonomy. The name can't start or end with spaces, must contain only Unicode letters, numbers, underscores, dashes, and spaces, and be at most 200 bytes long when encoded in UTF-8. The taxonomy display name must be unique within an organization. |
+| `policyTagCount` | `integer` | Output only. Number of policy tags in this taxonomy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

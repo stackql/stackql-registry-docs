@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `savedReports` | `array` | The reports returned in this list response. |
 | `nextPageToken` | `string` | Continuation token used to page through reports. To retrieve the next page of the results, set the next request's "page_token" value to this. |
+| `savedReports` | `array` | The reports returned in this list response. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

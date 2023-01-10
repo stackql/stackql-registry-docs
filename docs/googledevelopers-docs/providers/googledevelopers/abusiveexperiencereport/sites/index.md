@@ -27,13 +27,13 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `lastChangeTime` | `string` | The time at which the site's status last changed. |
 | `reportUrl` | `string` | A link to the full Abusive Experience Report for the site. Not set in ViolatingSitesResponse. Note that you must complete the [Search Console verification process](https://support.google.com/webmasters/answer/9008080) for the site before you can access the full report. |
 | `reviewedSite` | `string` | The name of the reviewed site, e.g. `google.com`. |
 | `underReview` | `boolean` | Whether the site is currently under review. |
 | `abusiveStatus` | `string` | The site's Abusive Experience Report status. |
 | `enforcementTime` | `string` | The time at which [enforcement](https://support.google.com/webtools/answer/7538608) against the site began or will begin. Not set when the filter_status is OFF. |
 | `filterStatus` | `string` | The site's [enforcement status](https://support.google.com/webtools/answer/7538608). |
+| `lastChangeTime` | `string` | The time at which the site's status last changed. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

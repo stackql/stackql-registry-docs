@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `certsInfo` | `object` |  |
 | `type` | `string` | Type of alias. |
 | `alias` | `string` | Resource ID for this alias. Values must match the regular expression `[^/]&#123;1,255&#125;`. |
-| `certsInfo` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

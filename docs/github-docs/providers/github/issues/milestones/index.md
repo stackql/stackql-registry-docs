@@ -3,14 +3,16 @@ title: milestones
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - milestones
+  - issues
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,20 +29,20 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `description` | `string` |  |
-| `closed_at` | `string` |  |
-| `created_at` | `string` |  |
-| `due_on` | `string` |  |
-| `creator` | `object` | Simple User |
-| `number` | `integer` | The number of the milestone. |
-| `closed_issues` | `integer` |  |
-| `labels_url` | `string` |  |
-| `open_issues` | `integer` |  |
-| `updated_at` | `string` |  |
-| `url` | `string` |  |
-| `state` | `string` | The state of the milestone. |
 | `node_id` | `string` |  |
+| `url` | `string` |  |
+| `creator` | `object` | Simple User |
+| `closed_at` | `string` |  |
+| `state` | `string` | The state of the milestone. |
+| `updated_at` | `string` |  |
+| `created_at` | `string` |  |
+| `closed_issues` | `integer` |  |
 | `html_url` | `string` |  |
 | `title` | `string` | The title of the milestone. |
+| `number` | `integer` | The number of the milestone. |
+| `due_on` | `string` |  |
+| `open_issues` | `integer` |  |
+| `labels_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

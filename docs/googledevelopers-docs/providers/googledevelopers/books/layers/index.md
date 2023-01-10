@@ -28,18 +28,18 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique id of this layer summary. |
-| `annotationTypes` | `array` | The list of annotation types contained for this layer. |
-| `annotationsLink` | `string` | The link to get the annotations for this layer. |
-| `contentVersion` | `string` | The content version this resource is for. |
-| `dataCount` | `integer` | The number of data items for this layer. |
 | `selfLink` | `string` | URL to this resource. |
-| `volumeAnnotationsVersion` | `string` | The current version of this layer's volume annotations. Note that this version applies only to the data in the books.layers.volumeAnnotations.* responses. The actual annotation data is versioned separately. |
+| `annotationsLink` | `string` | The link to get the annotations for this layer. |
+| `annotationCount` | `integer` | The number of annotations for this layer. |
 | `annotationsDataLink` | `string` | Link to get data for this annotation. |
+| `dataCount` | `integer` | The number of data items for this layer. |
+| `annotationTypes` | `array` | The list of annotation types contained for this layer. |
+| `layerId` | `string` | The layer id for this summary. |
 | `kind` | `string` | Resource Type |
 | `updated` | `string` | Timestamp for the last time an item in this layer was updated. (RFC 3339 UTC date-time format). |
-| `annotationCount` | `integer` | The number of annotations for this layer. |
+| `volumeAnnotationsVersion` | `string` | The current version of this layer's volume annotations. Note that this version applies only to the data in the books.layers.volumeAnnotations.* responses. The actual annotation data is versioned separately. |
+| `contentVersion` | `string` | The content version this resource is for. |
 | `volumeId` | `string` | The volume id this resource is for. |
-| `layerId` | `string` | The layer id for this summary. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

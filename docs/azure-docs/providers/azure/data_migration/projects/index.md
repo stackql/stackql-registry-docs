@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `name` | `string` |  |
+| `location` | `string` |  |
+| `properties` | `object` | Project-specific properties |
 | `systemData` | `object` |  |
 | `tags` | `object` |  |
 | `type` | `string` |  |
 | `etag` | `string` | HTTP strong entity tag value. This is ignored if submitted. |
-| `location` | `string` |  |
-| `properties` | `object` | Project-specific properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

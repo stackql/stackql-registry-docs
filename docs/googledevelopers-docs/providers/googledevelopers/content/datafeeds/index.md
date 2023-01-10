@@ -30,12 +30,12 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | `id` | `string` | Required for update. The ID of the data feed. |
 | `name` | `string` | Required for insert. A descriptive name of the data feed. |
 | `format` | `object` |  |
-| `targets` | `array` | The targets this feed should apply to (country, language, destinations). |
 | `attributeLanguage` | `string` | The two-letter ISO 639-1 language in which the attributes are defined in the data feed. |
-| `contentType` | `string` | Required. The type of data feed. For product inventory feeds, only feeds for local stores, not online stores, are supported. Acceptable values are: - "`local products`" - "`product inventory`" - "`products`"  |
 | `fileName` | `string` | Required. The filename of the feed. All feeds must have a unique file name. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#datafeed`" |
 | `fetchSchedule` | `object` | The required fields vary based on the frequency of fetching. For a monthly fetch schedule, day_of_month and hour are required. For a weekly fetch schedule, weekday and hour are required. For a daily fetch schedule, only hour is required. |
+| `targets` | `array` | The targets this feed should apply to (country, language, destinations). |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#datafeed`" |
+| `contentType` | `string` | Required. The type of data feed. For product inventory feeds, only feeds for local stores, not online stores, are supported. Acceptable values are: - "`local products`" - "`product inventory`" - "`products`"  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

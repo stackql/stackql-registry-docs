@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Specifies the resource ID. |
 | `name` | `object` | The Resource Name. |
-| `type` | `string` | Specifies the resource type. |
 | `unit` | `string` | An enum describing the unit of quota measurement. |
 | `amlWorkspaceLocation` | `string` | Region of the AML workspace in the id. |
 | `limit` | `integer` | The maximum permitted quota of the resource. |
+| `type` | `string` | Specifies the resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -31,11 +31,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `name` | `string` | Resource Name. |
 | `tags` | `object` | Resource tags. |
 | `properties` | `object` | A static site. |
-| `type` | `string` | Resource type. |
-| `kind` | `string` | Kind of resource. |
-| `sku` | `object` | Description of a SKU for a scalable resource. |
 | `identity` | `object` | Managed service identity. |
+| `kind` | `string` | Kind of resource. |
 | `location` | `string` | Resource Location. |
+| `type` | `string` | Resource type. |
+| `sku` | `object` | Description of a SKU for a scalable resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

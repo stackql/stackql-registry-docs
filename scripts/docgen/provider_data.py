@@ -1,4 +1,9 @@
 provider_data = {
+'sumologic': {
+    'meta_description': 'Query, deploy and manage Sumologic resources using SQL',
+    'description': 'Cloud-native, real-time, unified logs and metrics analytics platform.',
+    'image': '/img/providers/sumologic/stackql-sumologic-provider-featured-image.png' 
+},
 'googleworkspace': {
     'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
     'description': 'Productivity and collaboration tools for businesses.',
@@ -68,36 +73,58 @@ provider_data = {
     'meta_description': 'Query, deploy and manage Azure resources using SQL',
     'description': ' Cloud computing services operated by Microsoft.',
     'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
+},
+'azure_extras': {
+    'meta_description': 'Query, deploy and manage Azure resources using SQL',
+    'description': ' Additional Azure cloud computing services by Microsoft.',
+    'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
 }
 }
 
 auth_blocks = {
-'googleworkspace': {
+'sumologic': {
     'auth': """
 {
-  "googleworkspace": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+  "sumologic": {
+    "type": string, // authentication type to use, suported values:  basic
+    "credentialsenvvar": string, // env var name containing the base64 encoded string in the form: username:password
   }
 }
 """,
     'example': {
         'linux':
 """
-AUTH='{ "googleworkspace": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+export SUMO_CREDS=$(echo -n 'youraccessid:YOURACCESSTOKEN' | base64 --wrap 0)
+AUTH='{ "sumologic": { "type": "basic", "credentialsenvvar": "SUMO_CREDS" } }'
 stackql shell --auth="${AUTH}"
 """,
         'windows':
 """
-$Auth = "{ 'googleworkspace': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+$env:SUMO_CREDS = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("youraccessid:YOURACCESSTOKEN"))
+$Auth = "{ 'sumologic': { 'type': 'basic', 'credentialsenvvar': 'SUMO_CREDS' } }"
+stackql.exe shell --auth=$Auth
+"""
+    }
+},  
+'googleworkspace': {
+    'auth': """
+{
+  "googleworkspace": {
+    "type": string, // authentication type to use, suported values:  service_account
+    "credentialsfilepath": string, // path to service account key file
+    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
+  }
+}
+""",
+    'example': {
+        'linux':
+"""
+AUTH='{ "googleworkspace": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/drive", "..."]  }}'
+stackql shell --auth="${AUTH}"
+""",
+        'windows':
+"""
+$Auth = "{ 'googleworkspace': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/drive', '...'] }}"
 stackql.exe shell --auth=$Auth
 """
     }
@@ -106,28 +133,21 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "googlemybusiness": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values:  service_account
+    "credentialsfilepath": string, // path to service account key file
+    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
   }
 }
 """,
     'example': {
         'linux':
 """
-AUTH='{ "googlemybusiness": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+AUTH='{ "googlemybusiness": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
 stackql shell --auth="${AUTH}"
 """,
         'windows':
 """
-$Auth = "{ 'googlemybusiness': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+$Auth = "{ 'googlemybusiness': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
 stackql.exe shell --auth=$Auth
 """
     }
@@ -136,28 +156,21 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "googledevelopers": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values:  service_account
+    "credentialsfilepath": string, // path to service account key file
+    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
   }
 }
 """,
     'example': {
         'linux':
 """
-AUTH='{ "googledevelopers": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+AUTH='{ "googledevelopers": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
 stackql shell --auth="${AUTH}"
 """,
         'windows':
 """
-$Auth = "{ 'googledevelopers': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+$Auth = "{ 'googledevelopers': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
 stackql.exe shell --auth=$Auth
 """
     }
@@ -166,28 +179,21 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "googleanalytics": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values:  service_account
+    "credentialsfilepath": string, // path to service account key file
+    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
   }
 }
 """,
     'example': {
         'linux':
 """
-AUTH='{ "googleanalytics": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+AUTH='{ "googleanalytics": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
 stackql shell --auth="${AUTH}"
 """,
         'windows':
 """
-$Auth = "{ 'googleanalytics': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+$Auth = "{ 'googleanalytics': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
 stackql.exe shell --auth=$Auth
 """
     }
@@ -196,28 +202,21 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "googleads": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values:  service_account
+    "credentialsfilepath": string, // path to service account key file
+    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
   }
 }
 """,
     'example': {
         'linux':
 """
-AUTH='{ "googleads": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+AUTH='{ "googleads": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
 stackql shell --auth="${AUTH}"
 """,
         'windows':
 """
-$Auth = "{ 'googleads': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+$Auth = "{ 'googleads': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
 stackql.exe shell --auth=$Auth
 """
     }
@@ -226,28 +225,21 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "youtube": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values:  service_account
+    "credentialsfilepath": string, // path to service account key file
+    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
   }
 }
 """,
     'example': {
         'linux':
 """
-AUTH='{ "youtube": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+AUTH='{ "youtube": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
 stackql shell --auth="${AUTH}"
 """,
         'windows':
 """
-$Auth = "{ 'youtube': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+$Auth = "{ 'youtube': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
 stackql.exe shell --auth=$Auth
 """
     }
@@ -256,18 +248,10 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "firebase": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values:  service_account
+    "credentialsfilepath": string, // path to service account key file
   }
-}  
+}
 """,
     'example': {
         'linux':
@@ -286,17 +270,8 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "github": {
-    /**
-      * Type of authentication to use, suported values include: basic
-      * @type String
-      */
-    "type": string, 
-    /**
-      * Environment variable name containing the api key or credentials.
-      * Variable value must be a base64 encoded string of the form: username:password
-      * @type String
-      */
-    "credentialsenvvar": string, 
+    "type": string, // authentication type to use, suported values:  basic
+    "credentialsenvvar": string, // env var name containing the base64 encoded string in the form: username:password
   }
 }
 """,
@@ -319,16 +294,8 @@ stackql shell --auth=$Auth
     'auth': """
 {
   "google": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values include: service_account, interactive
+    "credentialsfilepath": string, // path to service account key file
   }
 }
 """,
@@ -349,22 +316,8 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "k8s": {
-    /**
-      * Type of authentication to use, suported values include: api_key, null_auth
-      * @type String
-      */
-    "type": string, 
-    /**
-      * Environment variable name containing the api key or credentials.
-      * @type String
-      */
-    "credentialsenvvar": string, 
-    /**
-      * Value prepended to the request header, e.g. "Bearer "
-      * Must be set to "Bearer "
-      * @type String
-      */
-    "valuePrefix": string, 
+    "type": string, // authentication type to use, suported values include: bearer, null_auth
+    "credentialsenvvar": string, // env var name containing the api key or credentials
   }
 }
 """,
@@ -374,22 +327,8 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "netlify": {
-    /**
-      * Type of authentication to use, suported values include: api_key
-      * @type String
-      */
-    "type": string, 
-    /**
-      * Environment variable name containing the api key or credentials.
-      * @type String
-      */
-    "credentialsenvvar": string, 
-    /**
-      * Value prepended to the request header, e.g. "Bearer "
-      * Must be set to "Bearer "
-      * @type String
-      */
-    "valuePrefix": string, 
+    "type": string, // authentication type to use, suported values include: bearer
+    "credentialsenvvar": string, // env var name containing the acces token
   }
 }
 """,
@@ -397,13 +336,13 @@ stackql.exe shell --auth=$Auth
         'linux':
 """
 NETLIFY_TOKEN=yourtoken
-AUTH='{ "netlify": { "type": "api_key",  "credentialsenvvar": "NETLIFY_TOKEN", "valuePrefix": "Bearer " }}'
+AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "NETLIFY_TOKEN" }}'
 stackql shell --auth="${AUTH}"
 """,
         'windows':
 """
 $env:NETLIFY_TOKEN = "yourtoken"
-$Auth = "{ 'netlify': { 'type': 'api_key',  'credentialsenvvar': 'NETLIFY_TOKEN', 'valuePrefix': 'Bearer ' }}"
+$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'NETLIFY_TOKEN' }}"
 stackql.exe shell --auth=$Auth
 """
     }
@@ -411,18 +350,10 @@ stackql.exe shell --auth=$Auth
 'okta': {
     'auth': """
 {
-    "okta": {
-     /**
-      * Type of authentication to use, suported values include:  api_key
-      * @type String
-      */
-     "type": string, 
-     /**
-      * Environment variable name containing the api key or credentials.
-      * @type String
-      */
-     "credentialsenvvar": string, 
-    }
+  "okta": {
+    "type": string, // authentication type to use, suported values: api_key
+    "credentialsenvvar": string, // env var name containing the api key
+  }
 }
 """,
     'example': {
@@ -443,23 +374,11 @@ stackql.exe shell --auth=$Auth
 'aws': {
     'auth': """
 {
-    "aws": {
-     /**
-      * Type of authentication to use, suported values include:  aws_signing_v4
-      * @type String
-      */
-     "type": string, 
-     /**
-      * Environment variable name containing the api key or credentials.
-      * @type String
-      */
-     "credentialsenvvar": string,
-     /**
-      * Value of AWS_ACCESS_KEY_ID.
-      * @type String
-      */
-     "keyID": string,      
-    }
+  "aws": {
+    "type": string, // authentication type to use, suported values:  aws_signing_v4
+    "keyID": string, // AWS_ACCESS_KEY_ID or expanded env var
+    "credentialsenvvar": string, // env var containing AWS_SECRET_ACCESS_KEY
+  }
 }
 """,
     'example': {
@@ -479,22 +398,8 @@ stackql.exe shell --auth=$Auth
     'auth': """
 {
   "azure": {
-    /**
-      * Type of authentication to use, suported values include: api_key
-      * @type String
-      */
-    "type": string, 
-    /**
-      * Environment variable name containing the api token obtained using the azure cli or SDK.
-      * @type String
-      */
-    "credentialsenvvar": string, 
-    /**
-      * Value prepended to the request header, e.g. "Bearer "
-      * Must be set to "Bearer "
-      * @type String
-      */
-    "valuePrefix": string, 
+    "type": string, // authentication type to use, suported values include: bearer
+    "credentialsenvvar": string, // env var name containing the access token
   }
 }
 """,
@@ -502,12 +407,35 @@ stackql.exe shell --auth=$Auth
         'linux': """
 AZ_ACCESS_TOKEN_RAW=$(az account get-access-token --query accessToken --output tsv)
 export AZ_ACCESS_TOKEN=`echo $AZ_ACCESS_TOKEN_RAW | tr -d '\\r'`
-AUTH='{ "azure": { "type": "api_key", "valuePrefix": "Bearer ", "credentialsenvvar": "AZ_ACCESS_TOKEN" } }'
+AUTH='{ "azure": { "type": "bearer", "credentialsenvvar": "AZ_ACCESS_TOKEN" } }'
 stackql shell --auth="${AUTH}"
 """,
         'windows': """
 $Env:AZ_ACCESS_TOKEN = "$(az account get-access-token --query accessToken --output tsv)".Trim("`r")
-$Auth = "{ 'azure': { 'type': 'api_key', 'valuePrefix': 'Bearer ', 'credentialsenvvar': 'AZ_ACCESS_TOKEN' } }"
+$Auth = "{ 'azure': { 'type': 'bearer', 'credentialsenvvar': 'AZ_ACCESS_TOKEN' } }"
+stackql.exe shell --auth=$Auth
+"""
+    }
+},
+'azure_extras': {
+    'auth': """
+{
+  "azure_extras": {
+    "type": string, // authentication type to use, suported values include: bearer
+    "credentialsenvvar": string, // env var name containing the access token
+  }
+}
+""",
+    'example': {
+        'linux': """
+AZ_ACCESS_TOKEN_RAW=$(az account get-access-token --query accessToken --output tsv)
+export AZ_ACCESS_TOKEN=`echo $AZ_ACCESS_TOKEN_RAW | tr -d '\\r'`
+AUTH='{ "azure_extras": { "type": "bearer", "credentialsenvvar": "AZ_ACCESS_TOKEN" } }'
+stackql shell --auth="${AUTH}"
+""",
+        'windows': """
+$Env:AZ_ACCESS_TOKEN = "$(az account get-access-token --query accessToken --output tsv)".Trim("`r")
+$Auth = "{ 'azure_extras': { 'type': 'bearer', 'credentialsenvvar': 'AZ_ACCESS_TOKEN' } }"
 stackql.exe shell --auth=$Auth
 """
     }

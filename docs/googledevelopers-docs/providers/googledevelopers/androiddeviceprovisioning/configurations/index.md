@@ -29,14 +29,14 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The API resource name in the format `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. Assigned by the server. |
 | `contactEmail` | `string` | Required. The email address that device users can contact to get help. Zero-touch enrollment shows this email address to device users before device provisioning. The value is validated on input. |
-| `dpcExtras` | `string` | The JSON-formatted EMM provisioning extras that are passed to the DPC. |
-| `companyName` | `string` | Required. The name of the organization. Zero-touch enrollment shows this organization name to device users during device provisioning. |
 | `contactPhone` | `string` | Required. The telephone number that device users can call, using another device, to get help. Zero-touch enrollment shows this number to device users before device provisioning. Accepts numerals, spaces, the plus sign, hyphens, and parentheses. |
-| `configurationName` | `string` | Required. A short name that describes the configuration's purpose. For example, _Sales team_ or _Temporary employees_. The zero-touch enrollment portal displays this name to IT admins. |
-| `customMessage` | `string` | A message, containing one or two sentences, to help device users get help or give them more details about what’s happening to their device. Zero-touch enrollment shows this message before the device is provisioned. |
-| `configurationId` | `string` | Output only. The ID of the configuration. Assigned by the server. |
+| `companyName` | `string` | Required. The name of the organization. Zero-touch enrollment shows this organization name to device users during device provisioning. |
+| `dpcExtras` | `string` | The JSON-formatted EMM provisioning extras that are passed to the DPC. |
 | `dpcResourcePath` | `string` | Required. The resource name of the selected DPC (device policy controller) in the format `customers/[CUSTOMER_ID]/dpcs/*`. To list the supported DPCs, call `customers.dpcs.list`. |
+| `configurationId` | `string` | Output only. The ID of the configuration. Assigned by the server. |
 | `isDefault` | `boolean` | Required. Whether this is the default configuration that zero-touch enrollment applies to any new devices the organization purchases in the future. Only one customer configuration can be the default. Setting this value to `true`, changes the previous default configuration's `isDefault` value to `false`. |
+| `customMessage` | `string` | A message, containing one or two sentences, to help device users get help or give them more details about what’s happening to their device. Zero-touch enrollment shows this message before the device is provisioned. |
+| `configurationName` | `string` | Required. A short name that describes the configuration's purpose. For example, _Sales team_ or _Temporary employees_. The zero-touch enrollment portal displays this name to IT admins. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource identifier. |
 | `name` | `object` | The usage names. |
+| `unit` | `string` | An enum describing the unit of measurement. |
 | `currentValue` | `integer` | The current value of the usage. |
 | `limit` | `integer` | The limit of usage. |
-| `unit` | `string` | An enum describing the unit of measurement. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | The kind of the threat intelligence entity |
 | `etag` | `string` | Etag of the azure resource |
+| `kind` | `string` | The kind of the threat intelligence entity |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

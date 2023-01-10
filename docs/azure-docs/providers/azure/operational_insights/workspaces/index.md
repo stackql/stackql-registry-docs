@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Workspace properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
 | `eTag` | `string` | The ETag of the workspace. |
+| `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | Workspace properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

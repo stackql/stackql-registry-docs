@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the Database. Format: `projects/&#123;project&#125;/databases/&#123;database&#125;` |
+| `type` | `string` | The type of the database. See https://cloud.google.com/datastore/docs/firestore-or-datastore for information about how to choose. |
 | `appEngineIntegrationMode` | `string` | The App Engine integration mode to use for this database. |
 | `concurrencyMode` | `string` | The concurrency control mode to use for this database. |
 | `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | `keyPrefix` | `string` | Output only. The key_prefix for this database. This key_prefix is used, in combination with the project id ("~") to construct the application id that is returned from the Cloud Datastore APIs in Google App Engine first generation runtimes. This value may be empty in which case the appid to use for URL-encoded keys is the project_id (eg: foo instead of v~foo). |
 | `locationId` | `string` | The location of the database. Available databases are listed at https://cloud.google.com/firestore/docs/locations. |
-| `type` | `string` | The type of the database. See https://cloud.google.com/datastore/docs/firestore-or-datastore for information about how to choose. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

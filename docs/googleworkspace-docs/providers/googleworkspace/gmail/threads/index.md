@@ -28,9 +28,9 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID of the thread. |
+| `historyId` | `string` | The ID of the last history record that modified this thread. |
 | `messages` | `array` | The list of messages in the thread. |
 | `snippet` | `string` | A short part of the message text. |
-| `historyId` | `string` | The ID of the last history record that modified this thread. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

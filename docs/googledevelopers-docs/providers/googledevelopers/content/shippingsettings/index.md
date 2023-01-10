@@ -27,10 +27,10 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `accountId` | `string` | The ID of the account to which these account shipping settings belong. Ignored upon update, always present in get request responses. |
 | `postalCodeGroups` | `array` | A list of postal code groups that can be referred to in `services`. Optional. |
 | `services` | `array` | The target account's list of services. Optional. |
 | `warehouses` | `array` | Optional. A list of warehouses which can be referred to in `services`. |
-| `accountId` | `string` | The ID of the account to which these account shipping settings belong. Ignored upon update, always present in get request responses. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

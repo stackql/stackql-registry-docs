@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The provider ID. |
+| `registrationPolicy` | `string` | The registration policy of the resource provider. |
+| `registrationState` | `string` | The registration state of the resource provider. |
 | `resourceTypes` | `array` | The collection of provider resource types. |
 | `namespace` | `string` | The namespace of the resource provider. |
 | `providerAuthorizationConsentState` | `string` | The provider authorization consent state. |
-| `registrationPolicy` | `string` | The registration policy of the resource provider. |
-| `registrationState` | `string` | The registration state of the resource provider. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

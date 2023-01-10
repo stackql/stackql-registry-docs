@@ -28,12 +28,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the server usage metric. |
-| `nextResetTime` | `string` | The next reset time for the metric (ISO8601 format). |
-| `resourceName` | `string` | The name of the resource. |
 | `unit` | `string` | The units of the metric. |
 | `currentValue` | `number` | The current value of the metric. |
 | `displayName` | `string` | The metric display name. |
 | `limit` | `number` | The current limit of the metric. |
+| `nextResetTime` | `string` | The next reset time for the metric (ISO8601 format). |
+| `resourceName` | `string` | The name of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

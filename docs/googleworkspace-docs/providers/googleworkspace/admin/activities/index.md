@@ -28,12 +28,12 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `object` | Unique identifier for each activity record. |
-| `ipAddress` | `string` | IP address of the user doing the action. This is the Internet Protocol (IP) address of the user when logging into Google Workspace, which may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private network (VPN) address. The API supports IPv4 and IPv6. |
-| `kind` | `string` | The type of API resource. For an activity report, the value is `audit#activity`. |
 | `ownerDomain` | `string` | This is the domain that is affected by the report's event. For example domain of Admin console or the Drive application's document owner. |
 | `actor` | `object` | User doing the action. |
 | `etag` | `string` | ETag of the entry. |
 | `events` | `array` | Activity events in the report. |
+| `ipAddress` | `string` | IP address of the user doing the action. This is the Internet Protocol (IP) address of the user when logging into Google Workspace, which may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private network (VPN) address. The API supports IPv4 and IPv6. |
+| `kind` | `string` | The type of API resource. For an activity report, the value is `audit#activity`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

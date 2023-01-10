@@ -31,11 +31,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `name` | `string` | The name of the resource |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Machine Learning compute object. |
-| `location` | `string` | Specifies the location of the resource. |
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `tags` | `object` | Contains resource tags defined as key/value pairs. |
 | `sku` | `object` | The resource model definition representing SKU |
+| `tags` | `object` | Contains resource tags defined as key/value pairs. |
 | `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| `location` | `string` | Specifies the location of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -28,12 +28,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A description of the address pool. |
+| `totalAddressCount` | `integer` | The total number of addresses. |
 | `totalAvailableAddressCount` | `integer` | The total number of available addresses. |
 | `networkBorderGroup` | `string` | The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where Amazon Web Services advertises public IP addresses. |
 | `poolAddressRangeSet` | `array` | The address ranges. |
 | `poolId` | `string` | The ID of the address pool. |
 | `tagSet` | `array` | Any tags for the address pool. |
-| `totalAddressCount` | `integer` | The total number of addresses. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

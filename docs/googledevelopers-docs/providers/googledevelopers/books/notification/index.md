@@ -27,22 +27,22 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `doc_type` | `string` |  |
-| `timeToExpireMs` | `string` |  |
-| `doc_id` | `string` |  |
-| `targetUrl` | `string` |  |
-| `kind` | `string` | Resource type. |
-| `iconUrl` | `string` |  |
-| `title` | `string` |  |
 | `crmExperimentIds` | `array` | The list of crm experiment ids. |
-| `reason` | `string` |  |
-| `notification_type` | `string` |  |
-| `notificationGroup` | `string` |  |
-| `pcampaign_id` | `string` |  |
-| `show_notification_settings_action` | `boolean` |  |
-| `body` | `string` |  |
-| `is_document_mature` | `boolean` |  |
+| `title` | `string` |  |
+| `iconUrl` | `string` |  |
 | `dont_show_notification` | `boolean` |  |
+| `is_document_mature` | `boolean` |  |
+| `timeToExpireMs` | `string` |  |
+| `doc_type` | `string` |  |
+| `body` | `string` |  |
+| `reason` | `string` |  |
+| `pcampaign_id` | `string` |  |
+| `targetUrl` | `string` |  |
+| `notification_type` | `string` |  |
+| `doc_id` | `string` |  |
+| `notificationGroup` | `string` |  |
+| `kind` | `string` | Resource type. |
+| `show_notification_settings_action` | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

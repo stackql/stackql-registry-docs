@@ -27,9 +27,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `comments` | `array` | A repeated field containing comments for the review. |
 | `reviewId` | `string` | Unique identifier for this review. |
 | `authorName` | `string` | The name of the user who wrote the review. |
-| `comments` | `array` | A repeated field containing comments for the review. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

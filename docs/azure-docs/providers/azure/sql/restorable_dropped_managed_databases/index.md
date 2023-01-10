@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `properties` | `object` | The restorable dropped managed database's properties. |
 | `tags` | `object` | Resource tags. |
 | `location` | `string` | Resource location. |
-| `properties` | `object` | The restorable dropped managed database's properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If not empty, indicates that there may be more apps for the request; this value should be passed in a new `ListAppsRequest`. |
 | `apps` | `array` | The resulting apps for the requested account. |
+| `nextPageToken` | `string` | If not empty, indicates that there may be more apps for the request; this value should be passed in a new `ListAppsRequest`. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

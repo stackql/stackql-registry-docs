@@ -3,17 +3,29 @@ title: code_scanning
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - stackql
+  - code_scanning
   - github
+  - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
 code_scanning  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -21,7 +33,7 @@ code_scanning
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - code_scanning</td></tr>
 <tr><td><b>Description</b></td><td>code_scanning</td></tr>
-<tr><td><b>Id</b></td><td><code>code_scanning:v0.3.1</code></td></tr>
+<tr><td><b>Id</b></td><td><code>code_scanning:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

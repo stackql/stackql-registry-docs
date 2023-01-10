@@ -3,14 +3,16 @@ title: topics
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - topics
+  - search
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,20 +29,20 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|
 | `name` | `string` |
 | `description` | `string` |
-| `curated` | `boolean` |
-| `short_description` | `string` |
-| `created_by` | `string` |
-| `featured` | `boolean` |
 | `text_matches` | `array` |
+| `short_description` | `string` |
+| `repository_count` | `integer` |
+| `display_name` | `string` |
+| `score` | `number` |
 | `created_at` | `string` |
 | `updated_at` | `string` |
-| `repository_count` | `integer` |
-| `logo_url` | `string` |
-| `released` | `string` |
-| `related` | `array` |
-| `score` | `number` |
+| `curated` | `boolean` |
 | `aliases` | `array` |
-| `display_name` | `string` |
+| `released` | `string` |
+| `logo_url` | `string` |
+| `created_by` | `string` |
+| `related` | `array` |
+| `featured` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

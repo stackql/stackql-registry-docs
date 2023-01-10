@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Represents the properties of an elastic pool. |
 | `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | Represents the properties of an elastic pool. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

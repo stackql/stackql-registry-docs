@@ -3,14 +3,16 @@ title: branch_protection
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - branch_protection
+  - repos
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,18 +28,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `allow_deletions` | `object` |  |
-| `enforce_admins` | `object` | Protected Branch Admin Enforced |
 | `required_pull_request_reviews` | `object` | Protected Branch Pull Request Review |
-| `required_linear_history` | `object` |  |
-| `required_status_checks` | `object` | Protected Branch Required Status Check |
-| `url` | `string` |  |
-| `restrictions` | `object` | Branch Restriction Policy |
-| `protection_url` | `string` |  |
-| `allow_force_pushes` | `object` |  |
-| `required_signatures` | `object` |  |
 | `enabled` | `boolean` |  |
+| `required_signatures` | `object` |  |
+| `url` | `string` |  |
+| `protection_url` | `string` |  |
+| `allow_deletions` | `object` |  |
 | `required_conversation_resolution` | `object` |  |
+| `required_linear_history` | `object` |  |
+| `allow_force_pushes` | `object` |  |
+| `enforce_admins` | `object` | Protected Branch Admin Enforced |
+| `required_status_checks` | `object` | Protected Branch Required Status Check |
+| `restrictions` | `object` | Branch Restriction Policy |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | name of resource names have the form 'projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/evaluations/&#123;evaluation_id&#125;' |
 | `description` | `string` | Description of the Evaluation |
-| `createTime` | `string` | Output only. [Output only] Create time stamp |
 | `labels` | `object` | Labels as key value pairs |
+| `resourceFilter` | `object` | Message describing resource filters |
 | `resourceStatus` | `object` | Message describing resource status |
 | `ruleNames` | `array` | the name of the rule |
 | `updateTime` | `string` | Output only. [Output only] Update time stamp |
 | `ruleVersions` | `array` | Output only. [Output only] The updated rule ids if exist. |
-| `resourceFilter` | `object` | Message describing resource filters |
+| `createTime` | `string` | Output only. [Output only] Create time stamp |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,21 +29,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The full name of the Restore resource. Format: `projects/*/locations/*/restorePlans/*/restores/*` |
 | `description` | `string` | User specified descriptive string for this Restore. |
+| `updateTime` | `string` | Output only. The timestamp when this Restore resource was last updated. |
 | `createTime` | `string` | Output only. The timestamp when this Restore resource was created. |
-| `labels` | `object` | A set of custom labels supplied by user. |
-| `stateReason` | `string` | Output only. Human-readable description of why the Restore is in its current state. |
-| `resourcesRestoredCount` | `integer` | Output only. Number of resources restored during the restore execution. |
-| `resourcesFailedCount` | `integer` | Output only. Number of resources that failed to be restored during the restore execution. |
 | `completeTime` | `string` | Output only. Timestamp of when the restore operation completed. |
+| `labels` | `object` | A set of custom labels supplied by user. |
+| `resourcesFailedCount` | `integer` | Output only. Number of resources that failed to be restored during the restore execution. |
+| `resourcesRestoredCount` | `integer` | Output only. Number of resources restored during the restore execution. |
+| `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
+| `cluster` | `string` | Output only. The target cluster into which this Restore will restore data. Valid formats: - `projects/*/locations/*/clusters/*` - `projects/*/zones/*/clusters/*` Inherited from parent RestorePlan's cluster value. |
+| `backup` | `string` | Required. Immutable. A reference to the Backup used as the source from which this Restore will restore. Note that this Backup must be a sub-resource of the RestorePlan's backup_plan. Format: `projects/*/locations/*/backupPlans/*/backups/*`. |
 | `resourcesExcludedCount` | `integer` | Output only. Number of resources excluded during the restore execution. |
 | `etag` | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a restore from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform restore updates in order to avoid race conditions: An `etag` is returned in the response to `GetRestore`, and systems are expected to put that etag in the request to `UpdateRestore` or `DeleteRestore` to ensure that their change will be applied to the same version of the resource. |
+| `stateReason` | `string` | Output only. Human-readable description of why the Restore is in its current state. |
 | `volumesRestoredCount` | `integer` | Output only. Number of volumes restored during the restore execution. |
-| `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
-| `backup` | `string` | Required. Immutable. A reference to the Backup used as the source from which this Restore will restore. Note that this Backup must be a sub-resource of the RestorePlan's backup_plan. Format: `projects/*/locations/*/backupPlans/*/backups/*`. |
-| `cluster` | `string` | Output only. The target cluster into which this Restore will restore data. Valid formats: - `projects/*/locations/*/clusters/*` - `projects/*/zones/*/clusters/*` Inherited from parent RestorePlan's cluster value. |
-| `updateTime` | `string` | Output only. The timestamp when this Restore resource was last updated. |
-| `state` | `string` | Output only. The current state of the Restore. |
 | `restoreConfig` | `object` | Configuration of a restore. Next id: 9 |
+| `state` | `string` | Output only. The current state of the Restore. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

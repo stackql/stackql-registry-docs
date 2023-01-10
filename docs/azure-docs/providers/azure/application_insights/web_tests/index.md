@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure resource Id |
 | `name` | `string` | Azure resource name |
+| `properties` | `object` | Metadata describing a web test for an Azure resource. |
+| `tags` | `` | Resource tags |
 | `type` | `string` | Azure resource type |
 | `kind` | `string` | The kind of WebTest that this web test watches. Choices are ping, multistep and standard. |
 | `location` | `string` | Resource location |
-| `properties` | `object` | Metadata describing a web test for an Azure resource. |
-| `tags` | `` | Resource tags |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

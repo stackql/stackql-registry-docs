@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `sku` | `object` | An ARM Resource SKU. |
 | `tags` | `object` | Resource tags. |
 | `identity` | `object` | Azure Active Directory identity configuration for a resource. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | The properties of a managed instance. |
-| `sku` | `object` | An ARM Resource SKU. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

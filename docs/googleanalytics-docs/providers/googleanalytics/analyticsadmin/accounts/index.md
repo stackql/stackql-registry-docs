@@ -28,11 +28,11 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of this account. Format: accounts/&#123;account&#125; Example: "accounts/100" |
+| `deleted` | `boolean` | Output only. Indicates whether this Account is soft-deleted or not. Deleted accounts are excluded from List results unless specifically requested. |
 | `displayName` | `string` | Required. Human-readable display name for this account. |
 | `regionCode` | `string` | Country of business. Must be a Unicode CLDR region code. |
 | `updateTime` | `string` | Output only. Time when account payload fields were last updated. |
 | `createTime` | `string` | Output only. Time when this account was originally created. |
-| `deleted` | `boolean` | Output only. Indicates whether this Account is soft-deleted or not. Deleted accounts are excluded from List results unless specifically requested. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

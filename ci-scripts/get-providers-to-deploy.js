@@ -21,7 +21,8 @@ const allProviders = [
     'googledevelopers',
     'googlemybusiness',
     'googleworkspace',
-    'youtube',                        
+    'youtube',
+    'azure_extras',                        
     rootName];
        
 const appendToOutput = (providers) => {

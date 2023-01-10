@@ -27,15 +27,15 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `notesMaster` | `object` | A page in a presentation. |
+| `pageSize` | `object` | A width and height. |
 | `presentationId` | `string` | The ID of the presentation. |
+| `slides` | `array` | The slides in the presentation. A slide inherits properties from a slide layout. |
+| `masters` | `array` | The slide masters in the presentation. A slide master contains all common page elements and the common properties for a set of layouts. They serve three purposes: - Placeholder shapes on a master contain the default text styles and shape properties of all placeholder shapes on pages that use that master. - The master page properties define the common page properties inherited by its layouts. - Any other shapes on the master slide appear on all slides using that master, regardless of their layout. |
 | `title` | `string` | The title of the presentation. |
 | `layouts` | `array` | The layouts in the presentation. A layout is a template that determines how content is arranged and styled on the slides that inherit from that layout. |
 | `locale` | `string` | The locale of the presentation, as an IETF BCP 47 language tag. |
-| `pageSize` | `object` | A width and height. |
+| `notesMaster` | `object` | A page in a presentation. |
 | `revisionId` | `string` | Output only. The revision ID of the presentation. Can be used in update requests to assert the presentation revision hasn't changed since the last read operation. Only populated if the user has edit access to the presentation. The revision ID is not a sequential number but a nebulous string. The format of the revision ID may change over time, so it should be treated opaquely. A returned revision ID is only guaranteed to be valid for 24 hours after it has been returned and cannot be shared across users. If the revision ID is unchanged between calls, then the presentation has not changed. Conversely, a changed ID (for the same presentation and user) usually means the presentation has been updated. However, a changed ID can also be due to internal factors such as ID format changes. |
-| `slides` | `array` | The slides in the presentation. A slide inherits properties from a slide layout. |
-| `masters` | `array` | The slide masters in the presentation. A slide master contains all common page elements and the common properties for a set of layouts. They serve three purposes: - Placeholder shapes on a master contain the default text styles and shape properties of all placeholder shapes on pages that use that master. - The master page properties define the common page properties inherited by its layouts. - Any other shapes on the master slide appear on all slides using that master, regardless of their layout. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name |
+| `properties` | `object` | Describes the properties of a gallery image definition. |
 | `type` | `string` | Resource type |
 | `identifier` | `object` | The identifier information of community gallery. |
 | `location` | `string` | Resource location |
-| `properties` | `object` | Describes the properties of a gallery image definition. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

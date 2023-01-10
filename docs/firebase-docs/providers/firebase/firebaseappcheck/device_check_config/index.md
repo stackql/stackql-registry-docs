@@ -28,10 +28,10 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The relative resource name of the DeviceCheck configuration object, in the format: ``` projects/&#123;project_number&#125;/apps/&#123;app_id&#125;/deviceCheckConfig ``` |
+| `tokenTtl` | `string` | Specifies the duration for which App Check tokens exchanged from DeviceCheck tokens will be valid. If unset, a default value of 1 hour is assumed. Must be between 30 minutes and 7 days, inclusive. |
 | `keyId` | `string` | Required. The key identifier of a private key enabled with DeviceCheck, created in your Apple Developer account. |
 | `privateKey` | `string` | Required. Input only. The contents of the private key (`.p8`) file associated with the key specified by `key_id`. For security reasons, this field will never be populated in any response. |
 | `privateKeySet` | `boolean` | Output only. Whether the `private_key` field was previously set. Since we will never return the `private_key` field, this field is the only way to find out whether it was previously set. |
-| `tokenTtl` | `string` | Specifies the duration for which App Check tokens exchanged from DeviceCheck tokens will be valid. If unset, a default value of 1 hour is assumed. Must be between 30 minutes and 7 days, inclusive. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

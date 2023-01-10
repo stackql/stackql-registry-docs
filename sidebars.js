@@ -21,6 +21,7 @@ const providers = [
   {name: 'netlify'},
   {name: 'okta'},
   {name: 'sumologic'},
+  {name: 'azure_extras'},
   {name: 'firebase'}, 
   {name: 'k8s'}, 
   {name: 'googleworkspace'},
@@ -32,8 +33,7 @@ const providers = [
 ]
 
 const getProviderSiteUrl = (name) =>{
-  // return `https://stackql-${name}-docs.netlify.app/providers/${name}`
-  return `https://${name}.stackql.io/providers/${name}`
+    return `https://${name.replace('_', '-')}.stackql.io/providers/${name}`
 }
 
 const providerDocItems = providers.map(provider =>{

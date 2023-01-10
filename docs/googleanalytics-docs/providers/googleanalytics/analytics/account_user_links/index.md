@@ -28,11 +28,11 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Entity user link ID |
+| `permissions` | `object` | Permissions the user has for this entity. |
 | `selfLink` | `string` | Self link for this resource. |
 | `userRef` | `object` | JSON template for a user reference. |
 | `entity` | `object` | Entity for this link. It can be an account, a web property, or a view (profile). |
 | `kind` | `string` | Resource type for entity user link. |
-| `permissions` | `object` | Permissions the user has for this entity. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

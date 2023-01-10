@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,15 +27,15 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `state` | `string` | The current state of faster launching for the specified Windows AMI. |
-| `launchTemplate` | `object` | Identifies the launch template to use for faster launching of the Windows AMI. |
-| `snapshotConfiguration` | `object` | Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI. |
-| `stateTransitionTime` | `string` | The time that faster launching for the Windows AMI changed to the current state. |
-| `ownerId` | `string` | The owner ID for the fast-launch enabled Windows AMI. |
-| `maxParallelLaunches` | `integer` | The maximum number of parallel instances that are launched for creating resources. |
-| `resourceType` | `string` | The resource type that is used for pre-provisioning the Windows AMI. Supported values include: &lt;code&gt;snapshot&lt;/code&gt;. |
 | `stateTransitionReason` | `string` | The reason that faster launching for the Windows AMI changed to the current state. |
 | `imageId` | `string` | The image ID that identifies the fast-launch enabled Windows image. |
+| `resourceType` | `string` | The resource type that is used for pre-provisioning the Windows AMI. Supported values include: &lt;code&gt;snapshot&lt;/code&gt;. |
+| `state` | `string` | The current state of faster launching for the specified Windows AMI. |
+| `ownerId` | `string` | The owner ID for the fast-launch enabled Windows AMI. |
+| `snapshotConfiguration` | `object` | Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI. |
+| `stateTransitionTime` | `string` | The time that faster launching for the Windows AMI changed to the current state. |
+| `launchTemplate` | `object` | Identifies the launch template to use for faster launching of the Windows AMI. |
+| `maxParallelLaunches` | `integer` | The maximum number of parallel instances that are launched for creating resources. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

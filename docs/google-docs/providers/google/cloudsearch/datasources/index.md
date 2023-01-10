@@ -30,12 +30,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | The name of the datasource resource. Format: datasources/&#123;source_id&#125;. The name is ignored when creating a datasource. |
 | `shortName` | `string` | A short name or alias for the source. This value will be used to match the 'source' operator. For example, if the short name is *&lt;value&gt;* then queries like *source:&lt;value&gt;* will only return results for this source. The value must be unique across all datasources. The value must only contain alphanumeric characters (a-zA-Z0-9). The value cannot start with 'google' and cannot be one of the following: mail, gmail, docs, drive, groups, sites, calendar, hangouts, gplus, keep, people, teams. Its maximum length is 32 characters. |
 | `disableModifications` | `boolean` | If true, sets the datasource to read-only mode. In read-only mode, the Indexing API rejects any requests to index or delete items in this source. Enabling read-only mode does not stop the processing of previously accepted data. |
-| `displayName` | `string` | Required. Display name of the datasource The maximum length is 300 characters. |
-| `operationIds` | `array` | IDs of the Long Running Operations (LROs) currently running for this schema. |
-| `indexingServiceAccounts` | `array` | List of service accounts that have indexing access. |
-| `returnThumbnailUrls` | `boolean` | Can a user request to get thumbnail URI for Items indexed in this data source. |
 | `itemsVisibility` | `array` | This field restricts visibility to items at the datasource level. Items within the datasource are restricted to the union of users and groups included in this field. Note that, this does not ensure access to a specific item, as users need to have ACL permissions on the contained items. This ensures a high level access on the entire datasource, and that the individual items are not shared outside this visibility. |
 | `disableServing` | `boolean` | Disable serving any search or assist results. |
+| `operationIds` | `array` | IDs of the Long Running Operations (LROs) currently running for this schema. |
+| `displayName` | `string` | Required. Display name of the datasource The maximum length is 300 characters. |
+| `indexingServiceAccounts` | `array` | List of service accounts that have indexing access. |
+| `returnThumbnailUrls` | `boolean` | Can a user request to get thumbnail URI for Items indexed in this data source. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

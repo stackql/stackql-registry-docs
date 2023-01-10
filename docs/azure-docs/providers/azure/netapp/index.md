@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Microsoft NetApp Azure Resource Provider specification  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>15</b></span><br />
+<span>total selectable resources:&nbsp;<b>14</b></span><br />
+<span>total methods:&nbsp;<b>81</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Microsoft NetApp Azure Resource Provider specification
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft NetApp (Microsoft.NetApp)</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft NetApp Azure Resource Provider specification</td></tr>
-<tr><td><b>Id</b></td><td><code>netapp:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>netapp:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

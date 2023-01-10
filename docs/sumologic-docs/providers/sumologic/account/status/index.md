@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -27,12 +27,12 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `planType` | `string` | Whether the account is `Free`/`Trial`/`Paid` |
-| `pricingModel` | `string` | Whether the account is `cloudflex` or `credits` |
-| `accountActivated` | `boolean` | If the account is activated or not |
 | `applicationUse` | `string` | The current usage of the application. |
 | `canUpdatePlan` | `boolean` | If the plan can be updated by the given user |
 | `planExpirationDays` | `integer` | The number of days in which the plan will expire |
+| `planType` | `string` | Whether the account is `Free`/`Trial`/`Paid` |
+| `pricingModel` | `string` | Whether the account is `cloudflex` or `credits` |
+| `accountActivated` | `boolean` | If the account is activated or not |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,9 +27,9 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `timestamp` | `string` | The time the data was last updated. |
 | `instanceId` | `string` | The ID of the Windows instance. |
 | `passwordData` | `string` | The password of the instance. Returns an empty string if the password is not available. |
+| `timestamp` | `string` | The time the data was last updated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

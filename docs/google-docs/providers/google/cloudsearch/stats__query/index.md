@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `totalQueryCount` | `string` | Total successful query count (status code 200) for the given date range. |
 | `stats` | `array` |  |
+| `totalQueryCount` | `string` | Total successful query count (status code 200) for the given date range. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

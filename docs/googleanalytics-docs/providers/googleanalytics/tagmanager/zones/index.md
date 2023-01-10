@@ -28,17 +28,17 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Zone display name. |
-| `typeRestriction` | `object` | Represents a Zone's type restrictions. |
-| `workspaceId` | `string` | GTM Workspace ID. |
-| `notes` | `string` | User notes on how to apply this zone in the container. |
 | `boundary` | `object` | Represents a Zone's boundaries. |
 | `containerId` | `string` | GTM Container ID. |
+| `workspaceId` | `string` | GTM Workspace ID. |
+| `fingerprint` | `string` | The fingerprint of the GTM Zone as computed at storage time. This value is recomputed whenever the zone is modified. |
 | `zoneId` | `string` | The Zone ID uniquely identifies the GTM Zone. |
-| `path` | `string` | GTM Zone's API relative path. |
 | `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
+| `notes` | `string` | User notes on how to apply this zone in the container. |
+| `path` | `string` | GTM Zone's API relative path. |
+| `typeRestriction` | `object` | Represents a Zone's type restrictions. |
 | `accountId` | `string` | GTM Account ID. |
 | `childContainer` | `array` | Containers that are children of this Zone. |
-| `fingerprint` | `string` | The fingerprint of the GTM Zone as computed at storage time. This value is recomputed whenever the zone is modified. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,14 +28,14 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the reply. |
-| `content` | `string` | The plain text content of the reply. This field is used for setting the content, while htmlContent should be displayed. This is required on creates if no action is specified. |
-| `action` | `string` | The action the reply performed to the parent comment. Valid values are:  <br />- resolve <br />- reopen |
-| `deleted` | `boolean` | Whether the reply has been deleted. A deleted reply has no content. |
-| `modifiedTime` | `string` | The last time the reply was modified (RFC 3339 date-time). |
 | `author` | `object` | Information about a Drive user. |
 | `createdTime` | `string` | The time at which the reply was created (RFC 3339 date-time). |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "drive#reply". |
+| `deleted` | `boolean` | Whether the reply has been deleted. A deleted reply has no content. |
 | `htmlContent` | `string` | The content of the reply with HTML formatting. |
+| `action` | `string` | The action the reply performed to the parent comment. Valid values are:  <br />- resolve <br />- reopen |
+| `content` | `string` | The plain text content of the reply. This field is used for setting the content, while htmlContent should be displayed. This is required on creates if no action is specified. |
+| `modifiedTime` | `string` | The last time the reply was modified (RFC 3339 date-time). |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "drive#reply". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

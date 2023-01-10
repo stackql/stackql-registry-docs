@@ -29,13 +29,13 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Segment ID. |
 | `name` | `string` | Segment name. |
-| `updated` | `string` | Time the segment was last modified. |
-| `selfLink` | `string` | Link for this segment. |
 | `kind` | `string` | Resource type for Analytics segment. |
-| `definition` | `string` | Segment definition. |
-| `segmentId` | `string` | Segment ID. Can be used with the 'segment' parameter in Core Reporting API. |
 | `created` | `string` | Time the segment was created. |
+| `updated` | `string` | Time the segment was last modified. |
+| `segmentId` | `string` | Segment ID. Can be used with the 'segment' parameter in Core Reporting API. |
 | `type` | `string` | Type for a segment. Possible values are "BUILT_IN" or "CUSTOM". |
+| `definition` | `string` | Segment definition. |
+| `selfLink` | `string` | Link for this segment. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

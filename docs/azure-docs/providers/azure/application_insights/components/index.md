@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure resource Id |
 | `name` | `string` | Azure resource name |
+| `properties` | `object` | Properties that define an Application Insights component resource. |
+| `tags` | `` | Resource tags |
 | `type` | `string` | Azure resource type |
 | `etag` | `string` | Resource etag |
 | `kind` | `string` | The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone. |
 | `location` | `string` | Resource location |
-| `properties` | `object` | Properties that define an Application Insights component resource. |
-| `tags` | `` | Resource tags |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

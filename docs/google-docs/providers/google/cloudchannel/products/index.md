@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `products` | `array` | List of Products requested. |
 | `nextPageToken` | `string` | A token to retrieve the next page of results. |
+| `products` | `array` | List of Products requested. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

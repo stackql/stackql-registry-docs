@@ -3,14 +3,16 @@ title: codes_of_conduct
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - codes_of_conduct
+  - codes_of_conduct
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,10 +28,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
-| `url` | `string` |
 | `body` | `string` |
 | `html_url` | `string` |
 | `key` | `string` |
+| `url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

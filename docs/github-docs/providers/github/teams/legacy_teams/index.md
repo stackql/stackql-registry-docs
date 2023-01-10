@@ -3,14 +3,16 @@ title: legacy_teams
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - legacy_teams
+  - teams
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -28,21 +30,21 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | `id` | `integer` | Unique identifier of the team |
 | `name` | `string` | Name of the team |
 | `description` | `string` |  |
-| `organization` | `object` | Organization Full |
-| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
-| `created_at` | `string` |  |
 | `slug` | `string` |  |
-| `permission` | `string` | Permission that the team will have for its repositories |
-| `ldap_dn` | `string` | Distinguished Name (DN) that team maps to within LDAP environment |
-| `html_url` | `string` |  |
-| `members_url` | `string` |  |
-| `privacy` | `string` | The level of privacy this team should have |
-| `repositories_url` | `string` |  |
 | `members_count` | `integer` |  |
-| `repos_count` | `integer` |  |
-| `url` | `string` | URL for the team |
-| `updated_at` | `string` |  |
 | `node_id` | `string` |  |
+| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
+| `url` | `string` | URL for the team |
+| `html_url` | `string` |  |
+| `organization` | `object` | Organization Full |
+| `repos_count` | `integer` |  |
+| `privacy` | `string` | The level of privacy this team should have |
+| `created_at` | `string` |  |
+| `members_url` | `string` |  |
+| `ldap_dn` | `string` | Distinguished Name (DN) that team maps to within LDAP environment |
+| `permission` | `string` | Permission that the team will have for its repositories |
+| `updated_at` | `string` |  |
+| `repositories_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

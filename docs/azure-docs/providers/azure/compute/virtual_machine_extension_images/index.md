@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
 | `location` | `string` | Resource location |
 | `properties` | `object` | Describes the properties of a Virtual Machine Extension Image. |
+| `tags` | `object` | Resource tags |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

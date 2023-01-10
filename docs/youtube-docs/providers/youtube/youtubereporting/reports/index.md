@@ -28,12 +28,12 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The server-generated ID of the report. |
+| `startTime` | `string` | The start of the time period that the report instance covers. The value is inclusive. |
+| `createTime` | `string` | The date/time when this report was created. |
 | `downloadUrl` | `string` | The URL from which the report can be downloaded (max. 1000 characters). |
 | `endTime` | `string` | The end of the time period that the report instance covers. The value is exclusive. |
 | `jobExpireTime` | `string` | The date/time when the job this report belongs to will expire/expired. |
 | `jobId` | `string` | The ID of the job that created this report. |
-| `startTime` | `string` | The start of the time period that the report instance covers. The value is inclusive. |
-| `createTime` | `string` | The date/time when this report was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

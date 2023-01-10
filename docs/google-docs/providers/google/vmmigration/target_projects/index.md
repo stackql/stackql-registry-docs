@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the target project. |
 | `description` | `string` | The target project's description. |
+| `createTime` | `string` | Output only. The time this target project resource was created (not related to when the Compute Engine project it points to was created). |
 | `project` | `string` | The target project ID (number) or project name. |
 | `updateTime` | `string` | Output only. The last time the target project resource was updated. |
-| `createTime` | `string` | Output only. The time this target project resource was created (not related to when the Compute Engine project it points to was created). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

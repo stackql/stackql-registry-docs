@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure resource Id |
 | `name` | `string` | Azure resource name |
-| `type` | `string` | Azure resource type |
-| `etag` | `` | Resource etag |
-| `identity` | `object` | Customer Managed Identity |
 | `location` | `string` | Resource location |
-| `kind` | `string` | The kind of workbook. Choices are user and shared. |
+| `identity` | `object` | Customer Managed Identity |
+| `type` | `string` | Azure resource type |
 | `properties` | `object` | Properties that contain a private workbook. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `etag` | `` | Resource etag |
+| `kind` | `string` | The kind of workbook. Choices are user and shared. |
 | `tags` | `` | Resource tags |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
+| `properties` | `object` | Migration item recovery point properties. |
 | `type` | `string` | Resource Type |
 | `location` | `string` | Resource Location |
-| `properties` | `object` | Migration item recovery point properties. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

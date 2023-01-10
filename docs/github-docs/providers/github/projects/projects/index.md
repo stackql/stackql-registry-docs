@@ -3,14 +3,16 @@ title: projects
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - projects
+  - projects
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -27,18 +29,18 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` | Name of the project |
-| `creator` | `object` | Simple User |
-| `number` | `integer` |  |
-| `html_url` | `string` |  |
-| `created_at` | `string` |  |
+| `updated_at` | `string` |  |
+| `body` | `string` | Body of the project |
 | `organization_permission` | `string` | The baseline permission that all organization members have on this project. Only present if owner is an organization. |
+| `creator` | `object` | Simple User |
+| `created_at` | `string` |  |
+| `number` | `integer` |  |
+| `private` | `boolean` | Whether or not this project can be seen by everyone. Only present if owner is an organization. |
 | `url` | `string` |  |
 | `node_id` | `string` |  |
 | `owner_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `private` | `boolean` | Whether or not this project can be seen by everyone. Only present if owner is an organization. |
+| `html_url` | `string` |  |
 | `state` | `string` | State of the project; either 'open' or 'closed' |
-| `body` | `string` | Body of the project |
 | `columns_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |

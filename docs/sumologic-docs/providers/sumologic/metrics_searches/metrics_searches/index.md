@@ -10,9 +10,9 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Sumologic resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ---
   
     
@@ -29,17 +29,17 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the metrics search. |
 | `description` | `string` | Item description in the content library. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `title` | `string` | Item title in the content library. |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
-| `desiredQuantizationInSecs` | `integer` | Desired quantization in seconds. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `parentId` | `string` | Identifier of the parent element in the content library, such as folder. |
 | `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `logQuery` | `string` | Log query used to add an overlay to the chart. |
 | `timeRange` | `object` |  |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `logQuery` | `string` | Log query used to add an overlay to the chart. |
-| `metricsQueries` | `array` | Metrics queries, up to the maximum of six. |
 | `properties` | `string` | Chart properties, like line width, color palette, and the fill missing data method. Leave this field empty to use the defaults.<br />This property contains JSON object encoded as a string.<br /> |
+| `metricsQueries` | `array` | Metrics queries, up to the maximum of six. |
+| `parentId` | `string` | Identifier of the parent element in the content library, such as folder. |
+| `desiredQuantizationInSecs` | `integer` | Desired quantization in seconds. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

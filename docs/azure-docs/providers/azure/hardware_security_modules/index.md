@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Hardware Security Modules  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>8</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Hardware Security Modules
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Hardware Security Modules (Microsoft.HardwareSecurityModules)</td></tr>
 <tr><td><b>Description</b></td><td>Hardware Security Modules</td></tr>
-<tr><td><b>Id</b></td><td><code>hardware_security_modules:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>hardware_security_modules:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

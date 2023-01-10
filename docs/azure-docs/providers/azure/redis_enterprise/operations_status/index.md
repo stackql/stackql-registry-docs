@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The operation's unique id. |
 | `name` | `string` | The operation's name. |
+| `startTime` | `string` | The start time of the operation. |
 | `status` | `string` | The current status of the operation. |
 | `endTime` | `string` | The end time of the operation. |
 | `error` | `object` | Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.). |
-| `startTime` | `string` | The start time of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

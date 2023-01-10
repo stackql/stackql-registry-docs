@@ -28,14 +28,14 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the partner. |
-| `adServerConfig` | `object` | Ad server related settings of a partner. |
-| `dataAccessConfig` | `object` | Settings that control how partner related data may be accessed. |
-| `partnerId` | `string` | Output only. The unique ID of the partner. Assigned by the system. |
-| `updateTime` | `string` | Output only. The timestamp when the partner was last updated. Assigned by the system. |
-| `entityStatus` | `string` | Output only. The status of the partner. |
 | `displayName` | `string` | The display name of the partner. Must be UTF-8 encoded with a maximum size of 240 bytes. |
 | `exchangeConfig` | `object` | Settings that control which exchanges are enabled for a partner. |
 | `generalConfig` | `object` | General settings of a partner. |
+| `entityStatus` | `string` | Output only. The status of the partner. |
+| `partnerId` | `string` | Output only. The unique ID of the partner. Assigned by the system. |
+| `updateTime` | `string` | Output only. The timestamp when the partner was last updated. Assigned by the system. |
+| `adServerConfig` | `object` | Ad server related settings of a partner. |
+| `dataAccessConfig` | `object` | Settings that control how partner related data may be accessed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

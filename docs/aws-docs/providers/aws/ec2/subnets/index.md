@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,27 +27,27 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the subnet. |
+| `defaultForAz` | `boolean` | Indicates whether this is the default subnet for the Availability Zone. |
 | `ipv6Native` | `boolean` | Indicates whether this is an IPv6 only subnet. |
 | `mapCustomerOwnedIpOnLaunch` | `boolean` | Indicates whether a network interface created in this subnet (including a network interface created by &lt;a&gt;RunInstances&lt;/a&gt;) receives a customer-owned IPv4 address. |
-| `availabilityZoneId` | `string` | The AZ ID of the subnet. |
-| `enableDns64` | `boolean` | Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. |
 | `cidrBlock` | `string` | The IPv4 CIDR block assigned to the subnet. |
+| `ipv6CidrBlockAssociationSet` | `array` | Information about the IPv6 CIDR blocks associated with the subnet. |
+| `availabilityZone` | `string` | The Availability Zone of the subnet. |
+| `availabilityZoneId` | `string` | The AZ ID of the subnet. |
+| `tagSet` | `array` | Any tags assigned to the subnet. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the subnet. |
+| `availableIpAddressCount` | `integer` | The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable. |
+| `enableLniAtDeviceIndex` | `integer` |  Indicates the device position for local network interfaces in this subnet. For example, &lt;code&gt;1&lt;/code&gt; indicates local network interfaces in this subnet are the secondary network interface (eth1).  |
+| `vpcId` | `string` | The ID of the VPC the subnet is in. |
+| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
+| `enableDns64` | `boolean` | Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. |
+| `subnetId` | `string` | The ID of the subnet. |
 | `subnetArn` | `string` | The Amazon Resource Name (ARN) of the subnet. |
 | `customerOwnedIpv4Pool` | `string` | The customer-owned IPv4 address pool associated with the subnet. |
-| `enableLniAtDeviceIndex` | `integer` |  Indicates the device position for local network interfaces in this subnet. For example, &lt;code&gt;1&lt;/code&gt; indicates local network interfaces in this subnet are the secondary network interface (eth1).  |
 | `mapPublicIpOnLaunch` | `boolean` | Indicates whether instances launched in this subnet receive a public IPv4 address. |
 | `assignIpv6AddressOnCreation` | `boolean` | Indicates whether a network interface created in this subnet (including a network interface created by &lt;a&gt;RunInstances&lt;/a&gt;) receives an IPv6 address. |
-| `ipv6CidrBlockAssociationSet` | `array` | Information about the IPv6 CIDR blocks associated with the subnet. |
-| `vpcId` | `string` | The ID of the VPC the subnet is in. |
 | `state` | `string` | The current state of the subnet. |
-| `subnetId` | `string` | The ID of the subnet. |
-| `tagSet` | `array` | Any tags assigned to the subnet. |
-| `defaultForAz` | `boolean` | Indicates whether this is the default subnet for the Availability Zone. |
-| `availabilityZone` | `string` | The Availability Zone of the subnet. |
 | `privateDnsNameOptionsOnLaunch` | `object` | Describes the options for instance hostnames. |
-| `availableIpAddressCount` | `integer` | The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable. |
-| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

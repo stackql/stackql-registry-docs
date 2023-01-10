@@ -3,14 +3,16 @@ title: authorizations
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - authorizations
+  - oauth_authorizations
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,20 +28,20 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `scopes` | `array` | A list of scopes that this authorization is in. |
-| `created_at` | `string` |  |
-| `user` | `object` | Simple User |
-| `note_url` | `string` |  |
+| `hashed_token` | `string` |  |
 | `url` | `string` |  |
-| `token` | `string` |  |
-| `token_last_eight` | `string` |  |
-| `updated_at` | `string` |  |
-| `app` | `object` |  |
 | `fingerprint` | `string` |  |
+| `app` | `object` |  |
 | `note` | `string` |  |
+| `scopes` | `array` | A list of scopes that this authorization is in. |
+| `note_url` | `string` |  |
+| `user` | `object` | Simple User |
+| `token` | `string` |  |
 | `expires_at` | `string` |  |
 | `installation` | `object` |  |
-| `hashed_token` | `string` |  |
+| `created_at` | `string` |  |
+| `token_last_eight` | `string` |  |
+| `updated_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

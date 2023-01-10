@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Admin Container Registry Management Client.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>14</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Admin Container Registry Management Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Container Registry Management Client (Microsoft.ContainerRegistry.Admin)</td></tr>
 <tr><td><b>Description</b></td><td>Admin Container Registry Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>container_registry_admin:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container_registry_admin:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

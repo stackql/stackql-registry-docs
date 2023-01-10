@@ -46,16 +46,9 @@ REGISTRY PULL googleworkspace v23.01.00114;
 
 {
   "googleworkspace": {
-    /**
-      * Type of authentication to use, suported values include: service_account, interactive
-      * @type String
-      */
-    "type": string, 
-    /**
-      * path to service account key file.
-      * @type String
-      */
-    "credentialsfilepath": string, 
+    "type": string, // authentication type to use, suported values:  service_account
+    "credentialsfilepath": string, // path to service account key file
+    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
   }
 }
 
@@ -63,14 +56,14 @@ REGISTRY PULL googleworkspace v23.01.00114;
 ### Example (Mac/Linux)
 ```bash
 
-AUTH='{ "googleworkspace": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+AUTH='{ "googleworkspace": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/drive", "..."]  }}'
 stackql shell --auth="${AUTH}"
 
 ```
 ### Example (PowerShell)
 ```powershell
 
-$Auth = "{ 'googleworkspace': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+$Auth = "{ 'googleworkspace': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/drive', '...'] }}"
 stackql.exe shell --auth=$Auth
 
 ```

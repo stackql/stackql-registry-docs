@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | A unique identifier of the AvailableDelegation resource. |
 | `name` | `string` | The name of the AvailableDelegation resource. |
-| `actions` | `array` | The actions permitted to the service upon delegation. |
 | `serviceName` | `string` | The name of the service and resource. |
 | `type` | `string` | Resource type. |
+| `actions` | `array` | The actions permitted to the service upon delegation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

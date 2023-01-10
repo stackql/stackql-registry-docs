@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the node. |
 | `nodeType` | `string` | The type of this node. |
-| `serverBinding` | `object` |  |
-| `serverId` | `string` | Server ID associated with this node. |
-| `disks` | `array` | Local disk configurations. |
-| `cpuOvercommitType` | `string` | CPU overcommit. |
-| `instanceConsumptionData` | `array` | Instance data that shows consumed resources on the node. |
-| `totalResources` | `object` |  |
-| `consumedResources` | `object` |  |
-| `status` | `string` |  |
-| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
 | `accelerators` | `array` | Accelerators for this node. |
+| `cpuOvercommitType` | `string` | CPU overcommit. |
+| `disks` | `array` | Local disk configurations. |
+| `instanceConsumptionData` | `array` | Instance data that shows consumed resources on the node. |
+| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
 | `instances` | `array` | Instances scheduled on this node. |
+| `serverId` | `string` | Server ID associated with this node. |
+| `status` | `string` |  |
+| `totalResources` | `object` |  |
+| `serverBinding` | `object` |  |
+| `consumedResources` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

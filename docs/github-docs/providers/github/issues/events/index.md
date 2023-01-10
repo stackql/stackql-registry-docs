@@ -3,14 +3,16 @@ title: events
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - events
+  - issues
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -26,27 +28,27 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `commit_url` | `string` |  |
-| `label` | `object` | Issue Event Label |
-| `milestone` | `object` | Issue Event Milestone |
-| `requested_team` | `object` | Groups of organization members that gives permissions on specified repositories. |
-| `actor` | `object` | Simple User |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `project_card` | `object` | Issue Event Project Card |
-| `review_requester` | `object` | Simple User |
 | `dismissed_review` | `object` |  |
-| `assignee` | `object` | Simple User |
+| `review_requester` | `object` | Simple User |
+| `requested_team` | `object` | Groups of organization members that gives permissions on specified repositories. |
+| `event` | `string` |  |
+| `requested_reviewer` | `object` | Simple User |
+| `assigner` | `object` | Simple User |
+| `milestone` | `object` | Issue Event Milestone |
+| `project_card` | `object` | Issue Event Project Card |
+| `issue` | `object` | Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. |
+| `commit_id` | `string` |  |
 | `node_id` | `string` |  |
+| `lock_reason` | `string` |  |
+| `actor` | `object` | Simple User |
+| `assignee` | `object` | Simple User |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `commit_url` | `string` |  |
 | `url` | `string` |  |
 | `rename` | `object` | Issue Event Rename |
-| `event` | `string` |  |
 | `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `assigner` | `object` | Simple User |
-| `lock_reason` | `string` |  |
-| `issue` | `object` | Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. |
 | `created_at` | `string` |  |
-| `requested_reviewer` | `object` | Simple User |
-| `commit_id` | `string` |  |
+| `label` | `object` | Issue Event Label |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

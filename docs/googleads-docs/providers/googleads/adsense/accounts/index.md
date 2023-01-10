@@ -28,12 +28,12 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the account. Format: accounts/pub-[0-9]+ |
+| `createTime` | `string` | Output only. Creation time of the account. |
 | `displayName` | `string` | Output only. Display name of this account. |
 | `pendingTasks` | `array` | Output only. Outstanding tasks that need to be completed as part of the sign-up process for a new account. e.g. "billing-profile-creation", "phone-pin-verification". |
 | `premium` | `boolean` | Output only. Whether this account is premium. |
 | `state` | `string` | Output only. State of the account. |
 | `timeZone` | `object` | Represents a time zone from the [IANA Time Zone Database](https://www.iana.org/time-zones). |
-| `createTime` | `string` | Output only. Creation time of the account. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,13 +28,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The fully qualified ID for the subscription. For example, /subscriptions/00000000-0000-0000-0000-000000000000. |
+| `subscriptionPolicies` | `object` | Subscription policies. |
+| `tags` | `object` | Tags for the subscription |
 | `tenantId` | `string` | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. |
 | `authorizationSource` | `string` | The authorization source of the request. Valid values are one or more combinations of Legacy, RoleBased, Bypassed, Direct and Management. For example, 'Legacy, RoleBased'. |
 | `displayName` | `string` | The subscription display name. |
 | `state` | `string` | The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted. |
 | `subscriptionId` | `string` | The subscription ID. |
-| `subscriptionPolicies` | `object` | Subscription policies. |
-| `tags` | `object` | Tags for the subscription |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,10 +28,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | ID of the video format. |
+| `targetBitRate` | `integer` | The target bit rate of this video format. |
 | `fileType` | `string` | File type of the video format. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#videoFormat". |
 | `resolution` | `object` | Represents the dimensions of ads, placements, creatives, or creative assets. |
-| `targetBitRate` | `integer` | The target bit rate of this video format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

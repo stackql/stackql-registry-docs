@@ -28,10 +28,10 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name of the membership. Format: spaces/&#123;space&#125;/members/&#123;member&#125; |
-| `role` | `string` | Output only. User's role within a Chat space, which determines their permitted actions in the space. |
 | `state` | `string` | Output only. State of the membership. |
 | `createTime` | `string` | Output only. The creation time of the membership, such as when a member joined or was invited to join a space. |
 | `member` | `object` | A user in Google Chat. |
+| `role` | `string` | Output only. User's role within a Chat space, which determines their permitted actions in the space. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

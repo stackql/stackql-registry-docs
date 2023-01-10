@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | The identity of the EnterprisePolicy. |
 | `kind` | `string` | The Kind (type) of Enterprise Policy |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties that define configuration for the enterprise policy. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
+| `identity` | `object` | The identity of the EnterprisePolicy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

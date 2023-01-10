@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Id of the resource. |
 | `name` | `string` | Name of the resource. |
-| `type` | `string` | Type of the resource 'Microsoft.Support/supportTickets'. |
 | `properties` | `object` | Describes the properties of a support ticket. |
+| `type` | `string` | Type of the resource 'Microsoft.Support/supportTickets'. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

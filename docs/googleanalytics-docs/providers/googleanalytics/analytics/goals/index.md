@@ -29,22 +29,22 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Goal ID. |
 | `name` | `string` | Goal name. |
-| `type` | `string` | Goal type. Possible values are URL_DESTINATION, VISIT_TIME_ON_SITE, VISIT_NUM_PAGES, AND EVENT. |
-| `visitTimeOnSiteDetails` | `object` | Details for the goal of the type VISIT_TIME_ON_SITE. |
-| `visitNumPagesDetails` | `object` | Details for the goal of the type VISIT_NUM_PAGES. |
-| `updated` | `string` | Time this goal was last modified. |
-| `value` | `number` | Goal value. |
-| `active` | `boolean` | Determines whether this goal is active. |
-| `parentLink` | `object` | Parent link for a goal. Points to the view (profile) to which this goal belongs. |
-| `selfLink` | `string` | Link for this goal. |
 | `webPropertyId` | `string` | Web property ID to which this goal belongs. The web property ID is of the form UA-XXXXX-YY. |
+| `updated` | `string` | Time this goal was last modified. |
+| `created` | `string` | Time this goal was created. |
+| `parentLink` | `object` | Parent link for a goal. Points to the view (profile) to which this goal belongs. |
+| `eventDetails` | `object` | Details for the goal of the type EVENT. |
+| `type` | `string` | Goal type. Possible values are URL_DESTINATION, VISIT_TIME_ON_SITE, VISIT_NUM_PAGES, AND EVENT. |
+| `internalWebPropertyId` | `string` | Internal ID for the web property to which this goal belongs. |
+| `visitTimeOnSiteDetails` | `object` | Details for the goal of the type VISIT_TIME_ON_SITE. |
+| `urlDestinationDetails` | `object` | Details for the goal of the type URL_DESTINATION. |
+| `active` | `boolean` | Determines whether this goal is active. |
+| `selfLink` | `string` | Link for this goal. |
 | `kind` | `string` | Resource type for an Analytics goal. |
 | `profileId` | `string` | View (Profile) ID to which this goal belongs. |
-| `internalWebPropertyId` | `string` | Internal ID for the web property to which this goal belongs. |
-| `eventDetails` | `object` | Details for the goal of the type EVENT. |
-| `urlDestinationDetails` | `object` | Details for the goal of the type URL_DESTINATION. |
-| `created` | `string` | Time this goal was created. |
 | `accountId` | `string` | Account ID to which this goal belongs. |
+| `visitNumPagesDetails` | `object` | Details for the goal of the type VISIT_NUM_PAGES. |
+| `value` | `number` | Goal value. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

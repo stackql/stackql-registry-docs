@@ -30,12 +30,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `id` | `string` | The resource ID. |
 | `name` | `string` | The name of the resource. |
 | `identity` | `object` | Managed identity for the resource. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `location` | `string` | The location of the resource. This cannot be changed after the resource is created. |
-| `type` | `string` | The type of the resource. |
-| `tags` | `object` | The tags of the resource. |
 | `properties` | `object` | The properties of a container registry. |
+| `type` | `string` | The type of the resource. |
 | `sku` | `object` | The SKU of a container registry. |
+| `location` | `string` | The location of the resource. This cannot be changed after the resource is created. |
+| `tags` | `object` | The tags of the resource. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

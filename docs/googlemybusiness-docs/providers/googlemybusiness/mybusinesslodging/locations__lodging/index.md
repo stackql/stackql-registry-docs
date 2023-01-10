@@ -28,28 +28,28 @@ image: /img/providers/googlemybusiness/stackql-googlemybusiness-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Google identifier for this location in the form: `locations/&#123;location_id&#125;/lodging` |
-| `someUnits` | `object` | Features and available amenities in the guest unit. |
-| `foodAndDrink` | `object` | Meals, snacks, and beverages available at the property. |
-| `services` | `object` | Conveniences or help provided by the property to facilitate an easier, more comfortable stay. |
-| `housekeeping` | `object` | Conveniences provided in guest units to facilitate an easier, more comfortable stay. |
-| `connectivity` | `object` | The ways in which the property provides guests with the ability to access the internet. |
-| `activities` | `object` | Amenities and features related to leisure and play. |
-| `transportation` | `object` | Vehicles or vehicular services facilitated or owned by the property. |
-| `guestUnits` | `array` | Individual GuestUnitTypes that are available in this Lodging. |
-| `property` | `object` | General factual information about the property's physical structure and important dates. |
-| `sustainability` | `object` | Sustainability practices implemented at the hotel. |
-| `accessibility` | `object` | Physical adaptations made to the property in consideration of varying levels of human physical ability. |
-| `allUnits` | `object` | Features and available amenities in the guest unit. |
-| `healthAndSafety` | `object` | Health and safety measures implemented by the hotel during COVID-19. |
-| `wellness` | `object` | Guest facilities at the property to promote or maintain health, beauty, and fitness. |
-| `families` | `object` | Services and amenities for families and young guests. |
 | `policies` | `object` | Property rules that impact guests. |
-| `commonLivingArea` | `object` | An individual room, such as kitchen, bathroom, bedroom, within a bookable guest unit. |
-| `pools` | `object` | Swimming pool or recreational water facilities available at the hotel. |
-| `parking` | `object` | Parking options at the property. |
+| `activities` | `object` | Amenities and features related to leisure and play. |
 | `pets` | `object` | Policies regarding guest-owned animals. |
+| `wellness` | `object` | Guest facilities at the property to promote or maintain health, beauty, and fitness. |
+| `pools` | `object` | Swimming pool or recreational water facilities available at the hotel. |
+| `families` | `object` | Services and amenities for families and young guests. |
 | `metadata` | `object` | Metadata for the Lodging. |
+| `accessibility` | `object` | Physical adaptations made to the property in consideration of varying levels of human physical ability. |
+| `property` | `object` | General factual information about the property's physical structure and important dates. |
+| `foodAndDrink` | `object` | Meals, snacks, and beverages available at the property. |
+| `sustainability` | `object` | Sustainability practices implemented at the hotel. |
+| `connectivity` | `object` | The ways in which the property provides guests with the ability to access the internet. |
 | `business` | `object` | Features of the property of specific interest to the business traveler. |
+| `guestUnits` | `array` | Individual GuestUnitTypes that are available in this Lodging. |
+| `services` | `object` | Conveniences or help provided by the property to facilitate an easier, more comfortable stay. |
+| `transportation` | `object` | Vehicles or vehicular services facilitated or owned by the property. |
+| `commonLivingArea` | `object` | An individual room, such as kitchen, bathroom, bedroom, within a bookable guest unit. |
+| `someUnits` | `object` | Features and available amenities in the guest unit. |
+| `healthAndSafety` | `object` | Health and safety measures implemented by the hotel during COVID-19. |
+| `allUnits` | `object` | Features and available amenities in the guest unit. |
+| `housekeeping` | `object` | Conveniences provided in guest units to facilitate an easier, more comfortable stay. |
+| `parking` | `object` | Parking options at the property. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

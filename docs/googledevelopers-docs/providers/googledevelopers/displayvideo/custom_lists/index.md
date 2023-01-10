@@ -28,8 +28,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the custom list. |
-| `customListId` | `string` | Output only. The unique ID of the custom list. Assigned by the system. |
 | `displayName` | `string` | Output only. The display name of the custom list. . |
+| `customListId` | `string` | Output only. The unique ID of the custom list. Assigned by the system. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

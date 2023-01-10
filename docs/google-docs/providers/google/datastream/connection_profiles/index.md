@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource's name. |
 | `bigqueryProfile` | `object` | BigQuery warehouse profile. |
-| `oracleProfile` | `object` | Oracle database profile. |
-| `labels` | `object` | Labels. |
-| `forwardSshConnectivity` | `object` | Forward SSH Tunnel connectivity. |
-| `privateConnectivity` | `object` | Private Connectivity |
-| `mysqlProfile` | `object` | MySQL database profile. |
-| `updateTime` | `string` | Output only. The update time of the resource. |
-| `postgresqlProfile` | `object` | PostgreSQL database profile. |
-| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. |
 | `displayName` | `string` | Required. Display name. |
-| `gcsProfile` | `object` | Cloud Storage bucket profile. |
+| `mysqlProfile` | `object` | MySQL database profile. |
+| `labels` | `object` | Labels. |
+| `updateTime` | `string` | Output only. The update time of the resource. |
+| `oracleProfile` | `object` | Oracle database profile. |
+| `forwardSshConnectivity` | `object` | Forward SSH Tunnel connectivity. |
+| `postgresqlProfile` | `object` | PostgreSQL database profile. |
+| `privateConnectivity` | `object` | Private Connectivity |
 | `createTime` | `string` | Output only. The create time of the resource. |
+| `gcsProfile` | `object` | Cloud Storage bucket profile. |
+| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

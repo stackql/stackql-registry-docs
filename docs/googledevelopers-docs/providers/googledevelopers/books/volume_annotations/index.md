@@ -28,19 +28,19 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique id of this volume annotation. |
-| `selectedText` | `string` | Excerpt from the volume. |
-| `annotationDataId` | `string` | The annotation data id for this volume annotation. |
-| `annotationDataLink` | `string` | Link to get data for this annotation. |
 | `pageIds` | `array` | Pages the annotation spans. |
-| `volumeId` | `string` | The Volume this annotation is for. |
-| `kind` | `string` | Resource Type |
+| `selectedText` | `string` | Excerpt from the volume. |
+| `updated` | `string` | Timestamp for the last time this anntoation was updated. (RFC 3339 UTC date-time format). |
+| `annotationType` | `string` | The type of annotation this is. |
+| `annotationDataId` | `string` | The annotation data id for this volume annotation. |
 | `data` | `string` | Data for this annotation. |
 | `deleted` | `boolean` | Indicates that this annotation is deleted. |
-| `selfLink` | `string` | URL to this resource. |
-| `annotationType` | `string` | The type of annotation this is. |
+| `volumeId` | `string` | The Volume this annotation is for. |
 | `contentRanges` | `object` | The content ranges to identify the selected text. |
+| `annotationDataLink` | `string` | Link to get data for this annotation. |
 | `layerId` | `string` | The Layer this annotation is for. |
-| `updated` | `string` | Timestamp for the last time this anntoation was updated. (RFC 3339 UTC date-time format). |
+| `selfLink` | `string` | URL to this resource. |
+| `kind` | `string` | Resource Type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

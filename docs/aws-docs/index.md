@@ -13,9 +13,10 @@ custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
 id: aws-doc
 slug: /providers/aws
+
 ---
 Cloud services from AWS.  
-
+    
 :::info Provider Summary
 
 <div class="row">
@@ -25,7 +26,7 @@ Cloud services from AWS.
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>344</b></span><br />
-<span>selectable resources:&nbsp;<b>248</b></span><br />
+<span>total selectable resources:&nbsp;<b>248</b></span><br />
 </div>
 </div>
 
@@ -44,30 +45,18 @@ REGISTRY PULL aws v23.01.00108;
 ```javascript
 
 {
-    "aws": {
-     /**
-      * Type of authentication to use, suported values include:  aws_signing_v4
-      * @type String
-      */
-     "type": string, 
-     /**
-      * Environment variable name containing the api key or credentials.
-      * @type String
-      */
-     "credentialsenvvar": string,
-     /**
-      * Value of AWS_ACCESS_KEY_ID.
-      * @type String
-      */
-     "keyID": string,      
-    }
+  "aws": {
+    "type": string, // authentication type to use, suported values:  aws_signing_v4
+    "keyID": string, // AWS_ACCESS_KEY_ID or expanded env var
+    "credentialsenvvar": string, // env var containing AWS_SECRET_ACCESS_KEY
+  }
 }
 
 ```
 ### Example (Mac/Linux)
 ```bash
 
-AUTH="{ \"aws\": { \"type\": \"aws_signing_v4\", \"credentialsenvvar\": \"AWS_SECRET_ACCESS_KEY\", \"keyID\": \"${AWS_ACCESS_KEY_ID}\" }}"
+AUTH="{ "aws": { "type": "aws_signing_v4", "credentialsenvvar": "AWS_SECRET_ACCESS_KEY", "keyID": "${AWS_ACCESS_KEY_ID}" }}"
 stackql shell --auth="${AUTH}"
 
 ```
@@ -85,9 +74,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/aws/ec2/">ec2</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/iam/">iam</a><br />
 <a href="/providers/aws/s3/">s3</a><br />
 </div>
 </div>
-
-
-

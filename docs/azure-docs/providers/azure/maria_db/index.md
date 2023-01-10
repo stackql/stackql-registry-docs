@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 DB for Maria DB  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>25</b></span><br />
+<span>total selectable resources:&nbsp;<b>21</b></span><br />
+<span>total methods:&nbsp;<b>56</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ DB for Maria DB
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DB for Maria DB (Microsoft.DBforMariaDB)</td></tr>
 <tr><td><b>Description</b></td><td>DB for Maria DB</td></tr>
-<tr><td><b>Id</b></td><td><code>maria_db:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>maria_db:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

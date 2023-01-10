@@ -3,14 +3,16 @@ title: file_diffs
 hide_title: false
 hide_table_of_contents: false
 keywords:
+  - file_diffs
+  - pulls
+  - github    
   - stackql
-  - github
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
   
     
@@ -25,17 +27,17 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `previous_filename` | `string` |
-| `patch` | `string` |
-| `raw_url` | `string` |
-| `contents_url` | `string` |
 | `status` | `string` |
-| `changes` | `integer` |
-| `deletions` | `integer` |
-| `blob_url` | `string` |
+| `filename` | `string` |
+| `previous_filename` | `string` |
+| `raw_url` | `string` |
 | `sha` | `string` |
 | `additions` | `integer` |
-| `filename` | `string` |
+| `deletions` | `integer` |
+| `blob_url` | `string` |
+| `changes` | `integer` |
+| `contents_url` | `string` |
+| `patch` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

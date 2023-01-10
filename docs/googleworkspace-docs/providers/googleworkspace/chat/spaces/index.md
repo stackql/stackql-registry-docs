@@ -28,12 +28,12 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name of the space. Format: spaces/&#123;space&#125; |
-| `threaded` | `boolean` | Output only. Deprecated: Use `spaceThreadingState` instead. Whether messages are threaded in this space. |
-| `type` | `string` | Output only. Deprecated: Use `singleUserBotDm` or `spaceType` (developer preview) instead. The type of a space. |
 | `displayName` | `string` | The space's display name. Required when [creating a space](https://developers.google.com/chat/api/reference/rest/v1/spaces/create). For direct messages, this field may be empty. |
 | `singleUserBotDm` | `boolean` | Optional. Whether the space is a DM between a Chat app and a single human. |
 | `spaceDetails` | `object` | Details about the space including description and rules. |
 | `spaceThreadingState` | `string` | Output only. The threading state in the Chat space. |
+| `threaded` | `boolean` | Output only. Deprecated: Use `spaceThreadingState` instead. Whether messages are threaded in this space. |
+| `type` | `string` | Output only. Deprecated: Use `singleUserBotDm` or `spaceType` (developer preview) instead. The type of a space. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `vpcSettings` | `object` |  |
 | `auditLoggingSettings` | `object` | Represents the settings for Cloud audit logging |
+| `vpcSettings` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

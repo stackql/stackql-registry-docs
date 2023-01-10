@@ -12,7 +12,7 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ---
   
     
@@ -27,16 +27,16 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the VPC. |
-| `state` | `string` | The current state of the VPC. |
 | `cidrBlockAssociationSet` | `array` | Information about the IPv4 CIDR blocks associated with the VPC. |
-| `isDefault` | `boolean` | Indicates whether the VPC is the default VPC. |
-| `dhcpOptionsId` | `string` | The ID of the set of DHCP options you've associated with the VPC. |
-| `tagSet` | `array` | Any tags assigned to the VPC. |
+| `instanceTenancy` | `string` | The allowed tenancy of instances launched into the VPC. |
+| `state` | `string` | The current state of the VPC. |
 | `vpcId` | `string` | The ID of the VPC. |
 | `cidrBlock` | `string` | The primary IPv4 CIDR block for the VPC. |
-| `instanceTenancy` | `string` | The allowed tenancy of instances launched into the VPC. |
+| `dhcpOptionsId` | `string` | The ID of the set of DHCP options you've associated with the VPC. |
+| `isDefault` | `boolean` | Indicates whether the VPC is the default VPC. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the VPC. |
 | `ipv6CidrBlockAssociationSet` | `array` | Information about the IPv6 CIDR blocks associated with the VPC. |
+| `tagSet` | `array` | Any tags assigned to the VPC. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

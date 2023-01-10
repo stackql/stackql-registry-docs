@@ -28,12 +28,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Sku name |
+| `apiVersion` | `string` | StoragePool RP API version |
 | `capabilities` | `array` | List of additional capabilities for StoragePool resource. |
 | `locationInfo` | `object` | Zone and capability info for resource sku |
 | `resourceType` | `string` | StoragePool resource type |
 | `restrictions` | `array` | The restrictions because of which SKU cannot be used. This is empty if there are no restrictions. |
 | `tier` | `string` | Sku tier |
-| `apiVersion` | `string` | StoragePool RP API version |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

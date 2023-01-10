@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Specifies the resource ID. |
 | `name` | `string` | Specifies the name of the resource. |
-| `tags` | `object` | Contains resource tags defined as key/value pairs. |
-| `type` | `string` | Specifies the type of the resource. |
 | `location` | `string` | Specifies the location of the resource. |
 | `properties` | `object` | The parameters to provide for the EnterpriseKnowledgeGraph. |
 | `sku` | `object` | The SKU of the EnterpriseKnowledgeGraph service account. |
+| `tags` | `object` | Contains resource tags defined as key/value pairs. |
+| `type` | `string` | Specifies the type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

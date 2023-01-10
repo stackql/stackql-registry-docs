@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 DB for PostgreSQL  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>26</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ DB for PostgreSQL
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DB for PostgreSQL (Microsoft.DBforPostgreSQL)</td></tr>
 <tr><td><b>Description</b></td><td>DB for PostgreSQL</td></tr>
-<tr><td><b>Id</b></td><td><code>postgresql:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>postgresql:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

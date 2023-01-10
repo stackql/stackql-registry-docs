@@ -28,10 +28,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of this country. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#country". |
 | `sslEnabled` | `boolean` | Whether ad serving supports secure servers in this country. |
 | `countryCode` | `string` | Country code. |
 | `dartId` | `string` | DART ID of this country. This is the ID used for targeting and generating reports. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#country". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

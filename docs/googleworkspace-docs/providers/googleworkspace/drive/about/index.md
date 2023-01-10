@@ -27,19 +27,19 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "drive#about". |
-| `exportFormats` | `object` | A map of source MIME type to possible targets for all supported exports. |
-| `importFormats` | `object` | A map of source MIME type to possible targets for all supported imports. |
-| `driveThemes` | `array` | A list of themes that are supported for shared drives. |
-| `maxUploadSize` | `string` | The maximum upload size in bytes. |
-| `storageQuota` | `object` | The user's storage quota limits and usage. All fields are measured in bytes. |
-| `appInstalled` | `boolean` | Whether the user has installed the requesting app. |
-| `folderColorPalette` | `array` | The currently supported folder colors as RGB hex strings. |
-| `maxImportSizes` | `object` | A map of maximum import sizes by MIME type, in bytes. |
 | `teamDriveThemes` | `array` | Deprecated - use driveThemes instead. |
+| `appInstalled` | `boolean` | Whether the user has installed the requesting app. |
 | `user` | `object` | Information about a Drive user. |
 | `canCreateTeamDrives` | `boolean` | Deprecated - use canCreateDrives instead. |
+| `folderColorPalette` | `array` | The currently supported folder colors as RGB hex strings. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "drive#about". |
+| `importFormats` | `object` | A map of source MIME type to possible targets for all supported imports. |
+| `maxImportSizes` | `object` | A map of maximum import sizes by MIME type, in bytes. |
 | `canCreateDrives` | `boolean` | Whether the user can create shared drives. |
+| `maxUploadSize` | `string` | The maximum upload size in bytes. |
+| `storageQuota` | `object` | The user's storage quota limits and usage. All fields are measured in bytes. |
+| `exportFormats` | `object` | A map of source MIME type to possible targets for all supported exports. |
+| `driveThemes` | `array` | A list of themes that are supported for shared drives. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

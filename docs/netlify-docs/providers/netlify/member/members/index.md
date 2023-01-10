@@ -3,14 +3,16 @@ title: members
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - netlify
+  - members
+  - member
+  - netlify    
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
 description: Query, deploy and manage Netlify resources using SQL
 custom_edit_url: null
-image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-featured-image.png
+image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ---
   
     
@@ -26,10 +28,10 @@ image: https://storage.googleapis.com/stackql-web-assets/blog/stackql-blog-post-
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `role` | `string` |
 | `avatar` | `string` |
 | `email` | `string` |
 | `full_name` | `string` |
-| `role` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

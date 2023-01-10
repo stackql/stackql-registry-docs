@@ -15,6 +15,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups.  
     
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>25</b></span><br />
+<span>total selectable resources:&nbsp;<b>19</b></span><br />
+<span>total methods:&nbsp;<b>54</b></span><br />
+</div>
+</div>
+
+:::
 
 ## Overview
 <table><tbody>
@@ -22,7 +33,7 @@ Role based access control provides you a way to apply granular level policy admi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Authorization Management Client (Microsoft.Authorization)</td></tr>
 <tr><td><b>Description</b></td><td>Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups.</td></tr>
-<tr><td><b>Id</b></td><td><code>authorization:v0.3.0</code></td></tr>
+<tr><td><b>Id</b></td><td><code>authorization:v23.01.00104</code></td></tr>
 </tbody></table>
 
 ## Resources

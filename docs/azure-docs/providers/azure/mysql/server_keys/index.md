@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Kind of encryption protector used to protect the key. |
 | `properties` | `object` | Properties for a key execution. |
+| `kind` | `string` | Kind of encryption protector used to protect the key. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

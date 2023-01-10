@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Contains information related to the health of a region. |
 | `tags` | `object` | Resource tags. |
 | `location` | `string` | The Azure Region where the resource lives |
+| `properties` | `object` | Contains information related to the health of a region. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

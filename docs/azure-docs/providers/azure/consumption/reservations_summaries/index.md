@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The full qualified ARM ID of an event. |
 | `name` | `string` | The ID that uniquely identifies an event.  |
-| `properties` | `object` | The properties of the reservation summary. |
-| `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
 | `etag` | `string` | The etag for the resource. |
+| `properties` | `object` | The properties of the reservation summary. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

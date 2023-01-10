@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `assignedTargetingOptions` | `array` | The list of assigned targeting options. This list will be absent if empty. |
 | `nextPageToken` | `string` | A token identifying the next page of results. This value should be specified as the pageToken in a subsequent BulkListAdvertiserAssignedTargetingOptionsRequest to fetch the next page of results. This token will be absent if there are no more assigned_targeting_options to return. |
+| `assignedTargetingOptions` | `array` | The list of assigned targeting options. This list will be absent if empty. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

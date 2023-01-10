@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the database in the Cloud SQL instance. This does not include the project ID or instance name. |
 | `instance` | `string` | The name of the Cloud SQL instance. This does not include the project ID. |
-| `sqlserverDatabaseDetails` | `object` | Represents a Sql Server database on the Cloud SQL instance. |
-| `etag` | `string` | This field is deprecated and will be removed from a future version of the API. |
-| `collation` | `string` | The Cloud SQL collation value. |
 | `selfLink` | `string` | The URI of this resource. |
+| `collation` | `string` | The Cloud SQL collation value. |
 | `kind` | `string` | This is always `sql#database`. |
 | `project` | `string` | The project ID of the project containing the Cloud SQL database. The Google apps domain is prefixed if applicable. |
+| `sqlserverDatabaseDetails` | `object` | Represents a Sql Server database on the Cloud SQL instance. |
 | `charset` | `string` | The Cloud SQL charset value. |
+| `etag` | `string` | This field is deprecated and will be removed from a future version of the API. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
