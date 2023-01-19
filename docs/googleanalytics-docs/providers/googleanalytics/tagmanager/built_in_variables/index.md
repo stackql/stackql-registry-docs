@@ -33,6 +33,6 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `accounts_containers_workspaces_built_in_variables_list` | `SELECT` | `accountsId, containersId, workspacesId` | Lists all the enabled Built-In Variables of a GTM Container. |
+| `accounts_containers_workspaces_built_in_variables_create` | `INSERT` | `accountsId, containersId, workspacesId` | Creates one or more GTM Built-In Variables. |
 | `accounts_containers_workspaces_built_in_variables_delete` | `DELETE` | `accountsId, containersId, workspacesId` | Deletes one or more GTM Built-In Variables. |
-| `accounts_containers_workspaces_built_in_variables_create` | `EXEC` | `accountsId, containersId, workspacesId` | Creates one or more GTM Built-In Variables. |
 | `accounts_containers_workspaces_built_in_variables_revert` | `EXEC` | `accountsId, containersId, workspacesId` | Reverts changes to a GTM Built-In Variables in a GTM Workspace. |

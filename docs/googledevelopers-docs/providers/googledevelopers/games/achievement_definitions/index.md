@@ -30,16 +30,16 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | `id` | `string` | The ID of the achievement. |
 | `name` | `string` | The name of the achievement. |
 | `description` | `string` | The description of the achievement. |
-| `isUnlockedIconUrlDefault` | `boolean` | Indicates whether the unlocked icon image being returned is a default image, or is game-provided. |
-| `totalSteps` | `integer` | The total steps for an incremental achievement. |
 | `isRevealedIconUrlDefault` | `boolean` | Indicates whether the revealed icon image being returned is a default image, or is provided by the game. |
-| `initialState` | `string` | The initial state of the achievement. |
-| `formattedTotalSteps` | `string` | The total steps for an incremental achievement as a string. |
-| `experiencePoints` | `string` | Experience points which will be earned when unlocking this achievement. |
-| `unlockedIconUrl` | `string` | The image URL for the unlocked achievement icon. |
 | `revealedIconUrl` | `string` | The image URL for the revealed achievement icon. |
+| `unlockedIconUrl` | `string` | The image URL for the unlocked achievement icon. |
 | `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementDefinition`. |
+| `experiencePoints` | `string` | Experience points which will be earned when unlocking this achievement. |
+| `initialState` | `string` | The initial state of the achievement. |
+| `isUnlockedIconUrlDefault` | `boolean` | Indicates whether the unlocked icon image being returned is a default image, or is game-provided. |
 | `achievementType` | `string` | The type of the achievement. |
+| `totalSteps` | `integer` | The total steps for an incremental achievement. |
+| `formattedTotalSteps` | `string` | The total steps for an incremental achievement as a string. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

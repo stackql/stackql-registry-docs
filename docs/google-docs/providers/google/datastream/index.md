@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Datastream API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>datastream:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datastream:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,7 +41,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <div class="providerDocColumn">
 <a href="/providers/google/datastream/connection_profiles/">connection_profiles</a><br />
 <a href="/providers/google/datastream/locations/">locations</a><br />
-<a href="/providers/google/datastream/locations__static_ips/">locations__static_ips</a><br />
+<a href="/providers/google/datastream/locations_static_ips/">locations_static_ips</a><br />
 <a href="/providers/google/datastream/objects/">objects</a><br />
 </div>
 <div class="providerDocColumn">

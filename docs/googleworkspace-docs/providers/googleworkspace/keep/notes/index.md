@@ -28,14 +28,14 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of this note. See general note on identifiers in KeepService. |
-| `title` | `string` | The title of the note. Length must be less than 1,000 characters. |
-| `createTime` | `string` | Output only. When this note was created. |
 | `permissions` | `array` | Output only. The list of permissions set on the note. Contains at least one entry for the note owner. |
-| `updateTime` | `string` | Output only. When this note was last modified. |
+| `trashed` | `boolean` | Output only. `true` if this note has been trashed. If trashed, the note is eventually deleted. |
 | `attachments` | `array` | Output only. The attachments attached to this note. |
 | `body` | `object` | The content of the note. |
+| `createTime` | `string` | Output only. When this note was created. |
+| `title` | `string` | The title of the note. Length must be less than 1,000 characters. |
+| `updateTime` | `string` | Output only. When this note was last modified. |
 | `trashTime` | `string` | Output only. When this note was trashed. If `trashed`, the note is eventually deleted. If the note is not trashed, this field is not set (and the trashed field is `false`). |
-| `trashed` | `boolean` | Output only. `true` if this note has been trashed. If trashed, the note is eventually deleted. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

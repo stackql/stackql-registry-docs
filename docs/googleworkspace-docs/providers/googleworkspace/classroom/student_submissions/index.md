@@ -28,22 +28,22 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Classroom-assigned Identifier for the student submission. This is unique among submissions for the relevant course work. Read-only. |
-| `late` | `boolean` | Whether this submission is late. Read-only. |
 | `draftGrade` | `number` | Optional pending grade. If unset, no grade was set. This value must be non-negative. Decimal (that is, non-integer) values are allowed, but are rounded to two decimal places. This is only visible to and modifiable by course teachers. |
-| `assignmentSubmission` | `object` | Student work for an assignment. |
-| `courseWorkId` | `string` | Identifier for the course work this corresponds to. Read-only. |
-| `multipleChoiceSubmission` | `object` | Student work for a multiple-choice question. |
-| `creationTime` | `string` | Creation time of this submission. This may be unset if the student has not accessed this item. Read-only. |
-| `associatedWithDeveloper` | `boolean` | Whether this student submission is associated with the Developer Console project making the request. See CreateCourseWork for more details. Read-only. |
-| `submissionHistory` | `array` | The history of the submission (includes state and grade histories). Read-only. |
-| `alternateLink` | `string` | Absolute link to the submission in the Classroom web UI. Read-only. |
 | `courseWorkType` | `string` | Type of course work this submission is for. Read-only. |
-| `shortAnswerSubmission` | `object` | Student work for a short answer question. |
-| `state` | `string` | State of this submission. Read-only. |
+| `courseId` | `string` | Identifier of the course. Read-only. |
+| `multipleChoiceSubmission` | `object` | Student work for a multiple-choice question. |
 | `userId` | `string` | Identifier for the student that owns this submission. Read-only. |
 | `assignedGrade` | `number` | Optional grade. If unset, no grade was set. This value must be non-negative. Decimal (that is, non-integer) values are allowed, but are rounded to two decimal places. This may be modified only by course teachers. |
+| `state` | `string` | State of this submission. Read-only. |
+| `courseWorkId` | `string` | Identifier for the course work this corresponds to. Read-only. |
+| `creationTime` | `string` | Creation time of this submission. This may be unset if the student has not accessed this item. Read-only. |
+| `late` | `boolean` | Whether this submission is late. Read-only. |
 | `updateTime` | `string` | Last update time of this submission. This may be unset if the student has not accessed this item. Read-only. |
-| `courseId` | `string` | Identifier of the course. Read-only. |
+| `associatedWithDeveloper` | `boolean` | Whether this student submission is associated with the Developer Console project making the request. See CreateCourseWork for more details. Read-only. |
+| `alternateLink` | `string` | Absolute link to the submission in the Classroom web UI. Read-only. |
+| `submissionHistory` | `array` | The history of the submission (includes state and grade histories). Read-only. |
+| `shortAnswerSubmission` | `object` | Student work for a short answer question. |
+| `assignmentSubmission` | `object` | Student work for an assignment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

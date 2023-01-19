@@ -28,16 +28,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the Search Application. Format: searchapplications/&#123;application_id&#125;. |
-| `displayName` | `string` | Display name of the Search Application. The maximum length is 300 characters. |
-| `enableAuditLog` | `boolean` | Indicates whether audit logging is on/off for requests made for the search application in query APIs. |
-| `defaultFacetOptions` | `array` | The default fields for returning facet results. The sources specified here also have been included in data_source_restrictions above. |
-| `operationIds` | `array` | Output only. IDs of the Long Running Operations (LROs) currently running for this schema. Output only field. |
-| `defaultSortOptions` | `object` |  |
-| `returnResultThumbnailUrls` | `boolean` | With each result we should return the URI for its thumbnail (when applicable) |
-| `scoringConfig` | `object` | Scoring configurations for a source while processing a Search or Suggest request. |
 | `queryInterpretationConfig` | `object` | Default options to interpret user query. |
+| `scoringConfig` | `object` | Scoring configurations for a source while processing a Search or Suggest request. |
+| `defaultSortOptions` | `object` |  |
+| `displayName` | `string` | Display name of the Search Application. The maximum length is 300 characters. |
+| `operationIds` | `array` | Output only. IDs of the Long Running Operations (LROs) currently running for this schema. Output only field. |
+| `returnResultThumbnailUrls` | `boolean` | With each result we should return the URI for its thumbnail (when applicable) |
 | `sourceConfig` | `array` | Configuration for a sources specified in data_source_restrictions. |
 | `dataSourceRestrictions` | `array` | Retrictions applied to the configurations. The maximum number of elements is 10. |
+| `defaultFacetOptions` | `array` | The default fields for returning facet results. The sources specified here also have been included in data_source_restrictions above. |
+| `enableAuditLog` | `boolean` | Indicates whether audit logging is on/off for requests made for the search application in query APIs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,15 +28,15 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Custom Template display name. |
-| `templateId` | `string` | The Custom Template ID uniquely identifies the GTM custom template. |
-| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
-| `workspaceId` | `string` | GTM Workspace ID. |
-| `containerId` | `string` | GTM Container ID. |
 | `templateData` | `string` | The custom template in text format. |
-| `accountId` | `string` | GTM Account ID. |
 | `fingerprint` | `string` | The fingerprint of the GTM Custom Template as computed at storage time. This value is recomputed whenever the template is modified. |
-| `galleryReference` | `object` | Represents the link between a custom template and an entry on the Community Template Gallery site. |
 | `path` | `string` | GTM Custom Template's API relative path. |
+| `templateId` | `string` | The Custom Template ID uniquely identifies the GTM custom template. |
+| `workspaceId` | `string` | GTM Workspace ID. |
+| `galleryReference` | `object` | Represents the link between a custom template and an entry on the Community Template Gallery site. |
+| `containerId` | `string` | GTM Container ID. |
+| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
+| `accountId` | `string` | GTM Account ID. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

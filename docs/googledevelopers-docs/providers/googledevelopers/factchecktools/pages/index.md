@@ -28,11 +28,11 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of this `ClaimReview` markup page resource, in the form of `pages/&#123;page_id&#125;`. Except for update requests, this field is output-only and should not be set by the user. |
-| `pageUrl` | `string` | The URL of the page associated with this `ClaimReview` markup. While every individual `ClaimReview` has its own URL field, semantically this is a page-level field, and each `ClaimReview` on this page will use this value unless individually overridden. Corresponds to `ClaimReview.url` |
-| `publishDate` | `string` | The date when the fact check was published. Similar to the URL, semantically this is a page-level field, and each `ClaimReview` on this page will contain the same value. Corresponds to `ClaimReview.datePublished` |
 | `versionId` | `string` | The version ID for this markup. Except for update requests, this field is output-only and should not be set by the user. |
 | `claimReviewAuthor` | `object` | Information about the claim review author. |
 | `claimReviewMarkups` | `array` | A list of individual claim reviews for this page. Each item in the list corresponds to one `ClaimReview` element. |
+| `pageUrl` | `string` | The URL of the page associated with this `ClaimReview` markup. While every individual `ClaimReview` has its own URL field, semantically this is a page-level field, and each `ClaimReview` on this page will use this value unless individually overridden. Corresponds to `ClaimReview.url` |
+| `publishDate` | `string` | The date when the fact check was published. Similar to the URL, semantically this is a page-level field, and each `ClaimReview` on this page will contain the same value. Corresponds to `ClaimReview.datePublished` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

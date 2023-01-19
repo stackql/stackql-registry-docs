@@ -33,7 +33,7 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Local Services API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>localservices:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>localservices:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

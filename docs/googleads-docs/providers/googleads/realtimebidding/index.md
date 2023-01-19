@@ -33,7 +33,7 @@ Allows external bidders to manage their RTB integration with Google. This includ
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Real-time Bidding API</td></tr>
 <tr><td><b>Description</b></td><td>Allows external bidders to manage their RTB integration with Google. This includes managing bidder endpoints, QPS quotas, configuring what ad inventory to receive via pretargeting, submitting creatives for verification, and accessing creative metadata such as approval status.</td></tr>
-<tr><td><b>Id</b></td><td><code>realtimebidding:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>realtimebidding:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,17 +41,17 @@ Allows external bidders to manage their RTB integration with Google. This includ
 <div class="providerDocColumn">
 <a href="/providers/googleads/realtimebidding/bidders/">bidders</a><br />
 <a href="/providers/googleads/realtimebidding/buyers/">buyers</a><br />
-<a href="/providers/googleads/realtimebidding/buyers__remarketing_tag/">buyers__remarketing_tag</a><br />
+<a href="/providers/googleads/realtimebidding/buyers_remarketing_tag/">buyers_remarketing_tag</a><br />
 <a href="/providers/googleads/realtimebidding/creatives/">creatives</a><br />
 <a href="/providers/googleads/realtimebidding/endpoints/">endpoints</a><br />
 <a href="/providers/googleads/realtimebidding/pretargeting_configs/">pretargeting_configs</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googleads/realtimebidding/pretargeting_configs__targeted_apps/">pretargeting_configs__targeted_apps</a><br />
-<a href="/providers/googleads/realtimebidding/pretargeting_configs__targeted_publishers/">pretargeting_configs__targeted_publishers</a><br />
-<a href="/providers/googleads/realtimebidding/pretargeting_configs__targeted_sites/">pretargeting_configs__targeted_sites</a><br />
+<a href="/providers/googleads/realtimebidding/pretargeting_configs_targeted_apps/">pretargeting_configs_targeted_apps</a><br />
+<a href="/providers/googleads/realtimebidding/pretargeting_configs_targeted_publishers/">pretargeting_configs_targeted_publishers</a><br />
+<a href="/providers/googleads/realtimebidding/pretargeting_configs_targeted_sites/">pretargeting_configs_targeted_sites</a><br />
 <a href="/providers/googleads/realtimebidding/publisher_connections/">publisher_connections</a><br />
 <a href="/providers/googleads/realtimebidding/user_lists/">user_lists</a><br />
-<a href="/providers/googleads/realtimebidding/user_lists__remarketing_tag/">user_lists__remarketing_tag</a><br />
+<a href="/providers/googleads/realtimebidding/user_lists_remarketing_tag/">user_lists_remarketing_tag</a><br />
 </div>
 </div>

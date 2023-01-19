@@ -4,7 +4,6 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - google
-  - google cloud platform
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -23,11 +22,11 @@ Cloud computing services offered by Google.
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>146</b></span><br />
-<span>total methods:&nbsp;<b>5453</b></span><br />
+<span>total methods:&nbsp;<b>5487</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1622</b></span><br />
-<span>total selectable resources:&nbsp;<b>1429</b></span><br />
+<span>total resources:&nbsp;<b>1628</b></span><br />
+<span>total selectable resources:&nbsp;<b>1436</b></span><br />
 </div>
 </div>
 
@@ -39,7 +38,7 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL google v23.01.00114;
+REGISTRY PULL google v23.01.00116;
 ```
 
 ## Authentication
@@ -152,10 +151,10 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/iam/">iam</a><br />
 <a href="/providers/google/iamcredentials/">iamcredentials</a><br />
 <a href="/providers/google/iap/">iap</a><br />
-<a href="/providers/google/ideahub/">ideahub</a><br />
 <a href="/providers/google/identitytoolkit/">identitytoolkit</a><br />
 <a href="/providers/google/ids/">ids</a><br />
 <a href="/providers/google/jobs/">jobs</a><br />
+<a href="/providers/google/kmsinventory/">kmsinventory</a><br />
 <a href="/providers/google/language/">language</a><br />
 <a href="/providers/google/libraryagent/">libraryagent</a><br />
 <a href="/providers/google/lifesciences/">lifesciences</a><br />

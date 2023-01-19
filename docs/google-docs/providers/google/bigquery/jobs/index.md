@@ -31,11 +31,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `selfLink` | `string` | [Output-only] A URL that can be used to access this resource again. |
 | `etag` | `string` | [Output-only] A hash of this resource. |
 | `status` | `object` |  |
-| `configuration` | `object` |  |
-| `jobReference` | `object` |  |
-| `kind` | `string` | [Output-only] The type of the resource. |
 | `user_email` | `string` | [Output-only] Email address of the user who ran the job. |
+| `jobReference` | `object` |  |
 | `statistics` | `object` |  |
+| `configuration` | `object` |  |
+| `kind` | `string` | [Output-only] The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

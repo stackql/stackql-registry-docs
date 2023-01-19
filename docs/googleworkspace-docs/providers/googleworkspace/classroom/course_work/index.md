@@ -29,27 +29,27 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Classroom-assigned identifier of this course work, unique per course. Read-only. |
 | `description` | `string` | Optional description of this course work. If set, the description must be a valid UTF-8 string containing no more than 30,000 characters. |
-| `creationTime` | `string` | Timestamp when this course work was created. Read-only. |
-| `individualStudentsOptions` | `object` | Assignee details about a coursework/announcement. This field is set if and only if `assigneeMode` is `INDIVIDUAL_STUDENTS`. |
-| `workType` | `string` | Type of this course work. The type is set when the course work is created and cannot be changed. |
-| `associatedWithDeveloper` | `boolean` | Whether this course work item is associated with the Developer Console project making the request. See CreateCourseWork for more details. Read-only. |
 | `materials` | `array` | Additional materials. CourseWork must have no more than 20 material items. |
-| `alternateLink` | `string` | Absolute link to this course work in the Classroom web UI. This is only populated if `state` is `PUBLISHED`. Read-only. |
-| `dueTime` | `object` | Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are google.type.Date and `google.protobuf.Timestamp`. |
-| `assigneeMode` | `string` | Assignee mode of the coursework. If unspecified, the default value is `ALL_STUDENTS`. |
-| `updateTime` | `string` | Timestamp of the most recent change to this course work. Read-only. |
-| `courseId` | `string` | Identifier of the course. Read-only. |
+| `associatedWithDeveloper` | `boolean` | Whether this course work item is associated with the Developer Console project making the request. See CreateCourseWork for more details. Read-only. |
+| `dueDate` | `object` | Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp |
 | `gradeCategory` | `object` | Details for a grade category in a course. Coursework may have zero or one grade category, and the category may be used in computing the overall grade. See the [help center article](https://support.google.com/edu/classroom/answer/9184995) for details. |
 | `state` | `string` | Status of this course work. If unspecified, the default state is `DRAFT`. |
-| `assignment` | `object` | Additional details for assignments. |
-| `maxPoints` | `number` | Maximum grade for this course work. If zero or unspecified, this assignment is considered ungraded. This must be a non-negative integer value. |
-| `dueDate` | `object` | Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp |
-| `topicId` | `string` | Identifier for the topic that this coursework is associated with. Must match an existing topic in the course. |
-| `multipleChoiceQuestion` | `object` | Additional details for multiple-choice questions. |
+| `dueTime` | `object` | Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are google.type.Date and `google.protobuf.Timestamp`. |
 | `title` | `string` | Title of this course work. The title must be a valid UTF-8 string containing between 1 and 3000 characters. |
-| `scheduledTime` | `string` | Optional timestamp when this course work is scheduled to be published. |
-| `submissionModificationMode` | `string` | Setting to determine when students are allowed to modify submissions. If unspecified, the default value is `MODIFIABLE_UNTIL_TURNED_IN`. |
+| `multipleChoiceQuestion` | `object` | Additional details for multiple-choice questions. |
+| `assigneeMode` | `string` | Assignee mode of the coursework. If unspecified, the default value is `ALL_STUDENTS`. |
 | `creatorUserId` | `string` | Identifier for the user that created the coursework. Read-only. |
+| `updateTime` | `string` | Timestamp of the most recent change to this course work. Read-only. |
+| `courseId` | `string` | Identifier of the course. Read-only. |
+| `assignment` | `object` | Additional details for assignments. |
+| `individualStudentsOptions` | `object` | Assignee details about a coursework/announcement. This field is set if and only if `assigneeMode` is `INDIVIDUAL_STUDENTS`. |
+| `creationTime` | `string` | Timestamp when this course work was created. Read-only. |
+| `topicId` | `string` | Identifier for the topic that this coursework is associated with. Must match an existing topic in the course. |
+| `submissionModificationMode` | `string` | Setting to determine when students are allowed to modify submissions. If unspecified, the default value is `MODIFIABLE_UNTIL_TURNED_IN`. |
+| `maxPoints` | `number` | Maximum grade for this course work. If zero or unspecified, this assignment is considered ungraded. This must be a non-negative integer value. |
+| `workType` | `string` | Type of this course work. The type is set when the course work is created and cannot be changed. |
+| `alternateLink` | `string` | Absolute link to this course work in the Classroom web UI. This is only populated if `state` is `PUBLISHED`. Read-only. |
+| `scheduledTime` | `string` | Optional timestamp when this course work is scheduled to be published. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,9 +28,9 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the custom channel. Format: accounts/&#123;account&#125;/adclients/&#123;adclient&#125;/customchannels/&#123;customchannel&#125; |
-| `displayName` | `string` | Required. Display name of the custom channel. |
 | `reportingDimensionId` | `string` | Output only. Unique ID of the custom channel as used in the `CUSTOM_CHANNEL_ID` reporting dimension. |
 | `active` | `boolean` | Whether the custom channel is active and collecting data. See https://support.google.com/adsense/answer/10077192. |
+| `displayName` | `string` | Required. Display name of the custom channel. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

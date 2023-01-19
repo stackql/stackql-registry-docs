@@ -28,17 +28,17 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Classroom-assigned identifier of this announcement, unique per course. Read-only. |
+| `updateTime` | `string` | Timestamp of the most recent change to this announcement. Read-only. |
 | `assigneeMode` | `string` | Assignee mode of the announcement. If unspecified, the default value is `ALL_STUDENTS`. |
+| `materials` | `array` | Additional materials. Announcements must have no more than 20 material items. |
+| `state` | `string` | Status of this announcement. If unspecified, the default state is `DRAFT`. |
+| `text` | `string` | Description of this announcement. The text must be a valid UTF-8 string containing no more than 30,000 characters. |
+| `courseId` | `string` | Identifier of the course. Read-only. |
+| `individualStudentsOptions` | `object` | Assignee details about a coursework/announcement. This field is set if and only if `assigneeMode` is `INDIVIDUAL_STUDENTS`. |
+| `scheduledTime` | `string` | Optional timestamp when this announcement is scheduled to be published. |
 | `alternateLink` | `string` | Absolute link to this announcement in the Classroom web UI. This is only populated if `state` is `PUBLISHED`. Read-only. |
 | `creationTime` | `string` | Timestamp when this announcement was created. Read-only. |
 | `creatorUserId` | `string` | Identifier for the user that created the announcement. Read-only. |
-| `courseId` | `string` | Identifier of the course. Read-only. |
-| `individualStudentsOptions` | `object` | Assignee details about a coursework/announcement. This field is set if and only if `assigneeMode` is `INDIVIDUAL_STUDENTS`. |
-| `updateTime` | `string` | Timestamp of the most recent change to this announcement. Read-only. |
-| `scheduledTime` | `string` | Optional timestamp when this announcement is scheduled to be published. |
-| `text` | `string` | Description of this announcement. The text must be a valid UTF-8 string containing no more than 30,000 characters. |
-| `materials` | `array` | Additional materials. Announcements must have no more than 20 material items. |
-| `state` | `string` | Status of this announcement. If unspecified, the default state is `DRAFT`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

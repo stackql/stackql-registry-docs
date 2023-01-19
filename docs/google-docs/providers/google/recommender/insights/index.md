@@ -29,16 +29,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the insight. |
 | `description` | `string` | Free-form human readable summary in English. The maximum length is 500 characters. |
+| `severity` | `string` | Insight's severity. |
+| `content` | `object` | A struct of custom fields to explain the insight. Example: "grantedPermissionsCount": "1000" |
 | `associatedRecommendations` | `array` | Recommendations derived from this insight. |
 | `insightSubtype` | `string` | Insight subtype. Insight content schema will be stable for a given subtype. |
-| `etag` | `string` | Fingerprint of the Insight. Provides optimistic locking when updating states. |
-| `targetResources` | `array` | Fully qualified resource names that this insight is targeting. |
-| `observationPeriod` | `string` | Observation period that led to the insight. The source data used to generate the insight ends at last_refresh_time and begins at (last_refresh_time - observation_period). |
-| `lastRefreshTime` | `string` | Timestamp of the latest data used to generate the insight. |
-| `content` | `object` | A struct of custom fields to explain the insight. Example: "grantedPermissionsCount": "1000" |
-| `stateInfo` | `object` | Information related to insight state. |
 | `category` | `string` | Category being targeted by the insight. |
-| `severity` | `string` | Insight's severity. |
+| `etag` | `string` | Fingerprint of the Insight. Provides optimistic locking when updating states. |
+| `observationPeriod` | `string` | Observation period that led to the insight. The source data used to generate the insight ends at last_refresh_time and begins at (last_refresh_time - observation_period). |
+| `stateInfo` | `object` | Information related to insight state. |
+| `targetResources` | `array` | Fully qualified resource names that this insight is targeting. |
+| `lastRefreshTime` | `string` | Timestamp of the latest data used to generate the insight. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,13 +28,13 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Destination display name. |
+| `fingerprint` | `string` | The fingerprint of the Google Tag Destination as computed at storage time. This value is recomputed whenever the destination is modified. |
+| `path` | `string` | Destination's API relative path. |
+| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI. |
 | `accountId` | `string` | GTM Account ID. |
 | `containerId` | `string` | GTM Container ID. |
 | `destinationId` | `string` | Destination ID. |
 | `destinationLinkId` | `string` | The Destination link ID uniquely identifies the Destination. |
-| `fingerprint` | `string` | The fingerprint of the Google Tag Destination as computed at storage time. This value is recomputed whenever the destination is modified. |
-| `path` | `string` | Destination's API relative path. |
-| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

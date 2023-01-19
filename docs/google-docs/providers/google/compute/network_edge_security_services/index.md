@@ -31,12 +31,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
 | `securityPolicy` | `string` | The resource URL for the network edge security service associated with this network edge security service. |
-| `region` | `string` | [Output Only] URL of the region where the resource resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `fingerprint` | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a NetworkEdgeSecurityService. An up-to-date fingerprint must be provided in order to update the NetworkEdgeSecurityService, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve a NetworkEdgeSecurityService. |
+| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `selfLinkWithId` | `string` | [Output Only] Server-defined URL for this resource with the resource id. |
-| `fingerprint` | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a NetworkEdgeSecurityService. An up-to-date fingerprint must be provided in order to update the NetworkEdgeSecurityService, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve a NetworkEdgeSecurityService. |
+| `region` | `string` | [Output Only] URL of the region where the resource resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
 | `kind` | `string` | [Output only] Type of the resource. Always compute#networkEdgeSecurityService for NetworkEdgeSecurityServices |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

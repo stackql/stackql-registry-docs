@@ -33,7 +33,7 @@ Manages files in Drive including uploading, downloading, searching, detecting ch
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Drive API</td></tr>
 <tr><td><b>Description</b></td><td>Manages files in Drive including uploading, downloading, searching, detecting changes, and updating sharing permissions.</td></tr>
-<tr><td><b>Id</b></td><td><code>drive:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>drive:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,14 +41,14 @@ Manages files in Drive including uploading, downloading, searching, detecting ch
 <div class="providerDocColumn">
 <a href="/providers/googleworkspace/drive/about/">about</a><br />
 <a href="/providers/googleworkspace/drive/changes/">changes</a><br />
-<a href="/providers/googleworkspace/drive/changes__start_page_token/">changes__start_page_token</a><br />
+<a href="/providers/googleworkspace/drive/changes_start_page_token/">changes_start_page_token</a><br />
 <a href="/providers/googleworkspace/drive/channels/">channels</a><br />
 <a href="/providers/googleworkspace/drive/comments/">comments</a><br />
 <a href="/providers/googleworkspace/drive/drives/">drives</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googleworkspace/drive/files/">files</a><br />
-<a href="/providers/googleworkspace/drive/files__labels/">files__labels</a><br />
+<a href="/providers/googleworkspace/drive/files_labels/">files_labels</a><br />
 <a href="/providers/googleworkspace/drive/permissions/">permissions</a><br />
 <a href="/providers/googleworkspace/drive/replies/">replies</a><br />
 <a href="/providers/googleworkspace/drive/revisions/">revisions</a><br />

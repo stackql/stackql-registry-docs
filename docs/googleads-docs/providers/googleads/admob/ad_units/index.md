@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `adUnits` | `array` | The resulting ad units for the requested account. |
 | `nextPageToken` | `string` | If not empty, indicates that there may be more ad units for the request; this value should be passed in a new `ListAdUnitsRequest`. |
+| `adUnits` | `array` | The resulting ad units for the requested account. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

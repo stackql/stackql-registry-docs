@@ -27,8 +27,8 @@ image: /img/providers/googlemybusiness/stackql-googlemybusiness-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `searchKeywordsCounts` | `array` | Search terms which have been used to find a business. |
 | `nextPageToken` | `string` | A token indicating the last paginated result returned. This can be used by succeeding requests to get the next "page" of keywords. It will only be present when there are more results to be returned. |
+| `searchKeywordsCounts` | `array` | Search terms which have been used to find a business. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

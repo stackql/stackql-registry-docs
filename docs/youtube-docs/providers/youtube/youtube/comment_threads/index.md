@@ -28,10 +28,10 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube uses to uniquely identify the comment thread. |
+| `etag` | `string` | Etag of this resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#commentThread". |
 | `replies` | `object` | Comments written in (direct or indirect) reply to the top level comment. |
 | `snippet` | `object` | Basic details about a comment thread. |
-| `etag` | `string` | Etag of this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -31,17 +31,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
 | `producerAcceptLists` | `array` | Projects that are allowed to connect to this network attachment. The project can be specified using its id or number. |
-| `connectionEndpoints` | `array` | [Output Only] An array of connections for all the producers connected to this network attachment. |
-| `selfLinkWithId` | `string` | [Output Only] Server-defined URL for this resource's resource id. |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `region` | `string` | [Output Only] URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
-| `network` | `string` | [Output Only] The URL of the network which the Network Attachment belongs to. |
-| `subnetworks` | `array` | An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment. |
-| `connectionPreference` | `string` |  |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `producerRejectLists` | `array` | Projects that are not allowed to connect to this network attachment. The project can be specified using its id or number. |
 | `fingerprint` | `string` | [Output Only] Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. An up-to-date fingerprint must be provided in order to patch. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `kind` | `string` | [Output Only] Type of the resource. |
+| `selfLinkWithId` | `string` | [Output Only] Server-defined URL for this resource's resource id. |
+| `region` | `string` | [Output Only] URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `subnetworks` | `array` | An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment. |
+| `connectionEndpoints` | `array` | [Output Only] An array of connections for all the producers connected to this network attachment. |
+| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
+| `network` | `string` | [Output Only] The URL of the network which the Network Attachment belongs to. |
+| `connectionPreference` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

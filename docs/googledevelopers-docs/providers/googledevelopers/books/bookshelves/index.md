@@ -29,14 +29,14 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `id` | `integer` | Id of this bookshelf, only unique by user. |
 | `description` | `string` | Description of this bookshelf. |
-| `title` | `string` | Title of this bookshelf. |
 | `access` | `string` | Whether this bookshelf is PUBLIC or PRIVATE. |
+| `title` | `string` | Title of this bookshelf. |
+| `volumeCount` | `integer` | Number of volumes in this bookshelf. |
+| `created` | `string` | Created time for this bookshelf (formatted UTC timestamp with millisecond resolution). |
+| `selfLink` | `string` | URL to this resource. |
 | `volumesLastUpdated` | `string` | Last time a volume was added or removed from this bookshelf (formatted UTC timestamp with millisecond resolution). |
 | `updated` | `string` | Last modified time of this bookshelf (formatted UTC timestamp with millisecond resolution). |
-| `selfLink` | `string` | URL to this resource. |
-| `volumeCount` | `integer` | Number of volumes in this bookshelf. |
 | `kind` | `string` | Resource type for bookshelf metadata. |
-| `created` | `string` | Created time for this bookshelf (formatted UTC timestamp with millisecond resolution). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

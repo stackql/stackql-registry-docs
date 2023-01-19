@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `calloutStatusRows` | `array` | List of rows, with counts of bid responses aggregated by callout status. |
 | `nextPageToken` | `string` | A token to retrieve the next page of results. Pass this value in the ListBidResponseErrorsRequest.pageToken field in the subsequent call to the bidResponseErrors.list method to retrieve the next page of results. |
+| `calloutStatusRows` | `array` | List of rows, with counts of bid responses aggregated by callout status. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

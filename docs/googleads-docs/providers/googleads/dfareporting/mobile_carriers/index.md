@@ -29,9 +29,9 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this mobile carrier. |
 | `name` | `string` | Name of this mobile carrier. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#mobileCarrier". |
 | `countryCode` | `string` | Country code of the country to which this mobile carrier belongs. |
 | `countryDartId` | `string` | DART ID of the country to which this mobile carrier belongs. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#mobileCarrier". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

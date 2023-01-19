@@ -33,7 +33,7 @@ Lets Android application developers access their Google Play accounts. At a high
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Play Android Developer API</td></tr>
 <tr><td><b>Description</b></td><td>Lets Android application developers access their Google Play accounts. At a high level, the expected workflow is to "insert" an Edit, make changes as necessary, and then "commit" it. </td></tr>
-<tr><td><b>Id</b></td><td><code>androidpublisher:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>androidpublisher:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

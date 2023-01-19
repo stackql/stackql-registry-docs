@@ -28,17 +28,17 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the comment. |
-| `deleted` | `boolean` | Whether the comment has been deleted. A deleted comment has no content. |
-| `author` | `object` | Information about a Drive user. |
-| `quotedFileContent` | `object` | The file content to which the comment refers, typically within the anchor region. For a text file, for example, this would be the text at the location of the comment. |
-| `modifiedTime` | `string` | The last time the comment or any of its replies was modified (RFC 3339 date-time). |
-| `content` | `string` | The plain text content of the comment. This field is used for setting the content, while htmlContent should be displayed. |
-| `htmlContent` | `string` | The content of the comment with HTML formatting. |
-| `createdTime` | `string` | The time at which the comment was created (RFC 3339 date-time). |
 | `resolved` | `boolean` | Whether the comment has been resolved by one of its replies. |
-| `replies` | `array` | The full list of replies to the comment in chronological order. |
+| `content` | `string` | The plain text content of the comment. This field is used for setting the content, while htmlContent should be displayed. |
+| `deleted` | `boolean` | Whether the comment has been deleted. A deleted comment has no content. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "drive#comment". |
+| `replies` | `array` | The full list of replies to the comment in chronological order. |
+| `quotedFileContent` | `object` | The file content to which the comment refers, typically within the anchor region. For a text file, for example, this would be the text at the location of the comment. |
+| `htmlContent` | `string` | The content of the comment with HTML formatting. |
 | `anchor` | `string` | A region of the document represented as a JSON string. For details on defining anchor properties, refer to  Add comments and replies. |
+| `author` | `object` | Information about a Drive user. |
+| `createdTime` | `string` | The time at which the comment was created (RFC 3339 date-time). |
+| `modifiedTime` | `string` | The last time the comment or any of its replies was modified (RFC 3339 date-time). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

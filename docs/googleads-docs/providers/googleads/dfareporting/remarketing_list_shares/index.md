@@ -27,10 +27,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#remarketingListShare". |
 | `remarketingListId` | `string` | Remarketing list ID. This is a read-only, auto-generated field. |
 | `sharedAccountIds` | `array` | Accounts that the remarketing list is shared with. |
 | `sharedAdvertiserIds` | `array` | Advertisers that the remarketing list is shared with. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#remarketingListShare". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

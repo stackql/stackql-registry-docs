@@ -33,7 +33,7 @@ Views and manages your Google Analytics data.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Analytics API</td></tr>
 <tr><td><b>Description</b></td><td>Views and manages your Google Analytics data.</td></tr>
-<tr><td><b>Id</b></td><td><code>analytics:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>analytics:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -57,14 +57,14 @@ Views and manages your Google Analytics data.
 <div class="providerDocColumn">
 <a href="/providers/googleanalytics/analytics/profile_user_links/">profile_user_links</a><br />
 <a href="/providers/googleanalytics/analytics/profiles/">profiles</a><br />
-<a href="/providers/googleanalytics/analytics/provisioning__account_ticket/">provisioning__account_ticket</a><br />
-<a href="/providers/googleanalytics/analytics/provisioning__account_tree/">provisioning__account_tree</a><br />
+<a href="/providers/googleanalytics/analytics/provisioning_account_ticket/">provisioning_account_ticket</a><br />
+<a href="/providers/googleanalytics/analytics/provisioning_account_tree/">provisioning_account_tree</a><br />
 <a href="/providers/googleanalytics/analytics/realtime/">realtime</a><br />
 <a href="/providers/googleanalytics/analytics/remarketing_audience/">remarketing_audience</a><br />
 <a href="/providers/googleanalytics/analytics/segments/">segments</a><br />
 <a href="/providers/googleanalytics/analytics/unsampled_reports/">unsampled_reports</a><br />
 <a href="/providers/googleanalytics/analytics/uploads/">uploads</a><br />
-<a href="/providers/googleanalytics/analytics/uploads__upload_data/">uploads__upload_data</a><br />
+<a href="/providers/googleanalytics/analytics/uploads_upload_data/">uploads_upload_data</a><br />
 <a href="/providers/googleanalytics/analytics/user_deletion_request/">user_deletion_request</a><br />
 <a href="/providers/googleanalytics/analytics/web_property_ad_words_links/">web_property_ad_words_links</a><br />
 <a href="/providers/googleanalytics/analytics/webproperties/">webproperties</a><br />

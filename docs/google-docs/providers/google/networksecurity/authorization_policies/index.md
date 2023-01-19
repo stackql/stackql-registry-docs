@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the AuthorizationPolicy resource. It matches pattern `projects/&#123;project&#125;/locations/&#123;location&#125;/authorizationPolicies/`. |
 | `description` | `string` | Optional. Free-text description of the resource. |
+| `createTime` | `string` | Output only. The timestamp when the resource was created. |
 | `labels` | `object` | Optional. Set of label tags associated with the AuthorizationPolicy resource. |
 | `rules` | `array` | Optional. List of rules to match. Note that at least one of the rules must match in order for the action specified in the 'action' field to be taken. A rule is a match if there is a matching source and destination. If left blank, the action specified in the `action` field will be applied on every request. |
 | `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
 | `action` | `string` | Required. The action to take when a rule match is found. Possible values are "ALLOW" or "DENY". |
-| `createTime` | `string` | Output only. The timestamp when the resource was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

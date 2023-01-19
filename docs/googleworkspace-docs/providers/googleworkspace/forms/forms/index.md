@@ -28,14 +28,14 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description of the item. |
-| `videoItem` | `object` | An item containing a video. |
-| `textItem` | `object` | A text item. |
-| `questionItem` | `object` | A form item containing a single question. |
-| `pageBreakItem` | `object` | A page break. The title and description of this item are shown at the top of the new page. |
 | `itemId` | `string` | The item ID. On creation, it can be provided but the ID must not be already used in the form. If not provided, a new ID is assigned. |
-| `questionGroupItem` | `object` | Defines a question that comprises multiple questions grouped together. |
+| `questionItem` | `object` | A form item containing a single question. |
+| `videoItem` | `object` | An item containing a video. |
 | `imageItem` | `object` | An item containing an image. |
+| `questionGroupItem` | `object` | Defines a question that comprises multiple questions grouped together. |
+| `pageBreakItem` | `object` | A page break. The title and description of this item are shown at the top of the new page. |
 | `title` | `string` | The title of the item. |
+| `textItem` | `object` | A text item. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

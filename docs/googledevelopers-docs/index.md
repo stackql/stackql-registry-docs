@@ -3,7 +3,7 @@ title: googledevelopers
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - google developers APIs
+  - googledevelopers
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -22,11 +22,11 @@ Developer APIs by Google.
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>44</b></span><br />
-<span>total methods:&nbsp;<b>1046</b></span><br />
+<span>total methods:&nbsp;<b>1044</b></span><br />
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>331</b></span><br />
-<span>total selectable resources:&nbsp;<b>243</b></span><br />
+<span>total selectable resources:&nbsp;<b>241</b></span><br />
 </div>
 </div>
 
@@ -38,7 +38,7 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL googledevelopers v23.01.00114;
+REGISTRY PULL googledevelopers v23.01.00116;
 ```
 
 ## Authentication

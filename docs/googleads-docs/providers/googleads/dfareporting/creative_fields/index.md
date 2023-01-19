@@ -29,11 +29,11 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this creative field. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this creative field. This is a required field and must be less than 256 characters long and unique among creative fields of the same advertiser. |
+| `subaccountId` | `string` | Subaccount ID of this creative field. This is a read-only field that can be left blank. |
 | `accountId` | `string` | Account ID of this creative field. This is a read-only field that can be left blank. |
 | `advertiserId` | `string` | Advertiser ID of this creative field. This is a required field on insertion. |
 | `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#creativeField". |
-| `subaccountId` | `string` | Subaccount ID of this creative field. This is a read-only field that can be left blank. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

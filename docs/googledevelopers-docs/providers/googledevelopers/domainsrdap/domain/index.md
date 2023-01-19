@@ -27,9 +27,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `data` | `string` | The HTTP request/response body as raw binary. |
 | `extensions` | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
 | `contentType` | `string` | The HTTP Content-Type header value specifying the content type of the body. |
-| `data` | `string` | The HTTP request/response body as raw binary. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

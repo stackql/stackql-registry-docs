@@ -29,11 +29,11 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The unique identifier for the auction package. Format: `buyers/&#123;accountId&#125;/auctionPackages/&#123;auctionPackageId&#125;` The auction_package_id part of name is sent in the BidRequest to all RTB bidders and is returned as deal_id by the bidder in the BidResponse. |
 | `description` | `string` | Output only. A description of the auction package. |
-| `subscribedClients` | `array` | Output only. The list of clients of the current buyer that are subscribed to the AuctionPackage. Format: `buyers/&#123;buyerAccountId&#125;/clients/&#123;clientAccountId&#125;` |
-| `updateTime` | `string` | Output only. Time the auction package was last updated. This value is only increased when this auction package is updated but never when a buyer subscribed. |
 | `createTime` | `string` | Output only. Time the auction package was created. |
 | `creator` | `string` | Output only. The buyer that created this auction package. Format: `buyers/&#123;buyerAccountId&#125;` |
 | `displayName` | `string` | The display_name assigned to the auction package. |
+| `subscribedClients` | `array` | Output only. The list of clients of the current buyer that are subscribed to the AuctionPackage. Format: `buyers/&#123;buyerAccountId&#125;/clients/&#123;clientAccountId&#125;` |
+| `updateTime` | `string` | Output only. Time the auction package was last updated. This value is only increased when this auction package is updated but never when a buyer subscribed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

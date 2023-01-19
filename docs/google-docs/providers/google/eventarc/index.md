@@ -33,7 +33,7 @@ Build event-driven applications on Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Eventarc API</td></tr>
 <tr><td><b>Description</b></td><td>Build event-driven applications on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>eventarc:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>eventarc:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -50,7 +50,7 @@ Build event-driven applications on Google Cloud Platform.
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/eventarc/locations/">locations</a><br />
-<a href="/providers/google/eventarc/locations__google_channel_config/">locations__google_channel_config</a><br />
+<a href="/providers/google/eventarc/locations_google_channel_config/">locations_google_channel_config</a><br />
 <a href="/providers/google/eventarc/operations/">operations</a><br />
 <a href="/providers/google/eventarc/providers/">providers</a><br />
 <a href="/providers/google/eventarc/triggers/">triggers</a><br />

@@ -27,13 +27,13 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `merchantId` | `string` | Output only. Immutable. Merchant that owns the region. |
-| `postalCodeArea` | `object` | A list of postal codes that defines the region area. Note: All regions defined using postal codes are accessible via the account's `ShippingSettings.postalCodeGroups` resource. |
 | `regionId` | `string` | Output only. Immutable. The ID uniquely identifying each region. |
 | `regionalInventoryEligible` | `boolean` | Output only. Indicates if the region is eligible to use in the Regional Inventory configuration. |
 | `shippingEligible` | `boolean` | Output only. Indicates if the region is eligible to use in the Shipping Services configuration. |
 | `displayName` | `string` | The display name of the region. |
 | `geotargetArea` | `object` | A list of geotargets that defines the region area. |
+| `merchantId` | `string` | Output only. Immutable. Merchant that owns the region. |
+| `postalCodeArea` | `object` | A list of postal codes that defines the region area. Note: All regions defined using postal codes are accessible via the account's `ShippingSettings.postalCodeGroups` resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

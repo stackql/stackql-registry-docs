@@ -28,18 +28,18 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The identifier for this resource. |
-| `blog` | `object` | Data about the blog containing this Page. |
-| `content` | `string` | The body content of this Page, in HTML. |
-| `status` | `string` | The status of the page for admin resources (either LIVE or DRAFT). |
-| `title` | `string` | The title of this entity. This is the name displayed in the Admin user interface. |
 | `selfLink` | `string` | The API REST URL to fetch this resource from. |
-| `author` | `object` | The author of this Page. |
+| `blog` | `object` | Data about the blog containing this Page. |
+| `trashed` | `string` | RFC 3339 date-time when this Page was trashed. |
 | `etag` | `string` | Etag of the resource. |
 | `kind` | `string` | The kind of this entity. Always blogger#page. |
-| `updated` | `string` | RFC 3339 date-time when this Page was last updated. |
-| `trashed` | `string` | RFC 3339 date-time when this Page was trashed. |
 | `url` | `string` | The URL that this Page is displayed at. |
+| `status` | `string` | The status of the page for admin resources (either LIVE or DRAFT). |
 | `published` | `string` | RFC 3339 date-time when this Page was published. |
+| `author` | `object` | The author of this Page. |
+| `content` | `string` | The body content of this Page, in HTML. |
+| `updated` | `string` | RFC 3339 date-time when this Page was last updated. |
+| `title` | `string` | The title of this entity. This is the name displayed in the Admin user interface. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

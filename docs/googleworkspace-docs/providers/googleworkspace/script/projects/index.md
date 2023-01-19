@@ -27,13 +27,13 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `parentId` | `string` | The parent's Drive ID that the script will be attached to. This is usually the ID of a Google Document or Google Sheet. This filed is optional, and if not set, a stand-alone script will be created. |
+| `scriptId` | `string` | The script project's Drive ID. |
+| `title` | `string` | The title for the project. |
 | `updateTime` | `string` | When the script was last updated. |
 | `createTime` | `string` | When the script was created. |
 | `creator` | `object` | A simple user profile resource. |
 | `lastModifyUser` | `object` | A simple user profile resource. |
-| `parentId` | `string` | The parent's Drive ID that the script will be attached to. This is usually the ID of a Google Document or Google Sheet. This filed is optional, and if not set, a stand-alone script will be created. |
-| `scriptId` | `string` | The script project's Drive ID. |
-| `title` | `string` | The title for the project. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

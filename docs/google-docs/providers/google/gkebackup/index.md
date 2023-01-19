@@ -33,7 +33,7 @@ Backup for GKE is a managed Kubernetes workload backup and restore service for G
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Backup for GKE API</td></tr>
 <tr><td><b>Description</b></td><td>Backup for GKE is a managed Kubernetes workload backup and restore service for GKE clusters.</td></tr>
-<tr><td><b>Id</b></td><td><code>gkebackup:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gkebackup:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -48,7 +48,7 @@ Backup for GKE is a managed Kubernetes workload backup and restore service for G
 <a href="/providers/google/gkebackup/backups_iam_bindings/">backups_iam_bindings</a><br />
 <a href="/providers/google/gkebackup/backups_iam_policies/">backups_iam_policies</a><br />
 <a href="/providers/google/gkebackup/locations/">locations</a><br />
-<a href="/providers/google/gkebackup/locations__operations/">locations__operations</a><br />
+<a href="/providers/google/gkebackup/locations_operations/">locations_operations</a><br />
 <a href="/providers/google/gkebackup/operations/">operations</a><br />
 <a href="/providers/google/gkebackup/restore_plans/">restore_plans</a><br />
 <a href="/providers/google/gkebackup/restore_plans_iam_audit_configs/">restore_plans_iam_audit_configs</a><br />

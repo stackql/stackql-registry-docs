@@ -29,23 +29,23 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `name` | `string` | Container version display name. @mutable tagmanager.accounts.containers.versions.update |
 | `description` | `string` | Container version description. @mutable tagmanager.accounts.containers.versions.update |
-| `trigger` | `array` | The triggers in the container that this version was taken from. |
-| `variable` | `array` | The variables in the container that this version was taken from. |
-| `deleted` | `boolean` | A value of true indicates this container version has been deleted. |
+| `fingerprint` | `string` | The fingerprint of the GTM Container Version as computed at storage time. This value is recomputed whenever the container version is modified. |
+| `accountId` | `string` | GTM Account ID. |
+| `builtInVariable` | `array` | The built-in variables in the container that this version was taken from. |
+| `tag` | `array` | The tags in the container that this version was taken from. |
+| `containerVersionId` | `string` | The Container Version ID uniquely identifies the GTM Container Version. |
+| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
 | `zone` | `array` | The zones in the container that this version was taken from. |
-| `folder` | `array` | The folders in the container that this version was taken from. |
+| `client` | `array` | The clients in the container that this version was taken from. |
+| `variable` | `array` | The variables in the container that this version was taken from. |
+| `gtagConfig` | `array` | The Google tag configs in the container that this version was taken from. |
 | `path` | `string` | GTM Container Version's API relative path. |
 | `container` | `object` | Represents a Google Tag Manager Container, which specifies the platform tags will run on, manages workspaces, and retains container versions. |
-| `customTemplate` | `array` | The custom templates in the container that this version was taken from. |
-| `builtInVariable` | `array` | The built-in variables in the container that this version was taken from. |
-| `fingerprint` | `string` | The fingerprint of the GTM Container Version as computed at storage time. This value is recomputed whenever the container version is modified. |
-| `tag` | `array` | The tags in the container that this version was taken from. |
 | `containerId` | `string` | GTM Container ID. |
-| `accountId` | `string` | GTM Account ID. |
-| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
-| `client` | `array` | The clients in the container that this version was taken from. |
-| `gtagConfig` | `array` | The Google tag configs in the container that this version was taken from. |
-| `containerVersionId` | `string` | The Container Version ID uniquely identifies the GTM Container Version. |
+| `folder` | `array` | The folders in the container that this version was taken from. |
+| `trigger` | `array` | The triggers in the container that this version was taken from. |
+| `customTemplate` | `array` | The custom templates in the container that this version was taken from. |
+| `deleted` | `boolean` | A value of true indicates this container version has been deleted. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Cloud Deploy API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>clouddeploy:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>clouddeploy:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -45,7 +45,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/clouddeploy/delivery_pipelines_iam_policies/">delivery_pipelines_iam_policies</a><br />
 <a href="/providers/google/clouddeploy/job_runs/">job_runs</a><br />
 <a href="/providers/google/clouddeploy/locations/">locations</a><br />
-<a href="/providers/google/clouddeploy/locations__config/">locations__config</a><br />
+<a href="/providers/google/clouddeploy/locations_config/">locations_config</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/clouddeploy/operations/">operations</a><br />

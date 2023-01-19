@@ -29,25 +29,25 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the app in the form enterprises/&#123;enterprise&#125;/applications/&#123;package_name&#125;. |
 | `description` | `string` | The localized promotional description, if available. |
-| `availableCountries` | `array` | The countries which this app is available in as per ISO 3166-1 alpha-2. |
+| `updateTime` | `string` | Output only. The approximate time (within 7 days) the app was last published. |
+| `category` | `string` | The app category (e.g. RACING, SOCIAL, etc.) |
 | `contentRating` | `string` | The content rating for this app. |
-| `author` | `string` | The name of the author of the apps (for example, the app developer). |
-| `appPricing` | `string` | Whether this app is free, free with in-app purchases, or paid. If the pricing is unspecified, this means the app is not generally available anymore (even though it might still be available to people who own it). |
-| `title` | `string` | The title of the app. Localized. |
-| `appTracks` | `array` | Application tracks visible to the enterprise. |
-| `features` | `array` | Noteworthy features (if any) of this app. |
 | `permissions` | `array` | The permissions required by the app. |
-| `recentChanges` | `string` | A localised description of the recent changes made to the app. |
+| `title` | `string` | The title of the app. Localized. |
 | `fullDescription` | `string` | Full app description, if available. |
-| `appVersions` | `array` | Versions currently available for this app. |
+| `recentChanges` | `string` | A localised description of the recent changes made to the app. |
+| `appPricing` | `string` | Whether this app is free, free with in-app purchases, or paid. If the pricing is unspecified, this means the app is not generally available anymore (even though it might still be available to people who own it). |
+| `iconUrl` | `string` | A link to an image that can be used as an icon for the app. This image is suitable for use up to a pixel size of 512 x 512. |
+| `playStoreUrl` | `string` | A link to the (consumer) Google Play details page for the app. |
+| `appTracks` | `array` | Application tracks visible to the enterprise. |
 | `screenshotUrls` | `array` | A list of screenshot links representing the app. |
 | `distributionChannel` | `string` | How and to whom the package is made available. |
-| `category` | `string` | The app category (e.g. RACING, SOCIAL, etc.) |
-| `playStoreUrl` | `string` | A link to the (consumer) Google Play details page for the app. |
-| `updateTime` | `string` | Output only. The approximate time (within 7 days) the app was last published. |
-| `iconUrl` | `string` | A link to an image that can be used as an icon for the app. This image is suitable for use up to a pixel size of 512 x 512. |
 | `smallIconUrl` | `string` | A link to a smaller image that can be used as an icon for the app. This image is suitable for use up to a pixel size of 128 x 128. |
+| `author` | `string` | The name of the author of the apps (for example, the app developer). |
+| `availableCountries` | `array` | The countries which this app is available in as per ISO 3166-1 alpha-2. |
 | `minAndroidSdkVersion` | `integer` | The minimum Android SDK necessary to run the app. |
+| `features` | `array` | Noteworthy features (if any) of this app. |
+| `appVersions` | `array` | Versions currently available for this app. |
 | `managedProperties` | `array` | The set of managed properties available to be pre-configured for the app. |
 ## Methods
 | Name | Accessible by | Required Params |

@@ -33,7 +33,7 @@ OS management tools that can be used for patch management, patch compliance, and
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>OS Config API</td></tr>
 <tr><td><b>Description</b></td><td>OS management tools that can be used for patch management, patch compliance, and configuration management on VM instances.</td></tr>
-<tr><td><b>Id</b></td><td><code>osconfig:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>osconfig:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,7 +44,7 @@ OS management tools that can be used for patch management, patch compliance, and
 <a href="/providers/google/osconfig/inventories/">inventories</a><br />
 <a href="/providers/google/osconfig/operations/">operations</a><br />
 <a href="/providers/google/osconfig/os_policy_assignments/">os_policy_assignments</a><br />
-<a href="/providers/google/osconfig/os_policy_assignments__revisions/">os_policy_assignments__revisions</a><br />
+<a href="/providers/google/osconfig/os_policy_assignments_revisions/">os_policy_assignments_revisions</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/osconfig/patch_deployments/">patch_deployments</a><br />

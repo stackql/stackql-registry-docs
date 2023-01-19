@@ -28,12 +28,12 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube uses to uniquely identify the channel section. |
-| `contentDetails` | `object` | Details about a channelsection, including playlists and channels. |
-| `etag` | `string` | Etag of this resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#channelSection". |
 | `localizations` | `object` | Localizations for different languages |
 | `snippet` | `object` | Basic details about a channel section, including title, style and position. |
 | `targeting` | `object` | ChannelSection targeting setting. |
+| `contentDetails` | `object` | Details about a channelsection, including playlists and channels. |
+| `etag` | `string` | Etag of this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

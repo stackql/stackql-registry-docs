@@ -33,7 +33,7 @@ Accesses the NoSQL document database built for automatic scaling, high performan
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Firestore API</td></tr>
 <tr><td><b>Description</b></td><td>Accesses the NoSQL document database built for automatic scaling, high performance, and ease of application development. </td></tr>
-<tr><td><b>Id</b></td><td><code>firestore:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>firestore:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,9 +41,9 @@ Accesses the NoSQL document database built for automatic scaling, high performan
 <div class="providerDocColumn">
 <a href="/providers/google/firestore/databases/">databases</a><br />
 <a href="/providers/google/firestore/documents/">documents</a><br />
-<a href="/providers/google/firestore/documents__collection_ids/">documents__collection_ids</a><br />
-<a href="/providers/google/firestore/documents__document/">documents__document</a><br />
-<a href="/providers/google/firestore/documents__documents/">documents__documents</a><br />
+<a href="/providers/google/firestore/documents_collection_ids/">documents_collection_ids</a><br />
+<a href="/providers/google/firestore/documents_document/">documents_document</a><br />
+<a href="/providers/google/firestore/documents_documents/">documents_documents</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/firestore/documents_en/">documents_en</a><br />

@@ -28,8 +28,8 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of this secret. This secret may be a child of any type of stream. Format: properties/&#123;property&#125;/dataStreams/&#123;dataStream&#125;/measurementProtocolSecrets/&#123;measurementProtocolSecret&#125; |
-| `displayName` | `string` | Required. Human-readable display name for this secret. |
 | `secretValue` | `string` | Output only. The measurement protocol secret value. Pass this value to the api_secret field of the Measurement Protocol API when sending hits to this secret's parent property. |
+| `displayName` | `string` | Required. Human-readable display name for this secret. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

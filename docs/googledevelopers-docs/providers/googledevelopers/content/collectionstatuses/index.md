@@ -28,10 +28,10 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Required. The ID of the collection for which status is reported. |
+| `collectionLevelIssuses` | `array` | A list of all issues associated with the collection. |
 | `creationDate` | `string` | Date on which the collection has been created in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format: Date, time, and offset, for example "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z" |
 | `destinationStatuses` | `array` | The intended destinations for the collection. |
 | `lastUpdateDate` | `string` | Date on which the collection has been last updated in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format: Date, time, and offset, for example "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z" |
-| `collectionLevelIssuses` | `array` | A list of all issues associated with the collection. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ Obtains end-user authorization grants for use with other Google APIs.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google OAuth2 API</td></tr>
 <tr><td><b>Description</b></td><td>Obtains end-user authorization grants for use with other Google APIs.</td></tr>
-<tr><td><b>Id</b></td><td><code>oauth2:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>oauth2:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

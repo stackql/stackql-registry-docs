@@ -33,21 +33,21 @@ The My Business Business Information API provides an interface for managing busi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>My Business Business Information API</td></tr>
 <tr><td><b>Description</b></td><td>The My Business Business Information API provides an interface for managing business information. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.</td></tr>
-<tr><td><b>Id</b></td><td><code>mybusinessbusinessinformation:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>mybusinessbusinessinformation:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/googlemybusiness/mybusinessbusinessinformation/attributes/">attributes</a><br />
-<a href="/providers/googlemybusiness/mybusinessbusinessinformation/attributes__google_updated/">attributes__google_updated</a><br />
+<a href="/providers/googlemybusiness/mybusinessbusinessinformation/attributes_google_updated/">attributes_google_updated</a><br />
 <a href="/providers/googlemybusiness/mybusinessbusinessinformation/categories/">categories</a><br />
 <a href="/providers/googlemybusiness/mybusinessbusinessinformation/chains/">chains</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googlemybusiness/mybusinessbusinessinformation/google_locations/">google_locations</a><br />
 <a href="/providers/googlemybusiness/mybusinessbusinessinformation/locations/">locations</a><br />
-<a href="/providers/googlemybusiness/mybusinessbusinessinformation/locations__attributes/">locations__attributes</a><br />
-<a href="/providers/googlemybusiness/mybusinessbusinessinformation/locations__google_updated/">locations__google_updated</a><br />
+<a href="/providers/googlemybusiness/mybusinessbusinessinformation/locations_attributes/">locations_attributes</a><br />
+<a href="/providers/googlemybusiness/mybusinessbusinessinformation/locations_google_updated/">locations_google_updated</a><br />
 </div>
 </div>

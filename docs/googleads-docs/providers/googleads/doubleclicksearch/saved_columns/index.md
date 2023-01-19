@@ -27,9 +27,9 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `type` | `string` | The type of data this saved column will produce. |
 | `kind` | `string` | Identifies this as a SavedColumn resource. Value: the fixed string doubleclicksearch#savedColumn. |
 | `savedColumnName` | `string` | The name of the saved column. |
-| `type` | `string` | The type of data this saved column will produce. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

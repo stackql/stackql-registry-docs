@@ -33,7 +33,7 @@ Integrates Google Vision features, including image labeling, face, logo, and lan
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Vision API</td></tr>
 <tr><td><b>Description</b></td><td>Integrates Google Vision features, including image labeling, face, logo, and landmark detection, optical character recognition (OCR), and detection of explicit content, into applications.</td></tr>
-<tr><td><b>Id</b></td><td><code>vision:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>vision:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -45,7 +45,7 @@ Integrates Google Vision features, including image labeling, face, logo, and lan
 <a href="/providers/google/vision/product_sets/">product_sets</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/vision/product_sets__product/">product_sets__product</a><br />
+<a href="/providers/google/vision/product_sets_product/">product_sets_product</a><br />
 <a href="/providers/google/vision/products/">products</a><br />
 <a href="/providers/google/vision/reference_images/">reference_images</a><br />
 </div>

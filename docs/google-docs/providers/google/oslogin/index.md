@@ -33,7 +33,7 @@ You can use OS Login to manage access to your VM instances using IAM roles.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud OS Login API</td></tr>
 <tr><td><b>Description</b></td><td>You can use OS Login to manage access to your VM instances using IAM roles.</td></tr>
-<tr><td><b>Id</b></td><td><code>oslogin:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>oslogin:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,6 +44,6 @@ You can use OS Login to manage access to your VM instances using IAM roles.
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/oslogin/users/">users</a><br />
-<a href="/providers/google/oslogin/users__login_profile/">users__login_profile</a><br />
+<a href="/providers/google/oslogin/users_login_profile/">users_login_profile</a><br />
 </div>
 </div>

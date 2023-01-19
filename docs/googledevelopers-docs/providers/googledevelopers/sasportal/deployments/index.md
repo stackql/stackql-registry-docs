@@ -27,10 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Resource name. |
-| `displayName` | `string` | The deployment's display name. |
-| `frns` | `array` | Output only. The FRNs copied from its direct parent. |
-| `sasUserIds` | `array` | User ID used by the devices belonging to this deployment. Each deployment should be associated with one unique user ID. |
+| `nextPageToken` | `string` | A pagination token returned from a previous call to ListDeployments that indicates from where listing should continue. If the field is missing or empty, it means there are no more deployments. |
+| `deployments` | `array` | The deployments that match the request. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

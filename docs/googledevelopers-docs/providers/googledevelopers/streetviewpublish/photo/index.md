@@ -27,19 +27,19 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `shareLink` | `string` | Output only. The share link for the photo. |
-| `transferStatus` | `string` | Output only. Status of rights transfer on this photo. |
-| `downloadUrl` | `string` | Output only. The download URL for the photo bytes. This field is set only when GetPhotoRequest.view is set to PhotoView.INCLUDE_DOWNLOAD_URL. |
-| `pose` | `object` | Raw pose measurement for an entity. |
 | `mapsPublishStatus` | `string` | Output only. Status in Google Maps, whether this photo was published or rejected. |
 | `thumbnailUrl` | `string` | Output only. The thumbnail URL for showing a preview of the given photo. |
-| `uploadTime` | `string` | Output only. Time when the image was uploaded. |
-| `viewCount` | `string` | Output only. View count of the photo. |
-| `places` | `array` | Optional. Places where this photo belongs. |
 | `uploadReference` | `object` | Upload reference for media files. |
-| `photoId` | `object` | Identifier for a Photo. |
-| `connections` | `array` | Optional. Connections to other photos. A connection represents the link from this photo to another photo. |
 | `captureTime` | `string` | Optional. Absolute time when the photo was captured. When the photo has no exif timestamp, this is used to set a timestamp in the photo metadata. |
+| `viewCount` | `string` | Output only. View count of the photo. |
+| `downloadUrl` | `string` | Output only. The download URL for the photo bytes. This field is set only when GetPhotoRequest.view is set to PhotoView.INCLUDE_DOWNLOAD_URL. |
+| `transferStatus` | `string` | Output only. Status of rights transfer on this photo. |
+| `uploadTime` | `string` | Output only. Time when the image was uploaded. |
+| `pose` | `object` | Raw pose measurement for an entity. |
+| `shareLink` | `string` | Output only. The share link for the photo. |
+| `connections` | `array` | Optional. Connections to other photos. A connection represents the link from this photo to another photo. |
+| `places` | `array` | Optional. Places where this photo belongs. |
+| `photoId` | `object` | Identifier for a Photo. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

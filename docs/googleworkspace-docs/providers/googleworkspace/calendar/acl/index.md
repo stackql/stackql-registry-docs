@@ -28,10 +28,10 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the Access Control List (ACL) rule. See Sharing calendars. |
+| `kind` | `string` | Type of the resource ("calendar#aclRule"). |
 | `role` | `string` | The role assigned to the scope. Possible values are:  <br />- "none" - Provides no access. <br />- "freeBusyReader" - Provides read access to free/busy information. <br />- "reader" - Provides read access to the calendar. Private events will appear to users with reader access, but event details will be hidden. <br />- "writer" - Provides read and write access to the calendar. Private events will appear to users with writer access, and event details will be visible. <br />- "owner" - Provides ownership of the calendar. This role has all of the permissions of the writer role with the additional ability to see and manipulate ACLs. |
 | `scope` | `object` | The extent to which calendar access is granted by this ACL rule. |
 | `etag` | `string` | ETag of the resource. |
-| `kind` | `string` | Type of the resource ("calendar#aclRule"). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

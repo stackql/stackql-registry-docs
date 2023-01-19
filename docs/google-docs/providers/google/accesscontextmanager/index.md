@@ -33,7 +33,7 @@ An API for setting attribute based access control to requests to GCP services.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Access Context Manager API</td></tr>
 <tr><td><b>Description</b></td><td>An API for setting attribute based access control to requests to GCP services.</td></tr>
-<tr><td><b>Id</b></td><td><code>accesscontextmanager:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>accesscontextmanager:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

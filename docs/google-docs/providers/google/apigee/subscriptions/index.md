@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the API product subscription. |
+| `startTime` | `string` | Time when the API product subscription starts in milliseconds since epoch. |
 | `apiproduct` | `string` | Name of the API product for which the developer is purchasing a subscription. |
 | `createdAt` | `string` | Output only. Time when the API product subscription was created in milliseconds since epoch. |
 | `endTime` | `string` | Time when the API product subscription ends in milliseconds since epoch. |
 | `lastModifiedAt` | `string` | Output only. Time when the API product subscription was last modified in milliseconds since epoch. |
-| `startTime` | `string` | Time when the API product subscription starts in milliseconds since epoch. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

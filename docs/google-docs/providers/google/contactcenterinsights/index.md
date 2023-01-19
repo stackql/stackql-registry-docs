@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Contact Center AI Insights API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>contactcenterinsights:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>contactcenterinsights:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -47,7 +47,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/contactcenterinsights/locations/">locations</a><br />
-<a href="/providers/google/contactcenterinsights/locations__settings/">locations__settings</a><br />
+<a href="/providers/google/contactcenterinsights/locations_settings/">locations_settings</a><br />
 <a href="/providers/google/contactcenterinsights/operations/">operations</a><br />
 <a href="/providers/google/contactcenterinsights/phrase_matchers/">phrase_matchers</a><br />
 <a href="/providers/google/contactcenterinsights/views/">views</a><br />

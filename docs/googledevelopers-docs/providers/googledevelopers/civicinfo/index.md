@@ -33,7 +33,7 @@ Provides polling places, early vote locations, contest data, election officials,
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Civic Information API</td></tr>
 <tr><td><b>Description</b></td><td>Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.</td></tr>
-<tr><td><b>Id</b></td><td><code>civicinfo:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>civicinfo:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

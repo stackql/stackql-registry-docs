@@ -28,13 +28,13 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube uses to uniquely identify the playlist. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#playlist". |
 | `localizations` | `object` | Localizations for different languages |
 | `player` | `object` |  |
 | `snippet` | `object` | Basic details about a playlist, including title, description and thumbnails. |
 | `status` | `object` |  |
 | `contentDetails` | `object` |  |
 | `etag` | `string` | Etag of this resource. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#playlist". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

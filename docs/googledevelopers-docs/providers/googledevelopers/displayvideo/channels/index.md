@@ -28,12 +28,12 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the channel. |
-| `advertiserId` | `string` | The ID of the advertiser that owns the channel. |
 | `channelId` | `string` | Output only. The unique ID of the channel. Assigned by the system. |
 | `displayName` | `string` | Required. The display name of the channel. Must be UTF-8 encoded with a maximum length of 240 bytes. |
 | `negativelyTargetedLineItemCount` | `string` | Output only. Number of line items that are directly targeting this channel negatively. |
 | `partnerId` | `string` | The ID of the partner that owns the channel. |
 | `positivelyTargetedLineItemCount` | `string` | Output only. Number of line items that are directly targeting this channel positively. |
+| `advertiserId` | `string` | The ID of the advertiser that owns the channel. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

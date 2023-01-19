@@ -28,17 +28,17 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Zone display name. |
-| `boundary` | `object` | Represents a Zone's boundaries. |
-| `containerId` | `string` | GTM Container ID. |
-| `workspaceId` | `string` | GTM Workspace ID. |
-| `fingerprint` | `string` | The fingerprint of the GTM Zone as computed at storage time. This value is recomputed whenever the zone is modified. |
+| `accountId` | `string` | GTM Account ID. |
 | `zoneId` | `string` | The Zone ID uniquely identifies the GTM Zone. |
-| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
+| `fingerprint` | `string` | The fingerprint of the GTM Zone as computed at storage time. This value is recomputed whenever the zone is modified. |
+| `typeRestriction` | `object` | Represents a Zone's type restrictions. |
 | `notes` | `string` | User notes on how to apply this zone in the container. |
 | `path` | `string` | GTM Zone's API relative path. |
-| `typeRestriction` | `object` | Represents a Zone's type restrictions. |
-| `accountId` | `string` | GTM Account ID. |
+| `boundary` | `object` | Represents a Zone's boundaries. |
+| `containerId` | `string` | GTM Container ID. |
+| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
 | `childContainer` | `array` | Containers that are children of this Zone. |
+| `workspaceId` | `string` | GTM Workspace ID. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ Manages and executes Google Apps Script projects.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Apps Script API</td></tr>
 <tr><td><b>Description</b></td><td>Manages and executes Google Apps Script projects. </td></tr>
-<tr><td><b>Id</b></td><td><code>script:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>script:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,12 +41,12 @@ Manages and executes Google Apps Script projects.
 <div class="providerDocColumn">
 <a href="/providers/googleworkspace/script/deployments/">deployments</a><br />
 <a href="/providers/googleworkspace/script/processes/">processes</a><br />
-<a href="/providers/googleworkspace/script/processes__script_processes/">processes__script_processes</a><br />
+<a href="/providers/googleworkspace/script/processes_script_processes/">processes_script_processes</a><br />
 <a href="/providers/googleworkspace/script/projects/">projects</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googleworkspace/script/projects__content/">projects__content</a><br />
-<a href="/providers/googleworkspace/script/projects__metrics/">projects__metrics</a><br />
+<a href="/providers/googleworkspace/script/projects_content/">projects_content</a><br />
+<a href="/providers/googleworkspace/script/projects_metrics/">projects_metrics</a><br />
 <a href="/providers/googleworkspace/script/scripts/">scripts</a><br />
 <a href="/providers/googleworkspace/script/versions/">versions</a><br />
 </div>

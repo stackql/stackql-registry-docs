@@ -33,7 +33,7 @@ Cloud Life Sciences is a suite of services and tools for managing, processing, a
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Life Sciences API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud Life Sciences is a suite of services and tools for managing, processing, and transforming life sciences data.</td></tr>
-<tr><td><b>Id</b></td><td><code>lifesciences:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>lifesciences:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

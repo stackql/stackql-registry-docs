@@ -33,14 +33,14 @@ The Google Play Game Management API allows developers to manage resources from t
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Play Game Management</td></tr>
 <tr><td><b>Description</b></td><td>The Google Play Game Management API allows developers to manage resources from the Google Play Game service.</td></tr>
-<tr><td><b>Id</b></td><td><code>gamesManagement:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gamesManagement:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/googledevelopers/gamesManagement/achievements/">achievements</a><br />
-<a href="/providers/googledevelopers/gamesManagement/applications__hidden/">applications__hidden</a><br />
+<a href="/providers/googledevelopers/gamesManagement/applications_hidden/">applications_hidden</a><br />
 <a href="/providers/googledevelopers/gamesManagement/events/">events</a><br />
 </div>
 <div class="providerDocColumn">

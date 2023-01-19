@@ -33,7 +33,7 @@ Security Command Center API provides access to temporal views of assets and find
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Security Command Center API</td></tr>
 <tr><td><b>Description</b></td><td>Security Command Center API provides access to temporal views of assets and findings within an organization.</td></tr>
-<tr><td><b>Id</b></td><td><code>securitycenter:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>securitycenter:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -49,7 +49,7 @@ Security Command Center API provides access to temporal views of assets and find
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/securitycenter/organizations/">organizations</a><br />
-<a href="/providers/google/securitycenter/organizations__organization_settings/">organizations__organization_settings</a><br />
+<a href="/providers/google/securitycenter/organizations_organization_settings/">organizations_organization_settings</a><br />
 <a href="/providers/google/securitycenter/sources/">sources</a><br />
 <a href="/providers/google/securitycenter/sources_iam_audit_configs/">sources_iam_audit_configs</a><br />
 <a href="/providers/google/securitycenter/sources_iam_bindings/">sources_iam_bindings</a><br />

@@ -33,7 +33,7 @@ Verifies ownership of websites or domains with Google.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Site Verification API</td></tr>
 <tr><td><b>Description</b></td><td>Verifies ownership of websites or domains with Google.</td></tr>
-<tr><td><b>Id</b></td><td><code>siteVerification:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>siteVerification:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,6 +42,6 @@ Verifies ownership of websites or domains with Google.
 <a href="/providers/googleworkspace/siteVerification/web_resource/">web_resource</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googleworkspace/siteVerification/web_resource__token/">web_resource__token</a><br />
+<a href="/providers/googleworkspace/siteVerification/web_resource_token/">web_resource_token</a><br />
 </div>
 </div>

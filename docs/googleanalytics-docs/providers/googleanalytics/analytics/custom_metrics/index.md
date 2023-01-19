@@ -29,19 +29,19 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Custom metric ID. |
 | `name` | `string` | Name of the custom metric. |
-| `parentLink` | `object` | Parent link for the custom metric. Points to the property to which the custom metric belongs. |
-| `min_value` | `string` | Min value of custom metric. |
 | `kind` | `string` | Kind value for a custom metric. Set to "analytics#customMetric". It is a read-only field. |
 | `webPropertyId` | `string` | Property ID. |
-| `max_value` | `string` | Max value of custom metric. |
-| `active` | `boolean` | Boolean indicating whether the custom metric is active. |
-| `selfLink` | `string` | Link for the custom metric |
-| `accountId` | `string` | Account ID. |
-| `scope` | `string` | Scope of the custom metric: HIT or PRODUCT. |
-| `created` | `string` | Time the custom metric was created. |
-| `index` | `integer` | Index of the custom metric. |
-| `type` | `string` | Data type of custom metric. |
 | `updated` | `string` | Time the custom metric was last modified. |
+| `min_value` | `string` | Min value of custom metric. |
+| `selfLink` | `string` | Link for the custom metric |
+| `index` | `integer` | Index of the custom metric. |
+| `accountId` | `string` | Account ID. |
+| `active` | `boolean` | Boolean indicating whether the custom metric is active. |
+| `max_value` | `string` | Max value of custom metric. |
+| `scope` | `string` | Scope of the custom metric: HIT or PRODUCT. |
+| `parentLink` | `object` | Parent link for the custom metric. Points to the property to which the custom metric belongs. |
+| `type` | `string` | Data type of custom metric. |
+| `created` | `string` | Time the custom metric was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

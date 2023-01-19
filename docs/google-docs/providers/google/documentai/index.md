@@ -19,9 +19,9 @@ Service to parse structured information from unstructured or semi-structured doc
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>26</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>31</b></span><br />
 </div>
 </div>
 
@@ -33,18 +33,19 @@ Service to parse structured information from unstructured or semi-structured doc
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Document AI API</td></tr>
 <tr><td><b>Description</b></td><td>Service to parse structured information from unstructured or semi-structured documents using state-of-the-art Google AI such as natural language, computer vision, translation, and AutoML.</td></tr>
-<tr><td><b>Id</b></td><td><code>documentai:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>documentai:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/documentai/evaluations/">evaluations</a><br />
 <a href="/providers/google/documentai/human_review_config/">human_review_config</a><br />
 <a href="/providers/google/documentai/locations/">locations</a><br />
-<a href="/providers/google/documentai/locations__processor_types/">locations__processor_types</a><br />
-<a href="/providers/google/documentai/operations/">operations</a><br />
+<a href="/providers/google/documentai/locations_processor_types/">locations_processor_types</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/documentai/operations/">operations</a><br />
 <a href="/providers/google/documentai/processor_types/">processor_types</a><br />
 <a href="/providers/google/documentai/processor_versions/">processor_versions</a><br />
 <a href="/providers/google/documentai/processors/">processors</a><br />

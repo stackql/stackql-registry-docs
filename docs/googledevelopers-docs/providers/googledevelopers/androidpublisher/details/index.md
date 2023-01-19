@@ -27,10 +27,10 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `contactEmail` | `string` | The user-visible support email for this app. |
-| `contactPhone` | `string` | The user-visible support telephone number for this app. |
 | `contactWebsite` | `string` | The user-visible website for this app. |
 | `defaultLanguage` | `string` | Default language code, in BCP 47 format (eg "en-US"). |
+| `contactEmail` | `string` | The user-visible support email for this app. |
+| `contactPhone` | `string` | The user-visible support telephone number for this app. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

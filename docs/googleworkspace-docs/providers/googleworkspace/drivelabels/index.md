@@ -33,7 +33,7 @@ An API for managing Drive Labels
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Drive Labels API</td></tr>
 <tr><td><b>Description</b></td><td>An API for managing Drive Labels</td></tr>
-<tr><td><b>Id</b></td><td><code>drivelabels:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>drivelabels:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

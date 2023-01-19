@@ -28,10 +28,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this postal code. |
-| `countryDartId` | `string` | DART ID of the country to which this postal code belongs. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#postalCode". |
 | `code` | `string` | Postal code. This is equivalent to the id field. |
 | `countryCode` | `string` | Country code of the country to which this postal code belongs. |
+| `countryDartId` | `string` | DART ID of the country to which this postal code belongs. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#postalCode". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

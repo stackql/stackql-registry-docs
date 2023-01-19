@@ -27,13 +27,13 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `totalScore` | `number` | Output only. The total number of points the respondent received for their submission Only set if the form was a quiz and the response was graded. This includes points automatically awarded via autograding adjusted by any manual corrections entered by the form owner. |
-| `answers` | `object` | Output only. The actual answers to the questions, keyed by question_id. |
 | `createTime` | `string` | Output only. Timestamp for the first time the response was submitted. |
 | `formId` | `string` | Output only. The form ID. |
 | `lastSubmittedTime` | `string` | Output only. Timestamp for the most recent time the response was submitted. Does not track changes to grades. |
 | `respondentEmail` | `string` | Output only. The email address (if collected) for the respondent. |
 | `responseId` | `string` | Output only. The response ID. |
+| `totalScore` | `number` | Output only. The total number of points the respondent received for their submission Only set if the form was a quiz and the response was graded. This includes points automatically awarded via autograding adjusted by any manual corrections entered by the form owner. |
+| `answers` | `object` | Output only. The actual answers to the questions, keyed by question_id. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

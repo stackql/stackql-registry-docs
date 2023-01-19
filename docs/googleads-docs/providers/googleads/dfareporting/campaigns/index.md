@@ -29,31 +29,31 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this campaign. This is a read-only auto-generated field. |
 | `name` | `string` | Name of this campaign. This is a required field and must be less than 512 characters long and unique among campaigns of the same advertiser. |
-| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `adBlockingConfiguration` | `object` | Campaign ad blocking settings. |
-| `billingInvoiceCode` | `string` | Billing invoice code included in the Campaign Manager client billing invoices associated with the campaign. |
-| `advertiserId` | `string` | Advertiser ID of this campaign. This is a required field. |
-| `endDate` | `string` |  |
-| `startDate` | `string` |  |
-| `createInfo` | `object` | Modification timestamp. |
-| `accountId` | `string` | Account ID of this campaign. This is a read-only field that can be left blank. |
-| `additionalCreativeOptimizationConfigurations` | `array` | Additional creative optimization configurations for the campaign. |
 | `advertiserGroupId` | `string` | Advertiser group ID of the associated advertiser. |
-| `subaccountId` | `string` | Subaccount ID of this campaign. This is a read-only field that can be left blank. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#campaign". |
-| `creativeGroupIds` | `array` | List of creative group IDs that are assigned to the campaign. |
 | `archived` | `boolean` | Whether this campaign has been archived. |
-| `measurementPartnerLink` | `object` |  |
-| `creativeOptimizationConfiguration` | `object` | Creative optimization settings. |
-| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `defaultLandingPageId` | `string` | The default landing page ID for this campaign. |
 | `comment` | `string` | Arbitrary comments about this campaign. Must be less than 256 characters long. |
 | `clickThroughUrlSuffixProperties` | `object` | Click Through URL Suffix settings. |
-| `eventTagOverrides` | `array` | Overrides that can be used to activate or deactivate advertiser event tags. |
-| `audienceSegmentGroups` | `array` | Audience segment groups assigned to this campaign. Cannot have more than 300 segment groups. |
+| `advertiserId` | `string` | Advertiser ID of this campaign. This is a required field. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#campaign". |
 | `defaultClickThroughEventTagProperties` | `object` | Properties of inheriting and overriding the default click-through event tag. A campaign may override the event tag defined at the advertiser level, and an ad may also override the campaign's setting further. |
+| `defaultLandingPageId` | `string` | The default landing page ID for this campaign. |
+| `createInfo` | `object` | Modification timestamp. |
 | `externalId` | `string` | External ID for this campaign. |
+| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `creativeGroupIds` | `array` | List of creative group IDs that are assigned to the campaign. |
+| `accountId` | `string` | Account ID of this campaign. This is a read-only field that can be left blank. |
+| `adBlockingConfiguration` | `object` | Campaign ad blocking settings. |
+| `creativeOptimizationConfiguration` | `object` | Creative optimization settings. |
+| `startDate` | `string` |  |
+| `audienceSegmentGroups` | `array` | Audience segment groups assigned to this campaign. Cannot have more than 300 segment groups. |
+| `additionalCreativeOptimizationConfigurations` | `array` | Additional creative optimization configurations for the campaign. |
+| `subaccountId` | `string` | Subaccount ID of this campaign. This is a read-only field that can be left blank. |
+| `measurementPartnerLink` | `object` |  |
+| `eventTagOverrides` | `array` | Overrides that can be used to activate or deactivate advertiser event tags. |
 | `lastModifiedInfo` | `object` | Modification timestamp. |
+| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `billingInvoiceCode` | `string` | Billing invoice code included in the Campaign Manager client billing invoices associated with the campaign. |
+| `endDate` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

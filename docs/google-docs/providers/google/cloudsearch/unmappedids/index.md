@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resolutionStatusCode` | `string` | The resolution status for the external identity. |
 | `externalIdentity` | `object` | Reference to a user, group, or domain. |
+| `resolutionStatusCode` | `string` | The resolution status for the external identity. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

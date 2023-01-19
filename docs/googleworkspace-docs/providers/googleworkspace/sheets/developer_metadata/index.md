@@ -27,11 +27,11 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `visibility` | `string` | The metadata visibility. Developer metadata must always have a visibility specified. |
 | `location` | `object` | A location where metadata may be associated in a spreadsheet. |
 | `metadataId` | `integer` | The spreadsheet-scoped unique ID that identifies the metadata. IDs may be specified when metadata is created, otherwise one will be randomly generated and assigned. Must be positive. |
 | `metadataKey` | `string` | The metadata key. There may be multiple metadata in a spreadsheet with the same key. Developer metadata must always have a key specified. |
 | `metadataValue` | `string` | Data associated with the metadata's key. |
+| `visibility` | `string` | The metadata visibility. Developer metadata must always have a visibility specified. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

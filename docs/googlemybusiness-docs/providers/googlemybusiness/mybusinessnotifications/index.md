@@ -33,7 +33,7 @@ The My Business Notification Settings API enables managing notification settings
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>My Business Notifications API</td></tr>
 <tr><td><b>Description</b></td><td>The My Business Notification Settings API enables managing notification settings for business accounts. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.</td></tr>
-<tr><td><b>Id</b></td><td><code>mybusinessnotifications:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>mybusinessnotifications:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,6 +42,6 @@ The My Business Notification Settings API enables managing notification settings
 <a href="/providers/googlemybusiness/mybusinessnotifications/accounts/">accounts</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googlemybusiness/mybusinessnotifications/accounts__notification_setting/">accounts__notification_setting</a><br />
+<a href="/providers/googlemybusiness/mybusinessnotifications/accounts_notification_setting/">accounts_notification_setting</a><br />
 </div>
 </div>

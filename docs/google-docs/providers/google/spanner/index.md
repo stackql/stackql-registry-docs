@@ -33,7 +33,7 @@ Cloud Spanner is a managed, mission-critical, globally consistent and scalable r
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Spanner API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud Spanner is a managed, mission-critical, globally consistent and scalable relational database service.</td></tr>
-<tr><td><b>Id</b></td><td><code>spanner:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>spanner:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -47,12 +47,12 @@ Cloud Spanner is a managed, mission-critical, globally consistent and scalable r
 <a href="/providers/google/spanner/database_roles/">database_roles</a><br />
 <a href="/providers/google/spanner/database_roles_iam_policies/">database_roles_iam_policies</a><br />
 <a href="/providers/google/spanner/databases/">databases</a><br />
-<a href="/providers/google/spanner/databases__ddl/">databases__ddl</a><br />
-<a href="/providers/google/spanner/databases__scans/">databases__scans</a><br />
+<a href="/providers/google/spanner/databases_ddl/">databases_ddl</a><br />
 <a href="/providers/google/spanner/databases_iam_bindings/">databases_iam_bindings</a><br />
+<a href="/providers/google/spanner/databases_iam_policies/">databases_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/spanner/databases_iam_policies/">databases_iam_policies</a><br />
+<a href="/providers/google/spanner/databases_scans/">databases_scans</a><br />
 <a href="/providers/google/spanner/instance_config_operations/">instance_config_operations</a><br />
 <a href="/providers/google/spanner/instance_configs/">instance_configs</a><br />
 <a href="/providers/google/spanner/instances/">instances</a><br />

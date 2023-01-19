@@ -33,7 +33,7 @@ An API to enable creating and using machine learning models.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AI Platform Training & Prediction API</td></tr>
 <tr><td><b>Description</b></td><td>An API to enable creating and using machine learning models.</td></tr>
-<tr><td><b>Id</b></td><td><code>ml:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ml:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -52,11 +52,11 @@ An API to enable creating and using machine learning models.
 <div class="providerDocColumn">
 <a href="/providers/google/ml/operations/">operations</a><br />
 <a href="/providers/google/ml/projects/">projects</a><br />
-<a href="/providers/google/ml/projects__config/">projects__config</a><br />
+<a href="/providers/google/ml/projects_config/">projects_config</a><br />
 <a href="/providers/google/ml/studies/">studies</a><br />
 <a href="/providers/google/ml/trials/">trials</a><br />
-<a href="/providers/google/ml/trials__measurement/">trials__measurement</a><br />
-<a href="/providers/google/ml/trials__optimal_trials/">trials__optimal_trials</a><br />
+<a href="/providers/google/ml/trials_measurement/">trials_measurement</a><br />
+<a href="/providers/google/ml/trials_optimal_trials/">trials_optimal_trials</a><br />
 <a href="/providers/google/ml/versions/">versions</a><br />
 </div>
 </div>

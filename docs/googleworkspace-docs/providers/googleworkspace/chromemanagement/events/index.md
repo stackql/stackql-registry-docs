@@ -27,8 +27,8 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `telemetryEvents` | `array` | Telemetry events returned in the response. |
 | `nextPageToken` | `string` | Token to specify next page in the list. |
+| `telemetryEvents` | `array` | Telemetry events returned in the response. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

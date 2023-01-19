@@ -28,27 +28,27 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The REST ID of the order. Globally unique. |
-| `paymentStatus` | `string` | The status of the payment. Acceptable values are: - "`paymentCaptured`" - "`paymentRejected`" - "`paymentSecured`" - "`pendingAuthorization`"  |
-| `customer` | `object` |  |
-| `promotions` | `array` | Promotions associated with the order. To determine which promotions apply to which products, check the `Promotions[].appliedItems[].lineItemId` field against the `LineItems[].id` field for each promotion. If a promotion is applied to more than 1 offerId, divide the discount value by the number of affected offers to determine how much discount to apply to each offerId. Examples: 1. To calculate price paid by the customer for a single line item including the discount: For each promotion, subtract the `LineItems[].adjustments[].priceAdjustment.value` amount from the `LineItems[].Price.value`. 2. To calculate price paid by the customer for a single line item including the discount in case of multiple quantity: For each promotion, divide the `LineItems[].adjustments[].priceAdjustment.value` by the quantity of products then subtract the resulting value from the `LineItems[].Product.Price.value` for each quantity item. Only 1 promotion can be applied to an offerId in a given order. To refund an item which had a promotion applied to it, make sure to refund the amount after first subtracting the promotion discount from the item price. More details about the program are here. |
-| `shippingCostTax` | `object` |  |
-| `status` | `string` | The status of the order. Acceptable values are: - "`canceled`" - "`delivered`" - "`inProgress`" - "`partiallyDelivered`" - "`partiallyReturned`" - "`partiallyShipped`" - "`pendingShipment`" - "`returned`" - "`shipped`"  |
-| `shipments` | `array` | Shipments of the order. |
+| `merchantOrderId` | `string` | Merchant-provided ID of the order. |
 | `deliveryDetails` | `object` |  |
-| `merchantId` | `string` |  |
-| `netTaxAmount` | `object` |  |
-| `refunds` | `array` | Refunds for the order. |
-| `taxCollector` | `string` | The party responsible for collecting and remitting taxes. Acceptable values are: - "`marketplaceFacilitator`" - "`merchant`"  |
-| `netPriceAmount` | `object` |  |
 | `placedDate` | `string` | The date when the order was placed, in ISO 8601 format. |
 | `acknowledged` | `boolean` | Whether the order was acknowledged. |
-| `billingAddress` | `object` |  |
-| `shippingCost` | `object` |  |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#order`" |
+| `promotions` | `array` | Promotions associated with the order. To determine which promotions apply to which products, check the `Promotions[].appliedItems[].lineItemId` field against the `LineItems[].id` field for each promotion. If a promotion is applied to more than 1 offerId, divide the discount value by the number of affected offers to determine how much discount to apply to each offerId. Examples: 1. To calculate price paid by the customer for a single line item including the discount: For each promotion, subtract the `LineItems[].adjustments[].priceAdjustment.value` amount from the `LineItems[].Price.value`. 2. To calculate price paid by the customer for a single line item including the discount in case of multiple quantity: For each promotion, divide the `LineItems[].adjustments[].priceAdjustment.value` by the quantity of products then subtract the resulting value from the `LineItems[].Product.Price.value` for each quantity item. Only 1 promotion can be applied to an offerId in a given order. To refund an item which had a promotion applied to it, make sure to refund the amount after first subtracting the promotion discount from the item price. More details about the program are here. |
+| `netPriceAmount` | `object` |  |
 | `lineItems` | `array` | Line items that are ordered. |
-| `merchantOrderId` | `string` | Merchant-provided ID of the order. |
+| `billingAddress` | `object` |  |
+| `merchantId` | `string` |  |
+| `shippingCost` | `object` |  |
+| `netTaxAmount` | `object` |  |
 | `annotations` | `array` | List of key-value pairs that are attached to a given order. |
+| `taxCollector` | `string` | The party responsible for collecting and remitting taxes. Acceptable values are: - "`marketplaceFacilitator`" - "`merchant`"  |
+| `paymentStatus` | `string` | The status of the payment. Acceptable values are: - "`paymentCaptured`" - "`paymentRejected`" - "`paymentSecured`" - "`pendingAuthorization`"  |
+| `customer` | `object` |  |
+| `shipments` | `array` | Shipments of the order. |
+| `status` | `string` | The status of the order. Acceptable values are: - "`canceled`" - "`delivered`" - "`inProgress`" - "`partiallyDelivered`" - "`partiallyReturned`" - "`partiallyShipped`" - "`pendingShipment`" - "`returned`" - "`shipped`"  |
+| `shippingCostTax` | `object` |  |
+| `refunds` | `array` | Refunds for the order. |
 | `pickupDetails` | `object` |  |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#order`" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

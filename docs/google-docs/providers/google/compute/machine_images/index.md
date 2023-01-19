@@ -30,20 +30,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] A unique identifier for this machine image. The server defines this identifier. |
 | `name` | `string` | Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `sourceDiskEncryptionKeys` | `array` | [Input Only] The customer-supplied encryption key of the disks attached to the source instance. Required if the source disk is protected by a customer-supplied encryption key. |
-| `sourceInstance` | `string` | The source instance used to create the machine image. You can provide this as a partial or full URL to the resource. For example, the following are valid values: - https://www.googleapis.com/compute/v1/projects/project/zones/zone /instances/instance - projects/project/zones/zone/instances/instance  |
-| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
-| `totalStorageBytes` | `string` | [Output Only] Total size of the storage used by the machine image. |
-| `instanceProperties` | `object` |  |
-| `savedDisks` | `array` | An array of Machine Image specific properties for disks attached to the source instance |
-| `machineImageEncryptionKey` | `object` |  |
-| `selfLink` | `string` | [Output Only] The URL for this machine image. The server defines this URL. |
-| `status` | `string` | [Output Only] The status of the machine image. One of the following values: INVALID, CREATING, READY, DELETING, and UPLOADING. |
 | `storageLocations` | `array` | The regional or multi-regional Cloud Storage bucket location where the machine image is stored. |
-| `sourceInstanceProperties` | `object` | DEPRECATED: Please use compute#instanceProperties instead. New properties will not be added to this field. |
+| `machineImageEncryptionKey` | `object` |  |
+| `instanceProperties` | `object` |  |
+| `status` | `string` | [Output Only] The status of the machine image. One of the following values: INVALID, CREATING, READY, DELETING, and UPLOADING. |
+| `selfLink` | `string` | [Output Only] The URL for this machine image. The server defines this URL. |
 | `kind` | `string` | [Output Only] The resource type, which is always compute#machineImage for machine image. |
-| `guestFlush` | `boolean` | [Input Only] Whether to attempt an application consistent machine image by informing the OS to prepare for the snapshot process. |
+| `sourceInstanceProperties` | `object` | DEPRECATED: Please use compute#instanceProperties instead. New properties will not be added to this field. |
+| `savedDisks` | `array` | An array of Machine Image specific properties for disks attached to the source instance |
+| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
+| `sourceInstance` | `string` | The source instance used to create the machine image. You can provide this as a partial or full URL to the resource. For example, the following are valid values: - https://www.googleapis.com/compute/v1/projects/project/zones/zone /instances/instance - projects/project/zones/zone/instances/instance  |
+| `sourceDiskEncryptionKeys` | `array` | [Input Only] The customer-supplied encryption key of the disks attached to the source instance. Required if the source disk is protected by a customer-supplied encryption key. |
+| `totalStorageBytes` | `string` | [Output Only] Total size of the storage used by the machine image. |
 | `creationTimestamp` | `string` | [Output Only] The creation timestamp for this machine image in RFC3339 text format. |
+| `guestFlush` | `boolean` | [Input Only] Whether to attempt an application consistent machine image by informing the OS to prepare for the snapshot process. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

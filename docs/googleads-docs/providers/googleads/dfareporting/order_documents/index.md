@@ -28,22 +28,22 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this order document. |
+| `projectId` | `string` | Project ID of this order document. |
+| `effectiveDate` | `string` |  |
+| `cancelled` | `boolean` | Whether this order document is cancelled. |
 | `type` | `string` | Type of this order document |
+| `amendedOrderDocumentId` | `string` | The amended order document ID of this order document. An order document can be created by optionally amending another order document so that the change history can be preserved. |
+| `advertiserId` | `string` | Advertiser ID of this order document. |
+| `approvedByUserProfileIds` | `array` | IDs of users who have approved this order document. |
 | `orderId` | `string` | ID of the order from which this order document is created. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#orderDocument". |
-| `amendedOrderDocumentId` | `string` | The amended order document ID of this order document. An order document can be created by optionally amending another order document so that the change history can be preserved. |
-| `createdInfo` | `object` | Modification timestamp. |
-| `accountId` | `string` | Account ID of this order document. |
 | `lastSentTime` | `string` |  |
-| `cancelled` | `boolean` | Whether this order document is cancelled. |
-| `advertiserId` | `string` | Advertiser ID of this order document. |
-| `subaccountId` | `string` | Subaccount ID of this order document. |
-| `approvedByUserProfileIds` | `array` | IDs of users who have approved this order document. |
-| `effectiveDate` | `string` |  |
 | `title` | `string` | Title of this order document. |
 | `signed` | `boolean` | Whether this order document has been signed. |
 | `lastSentRecipients` | `array` | List of email addresses that received the last sent document. |
-| `projectId` | `string` | Project ID of this order document. |
+| `subaccountId` | `string` | Subaccount ID of this order document. |
+| `createdInfo` | `object` | Modification timestamp. |
+| `accountId` | `string` | Account ID of this order document. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

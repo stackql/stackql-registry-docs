@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. Name of the constraint. This is unique within the organization. Format of the name should be * `organizations/&#123;organization_id&#125;/customConstraints/&#123;custom_constraint_id&#125;` Example : "organizations/123/customConstraints/custom.createOnlyE2TypeVms" The max length is 70 characters and the min length is 1. Note that the prefix "organizations/&#123;organization_id&#125;/customConstraints/" is not counted. |
 | `description` | `string` | Detailed information about this custom policy constraint. The max length of the description is 2000 characters. |
+| `resourceTypes` | `array` | Immutable. The Resource Instance type on which this policy applies to. Format will be of the form : "/" Example: * `compute.googleapis.com/Instance`. |
+| `updateTime` | `string` | Output only. The last time this custom constraint was updated. This represents the last time that the `CreateCustomConstraint` or `UpdateCustomConstraint` RPC was called |
 | `actionType` | `string` | Allow or deny type. |
 | `condition` | `string` | Org policy condition/expression. For example: `resource.instanceName.matches("[production\|test]_.*_(\d)+")'` or, `resource.management.auto_upgrade == true` The max length of the condition is 1000 characters. |
 | `displayName` | `string` | One line display name for the UI. The max length of the display_name is 200 characters. |
 | `methodTypes` | `array` | All the operations being applied for this constraint. |
-| `resourceTypes` | `array` | Immutable. The Resource Instance type on which this policy applies to. Format will be of the form : "/" Example: * `compute.googleapis.com/Instance`. |
-| `updateTime` | `string` | Output only. The last time this custom constraint was updated. This represents the last time that the `CreateCustomConstraint` or `UpdateCustomConstraint` RPC was called |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

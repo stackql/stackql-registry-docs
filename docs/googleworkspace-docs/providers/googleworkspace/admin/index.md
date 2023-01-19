@@ -33,7 +33,7 @@ Admin SDK lets administrators of enterprise domains to view and manage resources
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Admin SDK API</td></tr>
 <tr><td><b>Description</b></td><td>Admin SDK lets administrators of enterprise domains to view and manage resources like user, groups etc. It also provides audit and usage reports of domain.</td></tr>
-<tr><td><b>Id</b></td><td><code>admin:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>admin:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

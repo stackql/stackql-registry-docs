@@ -3,7 +3,7 @@ title: googleanalytics
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - google analytics
+  - googleanalytics
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -38,7 +38,7 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL googleanalytics v23.01.00114;
+REGISTRY PULL googleanalytics v23.01.00116;
 ```
 
 ## Authentication

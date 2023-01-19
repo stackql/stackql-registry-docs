@@ -28,19 +28,19 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this change log. |
-| `action` | `string` | Action which caused the change. |
-| `objectId` | `string` | ID of the object of this change log. The object could be a campaign, placement, ad, or other type. |
-| `userProfileId` | `string` | ID of the user who modified the object. |
-| `newValue` | `string` | New value of the object field. |
-| `fieldName` | `string` | Field name of the object which changed. |
-| `changeTime` | `string` |  |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#changeLog". |
-| `userProfileName` | `string` | User profile name of the user who modified the object. |
-| `accountId` | `string` | Account ID of the modified object. |
 | `transactionId` | `string` | Transaction ID of this change log. When a single API call results in many changes, each change will have a separate ID in the change log but will share the same transactionId. |
-| `oldValue` | `string` | Old value of the object field. |
+| `userProfileId` | `string` | ID of the user who modified the object. |
 | `objectType` | `string` | Object type of the change log. |
 | `subaccountId` | `string` | Subaccount ID of the modified object. |
+| `accountId` | `string` | Account ID of the modified object. |
+| `changeTime` | `string` |  |
+| `newValue` | `string` | New value of the object field. |
+| `fieldName` | `string` | Field name of the object which changed. |
+| `oldValue` | `string` | Old value of the object field. |
+| `action` | `string` | Action which caused the change. |
+| `userProfileName` | `string` | User profile name of the user who modified the object. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#changeLog". |
+| `objectId` | `string` | ID of the object of this change log. The object could be a campaign, placement, ad, or other type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

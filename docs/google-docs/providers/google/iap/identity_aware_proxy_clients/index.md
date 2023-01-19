@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Unique identifier of the OAuth client. |
-| `displayName` | `string` | Human-friendly name given to the OAuth client. |
 | `secret` | `string` | Output only. Client secret of the OAuth client. |
+| `displayName` | `string` | Human-friendly name given to the OAuth client. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ The My Business Business Calls API manages business calls information of a locat
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>My Business Business Calls API</td></tr>
 <tr><td><b>Description</b></td><td>The My Business Business Calls API manages business calls information of a location on Google and collect insights like the number of missed calls to their location. Additional information about Business calls can be found at https://support.google.com/business/answer/9688285?p=call_history. If the Google Business Profile links to a Google Ads account and call history is turned on, calls that last longer than a specific time, and that can be attributed to an ad interaction, will show in the linked Google Ads account under the "Calls from Ads" conversion. If smart bidding and call conversions are used in the optimization strategy, there could be a change in ad spend. Learn more about smart bidding. To view and perform actions on a location's calls, you need to be a `OWNER`, `CO_OWNER` or `MANAGER` of the location. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.</td></tr>
-<tr><td><b>Id</b></td><td><code>mybusinessbusinesscalls:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>mybusinessbusinesscalls:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,6 +43,6 @@ The My Business Business Calls API manages business calls information of a locat
 <a href="/providers/googlemybusiness/mybusinessbusinesscalls/locations/">locations</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googlemybusiness/mybusinessbusinesscalls/locations__businesscallssettings/">locations__businesscallssettings</a><br />
+<a href="/providers/googlemybusiness/mybusinessbusinesscalls/locations_businesscallssettings/">locations_businesscallssettings</a><br />
 </div>
 </div>

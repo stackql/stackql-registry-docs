@@ -33,7 +33,7 @@ Cloud Search provides cloud-based search capabilities over Google Workspace data
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Search API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud Search provides cloud-based search capabilities over Google Workspace data. The Cloud Search API allows indexing of non-Google Workspace data into Cloud Search.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudsearch:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudsearch:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,10 +41,10 @@ Cloud Search provides cloud-based search capabilities over Google Workspace data
 <div class="providerDocColumn">
 <a href="/providers/google/cloudsearch/cloudsearch/">cloudsearch</a><br />
 <a href="/providers/google/cloudsearch/datasources/">datasources</a><br />
-<a href="/providers/google/cloudsearch/datasources__schema/">datasources__schema</a><br />
+<a href="/providers/google/cloudsearch/datasources_schema/">datasources_schema</a><br />
 <a href="/providers/google/cloudsearch/items/">items</a><br />
-<a href="/providers/google/cloudsearch/items__forunmappedidentity/">items__forunmappedidentity</a><br />
-<a href="/providers/google/cloudsearch/items__queue_items/">items__queue_items</a><br />
+<a href="/providers/google/cloudsearch/items_forunmappedidentity/">items_forunmappedidentity</a><br />
+<a href="/providers/google/cloudsearch/items_queue_items/">items_queue_items</a><br />
 <a href="/providers/google/cloudsearch/lro/">lro</a><br />
 <a href="/providers/google/cloudsearch/media/">media</a><br />
 <a href="/providers/google/cloudsearch/operations/">operations</a><br />
@@ -53,13 +53,13 @@ Cloud Search provides cloud-based search capabilities over Google Workspace data
 <div class="providerDocColumn">
 <a href="/providers/google/cloudsearch/searchapplications/">searchapplications</a><br />
 <a href="/providers/google/cloudsearch/settings/">settings</a><br />
-<a href="/providers/google/cloudsearch/settings__customer/">settings__customer</a><br />
+<a href="/providers/google/cloudsearch/settings_customer/">settings_customer</a><br />
 <a href="/providers/google/cloudsearch/sources/">sources</a><br />
-<a href="/providers/google/cloudsearch/stats__index/">stats__index</a><br />
-<a href="/providers/google/cloudsearch/stats__query/">stats__query</a><br />
-<a href="/providers/google/cloudsearch/stats__searchapplication/">stats__searchapplication</a><br />
-<a href="/providers/google/cloudsearch/stats__session/">stats__session</a><br />
-<a href="/providers/google/cloudsearch/stats__user/">stats__user</a><br />
+<a href="/providers/google/cloudsearch/stats_index/">stats_index</a><br />
+<a href="/providers/google/cloudsearch/stats_query/">stats_query</a><br />
+<a href="/providers/google/cloudsearch/stats_searchapplication/">stats_searchapplication</a><br />
+<a href="/providers/google/cloudsearch/stats_session/">stats_session</a><br />
+<a href="/providers/google/cloudsearch/stats_user/">stats_user</a><br />
 <a href="/providers/google/cloudsearch/unmappedids/">unmappedids</a><br />
 </div>
 </div>

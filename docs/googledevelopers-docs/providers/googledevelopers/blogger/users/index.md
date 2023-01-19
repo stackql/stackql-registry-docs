@@ -28,14 +28,14 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The identifier for this User. |
-| `kind` | `string` | The kind of this entity. Always blogger#user. |
-| `created` | `string` | The timestamp of when this profile was created, in seconds since epoch. |
+| `about` | `string` | Profile summary information. |
+| `url` | `string` | The user's profile page. |
+| `displayName` | `string` | The display name. |
 | `locale` | `object` | This user's locale |
 | `selfLink` | `string` | The API REST URL to fetch this resource from. |
-| `url` | `string` | The user's profile page. |
-| `about` | `string` | Profile summary information. |
-| `displayName` | `string` | The display name. |
 | `blogs` | `object` | The container of blogs for this user. |
+| `kind` | `string` | The kind of this entity. Always blogger#user. |
+| `created` | `string` | The timestamp of when this profile was created, in seconds since epoch. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

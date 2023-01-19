@@ -30,17 +30,17 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | `id` | `string` | Remarketing Audience ID. |
 | `name` | `string` | The name of this remarketing audience. |
 | `description` | `string` | The description of this remarketing audience. |
+| `internalWebPropertyId` | `string` | Internal ID for the web property to which this remarketing audience belongs. |
 | `linkedViews` | `array` | The views (profiles) that this remarketing audience is linked to. |
-| `linkedAdAccounts` | `array` | The linked ad accounts associated with this remarketing audience. A remarketing audience can have only one linkedAdAccount currently. |
-| `webPropertyId` | `string` | Web property ID of the form UA-XXXXX-YY to which this remarketing audience belongs. |
-| `accountId` | `string` | Account ID to which this remarketing audience belongs. |
-| `stateBasedAudienceDefinition` | `object` | A state based audience definition that will cause a user to be added or removed from an audience. |
-| `kind` | `string` | Collection type. |
+| `audienceDefinition` | `object` | The simple audience definition that will cause a user to be added to an audience. |
+| `audienceType` | `string` | The type of audience, either SIMPLE or STATE_BASED. |
 | `updated` | `string` | Time this remarketing audience was last modified. |
 | `created` | `string` | Time this remarketing audience was created. |
-| `audienceType` | `string` | The type of audience, either SIMPLE or STATE_BASED. |
-| `internalWebPropertyId` | `string` | Internal ID for the web property to which this remarketing audience belongs. |
-| `audienceDefinition` | `object` | The simple audience definition that will cause a user to be added to an audience. |
+| `stateBasedAudienceDefinition` | `object` | A state based audience definition that will cause a user to be added or removed from an audience. |
+| `webPropertyId` | `string` | Web property ID of the form UA-XXXXX-YY to which this remarketing audience belongs. |
+| `accountId` | `string` | Account ID to which this remarketing audience belongs. |
+| `kind` | `string` | Collection type. |
+| `linkedAdAccounts` | `array` | The linked ad accounts associated with this remarketing audience. A remarketing audience can have only one linkedAdAccount currently. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

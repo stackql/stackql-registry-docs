@@ -25,12 +25,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | The name of the topic. Structured like: projects/&#123;project_number&#125;/locations/&#123;location&#125;/topics/&#123;topic_id&#125; |
-| `partitionConfig` | `object` | The settings for a topic's partitions. |
-| `reservationConfig` | `object` | The settings for this topic's Reservation usage. |
-| `retentionConfig` | `object` | The settings for a topic's message retention. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

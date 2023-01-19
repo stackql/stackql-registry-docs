@@ -30,15 +30,15 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | `id` | `string` | The id of this API. |
 | `name` | `string` | The name of the API. |
 | `description` | `string` | The description of this API. |
-| `documentationLink` | `string` | A link to human readable documentation for the API. |
-| `icons` | `object` | Links to 16x16 and 32x32 icons representing the API. |
-| `labels` | `array` | Labels for the status of this API, such as labs or deprecated. |
 | `preferred` | `boolean` | True if this version is the preferred version to use. |
-| `discoveryRestUrl` | `string` | The URL for the discovery REST document. |
-| `title` | `string` | The title of this API. |
+| `icons` | `object` | Links to 16x16 and 32x32 icons representing the API. |
 | `kind` | `string` | The kind for this response. |
-| `discoveryLink` | `string` | A link to the discovery document. |
 | `version` | `string` | The version of the API. |
+| `discoveryRestUrl` | `string` | The URL for the discovery REST document. |
+| `discoveryLink` | `string` | A link to the discovery document. |
+| `documentationLink` | `string` | A link to human readable documentation for the API. |
+| `labels` | `array` | Labels for the status of this API, such as labs or deprecated. |
+| `title` | `string` | The title of this API. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -33,7 +33,7 @@ Manages alerts on issues affecting your domain. Note: The current version of thi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Workspace Alert Center API</td></tr>
 <tr><td><b>Description</b></td><td>Manages alerts on issues affecting your domain. Note: The current version of this API (v1beta1) is available to all Google Workspace customers. </td></tr>
-<tr><td><b>Id</b></td><td><code>alertcenter:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>alertcenter:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,7 +41,7 @@ Manages alerts on issues affecting your domain. Note: The current version of thi
 <div class="providerDocColumn">
 <a href="/providers/googleworkspace/alertcenter/alertcenter/">alertcenter</a><br />
 <a href="/providers/googleworkspace/alertcenter/alerts/">alerts</a><br />
-<a href="/providers/googleworkspace/alertcenter/alerts__metadata/">alerts__metadata</a><br />
+<a href="/providers/googleworkspace/alertcenter/alerts_metadata/">alerts_metadata</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googleworkspace/alertcenter/feedback/">feedback</a><br />

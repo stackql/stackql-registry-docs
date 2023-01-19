@@ -33,7 +33,7 @@ Automates Android zero-touch enrollment for device resellers, customers, and EMM
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Android Device Provisioning Partner API</td></tr>
 <tr><td><b>Description</b></td><td>Automates Android zero-touch enrollment for device resellers, customers, and EMMs.</td></tr>
-<tr><td><b>Id</b></td><td><code>androiddeviceprovisioning:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>androiddeviceprovisioning:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,7 +42,7 @@ Automates Android zero-touch enrollment for device resellers, customers, and EMM
 <a href="/providers/googledevelopers/androiddeviceprovisioning/configurations/">configurations</a><br />
 <a href="/providers/googledevelopers/androiddeviceprovisioning/customers/">customers</a><br />
 <a href="/providers/googledevelopers/androiddeviceprovisioning/devices/">devices</a><br />
-<a href="/providers/googledevelopers/androiddeviceprovisioning/devices__configuration/">devices__configuration</a><br />
+<a href="/providers/googledevelopers/androiddeviceprovisioning/devices_configuration/">devices_configuration</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googledevelopers/androiddeviceprovisioning/dpcs/">dpcs</a><br />

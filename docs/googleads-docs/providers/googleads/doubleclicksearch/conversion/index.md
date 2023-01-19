@@ -27,8 +27,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Identifies this as a ConversionList resource. Value: the fixed string doubleclicksearch#conversionList. |
 | `conversion` | `array` | The conversions being requested. |
+| `kind` | `string` | Identifies this as a ConversionList resource. Value: the fixed string doubleclicksearch#conversionList. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

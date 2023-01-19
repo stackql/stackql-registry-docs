@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Full name of the workspace resource, in the form of: projects/&#123;project&#125;/locations/&#123;location&#125;/conversionWorkspaces/&#123;conversion_workspace&#125;. |
-| `hasUncommittedChanges` | `boolean` | Output only. Whether the workspace has uncommitted changes (changes which were made after the workspace was committed) |
-| `latestCommitId` | `string` | Output only. The latest commit id |
-| `updateTime` | `string` | Output only. The timestamp when the workspace resource was last updated. |
 | `displayName` | `string` | The display name for the workspace |
 | `createTime` | `string` | Output only. The timestamp when the workspace resource was created. |
-| `latestCommitTime` | `string` | Output only. The timestamp when the workspace was committed. |
+| `updateTime` | `string` | Output only. The timestamp when the workspace resource was last updated. |
 | `source` | `object` | The type and version of a source or destination DB. |
 | `globalSettings` | `object` | A generic list of settings for the workspace. The settings are database pair dependant and can indicate default behavior for the mapping rules engine or turn on or off specific features. Such examples can be: convert_foreign_key_to_interleave=true, skip_triggers=false, ignore_non_table_synonyms=true |
+| `hasUncommittedChanges` | `boolean` | Output only. Whether the workspace has uncommitted changes (changes which were made after the workspace was committed) |
 | `destination` | `object` | The type and version of a source or destination DB. |
+| `latestCommitId` | `string` | Output only. The latest commit id |
+| `latestCommitTime` | `string` | Output only. The timestamp when the workspace was committed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

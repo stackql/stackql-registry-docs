@@ -3,7 +3,7 @@ title: googleworkspace
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - google workspace
+  - googleworkspace
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -22,10 +22,10 @@ Productivity and collaboration tools for businesses.
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>25</b></span><br />
-<span>total methods:&nbsp;<b>433</b></span><br />
+<span>total methods:&nbsp;<b>426</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>138</b></span><br />
+<span>total resources:&nbsp;<b>135</b></span><br />
 <span>total selectable resources:&nbsp;<b>100</b></span><br />
 </div>
 </div>
@@ -38,7 +38,7 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL googleworkspace v23.01.00114;
+REGISTRY PULL googleworkspace v23.01.00116;
 ```
 
 ## Authentication

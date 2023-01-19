@@ -33,7 +33,7 @@ The PageSpeed Insights API lets you analyze the performance of your website with
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>PageSpeed Insights API</td></tr>
 <tr><td><b>Description</b></td><td>The PageSpeed Insights API lets you analyze the performance of your website with a simple API. It offers tailored suggestions for how you can optimize your site, and lets you easily integrate PageSpeed Insights analysis into your development tools and workflow. </td></tr>
-<tr><td><b>Id</b></td><td><code>pagespeedonline:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>pagespeedonline:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

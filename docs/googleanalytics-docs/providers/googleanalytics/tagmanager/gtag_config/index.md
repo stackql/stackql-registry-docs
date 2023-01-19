@@ -27,15 +27,15 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `parameter` | `array` | The Google tag config's parameters. @mutable tagmanager.accounts.containers.workspaces.gtag_config.create @mutable tagmanager.accounts.containers.workspaces.gtag_config.update |
-| `path` | `string` | Google tag config's API relative path. |
-| `fingerprint` | `string` | The fingerprint of the Google tag config as computed at storage time. This value is recomputed whenever the config is modified. |
-| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
-| `gtagConfigId` | `string` | The ID uniquely identifies the Google tag config. |
-| `type` | `string` | Google tag config type. @required tagmanager.accounts.containers.workspaces.gtag_config.create @required tagmanager.accounts.containers.workspaces.gtag_config.update @mutable tagmanager.accounts.containers.workspaces.gtag_config.create @mutable tagmanager.accounts.containers.workspaces.gtag_config.update |
-| `workspaceId` | `string` | Google tag workspace ID. Only used by GTM containers. Set to 0 otherwise. |
-| `containerId` | `string` | Google tag container ID. |
 | `accountId` | `string` | Google tag account ID. |
+| `workspaceId` | `string` | Google tag workspace ID. Only used by GTM containers. Set to 0 otherwise. |
+| `path` | `string` | Google tag config's API relative path. |
+| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
+| `fingerprint` | `string` | The fingerprint of the Google tag config as computed at storage time. This value is recomputed whenever the config is modified. |
+| `gtagConfigId` | `string` | The ID uniquely identifies the Google tag config. |
+| `parameter` | `array` | The Google tag config's parameters. @mutable tagmanager.accounts.containers.workspaces.gtag_config.create @mutable tagmanager.accounts.containers.workspaces.gtag_config.update |
+| `containerId` | `string` | Google tag container ID. |
+| `type` | `string` | Google tag config type. @required tagmanager.accounts.containers.workspaces.gtag_config.create @required tagmanager.accounts.containers.workspaces.gtag_config.update @mutable tagmanager.accounts.containers.workspaces.gtag_config.create @mutable tagmanager.accounts.containers.workspaces.gtag_config.update |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

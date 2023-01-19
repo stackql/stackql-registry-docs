@@ -29,10 +29,10 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `id` | `string` | The leaderboard ID. |
 | `name` | `string` | The name of the leaderboard. |
-| `order` | `string` | How scores are ordered. |
-| `iconUrl` | `string` | The icon for the leaderboard. |
 | `isIconUrlDefault` | `boolean` | Indicates whether the icon image being returned is a default image, or is game-provided. |
 | `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#leaderboard`. |
+| `order` | `string` | How scores are ordered. |
+| `iconUrl` | `string` | The icon for the leaderboard. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

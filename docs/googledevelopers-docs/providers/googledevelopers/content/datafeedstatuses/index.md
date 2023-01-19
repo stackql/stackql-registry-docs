@@ -27,17 +27,17 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `feedLabel` | `string` | The feed label status is reported for. |
-| `lastUploadDate` | `string` | The last date at which the feed was uploaded. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#datafeedStatus`" |
-| `itemsValid` | `string` | The number of items in the feed that were valid. |
 | `datafeedId` | `string` | The ID of the feed for which the status is reported. |
-| `errors` | `array` | The list of errors occurring in the feed. |
-| `country` | `string` | The country for which the status is reported, represented as a CLDR territory code. |
+| `warnings` | `array` | The list of errors occurring in the feed. |
 | `itemsTotal` | `string` | The number of items in the feed that were processed. |
+| `itemsValid` | `string` | The number of items in the feed that were valid. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#datafeedStatus`" |
 | `language` | `string` | The two-letter ISO 639-1 language for which the status is reported. |
 | `processingStatus` | `string` | The processing status of the feed. Acceptable values are: - "`"`failure`": The feed could not be processed or all items had errors.`" - "`in progress`": The feed is being processed. - "`none`": The feed has not yet been processed. For example, a feed that has never been uploaded will have this processing status. - "`success`": The feed was processed successfully, though some items might have had errors.  |
-| `warnings` | `array` | The list of errors occurring in the feed. |
+| `lastUploadDate` | `string` | The last date at which the feed was uploaded. |
+| `errors` | `array` | The list of errors occurring in the feed. |
+| `country` | `string` | The country for which the status is reported, represented as a CLDR territory code. |
+| `feedLabel` | `string` | The feed label status is reported for. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

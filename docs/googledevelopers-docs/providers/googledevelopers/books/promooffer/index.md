@@ -28,9 +28,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `artUrl` | `string` |
 | `gservicesKey` | `string` |
 | `items` | `array` |
-| `artUrl` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
