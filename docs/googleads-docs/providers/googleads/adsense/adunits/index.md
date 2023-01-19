@@ -28,10 +28,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the ad unit. Format: accounts/&#123;account&#125;/adclients/&#123;adclient&#125;/adunits/&#123;adunit&#125; |
-| `displayName` | `string` | Required. Display name of the ad unit, as provided when the ad unit was created. |
 | `reportingDimensionId` | `string` | Output only. Unique ID of the ad unit as used in the `AD_UNIT_ID` reporting dimension. |
 | `state` | `string` | State of the ad unit. |
 | `contentAdsSettings` | `object` | Settings specific to content ads (AFC). |
+| `displayName` | `string` | Required. Display name of the ad unit, as provided when the ad unit was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

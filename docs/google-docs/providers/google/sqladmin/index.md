@@ -33,7 +33,7 @@ API for Cloud SQL database instance management
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud SQL Admin API</td></tr>
 <tr><td><b>Description</b></td><td>API for Cloud SQL database instance management</td></tr>
-<tr><td><b>Id</b></td><td><code>sqladmin:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>sqladmin:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,13 +44,13 @@ API for Cloud SQL database instance management
 <a href="/providers/google/sqladmin/databases/">databases</a><br />
 <a href="/providers/google/sqladmin/flags/">flags</a><br />
 <a href="/providers/google/sqladmin/instances/">instances</a><br />
-<a href="/providers/google/sqladmin/instances__server_ca/">instances__server_ca</a><br />
+<a href="/providers/google/sqladmin/instances_server_ca/">instances_server_ca</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/sqladmin/instances__server_cas/">instances__server_cas</a><br />
+<a href="/providers/google/sqladmin/instances_server_cas/">instances_server_cas</a><br />
 <a href="/providers/google/sqladmin/operations/">operations</a><br />
 <a href="/providers/google/sqladmin/ssl_certs/">ssl_certs</a><br />
-<a href="/providers/google/sqladmin/ssl_certs__ephemeral/">ssl_certs__ephemeral</a><br />
+<a href="/providers/google/sqladmin/ssl_certs_ephemeral/">ssl_certs_ephemeral</a><br />
 <a href="/providers/google/sqladmin/tiers/">tiers</a><br />
 <a href="/providers/google/sqladmin/users/">users</a><br />
 </div>

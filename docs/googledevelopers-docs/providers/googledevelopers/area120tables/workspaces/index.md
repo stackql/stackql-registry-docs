@@ -28,10 +28,10 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the workspace. Workspace names have the form `workspaces/&#123;workspace&#125;`. |
-| `tables` | `array` | The list of tables in the workspace. |
 | `updateTime` | `string` | Time when the workspace was last updated. |
 | `createTime` | `string` | Time when the workspace was created. |
 | `displayName` | `string` | The human readable title of the workspace. |
+| `tables` | `array` | The list of tables in the workspace. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

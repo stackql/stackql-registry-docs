@@ -33,14 +33,14 @@ Manages keys and performs cryptographic operations in a central cloud service, f
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Key Management Service (KMS) API</td></tr>
 <tr><td><b>Description</b></td><td>Manages keys and performs cryptographic operations in a central cloud service, for direct use by other cloud resources and applications. </td></tr>
-<tr><td><b>Id</b></td><td><code>cloudkms:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudkms:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/cloudkms/crypto_key_versions/">crypto_key_versions</a><br />
-<a href="/providers/google/cloudkms/crypto_key_versions__public_key/">crypto_key_versions__public_key</a><br />
+<a href="/providers/google/cloudkms/crypto_key_versions_public_key/">crypto_key_versions_public_key</a><br />
 <a href="/providers/google/cloudkms/crypto_keys/">crypto_keys</a><br />
 <a href="/providers/google/cloudkms/crypto_keys_iam_audit_configs/">crypto_keys_iam_audit_configs</a><br />
 <a href="/providers/google/cloudkms/crypto_keys_iam_bindings/">crypto_keys_iam_bindings</a><br />

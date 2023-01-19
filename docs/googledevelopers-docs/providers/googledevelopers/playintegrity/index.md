@@ -33,7 +33,7 @@ The Play Integrity API helps you check that you're interacting with your genuine
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Play Integrity API</td></tr>
 <tr><td><b>Description</b></td><td>The Play Integrity API helps you check that you're interacting with your genuine app on a genuine Android device powered by Google Play services. The Play Integrity API has replaced SafetyNet Attestation and Android Device Verification.</td></tr>
-<tr><td><b>Id</b></td><td><code>playintegrity:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>playintegrity:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

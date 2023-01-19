@@ -28,9 +28,9 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube uses to uniquely identify the comment. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#comment". |
 | `snippet` | `object` | Basic details about a comment, such as its author and text. |
 | `etag` | `string` | Etag of this resource. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#comment". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

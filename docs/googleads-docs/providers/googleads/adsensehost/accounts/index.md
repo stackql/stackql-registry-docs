@@ -29,8 +29,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier of this account. |
 | `name` | `string` | Name of this account. |
-| `kind` | `string` | Kind of resource this is, in this case adsensehost#account. |
 | `status` | `string` | Approval status of this account. One of: PENDING, APPROVED, DISABLED. |
+| `kind` | `string` | Kind of resource this is, in this case adsensehost#account. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

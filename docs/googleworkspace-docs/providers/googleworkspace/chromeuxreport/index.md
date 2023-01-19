@@ -33,7 +33,7 @@ The Chrome UX Report API lets you view real user experience data for millions of
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Chrome UX Report API</td></tr>
 <tr><td><b>Description</b></td><td>The Chrome UX Report API lets you view real user experience data for millions of websites. </td></tr>
-<tr><td><b>Id</b></td><td><code>chromeuxreport:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>chromeuxreport:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

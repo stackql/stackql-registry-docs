@@ -3,7 +3,7 @@ title: googleads
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - google ads
+  - googleads
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -38,7 +38,7 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL googleads v23.01.00114;
+REGISTRY PULL googleads v23.01.00116;
 ```
 
 ## Authentication

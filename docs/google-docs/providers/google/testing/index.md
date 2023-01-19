@@ -33,13 +33,13 @@ Allows developers to run automated tests for their mobile applications on Google
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Testing API</td></tr>
 <tr><td><b>Description</b></td><td>Allows developers to run automated tests for their mobile applications on Google infrastructure.</td></tr>
-<tr><td><b>Id</b></td><td><code>testing:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>testing:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/google/testing/application_detail_service__apk_details/">application_detail_service__apk_details</a><br />
+<a href="/providers/google/testing/application_detail_service_apk_details/">application_detail_service_apk_details</a><br />
 <a href="/providers/google/testing/test_environment_catalog/">test_environment_catalog</a><br />
 </div>
 <div class="providerDocColumn">

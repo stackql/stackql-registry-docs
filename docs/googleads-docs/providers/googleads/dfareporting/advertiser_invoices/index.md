@@ -27,9 +27,9 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `nextPageToken` | `string` | Pagination token to be used for the next list operation. |
 | `invoices` | `array` | Invoice collection |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#advertiserInvoicesListResponse". |
-| `nextPageToken` | `string` | Pagination token to be used for the next list operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

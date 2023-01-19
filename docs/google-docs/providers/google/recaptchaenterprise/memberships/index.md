@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `relatedAccountGroupMemberships` | `array` | The memberships listed by the query. |
 | `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `relatedAccountGroupMemberships` | `array` | The memberships listed by the query. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

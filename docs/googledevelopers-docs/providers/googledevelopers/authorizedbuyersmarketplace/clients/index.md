@@ -28,11 +28,11 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the client. Format: `buyers/&#123;accountId&#125;/clients/&#123;clientAccountId&#125;` |
-| `partnerClientId` | `string` | Arbitrary unique identifier provided by the buyer. This field can be used to associate a client with an identifier in the namespace of the buyer, lookup clients by that identifier and verify whether an Authorized Buyers account of the client already exists. If present, must be unique across all the clients. |
 | `role` | `string` | Required. The role assigned to the client. Each role implies a set of permissions granted to the client. |
 | `sellerVisible` | `boolean` | Whether the client will be visible to sellers. |
 | `state` | `string` | Output only. The state of the client. |
 | `displayName` | `string` | Required. Display name shown to publishers. Must be unique for clients without partnerClientId specified. Maximum length of 255 characters is allowed. |
+| `partnerClientId` | `string` | Arbitrary unique identifier provided by the buyer. This field can be used to associate a client with an identifier in the namespace of the buyer, lookup clients by that identifier and verify whether an Authorized Buyers account of the client already exists. If present, must be unique across all the clients. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

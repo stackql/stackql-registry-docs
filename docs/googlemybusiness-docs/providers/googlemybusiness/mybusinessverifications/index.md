@@ -33,15 +33,15 @@ The My Business Verifications API provides an interface for taking verifications
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>My Business Verifications API</td></tr>
 <tr><td><b>Description</b></td><td>The My Business Verifications API provides an interface for taking verifications related actions for locations.</td></tr>
-<tr><td><b>Id</b></td><td><code>mybusinessverifications:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>mybusinessverifications:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/googlemybusiness/mybusinessverifications/locations/">locations</a><br />
-<a href="/providers/googlemybusiness/mybusinessverifications/locations__verification_options/">locations__verification_options</a><br />
-<a href="/providers/googlemybusiness/mybusinessverifications/locations__voice_of_merchant_state/">locations__voice_of_merchant_state</a><br />
+<a href="/providers/googlemybusiness/mybusinessverifications/locations_verification_options/">locations_verification_options</a><br />
+<a href="/providers/googlemybusiness/mybusinessverifications/locations_voice_of_merchant_state/">locations_voice_of_merchant_state</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googlemybusiness/mybusinessverifications/verification_tokens/">verification_tokens</a><br />

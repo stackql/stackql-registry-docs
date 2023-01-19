@@ -27,15 +27,15 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `itemLevelIssues` | `array` | A list of all issues associated with the product. |
 | `creationDate` | `string` | Date on which the item has been created, in ISO 8601 format. |
 | `lastUpdateDate` | `string` | Date on which the item has been last updated, in ISO 8601 format. |
-| `destinationStatuses` | `array` | The intended destinations for the product. |
-| `link` | `string` | The link to the product. |
-| `productId` | `string` | The ID of the product for which status is reported. |
-| `title` | `string` | The title of the product. |
-| `itemLevelIssues` | `array` | A list of all issues associated with the product. |
 | `googleExpirationDate` | `string` | Date on which the item expires in Google Shopping, in ISO 8601 format. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#productStatus`" |
+| `productId` | `string` | The ID of the product for which status is reported. |
+| `link` | `string` | The link to the product. |
+| `destinationStatuses` | `array` | The intended destinations for the product. |
+| `title` | `string` | The title of the product. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

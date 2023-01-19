@@ -28,26 +28,26 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the creative. Follows the pattern `buyers/&#123;buyer&#125;/creatives/&#123;creative&#125;`, where `&#123;buyer&#125;` represents the account ID of the buyer who owns the creative, and `&#123;creative&#125;` is the buyer-specific creative ID that references this creative in the bid response. |
-| `adChoicesDestinationUrl` | `string` | The link to AdChoices destination page. This is only supported for native ads. |
-| `agencyId` | `string` | The agency ID for this creative. |
-| `declaredAttributes` | `array` | All declared attributes for the ads that may be shown from this creative. Can be used to filter the response of the creatives.list method. If the `excluded_attribute` field of a [bid request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto") contains one of the attributes that were declared or detected for a given creative, and a bid is submitted with that creative, the bid will be filtered before the auction. |
-| `accountId` | `string` | Output only. ID of the buyer account that this creative is owned by. Can be used to filter the response of the creatives.list method with equality and inequality check. |
-| `creativeId` | `string` | Buyer-specific creative ID that references this creative in bid responses. This field is Ignored in update operations. Can be used to filter the response of the creatives.list method. The maximum length of the creative ID is 128 bytes. |
-| `version` | `integer` | Output only. The version of the creative. Version for a new creative is 1 and it increments during subsequent creative updates. |
-| `native` | `object` | Native content for a creative. |
-| `html` | `object` | HTML content for a creative. |
-| `restrictedCategories` | `array` | All restricted categories for the ads that may be shown from this creative. |
-| `declaredClickThroughUrls` | `array` | The set of declared destination URLs for the creative. Can be used to filter the response of the creatives.list method. |
-| `video` | `object` | Video content for a creative. |
-| `creativeServingDecision` | `object` | Top level status and detected attributes of a creative. |
-| `declaredVendorIds` | `array` | IDs for the declared ad technology vendors that may be used by this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible values. Can be used to filter the response of the creatives.list method. |
-| `renderUrl` | `string` | Experimental field that can be used during the [FLEDGE Origin Trial](/authorized-buyers/rtb/fledge-origin-trial). The URL to fetch an interest group ad used in [TURTLEDOVE on-device auction](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#1-browsers-record-interest-groups"). This should be unique among all creatives for a given `accountId`. |
 | `dealIds` | `array` | Output only. IDs of all of the deals with which this creative has been used in bidding. Can be used to filter the response of the creatives.list method. |
-| `advertiserName` | `string` | The name of the company being advertised in the creative. Can be used to filter the response of the creatives.list method. |
+| `adChoicesDestinationUrl` | `string` | The link to AdChoices destination page. This is only supported for native ads. |
+| `creativeId` | `string` | Buyer-specific creative ID that references this creative in bid responses. This field is Ignored in update operations. Can be used to filter the response of the creatives.list method. The maximum length of the creative ID is 128 bytes. |
+| `renderUrl` | `string` | Experimental field that can be used during the [FLEDGE Origin Trial](/authorized-buyers/rtb/fledge-origin-trial). The URL to fetch an interest group ad used in [TURTLEDOVE on-device auction](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#1-browsers-record-interest-groups"). This should be unique among all creatives for a given `accountId`. |
+| `creativeServingDecision` | `object` | Top level status and detected attributes of a creative. |
 | `impressionTrackingUrls` | `array` | The set of URLs to be called to record an impression. |
+| `video` | `object` | Video content for a creative. |
+| `html` | `object` | HTML content for a creative. |
+| `version` | `integer` | Output only. The version of the creative. Version for a new creative is 1 and it increments during subsequent creative updates. |
+| `declaredAttributes` | `array` | All declared attributes for the ads that may be shown from this creative. Can be used to filter the response of the creatives.list method. If the `excluded_attribute` field of a [bid request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto") contains one of the attributes that were declared or detected for a given creative, and a bid is submitted with that creative, the bid will be filtered before the auction. |
+| `declaredClickThroughUrls` | `array` | The set of declared destination URLs for the creative. Can be used to filter the response of the creatives.list method. |
 | `creativeFormat` | `string` | Output only. The format of this creative. Can be used to filter the response of the creatives.list method. |
-| `declaredRestrictedCategories` | `array` | All declared restricted categories for the ads that may be shown from this creative. Can be used to filter the response of the creatives.list method. |
+| `restrictedCategories` | `array` | All restricted categories for the ads that may be shown from this creative. |
+| `declaredVendorIds` | `array` | IDs for the declared ad technology vendors that may be used by this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible values. Can be used to filter the response of the creatives.list method. |
 | `apiUpdateTime` | `string` | Output only. The last update timestamp of the creative through the API. |
+| `agencyId` | `string` | The agency ID for this creative. |
+| `declaredRestrictedCategories` | `array` | All declared restricted categories for the ads that may be shown from this creative. Can be used to filter the response of the creatives.list method. |
+| `accountId` | `string` | Output only. ID of the buyer account that this creative is owned by. Can be used to filter the response of the creatives.list method with equality and inequality check. |
+| `advertiserName` | `string` | The name of the company being advertised in the creative. Can be used to filter the response of the creatives.list method. |
+| `native` | `object` | Native content for a creative. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

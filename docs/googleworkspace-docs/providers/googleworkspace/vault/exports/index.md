@@ -29,14 +29,14 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Output only. The generated export ID. |
 | `name` | `string` | The export name. Don't use special characters (~!$'(),;@:/?) in the name, they can prevent you from downloading exports. |
-| `status` | `string` | Output only. The status of the export. |
 | `matterId` | `string` | Output only. The matter ID. |
-| `requester` | `object` | User's information. |
 | `cloudStorageSink` | `object` | Export sink for Cloud Storage files. |
 | `exportOptions` | `object` | Additional options for exports |
-| `createTime` | `string` | Output only. The time when the export was created. |
-| `query` | `object` | The query definition used for search and export. |
 | `stats` | `object` | Progress information for an export. |
+| `createTime` | `string` | Output only. The time when the export was created. |
+| `requester` | `object` | User's information. |
+| `query` | `object` | The query definition used for search and export. |
+| `status` | `string` | Output only. The status of the export. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,14 +33,14 @@ Accesses source code repositories hosted by Google.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Source Repositories API</td></tr>
 <tr><td><b>Description</b></td><td>Accesses source code repositories hosted by Google.</td></tr>
-<tr><td><b>Id</b></td><td><code>sourcerepo:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>sourcerepo:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/sourcerepo/projects/">projects</a><br />
-<a href="/providers/google/sourcerepo/projects__config/">projects__config</a><br />
+<a href="/providers/google/sourcerepo/projects_config/">projects_config</a><br />
 <a href="/providers/google/sourcerepo/repos/">repos</a><br />
 </div>
 <div class="providerDocColumn">

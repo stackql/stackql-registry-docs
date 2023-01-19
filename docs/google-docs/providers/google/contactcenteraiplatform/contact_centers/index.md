@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | name of resource |
-| `labels` | `object` | Labels as key value pairs |
-| `displayName` | `string` | Required. A user friendly name for the ContactCenter. |
-| `createTime` | `string` | Output only. [Output only] Create time stamp |
-| `updateTime` | `string` | Output only. [Output only] Update time stamp |
 | `ccaipManagedUsers` | `boolean` | Optional. Whether to enable users to be created in the CCAIP-instance concurrently to having users in Cloud identity |
+| `samlParams` | `object` | Message storing SAML params to enable Google as IDP. |
 | `state` | `string` | Output only. The state of this contact center. |
-| `userEmail` | `string` | Optional. Email address of the first admin users. |
-| `customerDomainPrefix` | `string` | Required. Immutable. At least 2 and max 16 char long, must conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). |
 | `instanceConfig` | `object` | Message storing the instance configuration. |
 | `uris` | `object` | Message storing the URIs of the ContactCenter. |
-| `samlParams` | `object` | Message storing SAML params to enable Google as IDP. |
+| `createTime` | `string` | Output only. [Output only] Create time stamp |
+| `labels` | `object` | Labels as key value pairs |
+| `displayName` | `string` | Required. A user friendly name for the ContactCenter. |
+| `userEmail` | `string` | Optional. Email address of the first admin users. |
+| `customerDomainPrefix` | `string` | Required. Immutable. At least 2 and max 16 char long, must conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). |
+| `updateTime` | `string` | Output only. [Output only] Update time stamp |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

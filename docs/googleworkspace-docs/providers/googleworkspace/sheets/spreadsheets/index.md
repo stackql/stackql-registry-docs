@@ -27,7 +27,6 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `spreadsheetId` | `string` | The ID of the spreadsheet. This field is read-only. |
 | `spreadsheetUrl` | `string` | The url of the spreadsheet. This field is read-only. |
 | `dataSourceSchedules` | `array` | Output only. A list of data source refresh schedules. |
 | `dataSources` | `array` | A list of external data sources connected with the spreadsheet. |
@@ -35,6 +34,7 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | `namedRanges` | `array` | The named ranges defined in a spreadsheet. |
 | `properties` | `object` | Properties of a spreadsheet. |
 | `sheets` | `array` | The sheets that are part of a spreadsheet. |
+| `spreadsheetId` | `string` | The ID of the spreadsheet. This field is read-only. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

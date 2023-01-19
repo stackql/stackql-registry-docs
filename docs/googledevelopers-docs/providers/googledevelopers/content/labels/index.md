@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 | `accountLabels` | `array` | The labels from the specified account. |
+| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

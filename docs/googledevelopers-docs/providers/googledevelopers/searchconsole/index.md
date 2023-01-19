@@ -33,7 +33,7 @@ The Search Console API provides access to both Search Console data (verified use
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Search Console API</td></tr>
 <tr><td><b>Description</b></td><td>The Search Console API provides access to both Search Console data (verified users only) and to public information on an URL basis (anyone)</td></tr>
-<tr><td><b>Id</b></td><td><code>searchconsole:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>searchconsole:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

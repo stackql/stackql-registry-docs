@@ -33,7 +33,7 @@ This API enables connectivity with and between Google Cloud resources.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Network Connectivity API</td></tr>
 <tr><td><b>Description</b></td><td>This API enables connectivity with and between Google Cloud resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>networkconnectivity:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>networkconnectivity:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name for this CryptoKeyVersion in the format `projects/*/locations/*/keyRings/*/cryptoKeys/*/cryptoKeyVersions/*`. |
-| `attestation` | `object` | Contains an HSM-generated attestation about a key operation. For more information, see [Verifying attestations] (https://cloud.google.com/kms/docs/attest-key). |
-| `state` | `string` | The current state of the CryptoKeyVersion. |
-| `importJob` | `string` | Output only. The name of the ImportJob used in the most recent import of this CryptoKeyVersion. Only present if the underlying key material was imported. |
-| `destroyTime` | `string` | Output only. The time this CryptoKeyVersion's key material is scheduled for destruction. Only present if state is DESTROY_SCHEDULED. |
-| `destroyEventTime` | `string` | Output only. The time this CryptoKeyVersion's key material was destroyed. Only present if state is DESTROYED. |
-| `importFailureReason` | `string` | Output only. The root cause of the most recent import failure. Only present if state is IMPORT_FAILED. |
-| `protectionLevel` | `string` | Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. |
-| `algorithm` | `string` | Output only. The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports. |
-| `generateTime` | `string` | Output only. The time this CryptoKeyVersion's key material was generated. |
 | `importTime` | `string` | Output only. The time at which this CryptoKeyVersion's key material was most recently imported. |
-| `createTime` | `string` | Output only. The time at which this CryptoKeyVersion was created. |
-| `reimportEligible` | `boolean` | Output only. Whether or not this key version is eligible for reimport, by being specified as a target in ImportCryptoKeyVersionRequest.crypto_key_version. |
+| `attestation` | `object` | Contains an HSM-generated attestation about a key operation. For more information, see [Verifying attestations] (https://cloud.google.com/kms/docs/attest-key). |
+| `generateTime` | `string` | Output only. The time this CryptoKeyVersion's key material was generated. |
+| `state` | `string` | The current state of the CryptoKeyVersion. |
+| `algorithm` | `string` | Output only. The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports. |
+| `importFailureReason` | `string` | Output only. The root cause of the most recent import failure. Only present if state is IMPORT_FAILED. |
+| `destroyTime` | `string` | Output only. The time this CryptoKeyVersion's key material is scheduled for destruction. Only present if state is DESTROY_SCHEDULED. |
 | `externalProtectionLevelOptions` | `object` | ExternalProtectionLevelOptions stores a group of additional fields for configuring a CryptoKeyVersion that are specific to the EXTERNAL protection level and EXTERNAL_VPC protection levels. |
+| `importJob` | `string` | Output only. The name of the ImportJob used in the most recent import of this CryptoKeyVersion. Only present if the underlying key material was imported. |
+| `createTime` | `string` | Output only. The time at which this CryptoKeyVersion was created. |
+| `protectionLevel` | `string` | Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. |
+| `reimportEligible` | `boolean` | Output only. Whether or not this key version is eligible for reimport, by being specified as a target in ImportCryptoKeyVersionRequest.crypto_key_version. |
+| `destroyEventTime` | `string` | Output only. The time this CryptoKeyVersion's key material was destroyed. Only present if state is DESTROYED. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

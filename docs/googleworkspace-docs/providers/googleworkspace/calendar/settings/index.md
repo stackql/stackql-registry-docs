@@ -28,9 +28,9 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The id of the user setting. |
-| `etag` | `string` | ETag of the resource. |
 | `kind` | `string` | Type of the resource ("calendar#setting"). |
 | `value` | `string` | Value of the user setting. The format of the value depends on the ID of the setting. It must always be a UTF-8 string of length up to 1024 characters. |
+| `etag` | `string` | ETag of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,11 +28,11 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube uses to uniquely identify the group. |
-| `errors` | `object` | Request Error information. The presence of an error field signals that the operation has failed. |
-| `etag` | `string` | The Etag of this resource. |
 | `kind` | `string` | Identifies the API resource's type. The value will be `youtube#group`. |
 | `snippet` | `object` | A group snippet. |
 | `contentDetails` | `object` | A group's content details. |
+| `errors` | `object` | Request Error information. The presence of an error field signals that the operation has failed. |
+| `etag` | `string` | The Etag of this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

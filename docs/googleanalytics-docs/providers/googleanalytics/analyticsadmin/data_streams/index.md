@@ -28,13 +28,13 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of this Data Stream. Format: properties/&#123;property_id&#125;/dataStreams/&#123;stream_id&#125; Example: "properties/1000/dataStreams/2000" |
+| `webStreamData` | `object` | Data specific to web streams. |
+| `androidAppStreamData` | `object` | Data specific to Android app streams. |
+| `createTime` | `string` | Output only. Time when this stream was originally created. |
 | `displayName` | `string` | Human-readable display name for the Data Stream. Required for web data streams. The max allowed display name length is 255 UTF-16 code units. |
 | `iosAppStreamData` | `object` | Data specific to iOS app streams. |
 | `type` | `string` | Required. Immutable. The type of this DataStream resource. |
 | `updateTime` | `string` | Output only. Time when stream payload fields were last updated. |
-| `webStreamData` | `object` | Data specific to web streams. |
-| `androidAppStreamData` | `object` | Data specific to Android app streams. |
-| `createTime` | `string` | Output only. Time when this stream was originally created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,14 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `affectedServices` | `array` | Service contexts with a non-zero error count for the given filter criteria. This list can be truncated if multiple services are affected. Refer to `num_affected_services` for the total count. |
 | `numAffectedServices` | `integer` | The total number of services with a non-zero error count for the given filter criteria. |
 | `representative` | `object` | An error event which is returned by the Error Reporting system. |
-| `firstSeenTime` | `string` | Approximate first occurrence that was ever seen for this group and which matches the given filter criteria, ignoring the time_range that was specified in the request. |
+| `lastSeenTime` | `string` | Approximate last occurrence that was ever seen for this group and which matches the given filter criteria, ignoring the time_range that was specified in the request. |
 | `count` | `string` | Approximate total number of events in the given group that match the filter criteria. |
+| `firstSeenTime` | `string` | Approximate first occurrence that was ever seen for this group and which matches the given filter criteria, ignoring the time_range that was specified in the request. |
 | `group` | `object` | Description of a group of similar error events. |
 | `timedCounts` | `array` | Approximate number of occurrences over time. Timed counts returned by ListGroups are guaranteed to be: - Inside the requested time interval - Non-overlapping, and - Ordered by ascending time. |
-| `lastSeenTime` | `string` | Approximate last occurrence that was ever seen for this group and which matches the given filter criteria, ignoring the time_range that was specified in the request. |
+| `affectedServices` | `array` | Service contexts with a non-zero error count for the given filter criteria. This list can be truncated if multiple services are affected. Refer to `num_affected_services` for the total count. |
 | `affectedUsersCount` | `string` | Approximate number of affected users in the given group that match the filter criteria. Users are distinguished by data in the ErrorContext of the individual error events, such as their login name or their remote IP address in case of HTTP requests. The number of affected users can be zero even if the number of errors is non-zero if no data was provided from which the affected user could be deduced. Users are counted based on data in the request context that was provided in the error report. If more users are implicitly affected, such as due to a crash of the whole service, this is not reflected here. |
 ## Methods
 | Name | Accessible by | Required Params |

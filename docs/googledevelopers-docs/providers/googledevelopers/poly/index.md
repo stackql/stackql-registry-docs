@@ -33,7 +33,7 @@ The Poly API provides read access to assets hosted on poly.google.com to all, an
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Poly API</td></tr>
 <tr><td><b>Description</b></td><td>The Poly API provides read access to assets hosted on poly.google.com to all, and upload access to poly.google.com for whitelisted accounts. </td></tr>
-<tr><td><b>Id</b></td><td><code>poly:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>poly:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

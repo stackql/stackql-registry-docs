@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Shall be of the form `customers/&#123;customer&#125;/userinvitations/&#123;user_email_address&#125;`. |
+| `state` | `string` | State of the `UserInvitation`. |
 | `updateTime` | `string` | Time when the `UserInvitation` was last updated. |
 | `mailsSentCount` | `string` | Number of invitation emails sent to the user. |
-| `state` | `string` | State of the `UserInvitation`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

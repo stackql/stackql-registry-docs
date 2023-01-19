@@ -28,12 +28,12 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Account display name. @mutable tagmanager.accounts.create @mutable tagmanager.accounts.update |
-| `accountId` | `string` | The Account ID uniquely identifies the GTM Account. |
-| `features` | `object` |  |
-| `fingerprint` | `string` | The fingerprint of the GTM Account as computed at storage time. This value is recomputed whenever the account is modified. |
 | `path` | `string` | GTM Account's API relative path. |
 | `shareData` | `boolean` | Whether the account shares data anonymously with Google and others. This flag enables benchmarking by sharing your data in an anonymous form. Google will remove all identifiable information about your website, combine the data with hundreds of other anonymous sites and report aggregate trends in the benchmarking service. @mutable tagmanager.accounts.create @mutable tagmanager.accounts.update |
 | `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
+| `accountId` | `string` | The Account ID uniquely identifies the GTM Account. |
+| `features` | `object` |  |
+| `fingerprint` | `string` | The fingerprint of the GTM Account as computed at storage time. This value is recomputed whenever the account is modified. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

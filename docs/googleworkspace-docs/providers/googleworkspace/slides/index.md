@@ -33,14 +33,14 @@ Reads and writes Google Slides presentations.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Slides API</td></tr>
 <tr><td><b>Description</b></td><td>Reads and writes Google Slides presentations.</td></tr>
-<tr><td><b>Id</b></td><td><code>slides:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>slides:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/googleworkspace/slides/pages/">pages</a><br />
-<a href="/providers/googleworkspace/slides/pages__thumbnail/">pages__thumbnail</a><br />
+<a href="/providers/googleworkspace/slides/pages_thumbnail/">pages_thumbnail</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googleworkspace/slides/presentations/">presentations</a><br />

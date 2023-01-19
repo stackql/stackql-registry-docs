@@ -27,14 +27,14 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `phoneNumber` | `string` | The store phone number. |
-| `placeId` | `string` | The Google Place Id of the store location. |
 | `storeAddress` | `string` | Required. The street address of the store. |
 | `storeCode` | `string` | Required. A store identifier that is unique for the given merchant. |
 | `storeName` | `string` | The merchant or store name. |
 | `websiteUrl` | `string` | The website url for the store or merchant. |
 | `gcidCategory` | `array` | The business type of the store. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#posStore`" |
+| `phoneNumber` | `string` | The store phone number. |
+| `placeId` | `string` | The Google Place Id of the store location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

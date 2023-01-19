@@ -33,7 +33,7 @@ The Gmail API lets you view and manage Gmail mailbox data like threads, messages
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Gmail API</td></tr>
 <tr><td><b>Description</b></td><td>The Gmail API lets you view and manage Gmail mailbox data like threads, messages, and labels.</td></tr>
-<tr><td><b>Id</b></td><td><code>gmail:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gmail:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -53,14 +53,14 @@ The Gmail API lets you view and manage Gmail mailbox data like threads, messages
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googleworkspace/gmail/settings/">settings</a><br />
-<a href="/providers/googleworkspace/gmail/settings__auto_forwarding/">settings__auto_forwarding</a><br />
-<a href="/providers/googleworkspace/gmail/settings__imap/">settings__imap</a><br />
-<a href="/providers/googleworkspace/gmail/settings__language/">settings__language</a><br />
-<a href="/providers/googleworkspace/gmail/settings__pop/">settings__pop</a><br />
-<a href="/providers/googleworkspace/gmail/settings__vacation/">settings__vacation</a><br />
+<a href="/providers/googleworkspace/gmail/settings_auto_forwarding/">settings_auto_forwarding</a><br />
+<a href="/providers/googleworkspace/gmail/settings_imap/">settings_imap</a><br />
+<a href="/providers/googleworkspace/gmail/settings_language/">settings_language</a><br />
+<a href="/providers/googleworkspace/gmail/settings_pop/">settings_pop</a><br />
+<a href="/providers/googleworkspace/gmail/settings_vacation/">settings_vacation</a><br />
 <a href="/providers/googleworkspace/gmail/smime_info/">smime_info</a><br />
 <a href="/providers/googleworkspace/gmail/threads/">threads</a><br />
 <a href="/providers/googleworkspace/gmail/users/">users</a><br />
-<a href="/providers/googleworkspace/gmail/users__profile/">users__profile</a><br />
+<a href="/providers/googleworkspace/gmail/users_profile/">users_profile</a><br />
 </div>
 </div>

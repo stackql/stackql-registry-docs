@@ -27,11 +27,11 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `snippet` | `object` | Basic information about a third party account link, including its type and type-specific information. |
 | `status` | `object` | The third-party link status object contains information about the status of the link. |
 | `etag` | `string` | Etag of this resource |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#thirdPartyLink". |
 | `linkingToken` | `string` | The linking_token identifies a YouTube account and channel with which the third party account is linked. |
+| `snippet` | `object` | Basic information about a third party account link, including its type and type-specific information. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

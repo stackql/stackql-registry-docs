@@ -29,16 +29,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the zone, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;. |
 | `description` | `string` | Optional. Description of the zone. |
-| `resourceSpec` | `object` | Settings for resources attached as assets within a zone. |
-| `createTime` | `string` | Output only. The time when the zone was created. |
-| `updateTime` | `string` | Output only. The time when the zone was last updated. |
-| `discoverySpec` | `object` | Settings to manage the metadata discovery and publishing in a zone. |
-| `state` | `string` | Output only. Current state of the zone. |
-| `labels` | `object` | Optional. User defined labels for the zone. |
 | `uid` | `string` | Output only. System generated globally unique ID for the zone. This ID will be different if the zone is deleted and re-created with the same name. |
+| `discoverySpec` | `object` | Settings to manage the metadata discovery and publishing in a zone. |
+| `createTime` | `string` | Output only. The time when the zone was created. |
 | `assetStatus` | `object` | Aggregated status of the underlying assets of a lake or zone. |
+| `updateTime` | `string` | Output only. The time when the zone was last updated. |
 | `displayName` | `string` | Optional. User friendly display name. |
+| `labels` | `object` | Optional. User defined labels for the zone. |
+| `resourceSpec` | `object` | Settings for resources attached as assets within a zone. |
 | `type` | `string` | Required. Immutable. The type of the zone. |
+| `state` | `string` | Output only. Current state of the zone. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

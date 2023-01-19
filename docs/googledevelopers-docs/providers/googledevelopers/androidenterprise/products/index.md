@@ -28,30 +28,30 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The localized promotional description, if available. |
-| `appTracks` | `array` | The tracks visible to the enterprise. |
-| `smallIconUrl` | `string` | A link to a smaller image that can be used as an icon for the product. This image is suitable for use at up to 128px x 128px. |
-| `distributionChannel` | `string` | How and to whom the package is made available. The value publicGoogleHosted means that the package is available through the Play store and not restricted to a specific enterprise. The value privateGoogleHosted means that the package is a private app (restricted to an enterprise) but hosted by Google. The value privateSelfHosted means that the package is a private app (restricted to an enterprise) and is privately hosted. |
-| `lastUpdatedTimestampMillis` | `string` | The approximate time (within 7 days) the app was last published, expressed in milliseconds since epoch. |
-| `contentRating` | `string` | The content rating for this app. |
-| `productId` | `string` | A string of the form *app:&lt;package name&gt;*. For example, app:com.google.android.gm represents the Gmail app. |
-| `screenshotUrls` | `array` | A list of screenshot links representing the app. |
-| `recentChanges` | `string` | A description of the recent changes made to the app. |
-| `authorName` | `string` | The name of the author of the product (for example, the app developer). |
-| `appVersion` | `array` | App versions currently available for this product. |
-| `title` | `string` | The name of the product. |
-| `productPricing` | `string` | Whether this product is free, free with in-app purchases, or paid. If the pricing is unknown, this means the product is not generally available anymore (even though it might still be available to people who own it). |
-| `minAndroidSdkVersion` | `integer` | The minimum Android SDK necessary to run the app. |
-| `category` | `string` | The app category (e.g. RACING, SOCIAL, etc.) |
 | `appRestrictionsSchema` | `object` | Represents the list of app restrictions available to be pre-configured for the product. |
-| `requiresContainerApp` | `boolean` | Deprecated. |
-| `signingCertificate` | `object` |  |
+| `category` | `string` | The app category (e.g. RACING, SOCIAL, etc.) |
+| `authorName` | `string` | The name of the author of the product (for example, the app developer). |
+| `lastUpdatedTimestampMillis` | `string` | The approximate time (within 7 days) the app was last published, expressed in milliseconds since epoch. |
 | `permissions` | `array` | A list of permissions required by the app. |
+| `recentChanges` | `string` | A description of the recent changes made to the app. |
+| `distributionChannel` | `string` | How and to whom the package is made available. The value publicGoogleHosted means that the package is available through the Play store and not restricted to a specific enterprise. The value privateGoogleHosted means that the package is a private app (restricted to an enterprise) but hosted by Google. The value privateSelfHosted means that the package is a private app (restricted to an enterprise) and is privately hosted. |
 | `availableTracks` | `array` | Deprecated, use appTracks instead. |
+| `productPricing` | `string` | Whether this product is free, free with in-app purchases, or paid. If the pricing is unknown, this means the product is not generally available anymore (even though it might still be available to people who own it). |
 | `availableCountries` | `array` | The countries which this app is available in. |
-| `iconUrl` | `string` | A link to an image that can be used as an icon for the product. This image is suitable for use at up to 512px x 512px. |
-| `detailsUrl` | `string` | A link to the (consumer) Google Play details page for the product. |
-| `workDetailsUrl` | `string` | A link to the managed Google Play details page for the product, for use by an Enterprise admin. |
+| `contentRating` | `string` | The content rating for this app. |
+| `signingCertificate` | `object` |  |
+| `requiresContainerApp` | `boolean` | Deprecated. |
+| `productId` | `string` | A string of the form *app:&lt;package name&gt;*. For example, app:com.google.android.gm represents the Gmail app. |
 | `features` | `array` | Noteworthy features (if any) of this product. |
+| `minAndroidSdkVersion` | `integer` | The minimum Android SDK necessary to run the app. |
+| `smallIconUrl` | `string` | A link to a smaller image that can be used as an icon for the product. This image is suitable for use at up to 128px x 128px. |
+| `appTracks` | `array` | The tracks visible to the enterprise. |
+| `appVersion` | `array` | App versions currently available for this product. |
+| `workDetailsUrl` | `string` | A link to the managed Google Play details page for the product, for use by an Enterprise admin. |
+| `screenshotUrls` | `array` | A list of screenshot links representing the app. |
+| `detailsUrl` | `string` | A link to the (consumer) Google Play details page for the product. |
+| `title` | `string` | The name of the product. |
+| `iconUrl` | `string` | A link to an image that can be used as an icon for the product. This image is suitable for use at up to 512px x 512px. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

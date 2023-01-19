@@ -33,7 +33,7 @@ Help protect your website from fraudulent activity, spam, and abuse without crea
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>reCAPTCHA Enterprise API</td></tr>
 <tr><td><b>Description</b></td><td>Help protect your website from fraudulent activity, spam, and abuse without creating friction.</td></tr>
-<tr><td><b>Id</b></td><td><code>recaptchaenterprise:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recaptchaenterprise:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,8 +41,8 @@ Help protect your website from fraudulent activity, spam, and abuse without crea
 <div class="providerDocColumn">
 <a href="/providers/google/recaptchaenterprise/assessments/">assessments</a><br />
 <a href="/providers/google/recaptchaenterprise/keys/">keys</a><br />
-<a href="/providers/google/recaptchaenterprise/keys__legacy_secret_key/">keys__legacy_secret_key</a><br />
-<a href="/providers/google/recaptchaenterprise/keys__metrics/">keys__metrics</a><br />
+<a href="/providers/google/recaptchaenterprise/keys_legacy_secret_key/">keys_legacy_secret_key</a><br />
+<a href="/providers/google/recaptchaenterprise/keys_metrics/">keys_metrics</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/recaptchaenterprise/memberships/">memberships</a><br />

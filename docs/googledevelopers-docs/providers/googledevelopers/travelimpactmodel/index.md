@@ -33,7 +33,7 @@ Travel Impact Model API lets you query travel carbon emission estimates.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Travel Impact Model API</td></tr>
 <tr><td><b>Description</b></td><td>Travel Impact Model API lets you query travel carbon emission estimates.</td></tr>
-<tr><td><b>Id</b></td><td><code>travelimpactmodel:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>travelimpactmodel:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

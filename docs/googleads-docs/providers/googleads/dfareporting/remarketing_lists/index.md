@@ -30,16 +30,16 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | `id` | `string` | Remarketing list ID. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of the remarketing list. This is a required field. Must be no greater than 128 characters long. |
 | `description` | `string` | Remarketing list description. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#remarketingList". |
-| `listSize` | `string` | Number of users currently in the list. This is a read-only field. |
-| `listPopulationRule` | `object` | Remarketing List Population Rule. |
 | `subaccountId` | `string` | Subaccount ID of this remarketing list. This is a read-only, auto-generated field that is only returned in GET requests. |
-| `active` | `boolean` | Whether this remarketing list is active. |
-| `listSource` | `string` | Product from which this remarketing list was originated. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#remarketingList". |
+| `listPopulationRule` | `object` | Remarketing List Population Rule. |
+| `advertiserId` | `string` | Dimension value for the advertiser ID that owns this remarketing list. This is a required field. |
 | `accountId` | `string` | Account ID of this remarketing list. This is a read-only, auto-generated field that is only returned in GET requests. |
+| `listSize` | `string` | Number of users currently in the list. This is a read-only field. |
+| `listSource` | `string` | Product from which this remarketing list was originated. |
+| `active` | `boolean` | Whether this remarketing list is active. |
 | `lifeSpan` | `string` | Number of days that a user should remain in the remarketing list without an impression. Acceptable values are 1 to 540, inclusive. |
 | `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `advertiserId` | `string` | Dimension value for the advertiser ID that owns this remarketing list. This is a required field. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,11 +28,11 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Task list identifier. |
-| `etag` | `string` | ETag of the resource. |
-| `kind` | `string` | Type of the resource. This is always "tasks#taskList". |
 | `selfLink` | `string` | URL pointing to this task list. Used to retrieve, update, or delete this task list. |
 | `title` | `string` | Title of the task list. |
 | `updated` | `string` | Last modification time of the task list (as a RFC 3339 timestamp). |
+| `etag` | `string` | ETag of the resource. |
+| `kind` | `string` | Type of the resource. This is always "tasks#taskList". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,19 +27,19 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sku` | `string` | Stock-keeping-unit (SKU) of the product, unique within an app. |
-| `purchaseType` | `string` | The type of the product, e.g. a recurring subscription. |
-| `defaultLanguage` | `string` | Default language of the localized data, as defined by BCP-47. e.g. "en-US". |
-| `gracePeriod` | `string` | Grace period of the subscription, specified in ISO 8601 format. Allows developers to give their subscribers a grace period when the payment for the new recurrence period is declined. Acceptable values are P0D (zero days), P3D (three days), P7D (seven days), P14D (14 days), and P30D (30 days). |
-| `prices` | `object` | Prices per buyer region. None of these can be zero, as in-app products are never free. Map key is region code, as defined by ISO 3166-2. |
-| `subscriptionTaxesAndComplianceSettings` | `object` | Details about taxation, Google Play policy and legal compliance for subscription products. |
 | `listings` | `object` | List of localized title and description data. Map key is the language of the localized data, as defined by BCP-47, e.g. "en-US". |
-| `defaultPrice` | `object` | Definition of a price, i.e. currency and units. |
-| `packageName` | `string` | Package name of the parent app. |
-| `subscriptionPeriod` | `string` | Subscription period, specified in ISO 8601 format. Acceptable values are P1W (one week), P1M (one month), P3M (three months), P6M (six months), and P1Y (one year). |
-| `managedProductTaxesAndComplianceSettings` | `object` | Details about taxation and legal compliance for managed products. |
-| `status` | `string` | The status of the product, e.g. whether it's active. |
+| `purchaseType` | `string` | The type of the product, e.g. a recurring subscription. |
+| `sku` | `string` | Stock-keeping-unit (SKU) of the product, unique within an app. |
 | `trialPeriod` | `string` | Trial period, specified in ISO 8601 format. Acceptable values are anything between P7D (seven days) and P999D (999 days). |
+| `gracePeriod` | `string` | Grace period of the subscription, specified in ISO 8601 format. Allows developers to give their subscribers a grace period when the payment for the new recurrence period is declined. Acceptable values are P0D (zero days), P3D (three days), P7D (seven days), P14D (14 days), and P30D (30 days). |
+| `packageName` | `string` | Package name of the parent app. |
+| `prices` | `object` | Prices per buyer region. None of these can be zero, as in-app products are never free. Map key is region code, as defined by ISO 3166-2. |
+| `subscriptionPeriod` | `string` | Subscription period, specified in ISO 8601 format. Acceptable values are P1W (one week), P1M (one month), P3M (three months), P6M (six months), and P1Y (one year). |
+| `subscriptionTaxesAndComplianceSettings` | `object` | Details about taxation, Google Play policy and legal compliance for subscription products. |
+| `status` | `string` | The status of the product, e.g. whether it's active. |
+| `defaultLanguage` | `string` | Default language of the localized data, as defined by BCP-47. e.g. "en-US". |
+| `defaultPrice` | `object` | Definition of a price, i.e. currency and units. |
+| `managedProductTaxesAndComplianceSettings` | `object` | Details about taxation and legal compliance for managed products. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

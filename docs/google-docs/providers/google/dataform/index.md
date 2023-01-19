@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dataform API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>dataform:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dataform:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,16 +43,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/dataform/locations/">locations</a><br />
 <a href="/providers/google/dataform/release_configs/">release_configs</a><br />
 <a href="/providers/google/dataform/repositories/">repositories</a><br />
-<a href="/providers/google/dataform/repositories__remote_branches/">repositories__remote_branches</a><br />
+<a href="/providers/google/dataform/repositories_remote_branches/">repositories_remote_branches</a><br />
 <a href="/providers/google/dataform/workflow_configs/">workflow_configs</a><br />
 <a href="/providers/google/dataform/workflow_invocations/">workflow_invocations</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/dataform/workspaces/">workspaces</a><br />
-<a href="/providers/google/dataform/workspaces__directory/">workspaces__directory</a><br />
-<a href="/providers/google/dataform/workspaces__file/">workspaces__file</a><br />
-<a href="/providers/google/dataform/workspaces__file_diff/">workspaces__file_diff</a><br />
-<a href="/providers/google/dataform/workspaces__file_git_statuses/">workspaces__file_git_statuses</a><br />
-<a href="/providers/google/dataform/workspaces__git_ahead_behind/">workspaces__git_ahead_behind</a><br />
+<a href="/providers/google/dataform/workspaces_directory/">workspaces_directory</a><br />
+<a href="/providers/google/dataform/workspaces_file/">workspaces_file</a><br />
+<a href="/providers/google/dataform/workspaces_file_diff/">workspaces_file_diff</a><br />
+<a href="/providers/google/dataform/workspaces_file_git_statuses/">workspaces_file_git_statuses</a><br />
+<a href="/providers/google/dataform/workspaces_git_ahead_behind/">workspaces_git_ahead_behind</a><br />
 </div>
 </div>

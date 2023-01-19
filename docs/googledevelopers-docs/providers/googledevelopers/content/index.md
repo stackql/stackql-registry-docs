@@ -33,7 +33,7 @@ Manage your product listings and accounts for Google Shopping
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Content API for Shopping</td></tr>
 <tr><td><b>Description</b></td><td>Manage your product listings and accounts for Google Shopping</td></tr>
-<tr><td><b>Id</b></td><td><code>content:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>content:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

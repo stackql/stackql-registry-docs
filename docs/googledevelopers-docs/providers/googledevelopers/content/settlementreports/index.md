@@ -27,7 +27,6 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `transferDate` | `string` | Date on which transfer for this payment was initiated by Google, in ISO 8601 format. |
 | `transferIds` | `array` | The list of bank identifiers used for the transfer. For example, Trace ID for Federal Automated Clearing House (ACH). This may also be known as the Wire ID. |
 | `endDate` | `string` | The end date on which all transactions are included in the report, in ISO 8601 format. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#settlementReport`" |
@@ -35,6 +34,7 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | `settlementId` | `string` | The ID of the settlement report. |
 | `startDate` | `string` | The start date on which all transactions are included in the report, in ISO 8601 format. |
 | `transferAmount` | `object` |  |
+| `transferDate` | `string` | Date on which transfer for this payment was initiated by Google, in ISO 8601 format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

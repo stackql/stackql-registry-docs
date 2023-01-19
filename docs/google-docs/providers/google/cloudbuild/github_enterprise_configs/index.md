@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Optional. The full resource name for the GitHubEnterpriseConfig For example: "projects/&#123;$project_id&#125;/locations/&#123;$location_id&#125;/githubEnterpriseConfigs/&#123;$config_id&#125;" |
-| `displayName` | `string` | Name to display for this config. |
 | `hostUrl` | `string` | The URL of the github enterprise host the configuration is for. |
-| `appId` | `string` | Required. The GitHub app id of the Cloud Build app on the GitHub Enterprise server. |
-| `createTime` | `string` | Output only. Time when the installation was associated with the project. |
 | `peeredNetwork` | `string` | Optional. The network to be used when reaching out to the GitHub Enterprise server. The VPC network must be enabled for private service connection. This should be set if the GitHub Enterprise server is hosted on-premises and not reachable by public internet. If this field is left empty, no network peering will occur and calls to the GitHub Enterprise server will be made over the public internet. Must be in the format `projects/&#123;project&#125;/global/networks/&#123;network&#125;`, where &#123;project&#125; is a project number or id and &#123;network&#125; is the name of a VPC network in the project. |
-| `secrets` | `object` | GitHubEnterpriseSecrets represents the names of all necessary secrets in Secret Manager for a GitHub Enterprise server. Format is: projects//secrets/. |
-| `sslCa` | `string` | Optional. SSL certificate to use for requests to GitHub Enterprise. |
+| `appId` | `string` | Required. The GitHub app id of the Cloud Build app on the GitHub Enterprise server. |
 | `webhookKey` | `string` | The key that should be attached to webhook calls to the ReceiveWebhook endpoint. |
+| `secrets` | `object` | GitHubEnterpriseSecrets represents the names of all necessary secrets in Secret Manager for a GitHub Enterprise server. Format is: projects//secrets/. |
+| `displayName` | `string` | Name to display for this config. |
+| `sslCa` | `string` | Optional. SSL certificate to use for requests to GitHub Enterprise. |
+| `createTime` | `string` | Output only. Time when the installation was associated with the project. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

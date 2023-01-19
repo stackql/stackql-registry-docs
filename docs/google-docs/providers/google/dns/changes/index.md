@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier for the resource; defined by the server (output only). |
+| `status` | `string` | Status of the operation (output only). A status of "done" means that the request to update the authoritative servers has been sent, but the servers might not be updated yet. |
 | `additions` | `array` | Which ResourceRecordSets to add? |
 | `deletions` | `array` | Which ResourceRecordSets to remove? Must match existing data exactly. |
 | `isServing` | `boolean` | If the DNS queries for the zone will be served. |
 | `kind` | `string` |  |
 | `startTime` | `string` | The time that this operation was started by the server (output only). This is in RFC3339 text format. |
-| `status` | `string` | Status of the operation (output only). A status of "done" means that the request to update the authoritative servers has been sent, but the servers might not be updated yet. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ Searches the Google Knowledge Graph for entities.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Knowledge Graph Search API</td></tr>
 <tr><td><b>Description</b></td><td>Searches the Google Knowledge Graph for entities.</td></tr>
-<tr><td><b>Id</b></td><td><code>kgsearch:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>kgsearch:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

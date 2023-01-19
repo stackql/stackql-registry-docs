@@ -33,7 +33,7 @@ Provides information about other Google APIs, such as what APIs are available, t
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>API Discovery Service</td></tr>
 <tr><td><b>Description</b></td><td>Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each API.</td></tr>
-<tr><td><b>Id</b></td><td><code>discovery:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>discovery:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,6 +42,6 @@ Provides information about other Google APIs, such as what APIs are available, t
 <a href="/providers/googledevelopers/discovery/apis/">apis</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googledevelopers/discovery/apis__rest/">apis__rest</a><br />
+<a href="/providers/googledevelopers/discovery/apis_rest/">apis_rest</a><br />
 </div>
 </div>

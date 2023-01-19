@@ -28,10 +28,10 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the negative keyword list. |
+| `negativeKeywordListId` | `string` | Output only. The unique ID of the negative keyword list. Assigned by the system. |
 | `targetedLineItemCount` | `string` | Output only. Number of line items that are directly targeting this negative keyword list. |
 | `advertiserId` | `string` | Output only. The unique ID of the advertiser the negative keyword list belongs to. |
 | `displayName` | `string` | Required. The display name of the negative keyword list. Must be UTF-8 encoded with a maximum size of 255 bytes. |
-| `negativeKeywordListId` | `string` | Output only. The unique ID of the negative keyword list. Assigned by the system. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

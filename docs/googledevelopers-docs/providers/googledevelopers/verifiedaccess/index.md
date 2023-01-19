@@ -33,7 +33,7 @@ API for Verified Access chrome extension to provide credential verification for 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Chrome Verified Access API</td></tr>
 <tr><td><b>Description</b></td><td>API for Verified Access chrome extension to provide credential verification for chrome devices connecting to an enterprise network</td></tr>
-<tr><td><b>Id</b></td><td><code>verifiedaccess:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>verifiedaccess:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

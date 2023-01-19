@@ -28,15 +28,15 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID of this report file. |
-| `format` | `string` | The output format of the report. Only available once the file is available. |
-| `reportId` | `string` | The ID of the report this file was generated from. |
-| `urls` | `object` | The URLs where the completed report file can be downloaded. |
-| `etag` | `string` | Etag of this resource. |
-| `fileName` | `string` | The filename of the file. |
 | `lastModifiedTime` | `string` | The timestamp in milliseconds since epoch when this file was last modified. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#file". |
+| `urls` | `object` | The URLs where the completed report file can be downloaded. |
 | `dateRange` | `object` | Represents a date range. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#file". |
+| `format` | `string` | The output format of the report. Only available once the file is available. |
+| `etag` | `string` | Etag of this resource. |
 | `status` | `string` | The status of the report file. |
+| `fileName` | `string` | The filename of the file. |
+| `reportId` | `string` | The ID of the report this file was generated from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

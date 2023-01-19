@@ -28,18 +28,18 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Container display name. @mutable tagmanager.accounts.containers.create @mutable tagmanager.accounts.containers.update |
-| `usageContext` | `array` | List of Usage Contexts for the Container. Valid values include: web, android, or ios. @mutable tagmanager.accounts.containers.create @mutable tagmanager.accounts.containers.update |
-| `taggingServerUrls` | `array` | List of server-side container URLs for the Container. If multiple URLs are provided, all URL paths must match. @mutable tagmanager.accounts.containers.create @mutable tagmanager.accounts.containers.update |
-| `path` | `string` | GTM Container's API relative path. |
-| `accountId` | `string` | GTM Account ID. |
 | `domainName` | `array` | List of domain names associated with the Container. @mutable tagmanager.accounts.containers.create @mutable tagmanager.accounts.containers.update |
-| `publicId` | `string` | Container Public ID. |
 | `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
-| `features` | `object` |  |
+| `publicId` | `string` | Container Public ID. |
+| `taggingServerUrls` | `array` | List of server-side container URLs for the Container. If multiple URLs are provided, all URL paths must match. @mutable tagmanager.accounts.containers.create @mutable tagmanager.accounts.containers.update |
+| `usageContext` | `array` | List of Usage Contexts for the Container. Valid values include: web, android, or ios. @mutable tagmanager.accounts.containers.create @mutable tagmanager.accounts.containers.update |
+| `accountId` | `string` | GTM Account ID. |
 | `containerId` | `string` | The Container ID uniquely identifies the GTM Container. |
-| `tagIds` | `array` | All Tag IDs that refer to this Container. |
+| `features` | `object` |  |
 | `fingerprint` | `string` | The fingerprint of the GTM Container as computed at storage time. This value is recomputed whenever the account is modified. |
+| `tagIds` | `array` | All Tag IDs that refer to this Container. |
 | `notes` | `string` | Container Notes. @mutable tagmanager.accounts.containers.create @mutable tagmanager.accounts.containers.update |
+| `path` | `string` | GTM Container's API relative path. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

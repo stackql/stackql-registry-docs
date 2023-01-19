@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Workstations API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>workstations:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>workstations:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -46,10 +46,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/workstations/workstation_configs/">workstation_configs</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/workstations/workstation_configs__usable/">workstation_configs__usable</a><br />
 <a href="/providers/google/workstations/workstation_configs_iam_audit_configs/">workstation_configs_iam_audit_configs</a><br />
 <a href="/providers/google/workstations/workstation_configs_iam_bindings/">workstation_configs_iam_bindings</a><br />
 <a href="/providers/google/workstations/workstation_configs_iam_policies/">workstation_configs_iam_policies</a><br />
+<a href="/providers/google/workstations/workstation_configs_usable/">workstation_configs_usable</a><br />
 <a href="/providers/google/workstations/workstations/">workstations</a><br />
 </div>
 </div>

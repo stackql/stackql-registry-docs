@@ -27,9 +27,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `registeredEvents` | `array` | List of event types. Acceptable values are: - "`orderPendingShipment`"  |
 | `cloudTopicName` | `string` | Cloud pub/sub topic to which notifications are sent (read-only). |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#pubsubNotificationSettings`" |
-| `registeredEvents` | `array` | List of event types. Acceptable values are: - "`orderPendingShipment`"  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

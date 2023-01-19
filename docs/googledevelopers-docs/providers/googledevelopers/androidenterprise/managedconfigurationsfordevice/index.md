@@ -27,10 +27,10 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `managedProperty` | `array` | The set of managed properties for this configuration. |
 | `productId` | `string` | The ID of the product that the managed configuration is for, e.g. "app:com.google.android.gm". |
 | `configurationVariables` | `object` | A configuration variables resource contains the managed configuration settings ID to be applied to a single user, as well as the variable set that is attributed to the user. The variable set will be used to replace placeholders in the managed configuration settings. |
 | `kind` | `string` | Deprecated. |
-| `managedProperty` | `array` | The set of managed properties for this configuration. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

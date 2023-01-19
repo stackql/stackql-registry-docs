@@ -30,14 +30,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] Textual description of the resource. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `status` | `string` | [Output Only] Status of the region, either UP or DOWN. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#region for regions. |
-| `deprecated` | `object` | Deprecation status for a public resource. |
 | `zones` | `array` | [Output Only] A list of zones available in this region, in the form of resource URLs. |
-| `supportsPzs` | `boolean` | [Output Only] Reserved for future use. |
-| `quotas` | `array` | [Output Only] Quotas assigned to this region. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
+| `supportsPzs` | `boolean` | [Output Only] Reserved for future use. |
+| `status` | `string` | [Output Only] Status of the region, either UP or DOWN. |
+| `deprecated` | `object` | Deprecation status for a public resource. |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#region for regions. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `quotas` | `array` | [Output Only] Quotas assigned to this region. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

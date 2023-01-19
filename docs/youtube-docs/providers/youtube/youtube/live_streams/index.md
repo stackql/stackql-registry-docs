@@ -28,12 +28,12 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube assigns to uniquely identify the stream. |
+| `status` | `object` | Brief description of the live stream status. |
 | `cdn` | `object` | Brief description of the live stream cdn settings. |
 | `contentDetails` | `object` | Detailed settings of a stream. |
 | `etag` | `string` | Etag of this resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#liveStream". |
 | `snippet` | `object` |  |
-| `status` | `object` | Brief description of the live stream status. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the trial assigned by the service. |
-| `finalMeasurement` | `object` | A message representing a measurement. |
-| `infeasibleReason` | `string` | Output only. A human readable string describing why the trial is infeasible. This should only be set if trial_infeasible is true. |
-| `trialInfeasible` | `boolean` | Output only. If true, the parameters in this trial are not attempted again. |
-| `startTime` | `string` | Output only. Time at which the trial was started. |
-| `measurements` | `array` | A list of measurements that are strictly lexicographically ordered by their induced tuples (steps, elapsed_time). These are used for early stopping computations. |
 | `parameters` | `array` | The parameters of the trial. |
-| `clientId` | `string` | Output only. The identifier of the client that originally requested this trial. |
-| `state` | `string` | The detailed state of a trial. |
 | `endTime` | `string` | Output only. Time at which the trial's status changed to COMPLETED. |
+| `infeasibleReason` | `string` | Output only. A human readable string describing why the trial is infeasible. This should only be set if trial_infeasible is true. |
+| `measurements` | `array` | A list of measurements that are strictly lexicographically ordered by their induced tuples (steps, elapsed_time). These are used for early stopping computations. |
+| `clientId` | `string` | Output only. The identifier of the client that originally requested this trial. |
+| `startTime` | `string` | Output only. Time at which the trial was started. |
+| `finalMeasurement` | `object` | A message representing a measurement. |
+| `state` | `string` | The detailed state of a trial. |
+| `trialInfeasible` | `boolean` | Output only. If true, the parameters in this trial are not attempted again. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,15 +29,15 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the snapshot. |
 | `description` | `string` | The description of this snapshot. |
-| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#snapshot`. |
-| `progressValue` | `string` | The progress value (64-bit integer set by developer) associated with this snapshot. |
+| `type` | `string` | The type of this snapshot. |
+| `coverImage` | `object` | An image of a snapshot. |
+| `durationMillis` | `string` | The duration associated with this snapshot, in millis. |
 | `uniqueName` | `string` | The unique name provided when the snapshot was created. |
 | `lastModifiedMillis` | `string` | The timestamp (in millis since Unix epoch) of the last modification to this snapshot. |
+| `progressValue` | `string` | The progress value (64-bit integer set by developer) associated with this snapshot. |
+| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#snapshot`. |
 | `title` | `string` | The title of this snapshot. |
 | `driveId` | `string` | The ID of the file underlying this snapshot in the Drive API. Only present if the snapshot is a view on a Drive file and the file is owned by the caller. |
-| `type` | `string` | The type of this snapshot. |
-| `durationMillis` | `string` | The duration associated with this snapshot, in millis. |
-| `coverImage` | `object` | An image of a snapshot. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

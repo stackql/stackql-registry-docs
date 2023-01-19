@@ -33,13 +33,13 @@ The Business Profile Performance API allows merchants to fetch performance repor
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Business Profile Performance API</td></tr>
 <tr><td><b>Description</b></td><td>The Business Profile Performance API allows merchants to fetch performance reports about their business profile on Google. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.</td></tr>
-<tr><td><b>Id</b></td><td><code>businessprofileperformance:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>businessprofileperformance:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/googlemybusiness/businessprofileperformance/locations__daily_metrics_time_series/">locations__daily_metrics_time_series</a><br />
+<a href="/providers/googlemybusiness/businessprofileperformance/locations_daily_metrics_time_series/">locations_daily_metrics_time_series</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googlemybusiness/businessprofileperformance/monthly/">monthly</a><br />

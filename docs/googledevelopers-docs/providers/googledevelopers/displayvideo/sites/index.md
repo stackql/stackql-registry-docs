@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sites` | `array` | The list of sites. This list will be absent if empty. |
 | `nextPageToken` | `string` | A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListSites` method to retrieve the next page of results. |
+| `sites` | `array` | The list of sites. This list will be absent if empty. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

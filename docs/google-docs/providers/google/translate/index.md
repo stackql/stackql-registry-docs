@@ -19,9 +19,9 @@ Integrates text translation into your website or application.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>26</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>37</b></span><br />
 </div>
 </div>
 
@@ -33,20 +33,23 @@ Integrates text translation into your website or application.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Translation API</td></tr>
 <tr><td><b>Description</b></td><td>Integrates text translation into your website or application.</td></tr>
-<tr><td><b>Id</b></td><td><code>translate:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>translate:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/translate/datasets/">datasets</a><br />
+<a href="/providers/google/translate/examples/">examples</a><br />
 <a href="/providers/google/translate/glossaries/">glossaries</a><br />
 <a href="/providers/google/translate/glossary_entries/">glossary_entries</a><br />
 <a href="/providers/google/translate/locations/">locations</a><br />
-<a href="/providers/google/translate/locations__supported_languages/">locations__supported_languages</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/translate/locations_supported_languages/">locations_supported_languages</a><br />
+<a href="/providers/google/translate/models/">models</a><br />
 <a href="/providers/google/translate/operations/">operations</a><br />
 <a href="/providers/google/translate/projects/">projects</a><br />
-<a href="/providers/google/translate/projects__supported_languages/">projects__supported_languages</a><br />
+<a href="/providers/google/translate/projects_supported_languages/">projects_supported_languages</a><br />
 </div>
 </div>

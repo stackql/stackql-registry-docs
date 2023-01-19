@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name of the IAP protected resource. |
-| `applicationSettings` | `object` | Wrapper over application specific settings for IAP. |
 | `accessSettings` | `object` | Access related settings for IAP protected apps. |
+| `applicationSettings` | `object` | Wrapper over application specific settings for IAP. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

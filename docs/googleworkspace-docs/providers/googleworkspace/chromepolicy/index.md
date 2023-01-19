@@ -33,20 +33,20 @@ The Chrome Policy API is a suite of services that allows Chrome administrators t
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Chrome Policy API</td></tr>
 <tr><td><b>Description</b></td><td>The Chrome Policy API is a suite of services that allows Chrome administrators to control the policies applied to their managed Chrome OS devices and Chrome browsers.</td></tr>
-<tr><td><b>Id</b></td><td><code>chromepolicy:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>chromepolicy:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/googleworkspace/chromepolicy/groups/">groups</a><br />
-<a href="/providers/googleworkspace/chromepolicy/groups__group_priority_ordering/">groups__group_priority_ordering</a><br />
+<a href="/providers/googleworkspace/chromepolicy/groups_group_priority_ordering/">groups_group_priority_ordering</a><br />
 <a href="/providers/googleworkspace/chromepolicy/media/">media</a><br />
 <a href="/providers/googleworkspace/chromepolicy/networks/">networks</a><br />
-<a href="/providers/googleworkspace/chromepolicy/networks__certificate/">networks__certificate</a><br />
+<a href="/providers/googleworkspace/chromepolicy/networks_certificate/">networks_certificate</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googleworkspace/chromepolicy/networks__network/">networks__network</a><br />
+<a href="/providers/googleworkspace/chromepolicy/networks_network/">networks_network</a><br />
 <a href="/providers/googleworkspace/chromepolicy/orgunits/">orgunits</a><br />
 <a href="/providers/googleworkspace/chromepolicy/policies/">policies</a><br />
 <a href="/providers/googleworkspace/chromepolicy/policy_schemas/">policy_schemas</a><br />

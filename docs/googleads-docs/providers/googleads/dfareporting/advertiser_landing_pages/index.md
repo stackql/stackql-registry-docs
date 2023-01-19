@@ -29,11 +29,11 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this landing page. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this landing page. This is a required field. It must be less than 256 characters long. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#landingPage". |
 | `url` | `string` | URL of this landing page. This is a required field. |
 | `advertiserId` | `string` | Advertiser ID of this landing page. This is a required field. |
 | `archived` | `boolean` | Whether this landing page has been archived. |
 | `deepLinks` | `array` | Links that will direct the user to a mobile app, if installed. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#landingPage". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

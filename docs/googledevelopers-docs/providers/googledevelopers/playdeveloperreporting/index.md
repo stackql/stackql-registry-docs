@@ -33,7 +33,7 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Play Developer Reporting API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>playdeveloperreporting:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>playdeveloperreporting:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

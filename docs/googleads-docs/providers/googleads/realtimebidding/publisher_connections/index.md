@@ -28,10 +28,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the publisher connection. This follows the pattern `bidders/&#123;bidder&#125;/publisherConnections/&#123;publisher&#125;`, where `&#123;bidder&#125;` represents the account ID of the bidder, and `&#123;publisher&#125;` is the ads.txt/app-ads.txt publisher ID. |
-| `createTime` | `string` | Output only. The time at which the publisher initiated a connection with the bidder (irrespective of if or when the bidder approves it). This is subsequently updated if the publisher revokes and re-initiates the connection. |
-| `displayName` | `string` | Output only. Publisher display name. |
 | `publisherPlatform` | `string` | Output only. Whether the publisher is an Ad Manager or AdMob publisher. |
 | `biddingState` | `string` | Whether the publisher has been approved by the bidder. |
+| `createTime` | `string` | Output only. The time at which the publisher initiated a connection with the bidder (irrespective of if or when the bidder approves it). This is subsequently updated if the publisher revokes and re-initiates the connection. |
+| `displayName` | `string` | Output only. Publisher display name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

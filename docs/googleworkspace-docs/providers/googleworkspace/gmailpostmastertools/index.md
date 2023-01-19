@@ -33,7 +33,7 @@ The Postmaster Tools API is a RESTful API that provides programmatic access to e
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Gmail Postmaster Tools API</td></tr>
 <tr><td><b>Description</b></td><td>The Postmaster Tools API is a RESTful API that provides programmatic access to email traffic metrics (like spam reports, delivery errors etc) otherwise available through the Gmail Postmaster Tools UI currently.</td></tr>
-<tr><td><b>Id</b></td><td><code>gmailpostmastertools:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gmailpostmastertools:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

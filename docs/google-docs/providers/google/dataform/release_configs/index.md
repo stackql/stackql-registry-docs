@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The release config's name. |
-| `codeCompilationConfig` | `object` | Configures various aspects of Dataform code compilation. |
-| `cronSchedule` | `string` | Optional. Optional schedule (in cron format) for automatic creation of compilation results. |
-| `gitCommitish` | `string` | Required. Git commit/tag/branch name at which the repository should be compiled. Must exist in the remote repository. Examples: - a commit SHA: `12ade345` - a tag: `tag1` - a branch name: `branch1` |
 | `recentScheduledReleaseRecords` | `array` | Output only. Records of the 10 most recent scheduled release attempts. Updated whenever automatic creation of a compilation result is triggered by cron_schedule. |
 | `releaseCompilationResult` | `string` | Optional. The name of the currently released compilation result for this release config. This value is updated when a compilation result is created from this release config, or when this resource is updated by API call (perhaps to roll back to an earlier release). The compilation result must have been created using this release config. Must be in the format `projects/*/locations/*/repositories/*/compilationResults/*`. |
 | `timeZone` | `string` | Optional. Specifies the time zone to be used when interpreting cron_schedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC. |
+| `codeCompilationConfig` | `object` | Configures various aspects of Dataform code compilation. |
+| `cronSchedule` | `string` | Optional. Optional schedule (in cron format) for automatic creation of compilation results. |
+| `gitCommitish` | `string` | Required. Git commit/tag/branch name at which the repository should be compiled. Must exist in the remote repository. Examples: - a commit SHA: `12ade345` - a tag: `tag1` - a branch name: `branch1` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

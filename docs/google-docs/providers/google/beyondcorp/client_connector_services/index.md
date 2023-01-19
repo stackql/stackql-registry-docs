@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of resource. The name is ignored during creation. |
+| `state` | `string` | Output only. The operational state of the ClientConnectorService. |
 | `updateTime` | `string` | Output only. [Output only] Update time stamp. |
 | `createTime` | `string` | Output only. [Output only] Create time stamp. |
 | `displayName` | `string` | Optional. User-provided name. The display name should follow certain format. * Must be 6 to 30 characters in length. * Can only contain lowercase letters, numbers, and hyphens. * Must start with a letter. |
 | `egress` | `object` | The details of the egress info. One of the following options should be set. |
 | `ingress` | `object` | Settings of how to connect to the ClientGateway. One of the following options should be set. |
-| `state` | `string` | Output only. The operational state of the ClientConnectorService. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

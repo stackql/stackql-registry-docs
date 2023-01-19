@@ -33,7 +33,7 @@ The Google Books API allows clients to access the Google Books repository.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Books API</td></tr>
 <tr><td><b>Description</b></td><td>The Google Books API allows clients to access the Google Books repository.</td></tr>
-<tr><td><b>Id</b></td><td><code>books:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>books:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,22 +43,22 @@ The Google Books API allows clients to access the Google Books repository.
 <a href="/providers/googledevelopers/books/annotations/">annotations</a><br />
 <a href="/providers/googledevelopers/books/associated/">associated</a><br />
 <a href="/providers/googledevelopers/books/bookshelves/">bookshelves</a><br />
-<a href="/providers/googledevelopers/books/bookshelves__volume/">bookshelves__volume</a><br />
+<a href="/providers/googledevelopers/books/bookshelves_volume/">bookshelves_volume</a><br />
 <a href="/providers/googledevelopers/books/cloudloading/">cloudloading</a><br />
-<a href="/providers/googledevelopers/books/cloudloading__book/">cloudloading__book</a><br />
-<a href="/providers/googledevelopers/books/dictionary__offline_metadata/">dictionary__offline_metadata</a><br />
+<a href="/providers/googledevelopers/books/cloudloading_book/">cloudloading_book</a><br />
+<a href="/providers/googledevelopers/books/dictionary_offline_metadata/">dictionary_offline_metadata</a><br />
 <a href="/providers/googledevelopers/books/familysharing/">familysharing</a><br />
-<a href="/providers/googledevelopers/books/familysharing__family_info/">familysharing__family_info</a><br />
+<a href="/providers/googledevelopers/books/familysharing_family_info/">familysharing_family_info</a><br />
 <a href="/providers/googledevelopers/books/layers/">layers</a><br />
 <a href="/providers/googledevelopers/books/membership/">membership</a><br />
 <a href="/providers/googledevelopers/books/mybooks/">mybooks</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googledevelopers/books/myconfig/">myconfig</a><br />
-<a href="/providers/googledevelopers/books/myconfig__user_settings/">myconfig__user_settings</a><br />
+<a href="/providers/googledevelopers/books/myconfig_user_settings/">myconfig_user_settings</a><br />
 <a href="/providers/googledevelopers/books/notification/">notification</a><br />
-<a href="/providers/googledevelopers/books/onboarding__categories/">onboarding__categories</a><br />
-<a href="/providers/googledevelopers/books/onboarding__category_volumes/">onboarding__category_volumes</a><br />
+<a href="/providers/googledevelopers/books/onboarding_categories/">onboarding_categories</a><br />
+<a href="/providers/googledevelopers/books/onboarding_category_volumes/">onboarding_category_volumes</a><br />
 <a href="/providers/googledevelopers/books/personalizedstream/">personalizedstream</a><br />
 <a href="/providers/googledevelopers/books/promooffer/">promooffer</a><br />
 <a href="/providers/googledevelopers/books/readingpositions/">readingpositions</a><br />

@@ -29,20 +29,20 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `id` | `string` | Required. 64-bit Merchant Center account ID. |
 | `name` | `string` | Required. Display name for the account. |
-| `automaticImprovements` | `object` | The automatic improvements of the account can be used to automatically update items, improve images and shipping. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#account`". |
-| `accountManagement` | `string` | Output only. How the account is managed. Acceptable values are: - "`manual`" - "`automatic`"  |
-| `adsLinks` | `array` | Linked Ads accounts that are active or pending approval. To create a new link request, add a new link with status `active` to the list. It will remain in a `pending` state until approved or rejected either in the Ads interface or through the AdWords API. To delete an active link, or to cancel a link request, remove it from the list. |
-| `businessInformation` | `object` |  |
-| `youtubeChannelLinks` | `array` | Linked YouTube channels that are active or pending approval. To create a new link request, add a new link with status `active` to the list. It will remain in a `pending` state until approved or rejected in the YT Creator Studio interface. To delete an active link, or to cancel a link request, remove it from the list. |
-| `sellerId` | `string` | Client-specific, locally-unique, internal ID for the child account. |
-| `adultContent` | `boolean` | Indicates whether the merchant sells adult content. |
-| `labelIds` | `array` | Manually created label IDs that are assigned to the account by CSS. |
 | `googleMyBusinessLink` | `object` |  |
-| `websiteUrl` | `string` | The merchant's website. |
+| `businessInformation` | `object` |  |
+| `adultContent` | `boolean` | Indicates whether the merchant sells adult content. |
 | `cssId` | `string` | ID of CSS the account belongs to. |
-| `automaticLabelIds` | `array` | Automatically created label IDs that are assigned to the account by CSS Center. |
+| `sellerId` | `string` | Client-specific, locally-unique, internal ID for the child account. |
+| `automaticImprovements` | `object` | The automatic improvements of the account can be used to automatically update items, improve images and shipping. |
+| `adsLinks` | `array` | Linked Ads accounts that are active or pending approval. To create a new link request, add a new link with status `active` to the list. It will remain in a `pending` state until approved or rejected either in the Ads interface or through the Google Ads API. To delete an active link, or to cancel a link request, remove it from the list. |
+| `websiteUrl` | `string` | The merchant's website. |
+| `labelIds` | `array` | Manually created label IDs that are assigned to the account by CSS. |
 | `users` | `array` | Users with access to the account. Every account (except for subaccounts) must have at least one admin user. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#account`". |
+| `automaticLabelIds` | `array` | Automatically created label IDs that are assigned to the account by CSS Center. |
+| `youtubeChannelLinks` | `array` | Linked YouTube channels that are active or pending approval. To create a new link request, add a new link with status `active` to the list. It will remain in a `pending` state until approved or rejected in the YT Creator Studio interface. To delete an active link, or to cancel a link request, remove it from the list. |
+| `accountManagement` | `string` | Output only. How the account is managed. Acceptable values are: - "`manual`" - "`automatic`"  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

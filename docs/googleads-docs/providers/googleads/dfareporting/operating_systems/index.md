@@ -28,10 +28,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of this operating system. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#operatingSystem". |
 | `mobile` | `boolean` | Whether this operating system is for mobile. |
 | `dartId` | `string` | DART ID of this operating system. This is the ID used for targeting. |
 | `desktop` | `boolean` | Whether this operating system is for desktop. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#operatingSystem". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

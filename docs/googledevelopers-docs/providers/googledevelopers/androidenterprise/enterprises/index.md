@@ -29,6 +29,7 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID for the enterprise. |
 | `name` | `string` | The name of the enterprise, for example, "Example, Inc". |
+| `googleAuthenticationSettings` | `object` | Contains settings for Google-provided user authentication. |
 | `primaryDomain` | `string` | The enterprise's primary domain, such as "example.com". |
 | `administrator` | `array` | Admins of the enterprise. This is only supported for enterprises created via the EMM-initiated flow. |
 ## Methods

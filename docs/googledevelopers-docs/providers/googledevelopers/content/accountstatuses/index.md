@@ -27,12 +27,12 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `products` | `array` | List of product-related data by channel, destination, and country. Data in this field may be delayed by up to 30 minutes. |
-| `websiteClaimed` | `boolean` | Whether the account's website is claimed or not. |
 | `accountId` | `string` | The ID of the account for which the status is reported. |
 | `accountLevelIssues` | `array` | A list of account level issues. |
 | `accountManagement` | `string` | How the account is managed. Acceptable values are: - "`manual`" - "`automatic`"  |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "`content#accountStatus`" |
+| `products` | `array` | List of product-related data by channel, destination, and country. Data in this field may be delayed by up to 30 minutes. |
+| `websiteClaimed` | `boolean` | Whether the account's website is claimed or not. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

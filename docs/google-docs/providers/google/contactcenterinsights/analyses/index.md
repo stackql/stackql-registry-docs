@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The resource name of the analysis. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/conversations/&#123;conversation&#125;/analyses/&#123;analysis&#125; |
-| `annotatorSelector` | `object` | Selector of all available annotators and phrase matchers to run. |
-| `createTime` | `string` | Output only. The time at which the analysis was created, which occurs when the long-running operation completes. |
 | `requestTime` | `string` | Output only. The time at which the analysis was requested. |
 | `analysisResult` | `object` | The result of an analysis. |
+| `annotatorSelector` | `object` | Selector of all available annotators and phrase matchers to run. |
+| `createTime` | `string` | Output only. The time at which the analysis was created, which occurs when the long-running operation completes. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

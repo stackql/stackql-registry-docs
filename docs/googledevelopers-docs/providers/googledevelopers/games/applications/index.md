@@ -30,15 +30,15 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | `id` | `string` | The ID of the application. |
 | `name` | `string` | The name of the application. |
 | `description` | `string` | The description of the application. |
-| `instances` | `array` | The instances of the application. |
-| `lastUpdatedTimestamp` | `string` | The last updated timestamp of the application. |
-| `assets` | `array` | The assets of the application. |
-| `achievement_count` | `integer` | The number of achievements visible to the currently authenticated player. |
-| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#application`. |
 | `leaderboard_count` | `integer` | The number of leaderboards visible to the currently authenticated player. |
-| `themeColor` | `string` | A hint to the client UI for what color to use as an app-themed color. The color is given as an RGB triplet (e.g. "E0E0E0"). |
 | `category` | `object` | An application category object. |
+| `achievement_count` | `integer` | The number of achievements visible to the currently authenticated player. |
 | `enabledFeatures` | `array` | A list of features that have been enabled for the application. |
+| `lastUpdatedTimestamp` | `string` | The last updated timestamp of the application. |
+| `themeColor` | `string` | A hint to the client UI for what color to use as an app-themed color. The color is given as an RGB triplet (e.g. "E0E0E0"). |
+| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#application`. |
+| `instances` | `array` | The instances of the application. |
+| `assets` | `array` | The assets of the application. |
 | `author` | `string` | The author of the application. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

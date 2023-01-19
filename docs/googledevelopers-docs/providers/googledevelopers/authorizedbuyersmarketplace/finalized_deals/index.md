@@ -28,11 +28,11 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the finalized deal. Format: `buyers/&#123;accountId&#125;/finalizeddeals/&#123;finalizedDealId&#125;` |
+| `dealPausingInfo` | `object` | Information related to deal pausing. |
 | `dealServingStatus` | `string` | Serving status of the deal. |
 | `readyToServe` | `boolean` | Whether the Programmatic Guaranteed deal is ready for serving. |
 | `rtbMetrics` | `object` | Real-time bidding metrics. For what each metric means refer to [Report metrics](https://support.google.com/adxbuyer/answer/6115195#report-metrics) |
 | `deal` | `object` | A deal represents a segment of inventory for displaying ads that contains the terms and targeting information that is used for serving as well as the deal stats and status. Note: A proposal may contain multiple deals. |
-| `dealPausingInfo` | `object` | Information related to deal pausing. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

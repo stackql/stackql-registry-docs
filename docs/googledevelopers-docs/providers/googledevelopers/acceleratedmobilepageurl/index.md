@@ -33,7 +33,7 @@ Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given list 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Accelerated Mobile Pages (AMP) URL API</td></tr>
 <tr><td><b>Description</b></td><td>Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given list of public URL(s). </td></tr>
-<tr><td><b>Id</b></td><td><code>acceleratedmobilepageurl:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>acceleratedmobilepageurl:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

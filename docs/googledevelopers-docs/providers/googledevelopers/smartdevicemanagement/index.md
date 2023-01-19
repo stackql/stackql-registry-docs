@@ -33,7 +33,7 @@ Allow select enterprise partners to access, control, and manage Google and Nest 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Smart Device Management API</td></tr>
 <tr><td><b>Description</b></td><td>Allow select enterprise partners to access, control, and manage Google and Nest devices programmatically.</td></tr>
-<tr><td><b>Id</b></td><td><code>smartdevicemanagement:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>smartdevicemanagement:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

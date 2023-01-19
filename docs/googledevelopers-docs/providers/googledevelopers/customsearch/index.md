@@ -33,7 +33,7 @@ Searches over a website or collection of websites
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Custom Search API</td></tr>
 <tr><td><b>Description</b></td><td>Searches over a website or collection of websites</td></tr>
-<tr><td><b>Id</b></td><td><code>customsearch:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>customsearch:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

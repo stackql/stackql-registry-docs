@@ -29,9 +29,9 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this user role permission. |
 | `name` | `string` | Name of this user role permission. |
-| `availability` | `string` | Levels of availability for a user role permission. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#userRolePermission". |
 | `permissionGroupId` | `string` | ID of the permission group that this user role permission belongs to. |
+| `availability` | `string` | Levels of availability for a user role permission. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

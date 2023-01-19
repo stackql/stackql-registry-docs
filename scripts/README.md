@@ -15,8 +15,8 @@ sh docgen.sh <provider> <version>
 for example...  
 
 ```bash
-sh docgen.sh google v23.01.00113
+sh docgen.sh google v23.01.00116
 ```
 
-This command would generate the docs for the `v23.01.00113` version of the `google` StackQL provider, the docs would be created in the `docs/google` folder, once they are verified the docs can be moved to `/docs/providers/google`.  
+This command would generate the docs for the `v23.01.00116` version of the `google` StackQL provider, the docs would be created in the `docs/google` folder, once they are verified the docs can be moved to `/docs/providers/google`.  
 

@@ -33,7 +33,7 @@ DoubleClick Bid Manager API allows users to manage and create campaigns and repo
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DoubleClick Bid Manager API</td></tr>
 <tr><td><b>Description</b></td><td>DoubleClick Bid Manager API allows users to manage and create campaigns and reports.</td></tr>
-<tr><td><b>Id</b></td><td><code>doubleclickbidmanager:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>doubleclickbidmanager:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

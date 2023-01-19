@@ -33,7 +33,7 @@ The Authorized Buyers Marketplace API lets buyers programmatically discover inve
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Authorized Buyers Marketplace API</td></tr>
 <tr><td><b>Description</b></td><td>The Authorized Buyers Marketplace API lets buyers programmatically discover inventory; propose, retrieve and negotiate deals with publishers.</td></tr>
-<tr><td><b>Id</b></td><td><code>authorizedbuyersmarketplace:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>authorizedbuyersmarketplace:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,11 +43,11 @@ The Authorized Buyers Marketplace API lets buyers programmatically discover inve
 <a href="/providers/googledevelopers/authorizedbuyersmarketplace/clients/">clients</a><br />
 <a href="/providers/googledevelopers/authorizedbuyersmarketplace/deals/">deals</a><br />
 <a href="/providers/googledevelopers/authorizedbuyersmarketplace/finalized_deals/">finalized_deals</a><br />
-<a href="/providers/googledevelopers/authorizedbuyersmarketplace/finalized_deals__creative/">finalized_deals__creative</a><br />
+<a href="/providers/googledevelopers/authorizedbuyersmarketplace/finalized_deals_creative/">finalized_deals_creative</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googledevelopers/authorizedbuyersmarketplace/proposals/">proposals</a><br />
-<a href="/providers/googledevelopers/authorizedbuyersmarketplace/proposals__note/">proposals__note</a><br />
+<a href="/providers/googledevelopers/authorizedbuyersmarketplace/proposals_note/">proposals_note</a><br />
 <a href="/providers/googledevelopers/authorizedbuyersmarketplace/publisher_profiles/">publisher_profiles</a><br />
 <a href="/providers/googledevelopers/authorizedbuyersmarketplace/users/">users</a><br />
 </div>

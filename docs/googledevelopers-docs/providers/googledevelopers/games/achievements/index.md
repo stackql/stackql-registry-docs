@@ -28,12 +28,12 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the achievement. |
-| `achievementState` | `string` | The state of the achievement. |
-| `currentSteps` | `integer` | The current steps for an incremental achievement. |
-| `experiencePoints` | `string` | Experience points earned for the achievement. This field is absent for achievements that have not yet been unlocked and 0 for achievements that have been unlocked by testers but that are unpublished. |
 | `formattedCurrentStepsString` | `string` | The current steps for an incremental achievement as a string. |
 | `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `games#playerAchievement`. |
 | `lastUpdatedTimestamp` | `string` | The timestamp of the last modification to this achievement's state. |
+| `achievementState` | `string` | The state of the achievement. |
+| `currentSteps` | `integer` | The current steps for an incremental achievement. |
+| `experiencePoints` | `string` | Experience points earned for the achievement. This field is absent for achievements that have not yet been unlocked and 0 for achievements that have been unlocked by testers but that are unpublished. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

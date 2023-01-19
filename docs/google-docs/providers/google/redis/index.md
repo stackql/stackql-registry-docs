@@ -33,14 +33,14 @@ Creates and manages Redis instances on the Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Cloud Memorystore for Redis API</td></tr>
 <tr><td><b>Description</b></td><td>Creates and manages Redis instances on the Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>redis:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>redis:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/redis/instances/">instances</a><br />
-<a href="/providers/google/redis/instances__auth_string/">instances__auth_string</a><br />
+<a href="/providers/google/redis/instances_auth_string/">instances_auth_string</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/redis/locations/">locations</a><br />

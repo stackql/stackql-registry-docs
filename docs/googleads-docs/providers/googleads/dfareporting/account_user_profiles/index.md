@@ -29,20 +29,20 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of the user profile. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of the user profile. This is a required field. Must be less than 64 characters long, must be globally unique, and cannot contain whitespace or any of the following characters: "&;&lt;&gt;"#%,". |
-| `comments` | `string` | Comments for this user profile. |
-| `locale` | `string` | Locale of the user profile. This is a required field. Acceptable values are: - "cs" (Czech) - "de" (German) - "en" (English) - "en-GB" (English United Kingdom) - "es" (Spanish) - "fr" (French) - "it" (Italian) - "ja" (Japanese) - "ko" (Korean) - "pl" (Polish) - "pt-BR" (Portuguese Brazil) - "ru" (Russian) - "sv" (Swedish) - "tr" (Turkish) - "zh-CN" (Chinese Simplified) - "zh-TW" (Chinese Traditional)  |
-| `subaccountId` | `string` | Subaccount ID of the user profile. This is a read-only field that can be left blank. |
-| `siteFilter` | `object` | Object Filter. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountUserProfile". |
 | `accountId` | `string` | Account ID of the user profile. This is a read-only field that can be left blank. |
+| `userAccessType` | `string` | User type of the user profile. This is a read-only field that can be left blank. |
+| `siteFilter` | `object` | Object Filter. |
+| `subaccountId` | `string` | Subaccount ID of the user profile. This is a read-only field that can be left blank. |
+| `campaignFilter` | `object` | Object Filter. |
+| `comments` | `string` | Comments for this user profile. |
+| `advertiserFilter` | `object` | Object Filter. |
+| `active` | `boolean` | Whether this user profile is active. This defaults to false, and must be set true on insert for the user profile to be usable. |
+| `locale` | `string` | Locale of the user profile. This is a required field. Acceptable values are: - "cs" (Czech) - "de" (German) - "en" (English) - "en-GB" (English United Kingdom) - "es" (Spanish) - "fr" (French) - "it" (Italian) - "ja" (Japanese) - "ko" (Korean) - "pl" (Polish) - "pt-BR" (Portuguese Brazil) - "ru" (Russian) - "sv" (Swedish) - "tr" (Turkish) - "zh-CN" (Chinese Simplified) - "zh-TW" (Chinese Traditional)  |
+| `email` | `string` | Email of the user profile. The email addresss must be linked to a Google Account. This field is required on insertion and is read-only after insertion. |
 | `traffickerType` | `string` | Trafficker type of this user profile. This is a read-only field. |
 | `userRoleId` | `string` | User role ID of the user profile. This is a required field. |
-| `email` | `string` | Email of the user profile. The email addresss must be linked to a Google Account. This field is required on insertion and is read-only after insertion. |
-| `active` | `boolean` | Whether this user profile is active. This defaults to false, and must be set true on insert for the user profile to be usable. |
 | `userRoleFilter` | `object` | Object Filter. |
-| `userAccessType` | `string` | User type of the user profile. This is a read-only field that can be left blank. |
-| `campaignFilter` | `object` | Object Filter. |
-| `advertiserFilter` | `object` | Object Filter. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

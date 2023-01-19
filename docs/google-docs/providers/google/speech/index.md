@@ -33,7 +33,7 @@ Converts audio to text by applying powerful neural network models.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Speech-to-Text API</td></tr>
 <tr><td><b>Description</b></td><td>Converts audio to text by applying powerful neural network models.</td></tr>
-<tr><td><b>Id</b></td><td><code>speech:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>speech:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

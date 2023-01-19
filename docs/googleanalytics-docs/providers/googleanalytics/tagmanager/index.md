@@ -33,7 +33,7 @@ This API allows clients to access and modify container and tag configuration.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Tag Manager API</td></tr>
 <tr><td><b>Description</b></td><td>This API allows clients to access and modify container and tag configuration.</td></tr>
-<tr><td><b>Id</b></td><td><code>tagmanager:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>tagmanager:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -57,8 +57,8 @@ This API allows clients to access and modify container and tag configuration.
 <a href="/providers/googleanalytics/tagmanager/version_headers/">version_headers</a><br />
 <a href="/providers/googleanalytics/tagmanager/versions/">versions</a><br />
 <a href="/providers/googleanalytics/tagmanager/workspaces/">workspaces</a><br />
-<a href="/providers/googleanalytics/tagmanager/workspaces__status/">workspaces__status</a><br />
 <a href="/providers/googleanalytics/tagmanager/workspaces__version/">workspaces__version</a><br />
+<a href="/providers/googleanalytics/tagmanager/workspaces_status/">workspaces_status</a><br />
 <a href="/providers/googleanalytics/tagmanager/zones/">zones</a><br />
 </div>
 </div>

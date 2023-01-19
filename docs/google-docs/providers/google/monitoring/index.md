@@ -33,7 +33,7 @@ Manages your Cloud Monitoring data and configurations.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Monitoring API</td></tr>
 <tr><td><b>Description</b></td><td>Manages your Cloud Monitoring data and configurations.</td></tr>
-<tr><td><b>Id</b></td><td><code>monitoring:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>monitoring:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -49,12 +49,12 @@ Manages your Cloud Monitoring data and configurations.
 <a href="/providers/google/monitoring/notification_channels/">notification_channels</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/monitoring/notification_channels__verification_code/">notification_channels__verification_code</a><br />
+<a href="/providers/google/monitoring/notification_channels_verification_code/">notification_channels_verification_code</a><br />
 <a href="/providers/google/monitoring/service_level_objectives/">service_level_objectives</a><br />
 <a href="/providers/google/monitoring/services/">services</a><br />
 <a href="/providers/google/monitoring/snoozes/">snoozes</a><br />
 <a href="/providers/google/monitoring/time_series/">time_series</a><br />
-<a href="/providers/google/monitoring/time_series__service/">time_series__service</a><br />
+<a href="/providers/google/monitoring/time_series_service/">time_series_service</a><br />
 <a href="/providers/google/monitoring/uptime_check_configs/">uptime_check_configs</a><br />
 <a href="/providers/google/monitoring/uptime_check_ips/">uptime_check_ips</a><br />
 </div>

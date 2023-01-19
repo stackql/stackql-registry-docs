@@ -27,44 +27,44 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `relations` | `array` | The person's relations. |
-| `miscKeywords` | `array` | The person's miscellaneous keywords. |
-| `ageRanges` | `array` | Output only. The person's age ranges. |
-| `locations` | `array` | The person's locations. |
-| `events` | `array` | The person's events. |
-| `locales` | `array` | The person's locale preferences. |
-| `emailAddresses` | `array` | The person's email addresses. For `people.connections.list` and `otherContacts.list` the number of email addresses is limited to 100. If a Person has more email addresses the entire set can be obtained by calling GetPeople. |
-| `calendarUrls` | `array` | The person's calendar URLs. |
-| `clientData` | `array` | The person's client data. |
-| `photos` | `array` | Output only. The person's photos. |
-| `taglines` | `array` | Output only. **DEPRECATED**: No data will be returned The person's taglines. |
-| `organizations` | `array` | The person's past or current organizations. |
-| `coverPhotos` | `array` | Output only. The person's cover photos. |
-| `phoneNumbers` | `array` | The person's phone numbers. For `people.connections.list` and `otherContacts.list` the number of phone numbers is limited to 100. If a Person has more phone numbers the entire set can be obtained by calling GetPeople. |
-| `userDefined` | `array` | The person's user defined data. |
-| `metadata` | `object` | The metadata about a person. |
-| `occupations` | `array` | The person's occupations. |
-| `residences` | `array` | **DEPRECATED**: (Please use `person.locations` instead) The person's residences. |
-| `urls` | `array` | The person's associated URLs. |
-| `externalIds` | `array` | The person's external IDs. |
-| `skills` | `array` | The person's skills. |
-| `relationshipStatuses` | `array` | Output only. **DEPRECATED**: No data will be returned The person's relationship statuses. |
 | `nicknames` | `array` | The person's nicknames. |
-| `relationshipInterests` | `array` | Output only. **DEPRECATED**: No data will be returned The person's relationship interests. |
-| `fileAses` | `array` | The person's file-ases. |
-| `braggingRights` | `array` | **DEPRECATED**: No data will be returned The person's bragging rights. |
-| `birthdays` | `array` | The person's birthdays. This field is a singleton for contact sources. |
-| `interests` | `array` | The person's interests. |
-| `sipAddresses` | `array` | The person's SIP addresses. |
+| `urls` | `array` | The person's associated URLs. |
+| `clientData` | `array` | The person's client data. |
+| `relationshipStatuses` | `array` | Output only. **DEPRECATED**: No data will be returned The person's relationship statuses. |
+| `occupations` | `array` | The person's occupations. |
+| `taglines` | `array` | Output only. **DEPRECATED**: No data will be returned The person's taglines. |
+| `skills` | `array` | The person's skills. |
+| `userDefined` | `array` | The person's user defined data. |
+| `miscKeywords` | `array` | The person's miscellaneous keywords. |
 | `imClients` | `array` | The person's instant messaging clients. |
-| `memberships` | `array` | The person's group memberships. |
-| `etag` | `string` | The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the resource. Used for web cache validation. |
-| `biographies` | `array` | The person's biographies. This field is a singleton for contact sources. |
+| `sipAddresses` | `array` | The person's SIP addresses. |
 | `resourceName` | `string` | The resource name for the person, assigned by the server. An ASCII string in the form of `people/&#123;person_id&#125;`. |
-| `ageRange` | `string` | Output only. **DEPRECATED** (Please use `person.ageRanges` instead) The person's age range. |
-| `addresses` | `array` | The person's street addresses. |
+| `externalIds` | `array` | The person's external IDs. |
+| `fileAses` | `array` | The person's file-ases. |
+| `locales` | `array` | The person's locale preferences. |
+| `biographies` | `array` | The person's biographies. This field is a singleton for contact sources. |
+| `locations` | `array` | The person's locations. |
+| `residences` | `array` | **DEPRECATED**: (Please use `person.locations` instead) The person's residences. |
+| `relations` | `array` | The person's relations. |
 | `genders` | `array` | The person's genders. This field is a singleton for contact sources. |
+| `relationshipInterests` | `array` | Output only. **DEPRECATED**: No data will be returned The person's relationship interests. |
+| `events` | `array` | The person's events. |
+| `calendarUrls` | `array` | The person's calendar URLs. |
+| `coverPhotos` | `array` | Output only. The person's cover photos. |
+| `braggingRights` | `array` | **DEPRECATED**: No data will be returned The person's bragging rights. |
+| `memberships` | `array` | The person's group memberships. |
+| `organizations` | `array` | The person's past or current organizations. |
+| `etag` | `string` | The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the resource. Used for web cache validation. |
 | `names` | `array` | The person's names. This field is a singleton for contact sources. |
+| `metadata` | `object` | The metadata about a person. |
+| `birthdays` | `array` | The person's birthdays. This field is a singleton for contact sources. |
+| `emailAddresses` | `array` | The person's email addresses. For `people.connections.list` and `otherContacts.list` the number of email addresses is limited to 100. If a Person has more email addresses the entire set can be obtained by calling GetPeople. |
+| `phoneNumbers` | `array` | The person's phone numbers. For `people.connections.list` and `otherContacts.list` the number of phone numbers is limited to 100. If a Person has more phone numbers the entire set can be obtained by calling GetPeople. |
+| `photos` | `array` | Output only. The person's photos. |
+| `addresses` | `array` | The person's street addresses. |
+| `ageRanges` | `array` | Output only. The person's age ranges. |
+| `ageRange` | `string` | Output only. **DEPRECATED** (Please use `person.ageRanges` instead) The person's age range. |
+| `interests` | `array` | The person's interests. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

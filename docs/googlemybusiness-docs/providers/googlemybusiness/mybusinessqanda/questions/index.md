@@ -27,9 +27,9 @@ image: /img/providers/googlemybusiness/stackql-googlemybusiness-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If the number of questions exceeds the requested max page size, this field is populated with a token to fetch the next page of questions on a subsequent call. If there are no more questions, this field is not present in the response. |
 | `questions` | `array` | The requested questions, |
 | `totalSize` | `integer` | The total number of questions posted for this location across all pages. |
+| `nextPageToken` | `string` | If the number of questions exceeds the requested max page size, this field is populated with a token to fetch the next page of questions on a subsequent call. If there are no more questions, this field is not present in the response. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

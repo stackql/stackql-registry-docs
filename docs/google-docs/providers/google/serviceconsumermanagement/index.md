@@ -33,7 +33,7 @@ Manages the service consumers of a Service Infrastructure service.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Consumer Management API</td></tr>
 <tr><td><b>Description</b></td><td>Manages the service consumers of a Service Infrastructure service.</td></tr>
-<tr><td><b>Id</b></td><td><code>serviceconsumermanagement:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>serviceconsumermanagement:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,6 +44,6 @@ Manages the service consumers of a Service Infrastructure service.
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/serviceconsumermanagement/tenancy_units/">tenancy_units</a><br />
-<a href="/providers/google/serviceconsumermanagement/tenancy_units__project/">tenancy_units__project</a><br />
+<a href="/providers/google/serviceconsumermanagement/tenancy_units_project/">tenancy_units_project</a><br />
 </div>
 </div>

@@ -28,22 +28,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Optional. The resource name of the workload. Format: organizations/&#123;organization&#125;/locations/&#123;location&#125;/workloads/&#123;workload&#125; Read-only. |
-| `kajEnrollmentState` | `string` | Output only. Represents the KAJ enrollment state of the given workload. |
-| `resourceSettings` | `array` | Input only. Resource properties that are used to customize workload resources. These properties (such as custom project id) will be used to create workload resources if possible. This field is optional. |
-| `provisionedResourcesParent` | `string` | Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/&#123;folder_id&#125; |
-| `compliantButDisallowedServices` | `array` | Output only. Urls for services which are compliant for this Assured Workload, but which are currently disallowed by the ResourceUsageRestriction org policy. Invoke RestrictAllowedResources endpoint to allow your project developers to use these services in their environment." |
-| `etag` | `string` | Optional. ETag of the workload, it is calculated on the basis of the Workload contents. It will be used in Update & Delete operations. |
-| `labels` | `object` | Optional. Labels applied to the workload. |
-| `kmsSettings` | `object` | Settings specific to the Key Management Service. This message is deprecated. In order to create a Keyring, callers should specify, ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field. |
-| `complianceStatus` | `object` | Represents the Compliance Status of this workload |
-| `createTime` | `string` | Output only. Immutable. The Workload creation timestamp. |
-| `saaEnrollmentResponse` | `object` | Signed Access Approvals (SAA) enrollment response. |
-| `billingAccount` | `string` | Optional. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/&#123;billing_account_id&#125;`. For example, `billingAccounts/012345-567890-ABCDEF`. |
-| `partner` | `string` | Optional. Partner regime associated with this workload. |
 | `complianceRegime` | `string` | Required. Immutable. Compliance Regime associated with this workload. |
-| `resources` | `array` | Output only. The resources associated with this workload. These resources will be created when creating the workload. If any of the projects already exist, the workload creation will fail. Always read only. |
 | `displayName` | `string` | Required. The user-assigned display name of the Workload. When present it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, and spaces. Example: My Workload |
+| `billingAccount` | `string` | Optional. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/&#123;billing_account_id&#125;`. For example, `billingAccounts/012345-567890-ABCDEF`. |
+| `resources` | `array` | Output only. The resources associated with this workload. These resources will be created when creating the workload. If any of the projects already exist, the workload creation will fail. Always read only. |
+| `resourceSettings` | `array` | Input only. Resource properties that are used to customize workload resources. These properties (such as custom project id) will be used to create workload resources if possible. This field is optional. |
+| `createTime` | `string` | Output only. Immutable. The Workload creation timestamp. |
+| `complianceStatus` | `object` | Represents the Compliance Status of this workload |
+| `kmsSettings` | `object` | Settings specific to the Key Management Service. This message is deprecated. In order to create a Keyring, callers should specify, ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field. |
+| `labels` | `object` | Optional. Labels applied to the workload. |
+| `saaEnrollmentResponse` | `object` | Signed Access Approvals (SAA) enrollment response. |
+| `kajEnrollmentState` | `string` | Output only. Represents the KAJ enrollment state of the given workload. |
 | `enableSovereignControls` | `boolean` | Optional. Indicates the sovereignty status of the given workload. Currently meant to be used by Europe/Canada customers. |
+| `compliantButDisallowedServices` | `array` | Output only. Urls for services which are compliant for this Assured Workload, but which are currently disallowed by the ResourceUsageRestriction org policy. Invoke RestrictAllowedResources endpoint to allow your project developers to use these services in their environment." |
+| `provisionedResourcesParent` | `string` | Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/&#123;folder_id&#125; |
+| `partner` | `string` | Optional. Partner regime associated with this workload. |
+| `etag` | `string` | Optional. ETag of the workload, it is calculated on the basis of the Workload contents. It will be used in Update & Delete operations. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

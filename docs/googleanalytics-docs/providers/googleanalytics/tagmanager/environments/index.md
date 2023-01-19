@@ -29,19 +29,19 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 |:-----|:---------|:------------|
 | `name` | `string` | The environment display name. Can be set or changed only on USER type environments. @mutable tagmanager.accounts.containers.environments.create @mutable tagmanager.accounts.containers.environments.update |
 | `description` | `string` | The environment description. Can be set or changed only on USER type environments. @mutable tagmanager.accounts.containers.environments.create @mutable tagmanager.accounts.containers.environments.update |
+| `workspaceId` | `string` | Represents a link to a quick preview of a workspace. |
 | `containerId` | `string` | GTM Container ID. |
-| `fingerprint` | `string` | The fingerprint of the GTM environment as computed at storage time. This value is recomputed whenever the environment is modified. |
 | `type` | `string` | The type of this environment. |
 | `authorizationCode` | `string` | The environment authorization code. |
-| `containerVersionId` | `string` | Represents a link to a container version. |
+| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
+| `environmentId` | `string` | GTM Environment ID uniquely identifies the GTM Environment. |
+| `accountId` | `string` | GTM Account ID. |
+| `authorizationTimestamp` | `string` | The last update time-stamp for the authorization code. |
 | `path` | `string` | GTM Environment's API relative path. |
 | `url` | `string` | Default preview page url for the environment. @mutable tagmanager.accounts.containers.environments.create @mutable tagmanager.accounts.containers.environments.update |
+| `containerVersionId` | `string` | Represents a link to a container version. |
+| `fingerprint` | `string` | The fingerprint of the GTM environment as computed at storage time. This value is recomputed whenever the environment is modified. |
 | `enableDebug` | `boolean` | Whether or not to enable debug by default for the environment. @mutable tagmanager.accounts.containers.environments.create @mutable tagmanager.accounts.containers.environments.update |
-| `tagManagerUrl` | `string` | Auto generated link to the tag manager UI |
-| `workspaceId` | `string` | Represents a link to a quick preview of a workspace. |
-| `accountId` | `string` | GTM Account ID. |
-| `environmentId` | `string` | GTM Environment ID uniquely identifies the GTM Environment. |
-| `authorizationTimestamp` | `string` | The last update time-stamp for the authorization code. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

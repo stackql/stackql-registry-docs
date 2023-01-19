@@ -28,9 +28,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the google audience. |
-| `googleAudienceType` | `string` | Output only. The type of Google audience. . |
 | `displayName` | `string` | Output only. The display name of the Google audience. . |
 | `googleAudienceId` | `string` | Output only. The unique ID of the Google audience. Assigned by the system. |
+| `googleAudienceType` | `string` | Output only. The type of Google audience. . |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ Publishes 360 photos to Google Maps, along with position, orientation, and conne
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Street View Publish API</td></tr>
 <tr><td><b>Description</b></td><td>Publishes 360 photos to Google Maps, along with position, orientation, and connectivity metadata. Apps can offer an interface for positioning, connecting, and uploading user-generated Street View images. </td></tr>
-<tr><td><b>Id</b></td><td><code>streetviewpublish:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>streetviewpublish:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

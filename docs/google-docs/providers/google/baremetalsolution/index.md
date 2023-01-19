@@ -33,7 +33,7 @@ Provides ways to manage Bare Metal Solution hardware installed in a regional ext
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Bare Metal Solution API</td></tr>
 <tr><td><b>Description</b></td><td>Provides ways to manage Bare Metal Solution hardware installed in a regional extension located near a Google Cloud data center.</td></tr>
-<tr><td><b>Id</b></td><td><code>baremetalsolution:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>baremetalsolution:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,7 +44,7 @@ Provides ways to manage Bare Metal Solution hardware installed in a regional ext
 <a href="/providers/google/baremetalsolution/locations/">locations</a><br />
 <a href="/providers/google/baremetalsolution/luns/">luns</a><br />
 <a href="/providers/google/baremetalsolution/networks/">networks</a><br />
-<a href="/providers/google/baremetalsolution/networks__network_usage/">networks__network_usage</a><br />
+<a href="/providers/google/baremetalsolution/networks_network_usage/">networks_network_usage</a><br />
 <a href="/providers/google/baremetalsolution/nfs_shares/">nfs_shares</a><br />
 </div>
 <div class="providerDocColumn">

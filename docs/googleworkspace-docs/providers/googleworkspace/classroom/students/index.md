@@ -27,10 +27,10 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `courseId` | `string` | Identifier of the course. Read-only. |
-| `profile` | `object` | Global information for a user. |
 | `studentWorkFolder` | `object` | Representation of a Google Drive folder. |
 | `userId` | `string` | Identifier of the user. When specified as a parameter of a request, this identifier can be one of the following: * the numeric identifier for the user * the email address of the user * the string literal `"me"`, indicating the requesting user |
+| `courseId` | `string` | Identifier of the course. Read-only. |
+| `profile` | `object` | Global information for a user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `containerVersionHeader` | `array` | All container version headers of a GTM Container. |
 | `nextPageToken` | `string` | Continuation token for fetching the next page of results. |
+| `containerVersionHeader` | `array` | All container version headers of a GTM Container. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

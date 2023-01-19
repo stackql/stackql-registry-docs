@@ -20,8 +20,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>77</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>76</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>SAS Portal API (Testing)</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>prod_tt_sasportal:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>prod_tt_sasportal:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,7 +42,7 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 <a href="/providers/googledevelopers/prod_tt_sasportal/customers/">customers</a><br />
 <a href="/providers/googledevelopers/prod_tt_sasportal/deployments/">deployments</a><br />
 <a href="/providers/googledevelopers/prod_tt_sasportal/devices/">devices</a><br />
-<a href="/providers/googledevelopers/prod_tt_sasportal/devices__signed/">devices__signed</a><br />
+<a href="/providers/googledevelopers/prod_tt_sasportal/devices_signed/">devices_signed</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googledevelopers/prod_tt_sasportal/installer/">installer</a><br />

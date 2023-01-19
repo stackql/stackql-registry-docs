@@ -33,7 +33,7 @@ The My Business Q&A API allows questions and answers to be posted for specific l
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>My Business Q&A API</td></tr>
 <tr><td><b>Description</b></td><td>The My Business Q&A API allows questions and answers to be posted for specific listings. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.</td></tr>
-<tr><td><b>Id</b></td><td><code>mybusinessqanda:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>mybusinessqanda:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Stores sensitive data such as API keys, passwords, and certificates. Provides co
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Secret Manager API</td></tr>
 <tr><td><b>Description</b></td><td>Stores sensitive data such as API keys, passwords, and certificates. Provides convenience while improving security. </td></tr>
-<tr><td><b>Id</b></td><td><code>secretmanager:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>secretmanager:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,12 +41,12 @@ Stores sensitive data such as API keys, passwords, and certificates. Provides co
 <div class="providerDocColumn">
 <a href="/providers/google/secretmanager/locations/">locations</a><br />
 <a href="/providers/google/secretmanager/secrets/">secrets</a><br />
-<a href="/providers/google/secretmanager/secrets__version/">secrets__version</a><br />
 <a href="/providers/google/secretmanager/secrets_iam_audit_configs/">secrets_iam_audit_configs</a><br />
+<a href="/providers/google/secretmanager/secrets_iam_bindings/">secrets_iam_bindings</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/secretmanager/secrets_iam_bindings/">secrets_iam_bindings</a><br />
 <a href="/providers/google/secretmanager/secrets_iam_policies/">secrets_iam_policies</a><br />
+<a href="/providers/google/secretmanager/secrets_version/">secrets_version</a><br />
 <a href="/providers/google/secretmanager/versions/">versions</a><br />
 </div>
 </div>

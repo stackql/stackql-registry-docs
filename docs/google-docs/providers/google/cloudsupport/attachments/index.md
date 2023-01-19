@@ -28,13 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the attachment. |
+| `sizeBytes` | `string` | Output only. The size of the attachment in bytes. |
+| `createTime` | `string` | Output only. The time at which the attachment was created. |
 | `creator` | `object` | An object containing information about the effective user and authenticated principal responsible for an action. |
 | `filename` | `string` | The filename of the attachment (e.g. `"graph.jpg"`). |
 | `mimeType` | `string` | Output only. The MIME type of the attachment (e.g. text/plain). |
-| `sizeBytes` | `string` | Output only. The size of the attachment in bytes. |
-| `createTime` | `string` | Output only. The time at which the attachment was created. |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `cases_attachments_list` | `SELECT` | `parent` | Retrieve all attachments associated with a support case. |
-| `create` | `INSERT` | `parent` | Create a file attachment on a case or Cloud resource. The attachment object must have the following fields set: filename. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `cases_attachments_list` | `SELECT` | `parent` |

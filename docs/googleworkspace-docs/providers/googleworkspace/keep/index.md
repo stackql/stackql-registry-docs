@@ -33,7 +33,7 @@ The Google Keep API is used in an enterprise environment to manage Google Keep c
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Keep API</td></tr>
 <tr><td><b>Description</b></td><td>The Google Keep API is used in an enterprise environment to manage Google Keep content and resolve issues identified by cloud security software.</td></tr>
-<tr><td><b>Id</b></td><td><code>keep:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>keep:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

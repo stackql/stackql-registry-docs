@@ -27,9 +27,9 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `snippet` | `object` |  |
 | `etag` | `string` | Etag of this resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#member". |
+| `snippet` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

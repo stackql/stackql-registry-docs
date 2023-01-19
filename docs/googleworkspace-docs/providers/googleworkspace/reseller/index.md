@@ -33,7 +33,7 @@ Perform common functions that are available on the Channel Services console at s
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Workspace Reseller API</td></tr>
 <tr><td><b>Description</b></td><td>Perform common functions that are available on the Channel Services console at scale, like placing orders and viewing customer information</td></tr>
-<tr><td><b>Id</b></td><td><code>reseller:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>reseller:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

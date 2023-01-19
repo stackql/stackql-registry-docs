@@ -27,8 +27,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `bundles` | `array` | All app bundles. |
 | `kind` | `string` | The kind of this response ("androidpublisher#bundlesListResponse"). |
+| `bundles` | `array` | All app bundles. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

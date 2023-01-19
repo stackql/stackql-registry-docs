@@ -27,9 +27,9 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `member` | `array` |  |
 | `nextPageToken` | `string` |  |
 | `kind` | `string` | Resorce type. |
+| `member` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The repository's name. |
-| `gitRemoteSettings` | `object` | Controls Git remote configuration for a repository. |
 | `npmrcEnvironmentVariablesSecretVersion` | `string` | Optional. The name of the Secret Manager secret version to be used to interpolate variables into the .npmrc file for package installation operations. Must be in the format `projects/*/secrets/*/versions/*`. The file itself must be in a JSON format. |
+| `gitRemoteSettings` | `object` | Controls Git remote configuration for a repository. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

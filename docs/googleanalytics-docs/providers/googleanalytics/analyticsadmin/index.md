@@ -33,7 +33,7 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Analytics Admin API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>analyticsadmin:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>analyticsadmin:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,7 +41,7 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 <div class="providerDocColumn">
 <a href="/providers/googleanalytics/analyticsadmin/account_summaries/">account_summaries</a><br />
 <a href="/providers/googleanalytics/analyticsadmin/accounts/">accounts</a><br />
-<a href="/providers/googleanalytics/analyticsadmin/accounts__data_sharing_settings/">accounts__data_sharing_settings</a><br />
+<a href="/providers/googleanalytics/analyticsadmin/accounts_data_sharing_settings/">accounts_data_sharing_settings</a><br />
 <a href="/providers/googleanalytics/analyticsadmin/conversion_events/">conversion_events</a><br />
 <a href="/providers/googleanalytics/analyticsadmin/custom_dimensions/">custom_dimensions</a><br />
 <a href="/providers/googleanalytics/analyticsadmin/custom_metrics/">custom_metrics</a><br />
@@ -52,6 +52,6 @@ image: /img/providers/googleanalytics/stackql-googleanalytics-provider-featured-
 <a href="/providers/googleanalytics/analyticsadmin/google_ads_links/">google_ads_links</a><br />
 <a href="/providers/googleanalytics/analyticsadmin/measurement_protocol_secrets/">measurement_protocol_secrets</a><br />
 <a href="/providers/googleanalytics/analyticsadmin/properties/">properties</a><br />
-<a href="/providers/googleanalytics/analyticsadmin/properties__data_retention_settings/">properties__data_retention_settings</a><br />
+<a href="/providers/googleanalytics/analyticsadmin/properties_data_retention_settings/">properties_data_retention_settings</a><br />
 </div>
 </div>

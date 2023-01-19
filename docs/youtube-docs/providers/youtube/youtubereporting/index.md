@@ -33,7 +33,7 @@ Schedules reporting jobs containing your YouTube Analytics data and downloads th
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>YouTube Reporting API</td></tr>
 <tr><td><b>Description</b></td><td>Schedules reporting jobs containing your YouTube Analytics data and downloads the resulting bulk data reports in the form of CSV files.</td></tr>
-<tr><td><b>Id</b></td><td><code>youtubereporting:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>youtubereporting:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

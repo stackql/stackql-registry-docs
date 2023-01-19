@@ -29,10 +29,10 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this operating system version. |
 | `name` | `string` | Name of this operating system version. |
+| `operatingSystem` | `object` | Contains information about an operating system that can be targeted by ads. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#operatingSystemVersion". |
 | `majorVersion` | `string` | Major version (leftmost number) of this operating system version. |
 | `minorVersion` | `string` | Minor version (number after the first dot) of this operating system version. |
-| `operatingSystem` | `object` | Contains information about an operating system that can be targeted by ads. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

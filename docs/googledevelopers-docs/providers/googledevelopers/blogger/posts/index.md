@@ -28,25 +28,25 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The identifier of this Post. |
-| `replies` | `object` | The container of comments on this Post. |
-| `url` | `string` | The URL where this Post is displayed. |
-| `readerComments` | `string` | Comment control and display setting for readers of this post. |
-| `blog` | `object` | Data about the blog containing this Post. |
-| `published` | `string` | RFC 3339 date-time when this Post was published. |
-| `images` | `array` | Display image for the Post. |
-| `title` | `string` | The title of the Post. |
-| `etag` | `string` | Etag of the resource. |
-| `customMetaData` | `string` | The JSON meta-data for the Post. |
-| `location` | `object` | The location for geotagged posts. |
-| `author` | `object` | The author of this Post. |
-| `kind` | `string` | The kind of this entity. Always blogger#post. |
-| `content` | `string` | The content of the Post. May contain HTML markup. |
-| `trashed` | `string` | RFC 3339 date-time when this Post was last trashed. |
-| `selfLink` | `string` | The API REST URL to fetch this resource from. |
-| `status` | `string` | Status of the post. Only set for admin-level requests. |
-| `updated` | `string` | RFC 3339 date-time when this Post was last updated. |
-| `titleLink` | `string` | The title link URL, similar to atom's related link. |
 | `labels` | `array` | The list of labels this Post was tagged with. |
+| `customMetaData` | `string` | The JSON meta-data for the Post. |
+| `content` | `string` | The content of the Post. May contain HTML markup. |
+| `kind` | `string` | The kind of this entity. Always blogger#post. |
+| `title` | `string` | The title of the Post. |
+| `blog` | `object` | Data about the blog containing this Post. |
+| `url` | `string` | The URL where this Post is displayed. |
+| `status` | `string` | Status of the post. Only set for admin-level requests. |
+| `location` | `object` | The location for geotagged posts. |
+| `etag` | `string` | Etag of the resource. |
+| `images` | `array` | Display image for the Post. |
+| `replies` | `object` | The container of comments on this Post. |
+| `updated` | `string` | RFC 3339 date-time when this Post was last updated. |
+| `published` | `string` | RFC 3339 date-time when this Post was published. |
+| `selfLink` | `string` | The API REST URL to fetch this resource from. |
+| `trashed` | `string` | RFC 3339 date-time when this Post was last trashed. |
+| `author` | `object` | The author of this Post. |
+| `readerComments` | `string` | Comment control and display setting for readers of this post. |
+| `titleLink` | `string` | The title link URL, similar to atom's related link. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

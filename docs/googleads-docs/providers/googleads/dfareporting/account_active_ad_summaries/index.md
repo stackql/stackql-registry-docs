@@ -27,11 +27,11 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `activeAds` | `string` | Ads that have been activated for the account |
 | `activeAdsLimitTier` | `string` | Maximum number of active ads allowed for the account. |
 | `availableAds` | `string` | Ads that can be activated for the account. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountActiveAdSummary". |
 | `accountId` | `string` | ID of the account. |
-| `activeAds` | `string` | Ads that have been activated for the account |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

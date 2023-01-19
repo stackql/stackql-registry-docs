@@ -28,12 +28,12 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the manual trigger. |
-| `triggerId` | `string` | Output only. The unique ID of the manual trigger. |
 | `activationDurationMinutes` | `string` | Required. The maximum duration of each activation in minutes. Must be between 1 and 360 inclusive. After this duration, the trigger will be automatically deactivated. |
 | `advertiserId` | `string` | Required. Immutable. The unique ID of the advertiser that the manual trigger belongs to. |
 | `displayName` | `string` | Required. The display name of the manual trigger. Must be UTF-8 encoded with a maximum size of 240 bytes. |
 | `latestActivationTime` | `string` | Output only. The timestamp of the trigger's latest activation. |
 | `state` | `string` | Output only. The state of the manual trigger. Will be set to the `INACTIVE` state upon creation. |
+| `triggerId` | `string` | Output only. The unique ID of the manual trigger. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

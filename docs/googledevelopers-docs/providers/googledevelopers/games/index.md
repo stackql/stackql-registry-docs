@@ -33,7 +33,7 @@ The Google Play games service allows developers to enhance games with social lea
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Play Game Services</td></tr>
 <tr><td><b>Description</b></td><td>The Google Play games service allows developers to enhance games with social leaderboards, achievements, game state, sign-in with Google, and more.</td></tr>
-<tr><td><b>Id</b></td><td><code>games:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>games:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,20 +42,20 @@ The Google Play games service allows developers to enhance games with social lea
 <a href="/providers/googledevelopers/games/achievement_definitions/">achievement_definitions</a><br />
 <a href="/providers/googledevelopers/games/achievements/">achievements</a><br />
 <a href="/providers/googledevelopers/games/applications/">applications</a><br />
-<a href="/providers/googledevelopers/games/applications__end_point/">applications__end_point</a><br />
+<a href="/providers/googledevelopers/games/applications_end_point/">applications_end_point</a><br />
 <a href="/providers/googledevelopers/games/events/">events</a><br />
-<a href="/providers/googledevelopers/games/events__by_player/">events__by_player</a><br />
-<a href="/providers/googledevelopers/games/events__definitions/">events__definitions</a><br />
+<a href="/providers/googledevelopers/games/events_by_player/">events_by_player</a><br />
+<a href="/providers/googledevelopers/games/events_definitions/">events_definitions</a><br />
 <a href="/providers/googledevelopers/games/leaderboards/">leaderboards</a><br />
-<a href="/providers/googledevelopers/games/metagame__categories_by_player/">metagame__categories_by_player</a><br />
+<a href="/providers/googledevelopers/games/metagame_categories_by_player/">metagame_categories_by_player</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googledevelopers/games/metagame__metagame_config/">metagame__metagame_config</a><br />
+<a href="/providers/googledevelopers/games/metagame_metagame_config/">metagame_metagame_config</a><br />
 <a href="/providers/googledevelopers/games/players/">players</a><br />
-<a href="/providers/googledevelopers/games/players__scoped_player_ids/">players__scoped_player_ids</a><br />
+<a href="/providers/googledevelopers/games/players_scoped_player_ids/">players_scoped_player_ids</a><br />
 <a href="/providers/googledevelopers/games/revisions/">revisions</a><br />
 <a href="/providers/googledevelopers/games/scores/">scores</a><br />
-<a href="/providers/googledevelopers/games/scores__window/">scores__window</a><br />
+<a href="/providers/googledevelopers/games/scores_window/">scores_window</a><br />
 <a href="/providers/googledevelopers/games/snapshots/">snapshots</a><br />
 <a href="/providers/googledevelopers/games/stats/">stats</a><br />
 </div>

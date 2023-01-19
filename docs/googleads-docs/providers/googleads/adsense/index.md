@@ -33,28 +33,28 @@ The AdSense Management API allows publishers to access their inventory and run e
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AdSense Management API</td></tr>
 <tr><td><b>Description</b></td><td>The AdSense Management API allows publishers to access their inventory and run earnings and performance reports.</td></tr>
-<tr><td><b>Id</b></td><td><code>adsense:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>adsense:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/googleads/adsense/accounts/">accounts</a><br />
-<a href="/providers/googleads/adsense/accounts__ad_blocking_recovery_tag/">accounts__ad_blocking_recovery_tag</a><br />
-<a href="/providers/googleads/adsense/accounts__child_accounts/">accounts__child_accounts</a><br />
+<a href="/providers/googleads/adsense/accounts_ad_blocking_recovery_tag/">accounts_ad_blocking_recovery_tag</a><br />
+<a href="/providers/googleads/adsense/accounts_child_accounts/">accounts_child_accounts</a><br />
 <a href="/providers/googleads/adsense/adclients/">adclients</a><br />
-<a href="/providers/googleads/adsense/adclients__adcode/">adclients__adcode</a><br />
+<a href="/providers/googleads/adsense/adclients_adcode/">adclients_adcode</a><br />
 <a href="/providers/googleads/adsense/adunits/">adunits</a><br />
-<a href="/providers/googleads/adsense/adunits__adcode/">adunits__adcode</a><br />
-<a href="/providers/googleads/adsense/adunits__linked_custom_channels/">adunits__linked_custom_channels</a><br />
+<a href="/providers/googleads/adsense/adunits_adcode/">adunits_adcode</a><br />
+<a href="/providers/googleads/adsense/adunits_linked_custom_channels/">adunits_linked_custom_channels</a><br />
 <a href="/providers/googleads/adsense/alerts/">alerts</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googleads/adsense/customchannels/">customchannels</a><br />
-<a href="/providers/googleads/adsense/customchannels__linked_ad_units/">customchannels__linked_ad_units</a><br />
+<a href="/providers/googleads/adsense/customchannels_linked_ad_units/">customchannels_linked_ad_units</a><br />
 <a href="/providers/googleads/adsense/payments/">payments</a><br />
 <a href="/providers/googleads/adsense/reports/">reports</a><br />
-<a href="/providers/googleads/adsense/reports__saved/">reports__saved</a><br />
+<a href="/providers/googleads/adsense/reports_saved/">reports_saved</a><br />
 <a href="/providers/googleads/adsense/saved/">saved</a><br />
 <a href="/providers/googleads/adsense/sites/">sites</a><br />
 <a href="/providers/googleads/adsense/urlchannels/">urlchannels</a><br />

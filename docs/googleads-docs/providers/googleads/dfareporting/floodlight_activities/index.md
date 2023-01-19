@@ -29,33 +29,33 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this floodlight activity. This is a read-only, auto-generated field. |
 | `name` | `string` | Name of this floodlight activity. This is a required field. Must be less than 129 characters long and cannot contain quotes. |
-| `tagString` | `string` | Value of the cat= parameter in the floodlight tag, which the ad servers use to identify the activity. This is optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among activities of the same activity group. This field is read-only after insertion. |
-| `secure` | `boolean` | Whether this tag should use SSL. |
-| `expectedUrl` | `string` | URL where this tag will be deployed. If specified, must be less than 256 characters long. |
-| `defaultTags` | `array` | Dynamic floodlight tags. |
-| `status` | `string` | The status of the activity. This can only be set to ACTIVE or ARCHIVED_AND_DISABLED. The ARCHIVED status is no longer supported and cannot be set for Floodlight activities. The DISABLED_POLICY status indicates that a Floodlight activity is violating Google policy. Contact your account manager for more information. |
-| `sslRequired` | `boolean` | Whether this floodlight activity must be SSL-compliant. |
-| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `countingMethod` | `string` | Counting method for conversions for this floodlight activity. This is a required field. |
-| `advertiserId` | `string` | Advertiser ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's advertiser or the existing activity's advertiser. |
-| `floodlightTagType` | `string` | The type of Floodlight tag this activity will generate. This is a required field. |
-| `floodlightConfigurationId` | `string` | Floodlight configuration ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's floodlight configuration or from the existing activity's floodlight configuration. |
-| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `cacheBustingType` | `string` | Code type used for cache busting in the generated tag. Applicable only when floodlightActivityGroupType is COUNTER and countingMethod is STANDARD_COUNTING or UNIQUE_COUNTING. |
-| `floodlightConfigurationIdDimensionValue` | `object` | Represents a DimensionValue resource. |
-| `accountId` | `string` | Account ID of this floodlight activity. This is a read-only field that can be left blank. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#floodlightActivity". |
 | `notes` | `string` | General notes or implementation instructions for the tag. |
 | `attributionEnabled` | `boolean` | Whether the activity is enabled for attribution. |
-| `floodlightActivityGroupName` | `string` | Name of the associated floodlight activity group. This is a read-only field. |
-| `subaccountId` | `string` | Subaccount ID of this floodlight activity. This is a read-only field that can be left blank. |
-| `tagFormat` | `string` | Tag format type for the floodlight activity. If left blank, the tag format will default to HTML. |
-| `userDefinedVariableTypes` | `array` | List of the user-defined variables used by this conversion tag. These map to the "u[1-100]=" in the tags. Each of these can have a user defined type. Acceptable values are U1 to U100, inclusive.  |
-| `publisherTags` | `array` | Publisher dynamic floodlight tags. |
-| `floodlightActivityGroupId` | `string` | Floodlight activity group ID of this floodlight activity. This is a required field. |
 | `floodlightActivityGroupType` | `string` | Type of the associated floodlight activity group. This is a read-only field. |
+| `floodlightActivityGroupName` | `string` | Name of the associated floodlight activity group. This is a read-only field. |
+| `cacheBustingType` | `string` | Code type used for cache busting in the generated tag. Applicable only when floodlightActivityGroupType is COUNTER and countingMethod is STANDARD_COUNTING or UNIQUE_COUNTING. |
+| `status` | `string` | The status of the activity. This can only be set to ACTIVE or ARCHIVED_AND_DISABLED. The ARCHIVED status is no longer supported and cannot be set for Floodlight activities. The DISABLED_POLICY status indicates that a Floodlight activity is violating Google policy. Contact your account manager for more information. |
 | `floodlightActivityGroupTagString` | `string` | Tag string of the associated floodlight activity group. This is a read-only field. |
+| `sslRequired` | `boolean` | Whether this floodlight activity must be SSL-compliant. |
+| `countingMethod` | `string` | Counting method for conversions for this floodlight activity. This is a required field. |
+| `tagString` | `string` | Value of the cat= parameter in the floodlight tag, which the ad servers use to identify the activity. This is optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among activities of the same activity group. This field is read-only after insertion. |
+| `advertiserId` | `string` | Advertiser ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's advertiser or the existing activity's advertiser. |
+| `publisherTags` | `array` | Publisher dynamic floodlight tags. |
+| `advertiserIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `floodlightConfigurationIdDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `expectedUrl` | `string` | URL where this tag will be deployed. If specified, must be less than 256 characters long. |
+| `accountId` | `string` | Account ID of this floodlight activity. This is a read-only field that can be left blank. |
+| `idDimensionValue` | `object` | Represents a DimensionValue resource. |
+| `subaccountId` | `string` | Subaccount ID of this floodlight activity. This is a read-only field that can be left blank. |
+| `defaultTags` | `array` | Dynamic floodlight tags. |
+| `floodlightConfigurationId` | `string` | Floodlight configuration ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's floodlight configuration or from the existing activity's floodlight configuration. |
+| `floodlightActivityGroupId` | `string` | Floodlight activity group ID of this floodlight activity. This is a required field. |
+| `secure` | `boolean` | Whether this tag should use SSL. |
+| `tagFormat` | `string` | Tag format type for the floodlight activity. If left blank, the tag format will default to HTML. |
 | `sslCompliant` | `boolean` | Whether the floodlight activity is SSL-compliant. This is a read-only field, its value detected by the system from the floodlight tags. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#floodlightActivity". |
+| `userDefinedVariableTypes` | `array` | List of the user-defined variables used by this conversion tag. These map to the "u[1-100]=" in the tags. Each of these can have a user defined type. Acceptable values are U1 to U100, inclusive.  |
+| `floodlightTagType` | `string` | The type of Floodlight tag this activity will generate. This is a required field. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

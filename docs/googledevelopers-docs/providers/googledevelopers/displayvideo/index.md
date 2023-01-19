@@ -33,20 +33,20 @@ Display & Video 360 API allows users to automate complex Display & Video 360 wor
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Display & Video 360 API</td></tr>
 <tr><td><b>Description</b></td><td>Display & Video 360 API allows users to automate complex Display & Video 360 workflows, such as creating insertion orders and setting targeting options for individual line items.</td></tr>
-<tr><td><b>Id</b></td><td><code>displayvideo:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>displayvideo:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/googledevelopers/displayvideo/advertisers/">advertisers</a><br />
-<a href="/providers/googledevelopers/displayvideo/advertisers__assigned_targeting_options/">advertisers__assigned_targeting_options</a><br />
+<a href="/providers/googledevelopers/displayvideo/advertisers_assigned_targeting_options/">advertisers_assigned_targeting_options</a><br />
 <a href="/providers/googledevelopers/displayvideo/assets/">assets</a><br />
 <a href="/providers/googledevelopers/displayvideo/assigned_inventory_sources/">assigned_inventory_sources</a><br />
 <a href="/providers/googledevelopers/displayvideo/assigned_locations/">assigned_locations</a><br />
 <a href="/providers/googledevelopers/displayvideo/assigned_targeting_options/">assigned_targeting_options</a><br />
 <a href="/providers/googledevelopers/displayvideo/campaigns/">campaigns</a><br />
-<a href="/providers/googledevelopers/displayvideo/campaigns__assigned_targeting_options/">campaigns__assigned_targeting_options</a><br />
+<a href="/providers/googledevelopers/displayvideo/campaigns_assigned_targeting_options/">campaigns_assigned_targeting_options</a><br />
 <a href="/providers/googledevelopers/displayvideo/channels/">channels</a><br />
 <a href="/providers/googledevelopers/displayvideo/combined_audiences/">combined_audiences</a><br />
 <a href="/providers/googledevelopers/displayvideo/creatives/">creatives</a><br />
@@ -59,7 +59,7 @@ Display & Video 360 API allows users to automate complex Display & Video 360 wor
 <a href="/providers/googledevelopers/displayvideo/insertion_orders/">insertion_orders</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googledevelopers/displayvideo/insertion_orders__assigned_targeting_options/">insertion_orders__assigned_targeting_options</a><br />
+<a href="/providers/googledevelopers/displayvideo/insertion_orders_assigned_targeting_options/">insertion_orders_assigned_targeting_options</a><br />
 <a href="/providers/googledevelopers/displayvideo/inventory_source_groups/">inventory_source_groups</a><br />
 <a href="/providers/googledevelopers/displayvideo/inventory_sources/">inventory_sources</a><br />
 <a href="/providers/googledevelopers/displayvideo/invoices/">invoices</a><br />

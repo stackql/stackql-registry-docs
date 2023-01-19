@@ -28,19 +28,19 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the revision. |
-| `keepForever` | `boolean` | Whether to keep this revision forever, even if it is no longer the head revision. If not set, the revision will be automatically purged 30 days after newer content is uploaded. This can be set on a maximum of 200 revisions for a file.<br />This field is only applicable to files with binary content in Drive. |
 | `publishAuto` | `boolean` | Whether subsequent revisions will be automatically republished. This is only applicable to Docs Editors files. |
-| `publishedLink` | `string` | A link to the published revision. This is only populated for Google Sites files. |
-| `publishedOutsideDomain` | `boolean` | Whether this revision is published outside the domain. This is only applicable to Docs Editors files. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "drive#revision". |
 | `originalFilename` | `string` | The original filename used to create this revision. This is only applicable to files with binary content in Drive. |
-| `modifiedTime` | `string` | The last time the revision was modified (RFC 3339 date-time). |
-| `published` | `boolean` | Whether this revision is published. This is only applicable to Docs Editors files. |
 | `exportLinks` | `object` | Links for exporting Docs Editors files to specific formats. |
-| `mimeType` | `string` | The MIME type of the revision. |
 | `lastModifyingUser` | `object` | Information about a Drive user. |
-| `md5Checksum` | `string` | The MD5 checksum of the revision's content. This is only applicable to files with binary content in Drive. |
+| `published` | `boolean` | Whether this revision is published. This is only applicable to Docs Editors files. |
+| `publishedLink` | `string` | A link to the published revision. This is only populated for Google Sites files. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "drive#revision". |
+| `mimeType` | `string` | The MIME type of the revision. |
 | `size` | `string` | The size of the revision's content in bytes. This is only applicable to files with binary content in Drive. |
+| `md5Checksum` | `string` | The MD5 checksum of the revision's content. This is only applicable to files with binary content in Drive. |
+| `modifiedTime` | `string` | The last time the revision was modified (RFC 3339 date-time). |
+| `keepForever` | `boolean` | Whether to keep this revision forever, even if it is no longer the head revision. If not set, the revision will be automatically purged 30 days after newer content is uploaded. This can be set on a maximum of 200 revisions for a file.<br />This field is only applicable to files with binary content in Drive. |
+| `publishedOutsideDomain` | `boolean` | Whether this revision is published outside the domain. This is only applicable to Docs Editors files. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

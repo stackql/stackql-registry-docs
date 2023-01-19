@@ -33,7 +33,7 @@ The Android Management API provides remote enterprise management of Android devi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Android Management API</td></tr>
 <tr><td><b>Description</b></td><td>The Android Management API provides remote enterprise management of Android devices and apps.</td></tr>
-<tr><td><b>Id</b></td><td><code>androidmanagement:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>androidmanagement:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

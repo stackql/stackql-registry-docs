@@ -33,7 +33,7 @@ Notifies Google when your web pages change.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Indexing API</td></tr>
 <tr><td><b>Description</b></td><td>Notifies Google when your web pages change.</td></tr>
-<tr><td><b>Id</b></td><td><code>indexing:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>indexing:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,6 +42,6 @@ Notifies Google when your web pages change.
 <a href="/providers/googledevelopers/indexing/url_notifications/">url_notifications</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googledevelopers/indexing/url_notifications__metadata/">url_notifications__metadata</a><br />
+<a href="/providers/googledevelopers/indexing/url_notifications_metadata/">url_notifications_metadata</a><br />
 </div>
 </div>

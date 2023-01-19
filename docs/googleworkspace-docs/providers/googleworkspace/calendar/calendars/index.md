@@ -29,12 +29,12 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the calendar. To retrieve IDs call the calendarList.list() method. |
 | `description` | `string` | Description of the calendar. Optional. |
-| `summary` | `string` | Title of the calendar. |
 | `timeZone` | `string` | The time zone of the calendar. (Formatted as an IANA Time Zone Database name, e.g. "Europe/Zurich".) Optional. |
 | `conferenceProperties` | `object` |  |
 | `etag` | `string` | ETag of the resource. |
 | `kind` | `string` | Type of the resource ("calendar#calendar"). |
 | `location` | `string` | Geographic location of the calendar as free-form text. Optional. |
+| `summary` | `string` | Title of the calendar. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

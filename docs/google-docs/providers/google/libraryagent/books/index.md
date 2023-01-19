@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the book. Book names have the form `shelves/&#123;shelf_id&#125;/books/&#123;book_id&#125;`. The name is ignored when creating a book. |
-| `author` | `string` | The name of the book author. |
 | `read` | `boolean` | Value indicating whether the book has been read. |
 | `title` | `string` | The title of the book. |
+| `author` | `string` | The name of the book author. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

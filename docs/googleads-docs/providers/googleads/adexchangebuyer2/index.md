@@ -33,7 +33,7 @@ Accesses the latest features for managing Authorized Buyers accounts, Real-Time 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Ad Exchange Buyer API II</td></tr>
 <tr><td><b>Description</b></td><td>Accesses the latest features for managing Authorized Buyers accounts, Real-Time Bidding configurations and auction metrics, and Marketplace programmatic deals.</td></tr>
-<tr><td><b>Id</b></td><td><code>adexchangebuyer2:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>adexchangebuyer2:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -58,7 +58,7 @@ Accesses the latest features for managing Authorized Buyers accounts, Real-Time 
 <a href="/providers/googleads/adexchangebuyer2/non_billable_winning_bids/">non_billable_winning_bids</a><br />
 <a href="/providers/googleads/adexchangebuyer2/products/">products</a><br />
 <a href="/providers/googleads/adexchangebuyer2/proposals/">proposals</a><br />
-<a href="/providers/googleads/adexchangebuyer2/proposals__note/">proposals__note</a><br />
+<a href="/providers/googleads/adexchangebuyer2/proposals_note/">proposals_note</a><br />
 <a href="/providers/googleads/adexchangebuyer2/publisher_profiles/">publisher_profiles</a><br />
 <a href="/providers/googleads/adexchangebuyer2/users/">users</a><br />
 </div>

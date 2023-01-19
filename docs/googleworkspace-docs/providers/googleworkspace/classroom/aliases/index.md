@@ -27,8 +27,8 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token identifying the next page of results to return. If empty, no further results are available. |
 | `aliases` | `array` | The course aliases. |
+| `nextPageToken` | `string` | Token identifying the next page of results to return. If empty, no further results are available. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

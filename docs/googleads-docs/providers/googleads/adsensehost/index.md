@@ -33,7 +33,7 @@ Generates performance reports, generates ad codes, and provides publisher manage
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AdSense Host API</td></tr>
 <tr><td><b>Description</b></td><td>Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.</td></tr>
-<tr><td><b>Id</b></td><td><code>adsensehost:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>adsensehost:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,7 +42,7 @@ Generates performance reports, generates ad codes, and provides publisher manage
 <a href="/providers/googleads/adsensehost/accounts/">accounts</a><br />
 <a href="/providers/googleads/adsensehost/adclients/">adclients</a><br />
 <a href="/providers/googleads/adsensehost/adunits/">adunits</a><br />
-<a href="/providers/googleads/adsensehost/adunits__ad_code/">adunits__ad_code</a><br />
+<a href="/providers/googleads/adsensehost/adunits_ad_code/">adunits_ad_code</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/googleads/adsensehost/associationsessions/">associationsessions</a><br />

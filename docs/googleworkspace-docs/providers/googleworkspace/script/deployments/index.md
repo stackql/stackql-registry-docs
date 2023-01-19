@@ -27,10 +27,10 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `updateTime` | `string` | Last modified date time stamp. |
-| `deploymentConfig` | `object` | Metadata the defines how a deployment is configured. |
 | `deploymentId` | `string` | The deployment ID for this deployment. |
 | `entryPoints` | `array` | The deployment's entry points. |
+| `updateTime` | `string` | Last modified date time stamp. |
+| `deploymentConfig` | `object` | Metadata the defines how a deployment is configured. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

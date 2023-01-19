@@ -33,7 +33,7 @@ The YouTube Data API v3 is an API that provides access to YouTube data, such as 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>YouTube Data API v3</td></tr>
 <tr><td><b>Description</b></td><td>The YouTube Data API v3 is an API that provides access to YouTube data, such as videos, playlists, and channels.</td></tr>
-<tr><td><b>Id</b></td><td><code>youtube:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>youtube:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -70,7 +70,7 @@ The YouTube Data API v3 is an API that provides access to YouTube data, such as 
 <a href="/providers/youtube/youtube/video_abuse_report_reasons/">video_abuse_report_reasons</a><br />
 <a href="/providers/youtube/youtube/video_categories/">video_categories</a><br />
 <a href="/providers/youtube/youtube/videos/">videos</a><br />
-<a href="/providers/youtube/youtube/videos__rating/">videos__rating</a><br />
+<a href="/providers/youtube/youtube/videos_rating/">videos_rating</a><br />
 <a href="/providers/youtube/youtube/watermarks/">watermarks</a><br />
 </div>
 </div>

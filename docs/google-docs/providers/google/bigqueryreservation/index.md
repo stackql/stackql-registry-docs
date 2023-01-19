@@ -33,7 +33,7 @@ A service to modify your BigQuery flat-rate reservations.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery Reservation API</td></tr>
 <tr><td><b>Description</b></td><td>A service to modify your BigQuery flat-rate reservations.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigqueryreservation:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bigqueryreservation:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,7 +44,7 @@ A service to modify your BigQuery flat-rate reservations.
 <a href="/providers/google/bigqueryreservation/locations/">locations</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/bigqueryreservation/locations__bi_reservation/">locations__bi_reservation</a><br />
+<a href="/providers/google/bigqueryreservation/locations_bi_reservation/">locations_bi_reservation</a><br />
 <a href="/providers/google/bigqueryreservation/reservations/">reservations</a><br />
 </div>
 </div>

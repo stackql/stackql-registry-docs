@@ -33,14 +33,14 @@ Allows users to start, configure, and connect to interactive shell sessions runn
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Shell API</td></tr>
 <tr><td><b>Description</b></td><td>Allows users to start, configure, and connect to interactive shell sessions running in the cloud. </td></tr>
-<tr><td><b>Id</b></td><td><code>cloudshell:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudshell:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/cloudshell/environments/">environments</a><br />
-<a href="/providers/google/cloudshell/environments__public_key/">environments__public_key</a><br />
+<a href="/providers/google/cloudshell/environments_public_key/">environments_public_key</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/cloudshell/operations/">operations</a><br />

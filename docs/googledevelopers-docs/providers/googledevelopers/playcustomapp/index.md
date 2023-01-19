@@ -33,7 +33,7 @@ API to create and publish custom Android apps
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Play Custom App Publishing API</td></tr>
 <tr><td><b>Description</b></td><td>API to create and publish custom Android apps</td></tr>
-<tr><td><b>Id</b></td><td><code>playcustomapp:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>playcustomapp:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

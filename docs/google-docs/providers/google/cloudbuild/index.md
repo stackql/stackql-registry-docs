@@ -33,19 +33,19 @@ Creates and manages builds on Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Build API</td></tr>
 <tr><td><b>Description</b></td><td>Creates and manages builds on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudbuild:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudbuild:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/cloudbuild/bitbucket_server_configs/">bitbucket_server_configs</a><br />
-<a href="/providers/google/cloudbuild/bitbucket_server_configs__bitbucket_server_connected_repository/">bitbucket_server_configs__bitbucket_server_connected_repository</a><br />
+<a href="/providers/google/cloudbuild/bitbucket_server_configs_bitbucket_server_connected_repository/">bitbucket_server_configs_bitbucket_server_connected_repository</a><br />
 <a href="/providers/google/cloudbuild/builds/">builds</a><br />
 <a href="/providers/google/cloudbuild/cloudbuild/">cloudbuild</a><br />
 <a href="/providers/google/cloudbuild/connected_repositories/">connected_repositories</a><br />
 <a href="/providers/google/cloudbuild/git_lab_configs/">git_lab_configs</a><br />
-<a href="/providers/google/cloudbuild/git_lab_configs__git_lab_connected_repository/">git_lab_configs__git_lab_connected_repository</a><br />
+<a href="/providers/google/cloudbuild/git_lab_configs_git_lab_connected_repository/">git_lab_configs_git_lab_connected_repository</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/cloudbuild/github_dot_com_webhook/">github_dot_com_webhook</a><br />

@@ -27,19 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `updated` | `string` | Output only. Last updated timestamp for the query. |
 | `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
 | `created` | `string` | Creation time of the query. |
-| `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
 | `queryParams` | `object` | Metadata for the security report. |
-| `resultRows` | `string` | ResultRows is available only after the query is completed. |
+| `reportDefinitionId` | `string` | Report Definition ID. |
+| `updated` | `string` | Output only. Last updated timestamp for the query. |
 | `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
 | `state` | `string` | Query state could be "enqueued", "running", "completed", "expired" and "failed". |
-| `result` | `object` | Contains informations about the security report results. |
-| `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
-| `reportDefinitionId` | `string` | Report Definition ID. |
-| `displayName` | `string` | Display Name specified by the user. |
 | `error` | `string` | Error is set when query fails. |
+| `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
+| `resultRows` | `string` | ResultRows is available only after the query is completed. |
+| `displayName` | `string` | Display Name specified by the user. |
+| `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
+| `result` | `object` | Contains informations about the security report results. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

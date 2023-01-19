@@ -27,8 +27,8 @@ image: /img/providers/googleworkspace/stackql-googleworkspace-provider-featured-
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `delegateEmail` | `string` | The email address of the delegate. |
 | `verificationStatus` | `string` | Indicates whether this address has been verified and can act as a delegate for the account. Read-only. |
+| `delegateEmail` | `string` | The email address of the delegate. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

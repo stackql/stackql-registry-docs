@@ -33,14 +33,14 @@ Builds conversational interfaces (for example, chatbots, and voice-powered apps 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dialogflow API</td></tr>
 <tr><td><b>Description</b></td><td>Builds conversational interfaces (for example, chatbots, and voice-powered apps and devices).</td></tr>
-<tr><td><b>Id</b></td><td><code>dialogflow:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dialogflow:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/dialogflow/agents/">agents</a><br />
-<a href="/providers/google/dialogflow/agents__validation_result/">agents__validation_result</a><br />
+<a href="/providers/google/dialogflow/agents_validation_result/">agents_validation_result</a><br />
 <a href="/providers/google/dialogflow/changelogs/">changelogs</a><br />
 <a href="/providers/google/dialogflow/continuous_test_results/">continuous_test_results</a><br />
 <a href="/providers/google/dialogflow/deployments/">deployments</a><br />
@@ -48,7 +48,7 @@ Builds conversational interfaces (for example, chatbots, and voice-powered apps 
 <a href="/providers/google/dialogflow/environments/">environments</a><br />
 <a href="/providers/google/dialogflow/experiments/">experiments</a><br />
 <a href="/providers/google/dialogflow/flows/">flows</a><br />
-<a href="/providers/google/dialogflow/flows__validation_result/">flows__validation_result</a><br />
+<a href="/providers/google/dialogflow/flows_validation_result/">flows_validation_result</a><br />
 <a href="/providers/google/dialogflow/intents/">intents</a><br />
 </div>
 <div class="providerDocColumn">

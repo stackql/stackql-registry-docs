@@ -28,9 +28,9 @@ image: /img/providers/youtube/stackql-youtube-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID that YouTube uses to uniquely identify the i18n region. |
+| `snippet` | `object` | Basic details about an i18n region, such as region code and human-readable name. |
 | `etag` | `string` | Etag of this resource. |
 | `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "youtube#i18nRegion". |
-| `snippet` | `object` | Basic details about an i18n region, such as region code and human-readable name. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

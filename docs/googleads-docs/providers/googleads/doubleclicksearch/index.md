@@ -33,19 +33,19 @@ The Search Ads 360 API allows developers to automate uploading conversions and d
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Search Ads 360 API</td></tr>
 <tr><td><b>Description</b></td><td>The Search Ads 360 API allows developers to automate uploading conversions and downloading reports from Search Ads 360.</td></tr>
-<tr><td><b>Id</b></td><td><code>doubleclicksearch:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>doubleclicksearch:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/googleads/doubleclicksearch/conversion/">conversion</a><br />
-<a href="/providers/googleads/doubleclicksearch/conversion__by_customer_id/">conversion__by_customer_id</a><br />
+<a href="/providers/googleads/doubleclicksearch/conversion_by_customer_id/">conversion_by_customer_id</a><br />
 <a href="/providers/googleads/doubleclicksearch/reports/">reports</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googleads/doubleclicksearch/reports__file/">reports__file</a><br />
-<a href="/providers/googleads/doubleclicksearch/reports__id_mapping_file/">reports__id_mapping_file</a><br />
+<a href="/providers/googleads/doubleclicksearch/reports_file/">reports_file</a><br />
+<a href="/providers/googleads/doubleclicksearch/reports_id_mapping_file/">reports_id_mapping_file</a><br />
 <a href="/providers/googleads/doubleclicksearch/saved_columns/">saved_columns</a><br />
 </div>
 </div>

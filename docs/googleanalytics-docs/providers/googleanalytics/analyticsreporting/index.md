@@ -33,7 +33,7 @@ Accesses Analytics report data.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Analytics Reporting API</td></tr>
 <tr><td><b>Description</b></td><td>Accesses Analytics report data.</td></tr>
-<tr><td><b>Id</b></td><td><code>analyticsreporting:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>analyticsreporting:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,4 +29,4 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `signupUrls_create` | `EXEC` |  |
+| `signupUrls_create` | `INSERT` |  |

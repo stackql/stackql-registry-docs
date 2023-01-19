@@ -33,7 +33,7 @@ Accesses report data in Google Analytics.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Analytics Data API</td></tr>
 <tr><td><b>Description</b></td><td>Accesses report data in Google Analytics.</td></tr>
-<tr><td><b>Id</b></td><td><code>analyticsdata:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>analyticsdata:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,6 +42,6 @@ Accesses report data in Google Analytics.
 <a href="/providers/googleanalytics/analyticsdata/properties/">properties</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/googleanalytics/analyticsdata/properties__metadata/">properties__metadata</a><br />
+<a href="/providers/googleanalytics/analyticsdata/properties_metadata/">properties_metadata</a><br />
 </div>
 </div>

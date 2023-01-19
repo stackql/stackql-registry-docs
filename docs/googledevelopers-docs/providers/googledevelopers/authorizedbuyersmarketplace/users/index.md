@@ -28,8 +28,8 @@ image: /img/providers/googledevelopers/stackql-googledevelopers-provider-feature
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the client user. Format: `buyers/&#123;accountId&#125;/clients/&#123;clientAccountId&#125;/users/&#123;userId&#125;` |
-| `state` | `string` | Output only. The state of the client user. |
 | `email` | `string` | Required. The client user's email address that has to be unique across all users for the same client. |
+| `state` | `string` | Output only. The state of the client user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

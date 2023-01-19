@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `state` | `string` | Query state could be "enqueued", "running", "completed", "expired" and "failed". |
-| `result` | `object` | Contains informations about the security report results. |
-| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
-| `error` | `string` | Error is set when query fails. |
-| `updated` | `string` | Output only. Last updated timestamp for the query. |
-| `created` | `string` | Creation time of the query. |
-| `queryParams` | `object` | Metadata for the security report. |
-| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
 | `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
+| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
+| `created` | `string` | Creation time of the query. |
+| `error` | `string` | Error is set when query fails. |
+| `queryParams` | `object` | Metadata for the security report. |
 | `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
 | `reportDefinitionId` | `string` | Report Definition ID. |
-| `resultRows` | `string` | ResultRows is available only after the query is completed. |
+| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
+| `result` | `object` | Contains informations about the security report results. |
+| `updated` | `string` | Output only. Last updated timestamp for the query. |
 | `displayName` | `string` | Display Name specified by the user. |
+| `resultRows` | `string` | ResultRows is available only after the query is completed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

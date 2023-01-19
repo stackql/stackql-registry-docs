@@ -28,8 +28,8 @@ image: /img/providers/googleads/stackql-googleads-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | ID of this creative field value. This is a read-only, auto-generated field. |
-| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#creativeFieldValue". |
 | `value` | `string` | Value of this creative field value. It needs to be less than 256 characters in length and unique per creative field. |
+| `kind` | `string` | Identifies what kind of resource this is. Value: the fixed string "dfareporting#creativeFieldValue". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

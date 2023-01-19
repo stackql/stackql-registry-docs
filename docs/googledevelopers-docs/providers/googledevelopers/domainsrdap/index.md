@@ -33,7 +33,7 @@ Read-only public API that lets users search for information about domain names.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Domains RDAP API</td></tr>
 <tr><td><b>Description</b></td><td>Read-only public API that lets users search for information about domain names.</td></tr>
-<tr><td><b>Id</b></td><td><code>domainsrdap:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>domainsrdap:v23.01.00116</code></td></tr>
 </tbody></table>
 
 ## Resources
