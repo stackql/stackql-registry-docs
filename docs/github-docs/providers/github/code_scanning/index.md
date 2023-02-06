@@ -33,7 +33,7 @@ code_scanning
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - code_scanning</td></tr>
 <tr><td><b>Description</b></td><td>code_scanning</td></tr>
-<tr><td><b>Id</b></td><td><code>code_scanning:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>code_scanning:v23.02.00118</code></td></tr>
 </tbody></table>
 
 ## Resources

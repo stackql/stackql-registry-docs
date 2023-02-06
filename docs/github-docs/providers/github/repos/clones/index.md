@@ -1,10 +1,10 @@
 ---
-title: public_emails
+title: clones
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - public_emails
-  - users
+  - clones
+  - repos
   - github    
   - stackql
   - infrastructure-as-code
@@ -19,19 +19,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>public_emails</code></td></tr>
+<tr><td><b>Name</b></td><td><code>clones</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>github.users.public_emails</code></td></tr>
+<tr><td><b>Id</b></td><td><code>github.repos.clones</code></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `visibility` | `string` |
-| `email` | `string` |
-| `primary` | `boolean` |
-| `verified` | `boolean` |
+| `count` | `integer` |
+| `timestamp` | `string` |
+| `uniques` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_public_emails_for_authenticated_user` | `SELECT` |  |
+| `get_clones` | `SELECT` | `owner, repo` |

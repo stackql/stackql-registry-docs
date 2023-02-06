@@ -30,21 +30,21 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` | Unique identifier of the team |
 | `name` | `string` | Name of the team |
 | `description` | `string` |  |
-| `html_url` | `string` |  |
-| `privacy` | `string` | The level of privacy this team should have |
-| `repos_count` | `integer` |  |
-| `created_at` | `string` |  |
-| `node_id` | `string` |  |
-| `permission` | `string` | Permission that the team will have for its repositories |
-| `slug` | `string` |  |
-| `members_url` | `string` |  |
-| `repositories_url` | `string` |  |
-| `url` | `string` | URL for the team |
-| `ldap_dn` | `string` | Distinguished Name (DN) that team maps to within LDAP environment |
-| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
-| `updated_at` | `string` |  |
 | `members_count` | `integer` |  |
+| `slug` | `string` |  |
+| `created_at` | `string` |  |
+| `members_url` | `string` |  |
+| `url` | `string` | URL for the team |
+| `node_id` | `string` |  |
+| `privacy` | `string` | The level of privacy this team should have |
+| `ldap_dn` | `string` | Distinguished Name (DN) that team maps to within LDAP environment |
 | `organization` | `object` | Organization Full |
+| `updated_at` | `string` |  |
+| `permission` | `string` | Permission that the team will have for its repositories |
+| `repos_count` | `integer` |  |
+| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
+| `html_url` | `string` |  |
+| `repositories_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

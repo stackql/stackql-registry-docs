@@ -25,10 +25,98 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `total_count` | `number` |
-| `repositories` | `array` |
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `integer` | Unique identifier of the repository |
+| `name` | `string` | The name of the repository. |
+| `description` | `string` |  |
+| `merges_url` | `string` |  |
+| `archive_url` | `string` |  |
+| `is_template` | `boolean` | Whether this repository acts as a template that can be used to generate new repositories. |
+| `contents_url` | `string` |  |
+| `allow_auto_merge` | `boolean` | Whether to allow Auto-merge to be used on pull requests. |
+| `permissions` | `object` |  |
+| `has_projects` | `boolean` | Whether projects are enabled. |
+| `license` | `object` | License Simple |
+| `subscription_url` | `string` |  |
+| `stargazers_url` | `string` |  |
+| `issue_comment_url` | `string` |  |
+| `issues_url` | `string` |  |
+| `labels_url` | `string` |  |
+| `full_name` | `string` |  |
+| `has_pages` | `boolean` |  |
+| `git_url` | `string` |  |
+| `has_downloads` | `boolean` | Whether downloads are enabled. |
+| `events_url` | `string` |  |
+| `size` | `integer` |  |
+| `releases_url` | `string` |  |
+| `created_at` | `string` |  |
+| `stargazers_count` | `integer` |  |
+| `topics` | `array` |  |
+| `mirror_url` | `string` |  |
+| `html_url` | `string` |  |
+| `allow_forking` | `boolean` | Whether to allow forking this repo |
+| `node_id` | `string` |  |
+| `allow_squash_merge` | `boolean` | Whether to allow squash merges for pull requests. |
+| `temp_clone_token` | `string` |  |
+| `has_wiki` | `boolean` | Whether the wiki is enabled. |
+| `fork` | `boolean` |  |
+| `issue_events_url` | `string` |  |
+| `deployments_url` | `string` |  |
+| `visibility` | `string` | The repository visibility: public, private, or internal. |
+| `forks_count` | `integer` |  |
+| `branches_url` | `string` |  |
+| `git_commits_url` | `string` |  |
+| `template_repository` | `object` |  |
+| `updated_at` | `string` |  |
+| `watchers` | `integer` |  |
+| `blobs_url` | `string` |  |
+| `git_refs_url` | `string` |  |
+| `git_tags_url` | `string` |  |
+| `contributors_url` | `string` |  |
+| `forks_url` | `string` |  |
+| `master_branch` | `string` |  |
+| `open_issues` | `integer` |  |
+| `owner` | `object` | Simple User |
+| `subscribers_count` | `integer` |  |
+| `teams_url` | `string` |  |
+| `language` | `string` |  |
+| `statuses_url` | `string` |  |
+| `allow_rebase_merge` | `boolean` | Whether to allow rebase merges for pull requests. |
+| `svn_url` | `string` |  |
+| `url` | `string` |  |
+| `has_issues` | `boolean` | Whether issues are enabled. |
+| `hooks_url` | `string` |  |
+| `allow_merge_commit` | `boolean` | Whether to allow merge commits for pull requests. |
+| `assignees_url` | `string` |  |
+| `starred_at` | `string` |  |
+| `forks` | `integer` |  |
+| `open_issues_count` | `integer` |  |
+| `ssh_url` | `string` |  |
+| `subscribers_url` | `string` |  |
+| `trees_url` | `string` |  |
+| `tags_url` | `string` |  |
+| `watchers_count` | `integer` |  |
+| `archived` | `boolean` | Whether the repository is archived. |
+| `keys_url` | `string` |  |
+| `comments_url` | `string` |  |
+| `compare_url` | `string` |  |
+| `pulls_url` | `string` |  |
+| `pushed_at` | `string` |  |
+| `private` | `boolean` | Whether the repository is private or public. |
+| `disabled` | `boolean` | Returns whether or not this repository disabled. |
+| `network_count` | `integer` |  |
+| `delete_branch_on_merge` | `boolean` | Whether to delete head branches when pull requests are merged |
+| `collaborators_url` | `string` |  |
+| `clone_url` | `string` |  |
+| `homepage` | `string` |  |
+| `downloads_url` | `string` |  |
+| `organization` | `object` | Simple User |
+| `commits_url` | `string` |  |
+| `notifications_url` | `string` |  |
+| `languages_url` | `string` |  |
+| `default_branch` | `string` | The default branch of the repository. |
+| `milestones_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `total_count` | `number` |
-| `organizations` | `array` |
+| `id` | `integer` |
+| `description` | `string` |
+| `login` | `string` |
+| `issues_url` | `string` |
+| `avatar_url` | `string` |
+| `members_url` | `string` |
+| `public_members_url` | `string` |
+| `repos_url` | `string` |
+| `hooks_url` | `string` |
+| `url` | `string` |
+| `node_id` | `string` |
+| `events_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

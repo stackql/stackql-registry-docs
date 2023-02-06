@@ -30,14 +30,14 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `protected_domain_state` | `string` | The state if the domain is verified |
 | `public` | `boolean` | Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site. |
 | `html_url` | `string` | The web address the Page can be accessed from. |
-| `status` | `string` | The status of the most recent build of the Page. |
-| `custom_404` | `boolean` | Whether the Page has a custom 404 page. |
-| `cname` | `string` | The Pages site's custom domain |
 | `https_certificate` | `object` |  |
-| `pending_domain_unverified_at` | `string` | The timestamp when a pending domain becomes unverified. |
-| `https_enforced` | `boolean` | Whether https is enabled on the domain |
 | `source` | `object` |  |
 | `url` | `string` | The API address for accessing this Page resource. |
+| `cname` | `string` | The Pages site's custom domain |
+| `custom_404` | `boolean` | Whether the Page has a custom 404 page. |
+| `https_enforced` | `boolean` | Whether https is enabled on the domain |
+| `pending_domain_unverified_at` | `string` | The timestamp when a pending domain becomes unverified. |
+| `status` | `string` | The status of the most recent build of the Page. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

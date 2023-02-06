@@ -4,7 +4,6 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - github
-  - github actions
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -23,10 +22,10 @@ Web-based version-control and collaboration.
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>32</b></span><br />
-<span>total methods:&nbsp;<b>833</b></span><br />
+<span>total methods:&nbsp;<b>835</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>244</b></span><br />
+<span>total resources:&nbsp;<b>246</b></span><br />
 <span>total selectable resources:&nbsp;<b>237</b></span><br />
 </div>
 </div>
@@ -39,7 +38,7 @@ See also:
 
 ## Installation
 ```bash
-REGISTRY PULL github v23.01.00104;
+REGISTRY PULL github v23.02.00118;
 ```
 
 ## Authentication

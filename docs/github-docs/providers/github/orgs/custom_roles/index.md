@@ -25,10 +25,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `custom_roles` | `array` |  |
-| `total_count` | `integer` | The number of custom roles in this organization |
+| Name | Datatype |
+|:-----|:---------|
+| `id` | `integer` |
+| `name` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

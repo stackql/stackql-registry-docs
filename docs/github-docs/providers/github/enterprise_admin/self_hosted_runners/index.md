@@ -25,10 +25,14 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `runners` | `array` |
-| `total_count` | `number` |
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `integer` | The id of the runner. |
+| `name` | `string` | The name of the runner. |
+| `labels` | `array` |  |
+| `os` | `string` | The Operating System of the runner. |
+| `status` | `string` | The status of the runner. |
+| `busy` | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ Monitor charges and usage from Actions and Packages.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - billing</td></tr>
 <tr><td><b>Description</b></td><td>Monitor charges and usage from Actions and Packages.</td></tr>
-<tr><td><b>Id</b></td><td><code>billing:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>billing:v23.02.00118</code></td></tr>
 </tbody></table>
 
 ## Resources

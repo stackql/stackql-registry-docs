@@ -25,10 +25,93 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `repositories` | `array` |
-| `total_count` | `number` |
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `integer` |  |
+| `name` | `string` |  |
+| `description` | `string` |  |
+| `commits_url` | `string` |  |
+| `permissions` | `object` |  |
+| `forks_count` | `integer` |  |
+| `git_commits_url` | `string` |  |
+| `blobs_url` | `string` |  |
+| `assignees_url` | `string` |  |
+| `template_repository` | `object` | A git repository |
+| `html_url` | `string` |  |
+| `notifications_url` | `string` |  |
+| `open_issues` | `integer` |  |
+| `clone_url` | `string` |  |
+| `archived` | `boolean` |  |
+| `owner` | `object` | Simple User |
+| `contents_url` | `string` |  |
+| `subscribers_url` | `string` |  |
+| `delete_branch_on_merge` | `boolean` |  |
+| `subscription_url` | `string` |  |
+| `license` | `object` |  |
+| `topics` | `array` |  |
+| `svn_url` | `string` |  |
+| `forks_url` | `string` |  |
+| `homepage` | `string` |  |
+| `git_refs_url` | `string` |  |
+| `labels_url` | `string` |  |
+| `contributors_url` | `string` |  |
+| `visibility` | `string` |  |
+| `collaborators_url` | `string` |  |
+| `has_issues` | `boolean` |  |
+| `forks` | `integer` |  |
+| `issue_events_url` | `string` |  |
+| `allow_forking` | `boolean` |  |
+| `open_issues_count` | `integer` |  |
+| `watchers` | `integer` |  |
+| `stargazers_url` | `string` |  |
+| `language` | `string` |  |
+| `trees_url` | `string` |  |
+| `has_projects` | `boolean` |  |
+| `network_count` | `integer` |  |
+| `size` | `integer` |  |
+| `milestones_url` | `string` |  |
+| `keys_url` | `string` |  |
+| `url` | `string` |  |
+| `hooks_url` | `string` |  |
+| `created_at` | `string` |  |
+| `deployments_url` | `string` |  |
+| `mirror_url` | `string` |  |
+| `events_url` | `string` |  |
+| `code_of_conduct` | `object` | Code Of Conduct |
+| `is_template` | `boolean` |  |
+| `has_downloads` | `boolean` |  |
+| `merges_url` | `string` |  |
+| `has_wiki` | `boolean` |  |
+| `disabled` | `boolean` |  |
+| `watchers_count` | `integer` |  |
+| `compare_url` | `string` |  |
+| `tags_url` | `string` |  |
+| `issues_url` | `string` |  |
+| `node_id` | `string` |  |
+| `temp_clone_token` | `string` |  |
+| `git_tags_url` | `string` |  |
+| `private` | `boolean` |  |
+| `downloads_url` | `string` |  |
+| `ssh_url` | `string` |  |
+| `pushed_at` | `string` |  |
+| `releases_url` | `string` |  |
+| `role_name` | `string` |  |
+| `subscribers_count` | `integer` |  |
+| `updated_at` | `string` |  |
+| `git_url` | `string` |  |
+| `branches_url` | `string` |  |
+| `pulls_url` | `string` |  |
+| `teams_url` | `string` |  |
+| `fork` | `boolean` |  |
+| `statuses_url` | `string` |  |
+| `has_pages` | `boolean` |  |
+| `archive_url` | `string` |  |
+| `issue_comment_url` | `string` |  |
+| `stargazers_count` | `integer` |  |
+| `languages_url` | `string` |  |
+| `comments_url` | `string` |  |
+| `full_name` | `string` |  |
+| `default_branch` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

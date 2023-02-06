@@ -25,6 +25,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `updated_at` | `string` | The time of the last update for this group |
+| `group_id` | `integer` | The internal ID of the group |
+| `group_name` | `string` | The display name of the group |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

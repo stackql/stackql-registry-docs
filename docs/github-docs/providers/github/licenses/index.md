@@ -33,7 +33,7 @@ View various OSS licenses.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - licenses</td></tr>
 <tr><td><b>Description</b></td><td>View various OSS licenses.</td></tr>
-<tr><td><b>Id</b></td><td><code>licenses:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>licenses:v23.02.00118</code></td></tr>
 </tbody></table>
 
 ## Resources

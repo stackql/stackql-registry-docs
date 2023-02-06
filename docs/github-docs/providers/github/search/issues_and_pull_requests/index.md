@@ -28,39 +28,39 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `node_id` | `string` |  |
-| `assignee` | `object` | Simple User |
-| `draft` | `boolean` |  |
-| `labels_url` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `timeline_url` | `string` |  |
-| `repository` | `object` | A git repository |
-| `body_html` | `string` |  |
-| `assignees` | `array` |  |
-| `html_url` | `string` |  |
-| `comments` | `integer` |  |
-| `labels` | `array` |  |
-| `user` | `object` | Simple User |
-| `text_matches` | `array` |  |
-| `title` | `string` |  |
-| `comments_url` | `string` |  |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `reactions` | `object` |  |
-| `pull_request` | `object` |  |
-| `events_url` | `string` |  |
-| `url` | `string` |  |
-| `state` | `string` |  |
-| `score` | `number` |  |
-| `body_text` | `string` |  |
-| `milestone` | `object` | A collection of related issues and pull requests. |
-| `locked` | `boolean` |  |
-| `closed_at` | `string` |  |
-| `body` | `string` |  |
 | `number` | `integer` |  |
+| `draft` | `boolean` |  |
 | `updated_at` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `repository_url` | `string` |  |
+| `repository` | `object` | A git repository |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `user` | `object` | Simple User |
+| `reactions` | `object` |  |
+| `state` | `string` |  |
+| `assignees` | `array` |  |
+| `milestone` | `object` | A collection of related issues and pull requests. |
+| `body_text` | `string` |  |
+| `active_lock_reason` | `string` |  |
+| `url` | `string` |  |
+| `comments_url` | `string` |  |
 | `created_at` | `string` |  |
+| `closed_at` | `string` |  |
+| `node_id` | `string` |  |
+| `locked` | `boolean` |  |
+| `events_url` | `string` |  |
+| `pull_request` | `object` |  |
+| `repository_url` | `string` |  |
+| `labels_url` | `string` |  |
+| `labels` | `array` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `title` | `string` |  |
+| `score` | `number` |  |
+| `comments` | `integer` |  |
+| `body_html` | `string` |  |
+| `text_matches` | `array` |  |
+| `body` | `string` |  |
+| `html_url` | `string` |  |
+| `assignee` | `object` | Simple User |
+| `timeline_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

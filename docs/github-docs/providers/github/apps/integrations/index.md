@@ -30,20 +30,20 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` | Unique identifier of the GitHub app |
 | `name` | `string` | The name of the GitHub app |
 | `description` | `string` |  |
-| `webhook_secret` | `string` |  |
-| `client_id` | `string` |  |
-| `html_url` | `string` |  |
-| `slug` | `string` | The slug name of the GitHub app |
-| `updated_at` | `string` |  |
-| `installations_count` | `integer` | The number of installations associated with the GitHub app |
-| `pem` | `string` |  |
-| `client_secret` | `string` |  |
 | `owner` | `object` | Simple User |
-| `node_id` | `string` |  |
+| `pem` | `string` |  |
 | `external_url` | `string` |  |
 | `permissions` | `object` | The set of permissions for the GitHub app |
-| `events` | `array` | The list of events for the GitHub app |
+| `updated_at` | `string` |  |
 | `created_at` | `string` |  |
+| `client_secret` | `string` |  |
+| `client_id` | `string` |  |
+| `events` | `array` | The list of events for the GitHub app |
+| `html_url` | `string` |  |
+| `webhook_secret` | `string` |  |
+| `installations_count` | `integer` | The number of installations associated with the GitHub app |
+| `node_id` | `string` |  |
+| `slug` | `string` | The slug name of the GitHub app |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,19 +28,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the issue comment |
-| `body_html` | `string` |  |
-| `node_id` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
 | `created_at` | `string` |  |
-| `user` | `object` | Simple User |
-| `url` | `string` | URL for the issue comment |
-| `body_text` | `string` |  |
-| `updated_at` | `string` |  |
-| `issue_url` | `string` |  |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `reactions` | `object` |  |
 | `html_url` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `updated_at` | `string` |  |
+| `body_text` | `string` |  |
+| `body_html` | `string` |  |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `body` | `string` | Contents of the issue comment |
+| `url` | `string` | URL for the issue comment |
+| `reactions` | `object` |  |
+| `user` | `object` | Simple User |
+| `issue_url` | `string` |  |
+| `node_id` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

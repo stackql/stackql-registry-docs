@@ -30,12 +30,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `string` |
 | `name` | `object` |
 | `emails` | `array` |
+| `schemas` | `array` |
 | `externalId` | `string` |
+| `userName` | `string` |
+| `meta` | `object` |
 | `groups` | `array` |
 | `active` | `boolean` |
-| `userName` | `string` |
-| `schemas` | `array` |
-| `meta` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

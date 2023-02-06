@@ -27,10 +27,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `environments` | `array` | The list of environments that were approved or rejected |
-| `state` | `string` | Whether deployment to the environment(s) was approved or rejected |
 | `user` | `object` | Simple User |
 | `comment` | `string` | The comment submitted with the deployment review |
+| `environments` | `array` | The list of environments that were approved or rejected |
+| `state` | `string` | Whether deployment to the environment(s) was approved or rejected |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

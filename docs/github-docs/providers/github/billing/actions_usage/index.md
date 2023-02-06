@@ -27,10 +27,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `included_minutes` | `integer` | The amount of free GitHub Actions minutes available. |
 | `minutes_used_breakdown` | `object` |  |
 | `total_minutes_used` | `integer` | The sum of the free and paid GitHub Actions minutes used. |
 | `total_paid_minutes_used` | `integer` | The total paid GitHub Actions minutes used. |
+| `included_minutes` | `integer` | The amount of free GitHub Actions minutes available. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

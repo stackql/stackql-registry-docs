@@ -27,10 +27,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `count` | `integer` |
-| `path` | `string` |
 | `title` | `string` |
 | `uniques` | `integer` |
+| `count` | `integer` |
+| `path` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -25,12 +25,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `count` | `integer` |
-| `uniques` | `integer` |
-| `clones` | `array` |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_clones` | `SELECT` | `owner, repo` |
+| `get_clones` | `EXEC` | `owner, repo` |

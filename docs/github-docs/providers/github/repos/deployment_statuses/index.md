@@ -29,19 +29,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `description` | `string` | A short description of the status. |
-| `created_at` | `string` |  |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `creator` | `object` | Simple User |
-| `environment` | `string` | The environment of the deployment that the status is for. |
 | `url` | `string` |  |
-| `repository_url` | `string` |  |
-| `environment_url` | `string` | The URL for accessing your environment. |
+| `creator` | `object` | Simple User |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `log_url` | `string` | The URL to associate with this status. |
-| `target_url` | `string` | Deprecated: the URL to associate with this status. |
-| `deployment_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `node_id` | `string` |  |
 | `state` | `string` | The state of the status. |
+| `created_at` | `string` |  |
+| `environment_url` | `string` | The URL for accessing your environment. |
+| `target_url` | `string` | Deprecated: the URL to associate with this status. |
+| `node_id` | `string` |  |
+| `environment` | `string` | The environment of the deployment that the status is for. |
+| `updated_at` | `string` |  |
+| `deployment_url` | `string` |  |
+| `repository_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

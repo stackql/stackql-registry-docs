@@ -29,15 +29,15 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `integer` |
 | `name` | `string` |
-| `ping_url` | `string` |
-| `updated_at` | `string` |
-| `active` | `boolean` |
-| `type` | `string` |
-| `events` | `array` |
-| `deliveries_url` | `string` |
-| `created_at` | `string` |
-| `url` | `string` |
 | `config` | `object` |
+| `deliveries_url` | `string` |
+| `updated_at` | `string` |
+| `created_at` | `string` |
+| `active` | `boolean` |
+| `events` | `array` |
+| `type` | `string` |
+| `url` | `string` |
+| `ping_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

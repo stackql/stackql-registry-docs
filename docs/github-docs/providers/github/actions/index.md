@@ -33,7 +33,7 @@ Endpoints to manage GitHub Actions using the REST API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - actions</td></tr>
 <tr><td><b>Description</b></td><td>Endpoints to manage GitHub Actions using the REST API.</td></tr>
-<tr><td><b>Id</b></td><td><code>actions:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>actions:v23.02.00118</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -27,7 +27,6 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `duration` | `integer` |  |
 | `error` | `object` |  |
 | `pusher` | `object` | Simple User |
 | `status` | `string` |  |
@@ -35,6 +34,7 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `url` | `string` |  |
 | `commit` | `string` |  |
 | `created_at` | `string` |  |
+| `duration` | `integer` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
