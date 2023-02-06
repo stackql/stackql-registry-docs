@@ -29,17 +29,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the webhook. |
 | `name` | `string` | The name of a valid service, use 'web' for a webhook. |
-| `config` | `object` |  |
-| `deliveries_url` | `string` |  |
-| `type` | `string` |  |
-| `updated_at` | `string` |  |
-| `url` | `string` |  |
-| `events` | `array` | Determines what events the hook is triggered for. Default: ['push']. |
-| `last_response` | `object` |  |
-| `ping_url` | `string` |  |
 | `active` | `boolean` | Determines whether the hook is actually triggered on pushes. |
 | `test_url` | `string` |  |
+| `deliveries_url` | `string` |  |
 | `created_at` | `string` |  |
+| `type` | `string` |  |
+| `config` | `object` |  |
+| `updated_at` | `string` |  |
+| `last_response` | `object` |  |
+| `url` | `string` |  |
+| `ping_url` | `string` |  |
+| `events` | `array` | Determines what events the hook is triggered for. Default: ['push']. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

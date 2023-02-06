@@ -25,6 +25,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `group_id` | `string` | The ID of the group |
+| `group_name` | `string` | The name of the group |
+| `status` | `string` | synchronization status for this group mapping |
+| `synced_at` | `string` | the time of the last sync for this group-mapping |
+| `group_description` | `string` | a description of the group |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

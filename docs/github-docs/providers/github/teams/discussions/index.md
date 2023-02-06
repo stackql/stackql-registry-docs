@@ -27,24 +27,24 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `comments_url` | `string` |  |
-| `pinned` | `boolean` | Whether or not this discussion should be pinned for easy retrieval. |
-| `node_id` | `string` |  |
-| `last_edited_at` | `string` |  |
-| `number` | `integer` | The unique sequence number of a team discussion. |
 | `updated_at` | `string` |  |
-| `author` | `object` | Simple User |
-| `reactions` | `object` |  |
-| `comments_count` | `integer` |  |
 | `private` | `boolean` | Whether or not this discussion should be restricted to team members and organization administrators. |
-| `body_version` | `string` | The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server. |
-| `body_html` | `string` |  |
-| `url` | `string` |  |
-| `body` | `string` | The main text of the discussion. |
-| `team_url` | `string` |  |
-| `title` | `string` | The title of the discussion. |
+| `comments_url` | `string` |  |
 | `created_at` | `string` |  |
+| `reactions` | `object` |  |
+| `url` | `string` |  |
+| `pinned` | `boolean` | Whether or not this discussion should be pinned for easy retrieval. |
 | `html_url` | `string` |  |
+| `last_edited_at` | `string` |  |
+| `body_html` | `string` |  |
+| `body` | `string` | The main text of the discussion. |
+| `number` | `integer` | The unique sequence number of a team discussion. |
+| `node_id` | `string` |  |
+| `team_url` | `string` |  |
+| `author` | `object` | Simple User |
+| `title` | `string` | The title of the discussion. |
+| `comments_count` | `integer` |  |
+| `body_version` | `string` | The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

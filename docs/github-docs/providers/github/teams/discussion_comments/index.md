@@ -27,18 +27,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `updated_at` | `string` |  |
-| `html_url` | `string` |  |
-| `body_html` | `string` |  |
-| `created_at` | `string` |  |
-| `body_version` | `string` | The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server. |
-| `body` | `string` | The main text of the comment. |
 | `discussion_url` | `string` |  |
+| `url` | `string` |  |
+| `body` | `string` | The main text of the comment. |
+| `last_edited_at` | `string` |  |
+| `updated_at` | `string` |  |
 | `reactions` | `object` |  |
 | `author` | `object` | Simple User |
-| `url` | `string` |  |
+| `body_version` | `string` | The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server. |
+| `body_html` | `string` |  |
+| `created_at` | `string` |  |
 | `node_id` | `string` |  |
-| `last_edited_at` | `string` |  |
+| `html_url` | `string` |  |
 | `number` | `integer` | The unique sequence number of a team discussion comment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

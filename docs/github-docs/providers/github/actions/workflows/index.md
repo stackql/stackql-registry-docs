@@ -29,14 +29,14 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `integer` |
 | `name` | `string` |
-| `created_at` | `string` |
 | `deleted_at` | `string` |
-| `html_url` | `string` |
-| `updated_at` | `string` |
 | `badge_url` | `string` |
-| `path` | `string` |
+| `html_url` | `string` |
 | `url` | `string` |
+| `updated_at` | `string` |
 | `node_id` | `string` |
+| `path` | `string` |
+| `created_at` | `string` |
 | `state` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |

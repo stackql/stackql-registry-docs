@@ -30,12 +30,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` |
 | `name` | `string` |
 | `description` | `string` |
-| `text_matches` | `array` |
 | `color` | `string` |
-| `node_id` | `string` |
 | `score` | `number` |
 | `url` | `string` |
 | `default` | `boolean` |
+| `text_matches` | `array` |
+| `node_id` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

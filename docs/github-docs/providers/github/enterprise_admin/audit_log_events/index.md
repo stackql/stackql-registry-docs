@@ -28,45 +28,45 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `deploy_key_fingerprint` | `string` |  |
-| `visibility` | `string` | The repository visibility, for example `public` or `private`. |
-| `created_at` | `integer` | The time the audit log event was recorded, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time). |
-| `explanation` | `string` |  |
-| `transport_protocol` | `integer` | The type of protocol (for example, HTTP or SSH) used to transfer Git data. |
-| `events_were` | `array` |  |
-| `hook_id` | `integer` |  |
+| `action` | `string` | The name of the action that was performed, for example `user.login` or `repo.create`. |
+| `old_user` | `string` |  |
 | `fingerprint` | `string` |  |
-| `repository` | `string` | The name of the repository. |
-| `openssh_public_key` | `string` |  |
-| `org` | `string` |  |
-| `active_was` | `boolean` |  |
-| `message` | `string` |  |
-| `emoji` | `string` |  |
-| `target_login` | `string` |  |
-| `content_type` | `string` |  |
-| `config` | `array` |  |
 | `business` | `string` |  |
-| `_document_id` | `string` | A unique identifier for an audit event. |
+| `config_was` | `array` |  |
 | `previous_visibility` | `string` |  |
 | `repository_public` | `boolean` |  |
-| `data` | `object` |  |
-| `actor_location` | `object` |  |
-| `repo` | `string` | The name of the repository. |
-| `@timestamp` | `integer` | The time the audit log event occurred, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time). |
-| `active` | `boolean` |  |
-| `events` | `array` |  |
-| `team` | `string` |  |
-| `old_user` | `string` |  |
-| `limited_availability` | `boolean` |  |
-| `read_only` | `boolean` |  |
 | `actor_id` | `integer` | The id of the actor who performed the action. |
-| `action` | `string` | The name of the action that was performed, for example `user.login` or `repo.create`. |
-| `blocked_user` | `string` | The username of the account being blocked. |
-| `transport_protocol_name` | `string` | A human readable name for the protocol (for example, HTTP or SSH) used to transfer Git data. |
-| `user` | `string` | The user that was affected by the action performed (if available). |
-| `org_id` | `integer` |  |
-| `config_was` | `array` |  |
+| `explanation` | `string` |  |
 | `actor` | `string` | The actor who performed the action. |
+| `blocked_user` | `string` | The username of the account being blocked. |
+| `content_type` | `string` |  |
+| `active` | `boolean` |  |
+| `message` | `string` |  |
+| `repo` | `string` | The name of the repository. |
+| `read_only` | `boolean` |  |
+| `org_id` | `integer` |  |
+| `limited_availability` | `boolean` |  |
+| `org` | `string` |  |
+| `target_login` | `string` |  |
+| `actor_location` | `object` |  |
+| `events_were` | `array` |  |
+| `visibility` | `string` | The repository visibility, for example `public` or `private`. |
+| `user` | `string` | The user that was affected by the action performed (if available). |
+| `hook_id` | `integer` |  |
+| `openssh_public_key` | `string` |  |
+| `team` | `string` |  |
+| `config` | `array` |  |
+| `emoji` | `string` |  |
+| `events` | `array` |  |
+| `created_at` | `integer` | The time the audit log event was recorded, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time). |
+| `deploy_key_fingerprint` | `string` |  |
+| `transport_protocol` | `integer` | The type of protocol (for example, HTTP or SSH) used to transfer Git data. |
+| `repository` | `string` | The name of the repository. |
+| `transport_protocol_name` | `string` | A human readable name for the protocol (for example, HTTP or SSH) used to transfer Git data. |
+| `active_was` | `boolean` |  |
+| `@timestamp` | `integer` | The time the audit log event occurred, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time). |
+| `data` | `object` |  |
+| `_document_id` | `string` | A unique identifier for an audit event. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

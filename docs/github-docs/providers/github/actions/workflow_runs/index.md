@@ -29,35 +29,35 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the workflow run. |
 | `name` | `string` | The name of the workflow run. |
-| `status` | `string` |  |
-| `head_branch` | `string` |  |
-| `head_sha` | `string` | The SHA of the head commit that points to the version of the worflow being run. |
-| `created_at` | `string` |  |
-| `check_suite_id` | `integer` | The ID of the associated check suite. |
-| `workflow_id` | `integer` | The ID of the parent workflow. |
-| `check_suite_url` | `string` | The URL to the associated check suite. |
-| `pull_requests` | `array` |  |
-| `previous_attempt_url` | `string` | The URL to the previous attempted run of this workflow, if one exists. |
-| `artifacts_url` | `string` | The URL to the artifacts for the workflow run. |
-| `html_url` | `string` |  |
-| `run_started_at` | `string` | The start time of the latest run. Resets on re-run. |
-| `workflow_url` | `string` | The URL to the workflow. |
-| `check_suite_node_id` | `string` | The node ID of the associated check suite. |
-| `run_number` | `integer` | The auto incrementing run number for the workflow run. |
 | `updated_at` | `string` |  |
-| `conclusion` | `string` |  |
-| `jobs_url` | `string` | The URL to the jobs for the workflow run. |
-| `url` | `string` | The URL to the workflow run. |
-| `head_commit` | `object` | Simple Commit |
-| `node_id` | `string` |  |
-| `head_repository_id` | `integer` |  |
-| `cancel_url` | `string` | The URL to cancel the workflow run. |
-| `rerun_url` | `string` | The URL to rerun the workflow run. |
-| `logs_url` | `string` | The URL to download the logs for the workflow run. |
-| `run_attempt` | `integer` | Attempt number of the run, 1 for first attempt and higher if the workflow was re-run. |
 | `head_repository` | `object` | Minimal Repository |
+| `jobs_url` | `string` | The URL to the jobs for the workflow run. |
+| `logs_url` | `string` | The URL to download the logs for the workflow run. |
+| `workflow_id` | `integer` | The ID of the parent workflow. |
+| `run_started_at` | `string` | The start time of the latest run. Resets on re-run. |
+| `node_id` | `string` |  |
+| `head_commit` | `object` | Simple Commit |
+| `check_suite_id` | `integer` | The ID of the associated check suite. |
+| `cancel_url` | `string` | The URL to cancel the workflow run. |
+| `run_attempt` | `integer` | Attempt number of the run, 1 for first attempt and higher if the workflow was re-run. |
+| `head_repository_id` | `integer` |  |
+| `html_url` | `string` |  |
+| `artifacts_url` | `string` | The URL to the artifacts for the workflow run. |
+| `head_sha` | `string` | The SHA of the head commit that points to the version of the worflow being run. |
+| `head_branch` | `string` |  |
+| `workflow_url` | `string` | The URL to the workflow. |
+| `previous_attempt_url` | `string` | The URL to the previous attempted run of this workflow, if one exists. |
+| `pull_requests` | `array` |  |
+| `status` | `string` |  |
+| `rerun_url` | `string` | The URL to rerun the workflow run. |
+| `url` | `string` | The URL to the workflow run. |
+| `conclusion` | `string` |  |
 | `repository` | `object` | Minimal Repository |
+| `check_suite_url` | `string` | The URL to the associated check suite. |
+| `created_at` | `string` |  |
+| `check_suite_node_id` | `string` | The node ID of the associated check suite. |
 | `event` | `string` |  |
+| `run_number` | `integer` | The auto incrementing run number for the workflow run. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

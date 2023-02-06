@@ -29,14 +29,14 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` | The name of the artifact. |
-| `node_id` | `string` |  |
-| `archive_download_url` | `string` |  |
-| `size_in_bytes` | `integer` | The size in bytes of the artifact. |
-| `expired` | `boolean` | Whether or not the artifact has expired. |
 | `updated_at` | `string` |  |
+| `node_id` | `string` |  |
 | `url` | `string` |  |
-| `expires_at` | `string` |  |
+| `size_in_bytes` | `integer` | The size in bytes of the artifact. |
 | `created_at` | `string` |  |
+| `expires_at` | `string` |  |
+| `expired` | `boolean` | Whether or not the artifact has expired. |
+| `archive_download_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

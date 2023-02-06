@@ -28,22 +28,22 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `exclude` | `array` |  |
-| `lock_repositories` | `boolean` |  |
-| `updated_at` | `string` |  |
-| `archive_url` | `string` |  |
-| `exclude_metadata` | `boolean` |  |
-| `exclude_releases` | `boolean` |  |
-| `exclude_attachments` | `boolean` |  |
+| `created_at` | `string` |  |
+| `node_id` | `string` |  |
 | `exclude_git_data` | `boolean` |  |
+| `updated_at` | `string` |  |
+| `url` | `string` |  |
+| `exclude_metadata` | `boolean` |  |
+| `guid` | `string` |  |
+| `lock_repositories` | `boolean` |  |
 | `repositories` | `array` |  |
 | `state` | `string` |  |
-| `owner` | `object` | Simple User |
-| `url` | `string` |  |
+| `exclude_releases` | `boolean` |  |
+| `exclude` | `array` |  |
+| `exclude_attachments` | `boolean` |  |
 | `exclude_owner_projects` | `boolean` |  |
-| `node_id` | `string` |  |
-| `guid` | `string` |  |
-| `created_at` | `string` |  |
+| `archive_url` | `string` |  |
+| `owner` | `object` | Simple User |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

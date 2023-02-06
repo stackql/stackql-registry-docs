@@ -33,7 +33,7 @@ Render GitHub flavored markdown
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - markdown</td></tr>
 <tr><td><b>Description</b></td><td>Render GitHub flavored markdown</td></tr>
-<tr><td><b>Id</b></td><td><code>markdown:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>markdown:v23.02.00118</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -25,10 +25,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `total_count` | `integer` |
-| `labels` | `array` |
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `integer` | Unique identifier of the label. |
+| `name` | `string` | Name of the label. |
+| `type` | `string` | The type of label. Read-only labels are applied automatically when the runner is configured. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

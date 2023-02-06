@@ -28,41 +28,41 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `html_url` | `string` |  |
-| `closed_at` | `string` |  |
-| `node_id` | `string` |  |
-| `issue_url` | `string` |  |
-| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
-| `milestone` | `object` | A collection of related issues and pull requests. |
-| `_links` | `object` |  |
-| `assignees` | `array` |  |
-| `base` | `object` |  |
+| `diff_url` | `string` |  |
 | `number` | `integer` |  |
-| `statuses_url` | `string` |  |
-| `title` | `string` |  |
-| `head` | `object` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `merged_at` | `string` |  |
-| `updated_at` | `string` |  |
-| `labels` | `array` |  |
-| `body` | `string` |  |
-| `commits_url` | `string` |  |
-| `state` | `string` |  |
 | `patch_url` | `string` |  |
-| `comments_url` | `string` |  |
-| `user` | `object` | Simple User |
-| `auto_merge` | `object` | The status of auto merging a pull request. |
-| `created_at` | `string` |  |
 | `assignee` | `object` | Simple User |
 | `review_comment_url` | `string` |  |
-| `merge_commit_sha` | `string` |  |
+| `closed_at` | `string` |  |
 | `url` | `string` |  |
-| `review_comments_url` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `diff_url` | `string` |  |
-| `requested_reviewers` | `array` |  |
-| `requested_teams` | `array` |  |
+| `merged_at` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `node_id` | `string` |  |
 | `locked` | `boolean` |  |
+| `updated_at` | `string` |  |
+| `review_comments_url` | `string` |  |
+| `user` | `object` | Simple User |
+| `head` | `object` |  |
+| `requested_reviewers` | `array` |  |
+| `merge_commit_sha` | `string` |  |
+| `state` | `string` |  |
+| `labels` | `array` |  |
+| `_links` | `object` |  |
+| `body` | `string` |  |
+| `comments_url` | `string` |  |
+| `base` | `object` |  |
+| `requested_teams` | `array` |  |
+| `auto_merge` | `object` | The status of auto merging a pull request. |
+| `commits_url` | `string` |  |
+| `issue_url` | `string` |  |
+| `created_at` | `string` |  |
+| `active_lock_reason` | `string` |  |
+| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
+| `assignees` | `array` |  |
+| `title` | `string` |  |
+| `statuses_url` | `string` |  |
+| `html_url` | `string` |  |
+| `milestone` | `object` | A collection of related issues and pull requests. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

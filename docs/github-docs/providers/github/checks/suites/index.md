@@ -28,24 +28,24 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `node_id` | `string` |  |
-| `rerequestable` | `boolean` |  |
-| `created_at` | `string` |  |
-| `head_branch` | `string` |  |
 | `before` | `string` |  |
-| `repository` | `object` | Minimal Repository |
-| `status` | `string` |  |
-| `after` | `string` |  |
-| `pull_requests` | `array` |  |
+| `created_at` | `string` |  |
+| `runs_rerequestable` | `boolean` |  |
+| `node_id` | `string` |  |
 | `updated_at` | `string` |  |
-| `latest_check_runs_count` | `integer` |  |
+| `after` | `string` |  |
+| `rerequestable` | `boolean` |  |
+| `url` | `string` |  |
+| `head_commit` | `object` | Simple Commit |
+| `head_branch` | `string` |  |
+| `status` | `string` |  |
+| `conclusion` | `string` |  |
+| `pull_requests` | `array` |  |
+| `repository` | `object` | Minimal Repository |
 | `check_runs_url` | `string` |  |
 | `head_sha` | `string` | The SHA of the head commit that is being checked. |
-| `head_commit` | `object` | Simple Commit |
-| `runs_rerequestable` | `boolean` |  |
-| `conclusion` | `string` |  |
-| `url` | `string` |  |
+| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `latest_check_runs_count` | `integer` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,11 +27,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `user` | `object` | Simple User |
+| `version` | `string` |  |
 | `change_status` | `object` |  |
 | `committed_at` | `string` |  |
 | `url` | `string` |  |
-| `user` | `object` | Simple User |
-| `version` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

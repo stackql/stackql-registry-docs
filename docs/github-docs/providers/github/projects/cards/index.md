@@ -30,16 +30,16 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` | The project card's ID |
 | `node_id` | `string` |  |
 | `column_url` | `string` |  |
+| `updated_at` | `string` |  |
 | `creator` | `object` | Simple User |
-| `url` | `string` |  |
-| `content_url` | `string` |  |
 | `project_id` | `string` |  |
 | `created_at` | `string` |  |
-| `project_url` | `string` |  |
 | `column_name` | `string` |  |
-| `archived` | `boolean` | Whether or not the card is archived |
-| `updated_at` | `string` |  |
 | `note` | `string` |  |
+| `url` | `string` |  |
+| `project_url` | `string` |  |
+| `archived` | `boolean` | Whether or not the card is archived |
+| `content_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -30,93 +30,93 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` | Unique identifier of the repository |
 | `name` | `string` | The name of the repository. |
 | `description` | `string` |  |
-| `pulls_url` | `string` |  |
-| `topics` | `array` |  |
-| `has_pages` | `boolean` |  |
-| `branches_url` | `string` |  |
-| `open_issues_count` | `integer` |  |
-| `allow_forking` | `boolean` | Whether to allow forking this repo |
-| `clone_url` | `string` |  |
-| `keys_url` | `string` |  |
-| `mirror_url` | `string` |  |
-| `trees_url` | `string` |  |
-| `has_projects` | `boolean` | Whether projects are enabled. |
-| `full_name` | `string` |  |
-| `delete_branch_on_merge` | `boolean` | Whether to delete head branches when pull requests are merged |
-| `merges_url` | `string` |  |
-| `notifications_url` | `string` |  |
-| `forks_count` | `integer` |  |
-| `default_branch` | `string` | The default branch of the repository. |
-| `node_id` | `string` |  |
-| `archived` | `boolean` | Whether the repository is archived. |
-| `contributors_url` | `string` |  |
-| `comments_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `git_refs_url` | `string` |  |
-| `homepage` | `string` |  |
-| `assignees_url` | `string` |  |
-| `languages_url` | `string` |  |
-| `network_count` | `integer` |  |
-| `stargazers_url` | `string` |  |
-| `has_issues` | `boolean` | Whether issues are enabled. |
-| `starred_at` | `string` |  |
-| `subscription_url` | `string` |  |
-| `disabled` | `boolean` | Returns whether or not this repository disabled. |
-| `ssh_url` | `string` |  |
-| `archive_url` | `string` |  |
-| `allow_squash_merge` | `boolean` | Whether to allow squash merges for pull requests. |
-| `watchers_count` | `integer` |  |
-| `license` | `object` | License Simple |
-| `issue_comment_url` | `string` |  |
-| `labels_url` | `string` |  |
-| `tags_url` | `string` |  |
-| `hooks_url` | `string` |  |
-| `downloads_url` | `string` |  |
-| `git_commits_url` | `string` |  |
-| `private` | `boolean` | Whether the repository is private or public. |
-| `issue_events_url` | `string` |  |
-| `temp_clone_token` | `string` |  |
-| `collaborators_url` | `string` |  |
-| `html_url` | `string` |  |
-| `url` | `string` |  |
-| `allow_rebase_merge` | `boolean` | Whether to allow rebase merges for pull requests. |
-| `is_template` | `boolean` | Whether this repository acts as a template that can be used to generate new repositories. |
-| `milestones_url` | `string` |  |
-| `fork` | `boolean` |  |
-| `organization` | `object` | Simple User |
-| `owner` | `object` | Simple User |
-| `permissions` | `object` |  |
-| `statuses_url` | `string` |  |
-| `git_tags_url` | `string` |  |
-| `stargazers_count` | `integer` |  |
-| `language` | `string` |  |
-| `compare_url` | `string` |  |
-| `deployments_url` | `string` |  |
-| `issues_url` | `string` |  |
-| `subscribers_url` | `string` |  |
-| `template_repository` | `object` |  |
-| `svn_url` | `string` |  |
-| `allow_merge_commit` | `boolean` | Whether to allow merge commits for pull requests. |
-| `pushed_at` | `string` |  |
-| `events_url` | `string` |  |
-| `created_at` | `string` |  |
-| `subscribers_count` | `integer` |  |
-| `commits_url` | `string` |  |
-| `teams_url` | `string` |  |
-| `forks` | `integer` |  |
-| `forks_url` | `string` |  |
-| `blobs_url` | `string` |  |
-| `open_issues` | `integer` |  |
-| `allow_auto_merge` | `boolean` | Whether to allow Auto-merge to be used on pull requests. |
-| `releases_url` | `string` |  |
 | `size` | `integer` |  |
-| `master_branch` | `string` |  |
-| `contents_url` | `string` |  |
-| `git_url` | `string` |  |
-| `watchers` | `integer` |  |
-| `visibility` | `string` | The repository visibility: public, private, or internal. |
+| `subscribers_count` | `integer` |  |
+| `html_url` | `string` |  |
+| `subscription_url` | `string` |  |
+| `stargazers_count` | `integer` |  |
+| `issues_url` | `string` |  |
+| `has_issues` | `boolean` | Whether issues are enabled. |
+| `notifications_url` | `string` |  |
+| `fork` | `boolean` |  |
+| `blobs_url` | `string` |  |
+| `full_name` | `string` |  |
+| `compare_url` | `string` |  |
+| `ssh_url` | `string` |  |
+| `subscribers_url` | `string` |  |
+| `url` | `string` |  |
+| `stargazers_url` | `string` |  |
 | `has_wiki` | `boolean` | Whether the wiki is enabled. |
+| `visibility` | `string` | The repository visibility: public, private, or internal. |
+| `statuses_url` | `string` |  |
+| `collaborators_url` | `string` |  |
+| `merges_url` | `string` |  |
+| `commits_url` | `string` |  |
+| `license` | `object` | License Simple |
+| `network_count` | `integer` |  |
+| `git_commits_url` | `string` |  |
+| `comments_url` | `string` |  |
+| `deployments_url` | `string` |  |
+| `git_url` | `string` |  |
+| `languages_url` | `string` |  |
+| `disabled` | `boolean` | Returns whether or not this repository disabled. |
+| `git_refs_url` | `string` |  |
+| `trees_url` | `string` |  |
+| `events_url` | `string` |  |
+| `forks_count` | `integer` |  |
+| `keys_url` | `string` |  |
+| `has_projects` | `boolean` | Whether projects are enabled. |
+| `language` | `string` |  |
+| `default_branch` | `string` | The default branch of the repository. |
+| `archive_url` | `string` |  |
+| `issue_events_url` | `string` |  |
+| `releases_url` | `string` |  |
+| `tags_url` | `string` |  |
+| `has_pages` | `boolean` |  |
+| `created_at` | `string` |  |
+| `svn_url` | `string` |  |
+| `temp_clone_token` | `string` |  |
+| `permissions` | `object` |  |
+| `allow_forking` | `boolean` | Whether to allow forking this repo |
+| `node_id` | `string` |  |
+| `milestones_url` | `string` |  |
+| `owner` | `object` | Simple User |
+| `contributors_url` | `string` |  |
+| `pushed_at` | `string` |  |
+| `hooks_url` | `string` |  |
+| `git_tags_url` | `string` |  |
+| `archived` | `boolean` | Whether the repository is archived. |
+| `clone_url` | `string` |  |
+| `template_repository` | `object` |  |
+| `updated_at` | `string` |  |
+| `organization` | `object` | Simple User |
+| `watchers` | `integer` |  |
+| `mirror_url` | `string` |  |
+| `is_template` | `boolean` | Whether this repository acts as a template that can be used to generate new repositories. |
+| `delete_branch_on_merge` | `boolean` | Whether to delete head branches when pull requests are merged |
+| `topics` | `array` |  |
+| `watchers_count` | `integer` |  |
+| `teams_url` | `string` |  |
+| `open_issues` | `integer` |  |
+| `forks_url` | `string` |  |
+| `allow_auto_merge` | `boolean` | Whether to allow Auto-merge to be used on pull requests. |
+| `private` | `boolean` | Whether the repository is private or public. |
+| `assignees_url` | `string` |  |
 | `has_downloads` | `boolean` | Whether downloads are enabled. |
+| `allow_rebase_merge` | `boolean` | Whether to allow rebase merges for pull requests. |
+| `forks` | `integer` |  |
+| `issue_comment_url` | `string` |  |
+| `allow_squash_merge` | `boolean` | Whether to allow squash merges for pull requests. |
+| `downloads_url` | `string` |  |
+| `homepage` | `string` |  |
+| `contents_url` | `string` |  |
+| `allow_merge_commit` | `boolean` | Whether to allow merge commits for pull requests. |
+| `starred_at` | `string` |  |
+| `branches_url` | `string` |  |
+| `pulls_url` | `string` |  |
+| `master_branch` | `string` |  |
+| `open_issues_count` | `integer` |  |
+| `labels_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

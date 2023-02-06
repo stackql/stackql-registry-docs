@@ -19,9 +19,9 @@ Interact with GitHub Repos.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>55</b></span><br />
+<span>total resources:&nbsp;<b>57</b></span><br />
 <span>total selectable resources:&nbsp;<b>53</b></span><br />
-<span>total methods:&nbsp;<b>160</b></span><br />
+<span>total methods:&nbsp;<b>162</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Interact with GitHub Repos.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - repos</td></tr>
 <tr><td><b>Description</b></td><td>Interact with GitHub Repos.</td></tr>
-<tr><td><b>Id</b></td><td><code>repos:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>repos:v23.02.00118</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -46,6 +46,7 @@ Interact with GitHub Repos.
 <a href="/providers/github/repos/branch_protection/">branch_protection</a><br />
 <a href="/providers/github/repos/branches/">branches</a><br />
 <a href="/providers/github/repos/clone_traffic/">clone_traffic</a><br />
+<a href="/providers/github/repos/clones/">clones</a><br />
 <a href="/providers/github/repos/collaborator_permission_levels/">collaborator_permission_levels</a><br />
 <a href="/providers/github/repos/collaborators/">collaborators</a><br />
 <a href="/providers/github/repos/combined_statuses/">combined_statuses</a><br />
@@ -93,6 +94,7 @@ Interact with GitHub Repos.
 <a href="/providers/github/repos/topics/">topics</a><br />
 <a href="/providers/github/repos/traffic/">traffic</a><br />
 <a href="/providers/github/repos/user_access/">user_access</a><br />
+<a href="/providers/github/repos/views/">views</a><br />
 <a href="/providers/github/repos/webhook_config/">webhook_config</a><br />
 <a href="/providers/github/repos/webhook_deliveries/">webhook_deliveries</a><br />
 <a href="/providers/github/repos/webhooks/">webhooks</a><br />

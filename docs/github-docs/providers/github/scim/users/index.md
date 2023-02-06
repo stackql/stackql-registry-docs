@@ -29,16 +29,16 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier of an external identity |
 | `name` | `object` |  |
-| `userName` | `string` | Configured by the admin. Could be an email, login, or username |
-| `active` | `boolean` | The active status of the User. |
-| `meta` | `object` |  |
 | `organization_id` | `integer` | The ID of the organization. |
+| `userName` | `string` | Configured by the admin. Could be an email, login, or username |
 | `schemas` | `array` | SCIM schema used. |
 | `displayName` | `string` | The name of the user, suitable for display to end-users |
-| `externalId` | `string` | The ID of the User. |
+| `meta` | `object` |  |
 | `groups` | `array` | associated groups |
-| `emails` | `array` | user emails |
 | `operations` | `array` | Set of operations to be performed |
+| `emails` | `array` | user emails |
+| `active` | `boolean` | The active status of the User. |
+| `externalId` | `string` | The ID of the User. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

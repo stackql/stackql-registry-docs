@@ -33,7 +33,7 @@ Interact with reactions to various GitHub entities.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - reactions</td></tr>
 <tr><td><b>Description</b></td><td>Interact with reactions to various GitHub entities.</td></tr>
-<tr><td><b>Id</b></td><td><code>reactions:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>reactions:v23.02.00118</code></td></tr>
 </tbody></table>
 
 ## Resources

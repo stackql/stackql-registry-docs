@@ -27,9 +27,9 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `author` | `object` | Simple User |
 | `total` | `integer` |  |
 | `weeks` | `array` |  |
-| `author` | `object` | Simple User |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -28,33 +28,33 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the pull request review comment. |
-| `_links` | `object` |  |
-| `pull_request_url` | `string` | URL for the pull request that the review comment belongs to. |
-| `original_commit_id` | `string` | The SHA of the original commit to which the comment applies. |
-| `position` | `integer` | The line index in the diff to which the comment applies. |
-| `commit_id` | `string` | The SHA of the commit to which the comment applies. |
-| `body` | `string` | The text of the comment. |
-| `pull_request_review_id` | `integer` | The ID of the pull request review to which the comment belongs. |
-| `reactions` | `object` |  |
-| `body_text` | `string` |  |
-| `body_html` | `string` |  |
-| `side` | `string` | The side of the diff to which the comment applies. The side of the last line of the range for a multi-line comment |
-| `original_start_line` | `integer` | The first line of the range for a multi-line comment. |
-| `updated_at` | `string` |  |
-| `line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
-| `diff_hunk` | `string` | The diff of the line that the comment refers to. |
-| `url` | `string` | URL for the pull request review comment |
-| `created_at` | `string` |  |
-| `node_id` | `string` | The node ID of the pull request review comment. |
-| `html_url` | `string` | HTML URL for the pull request review comment. |
-| `user` | `object` | Simple User |
-| `start_line` | `integer` | The first line of the range for a multi-line comment. |
 | `author_association` | `string` | How the author is associated with the repository. |
-| `original_position` | `integer` | The index of the original line in the diff to which the comment applies. |
 | `in_reply_to_id` | `integer` | The comment ID to reply to. |
-| `original_line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
+| `node_id` | `string` | The node ID of the pull request review comment. |
+| `original_start_line` | `integer` | The first line of the range for a multi-line comment. |
+| `start_line` | `integer` | The first line of the range for a multi-line comment. |
+| `position` | `integer` | The line index in the diff to which the comment applies. |
+| `user` | `object` | Simple User |
+| `pull_request_review_id` | `integer` | The ID of the pull request review to which the comment belongs. |
+| `body_html` | `string` |  |
+| `commit_id` | `string` | The SHA of the commit to which the comment applies. |
+| `created_at` | `string` |  |
+| `body_text` | `string` |  |
+| `pull_request_url` | `string` | URL for the pull request that the review comment belongs to. |
+| `updated_at` | `string` |  |
+| `_links` | `object` |  |
+| `original_commit_id` | `string` | The SHA of the original commit to which the comment applies. |
+| `html_url` | `string` | HTML URL for the pull request review comment. |
+| `url` | `string` | URL for the pull request review comment |
 | `start_side` | `string` | The side of the first line of the range for a multi-line comment. |
+| `original_position` | `integer` | The index of the original line in the diff to which the comment applies. |
+| `diff_hunk` | `string` | The diff of the line that the comment refers to. |
+| `body` | `string` | The text of the comment. |
+| `line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
 | `path` | `string` | The relative path of the file to which the comment applies. |
+| `original_line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
+| `reactions` | `object` |  |
+| `side` | `string` | The side of the diff to which the comment applies. The side of the last line of the range for a multi-line comment |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

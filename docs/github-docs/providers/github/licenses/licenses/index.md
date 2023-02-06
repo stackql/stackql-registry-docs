@@ -29,17 +29,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `name` | `string` |
 | `description` | `string` |
-| `spdx_id` | `string` |
-| `limitations` | `array` |
-| `body` | `string` |
-| `url` | `string` |
-| `permissions` | `array` |
-| `conditions` | `array` |
-| `html_url` | `string` |
 | `key` | `string` |
-| `node_id` | `string` |
+| `url` | `string` |
+| `conditions` | `array` |
+| `permissions` | `array` |
+| `spdx_id` | `string` |
 | `implementation` | `string` |
+| `body` | `string` |
 | `featured` | `boolean` |
+| `limitations` | `array` |
+| `html_url` | `string` |
+| `node_id` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

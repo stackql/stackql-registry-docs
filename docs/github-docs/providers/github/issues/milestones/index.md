@@ -29,20 +29,20 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `description` | `string` |  |
-| `node_id` | `string` |  |
-| `url` | `string` |  |
+| `closed_issues` | `integer` |  |
+| `number` | `integer` | The number of the milestone. |
+| `html_url` | `string` |  |
+| `due_on` | `string` |  |
+| `labels_url` | `string` |  |
+| `state` | `string` | The state of the milestone. |
+| `title` | `string` | The title of the milestone. |
 | `creator` | `object` | Simple User |
 | `closed_at` | `string` |  |
-| `state` | `string` | The state of the milestone. |
-| `updated_at` | `string` |  |
 | `created_at` | `string` |  |
-| `closed_issues` | `integer` |  |
-| `html_url` | `string` |  |
-| `title` | `string` | The title of the milestone. |
-| `number` | `integer` | The number of the milestone. |
-| `due_on` | `string` |  |
+| `updated_at` | `string` |  |
+| `url` | `string` |  |
 | `open_issues` | `integer` |  |
-| `labels_url` | `string` |  |
+| `node_id` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

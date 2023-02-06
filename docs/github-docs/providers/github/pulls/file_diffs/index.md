@@ -27,17 +27,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `status` | `string` |
-| `filename` | `string` |
-| `previous_filename` | `string` |
-| `raw_url` | `string` |
-| `sha` | `string` |
-| `additions` | `integer` |
-| `deletions` | `integer` |
-| `blob_url` | `string` |
 | `changes` | `integer` |
+| `previous_filename` | `string` |
+| `sha` | `string` |
+| `deletions` | `integer` |
+| `filename` | `string` |
+| `blob_url` | `string` |
 | `contents_url` | `string` |
+| `status` | `string` |
 | `patch` | `string` |
+| `raw_url` | `string` |
+| `additions` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

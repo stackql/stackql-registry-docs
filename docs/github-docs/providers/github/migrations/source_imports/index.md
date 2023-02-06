@@ -27,29 +27,29 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `svn_root` | `string` |  |
+| `url` | `string` |  |
+| `authors_url` | `string` |  |
+| `commit_count` | `integer` |  |
+| `has_large_files` | `boolean` |  |
+| `authors_count` | `integer` |  |
+| `push_percent` | `integer` |  |
+| `message` | `string` |  |
 | `large_files_size` | `integer` |  |
-| `vcs` | `string` |  |
-| `tfvc_project` | `string` |  |
+| `import_percent` | `integer` |  |
+| `vcs_url` | `string` | The URL of the originating repository. |
+| `use_lfs` | `boolean` |  |
 | `repository_url` | `string` |  |
+| `error_message` | `string` |  |
+| `failed_step` | `string` |  |
 | `html_url` | `string` |  |
 | `svc_root` | `string` |  |
-| `failed_step` | `string` |  |
-| `commit_count` | `integer` |  |
 | `status` | `string` |  |
-| `push_percent` | `integer` |  |
-| `url` | `string` |  |
-| `authors_count` | `integer` |  |
-| `status_text` | `string` |  |
-| `error_message` | `string` |  |
+| `tfvc_project` | `string` |  |
+| `svn_root` | `string` |  |
 | `project_choices` | `array` |  |
+| `status_text` | `string` |  |
 | `large_files_count` | `integer` |  |
-| `has_large_files` | `boolean` |  |
-| `import_percent` | `integer` |  |
-| `use_lfs` | `boolean` |  |
-| `vcs_url` | `string` | The URL of the originating repository. |
-| `authors_url` | `string` |  |
-| `message` | `string` |  |
+| `vcs` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
