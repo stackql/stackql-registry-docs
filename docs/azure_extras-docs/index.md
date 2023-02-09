@@ -48,8 +48,7 @@ REGISTRY PULL azure_extras v23.01.00104;
 
 {
   "azure_extras": {
-    "type": string, // authentication type to use, suported values include: bearer
-    "credentialsenvvar": string, // env var name containing the access token
+    "type": "azure_default",
   }
 }
 
@@ -57,17 +56,16 @@ REGISTRY PULL azure_extras v23.01.00104;
 ### Example (Mac/Linux)
 ```bash
 
-AZ_ACCESS_TOKEN_RAW=$(az account get-access-token --query accessToken --output tsv)
-export AZ_ACCESS_TOKEN=`echo $AZ_ACCESS_TOKEN_RAW | tr -d '\r'`
-AUTH='{ "azure_extras": { "type": "bearer", "credentialsenvvar": "AZ_ACCESS_TOKEN" } }'
+az login
+AUTH='{ "azure_extras": { "type": "azure_default" } }'
 stackql shell --auth="${AUTH}"
 
 ```
 ### Example (PowerShell)
 ```powershell
 
-$Env:AZ_ACCESS_TOKEN = "$(az account get-access-token --query accessToken --output tsv)".Trim("`r")
-$Auth = "{ 'azure_extras': { 'type': 'bearer', 'credentialsenvvar': 'AZ_ACCESS_TOKEN' } }"
+az login
+$Auth = "{ 'azure_extras': { 'type': 'azure_default' } }"
 stackql.exe shell --auth=$Auth
 
 ```
