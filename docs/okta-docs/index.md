@@ -49,6 +49,7 @@ REGISTRY PULL okta v23.01.00104;
   "okta": {
     "type": string, // authentication type to use, suported values: api_key
     "credentialsenvvar": string, // env var name containing the api key
+    "valuePrefix": string, // authorization prefix, suported values: "SSWS "
   }
 }
 
@@ -57,7 +58,7 @@ REGISTRY PULL okta v23.01.00104;
 ```bash
 
 OKTA_SECRET_KEY=yourapikey
-AUTH='{ "okta": { "type": "api_key",  "credentialsenvvar": "OKTA_SECRET_KEY" }}'
+AUTH='{ "okta": { "type": "api_key",  "credentialsenvvar": "OKTA_SECRET_KEY", "valuePrefix": "SSWS " }}'
 stackql shell --auth="${AUTH}"
 
 ```
@@ -65,7 +66,7 @@ stackql shell --auth="${AUTH}"
 ```powershell
 
 $env:OKTA_SECRET_KEY = "yourapikey"
-$Auth = "{ 'okta': { 'type': 'api_key',  'credentialsenvvar': 'OKTA_SECRET_KEY' }}"
+$Auth = "{ 'okta': { 'type': 'api_key',  'credentialsenvvar': 'OKTA_SECRET_KEY', 'valuePrefix': 'SSWS ' }}"
 stackql.exe shell --auth=$Auth
 
 ```
