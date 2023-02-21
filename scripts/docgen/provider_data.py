@@ -377,7 +377,7 @@ stackql.exe shell --auth=$Auth
 {
   "aws": {
     "type": string, // authentication type to use, suported values:  aws_signing_v4
-    "keyID": string, // AWS_ACCESS_KEY_ID or expanded env var
+    "keyIDenvvar": string, // env var containing AWS_ACCESS_KEY_ID
     "credentialsenvvar": string, // env var containing AWS_SECRET_ACCESS_KEY
   }
 }
@@ -385,12 +385,12 @@ stackql.exe shell --auth=$Auth
     'example': {
         'linux':
 """
-AUTH="{ \"aws\": { \"type\": \"aws_signing_v4\", \"credentialsenvvar\": \"AWS_SECRET_ACCESS_KEY\", \"keyID\": \"${AWS_ACCESS_KEY_ID}\" }}"
+AUTH="{ \"aws\": { \"type\": \"aws_signing_v4\", \"credentialsenvvar\": \"AWS_SECRET_ACCESS_KEY\", \"keyIDenvvar\": \"AWS_ACCESS_KEY_ID\" }}"
 stackql shell --auth="${AUTH}"
 """,
         'windows':  
 """
-$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'credentialsenvvar': 'AWS_SECRET_ACCESS_KEY', 'keyID': '$Env.AWS_ACCESS_KEY_ID' }}"
+$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'credentialsenvvar': 'AWS_SECRET_ACCESS_KEY', 'keyIDenvvar': 'AWS_ACCESS_KEY_ID' }}"
 stackql.exe shell --auth=$Auth
 """
     }

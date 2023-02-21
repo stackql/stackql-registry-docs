@@ -48,7 +48,7 @@ REGISTRY PULL aws v23.01.00108;
 {
   "aws": {
     "type": string, // authentication type to use, suported values:  aws_signing_v4
-    "keyID": string, // AWS_ACCESS_KEY_ID or expanded env var
+    "keyIDenvvar": string, // env var containing AWS_ACCESS_KEY_ID
     "credentialsenvvar": string, // env var containing AWS_SECRET_ACCESS_KEY
   }
 }
@@ -57,14 +57,14 @@ REGISTRY PULL aws v23.01.00108;
 ### Example (Mac/Linux)
 ```bash
 
-AUTH="{ "aws": { "type": "aws_signing_v4", "credentialsenvvar": "AWS_SECRET_ACCESS_KEY", "keyID": "${AWS_ACCESS_KEY_ID}" }}"
+AUTH="{ "aws": { "type": "aws_signing_v4", "credentialsenvvar": "AWS_SECRET_ACCESS_KEY", "keyIDenvvar": "AWS_ACCESS_KEY_ID" }}"
 stackql shell --auth="${AUTH}"
 
 ```
 ### Example (PowerShell)
 ```powershell
 
-$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'credentialsenvvar': 'AWS_SECRET_ACCESS_KEY', 'keyID': '$Env.AWS_ACCESS_KEY_ID' }}"
+$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'credentialsenvvar': 'AWS_SECRET_ACCESS_KEY', 'keyIDenvvar': 'AWS_ACCESS_KEY_ID' }}"
 stackql.exe shell --auth=$Auth
 
 ```
