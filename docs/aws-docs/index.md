@@ -65,14 +65,12 @@ Default authentication environment variables can be overridden by using the `--a
 AUTH='{ "aws": { "type": "aws_signing_v4", "keyIDenvvar": "{ YOUR_ACCESS_KEY_ID_VAR }", "credentialsenvvar": "{ YOUR_SECRET_KEY_VAR }" }}'
 stackql shell --auth="${AUTH}"
 ```
-
 or using PowerShell:  
 
 ```powershell
 $Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'keyIDenvvar': '{ YOUR_ACCESS_KEY_ID_VAR }', 'credentialsenvvar': '{ YOUR_SECRET_KEY_VAR }' }}"
 stackql.exe shell --auth=$Auth
 ```
-
 </details>
 
 ## Services
