@@ -39,37 +39,18 @@ See also:
 * * * 
 
 ## Installation
+
+To pull the latest version of the `azure` provider, run the following command:  
+
 ```bash
-REGISTRY PULL azure v23.01.00104;
+REGISTRY PULL azure;
 ```
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
 ## Authentication
-```javascript
 
-{
-  "azure": {
-    "type": "azure_default",
-  }
-}
+StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 
-
-```
-### Example (Mac/Linux)
-```bash
-
-az login
-AUTH='{ "azure": { "type": "azure_default" } }'
-stackql shell --auth="${AUTH}"
-
-```
-### Example (PowerShell)
-```powershell
-
-az login
-$Auth = "{ 'azure': { 'type': 'azure_default' } }"
-stackql.exe shell --auth=$Auth
-
-```
 ## Services
 <div class="row">
 <div class="providerDocColumn">

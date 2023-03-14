@@ -38,37 +38,38 @@ See also:
 * * * 
 
 ## Installation
+
+To pull the latest version of the `netlify` provider, run the following command:  
+
 ```bash
-REGISTRY PULL netlify v23.01.00104;
+REGISTRY PULL netlify;
 ```
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
+
 
 ## Authentication
-```javascript
 
-{
-  "netlify": {
-    "type": string, // authentication type to use, suported values include: bearer
-    "credentialsenvvar": string, // env var name containing the acces token
-  }
-}
+The `NETLIFY_TOKEN` environment variable is used by default to store credentials to authorize requests to Netlify.  This variable is sourced at runtime (from the local machine or as a CI variable/secret).  More information on obtaining a Netlify API Token can be found [here](https://docs.netlify.com/api/get-started/#authentication).  
 
-```
-### Example (Mac/Linux)
+<details>
+
+<summary>Using a different environment variable</summary>
+
+To use a different environment variable (instead of the default), use the `--auth` flag of the `stackql` program.  For example:  
+
 ```bash
-
-NETLIFY_TOKEN=yourtoken
-AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "NETLIFY_TOKEN" }}'
+AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_NETLIFY_TOKEN_VAR" }}'
 stackql shell --auth="${AUTH}"
-
 ```
-### Example (PowerShell)
+or using PowerShell:  
+
 ```powershell
-
-$env:NETLIFY_TOKEN = "yourtoken"
-$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'NETLIFY_TOKEN' }}"
+$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_NETLIFY_TOKEN_VAR' }}"
 stackql.exe shell --auth=$Auth
-
 ```
+
+</details>
+
 ## Services
 <div class="row">
 <div class="providerDocColumn">
