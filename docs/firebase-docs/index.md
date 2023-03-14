@@ -38,35 +38,18 @@ See also:
 * * * 
 
 ## Installation
+
+To pull the latest version of the `firebase` provider, run the following command:  
+
 ```bash
-REGISTRY PULL firebase v23.01.00114;
+REGISTRY PULL firebase;
 ```
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).
 
 ## Authentication
-```javascript
 
-{
-  "firebase": {
-    "type": string, // authentication type to use, suported values:  service_account
-    "credentialsfilepath": string, // path to service account key file
-  }
-}
+see [__Google Provider Authentication__](https://google.stackql.io/providers/google/#authentication).  
 
-```
-### Example (Mac/Linux)
-```bash
-
-AUTH='{ "firebase": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
-stackql shell --auth="${AUTH}"
-
-```
-### Example (PowerShell)
-```powershell
-
-$Auth = "{ 'firebase': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}'
-stackql.exe shell --auth=$Auth
-
-```
 ## Services
 <div class="row">
 <div class="providerDocColumn">

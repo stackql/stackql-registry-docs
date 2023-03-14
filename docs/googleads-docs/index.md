@@ -38,36 +38,18 @@ See also:
 * * * 
 
 ## Installation
+
+To pull the latest version of the `googleads` provider, run the following command:  
+
 ```bash
-REGISTRY PULL googleads v23.01.00116;
+REGISTRY PULL googleads;
 ```
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).
 
 ## Authentication
-```javascript
 
-{
-  "googleads": {
-    "type": string, // authentication type to use, suported values:  service_account
-    "credentialsfilepath": string, // path to service account key file
-    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
-  }
-}
+see [__Google Provider Authentication__](https://google.stackql.io/providers/google/#authentication).  
 
-```
-### Example (Mac/Linux)
-```bash
-
-AUTH='{ "googleads": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
-stackql shell --auth="${AUTH}"
-
-```
-### Example (PowerShell)
-```powershell
-
-$Auth = "{ 'googleads': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
-stackql.exe shell --auth=$Auth
-
-```
 ## Services
 <div class="row">
 <div class="providerDocColumn">
