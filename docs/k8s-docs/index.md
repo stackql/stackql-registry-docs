@@ -38,21 +38,13 @@ See also:
 * * * 
 
 ## Installation
+
+To pull the latest version of the `k8s` provider, run the following command:  
+
 ```bash
-REGISTRY PULL k8s v23.01.00104;
+REGISTRY PULL k8s;
 ```
-
-## Authentication
-```javascript
-
-{
-  "k8s": {
-    "type": string, // authentication type to use, suported values include: bearer, null_auth
-    "credentialsenvvar": string, // env var name containing the api key or credentials
-  }
-}
-
-```
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
 :::note
 
@@ -66,11 +58,16 @@ ORDER BY name ASC;
 ```
 :::
 
-### Example using `kubectl proxy`
-```bash
-AUTH='{ "k8s": { "type": "null_auth" } }'
-./stackql shell --auth="${AUTH}"
-```
+## Authentication
+
+The StackQL `k8s` provider supports two methods for authentication:
+
+- Using `kubectl proxy` (the default)
+- direct cluster access
+
+### Using `kubectl proxy` (default)
+
+No additional configuration is required to authenticate to a Kubernetes cluster using `kubectl proxy`.  
 
 :::note
 
@@ -85,23 +82,18 @@ order by name asc limit 3;
 ```
 :::
 
-### Example using direct cluster access
+### Using direct cluster access
+
+To authenticate to a Kubernetes cluster using direct cluster access with StackQL, you will need to export an environment variable containing the access token to authorize requests to the Kubernetes control plane.  You will also need to generate a certificate bundle for your cluster (`k8s_cert_bundle.pem` as shown in the following example along with the code to generate this bundle (for MacOS or Linux).  
+
 ```bash
+kubectl get secret -o jsonpath="{.items[?(@.type==\"kubernetes.io/service-account-token\")].data['ca\.crt']}" | base64 -i --decode > k8s_cert_bundle.pem
 export K8S_TOKEN='eyJhbGciOiJ...'
 AUTH='{ "k8s": { "type": "bearer", "credentialsenvvar": "K8S_TOKEN" } }'
 stackql shell --auth="${AUTH}" --tls.CABundle k8s_cert_bundle.pem
 ```
-:::note
 
-You will need to generate a certificate bundle for your cluster (`k8s_cert_bundle.pem` in the preceeding example), you can use the following code to generate this (for MacOS or Linux):  
-
-```bash
-kubectl get secret -o jsonpath="{.items[?(@.type==\"kubernetes.io/service-account-token\")].data['ca\.crt']}" | base64 -i --decode > k8s_cert_bundle.pem
-```
-
-Alternatively, you could add the `--tls.allowInsecure=true` argument to the `stackql` command, it is not recommended however. 
-
-:::
+Alternatively, you could add the `--tls.allowInsecure=true` argument to the `stackql` command, it is not recommended however.  
 
 ## Services
 <div class="row">

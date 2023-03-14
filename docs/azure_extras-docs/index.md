@@ -39,36 +39,18 @@ See also:
 * * * 
 
 ## Installation
+
+To pull the latest version of the `azure_extras` provider, run the following command:  
+
 ```bash
-REGISTRY PULL azure_extras v23.01.00104;
+REGISTRY PULL azure_extras;
 ```
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
 ## Authentication
-```javascript
 
-{
-  "azure_extras": {
-    "type": "azure_default",
-  }
-}
+see [__Azure Provider Authentication__](https://azure.stackql.io/providers/azure/#authentication).  
 
-```
-### Example (Mac/Linux)
-```bash
-
-az login
-AUTH='{ "azure_extras": { "type": "azure_default" } }'
-stackql shell --auth="${AUTH}"
-
-```
-### Example (PowerShell)
-```powershell
-
-az login
-$Auth = "{ 'azure_extras': { 'type': 'azure_default' } }"
-stackql.exe shell --auth=$Auth
-
-```
 ## Services
 <div class="row">
 <div class="providerDocColumn">

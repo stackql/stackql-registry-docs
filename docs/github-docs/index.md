@@ -37,37 +37,55 @@ See also:
 * * * 
 
 ## Installation
+
+To pull the latest version of the `github` provider, run the following command:  
+
 ```bash
-REGISTRY PULL github v23.02.00118;
+REGISTRY PULL github;
 ```
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
 ## Authentication
-```javascript
 
-{
-  "github": {
-    "type": string, // authentication type to use, suported values:  basic
-    "credentialsenvvar": string, // env var name containing the base64 encoded string in the form: username:password
-  }
-}
+The `STACKQL_GITHUB_CREDS` environment variable is used by default to store credentials to authorize requests to GitHub.  This variable is sourced at runtime (from the local machine or as a CI variable/secret).  Use a [GitHub Developer or Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) along with your GitHub username to populate this variable as follows:  
 
-```
-### Example (Mac/Linux)
 ```bash
-
-export GITHUB_CREDS=$(echo -n 'yourusername:ghp_YOURPERSONALACCESSTOKEN' | base64)
-AUTH='{ "github": { "type": "basic", "credentialsenvvar": "GITHUB_CREDS" } }'
-stackql shell --auth="${AUTH}"
-
+export STACKQL_GITHUB_CREDS=$(echo -n 'yourusername:ghp_YOURPERSONALACCESSTOKEN' | base64)
 ```
-### Example (PowerShell)
+
+or using PowerShell:  
+
 ```powershell
-
-$env:GITHUB_CREDS = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("yourusername:ghp_YOURPERSONALACCESSTOKEN"))
-$Auth = "{ 'github': { 'type': 'basic', 'credentialsenvvar': 'GITHUB_CREDS' } }"
-stackql shell --auth=$Auth
-
+$env:STACKQL_GITHUB_CREDS = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("yourusername:ghp_YOURPERSONALACCESSTOKEN"))
 ```
+
+<details>
+
+<summary>Using a different environment variable</summary>
+
+To use a different environment variable (instead of the default), use the `--auth` flag of the `stackql` program.  For example:  
+
+```bash
+export YOUR_GITHUB_CREDS_VAR=$(echo -n 'yourusername:ghp_YOURPERSONALACCESSTOKEN' | base64)
+AUTH='{ "github": { "type": "basic", "credentialsenvvar": "YOUR_GITHUB_CREDS_VAR" } }'
+stackql shell --auth="${AUTH}"
+```
+or using PowerShell:  
+
+```powershell
+$env:YOUR_GITHUB_CREDS_VAR = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("yourusername:ghp_YOURPERSONALACCESSTOKEN"))
+$Auth = "{ 'github': { 'type': 'basic', 'credentialsenvvar': 'YOUR_GITHUB_CREDS_VAR' } }"
+stackql.exe shell --auth=$Auth
+```
+
+:::note
+
+Environment variables beginning with `GITHUB_` are not allowed within GitHub action workflows.  If you need to use the StackQL GitHub provider from GitHub Actions, choose a different prefix.  
+
+:::
+
+</details>
+
 ## Services
 <div class="row">
 <div class="providerDocColumn">

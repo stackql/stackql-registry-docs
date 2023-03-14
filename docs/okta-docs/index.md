@@ -38,38 +38,38 @@ See also:
 * * * 
 
 ## Installation
+
+To pull the latest version of the `okta` provider, run the following command:  
+
 ```bash
-REGISTRY PULL okta v23.01.00104;
+REGISTRY PULL okta;
 ```
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
+
 
 ## Authentication
-```javascript
 
-{
-  "okta": {
-    "type": string, // authentication type to use, suported values: api_key
-    "credentialsenvvar": string, // env var name containing the api key
-    "valuePrefix": string, // authorization prefix, suported values: "SSWS "
-  }
-}
+The `OKTA_API_TOKEN` environment variable is used by default to store credentials to authorize requests to Okta.  This variable is sourced at runtime (from the local machine or as a CI variable/secret).  More information on obtaining a Okta API Token can be found [here](https://developer.okta.com/docs/guides/create-an-api-token/).  
 
-```
-### Example (Mac/Linux)
+<details>
+
+<summary>Using a different environment variable</summary>
+
+To use a different environment variable (instead of the default), use the `--auth` flag of the `stackql` program.  For example:  
+
 ```bash
-
-OKTA_SECRET_KEY=yourapikey
-AUTH='{ "okta": { "type": "api_key",  "credentialsenvvar": "OKTA_SECRET_KEY", "valuePrefix": "SSWS " }}'
+AUTH='{ "okta": { "type": "api_key",  "credentialsenvvar": "YOUR_OKTA_API_TOKEN_VAR", "valuePrefix": "SSWS " }}'
 stackql shell --auth="${AUTH}"
-
 ```
-### Example (PowerShell)
+or using PowerShell:  
+
 ```powershell
-
-$env:OKTA_SECRET_KEY = "yourapikey"
-$Auth = "{ 'okta': { 'type': 'api_key',  'credentialsenvvar': 'OKTA_SECRET_KEY', 'valuePrefix': 'SSWS ' }}"
+$Auth = "{ 'okta': { 'type': 'api_key',  'credentialsenvvar': 'YOUR_OKTA_API_TOKEN_VAR', 'valuePrefix': 'SSWS ' }}"
 stackql.exe shell --auth=$Auth
-
 ```
+
+</details>
+
 ## Services
 <div class="row">
 <div class="providerDocColumn">
