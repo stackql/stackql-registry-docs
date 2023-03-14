@@ -38,36 +38,41 @@ See also:
 * * * 
 
 ## Installation
+
+To pull the latest version of the `aws` provider, run the following command:  
+
 ```bash
-REGISTRY PULL aws v23.01.00108;
+REGISTRY PULL aws;
 ```
+> To view previous provider versions, or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
 ## Authentication
-```javascript
 
-{
-  "aws": {
-    "type": string, // authentication type to use, suported values:  aws_signing_v4
-    "keyIDenvvar": string, // env var containing AWS_ACCESS_KEY_ID
-    "credentialsenvvar": string, // env var containing AWS_SECRET_ACCESS_KEY
-  }
-}
+The following system environment variables are used for authentication by default:  
 
-```
-### Example (Mac/Linux)
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+
+These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
+
+<details>
+
+<summary>Overriding Authentication Defaults</summary>
+
+Default authentication environment variables can be overridden by using the `--auth` flag of the `stackql` program.  For example:  
+
 ```bash
-
-AUTH="{ "aws": { "type": "aws_signing_v4", "credentialsenvvar": "AWS_SECRET_ACCESS_KEY", "keyIDenvvar": "AWS_ACCESS_KEY_ID" }}"
+AUTH='{ "aws": { "type": "aws_signing_v4", "keyIDenvvar": "{ YOUR_ACCESS_KEY_ID_VAR }", "credentialsenvvar": "{ YOUR_SECRET_KEY_VAR }" }}'
 stackql shell --auth="${AUTH}"
-
 ```
-### Example (PowerShell)
+or using PowerShell:  
+
 ```powershell
-
-$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'credentialsenvvar': 'AWS_SECRET_ACCESS_KEY', 'keyIDenvvar': 'AWS_ACCESS_KEY_ID' }}"
+$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'keyIDenvvar': '{ YOUR_ACCESS_KEY_ID_VAR }', 'credentialsenvvar': '{ YOUR_SECRET_KEY_VAR }' }}"
 stackql.exe shell --auth=$Auth
-
 ```
+</details>
+
 ## Services
 <div class="row">
 <div class="providerDocColumn">
