@@ -27,10 +27,10 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `run_id` | `string` | Id of the clusterlint run that can be used later to fetch the diagnostics. |
 | `completed_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was completed. |
 | `diagnostics` | `array` | An array of diagnostics reporting potential problems for the given cluster. |
 | `requested_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was made. |
-| `run_id` | `string` | Id of the clusterlint run that can be used later to fetch the diagnostics. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,11 +29,11 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID that can be used to identify and reference the alert. |
 | `name` | `string` | A human-friendly display name. |
+| `type` | `string` | The type of alert. |
+| `comparison` | `string` | The comparison operator used against the alert's threshold. |
 | `notifications` | `object` | The notification settings for a trigger alert. |
 | `period` | `string` | Period of time the threshold must be exceeded to trigger the alert. |
 | `threshold` | `integer` | The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type. |
-| `type` | `string` | The type of alert. |
-| `comparison` | `string` | The comparison operator used against the alert's threshold. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

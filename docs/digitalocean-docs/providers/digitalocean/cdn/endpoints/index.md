@@ -28,12 +28,12 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID that can be used to identify and reference a CDN endpoint. |
-| `endpoint` | `string` | The fully qualified domain name (FQDN) from which the CDN-backed content is served. |
 | `origin` | `string` | The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space. |
 | `ttl` | `integer` | The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded. |
 | `certificate_id` | `string` | The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided. |
 | `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the CDN endpoint was created. |
 | `custom_domain` | `string` | The fully qualified domain name (FQDN) of the custom subdomain used with the CDN endpoint. |
+| `endpoint` | `string` | The fully qualified domain name (FQDN) from which the CDN-backed content is served. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

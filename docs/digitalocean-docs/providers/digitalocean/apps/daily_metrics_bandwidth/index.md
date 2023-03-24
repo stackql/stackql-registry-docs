@@ -27,8 +27,8 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `date` | `string` | The date for the metrics data. |
 | `app_bandwidth_usage` | `array` | A list of bandwidth usage details by app. |
+| `date` | `string` | The date for the metrics data. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

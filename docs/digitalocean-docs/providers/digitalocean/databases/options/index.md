@@ -27,10 +27,10 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `mysql` | `object` |
 | `pg` | `object` |
 | `redis` | `object` |
 | `mongodb` | `object` |
+| `mysql` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

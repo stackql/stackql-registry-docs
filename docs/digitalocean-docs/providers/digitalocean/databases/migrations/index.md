@@ -28,8 +28,8 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the most recent migration. |
-| `created_at` | `string` | The time the migration was initiated, in ISO 8601 format. |
 | `status` | `string` | The current status of the migration. |
+| `created_at` | `string` | The time the migration was initiated, in ISO 8601 format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

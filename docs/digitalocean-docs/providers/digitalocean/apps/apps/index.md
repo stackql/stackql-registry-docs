@@ -28,23 +28,23 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` |  |
-| `project_id` | `string` |  |
-| `owner_uuid` | `string` |  |
-| `live_url_base` | `string` |  |
 | `live_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `live_domain` | `string` |  |
-| `pending_deployment` | `object` | The most recent pending deployment. For CreateApp and UpdateApp transactions this is guaranteed to reflect the associated deployment. |
-| `default_ingress` | `string` |  |
-| `in_progress_deployment` | `object` |  |
-| `region` | `object` |  |
-| `pinned_deployment` | `object` | The deployment that the app is pinned to. |
-| `active_deployment` | `object` |  |
-| `last_deployment_created_at` | `string` |  |
-| `tier_slug` | `string` |  |
-| `spec` | `object` | The desired configuration of an application. |
 | `created_at` | `string` |  |
+| `owner_uuid` | `string` |  |
+| `tier_slug` | `string` |  |
 | `domains` | `array` |  |
+| `project_id` | `string` |  |
+| `in_progress_deployment` | `object` |  |
+| `active_deployment` | `object` |  |
+| `pinned_deployment` | `object` | The deployment that the app is pinned to. |
+| `updated_at` | `string` |  |
+| `last_deployment_created_at` | `string` |  |
+| `pending_deployment` | `object` | The most recent pending deployment. For CreateApp and UpdateApp transactions this is guaranteed to reflect the associated deployment. |
+| `spec` | `object` | The desired configuration of an application. |
+| `live_domain` | `string` |  |
+| `default_ingress` | `string` |  |
+| `region` | `object` |  |
+| `live_url_base` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -92,10 +92,12 @@ auth_blocks = {
 - `DIGITALOCEAN_TOKEN` - DigitalOcean API token
   """,
  'linux': """
-AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_NETLIFY_TOKEN_VAR" }}'
+AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_DIGITALOCEAN_TOKEN_VAR" }}'
+stackql shell --auth="${AUTH}"
  """,
  'windows': """
-$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_NETLIFY_TOKEN_VAR' }}"
+$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_DIGITALOCEAN_TOKEN_VAR' }}"
+stackql.exe shell --auth=$Auth
  """,
 },
 'sumologic': {

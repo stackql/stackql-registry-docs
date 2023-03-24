@@ -29,24 +29,24 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID that can be used to identify and reference a database cluster. |
 | `name` | `string` | A unique, human-readable name referring to a database cluster. |
-| `rules` | `array` |  |
-| `tags` | `array` | An array of tags that have been applied to the database cluster. |
-| `num_nodes` | `integer` | The number of nodes in the database cluster. |
-| `size` | `string` | The slug identifier representing the size of the nodes in the database cluster. |
-| `users` | `array` |  |
-| `engine` | `string` | A slug representing the database engine used for the cluster. The possible values are: "pg" for PostgreSQL, "mysql" for MySQL, "redis" for Redis, and "mongodb" for MongoDB. |
-| `db_names` | `array` | An array of strings containing the names of databases created in the database cluster. |
-| `version` | `string` | A string representing the version of the database engine in use for the cluster. |
-| `maintenance_window` | `object` |  |
-| `private_connection` | `object` |  |
-| `private_network_uuid` | `string` | A string specifying the UUID of the VPC to which the database cluster will be assigned. If excluded, the cluster when creating a new database cluster, it will be assigned to your account's default VPC for the region. |
 | `connection` | `object` |  |
-| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the database cluster was created. |
-| `version_end_of_availability` | `string` | A timestamp referring to the date when the particular version will no longer be available for creating new clusters. If null, the version does not have an end of availability timeline. |
-| `status` | `string` | A string representing the current status of the database cluster. |
+| `num_nodes` | `integer` | The number of nodes in the database cluster. |
 | `version_end_of_life` | `string` | A timestamp referring to the date when the particular version will no longer be supported. If null, the version does not have an end of life timeline. |
-| `project_id` | `string` | The ID of the project that the database cluster is assigned to. If excluded when creating a new database cluster, it will be assigned to your default project. |
+| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the database cluster was created. |
+| `rules` | `array` |  |
 | `region` | `string` | The slug identifier for the region where the database cluster is located. |
+| `db_names` | `array` | An array of strings containing the names of databases created in the database cluster. |
+| `maintenance_window` | `object` |  |
+| `tags` | `array` | An array of tags that have been applied to the database cluster. |
+| `project_id` | `string` | The ID of the project that the database cluster is assigned to. If excluded when creating a new database cluster, it will be assigned to your default project. |
+| `engine` | `string` | A slug representing the database engine used for the cluster. The possible values are: "pg" for PostgreSQL, "mysql" for MySQL, "redis" for Redis, and "mongodb" for MongoDB. |
+| `users` | `array` |  |
+| `version` | `string` | A string representing the version of the database engine in use for the cluster. |
+| `size` | `string` | The slug identifier representing the size of the nodes in the database cluster. |
+| `private_connection` | `object` |  |
+| `status` | `string` | A string representing the current status of the database cluster. |
+| `private_network_uuid` | `string` | A string specifying the UUID of the VPC to which the database cluster will be assigned. If excluded, the cluster when creating a new database cluster, it will be assigned to your account's default VPC for the region. |
+| `version_end_of_availability` | `string` | A timestamp referring to the date when the particular version will no longer be available for creating new clusters. If null, the version does not have an end of availability timeline. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

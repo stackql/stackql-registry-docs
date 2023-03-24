@@ -45,16 +45,12 @@ REGISTRY PULL digitalocean;
 ```
 > To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
-```
-
 ## Authentication
 
 The following system environment variables are used for authentication by default:  
 
-
 - `DIGITALOCEAN_TOKEN` - DigitalOcean API token
   
-
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
 <details>
@@ -65,19 +61,20 @@ To use different environment variables (instead of the defaults), use the `--aut
 
 ```bash
 
-AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_NETLIFY_TOKEN_VAR" }}'
- 
+AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_DIGITALOCEAN_TOKEN_VAR" }}'
 stackql shell --auth="${AUTH}"
+ 
 ```
 or using PowerShell:  
 
 ```powershell
 
-$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_NETLIFY_TOKEN_VAR' }}"
- 
+$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_DIGITALOCEAN_TOKEN_VAR' }}"
 stackql.exe shell --auth=$Auth
+ 
 ```
 </details>
+
 ## Services
 <div class="row">
 <div class="providerDocColumn">

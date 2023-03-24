@@ -29,15 +29,15 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `integer` | A unique numeric ID that can be used to identify and reference an action. |
 | `completed_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the action was completed. |
-| `started_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the action was initiated. |
-| `resource_id` | `integer` |  |
-| `status` | `string` | The current status of the action. This can be "in-progress", "completed", or "errored". |
-| `region_slug` | `string` | A human-readable string that is used as a unique identifier for each region. |
-| `resource_type` | `string` | The type of resource that the action is associated with. |
 | `action_resource_id` | `integer` | A unique identifier for the resource that the action is associated with. |
+| `region_slug` | `string` | A human-readable string that is used as a unique identifier for each region. |
 | `action_type` | `string` | This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action. |
-| `type` | `string` | This is the type of action that the object represents. For example, this could be "attach_volume" to represent the state of a volume attach action. |
 | `region` | `object` |  |
+| `started_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the action was initiated. |
+| `resource_type` | `string` | The type of resource that the action is associated with. |
+| `status` | `string` | The current status of the action. This can be "in-progress", "completed", or "errored". |
+| `type` | `string` | This is the type of action that the object represents. For example, this could be "attach_volume" to represent the state of a volume attach action. |
+| `resource_id` | `integer` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
