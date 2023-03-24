@@ -33,7 +33,10 @@ def run_command(query):
 
 # pull docs for provider
 print('pulling docs for %s %s' % (provider, provider_ver))
-iql_query = "REGISTRY PULL %s %s" % (provider, provider_ver)
+if provider_ver == "latest":
+      iql_query = "REGISTRY PULL %s" % provider
+else:
+      iql_query = "REGISTRY PULL %s %s" % (provider, provider_ver)
 run_command(iql_query)
 
 # clean output dir
@@ -156,7 +159,7 @@ provider_doc = provider_doc + generate_provider_summary(len(services), total_pro
 provider_doc = provider_doc + generate_see_also_links()
 
 # add install and auth blocks to provider doc
-provider_doc = provider_doc + generate_installation_block(provider, provider_ver)
+provider_doc = provider_doc + generate_installation_block(provider)
 provider_doc = provider_doc + generate_auth_block(provider)
 
 # add service list

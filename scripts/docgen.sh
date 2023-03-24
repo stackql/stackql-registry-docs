@@ -7,8 +7,7 @@ if [ -z "$provider" ]; then
 fi
 
 if [ -z "$version" ]; then
-    echo "version (arg 2) must be set"
-    exit 1
+    version="latest"
 fi
 
 echo "building docs for: $provider $version"

@@ -1,4 +1,9 @@
 provider_data = {
+'digitalocean': {
+    'meta_description': 'Query, deploy and manage Sumologic resources using SQL',
+    'description': 'Cloud computing services and Infrastructure as a Service (IaaS).',
+    'image': '/img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png' 
+},
 'sumologic': {
     'meta_description': 'Query, deploy and manage Sumologic resources using SQL',
     'description': 'Cloud-native, real-time, unified logs and metrics analytics platform.',
@@ -82,6 +87,17 @@ provider_data = {
 }
 
 auth_blocks = {
+'digitalocean': {
+  'variables': """
+- `DIGITALOCEAN_TOKEN` - DigitalOcean API token
+  """,
+ 'linux': """
+AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_NETLIFY_TOKEN_VAR" }}'
+ """,
+ 'windows': """
+$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_NETLIFY_TOKEN_VAR' }}"
+ """,
+},
 'sumologic': {
     'auth': """
 {

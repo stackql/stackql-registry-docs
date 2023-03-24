@@ -106,29 +106,48 @@ See also:
 * * * 
 """
 
-def generate_installation_block(provider, version):
+def generate_installation_block(provider):
     return """
 ## Installation
+
+To pull the latest version of the `aws` provider, run the following command:  
+
 ```bash
-REGISTRY PULL %s %s;
+REGISTRY PULL %s;
 ```
-""" % (provider, version)
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
+
+```
+""" % (provider)
 
 def generate_auth_block(provider):
     return """
 ## Authentication
-```javascript
+
+The following system environment variables are used for authentication by default:  
+
 %s
-```
-### Example (Mac/Linux)
+
+These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
+
+<details>
+
+<summary>Using different environment variables</summary>
+
+To use different environment variables (instead of the defaults), use the `--auth` flag of the `stackql` program.  For example:  
+
 ```bash
 %s
+stackql shell --auth="${AUTH}"
 ```
-### Example (PowerShell)
+or using PowerShell:  
+
 ```powershell
 %s
+stackql.exe shell --auth=$Auth
 ```
-""" % (auth_blocks[provider]['auth'], auth_blocks[provider]['example']['linux'], auth_blocks[provider]['example']['windows'])
+</details>
+""" % (auth_blocks[provider]['variables'], auth_blocks[provider]['linux'], auth_blocks[provider]['windows'])
 
 def generate_two_col_list(provider, list_of_objects, service_name=None):
     try:

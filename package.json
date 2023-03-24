@@ -7,6 +7,7 @@
     "start": "docusaurus start",
     "start:aws": "export REGISTRY=aws && docusaurus start",
     "start:azure": "export REGISTRY=azure && docusaurus start",
+    "start:digitalocean": "export REGISTRY=digitalocean && docusaurus start",
     "start:firebase": "export REGISTRY=firebase && docusaurus start",
     "start:github": "export REGISTRY=github && docusaurus start",
     "start:google": "export REGISTRY=google && docusaurus start",
