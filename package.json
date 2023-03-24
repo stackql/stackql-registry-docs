@@ -25,6 +25,7 @@
     "build:root": "docusaurus build",
     "build:aws": "export REGISTRY=aws && docusaurus build",
     "build:azure": "export REGISTRY=azure && docusaurus build",
+    "build:digitalocean": "export REGISTRY=digitalocean && docusaurus build",
     "build:firebase": "export REGISTRY=firebase && docusaurus build",
     "build:github": "export REGISTRY=github && docusaurus build",
     "build:google": "export REGISTRY=google && docusaurus build",
