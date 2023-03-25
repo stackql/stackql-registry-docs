@@ -33,12 +33,19 @@ def run_command(query):
 
 # pull docs for provider
 print('pulling docs for %s %s' % (provider, provider_ver))
-iql_query = "REGISTRY PULL %s %s" % (provider, provider_ver)
+if provider_ver == "latest":
+      iql_query = "REGISTRY PULL %s" % provider
+else:
+      iql_query = "REGISTRY PULL %s %s" % (provider, provider_ver)
 run_command(iql_query)
 
+provider_root_dir = "%s/devdocs/%s-docs" % (os.getcwd(), provider)
+provider_providers_root_dir = "%s/providers" % (provider_root_dir)
+services_dir = "%s/%s" % (provider_providers_root_dir, provider)
+
 # clean output dir
-print('cleaning %s/docs/%s if it exists...' % (os.getcwd(), provider))
-shutil.rmtree("./docs/%s" % provider, ignore_errors=True)
+print('cleaning %s if it exists...' % (provider_root_dir))
+shutil.rmtree(provider_root_dir, ignore_errors=True)
 
 total_provider_resources = 0
 total_provider_selectable_resources = 0
@@ -49,8 +56,12 @@ iql_query = "SHOW EXTENDED SERVICES IN %s" % provider
 services = run_query(iql_query)
 services = services.groupby("name", as_index=False).max()
 
-# create output dir
-create_dir("./docs/%s" % provider)
+# create output dir (root)
+create_dir(provider_root_dir)
+create_dir(provider_providers_root_dir)
+
+# create services dir
+create_dir(services_dir)
     
 #
 # create service and resource docs
@@ -67,7 +78,8 @@ for serviceIx, serviceRow in services.iterrows():
     print("serviceName: %s" % serviceName)
 
     # create service dir
-    create_dir("./docs/%s/%s" % (provider, serviceName))
+    this_service_dir = "%s/%s" % (services_dir, serviceName)
+    create_dir(this_service_dir)
 
     #
     # get resources
@@ -87,7 +99,8 @@ for serviceIx, serviceRow in services.iterrows():
         print("resourceName: %s" % resourceName)
         
         # create resource dir
-        create_dir("./docs/%s/%s/%s" % (provider, serviceName, resourceName))
+        this_resource_dir = "%s/%s" % (this_service_dir, resourceName)
+        create_dir(this_resource_dir)
 
         # create resource doc
         resource_doc = generate_front_matter(resourceName, 
@@ -118,7 +131,7 @@ for serviceIx, serviceRow in services.iterrows():
         resource_doc = resource_doc + generate_methods_table(methods)
 
         # write resource doc
-        write_file("./docs/%s/%s/%s/index.md" % (provider, serviceName, resourceName), resource_doc)
+        write_file("%s/index.md" % (this_resource_dir), resource_doc)
 
     # create service doc
     service_doc = generate_front_matter(serviceName, 
@@ -136,14 +149,14 @@ for serviceIx, serviceRow in services.iterrows():
     service_doc = service_doc + generate_two_col_list(provider, resources, serviceName)
 
     # write service doc
-    write_file("./docs/%s/%s/index.md" % (provider, serviceName), service_doc)
+    write_file("%s/index.md" % (this_service_dir), service_doc)
 
     
 #
 # generate provider root doc
 #
 
-print('initiializing %s/docs/%s/index.md' % (os.getcwd(), provider))
+print('%s/index.md' % (provider_root_dir))
 
 provider_doc = generate_front_matter(provider, 
                                     provider_data[provider]['meta_description'],
@@ -156,7 +169,7 @@ provider_doc = provider_doc + generate_provider_summary(len(services), total_pro
 provider_doc = provider_doc + generate_see_also_links()
 
 # add install and auth blocks to provider doc
-provider_doc = provider_doc + generate_installation_block(provider, provider_ver)
+provider_doc = provider_doc + generate_installation_block(provider)
 provider_doc = provider_doc + generate_auth_block(provider)
 
 # add service list
@@ -164,4 +177,9 @@ provider_doc = provider_doc + "## Services\n"
 provider_doc = provider_doc + generate_two_col_list(provider, services)
 
 # write provider doc
-write_file("./docs/%s/index.md" % provider, provider_doc)
+write_file("%s/index.md" % provider_root_dir, provider_doc)
+
+# write stackql-provider-registry.mdx
+print('%s/stackql-provider-registry.mdx' % (provider_root_dir))
+providers_list_page = generate_providers_list_page(provider)
+write_file("%s/stackql-provider-registry.mdx" % provider_root_dir, providers_list_page)

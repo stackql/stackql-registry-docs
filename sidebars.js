@@ -16,7 +16,8 @@ const registry = process.env.REGISTRY || 'root'
 const providers = [
   {name: 'google'},
   {name: 'azure'}, 
-  {name: 'aws'}, 
+  {name: 'aws'},
+  {name: 'digitalocean'},   
   {name: 'github'},
   {name: 'netlify'},
   {name: 'okta'},

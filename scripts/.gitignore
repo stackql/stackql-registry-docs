@@ -2,4 +2,5 @@
 .stackql/
 stackql
 stackql_linux_amd64.zip
+stackql-zip
 nohup.out

@@ -5,6 +5,7 @@ export const providers = [
     {name: 'google', description: 'Cloud computing services offered by Google.', title: 'Google'},
     {name: 'azure', description: 'Cloud computing services offered by Microsoft.', title: 'Microsoft Azure'},
     {name: 'aws', description: 'Cloud computing by Amazon Web Services.', title: 'AWS'},
+    {name: 'digitalocean', description: 'Cloud computing services and Infrastructure as a Service (IaaS).', title: 'Digital Ocean'},
     {name: 'github', description: 'Web-based version-control and collaboration.', title: 'GitHub'},
     {name: 'netlify', description: 'Web development and content distribution platform.', title: 'Netlify'},
     {name: 'okta', description: 'Authentication and authorization services.', title: 'Okta'},
@@ -17,7 +18,7 @@ export const providers = [
     {name: 'googledevelopers', description: 'Developer APIs by Google.', title: 'Google Developer APIs'},
     {name: 'googleanalytics', description: 'Web tracking and analytics service.', title: 'Google Analytics'},
     {name: 'googleads', description: 'Online advertising platform by Google.', title: 'Google Ads'},
-    {name: 'youtube', description: 'Online video sharing and social media platform.', title: 'Youtube'},
+    // {name: 'youtube', description: 'Online video sharing and social media platform.', title: 'Youtube'},
 ]
 
 export const getProviderSiteUrl = (name: string) =>{
