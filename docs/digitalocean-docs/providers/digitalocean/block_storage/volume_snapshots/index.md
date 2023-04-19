@@ -29,13 +29,13 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `string` | The unique identifier for the snapshot. |
 | `name` | `string` | A human-readable name for the snapshot. |
-| `resource_id` | `string` | The unique identifier for the resource that the snapshot originated from. |
-| `resource_type` | `string` | The type of resource that the snapshot originated from. |
 | `min_disk_size` | `integer` | The minimum size in GB required for a volume or Droplet to use this snapshot. |
+| `tags` | `array` | An array of Tags the snapshot has been tagged with. |
+| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the snapshot was created. |
+| `resource_id` | `string` | The unique identifier for the resource that the snapshot originated from. |
 | `size_gigabytes` | `number` | The billable size of the snapshot in gigabytes. |
 | `regions` | `array` | An array of the regions that the snapshot is available in. The regions are represented by their identifying slug values. |
-| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the snapshot was created. |
-| `tags` | `array` | An array of Tags the snapshot has been tagged with. |
+| `resource_type` | `string` | The type of resource that the snapshot originated from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

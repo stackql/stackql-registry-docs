@@ -28,8 +28,8 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the resource. |
-| `urn` | `string` | The uniform resource name (URN) for the resource in the format do:resource_type:resource_id. |
 | `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the resource was created. |
+| `urn` | `string` | The uniform resource name (URN) for the resource in the format do:resource_type:resource_id. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

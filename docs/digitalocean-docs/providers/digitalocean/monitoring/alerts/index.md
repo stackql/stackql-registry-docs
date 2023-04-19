@@ -27,9 +27,9 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `meta` | `object` | Information about the response itself. |
 | `policies` | `array` |  |
 | `links` | `object` |  |
+| `meta` | `object` | Information about the response itself. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

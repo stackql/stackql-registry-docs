@@ -29,14 +29,14 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID that can be used to identify and reference a database replica. |
 | `name` | `string` | The name to give the read-only replicating |
-| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the database cluster was created. |
-| `tags` | `array` | A flat array of tag names as strings to apply to the read-only replica after it is created. Tag names can either be existing or new tags. |
 | `size` | `string` | A slug identifier representing the size of the node for the read-only replica. The size of the replica must be at least as large as the node size for the database cluster from which it is replicating. |
 | `private_network_uuid` | `string` | A string specifying the UUID of the VPC to which the read-only replica will be assigned. If excluded, the replica will be assigned to your account's default VPC for the region. |
 | `region` | `string` | A slug identifier for the region where the read-only replica will be located. If excluded, the replica will be placed in the same region as the cluster. |
+| `private_connection` | `object` |  |
+| `tags` | `array` | A flat array of tag names as strings to apply to the read-only replica after it is created. Tag names can either be existing or new tags. |
 | `connection` | `object` |  |
 | `status` | `string` | A string representing the current status of the database cluster. |
-| `private_connection` | `object` |  |
+| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the database cluster was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

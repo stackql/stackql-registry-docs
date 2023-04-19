@@ -30,17 +30,17 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | `id` | `integer` | A unique number that can be used to identify and reference a specific image. |
 | `name` | `string` | The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question. |
 | `description` | `string` | An optional free-form text field to describe an image. |
-| `type` | `string` | Describes the kind of image. It may be one of `base`, `snapshot`, `backup`, `custom`, or `admin`. Respectively, this specifies whether an image is a DigitalOcean base OS image, user-generated Droplet snapshot, automatically created Droplet backup, user-provided virtual machine image, or an image used for DigitalOcean managed resources (e.g. DOKS worker nodes). |
-| `distribution` | `string` | The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place. |
-| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the image was created. |
-| `status` | `string` | A status string indicating the state of a custom image. This may be `NEW`,<br /> `available`, `pending`, `deleted`, or `retired`. |
-| `slug` | `string` | A uniquely identifying string that is associated with each of the DigitalOcean-provided public images. These can be used to reference a public image as an alternative to the numeric id. |
 | `min_disk_size` | `integer` | The minimum disk size in GB required for a Droplet to use this image. |
-| `error_message` | `string` | A string containing information about errors that may occur when importing<br /> a custom image. |
 | `public` | `boolean` | This is a boolean value that indicates whether the image in question is public or not. An image that is public is available to all accounts. A non-public image is only accessible from your account. |
-| `regions` | `array` | This attribute is an array of the regions that the image is available in. The regions are represented by their identifying slug values. |
-| `size_gigabytes` | `number` | The size of the image in gigabytes. |
 | `tags` | `array` | A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. |
+| `type` | `string` | Describes the kind of image. It may be one of `base`, `snapshot`, `backup`, `custom`, or `admin`. Respectively, this specifies whether an image is a DigitalOcean base OS image, user-generated Droplet snapshot, automatically created Droplet backup, user-provided virtual machine image, or an image used for DigitalOcean managed resources (e.g. DOKS worker nodes). |
+| `error_message` | `string` | A string containing information about errors that may occur when importing<br /> a custom image. |
+| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the image was created. |
+| `size_gigabytes` | `number` | The size of the image in gigabytes. |
+| `slug` | `string` | A uniquely identifying string that is associated with each of the DigitalOcean-provided public images. These can be used to reference a public image as an alternative to the numeric id. |
+| `status` | `string` | A status string indicating the state of a custom image. This may be `NEW`,<br /> `available`, `pending`, `deleted`, or `retired`. |
+| `regions` | `array` | This attribute is an array of the regions that the image is available in. The regions are represented by their identifying slug values. |
+| `distribution` | `string` | The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
