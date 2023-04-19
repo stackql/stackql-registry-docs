@@ -33,7 +33,7 @@ content
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Sumo Logic API - content</td></tr>
 <tr><td><b>Description</b></td><td>content</td></tr>
-<tr><td><b>Id</b></td><td><code>content:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>content:v23.04.00143</code></td></tr>
 </tbody></table>
 
 ## Resources

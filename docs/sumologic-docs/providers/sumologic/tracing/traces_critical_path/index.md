@@ -27,8 +27,8 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `next` | `string` | Next continuation token. |
 | `segments` | `array` | List of span segments from the critical path. |
+| `next` | `string` | Next continuation token. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

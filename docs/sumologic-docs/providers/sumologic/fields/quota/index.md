@@ -27,8 +27,8 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `remaining` | `integer` | Current number of fields available. |
 | `quota` | `integer` | Maximum number of fields available. |
+| `remaining` | `integer` | Current number of fields available. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

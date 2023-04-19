@@ -27,8 +27,8 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `next` | `string` | Next continuation token. |
 | `spanEvents` | `object` | Map of span ids to lists of their events, without their attributes. |
+| `next` | `string` | Next continuation token. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

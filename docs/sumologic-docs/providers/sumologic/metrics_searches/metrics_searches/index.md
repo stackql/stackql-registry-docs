@@ -29,17 +29,17 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the metrics search. |
 | `description` | `string` | Item description in the content library. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `title` | `string` | Item title in the content library. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `logQuery` | `string` | Log query used to add an overlay to the chart. |
-| `timeRange` | `object` |  |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `properties` | `string` | Chart properties, like line width, color palette, and the fill missing data method. Leave this field empty to use the defaults.<br />This property contains JSON object encoded as a string.<br /> |
-| `metricsQueries` | `array` | Metrics queries, up to the maximum of six. |
-| `parentId` | `string` | Identifier of the parent element in the content library, such as folder. |
 | `desiredQuantizationInSecs` | `integer` | Desired quantization in seconds. |
+| `logQuery` | `string` | Log query used to add an overlay to the chart. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `title` | `string` | Item title in the content library. |
+| `timeRange` | `object` |  |
+| `metricsQueries` | `array` | Metrics queries, up to the maximum of six. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `parentId` | `string` | Identifier of the parent element in the content library, such as folder. |
+| `properties` | `string` | Chart properties, like line width, color palette, and the fill missing data method. Leave this field empty to use the defaults.<br />This property contains JSON object encoded as a string.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

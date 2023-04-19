@@ -30,13 +30,13 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | `id` | `string` | Identifier of the token. |
 | `name` | `string` | Name of the token. |
 | `description` | `string` | Description of the token. |
-| `status` | `string` | Status of the token. Can be `Active`, or `Inactive`. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `type` | `string` | Type of the token. Valid values: 1) CollectorRegistrationTokenResponse |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `version` | `integer` | Version of the token. |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `type` | `string` | Type of the token. Valid values: 1) CollectorRegistrationTokenResponse |
+| `status` | `string` | Status of the token. Can be `Active`, or `Inactive`. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

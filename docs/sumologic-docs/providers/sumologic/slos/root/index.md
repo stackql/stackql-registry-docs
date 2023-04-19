@@ -30,19 +30,19 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | `id` | `string` | Identifier of the slo or folder. |
 | `name` | `string` | Identifier of the slo or folder. |
 | `description` | `string` | Description of the slo or folder. |
-| `_permissions` | `array` | Aggregated permission summary for the calling user. If detailed permission statements are required, please call list permissions endpoint. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `version` | `integer` | Version of the slo or folder. |
+| `isMutable` | `boolean` | Immutable objects are "READ-ONLY". |
 | `type` | `string` | Type of the object model. |
 | `isSystem` | `boolean` | System objects are objects provided by Sumo Logic. System objects can only be localized. Non-local fields can't be updated. |
-| `children` | `array` | Children of the folder. NOTE: Permissions field will not be filled (empty list) for children. |
-| `isMutable` | `boolean` | Immutable objects are "READ-ONLY". |
-| `parentId` | `string` | Identifier of the parent folder. |
-| `contentType` | `string` | Type of the content. Valid values:<br />  1) Slo<br />  2) Folder |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 | `permissions` | `array` | Aggregated permission summary for the calling user. If detailed permission statements are required, please call list permissions endpoint. |
+| `contentType` | `string` | Type of the content. Valid values:<br />  1) Slo<br />  2) Folder |
+| `_permissions` | `array` | Aggregated permission summary for the calling user. If detailed permission statements are required, please call list permissions endpoint. |
+| `version` | `integer` | Version of the slo or folder. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `parentId` | `string` | Identifier of the parent folder. |
+| `children` | `array` | Children of the folder. NOTE: Permissions field will not be filled (empty list) for children. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

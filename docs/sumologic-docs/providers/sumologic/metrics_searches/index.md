@@ -33,7 +33,7 @@ metricsSearches
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Sumo Logic API - metrics_searches</td></tr>
 <tr><td><b>Description</b></td><td>metricsSearches</td></tr>
-<tr><td><b>Id</b></td><td><code>metrics_searches:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>metrics_searches:v23.04.00143</code></td></tr>
 </tbody></table>
 
 ## Resources

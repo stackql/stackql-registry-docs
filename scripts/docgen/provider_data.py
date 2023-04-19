@@ -101,28 +101,18 @@ stackql.exe shell --auth=$Auth
  """,
 },
 'sumologic': {
-    'auth': """
-{
-  "sumologic": {
-    "type": string, // authentication type to use, suported values:  basic
-    "credentialsenvvar": string, // env var name containing the base64 encoded string in the form: username:password
-  }
-}
-""",
-    'example': {
-        'linux':
-"""
-export SUMO_CREDS=$(echo -n 'youraccessid:YOURACCESSTOKEN' | base64 --wrap 0)
-AUTH='{ "sumologic": { "type": "basic", "credentialsenvvar": "SUMO_CREDS" } }'
+  'variables': """
+- `SUMOLOGIC_ACCESSID` - SumoLogic Access ID (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+- `SUMOLOGIC_ACCESSKEY` - SumoLogic Access Key (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+  """,
+ 'linux': """
+AUTH='{ "sumologic": { "type": "basic",  "username_var": "YOUR_SUMOLOGIC_ACCESS_ID_VAR", "password_var": "YOUR_SUMOLOGIC_ACCESS_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
-""",
-        'windows':
-"""
-$env:SUMO_CREDS = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("youraccessid:YOURACCESSTOKEN"))
-$Auth = "{ 'sumologic': { 'type': 'basic', 'credentialsenvvar': 'SUMO_CREDS' } }"
+ """,
+ 'windows': """
+$Auth = "{ 'sumologic': { 'type': 'basic',  'username_var': 'YOUR_SUMOLOGIC_ACCESS_ID_VAR', 'password_var': 'YOUR_SUMOLOGIC_ACCESS_KEY_VAR' }}"
 stackql.exe shell --auth=$Auth
-"""
-    }
+ """,
 },  
 'googleworkspace': {
     'auth': """

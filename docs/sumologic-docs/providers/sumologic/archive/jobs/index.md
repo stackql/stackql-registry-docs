@@ -29,14 +29,14 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique identifier of the ingestion job. |
 | `name` | `string` | The name of the ingestion job. |
-| `endTime` | `string` | The ending timestamp of the ingestion job. |
 | `createdAt` | `string` | The creation timestamp in UTC of the ingestion job. |
-| `totalBytesIngested` | `integer` | The total bytes ingested by the ingestion job. |
 | `totalObjectsIngested` | `integer` | The total number of objects ingested by the ingestion job. |
-| `startTime` | `string` | The starting timestamp of the ingestion job. |
-| `createdBy` | `string` | The identifier of the user who created the ingestion job. |
 | `status` | `string` | The status of the ingestion job, either `Pending`,`Scanning`,`Ingesting`,`Failed`, or `Succeeded`. |
+| `endTime` | `string` | The ending timestamp of the ingestion job. |
+| `createdBy` | `string` | The identifier of the user who created the ingestion job. |
 | `totalObjectsScanned` | `integer` | The total number of objects scanned by the ingestion job. |
+| `startTime` | `string` | The starting timestamp of the ingestion job. |
+| `totalBytesIngested` | `integer` | The total bytes ingested by the ingestion job. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
