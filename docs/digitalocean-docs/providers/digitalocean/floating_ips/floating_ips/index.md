@@ -27,11 +27,11 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `ip` | `string` | The public IP address of the floating IP. It also serves as its identifier. |
+| `locked` | `boolean` | A boolean value indicating whether or not the floating IP has pending actions preventing new ones from being submitted. |
 | `project_id` | `string` | The UUID of the project to which the reserved IP currently belongs. |
 | `region` | `object` | The region that the floating IP is reserved to. When you query a floating IP, the entire region object will be returned. |
 | `droplet` | `` | The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null. |
-| `ip` | `string` | The public IP address of the floating IP. It also serves as its identifier. |
-| `locked` | `boolean` | A boolean value indicating whether or not the floating IP has pending actions preventing new ones from being submitted. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

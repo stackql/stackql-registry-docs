@@ -28,10 +28,10 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
-| `build_seconds` | `string` |
-| `egress_bandwidth_bytes` | `string` |
 | `slug` | `string` |
 | `storage_bytes` | `string` |
+| `build_seconds` | `string` |
+| `egress_bandwidth_bytes` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

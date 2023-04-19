@@ -33,7 +33,7 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DigitalOcean API - One Click Applications</td></tr>
 <tr><td><b>Description</b></td><td>1 Click Applications</td></tr>
-<tr><td><b>Id</b></td><td><code>one_click_applications:v23.03.00130</code></td></tr>
+<tr><td><b>Id</b></td><td><code>one_click_applications:v23.04.00139</code></td></tr>
 </tbody></table>
 
 ## Resources

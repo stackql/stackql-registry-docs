@@ -27,9 +27,9 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `kubernetes_version` | `string` | The upstream version string for the version of Kubernetes provided by a given slug. |
 | `slug` | `string` | The slug identifier for an available version of Kubernetes for use when creating or updating a cluster. The string contains both the upstream version of Kubernetes as well as the DigitalOcean revision. |
 | `supported_features` | `array` | The features available with the version of Kubernetes provided by a given slug. |
-| `kubernetes_version` | `string` | The upstream version string for the version of Kubernetes provided by a given slug. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

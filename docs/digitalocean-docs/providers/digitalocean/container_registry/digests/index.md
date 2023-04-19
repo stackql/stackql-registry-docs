@@ -27,7 +27,6 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `updated_at` | `string` | The time the manifest was last updated. |
 | `blobs` | `array` | All blobs associated with this manifest |
 | `compressed_size_bytes` | `integer` | The compressed size of the manifest in bytes. |
 | `digest` | `string` | The manifest digest |
@@ -35,6 +34,7 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | `repository` | `string` | The name of the repository. |
 | `size_bytes` | `integer` | The uncompressed size of the manifest in bytes (this size is calculated asynchronously so it may not be immediately available). |
 | `tags` | `array` | All tags associated with this manifest |
+| `updated_at` | `string` | The time the manifest was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

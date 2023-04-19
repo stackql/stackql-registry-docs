@@ -28,9 +28,9 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of a database user. |
+| `mysql_settings` | `object` |  |
 | `password` | `string` | A randomly generated password for the database user. |
 | `role` | `string` | A string representing the database user's role. The value will be either<br />"primary" or "normal".<br /> |
-| `mysql_settings` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

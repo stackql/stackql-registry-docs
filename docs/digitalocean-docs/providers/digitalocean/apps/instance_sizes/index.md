@@ -28,15 +28,15 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
-| `tier_downgrade_to` | `string` |
-| `slug` | `string` |
-| `usd_per_second` | `string` |
-| `memory_bytes` | `string` |
-| `cpus` | `string` |
-| `cpu_type` | `string` |
-| `tier_slug` | `string` |
-| `usd_per_month` | `string` |
 | `tier_upgrade_to` | `string` |
+| `memory_bytes` | `string` |
+| `usd_per_month` | `string` |
+| `usd_per_second` | `string` |
+| `slug` | `string` |
+| `tier_slug` | `string` |
+| `tier_downgrade_to` | `string` |
+| `cpu_type` | `string` |
+| `cpus` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

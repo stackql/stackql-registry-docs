@@ -33,7 +33,7 @@ SSH Keys
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DigitalOcean API - Ssh Keys</td></tr>
 <tr><td><b>Description</b></td><td>SSH Keys</td></tr>
-<tr><td><b>Id</b></td><td><code>ssh_keys:v23.03.00130</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ssh_keys:v23.04.00139</code></td></tr>
 </tbody></table>
 
 ## Resources

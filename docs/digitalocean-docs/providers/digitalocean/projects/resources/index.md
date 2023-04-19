@@ -27,10 +27,10 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `links` | `object` | The links object contains the `self` object, which contains the resource relationship. |
-| `status` | `string` | The status of assigning and fetching the resources. |
 | `urn` | `string` | The uniform resource name (URN) for the resource in the format do:resource_type:resource_id. |
 | `assigned_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the project was created. |
+| `links` | `object` | The links object contains the `self` object, which contains the resource relationship. |
+| `status` | `string` | The status of assigning and fetching the resources. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

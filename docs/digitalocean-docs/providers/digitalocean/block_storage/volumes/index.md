@@ -30,13 +30,13 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | `id` | `string` | The unique identifier for the block storage volume. |
 | `name` | `string` | A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and "-", up to a limit of 64 characters. The name must begin with a letter. |
 | `description` | `string` | An optional free-form text field to describe a block storage volume. |
-| `filesystem_type` | `string` | The type of filesystem currently in-use on the volume. |
-| `region` | `object` | The region that the block storage volume is located in. When setting a region, the value should be the slug identifier for the region. When you query a block storage volume, the entire region object will be returned. |
-| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the block storage volume was created. |
-| `size_gigabytes` | `integer` | The size of the block storage volume in GiB (1024^3). |
 | `droplet_ids` | `array` | An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet. |
-| `tags` | `array` | A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. |
+| `filesystem_type` | `string` | The type of filesystem currently in-use on the volume. |
+| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the block storage volume was created. |
+| `region` | `object` | The region that the block storage volume is located in. When setting a region, the value should be the slug identifier for the region. When you query a block storage volume, the entire region object will be returned. |
+| `size_gigabytes` | `integer` | The size of the block storage volume in GiB (1024^3). |
 | `filesystem_label` | `string` | The label currently applied to the filesystem. |
+| `tags` | `array` | A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

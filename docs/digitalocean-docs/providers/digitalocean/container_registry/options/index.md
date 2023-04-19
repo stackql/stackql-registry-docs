@@ -27,8 +27,8 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `subscription_tiers` | `array` |
 | `available_regions` | `array` |
+| `subscription_tiers` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
