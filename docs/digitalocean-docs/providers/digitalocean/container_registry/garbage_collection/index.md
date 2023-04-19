@@ -27,13 +27,13 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `registry_name` | `string` | The name of the container registry. |
-| `status` | `string` | The current status of this garbage collection. |
-| `updated_at` | `string` | The time the garbage collection was last updated. |
 | `uuid` | `string` | A string specifying the UUID of the garbage collection. |
 | `blobs_deleted` | `integer` | The number of blobs deleted as a result of this garbage collection. |
 | `created_at` | `string` | The time the garbage collection was created. |
 | `freed_bytes` | `integer` | The number of bytes freed as a result of this garbage collection. |
+| `registry_name` | `string` | The name of the container registry. |
+| `status` | `string` | The current status of this garbage collection. |
+| `updated_at` | `string` | The time the garbage collection was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -110,13 +110,13 @@ def generate_installation_block(provider):
     return """
 ## Installation
 
-To pull the latest version of the `aws` provider, run the following command:  
+To pull the latest version of the `%s` provider, run the following command:  
 
 ```bash
 REGISTRY PULL %s;
 ```
 > To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
-""" % (provider)
+""" % (provider, provider)
 
 def generate_auth_block(provider):
     return """

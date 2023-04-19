@@ -27,8 +27,8 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `previous_outage` | `object` |  |
 | `regions` | `object` | A map of region to regional state |
+| `previous_outage` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

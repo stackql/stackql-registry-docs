@@ -29,25 +29,25 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID that can be used to identify and reference a load balancer. |
 | `name` | `string` | A human-readable name for a load balancer instance. |
-| `tag` | `string` | The name of a Droplet tag corresponding to Droplets assigned to the load balancer. |
-| `vpc_uuid` | `string` | A string specifying the UUID of the VPC to which the load balancer is assigned. |
-| `enable_backend_keepalive` | `boolean` | A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets. |
+| `health_check` | `object` | An object specifying health check settings for the load balancer. |
 | `redirect_http_to_https` | `boolean` | A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443. |
-| `status` | `string` | A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`. |
-| `region` | `object` | The region where the load balancer instance is located. When setting a region, the value should be the slug identifier for the region. When you query a load balancer, an entire region object will be returned. |
+| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the load balancer was created. |
 | `disable_lets_encrypt_dns_records` | `boolean` | A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer. |
 | `http_idle_timeout_seconds` | `integer` | An integer value which configures the idle timeout for HTTP requests to the target droplets. |
-| `sticky_sessions` | `object` | An object specifying sticky sessions settings for the load balancer. |
-| `droplet_ids` | `array` | An array containing the IDs of the Droplets assigned to the load balancer. |
-| `algorithm` | `string` | This field has been deprecated. You can no longer specify an algorithm for load balancers. |
-| `project_id` | `string` | The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created. |
-| `ip` | `string` | An attribute containing the public-facing IP address of the load balancer. |
+| `tag` | `string` | The name of a Droplet tag corresponding to Droplets assigned to the load balancer. |
 | `forwarding_rules` | `array` | An array of objects specifying the forwarding rules for a load balancer. |
-| `size_unit` | `integer` | How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions. |
-| `health_check` | `object` | An object specifying health check settings for the load balancer. |
-| `enable_proxy_protocol` | `boolean` | A boolean value indicating whether PROXY Protocol is in use. |
-| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the load balancer was created. |
+| `region` | `object` | The region where the load balancer instance is located. When setting a region, the value should be the slug identifier for the region. When you query a load balancer, an entire region object will be returned. |
+| `project_id` | `string` | The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created. |
 | `firewall` | `object` | An object specifying allow and deny rules to control traffic to the load balancer. |
+| `algorithm` | `string` | This field has been deprecated. You can no longer specify an algorithm for load balancers. |
+| `sticky_sessions` | `object` | An object specifying sticky sessions settings for the load balancer. |
+| `ip` | `string` | An attribute containing the public-facing IP address of the load balancer. |
+| `enable_backend_keepalive` | `boolean` | A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets. |
+| `size_unit` | `integer` | How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions. |
+| `droplet_ids` | `array` | An array containing the IDs of the Droplets assigned to the load balancer. |
+| `vpc_uuid` | `string` | A string specifying the UUID of the VPC to which the load balancer is assigned. |
+| `enable_proxy_protocol` | `boolean` | A boolean value indicating whether PROXY Protocol is in use. |
+| `status` | `string` | A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`. |
 | `size` | `string` | This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.<br />* `lb-small` = 1 node<br />* `lb-medium` = 3 nodes<br />* `lb-large` = 6 nodes<br /><br />You can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

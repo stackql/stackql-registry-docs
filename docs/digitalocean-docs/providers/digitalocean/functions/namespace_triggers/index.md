@@ -28,14 +28,14 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The trigger's unique name within the namespace. |
-| `is_enabled` | `boolean` | Indicates weather the trigger is paused or unpaused. |
 | `updated_at` | `string` | UTC time string. |
-| `type` | `string` | String which indicates the type of trigger source like SCHEDULED. |
 | `function` | `string` | Name of function(action) that exists in the given namespace. |
-| `scheduled_runs` | `object` |  |
 | `created_at` | `string` | UTC time string. |
 | `namespace` | `string` | A unique string format of UUID with a prefix fn-. |
+| `is_enabled` | `boolean` | Indicates weather the trigger is paused or unpaused. |
+| `type` | `string` | String which indicates the type of trigger source like SCHEDULED. |
 | `scheduled_details` | `object` | Trigger details for SCHEDULED type, where body is optional.<br /> |
+| `scheduled_runs` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
