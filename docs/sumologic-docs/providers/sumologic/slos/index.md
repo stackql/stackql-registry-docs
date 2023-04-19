@@ -33,7 +33,7 @@ slos
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Sumo Logic API - slos</td></tr>
 <tr><td><b>Description</b></td><td>slos</td></tr>
-<tr><td><b>Id</b></td><td><code>slos:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>slos:v23.04.00143</code></td></tr>
 </tbody></table>
 
 ## Resources

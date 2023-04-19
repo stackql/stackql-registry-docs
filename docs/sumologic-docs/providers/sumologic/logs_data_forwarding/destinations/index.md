@@ -28,11 +28,21 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique identifier of the data forwarding destination. |
-| `invalidatedBySystem` | `boolean` | True if invalidated by the system. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `description` | `string` | Description of the S3 data forwarding destination. |
+| `enabled` | `boolean` | True if the destination is Active. |
+| `encrypted` | `boolean` | Enable S3 server-side encryption. |
 | `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `invalidatedBySystem` | `boolean` | True if invalidated by the system. |
+| `authenticationMode` | `string` | AWS IAM authentication method used for access. Possible values are: 1. `AccessKey` 2. `RoleBased` |
+| `region` | `string` | The region where the S3 bucket is located. |
+| `destinationName` | `string` | Name of the S3 data forwarding destination. |
+| `bucketName` | `string` | The name of the Amazon S3 bucket. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
+| `accessKeyId` | `string` | The AWS Access ID to access the S3 bucket. |
+| `secretAccessKey` | `string` | The AWS Secret Key to access the S3 bucket. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `roleArn` | `string` | The AWS Role ARN to access the S3 bucket. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

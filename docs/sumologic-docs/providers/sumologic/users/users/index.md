@@ -28,18 +28,18 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier for the user. |
+| `lastLoginTimestamp` | `string` | Timestamp of the last login for the user in UTC. Will be null if the user has never logged in. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `isActive` | `boolean` | True if the user is active. |
 | `firstName` | `string` | First name of the user. |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
-| `roleIds` | `array` | List of roleIds associated with the user. |
-| `email` | `string` | Email address of the user. |
 | `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `lastLoginTimestamp` | `string` | Timestamp of the last login for the user in UTC. Will be null if the user has never logged in. |
-| `lastName` | `string` | Last name of the user. |
-| `isActive` | `boolean` | True if the user is active. |
-| `isMfaEnabled` | `boolean` | True if multi factor authentication is enabled for the user. |
+| `roleIds` | `array` | List of roleIds associated with the user. |
 | `isLocked` | `boolean` | This has the value `true` if the user's account has been locked. If a user tries to log into their account several times and fails, his or her account will be locked for security reasons. |
+| `email` | `string` | Email address of the user. |
+| `isMfaEnabled` | `boolean` | True if multi factor authentication is enabled for the user. |
+| `lastName` | `string` | Last name of the user. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

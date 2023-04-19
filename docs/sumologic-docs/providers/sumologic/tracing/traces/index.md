@@ -28,13 +28,13 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Trace identifier. |
+| `rootStatus` | `object` |  |
+| `startedAt` | `string` | Date and time the trace was started in [ISO 8601 / RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `criticalPathServiceBreakdownSummary` | `object` |  |
 | `metrics` | `object` | Calculated trace metrics. |
 | `rootOperationName` | `string` | The name of the operation given to the root span. |
 | `rootResource` | `string` | Root resource on which the trace was started. Examples: `db.query`, `http.request`, `rpc.call`, `container` |
 | `rootService` | `string` | Root service which started the trace. Examples: `user-service`, `authentication-service`, `payment-service`, `/shopping-cart` |
-| `rootStatus` | `object` |  |
-| `startedAt` | `string` | Date and time the trace was started in [ISO 8601 / RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `criticalPathServiceBreakdownSummary` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

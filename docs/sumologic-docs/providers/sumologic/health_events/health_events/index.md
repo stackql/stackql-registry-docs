@@ -27,13 +27,13 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `eventId` | `string` | The unique identifier of the event. |
-| `eventName` | `string` | The name of the event. |
 | `eventTime` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 | `resourceIdentity` | `object` |  |
 | `severityLevel` | `string` | The criticality of the event. It is either `Error` or `Warning` |
 | `subsystem` | `string` | The product area of the event. |
 | `details` | `object` |  |
+| `eventId` | `string` | The unique identifier of the event. |
+| `eventName` | `string` | The name of the event. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

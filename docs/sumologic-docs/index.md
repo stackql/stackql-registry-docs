@@ -4,7 +4,6 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - sumologic
-  - log analytics
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -39,49 +38,42 @@ See also:
 
 ## Installation
 
-To pull the latest version of the `sumologic` provider, run the following command:  
+To pull the latest version of the `aws` provider, run the following command:  
 
 ```bash
 REGISTRY PULL sumologic;
 ```
 > To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
-
 ## Authentication
 
-The `SUMOLOGIC_CREDS` environment variable is used by default to store credentials to authorize requests to Sumologic.  This variable is sourced at runtime (from the local machine or as a CI variable/secret).  The variable should be populated with a Base64 encoded string comprised of yoru Sumologic username and an Access Token, as shown here:    
+The following system environment variables are used for authentication by default:  
 
-```bash
-export SUMOLOGIC_CREDS=$(echo -n 'youraccessid:YOURACCESSTOKEN' | base64 --wrap 0)
-```
-
-or using PowerShell:  
-
-```powershell
-$env:SUMOLOGIC_CREDS = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("youraccessid:YOURACCESSTOKEN"))
-```
-
-More information on obtaining a Sumologic Access Token can be found [here](https://help.sumologic.com/docs/api/getting-started/#authentication).  
+- `SUMOLOGIC_ACCESSID` - SumoLogic Access ID (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+- `SUMOLOGIC_ACCESSKEY` - SumoLogic Access Key (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
+  
+These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
 <details>
 
-<summary>Using a different environment variable</summary>
+<summary>Using different environment variables</summary>
 
-To use a different environment variable (instead of the default), use the `--auth` flag of the `stackql` program.  For example:  
+To use different environment variables (instead of the defaults), use the `--auth` flag of the `stackql` program.  For example:  
 
 ```bash
-export YOUR_SUMO_CREDS_VAR=$(echo -n 'youraccessid:YOURACCESSTOKEN' | base64 --wrap 0)
-AUTH='{ "sumologic": { "type": "basic", "credentialsenvvar": "YOUR_SUMO_CREDS_VAR" } }'
+
+AUTH='{ "sumologic": { "type": "basic",  "username_var": "YOUR_SUMOLOGIC_ACCESS_ID_VAR", "password_var": "YOUR_SUMOLOGIC_ACCESS_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
+ 
 ```
 or using PowerShell:  
 
 ```powershell
-$env:YOUR_SUMO_CREDS_VAR = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("youraccessid:YOURACCESSTOKEN"))
-$Auth = "{ 'sumologic': { 'type': 'basic', 'credentialsenvvar': 'YOUR_SUMO_CREDS_VAR' } }"
-stackql.exe shell --auth=$Auth
-```
 
+$Auth = "{ 'sumologic': { 'type': 'basic',  'username_var': 'YOUR_SUMOLOGIC_ACCESS_ID_VAR', 'password_var': 'YOUR_SUMOLOGIC_ACCESS_KEY_VAR' }}"
+stackql.exe shell --auth=$Auth
+ 
+```
 </details>
 
 ## Services

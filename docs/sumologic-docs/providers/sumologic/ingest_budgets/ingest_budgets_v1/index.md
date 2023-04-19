@@ -30,19 +30,19 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | `id` | `string` | Unique identifier for the ingest budget. |
 | `name` | `string` | Display name of the ingest budget. |
 | `description` | `string` | Description of the ingest budget. |
-| `fieldValue` | `string` | Custom field value that is used to assign Collectors to the ingest budget. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `modifiedByUser` | `object` |  |
 | `auditThreshold` | `integer` | The threshold as a percentage of when an ingest budget's capacity usage is logged in the Audit Index. |
 | `numberOfCollectors` | `integer` | Number of collectors assigned to the ingest budget. |
-| `createdByUser` | `object` |  |
-| `action` | `string` | Action to take when ingest budget's capacity is reached. All actions are audited. Supported values are:<br />  * `stopCollecting`<br />  * `keepCollecting` |
-| `modifiedAt` | `string` | Last modification timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `usageStatus` | `string` | Status of the current usage. Can be `Normal`, `Approaching`, `Exceeded`, or `Unknown` (unable to retrieve usage). |
-| `modifiedByUser` | `object` |  |
 | `capacityBytes` | `integer` | Capacity of the ingest budget, in bytes. It takes a few minutes for Collectors to stop collecting when capacity is reached. We recommend setting a soft limit that is lower than your needed hard limit. |
-| `usageBytes` | `integer` | Current usage since the last reset, in bytes. |
-| `timezone` | `string` | Time zone of the reset time for the ingest budget. Follow the format in the [IANA Time Zone Database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
 | `resetTime` | `string` | Reset time of the ingest budget in HH:MM format. |
+| `createdByUser` | `object` |  |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `timezone` | `string` | Time zone of the reset time for the ingest budget. Follow the format in the [IANA Time Zone Database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
+| `action` | `string` | Action to take when ingest budget's capacity is reached. All actions are audited. Supported values are:<br />  * `stopCollecting`<br />  * `keepCollecting` |
+| `usageBytes` | `integer` | Current usage since the last reset, in bytes. |
+| `usageStatus` | `string` | Status of the current usage. Can be `Normal`, `Approaching`, `Exceeded`, or `Unknown` (unable to retrieve usage). |
+| `fieldValue` | `string` | Custom field value that is used to assign Collectors to the ingest budget. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

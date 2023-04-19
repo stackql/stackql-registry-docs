@@ -33,7 +33,7 @@ dynamicParsingRules
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Sumo Logic API - dynamic_parsing_rules</td></tr>
 <tr><td><b>Description</b></td><td>dynamicParsingRules</td></tr>
-<tr><td><b>Id</b></td><td><code>dynamic_parsing_rules:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dynamic_parsing_rules:v23.04.00143</code></td></tr>
 </tbody></table>
 
 ## Resources

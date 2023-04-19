@@ -33,7 +33,7 @@ ingestBudgets
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Sumo Logic API - ingest_budgets</td></tr>
 <tr><td><b>Description</b></td><td>ingestBudgets</td></tr>
-<tr><td><b>Id</b></td><td><code>ingest_budgets:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ingest_budgets:v23.04.00143</code></td></tr>
 </tbody></table>
 
 ## Resources

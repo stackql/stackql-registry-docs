@@ -33,7 +33,7 @@ logSearches
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Sumo Logic API - log_searches</td></tr>
 <tr><td><b>Description</b></td><td>logSearches</td></tr>
-<tr><td><b>Id</b></td><td><code>log_searches:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>log_searches:v23.04.00143</code></td></tr>
 </tbody></table>
 
 ## Resources

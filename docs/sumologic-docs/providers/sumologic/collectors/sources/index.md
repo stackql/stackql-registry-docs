@@ -30,22 +30,22 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | `id` | `integer` | Source identifer. |
 | `name` | `string` | Source name. |
 | `cutoffTimestamp` | `integer` | Source cutoffTimestamp. |
-| `messagePerRequest` | `boolean` | Source messagePerRequest. |
-| `fields` | `object` | Source fields. |
 | `alive` | `boolean` | Source alive. |
-| `hashAlgorithm` | `string` | Source hashAlgorithm. |
-| `denylist` | `array` | Source denylist. |
-| `automaticDateParsing` | `boolean` | Source automaticDateParsing. |
-| `useAutolineMatching` | `boolean` | Source useAutolineMatching. |
-| `sourceType` | `string` | Source sourceType. |
-| `forceTimeZone` | `boolean` | Source forceTimeZone. |
-| `multilineProcessingEnabled` | `boolean` | Source multilineProcessingEnabled. |
-| `category` | `string` | Source category. |
-| `filters` | `array` | Source filters. |
-| `url` | `string` | Source url. |
-| `hostName` | `string` | Source hostName. |
 | `encoding` | `string` | Source encoding. |
+| `multilineProcessingEnabled` | `boolean` | Source multilineProcessingEnabled. |
+| `denylist` | `array` | Source denylist. |
+| `filters` | `array` | Source filters. |
+| `fields` | `object` | Source fields. |
+| `sourceType` | `string` | Source sourceType. |
+| `url` | `string` | Source url. |
 | `pathExpression` | `string` | Source pathExpression. |
+| `category` | `string` | Source category. |
+| `forceTimeZone` | `boolean` | Source forceTimeZone. |
+| `useAutolineMatching` | `boolean` | Source useAutolineMatching. |
+| `hostName` | `string` | Source hostName. |
+| `automaticDateParsing` | `boolean` | Source automaticDateParsing. |
+| `hashAlgorithm` | `string` | Source hashAlgorithm. |
+| `messagePerRequest` | `boolean` | Source messagePerRequest. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
