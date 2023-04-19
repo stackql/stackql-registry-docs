@@ -29,13 +29,13 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID that can be used to identify and reference a firewall. |
 | `name` | `string` | A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-). |
-| `status` | `string` | A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed". |
-| `droplet_ids` | `array` | An array containing the IDs of the Droplets assigned to the firewall. |
 | `pending_changes` | `array` | An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied. |
-| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the firewall was created. |
-| `tags` | `array` | A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. |
-| `inbound_rules` | `array` |  |
 | `outbound_rules` | `array` |  |
+| `droplet_ids` | `array` | An array containing the IDs of the Droplets assigned to the firewall. |
+| `status` | `string` | A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed". |
+| `tags` | `array` | A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. |
+| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the firewall was created. |
+| `inbound_rules` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

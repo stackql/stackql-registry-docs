@@ -27,11 +27,11 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `string` | The ID of the specific resource, the name of a tag applied to a group of resources, or the IP address that the firewall rule allows to access the database cluster. |
 | `cluster_uuid` | `string` | A unique ID for the database cluster to which the rule is applied. |
 | `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the firewall rule was created. |
 | `type` | `string` | The type of resource that the firewall rule allows to access the database cluster. |
 | `uuid` | `string` | A unique ID for the firewall rule itself. |
+| `value` | `string` | The ID of the specific resource, the name of a tag applied to a group of resources, or the IP address that the firewall rule allows to access the database cluster. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `metric` | `object` | An object containing the metric labels. |
 | `values` | `array` |  |
+| `metric` | `object` | An object containing the metric labels. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

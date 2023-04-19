@@ -28,12 +28,12 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `emails` | `array` |
 | `phase` | `string` |
 | `progress` | `object` |
 | `slack_webhooks` | `array` |
 | `spec` | `object` |
 | `component_name` | `string` |
+| `emails` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

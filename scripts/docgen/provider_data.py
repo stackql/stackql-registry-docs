@@ -89,7 +89,7 @@ provider_data = {
 auth_blocks = {
 'digitalocean': {
   'variables': """
-- `DIGITALOCEAN_TOKEN` - DigitalOcean API token
+- `DIGITALOCEAN_ACCESS_TOKEN` - DigitalOcean API token (see [How to Create a Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/))
   """,
  'linux': """
 AUTH='{ "digitalocean": { "type": "bearer",  "credentialsenvvar": "YOUR_DIGITALOCEAN_TOKEN_VAR" }}'

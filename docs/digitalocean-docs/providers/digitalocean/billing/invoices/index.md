@@ -28,9 +28,9 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `invoice_preview` | `object` | The invoice preview. |
+| `invoices` | `array` |  |
 | `links` | `object` |  |
 | `meta` | `object` | Information about the response itself. |
-| `invoices` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
