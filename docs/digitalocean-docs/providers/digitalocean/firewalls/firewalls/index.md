@@ -29,13 +29,13 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID that can be used to identify and reference a firewall. |
 | `name` | `string` | A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-). |
-| `pending_changes` | `array` | An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied. |
-| `outbound_rules` | `array` |  |
 | `status` | `string` | A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed". |
 | `droplet_ids` | `array` | An array containing the IDs of the Droplets assigned to the firewall. |
+| `pending_changes` | `array` | An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied. |
 | `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the firewall was created. |
-| `inbound_rules` | `array` |  |
 | `tags` | `array` | A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. |
+| `inbound_rules` | `array` |  |
+| `outbound_rules` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,4 +45,4 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | `delete` | `DELETE` | `firewall_id` | To delete a firewall send a DELETE request to `/v2/firewalls/$FIREWALL_ID`.<br /><br />No response body will be sent back, but the response code will indicate<br />success. Specifically, the response code will be a 204, which means that the<br />action was successful with no returned body data.<br /> |
 | `_get` | `EXEC` | `firewall_id` | To show information about an existing firewall, send a GET request to `/v2/firewalls/$FIREWALL_ID`. |
 | `_list` | `EXEC` |  | To list all of the firewalls available on your account, send a GET request to `/v2/firewalls`. |
-| `update` | `EXEC` | `firewall_id` | To update the configuration of an existing firewall, send a PUT request to<br />`/v2/firewalls/$FIREWALL_ID`. The request should contain a full representation<br />of the firewall including existing attributes. **Note that any attributes that<br />are not provided will be reset to their default values.**<br /> |
+| `update` | `EXEC` | `firewall_id, data__name` | To update the configuration of an existing firewall, send a PUT request to<br />`/v2/firewalls/$FIREWALL_ID`. The request should contain a full representation<br />of the firewall including existing attributes. **Note that any attributes that<br />are not provided will be reset to their default values.**<br /> |

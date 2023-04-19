@@ -28,20 +28,20 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` |  |
-| `updated_at` | `string` |  |
-| `functions` | `array` |  |
+| `progress` | `object` |  |
+| `cause` | `string` |  |
+| `phase` | `string` |  |
 | `created_at` | `string` |  |
+| `workers` | `array` |  |
+| `services` | `array` |  |
+| `functions` | `array` |  |
+| `updated_at` | `string` |  |
+| `tier_slug` | `string` |  |
+| `phase_last_updated_at` | `string` |  |
+| `jobs` | `array` |  |
 | `cloned_from` | `string` |  |
 | `spec` | `object` | The desired configuration of an application. |
-| `workers` | `array` |  |
-| `progress` | `object` |  |
-| `tier_slug` | `string` |  |
-| `jobs` | `array` |  |
-| `phase_last_updated_at` | `string` |  |
-| `phase` | `string` |  |
 | `static_sites` | `array` |  |
-| `services` | `array` |  |
-| `cause` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

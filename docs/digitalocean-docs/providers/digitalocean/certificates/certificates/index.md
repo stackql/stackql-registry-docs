@@ -29,12 +29,12 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID that can be used to identify and reference a certificate. |
 | `name` | `string` | A unique human-readable name referring to a certificate. |
+| `sha1_fingerprint` | `string` | A unique identifier generated from the SHA-1 fingerprint of the certificate. |
+| `state` | `string` | A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`. |
 | `type` | `string` | A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt. |
 | `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the certificate was created. |
 | `dns_names` | `array` | An array of fully qualified domain names (FQDNs) for which the certificate was issued. |
 | `not_after` | `string` | A time value given in ISO8601 combined date and time format that represents the certificate's expiration date. |
-| `sha1_fingerprint` | `string` | A unique identifier generated from the SHA-1 fingerprint of the certificate. |
-| `state` | `string` | A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

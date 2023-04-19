@@ -27,13 +27,13 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `repository` | `string` | The name of the repository. |
+| `size_bytes` | `integer` | The uncompressed size of the tag in bytes (this size is calculated asynchronously so it may not be immediately available). |
 | `tag` | `string` | The name of the tag. |
 | `updated_at` | `string` | The time the tag was last updated. |
 | `compressed_size_bytes` | `integer` | The compressed size of the tag in bytes. |
 | `manifest_digest` | `string` | The digest of the manifest associated with the tag. |
 | `registry_name` | `string` | The name of the container registry. |
-| `repository` | `string` | The name of the repository. |
-| `size_bytes` | `integer` | The uncompressed size of the tag in bytes (this size is calculated asynchronously so it may not be immediately available). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `groups` | `array` | A list of in-cluster groups that the user belongs to. |
 | `username` | `string` | The username for the cluster admin user. |
+| `groups` | `array` | A list of in-cluster groups that the user belongs to. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

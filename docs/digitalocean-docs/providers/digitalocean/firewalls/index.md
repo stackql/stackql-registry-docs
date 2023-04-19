@@ -33,7 +33,7 @@ Firewalls
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DigitalOcean API - Firewalls</td></tr>
 <tr><td><b>Description</b></td><td>Firewalls</td></tr>
-<tr><td><b>Id</b></td><td><code>firewalls:v23.03.00130</code></td></tr>
+<tr><td><b>Id</b></td><td><code>firewalls:v23.04.00139</code></td></tr>
 </tbody></table>
 
 ## Resources

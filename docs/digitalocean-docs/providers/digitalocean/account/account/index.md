@@ -27,14 +27,14 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `uuid` | `string` | The unique universal identifier for the current user. |
-| `droplet_limit` | `integer` | The total number of Droplets current user or team may have active at one time. |
-| `email` | `string` | The email address used by the current user to register for DigitalOcean. |
-| `email_verified` | `boolean` | If true, the user has verified their account via email. False otherwise. |
 | `floating_ip_limit` | `integer` | The total number of Floating IPs the current user or team may have. |
 | `status` | `string` | This value is one of "active", "warning" or "locked". |
 | `status_message` | `string` | A human-readable message giving more details about the status of the account. |
 | `team` | `object` | When authorized in a team context, includes information about the current team. |
+| `uuid` | `string` | The unique universal identifier for the current user. |
+| `droplet_limit` | `integer` | The total number of Droplets current user or team may have active at one time. |
+| `email` | `string` | The email address used by the current user to register for DigitalOcean. |
+| `email_verified` | `boolean` | If true, the user has verified their account via email. False otherwise. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
