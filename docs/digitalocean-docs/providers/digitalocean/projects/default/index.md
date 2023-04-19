@@ -30,13 +30,13 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | `id` | `string` | The unique universal identifier of this project. |
 | `name` | `string` | The human-readable name for the project. The maximum length is 175 characters and the name must be unique. |
 | `description` | `string` | The description of the project. The maximum length is 255 characters. |
-| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the project was created. |
-| `owner_uuid` | `string` | The unique universal identifier of the project owner. |
-| `environment` | `string` | The environment of the project's resources. |
-| `updated_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the project was updated. |
-| `owner_id` | `integer` | The integer id of the project owner. |
-| `purpose` | `string` | The purpose of the project. The maximum length is 255 characters. It can<br />have one of the following values:<br /><br />- Just trying out DigitalOcean<br />- Class project / Educational purposes<br />- Website or blog<br />- Web Application<br />- Service or API<br />- Mobile Application<br />- Machine learning / AI / Data processing<br />- IoT<br />- Operational / Developer tooling<br /><br />If another value for purpose is specified, for example, "your custom purpose",<br />your purpose will be stored as `Other: your custom purpose`.<br /> |
 | `is_default` | `boolean` | If true, all resources will be added to this project if no project is specified. |
+| `owner_id` | `integer` | The integer id of the project owner. |
+| `environment` | `string` | The environment of the project's resources. |
+| `owner_uuid` | `string` | The unique universal identifier of the project owner. |
+| `purpose` | `string` | The purpose of the project. The maximum length is 255 characters. It can<br />have one of the following values:<br /><br />- Just trying out DigitalOcean<br />- Class project / Educational purposes<br />- Website or blog<br />- Web Application<br />- Service or API<br />- Mobile Application<br />- Machine learning / AI / Data processing<br />- IoT<br />- Operational / Developer tooling<br /><br />If another value for purpose is specified, for example, "your custom purpose",<br />your purpose will be stored as `Other: your custom purpose`.<br /> |
+| `created_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the project was created. |
+| `updated_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the project was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

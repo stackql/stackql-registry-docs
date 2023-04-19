@@ -38,7 +38,7 @@ See also:
 
 ## Installation
 
-To pull the latest version of the `aws` provider, run the following command:  
+To pull the latest version of the `digitalocean` provider, run the following command:  
 
 ```bash
 REGISTRY PULL digitalocean;

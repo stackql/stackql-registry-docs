@@ -27,6 +27,7 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `repository` | `string` | The name of the repository. |
 | `size_bytes` | `integer` | The uncompressed size of the manifest in bytes (this size is calculated asynchronously so it may not be immediately available). |
 | `tags` | `array` | All tags associated with this manifest |
 | `updated_at` | `string` | The time the manifest was last updated. |
@@ -34,7 +35,6 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | `compressed_size_bytes` | `integer` | The compressed size of the manifest in bytes. |
 | `digest` | `string` | The manifest digest |
 | `registry_name` | `string` | The name of the container registry. |
-| `repository` | `string` | The name of the repository. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

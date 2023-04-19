@@ -27,14 +27,14 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `updated_at` | `string` | UTC time string. |
-| `uuid` | `string` | The namespace's Universally Unique Identifier. |
-| `api_host` | `string` | The namespace's API hostname. Each function in a namespace is provided an endpoint at the namespace's hostname. |
-| `created_at` | `string` | UTC time string. |
 | `key` | `string` | A random alpha numeric string. This key is used in conjunction with the namespace's UUID to authenticate <br />a user to use the namespace via `doctl`, DigitalOcean's official CLI. |
 | `label` | `string` | The namespace's unique name. |
 | `namespace` | `string` | A unique string format of UUID with a prefix fn-. |
 | `region` | `string` | The namespace's datacenter region. |
+| `updated_at` | `string` | UTC time string. |
+| `uuid` | `string` | The namespace's Universally Unique Identifier. |
+| `api_host` | `string` | The namespace's API hostname. Each function in a namespace is provided an endpoint at the namespace's hostname. |
+| `created_at` | `string` | UTC time string. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
