@@ -27,8 +27,8 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `appDefinition` | `object` |
 | `appManifest` | `object` |
+| `appDefinition` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
