@@ -28,27 +28,27 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the span. |
-| `remoteServiceColor` | `string` | Color hex code assigned to the remote service. |
-| `serviceType` | `string` | Defines type of service. |
-| `duration` | `integer` | Number of nanoseconds the span lasted. |
-| `parentId` | `string` | Identifier of the parent span, if any. If the span has no parent it's considered a root span. |
-| `status` | `object` |  |
 | `remoteServiceType` | `string` | Defines type of service. |
-| `errorMessage` | `string` | Produced error message (could be a stack trace, database error code, ..) |
+| `remoteServiceColor` | `string` | Color hex code assigned to the remote service. |
+| `info` | `object` |  |
+| `operationName` | `string` | The name of the operation given to the span. |
+| `duration` | `integer` | Number of nanoseconds the span lasted. |
+| `remoteService` | `string` | Name of the possible remote span's service. |
+| `parentId` | `string` | Identifier of the parent span, if any. If the span has no parent it's considered a root span. |
 | `serviceColor` | `string` | Color hex code assigned to the service. |
+| `errorMessage` | `string` | Produced error message (could be a stack trace, database error code, ..) |
+| `numberOfLinks` | `integer` | Number of span links in this span. |
 | `resource` | `string` | The name of the resource attached to the span. |
-| `startedAt` | `string` | Date and time the span was started in the [ISO 8601 / RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `status` | `object` |  |
+| `criticalPathContribution` | `object` |  |
+| `links` | `array` | List of casually related spans. |
 | `fields` | `object` | Fields attached to this span. |
 | `kind` | `string` | Span kind describes the relationship between the Span, its parents, and its children in a Trace. Possible values: `CLIENT`, `SERVER`, `PRODUCER`, `CONSUMER`, `INTERNAL`. |
+| `logs` | `array` | Logs attached to this span. |
+| `startedAt` | `string` | Date and time the span was started in the [ISO 8601 / RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `serviceType` | `string` | Defines type of service. |
 | `events` | `array` | Events attached to this span. |
 | `service` | `string` | The name of the service this span is part of. |
-| `info` | `object` |  |
-| `logs` | `array` | Logs attached to this span. |
-| `operationName` | `string` | The name of the operation given to the span. |
-| `remoteService` | `string` | Name of the possible remote span's service. |
-| `links` | `array` | List of casually related spans. |
-| `criticalPathContribution` | `object` |  |
-| `numberOfLinks` | `integer` | Number of span links in this span. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

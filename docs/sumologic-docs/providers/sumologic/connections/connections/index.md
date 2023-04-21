@@ -30,11 +30,11 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | `id` | `string` | Unique identifier for the connection. |
 | `name` | `string` | Name of the connection. |
 | `description` | `string` | Description of the connection. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
 | `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `type` | `string` | Type of connection. Valid values are `WebhookConnection`, `ServiceNowConnection`. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

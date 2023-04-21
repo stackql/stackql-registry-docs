@@ -21,7 +21,7 @@ if [ ! -d "$destination_dir" ]; then
   echo "Creating $destination_dir"
   mkdir -p "$destination_dir"
 else
-  echo "$destination_dir exists, overwritting"
+  echo "$destination_dir exists, overwriting"
 fi
 
 # Copy files
