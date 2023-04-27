@@ -29,11 +29,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `number` |
 | `name` | `string` |
-| `default` | `boolean` |
 | `runners_url` | `string` |
 | `selected_organizations_url` | `string` |
 | `visibility` | `string` |
 | `allows_public_repositories` | `boolean` |
+| `default` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,41 +28,41 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `diff_url` | `string` |  |
-| `number` | `integer` |  |
-| `patch_url` | `string` |  |
-| `assignee` | `object` | Simple User |
-| `review_comment_url` | `string` |  |
-| `closed_at` | `string` |  |
-| `url` | `string` |  |
-| `merged_at` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `node_id` | `string` |  |
-| `locked` | `boolean` |  |
-| `updated_at` | `string` |  |
-| `review_comments_url` | `string` |  |
-| `user` | `object` | Simple User |
-| `head` | `object` |  |
-| `requested_reviewers` | `array` |  |
-| `merge_commit_sha` | `string` |  |
-| `state` | `string` |  |
-| `labels` | `array` |  |
-| `_links` | `object` |  |
-| `body` | `string` |  |
 | `comments_url` | `string` |  |
-| `base` | `object` |  |
-| `requested_teams` | `array` |  |
 | `auto_merge` | `object` | The status of auto merging a pull request. |
-| `commits_url` | `string` |  |
-| `issue_url` | `string` |  |
-| `created_at` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
-| `assignees` | `array` |  |
-| `title` | `string` |  |
-| `statuses_url` | `string` |  |
 | `html_url` | `string` |  |
+| `body` | `string` |  |
+| `user` | `object` | Simple User |
+| `commits_url` | `string` |  |
+| `patch_url` | `string` |  |
+| `merged_at` | `string` |  |
+| `number` | `integer` |  |
+| `labels` | `array` |  |
+| `title` | `string` |  |
+| `assignees` | `array` |  |
+| `closed_at` | `string` |  |
+| `created_at` | `string` |  |
 | `milestone` | `object` | A collection of related issues and pull requests. |
+| `issue_url` | `string` |  |
+| `locked` | `boolean` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `updated_at` | `string` |  |
+| `merge_commit_sha` | `string` |  |
+| `head` | `object` |  |
+| `review_comments_url` | `string` |  |
+| `review_comment_url` | `string` |  |
+| `state` | `string` |  |
+| `_links` | `object` |  |
+| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
+| `url` | `string` |  |
+| `active_lock_reason` | `string` |  |
+| `diff_url` | `string` |  |
+| `base` | `object` |  |
+| `assignee` | `object` | Simple User |
+| `requested_teams` | `array` |  |
+| `statuses_url` | `string` |  |
+| `requested_reviewers` | `array` |  |
+| `node_id` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

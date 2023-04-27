@@ -28,10 +28,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
+| `zipball_url` | `string` |
 | `commit` | `object` |
 | `node_id` | `string` |
 | `tarball_url` | `string` |
-| `zipball_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

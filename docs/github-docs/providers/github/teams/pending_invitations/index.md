@@ -30,13 +30,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` |  |
 | `inviter` | `object` | Simple User |
 | `created_at` | `string` |  |
-| `email` | `string` |  |
+| `login` | `string` |  |
+| `failed_reason` | `string` |  |
 | `team_count` | `integer` |  |
 | `invitation_teams_url` | `string` |  |
-| `failed_reason` | `string` |  |
-| `failed_at` | `string` |  |
-| `login` | `string` |  |
 | `node_id` | `string` |  |
+| `email` | `string` |  |
+| `failed_at` | `string` |  |
 | `role` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -28,20 +28,20 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `scopes` | `array` | A list of scopes that this authorization is in. |
-| `url` | `string` |  |
-| `expires_at` | `string` |  |
-| `token` | `string` |  |
-| `token_last_eight` | `string` |  |
-| `user` | `object` | Simple User |
-| `hashed_token` | `string` |  |
-| `created_at` | `string` |  |
-| `fingerprint` | `string` |  |
-| `app` | `object` |  |
 | `note_url` | `string` |  |
+| `expires_at` | `string` |  |
+| `user` | `object` | Simple User |
+| `app` | `object` |  |
 | `updated_at` | `string` |  |
+| `created_at` | `string` |  |
+| `url` | `string` |  |
+| `scopes` | `array` | A list of scopes that this authorization is in. |
+| `fingerprint` | `string` |  |
 | `installation` | `object` |  |
+| `hashed_token` | `string` |  |
 | `note` | `string` |  |
+| `token_last_eight` | `string` |  |
+| `token` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

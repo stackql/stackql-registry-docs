@@ -29,25 +29,25 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `integer` |
 | `name` | `string` |
+| `following_url` | `string` |
 | `login` | `string` |
+| `repos_url` | `string` |
+| `avatar_url` | `string` |
+| `email` | `string` |
+| `contributions` | `integer` |
+| `subscriptions_url` | `string` |
 | `url` | `string` |
 | `html_url` | `string` |
-| `following_url` | `string` |
-| `followers_url` | `string` |
-| `contributions` | `integer` |
-| `email` | `string` |
-| `events_url` | `string` |
-| `subscriptions_url` | `string` |
-| `type` | `string` |
-| `starred_url` | `string` |
-| `organizations_url` | `string` |
-| `node_id` | `string` |
-| `repos_url` | `string` |
-| `received_events_url` | `string` |
-| `gists_url` | `string` |
-| `avatar_url` | `string` |
-| `gravatar_id` | `string` |
 | `site_admin` | `boolean` |
+| `type` | `string` |
+| `gists_url` | `string` |
+| `received_events_url` | `string` |
+| `gravatar_id` | `string` |
+| `events_url` | `string` |
+| `organizations_url` | `string` |
+| `starred_url` | `string` |
+| `followers_url` | `string` |
+| `node_id` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

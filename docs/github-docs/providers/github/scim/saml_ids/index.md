@@ -27,10 +27,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
+| `scimIdentity` | `object` |
 | `user` | `object` |
 | `guid` | `string` |
 | `samlIdentity` | `object` |
-| `scimIdentity` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

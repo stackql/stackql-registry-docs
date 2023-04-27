@@ -28,38 +28,38 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
+| `node_id` | `string` |  |
+| `title` | `string` | Title of the issue |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `created_at` | `string` |  |
+| `draft` | `boolean` |  |
+| `comments` | `integer` |  |
+| `url` | `string` | URL for the issue |
+| `events_url` | `string` |  |
+| `body_text` | `string` |  |
+| `state` | `string` | State of the issue; either 'open' or 'closed' |
+| `labels` | `array` | Labels to associate with this issue; pass one or more label names to replace the set of labels on this issue; send an empty array to clear all labels from the issue; note that the labels are silently dropped for users without push access to the repository |
+| `assignee` | `object` | Simple User |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `assignees` | `array` |  |
+| `milestone` | `object` | A collection of related issues and pull requests. |
+| `labels_url` | `string` |  |
 | `body` | `string` | Contents of the issue |
+| `number` | `integer` | Number uniquely identifying the issue within its repository |
+| `reactions` | `object` |  |
+| `user` | `object` | Simple User |
+| `repository` | `object` | A git repository |
+| `html_url` | `string` |  |
+| `repository_url` | `string` |  |
+| `active_lock_reason` | `string` |  |
+| `closed_at` | `string` |  |
 | `body_html` | `string` |  |
 | `closed_by` | `object` | Simple User |
-| `created_at` | `string` |  |
-| `closed_at` | `string` |  |
-| `title` | `string` | Title of the issue |
-| `user` | `object` | Simple User |
-| `comments` | `integer` |  |
-| `html_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `repository` | `object` | A git repository |
-| `locked` | `boolean` |  |
-| `comments_url` | `string` |  |
-| `url` | `string` | URL for the issue |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `labels` | `array` | Labels to associate with this issue; pass one or more label names to replace the set of labels on this issue; send an empty array to clear all labels from the issue; note that the labels are silently dropped for users without push access to the repository |
-| `draft` | `boolean` |  |
-| `active_lock_reason` | `string` |  |
-| `body_text` | `string` |  |
-| `number` | `integer` | Number uniquely identifying the issue within its repository |
-| `state` | `string` | State of the issue; either 'open' or 'closed' |
-| `pull_request` | `object` |  |
-| `node_id` | `string` |  |
 | `timeline_url` | `string` |  |
-| `assignees` | `array` |  |
-| `events_url` | `string` |  |
-| `reactions` | `object` |  |
-| `repository_url` | `string` |  |
-| `assignee` | `object` | Simple User |
-| `labels_url` | `string` |  |
-| `milestone` | `object` | A collection of related issues and pull requests. |
+| `comments_url` | `string` |  |
+| `pull_request` | `object` |  |
+| `locked` | `boolean` |  |
+| `updated_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

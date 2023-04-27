@@ -29,17 +29,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` |  |
 | `repository` | `object` | Minimal Repository |
-| `file_size` | `integer` |  |
-| `line_numbers` | `array` |  |
-| `path` | `string` |  |
+| `score` | `number` |  |
 | `url` | `string` |  |
 | `last_modified_at` | `string` |  |
-| `score` | `number` |  |
-| `sha` | `string` |  |
-| `language` | `string` |  |
-| `text_matches` | `array` |  |
-| `git_url` | `string` |  |
 | `html_url` | `string` |  |
+| `file_size` | `integer` |  |
+| `text_matches` | `array` |  |
+| `path` | `string` |  |
+| `git_url` | `string` |  |
+| `language` | `string` |  |
+| `sha` | `string` |  |
+| `line_numbers` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

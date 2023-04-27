@@ -29,21 +29,21 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the deployment |
 | `description` | `string` |  |
-| `creator` | `object` | Simple User |
-| `original_environment` | `string` |  |
-| `production_environment` | `boolean` | Specifies if the given environment is one that end-users directly interact with. Default: false. |
-| `task` | `string` | Parameter to specify a task to execute |
 | `updated_at` | `string` |  |
-| `repository_url` | `string` |  |
 | `node_id` | `string` |  |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `statuses_url` | `string` |  |
-| `transient_environment` | `boolean` | Specifies if the given environment is will no longer exist at some point in the future. Default: false. |
 | `environment` | `string` | Name for the target deployment environment. |
 | `created_at` | `string` |  |
-| `ref` | `string` | The ref to deploy. This can be a branch, tag, or sha. |
-| `payload` | `` |  |
+| `production_environment` | `boolean` | Specifies if the given environment is one that end-users directly interact with. Default: false. |
+| `repository_url` | `string` |  |
 | `url` | `string` |  |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `creator` | `object` | Simple User |
+| `transient_environment` | `boolean` | Specifies if the given environment is will no longer exist at some point in the future. Default: false. |
+| `original_environment` | `string` |  |
+| `ref` | `string` | The ref to deploy. This can be a branch, tag, or sha. |
+| `task` | `string` | Parameter to specify a task to execute |
+| `payload` | `` |  |
+| `statuses_url` | `string` |  |
 | `sha` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |

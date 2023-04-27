@@ -1,452 +1,292 @@
+google_auth_markdown = """
+The following authentication methods are supported:
+- `service_account`
+- `interactive` for running interactive queries from Cloud Shell or other machines where the user is authenticated using `gcloud auth login`
+
+> for more information on creating service accounts and key files, see [Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview).
+
+### Service Account Environment Variable (default)
+
+The following system environment variable is used by default:  
+
+- `GOOGLE_APPLICATION_CREDENTIALS` - contents of the `google` service account key file
+
+This variable is sourced at runtime (from the local machine or as a CI variable/secret).
+
+<details>
+
+<summary>Specifying the service account key file location directly</summary>
+
+You can specify the path to the service account key file without using the default environment variable by using the `--auth` flag of the `stackql` program.  For example:  
+
+```bash
+AUTH='{ "google": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+stackql shell --auth="${AUTH}"
+```
+
+or using PowerShell:  
+
+```powershell
+$Auth = "{ 'google': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+stackql.exe shell --auth=$Auth
+```
+
+</details>
+
+### Interactive Authentication
+When you are using Google Cloud Shell or on a machine where you have authenticated using `gcloud auth login` you c 
+
+"""
+
 provider_data = {
-'digitalocean': {
-    'meta_description': 'Query, deploy and manage Sumologic resources using SQL',
-    'description': 'Cloud computing services and Infrastructure as a Service (IaaS).',
-    'image': '/img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png' 
-},
-'sumologic': {
-    'meta_description': 'Query, deploy and manage Sumologic resources using SQL',
-    'description': 'Cloud-native, real-time, unified logs and metrics analytics platform.',
-    'image': '/img/providers/sumologic/stackql-sumologic-provider-featured-image.png' 
-},
-'googleworkspace': {
-    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
-    'description': 'Productivity and collaboration tools for businesses.',
-    'image': '/img/providers/googleworkspace/stackql-googleworkspace-provider-featured-image.png' 
-},
-'googlemybusiness': {
-    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
-    'description': 'Tools for businesses to manage their online presence.',
-    'image': '/img/providers/googlemybusiness/stackql-googlemybusiness-provider-featured-image.png' 
-},
-'googledevelopers': {
-    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
-    'description': 'Developer APIs by Google.',
-    'image': '/img/providers/googledevelopers/stackql-googledevelopers-provider-featured-image.png' 
-},
-'googleanalytics': {
-    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
-    'description': 'Web tracking and analytics service.',
-    'image': '/img/providers/googleanalytics/stackql-googleanalytics-provider-featured-image.png' 
-},
-'googleads': {
-    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
-    'description': 'Online advertising platform by Google.',
-    'image': '/img/providers/googleads/stackql-googleads-provider-featured-image.png' 
-},
-'youtube': {
-    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
-    'description': 'Online video sharing and social media platform.',
-    'image': '/img/providers/youtube/stackql-youtube-provider-featured-image.png' 
-},  
-'firebase': {
-    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
-    'description': 'Application development platform for creating mobile and web applications.',
-    'image': '/img/providers/firebase/stackql-firebase-provider-featured-image.png' 
-},
-'github': {
-    'meta_description': 'Query, deploy and manage GitHub resources using SQL',
-    'description': 'Web-based version-control and collaboration.',
-    'image': '/img/providers/github/stackql-github-provider-featured-image.png' 
-},
-'google': {
-    'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
-    'description': 'Cloud computing services offered by Google.',
-    'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
-},
-'k8s': {
-    'meta_description': 'Query, deploy and manage Kubernetes resources using SQL',
-    'description': 'Open source container management platform.',
-    'image': '/img/providers/k8s/stackql-k8s-provider-featured-image.png' 
-},
-'netlify': {
-    'meta_description': 'Query, deploy and manage Netlify resources using SQL',
-    'description': 'Web development and content distribution platform.',
-    'image': '/img/providers/netlify/stackql-netlify-provider-featured-image.png' 
-},
-'okta': {
-    'meta_description': 'Query, deploy and manage Okta resources using SQL',
-    'description': 'Authentication and authorization services.',
-    'image': '/img/providers/okta/stackql-okta-provider-featured-image.png' 
-},
-'aws': {
-    'meta_description': 'Query, deploy and manage AWS resources using SQL',
-    'description': 'Cloud services from AWS.',
-    'image': '/img/providers/aws/stackql-aws-provider-featured-image.png' 
-},
-'azure': {
-    'meta_description': 'Query, deploy and manage Azure resources using SQL',
-    'description': ' Cloud computing services operated by Microsoft.',
-    'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
-},
-'azure_extras': {
-    'meta_description': 'Query, deploy and manage Azure resources using SQL',
-    'description': ' Additional Azure cloud computing services by Microsoft.',
-    'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
-}
+  'digitalocean': {
+      'meta_description': 'Query, deploy and manage Sumologic resources using SQL',
+      'description': 'Cloud computing services and Infrastructure as a Service (IaaS).',
+      'image': '/img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png' 
+  },
+  'sumologic': {
+      'meta_description': 'Query, deploy and manage Sumologic resources using SQL',
+      'description': 'Cloud-native, real-time, unified logs and metrics analytics platform.',
+      'image': '/img/providers/sumologic/stackql-sumologic-provider-featured-image.png' 
+  },
+  'firebase': {
+      'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
+      'description': 'Application development platform for creating mobile and web applications.',
+      'image': '/img/providers/firebase/stackql-firebase-provider-featured-image.png' 
+  },
+  'github': {
+      'meta_description': 'Query, deploy and manage GitHub resources using SQL',
+      'description': 'Web-based version-control and collaboration.',
+      'image': '/img/providers/github/stackql-github-provider-featured-image.png' 
+  },
+  'google': {
+      'meta_description': 'Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL',
+      'description': 'Cloud computing services offered by Google.',
+      'image': '/img/providers/google/stackql-google-provider-featured-image.png' 
+  },
+  'k8s': {
+      'meta_description': 'Query, deploy and manage Kubernetes resources using SQL',
+      'description': 'Open source container management platform.',
+      'image': '/img/providers/k8s/stackql-k8s-provider-featured-image.png' 
+  },
+  'netlify': {
+      'meta_description': 'Query, deploy and manage Netlify resources using SQL',
+      'description': 'Web development and content distribution platform.',
+      'image': '/img/providers/netlify/stackql-netlify-provider-featured-image.png' 
+  },
+  'okta': {
+      'meta_description': 'Query, deploy and manage Okta resources using SQL',
+      'description': 'Authentication and authorization services.',
+      'image': '/img/providers/okta/stackql-okta-provider-featured-image.png' 
+  },
+  'aws': {
+      'meta_description': 'Query, deploy and manage AWS resources using SQL',
+      'description': 'Cloud services from AWS.',
+      'image': '/img/providers/aws/stackql-aws-provider-featured-image.png' 
+  },
+  'azure': {
+      'meta_description': 'Query, deploy and manage Azure resources using SQL',
+      'description': ' Cloud computing services operated by Microsoft.',
+      'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
+  },
+  'azure_extras': {
+      'meta_description': 'Query, deploy and manage Azure resources using SQL',
+      'description': ' Additional Azure cloud computing services by Microsoft.',
+      'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
+  }
 }
 
 auth_blocks = {
-'digitalocean': {
-  'variables': """
+# 
+# Digital Ocean
+#  
+  'digitalocean': {
+    'custom': False,
+    'variables': """
 - `DIGITALOCEAN_ACCESS_TOKEN` - DigitalOcean API token (see [How to Create a Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/))
   """,
- 'linux': """
+    'linux': """
 AUTH='{ "digitalocean": { "type": "bearer",  "credentialsenvvar": "YOUR_DIGITALOCEAN_TOKEN_VAR" }}'
 stackql shell --auth="${AUTH}"
- """,
- 'windows': """
+""",
+    'windows': """
 $Auth = "{ 'digitalocean': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_DIGITALOCEAN_TOKEN_VAR' }}"
 stackql.exe shell --auth=$Auth
- """,
-},
-'sumologic': {
-  'variables': """
+""",
+  },
+# 
+# Sumo Logic
+#  
+  'sumologic': {
+    'custom': False,
+    'variables': """
 - `SUMOLOGIC_ACCESSID` - SumoLogic Access ID (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
 - `SUMOLOGIC_ACCESSKEY` - SumoLogic Access Key (see [Generating an Access Key](https://help.sumologic.com/docs/manage/security/access-keys/))
   """,
- 'linux': """
+    'linux': """
 AUTH='{ "sumologic": { "type": "basic",  "username_var": "YOUR_SUMOLOGIC_ACCESS_ID_VAR", "password_var": "YOUR_SUMOLOGIC_ACCESS_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
- """,
- 'windows': """
+""",
+    'windows': """
 $Auth = "{ 'sumologic': { 'type': 'basic',  'username_var': 'YOUR_SUMOLOGIC_ACCESS_ID_VAR', 'password_var': 'YOUR_SUMOLOGIC_ACCESS_KEY_VAR' }}"
 stackql.exe shell --auth=$Auth
- """,
-},  
-'googleworkspace': {
-    'auth': """
-{
-  "googleworkspace": {
-    "type": string, // authentication type to use, suported values:  service_account
-    "credentialsfilepath": string, // path to service account key file
-    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
-  }
-}
 """,
-    'example': {
-        'linux':
-"""
-AUTH='{ "googleworkspace": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/drive", "..."]  }}'
+  },  
+# 
+# GitHub
+#  
+  'github': {
+    'custom': False,
+    'variables': """
+- `STACKQL_GITHUB_USERNAME` - GitHub username (login)
+- `STACKQL_GITHUB_PASSWORD` - GitHub Personal Access Token (see [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+  """,
+    'linux': """
+AUTH='{ "github": { "type": "basic",  "username_var": "YOUR_GITHUB_USERNAME_VAR", "password_var": "YOUR_GITHUB_PASSWORD_VAR" }}'
 stackql shell --auth="${AUTH}"
 """,
-        'windows':
-"""
-$Auth = "{ 'googleworkspace': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/drive', '...'] }}"
+    'windows': """
+$Auth = "{ 'github': { 'type': 'basic',  'username_var': 'YOUR_GITHUB_USERNAME_VAR', 'password_var': 'YOUR_GITHUB_PASSWORD_VAR' }}"
 stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'googlemybusiness': {
-    'auth': """
-{
-  "googlemybusiness": {
-    "type": string, // authentication type to use, suported values:  service_account
-    "credentialsfilepath": string, // path to service account key file
-    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
-  }
-}
 """,
-    'example': {
-        'linux':
-"""
-AUTH='{ "googlemybusiness": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
+  },
+# 
+# Netlify
+#  
+ 'netlify': {
+    'custom': False,
+    'variables': """
+- `NETLIFY_AUTH_TOKEN` - Netlify API token (see [How to Create a Netlify API Token](https://docs.netlify.com/api/get-started/#authentication))
+  """,
+    'linux': """
+AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_NETLIFY_AUTH_TOKEN_VAR" }}'
 stackql shell --auth="${AUTH}"
 """,
-        'windows':
-"""
-$Auth = "{ 'googlemybusiness': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
+    'windows': """
+$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_NETLIFY_AUTH_TOKEN_VAR' }}"
 stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'googledevelopers': {
-    'auth': """
-{
-  "googledevelopers": {
-    "type": string, // authentication type to use, suported values:  service_account
-    "credentialsfilepath": string, // path to service account key file
-    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
-  }
-}
 """,
-    'example': {
-        'linux':
-"""
-AUTH='{ "googledevelopers": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
+ },
+# 
+# AWS
+# 
+  'aws': {
+    'custom': False,
+    'variables': """
+- `AWS_ACCESS_KEY_ID` - AWS Access Key ID (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
+- `AWS_SECRET_ACCESS_KEY` - AWS Secret Access Key (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
+  """,
+    'linux': """
+AUTH='{ "aws": { "type": "aws_signing_v4", "keyIDenvvar": "YOUR_ACCESS_KEY_ID_VAR", "credentialsenvvar": "YOUR_SECRET_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
 """,
-        'windows':
-"""
-$Auth = "{ 'googledevelopers': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
+    'windows': """
+$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'keyIDenvvar': 'YOUR_ACCESS_KEY_ID_VAR', 'credentialsenvvar': 'YOUR_SECRET_KEY_VAR' }}"
 stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'googleanalytics': {
-    'auth': """
-{
-  "googleanalytics": {
-    "type": string, // authentication type to use, suported values:  service_account
-    "credentialsfilepath": string, // path to service account key file
-    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
-  }
-}
 """,
-    'example': {
-        'linux':
-"""
-AUTH='{ "googleanalytics": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
+  },
+# 
+# Okta
+#
+  'okta': {
+    'custom': False,
+    'variables': """
+- `OKTA_API_TOKEN` - Okta API Token (see [Creating an Okta API Token](https://developer.okta.com/docs/guides/create-an-api-token/))
+  """,
+    'linux': """
+AUTH='{ "okta": { "type": "api_key", "valuePrefix": "SSWS ", "credentialsenvvar": "YOUR_OKTA_API_TOKEN_VAR" }}'
 stackql shell --auth="${AUTH}"
 """,
-        'windows':
-"""
-$Auth = "{ 'googleanalytics': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
+    'windows': """
+$Auth = "{ 'okta': { 'type': 'api_key',  'valuePrefix': 'SSWS ', 'credentialsenvvar': 'YOUR_OKTA_API_TOKEN_VAR' }}"
 stackql.exe shell --auth=$Auth
+""",
+  },
+# 
+# Google
+# 
+  'google': {
+    'custom': True,
+    'custom_markdown': google_auth_markdown,
+  },
+# 
+# Firebase
+# 
+  'firebase': {
+    'custom': True,
+    'custom_markdown': google_auth_markdown,
+  },
+# 
+# Azure
+# 
+  'azure': {
+    'custom': True,
+    'custom_markdown': """
+StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+""",
+  },
+# 
+# Azure Extras
+# 
+  'azure_extras': {
+    'custom': True,
+    'custom_markdown': """
+StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+""",
+  },
+# 
+# k8s
+# 
+  'k8s': {
+    'custom': True,
+    'custom_markdown': """
+:::note
+
+__`cluster_addr`__ is a required paramter for all operations using the `k8s` provider, for example:  
+
+```sql
+SELECT name, namespace, uid, creationTimestamp 
+FROM k8s.core_v1.service_account 
+WHERE cluster_addr = '35.244.65.136' AND namespace = 'kube-system' 
+ORDER BY name ASC;
+```
+:::
+
+### Example using `kubectl proxy`
+`kubectl proxy` is the default authentication method for the `k8s` provider, no other variables or configuration is necessary to query the `k8s` provider if you are using this method.  
+
+:::note
+
+The __`protocol`__ parameter is required when accessing a Kubernetes cluster via `kubectl proxy`, see the example below:  
+
+```sql
+select name, namespace, uid, creationTimestamp 
+from k8s.core_v1.pod 
+where protocol = 'http' 
+and cluster_addr = 'localhost:8080'  
+order by name asc limit 3;
+```
+:::
+
+### Example using direct cluster access
+If you are using an access token to access the `k8s` API, follow the instructions below (use `exec` instead of `shell` for non interactive operations):
+
+```bash
+export K8S_TOKEN='eyJhbGciOiJ...'
+AUTH='{ "k8s": { "type": "bearer", "credentialsenvvar": "K8S_TOKEN" } }'
+stackql shell --auth="${AUTH}" --tls.CABundle k8s_cert_bundle.pem
+```
+:::note
+
+You will need to generate a certificate bundle for your cluster (`k8s_cert_bundle.pem` in the preceeding example), you can use the following code to generate this (for MacOS or Linux):  
+
+```bash
+kubectl get secret -o jsonpath="{.items[?(@.type==\"kubernetes.io/service-account-token\")].data['ca\.crt']}" | base64 -i --decode > k8s_cert_bundle.pem
+```
+
+Alternatively, you could add the `--tls.allowInsecure=true` argument to the `stackql` command, it is not recommended however. 
+
+:::
 """
-    }
-},
-'googleads': {
-    'auth': """
-{
-  "googleads": {
-    "type": string, // authentication type to use, suported values:  service_account
-    "credentialsfilepath": string, // path to service account key file
-    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
   }
-}
-""",
-    'example': {
-        'linux':
-"""
-AUTH='{ "googleads": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
-stackql shell --auth="${AUTH}"
-""",
-        'windows':
-"""
-$Auth = "{ 'googleads': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
-stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'youtube': {
-    'auth': """
-{
-  "youtube": {
-    "type": string, // authentication type to use, suported values:  service_account
-    "credentialsfilepath": string, // path to service account key file
-    "scopes": string[], // array of scopes required for API authorization, see [scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
-  }
-}
-""",
-    'example': {
-        'linux':
-"""
-AUTH='{ "youtube": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json", "scopes": ["https://www.googleapis.com/auth/...", "..."]  }}'
-stackql shell --auth="${AUTH}"
-""",
-        'windows':
-"""
-$Auth = "{ 'youtube': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json', 'scopes': ['https://www.googleapis.com/auth/...', '...'] }}"
-stackql.exe shell --auth=$Auth
-"""
-    }
-},  
-'firebase': {
-    'auth': """
-{
-  "firebase": {
-    "type": string, // authentication type to use, suported values:  service_account
-    "credentialsfilepath": string, // path to service account key file
-  }
-}
-""",
-    'example': {
-        'linux':
-"""
-AUTH='{ "firebase": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
-stackql shell --auth="${AUTH}"
-""",
-        'windows':
-"""
-$Auth = "{ 'firebase': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}'
-stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'github': {
-    'auth': """
-{
-  "github": {
-    "type": string, // authentication type to use, suported values:  basic
-    "credentialsenvvar": string, // env var name containing the base64 encoded string in the form: username:password
-  }
-}
-""",
-    'example': {
-        'linux': 
-"""
-export GITHUB_CREDS=$(echo -n 'yourusername:ghp_YOURPERSONALACCESSTOKEN' | base64)
-AUTH='{ "github": { "type": "basic", "credentialsenvvar": "GITHUB_CREDS" } }'
-stackql shell --auth="${AUTH}"
-""",
-        'windows':
-"""
-$env:GITHUB_CREDS = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("yourusername:ghp_YOURPERSONALACCESSTOKEN"))
-$Auth = "{ 'github': { 'type': 'basic', 'credentialsenvvar': 'GITHUB_CREDS' } }"
-stackql shell --auth=$Auth
-"""
-    }
-},
-'google': {
-    'auth': """
-{
-  "google": {
-    "type": string, // authentication type to use, suported values include: service_account, interactive
-    "credentialsfilepath": string, // path to service account key file
-  }
-}
-""",
-    'example': {
-        'linux':
-"""
-AUTH='{ "google": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
-stackql shell --auth="${AUTH}"
-""",
-        'windows':
-"""
-$Auth = "{ 'google': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
-stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'k8s': {
-    'auth': """
-{
-  "k8s": {
-    "type": string, // authentication type to use, suported values include: bearer, null_auth
-    "credentialsenvvar": string, // env var name containing the api key or credentials
-  }
-}
-""",
-    'example': {}
-},
-'netlify': {
-    'auth': """
-{
-  "netlify": {
-    "type": string, // authentication type to use, suported values include: bearer
-    "credentialsenvvar": string, // env var name containing the acces token
-  }
-}
-""",
-    'example': {
-        'linux':
-"""
-NETLIFY_TOKEN=yourtoken
-AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "NETLIFY_TOKEN" }}'
-stackql shell --auth="${AUTH}"
-""",
-        'windows':
-"""
-$env:NETLIFY_TOKEN = "yourtoken"
-$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'NETLIFY_TOKEN' }}"
-stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'okta': {
-    'auth': """
-{
-  "okta": {
-    "type": string, // authentication type to use, suported values: api_key
-    "credentialsenvvar": string, // env var name containing the api key
-    "valuePrefix": string, // authorization prefix, suported values: "SSWS "
-  }
-}
-""",
-    'example': {
-        'linux':
-"""
-OKTA_SECRET_KEY=yourapikey
-AUTH='{ "okta": { "type": "api_key",  "credentialsenvvar": "OKTA_SECRET_KEY", "valuePrefix": "SSWS " }}'
-stackql shell --auth="${AUTH}"
-""",
-        'windows':
-"""
-$env:OKTA_SECRET_KEY = "yourapikey"
-$Auth = "{ 'okta': { 'type': 'api_key',  'credentialsenvvar': 'OKTA_SECRET_KEY', 'valuePrefix': 'SSWS ' }}"
-stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'aws': {
-    'auth': """
-{
-  "aws": {
-    "type": string, // authentication type to use, suported values:  aws_signing_v4
-    "keyIDenvvar": string, // env var containing AWS_ACCESS_KEY_ID
-    "credentialsenvvar": string, // env var containing AWS_SECRET_ACCESS_KEY
-  }
-}
-""",
-    'example': {
-        'linux':
-"""
-AUTH="{ \"aws\": { \"type\": \"aws_signing_v4\", \"credentialsenvvar\": \"AWS_SECRET_ACCESS_KEY\", \"keyIDenvvar\": \"AWS_ACCESS_KEY_ID\" }}"
-stackql shell --auth="${AUTH}"
-""",
-        'windows':  
-"""
-$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'credentialsenvvar': 'AWS_SECRET_ACCESS_KEY', 'keyIDenvvar': 'AWS_ACCESS_KEY_ID' }}"
-stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'azure': {
-    'auth': """
-{
-  "azure": {
-    "type": string, // authentication type to use, suported values include: bearer
-    "credentialsenvvar": string, // env var name containing the access token
-  }
-}
-""",
-    'example': {
-        'linux': """
-AZ_ACCESS_TOKEN_RAW=$(az account get-access-token --query accessToken --output tsv)
-export AZ_ACCESS_TOKEN=`echo $AZ_ACCESS_TOKEN_RAW | tr -d '\\r'`
-AUTH='{ "azure": { "type": "bearer", "credentialsenvvar": "AZ_ACCESS_TOKEN" } }'
-stackql shell --auth="${AUTH}"
-""",
-        'windows': """
-$Env:AZ_ACCESS_TOKEN = "$(az account get-access-token --query accessToken --output tsv)".Trim("`r")
-$Auth = "{ 'azure': { 'type': 'bearer', 'credentialsenvvar': 'AZ_ACCESS_TOKEN' } }"
-stackql.exe shell --auth=$Auth
-"""
-    }
-},
-'azure_extras': {
-    'auth': """
-{
-  "azure_extras": {
-    "type": string, // authentication type to use, suported values include: bearer
-    "credentialsenvvar": string, // env var name containing the access token
-  }
-}
-""",
-    'example': {
-        'linux': """
-AZ_ACCESS_TOKEN_RAW=$(az account get-access-token --query accessToken --output tsv)
-export AZ_ACCESS_TOKEN=`echo $AZ_ACCESS_TOKEN_RAW | tr -d '\\r'`
-AUTH='{ "azure_extras": { "type": "bearer", "credentialsenvvar": "AZ_ACCESS_TOKEN" } }'
-stackql shell --auth="${AUTH}"
-""",
-        'windows': """
-$Env:AZ_ACCESS_TOKEN = "$(az account get-access-token --query accessToken --output tsv)".Trim("`r")
-$Auth = "{ 'azure_extras': { 'type': 'bearer', 'credentialsenvvar': 'AZ_ACCESS_TOKEN' } }"
-stackql.exe shell --auth=$Auth
-"""
-    }
-}
 }

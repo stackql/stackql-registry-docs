@@ -29,19 +29,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier for this analysis. |
 | `error` | `string` |  |
-| `results_count` | `integer` | The total number of results in the analysis. |
-| `warning` | `string` | Warning generated when processing the analysis |
-| `deletable` | `boolean` |  |
-| `environment` | `string` | Identifies the variable values associated with the environment in which this analysis was performed. |
-| `created_at` | `string` | The time that the analysis was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `analysis_key` | `string` | Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name. |
 | `rules_count` | `integer` | The total number of rules used in the analysis. |
-| `tool` | `object` |  |
-| `url` | `string` | The REST API URL of the analysis resource. |
 | `category` | `string` | Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. |
-| `ref` | `string` | The full Git reference, formatted as `refs/heads/&lt;branch name&gt;`,<br />`refs/pull/&lt;number&gt;/merge`, or `refs/pull/&lt;number&gt;/head`. |
-| `sarif_id` | `string` | An identifier for the upload. |
 | `commit_sha` | `string` | The SHA of the commit to which the analysis you are uploading relates. |
+| `url` | `string` | The REST API URL of the analysis resource. |
+| `warning` | `string` | Warning generated when processing the analysis |
+| `ref` | `string` | The full Git reference, formatted as `refs/heads/&lt;branch name&gt;`,<br />`refs/pull/&lt;number&gt;/merge`, or `refs/pull/&lt;number&gt;/head`. |
+| `created_at` | `string` | The time that the analysis was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `tool` | `object` |  |
+| `environment` | `string` | Identifies the variable values associated with the environment in which this analysis was performed. |
+| `sarif_id` | `string` | An identifier for the upload. |
+| `analysis_key` | `string` | Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name. |
+| `results_count` | `integer` | The total number of results in the analysis. |
+| `deletable` | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

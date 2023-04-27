@@ -28,13 +28,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `integer` |
-| `marketplace_pending_change` | `object` |
-| `marketplace_purchase` | `object` |
 | `organization_billing_email` | `string` |
 | `type` | `string` |
 | `url` | `string` |
 | `email` | `string` |
 | `login` | `string` |
+| `marketplace_pending_change` | `object` |
+| `marketplace_purchase` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

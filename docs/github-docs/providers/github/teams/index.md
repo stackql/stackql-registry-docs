@@ -33,7 +33,7 @@ Interact with GitHub Teams.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - teams</td></tr>
 <tr><td><b>Description</b></td><td>Interact with GitHub Teams.</td></tr>
-<tr><td><b>Id</b></td><td><code>teams:v23.02.00118</code></td></tr>
+<tr><td><b>Id</b></td><td><code>teams:v23.04.00136</code></td></tr>
 </tbody></table>
 
 ## Resources

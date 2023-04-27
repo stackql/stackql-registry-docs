@@ -28,19 +28,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
-| `download_url` | `string` |
-| `path` | `string` |
-| `html_url` | `string` |
-| `content` | `string` |
 | `url` | `string` |
-| `git_url` | `string` |
-| `encoding` | `string` |
-| `_links` | `object` |
-| `size` | `integer` |
-| `target` | `string` |
+| `download_url` | `string` |
 | `type` | `string` |
+| `git_url` | `string` |
+| `target` | `string` |
+| `html_url` | `string` |
+| `encoding` | `string` |
+| `size` | `integer` |
+| `_links` | `object` |
 | `sha` | `string` |
+| `path` | `string` |
 | `submodule_git_url` | `string` |
+| `content` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

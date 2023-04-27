@@ -33,7 +33,7 @@ Activity APIs provide access to notifications, subscriptions, and timelines.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - activity</td></tr>
 <tr><td><b>Description</b></td><td>Activity APIs provide access to notifications, subscriptions, and timelines.</td></tr>
-<tr><td><b>Id</b></td><td><code>activity:v23.02.00118</code></td></tr>
+<tr><td><b>Id</b></td><td><code>activity:v23.04.00136</code></td></tr>
 </tbody></table>
 
 ## Resources

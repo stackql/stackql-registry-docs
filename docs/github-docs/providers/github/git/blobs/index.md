@@ -27,13 +27,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
+| `size` | `integer` |
+| `url` | `string` |
+| `content` | `string` |
 | `encoding` | `string` |
 | `highlighted_content` | `string` |
 | `node_id` | `string` |
 | `sha` | `string` |
-| `size` | `integer` |
-| `url` | `string` |
-| `content` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

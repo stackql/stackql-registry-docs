@@ -28,18 +28,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `integer` |
-| `can_encrypt_storage` | `boolean` |
-| `created_at` | `string` |
+| `emails` | `array` |
 | `subkeys` | `array` |
-| `key_id` | `string` |
-| `public_key` | `string` |
+| `created_at` | `string` |
 | `raw_key` | `string` |
 | `can_certify` | `boolean` |
-| `can_encrypt_comms` | `boolean` |
-| `emails` | `array` |
-| `expires_at` | `string` |
-| `primary_key_id` | `integer` |
+| `public_key` | `string` |
 | `can_sign` | `boolean` |
+| `can_encrypt_storage` | `boolean` |
+| `expires_at` | `string` |
+| `key_id` | `string` |
+| `primary_key_id` | `integer` |
+| `can_encrypt_comms` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,24 +27,24 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `updated_at` | `string` |  |
-| `private` | `boolean` | Whether or not this discussion should be restricted to team members and organization administrators. |
 | `comments_url` | `string` |  |
-| `created_at` | `string` |  |
-| `reactions` | `object` |  |
-| `url` | `string` |  |
-| `pinned` | `boolean` | Whether or not this discussion should be pinned for easy retrieval. |
-| `html_url` | `string` |  |
-| `last_edited_at` | `string` |  |
-| `body_html` | `string` |  |
-| `body` | `string` | The main text of the discussion. |
+| `updated_at` | `string` |  |
 | `number` | `integer` | The unique sequence number of a team discussion. |
 | `node_id` | `string` |  |
-| `team_url` | `string` |  |
-| `author` | `object` | Simple User |
 | `title` | `string` | The title of the discussion. |
+| `private` | `boolean` | Whether or not this discussion should be restricted to team members and organization administrators. |
 | `comments_count` | `integer` |  |
+| `last_edited_at` | `string` |  |
+| `html_url` | `string` |  |
 | `body_version` | `string` | The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server. |
+| `reactions` | `object` |  |
+| `body` | `string` | The main text of the discussion. |
+| `created_at` | `string` |  |
+| `url` | `string` |  |
+| `team_url` | `string` |  |
+| `pinned` | `boolean` | Whether or not this discussion should be pinned for easy retrieval. |
+| `author` | `object` | Simple User |
+| `body_html` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

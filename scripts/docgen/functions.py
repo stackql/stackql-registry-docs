@@ -119,6 +119,12 @@ REGISTRY PULL %s;
 """ % (provider, provider)
 
 def generate_auth_block(provider):
+    if auth_blocks[provider]['custom']:
+        return generate_custom_auth_block(provider)
+    else:
+        return generate_standard_auth_block(provider)        
+
+def generate_standard_auth_block(provider):
     return """
 ## Authentication
 
@@ -143,6 +149,13 @@ or using PowerShell:
 </details>
 
 """ % (auth_blocks[provider]['variables'], auth_blocks[provider]['linux'], auth_blocks[provider]['windows'])
+
+def generate_custom_auth_block(provider):
+    return """
+## Authentication
+
+%s
+""" % (auth_blocks[provider]['custom_markdown'])
 
 def generate_two_col_list(provider, list_of_objects, service_name=None):
     try:

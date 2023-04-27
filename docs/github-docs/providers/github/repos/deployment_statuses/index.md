@@ -29,19 +29,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `description` | `string` | A short description of the status. |
-| `url` | `string` |  |
-| `creator` | `object` | Simple User |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `log_url` | `string` | The URL to associate with this status. |
-| `state` | `string` | The state of the status. |
-| `created_at` | `string` |  |
-| `environment_url` | `string` | The URL for accessing your environment. |
-| `target_url` | `string` | Deprecated: the URL to associate with this status. |
 | `node_id` | `string` |  |
-| `environment` | `string` | The environment of the deployment that the status is for. |
-| `updated_at` | `string` |  |
 | `deployment_url` | `string` |  |
+| `log_url` | `string` | The URL to associate with this status. |
+| `creator` | `object` | Simple User |
+| `updated_at` | `string` |  |
+| `created_at` | `string` |  |
+| `state` | `string` | The state of the status. |
+| `url` | `string` |  |
+| `target_url` | `string` | Deprecated: the URL to associate with this status. |
+| `environment_url` | `string` | The URL for accessing your environment. |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `repository_url` | `string` |  |
+| `environment` | `string` | The environment of the deployment that the status is for. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
