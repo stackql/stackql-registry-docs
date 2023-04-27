@@ -29,11 +29,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `integer` |
 | `name` | `string` |
+| `remote_name` | `string` |
+| `url` | `string` |
 | `email` | `string` |
 | `import_url` | `string` |
 | `remote_id` | `string` |
-| `remote_name` | `string` |
-| `url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,21 +27,21 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `fixed_at` | `string` | The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
 | `dismissed_by` | `object` | Simple User |
-| `updated_at` | `string` | The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `instances_url` | `string` | The REST API URL for fetching the list of instances for an alert. |
-| `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
 | `number` | `integer` | The security alert number. |
-| `repository` | `object` | Minimal Repository |
-| `dismissed_at` | `string` | The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `state` | `string` | State of a code scanning alert. |
-| `most_recent_instance` | `object` |  |
-| `rule` | `object` |  |
-| `url` | `string` | The REST API URL of the alert resource. |
-| `dismissed_reason` | `string` | **Required when the state is dismissed.** The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`. |
 | `html_url` | `string` | The GitHub URL of the alert resource. |
+| `rule` | `object` |  |
+| `repository` | `object` | Minimal Repository |
+| `updated_at` | `string` | The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `url` | `string` | The REST API URL of the alert resource. |
+| `dismissed_at` | `string` | The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `fixed_at` | `string` | The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `most_recent_instance` | `object` |  |
+| `instances_url` | `string` | The REST API URL for fetching the list of instances for an alert. |
 | `tool` | `object` |  |
+| `dismissed_reason` | `string` | **Required when the state is dismissed.** The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`. |
+| `state` | `string` | State of a code scanning alert. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

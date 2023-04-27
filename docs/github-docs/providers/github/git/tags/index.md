@@ -27,7 +27,6 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tag` | `string` | Name of the tag |
 | `tagger` | `object` |  |
 | `url` | `string` | URL for the tag |
 | `verification` | `object` |  |
@@ -35,6 +34,7 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `node_id` | `string` |  |
 | `object` | `object` |  |
 | `sha` | `string` |  |
+| `tag` | `string` | Name of the tag |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

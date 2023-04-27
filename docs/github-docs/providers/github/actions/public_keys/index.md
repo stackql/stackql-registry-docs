@@ -28,11 +28,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `key` | `string` | The Base64 encoded public key. |
 | `key_id` | `string` | The identifier for the key. |
 | `title` | `string` |  |
 | `url` | `string` |  |
 | `created_at` | `string` |  |
+| `key` | `string` | The Base64 encoded public key. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

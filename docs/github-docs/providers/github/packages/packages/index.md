@@ -29,15 +29,15 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the package. |
 | `name` | `string` | The name of the package. |
-| `visibility` | `string` |  |
-| `url` | `string` |  |
-| `created_at` | `string` |  |
-| `repository` | `object` | Minimal Repository |
-| `version_count` | `integer` | The number of versions of the package. |
-| `updated_at` | `string` |  |
-| `html_url` | `string` |  |
-| `package_type` | `string` |  |
 | `owner` | `object` | Simple User |
+| `package_type` | `string` |  |
+| `version_count` | `integer` | The number of versions of the package. |
+| `visibility` | `string` |  |
+| `repository` | `object` | Minimal Repository |
+| `created_at` | `string` |  |
+| `html_url` | `string` |  |
+| `updated_at` | `string` |  |
+| `url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

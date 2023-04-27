@@ -27,13 +27,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
+| `subscribed` | `boolean` |
+| `thread_url` | `string` |
 | `url` | `string` |
 | `created_at` | `string` |
 | `ignored` | `boolean` |
 | `reason` | `string` |
 | `repository_url` | `string` |
-| `subscribed` | `boolean` |
-| `thread_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,13 +28,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `pattern` | `string` |  |
-| `protected` | `boolean` |  |
 | `protection` | `object` | Branch Protection |
 | `protection_url` | `string` |  |
 | `required_approving_review_count` | `integer` |  |
 | `_links` | `object` |  |
 | `commit` | `object` | Commit |
+| `pattern` | `string` |  |
+| `protected` | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

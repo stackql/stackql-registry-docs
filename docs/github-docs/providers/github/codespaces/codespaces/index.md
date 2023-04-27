@@ -29,26 +29,26 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` | Automatically generated name of this codespace. |
-| `billable_owner` | `object` | Simple User |
-| `recent_folders` | `array` |  |
-| `machine` | `object` | A description of the machine powering a codespace. |
-| `location` | `string` | The Azure region where this codespace is located. |
-| `idle_timeout_minutes` | `integer` | The number of minutes of inactivity after which this codespace will be automatically stopped. |
-| `pulls_url` | `string` | API URL for the Pull Request associated with this codespace, if any. |
 | `repository` | `object` | Minimal Repository |
-| `url` | `string` | API URL for this codespace. |
-| `created_at` | `string` |  |
-| `git_status` | `object` | Details about the codespace's git repository. |
-| `environment_id` | `string` | UUID identifying this codespace's environment. |
-| `last_used_at` | `string` | Last known time this codespace was started. |
-| `start_url` | `string` | API URL to start this codespace. |
-| `display_name` | `string` | Display name for this codespace. |
-| `updated_at` | `string` |  |
 | `prebuild` | `boolean` | Whether the codespace was created from a prebuild. |
-| `machines_url` | `string` | API URL to access available alternate machine types for this codespace. |
-| `owner` | `object` | Simple User |
+| `updated_at` | `string` |  |
+| `billable_owner` | `object` | Simple User |
+| `location` | `string` | The Azure region where this codespace is located. |
+| `created_at` | `string` |  |
+| `display_name` | `string` | Display name for this codespace. |
 | `state` | `string` | State of this codespace. |
+| `machine` | `object` | A description of the machine powering a codespace. |
+| `last_used_at` | `string` | Last known time this codespace was started. |
+| `owner` | `object` | Simple User |
+| `url` | `string` | API URL for this codespace. |
+| `pulls_url` | `string` | API URL for the Pull Request associated with this codespace, if any. |
+| `start_url` | `string` | API URL to start this codespace. |
 | `web_url` | `string` | URL to access this codespace on the web. |
+| `environment_id` | `string` | UUID identifying this codespace's environment. |
+| `git_status` | `object` | Details about the codespace's git repository. |
+| `idle_timeout_minutes` | `integer` | The number of minutes of inactivity after which this codespace will be automatically stopped. |
+| `machines_url` | `string` | API URL to access available alternate machine types for this codespace. |
+| `recent_folders` | `array` |  |
 | `stop_url` | `string` | API URL to stop this codespace. |
 | `runtime_constraints` | `object` |  |
 ## Methods

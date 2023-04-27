@@ -28,18 +28,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the review |
+| `commit_id` | `string` | A commit SHA for the review. |
+| `node_id` | `string` |  |
+| `body_text` | `string` |  |
+| `_links` | `object` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `html_url` | `string` |  |
+| `user` | `object` | Simple User |
+| `body` | `string` | The text of the review. |
 | `submitted_at` | `string` |  |
 | `body_html` | `string` |  |
-| `user` | `object` | Simple User |
 | `pull_request_url` | `string` |  |
 | `state` | `string` |  |
-| `body_text` | `string` |  |
-| `html_url` | `string` |  |
-| `node_id` | `string` |  |
-| `commit_id` | `string` | A commit SHA for the review. |
-| `_links` | `object` |  |
-| `body` | `string` | The text of the review. |
-| `author_association` | `string` | How the author is associated with the repository. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

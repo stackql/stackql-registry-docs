@@ -29,23 +29,23 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `description` | `string` |  |
+| `html_url` | `string` |  |
+| `forks_url` | `string` |  |
+| `files` | `object` |  |
 | `public` | `boolean` |  |
-| `forks` | `array` |  |
-| `created_at` | `string` |  |
-| `comments_url` | `string` |  |
-| `user` | `object` | Simple User |
+| `git_pull_url` | `string` |  |
+| `owner` | `object` | Simple User |
 | `truncated` | `boolean` |  |
 | `history` | `array` |  |
-| `updated_at` | `string` |  |
-| `html_url` | `string` |  |
-| `git_pull_url` | `string` |  |
 | `commits_url` | `string` |  |
-| `files` | `object` |  |
-| `url` | `string` |  |
+| `updated_at` | `string` |  |
+| `user` | `object` | Simple User |
+| `forks` | `array` |  |
 | `git_push_url` | `string` |  |
 | `comments` | `integer` |  |
-| `forks_url` | `string` |  |
-| `owner` | `object` | Simple User |
+| `url` | `string` |  |
+| `created_at` | `string` |  |
+| `comments_url` | `string` |  |
 | `node_id` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |

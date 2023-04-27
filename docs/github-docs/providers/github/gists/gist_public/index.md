@@ -29,24 +29,24 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `description` | `string` |  |
-| `comments` | `integer` |  |
-| `public` | `boolean` |  |
-| `history` | `array` |  |
-| `truncated` | `boolean` |  |
-| `commits_url` | `string` |  |
-| `created_at` | `string` |  |
-| `url` | `string` |  |
-| `comments_url` | `string` |  |
-| `node_id` | `string` |  |
-| `git_pull_url` | `string` |  |
 | `git_push_url` | `string` |  |
+| `commits_url` | `string` |  |
+| `public` | `boolean` |  |
+| `comments_url` | `string` |  |
+| `truncated` | `boolean` |  |
+| `history` | `array` |  |
+| `node_id` | `string` |  |
+| `updated_at` | `string` |  |
 | `user` | `object` | Simple User |
 | `html_url` | `string` |  |
+| `url` | `string` |  |
+| `created_at` | `string` |  |
+| `git_pull_url` | `string` |  |
+| `forks_url` | `string` |  |
+| `comments` | `integer` |  |
+| `forks` | `array` |  |
 | `owner` | `object` | Simple User |
 | `files` | `object` |  |
-| `forks` | `array` |  |
-| `forks_url` | `string` |  |
-| `updated_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -30,10 +30,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` |  |
 | `name` | `string` | The name of the label. |
 | `description` | `string` |  |
+| `color` | `string` | 6-character hex code, without the leading #, identifying the color |
 | `default` | `boolean` |  |
 | `node_id` | `string` |  |
 | `url` | `string` | URL for the label |
-| `color` | `string` | 6-character hex code, without the leading #, identifying the color |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

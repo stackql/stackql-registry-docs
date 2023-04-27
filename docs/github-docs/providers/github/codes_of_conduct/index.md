@@ -33,7 +33,7 @@ codes_of_conduct
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - codes_of_conduct</td></tr>
 <tr><td><b>Description</b></td><td>codes_of_conduct</td></tr>
-<tr><td><b>Id</b></td><td><code>codes_of_conduct:v23.02.00118</code></td></tr>
+<tr><td><b>Id</b></td><td><code>codes_of_conduct:v23.04.00136</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -27,8 +27,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `message` | `string` |
 | `octicon` | `string` |
+| `message` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

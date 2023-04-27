@@ -28,22 +28,22 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `created_at` | `string` |  |
-| `node_id` | `string` |  |
-| `exclude_git_data` | `boolean` |  |
-| `updated_at` | `string` |  |
-| `url` | `string` |  |
-| `exclude_metadata` | `boolean` |  |
-| `guid` | `string` |  |
-| `lock_repositories` | `boolean` |  |
 | `repositories` | `array` |  |
-| `state` | `string` |  |
+| `created_at` | `string` |  |
 | `exclude_releases` | `boolean` |  |
-| `exclude` | `array` |  |
+| `updated_at` | `string` |  |
+| `exclude_metadata` | `boolean` |  |
+| `node_id` | `string` |  |
+| `url` | `string` |  |
 | `exclude_attachments` | `boolean` |  |
-| `exclude_owner_projects` | `boolean` |  |
+| `exclude` | `array` |  |
+| `lock_repositories` | `boolean` |  |
 | `archive_url` | `string` |  |
+| `state` | `string` |  |
 | `owner` | `object` | Simple User |
+| `guid` | `string` |  |
+| `exclude_git_data` | `boolean` |  |
+| `exclude_owner_projects` | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,13 +29,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The id of the environment. |
 | `name` | `string` | The name of the environment. |
-| `url` | `string` |  |
 | `created_at` | `string` | The time that the environment was created, in ISO 8601 format. |
 | `html_url` | `string` |  |
+| `deployment_branch_policy` | `object` | The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`. |
+| `node_id` | `string` |  |
 | `protection_rules` | `array` |  |
 | `updated_at` | `string` | The time that the environment was last updated, in ISO 8601 format. |
-| `node_id` | `string` |  |
-| `deployment_branch_policy` | `object` | The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`. |
+| `url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

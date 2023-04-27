@@ -29,15 +29,15 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `email` | `string` |  |
-| `failed_at` | `string` |  |
-| `node_id` | `string` |  |
-| `created_at` | `string` |  |
-| `role` | `string` |  |
-| `team_count` | `integer` |  |
 | `invitation_teams_url` | `string` |  |
 | `inviter` | `object` | Simple User |
 | `login` | `string` |  |
+| `failed_at` | `string` |  |
+| `team_count` | `integer` |  |
 | `failed_reason` | `string` |  |
+| `created_at` | `string` |  |
+| `role` | `string` |  |
+| `node_id` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

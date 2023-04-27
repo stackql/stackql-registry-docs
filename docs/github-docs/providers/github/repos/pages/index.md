@@ -27,17 +27,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `protected_domain_state` | `string` | The state if the domain is verified |
-| `public` | `boolean` | Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site. |
-| `html_url` | `string` | The web address the Page can be accessed from. |
-| `https_certificate` | `object` |  |
-| `source` | `object` |  |
-| `url` | `string` | The API address for accessing this Page resource. |
-| `cname` | `string` | The Pages site's custom domain |
-| `custom_404` | `boolean` | Whether the Page has a custom 404 page. |
 | `https_enforced` | `boolean` | Whether https is enabled on the domain |
-| `pending_domain_unverified_at` | `string` | The timestamp when a pending domain becomes unverified. |
 | `status` | `string` | The status of the most recent build of the Page. |
+| `public` | `boolean` | Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site. |
+| `source` | `object` |  |
+| `https_certificate` | `object` |  |
+| `pending_domain_unverified_at` | `string` | The timestamp when a pending domain becomes unverified. |
+| `cname` | `string` | The Pages site's custom domain |
+| `url` | `string` | The API address for accessing this Page resource. |
+| `html_url` | `string` | The web address the Page can be accessed from. |
+| `protected_domain_state` | `string` | The state if the domain is verified |
+| `custom_404` | `boolean` | Whether the Page has a custom 404 page. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

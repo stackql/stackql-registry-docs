@@ -28,12 +28,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
+| `created_at` | `string` |  |
+| `scopes` | `array` |  |
 | `updated_at` | `string` |  |
 | `url` | `string` |  |
 | `user` | `object` | Simple User |
 | `app` | `object` |  |
-| `created_at` | `string` |  |
-| `scopes` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

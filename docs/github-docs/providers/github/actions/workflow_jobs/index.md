@@ -29,24 +29,24 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The id of the job. |
 | `name` | `string` | The name of the job. |
+| `steps` | `array` | Steps in this job. |
+| `status` | `string` | The phase of the lifecycle that the job is currently in. |
+| `run_id` | `integer` | The id of the associated workflow run. |
+| `runner_name` | `string` | The name of the runner to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.) |
+| `run_url` | `string` |  |
+| `runner_group_name` | `string` | The name of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.) |
+| `conclusion` | `string` | The outcome of the job. |
+| `head_sha` | `string` | The SHA of the commit that is being run. |
+| `node_id` | `string` |  |
+| `labels` | `array` | Labels for the workflow job. Specified by the "runs_on" attribute in the action's workflow file. |
+| `url` | `string` |  |
+| `completed_at` | `string` | The time that the job finished, in ISO 8601 format. |
+| `runner_id` | `integer` | The ID of the runner to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.) |
+| `run_attempt` | `integer` | Attempt number of the associated workflow run, 1 for first attempt and higher if the workflow was re-run. |
+| `started_at` | `string` | The time that the job started, in ISO 8601 format. |
+| `html_url` | `string` |  |
 | `check_run_url` | `string` |  |
 | `runner_group_id` | `integer` | The ID of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.) |
-| `run_id` | `integer` | The id of the associated workflow run. |
-| `runner_group_name` | `string` | The name of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.) |
-| `started_at` | `string` | The time that the job started, in ISO 8601 format. |
-| `run_url` | `string` |  |
-| `completed_at` | `string` | The time that the job finished, in ISO 8601 format. |
-| `node_id` | `string` |  |
-| `conclusion` | `string` | The outcome of the job. |
-| `runner_id` | `integer` | The ID of the runner to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.) |
-| `url` | `string` |  |
-| `steps` | `array` | Steps in this job. |
-| `run_attempt` | `integer` | Attempt number of the associated workflow run, 1 for first attempt and higher if the workflow was re-run. |
-| `status` | `string` | The phase of the lifecycle that the job is currently in. |
-| `head_sha` | `string` | The SHA of the commit that is being run. |
-| `html_url` | `string` |  |
-| `labels` | `array` | Labels for the workflow job. Specified by the "runs_on" attribute in the action's workflow file. |
-| `runner_name` | `string` | The name of the runner to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.) |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

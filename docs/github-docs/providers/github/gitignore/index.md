@@ -33,7 +33,7 @@ View gitignore templates
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub v3 REST API - gitignore</td></tr>
 <tr><td><b>Description</b></td><td>View gitignore templates</td></tr>
-<tr><td><b>Id</b></td><td><code>gitignore:v23.02.00118</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gitignore:v23.04.00136</code></td></tr>
 </tbody></table>
 
 ## Resources

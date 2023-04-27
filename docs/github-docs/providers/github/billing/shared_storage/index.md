@@ -27,9 +27,9 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `estimated_storage_for_month` | `integer` | Estimated sum of free and paid storage space (GB) used in billing cycle. |
 | `days_left_in_billing_cycle` | `integer` | Numbers of days left in billing cycle. |
 | `estimated_paid_storage_for_month` | `integer` | Estimated storage space (GB) used in billing cycle. |
-| `estimated_storage_for_month` | `integer` | Estimated sum of free and paid storage space (GB) used in billing cycle. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,16 +27,16 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `node_id` | `string` |  |
-| `message` | `string` | Message describing the purpose of the commit |
 | `url` | `string` |  |
-| `verification` | `object` |  |
 | `tree` | `object` |  |
 | `author` | `object` | Identifying information for the git-user |
-| `html_url` | `string` |  |
+| `message` | `string` | Message describing the purpose of the commit |
+| `node_id` | `string` |  |
 | `parents` | `array` |  |
+| `html_url` | `string` |  |
 | `sha` | `string` | SHA for the commit |
 | `committer` | `object` | Identifying information for the git-user |
+| `verification` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

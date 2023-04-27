@@ -28,8 +28,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
-| `protected` | `boolean` |
 | `commit` | `object` |
+| `protected` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

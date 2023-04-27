@@ -28,8 +28,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `key_prefix` | `string` | The prefix of a key that is linkified. |
 | `url_template` | `string` | A template for the target URL that is generated if a key was found. |
+| `key_prefix` | `string` | The prefix of a key that is linkified. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

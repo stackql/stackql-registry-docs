@@ -28,53 +28,53 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `node_id` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `assignees` | `array` |  |
-| `review_comments_url` | `string` |  |
-| `number` | `integer` | Number uniquely identifying the pull request within its repository. |
-| `patch_url` | `string` |  |
-| `head` | `object` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `created_at` | `string` |  |
-| `merged` | `boolean` |  |
-| `statuses_url` | `string` |  |
-| `deletions` | `integer` |  |
-| `user` | `object` | Simple User |
-| `mergeable` | `boolean` |  |
-| `auto_merge` | `object` | The status of auto merging a pull request. |
-| `mergeable_state` | `string` |  |
-| `base` | `object` |  |
-| `merge_commit_sha` | `string` |  |
-| `rebaseable` | `boolean` |  |
-| `maintainer_can_modify` | `boolean` | Indicates whether maintainers can modify the pull request. |
-| `labels` | `array` |  |
-| `comments_url` | `string` |  |
-| `commits_url` | `string` |  |
-| `body` | `string` |  |
-| `title` | `string` | The title of the pull request. |
 | `requested_teams` | `array` |  |
 | `merged_at` | `string` |  |
-| `review_comment_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `commits` | `integer` |  |
-| `_links` | `object` |  |
-| `closed_at` | `string` |  |
-| `issue_url` | `string` |  |
-| `state` | `string` | State of this Pull Request. Either `open` or `closed`. |
-| `additions` | `integer` |  |
-| `review_comments` | `integer` |  |
-| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
-| `url` | `string` |  |
-| `merged_by` | `object` | Simple User |
-| `requested_reviewers` | `array` |  |
-| `assignee` | `object` | Simple User |
-| `comments` | `integer` |  |
-| `html_url` | `string` |  |
-| `changed_files` | `integer` |  |
-| `diff_url` | `string` |  |
-| `milestone` | `object` | A collection of related issues and pull requests. |
 | `locked` | `boolean` |  |
+| `number` | `integer` | Number uniquely identifying the pull request within its repository. |
+| `created_at` | `string` |  |
+| `review_comments` | `integer` |  |
+| `assignee` | `object` | Simple User |
+| `requested_reviewers` | `array` |  |
+| `commits` | `integer` |  |
+| `additions` | `integer` |  |
+| `review_comments_url` | `string` |  |
+| `maintainer_can_modify` | `boolean` | Indicates whether maintainers can modify the pull request. |
+| `assignees` | `array` |  |
+| `mergeable_state` | `string` |  |
+| `commits_url` | `string` |  |
+| `review_comment_url` | `string` |  |
+| `rebaseable` | `boolean` |  |
+| `deletions` | `integer` |  |
+| `auto_merge` | `object` | The status of auto merging a pull request. |
+| `merge_commit_sha` | `string` |  |
+| `merged` | `boolean` |  |
+| `url` | `string` |  |
+| `head` | `object` |  |
+| `updated_at` | `string` |  |
+| `labels` | `array` |  |
+| `body` | `string` |  |
+| `issue_url` | `string` |  |
+| `merged_by` | `object` | Simple User |
+| `title` | `string` | The title of the pull request. |
+| `_links` | `object` |  |
+| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
+| `comments` | `integer` |  |
+| `statuses_url` | `string` |  |
+| `patch_url` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `mergeable` | `boolean` |  |
+| `base` | `object` |  |
+| `diff_url` | `string` |  |
+| `node_id` | `string` |  |
+| `comments_url` | `string` |  |
+| `changed_files` | `integer` |  |
+| `user` | `object` | Simple User |
+| `active_lock_reason` | `string` |  |
+| `html_url` | `string` |  |
+| `state` | `string` | State of this Pull Request. Either `open` or `closed`. |
+| `milestone` | `object` | A collection of related issues and pull requests. |
+| `closed_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
