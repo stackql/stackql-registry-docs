@@ -3,9 +3,7 @@ title: k8s
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - kubernetes
   - k8s
-  - container orchestration
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -15,9 +13,10 @@ custom_edit_url: null
 image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 id: k8s-doc
 slug: /providers/k8s
+
 ---
 Open source container management platform.  
-
+    
 :::info Provider Summary
 
 <div class="row">
@@ -27,7 +26,7 @@ Open source container management platform.
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>33</b></span><br />
-<span>selectable resources:&nbsp;<b>24</b></span><br />
+<span>total selectable resources:&nbsp;<b>24</b></span><br />
 </div>
 </div>
 
@@ -46,6 +45,9 @@ REGISTRY PULL k8s;
 ```
 > To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
+## Authentication
+
+
 :::note
 
 __`cluster_addr`__ is a required paramter for all operations using the `k8s` provider, for example:  
@@ -58,16 +60,8 @@ ORDER BY name ASC;
 ```
 :::
 
-## Authentication
-
-The StackQL `k8s` provider supports two methods for authentication:
-
-- Using `kubectl proxy` (the default)
-- direct cluster access
-
-### Using `kubectl proxy` (default)
-
-No additional configuration is required to authenticate to a Kubernetes cluster using `kubectl proxy`.  
+### Example using `kubectl proxy`
+`kubectl proxy` is the default authentication method for the `k8s` provider, no other variables or configuration is necessary to query the `k8s` provider if you are using this method.  
 
 :::note
 
@@ -82,25 +76,35 @@ order by name asc limit 3;
 ```
 :::
 
-### Using direct cluster access
-
-To authenticate to a Kubernetes cluster using direct cluster access with StackQL, you will need to export an environment variable containing the access token to authorize requests to the Kubernetes control plane.  You will also need to generate a certificate bundle for your cluster (`k8s_cert_bundle.pem` as shown in the following example along with the code to generate this bundle (for MacOS or Linux).  
+### Example using direct cluster access
+If you are using an access token to access the `k8s` API, follow the instructions below (use `exec` instead of `shell` for non interactive operations):
 
 ```bash
-kubectl get secret -o jsonpath="{.items[?(@.type==\"kubernetes.io/service-account-token\")].data['ca\.crt']}" | base64 -i --decode > k8s_cert_bundle.pem
 export K8S_TOKEN='eyJhbGciOiJ...'
 AUTH='{ "k8s": { "type": "bearer", "credentialsenvvar": "K8S_TOKEN" } }'
 stackql shell --auth="${AUTH}" --tls.CABundle k8s_cert_bundle.pem
 ```
+:::note
 
-Alternatively, you could add the `--tls.allowInsecure=true` argument to the `stackql` command, it is not recommended however.  
+You will need to generate a certificate bundle for your cluster (`k8s_cert_bundle.pem` in the preceeding example), you can use the following code to generate this (for MacOS or Linux):  
+
+```bash
+kubectl get secret -o jsonpath="{.items[?(@.type=="kubernetes.io/service-account-token")].data['ca\.crt']}" | base64 -i --decode > k8s_cert_bundle.pem
+```
+
+Alternatively, you could add the `--tls.allowInsecure=true` argument to the `stackql` command, it is not recommended however. 
+
+:::
 
 ## Services
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/k8s/core/">core</a><br />
+<a href="/providers/k8s/admissionregistration/">admissionregistration</a><br />
+<a href="/providers/k8s/admissionregistration_v1/">admissionregistration_v1</a><br />
+<a href="/providers/k8s/apiextensions/">apiextensions</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/k8s/core/">core</a><br />
 <a href="/providers/k8s/core_v1/">core_v1</a><br />
 </div>
 </div>
