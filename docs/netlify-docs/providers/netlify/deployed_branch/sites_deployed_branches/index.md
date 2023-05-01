@@ -29,10 +29,10 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
+| `url` | `string` |
 | `deploy_id` | `string` |
 | `slug` | `string` |
 | `ssl_url` | `string` |
-| `url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

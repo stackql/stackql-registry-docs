@@ -28,12 +28,12 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `integer` |
-| `site_id` | `string` |
-| `title` | `string` |
-| `general` | `string` |
 | `general_position` | `string` |
 | `goal` | `string` |
 | `goal_position` | `string` |
+| `site_id` | `string` |
+| `title` | `string` |
+| `general` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -28,8 +28,8 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
-| `fields` | `array` |
 | `events` | `array` |
+| `fields` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,20 +29,20 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
+| `account_id` | `string` |
 | `account_slug` | `string` |
-| `domain` | `string` |
-| `ipv6_enabled` | `boolean` |
-| `supported_record_types` | `array` |
-| `updated_at` | `string` |
-| `created_at` | `string` |
-| `dns_servers` | `array` |
-| `errors` | `array` |
+| `account_name` | `string` |
+| `dedicated` | `boolean` |
 | `records` | `array` |
+| `errors` | `array` |
+| `ipv6_enabled` | `boolean` |
 | `site_id` | `string` |
 | `user_id` | `string` |
-| `dedicated` | `boolean` |
-| `account_id` | `string` |
-| `account_name` | `string` |
+| `updated_at` | `string` |
+| `dns_servers` | `array` |
+| `domain` | `string` |
+| `created_at` | `string` |
+| `supported_record_types` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

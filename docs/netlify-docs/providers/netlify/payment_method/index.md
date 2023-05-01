@@ -33,7 +33,7 @@ paymentMethod
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Netlify's API documentation - payment_method</td></tr>
 <tr><td><b>Description</b></td><td>paymentMethod</td></tr>
-<tr><td><b>Id</b></td><td><code>payment_method:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>payment_method:v23.04.00141</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ deployedBranch
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Netlify's API documentation - deployed_branch</td></tr>
 <tr><td><b>Description</b></td><td>deployedBranch</td></tr>
-<tr><td><b>Id</b></td><td><code>deployed_branch:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>deployed_branch:v23.04.00141</code></td></tr>
 </tbody></table>
 
 ## Resources

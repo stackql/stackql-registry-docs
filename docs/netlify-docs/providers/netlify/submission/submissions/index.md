@@ -29,16 +29,16 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `email` | `string` |
-| `site_url` | `string` |
-| `number` | `integer` |
-| `data` | `object` |
-| `first_name` | `string` |
 | `body` | `string` |
-| `company` | `string` |
-| `last_name` | `string` |
+| `site_url` | `string` |
 | `summary` | `string` |
+| `company` | `string` |
 | `created_at` | `string` |
+| `email` | `string` |
+| `number` | `integer` |
+| `first_name` | `string` |
+| `data` | `object` |
+| `last_name` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -28,12 +28,12 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `type` | `string` |
+| `updated_at` | `string` |
 | `created_at` | `string` |
 | `data` | `object` |
 | `method_name` | `string` |
 | `state` | `string` |
-| `type` | `string` |
-| `updated_at` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -33,7 +33,7 @@ ticket
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Netlify's API documentation - ticket</td></tr>
 <tr><td><b>Description</b></td><td>ticket</td></tr>
-<tr><td><b>Id</b></td><td><code>ticket:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ticket:v23.04.00141</code></td></tr>
 </tbody></table>
 
 ## Resources

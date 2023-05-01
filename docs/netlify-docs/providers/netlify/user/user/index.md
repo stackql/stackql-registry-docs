@@ -28,16 +28,16 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `site_count` | `integer` |
-| `affiliate_id` | `string` |
-| `uid` | `string` |
-| `full_name` | `string` |
 | `avatar_url` | `string` |
-| `created_at` | `string` |
 | `login_providers` | `array` |
-| `email` | `string` |
 | `last_login` | `string` |
 | `onboarding_progress` | `object` |
+| `affiliate_id` | `string` |
+| `site_count` | `integer` |
+| `uid` | `string` |
+| `created_at` | `string` |
+| `email` | `string` |
+| `full_name` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

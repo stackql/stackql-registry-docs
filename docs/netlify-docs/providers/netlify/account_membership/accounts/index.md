@@ -29,20 +29,20 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `type_id` | `string` |
-| `type_name` | `string` |
-| `capabilities` | `object` |
-| `slug` | `string` |
-| `billing_email` | `string` |
 | `billing_name` | `string` |
 | `billing_period` | `string` |
-| `created_at` | `string` |
+| `billing_details` | `string` |
+| `slug` | `string` |
+| `billing_email` | `string` |
 | `roles_allowed` | `array` |
 | `payment_method_id` | `string` |
-| `type` | `string` |
+| `capabilities` | `object` |
 | `updated_at` | `string` |
+| `type_name` | `string` |
 | `owner_ids` | `array` |
-| `billing_details` | `string` |
+| `type_id` | `string` |
+| `type` | `string` |
+| `created_at` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
