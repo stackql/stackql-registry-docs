@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `attachmentSet` | `array` | Information about the attachment of the egress-only internet gateway. |
 | `egressOnlyInternetGatewayId` | `string` | The ID of the egress-only internet gateway. |
 | `tagSet` | `array` | The tags assigned to the egress-only internet gateway. |
-| `attachmentSet` | `array` | Information about the attachment of the egress-only internet gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

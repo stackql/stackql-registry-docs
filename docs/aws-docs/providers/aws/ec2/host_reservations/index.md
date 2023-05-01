@@ -27,20 +27,20 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `hourlyPrice` | `string` | The hourly price of the reservation. |
-| `duration` | `integer` | The length of the reservation's term, specified in seconds. Can be &lt;code&gt;31536000 (1 year)&lt;/code&gt; \| &lt;code&gt;94608000 (3 years)&lt;/code&gt;. |
-| `upfrontPrice` | `string` | The upfront price of the reservation. |
+| `hostReservationId` | `string` | The ID of the reservation that specifies the associated Dedicated Hosts. |
 | `paymentOption` | `string` | The payment option selected for this reservation. |
+| `end` | `string` | The date and time that the reservation ends. |
 | `currencyCode` | `string` | The currency in which the &lt;code&gt;upfrontPrice&lt;/code&gt; and &lt;code&gt;hourlyPrice&lt;/code&gt; amounts are specified. At this time, the only supported currency is &lt;code&gt;USD&lt;/code&gt;. |
 | `start` | `string` | The date and time that the reservation started. |
-| `count` | `integer` | The number of Dedicated Hosts the reservation is associated with. |
+| `upfrontPrice` | `string` | The upfront price of the reservation. |
 | `instanceFamily` | `string` | The instance family of the Dedicated Host Reservation. The instance family on the Dedicated Host must be the same in order for it to benefit from the reservation. |
 | `hostIdSet` | `array` | The IDs of the Dedicated Hosts associated with the reservation. |
-| `state` | `string` | The state of the reservation. |
-| `hostReservationId` | `string` | The ID of the reservation that specifies the associated Dedicated Hosts. |
+| `hourlyPrice` | `string` | The hourly price of the reservation. |
 | `tagSet` | `array` | Any tags assigned to the Dedicated Host Reservation. |
 | `offeringId` | `string` | The ID of the reservation. This remains the same regardless of which Dedicated Hosts are associated with it. |
-| `end` | `string` | The date and time that the reservation ends. |
+| `count` | `integer` | The number of Dedicated Hosts the reservation is associated with. |
+| `duration` | `integer` | The length of the reservation's term, specified in seconds. Can be &lt;code&gt;31536000 (1 year)&lt;/code&gt; \| &lt;code&gt;94608000 (3 years)&lt;/code&gt;. |
+| `state` | `string` | The state of the reservation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

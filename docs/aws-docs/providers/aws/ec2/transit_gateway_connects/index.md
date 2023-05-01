@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
 | `transportTransitGatewayAttachmentId` | `string` | The ID of the attachment from which the Connect attachment was created. |
 | `creationTime` | `string` | The creation time. |
 | `options` | `object` | Describes the Connect attachment options. |
 | `state` | `string` | The state of the attachment. |
 | `tagSet` | `array` | The tags for the attachment. |
 | `transitGatewayAttachmentId` | `string` | The ID of the Connect attachment. |
+| `transitGatewayId` | `string` | The ID of the transit gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

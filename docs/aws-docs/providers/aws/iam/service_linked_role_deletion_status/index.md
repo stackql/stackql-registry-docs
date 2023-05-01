@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `Status` | `string` | The status of the deletion. |
 | `Reason` | `object` | &lt;p&gt;The reason that the service-linked role deletion failed.&lt;/p&gt; &lt;p&gt;This data type is used as a response element in the &lt;a&gt;GetServiceLinkedRoleDeletionStatus&lt;/a&gt; operation.&lt;/p&gt; |
+| `Status` | `string` | The status of the deletion. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

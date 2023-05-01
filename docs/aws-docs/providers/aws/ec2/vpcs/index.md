@@ -27,16 +27,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `cidrBlockAssociationSet` | `array` | Information about the IPv4 CIDR blocks associated with the VPC. |
-| `instanceTenancy` | `string` | The allowed tenancy of instances launched into the VPC. |
 | `state` | `string` | The current state of the VPC. |
-| `vpcId` | `string` | The ID of the VPC. |
-| `cidrBlock` | `string` | The primary IPv4 CIDR block for the VPC. |
-| `dhcpOptionsId` | `string` | The ID of the set of DHCP options you've associated with the VPC. |
+| `cidrBlockAssociationSet` | `array` | Information about the IPv4 CIDR blocks associated with the VPC. |
 | `isDefault` | `boolean` | Indicates whether the VPC is the default VPC. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the VPC. |
-| `ipv6CidrBlockAssociationSet` | `array` | Information about the IPv6 CIDR blocks associated with the VPC. |
 | `tagSet` | `array` | Any tags assigned to the VPC. |
+| `instanceTenancy` | `string` | The allowed tenancy of instances launched into the VPC. |
+| `vpcId` | `string` | The ID of the VPC. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the VPC. |
+| `cidrBlock` | `string` | The primary IPv4 CIDR block for the VPC. |
+| `ipv6CidrBlockAssociationSet` | `array` | Information about the IPv6 CIDR blocks associated with the VPC. |
+| `dhcpOptionsId` | `string` | The ID of the set of DHCP options you've associated with the VPC. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

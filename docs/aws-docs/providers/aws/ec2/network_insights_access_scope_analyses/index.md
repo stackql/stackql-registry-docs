@@ -27,17 +27,17 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `warningMessage` | `string` | The warning message. |
-| `networkInsightsAccessScopeAnalysisArn` | `string` | The Amazon Resource Name (ARN) of the Network Access Scope analysis. |
-| `networkInsightsAccessScopeAnalysisId` | `string` | The ID of the Network Access Scope analysis. |
 | `networkInsightsAccessScopeId` | `string` | The ID of the Network Access Scope. |
-| `analyzedEniCount` | `integer` | The number of network interfaces analyzed. |
-| `endDate` | `string` | The analysis end date. |
-| `statusMessage` | `string` | The status message. |
-| `findingsFound` | `string` | Indicates whether there are findings. |
-| `status` | `string` | The status. |
 | `startDate` | `string` | The analysis start date. |
+| `status` | `string` | The status. |
+| `analyzedEniCount` | `integer` | The number of network interfaces analyzed. |
+| `statusMessage` | `string` | The status message. |
+| `networkInsightsAccessScopeAnalysisArn` | `string` | The Amazon Resource Name (ARN) of the Network Access Scope analysis. |
+| `endDate` | `string` | The analysis end date. |
 | `tagSet` | `array` | The tags. |
+| `networkInsightsAccessScopeAnalysisId` | `string` | The ID of the Network Access Scope analysis. |
+| `findingsFound` | `string` | Indicates whether there are findings. |
+| `warningMessage` | `string` | The warning message. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

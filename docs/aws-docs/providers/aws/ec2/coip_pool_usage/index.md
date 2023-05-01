@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `coIp` | `string` | The customer-owned IP address. |
 | `allocationId` | `string` | The allocation ID of the address. |
 | `awsAccountId` | `string` | The Amazon Web Services account ID. |
 | `awsService` | `string` | The Amazon Web Services service. |
+| `coIp` | `string` | The customer-owned IP address. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

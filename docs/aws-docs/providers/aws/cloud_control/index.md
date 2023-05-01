@@ -33,7 +33,7 @@ Cloud Control API
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Control API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud Control API</td></tr>
-<tr><td><b>Id</b></td><td><code>cloud_control:v23.01.00108</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloud_control:v23.04.00136</code></td></tr>
 </tbody></table>
 
 ## Resources

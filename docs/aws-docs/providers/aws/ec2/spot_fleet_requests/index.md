@@ -27,12 +27,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `spotFleetRequestConfig` | `object` | Describes the configuration of a Spot Fleet request. |
-| `spotFleetRequestId` | `string` | The ID of the Spot Fleet request. |
-| `spotFleetRequestState` | `string` | The state of the Spot Fleet request. |
 | `tagSet` | `array` | The tags for a Spot Fleet resource. |
 | `activityStatus` | `string` | The progress of the Spot Fleet request. If there is an error, the status is &lt;code&gt;error&lt;/code&gt;. After all requests are placed, the status is &lt;code&gt;pending_fulfillment&lt;/code&gt;. If the size of the fleet is equal to or greater than its target capacity, the status is &lt;code&gt;fulfilled&lt;/code&gt;. If the size of the fleet is decreased, the status is &lt;code&gt;pending_termination&lt;/code&gt; while Spot Instances are terminating. |
 | `createTime` | `string` | The creation date and time of the request. |
+| `spotFleetRequestConfig` | `object` | Describes the configuration of a Spot Fleet request. |
+| `spotFleetRequestId` | `string` | The ID of the Spot Fleet request. |
+| `spotFleetRequestState` | `string` | The state of the Spot Fleet request. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

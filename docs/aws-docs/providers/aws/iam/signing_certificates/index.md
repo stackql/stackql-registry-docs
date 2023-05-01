@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `UploadDate` | `string` | The date when the signing certificate was uploaded. |
-| `UserName` | `string` | The name of the user the signing certificate is associated with. |
 | `CertificateBody` | `string` | The contents of the signing certificate. |
 | `CertificateId` | `string` | The ID for the signing certificate. |
 | `Status` | `string` | The status of the signing certificate. &lt;code&gt;Active&lt;/code&gt; means that the key is valid for API calls, while &lt;code&gt;Inactive&lt;/code&gt; means it is not. |
+| `UploadDate` | `string` | The date when the signing certificate was uploaded. |
+| `UserName` | `string` | The name of the user the signing certificate is associated with. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

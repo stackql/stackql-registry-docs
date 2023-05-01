@@ -4,7 +4,6 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - aws
-  - amazon web services
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -22,12 +21,12 @@ Cloud services from AWS.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>780</b></span><br />
+<span>total services:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>781</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>344</b></span><br />
-<span>total selectable resources:&nbsp;<b>248</b></span><br />
+<span>total resources:&nbsp;<b>345</b></span><br />
+<span>total selectable resources:&nbsp;<b>249</b></span><br />
 </div>
 </div>
 
@@ -50,9 +49,9 @@ REGISTRY PULL aws;
 
 The following system environment variables are used for authentication by default:  
 
-- `AWS_ACCESS_KEY_ID`
-- `AWS_SECRET_ACCESS_KEY`
-
+- `AWS_ACCESS_KEY_ID` - AWS Access Key ID (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
+- `AWS_SECRET_ACCESS_KEY` - AWS Secret Access Key (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
+  
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
 <details>
@@ -62,14 +61,18 @@ These variables are sourced at runtime (from the local machine or as CI variable
 To use different environment variables (instead of the defaults), use the `--auth` flag of the `stackql` program.  For example:  
 
 ```bash
+
 AUTH='{ "aws": { "type": "aws_signing_v4", "keyIDenvvar": "YOUR_ACCESS_KEY_ID_VAR", "credentialsenvvar": "YOUR_SECRET_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
+
 ```
 or using PowerShell:  
 
 ```powershell
+
 $Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'keyIDenvvar': 'YOUR_ACCESS_KEY_ID_VAR', 'credentialsenvvar': 'YOUR_SECRET_KEY_VAR' }}"
 stackql.exe shell --auth=$Auth
+
 ```
 </details>
 
@@ -77,6 +80,7 @@ stackql.exe shell --auth=$Auth
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/cloud_control/">cloud_control</a><br />
+<a href="/providers/aws/cloudwatch/">cloudwatch</a><br />
 <a href="/providers/aws/ec2/">ec2</a><br />
 </div>
 <div class="providerDocColumn">

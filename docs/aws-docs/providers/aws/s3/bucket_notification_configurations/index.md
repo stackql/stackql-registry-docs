@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `QueueConfiguration` | `array` | The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages. |
-| `TopicConfiguration` | `array` | The topic to which notifications are sent and the events for which notifications are generated. |
 | `CloudFunctionConfiguration` | `array` | Describes the Lambda functions to invoke and the events for which to invoke them. |
 | `EventBridgeConfiguration` | `object` | A container for specifying the configuration for Amazon EventBridge. |
+| `QueueConfiguration` | `array` | The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages. |
+| `TopicConfiguration` | `array` | The topic to which notifications are sent and the events for which notifications are generated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

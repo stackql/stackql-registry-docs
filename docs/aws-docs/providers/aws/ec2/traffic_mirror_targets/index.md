@@ -28,13 +28,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | Information about the Traffic Mirror target. |
-| `ownerId` | `string` | The ID of the account that owns the Traffic Mirror target. |
-| `tagSet` | `array` | The tags assigned to the Traffic Mirror target. |
-| `trafficMirrorTargetId` | `string` | The ID of the Traffic Mirror target. |
 | `type` | `string` | The type of Traffic Mirror target. |
 | `gatewayLoadBalancerEndpointId` | `string` | The ID of the Gateway Load Balancer endpoint. |
 | `networkInterfaceId` | `string` | The network interface ID that is attached to the target. |
 | `networkLoadBalancerArn` | `string` | The Amazon Resource Name (ARN) of the Network Load Balancer. |
+| `ownerId` | `string` | The ID of the account that owns the Traffic Mirror target. |
+| `tagSet` | `array` | The tags assigned to the Traffic Mirror target. |
+| `trafficMirrorTargetId` | `string` | The ID of the Traffic Mirror target. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

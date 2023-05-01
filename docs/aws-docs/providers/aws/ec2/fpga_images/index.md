@@ -29,19 +29,19 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the AFI. |
 | `description` | `string` | The description of the AFI. |
+| `fpgaImageId` | `string` | The FPGA image identifier (AFI ID). |
+| `dataRetentionSupport` | `boolean` | Indicates whether data retention support is enabled for the AFI. |
+| `tags` | `array` | Any tags assigned to the AFI. |
 | `updateTime` | `string` | The time of the most recent update to the AFI. |
 | `createTime` | `string` | The date and time the AFI was created. |
 | `productCodes` | `array` | The product codes for the AFI. |
-| `dataRetentionSupport` | `boolean` | Indicates whether data retention support is enabled for the AFI. |
-| `fpgaImageGlobalId` | `string` | The global FPGA image identifier (AGFI ID). |
-| `pciId` | `object` | Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus. |
-| `tags` | `array` | Any tags assigned to the AFI. |
 | `public` | `boolean` | Indicates whether the AFI is public. |
-| `fpgaImageId` | `string` | The FPGA image identifier (AFI ID). |
-| `state` | `object` | Describes the state of the bitstream generation process for an Amazon FPGA image (AFI). |
-| `shellVersion` | `string` | The version of the Amazon Web Services Shell that was used to create the bitstream. |
+| `pciId` | `object` | Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus. |
 | `ownerAlias` | `string` | The alias of the AFI owner. Possible values include &lt;code&gt;self&lt;/code&gt;, &lt;code&gt;amazon&lt;/code&gt;, and &lt;code&gt;aws-marketplace&lt;/code&gt;. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the AFI. |
+| `shellVersion` | `string` | The version of the Amazon Web Services Shell that was used to create the bitstream. |
+| `fpgaImageGlobalId` | `string` | The global FPGA image identifier (AGFI ID). |
+| `state` | `object` | Describes the state of the bitstream generation process for an Amazon FPGA image (AFI). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

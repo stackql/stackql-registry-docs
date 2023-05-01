@@ -27,21 +27,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `serviceId` | `string` | The ID of the endpoint service. |
-| `privateDnsNameSet` | `array` | The private DNS names assigned to the VPC endpoint service.  |
-| `availabilityZoneSet` | `array` | The Availability Zones in which the service is available. |
-| `vpcEndpointPolicySupported` | `boolean` | Indicates whether the service supports endpoint policies. |
 | `payerResponsibility` | `string` | The payer responsibility. |
-| `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
-| `privateDnsName` | `string` | The private DNS name for the service. |
 | `tagSet` | `array` | Any tags assigned to the service. |
-| `serviceName` | `string` | The Amazon Resource Name (ARN) of the service. |
-| `privateDnsNameVerificationState` | `string` | &lt;p&gt;The verification state of the VPC endpoint service.&lt;/p&gt; &lt;p&gt;Consumers of the endpoint service cannot use the private name when the state is not &lt;code&gt;verified&lt;/code&gt;.&lt;/p&gt; |
+| `serviceId` | `string` | The ID of the endpoint service. |
+| `acceptanceRequired` | `boolean` | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner. |
 | `serviceType` | `array` | The type of service. |
-| `owner` | `string` | The Amazon Web Services account ID of the service owner. |
+| `privateDnsName` | `string` | The private DNS name for the service. |
+| `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
+| `availabilityZoneSet` | `array` | The Availability Zones in which the service is available. |
 | `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
 | `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
-| `acceptanceRequired` | `boolean` | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner. |
+| `privateDnsNameSet` | `array` | The private DNS names assigned to the VPC endpoint service.  |
+| `privateDnsNameVerificationState` | `string` | &lt;p&gt;The verification state of the VPC endpoint service.&lt;/p&gt; &lt;p&gt;Consumers of the endpoint service cannot use the private name when the state is not &lt;code&gt;verified&lt;/code&gt;.&lt;/p&gt; |
+| `serviceName` | `string` | The Amazon Resource Name (ARN) of the service. |
+| `owner` | `string` | The Amazon Web Services account ID of the service owner. |
+| `vpcEndpointPolicySupported` | `boolean` | Indicates whether the service supports endpoint policies. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

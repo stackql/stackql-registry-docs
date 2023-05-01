@@ -27,15 +27,15 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `localGatewayId` | `string` | The ID of the local gateway. |
+| `vlan` | `integer` | The ID of the VLAN. |
+| `peerAddress` | `string` | The peer address. |
 | `localAddress` | `string` | The local address. |
 | `localBgpAsn` | `integer` | The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway. |
 | `peerBgpAsn` | `integer` | The peer BGP ASN. |
-| `vlan` | `integer` | The ID of the VLAN. |
-| `peerAddress` | `string` | The peer address. |
-| `tagSet` | `array` | The tags assigned to the virtual interface. |
 | `localGatewayVirtualInterfaceId` | `string` | The ID of the virtual interface. |
+| `localGatewayId` | `string` | The ID of the local gateway. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway virtual interface. |
+| `tagSet` | `array` | The tags assigned to the virtual interface. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

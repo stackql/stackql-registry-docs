@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `QueueConfiguration` | `object` | This data type is deprecated. Use &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_QueueConfiguration.html"&gt;QueueConfiguration&lt;/a&gt; for the same purposes. This data type specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.  |
 | `TopicConfiguration` | `object` | A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events. This data type is deprecated. Use &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_TopicConfiguration.html"&gt;TopicConfiguration&lt;/a&gt; instead. |
 | `CloudFunctionConfiguration` | `object` | Container for specifying the Lambda notification configuration. |
-| `QueueConfiguration` | `object` | This data type is deprecated. Use &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_QueueConfiguration.html"&gt;QueueConfiguration&lt;/a&gt; for the same purposes. This data type specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

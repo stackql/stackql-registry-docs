@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `attachmentStatuses` | `array` | Information about the instances to which the volume is attached. |
+| `availabilityZone` | `string` | The Availability Zone of the volume. |
+| `eventsSet` | `array` | A list of events associated with the volume. |
 | `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
 | `volumeId` | `string` | The volume ID. |
 | `volumeStatus` | `object` | Describes the status of a volume. |
 | `actionsSet` | `array` | The details of the operation. |
-| `attachmentStatuses` | `array` | Information about the instances to which the volume is attached. |
-| `availabilityZone` | `string` | The Availability Zone of the volume. |
-| `eventsSet` | `array` | A list of events associated with the volume. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

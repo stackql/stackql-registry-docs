@@ -28,10 +28,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description for the snapshot. |
-| `snapshotId` | `string` | The ID of the snapshot. |
 | `volumeId` | `string` | The ID of the volume from which the snapshot was created. |
 | `recycleBinEnterTime` | `string` | The date and time when the snaphsot entered the Recycle Bin. |
 | `recycleBinExitTime` | `string` | The date and time when the snapshot is to be permanently deleted from the Recycle Bin. |
+| `snapshotId` | `string` | The ID of the snapshot. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `arn` | `string` | PrincipalIdFormatARN description |
 | `statusSet` | `array` | PrincipalIdFormatStatuses description |
+| `arn` | `string` | PrincipalIdFormatARN description |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

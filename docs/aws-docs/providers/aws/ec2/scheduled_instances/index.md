@@ -27,21 +27,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
-| `scheduledInstanceId` | `string` | The Scheduled Instance ID. |
 | `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
-| `slotDurationInHours` | `integer` | The number of hours in the schedule. |
+| `instanceCount` | `integer` | The number of instances. |
+| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
+| `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
+| `termStartDate` | `string` | The start date for the Scheduled Instance. |
 | `termEndDate` | `string` | The end date for the Scheduled Instance. |
 | `previousSlotEndTime` | `string` | The time that the previous schedule ended or will end. |
-| `instanceType` | `string` | The instance type. |
-| `termStartDate` | `string` | The start date for the Scheduled Instance. |
-| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
-| `availabilityZone` | `string` | The Availability Zone. |
-| `hourlyPrice` | `string` | The hourly price for a single instance. |
 | `createDate` | `string` | The date when the Scheduled Instance was purchased. |
-| `instanceCount` | `integer` | The number of instances. |
-| `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
 | `nextSlotStartTime` | `string` | The time for the next schedule to start. |
+| `scheduledInstanceId` | `string` | The Scheduled Instance ID. |
+| `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
+| `availabilityZone` | `string` | The Availability Zone. |
+| `slotDurationInHours` | `integer` | The number of hours in the schedule. |
+| `instanceType` | `string` | The instance type. |
+| `hourlyPrice` | `string` | The hourly price for a single instance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

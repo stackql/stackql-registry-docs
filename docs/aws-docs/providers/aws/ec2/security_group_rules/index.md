@@ -28,18 +28,18 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The security group rule description. |
-| `cidrIpv4` | `string` | The IPv4 CIDR range. |
-| `cidrIpv6` | `string` | The IPv6 CIDR range. |
-| `tagSet` | `array` | The tags applied to the security group rule. |
-| `toPort` | `integer` | The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of &lt;code&gt;-1&lt;/code&gt; indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.  |
-| `securityGroupRuleId` | `string` | The ID of the security group rule. |
-| `ipProtocol` | `string` | &lt;p&gt;The IP protocol name (&lt;code&gt;tcp&lt;/code&gt;, &lt;code&gt;udp&lt;/code&gt;, &lt;code&gt;icmp&lt;/code&gt;, &lt;code&gt;icmpv6&lt;/code&gt;) or number (see &lt;a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml"&gt;Protocol Numbers&lt;/a&gt;). &lt;/p&gt; &lt;p&gt;Use &lt;code&gt;-1&lt;/code&gt; to specify all protocols.&lt;/p&gt; |
-| `prefixListId` | `string` | The ID of the prefix list. |
-| `fromPort` | `integer` | The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes. |
-| `isEgress` | `boolean` | Indicates whether the security group rule is an outbound rule. |
 | `referencedGroupInfo` | `object` |  Describes the security group that is referenced in the security group rule. |
-| `groupId` | `string` | The ID of the security group. |
+| `toPort` | `integer` | The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of &lt;code&gt;-1&lt;/code&gt; indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.  |
+| `fromPort` | `integer` | The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes. |
+| `tagSet` | `array` | The tags applied to the security group rule. |
+| `cidrIpv6` | `string` | The IPv6 CIDR range. |
+| `prefixListId` | `string` | The ID of the prefix list. |
 | `groupOwnerId` | `string` | The ID of the Amazon Web Services account that owns the security group.  |
+| `ipProtocol` | `string` | &lt;p&gt;The IP protocol name (&lt;code&gt;tcp&lt;/code&gt;, &lt;code&gt;udp&lt;/code&gt;, &lt;code&gt;icmp&lt;/code&gt;, &lt;code&gt;icmpv6&lt;/code&gt;) or number (see &lt;a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml"&gt;Protocol Numbers&lt;/a&gt;). &lt;/p&gt; &lt;p&gt;Use &lt;code&gt;-1&lt;/code&gt; to specify all protocols.&lt;/p&gt; |
+| `securityGroupRuleId` | `string` | The ID of the security group rule. |
+| `isEgress` | `boolean` | Indicates whether the security group rule is an outbound rule. |
+| `groupId` | `string` | The ID of the security group. |
+| `cidrIpv4` | `string` | The IPv4 CIDR range. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

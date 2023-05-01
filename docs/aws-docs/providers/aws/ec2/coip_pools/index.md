@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
 | `poolArn` | `string` | The ARN of the address pool. |
 | `poolCidrSet` | `array` | The address ranges of the address pool. |
 | `poolId` | `string` | The ID of the address pool. |
 | `tagSet` | `array` | The tags. |
-| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
