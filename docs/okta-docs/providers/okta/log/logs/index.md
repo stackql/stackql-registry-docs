@@ -27,22 +27,22 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `transaction` | `object` |
-| `displayMessage` | `string` |
-| `legacyEventType` | `string` |
-| `securityContext` | `object` |
-| `version` | `string` |
-| `authenticationContext` | `object` |
 | `published` | `string` |
-| `target` | `array` |
-| `eventType` | `string` |
+| `legacyEventType` | `string` |
+| `displayMessage` | `string` |
 | `actor` | `object` |
-| `severity` | `string` |
 | `client` | `object` |
-| `outcome` | `object` |
+| `authenticationContext` | `object` |
+| `target` | `array` |
 | `request` | `object` |
 | `debugContext` | `object` |
 | `uuid` | `string` |
+| `eventType` | `string` |
+| `outcome` | `object` |
+| `version` | `string` |
+| `transaction` | `object` |
+| `severity` | `string` |
+| `securityContext` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

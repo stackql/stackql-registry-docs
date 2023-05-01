@@ -28,16 +28,16 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `expiresAt` | `string` |
-| `createdAt` | `string` |
-| `lastFactorVerification` | `string` |
-| `login` | `string` |
-| `userId` | `string` |
-| `_links` | `object` |
-| `idp` | `object` |
-| `status` | `string` |
-| `amr` | `array` |
 | `lastPasswordVerification` | `string` |
+| `status` | `string` |
+| `_links` | `object` |
+| `createdAt` | `string` |
+| `userId` | `string` |
+| `amr` | `array` |
+| `login` | `string` |
+| `expiresAt` | `string` |
+| `idp` | `object` |
+| `lastFactorVerification` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

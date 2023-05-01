@@ -29,14 +29,14 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `events` | `object` |
 | `verificationStatus` | `string` |
-| `channel` | `object` |
-| `created` | `string` |
-| `status` | `string` |
-| `createdBy` | `string` |
-| `lastUpdated` | `string` |
 | `_links` | `object` |
+| `lastUpdated` | `string` |
+| `events` | `object` |
+| `channel` | `object` |
+| `status` | `string` |
+| `created` | `string` |
+| `createdBy` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

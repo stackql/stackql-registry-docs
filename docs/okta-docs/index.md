@@ -4,7 +4,6 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - okta
-  - identity
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -46,28 +45,34 @@ REGISTRY PULL okta;
 ```
 > To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
-
 ## Authentication
 
-The `OKTA_API_TOKEN` environment variable is used by default to store credentials to authorize requests to Okta.  This variable is sourced at runtime (from the local machine or as a CI variable/secret).  More information on obtaining a Okta API Token can be found [here](https://developer.okta.com/docs/guides/create-an-api-token/).  
+The following system environment variables are used for authentication by default:  
+
+- `OKTA_API_TOKEN` - Okta API Token (see [Creating an Okta API Token](https://developer.okta.com/docs/guides/create-an-api-token/))
+  
+These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
 <details>
 
-<summary>Using a different environment variable</summary>
+<summary>Using different environment variables</summary>
 
-To use a different environment variable (instead of the default), use the `--auth` flag of the `stackql` program.  For example:  
+To use different environment variables (instead of the defaults), use the `--auth` flag of the `stackql` program.  For example:  
 
 ```bash
-AUTH='{ "okta": { "type": "api_key",  "credentialsenvvar": "YOUR_OKTA_API_TOKEN_VAR", "valuePrefix": "SSWS " }}'
+
+AUTH='{ "okta": { "type": "api_key", "valuePrefix": "SSWS ", "credentialsenvvar": "YOUR_OKTA_API_TOKEN_VAR" }}'
 stackql shell --auth="${AUTH}"
+
 ```
 or using PowerShell:  
 
 ```powershell
-$Auth = "{ 'okta': { 'type': 'api_key',  'credentialsenvvar': 'YOUR_OKTA_API_TOKEN_VAR', 'valuePrefix': 'SSWS ' }}"
-stackql.exe shell --auth=$Auth
-```
 
+$Auth = "{ 'okta': { 'type': 'api_key',  'valuePrefix': 'SSWS ', 'credentialsenvvar': 'YOUR_OKTA_API_TOKEN_VAR' }}"
+stackql.exe shell --auth=$Auth
+
+```
 </details>
 
 ## Services

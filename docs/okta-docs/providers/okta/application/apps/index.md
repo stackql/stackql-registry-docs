@@ -29,20 +29,20 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `licensing` | `object` |
-| `signOnMode` | `string` |
+| `accessibility` | `object` |
+| `profile` | `object` |
+| `settings` | `object` |
 | `lastUpdated` | `string` |
 | `credentials` | `object` |
-| `accessibility` | `object` |
-| `created` | `string` |
 | `features` | `array` |
-| `_embedded` | `object` |
-| `visibility` | `object` |
-| `_links` | `object` |
+| `licensing` | `object` |
 | `status` | `string` |
-| `profile` | `object` |
 | `label` | `string` |
-| `settings` | `object` |
+| `signOnMode` | `string` |
+| `_embedded` | `object` |
+| `created` | `string` |
+| `_links` | `object` |
+| `visibility` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

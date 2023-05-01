@@ -29,18 +29,18 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `asns` | `array` |
-| `status` | `string` |
-| `created` | `string` |
-| `system` | `boolean` |
 | `proxies` | `array` |
-| `lastUpdated` | `string` |
 | `proxyType` | `string` |
+| `created` | `string` |
+| `status` | `string` |
+| `system` | `boolean` |
+| `_links` | `object` |
+| `asns` | `array` |
 | `usage` | `string` |
 | `gateways` | `array` |
-| `_links` | `object` |
 | `locations` | `array` |
 | `type` | `string` |
+| `lastUpdated` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

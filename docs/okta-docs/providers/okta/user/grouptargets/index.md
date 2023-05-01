@@ -28,14 +28,14 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `_embedded` | `object` |
-| `type` | `string` |
-| `lastMembershipUpdated` | `string` |
-| `profile` | `object` |
-| `objectClass` | `array` |
 | `lastUpdated` | `string` |
-| `_links` | `object` |
 | `created` | `string` |
+| `type` | `string` |
+| `_links` | `object` |
+| `_embedded` | `object` |
+| `profile` | `object` |
+| `lastMembershipUpdated` | `string` |
+| `objectClass` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

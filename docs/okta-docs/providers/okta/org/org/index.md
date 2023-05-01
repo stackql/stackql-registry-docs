@@ -28,23 +28,23 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `country` | `string` |
-| `address2` | `string` |
-| `endUserSupportHelpURL` | `string` |
-| `address1` | `string` |
-| `companyName` | `string` |
-| `created` | `string` |
 | `status` | `string` |
-| `expiresAt` | `string` |
-| `supportPhoneNumber` | `string` |
-| `subdomain` | `string` |
-| `state` | `string` |
-| `_links` | `object` |
 | `phoneNumber` | `string` |
-| `postalCode` | `string` |
 | `website` | `string` |
-| `lastUpdated` | `string` |
 | `city` | `string` |
+| `address2` | `string` |
+| `_links` | `object` |
+| `expiresAt` | `string` |
+| `address1` | `string` |
+| `subdomain` | `string` |
+| `created` | `string` |
+| `endUserSupportHelpURL` | `string` |
+| `state` | `string` |
+| `country` | `string` |
+| `lastUpdated` | `string` |
+| `supportPhoneNumber` | `string` |
+| `companyName` | `string` |
+| `postalCode` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

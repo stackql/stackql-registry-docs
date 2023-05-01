@@ -29,14 +29,14 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `description` | `string` |
-| `lastUpdated` | `string` |
-| `_embedded` | `object` |
 | `label` | `string` |
-| `_links` | `object` |
-| `assignmentType` | `string` |
-| `type` | `string` |
-| `status` | `string` |
+| `lastUpdated` | `string` |
 | `created` | `string` |
+| `type` | `string` |
+| `_links` | `object` |
+| `status` | `string` |
+| `_embedded` | `object` |
+| `assignmentType` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
