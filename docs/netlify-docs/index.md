@@ -4,7 +4,6 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - netlify
-  - cdn
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -46,28 +45,34 @@ REGISTRY PULL netlify;
 ```
 > To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
-
 ## Authentication
 
-The `NETLIFY_TOKEN` environment variable is used by default to store credentials to authorize requests to Netlify.  This variable is sourced at runtime (from the local machine or as a CI variable/secret).  More information on obtaining a Netlify API Token can be found [here](https://docs.netlify.com/api/get-started/#authentication).  
+The following system environment variables are used for authentication by default:  
+
+- `NETLIFY_AUTH_TOKEN` - Netlify API token (see [How to Create a Netlify API Token](https://docs.netlify.com/api/get-started/#authentication))
+  
+These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
 <details>
 
-<summary>Using a different environment variable</summary>
+<summary>Using different environment variables</summary>
 
-To use a different environment variable (instead of the default), use the `--auth` flag of the `stackql` program.  For example:  
+To use different environment variables (instead of the defaults), use the `--auth` flag of the `stackql` program.  For example:  
 
 ```bash
-AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_NETLIFY_TOKEN_VAR" }}'
+
+AUTH='{ "netlify": { "type": "bearer",  "credentialsenvvar": "YOUR_NETLIFY_AUTH_TOKEN_VAR" }}'
 stackql shell --auth="${AUTH}"
+
 ```
 or using PowerShell:  
 
 ```powershell
-$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_NETLIFY_TOKEN_VAR' }}"
-stackql.exe shell --auth=$Auth
-```
 
+$Auth = "{ 'netlify': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_NETLIFY_AUTH_TOKEN_VAR' }}"
+stackql.exe shell --auth=$Auth
+
+```
 </details>
 
 ## Services

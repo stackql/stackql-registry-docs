@@ -33,7 +33,7 @@ build
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Netlify's API documentation - build</td></tr>
 <tr><td><b>Description</b></td><td>build</td></tr>
-<tr><td><b>Id</b></td><td><code>build:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>build:v23.04.00141</code></td></tr>
 </tbody></table>
 
 ## Resources

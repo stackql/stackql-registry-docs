@@ -33,7 +33,7 @@ dnsZone
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Netlify's API documentation - dns_zone</td></tr>
 <tr><td><b>Description</b></td><td>dnsZone</td></tr>
-<tr><td><b>Id</b></td><td><code>dns_zone:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dns_zone:v23.04.00141</code></td></tr>
 </tbody></table>
 
 ## Resources

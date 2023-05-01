@@ -29,35 +29,35 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `updated_at` | `string` |
-| `function_schedules` | `array` |
-| `user_id` | `string` |
-| `skipped` | `boolean` |
-| `locked` | `boolean` |
-| `ssl_url` | `string` |
-| `title` | `string` |
-| `context` | `string` |
-| `required` | `array` |
-| `review_id` | `number` |
-| `screenshot_url` | `string` |
-| `state` | `string` |
-| `commit_ref` | `string` |
-| `site_id` | `string` |
-| `draft` | `boolean` |
-| `error_message` | `string` |
-| `deploy_url` | `string` |
-| `published_at` | `string` |
 | `deploy_ssl_url` | `string` |
+| `framework` | `string` |
+| `state` | `string` |
+| `skipped` | `boolean` |
 | `commit_url` | `string` |
+| `published_at` | `string` |
+| `error_message` | `string` |
 | `created_at` | `string` |
-| `branch` | `string` |
 | `required_functions` | `array` |
-| `admin_url` | `string` |
+| `required` | `array` |
+| `function_schedules` | `array` |
+| `review_id` | `number` |
+| `deploy_url` | `string` |
+| `ssl_url` | `string` |
+| `screenshot_url` | `string` |
+| `commit_ref` | `string` |
+| `review_url` | `string` |
+| `context` | `string` |
+| `draft` | `boolean` |
 | `build_id` | `string` |
+| `user_id` | `string` |
+| `title` | `string` |
+| `branch` | `string` |
+| `locked` | `boolean` |
+| `admin_url` | `string` |
+| `site_id` | `string` |
+| `updated_at` | `string` |
 | `site_capabilities` | `object` |
 | `url` | `string` |
-| `review_url` | `string` |
-| `framework` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

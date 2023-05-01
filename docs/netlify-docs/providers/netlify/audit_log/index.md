@@ -33,7 +33,7 @@ auditLog
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Netlify's API documentation - audit_log</td></tr>
 <tr><td><b>Description</b></td><td>auditLog</td></tr>
-<tr><td><b>Id</b></td><td><code>audit_log:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>audit_log:v23.04.00141</code></td></tr>
 </tbody></table>
 
 ## Resources

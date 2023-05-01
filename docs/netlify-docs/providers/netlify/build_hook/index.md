@@ -33,7 +33,7 @@ buildHook
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Netlify's API documentation - build_hook</td></tr>
 <tr><td><b>Description</b></td><td>buildHook</td></tr>
-<tr><td><b>Id</b></td><td><code>build_hook:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>build_hook:v23.04.00141</code></td></tr>
 </tbody></table>
 
 ## Resources
