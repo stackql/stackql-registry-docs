@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the DHCP options set. |
-| `tagSet` | `array` | Any tags assigned to the DHCP options set. |
 | `dhcpConfigurationSet` | `array` | One or more DHCP options in the set. |
 | `dhcpOptionsId` | `string` | The ID of the set of DHCP options. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the DHCP options set. |
+| `tagSet` | `array` | Any tags assigned to the DHCP options set. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

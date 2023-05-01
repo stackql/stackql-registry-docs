@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemStatus` | `object` | Describes the status of an instance. |
-| `availabilityZone` | `string` | The Availability Zone of the instance. |
 | `eventsSet` | `array` | Any scheduled events associated with the instance. |
 | `instanceId` | `string` | The ID of the instance. |
 | `instanceState` | `object` | Describes the current state of an instance. |
 | `instanceStatus` | `object` | Describes the status of an instance. |
 | `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
+| `systemStatus` | `object` | Describes the status of an instance. |
+| `availabilityZone` | `string` | The Availability Zone of the instance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

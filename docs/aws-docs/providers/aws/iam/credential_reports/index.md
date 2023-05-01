@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `Content` | `string` | Contains the credential report. The report is Base64-encoded. |
 | `GeneratedTime` | `string` |  The date and time when the credential report was created, in &lt;a href="http://www.iso.org/iso/iso8601"&gt;ISO 8601 date-time format&lt;/a&gt;. |
 | `ReportFormat` | `string` | The format (MIME type) of the credential report. |
-| `Content` | `string` | Contains the credential report. The report is Base64-encoded. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

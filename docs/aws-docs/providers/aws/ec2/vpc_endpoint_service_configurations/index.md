@@ -27,21 +27,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `serviceType` | `array` | The type of service. |
+| `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
+| `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
+| `serviceId` | `string` | The ID of the service. |
+| `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
+| `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
 | `payerResponsibility` | `string` | The payer responsibility. |
 | `tagSet` | `array` | Any tags assigned to the service. |
-| `privateDnsName` | `string` | The private DNS name for the service. |
-| `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
-| `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
-| `serviceState` | `string` | The service state. |
 | `availabilityZoneSet` | `array` | The Availability Zones in which the service is available. |
-| `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
-| `serviceName` | `string` | The name of the service. |
-| `serviceId` | `string` | The ID of the service. |
-| `acceptanceRequired` | `boolean` | Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted. |
 | `privateDnsNameConfiguration` | `object` | Information about the private DNS name for the service endpoint. |
-| `serviceType` | `array` | The type of service. |
 | `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Network Load Balancers for the service. |
-| `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
+| `serviceName` | `string` | The name of the service. |
+| `privateDnsName` | `string` | The private DNS name for the service. |
+| `serviceState` | `string` | The service state. |
+| `acceptanceRequired` | `boolean` | Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

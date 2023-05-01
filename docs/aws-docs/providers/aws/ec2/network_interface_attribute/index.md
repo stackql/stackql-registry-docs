@@ -28,10 +28,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `object` | Describes a value for a resource attribute that is a String. |
+| `attachment` | `object` | Describes a network interface attachment. |
 | `groupSet` | `array` | The security groups associated with the network interface. |
 | `networkInterfaceId` | `string` | The ID of the network interface. |
 | `sourceDestCheck` | `object` | Describes a value for a resource attribute that is a Boolean value. |
-| `attachment` | `object` | Describes a network interface attachment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

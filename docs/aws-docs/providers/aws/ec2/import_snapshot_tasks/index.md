@@ -28,9 +28,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A description of the import snapshot task. |
-| `tagSet` | `array` | The tags for the import snapshot task. |
 | `importTaskId` | `string` | The ID of the import snapshot task. |
 | `snapshotTaskDetail` | `object` | Details about the import snapshot task. |
+| `tagSet` | `array` | The tags for the import snapshot task. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

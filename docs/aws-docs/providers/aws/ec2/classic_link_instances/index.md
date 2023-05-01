@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | Any tags assigned to the instance. |
-| `vpcId` | `string` | The ID of the VPC. |
 | `groupSet` | `array` | A list of security groups. |
 | `instanceId` | `string` | The ID of the instance. |
+| `tagSet` | `array` | Any tags assigned to the instance. |
+| `vpcId` | `string` | The ID of the VPC. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

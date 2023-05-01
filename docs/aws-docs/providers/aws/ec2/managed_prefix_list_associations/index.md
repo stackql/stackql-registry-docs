@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resourceId` | `string` | The ID of the resource. |
 | `resourceOwner` | `string` | The owner of the resource. |
+| `resourceId` | `string` | The ID of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

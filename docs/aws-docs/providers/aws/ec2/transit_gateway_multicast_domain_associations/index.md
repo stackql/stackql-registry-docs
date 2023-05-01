@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `resourceOwnerId` | `string` |  The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource. |
+| `resourceType` | `string` | The type of resource, for example a VPC attachment. |
 | `subnet` | `object` | Describes the subnet association with the transit gateway multicast domain. |
 | `transitGatewayAttachmentId` | `string` | The ID of the transit gateway attachment. |
 | `resourceId` | `string` | The ID of the resource. |
-| `resourceOwnerId` | `string` |  The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource. |
-| `resourceType` | `string` | The type of resource, for example a VPC attachment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

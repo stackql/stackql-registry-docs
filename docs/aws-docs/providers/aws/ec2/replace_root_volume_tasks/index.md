@@ -27,12 +27,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceId` | `string` | The ID of the instance for which the root volume replacement task was created. |
-| `replaceRootVolumeTaskId` | `string` | The ID of the root volume replacement task. |
 | `startTime` | `string` | The time the task was started. |
 | `tagSet` | `array` | The tags assigned to the task. |
 | `taskState` | `string` | &lt;p&gt;The state of the task. The task can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;pending&lt;/code&gt; - the replacement volume is being created.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;in-progress&lt;/code&gt; - the original volume is being detached and the replacement volume is being attached.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;succeeded&lt;/code&gt; - the replacement volume has been successfully attached to the instance and the instance is available.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;failing&lt;/code&gt; - the replacement task is in the process of failing.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;failed&lt;/code&gt; - the replacement task has failed but the original root volume is still attached.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;failing-detached&lt;/code&gt; - the replacement task is in the process of failing. The instance might have no root volume attached.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;failed-detached&lt;/code&gt; - the replacement task has failed and the instance has no root volume attached.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
 | `completeTime` | `string` | The time the task completed. |
+| `instanceId` | `string` | The ID of the instance for which the root volume replacement task was created. |
+| `replaceRootVolumeTaskId` | `string` | The ID of the root volume replacement task. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

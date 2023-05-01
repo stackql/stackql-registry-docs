@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `timestamp` | `string` | The date and time of the event, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). |
 | `eventInformation` | `object` | Describes an EC2 Fleet or Spot Fleet event. |
 | `eventType` | `string` | &lt;p&gt;The event type.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;error&lt;/code&gt; - An error with the Spot Fleet request.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;fleetRequestChange&lt;/code&gt; - A change in the status or configuration of the Spot Fleet request.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;instanceChange&lt;/code&gt; - An instance was launched or terminated.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;Information&lt;/code&gt; - An informational event.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+| `timestamp` | `string` | The date and time of the event, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

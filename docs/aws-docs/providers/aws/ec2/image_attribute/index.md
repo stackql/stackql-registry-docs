@@ -28,16 +28,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `object` | Describes a value for a resource attribute that is a String. |
-| `imageId` | `string` | The ID of the AMI. |
-| `launchPermission` | `array` | The launch permissions. |
-| `kernel` | `object` | Describes a value for a resource attribute that is a String. |
-| `lastLaunchedTime` | `object` | Describes a value for a resource attribute that is a String. |
+| `blockDeviceMapping` | `array` | The block device mapping entries. |
 | `productCodes` | `array` | The product codes. |
 | `ramdisk` | `object` | Describes a value for a resource attribute that is a String. |
-| `blockDeviceMapping` | `array` | The block device mapping entries. |
-| `uefiData` | `object` | Describes a value for a resource attribute that is a String. |
 | `tpmSupport` | `object` | Describes a value for a resource attribute that is a String. |
+| `kernel` | `object` | Describes a value for a resource attribute that is a String. |
 | `sriovNetSupport` | `object` | Describes a value for a resource attribute that is a String. |
+| `uefiData` | `object` | Describes a value for a resource attribute that is a String. |
+| `imageId` | `string` | The ID of the AMI. |
+| `lastLaunchedTime` | `object` | Describes a value for a resource attribute that is a String. |
+| `launchPermission` | `array` | The launch permissions. |
 | `bootMode` | `object` | Describes a value for a resource attribute that is a String. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -27,15 +27,15 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `status` | `string` | The status of the Reserved Instances modification request. |
 | `statusMessage` | `string` | The reason for the status. |
+| `reservedInstancesSet` | `array` | The IDs of one or more Reserved Instances. |
+| `modificationResultSet` | `array` | Contains target configurations along with their corresponding new Reserved Instance IDs. |
+| `clientToken` | `string` | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring Idempotency&lt;/a&gt;. |
+| `updateDate` | `string` | The time when the modification request was last updated. |
 | `effectiveDate` | `string` | The time for the modification to become effective. |
 | `createDate` | `string` | The time when the modification request was created. |
-| `status` | `string` | The status of the Reserved Instances modification request. |
-| `clientToken` | `string` | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring Idempotency&lt;/a&gt;. |
-| `reservedInstancesSet` | `array` | The IDs of one or more Reserved Instances. |
 | `reservedInstancesModificationId` | `string` | A unique ID for the Reserved Instance modification. |
-| `modificationResultSet` | `array` | Contains target configurations along with their corresponding new Reserved Instance IDs. |
-| `updateDate` | `string` | The time when the modification request was last updated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

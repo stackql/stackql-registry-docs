@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `associatedResource` | `string` | The resource that's associated with the IPv6 CIDR block. |
 | `ipv6Cidr` | `string` | The IPv6 CIDR block. |
+| `associatedResource` | `string` | The resource that's associated with the IPv6 CIDR block. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

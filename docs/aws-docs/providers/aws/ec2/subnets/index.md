@@ -27,27 +27,27 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `defaultForAz` | `boolean` | Indicates whether this is the default subnet for the Availability Zone. |
-| `ipv6Native` | `boolean` | Indicates whether this is an IPv6 only subnet. |
-| `mapCustomerOwnedIpOnLaunch` | `boolean` | Indicates whether a network interface created in this subnet (including a network interface created by &lt;a&gt;RunInstances&lt;/a&gt;) receives a customer-owned IPv4 address. |
-| `cidrBlock` | `string` | The IPv4 CIDR block assigned to the subnet. |
 | `ipv6CidrBlockAssociationSet` | `array` | Information about the IPv6 CIDR blocks associated with the subnet. |
-| `availabilityZone` | `string` | The Availability Zone of the subnet. |
-| `availabilityZoneId` | `string` | The AZ ID of the subnet. |
-| `tagSet` | `array` | Any tags assigned to the subnet. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the subnet. |
-| `availableIpAddressCount` | `integer` | The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable. |
-| `enableLniAtDeviceIndex` | `integer` |  Indicates the device position for local network interfaces in this subnet. For example, &lt;code&gt;1&lt;/code&gt; indicates local network interfaces in this subnet are the secondary network interface (eth1).  |
-| `vpcId` | `string` | The ID of the VPC the subnet is in. |
-| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
-| `enableDns64` | `boolean` | Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. |
-| `subnetId` | `string` | The ID of the subnet. |
-| `subnetArn` | `string` | The Amazon Resource Name (ARN) of the subnet. |
 | `customerOwnedIpv4Pool` | `string` | The customer-owned IPv4 address pool associated with the subnet. |
-| `mapPublicIpOnLaunch` | `boolean` | Indicates whether instances launched in this subnet receive a public IPv4 address. |
-| `assignIpv6AddressOnCreation` | `boolean` | Indicates whether a network interface created in this subnet (including a network interface created by &lt;a&gt;RunInstances&lt;/a&gt;) receives an IPv6 address. |
-| `state` | `string` | The current state of the subnet. |
+| `subnetArn` | `string` | The Amazon Resource Name (ARN) of the subnet. |
+| `availabilityZone` | `string` | The Availability Zone of the subnet. |
+| `tagSet` | `array` | Any tags assigned to the subnet. |
+| `enableDns64` | `boolean` | Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. |
+| `enableLniAtDeviceIndex` | `integer` |  Indicates the device position for local network interfaces in this subnet. For example, &lt;code&gt;1&lt;/code&gt; indicates local network interfaces in this subnet are the secondary network interface (eth1).  |
+| `defaultForAz` | `boolean` | Indicates whether this is the default subnet for the Availability Zone. |
 | `privateDnsNameOptionsOnLaunch` | `object` | Describes the options for instance hostnames. |
+| `mapCustomerOwnedIpOnLaunch` | `boolean` | Indicates whether a network interface created in this subnet (including a network interface created by &lt;a&gt;RunInstances&lt;/a&gt;) receives a customer-owned IPv4 address. |
+| `state` | `string` | The current state of the subnet. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the subnet. |
+| `cidrBlock` | `string` | The IPv4 CIDR block assigned to the subnet. |
+| `availabilityZoneId` | `string` | The AZ ID of the subnet. |
+| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
+| `mapPublicIpOnLaunch` | `boolean` | Indicates whether instances launched in this subnet receive a public IPv4 address. |
+| `availableIpAddressCount` | `integer` | The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable. |
+| `subnetId` | `string` | The ID of the subnet. |
+| `vpcId` | `string` | The ID of the VPC the subnet is in. |
+| `assignIpv6AddressOnCreation` | `boolean` | Indicates whether a network interface created in this subnet (including a network interface created by &lt;a&gt;RunInstances&lt;/a&gt;) receives an IPv6 address. |
+| `ipv6Native` | `boolean` | Indicates whether this is an IPv6 only subnet. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

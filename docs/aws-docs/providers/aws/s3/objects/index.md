@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `Size` | `integer` | Size in bytes of the object |
+| `StorageClass` | `string` | The class of storage used to store the object. |
+| `ChecksumAlgorithm` | `array` | The algorithm that was used to create a checksum of the object. |
 | `ETag` | `string` | &lt;p&gt;The entity tag is a hash of the object. The ETag reflects changes only to the contents of an object, not its metadata. The ETag may or may not be an MD5 digest of the object data. Whether or not it is depends on how the object was created and how it is encrypted as described below:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Objects created by the PUT Object, POST Object, or Copy operation, or through the Amazon Web Services Management Console, and are encrypted by SSE-S3 or plaintext, have ETags that are an MD5 digest of their object data.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Objects created by the PUT Object, POST Object, or Copy operation, or through the Amazon Web Services Management Console, and are encrypted by SSE-C or SSE-KMS, have ETags that are not an MD5 digest of their object data.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;If an object is created by either the Multipart Upload or Part Copy operation, the ETag is not an MD5 digest, regardless of the method of encryption. If an object is larger than 16 MB, the Amazon Web Services Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
 | `Key` | `string` | The name that you assign to an object. You use the object key to retrieve the object. |
 | `LastModified` | `string` | Creation date of the object. |
 | `Owner` | `object` | Container for the owner's display name and ID. |
-| `Size` | `integer` | Size in bytes of the object |
-| `StorageClass` | `string` | The class of storage used to store the object. |
-| `ChecksumAlgorithm` | `array` | The algorithm that was used to create a checksum of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

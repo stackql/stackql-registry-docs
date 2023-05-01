@@ -27,16 +27,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `status` | `string` | The status of the Reserved Instance listing. |
-| `priceSchedules` | `array` | The price of the Reserved Instance listing. |
-| `reservedInstancesListingId` | `string` | The ID of the Reserved Instance listing. |
 | `statusMessage` | `string` | The reason for the current status of the Reserved Instance listing. The response can be blank. |
 | `tagSet` | `array` | Any tags assigned to the resource. |
-| `clientToken` | `string` | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring Idempotency&lt;/a&gt;. |
-| `reservedInstancesId` | `string` | The ID of the Reserved Instance. |
 | `createDate` | `string` | The time the listing was created. |
-| `instanceCounts` | `array` | The number of instances in this state. |
+| `status` | `string` | The status of the Reserved Instance listing. |
+| `clientToken` | `string` | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring Idempotency&lt;/a&gt;. |
+| `reservedInstancesListingId` | `string` | The ID of the Reserved Instance listing. |
+| `priceSchedules` | `array` | The price of the Reserved Instance listing. |
 | `updateDate` | `string` | The last modified timestamp of the listing. |
+| `instanceCounts` | `array` | The number of instances in this state. |
+| `reservedInstancesId` | `string` | The ID of the Reserved Instance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

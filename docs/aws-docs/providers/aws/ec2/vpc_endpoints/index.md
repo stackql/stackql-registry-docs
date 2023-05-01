@@ -27,25 +27,25 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `vpcId` | `string` | The ID of the VPC to which the endpoint is associated. |
-| `tagSet` | `array` | Any tags assigned to the endpoint. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the endpoint. |
-| `subnetIdSet` | `array` | (Interface endpoint) The subnets for the endpoint. |
-| `requesterManaged` | `boolean` | Indicates whether the endpoint is being managed by its service. |
-| `vpcEndpointId` | `string` | The ID of the endpoint. |
-| `serviceName` | `string` | The name of the service to which the endpoint is associated. |
-| `policyDocument` | `string` | The policy document associated with the endpoint, if applicable. |
-| `dnsEntrySet` | `array` | (Interface endpoint) The DNS entries for the endpoint. |
-| `routeTableIdSet` | `array` | (Gateway endpoint) One or more route tables associated with the endpoint. |
 | `ipAddressType` | `string` | The IP address type for the endpoint. |
-| `groupSet` | `array` | (Interface endpoint) Information about the security groups that are associated with the network interface. |
-| `networkInterfaceIdSet` | `array` | (Interface endpoint) One or more network interfaces for the endpoint. |
-| `lastError` | `object` | The last error that occurred for a VPC endpoint. |
-| `state` | `string` | The state of the endpoint. |
+| `policyDocument` | `string` | The policy document associated with the endpoint, if applicable. |
+| `vpcEndpointType` | `string` | The type of endpoint. |
 | `privateDnsEnabled` | `boolean` | (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone. |
 | `dnsOptions` | `object` | Describes the DNS options for an endpoint. |
+| `lastError` | `object` | The last error that occurred for a VPC endpoint. |
+| `state` | `string` | The state of the endpoint. |
+| `serviceName` | `string` | The name of the service to which the endpoint is associated. |
+| `dnsEntrySet` | `array` | (Interface endpoint) The DNS entries for the endpoint. |
+| `vpcEndpointId` | `string` | The ID of the endpoint. |
+| `vpcId` | `string` | The ID of the VPC to which the endpoint is associated. |
+| `routeTableIdSet` | `array` | (Gateway endpoint) One or more route tables associated with the endpoint. |
+| `networkInterfaceIdSet` | `array` | (Interface endpoint) One or more network interfaces for the endpoint. |
+| `tagSet` | `array` | Any tags assigned to the endpoint. |
+| `groupSet` | `array` | (Interface endpoint) Information about the security groups that are associated with the network interface. |
 | `creationTimestamp` | `string` | The date and time that the endpoint was created. |
-| `vpcEndpointType` | `string` | The type of endpoint. |
+| `requesterManaged` | `boolean` | Indicates whether the endpoint is being managed by its service. |
+| `subnetIdSet` | `array` | (Interface endpoint) The subnets for the endpoint. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

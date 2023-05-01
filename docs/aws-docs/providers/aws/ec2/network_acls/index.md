@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `entrySet` | `array` | One or more entries (rules) in the network ACL. |
-| `networkAclId` | `string` | The ID of the network ACL. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the network ACL. |
 | `tagSet` | `array` | Any tags assigned to the network ACL. |
 | `vpcId` | `string` | The ID of the VPC for the network ACL. |
 | `associationSet` | `array` | Any associations between the network ACL and one or more subnets |
 | `default` | `boolean` | Indicates whether this is the default network ACL for the VPC. |
+| `entrySet` | `array` | One or more entries (rules) in the network ACL. |
+| `networkAclId` | `string` | The ID of the network ACL. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,21 +28,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description for the snapshot. |
-| `ownerAlias` | `string` | The Amazon Web Services owner alias, from an Amazon-maintained list (&lt;code&gt;amazon&lt;/code&gt;). This is not the user-configured Amazon Web Services account alias set using the IAM console. |
-| `kmsKeyId` | `string` | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the volume encryption key for the parent volume. |
-| `snapshotId` | `string` | The ID of the snapshot. Each snapshot receives a unique identifier when it is created. |
-| `tagSet` | `array` | Any tags assigned to the snapshot. |
 | `volumeId` | `string` | The ID of the volume that was used to create the snapshot. Snapshots created by the &lt;a&gt;CopySnapshot&lt;/a&gt; action have an arbitrary volume ID that should not be used for any purpose. |
-| `encrypted` | `boolean` | Indicates whether the snapshot is encrypted. |
-| `storageTier` | `string` | The storage tier in which the snapshot is stored. &lt;code&gt;standard&lt;/code&gt; indicates that the snapshot is stored in the standard snapshot storage tier and that it is ready for use. &lt;code&gt;archive&lt;/code&gt; indicates that the snapshot is currently archived and that it must be restored before it can be used. |
-| `startTime` | `string` | The time stamp when the snapshot was initiated. |
-| `statusMessage` | `string` | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails (for example, if the proper Key Management Service (KMS) permissions are not obtained) this field displays error state details to help you diagnose why the error occurred. This parameter is only returned by &lt;a&gt;DescribeSnapshots&lt;/a&gt;. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the EBS snapshot. |
-| `outpostArn` | `string` | The ARN of the Outpost on which the snapshot is stored. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html"&gt;Amazon EBS local snapshots on Outposts&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;. |
-| `restoreExpiryTime` | `string` | Only for archived snapshots that are temporarily restored. Indicates the date and time when a temporarily restored snapshot will be automatically re-archived. |
-| `status` | `string` | The snapshot state. |
-| `volumeSize` | `integer` | The size of the volume, in GiB. |
 | `progress` | `string` | The progress of the snapshot, as a percentage. |
+| `snapshotId` | `string` | The ID of the snapshot. Each snapshot receives a unique identifier when it is created. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the EBS snapshot. |
+| `statusMessage` | `string` | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails (for example, if the proper Key Management Service (KMS) permissions are not obtained) this field displays error state details to help you diagnose why the error occurred. This parameter is only returned by &lt;a&gt;DescribeSnapshots&lt;/a&gt;. |
+| `status` | `string` | The snapshot state. |
+| `restoreExpiryTime` | `string` | Only for archived snapshots that are temporarily restored. Indicates the date and time when a temporarily restored snapshot will be automatically re-archived. |
+| `ownerAlias` | `string` | The Amazon Web Services owner alias, from an Amazon-maintained list (&lt;code&gt;amazon&lt;/code&gt;). This is not the user-configured Amazon Web Services account alias set using the IAM console. |
+| `storageTier` | `string` | The storage tier in which the snapshot is stored. &lt;code&gt;standard&lt;/code&gt; indicates that the snapshot is stored in the standard snapshot storage tier and that it is ready for use. &lt;code&gt;archive&lt;/code&gt; indicates that the snapshot is currently archived and that it must be restored before it can be used. |
+| `outpostArn` | `string` | The ARN of the Outpost on which the snapshot is stored. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html"&gt;Amazon EBS local snapshots on Outposts&lt;/a&gt; in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;. |
+| `encrypted` | `boolean` | Indicates whether the snapshot is encrypted. |
+| `kmsKeyId` | `string` | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the volume encryption key for the parent volume. |
+| `volumeSize` | `integer` | The size of the volume, in GiB. |
+| `tagSet` | `array` | Any tags assigned to the snapshot. |
+| `startTime` | `string` | The time stamp when the snapshot was initiated. |
 | `dataEncryptionKeyId` | `string` | The data encryption key identifier for the snapshot. This value is a unique identifier that corresponds to the data encryption key that was used to encrypt the original volume or snapshot copy. Because data encryption keys are inherited by volumes created from snapshots, and vice versa, if snapshots share the same data encryption key identifier, then they belong to the same volume/snapshot lineage. This parameter is only returned by &lt;a&gt;DescribeSnapshots&lt;/a&gt;. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -27,6 +27,7 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `localGatewayRouteTableVirtualInterfaceGroupAssociationId` | `string` | The ID of the association. |
 | `localGatewayVirtualInterfaceGroupId` | `string` | The ID of the virtual interface group. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway virtual interface group association. |
 | `state` | `string` | The state of the association. |
@@ -34,7 +35,6 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | `localGatewayId` | `string` | The ID of the local gateway. |
 | `localGatewayRouteTableArn` | `string` | The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group. |
 | `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
-| `localGatewayRouteTableVirtualInterfaceGroupAssociationId` | `string` | The ID of the association. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

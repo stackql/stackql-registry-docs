@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `AccessControlList` | `array` | A list of grants. |
 | `Owner` | `object` | Container for the owner's display name and ID. |
+| `AccessControlList` | `array` | A list of grants. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

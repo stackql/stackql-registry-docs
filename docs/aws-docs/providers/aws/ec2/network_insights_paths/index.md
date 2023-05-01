@@ -27,16 +27,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `source` | `string` | The Amazon Web Services resource that is the source of the path. |
+| `destinationIp` | `string` | The IP address of the Amazon Web Services resource that is the destination of the path. |
+| `destination` | `string` | The Amazon Web Services resource that is the destination of the path. |
+| `networkInsightsPathId` | `string` | The ID of the path. |
 | `destinationPort` | `integer` | The destination port. |
-| `tagSet` | `array` | The tags associated with the path. |
+| `networkInsightsPathArn` | `string` | The Amazon Resource Name (ARN) of the path. |
 | `sourceIp` | `string` | The IP address of the Amazon Web Services resource that is the source of the path. |
 | `createdDate` | `string` | The time stamp when the path was created. |
-| `networkInsightsPathArn` | `string` | The Amazon Resource Name (ARN) of the path. |
+| `tagSet` | `array` | The tags associated with the path. |
+| `source` | `string` | The Amazon Web Services resource that is the source of the path. |
 | `protocol` | `string` | The protocol. |
-| `networkInsightsPathId` | `string` | The ID of the path. |
-| `destination` | `string` | The Amazon Web Services resource that is the destination of the path. |
-| `destinationIp` | `string` | The IP address of the Amazon Web Services resource that is the destination of the path. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

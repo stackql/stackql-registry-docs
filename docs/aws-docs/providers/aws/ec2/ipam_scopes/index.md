@@ -28,16 +28,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description of the scope. |
-| `ipamScopeArn` | `string` | The ARN of the scope. |
-| `ipamRegion` | `string` | The Amazon Web Services Region of the IPAM scope. |
-| `ipamScopeId` | `string` | The ID of the scope. |
+| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the scope. |
 | `state` | `string` | The state of the IPAM scope. |
 | `ipamScopeType` | `string` | The type of the scope. |
-| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the scope. |
-| `poolCount` | `integer` | The number of pools in the scope. |
+| `ipamRegion` | `string` | The Amazon Web Services Region of the IPAM scope. |
 | `isDefault` | `boolean` | Defines if the scope is the default scope or not. |
-| `tagSet` | `array` | The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key &lt;code&gt;Owner&lt;/code&gt; and the value &lt;code&gt;TeamA&lt;/code&gt;, specify &lt;code&gt;tag:Owner&lt;/code&gt; for the filter name and &lt;code&gt;TeamA&lt;/code&gt; for the filter value. |
 | `ipamArn` | `string` | The ARN of the IPAM. |
+| `tagSet` | `array` | The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key &lt;code&gt;Owner&lt;/code&gt; and the value &lt;code&gt;TeamA&lt;/code&gt;, specify &lt;code&gt;tag:Owner&lt;/code&gt; for the filter name and &lt;code&gt;TeamA&lt;/code&gt; for the filter value. |
+| `poolCount` | `integer` | The number of pools in the scope. |
+| `ipamScopeId` | `string` | The ID of the scope. |
+| `ipamScopeArn` | `string` | The ARN of the scope. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

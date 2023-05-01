@@ -27,12 +27,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `expirationTime` | `string` | The time that an unaccepted VPC peering connection will expire. |
 | `requesterVpcInfo` | `object` | Describes a VPC in a VPC peering connection. |
 | `status` | `object` | Describes the status of a VPC peering connection. |
 | `tagSet` | `array` | Any tags assigned to the resource. |
 | `vpcPeeringConnectionId` | `string` | The ID of the VPC peering connection. |
 | `accepterVpcInfo` | `object` | Describes a VPC in a VPC peering connection. |
+| `expirationTime` | `string` | The time that an unaccepted VPC peering connection will expire. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
