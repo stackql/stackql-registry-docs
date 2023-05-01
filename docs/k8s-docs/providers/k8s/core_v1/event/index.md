@@ -27,23 +27,23 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `count` | `integer` | The number of times this event has occurred. |
-| `reportingInstance` | `string` | ID of the controller instance, e.g. `kubelet-xyzf`. |
-| `apiVersion` | `string` | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |
-| `message` | `string` | A human-readable description of the status of this operation. |
 | `source` | `object` | EventSource contains information for an event. |
 | `firstTimestamp` | `string` | Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. |
-| `lastTimestamp` | `string` | Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. |
-| `eventTime` | `string` | MicroTime is version of Time with microsecond level precision. |
+| `reportingInstance` | `string` | ID of the controller instance, e.g. `kubelet-xyzf`. |
+| `apiVersion` | `string` | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |
+| `series` | `object` | EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time. |
 | `involvedObject` | `object` | ObjectReference contains enough information to let you inspect or modify the referred object. |
+| `lastTimestamp` | `string` | Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. |
 | `type` | `string` | Type of this event (Normal, Warning), new types could be added in the future |
 | `reportingComponent` | `string` | Name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`. |
-| `action` | `string` | What action was taken/failed regarding to the Regarding object. |
 | `metadata` | `object` | ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create. |
-| `related` | `object` | ObjectReference contains enough information to let you inspect or modify the referred object. |
-| `reason` | `string` | This should be a short, machine understandable string that gives the reason for the transition into the object's current status. |
 | `kind` | `string` | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |
-| `series` | `object` | EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time. |
+| `eventTime` | `string` | MicroTime is version of Time with microsecond level precision. |
+| `action` | `string` | What action was taken/failed regarding to the Regarding object. |
+| `related` | `object` | ObjectReference contains enough information to let you inspect or modify the referred object. |
+| `message` | `string` | A human-readable description of the status of this operation. |
+| `reason` | `string` | This should be a short, machine understandable string that gives the reason for the transition into the object's current status. |
+| `count` | `integer` | The number of times this event has occurred. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
