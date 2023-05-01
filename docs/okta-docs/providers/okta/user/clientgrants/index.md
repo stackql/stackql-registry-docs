@@ -28,17 +28,17 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `_links` | `object` |
-| `lastUpdated` | `string` |
-| `status` | `string` |
-| `source` | `string` |
-| `userId` | `string` |
-| `scopeId` | `string` |
-| `_embedded` | `object` |
-| `created` | `string` |
-| `issuer` | `string` |
 | `clientId` | `string` |
+| `_links` | `object` |
+| `status` | `string` |
 | `createdBy` | `object` |
+| `lastUpdated` | `string` |
+| `created` | `string` |
+| `source` | `string` |
+| `scopeId` | `string` |
+| `userId` | `string` |
+| `_embedded` | `object` |
+| `issuer` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

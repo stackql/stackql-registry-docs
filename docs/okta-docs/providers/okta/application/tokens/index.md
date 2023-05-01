@@ -28,16 +28,16 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `status` | `string` |
-| `_embedded` | `object` |
-| `expiresAt` | `string` |
-| `issuer` | `string` |
-| `scopes` | `array` |
 | `_links` | `object` |
 | `created` | `string` |
-| `lastUpdated` | `string` |
-| `userId` | `string` |
+| `expiresAt` | `string` |
+| `issuer` | `string` |
+| `status` | `string` |
+| `_embedded` | `object` |
 | `clientId` | `string` |
+| `userId` | `string` |
+| `scopes` | `array` |
+| `lastUpdated` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

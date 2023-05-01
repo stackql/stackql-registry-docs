@@ -28,19 +28,19 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `profile` | `object` |
-| `activated` | `string` |
-| `passwordChanged` | `string` |
-| `statusChanged` | `string` |
-| `status` | `string` |
+| `created` | `string` |
 | `type` | `object` |
-| `_embedded` | `object` |
-| `_links` | `object` |
 | `transitioningToStatus` | `string` |
 | `lastLogin` | `string` |
 | `lastUpdated` | `string` |
+| `activated` | `string` |
+| `passwordChanged` | `string` |
+| `_embedded` | `object` |
+| `profile` | `object` |
+| `statusChanged` | `string` |
+| `status` | `string` |
+| `_links` | `object` |
 | `credentials` | `object` |
-| `created` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

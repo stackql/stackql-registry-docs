@@ -29,15 +29,15 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `conditions` | `object` |
-| `group_filter_type` | `string` |
-| `system` | `boolean` |
 | `alwaysIncludeInToken` | `boolean` |
-| `status` | `string` |
+| `conditions` | `object` |
 | `_links` | `object` |
-| `valueType` | `string` |
-| `value` | `string` |
 | `claimType` | `string` |
+| `system` | `boolean` |
+| `value` | `string` |
+| `status` | `string` |
+| `group_filter_type` | `string` |
+| `valueType` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

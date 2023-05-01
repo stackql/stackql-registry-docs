@@ -30,11 +30,11 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `displayName` | `string` |
 | `metadataPublish` | `string` |
 | `system` | `boolean` |
 | `consent` | `string` |
 | `default` | `boolean` |
+| `displayName` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
