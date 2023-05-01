@@ -30,7 +30,6 @@ const providers = [
   {name: 'googledevelopers'},
   {name: 'googleanalytics'},
   {name: 'googleads'},
-  {name: 'youtube'},
 ]
 
 const getProviderSiteUrl = (name) =>{
