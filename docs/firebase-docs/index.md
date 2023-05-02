@@ -4,7 +4,6 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - firebase
-  - google cloud platform
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -44,11 +43,59 @@ To pull the latest version of the `firebase` provider, run the following command
 ```bash
 REGISTRY PULL firebase;
 ```
-> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
 ## Authentication
 
-see [__Google Provider Authentication__](https://google.stackql.io/providers/google/#authentication).  
+
+The following authentication methods are supported:
+- `service_account`
+- `interactive` for running interactive queries from Cloud Shell or other machines where the user is authenticated using `gcloud auth login`
+
+> for more information on creating service accounts and key files, see [Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview).
+
+### Service Account Environment Variable (default)
+
+The following system environment variable is used by default:  
+
+- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json file
+
+This variable is sourced at runtime (from the local machine or as a CI variable/secret).
+
+<details>
+
+<summary>Specifying the service account key file location directly</summary>
+
+You can specify the path to the service account key file without using the default environment variable by using the `--auth` flag of the `stackql` program.  For example:  
+
+```bash
+AUTH='{ "google": { "type": "service_account",  "credentialsfilepath": "creds/sa-key.json" }}'
+stackql shell --auth="${AUTH}"
+```
+
+or using PowerShell:  
+
+```powershell
+$Auth = "{ 'google': { 'type': 'service_account',  'credentialsfilepath': 'creds/sa-key.json' }}"
+stackql.exe shell --auth=$Auth
+```
+
+</details>
+
+### Interactive Authentication
+When you are using Google Cloud Shell or on a machine where you have authenticated using `gcloud auth login`, you can then use the following authentication method:   
+
+```bash
+AUTH='{ "google": { "type": "interactive" }}'
+stackql shell --auth="${AUTH}"
+```
+
+or using PowerShell:  
+
+```powershell
+$Auth = "{ 'google': { 'type': 'interactive' }}"
+stackql.exe shell --auth=$Auth
+```
 
 ## Services
 <div class="row">

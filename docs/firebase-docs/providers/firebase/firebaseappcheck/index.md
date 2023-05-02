@@ -33,7 +33,7 @@ Firebase App Check works alongside other Firebase services to help protect your 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Firebase App Check API</td></tr>
 <tr><td><b>Description</b></td><td>Firebase App Check works alongside other Firebase services to help protect your backend resources from abuse, such as billing fraud or phishing.</td></tr>
-<tr><td><b>Id</b></td><td><code>firebaseappcheck:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>firebaseappcheck:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

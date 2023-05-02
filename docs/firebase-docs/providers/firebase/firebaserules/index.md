@@ -33,7 +33,7 @@ Creates and manages rules that determine when a Firebase Rules-enabled service s
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Firebase Rules API</td></tr>
 <tr><td><b>Description</b></td><td>Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request. </td></tr>
-<tr><td><b>Id</b></td><td><code>firebaserules:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>firebaserules:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

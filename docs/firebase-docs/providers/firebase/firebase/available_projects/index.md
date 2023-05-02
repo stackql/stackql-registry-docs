@@ -27,8 +27,8 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `projectInfo` | `array` | The list of GCP `Projects` which can have Firebase resources added to them. |
 | `nextPageToken` | `string` | If the result list is too large to fit in a single response, then a token is returned. If the string is empty, then this response is the last page of results. This token can be used in a subsequent calls to `ListAvailableProjects` to find the next group of Projects. Page tokens are short-lived and should not be persisted. |
+| `projectInfo` | `array` | The list of GCP `Projects` which can have Firebase resources added to them. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

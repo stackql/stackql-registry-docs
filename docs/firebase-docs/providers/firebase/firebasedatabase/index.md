@@ -33,7 +33,7 @@ The Firebase Realtime Database API enables programmatic provisioning and managem
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Firebase Realtime Database API</td></tr>
 <tr><td><b>Description</b></td><td>The Firebase Realtime Database API enables programmatic provisioning and management of Realtime Database instances.</td></tr>
-<tr><td><b>Id</b></td><td><code>firebasedatabase:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>firebasedatabase:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

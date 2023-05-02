@@ -27,10 +27,10 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `databaseURL` | `string` | The default Firebase Realtime Database URL. |
 | `locationId` | `string` | The ID of the Project's default GCP resource location. The location is one of the available [GCP resource locations](https://firebase.google.com/docs/projects/locations). This field is omitted if the default GCP resource location has not been finalized yet. To set a Project's default GCP resource location, call [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you add Firebase resources to the Project. |
 | `projectId` | `string` | Immutable. A user-assigned unique identifier for the `FirebaseProject`. This identifier may appear in URLs or names for some Firebase resources associated with the Project, but it should generally be treated as a convenience alias to reference the Project. |
 | `storageBucket` | `string` | The default Cloud Storage for Firebase storage bucket name. |
-| `databaseURL` | `string` | The default Firebase Realtime Database URL. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
