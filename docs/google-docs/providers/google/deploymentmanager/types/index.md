@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `types` | `array` | Output only. A list of resource types supported by Deployment Manager. |
 | `nextPageToken` | `string` | A token used to continue a truncated list request. |
+| `types` | `array` | Output only. A list of resource types supported by Deployment Manager. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

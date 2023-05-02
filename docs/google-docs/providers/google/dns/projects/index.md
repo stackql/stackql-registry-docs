@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | User assigned unique identifier for the resource (output only). |
-| `kind` | `string` |  |
 | `number` | `string` | Unique numeric identifier for the resource; defined by the server (output only). |
 | `quota` | `object` | Limits associated with a Project. |
+| `kind` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

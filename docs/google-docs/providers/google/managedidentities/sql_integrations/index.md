@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The unique name of the SQL integration in the form of `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;/sqlIntegrations/&#123;sql_integration&#125;` |
-| `sqlInstance` | `string` | The full resource name of an integrated SQL instance |
-| `state` | `string` | Output only. The current state of the SQL integration. |
 | `updateTime` | `string` | Output only. The time the SQL integration was updated. |
 | `createTime` | `string` | Output only. The time the SQL integration was created. |
+| `sqlInstance` | `string` | The full resource name of an integrated SQL instance |
+| `state` | `string` | Output only. The current state of the SQL integration. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

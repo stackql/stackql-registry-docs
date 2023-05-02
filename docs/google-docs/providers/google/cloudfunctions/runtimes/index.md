@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the runtime, e.g., 'go113', 'nodejs12', etc. |
-| `warnings` | `array` | Warning messages, e.g., a deprecation warning. |
 | `displayName` | `string` | The user facing name, eg 'Go 1.13', 'Node.js 12', etc. |
 | `environment` | `string` | The environment for the runtime. |
 | `stage` | `string` | The stage of life this runtime is in, e.g., BETA, GA, etc. |
+| `warnings` | `array` | Warning messages, e.g., a deprecation warning. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

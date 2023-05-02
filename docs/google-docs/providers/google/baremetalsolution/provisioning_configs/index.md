@@ -29,18 +29,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The system-generated name of the provisioning config. This follows the UUID format. |
 | `statusMessage` | `string` | Optional status messages associated with the FAILED state. |
-| `vpcScEnabled` | `boolean` | If true, VPC SC is enabled for the cluster. |
-| `email` | `string` | Email provided to send a confirmation with provisioning config to. Deprecated in favour of email field in request messages. |
-| `state` | `string` | Output only. State of ProvisioningConfig. |
 | `handoverServiceAccount` | `string` | A service account to enable customers to access instance credentials upon handover. |
 | `location` | `string` | Optional. Location name of this ProvisioningConfig. It is optional only for Intake UI transition period. |
-| `customId` | `string` | Optional. The user-defined identifier of the provisioning config. |
-| `ticketId` | `string` | A generated ticket id to track provisioning request. |
-| `volumes` | `array` | Volumes to be created. |
-| `updateTime` | `string` | Output only. Last update timestamp. |
-| `instances` | `array` | Instances to be created. |
+| `email` | `string` | Email provided to send a confirmation with provisioning config to. Deprecated in favour of email field in request messages. |
 | `cloudConsoleUri` | `string` | Output only. URI to Cloud Console UI view of this provisioning config. |
+| `vpcScEnabled` | `boolean` | If true, VPC SC is enabled for the cluster. |
+| `customId` | `string` | Optional. The user-defined identifier of the provisioning config. |
+| `instances` | `array` | Instances to be created. |
+| `updateTime` | `string` | Output only. Last update timestamp. |
+| `ticketId` | `string` | A generated ticket id to track provisioning request. |
 | `networks` | `array` | Networks to be created. |
+| `state` | `string` | Output only. State of ProvisioningConfig. |
+| `volumes` | `array` | Volumes to be created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

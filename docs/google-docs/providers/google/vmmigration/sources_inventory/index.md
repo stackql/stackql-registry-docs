@@ -27,10 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Output only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 | `updateTime` | `string` | Output only. The timestamp when the source was last queried (if the result is from the cache). |
 | `vmwareVms` | `object` | VmwareVmsDetails describes VMs in vCenter. |
 | `awsVms` | `object` | AWSVmsDetails describes VMs in AWS. |
+| `nextPageToken` | `string` | Output only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

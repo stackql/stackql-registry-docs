@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of an entitlement in the form: accounts/&#123;account_id&#125;/customers/&#123;customer_id&#125;/entitlements/&#123;entitlement_id&#125;. |
-| `provisionedService` | `object` | Service provisioned for an entitlement. |
-| `provisioningState` | `string` | Output only. Current provisioning state of the entitlement. |
-| `commitmentSettings` | `object` | Commitment settings for commitment-based offers. |
-| `purchaseOrderId` | `string` | Optional. This purchase order (PO) information is for resellers to use for their company tracking usage. If a purchaseOrderId value is given, it appears in the API responses and shows up in the invoice. The property accepts up to 80 plain text characters. This is only supported for Google Workspace entitlements. |
-| `suspensionReasons` | `array` | Output only. Enumerable of all current suspension reasons for an entitlement. |
+| `parameters` | `array` | Extended entitlement parameters. When creating an entitlement, valid parameter names and values are defined in the Offer.parameter_definitions. The response may include the following output-only Parameters: - assigned_units: The number of licenses assigned to users. - max_units: The maximum assignable units for a flexible offer. - num_units: The total commitment for commitment-based offers. |
+| `trialSettings` | `object` | Settings for trial offers. |
 | `updateTime` | `string` | Output only. The time at which the entitlement is updated. |
+| `associationInfo` | `object` | Association links that an entitlement has to other entitlements. |
+| `purchaseOrderId` | `string` | Optional. This purchase order (PO) information is for resellers to use for their company tracking usage. If a purchaseOrderId value is given, it appears in the API responses and shows up in the invoice. The property accepts up to 80 plain text characters. This is only supported for Google Workspace entitlements. |
 | `createTime` | `string` | Output only. The time at which the entitlement is created. |
 | `offer` | `string` | Required. The offer resource name for which the entitlement is to be created. Takes the form: accounts/&#123;account_id&#125;/offers/&#123;offer_id&#125;. |
-| `trialSettings` | `object` | Settings for trial offers. |
-| `associationInfo` | `object` | Association links that an entitlement has to other entitlements. |
-| `parameters` | `array` | Extended entitlement parameters. When creating an entitlement, valid parameter names and values are defined in the Offer.parameter_definitions. The response may include the following output-only Parameters: - assigned_units: The number of licenses assigned to users. - max_units: The maximum assignable units for a flexible offer. - num_units: The total commitment for commitment-based offers. |
+| `commitmentSettings` | `object` | Commitment settings for commitment-based offers. |
+| `provisioningState` | `string` | Output only. Current provisioning state of the entitlement. |
+| `provisionedService` | `object` | Service provisioned for an entitlement. |
+| `suspensionReasons` | `array` | Output only. Enumerable of all current suspension reasons for an entitlement. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

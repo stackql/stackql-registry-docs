@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the ChannelPartnerRepricingConfig. Format: accounts/&#123;account_id&#125;/channelPartnerLinks/&#123;channel_partner_id&#125;/channelPartnerRepricingConfigs/&#123;id&#125;. |
-| `repricingConfig` | `object` | Configuration for repricing a Google bill over a period of time. |
 | `updateTime` | `string` | Output only. Timestamp of an update to the repricing rule. If `update_time` is after RepricingConfig.effective_invoice_month then it indicates this was set mid-month. |
+| `repricingConfig` | `object` | Configuration for repricing a Google bill over a period of time. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

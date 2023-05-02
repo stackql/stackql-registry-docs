@@ -33,7 +33,7 @@ FCM send API that provides a cross-platform messaging solution to reliably deliv
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Firebase Cloud Messaging API</td></tr>
 <tr><td><b>Description</b></td><td>FCM send API that provides a cross-platform messaging solution to reliably deliver messages at no cost.</td></tr>
-<tr><td><b>Id</b></td><td><code>fcm:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>fcm:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

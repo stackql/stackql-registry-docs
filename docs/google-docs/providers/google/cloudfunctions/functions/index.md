@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | A user-defined name of the function. Function names must be unique globally and match pattern `projects/*/locations/*/functions/*` |
 | `description` | `string` | User-provided description of a function. |
-| `updateTime` | `string` | Output only. The last update timestamp of a Cloud Function. |
-| `environment` | `string` | Describe whether the function is 1st Gen or 2nd Gen. |
 | `serviceConfig` | `object` | Describes the Service being deployed. Currently Supported : Cloud Run (fully managed). Next tag: 23 |
-| `stateMessages` | `array` | Output only. State Messages for this Cloud Function. |
 | `state` | `string` | Output only. State of the function. |
+| `updateTime` | `string` | Output only. The last update timestamp of a Cloud Function. |
 | `eventTrigger` | `object` | Describes EventTrigger, used to request events to be sent from another service. |
-| `labels` | `object` | Labels associated with this Cloud Function. |
+| `stateMessages` | `array` | Output only. State Messages for this Cloud Function. |
 | `buildConfig` | `object` | Describes the Build step of the function that builds a container from the given source. |
+| `labels` | `object` | Labels associated with this Cloud Function. |
+| `environment` | `string` | Describe whether the function is 1st Gen or 2nd Gen. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

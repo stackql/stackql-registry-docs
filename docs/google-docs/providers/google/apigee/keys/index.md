@@ -27,15 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `expiresInSeconds` | `string` | Input only. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
 | `apiProducts` | `array` | List of API products for which the credential can be used. **Note**: Do not specify the list of API products when creating a consumer key and secret for a developer app. Instead, use the UpdateDeveloperAppKey API to make the association after the consumer key and secret are created. |
-| `scopes` | `array` | Scopes to apply to the app. The specified scope names must already be defined for the API product that you associate with the app. |
-| `attributes` | `array` | List of attributes associated with the credential. |
-| `consumerKey` | `string` | Consumer key. |
-| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
+| `expiresInSeconds` | `string` | Input only. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
 | `consumerSecret` | `string` | Secret key. |
-| `issuedAt` | `string` | Time the developer app was created in milliseconds since epoch. |
+| `consumerKey` | `string` | Consumer key. |
+| `scopes` | `array` | Scopes to apply to the app. The specified scope names must already be defined for the API product that you associate with the app. |
 | `expiresAt` | `string` | Time the developer app expires in milliseconds since epoch. |
+| `issuedAt` | `string` | Time the developer app was created in milliseconds since epoch. |
+| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
+| `attributes` | `array` | List of attributes associated with the credential. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

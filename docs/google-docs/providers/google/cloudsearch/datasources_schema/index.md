@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `objectDefinitions` | `array` | The list of top-level objects for the data source. The maximum number of elements is 10. |
 | `operationIds` | `array` | IDs of the Long Running Operations (LROs) currently running for this schema. After modifying the schema, wait for operations to complete before indexing additional content. |
+| `objectDefinitions` | `array` | The list of top-level objects for the data source. The maximum number of elements is 10. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

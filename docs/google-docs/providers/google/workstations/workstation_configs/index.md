@@ -28,22 +28,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Full name of this resource. |
-| `host` | `object` | Runtime host for a workstation. |
 | `deleteTime` | `string` | Output only. Time when this resource was soft-deleted. |
-| `etag` | `string` | Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. |
-| `runningTimeout` | `string` | How long to wait before automatically stopping a workstation after it started. A value of 0 indicates that workstations using this config should never time out. Must be greater than 0 and less than 24 hours if encryption_key is set. Defaults to 12 hours. |
-| `container` | `object` | A Docker container. |
-| `reconciling` | `boolean` | Output only. Indicates whether this resource is currently being updated to match its intended state. |
-| `degraded` | `boolean` | Output only. Whether this resource is in degraded mode, in which case it may require user action to restore full functionality. Details can be found in the `conditions` field. |
-| `labels` | `object` | Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources. |
-| `idleTimeout` | `string` | How long to wait before automatically stopping an instance that hasn't received any user traffic. A value of 0 indicates that this instance should never time out due to idleness. Defaults to 20 minutes. |
-| `annotations` | `object` | Client-specified annotations. |
-| `updateTime` | `string` | Output only. Time when this resource was most recently updated. |
 | `persistentDirectories` | `array` | Directories to persist across workstation sessions. |
+| `reconciling` | `boolean` | Output only. Indicates whether this resource is currently being updated to match its intended state. |
+| `etag` | `string` | Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. |
+| `annotations` | `object` | Client-specified annotations. |
 | `createTime` | `string` | Output only. Time when this resource was created. |
-| `displayName` | `string` | Human-readable name for this resource. |
+| `updateTime` | `string` | Output only. Time when this resource was most recently updated. |
+| `degraded` | `boolean` | Output only. Whether this resource is in degraded mode, in which case it may require user action to restore full functionality. Details can be found in the `conditions` field. |
+| `idleTimeout` | `string` | How long to wait before automatically stopping an instance that hasn't received any user traffic. A value of 0 indicates that this instance should never time out due to idleness. Defaults to 20 minutes. |
 | `uid` | `string` | Output only. A system-assigned unique identified for this resource. |
 | `conditions` | `array` | Output only. Status conditions describing the current resource state. |
+| `displayName` | `string` | Human-readable name for this resource. |
+| `container` | `object` | A Docker container. |
+| `runningTimeout` | `string` | How long to wait before automatically stopping a workstation after it started. A value of 0 indicates that workstations using this config should never time out. Must be greater than 0 and less than 24 hours if encryption_key is set. Defaults to 12 hours. |
+| `host` | `object` | Runtime host for a workstation. |
+| `labels` | `object` | Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

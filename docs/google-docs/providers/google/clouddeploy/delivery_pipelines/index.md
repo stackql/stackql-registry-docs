@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Optional. Name of the `DeliveryPipeline`. Format is projects/&#123;project&#125;/ locations/&#123;location&#125;/deliveryPipelines/a-z&#123;0,62&#125;. |
 | `description` | `string` | Description of the `DeliveryPipeline`. Max length is 255 characters. |
-| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
-| `uid` | `string` | Output only. Unique identifier of the `DeliveryPipeline`. |
-| `labels` | `object` | Labels are attributes that can be set and used by both the user and by Google Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be &lt;= 128 bytes. |
-| `suspended` | `boolean` | When suspended, no new releases or rollouts can be created, but in-progress ones will complete. |
 | `updateTime` | `string` | Output only. Most recent time at which the pipeline was updated. |
+| `suspended` | `boolean` | When suspended, no new releases or rollouts can be created, but in-progress ones will complete. |
 | `annotations` | `object` | User annotations. These attributes can only be set and used by the user, and not by Google Cloud Deploy. |
 | `condition` | `object` | PipelineCondition contains all conditions relevant to a Delivery Pipeline. |
+| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
+| `labels` | `object` | Labels are attributes that can be set and used by both the user and by Google Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be &lt;= 128 bytes. |
 | `createTime` | `string` | Output only. Time at which the pipeline was created. |
+| `uid` | `string` | Output only. Unique identifier of the `DeliveryPipeline`. |
 | `serialPipeline` | `object` | SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

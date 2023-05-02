@@ -29,18 +29,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The unique identifier of the agent. Required for the Agents.UpdateAgent method. Agents.CreateAgent populates the name automatically. Format: `projects//locations//agents/`. |
 | `description` | `string` | The description of the agent. The maximum length is 500 characters. If exceeded, the request is rejected. |
-| `avatarUri` | `string` | The URI of the agent's avatar. Avatars are used throughout the Dialogflow console and in the self-hosted [Web Demo](https://cloud.google.com/dialogflow/docs/integrations/web-demo) integration. |
-| `displayName` | `string` | Required. The human-readable name of the agent, unique within the location. |
-| `locked` | `boolean` | Indicates whether the agent is locked for changes. If the agent is locked, modifications to the agent will be rejected except for RestoreAgent. |
 | `timeZone` | `string` | Required. The time zone of the agent from the [time zone database](https://www.iana.org/time-zones), e.g., America/New_York, Europe/Paris. |
-| `enableStackdriverLogging` | `boolean` | Indicates if stackdriver logging is enabled for the agent. Please use agent.advanced_settings instead. |
-| `securitySettings` | `string` | Name of the SecuritySettings reference for the agent. Format: `projects//locations//securitySettings/`. |
 | `advancedSettings` | `object` | Hierarchical advanced settings for agent/flow/page/fulfillment/parameter. Settings exposed at lower level overrides the settings exposed at higher level. Overriding occurs at the sub-setting level. For example, the playback_interruption_settings at fulfillment level only overrides the playback_interruption_settings at the agent level, leaving other settings at the agent level unchanged. DTMF settings does not override each other. DTMF settings set at different levels define DTMF detections running in parallel. Hierarchy: Agent-&gt;Flow-&gt;Page-&gt;Fulfillment/Parameter. |
-| `supportedLanguageCodes` | `array` | The list of all languages supported by the agent (except for the `default_language_code`). |
-| `defaultLanguageCode` | `string` | Required. Immutable. The default language of the agent as a language tag. See [Language Support](https://cloud.google.com/dialogflow/cx/docs/reference/language) for a list of the currently supported language codes. This field cannot be set by the Agents.UpdateAgent method. |
-| `enableSpellCorrection` | `boolean` | Indicates if automatic spell correction is enabled in detect intent requests. |
-| `startFlow` | `string` | Immutable. Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: `projects//locations//agents//flows/`. |
 | `speechToTextSettings` | `object` | Settings related to speech recognition. |
+| `avatarUri` | `string` | The URI of the agent's avatar. Avatars are used throughout the Dialogflow console and in the self-hosted [Web Demo](https://cloud.google.com/dialogflow/docs/integrations/web-demo) integration. |
+| `locked` | `boolean` | Indicates whether the agent is locked for changes. If the agent is locked, modifications to the agent will be rejected except for RestoreAgent. |
+| `supportedLanguageCodes` | `array` | The list of all languages supported by the agent (except for the `default_language_code`). |
+| `enableStackdriverLogging` | `boolean` | Indicates if stackdriver logging is enabled for the agent. Please use agent.advanced_settings instead. |
+| `enableSpellCorrection` | `boolean` | Indicates if automatic spell correction is enabled in detect intent requests. |
+| `displayName` | `string` | Required. The human-readable name of the agent, unique within the location. |
+| `defaultLanguageCode` | `string` | Required. Immutable. The default language of the agent as a language tag. See [Language Support](https://cloud.google.com/dialogflow/cx/docs/reference/language) for a list of the currently supported language codes. This field cannot be set by the Agents.UpdateAgent method. |
+| `startFlow` | `string` | Immutable. Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: `projects//locations//agents//flows/`. |
+| `securitySettings` | `string` | Name of the SecuritySettings reference for the agent. Format: `projects//locations//securitySettings/`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

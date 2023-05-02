@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `rows` | `array` | The report's lists of values. Each row follows the settings and ordering of the columns from `report_metadata`. |
 | `nextPageToken` | `string` | Pass this token to FetchReportResultsRequest.page_token to retrieve the next page of results. |
 | `reportMetadata` | `object` | The features describing the data. Returned by CloudChannelReportsService.RunReportJob and CloudChannelReportsService.FetchReportResults. |
-| `rows` | `array` | The report's lists of values. Each row follows the settings and ordering of the columns from `report_metadata`. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

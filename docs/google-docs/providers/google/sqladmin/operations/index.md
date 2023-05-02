@@ -28,21 +28,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the operation. |
-| `targetProject` | `string` | The project ID of the target instance related to this operation. |
-| `importContext` | `object` | Database instance import context. |
-| `insertTime` | `string` | The time this operation was enqueued in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `targetId` | `string` | Name of the database instance related to this operation. |
-| `user` | `string` | The email address of the user who initiated this operation. |
-| `status` | `string` | The status of an operation. |
-| `endTime` | `string` | The time this operation finished in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `operationType` | `string` | The type of the operation. Valid values are: * `CREATE` * `DELETE` * `UPDATE` * `RESTART` * `IMPORT` * `EXPORT` * `BACKUP_VOLUME` * `RESTORE_VOLUME` * `CREATE_USER` * `DELETE_USER` * `CREATE_DATABASE` * `DELETE_DATABASE` |
-| `targetLink` | `string` |  |
-| `exportContext` | `object` | Database instance export context. |
-| `backupContext` | `object` | Backup context. |
-| `kind` | `string` | This is always `sql#operation`. |
-| `selfLink` | `string` | The URI of this resource. |
 | `error` | `object` | Database instance operation errors list wrapper. |
+| `insertTime` | `string` | The time this operation was enqueued in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `selfLink` | `string` | The URI of this resource. |
+| `backupContext` | `object` | Backup context. |
+| `targetProject` | `string` | The project ID of the target instance related to this operation. |
+| `targetId` | `string` | Name of the database instance related to this operation. |
+| `importContext` | `object` | Database instance import context. |
+| `user` | `string` | The email address of the user who initiated this operation. |
 | `startTime` | `string` | The time this operation actually started in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `endTime` | `string` | The time this operation finished in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `kind` | `string` | This is always `sql#operation`. |
+| `operationType` | `string` | The type of the operation. Valid values are: * `CREATE` * `DELETE` * `UPDATE` * `RESTART` * `IMPORT` * `EXPORT` * `BACKUP_VOLUME` * `RESTORE_VOLUME` * `CREATE_USER` * `DELETE_USER` * `CREATE_DATABASE` * `DELETE_DATABASE` |
+| `exportContext` | `object` | Database instance export context. |
+| `status` | `string` | The status of an operation. |
+| `targetLink` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the Item. Format: datasources/&#123;source_id&#125;/items/&#123;item_id&#125; This is a required field. The maximum length is 1536 characters. |
-| `payload` | `string` | Additional state connector can store for this item. The maximum length is 10000 bytes. |
-| `content` | `object` | Content of an item to be indexed and surfaced by Cloud Search. Only UTF-8 encoded strings are allowed as inlineContent. If the content is uploaded and not binary, it must be UTF-8 encoded. |
-| `itemType` | `string` | The type for this item. |
-| `metadata` | `object` | Available metadata fields for the item. |
-| `version` | `string` | Required. The indexing system stores the version from the datasource as a byte string and compares the Item version in the index to the version of the queued Item using lexical ordering. Cloud Search Indexing won't index or delete any queued item with a version value that is less than or equal to the version of the currently indexed item. The maximum length for this field is 1024 bytes. For information on how item version affects the deletion process, refer to [Handle revisions after manual deletes](https://developers.google.com/cloud-search/docs/guides/operations). |
 | `queue` | `string` | Queue this item belongs to. The maximum length is 100 characters. |
-| `status` | `object` | This contains item's status and any errors. |
+| `content` | `object` | Content of an item to be indexed and surfaced by Cloud Search. Only UTF-8 encoded strings are allowed as inlineContent. If the content is uploaded and not binary, it must be UTF-8 encoded. |
 | `structuredData` | `object` | Available structured data fields for the item. |
 | `acl` | `object` | Access control list information for the item. For more information see [Map ACLs](https://developers.google.com/cloud-search/docs/guides/acls). |
+| `itemType` | `string` | The type for this item. |
+| `status` | `object` | This contains item's status and any errors. |
+| `metadata` | `object` | Available metadata fields for the item. |
+| `payload` | `string` | Additional state connector can store for this item. The maximum length is 10000 bytes. |
+| `version` | `string` | Required. The indexing system stores the version from the datasource as a byte string and compares the Item version in the index to the version of the queued Item using lexical ordering. Cloud Search Indexing won't index or delete any queued item with a version value that is less than or equal to the version of the currently indexed item. The maximum length for this field is 1024 bytes. For information on how item version affects the deletion process, refer to [Handle revisions after manual deletes](https://developers.google.com/cloud-search/docs/guides/operations). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

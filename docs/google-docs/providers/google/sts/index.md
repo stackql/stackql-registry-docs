@@ -33,7 +33,7 @@ The Security Token Service exchanges Google or third-party credentials for a sho
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Security Token Service API</td></tr>
 <tr><td><b>Description</b></td><td>The Security Token Service exchanges Google or third-party credentials for a short-lived access token to Google Cloud resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>sts:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>sts:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

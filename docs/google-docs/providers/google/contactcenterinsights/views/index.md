@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The resource name of the view. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/views/&#123;view&#125; |
+| `value` | `string` | String with specific view properties, must be non-empty. |
 | `createTime` | `string` | Output only. The time at which this view was created. |
 | `displayName` | `string` | The human-readable display name of the view. |
 | `updateTime` | `string` | Output only. The most recent time at which the view was updated. |
-| `value` | `string` | String with specific view properties, must be non-empty. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

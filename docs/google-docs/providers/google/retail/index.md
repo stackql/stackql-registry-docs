@@ -33,7 +33,7 @@ Cloud Retail service enables customers to build end-to-end personalized recommen
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Retail API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud Retail service enables customers to build end-to-end personalized recommendation systems without requiring a high level of expertise in machine learning, recommendation system, or Google Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>retail:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>retail:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

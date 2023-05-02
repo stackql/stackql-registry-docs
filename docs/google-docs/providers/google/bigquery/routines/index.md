@@ -28,21 +28,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | Optional. The description of the routine, if defined. |
-| `etag` | `string` | Output only. A hash of this resource. |
+| `routineReference` | `object` |  |
 | `creationTime` | `string` | Output only. The time when this routine was created, in milliseconds since the epoch. |
-| `arguments` | `array` | Optional. |
-| `language` | `string` | Optional. Defaults to "SQL" if remote_function_options field is absent, not set otherwise. |
-| `remoteFunctionOptions` | `object` | Options for a remote user-defined function. |
 | `definitionBody` | `string` | Required. The body of the routine. For functions, this is the expression in the AS clause. If language=SQL, it is the substring inside (but excluding) the parentheses. For example, for the function created with the following statement: `CREATE FUNCTION JoinLines(x string, y string) as (concat(x, "\n", y))` The definition_body is `concat(x, "\n", y)` (\n is not replaced with linebreak). If language=JAVASCRIPT, it is the evaluated string in the AS clause. For example, for the function created with the following statement: `CREATE FUNCTION f() RETURNS STRING LANGUAGE js AS 'return "\n";\n'` The definition_body is `return "\n";\n` Note that both \n are replaced with linebreaks. |
 | `sparkOptions` | `object` | Options for a user-defined Spark routine. |
-| `importedLibraries` | `array` | Optional. If language = "JAVASCRIPT", this field stores the path of the imported JAVASCRIPT libraries. |
-| `routineType` | `string` | Required. The type of routine. |
-| `returnType` | `object` | The data type of a variable such as a function argument. Examples include: * INT64: `&#123;"typeKind": "INT64"&#125;` * ARRAY: &#123; "typeKind": "ARRAY", "arrayElementType": &#123;"typeKind": "STRING"&#125; &#125; * STRUCT&gt;: &#123; "typeKind": "STRUCT", "structType": &#123; "fields": [ &#123; "name": "x", "type": &#123;"typeKind": "STRING"&#125; &#125;, &#123; "name": "y", "type": &#123; "typeKind": "ARRAY", "arrayElementType": &#123;"typeKind": "DATE"&#125; &#125; &#125; ] &#125; &#125; |
 | `returnTableType` | `object` | A table type |
+| `etag` | `string` | Output only. A hash of this resource. |
 | `lastModifiedTime` | `string` | Output only. The time when this routine was last modified, in milliseconds since the epoch. |
-| `routineReference` | `object` |  |
-| `strictMode` | `boolean` | Optional. Can be set for procedures only. If true (default), the definition body will be validated in the creation and the updates of the procedure. For procedures with an argument of ANY TYPE, the definition body validtion is not supported at creation/update time, and thus this field must be set to false explicitly. |
 | `determinismLevel` | `string` | Optional. The determinism level of the JavaScript UDF, if defined. |
+| `language` | `string` | Optional. Defaults to "SQL" if remote_function_options field is absent, not set otherwise. |
+| `remoteFunctionOptions` | `object` | Options for a remote user-defined function. |
+| `routineType` | `string` | Required. The type of routine. |
+| `arguments` | `array` | Optional. |
+| `strictMode` | `boolean` | Optional. Can be set for procedures only. If true (default), the definition body will be validated in the creation and the updates of the procedure. For procedures with an argument of ANY TYPE, the definition body validtion is not supported at creation/update time, and thus this field must be set to false explicitly. |
+| `returnType` | `object` | The data type of a variable such as a function argument. Examples include: * INT64: `&#123;"typeKind": "INT64"&#125;` * ARRAY: &#123; "typeKind": "ARRAY", "arrayElementType": &#123;"typeKind": "STRING"&#125; &#125; * STRUCT&gt;: &#123; "typeKind": "STRUCT", "structType": &#123; "fields": [ &#123; "name": "x", "type": &#123;"typeKind": "STRING"&#125; &#125;, &#123; "name": "y", "type": &#123; "typeKind": "ARRAY", "arrayElementType": &#123;"typeKind": "DATE"&#125; &#125; &#125; ] &#125; &#125; |
+| `importedLibraries` | `array` | Optional. If language = "JAVASCRIPT", this field stores the path of the imported JAVASCRIPT libraries. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token to retrieve the next page of results. Pass to ListTransferableOffersRequest.page_token to obtain that page. |
 | `transferableOffers` | `array` | Information about Offers for a customer that can be used for transfer. |
+| `nextPageToken` | `string` | A token to retrieve the next page of results. Pass to ListTransferableOffersRequest.page_token to obtain that page. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

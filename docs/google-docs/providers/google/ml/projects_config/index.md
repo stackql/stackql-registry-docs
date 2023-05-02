@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `serviceAccountProject` | `string` | The project number for `service_account`. |
 | `config` | `object` |  |
 | `serviceAccount` | `string` | The service account Cloud ML uses to access resources in the project. |
+| `serviceAccountProject` | `string` | The project number for `service_account`. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

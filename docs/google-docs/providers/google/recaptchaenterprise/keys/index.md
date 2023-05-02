@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the Key in the format "projects/&#123;project&#125;/keys/&#123;key&#125;". |
-| `displayName` | `string` | Human-readable display name of this key. Modifiable by user. |
-| `iosSettings` | `object` | Settings specific to keys that can be used by iOS apps. |
-| `wafSettings` | `object` | Settings specific to keys that can be used for WAF (Web Application Firewall). |
-| `androidSettings` | `object` | Settings specific to keys that can be used by Android apps. |
-| `testingOptions` | `object` | Options for user acceptance testing. |
-| `createTime` | `string` | The timestamp corresponding to the creation of this Key. |
 | `webSettings` | `object` | Settings specific to keys that can be used by websites. |
+| `createTime` | `string` | The timestamp corresponding to the creation of this Key. |
+| `displayName` | `string` | Human-readable display name of this key. Modifiable by user. |
+| `androidSettings` | `object` | Settings specific to keys that can be used by Android apps. |
 | `labels` | `object` | See Creating and managing labels. |
+| `wafSettings` | `object` | Settings specific to keys that can be used for WAF (Web Application Firewall). |
+| `iosSettings` | `object` | Settings specific to keys that can be used by iOS apps. |
+| `testingOptions` | `object` | Options for user acceptance testing. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

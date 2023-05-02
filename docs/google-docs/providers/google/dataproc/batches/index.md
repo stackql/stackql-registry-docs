@@ -28,22 +28,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the batch. |
-| `sparkBatch` | `object` | A configuration for running an Apache Spark (https://spark.apache.org/) batch workload. |
-| `pysparkBatch` | `object` | A configuration for running an Apache PySpark (https://spark.apache.org/docs/latest/api/python/getting_started/quickstart.html) batch workload. |
-| `sparkRBatch` | `object` | A configuration for running an Apache SparkR (https://spark.apache.org/docs/latest/sparkr.html) batch workload. |
-| `runtimeInfo` | `object` | Runtime information about workload execution. |
-| `stateTime` | `string` | Output only. The time when the batch entered a current state. |
 | `creator` | `string` | Output only. The email address of the user who created the batch. |
-| `sparkSqlBatch` | `object` | A configuration for running Apache Spark SQL (https://spark.apache.org/sql/) queries as a batch workload. |
-| `state` | `string` | Output only. The state of the batch. |
-| `labels` | `object` | Optional. The labels to associate with this batch. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a batch. |
-| `createTime` | `string` | Output only. The time when the batch was created. |
-| `stateMessage` | `string` | Output only. Batch state details, such as a failure description if the state is FAILED. |
-| `operation` | `string` | Output only. The resource name of the operation associated with this batch. |
-| `stateHistory` | `array` | Output only. Historical state information for the batch. |
+| `sparkRBatch` | `object` | A configuration for running an Apache SparkR (https://spark.apache.org/docs/latest/sparkr.html) batch workload. |
 | `runtimeConfig` | `object` | Runtime configuration for a workload. |
+| `stateMessage` | `string` | Output only. Batch state details, such as a failure description if the state is FAILED. |
+| `createTime` | `string` | Output only. The time when the batch was created. |
 | `uuid` | `string` | Output only. A batch UUID (Unique Universal Identifier). The service generates this value when it creates the batch. |
+| `state` | `string` | Output only. The state of the batch. |
 | `environmentConfig` | `object` | Environment configuration for a workload. |
+| `runtimeInfo` | `object` | Runtime information about workload execution. |
+| `sparkSqlBatch` | `object` | A configuration for running Apache Spark SQL (https://spark.apache.org/sql/) queries as a batch workload. |
+| `stateHistory` | `array` | Output only. Historical state information for the batch. |
+| `pysparkBatch` | `object` | A configuration for running an Apache PySpark (https://spark.apache.org/docs/latest/api/python/getting_started/quickstart.html) batch workload. |
+| `sparkBatch` | `object` | A configuration for running an Apache Spark (https://spark.apache.org/) batch workload. |
+| `operation` | `string` | Output only. The resource name of the operation associated with this batch. |
+| `stateTime` | `string` | Output only. The time when the batch entered a current state. |
+| `labels` | `object` | Optional. The labels to associate with this batch. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a batch. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

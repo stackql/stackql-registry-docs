@@ -33,7 +33,7 @@ An API for controlling access to data by Google personnel.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Access Approval API</td></tr>
 <tr><td><b>Description</b></td><td>An API for controlling access to data by Google personnel.</td></tr>
-<tr><td><b>Id</b></td><td><code>accessapproval:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>accessapproval:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

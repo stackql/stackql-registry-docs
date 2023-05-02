@@ -29,16 +29,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `name` | `string` | Output only. The name of the resource as it appears in the YAML config. |
-| `url` | `string` | Output only. The URL of the actual resource. |
 | `updateTime` | `string` | Output only. Update timestamp in RFC3339 text format. |
-| `properties` | `string` | Output only. The current properties of the resource before any references have been filled in. Returned as serialized YAML. |
 | `warnings` | `array` | Output only. If warning messages are generated during processing of this resource, this field will be populated. |
-| `accessControl` | `object` | The access controls set on the resource. |
 | `insertTime` | `string` | Output only. Creation timestamp in RFC3339 text format. |
+| `accessControl` | `object` | The access controls set on the resource. |
+| `properties` | `string` | Output only. The current properties of the resource before any references have been filled in. Returned as serialized YAML. |
 | `manifest` | `string` | Output only. URL of the manifest representing the current configuration of this resource. |
+| `update` | `object` |  |
+| `url` | `string` | Output only. The URL of the actual resource. |
 | `type` | `string` | Output only. The type of the resource, for example `compute.v1.instance`, or `cloudfunctions.v1beta1.function`. |
 | `finalProperties` | `string` | Output only. The evaluated properties of the resource with references expanded. Returned as serialized YAML. |
-| `update` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

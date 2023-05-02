@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the service account. Use one of the following formats: * `projects/&#123;PROJECT_ID&#125;/serviceAccounts/&#123;EMAIL_ADDRESS&#125;` * `projects/&#123;PROJECT_ID&#125;/serviceAccounts/&#123;UNIQUE_ID&#125;` As an alternative, you can use the `-` wildcard character instead of the project ID: * `projects/-/serviceAccounts/&#123;EMAIL_ADDRESS&#125;` * `projects/-/serviceAccounts/&#123;UNIQUE_ID&#125;` When possible, avoid using the `-` wildcard character, because it can cause response messages to contain misleading error codes. For example, if you try to access the service account `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response contains an HTTP `403 Forbidden` error instead of a `404 Not Found` error. |
 | `description` | `string` | Optional. A user-specified, human-readable description of the service account. The maximum length is 256 UTF-8 bytes. |
-| `displayName` | `string` | Optional. A user-specified, human-readable name for the service account. The maximum length is 100 UTF-8 bytes. |
 | `uniqueId` | `string` | Output only. The unique, stable numeric ID for the service account. Each service account retains its unique ID even if you delete the service account. For example, if you delete a service account, then create a new service account with the same name, the new service account has a different unique ID than the deleted service account. |
+| `displayName` | `string` | Optional. A user-specified, human-readable name for the service account. The maximum length is 100 UTF-8 bytes. |
+| `email` | `string` | Output only. The email address of the service account. |
 | `oauth2ClientId` | `string` | Output only. The OAuth 2.0 client ID for the service account. |
 | `projectId` | `string` | Output only. The ID of the project that owns the service account. |
-| `email` | `string` | Output only. The email address of the service account. |
-| `disabled` | `boolean` | Output only. Whether the service account is disabled. |
 | `etag` | `string` | Deprecated. Do not use. |
+| `disabled` | `boolean` | Output only. Whether the service account is disabled. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

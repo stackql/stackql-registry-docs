@@ -33,7 +33,7 @@ Provides natural language understanding technologies, such as sentiment analysis
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Natural Language API</td></tr>
 <tr><td><b>Description</b></td><td>Provides natural language understanding technologies, such as sentiment analysis, entity recognition, entity sentiment analysis, and other text annotations, to developers.</td></tr>
-<tr><td><b>Id</b></td><td><code>language:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>language:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

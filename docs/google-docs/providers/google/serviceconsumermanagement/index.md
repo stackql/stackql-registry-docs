@@ -33,7 +33,7 @@ Manages the service consumers of a Service Infrastructure service.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Consumer Management API</td></tr>
 <tr><td><b>Description</b></td><td>Manages the service consumers of a Service Infrastructure service.</td></tr>
-<tr><td><b>Id</b></td><td><code>serviceconsumermanagement:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>serviceconsumermanagement:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

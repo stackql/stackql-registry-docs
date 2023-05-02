@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | A user-defined name of the dns authorization. DnsAuthorization names must be unique globally and match pattern `projects/*/locations/*/dnsAuthorizations/*`. |
 | `description` | `string` | One or more paragraphs of text description of a DnsAuthorization. |
-| `domain` | `string` | Required. Immutable. A domain that is being authorized. A DnsAuthorization resource covers a single domain and its wildcard, e.g. authorization for `example.com` can be used to issue certificates for `example.com` and `*.example.com`. |
-| `labels` | `object` | Set of labels associated with a DnsAuthorization. |
 | `updateTime` | `string` | Output only. The last update timestamp of a DnsAuthorization. |
 | `createTime` | `string` | Output only. The creation timestamp of a DnsAuthorization. |
 | `dnsResourceRecord` | `object` | The structure describing the DNS Resource Record that needs to be added to DNS configuration for the authorization to be usable by certificate. |
+| `domain` | `string` | Required. Immutable. A domain that is being authorized. A DnsAuthorization resource covers a single domain and its wildcard, e.g. authorization for `example.com` can be used to issue certificates for `example.com` and `*.example.com`. |
+| `labels` | `object` | Set of labels associated with a DnsAuthorization. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

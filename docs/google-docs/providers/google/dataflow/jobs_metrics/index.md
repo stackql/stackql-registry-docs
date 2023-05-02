@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `metrics` | `array` | All metrics for this job. |
 | `metricTime` | `string` | Timestamp as of which metric values are current. |
+| `metrics` | `array` | All metrics for this job. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
