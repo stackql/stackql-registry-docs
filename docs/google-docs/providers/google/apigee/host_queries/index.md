@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Asynchronous Query Name. |
 | `result` | `object` |  |
-| `queryParams` | `object` |  |
+| `state` | `string` | Query state could be "enqueued", "running", "completed", "failed". |
+| `error` | `string` | Error is set when query fails. |
+| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostQueries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
 | `resultRows` | `string` | ResultRows is available only after the query is completed. |
+| `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
+| `queryParams` | `object` |  |
+| `created` | `string` | Creation time of the query. |
+| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
+| `reportDefinitionId` | `string` | Asynchronous Report ID. |
 | `updated` | `string` | Last updated timestamp for the query. |
 | `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
-| `error` | `string` | Error is set when query fails. |
-| `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
-| `reportDefinitionId` | `string` | Asynchronous Report ID. |
-| `state` | `string` | Query state could be "enqueued", "running", "completed", "failed". |
-| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
-| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostQueries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
-| `created` | `string` | Creation time of the query. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

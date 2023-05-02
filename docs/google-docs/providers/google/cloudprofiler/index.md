@@ -33,7 +33,7 @@ Manages continuous profiling information.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Stackdriver Profiler API</td></tr>
 <tr><td><b>Description</b></td><td>Manages continuous profiling information.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudprofiler:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudprofiler:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

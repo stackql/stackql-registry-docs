@@ -33,7 +33,7 @@ Google Service Management allows service producers to publish their services on 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Management API</td></tr>
 <tr><td><b>Description</b></td><td>Google Service Management allows service producers to publish their services on Google Cloud Platform so that they can be discovered and used by service consumers.</td></tr>
-<tr><td><b>Id</b></td><td><code>servicemanagement:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>servicemanagement:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

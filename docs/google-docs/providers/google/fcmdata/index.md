@@ -33,7 +33,7 @@ Provides additional information about Firebase Cloud Messaging (FCM) message sen
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Firebase Cloud Messaging Data API</td></tr>
 <tr><td><b>Description</b></td><td>Provides additional information about Firebase Cloud Messaging (FCM) message sends and deliveries.</td></tr>
-<tr><td><b>Id</b></td><td><code>fcmdata:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>fcmdata:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -31,11 +31,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `description` | `string` | Description of the Evaluation |
 | `ruleNames` | `array` | the name of the rule |
 | `labels` | `object` | Labels as key value pairs |
+| `resourceStatus` | `object` | Message describing resource status |
 | `ruleVersions` | `array` | Output only. [Output only] The updated rule ids if exist. |
 | `createTime` | `string` | Output only. [Output only] Create time stamp |
 | `resourceFilter` | `object` | Message describing resource filters |
 | `updateTime` | `string` | Output only. [Output only] Update time stamp |
-| `resourceStatus` | `object` | Message describing resource status |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

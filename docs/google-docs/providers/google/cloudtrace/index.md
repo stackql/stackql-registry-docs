@@ -33,7 +33,7 @@ Sends application trace data to Cloud Trace for viewing. Trace data is collected
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Trace API</td></tr>
 <tr><td><b>Description</b></td><td>Sends application trace data to Cloud Trace for viewing. Trace data is collected for all App Engine applications by default. Trace data from other applications can be provided using this API. This library is used to interact with the Cloud Trace API directly. If you are looking to instrument your application for Cloud Trace, we recommend using OpenTelemetry. </td></tr>
-<tr><td><b>Id</b></td><td><code>cloudtrace:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudtrace:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

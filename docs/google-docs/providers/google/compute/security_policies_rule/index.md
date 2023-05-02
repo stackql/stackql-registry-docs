@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `redirectOptions` | `object` |  |
+| `kind` | `string` | [Output only] Type of the resource. Always compute#securityPolicyRule for security policy rules |
+| `preview` | `boolean` | If set to true, the specified action is not enforced. |
+| `rateLimitOptions` | `object` |  |
 | `headerAction` | `object` |  |
 | `match` | `object` | Represents a match condition that incoming traffic is evaluated against. Exactly one field must be specified. |
-| `preview` | `boolean` | If set to true, the specified action is not enforced. |
-| `action` | `string` | The Action to perform when the rule is matched. The following are the valid actions: - allow: allow access to target. - deny(): deny access to target, returns the HTTP response code specified (valid values are 403, 404, and 502). - rate_based_ban: limit client traffic to the configured threshold and ban the client if the traffic exceeds the threshold. Configure parameters for this action in RateLimitOptions. Requires rate_limit_options to be set. - redirect: redirect to a different target. This can either be an internal reCAPTCHA redirect, or an external URL-based redirect via a 302 response. Parameters for this action can be configured via redirectOptions. - throttle: limit client traffic to the configured threshold. Configure parameters for this action in rateLimitOptions. Requires rate_limit_options to be set for this.  |
 | `priority` | `integer` | An integer indicating the priority of a rule in the list. The priority must be a positive value between 0 and 2147483647. Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest priority. |
-| `rateLimitOptions` | `object` |  |
-| `kind` | `string` | [Output only] Type of the resource. Always compute#securityPolicyRule for security policy rules |
+| `redirectOptions` | `object` |  |
+| `action` | `string` | The Action to perform when the rule is matched. The following are the valid actions: - allow: allow access to target. - deny(): deny access to target, returns the HTTP response code specified (valid values are 403, 404, and 502). - rate_based_ban: limit client traffic to the configured threshold and ban the client if the traffic exceeds the threshold. Configure parameters for this action in RateLimitOptions. Requires rate_limit_options to be set. - redirect: redirect to a different target. This can either be an internal reCAPTCHA redirect, or an external URL-based redirect via a 302 response. Parameters for this action can be configured via redirectOptions. - throttle: limit client traffic to the configured threshold. Configure parameters for this action in rateLimitOptions. Requires rate_limit_options to be set for this.  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

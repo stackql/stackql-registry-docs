@@ -33,7 +33,7 @@ Controls access to cloud applications running on Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Identity-Aware Proxy API</td></tr>
 <tr><td><b>Description</b></td><td>Controls access to cloud applications running on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>iap:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>iap:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

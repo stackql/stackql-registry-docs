@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `keys` | `array` | The public component of the keys used by the cluster to sign token requests. |
 | `cacheHeader` | `object` | RFC-2616: cache control support |
+| `keys` | `array` | The public component of the keys used by the cluster to sign token requests. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

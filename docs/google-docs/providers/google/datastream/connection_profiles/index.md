@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource's name. |
-| `updateTime` | `string` | Output only. The update time of the resource. |
-| `forwardSshConnectivity` | `object` | Forward SSH Tunnel connectivity. |
 | `postgresqlProfile` | `object` | PostgreSQL database profile. |
-| `privateConnectivity` | `object` | Private Connectivity |
-| `labels` | `object` | Labels. |
-| `mysqlProfile` | `object` | MySQL database profile. |
-| `bigqueryProfile` | `object` | BigQuery warehouse profile. |
-| `oracleProfile` | `object` | Oracle database profile. |
-| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. |
 | `createTime` | `string` | Output only. The create time of the resource. |
 | `displayName` | `string` | Required. Display name. |
+| `updateTime` | `string` | Output only. The update time of the resource. |
+| `oracleProfile` | `object` | Oracle database profile. |
 | `gcsProfile` | `object` | Cloud Storage bucket profile. |
+| `labels` | `object` | Labels. |
+| `mysqlProfile` | `object` | MySQL database profile. |
+| `privateConnectivity` | `object` | Private Connectivity |
+| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. |
+| `bigqueryProfile` | `object` | BigQuery warehouse profile. |
+| `forwardSshConnectivity` | `object` | Forward SSH Tunnel connectivity. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

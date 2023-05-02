@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Optional. Name of the `JobRun`. Format is projects/&#123;project&#125;/locations/&#123;location&#125;/ deliveryPipelines/&#123;deliveryPipeline&#125;/releases/&#123;releases&#125;/rollouts/ &#123;rollouts&#125;/jobRuns/&#123;uuid&#125;. |
-| `jobId` | `string` | Output only. ID of the `Rollout` job this `JobRun` corresponds to. |
-| `startTime` | `string` | Output only. Time at which the `JobRun` was started. |
-| `phaseId` | `string` | Output only. ID of the `Rollout` phase this `JobRun` belongs in. |
-| `etag` | `string` | Output only. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | `uid` | `string` | Output only. Unique identifier of the `JobRun`. |
 | `verifyJobRun` | `object` | VerifyJobRun contains information specific to a verify `JobRun`. |
-| `endTime` | `string` | Output only. Time at which the `JobRun` ended. |
 | `deployJobRun` | `object` | DeployJobRun contains information specific to a deploy `JobRun`. |
+| `startTime` | `string` | Output only. Time at which the `JobRun` was started. |
 | `state` | `string` | Output only. The current state of the `JobRun`. |
+| `etag` | `string` | Output only. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
+| `endTime` | `string` | Output only. Time at which the `JobRun` ended. |
+| `jobId` | `string` | Output only. ID of the `Rollout` job this `JobRun` corresponds to. |
+| `phaseId` | `string` | Output only. ID of the `Rollout` phase this `JobRun` belongs in. |
 | `createTime` | `string` | Output only. Time at which the `JobRun` was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

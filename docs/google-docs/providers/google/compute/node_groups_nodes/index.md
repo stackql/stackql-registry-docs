@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the node. |
-| `cpuOvercommitType` | `string` | CPU overcommit. |
-| `serverBinding` | `object` |  |
-| `instanceConsumptionData` | `array` | Instance data that shows consumed resources on the node. |
-| `instances` | `array` | Instances scheduled on this node. |
-| `accelerators` | `array` | Accelerators for this node. |
-| `nodeType` | `string` | The type of this node. |
-| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
-| `consumedResources` | `object` |  |
-| `serverId` | `string` | Server ID associated with this node. |
 | `totalResources` | `object` |  |
-| `status` | `string` |  |
+| `instances` | `array` | Instances scheduled on this node. |
+| `serverBinding` | `object` |  |
+| `consumedResources` | `object` |  |
 | `disks` | `array` | Local disk configurations. |
+| `cpuOvercommitType` | `string` | CPU overcommit. |
+| `serverId` | `string` | Server ID associated with this node. |
+| `instanceConsumptionData` | `array` | Instance data that shows consumed resources on the node. |
+| `accelerators` | `array` | Accelerators for this node. |
+| `status` | `string` |  |
+| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
+| `nodeType` | `string` | The type of this node. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -30,21 +30,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource type. The server generates this identifier. |
 | `name` | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `consumerRejectLists` | `array` | Projects that are not allowed to connect to this service attachment. The project can be specified using its id or number. |
-| `enableProxyProtocol` | `boolean` | If true, enable the proxy protocol which is for supplying client TCP/IP address data in TCP connections that traverse proxies on their way to destination servers. |
-| `producerForwardingRule` | `string` | The URL of a forwarding rule with loadBalancingScheme INTERNAL* that is serving the endpoint identified by this service attachment. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `fingerprint` | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a ServiceAttachment. An up-to-date fingerprint must be provided in order to patch/update the ServiceAttachment; otherwise, the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve the ServiceAttachment. |
+| `enableProxyProtocol` | `boolean` | If true, enable the proxy protocol which is for supplying client TCP/IP address data in TCP connections that traverse proxies on their way to destination servers. |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#serviceAttachment for service attachments. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `pscServiceAttachmentId` | `object` |  |
 | `consumerAcceptLists` | `array` | Projects that are allowed to connect to this service attachment. |
 | `natSubnets` | `array` | An array of URLs where each entry is the URL of a subnet provided by the service producer to use for NAT in this service attachment. |
-| `region` | `string` | [Output Only] URL of the region where the service attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
-| `targetService` | `string` | The URL of a service serving the endpoint identified by this service attachment. |
-| `connectedEndpoints` | `array` | [Output Only] An array of connections for all the consumers connected to this service attachment. |
 | `domainNames` | `array` | If specified, the domain name will be used during the integration between the PSC connected endpoints and the Cloud DNS. For example, this is a valid domain name: "p.mycompany.com.". Current max number of domain names supported is 1. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `fingerprint` | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a ServiceAttachment. An up-to-date fingerprint must be provided in order to patch/update the ServiceAttachment; otherwise, the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve the ServiceAttachment. |
+| `targetService` | `string` | The URL of a service serving the endpoint identified by this service attachment. |
+| `consumerRejectLists` | `array` | Projects that are not allowed to connect to this service attachment. The project can be specified using its id or number. |
+| `connectedEndpoints` | `array` | [Output Only] An array of connections for all the consumers connected to this service attachment. |
 | `connectionPreference` | `string` | The connection preference of service attachment. The value can be set to ACCEPT_AUTOMATIC. An ACCEPT_AUTOMATIC service attachment is one that always accepts the connection from consumer forwarding rules. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#serviceAttachment for service attachments. |
+| `region` | `string` | [Output Only] URL of the region where the service attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `producerForwardingRule` | `string` | The URL of a forwarding rule with loadBalancingScheme INTERNAL* that is serving the endpoint identified by this service attachment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

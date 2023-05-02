@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `accountEmail` | `string` | Email address of the service account. |
 | `subjectId` | `string` | Unique identifier for the service account. |
+| `accountEmail` | `string` | Email address of the service account. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

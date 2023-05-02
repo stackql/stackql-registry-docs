@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | A unique ID for this DebugSession. |
-| `timeout` | `string` | Optional. The time in seconds after which this DebugSession should end. This value will override the value in query param, if both are provided. |
 | `tracesize` | `integer` | Optional. The maximum number of bytes captured from the response payload. Min = 0, Max = 5120, Default = 5120. |
 | `validity` | `integer` | Optional. The length of time, in seconds, that this debug session is valid, starting from when it's received in the control plane. Min = 1, Max = 15, Default = 10. |
 | `count` | `integer` | Optional. The number of request to be traced. Min = 1, Max = 15, Default = 10. |
 | `createTime` | `string` | Output only. The first transaction creation timestamp, recorded by UAP. |
 | `filter` | `string` | Optional. A conditional statement which is evaluated against the request message to determine if it should be traced. Syntax matches that of on API Proxy bundle flow Condition. |
+| `timeout` | `string` | Optional. The time in seconds after which this DebugSession should end. This value will override the value in query param, if both are provided. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

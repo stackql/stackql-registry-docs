@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `point` | `array` | List of debug data collected by runtime plane at various defined points in the flow. |
 | `completed` | `boolean` | Flag indicating whether a transaction is completed or not |
+| `point` | `array` | List of debug data collected by runtime plane at various defined points in the flow. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

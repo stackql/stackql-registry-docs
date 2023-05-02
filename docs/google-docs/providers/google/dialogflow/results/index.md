@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the test case result. Format: `projects//locations//agents//testCases/ /results/`. |
-| `conversationTurns` | `array` | The conversation turns uttered during the test case replay in chronological order. |
 | `environment` | `string` | Environment where the test was run. If not set, it indicates the draft environment. |
 | `testResult` | `string` | Whether the test case passed in the agent environment. |
 | `testTime` | `string` | The time that the test was run. |
+| `conversationTurns` | `array` | The conversation turns uttered during the test case replay in chronological order. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

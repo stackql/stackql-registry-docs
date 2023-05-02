@@ -28,16 +28,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the execution. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/workflows/&#123;workflow&#125;/executions/&#123;execution&#125; |
-| `startTime` | `string` | Output only. Marks the beginning of execution. |
-| `argument` | `string` | Input parameters of the execution represented as a JSON string. The size limit is 32KB. *Note*: If you are using the REST API directly to run your workflow, you must escape any JSON string value of `argument`. Example: `'&#123;"argument":"&#123;\"firstName\":\"FIRST\",\"lastName\":\"LAST\"&#125;"&#125;'` |
-| `workflowRevisionId` | `string` | Output only. Revision of the workflow this execution is using. |
-| `duration` | `string` | Output only. Measures the duration of the execution. |
-| `status` | `object` | Represents the current status of this execution. |
-| `state` | `string` | Output only. Current state of the execution. |
 | `result` | `string` | Output only. Output of the execution represented as a JSON string. The value can only be present if the execution's state is `SUCCEEDED`. |
-| `error` | `object` | Error describes why the execution was abnormally terminated. |
+| `startTime` | `string` | Output only. Marks the beginning of execution. |
+| `state` | `string` | Output only. Current state of the execution. |
 | `callLogLevel` | `string` | The call logging level associated to this execution. |
+| `argument` | `string` | Input parameters of the execution represented as a JSON string. The size limit is 32KB. *Note*: If you are using the REST API directly to run your workflow, you must escape any JSON string value of `argument`. Example: `'&#123;"argument":"&#123;\"firstName\":\"FIRST\",\"lastName\":\"LAST\"&#125;"&#125;'` |
+| `status` | `object` | Represents the current status of this execution. |
+| `duration` | `string` | Output only. Measures the duration of the execution. |
+| `workflowRevisionId` | `string` | Output only. Revision of the workflow this execution is using. |
 | `endTime` | `string` | Output only. Marks the end of execution, successful or not. |
+| `error` | `object` | Error describes why the execution was abnormally terminated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -30,23 +30,23 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `plan` | `string` | The plan for this commitment, which determines duration and discount rate. The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years). |
-| `region` | `string` | [Output Only] URL of the region where this commitment may be used. |
+| `status` | `string` | [Output Only] Status of the commitment with regards to eventual expiration (each commitment has an end date defined). One of the following values: NOT_YET_ACTIVE, ACTIVE, EXPIRED. |
+| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | `resources` | `array` | A list of commitment amounts for particular resources. Note that VCPU and MEMORY resource commitments must occur together. |
 | `kind` | `string` | [Output Only] Type of the resource. Always compute#commitment for commitments. |
-| `autoRenew` | `boolean` | Specifies whether to enable automatic renewal for the commitment. The default value is false if not specified. The field can be updated until the day of the commitment expiration at 12:00am PST. If the field is set to true, the commitment will be automatically renewed for either one or three years according to the terms of the existing commitment. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `type` | `string` | The type of commitment, which affects the discount rate and the eligible resources. Type MEMORY_OPTIMIZED specifies a commitment that will only apply to memory optimized machines. Type ACCELERATOR_OPTIMIZED specifies a commitment that will only apply to accelerator optimized machines. |
-| `startTimestamp` | `string` | [Output Only] Commitment start time in RFC3339 text format. |
+| `licenseResource` | `object` | Commitment for a particular license resource. |
+| `reservations` | `array` | List of reservations in this commitment. |
+| `region` | `string` | [Output Only] URL of the region where this commitment may be used. |
 | `splitSourceCommitment` | `string` | Source commitment to be splitted into a new commitment. |
 | `mergeSourceCommitments` | `array` | List of source commitments to be merged into a new commitment. |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `category` | `string` | The category of the commitment. Category MACHINE specifies commitments composed of machine resources such as VCPU or MEMORY, listed in resources. Category LICENSE specifies commitments composed of software licenses, listed in licenseResources. Note that only MACHINE commitments should have a Type specified. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `startTimestamp` | `string` | [Output Only] Commitment start time in RFC3339 text format. |
+| `plan` | `string` | The plan for this commitment, which determines duration and discount rate. The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years). |
 | `statusMessage` | `string` | [Output Only] An optional, human-readable explanation of the status. |
+| `category` | `string` | The category of the commitment. Category MACHINE specifies commitments composed of machine resources such as VCPU or MEMORY, listed in resources. Category LICENSE specifies commitments composed of software licenses, listed in licenseResources. Note that only MACHINE commitments should have a Type specified. |
 | `endTimestamp` | `string` | [Output Only] Commitment end time in RFC3339 text format. |
-| `status` | `string` | [Output Only] Status of the commitment with regards to eventual expiration (each commitment has an end date defined). One of the following values: NOT_YET_ACTIVE, ACTIVE, EXPIRED. |
-| `reservations` | `array` | List of reservations in this commitment. |
-| `licenseResource` | `object` | Commitment for a particular license resource. |
+| `autoRenew` | `boolean` | Specifies whether to enable automatic renewal for the commitment. The default value is false if not specified. The field can be updated until the day of the commitment expiration at 12:00am PST. If the field is set to true, the commitment will be automatically renewed for either one or three years according to the terms of the existing commitment. |
+| `type` | `string` | The type of commitment, which affects the discount rate and the eligible resources. Type MEMORY_OPTIMIZED specifies a commitment that will only apply to memory optimized machines. Type ACCELERATOR_OPTIMIZED specifies a commitment that will only apply to accelerator optimized machines. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | ID of the data collector. Must begin with `dc_`. |
 | `description` | `string` | A description of the data collector. |
+| `type` | `string` | Immutable. The type of data this data collector will collect. |
 | `createdAt` | `string` | Output only. The time at which the data collector was created in milliseconds since the epoch. |
 | `lastModifiedAt` | `string` | Output only. The time at which the Data Collector was last updated in milliseconds since the epoch. |
-| `type` | `string` | Immutable. The type of data this data collector will collect. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

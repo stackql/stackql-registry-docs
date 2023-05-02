@@ -4,7 +4,6 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - google
-  - gcp
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -44,21 +43,24 @@ To pull the latest version of the `google` provider, run the following command:
 ```bash
 REGISTRY PULL google;
 ```
-> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
 ## Authentication
 
-The `google` provider supports authentication using service account key files or interactive authentication.  
 
-### Service Account (default)
-
-Service account authentication is used by default for the `google` provider, using a service account key file generated from the Google Cloud Console.  The following system environment variable is used by default:  
-
-- `GOOGLE_APPLICATION_CREDENTIALS` - path to a service account key file
-
-This variable is sourced at runtime (from the local machine or as a CI variable/secret).  
+The following authentication methods are supported:
+- `service_account`
+- `interactive` for running interactive queries from Cloud Shell or other machines where the user is authenticated using `gcloud auth login`
 
 > for more information on creating service accounts and key files, see [Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview).
+
+### Service Account Environment Variable (default)
+
+The following system environment variable is used by default:  
+
+- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json file
+
+This variable is sourced at runtime (from the local machine or as a CI variable/secret).
 
 <details>
 
@@ -80,13 +82,19 @@ stackql.exe shell --auth=$Auth
 
 </details>
 
-### Interactive
-
-The `google` provider supports interactive authentication, which can be used in [Cloud Shell](https://cloud.google.com/shell/docs/use-cloud-shell-terminal) or other systems where the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install-sdk) is installed and configured and you have authenticated using [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login).  To authenticate interactively to the `google` provider, use the following `--auth` flag with the `stackql` program:    
+### Interactive Authentication
+When you are using Google Cloud Shell or on a machine where you have authenticated using `gcloud auth login`, you can then use the following authentication method:   
 
 ```bash
 AUTH='{ "google": { "type": "interactive" }}'
 stackql shell --auth="${AUTH}"
+```
+
+or using PowerShell:  
+
+```powershell
+$Auth = "{ 'google': { 'type': 'interactive' }}"
+stackql.exe shell --auth=$Auth
 ```
 
 ## Services

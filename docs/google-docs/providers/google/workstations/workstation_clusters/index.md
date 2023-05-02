@@ -28,20 +28,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Full name of this resource. |
-| `displayName` | `string` | Human-readable name for this resource. |
-| `privateClusterConfig` | `object` | Configuration options for private clusters. |
-| `network` | `string` | Immutable. Name of the Compute Engine network in which instances associated with this cluster will be created. |
-| `deleteTime` | `string` | Output only. Time when this resource was soft-deleted. |
-| `updateTime` | `string` | Output only. Time when this resource was most recently updated. |
-| `labels` | `object` | Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources. |
-| `etag` | `string` | Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. |
-| `annotations` | `object` | Client-specified annotations. |
-| `conditions` | `array` | Output only. Status conditions describing the current resource state. |
-| `subnetwork` | `string` | Immutable. Name of the Compute Engine subnetwork in which instances associated with this cluster will be created. Must be part of the subnetwork specified for this cluster. |
 | `uid` | `string` | Output only. A system-assigned unique identified for this resource. |
-| `reconciling` | `boolean` | Output only. Indicates whether this resource is currently being updated to match its intended state. |
-| `createTime` | `string` | Output only. Time when this resource was created. |
+| `conditions` | `array` | Output only. Status conditions describing the current resource state. |
+| `updateTime` | `string` | Output only. Time when this resource was most recently updated. |
+| `network` | `string` | Immutable. Name of the Compute Engine network in which instances associated with this cluster will be created. |
 | `degraded` | `boolean` | Output only. Whether this resource is in degraded mode, in which case it may require user action to restore full functionality. Details can be found in the `conditions` field. |
+| `deleteTime` | `string` | Output only. Time when this resource was soft-deleted. |
+| `labels` | `object` | Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources. |
+| `subnetwork` | `string` | Immutable. Name of the Compute Engine subnetwork in which instances associated with this cluster will be created. Must be part of the subnetwork specified for this cluster. |
+| `privateClusterConfig` | `object` | Configuration options for private clusters. |
+| `annotations` | `object` | Client-specified annotations. |
+| `displayName` | `string` | Human-readable name for this resource. |
+| `createTime` | `string` | Output only. Time when this resource was created. |
+| `etag` | `string` | Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. |
+| `reconciling` | `boolean` | Output only. Indicates whether this resource is currently being updated to match its intended state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

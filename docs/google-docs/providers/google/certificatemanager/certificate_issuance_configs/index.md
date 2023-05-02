@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | A user-defined name of the certificate issuance config. CertificateIssuanceConfig names must be unique globally and match pattern `projects/*/locations/*/certificateIssuanceConfigs/*`. |
 | `description` | `string` | One or more paragraphs of text description of a CertificateIssuanceConfig. |
-| `lifetime` | `string` | Required. Workload certificate lifetime requested. |
-| `createTime` | `string` | Output only. The creation timestamp of a CertificateIssuanceConfig. |
+| `rotationWindowPercentage` | `integer` | Required. Specifies the percentage of elapsed time of the certificate lifetime to wait before renewing the certificate. Must be a number between 1-99, inclusive. |
 | `labels` | `object` | Set of labels associated with a CertificateIssuanceConfig. |
 | `updateTime` | `string` | Output only. The last update timestamp of a CertificateIssuanceConfig. |
 | `certificateAuthorityConfig` | `object` | The CA that issues the workload certificate. It includes CA address, type, authentication to CA service, etc. |
+| `createTime` | `string` | Output only. The creation timestamp of a CertificateIssuanceConfig. |
+| `lifetime` | `string` | Required. Workload certificate lifetime requested. |
 | `keyAlgorithm` | `string` | Required. The key algorithm to use when generating the private key. |
-| `rotationWindowPercentage` | `integer` | Required. Specifies the percentage of elapsed time of the certificate lifetime to wait before renewing the certificate. Must be a number between 1-99, inclusive. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

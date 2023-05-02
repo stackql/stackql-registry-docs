@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the config. |
-| `secrets` | `object` | GitLabSecrets represents the secrets in Secret Manager for a GitLab integration. |
 | `username` | `string` | Username of the GitLab.com or GitLab Enterprise account Cloud Build will use. |
 | `webhookKey` | `string` | Output only. UUID included in webhook requests. The UUID is used to look up the corresponding config. |
 | `connectedRepositories` | `array` | Connected GitLab.com or GitLabEnterprise repositories for this config. |
 | `createTime` | `string` | Output only. Time when the config was created. |
 | `enterpriseConfig` | `object` | GitLabEnterpriseConfig represents the configuration for a GitLabEnterprise integration. |
+| `secrets` | `object` | GitLabSecrets represents the secrets in Secret Manager for a GitLab integration. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

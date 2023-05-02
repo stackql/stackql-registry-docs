@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `healthState` | `string` | Output only. Runtime health_state. |
 | `healthInfo` | `object` | Output only. Additional information about instance health. Example: healthInfo": &#123; "docker_proxy_agent_status": "1", "docker_status": "1", "jupyterlab_api_status": "-1", "jupyterlab_status": "-1", "updated": "2020-10-18 09:40:03.573409" &#125; |
+| `healthState` | `string` | Output only. Runtime health_state. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

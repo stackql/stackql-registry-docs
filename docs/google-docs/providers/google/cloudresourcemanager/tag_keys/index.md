@@ -30,12 +30,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Immutable. The resource name for a TagKey. Must be in the format `tagKeys/&#123;tag_key_id&#125;`, where `tag_key_id` is the generated numeric id for the TagKey. |
 | `description` | `string` | Optional. User-assigned description of the TagKey. Must not exceed 256 characters. Read-write. |
 | `parent` | `string` | Immutable. The resource name of the new TagKey's parent. Must be of the form `organizations/&#123;org_id&#125;`. |
-| `createTime` | `string` | Output only. Creation time. |
-| `purposeData` | `object` | Optional. Purpose data corresponds to the policy system that the tag is intended for. See documentation for `Purpose` for formatting of this field. Purpose data cannot be changed once set. |
-| `updateTime` | `string` | Output only. Update time. |
-| `etag` | `string` | Optional. Entity tag which users can pass to prevent race conditions. This field is always set in server responses. See UpdateTagKeyRequest for details. |
 | `shortName` | `string` | Required. Immutable. The user friendly name for a TagKey. The short name should be unique for TagKeys within the same tag namespace. The short name must be 1-63 characters, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between. |
+| `etag` | `string` | Optional. Entity tag which users can pass to prevent race conditions. This field is always set in server responses. See UpdateTagKeyRequest for details. |
+| `updateTime` | `string` | Output only. Update time. |
+| `createTime` | `string` | Output only. Creation time. |
 | `namespacedName` | `string` | Output only. Immutable. Namespaced name of the TagKey. |
+| `purposeData` | `object` | Optional. Purpose data corresponds to the policy system that the tag is intended for. See documentation for `Purpose` for formatting of this field. Purpose data cannot be changed once set. |
 | `purpose` | `string` | Optional. A purpose denotes that this Tag is intended for use in policies of a specific policy engine, and will involve that policy engine in management operations involving this Tag. A purpose does not grant a policy engine exclusive rights to the Tag, and it may be referenced by other policy engines. A purpose cannot be changed once set. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

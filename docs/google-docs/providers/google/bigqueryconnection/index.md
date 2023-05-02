@@ -33,7 +33,7 @@ Allows users to manage BigQuery connections to external data sources.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery Connection API</td></tr>
 <tr><td><b>Description</b></td><td>Allows users to manage BigQuery connections to external data sources.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigqueryconnection:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bigqueryconnection:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

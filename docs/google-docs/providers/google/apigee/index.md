@@ -33,7 +33,7 @@ Use the Apigee API to programmatically develop and manage APIs with a set of RES
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Apigee API</td></tr>
 <tr><td><b>Description</b></td><td>Use the Apigee API to programmatically develop and manage APIs with a set of RESTful operations. Develop and secure API proxies, deploy and undeploy API proxy revisions, monitor APIs, configure environments, manage users, and more. Note: This product is available as a free trial for a time period of 60 days.</td></tr>
-<tr><td><b>Id</b></td><td><code>apigee:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apigee:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

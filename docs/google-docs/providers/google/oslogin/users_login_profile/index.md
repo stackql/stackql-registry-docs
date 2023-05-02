@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. A unique user ID. |
-| `sshPublicKeys` | `object` | A map from SSH public key fingerprint to the associated key object. |
 | `posixAccounts` | `array` | The list of POSIX accounts associated with the user. |
+| `sshPublicKeys` | `object` | A map from SSH public key fingerprint to the associated key object. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

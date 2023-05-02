@@ -33,7 +33,7 @@ Manages identity and access control for Google Cloud Platform resources, includi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Identity and Access Management (IAM) API</td></tr>
 <tr><td><b>Description</b></td><td>Manages identity and access control for Google Cloud Platform resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls. </td></tr>
-<tr><td><b>Id</b></td><td><code>iam:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>iam:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

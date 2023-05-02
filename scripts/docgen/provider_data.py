@@ -9,7 +9,7 @@ The following authentication methods are supported:
 
 The following system environment variable is used by default:  
 
-- `GOOGLE_APPLICATION_CREDENTIALS` - contents of the `google` service account key file
+- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json file
 
 This variable is sourced at runtime (from the local machine or as a CI variable/secret).
 
@@ -34,8 +34,19 @@ stackql.exe shell --auth=$Auth
 </details>
 
 ### Interactive Authentication
-When you are using Google Cloud Shell or on a machine where you have authenticated using `gcloud auth login` you c 
+When you are using Google Cloud Shell or on a machine where you have authenticated using `gcloud auth login`, you can then use the following authentication method:   
 
+```bash
+AUTH='{ "google": { "type": "interactive" }}'
+stackql shell --auth="${AUTH}"
+```
+
+or using PowerShell:  
+
+```powershell
+$Auth = "{ 'google': { 'type': 'interactive' }}"
+stackql.exe shell --auth=$Auth
+```
 """
 
 provider_data = {

@@ -33,7 +33,7 @@ Exchange data and analytics assets securely and efficiently.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Analytics Hub API</td></tr>
 <tr><td><b>Description</b></td><td>Exchange data and analytics assets securely and efficiently.</td></tr>
-<tr><td><b>Id</b></td><td><code>analyticshub:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>analyticshub:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources

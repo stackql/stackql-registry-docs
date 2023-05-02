@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `namedPorts` | `array` | [Output Only] The named ports that belong to this instance group. |
 | `status` | `string` | [Output Only] The status of the instance. |
 | `instance` | `string` | [Output Only] The URL of the instance. |
+| `namedPorts` | `array` | [Output Only] The named ports that belong to this instance group. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

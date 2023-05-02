@@ -33,7 +33,7 @@ An API to enable creating and using machine learning models.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AI Platform Training & Prediction API</td></tr>
 <tr><td><b>Description</b></td><td>An API to enable creating and using machine learning models.</td></tr>
-<tr><td><b>Id</b></td><td><code>ml:v23.01.00116</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ml:v23.05.00145</code></td></tr>
 </tbody></table>
 
 ## Resources
