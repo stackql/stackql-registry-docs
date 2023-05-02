@@ -33,7 +33,7 @@ The Firebase Management API enables programmatic setup and management of Firebas
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Firebase Management API</td></tr>
 <tr><td><b>Description</b></td><td>The Firebase Management API enables programmatic setup and management of Firebase projects, including a project's Firebase resources and Firebase apps.</td></tr>
-<tr><td><b>Id</b></td><td><code>firebase:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>firebase:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

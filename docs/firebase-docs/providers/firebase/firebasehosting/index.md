@@ -33,7 +33,7 @@ The Firebase Hosting REST API enables programmatic and customizable management a
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Firebase Hosting API</td></tr>
 <tr><td><b>Description</b></td><td>The Firebase Hosting REST API enables programmatic and customizable management and deployments to your Firebase-hosted sites. Use this REST API to create and manage channels and sites as well as to deploy new or updated hosting configurations and content files.</td></tr>
-<tr><td><b>Id</b></td><td><code>firebasehosting:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>firebasehosting:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

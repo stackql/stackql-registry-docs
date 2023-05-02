@@ -33,7 +33,7 @@ The Cloud Storage for Firebase API enables programmatic management of Cloud Stor
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Storage for Firebase API</td></tr>
 <tr><td><b>Description</b></td><td>The Cloud Storage for Firebase API enables programmatic management of Cloud Storage buckets for use in Firebase projects</td></tr>
-<tr><td><b>Id</b></td><td><code>firebasestorage:v23.01.00114</code></td></tr>
+<tr><td><b>Id</b></td><td><code>firebasestorage:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources
