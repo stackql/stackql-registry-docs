@@ -13,11 +13,11 @@ export const providers = [
     {name: 'azure_extras', description: 'Additional Azure cloud computing services by Microsoft.', title: 'Azure Extras'},
     {name: 'firebase', description: 'Mobile and web application development platform.', title: 'Firebase'},
     {name: 'k8s', description: 'Open source container management platform.', title: 'Kubernetes'},
-    {name: 'googleworkspace', description: 'Productivity and collaboration tools for businesses.', title: 'Google Workspace'},
-    {name: 'googlemybusiness', description: 'Tools for businesses to manage their online presence.', title: 'Google My Business'},
-    {name: 'googledevelopers', description: 'Developer APIs by Google.', title: 'Google Developer APIs'},
-    {name: 'googleanalytics', description: 'Web tracking and analytics service.', title: 'Google Analytics'},
-    {name: 'googleads', description: 'Online advertising platform by Google.', title: 'Google Ads'},
+    // {name: 'googleworkspace', description: 'Productivity and collaboration tools for businesses.', title: 'Google Workspace'},
+    // {name: 'googlemybusiness', description: 'Tools for businesses to manage their online presence.', title: 'Google My Business'},
+    // {name: 'googledevelopers', description: 'Developer APIs by Google.', title: 'Google Developer APIs'},
+    // {name: 'googleanalytics', description: 'Web tracking and analytics service.', title: 'Google Analytics'},
+    // {name: 'googleads', description: 'Online advertising platform by Google.', title: 'Google Ads'},
     // {name: 'youtube', description: 'Online video sharing and social media platform.', title: 'Youtube'},
 ]
 
