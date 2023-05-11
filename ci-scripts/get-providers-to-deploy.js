@@ -18,12 +18,6 @@ const allProviders = [
     'netlify', 
     'okta', 
     'sumologic', 
-    'googleads',
-    'googleanalytics',
-    'googledevelopers',
-    'googlemybusiness',
-    'googleworkspace',
-    // 'youtube',
     rootName];
        
 const appendToOutput = (providers) => {

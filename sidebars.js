@@ -25,11 +25,11 @@ const providers = [
   {name: 'azure_extras'},
   {name: 'firebase'}, 
   {name: 'k8s'}, 
-  {name: 'googleworkspace'},
-  {name: 'googlemybusiness'},
-  {name: 'googledevelopers'},
-  {name: 'googleanalytics'},
-  {name: 'googleads'},
+  // {name: 'googleworkspace'},
+  // {name: 'googlemybusiness'},
+  // {name: 'googledevelopers'},
+  // {name: 'googleanalytics'},
+  // {name: 'googleads'},
 ]
 
 const getProviderSiteUrl = (name) =>{
