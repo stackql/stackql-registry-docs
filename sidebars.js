@@ -19,6 +19,7 @@ const providers = [
   {name: 'aws'},
   {name: 'digitalocean'},   
   {name: 'github'},
+  {name: 'linode'},
   {name: 'netlify'},
   {name: 'okta'},
   {name: 'sumologic'},

@@ -7,6 +7,7 @@ export const providers = [
     {name: 'aws', description: 'Cloud computing by Amazon Web Services.', title: 'AWS'},
     {name: 'digitalocean', description: 'Cloud computing services and Infrastructure as a Service (IaaS).', title: 'Digital Ocean'},
     {name: 'github', description: 'Web-based version-control and collaboration.', title: 'GitHub'},
+    {name: 'linode', description: 'Cloud computing services by Akamai.', title: 'Linode'},
     {name: 'netlify', description: 'Web development and content distribution platform.', title: 'Netlify'},
     {name: 'okta', description: 'Authentication and authorization services.', title: 'Okta'},
     {name: 'sumologic', description: 'Unified logs and metrics analytics platform.', title: 'Sumologic'},

@@ -18,30 +18,25 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Netlify | [![Netlify Status](https://api.netlify.com/api/v1/badges/7d81e59f-e1de-480f-a6d5-5a52f83deb40/deploy-status)](https://app.netlify.com/sites/stackql-netlify-docs/deploys) | [netlify-docs.stackql.io](https://netlify-docs.stackql.io)<br/>[netlify.stackql.io](https://netlify.stackql.io) |
 | Netlify Deploy Okta | [![Netlify Status](https://api.netlify.com/api/v1/badges/83d3788d-bbcf-4063-a2e7-65577e3f13f5/deploy-status)](https://app.netlify.com/sites/stackql-okta-docs/deploys) | [okta-docs.stackql.io](https://okta-docs.stackql.io)<br/>[okta.stackql.io](https://okta.stackql.io) |
 | Netlify Deploy Sumologic | [![Netlify Status](https://api.netlify.com/api/v1/badges/6c864774-8494-41be-8e2c-441b6d1e368c/deploy-status)](https://app.netlify.com/sites/stackql-sumologic-docs/deploys) | [sumologic-docs.stackql.io](https://sumologic-docs.stackql.io)<br/>[sumologic.stackql.io](https://sumologic.stackql.io) |
-| Netlify Deploy Google Ads | [![Netlify Status](https://api.netlify.com/api/v1/badges/c1e3ba8b-af1c-42b0-a703-e1309ca9f1de/deploy-status)](https://app.netlify.com/sites/stackql-googleads-docs/deploys) | [googleads-docs.stackql.io](https://googleads-docs.stackql.io)<br/>[googleads.stackql.io](https://googleads.stackql.io) |
-| Netlify Deploy Google Analytics | [![Netlify Status](https://api.netlify.com/api/v1/badges/ca05bc55-e377-4ac5-9eaa-403ee64158b5/deploy-status)](https://app.netlify.com/sites/stackql-googleanalytics-docs/deploys) | [googleanalytics-docs.stackql.io](https://googleanalytics-docs.stackql.io)<br/>[googleanalytics.stackql.io](https://googleanalytics.stackql.io) |
-| Netlify Deploy Google Developers | [![Netlify Status](https://api.netlify.com/api/v1/badges/c5c95268-3619-4169-ba84-cfd007d63a3b/deploy-status)](https://app.netlify.com/sites/stackql-googledevelopers-docs/deploys) | [googledevelopers-docs.stackql.io](https://googledevelopers-docs.stackql.io)<br/>[googledevelopers.stackql.io](https://googledevelopers.stackql.io) |
-| Netlify Deploy Google MyBusiness | [![Netlify Status](https://api.netlify.com/api/v1/badges/49659b34-f334-43fb-9267-1884ebfbbf67/deploy-status)](https://app.netlify.com/sites/stackql-googlemybusiness-docs/deploys) | [googlemybusiness-docs.stackql.io](https://googlemybusiness-docs.stackql.io)<br/>[googlemybusiness.stackql.io](https://googlemybusiness.stackql.io) |
-| Netlify Deploy Google Workspace | [![Netlify Status](https://api.netlify.com/api/v1/badges/ad4ddc57-c98d-4e48-8426-086709089f04/deploy-status)](https://app.netlify.com/sites/stackql-googleworkspace-docs/deploys) | [googleworkspace-docs.stackql.io](https://googleworkspace-docs.stackql.io)<br/>[googleworkspace.stackql.io](https://googleworkspace.stackql.io) |
-| Netlify Deploy Youtube | [![Netlify Status](https://api.netlify.com/api/v1/badges/a480d2db-cb95-4d79-be90-6ad5568c1feb/deploy-status)](https://app.netlify.com/sites/stackql-youtube-docs/deploys) | [youtube-docs.stackql.io](https://youtube-docs.stackql.io)<br/>[youtube.stackql.io](https://youtube.stackql.io) |
-
+| Netlify Deploy Digital Ocean | [![Netlify Status](https://api.netlify.com/api/v1/badges/ebcab4ef-d610-4888-a42f-314942d68c32/deploy-status)](https://app.netlify.com/sites/stackql-digitalocean-docs/deploys) | [digitalocean-docs.stackql.io](https://digitalocean-docs.stackql.io)<br/>[digitalocean.stackql.io](https://digitalocean.stackql.io) |
+| Netlify Deploy Linode | [![Netlify Status](https://api.netlify.com/api/v1/badges/d0b573be-3dfb-495c-a0ce-478ec7acecd8/deploy-status)](https://app.netlify.com/sites/stackql-linode-docs/deploys) | [linode-docs.stackql.io](https://linode-docs.stackql.io)<br/>[linode.stackql.io](https://linode.stackql.io) |
 
 ## Adding Docs for a New Provider
 
 Adding docs for a new provider requires creating a new web property (subdomain) and will force an update to the root/base site and all other providers.  The steps are:  
 
-- create a new netlify site (`stackql-{provider}-docs`)
-- add `NETLIFY` record in Netlify DNS (mapping `{provider}.stackql.io to `stackql-{provider}-docs.netlify.app`)
-- add GitHub Actions secret for netlify site id - `NETLIFY_SITE_ID_{PROVIDER}`
-- add the Netlify deploy status badge to the table in this `README` (see above)
-- update the `providers` array in `sidebars.js` with the new provider
-- update the `providers` array `src/configs/providers.ts` with the new provider
-- update `package.json` with new `start` and `build` scripts
-- update frontmatter in the `index.md` at the root of the new providers docs, set `slug` to `/providers/{provider}` and `id` to `{provider}-doc`
-- update `allProviders` in `ci-scripts/get-providers-to-deploy.js` with the new provider
-- add the new provider docs to `docs/{provider}-docs` (following directory structure of existing providers)
-- update `stackql-provider-registry.mdx` in the root of the new provider to add the `currentProvider` prop, e.g. `<RegistryPage currentProvider="okta" />`
-- add the root site redirects for provider vanity urls to `.github/workflows/build-docs.yaml` to the `add redirects to root site` step of the `deploy-to-netlify` job
+- [ ] create a new netlify site (`stackql-{provider}-docs`)
+- [ ] add `NETLIFY` record in Netlify DNS (mapping `{provider}.stackql.io to `stackql-{provider}-docs.netlify.app`)
+- [ ] add GitHub Actions secret for netlify site id - `NETLIFY_SITE_ID_{PROVIDER}`
+- [ ] add the Netlify deploy status badge to the table in this `README` (see above)
+- [ ] update the `providers` array in `sidebars.js` with the new provider
+- [ ] update the `providers` array `src/configs/providers.ts` with the new provider
+- [ ] update `package.json` with new `start` and `build` scripts
+- [ ] update `allProviders` in `ci-scripts/get-providers-to-deploy.js` with the new provider
+- [ ] add the root site redirects for provider vanity urls to `.github/workflows/build-docs.yaml` to the `add redirects to root site` step of the `deploy-to-netlify` job
+- [x] add the new provider docs to `docs/{provider}-docs` (following directory structure of existing providers) (done automatically by `scripts/publish.sh`)
+- [x] update frontmatter in the `index.md` at the root of the new providers docs, set `slug` to `/providers/{provider}` and `id` to `{provider}-doc` (done automatically by `scripts/docgen.sh`)
+- [x] update `stackql-provider-registry.mdx` in the root of the new provider to add the `currentProvider` prop, e.g. `<RegistryPage currentProvider="okta" />` (done automatically by `scripts/docgen.sh`)
 
 ## Updating Existing Provider Docs
 
