@@ -104,10 +104,32 @@ provider_data = {
       'meta_description': 'Query, deploy and manage Azure resources using SQL',
       'description': ' Additional Azure cloud computing services by Microsoft.',
       'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
-  }
+  },
+  'linode': {
+      'meta_description': 'Query, deploy and manage Linode resources using SQL',
+      'description': ' Cloud Computing Services by Akamai.',
+      'image': '/img/providers/linode/stackql-linode-provider-featured-image.png' 
+  },  
 }
 
 auth_blocks = {
+# 
+# Linode
+#  
+  'linode': {
+    'custom': False,
+    'variables': """
+- `LINODE_TOKEN` - Linode API token (see [How to Create a Linode API Token](https://www.linode.com/docs/products/tools/api/guides/manage-api-tokens/#create-an-api-token))
+  """,
+    'linux': """
+AUTH='{ "linode": { "type": "bearer",  "credentialsenvvar": "YOUR_LINODE_TOKEN_VAR" }}'
+stackql shell --auth="${AUTH}"
+""",
+    'windows': """
+$Auth = "{ 'linode': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_LINODE_TOKEN_VAR' }}"
+stackql.exe shell --auth=$Auth
+""",
+  },
 # 
 # Digital Ocean
 #  
