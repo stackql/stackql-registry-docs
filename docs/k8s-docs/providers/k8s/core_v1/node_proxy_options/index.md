@@ -29,17 +29,17 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `connectCoreV1DeleteNodeProxy` | `EXEC` | `name` | connect DELETE requests to proxy of Node |
-| `connectCoreV1DeleteNodeProxyWithPath` | `EXEC` | `name, path` | connect DELETE requests to proxy of Node |
-| `connectCoreV1GetNodeProxy` | `EXEC` | `name` | connect GET requests to proxy of Node |
-| `connectCoreV1GetNodeProxyWithPath` | `EXEC` | `name, path` | connect GET requests to proxy of Node |
-| `connectCoreV1HeadNodeProxy` | `EXEC` | `name` | connect HEAD requests to proxy of Node |
-| `connectCoreV1HeadNodeProxyWithPath` | `EXEC` | `name, path` | connect HEAD requests to proxy of Node |
-| `connectCoreV1OptionsNodeProxy` | `EXEC` | `name` | connect OPTIONS requests to proxy of Node |
-| `connectCoreV1OptionsNodeProxyWithPath` | `EXEC` | `name, path` | connect OPTIONS requests to proxy of Node |
-| `connectCoreV1PatchNodeProxy` | `EXEC` | `name` | connect PATCH requests to proxy of Node |
-| `connectCoreV1PatchNodeProxyWithPath` | `EXEC` | `name, path` | connect PATCH requests to proxy of Node |
-| `connectCoreV1PostNodeProxy` | `EXEC` | `name` | connect POST requests to proxy of Node |
-| `connectCoreV1PostNodeProxyWithPath` | `EXEC` | `name, path` | connect POST requests to proxy of Node |
-| `connectCoreV1PutNodeProxy` | `EXEC` | `name` | connect PUT requests to proxy of Node |
-| `connectCoreV1PutNodeProxyWithPath` | `EXEC` | `name, path` | connect PUT requests to proxy of Node |
+| `connectCoreV1DeleteNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect DELETE requests to proxy of Node |
+| `connectCoreV1DeleteNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect DELETE requests to proxy of Node |
+| `connectCoreV1GetNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect GET requests to proxy of Node |
+| `connectCoreV1GetNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect GET requests to proxy of Node |
+| `connectCoreV1HeadNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect HEAD requests to proxy of Node |
+| `connectCoreV1HeadNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect HEAD requests to proxy of Node |
+| `connectCoreV1OptionsNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect OPTIONS requests to proxy of Node |
+| `connectCoreV1OptionsNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect OPTIONS requests to proxy of Node |
+| `connectCoreV1PatchNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect PATCH requests to proxy of Node |
+| `connectCoreV1PatchNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect PATCH requests to proxy of Node |
+| `connectCoreV1PostNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect POST requests to proxy of Node |
+| `connectCoreV1PostNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect POST requests to proxy of Node |
+| `connectCoreV1PutNodeProxy` | `EXEC` | `name, cluster_addr, protocol` | connect PUT requests to proxy of Node |
+| `connectCoreV1PutNodeProxyWithPath` | `EXEC` | `name, path, cluster_addr, protocol` | connect PUT requests to proxy of Node |

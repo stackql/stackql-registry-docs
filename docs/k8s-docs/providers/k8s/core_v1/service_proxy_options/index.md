@@ -29,17 +29,17 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `connectCoreV1DeleteNamespacedServiceProxy` | `EXEC` | `name, namespace` | connect DELETE requests to proxy of Service |
-| `connectCoreV1DeleteNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path` | connect DELETE requests to proxy of Service |
-| `connectCoreV1GetNamespacedServiceProxy` | `EXEC` | `name, namespace` | connect GET requests to proxy of Service |
-| `connectCoreV1GetNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path` | connect GET requests to proxy of Service |
-| `connectCoreV1HeadNamespacedServiceProxy` | `EXEC` | `name, namespace` | connect HEAD requests to proxy of Service |
-| `connectCoreV1HeadNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path` | connect HEAD requests to proxy of Service |
-| `connectCoreV1OptionsNamespacedServiceProxy` | `EXEC` | `name, namespace` | connect OPTIONS requests to proxy of Service |
-| `connectCoreV1OptionsNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path` | connect OPTIONS requests to proxy of Service |
-| `connectCoreV1PatchNamespacedServiceProxy` | `EXEC` | `name, namespace` | connect PATCH requests to proxy of Service |
-| `connectCoreV1PatchNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path` | connect PATCH requests to proxy of Service |
-| `connectCoreV1PostNamespacedServiceProxy` | `EXEC` | `name, namespace` | connect POST requests to proxy of Service |
-| `connectCoreV1PostNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path` | connect POST requests to proxy of Service |
-| `connectCoreV1PutNamespacedServiceProxy` | `EXEC` | `name, namespace` | connect PUT requests to proxy of Service |
-| `connectCoreV1PutNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path` | connect PUT requests to proxy of Service |
+| `connectCoreV1DeleteNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect DELETE requests to proxy of Service |
+| `connectCoreV1DeleteNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect DELETE requests to proxy of Service |
+| `connectCoreV1GetNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect GET requests to proxy of Service |
+| `connectCoreV1GetNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect GET requests to proxy of Service |
+| `connectCoreV1HeadNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect HEAD requests to proxy of Service |
+| `connectCoreV1HeadNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect HEAD requests to proxy of Service |
+| `connectCoreV1OptionsNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect OPTIONS requests to proxy of Service |
+| `connectCoreV1OptionsNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect OPTIONS requests to proxy of Service |
+| `connectCoreV1PatchNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect PATCH requests to proxy of Service |
+| `connectCoreV1PatchNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect PATCH requests to proxy of Service |
+| `connectCoreV1PostNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect POST requests to proxy of Service |
+| `connectCoreV1PostNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect POST requests to proxy of Service |
+| `connectCoreV1PutNamespacedServiceProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect PUT requests to proxy of Service |
+| `connectCoreV1PutNamespacedServiceProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect PUT requests to proxy of Service |

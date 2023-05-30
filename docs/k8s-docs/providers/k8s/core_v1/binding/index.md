@@ -29,5 +29,5 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `createCoreV1NamespacedBinding` | `INSERT` | `namespace` | create a Binding |
-| `createCoreV1NamespacedPodBinding` | `INSERT` | `name, namespace` | create binding of a Pod |
+| `createCoreV1NamespacedBinding` | `INSERT` | `namespace, cluster_addr, protocol` | create a Binding |
+| `createCoreV1NamespacedPodBinding` | `INSERT` | `name, namespace, cluster_addr, protocol` | create binding of a Pod |

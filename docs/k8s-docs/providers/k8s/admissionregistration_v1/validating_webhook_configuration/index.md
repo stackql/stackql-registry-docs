@@ -27,19 +27,19 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `webhooks` | `array` | Webhooks is a list of webhooks and the affected resources and operations. |
 | `apiVersion` | `string` | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |
 | `kind` | `string` | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |
 | `metadata` | `object` | ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create. |
+| `webhooks` | `array` | Webhooks is a list of webhooks and the affected resources and operations. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `listAdmissionregistrationV1ValidatingWebhookConfiguration` | `SELECT` |  | list or watch objects of kind ValidatingWebhookConfiguration |
-| `readAdmissionregistrationV1ValidatingWebhookConfiguration` | `SELECT` | `name` | read the specified ValidatingWebhookConfiguration |
-| `createAdmissionregistrationV1ValidatingWebhookConfiguration` | `INSERT` |  | create a ValidatingWebhookConfiguration |
-| `deleteAdmissionregistrationV1CollectionValidatingWebhookConfiguration` | `DELETE` |  | delete collection of ValidatingWebhookConfiguration |
-| `deleteAdmissionregistrationV1ValidatingWebhookConfiguration` | `DELETE` | `name` | delete a ValidatingWebhookConfiguration |
-| `patchAdmissionregistrationV1ValidatingWebhookConfiguration` | `EXEC` | `name` | partially update the specified ValidatingWebhookConfiguration |
-| `replaceAdmissionregistrationV1ValidatingWebhookConfiguration` | `EXEC` | `name` | replace the specified ValidatingWebhookConfiguration |
-| `watchAdmissionregistrationV1ValidatingWebhookConfiguration` | `EXEC` | `name` | watch changes to an object of kind ValidatingWebhookConfiguration. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
-| `watchAdmissionregistrationV1ValidatingWebhookConfigurationList` | `EXEC` |  | watch individual changes to a list of ValidatingWebhookConfiguration. deprecated: use the 'watch' parameter with a list operation instead. |
+| `listAdmissionregistrationV1ValidatingWebhookConfiguration` | `SELECT` | `cluster_addr, protocol` | list or watch objects of kind ValidatingWebhookConfiguration |
+| `readAdmissionregistrationV1ValidatingWebhookConfiguration` | `SELECT` | `name, cluster_addr, protocol` | read the specified ValidatingWebhookConfiguration |
+| `createAdmissionregistrationV1ValidatingWebhookConfiguration` | `INSERT` | `cluster_addr, protocol` | create a ValidatingWebhookConfiguration |
+| `deleteAdmissionregistrationV1CollectionValidatingWebhookConfiguration` | `DELETE` | `cluster_addr, protocol` | delete collection of ValidatingWebhookConfiguration |
+| `deleteAdmissionregistrationV1ValidatingWebhookConfiguration` | `DELETE` | `name, cluster_addr, protocol` | delete a ValidatingWebhookConfiguration |
+| `patchAdmissionregistrationV1ValidatingWebhookConfiguration` | `EXEC` | `name, cluster_addr, protocol` | partially update the specified ValidatingWebhookConfiguration |
+| `replaceAdmissionregistrationV1ValidatingWebhookConfiguration` | `EXEC` | `name, cluster_addr, protocol` | replace the specified ValidatingWebhookConfiguration |
+| `watchAdmissionregistrationV1ValidatingWebhookConfiguration` | `EXEC` | `name, cluster_addr, protocol` | watch changes to an object of kind ValidatingWebhookConfiguration. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
+| `watchAdmissionregistrationV1ValidatingWebhookConfigurationList` | `EXEC` | `cluster_addr, protocol` | watch individual changes to a list of ValidatingWebhookConfiguration. deprecated: use the 'watch' parameter with a list operation instead. |

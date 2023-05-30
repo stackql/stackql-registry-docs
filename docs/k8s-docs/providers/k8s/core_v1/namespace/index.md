@@ -27,23 +27,23 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `spec` | `object` | NamespaceSpec describes the attributes on a Namespace. |
 | `status` | `object` | NamespaceStatus is information about the current status of a Namespace. |
 | `apiVersion` | `string` | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |
 | `kind` | `string` | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |
 | `metadata` | `object` | ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create. |
+| `spec` | `object` | NamespaceSpec describes the attributes on a Namespace. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `listCoreV1Namespace` | `SELECT` |  | list or watch objects of kind Namespace |
-| `readCoreV1Namespace` | `SELECT` | `name` | read the specified Namespace |
-| `createCoreV1Namespace` | `INSERT` |  | create a Namespace |
-| `deleteCoreV1Namespace` | `DELETE` | `name` | delete a Namespace |
-| `patchCoreV1Namespace` | `EXEC` | `name` | partially update the specified Namespace |
-| `patchCoreV1NamespaceStatus` | `EXEC` | `name` | partially update status of the specified Namespace |
-| `readCoreV1NamespaceStatus` | `EXEC` | `name` | read status of the specified Namespace |
-| `replaceCoreV1Namespace` | `EXEC` | `name` | replace the specified Namespace |
-| `replaceCoreV1NamespaceFinalize` | `EXEC` | `name` | replace finalize of the specified Namespace |
-| `replaceCoreV1NamespaceStatus` | `EXEC` | `name` | replace status of the specified Namespace |
-| `watchCoreV1Namespace` | `EXEC` | `name` | watch changes to an object of kind Namespace. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
-| `watchCoreV1NamespaceList` | `EXEC` |  | watch individual changes to a list of Namespace. deprecated: use the 'watch' parameter with a list operation instead. |
+| `listCoreV1Namespace` | `SELECT` | `cluster_addr, protocol` | list or watch objects of kind Namespace |
+| `readCoreV1Namespace` | `SELECT` | `name, cluster_addr, protocol` | read the specified Namespace |
+| `createCoreV1Namespace` | `INSERT` | `cluster_addr, protocol` | create a Namespace |
+| `deleteCoreV1Namespace` | `DELETE` | `name, cluster_addr, protocol` | delete a Namespace |
+| `patchCoreV1Namespace` | `EXEC` | `name, cluster_addr, protocol` | partially update the specified Namespace |
+| `patchCoreV1NamespaceStatus` | `EXEC` | `name, cluster_addr, protocol` | partially update status of the specified Namespace |
+| `readCoreV1NamespaceStatus` | `EXEC` | `name, cluster_addr, protocol` | read status of the specified Namespace |
+| `replaceCoreV1Namespace` | `EXEC` | `name, cluster_addr, protocol` | replace the specified Namespace |
+| `replaceCoreV1NamespaceFinalize` | `EXEC` | `name, cluster_addr, protocol` | replace finalize of the specified Namespace |
+| `replaceCoreV1NamespaceStatus` | `EXEC` | `name, cluster_addr, protocol` | replace status of the specified Namespace |
+| `watchCoreV1Namespace` | `EXEC` | `name, cluster_addr, protocol` | watch changes to an object of kind Namespace. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
+| `watchCoreV1NamespaceList` | `EXEC` | `cluster_addr, protocol` | watch individual changes to a list of Namespace. deprecated: use the 'watch' parameter with a list operation instead. |

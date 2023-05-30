@@ -27,21 +27,21 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |
 | `metadata` | `object` | ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create. |
 | `template` | `object` | PodTemplateSpec describes the data a pod should have when created from a template |
 | `apiVersion` | `string` | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |
+| `kind` | `string` | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `listCoreV1NamespacedPodTemplate` | `SELECT` | `namespace` | list or watch objects of kind PodTemplate |
-| `listCoreV1PodTemplateForAllNamespaces` | `SELECT` |  | list or watch objects of kind PodTemplate |
-| `readCoreV1NamespacedPodTemplate` | `SELECT` | `name, namespace` | read the specified PodTemplate |
-| `createCoreV1NamespacedPodTemplate` | `INSERT` | `namespace` | create a PodTemplate |
-| `deleteCoreV1CollectionNamespacedPodTemplate` | `DELETE` | `namespace` | delete collection of PodTemplate |
-| `deleteCoreV1NamespacedPodTemplate` | `DELETE` | `name, namespace` | delete a PodTemplate |
-| `patchCoreV1NamespacedPodTemplate` | `EXEC` | `name, namespace` | partially update the specified PodTemplate |
-| `replaceCoreV1NamespacedPodTemplate` | `EXEC` | `name, namespace` | replace the specified PodTemplate |
-| `watchCoreV1NamespacedPodTemplate` | `EXEC` | `name, namespace` | watch changes to an object of kind PodTemplate. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
-| `watchCoreV1NamespacedPodTemplateList` | `EXEC` | `namespace` | watch individual changes to a list of PodTemplate. deprecated: use the 'watch' parameter with a list operation instead. |
-| `watchCoreV1PodTemplateListForAllNamespaces` | `EXEC` |  | watch individual changes to a list of PodTemplate. deprecated: use the 'watch' parameter with a list operation instead. |
+| `listCoreV1NamespacedPodTemplate` | `SELECT` | `namespace, cluster_addr, protocol` | list or watch objects of kind PodTemplate |
+| `listCoreV1PodTemplateForAllNamespaces` | `SELECT` | `cluster_addr, protocol` | list or watch objects of kind PodTemplate |
+| `readCoreV1NamespacedPodTemplate` | `SELECT` | `name, namespace, cluster_addr, protocol` | read the specified PodTemplate |
+| `createCoreV1NamespacedPodTemplate` | `INSERT` | `namespace, cluster_addr, protocol` | create a PodTemplate |
+| `deleteCoreV1CollectionNamespacedPodTemplate` | `DELETE` | `namespace, cluster_addr, protocol` | delete collection of PodTemplate |
+| `deleteCoreV1NamespacedPodTemplate` | `DELETE` | `name, namespace, cluster_addr, protocol` | delete a PodTemplate |
+| `patchCoreV1NamespacedPodTemplate` | `EXEC` | `name, namespace, cluster_addr, protocol` | partially update the specified PodTemplate |
+| `replaceCoreV1NamespacedPodTemplate` | `EXEC` | `name, namespace, cluster_addr, protocol` | replace the specified PodTemplate |
+| `watchCoreV1NamespacedPodTemplate` | `EXEC` | `name, namespace, cluster_addr, protocol` | watch changes to an object of kind PodTemplate. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
+| `watchCoreV1NamespacedPodTemplateList` | `EXEC` | `namespace, cluster_addr, protocol` | watch individual changes to a list of PodTemplate. deprecated: use the 'watch' parameter with a list operation instead. |
+| `watchCoreV1PodTemplateListForAllNamespaces` | `EXEC` | `cluster_addr, protocol` | watch individual changes to a list of PodTemplate. deprecated: use the 'watch' parameter with a list operation instead. |

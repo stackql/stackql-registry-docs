@@ -96,6 +96,17 @@ Alternatively, you could add the `--tls.allowInsecure=true` argument to the `sta
 
 :::
 
+
+## Server Parameters
+
+
+The following parameters may be required for the `k8s` provider:  
+
+- `protocol` - `https` or `http` (default: `https`)
+- `cluster_addr` - The hostname of the Kubernetes cluster (default: `localhost`)
+
+This parameter would be supplied to the `WHERE` clause of each `SELECT` statement.
+    
 ## Services
 <div class="row">
 <div class="providerDocColumn">

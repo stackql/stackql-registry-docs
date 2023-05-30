@@ -29,5 +29,5 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `connectCoreV1GetNamespacedPodAttach` | `EXEC` | `name, namespace` | connect GET requests to attach of Pod |
-| `connectCoreV1PostNamespacedPodAttach` | `EXEC` | `name, namespace` | connect POST requests to attach of Pod |
+| `connectCoreV1GetNamespacedPodAttach` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect GET requests to attach of Pod |
+| `connectCoreV1PostNamespacedPodAttach` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect POST requests to attach of Pod |
