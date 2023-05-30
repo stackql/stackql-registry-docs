@@ -36,4 +36,4 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getAdmissionregistrationAPIGroup` | `SELECT` |  |
+| `getAdmissionregistrationAPIGroup` | `SELECT` | `cluster_addr, protocol` |

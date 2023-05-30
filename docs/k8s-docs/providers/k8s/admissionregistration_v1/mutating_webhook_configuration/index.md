@@ -34,12 +34,12 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `listAdmissionregistrationV1MutatingWebhookConfiguration` | `SELECT` |  | list or watch objects of kind MutatingWebhookConfiguration |
-| `readAdmissionregistrationV1MutatingWebhookConfiguration` | `SELECT` | `name` | read the specified MutatingWebhookConfiguration |
-| `createAdmissionregistrationV1MutatingWebhookConfiguration` | `INSERT` |  | create a MutatingWebhookConfiguration |
-| `deleteAdmissionregistrationV1CollectionMutatingWebhookConfiguration` | `DELETE` |  | delete collection of MutatingWebhookConfiguration |
-| `deleteAdmissionregistrationV1MutatingWebhookConfiguration` | `DELETE` | `name` | delete a MutatingWebhookConfiguration |
-| `patchAdmissionregistrationV1MutatingWebhookConfiguration` | `EXEC` | `name` | partially update the specified MutatingWebhookConfiguration |
-| `replaceAdmissionregistrationV1MutatingWebhookConfiguration` | `EXEC` | `name` | replace the specified MutatingWebhookConfiguration |
-| `watchAdmissionregistrationV1MutatingWebhookConfiguration` | `EXEC` | `name` | watch changes to an object of kind MutatingWebhookConfiguration. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
-| `watchAdmissionregistrationV1MutatingWebhookConfigurationList` | `EXEC` |  | watch individual changes to a list of MutatingWebhookConfiguration. deprecated: use the 'watch' parameter with a list operation instead. |
+| `listAdmissionregistrationV1MutatingWebhookConfiguration` | `SELECT` | `cluster_addr, protocol` | list or watch objects of kind MutatingWebhookConfiguration |
+| `readAdmissionregistrationV1MutatingWebhookConfiguration` | `SELECT` | `name, cluster_addr, protocol` | read the specified MutatingWebhookConfiguration |
+| `createAdmissionregistrationV1MutatingWebhookConfiguration` | `INSERT` | `cluster_addr, protocol` | create a MutatingWebhookConfiguration |
+| `deleteAdmissionregistrationV1CollectionMutatingWebhookConfiguration` | `DELETE` | `cluster_addr, protocol` | delete collection of MutatingWebhookConfiguration |
+| `deleteAdmissionregistrationV1MutatingWebhookConfiguration` | `DELETE` | `name, cluster_addr, protocol` | delete a MutatingWebhookConfiguration |
+| `patchAdmissionregistrationV1MutatingWebhookConfiguration` | `EXEC` | `name, cluster_addr, protocol` | partially update the specified MutatingWebhookConfiguration |
+| `replaceAdmissionregistrationV1MutatingWebhookConfiguration` | `EXEC` | `name, cluster_addr, protocol` | replace the specified MutatingWebhookConfiguration |
+| `watchAdmissionregistrationV1MutatingWebhookConfiguration` | `EXEC` | `name, cluster_addr, protocol` | watch changes to an object of kind MutatingWebhookConfiguration. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
+| `watchAdmissionregistrationV1MutatingWebhookConfigurationList` | `EXEC` | `cluster_addr, protocol` | watch individual changes to a list of MutatingWebhookConfiguration. deprecated: use the 'watch' parameter with a list operation instead. |

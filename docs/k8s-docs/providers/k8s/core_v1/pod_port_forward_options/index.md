@@ -29,5 +29,5 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `connectCoreV1GetNamespacedPodPortforward` | `EXEC` | `name, namespace` | connect GET requests to portforward of Pod |
-| `connectCoreV1PostNamespacedPodPortforward` | `EXEC` | `name, namespace` | connect POST requests to portforward of Pod |
+| `connectCoreV1GetNamespacedPodPortforward` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect GET requests to portforward of Pod |
+| `connectCoreV1PostNamespacedPodPortforward` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect POST requests to portforward of Pod |

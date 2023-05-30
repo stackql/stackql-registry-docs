@@ -29,17 +29,17 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `connectCoreV1DeleteNamespacedPodProxy` | `EXEC` | `name, namespace` | connect DELETE requests to proxy of Pod |
-| `connectCoreV1DeleteNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path` | connect DELETE requests to proxy of Pod |
-| `connectCoreV1GetNamespacedPodProxy` | `EXEC` | `name, namespace` | connect GET requests to proxy of Pod |
-| `connectCoreV1GetNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path` | connect GET requests to proxy of Pod |
-| `connectCoreV1HeadNamespacedPodProxy` | `EXEC` | `name, namespace` | connect HEAD requests to proxy of Pod |
-| `connectCoreV1HeadNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path` | connect HEAD requests to proxy of Pod |
-| `connectCoreV1OptionsNamespacedPodProxy` | `EXEC` | `name, namespace` | connect OPTIONS requests to proxy of Pod |
-| `connectCoreV1OptionsNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path` | connect OPTIONS requests to proxy of Pod |
-| `connectCoreV1PatchNamespacedPodProxy` | `EXEC` | `name, namespace` | connect PATCH requests to proxy of Pod |
-| `connectCoreV1PatchNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path` | connect PATCH requests to proxy of Pod |
-| `connectCoreV1PostNamespacedPodProxy` | `EXEC` | `name, namespace` | connect POST requests to proxy of Pod |
-| `connectCoreV1PostNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path` | connect POST requests to proxy of Pod |
-| `connectCoreV1PutNamespacedPodProxy` | `EXEC` | `name, namespace` | connect PUT requests to proxy of Pod |
-| `connectCoreV1PutNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path` | connect PUT requests to proxy of Pod |
+| `connectCoreV1DeleteNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect DELETE requests to proxy of Pod |
+| `connectCoreV1DeleteNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect DELETE requests to proxy of Pod |
+| `connectCoreV1GetNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect GET requests to proxy of Pod |
+| `connectCoreV1GetNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect GET requests to proxy of Pod |
+| `connectCoreV1HeadNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect HEAD requests to proxy of Pod |
+| `connectCoreV1HeadNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect HEAD requests to proxy of Pod |
+| `connectCoreV1OptionsNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect OPTIONS requests to proxy of Pod |
+| `connectCoreV1OptionsNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect OPTIONS requests to proxy of Pod |
+| `connectCoreV1PatchNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect PATCH requests to proxy of Pod |
+| `connectCoreV1PatchNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect PATCH requests to proxy of Pod |
+| `connectCoreV1PostNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect POST requests to proxy of Pod |
+| `connectCoreV1PostNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect POST requests to proxy of Pod |
+| `connectCoreV1PutNamespacedPodProxy` | `EXEC` | `name, namespace, cluster_addr, protocol` | connect PUT requests to proxy of Pod |
+| `connectCoreV1PutNamespacedPodProxyWithPath` | `EXEC` | `name, namespace, path, cluster_addr, protocol` | connect PUT requests to proxy of Pod |

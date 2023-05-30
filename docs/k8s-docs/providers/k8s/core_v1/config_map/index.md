@@ -36,14 +36,14 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `listCoreV1ConfigMapForAllNamespaces` | `SELECT` |  | list or watch objects of kind ConfigMap |
-| `listCoreV1NamespacedConfigMap` | `SELECT` | `namespace` | list or watch objects of kind ConfigMap |
-| `readCoreV1NamespacedConfigMap` | `SELECT` | `name, namespace` | read the specified ConfigMap |
-| `createCoreV1NamespacedConfigMap` | `INSERT` | `namespace` | create a ConfigMap |
-| `deleteCoreV1CollectionNamespacedConfigMap` | `DELETE` | `namespace` | delete collection of ConfigMap |
-| `deleteCoreV1NamespacedConfigMap` | `DELETE` | `name, namespace` | delete a ConfigMap |
-| `patchCoreV1NamespacedConfigMap` | `EXEC` | `name, namespace` | partially update the specified ConfigMap |
-| `replaceCoreV1NamespacedConfigMap` | `EXEC` | `name, namespace` | replace the specified ConfigMap |
-| `watchCoreV1ConfigMapListForAllNamespaces` | `EXEC` |  | watch individual changes to a list of ConfigMap. deprecated: use the 'watch' parameter with a list operation instead. |
-| `watchCoreV1NamespacedConfigMap` | `EXEC` | `name, namespace` | watch changes to an object of kind ConfigMap. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
-| `watchCoreV1NamespacedConfigMapList` | `EXEC` | `namespace` | watch individual changes to a list of ConfigMap. deprecated: use the 'watch' parameter with a list operation instead. |
+| `listCoreV1ConfigMapForAllNamespaces` | `SELECT` | `cluster_addr, protocol` | list or watch objects of kind ConfigMap |
+| `listCoreV1NamespacedConfigMap` | `SELECT` | `namespace, cluster_addr, protocol` | list or watch objects of kind ConfigMap |
+| `readCoreV1NamespacedConfigMap` | `SELECT` | `name, namespace, cluster_addr, protocol` | read the specified ConfigMap |
+| `createCoreV1NamespacedConfigMap` | `INSERT` | `namespace, cluster_addr, protocol` | create a ConfigMap |
+| `deleteCoreV1CollectionNamespacedConfigMap` | `DELETE` | `namespace, cluster_addr, protocol` | delete collection of ConfigMap |
+| `deleteCoreV1NamespacedConfigMap` | `DELETE` | `name, namespace, cluster_addr, protocol` | delete a ConfigMap |
+| `patchCoreV1NamespacedConfigMap` | `EXEC` | `name, namespace, cluster_addr, protocol` | partially update the specified ConfigMap |
+| `replaceCoreV1NamespacedConfigMap` | `EXEC` | `name, namespace, cluster_addr, protocol` | replace the specified ConfigMap |
+| `watchCoreV1ConfigMapListForAllNamespaces` | `EXEC` | `cluster_addr, protocol` | watch individual changes to a list of ConfigMap. deprecated: use the 'watch' parameter with a list operation instead. |
+| `watchCoreV1NamespacedConfigMap` | `EXEC` | `name, namespace, cluster_addr, protocol` | watch changes to an object of kind ConfigMap. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
+| `watchCoreV1NamespacedConfigMapList` | `EXEC` | `namespace, cluster_addr, protocol` | watch individual changes to a list of ConfigMap. deprecated: use the 'watch' parameter with a list operation instead. |

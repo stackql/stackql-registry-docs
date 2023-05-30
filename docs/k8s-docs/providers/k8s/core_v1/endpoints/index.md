@@ -27,21 +27,21 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `apiVersion` | `string` | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |
 | `kind` | `string` | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |
 | `metadata` | `object` | ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create. |
 | `subsets` | `array` | The set of all endpoints is the union of all subsets. Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service. |
-| `apiVersion` | `string` | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `listCoreV1EndpointsForAllNamespaces` | `SELECT` |  | list or watch objects of kind Endpoints |
-| `listCoreV1NamespacedEndpoints` | `SELECT` | `namespace` | list or watch objects of kind Endpoints |
-| `readCoreV1NamespacedEndpoints` | `SELECT` | `name, namespace` | read the specified Endpoints |
-| `createCoreV1NamespacedEndpoints` | `INSERT` | `namespace` | create Endpoints |
-| `deleteCoreV1CollectionNamespacedEndpoints` | `DELETE` | `namespace` | delete collection of Endpoints |
-| `deleteCoreV1NamespacedEndpoints` | `DELETE` | `name, namespace` | delete Endpoints |
-| `patchCoreV1NamespacedEndpoints` | `EXEC` | `name, namespace` | partially update the specified Endpoints |
-| `replaceCoreV1NamespacedEndpoints` | `EXEC` | `name, namespace` | replace the specified Endpoints |
-| `watchCoreV1EndpointsListForAllNamespaces` | `EXEC` |  | watch individual changes to a list of Endpoints. deprecated: use the 'watch' parameter with a list operation instead. |
-| `watchCoreV1NamespacedEndpoints` | `EXEC` | `name, namespace` | watch changes to an object of kind Endpoints. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
-| `watchCoreV1NamespacedEndpointsList` | `EXEC` | `namespace` | watch individual changes to a list of Endpoints. deprecated: use the 'watch' parameter with a list operation instead. |
+| `listCoreV1EndpointsForAllNamespaces` | `SELECT` | `cluster_addr, protocol` | list or watch objects of kind Endpoints |
+| `listCoreV1NamespacedEndpoints` | `SELECT` | `namespace, cluster_addr, protocol` | list or watch objects of kind Endpoints |
+| `readCoreV1NamespacedEndpoints` | `SELECT` | `name, namespace, cluster_addr, protocol` | read the specified Endpoints |
+| `createCoreV1NamespacedEndpoints` | `INSERT` | `namespace, cluster_addr, protocol` | create Endpoints |
+| `deleteCoreV1CollectionNamespacedEndpoints` | `DELETE` | `namespace, cluster_addr, protocol` | delete collection of Endpoints |
+| `deleteCoreV1NamespacedEndpoints` | `DELETE` | `name, namespace, cluster_addr, protocol` | delete Endpoints |
+| `patchCoreV1NamespacedEndpoints` | `EXEC` | `name, namespace, cluster_addr, protocol` | partially update the specified Endpoints |
+| `replaceCoreV1NamespacedEndpoints` | `EXEC` | `name, namespace, cluster_addr, protocol` | replace the specified Endpoints |
+| `watchCoreV1EndpointsListForAllNamespaces` | `EXEC` | `cluster_addr, protocol` | watch individual changes to a list of Endpoints. deprecated: use the 'watch' parameter with a list operation instead. |
+| `watchCoreV1NamespacedEndpoints` | `EXEC` | `name, namespace, cluster_addr, protocol` | watch changes to an object of kind Endpoints. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
+| `watchCoreV1NamespacedEndpointsList` | `EXEC` | `namespace, cluster_addr, protocol` | watch individual changes to a list of Endpoints. deprecated: use the 'watch' parameter with a list operation instead. |

@@ -35,6 +35,6 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `readCoreV1NamespacedReplicationControllerScale` | `SELECT` | `name, namespace` | read scale of the specified ReplicationController |
-| `patchCoreV1NamespacedReplicationControllerScale` | `EXEC` | `name, namespace` | partially update scale of the specified ReplicationController |
-| `replaceCoreV1NamespacedReplicationControllerScale` | `EXEC` | `name, namespace` | replace scale of the specified ReplicationController |
+| `readCoreV1NamespacedReplicationControllerScale` | `SELECT` | `name, namespace, cluster_addr, protocol` | read scale of the specified ReplicationController |
+| `patchCoreV1NamespacedReplicationControllerScale` | `EXEC` | `name, namespace, cluster_addr, protocol` | partially update scale of the specified ReplicationController |
+| `replaceCoreV1NamespacedReplicationControllerScale` | `EXEC` | `name, namespace, cluster_addr, protocol` | replace scale of the specified ReplicationController |

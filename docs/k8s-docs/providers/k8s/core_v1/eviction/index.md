@@ -29,4 +29,4 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `createCoreV1NamespacedPodEviction` | `INSERT` | `name, namespace` |
+| `createCoreV1NamespacedPodEviction` | `INSERT` | `name, namespace, cluster_addr, protocol` |

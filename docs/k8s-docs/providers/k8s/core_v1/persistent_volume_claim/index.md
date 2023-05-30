@@ -35,17 +35,17 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `listCoreV1NamespacedPersistentVolumeClaim` | `SELECT` | `namespace` | list or watch objects of kind PersistentVolumeClaim |
-| `listCoreV1PersistentVolumeClaimForAllNamespaces` | `SELECT` |  | list or watch objects of kind PersistentVolumeClaim |
-| `readCoreV1NamespacedPersistentVolumeClaim` | `SELECT` | `name, namespace` | read the specified PersistentVolumeClaim |
-| `createCoreV1NamespacedPersistentVolumeClaim` | `INSERT` | `namespace` | create a PersistentVolumeClaim |
-| `deleteCoreV1CollectionNamespacedPersistentVolumeClaim` | `DELETE` | `namespace` | delete collection of PersistentVolumeClaim |
-| `deleteCoreV1NamespacedPersistentVolumeClaim` | `DELETE` | `name, namespace` | delete a PersistentVolumeClaim |
-| `patchCoreV1NamespacedPersistentVolumeClaim` | `EXEC` | `name, namespace` | partially update the specified PersistentVolumeClaim |
-| `patchCoreV1NamespacedPersistentVolumeClaimStatus` | `EXEC` | `name, namespace` | partially update status of the specified PersistentVolumeClaim |
-| `readCoreV1NamespacedPersistentVolumeClaimStatus` | `EXEC` | `name, namespace` | read status of the specified PersistentVolumeClaim |
-| `replaceCoreV1NamespacedPersistentVolumeClaim` | `EXEC` | `name, namespace` | replace the specified PersistentVolumeClaim |
-| `replaceCoreV1NamespacedPersistentVolumeClaimStatus` | `EXEC` | `name, namespace` | replace status of the specified PersistentVolumeClaim |
-| `watchCoreV1NamespacedPersistentVolumeClaim` | `EXEC` | `name, namespace` | watch changes to an object of kind PersistentVolumeClaim. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
-| `watchCoreV1NamespacedPersistentVolumeClaimList` | `EXEC` | `namespace` | watch individual changes to a list of PersistentVolumeClaim. deprecated: use the 'watch' parameter with a list operation instead. |
-| `watchCoreV1PersistentVolumeClaimListForAllNamespaces` | `EXEC` |  | watch individual changes to a list of PersistentVolumeClaim. deprecated: use the 'watch' parameter with a list operation instead. |
+| `listCoreV1NamespacedPersistentVolumeClaim` | `SELECT` | `namespace, cluster_addr, protocol` | list or watch objects of kind PersistentVolumeClaim |
+| `listCoreV1PersistentVolumeClaimForAllNamespaces` | `SELECT` | `cluster_addr, protocol` | list or watch objects of kind PersistentVolumeClaim |
+| `readCoreV1NamespacedPersistentVolumeClaim` | `SELECT` | `name, namespace, cluster_addr, protocol` | read the specified PersistentVolumeClaim |
+| `createCoreV1NamespacedPersistentVolumeClaim` | `INSERT` | `namespace, cluster_addr, protocol` | create a PersistentVolumeClaim |
+| `deleteCoreV1CollectionNamespacedPersistentVolumeClaim` | `DELETE` | `namespace, cluster_addr, protocol` | delete collection of PersistentVolumeClaim |
+| `deleteCoreV1NamespacedPersistentVolumeClaim` | `DELETE` | `name, namespace, cluster_addr, protocol` | delete a PersistentVolumeClaim |
+| `patchCoreV1NamespacedPersistentVolumeClaim` | `EXEC` | `name, namespace, cluster_addr, protocol` | partially update the specified PersistentVolumeClaim |
+| `patchCoreV1NamespacedPersistentVolumeClaimStatus` | `EXEC` | `name, namespace, cluster_addr, protocol` | partially update status of the specified PersistentVolumeClaim |
+| `readCoreV1NamespacedPersistentVolumeClaimStatus` | `EXEC` | `name, namespace, cluster_addr, protocol` | read status of the specified PersistentVolumeClaim |
+| `replaceCoreV1NamespacedPersistentVolumeClaim` | `EXEC` | `name, namespace, cluster_addr, protocol` | replace the specified PersistentVolumeClaim |
+| `replaceCoreV1NamespacedPersistentVolumeClaimStatus` | `EXEC` | `name, namespace, cluster_addr, protocol` | replace status of the specified PersistentVolumeClaim |
+| `watchCoreV1NamespacedPersistentVolumeClaim` | `EXEC` | `name, namespace, cluster_addr, protocol` | watch changes to an object of kind PersistentVolumeClaim. deprecated: use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter. |
+| `watchCoreV1NamespacedPersistentVolumeClaimList` | `EXEC` | `namespace, cluster_addr, protocol` | watch individual changes to a list of PersistentVolumeClaim. deprecated: use the 'watch' parameter with a list operation instead. |
+| `watchCoreV1PersistentVolumeClaimListForAllNamespaces` | `EXEC` | `cluster_addr, protocol` | watch individual changes to a list of PersistentVolumeClaim. deprecated: use the 'watch' parameter with a list operation instead. |
