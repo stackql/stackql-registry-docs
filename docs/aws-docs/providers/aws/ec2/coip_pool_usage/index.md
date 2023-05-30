@@ -34,4 +34,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `coip_pool_usage_Get` | `SELECT` | `PoolId` |
+| `coip_pool_usage_Get` | `SELECT` | `PoolId, region` |

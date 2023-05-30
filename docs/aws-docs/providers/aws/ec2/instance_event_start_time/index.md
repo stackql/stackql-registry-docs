@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instance_event_start_time_Modify` | `EXEC` | `InstanceEventId, InstanceId, NotBefore` |
+| `instance_event_start_time_Modify` | `EXEC` | `InstanceEventId, InstanceId, NotBefore, region` |

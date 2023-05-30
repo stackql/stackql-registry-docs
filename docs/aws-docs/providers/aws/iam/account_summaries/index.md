@@ -28,4 +28,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `account_summaries_Get` | `SELECT` |  |
+| `account_summaries_Get` | `SELECT` | `region` |

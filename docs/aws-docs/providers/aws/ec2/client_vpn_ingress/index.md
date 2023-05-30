@@ -29,5 +29,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `client_vpn_ingress_Authorize` | `EXEC` | `ClientVpnEndpointId, TargetNetworkCidr` | Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as firewall rules that grant access to networks. You must configure ingress authorization rules to enable clients to access resources in Amazon Web Services or on-premises networks. |
-| `client_vpn_ingress_Revoke` | `EXEC` | `ClientVpnEndpointId, TargetNetworkCidr` | Removes an ingress authorization rule from a Client VPN endpoint.  |
+| `client_vpn_ingress_Authorize` | `EXEC` | `ClientVpnEndpointId, TargetNetworkCidr, region` | Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as firewall rules that grant access to networks. You must configure ingress authorization rules to enable clients to access resources in Amazon Web Services or on-premises networks. |
+| `client_vpn_ingress_Revoke` | `EXEC` | `ClientVpnEndpointId, TargetNetworkCidr, region` | Removes an ingress authorization rule from a Client VPN endpoint.  |

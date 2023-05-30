@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `volume_i_o_Enable` | `EXEC` | `VolumeId` |
+| `volume_i_o_Enable` | `EXEC` | `VolumeId, region` |

@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpc_tenancy_Modify` | `EXEC` | `InstanceTenancy, VpcId` |
+| `vpc_tenancy_Modify` | `EXEC` | `InstanceTenancy, VpcId, region` |

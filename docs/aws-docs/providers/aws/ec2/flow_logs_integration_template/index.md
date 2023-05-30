@@ -28,4 +28,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `flow_logs_integration_template_Get` | `SELECT` | `ConfigDeliveryS3DestinationArn, FlowLogId, IntegrateService` |
+| `flow_logs_integration_template_Get` | `SELECT` | `ConfigDeliveryS3DestinationArn, FlowLogId, IntegrateService, region` |

@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `uefiData` | `string` | Base64 representation of the non-volatile UEFI variable store. |
 | `instanceId` | `string` | The ID of the instance from which to retrieve the UEFI data. |
+| `uefiData` | `string` | Base64 representation of the non-volatile UEFI variable store. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instance_uefi_data_Get` | `SELECT` | `InstanceId` |
+| `instance_uefi_data_Get` | `SELECT` | `InstanceId, region` |

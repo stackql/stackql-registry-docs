@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `security_group_rule_descriptions_ingress_Update` | `EXEC` |  |
+| `security_group_rule_descriptions_ingress_Update` | `EXEC` | `region` |

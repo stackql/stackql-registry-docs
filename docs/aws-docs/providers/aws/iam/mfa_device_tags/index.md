@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `mfa_device_tags_List` | `SELECT` | `SerialNumber` |
+| `mfa_device_tags_List` | `SELECT` | `SerialNumber, region` |

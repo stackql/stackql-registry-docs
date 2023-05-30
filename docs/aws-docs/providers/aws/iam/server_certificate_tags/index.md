@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `server_certificate_tags_List` | `SELECT` | `ServerCertificateName` |
+| `server_certificate_tags_List` | `SELECT` | `ServerCertificateName, region` |

@@ -28,13 +28,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `object` | Describes a value for a resource attribute that is a String. |
-| `attachment` | `object` | Describes a network interface attachment. |
-| `groupSet` | `array` | The security groups associated with the network interface. |
 | `networkInterfaceId` | `string` | The ID of the network interface. |
 | `sourceDestCheck` | `object` | Describes a value for a resource attribute that is a Boolean value. |
+| `attachment` | `object` | Describes a network interface attachment. |
+| `groupSet` | `array` | The security groups associated with the network interface. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `network_interface_attribute_Describe` | `SELECT` | `NetworkInterfaceId` | Describes a network interface attribute. You can specify only one attribute at a time. |
-| `network_interface_attribute_Modify` | `EXEC` | `NetworkInterfaceId` | Modifies the specified network interface attribute. You can specify only one attribute at a time. You can use this action to attach and detach security groups from an existing EC2 instance. |
-| `network_interface_attribute_Reset` | `EXEC` | `NetworkInterfaceId` | Resets a network interface attribute. You can specify only one attribute at a time. |
+| `network_interface_attribute_Describe` | `SELECT` | `NetworkInterfaceId, region` | Describes a network interface attribute. You can specify only one attribute at a time. |
+| `network_interface_attribute_Modify` | `EXEC` | `NetworkInterfaceId, region` | Modifies the specified network interface attribute. You can specify only one attribute at a time. You can use this action to attach and detach security groups from an existing EC2 instance. |
+| `network_interface_attribute_Reset` | `EXEC` | `NetworkInterfaceId, region` | Resets a network interface attribute. You can specify only one attribute at a time. |

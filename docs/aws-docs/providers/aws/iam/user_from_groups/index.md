@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `user_from_groups_Remove` | `EXEC` | `GroupName, UserName` |
+| `user_from_groups_Remove` | `EXEC` | `GroupName, UserName, region` |

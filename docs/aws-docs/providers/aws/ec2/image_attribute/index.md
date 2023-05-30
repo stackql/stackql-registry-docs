@@ -29,19 +29,19 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 |:-----|:---------|:------------|
 | `description` | `object` | Describes a value for a resource attribute that is a String. |
 | `blockDeviceMapping` | `array` | The block device mapping entries. |
-| `productCodes` | `array` | The product codes. |
 | `ramdisk` | `object` | Describes a value for a resource attribute that is a String. |
 | `tpmSupport` | `object` | Describes a value for a resource attribute that is a String. |
-| `kernel` | `object` | Describes a value for a resource attribute that is a String. |
-| `sriovNetSupport` | `object` | Describes a value for a resource attribute that is a String. |
 | `uefiData` | `object` | Describes a value for a resource attribute that is a String. |
-| `imageId` | `string` | The ID of the AMI. |
-| `lastLaunchedTime` | `object` | Describes a value for a resource attribute that is a String. |
-| `launchPermission` | `array` | The launch permissions. |
 | `bootMode` | `object` | Describes a value for a resource attribute that is a String. |
+| `launchPermission` | `array` | The launch permissions. |
+| `productCodes` | `array` | The product codes. |
+| `sriovNetSupport` | `object` | Describes a value for a resource attribute that is a String. |
+| `kernel` | `object` | Describes a value for a resource attribute that is a String. |
+| `lastLaunchedTime` | `object` | Describes a value for a resource attribute that is a String. |
+| `imageId` | `string` | The ID of the AMI. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `image_attribute_Describe` | `SELECT` | `Attribute, ImageId` | Describes the specified attribute of the specified AMI. You can specify only one attribute at a time. |
-| `image_attribute_Modify` | `EXEC` | `ImageId` | &lt;p&gt;Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time. You can use the &lt;code&gt;Attribute&lt;/code&gt; parameter to specify the attribute or one of the following parameters: &lt;code&gt;Description&lt;/code&gt; or &lt;code&gt;LaunchPermission&lt;/code&gt;.&lt;/p&gt; &lt;p&gt;Images with an Amazon Web Services Marketplace product code cannot be made public.&lt;/p&gt; &lt;p&gt;To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance and create an AMI from the instance.&lt;/p&gt; |
-| `image_attribute_Reset` | `EXEC` | `Attribute, ImageId` | Resets an attribute of an AMI to its default value. |
+| `image_attribute_Describe` | `SELECT` | `Attribute, ImageId, region` | Describes the specified attribute of the specified AMI. You can specify only one attribute at a time. |
+| `image_attribute_Modify` | `EXEC` | `ImageId, region` | &lt;p&gt;Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time. You can use the &lt;code&gt;Attribute&lt;/code&gt; parameter to specify the attribute or one of the following parameters: &lt;code&gt;Description&lt;/code&gt; or &lt;code&gt;LaunchPermission&lt;/code&gt;.&lt;/p&gt; &lt;p&gt;Images with an Amazon Web Services Marketplace product code cannot be made public.&lt;/p&gt; &lt;p&gt;To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance and create an AMI from the instance.&lt;/p&gt; |
+| `image_attribute_Reset` | `EXEC` | `Attribute, ImageId, region` | Resets an attribute of an AMI to its default value. |

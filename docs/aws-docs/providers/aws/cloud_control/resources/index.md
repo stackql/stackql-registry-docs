@@ -32,8 +32,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_resource` | `SELECT` | `data__Identifier, data__TypeName` |
-| `list_resources` | `SELECT` | `data__TypeName` |
-| `create_resource` | `INSERT` | `data__DesiredState, data__TypeName` |
-| `delete_resource` | `DELETE` | `data__Identifier, data__TypeName` |
-| `update_resource` | `UPDATE` | `data__Identifier, data__PatchDocument, data__TypeName` |
+| `get_resource` | `SELECT` | `data__Identifier, data__TypeName, region` |
+| `list_resources` | `SELECT` | `data__TypeName, region` |
+| `create_resource` | `INSERT` | `data__DesiredState, data__TypeName, region` |
+| `delete_resource` | `DELETE` | `data__Identifier, data__TypeName, region` |
+| `update_resource` | `UPDATE` | `data__Identifier, data__PatchDocument, data__TypeName, region` |

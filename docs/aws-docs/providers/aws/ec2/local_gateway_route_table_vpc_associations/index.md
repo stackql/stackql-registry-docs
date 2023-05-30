@@ -38,6 +38,6 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `local_gateway_route_table_vpc_associations_Describe` | `SELECT` |  | Describes the specified associations between VPCs and local gateway route tables. |
-| `local_gateway_route_table_vpc_association_Create` | `INSERT` | `LocalGatewayRouteTableId, VpcId` | Associates the specified VPC with the specified local gateway route table. |
-| `local_gateway_route_table_vpc_association_Delete` | `DELETE` | `LocalGatewayRouteTableVpcAssociationId` | Deletes the specified association between a VPC and local gateway route table. |
+| `local_gateway_route_table_vpc_associations_Describe` | `SELECT` | `region` | Describes the specified associations between VPCs and local gateway route tables. |
+| `local_gateway_route_table_vpc_association_Create` | `INSERT` | `LocalGatewayRouteTableId, VpcId, region` | Associates the specified VPC with the specified local gateway route table. |
+| `local_gateway_route_table_vpc_association_Delete` | `DELETE` | `LocalGatewayRouteTableVpcAssociationId, region` | Deletes the specified association between a VPC and local gateway route table. |

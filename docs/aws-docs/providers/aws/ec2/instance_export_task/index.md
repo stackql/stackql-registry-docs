@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instance_export_task_Create` | `INSERT` | `ExportToS3, InstanceId, TargetEnvironment` |
+| `instance_export_task_Create` | `INSERT` | `ExportToS3, InstanceId, TargetEnvironment, region` |

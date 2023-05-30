@@ -29,5 +29,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `network_insights_access_scope_analysis_Delete` | `DELETE` | `NetworkInsightsAccessScopeAnalysisId` | Deletes the specified Network Access Scope analysis. |
-| `network_insights_access_scope_analysis_Start` | `EXEC` | `ClientToken, NetworkInsightsAccessScopeId` | Starts analyzing the specified Network Access Scope. |
+| `network_insights_access_scope_analysis_Delete` | `DELETE` | `NetworkInsightsAccessScopeAnalysisId, region` | Deletes the specified Network Access Scope analysis. |
+| `network_insights_access_scope_analysis_Start` | `EXEC` | `ClientToken, NetworkInsightsAccessScopeId, region` | Starts analyzing the specified Network Access Scope. |

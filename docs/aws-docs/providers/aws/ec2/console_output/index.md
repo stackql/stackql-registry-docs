@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `instanceId` | `string` | The ID of the instance. |
 | `output` | `string` | The console output, base64-encoded. If you are using a command line tool, the tool decodes the output for you. |
 | `timestamp` | `string` | The time at which the output was last updated. |
-| `instanceId` | `string` | The ID of the instance. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `console_output_Get` | `SELECT` | `InstanceId` |
+| `console_output_Get` | `SELECT` | `InstanceId, region` |

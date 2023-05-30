@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `saml_provider_tags_List` | `SELECT` | `SAMLProviderArn` |
+| `saml_provider_tags_List` | `SELECT` | `SAMLProviderArn, region` |

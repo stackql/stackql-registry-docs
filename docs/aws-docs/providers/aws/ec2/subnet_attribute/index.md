@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `subnet_attribute_Modify` | `EXEC` | `SubnetId` |
+| `subnet_attribute_Modify` | `EXEC` | `SubnetId, region` |

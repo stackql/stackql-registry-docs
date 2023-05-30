@@ -157,6 +157,13 @@ def generate_custom_auth_block(provider):
 %s
 """ % (auth_blocks[provider]['custom_markdown'])
 
+def generate_server_variables_block(provider):
+    return """
+## Server Parameters
+
+%s
+""" % (server_variables_blocks[provider])
+
 def generate_two_col_list(provider, list_of_objects, service_name=None):
     try:
         num_objects = list_of_objects.shape[0]

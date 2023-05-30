@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `instanceId` | `string` | The ID of the instance. |
+| `state` | `string` | The state of the association. |
 | `timestamp` | `string` | The time the IAM instance profile was associated with the instance. |
 | `associationId` | `string` | The ID of the association. |
 | `iamInstanceProfile` | `object` | Describes an IAM instance profile. |
-| `instanceId` | `string` | The ID of the instance. |
-| `state` | `string` | The state of the association. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `iam_instance_profile_associations_Describe` | `SELECT` |  | Describes your IAM instance profile associations. |
-| `iam_instance_profile_association_Replace` | `EXEC` | `AssociationId, IamInstanceProfile` | &lt;p&gt;Replaces an IAM instance profile for the specified running instance. You can use this action to change the IAM instance profile that's associated with an instance without having to disassociate the existing IAM instance profile first.&lt;/p&gt; &lt;p&gt;Use &lt;a&gt;DescribeIamInstanceProfileAssociations&lt;/a&gt; to get the association ID.&lt;/p&gt; |
+| `iam_instance_profile_associations_Describe` | `SELECT` | `region` | Describes your IAM instance profile associations. |
+| `iam_instance_profile_association_Replace` | `EXEC` | `AssociationId, IamInstanceProfile, region` | &lt;p&gt;Replaces an IAM instance profile for the specified running instance. You can use this action to change the IAM instance profile that's associated with an instance without having to disassociate the existing IAM instance profile first.&lt;/p&gt; &lt;p&gt;Use &lt;a&gt;DescribeIamInstanceProfileAssociations&lt;/a&gt; to get the association ID.&lt;/p&gt; |

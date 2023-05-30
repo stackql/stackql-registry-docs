@@ -27,23 +27,23 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resourceRegion` | `string` | The Amazon Web Services Region for an IPAM resource. |
-| `resourceType` | `string` | The type of IPAM resource. |
+| `ipamId` | `string` | The IPAM ID for an IPAM resource. |
 | `resourceOwnerId` | `string` | The Amazon Web Services account number of the owner of an IPAM resource. |
 | `complianceStatus` | `string` | The compliance status of the IPAM resource. For more information on compliance statuses, see &lt;a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html"&gt;Monitor CIDR usage by resource&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
-| `ipamId` | `string` | The IPAM ID for an IPAM resource. |
-| `ipUsage` | `number` | The IP address space in the IPAM pool that is allocated to this resource. To convert the decimal to a percentage, multiply the decimal by 100. |
-| `resourceName` | `string` | The name of an IPAM resource. |
-| `ipamPoolId` | `string` | The pool ID for an IPAM resource. |
-| `resourceTagSet` | `array` | The tags for an IPAM resource. |
-| `resourceCidr` | `string` | The CIDR for an IPAM resource. |
-| `resourceId` | `string` | The ID of an IPAM resource. |
-| `ipamScopeId` | `string` | The scope ID for an IPAM resource. |
 | `managementState` | `string` | The management state of the resource. For more information about management states, see &lt;a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html"&gt;Monitor CIDR usage by resource&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
+| `resourceId` | `string` | The ID of an IPAM resource. |
+| `ipUsage` | `number` | The IP address space in the IPAM pool that is allocated to this resource. To convert the decimal to a percentage, multiply the decimal by 100. |
+| `ipamScopeId` | `string` | The scope ID for an IPAM resource. |
+| `resourceCidr` | `string` | The CIDR for an IPAM resource. |
 | `vpcId` | `string` | The ID of a VPC. |
 | `overlapStatus` | `string` | The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see &lt;a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html"&gt;Monitor CIDR usage by resource&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
+| `ipamPoolId` | `string` | The pool ID for an IPAM resource. |
+| `resourceType` | `string` | The type of IPAM resource. |
+| `resourceName` | `string` | The name of an IPAM resource. |
+| `resourceTagSet` | `array` | The tags for an IPAM resource. |
+| `resourceRegion` | `string` | The Amazon Web Services Region for an IPAM resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ipam_resource_cidrs_Get` | `SELECT` | `IpamScopeId` | Get information about the resources in a scope. |
-| `ipam_resource_cidr_Modify` | `EXEC` | `CurrentIpamScopeId, Monitored, ResourceCidr, ResourceId, ResourceRegion` | &lt;p&gt;Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="/vpc/latest/ipam/move-resource-ipam.html"&gt;Move resource CIDRs between scopes&lt;/a&gt; and &lt;a href="/vpc/latest/ipam/change-monitoring-state-ipam.html"&gt;Change the monitoring state of resource CIDRs&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.&lt;/p&gt; |
+| `ipam_resource_cidrs_Get` | `SELECT` | `IpamScopeId, region` | Get information about the resources in a scope. |
+| `ipam_resource_cidr_Modify` | `EXEC` | `CurrentIpamScopeId, Monitored, ResourceCidr, ResourceId, ResourceRegion, region` | &lt;p&gt;Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="/vpc/latest/ipam/move-resource-ipam.html"&gt;Move resource CIDRs between scopes&lt;/a&gt; and &lt;a href="/vpc/latest/ipam/change-monitoring-state-ipam.html"&gt;Change the monitoring state of resource CIDRs&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.&lt;/p&gt; |

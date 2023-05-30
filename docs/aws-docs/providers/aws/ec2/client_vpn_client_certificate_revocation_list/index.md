@@ -29,5 +29,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `client_vpn_client_certificate_revocation_list_Export` | `EXEC` | `ClientVpnEndpointId` | Downloads the client certificate revocation list for the specified Client VPN endpoint. |
-| `client_vpn_client_certificate_revocation_list_Import` | `EXEC` | `CertificateRevocationList, ClientVpnEndpointId` | &lt;p&gt;Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.&lt;/p&gt; &lt;p&gt;Uploading a client certificate revocation list resets existing client connections.&lt;/p&gt; |
+| `client_vpn_client_certificate_revocation_list_Export` | `EXEC` | `ClientVpnEndpointId, region` | Downloads the client certificate revocation list for the specified Client VPN endpoint. |
+| `client_vpn_client_certificate_revocation_list_Import` | `EXEC` | `CertificateRevocationList, ClientVpnEndpointId, region` | &lt;p&gt;Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.&lt;/p&gt; &lt;p&gt;Uploading a client certificate revocation list resets existing client connections.&lt;/p&gt; |

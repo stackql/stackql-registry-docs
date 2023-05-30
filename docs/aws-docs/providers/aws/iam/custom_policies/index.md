@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `custom_policies_Simulate` | `EXEC` | `ActionNames, PolicyInputList` |
+| `custom_policies_Simulate` | `EXEC` | `ActionNames, PolicyInputList, region` |

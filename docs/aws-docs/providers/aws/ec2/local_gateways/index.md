@@ -27,12 +27,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | The tags assigned to the local gateway. |
 | `localGatewayId` | `string` | The ID of the local gateway. |
 | `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Outpost. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway. |
 | `state` | `string` | The state of the local gateway. |
+| `tagSet` | `array` | The tags assigned to the local gateway. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `local_gateways_Describe` | `SELECT` |  |
+| `local_gateways_Describe` | `SELECT` | `region` |

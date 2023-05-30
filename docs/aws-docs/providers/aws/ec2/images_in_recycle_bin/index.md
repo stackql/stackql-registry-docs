@@ -35,4 +35,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `images_in_recycle_bin_List` | `SELECT` |  |
+| `images_in_recycle_bin_List` | `SELECT` | `region` |

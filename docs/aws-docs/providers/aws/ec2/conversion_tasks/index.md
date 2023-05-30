@@ -27,15 +27,15 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `state` | `string` | The state of the conversion task. |
 | `statusMessage` | `string` | The status message related to the conversion task. |
 | `tagSet` | `array` | Any tags assigned to the task. |
 | `conversionTaskId` | `string` | The ID of the conversion task. |
 | `expirationTime` | `string` | The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel the task. |
 | `importInstance` | `object` | Describes an import instance task. |
 | `importVolume` | `object` | Describes an import volume task. |
+| `state` | `string` | The state of the conversion task. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `conversion_tasks_Describe` | `SELECT` |  | &lt;p&gt;Describes the specified conversion tasks or all your conversion tasks. For more information, see the &lt;a href="https://docs.aws.amazon.com/vm-import/latest/userguide/"&gt;VM Import/Export User Guide&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;For information about the import manifest referenced by this API action, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html"&gt;VM Import Manifest&lt;/a&gt;.&lt;/p&gt; |
-| `conversion_task_Cancel` | `EXEC` | `ConversionTaskId` | &lt;p&gt;Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html"&gt;Importing a Virtual Machine Using the Amazon EC2 CLI&lt;/a&gt;.&lt;/p&gt; |
+| `conversion_tasks_Describe` | `SELECT` | `region` | &lt;p&gt;Describes the specified conversion tasks or all your conversion tasks. For more information, see the &lt;a href="https://docs.aws.amazon.com/vm-import/latest/userguide/"&gt;VM Import/Export User Guide&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;For information about the import manifest referenced by this API action, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html"&gt;VM Import Manifest&lt;/a&gt;.&lt;/p&gt; |
+| `conversion_task_Cancel` | `EXEC` | `ConversionTaskId, region` | &lt;p&gt;Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html"&gt;Importing a Virtual Machine Using the Amazon EC2 CLI&lt;/a&gt;.&lt;/p&gt; |

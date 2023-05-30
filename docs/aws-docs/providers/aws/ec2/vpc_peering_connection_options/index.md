@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpc_peering_connection_options_Modify` | `EXEC` | `VpcPeeringConnectionId` |
+| `vpc_peering_connection_options_Modify` | `EXEC` | `VpcPeeringConnectionId, region` |

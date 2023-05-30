@@ -42,7 +42,7 @@ module.exports = async ({ github, context, core, pathOutput }) => {
             return diff.split('/')[1].split('-docs')[0]
         }
         
-        if(!(diff.startsWith('.github')) || !(diff.startsWith('scripts'))) globalChange = true;
+        // if(!(diff.startsWith('.github')) || !(diff.startsWith('scripts'))) globalChange = true;
 
         // globalChange = true;
 

@@ -172,6 +172,9 @@ provider_doc = provider_doc + generate_see_also_links()
 provider_doc = provider_doc + generate_installation_block(provider)
 provider_doc = provider_doc + generate_auth_block(provider)
 
+if server_variables_blocks[provider]:
+    provider_doc = provider_doc + generate_server_variables_block(provider)
+
 # add service list
 provider_doc = provider_doc + "## Services\n"
 provider_doc = provider_doc + generate_two_col_list(provider, services)

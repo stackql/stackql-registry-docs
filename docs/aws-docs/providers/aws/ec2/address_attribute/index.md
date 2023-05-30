@@ -29,5 +29,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `address_attribute_Modify` | `EXEC` | `AllocationId` | Modifies an attribute of the specified Elastic IP address. For requirements, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS"&gt;Using reverse DNS for email applications&lt;/a&gt;. |
-| `address_attribute_Reset` | `EXEC` | `AllocationId, Attribute` | Resets the attribute of the specified IP address. For requirements, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS"&gt;Using reverse DNS for email applications&lt;/a&gt;. |
+| `address_attribute_Modify` | `EXEC` | `AllocationId, region` | Modifies an attribute of the specified Elastic IP address. For requirements, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS"&gt;Using reverse DNS for email applications&lt;/a&gt;. |
+| `address_attribute_Reset` | `EXEC` | `AllocationId, Attribute, region` | Resets the attribute of the specified IP address. For requirements, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS"&gt;Using reverse DNS for email applications&lt;/a&gt;. |

@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `user_to_groups_Add` | `EXEC` | `GroupName, UserName` |
+| `user_to_groups_Add` | `EXEC` | `GroupName, UserName, region` |

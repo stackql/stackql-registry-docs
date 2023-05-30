@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `object_contents_Select` | `EXEC` | `Key, select-type` |
+| `object_contents_Select` | `EXEC` | `Key, select-type, bucket, region` |

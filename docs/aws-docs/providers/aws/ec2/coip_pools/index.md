@@ -35,4 +35,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `coip_pools_Describe` | `SELECT` |  |
+| `coip_pools_Describe` | `SELECT` | `region` |

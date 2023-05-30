@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `private_dns_name_options_Modify` | `EXEC` |  |
+| `private_dns_name_options_Modify` | `EXEC` | `region` |

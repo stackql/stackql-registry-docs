@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `passwords_Change` | `EXEC` | `NewPassword, OldPassword` |
+| `passwords_Change` | `EXEC` | `NewPassword, OldPassword, region` |

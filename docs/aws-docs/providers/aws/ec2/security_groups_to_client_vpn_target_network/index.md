@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `security_groups_to_client_vpn_target_network_Apply` | `EXEC` | `ClientVpnEndpointId, SecurityGroupId, VpcId` |
+| `security_groups_to_client_vpn_target_network_Apply` | `EXEC` | `ClientVpnEndpointId, SecurityGroupId, VpcId, region` |

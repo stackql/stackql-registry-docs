@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `default_policy_versions_Set` | `EXEC` | `PolicyArn, VersionId` |
+| `default_policy_versions_Set` | `EXEC` | `PolicyArn, VersionId, region` |

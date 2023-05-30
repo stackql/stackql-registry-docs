@@ -34,4 +34,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `classic_link_instances_Describe` | `SELECT` |  |
+| `classic_link_instances_Describe` | `SELECT` | `region` |

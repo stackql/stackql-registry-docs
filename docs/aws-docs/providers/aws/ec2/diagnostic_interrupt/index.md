@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `diagnostic_interrupt_Send` | `EXEC` | `InstanceId` |
+| `diagnostic_interrupt_Send` | `EXEC` | `InstanceId, region` |

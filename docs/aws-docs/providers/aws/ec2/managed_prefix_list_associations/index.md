@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `managed_prefix_list_associations_Get` | `SELECT` | `PrefixListId` |
+| `managed_prefix_list_associations_Get` | `SELECT` | `PrefixListId, region` |

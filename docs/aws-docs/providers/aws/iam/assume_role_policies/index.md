@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `assume_role_policies_Update` | `EXEC` | `PolicyDocument, RoleName` |
+| `assume_role_policies_Update` | `EXEC` | `PolicyDocument, RoleName, region` |

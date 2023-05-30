@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `vpcId` | `string` | The ID of the VPC. |
 | `enableDnsHostnames` | `object` | Describes a value for a resource attribute that is a Boolean value. |
 | `enableDnsSupport` | `object` | Describes a value for a resource attribute that is a Boolean value. |
-| `vpcId` | `string` | The ID of the VPC. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `vpc_attribute_Describe` | `SELECT` | `Attribute, VpcId` | Describes the specified attribute of the specified VPC. You can specify only one attribute at a time. |
-| `vpc_attribute_Modify` | `EXEC` | `VpcId` | Modifies the specified attribute of the specified VPC. |
+| `vpc_attribute_Describe` | `SELECT` | `Attribute, VpcId, region` | Describes the specified attribute of the specified VPC. You can specify only one attribute at a time. |
+| `vpc_attribute_Modify` | `EXEC` | `VpcId, region` | Modifies the specified attribute of the specified VPC. |

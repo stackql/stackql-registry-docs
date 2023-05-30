@@ -28,4 +28,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `object_torrents_Get` | `SELECT` | `Key` |
+| `object_torrents_Get` | `SELECT` | `Key, bucket, region` |

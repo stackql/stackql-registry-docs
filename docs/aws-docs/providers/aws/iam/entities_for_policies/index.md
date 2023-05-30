@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `entities_for_policies_List` | `SELECT` | `PolicyArn` |
+| `entities_for_policies_List` | `SELECT` | `PolicyArn, region` |

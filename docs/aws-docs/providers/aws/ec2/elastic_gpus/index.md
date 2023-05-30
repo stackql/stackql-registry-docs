@@ -27,14 +27,14 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `elasticGpuType` | `string` | The type of Elastic Graphics accelerator. |
-| `instanceId` | `string` | The ID of the instance to which the Elastic Graphics accelerator is attached. |
-| `tagSet` | `array` | The tags assigned to the Elastic Graphics accelerator. |
 | `availabilityZone` | `string` | The Availability Zone in the which the Elastic Graphics accelerator resides. |
 | `elasticGpuHealth` | `object` | Describes the status of an Elastic Graphics accelerator. |
 | `elasticGpuId` | `string` | The ID of the Elastic Graphics accelerator. |
 | `elasticGpuState` | `string` | The state of the Elastic Graphics accelerator. |
+| `elasticGpuType` | `string` | The type of Elastic Graphics accelerator. |
+| `instanceId` | `string` | The ID of the instance to which the Elastic Graphics accelerator is attached. |
+| `tagSet` | `array` | The tags assigned to the Elastic Graphics accelerator. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `elastic_gpus_Describe` | `SELECT` |  |
+| `elastic_gpus_Describe` | `SELECT` | `region` |

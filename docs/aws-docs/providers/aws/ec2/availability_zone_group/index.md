@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `availability_zone_group_Modify` | `EXEC` | `GroupName, OptInStatus` |
+| `availability_zone_group_Modify` | `EXEC` | `GroupName, OptInStatus, region` |

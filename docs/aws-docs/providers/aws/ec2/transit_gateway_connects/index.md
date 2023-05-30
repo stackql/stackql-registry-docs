@@ -27,16 +27,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `tagSet` | `array` | The tags for the attachment. |
+| `transitGatewayAttachmentId` | `string` | The ID of the Connect attachment. |
+| `transitGatewayId` | `string` | The ID of the transit gateway. |
 | `transportTransitGatewayAttachmentId` | `string` | The ID of the attachment from which the Connect attachment was created. |
 | `creationTime` | `string` | The creation time. |
 | `options` | `object` | Describes the Connect attachment options. |
 | `state` | `string` | The state of the attachment. |
-| `tagSet` | `array` | The tags for the attachment. |
-| `transitGatewayAttachmentId` | `string` | The ID of the Connect attachment. |
-| `transitGatewayId` | `string` | The ID of the transit gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `transit_gateway_connects_Describe` | `SELECT` |  | Describes one or more Connect attachments. |
-| `transit_gateway_connect_Create` | `INSERT` | `Options, TransportTransitGatewayAttachmentId` | &lt;p&gt;Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.&lt;/p&gt; &lt;p&gt;A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.&lt;/p&gt; |
-| `transit_gateway_connect_Delete` | `DELETE` | `TransitGatewayAttachmentId` | Deletes the specified Connect attachment. You must first delete any Connect peers for the attachment. |
+| `transit_gateway_connects_Describe` | `SELECT` | `region` | Describes one or more Connect attachments. |
+| `transit_gateway_connect_Create` | `INSERT` | `Options, TransportTransitGatewayAttachmentId, region` | &lt;p&gt;Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.&lt;/p&gt; &lt;p&gt;A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.&lt;/p&gt; |
+| `transit_gateway_connect_Delete` | `DELETE` | `TransitGatewayAttachmentId, region` | Deletes the specified Connect attachment. You must first delete any Connect peers for the attachment. |

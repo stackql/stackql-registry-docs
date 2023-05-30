@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `state` | `string` | The state of the resource. |
 | `transitGatewayAttachmentId` | `string` | The ID of the attachment. |
 | `resourceId` | `string` | The ID of the resource. |
 | `resourceType` | `string` | The type of resource. Note that the &lt;code&gt;tgw-peering&lt;/code&gt; resource type has been deprecated. |
-| `state` | `string` | The state of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `transit_gateway_route_table_propagations_Get` | `SELECT` | `TransitGatewayRouteTableId` | Gets information about the route table propagations for the specified transit gateway route table. |
-| `transit_gateway_route_table_propagation_Disable` | `EXEC` | `TransitGatewayAttachmentId, TransitGatewayRouteTableId` | Disables the specified resource attachment from propagating routes to the specified propagation route table. |
-| `transit_gateway_route_table_propagation_Enable` | `EXEC` | `TransitGatewayAttachmentId, TransitGatewayRouteTableId` | Enables the specified attachment to propagate routes to the specified propagation route table. |
+| `transit_gateway_route_table_propagations_Get` | `SELECT` | `TransitGatewayRouteTableId, region` | Gets information about the route table propagations for the specified transit gateway route table. |
+| `transit_gateway_route_table_propagation_Disable` | `EXEC` | `TransitGatewayAttachmentId, TransitGatewayRouteTableId, region` | Disables the specified resource attachment from propagating routes to the specified propagation route table. |
+| `transit_gateway_route_table_propagation_Enable` | `EXEC` | `TransitGatewayAttachmentId, TransitGatewayRouteTableId, region` | Enables the specified attachment to propagate routes to the specified propagation route table. |

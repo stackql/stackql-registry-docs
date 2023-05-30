@@ -35,6 +35,6 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `network_insights_access_scopes_Describe` | `SELECT` |  | Describes the specified Network Access Scopes. |
-| `network_insights_access_scope_Create` | `INSERT` | `ClientToken` | &lt;p&gt;Creates a Network Access Scope.&lt;/p&gt; &lt;p&gt;Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams to verify that their networks on Amazon Web Services conform to their network security and governance objectives. For more information, see the &lt;a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/"&gt;Amazon Web Services Network Access Analyzer Guide&lt;/a&gt;.&lt;/p&gt; |
-| `network_insights_access_scope_Delete` | `DELETE` | `NetworkInsightsAccessScopeId` | Deletes the specified Network Access Scope. |
+| `network_insights_access_scopes_Describe` | `SELECT` | `region` | Describes the specified Network Access Scopes. |
+| `network_insights_access_scope_Create` | `INSERT` | `ClientToken, region` | &lt;p&gt;Creates a Network Access Scope.&lt;/p&gt; &lt;p&gt;Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams to verify that their networks on Amazon Web Services conform to their network security and governance objectives. For more information, see the &lt;a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/"&gt;Amazon Web Services Network Access Analyzer Guide&lt;/a&gt;.&lt;/p&gt; |
+| `network_insights_access_scope_Delete` | `DELETE` | `NetworkInsightsAccessScopeId, region` | Deletes the specified Network Access Scope. |

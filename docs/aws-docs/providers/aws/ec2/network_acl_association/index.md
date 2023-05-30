@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `network_acl_association_Replace` | `EXEC` | `AssociationId, NetworkAclId` |
+| `network_acl_association_Replace` | `EXEC` | `AssociationId, NetworkAclId, region` |

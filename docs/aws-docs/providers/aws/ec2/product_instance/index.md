@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `product_instance_Confirm` | `EXEC` | `InstanceId, ProductCode` |
+| `product_instance_Confirm` | `EXEC` | `InstanceId, ProductCode, region` |

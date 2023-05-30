@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpc_endpoint_service_payer_responsibility_Modify` | `EXEC` | `PayerResponsibility, ServiceId` |
+| `vpc_endpoint_service_payer_responsibility_Modify` | `EXEC` | `PayerResponsibility, ServiceId, region` |

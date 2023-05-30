@@ -28,4 +28,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `context_keys_for_custom_policies_Get` | `SELECT` | `PolicyInputList` |
+| `context_keys_for_custom_policies_Get` | `SELECT` | `PolicyInputList, region` |

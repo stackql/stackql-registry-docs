@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `open_id_connect_provider_thumbprints_Update` | `EXEC` | `OpenIDConnectProviderArn, ThumbprintList` |
+| `open_id_connect_provider_thumbprints_Update` | `EXEC` | `OpenIDConnectProviderArn, ThumbprintList, region` |

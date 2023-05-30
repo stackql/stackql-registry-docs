@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `object_versions_List` | `EXEC` |  |
+| `object_versions_List` | `EXEC` | `bucket, region` |

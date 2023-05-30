@@ -28,4 +28,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instance_types_from_instance_requirements_Get` | `SELECT` | `ArchitectureType, InstanceRequirements, VirtualizationType` |
+| `instance_types_from_instance_requirements_Get` | `SELECT` | `ArchitectureType, InstanceRequirements, VirtualizationType, region` |

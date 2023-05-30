@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `address_to_classic_Restore` | `EXEC` | `PublicIp` |
+| `address_to_classic_Restore` | `EXEC` | `PublicIp, region` |

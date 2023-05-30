@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `part_copies_Upload` | `EXEC` | `Key, partNumber, uploadId, x-amz-copy-source` |
+| `part_copies_Upload` | `EXEC` | `Key, partNumber, uploadId, x-amz-copy-source, bucket, region` |

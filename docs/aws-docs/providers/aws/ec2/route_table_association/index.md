@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `route_table_association_Replace` | `EXEC` | `AssociationId, RouteTableId` |
+| `route_table_association_Replace` | `EXEC` | `AssociationId, RouteTableId, region` |

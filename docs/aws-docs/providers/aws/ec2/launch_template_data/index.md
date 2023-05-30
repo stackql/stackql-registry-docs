@@ -28,4 +28,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `launch_template_data_Get` | `SELECT` | `InstanceId` |
+| `launch_template_data_Get` | `SELECT` | `InstanceId, region` |

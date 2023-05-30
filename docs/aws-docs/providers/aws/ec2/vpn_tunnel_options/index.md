@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpn_tunnel_options_Modify` | `EXEC` | `TunnelOptions, VpnConnectionId, VpnTunnelOutsideIpAddress` |
+| `vpn_tunnel_options_Modify` | `EXEC` | `TunnelOptions, VpnConnectionId, VpnTunnelOutsideIpAddress, region` |

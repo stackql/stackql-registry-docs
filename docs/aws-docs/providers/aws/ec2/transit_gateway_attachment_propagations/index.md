@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `transitGatewayRouteTableId` | `string` | The ID of the propagation route table. |
 | `state` | `string` | The state of the propagation route table. |
+| `transitGatewayRouteTableId` | `string` | The ID of the propagation route table. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `transit_gateway_attachment_propagations_Get` | `SELECT` | `TransitGatewayAttachmentId` |
+| `transit_gateway_attachment_propagations_Get` | `SELECT` | `TransitGatewayAttachmentId, region` |

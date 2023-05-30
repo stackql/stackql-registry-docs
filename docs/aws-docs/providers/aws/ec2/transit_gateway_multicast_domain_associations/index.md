@@ -27,14 +27,14 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resourceOwnerId` | `string` |  The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource. |
 | `resourceType` | `string` | The type of resource, for example a VPC attachment. |
 | `subnet` | `object` | Describes the subnet association with the transit gateway multicast domain. |
 | `transitGatewayAttachmentId` | `string` | The ID of the transit gateway attachment. |
 | `resourceId` | `string` | The ID of the resource. |
+| `resourceOwnerId` | `string` |  The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `transit_gateway_multicast_domain_associations_Get` | `SELECT` |  | Gets information about the associations for the transit gateway multicast domain. |
-| `transit_gateway_multicast_domain_associations_Accept` | `EXEC` |  | Accepts a request to associate subnets with a transit gateway multicast domain. |
-| `transit_gateway_multicast_domain_associations_Reject` | `EXEC` |  | Rejects a request to associate cross-account subnets with a transit gateway multicast domain. |
+| `transit_gateway_multicast_domain_associations_Get` | `SELECT` | `region` | Gets information about the associations for the transit gateway multicast domain. |
+| `transit_gateway_multicast_domain_associations_Accept` | `EXEC` | `region` | Accepts a request to associate subnets with a transit gateway multicast domain. |
+| `transit_gateway_multicast_domain_associations_Reject` | `EXEC` | `region` | Rejects a request to associate cross-account subnets with a transit gateway multicast domain. |

@@ -33,5 +33,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `credential_reports_Get` | `SELECT` |  |  Retrieves a credential report for the Amazon Web Services account. For more information about the credential report, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html"&gt;Getting credential reports&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;. |
-| `credential_reports_Generate` | `EXEC` |  |  Generates a credential report for the Amazon Web Services account. For more information about the credential report, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html"&gt;Getting credential reports&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;. |
+| `credential_reports_Get` | `SELECT` | `region` |  Retrieves a credential report for the Amazon Web Services account. For more information about the credential report, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html"&gt;Getting credential reports&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;. |
+| `credential_reports_Generate` | `EXEC` | `region` |  Generates a credential report for the Amazon Web Services account. For more information about the credential report, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html"&gt;Getting credential reports&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;. |

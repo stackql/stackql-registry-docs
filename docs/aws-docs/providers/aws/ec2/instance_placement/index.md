@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instance_placement_Modify` | `EXEC` | `InstanceId` |
+| `instance_placement_Modify` | `EXEC` | `InstanceId, region` |

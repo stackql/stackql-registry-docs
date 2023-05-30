@@ -27,16 +27,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `transitGatewayAttachment` | `object` | Describes a transit gateway prefix list attachment. |
+| `transitGatewayRouteTableId` | `string` | The ID of the transit gateway route table. |
 | `blackhole` | `boolean` | Indicates whether traffic that matches this route is dropped. |
 | `prefixListId` | `string` | The ID of the prefix list. |
 | `prefixListOwnerId` | `string` | The ID of the prefix list owner. |
 | `state` | `string` | The state of the prefix list reference. |
-| `transitGatewayAttachment` | `object` | Describes a transit gateway prefix list attachment. |
-| `transitGatewayRouteTableId` | `string` | The ID of the transit gateway route table. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `transit_gateway_prefix_list_references_Get` | `SELECT` | `TransitGatewayRouteTableId` | Gets information about the prefix list references in a specified transit gateway route table. |
-| `transit_gateway_prefix_list_reference_Create` | `INSERT` | `PrefixListId, TransitGatewayRouteTableId` | Creates a reference (route) to a prefix list in a specified transit gateway route table. |
-| `transit_gateway_prefix_list_reference_Delete` | `DELETE` | `PrefixListId, TransitGatewayRouteTableId` | Deletes a reference (route) to a prefix list in a specified transit gateway route table. |
-| `transit_gateway_prefix_list_reference_Modify` | `EXEC` | `PrefixListId, TransitGatewayRouteTableId` | Modifies a reference (route) to a prefix list in a specified transit gateway route table. |
+| `transit_gateway_prefix_list_references_Get` | `SELECT` | `TransitGatewayRouteTableId, region` | Gets information about the prefix list references in a specified transit gateway route table. |
+| `transit_gateway_prefix_list_reference_Create` | `INSERT` | `PrefixListId, TransitGatewayRouteTableId, region` | Creates a reference (route) to a prefix list in a specified transit gateway route table. |
+| `transit_gateway_prefix_list_reference_Delete` | `DELETE` | `PrefixListId, TransitGatewayRouteTableId, region` | Deletes a reference (route) to a prefix list in a specified transit gateway route table. |
+| `transit_gateway_prefix_list_reference_Modify` | `EXEC` | `PrefixListId, TransitGatewayRouteTableId, region` | Modifies a reference (route) to a prefix list in a specified transit gateway route table. |

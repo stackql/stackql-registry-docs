@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `client_id_from_open_id_connect_providers_Remove` | `EXEC` | `ClientID, OpenIDConnectProviderArn` |
+| `client_id_from_open_id_connect_providers_Remove` | `EXEC` | `ClientID, OpenIDConnectProviderArn, region` |

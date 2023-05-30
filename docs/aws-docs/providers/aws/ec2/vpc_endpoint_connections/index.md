@@ -27,18 +27,18 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `creationTimestamp` | `string` | The date and time that the VPC endpoint was created. |
-| `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
-| `vpcEndpointState` | `string` | The state of the VPC endpoint. |
-| `vpcEndpointOwner` | `string` | The ID of the Amazon Web Services account that owns the VPC endpoint. |
-| `ipAddressType` | `string` | The IP address type for the endpoint. |
-| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the network load balancers for the service. |
 | `serviceId` | `string` | The ID of the service to which the endpoint is connected. |
 | `dnsEntrySet` | `array` | The DNS entries for the VPC endpoint. |
+| `vpcEndpointOwner` | `string` | The ID of the Amazon Web Services account that owns the VPC endpoint. |
+| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the network load balancers for the service. |
+| `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
 | `vpcEndpointId` | `string` | The ID of the VPC endpoint. |
+| `creationTimestamp` | `string` | The date and time that the VPC endpoint was created. |
+| `ipAddressType` | `string` | The IP address type for the endpoint. |
+| `vpcEndpointState` | `string` | The state of the VPC endpoint. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `vpc_endpoint_connections_Describe` | `SELECT` |  | Describes the VPC endpoint connections to your VPC endpoint services, including any endpoints that are pending your acceptance. |
-| `vpc_endpoint_connections_Accept` | `EXEC` | `ServiceId, VpcEndpointId` | Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service. |
-| `vpc_endpoint_connections_Reject` | `EXEC` | `ServiceId, VpcEndpointId` | Rejects one or more VPC endpoint connection requests to your VPC endpoint service. |
+| `vpc_endpoint_connections_Describe` | `SELECT` | `region` | Describes the VPC endpoint connections to your VPC endpoint services, including any endpoints that are pending your acceptance. |
+| `vpc_endpoint_connections_Accept` | `EXEC` | `ServiceId, VpcEndpointId, region` | Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service. |
+| `vpc_endpoint_connections_Reject` | `EXEC` | `ServiceId, VpcEndpointId, region` | Rejects one or more VPC endpoint connection requests to your VPC endpoint service. |
