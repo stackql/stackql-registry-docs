@@ -64,7 +64,7 @@ To use different environment variables (instead of the defaults), use the `--aut
 
 AUTH='{ "sumologic": { "type": "basic",  "username_var": "YOUR_SUMOLOGIC_ACCESS_ID_VAR", "password_var": "YOUR_SUMOLOGIC_ACCESS_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
- 
+
 ```
 or using PowerShell:  
 
@@ -72,10 +72,20 @@ or using PowerShell:
 
 $Auth = "{ 'sumologic': { 'type': 'basic',  'username_var': 'YOUR_SUMOLOGIC_ACCESS_ID_VAR', 'password_var': 'YOUR_SUMOLOGIC_ACCESS_KEY_VAR' }}"
 stackql.exe shell --auth=$Auth
- 
+
 ```
 </details>
 
+
+## Server Parameters
+
+
+The following parameter is required for the `sumologic` provider if you are not using the `us2` region:  
+
+- `region` - The SumoLogic regional endpoint (e.g. `au`, `ca`, `de`, `eu`, `fed`, `in`, `jp`)
+
+This parameter would be supplied to the `WHERE` clause of each `SELECT` statement if you are not usign the `us2` region.
+    
 ## Services
 <div class="row">
 <div class="providerDocColumn">

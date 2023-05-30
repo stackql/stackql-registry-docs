@@ -27,9 +27,9 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `contentEnabled` | `boolean` | Whether service allowlisting is enabled for Content. |
 | `loginEnabled` | `boolean` | Whether service allowlisting is enabled for Login. |
+| `contentEnabled` | `boolean` | Whether service allowlisting is enabled for Content. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getAllowlistingStatus` | `SELECT` |  |
+| `getAllowlistingStatus` | `SELECT` | `region` |

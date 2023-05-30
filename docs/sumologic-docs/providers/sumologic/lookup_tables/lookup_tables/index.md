@@ -29,7 +29,7 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `createTable` | `INSERT` | `data__name, data__parentFolderId` | Create a new lookup table by providing a schema and specifying its configuration. Providing parentFolderId<br /> is mandatory. Use the [getItemByPath](#operation/getItemByPath) endpoint to get content id of a path.<br />Please check [Content management API](#tag/contentManagement) and [Folder management API](#tag/folderManagement) for all available options. |
-| `deleteTable` | `DELETE` | `id` | Delete a lookup table completely. &lt;br&gt; **Warning:** `This operation cannot be undone`. |
-| `lookupTableById` | `EXEC` | `id` | Get a lookup table for the given identifier. |
-| `updateTable` | `EXEC` | `id, data__description, data__ttl` | Edit the lookup table data. All the fields are mandatory in the request. |
+| `createTable` | `INSERT` | `data__name, data__parentFolderId, region` | Create a new lookup table by providing a schema and specifying its configuration. Providing parentFolderId<br /> is mandatory. Use the [getItemByPath](#operation/getItemByPath) endpoint to get content id of a path.<br />Please check [Content management API](#tag/contentManagement) and [Folder management API](#tag/folderManagement) for all available options. |
+| `deleteTable` | `DELETE` | `id, region` | Delete a lookup table completely. &lt;br&gt; **Warning:** `This operation cannot be undone`. |
+| `lookupTableById` | `EXEC` | `id, region` | Get a lookup table for the given identifier. |
+| `updateTable` | `EXEC` | `id, data__description, data__ttl, region` | Edit the lookup table data. All the fields are mandatory in the request. |

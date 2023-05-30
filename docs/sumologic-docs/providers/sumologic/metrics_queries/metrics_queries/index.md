@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `runMetricsQueries` | `EXEC` | `data__queries, data__timeRange` |
+| `runMetricsQueries` | `EXEC` | `data__queries, data__timeRange, region` |

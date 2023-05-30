@@ -33,4 +33,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getAsyncReportGenerationStatus` | `SELECT` | `jobId` |
+| `getAsyncReportGenerationStatus` | `SELECT` | `jobId, region` |

@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `updateTableRow` | `EXEC` | `id, data__row` |
+| `updateTableRow` | `EXEC` | `id, data__row, region` |

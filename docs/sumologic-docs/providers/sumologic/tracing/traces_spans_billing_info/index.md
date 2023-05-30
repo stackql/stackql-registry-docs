@@ -32,4 +32,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSpanBillingInfo` | `SELECT` | `spanId, traceId` |
+| `getSpanBillingInfo` | `SELECT` | `spanId, traceId, region` |

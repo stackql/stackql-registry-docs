@@ -27,12 +27,12 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `fieldName` | `string` | Field name. |
 | `dataType` | `string` | Field type. Possible values are `String`, `Long`, `Int`, `Double`, and `Boolean`. |
 | `fieldId` | `string` | Identifier of the field. |
 | `state` | `string` | Indicates whether the field is enabled and its values are being accepted. Possible values are `Enabled` and `Disabled`. |
-| `fieldName` | `string` | Field name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getBuiltInField` | `SELECT` | `id` | Get the details of a built-in field. |
-| `listBuiltInFields` | `SELECT` |  | Built-in fields are created automatically by Sumo Logic for standard configuration purposes. They include `_sourceHost` and `_sourceCategory`. Built-in fields can't be deleted or disabled. |
+| `getBuiltInField` | `SELECT` | `id, region` | Get the details of a built-in field. |
+| `listBuiltInFields` | `SELECT` | `region` | Built-in fields are created automatically by Sumo Logic for standard configuration purposes. They include `_sourceHost` and `_sourceCategory`. Built-in fields can't be deleted or disabled. |

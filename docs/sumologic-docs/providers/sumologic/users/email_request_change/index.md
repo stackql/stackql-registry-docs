@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `requestChangeEmail` | `EXEC` | `id, data__email` |
+| `requestChangeEmail` | `EXEC` | `id, data__email, region` |

@@ -29,5 +29,5 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `createTraceQuery` | `INSERT` | `data__queryRows, data__timeRange` | Execute a trace search query and get the id to fetch its status and results. Use the [Trace Query Status](#operation/getTraceQueryStatus) endpoint to check a query status. When the query has been completed, use the [Trace Query Result](#operation/getTraceQueryResult) endpoint to get the result of the asynchronous query. |
-| `cancelTraceQuery` | `EXEC` | `queryId` | Cancel a currently processed trace search query with the given id. |
+| `createTraceQuery` | `INSERT` | `data__queryRows, data__timeRange, region` | Execute a trace search query and get the id to fetch its status and results. Use the [Trace Query Status](#operation/getTraceQueryStatus) endpoint to check a query status. When the query has been completed, use the [Trace Query Result](#operation/getTraceQueryResult) endpoint to get the result of the asynchronous query. |
+| `cancelTraceQuery` | `EXEC` | `queryId, region` | Cancel a currently processed trace search query with the given id. |

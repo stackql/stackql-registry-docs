@@ -32,5 +32,5 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getSlosFullPath` | `SELECT` | `id` | Get the full path of the slo or folder in the slos library. |
-| `slosGetByPath` | `EXEC` | `path` | Read a slo or folder by its path in the slos library structure. |
+| `getSlosFullPath` | `SELECT` | `id, region` | Get the full path of the slo or folder in the slos library. |
+| `slosGetByPath` | `EXEC` | `path, region` | Read a slo or folder by its path in the slos library structure. |

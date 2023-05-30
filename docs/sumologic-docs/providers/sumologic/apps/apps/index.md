@@ -32,5 +32,5 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getApp` | `SELECT` | `uuid` | Gets the app with the given universally unique identifier (UUID). |
-| `listApps` | `SELECT` |  | Lists all available apps from the App Catalog. |
+| `getApp` | `SELECT` | `uuid, region` | Gets the app with the given universally unique identifier (UUID). |
+| `listApps` | `SELECT` | `region` | Lists all available apps from the App Catalog. |

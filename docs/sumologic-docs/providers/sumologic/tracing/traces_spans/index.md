@@ -28,29 +28,29 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the span. |
-| `remoteServiceType` | `string` | Defines type of service. |
-| `remoteServiceColor` | `string` | Color hex code assigned to the remote service. |
-| `info` | `object` |  |
+| `service` | `string` | The name of the service this span is part of. |
 | `operationName` | `string` | The name of the operation given to the span. |
-| `duration` | `integer` | Number of nanoseconds the span lasted. |
-| `remoteService` | `string` | Name of the possible remote span's service. |
-| `parentId` | `string` | Identifier of the parent span, if any. If the span has no parent it's considered a root span. |
 | `serviceColor` | `string` | Color hex code assigned to the service. |
-| `errorMessage` | `string` | Produced error message (could be a stack trace, database error code, ..) |
-| `numberOfLinks` | `integer` | Number of span links in this span. |
-| `resource` | `string` | The name of the resource attached to the span. |
-| `status` | `object` |  |
-| `criticalPathContribution` | `object` |  |
-| `links` | `array` | List of casually related spans. |
-| `fields` | `object` | Fields attached to this span. |
 | `kind` | `string` | Span kind describes the relationship between the Span, its parents, and its children in a Trace. Possible values: `CLIENT`, `SERVER`, `PRODUCER`, `CONSUMER`, `INTERNAL`. |
+| `events` | `array` | Events attached to this span. |
+| `remoteServiceColor` | `string` | Color hex code assigned to the remote service. |
+| `criticalPathContribution` | `object` |  |
+| `duration` | `integer` | Number of nanoseconds the span lasted. |
+| `status` | `object` |  |
+| `parentId` | `string` | Identifier of the parent span, if any. If the span has no parent it's considered a root span. |
+| `serviceType` | `string` | Defines type of service. |
 | `logs` | `array` | Logs attached to this span. |
 | `startedAt` | `string` | Date and time the span was started in the [ISO 8601 / RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `serviceType` | `string` | Defines type of service. |
-| `events` | `array` | Events attached to this span. |
-| `service` | `string` | The name of the service this span is part of. |
+| `resource` | `string` | The name of the resource attached to the span. |
+| `fields` | `object` | Fields attached to this span. |
+| `remoteService` | `string` | Name of the possible remote span's service. |
+| `numberOfLinks` | `integer` | Number of span links in this span. |
+| `remoteServiceType` | `string` | Defines type of service. |
+| `info` | `object` |  |
+| `errorMessage` | `string` | Produced error message (could be a stack trace, database error code, ..) |
+| `links` | `array` | List of casually related spans. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getSpan` | `SELECT` | `spanId, traceId` | Get details of a span with the given identifier. |
-| `getSpans` | `SELECT` | `traceId` | Get a list of spans for the given trace. The response is paginated with a default limit of 100 spans per page. |
+| `getSpan` | `SELECT` | `spanId, traceId, region` | Get details of a span with the given identifier. |
+| `getSpans` | `SELECT` | `traceId, region` | Get a list of spans for the given trace. The response is paginated with a default limit of 100 spans per page. |

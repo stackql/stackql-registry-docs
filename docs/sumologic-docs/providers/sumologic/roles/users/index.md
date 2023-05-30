@@ -29,5 +29,5 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `removeRoleFromUser` | `DELETE` | `roleId, userId` | Remove a role from a user in the organization. |
-| `assignRoleToUser` | `EXEC` | `roleId, userId` | Assign a role to a user in the organization. |
+| `removeRoleFromUser` | `DELETE` | `roleId, userId, region` | Remove a role from a user in the organization. |
+| `assignRoleToUser` | `EXEC` | `roleId, userId, region` | Assign a role to a user in the organization. |

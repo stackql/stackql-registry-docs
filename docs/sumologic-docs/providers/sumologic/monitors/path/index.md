@@ -27,10 +27,10 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `pathItems` | `array` | Elements of the path. |
 | `path` | `string` | String representation of the path. |
+| `pathItems` | `array` | Elements of the path. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getMonitorsFullPath` | `SELECT` | `id` | Get the full path of the monitor or folder in the monitors library. |
-| `monitorsGetByPath` | `EXEC` | `path` | Read a monitor or folder by its path in the monitors library structure. |
+| `getMonitorsFullPath` | `SELECT` | `id, region` | Get the full path of the monitor or folder in the monitors library. |
+| `monitorsGetByPath` | `EXEC` | `path, region` | Read a monitor or folder by its path in the monitors library structure. |

@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `beginAsyncImport` | `EXEC` | `folderId, data__name, data__type` |
+| `beginAsyncImport` | `EXEC` | `folderId, data__name, data__type, region` |

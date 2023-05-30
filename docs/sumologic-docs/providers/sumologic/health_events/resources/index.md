@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `listAllHealthEventsForResources` | `EXEC` | `data__data` |
+| `listAllHealthEventsForResources` | `EXEC` | `data__data, region` |

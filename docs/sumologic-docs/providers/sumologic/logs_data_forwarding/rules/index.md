@@ -28,22 +28,22 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique identifier of the data forwarding rule. |
-| `fileFormat` | `string` | Specify the path prefix to a directory in the S3 bucket and how to format the file name. |
-| `destinationId` | `string` | The data forwarding destination id. |
-| `indexId` | `string` | The `id` of the Partition or Scheduled View the rule applies to. |
-| `format` | `string` | Format of the payload. |
-| `bucket` | `object` |  |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `enabled` | `boolean` | True when the data forwarding rule is enabled. |
 | `payloadSchema` | `string` | Schema for the payload. |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
-| `enabled` | `boolean` | True when the data forwarding rule is enabled. |
+| `destinationId` | `string` | The data forwarding destination id. |
+| `fileFormat` | `string` | Specify the path prefix to a directory in the S3 bucket and how to format the file name. |
+| `format` | `string` | Format of the payload. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `bucket` | `object` |  |
+| `indexId` | `string` | The `id` of the Partition or Scheduled View the rule applies to. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getDataForwardingRule` | `SELECT` | `indexId` | Get the details of an S3 data forwarding rule by its Partition or Scheduled View identifier. |
-| `getRulesAndBuckets` | `SELECT` |  | Get a list of all S3 data forwarding rules. |
-| `createDataForwardingRule` | `INSERT` | `data__destinationId, data__indexId` | Create a data forwarding rule to send data from a Partition or Scheduled View to an S3 bucket. |
-| `deleteDataForwardingRule` | `DELETE` | `indexId` | Delete an S3 data forwarding rule by its Partition or Scheduled View identifier. |
-| `updateDataForwardingRule` | `EXEC` | `indexId` | Update an S3 data forwarding rule by its Partition or Scheduled View identifier. |
+| `getDataForwardingRule` | `SELECT` | `indexId, region` | Get the details of an S3 data forwarding rule by its Partition or Scheduled View identifier. |
+| `getRulesAndBuckets` | `SELECT` | `region` | Get a list of all S3 data forwarding rules. |
+| `createDataForwardingRule` | `INSERT` | `data__destinationId, data__indexId, region` | Create a data forwarding rule to send data from a Partition or Scheduled View to an S3 bucket. |
+| `deleteDataForwardingRule` | `DELETE` | `indexId, region` | Delete an S3 data forwarding rule by its Partition or Scheduled View identifier. |
+| `updateDataForwardingRule` | `EXEC` | `indexId, region` | Update an S3 data forwarding rule by its Partition or Scheduled View identifier. |

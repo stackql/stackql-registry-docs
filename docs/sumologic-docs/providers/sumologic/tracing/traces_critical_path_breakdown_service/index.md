@@ -27,9 +27,9 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `idleTime` | `integer` | Overall time in nanoseconds when no particular operation was in progress. |
 | `elements` | `array` | List of elements representing the critical path service breakdown. |
+| `idleTime` | `integer` | Overall time in nanoseconds when no particular operation was in progress. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getCriticalPathServiceBreakdown` | `SELECT` | `traceId` |
+| `getCriticalPathServiceBreakdown` | `SELECT` | `traceId, region` |

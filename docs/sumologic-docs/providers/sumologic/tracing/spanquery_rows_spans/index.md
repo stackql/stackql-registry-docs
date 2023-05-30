@@ -32,4 +32,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSpanQueryResult` | `SELECT` | `queryId, rowId` |
+| `getSpanQueryResult` | `SELECT` | `queryId, rowId, region` |
