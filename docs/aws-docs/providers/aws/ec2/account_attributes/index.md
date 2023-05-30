@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `attributeName` | `string` | The name of the account attribute. |
 | `attributeValueSet` | `array` | The values for the account attribute. |
+| `attributeName` | `string` | The name of the account attribute. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `account_attributes_Describe` | `SELECT` |  |
+| `account_attributes_Describe` | `SELECT` | `region` |

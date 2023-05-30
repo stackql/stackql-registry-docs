@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_object_responses_Write` | `EXEC` | `x-amz-request-route, x-amz-request-token` |
+| `get_object_responses_Write` | `EXEC` | `x-amz-request-route, x-amz-request-token, bucket, region` |

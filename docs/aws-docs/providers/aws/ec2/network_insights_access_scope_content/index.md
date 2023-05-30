@@ -28,4 +28,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `network_insights_access_scope_content_Get` | `SELECT` | `NetworkInsightsAccessScopeId` |
+| `network_insights_access_scope_content_Get` | `SELECT` | `NetworkInsightsAccessScopeId, region` |

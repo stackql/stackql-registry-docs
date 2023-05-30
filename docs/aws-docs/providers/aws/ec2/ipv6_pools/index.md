@@ -28,10 +28,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description for the address pool. |
+| `poolId` | `string` | The ID of the address pool. |
 | `tagSet` | `array` | Any tags for the address pool. |
 | `poolCidrBlockSet` | `array` | The CIDR blocks for the address pool. |
-| `poolId` | `string` | The ID of the address pool. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ipv6_pools_Describe` | `SELECT` |  |
+| `ipv6_pools_Describe` | `SELECT` | `region` |

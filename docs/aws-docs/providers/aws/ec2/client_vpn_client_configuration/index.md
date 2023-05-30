@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `client_vpn_client_configuration_Export` | `EXEC` | `ClientVpnEndpointId` |
+| `client_vpn_client_configuration_Export` | `EXEC` | `ClientVpnEndpointId, region` |

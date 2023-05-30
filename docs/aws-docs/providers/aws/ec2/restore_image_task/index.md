@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `restore_image_task_Create` | `INSERT` | `Bucket, ObjectKey` |
+| `restore_image_task_Create` | `INSERT` | `Bucket, ObjectKey, region` |

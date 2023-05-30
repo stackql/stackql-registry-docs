@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `traffic_mirror_filter_network_services_Modify` | `EXEC` | `TrafficMirrorFilterId` |
+| `traffic_mirror_filter_network_services_Modify` | `EXEC` | `TrafficMirrorFilterId, region` |

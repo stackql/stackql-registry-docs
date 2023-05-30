@@ -29,5 +29,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `iam_instance_profile_Associate` | `EXEC` | `IamInstanceProfile, InstanceId` | Associates an IAM instance profile with a running or stopped instance. You cannot associate more than one IAM instance profile with an instance. |
-| `iam_instance_profile_Disassociate` | `EXEC` | `AssociationId` | &lt;p&gt;Disassociates an IAM instance profile from a running or stopped instance.&lt;/p&gt; &lt;p&gt;Use &lt;a&gt;DescribeIamInstanceProfileAssociations&lt;/a&gt; to get the association ID.&lt;/p&gt; |
+| `iam_instance_profile_Associate` | `EXEC` | `IamInstanceProfile, InstanceId, region` | Associates an IAM instance profile with a running or stopped instance. You cannot associate more than one IAM instance profile with an instance. |
+| `iam_instance_profile_Disassociate` | `EXEC` | `AssociationId, region` | &lt;p&gt;Disassociates an IAM instance profile from a running or stopped instance.&lt;/p&gt; &lt;p&gt;Use &lt;a&gt;DescribeIamInstanceProfileAssociations&lt;/a&gt; to get the association ID.&lt;/p&gt; |

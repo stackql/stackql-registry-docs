@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `console_screenshot_Get` | `SELECT` | `InstanceId` |
+| `console_screenshot_Get` | `SELECT` | `InstanceId, region` |

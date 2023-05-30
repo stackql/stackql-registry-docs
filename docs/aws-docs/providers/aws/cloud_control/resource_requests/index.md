@@ -27,19 +27,19 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `Operation` | `string` |
-| `RequestToken` | `string` |
-| `ErrorCode` | `string` |
-| `EventTime` | `number` |
-| `Identifier` | `string` |
-| `TypeName` | `string` |
-| `StatusMessage` | `string` |
 | `ResourceModel` | `string` |
+| `RequestToken` | `string` |
+| `EventTime` | `number` |
+| `Operation` | `string` |
+| `TypeName` | `string` |
+| `ErrorCode` | `string` |
 | `RetryAfter` | `number` |
+| `StatusMessage` | `string` |
+| `Identifier` | `string` |
 | `OperationStatus` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_resource_request` | `SELECT` | `data__RequestToken` |
-| `list_resource_requests` | `SELECT` | `data__ResourceRequestStatusFilter` |
-| `cancel_resource_request` | `DELETE` | `data__RequestToken` |
+| `get_resource_request` | `SELECT` | `data__RequestToken, region` |
+| `list_resource_requests` | `SELECT` | `data__ResourceRequestStatusFilter, region` |
+| `cancel_resource_request` | `DELETE` | `data__RequestToken, region` |

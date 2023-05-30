@@ -323,3 +323,35 @@ Alternatively, you could add the `--tls.allowInsecure=true` argument to the `sta
 """
   }
 }
+
+server_variables_blocks = {
+    'aws': """
+The following parameter is required for the `aws` provider:  
+
+- `region` - AWS region (e.g. `us-east-1`)
+
+This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
+    """,
+    'okta': """
+The following parameter is required for the `okta` provider:  
+
+- `subdomain` - The Okta tenant domain, for example `my-company` would be supplied if your Okta domain is `my-company.okta.com`
+
+This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
+    """,
+    'sumologic': """
+The following parameter is required for the `sumologic` provider if you are not using the `us2` region:  
+
+- `region` - The SumoLogic regional endpoint (e.g. `au`, `ca`, `de`, `eu`, `fed`, `in`, `jp`)
+
+This parameter would be supplied to the `WHERE` clause of each `SELECT` statement if you are not usign the `us2` region.
+    """,
+    'k8s': """
+The following parameters may be required for the `k8s` provider:  
+
+- `protocol` - `https` or `http` (default: `https`)
+- `cluster_addr` - The hostname of the Kubernetes cluster (default: `localhost`)
+
+This parameter would be supplied to the `WHERE` clause of each `SELECT` statement.
+    """,
+}

@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `queued_reserved_instances_Delete` | `DELETE` | `ReservedInstancesId` |
+| `queued_reserved_instances_Delete` | `DELETE` | `ReservedInstancesId, region` |

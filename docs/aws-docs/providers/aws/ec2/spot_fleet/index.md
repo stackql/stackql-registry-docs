@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `spot_fleet_Request` | `EXEC` | `SpotFleetRequestConfig` |
+| `spot_fleet_Request` | `EXEC` | `SpotFleetRequestConfig, region` |

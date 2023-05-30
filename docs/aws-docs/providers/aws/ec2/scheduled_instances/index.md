@@ -27,24 +27,24 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
-| `instanceCount` | `integer` | The number of instances. |
-| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
-| `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
-| `termStartDate` | `string` | The start date for the Scheduled Instance. |
-| `termEndDate` | `string` | The end date for the Scheduled Instance. |
-| `previousSlotEndTime` | `string` | The time that the previous schedule ended or will end. |
-| `createDate` | `string` | The date when the Scheduled Instance was purchased. |
-| `nextSlotStartTime` | `string` | The time for the next schedule to start. |
-| `scheduledInstanceId` | `string` | The Scheduled Instance ID. |
-| `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
-| `availabilityZone` | `string` | The Availability Zone. |
-| `slotDurationInHours` | `integer` | The number of hours in the schedule. |
-| `instanceType` | `string` | The instance type. |
 | `hourlyPrice` | `string` | The hourly price for a single instance. |
+| `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
+| `availabilityZone` | `string` | The Availability Zone. |
+| `instanceCount` | `integer` | The number of instances. |
+| `previousSlotEndTime` | `string` | The time that the previous schedule ended or will end. |
+| `termEndDate` | `string` | The end date for the Scheduled Instance. |
+| `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
+| `slotDurationInHours` | `integer` | The number of hours in the schedule. |
+| `createDate` | `string` | The date when the Scheduled Instance was purchased. |
+| `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
+| `instanceType` | `string` | The instance type. |
+| `termStartDate` | `string` | The start date for the Scheduled Instance. |
+| `scheduledInstanceId` | `string` | The Scheduled Instance ID. |
+| `nextSlotStartTime` | `string` | The time for the next schedule to start. |
+| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `scheduled_instances_Describe` | `SELECT` |  | Describes the specified Scheduled Instances or all your Scheduled Instances. |
-| `scheduled_instances_Purchase` | `EXEC` | `PurchaseRequest` | &lt;p&gt;Purchases the Scheduled Instances with the specified schedule.&lt;/p&gt; &lt;p&gt;Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call &lt;a&gt;DescribeScheduledInstanceAvailability&lt;/a&gt; to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call &lt;a&gt;RunScheduledInstances&lt;/a&gt; during each scheduled time period.&lt;/p&gt; &lt;p&gt;After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.&lt;/p&gt; |
-| `scheduled_instances_Run` | `EXEC` | `LaunchSpecification, ScheduledInstanceId` | &lt;p&gt;Launches the specified Scheduled Instances.&lt;/p&gt; &lt;p&gt;Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using &lt;a&gt;PurchaseScheduledInstances&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html"&gt;Scheduled Instances&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;.&lt;/p&gt; |
+| `scheduled_instances_Describe` | `SELECT` | `region` | Describes the specified Scheduled Instances or all your Scheduled Instances. |
+| `scheduled_instances_Purchase` | `EXEC` | `PurchaseRequest, region` | &lt;p&gt;Purchases the Scheduled Instances with the specified schedule.&lt;/p&gt; &lt;p&gt;Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call &lt;a&gt;DescribeScheduledInstanceAvailability&lt;/a&gt; to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call &lt;a&gt;RunScheduledInstances&lt;/a&gt; during each scheduled time period.&lt;/p&gt; &lt;p&gt;After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.&lt;/p&gt; |
+| `scheduled_instances_Run` | `EXEC` | `LaunchSpecification, ScheduledInstanceId, region` | &lt;p&gt;Launches the specified Scheduled Instances.&lt;/p&gt; &lt;p&gt;Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using &lt;a&gt;PurchaseScheduledInstances&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html"&gt;Scheduled Instances&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;.&lt;/p&gt; |

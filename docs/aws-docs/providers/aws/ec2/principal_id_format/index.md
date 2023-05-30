@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `principal_id_format_Describe` | `SELECT` |  |
+| `principal_id_format_Describe` | `SELECT` | `region` |

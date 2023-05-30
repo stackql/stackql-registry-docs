@@ -38,4 +38,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `local_gateway_route_table_virtual_interface_group_associations_Describe` | `SELECT` |  |
+| `local_gateway_route_table_virtual_interface_group_associations_Describe` | `SELECT` | `region` |

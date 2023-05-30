@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `platform` | `string` | Customer gateway device platform. |
 | `software` | `string` | Customer gateway device software version. |
 | `vendor` | `string` | Customer gateway device vendor. |
 | `vpnConnectionDeviceTypeId` | `string` | Customer gateway device identifier. |
-| `platform` | `string` | Customer gateway device platform. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpn_connection_device_types_Get` | `SELECT` |  |
+| `vpn_connection_device_types_Get` | `SELECT` | `region` |

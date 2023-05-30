@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `groups_for_capacity_reservation_Get` | `SELECT` | `CapacityReservationId` |
+| `groups_for_capacity_reservation_Get` | `SELECT` | `CapacityReservationId, region` |

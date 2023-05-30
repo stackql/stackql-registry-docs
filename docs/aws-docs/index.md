@@ -76,6 +76,16 @@ stackql.exe shell --auth=$Auth
 ```
 </details>
 
+
+## Server Parameters
+
+
+The following parameter is required for the `aws` provider:  
+
+- `region` - AWS region (e.g. `us-east-1`)
+
+This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
+    
 ## Services
 <div class="row">
 <div class="providerDocColumn">

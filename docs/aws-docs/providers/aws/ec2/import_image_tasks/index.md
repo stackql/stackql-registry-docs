@@ -28,23 +28,23 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A description of the import task. |
-| `kmsKeyId` | `string` | The identifier for the KMS key that was used to create the encrypted image. |
-| `imageId` | `string` | The ID of the Amazon Machine Image (AMI) of the imported virtual machine. |
+| `tagSet` | `array` | The tags for the import image task. |
 | `encrypted` | `boolean` | Indicates whether the image is encrypted. |
+| `kmsKeyId` | `string` | The identifier for the KMS key that was used to create the encrypted image. |
+| `licenseType` | `string` | The license type of the virtual machine. |
+| `statusMessage` | `string` | A descriptive status message for the import image task. |
+| `licenseSpecifications` | `array` | The ARNs of the license configurations that are associated with the import image task. |
+| `snapshotDetailSet` | `array` | Information about the snapshots. |
+| `progress` | `string` | The percentage of progress of the import image task. |
+| `architecture` | `string` | &lt;p&gt;The architecture of the virtual machine.&lt;/p&gt; &lt;p&gt;Valid values: &lt;code&gt;i386&lt;/code&gt; \| &lt;code&gt;x86_64&lt;/code&gt; \| &lt;code&gt;arm64&lt;/code&gt; &lt;/p&gt; |
 | `platform` | `string` | The description string for the import image task. |
 | `importTaskId` | `string` | The ID of the import image task. |
-| `architecture` | `string` | &lt;p&gt;The architecture of the virtual machine.&lt;/p&gt; &lt;p&gt;Valid values: &lt;code&gt;i386&lt;/code&gt; \| &lt;code&gt;x86_64&lt;/code&gt; \| &lt;code&gt;arm64&lt;/code&gt; &lt;/p&gt; |
-| `usageOperation` | `string` | The usage operation value. |
-| `progress` | `string` | The percentage of progress of the import image task. |
-| `statusMessage` | `string` | A descriptive status message for the import image task. |
-| `snapshotDetailSet` | `array` | Information about the snapshots. |
-| `status` | `string` | A brief status for the import image task. |
-| `hypervisor` | `string` | &lt;p&gt;The target hypervisor for the import task.&lt;/p&gt; &lt;p&gt;Valid values: &lt;code&gt;xen&lt;/code&gt; &lt;/p&gt; |
 | `bootMode` | `string` | The boot mode of the virtual machine. |
-| `tagSet` | `array` | The tags for the import image task. |
-| `licenseSpecifications` | `array` | The ARNs of the license configurations that are associated with the import image task. |
-| `licenseType` | `string` | The license type of the virtual machine. |
+| `imageId` | `string` | The ID of the Amazon Machine Image (AMI) of the imported virtual machine. |
+| `hypervisor` | `string` | &lt;p&gt;The target hypervisor for the import task.&lt;/p&gt; &lt;p&gt;Valid values: &lt;code&gt;xen&lt;/code&gt; &lt;/p&gt; |
+| `status` | `string` | A brief status for the import image task. |
+| `usageOperation` | `string` | The usage operation value. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `import_image_tasks_Describe` | `SELECT` |  |
+| `import_image_tasks_Describe` | `SELECT` | `region` |

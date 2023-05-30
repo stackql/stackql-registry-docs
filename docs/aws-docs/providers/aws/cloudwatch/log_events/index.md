@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `timestamp` | `number` | The time the event occurred, expressed as the number of milliseconds after &lt;code&gt;Jan 1, 1970 00:00:00 UTC&lt;/code&gt;. |
 | `ingestionTime` | `number` | The time the event was ingested, expressed as the number of milliseconds after &lt;code&gt;Jan 1, 1970 00:00:00 UTC&lt;/code&gt;. |
 | `message` | `string` | The data contained in the log event. |
-| `timestamp` | `number` | The time the event occurred, expressed as the number of milliseconds after &lt;code&gt;Jan 1, 1970 00:00:00 UTC&lt;/code&gt;. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `GetLogEvents` | `SELECT` | `data__logStreamName` |
+| `GetLogEvents` | `SELECT` | `data__logStreamName, region` |

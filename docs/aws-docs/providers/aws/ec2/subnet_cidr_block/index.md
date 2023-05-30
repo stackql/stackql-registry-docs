@@ -29,5 +29,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `subnet_cidr_block_Associate` | `EXEC` | `Ipv6CidrBlock, SubnetId` | Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64. |
-| `subnet_cidr_block_Disassociate` | `EXEC` | `AssociationId` | Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv6 CIDR block only. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it.  |
+| `subnet_cidr_block_Associate` | `EXEC` | `Ipv6CidrBlock, SubnetId, region` | Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64. |
+| `subnet_cidr_block_Disassociate` | `EXEC` | `AssociationId, region` | Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv6 CIDR block only. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it.  |

@@ -36,4 +36,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `stale_security_groups_Describe` | `SELECT` | `VpcId` |
+| `stale_security_groups_Describe` | `SELECT` | `VpcId, region` |

@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `security_token_service_preferences_Set` | `EXEC` | `GlobalEndpointTokenVersion` |
+| `security_token_service_preferences_Set` | `EXEC` | `GlobalEndpointTokenVersion, region` |

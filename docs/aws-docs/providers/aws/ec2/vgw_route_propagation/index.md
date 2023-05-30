@@ -29,5 +29,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `vgw_route_propagation_Disable` | `EXEC` | `GatewayId, RouteTableId` | Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC. |
-| `vgw_route_propagation_Enable` | `EXEC` | `GatewayId, RouteTableId` | Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC. |
+| `vgw_route_propagation_Disable` | `EXEC` | `GatewayId, RouteTableId, region` | Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC. |
+| `vgw_route_propagation_Enable` | `EXEC` | `GatewayId, RouteTableId, region` | Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC. |

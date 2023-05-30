@@ -29,5 +29,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `public_ipv4_pool_cidr_Deprovision` | `EXEC` | `Cidr, PoolId` | Deprovision a CIDR from a public IPv4 pool. |
-| `public_ipv4_pool_cidr_Provision` | `EXEC` | `IpamPoolId, NetmaskLength, PoolId` | &lt;p&gt;Provision a CIDR to a public IPv4 pool.&lt;/p&gt; &lt;p&gt;For more information about IPAM, see &lt;a href="/vpc/latest/ipam/what-is-it-ipam.html"&gt;What is IPAM?&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.&lt;/p&gt; |
+| `public_ipv4_pool_cidr_Deprovision` | `EXEC` | `Cidr, PoolId, region` | Deprovision a CIDR from a public IPv4 pool. |
+| `public_ipv4_pool_cidr_Provision` | `EXEC` | `IpamPoolId, NetmaskLength, PoolId, region` | &lt;p&gt;Provision a CIDR to a public IPv4 pool.&lt;/p&gt; &lt;p&gt;For more information about IPAM, see &lt;a href="/vpc/latest/ipam/what-is-it-ipam.html"&gt;What is IPAM?&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;.&lt;/p&gt; |

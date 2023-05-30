@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `networkInsightsAccessScopeId` | `string` | The ID of the Network Access Scope. |
 | `findingComponentSet` | `array` | The finding components. |
 | `findingId` | `string` | The ID of the finding. |
 | `networkInsightsAccessScopeAnalysisId` | `string` | The ID of the Network Access Scope analysis. |
+| `networkInsightsAccessScopeId` | `string` | The ID of the Network Access Scope. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `network_insights_access_scope_analysis_findings_Get` | `SELECT` | `NetworkInsightsAccessScopeAnalysisId` |
+| `network_insights_access_scope_analysis_findings_Get` | `SELECT` | `NetworkInsightsAccessScopeAnalysisId, region` |

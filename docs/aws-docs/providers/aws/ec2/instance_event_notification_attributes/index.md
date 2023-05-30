@@ -28,6 +28,6 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `instance_event_notification_attributes_Describe` | `SELECT` |  | Describes the tag keys that are registered to appear in scheduled event notifications for resources in the current Region. |
-| `instance_event_notification_attributes_Deregister` | `EXEC` |  | Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region. |
-| `instance_event_notification_attributes_Register` | `EXEC` |  | &lt;p&gt;Registers a set of tag keys to include in scheduled event notifications for your resources. &lt;/p&gt; &lt;p&gt;To remove tags, use &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html"&gt;DeregisterInstanceEventNotificationAttributes&lt;/a&gt;.&lt;/p&gt; |
+| `instance_event_notification_attributes_Describe` | `SELECT` | `region` | Describes the tag keys that are registered to appear in scheduled event notifications for resources in the current Region. |
+| `instance_event_notification_attributes_Deregister` | `EXEC` | `region` | Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region. |
+| `instance_event_notification_attributes_Register` | `EXEC` | `region` | &lt;p&gt;Registers a set of tag keys to include in scheduled event notifications for your resources. &lt;/p&gt; &lt;p&gt;To remove tags, use &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html"&gt;DeregisterInstanceEventNotificationAttributes&lt;/a&gt;.&lt;/p&gt; |

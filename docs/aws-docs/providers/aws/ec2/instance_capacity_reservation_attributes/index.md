@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instance_capacity_reservation_attributes_Modify` | `EXEC` | `CapacityReservationSpecification, InstanceId` |
+| `instance_capacity_reservation_attributes_Modify` | `EXEC` | `CapacityReservationSpecification, InstanceId, region` |

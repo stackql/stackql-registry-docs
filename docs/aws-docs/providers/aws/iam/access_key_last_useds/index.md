@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `access_key_last_useds_Get` | `SELECT` | `AccessKeyId` |
+| `access_key_last_useds_Get` | `SELECT` | `AccessKeyId, region` |

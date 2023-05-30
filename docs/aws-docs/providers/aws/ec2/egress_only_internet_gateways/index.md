@@ -33,6 +33,6 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `egress_only_internet_gateways_Describe` | `SELECT` |  | Describes one or more of your egress-only internet gateways. |
-| `egress_only_internet_gateway_Create` | `INSERT` | `VpcId` | [IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance. |
-| `egress_only_internet_gateway_Delete` | `DELETE` | `EgressOnlyInternetGatewayId` | Deletes an egress-only internet gateway. |
+| `egress_only_internet_gateways_Describe` | `SELECT` | `region` | Describes one or more of your egress-only internet gateways. |
+| `egress_only_internet_gateway_Create` | `INSERT` | `VpcId, region` | [IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance. |
+| `egress_only_internet_gateway_Delete` | `DELETE` | `EgressOnlyInternetGatewayId, region` | Deletes an egress-only internet gateway. |

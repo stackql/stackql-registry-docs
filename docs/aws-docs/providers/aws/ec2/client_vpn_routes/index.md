@@ -28,15 +28,15 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A brief description of the route. |
+| `clientVpnEndpointId` | `string` | The ID of the Client VPN endpoint with which the route is associated. |
 | `destinationCidr` | `string` | The IPv4 address range, in CIDR notation, of the route destination. |
 | `origin` | `string` | Indicates how the route was associated with the Client VPN endpoint. &lt;code&gt;associate&lt;/code&gt; indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. &lt;code&gt;add-route&lt;/code&gt; indicates that the route was manually added using the &lt;b&gt;CreateClientVpnRoute&lt;/b&gt; action. |
 | `status` | `object` | Describes the state of a Client VPN endpoint route. |
 | `targetSubnet` | `string` | The ID of the subnet through which traffic is routed. |
 | `type` | `string` | The route type. |
-| `clientVpnEndpointId` | `string` | The ID of the Client VPN endpoint with which the route is associated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `client_vpn_routes_Describe` | `SELECT` | `ClientVpnEndpointId` | Describes the routes for the specified Client VPN endpoint. |
-| `client_vpn_route_Create` | `INSERT` | `ClientVpnEndpointId, DestinationCidrBlock, TargetVpcSubnetId` | Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traﬃc to speciﬁc resources or networks. |
-| `client_vpn_route_Delete` | `DELETE` | `ClientVpnEndpointId, DestinationCidrBlock` | Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using the &lt;b&gt;CreateClientVpnRoute&lt;/b&gt; action. You cannot delete routes that were automatically added when associating a subnet. To remove routes that have been automatically added, disassociate the target subnet from the Client VPN endpoint. |
+| `client_vpn_routes_Describe` | `SELECT` | `ClientVpnEndpointId, region` | Describes the routes for the specified Client VPN endpoint. |
+| `client_vpn_route_Create` | `INSERT` | `ClientVpnEndpointId, DestinationCidrBlock, TargetVpcSubnetId, region` | Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traﬃc to speciﬁc resources or networks. |
+| `client_vpn_route_Delete` | `DELETE` | `ClientVpnEndpointId, DestinationCidrBlock, region` | Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using the &lt;b&gt;CreateClientVpnRoute&lt;/b&gt; action. You cannot delete routes that were automatically added when associating a subnet. To remove routes that have been automatically added, disassociate the target subnet from the Client VPN endpoint. |

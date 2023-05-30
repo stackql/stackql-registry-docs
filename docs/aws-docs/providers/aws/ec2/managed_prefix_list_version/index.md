@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `managed_prefix_list_version_Restore` | `EXEC` | `CurrentVersion, PrefixListId, PreviousVersion` |
+| `managed_prefix_list_version_Restore` | `EXEC` | `CurrentVersion, PrefixListId, PreviousVersion, region` |

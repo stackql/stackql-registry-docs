@@ -32,4 +32,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `service_linked_role_deletion_status_Get` | `SELECT` | `DeletionTaskId` |
+| `service_linked_role_deletion_status_Get` | `SELECT` | `DeletionTaskId, region` |

@@ -28,6 +28,6 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `fpga_image_attribute_Describe` | `SELECT` | `Attribute, FpgaImageId` | Describes the specified attribute of the specified Amazon FPGA Image (AFI). |
-| `fpga_image_attribute_Modify` | `EXEC` | `FpgaImageId` | Modifies the specified attribute of the specified Amazon FPGA Image (AFI). |
-| `fpga_image_attribute_Reset` | `EXEC` | `FpgaImageId` | Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value. You can only reset the load permission attribute. |
+| `fpga_image_attribute_Describe` | `SELECT` | `Attribute, FpgaImageId, region` | Describes the specified attribute of the specified Amazon FPGA Image (AFI). |
+| `fpga_image_attribute_Modify` | `EXEC` | `FpgaImageId, region` | Modifies the specified attribute of the specified Amazon FPGA Image (AFI). |
+| `fpga_image_attribute_Reset` | `EXEC` | `FpgaImageId, region` | Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value. You can only reset the load permission attribute. |

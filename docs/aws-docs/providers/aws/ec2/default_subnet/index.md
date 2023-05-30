@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `default_subnet_Create` | `INSERT` | `AvailabilityZone` |
+| `default_subnet_Create` | `INSERT` | `AvailabilityZone, region` |

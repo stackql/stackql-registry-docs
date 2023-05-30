@@ -34,4 +34,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `import_snapshot_tasks_Describe` | `SELECT` |  |
+| `import_snapshot_tasks_Describe` | `SELECT` | `region` |

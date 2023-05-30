@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `score` | `integer` | The placement score, on a scale from &lt;code&gt;1&lt;/code&gt; to &lt;code&gt;10&lt;/code&gt;. A score of &lt;code&gt;10&lt;/code&gt; indicates that your Spot request is highly likely to succeed in this Region or Availability Zone. A score of &lt;code&gt;1&lt;/code&gt; indicates that your Spot request is not likely to succeed.  |
 | `availabilityZoneId` | `string` | The Availability Zone. |
 | `region` | `string` | The Region. |
+| `score` | `integer` | The placement score, on a scale from &lt;code&gt;1&lt;/code&gt; to &lt;code&gt;10&lt;/code&gt;. A score of &lt;code&gt;10&lt;/code&gt; indicates that your Spot request is highly likely to succeed in this Region or Availability Zone. A score of &lt;code&gt;1&lt;/code&gt; indicates that your Spot request is not likely to succeed.  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `spot_placement_scores_Get` | `SELECT` | `TargetCapacity` |
+| `spot_placement_scores_Get` | `SELECT` | `TargetCapacity, region` |

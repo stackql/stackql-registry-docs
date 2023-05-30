@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `cidrSet` | `array` | The IP address range of the Amazon Web Service. |
 | `prefixListId` | `string` | The ID of the prefix. |
 | `prefixListName` | `string` | The name of the prefix. |
+| `cidrSet` | `array` | The IP address range of the Amazon Web Service. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `prefix_lists_Describe` | `SELECT` |  |
+| `prefix_lists_Describe` | `SELECT` | `region` |

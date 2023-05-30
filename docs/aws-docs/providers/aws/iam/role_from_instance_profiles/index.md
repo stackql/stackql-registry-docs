@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `role_from_instance_profiles_Remove` | `EXEC` | `InstanceProfileName, RoleName` |
+| `role_from_instance_profiles_Remove` | `EXEC` | `InstanceProfileName, RoleName, region` |

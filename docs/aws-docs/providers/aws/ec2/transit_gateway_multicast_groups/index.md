@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `transit_gateway_multicast_groups_Search` | `EXEC` |  |
+| `transit_gateway_multicast_groups_Search` | `EXEC` | `region` |

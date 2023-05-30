@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `snapshot_from_recycle_bin_Restore` | `EXEC` | `SnapshotId` |
+| `snapshot_from_recycle_bin_Restore` | `EXEC` | `SnapshotId, region` |

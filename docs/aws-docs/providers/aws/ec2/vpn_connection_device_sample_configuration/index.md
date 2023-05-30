@@ -28,4 +28,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpn_connection_device_sample_configuration_Get` | `SELECT` | `VpnConnectionDeviceTypeId, VpnConnectionId` |
+| `vpn_connection_device_sample_configuration_Get` | `SELECT` | `VpnConnectionDeviceTypeId, VpnConnectionId, region` |

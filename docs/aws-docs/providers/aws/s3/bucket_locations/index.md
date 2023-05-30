@@ -28,4 +28,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `bucket_locations_Get` | `SELECT` |  |
+| `bucket_locations_Get` | `SELECT` | `bucket, region` |

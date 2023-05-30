@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `byoip_cidr_to_ipam_Move` | `EXEC` | `Cidr, IpamPoolId, IpamPoolOwner` |
+| `byoip_cidr_to_ipam_Move` | `EXEC` | `Cidr, IpamPoolId, IpamPoolOwner, region` |

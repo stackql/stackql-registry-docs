@@ -29,5 +29,5 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `network_insights_analysis_Delete` | `DELETE` | `NetworkInsightsAnalysisId` | Deletes the specified network insights analysis. |
-| `network_insights_analysis_Start` | `EXEC` | `ClientToken, NetworkInsightsPathId` | Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path. |
+| `network_insights_analysis_Delete` | `DELETE` | `NetworkInsightsAnalysisId, region` | Deletes the specified network insights analysis. |
+| `network_insights_analysis_Start` | `EXEC` | `ClientToken, NetworkInsightsPathId, region` | Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path. |

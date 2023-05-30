@@ -33,6 +33,6 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `subnet_cidr_reservations_Get` | `SELECT` | `SubnetId` | Gets information about the subnet CIDR reservations. |
-| `subnet_cidr_reservation_Create` | `INSERT` | `Cidr, ReservationType, SubnetId` | Creates a subnet CIDR reservation. For information about subnet CIDR reservations, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html"&gt;Subnet CIDR reservations&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;. |
-| `subnet_cidr_reservation_Delete` | `DELETE` | `SubnetCidrReservationId` | Deletes a subnet CIDR reservation. |
+| `subnet_cidr_reservations_Get` | `SELECT` | `SubnetId, region` | Gets information about the subnet CIDR reservations. |
+| `subnet_cidr_reservation_Create` | `INSERT` | `Cidr, ReservationType, SubnetId, region` | Creates a subnet CIDR reservation. For information about subnet CIDR reservations, see &lt;a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html"&gt;Subnet CIDR reservations&lt;/a&gt; in the &lt;i&gt;Amazon Virtual Private Cloud User Guide&lt;/i&gt;. |
+| `subnet_cidr_reservation_Delete` | `DELETE` | `SubnetCidrReservationId, region` | Deletes a subnet CIDR reservation. |

@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `principal` | `string` | The Amazon Resource Name (ARN) of the principal. |
 | `principalType` | `string` | The type of principal. |
+| `principal` | `string` | The Amazon Resource Name (ARN) of the principal. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `vpc_endpoint_service_permissions_Describe` | `SELECT` | `ServiceId` | Describes the principals (service consumers) that are permitted to discover your VPC endpoint service. |
-| `vpc_endpoint_service_permissions_Modify` | `EXEC` | `ServiceId` | &lt;p&gt;Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.&lt;/p&gt; &lt;p&gt;If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.&lt;/p&gt; |
+| `vpc_endpoint_service_permissions_Describe` | `SELECT` | `ServiceId, region` | Describes the principals (service consumers) that are permitted to discover your VPC endpoint service. |
+| `vpc_endpoint_service_permissions_Modify` | `EXEC` | `ServiceId, region` | &lt;p&gt;Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.&lt;/p&gt; &lt;p&gt;If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.&lt;/p&gt; |

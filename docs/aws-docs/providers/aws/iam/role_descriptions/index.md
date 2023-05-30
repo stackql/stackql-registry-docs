@@ -29,4 +29,4 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `role_descriptions_Update` | `EXEC` | `Description, RoleName` |
+| `role_descriptions_Update` | `EXEC` | `Description, RoleName, region` |

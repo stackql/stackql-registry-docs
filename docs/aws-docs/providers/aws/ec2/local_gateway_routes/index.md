@@ -29,6 +29,6 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `local_gateway_route_Create` | `INSERT` | `DestinationCidrBlock, LocalGatewayRouteTableId, LocalGatewayVirtualInterfaceGroupId` | Creates a static route for the specified local gateway route table. |
-| `local_gateway_route_Delete` | `DELETE` | `DestinationCidrBlock, LocalGatewayRouteTableId` | Deletes the specified route from the specified local gateway route table. |
-| `local_gateway_routes_Search` | `EXEC` | `LocalGatewayRouteTableId` | Searches for routes in the specified local gateway route table. |
+| `local_gateway_route_Create` | `INSERT` | `DestinationCidrBlock, LocalGatewayRouteTableId, LocalGatewayVirtualInterfaceGroupId, region` | Creates a static route for the specified local gateway route table. |
+| `local_gateway_route_Delete` | `DELETE` | `DestinationCidrBlock, LocalGatewayRouteTableId, region` | Deletes the specified route from the specified local gateway route table. |
+| `local_gateway_routes_Search` | `EXEC` | `LocalGatewayRouteTableId, region` | Searches for routes in the specified local gateway route table. |
