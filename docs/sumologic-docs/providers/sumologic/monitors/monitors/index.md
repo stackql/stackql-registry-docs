@@ -29,9 +29,9 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `monitorsCreate` | `EXEC` | `parentId, data__name, data__type` | Create a monitor or folder in the monitors library. |
-| `monitorsDeleteById` | `EXEC` | `id` | Delete a monitor or folder from the monitors library. |
-| `monitorsDeleteByIds` | `EXEC` | `ids` | Bulk delete a monitor or folder by the given identifiers in the monitors library. |
-| `monitorsReadById` | `EXEC` | `id` | Get a monitor or folder from the monitors library. |
-| `monitorsReadByIds` | `EXEC` | `ids` | Bulk read a monitor or folder by the given identifiers from the monitors library. |
-| `monitorsUpdateById` | `EXEC` | `id, data__name, data__type, data__version` | Update a monitor or folder in the monitors library. |
+| `monitorsCreate` | `EXEC` | `parentId, data__name, data__type, region` | Create a monitor or folder in the monitors library. |
+| `monitorsDeleteById` | `EXEC` | `id, region` | Delete a monitor or folder from the monitors library. |
+| `monitorsDeleteByIds` | `EXEC` | `ids, region` | Bulk delete a monitor or folder by the given identifiers in the monitors library. |
+| `monitorsReadById` | `EXEC` | `id, region` | Get a monitor or folder from the monitors library. |
+| `monitorsReadByIds` | `EXEC` | `ids, region` | Bulk read a monitor or folder by the given identifiers from the monitors library. |
+| `monitorsUpdateById` | `EXEC` | `id, data__name, data__type, data__version, region` | Update a monitor or folder in the monitors library. |

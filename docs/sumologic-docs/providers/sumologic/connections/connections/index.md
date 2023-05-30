@@ -30,16 +30,16 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | `id` | `string` | Unique identifier for the connection. |
 | `name` | `string` | Name of the connection. |
 | `description` | `string` | Description of the connection. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
 | `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `type` | `string` | Type of connection. Valid values are `WebhookConnection`, `ServiceNowConnection`. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getConnection` | `SELECT` | `id, type` | Get a connection with the given identifier. |
-| `listConnections` | `SELECT` |  | Get a list of all connections in the organization. The response is paginated with a default limit of 100 connections per page. |
-| `createConnection` | `INSERT` | `data__name, data__type` | Create a new connection in the organization. |
-| `deleteConnection` | `DELETE` | `id, type` | Delete a connection with the given identifier. |
-| `updateConnection` | `EXEC` | `id, data__name, data__type` | Update an existing connection. |
+| `getConnection` | `SELECT` | `id, type, region` | Get a connection with the given identifier. |
+| `listConnections` | `SELECT` | `region` | Get a list of all connections in the organization. The response is paginated with a default limit of 100 connections per page. |
+| `createConnection` | `INSERT` | `data__name, data__type, region` | Create a new connection in the organization. |
+| `deleteConnection` | `DELETE` | `id, type, region` | Delete a connection with the given identifier. |
+| `updateConnection` | `EXEC` | `id, data__name, data__type, region` | Update an existing connection. |

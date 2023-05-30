@@ -32,4 +32,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getCriticalPath` | `SELECT` | `traceId` |
+| `getCriticalPath` | `SELECT` | `traceId, region` |

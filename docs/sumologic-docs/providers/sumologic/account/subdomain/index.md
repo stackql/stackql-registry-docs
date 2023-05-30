@@ -27,16 +27,16 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `subdomain` | `string` | The new subdomain. |
 | `url` | `string` | Login URL corresponding to the subdomain. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format.<br /> |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getSubdomain` | `SELECT` |  | Get the configured subdomain. |
-| `createSubdomain` | `INSERT` | `data__subdomain` | Create a subdomain. Only the Account Owner can create a subdomain. |
-| `deleteSubdomain` | `DELETE` |  | Delete the configured subdomain. |
-| `updateSubdomain` | `EXEC` | `data__subdomain` | Update a subdomain. Only the Account Owner can update the subdomain. |
+| `getSubdomain` | `SELECT` | `region` | Get the configured subdomain. |
+| `createSubdomain` | `INSERT` | `data__subdomain, region` | Create a subdomain. Only the Account Owner can create a subdomain. |
+| `deleteSubdomain` | `DELETE` | `region` | Delete the configured subdomain. |
+| `updateSubdomain` | `EXEC` | `data__subdomain, region` | Update a subdomain. Only the Account Owner can update the subdomain. |

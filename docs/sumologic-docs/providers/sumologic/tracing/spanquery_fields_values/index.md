@@ -27,10 +27,10 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `fieldValues` | `array` | List of filter field values. |
 | `next` | `string` | Next continuation token. |
 | `totalCount` | `integer` | Total number of values for a field matching the query. Can be approximated when it's above 3000. |
+| `fieldValues` | `array` | List of filter field values. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSpanQueryFieldValues` | `SELECT` | `field` |
+| `getSpanQueryFieldValues` | `SELECT` | `field, region` |

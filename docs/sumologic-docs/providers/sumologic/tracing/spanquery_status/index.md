@@ -27,9 +27,9 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `status` | `string` | Status of the query. Possible values: `Processing`, `Finished`, `Error`, `Paused` |
 | `queryRows` | `array` | A list of span analytics queries. |
+| `status` | `string` | Status of the query. Possible values: `Processing`, `Finished`, `Error`, `Paused` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getSpanQueryStatus` | `SELECT` | `queryId` |
+| `getSpanQueryStatus` | `SELECT` | `queryId, region` |

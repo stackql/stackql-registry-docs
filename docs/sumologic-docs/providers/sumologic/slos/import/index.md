@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `slosImportItem` | `EXEC` | `parentId, data__name, data__type` |
+| `slosImportItem` | `EXEC` | `parentId, data__name, data__type, region` |

@@ -29,9 +29,9 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `slosCreate` | `EXEC` | `parentId, data__name, data__type` | Create a slo or folder in the slos library. |
-| `slosDeleteById` | `EXEC` | `id` | Delete a slo or folder from the slos library. |
-| `slosDeleteByIds` | `EXEC` | `ids` | Bulk delete a slo or folder by the given identifiers in the slos library. |
-| `slosReadById` | `EXEC` | `id` | Get a slo or folder from the slos library. |
-| `slosReadByIds` | `EXEC` | `ids` | Bulk read a slo or folder by the given identifiers from the slos library. |
-| `slosUpdateById` | `EXEC` | `id, data__name, data__type, data__version` | Update a slo or folder in the slos library. |
+| `slosCreate` | `EXEC` | `parentId, data__name, data__type, region` | Create a slo or folder in the slos library. |
+| `slosDeleteById` | `EXEC` | `id, region` | Delete a slo or folder from the slos library. |
+| `slosDeleteByIds` | `EXEC` | `ids, region` | Bulk delete a slo or folder by the given identifiers in the slos library. |
+| `slosReadById` | `EXEC` | `id, region` | Get a slo or folder from the slos library. |
+| `slosReadByIds` | `EXEC` | `ids, region` | Bulk read a slo or folder by the given identifiers from the slos library. |
+| `slosUpdateById` | `EXEC` | `id, data__name, data__type, data__version, region` | Update a slo or folder in the slos library. |

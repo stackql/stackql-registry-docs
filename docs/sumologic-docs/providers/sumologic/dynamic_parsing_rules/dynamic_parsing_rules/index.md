@@ -29,18 +29,18 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier for the dynamic parsing rule. |
 | `name` | `string` | Name of the dynamic parsing rule. Use a name that makes it easy to identify the rule. |
-| `scope` | `string` | Scope of the dynamic parsing rule. This could be a sourceCategory, sourceHost, or any other metadata that describes the data you want to extract from. Think of the Scope as the first portion of an ad hoc search, before the first pipe ( \| ). You'll use the Scope to run a search against the rule. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `isSystemRule` | `boolean` | Whether the rule has been defined by the system, rather than by a user. |
+| `enabled` | `boolean` | Is the dynamic parsing rule enabled. |
+| `scope` | `string` | Scope of the dynamic parsing rule. This could be a sourceCategory, sourceHost, or any other metadata that describes the data you want to extract from. Think of the Scope as the first portion of an ad hoc search, before the first pipe ( \| ). You'll use the Scope to run a search against the rule. |
 | `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `enabled` | `boolean` | Is the dynamic parsing rule enabled. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getDynamicParsingRule` | `SELECT` | `id` | Get a dynamic parsing rule with the given identifier. |
-| `listDynamicParsingRules` | `SELECT` |  | Get a list of all dynamic parsing rules. The response is paginated with a default limit of 100 dynamic parsing rules per page. |
-| `createDynamicParsingRule` | `INSERT` | `data__enabled, data__name, data__scope` | Create a new dynamic parsing rule. |
-| `deleteDynamicParsingRule` | `DELETE` | `id` | Delete a dynamic parsing rule with the given identifier. |
-| `updateDynamicParsingRule` | `EXEC` | `id, data__enabled, data__name, data__scope` | Update an existing dynamic parsing rule. All properties specified in the request are replaced. Missing properties are set to their default values. |
+| `getDynamicParsingRule` | `SELECT` | `id, region` | Get a dynamic parsing rule with the given identifier. |
+| `listDynamicParsingRules` | `SELECT` | `region` | Get a list of all dynamic parsing rules. The response is paginated with a default limit of 100 dynamic parsing rules per page. |
+| `createDynamicParsingRule` | `INSERT` | `data__enabled, data__name, data__scope, region` | Create a new dynamic parsing rule. |
+| `deleteDynamicParsingRule` | `DELETE` | `id, region` | Delete a dynamic parsing rule with the given identifier. |
+| `updateDynamicParsingRule` | `EXEC` | `id, data__enabled, data__name, data__scope, region` | Update an existing dynamic parsing rule. All properties specified in the request are replaced. Missing properties are set to their default values. |

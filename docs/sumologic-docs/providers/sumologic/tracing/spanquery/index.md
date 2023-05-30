@@ -29,5 +29,5 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `createSpanQuery` | `INSERT` | `data__queryRows, data__timeRange` | Execute a span analytics query and get the id to fetch its status and results. Use the [Span Query Status](#operation/getSpanQueryStatus) endpoint to check a query status. When the query has been completed, use the [Span Query Result](#operation/getSpanQueryResult) endpoint to get the result of the asynchronous query. |
-| `cancelSpanQuery` | `EXEC` | `queryId` | Cancel a currently processed span search query with the given id. |
+| `createSpanQuery` | `INSERT` | `data__queryRows, data__timeRange, region` | Execute a span analytics query and get the id to fetch its status and results. Use the [Span Query Status](#operation/getSpanQueryStatus) endpoint to check a query status. When the query has been completed, use the [Span Query Result](#operation/getSpanQueryResult) endpoint to get the result of the asynchronous query. |
+| `cancelSpanQuery` | `EXEC` | `queryId, region` | Cancel a currently processed span search query with the given id. |

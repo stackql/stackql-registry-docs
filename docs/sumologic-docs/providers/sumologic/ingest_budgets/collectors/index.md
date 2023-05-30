@@ -32,6 +32,6 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getAssignedCollectors` | `SELECT` | `id` | Get a list of Collectors assigned to an ingest budget. The response is paginated with a default limit of 100 Collectors per page. |
-| `removeCollectorFromBudget` | `DELETE` | `collectorId, id` | Remove Collector from a budget. |
-| `assignCollectorToBudget` | `EXEC` | `collectorId, id` | Assign a Collector to a budget. |
+| `getAssignedCollectors` | `SELECT` | `id, region` | Get a list of Collectors assigned to an ingest budget. The response is paginated with a default limit of 100 Collectors per page. |
+| `removeCollectorFromBudget` | `DELETE` | `collectorId, id, region` | Remove Collector from a budget. |
+| `assignCollectorToBudget` | `EXEC` | `collectorId, id, region` | Assign a Collector to a budget. |

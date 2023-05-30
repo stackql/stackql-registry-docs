@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `beginAsyncCopy` | `EXEC` | `destinationFolder, id` |
+| `beginAsyncCopy` | `EXEC` | `destinationFolder, id, region` |

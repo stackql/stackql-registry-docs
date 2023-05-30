@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `generateDashboardReport` | `EXEC` | `data__action, data__exportFormat, data__template, data__timezone` |
+| `generateDashboardReport` | `EXEC` | `data__action, data__exportFormat, data__template, data__timezone, region` |

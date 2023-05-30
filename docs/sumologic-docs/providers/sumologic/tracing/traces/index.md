@@ -38,4 +38,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getTrace` | `SELECT` | `traceId` |
+| `getTrace` | `SELECT` | `traceId, region` |

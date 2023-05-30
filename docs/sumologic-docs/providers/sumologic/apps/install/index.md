@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `installApp` | `EXEC` | `uuid, data__description, data__destinationFolderId, data__name` |
+| `installApp` | `EXEC` | `uuid, data__description, data__destinationFolderId, data__name, region` |

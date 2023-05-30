@@ -28,17 +28,17 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the access key. |
-| `lastUsed` | `string` | Last used timestamp in UTC.  &lt;br&gt; **Note:** Property not in use, it is part of an upcoming feature. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `corsHeaders` | `array` | An array of domains for which the access key is valid. Whether Sumo Logic accepts or rejects an API request depends on whether it contains an ORIGIN header and the entries in the allowlist. Sumo Logic will reject:<br />  1. Requests with an ORIGIN header but the allowlist is empty.<br />  2. Requests with an ORIGIN header that don't match any entry in the allowlist. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 | `createdBy` | `string` | Identifier of the user who created the access key. |
 | `disabled` | `boolean` | Indicates whether the access key is disabled or not. |
 | `label` | `string` | The name of the access key. |
+| `lastUsed` | `string` | Last used timestamp in UTC.  &lt;br&gt; **Note:** Property not in use, it is part of an upcoming feature. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `corsHeaders` | `array` | An array of domains for which the access key is valid. Whether Sumo Logic accepts or rejects an API request depends on whether it contains an ORIGIN header and the entries in the allowlist. Sumo Logic will reject:<br />  1. Requests with an ORIGIN header but the allowlist is empty.<br />  2. Requests with an ORIGIN header that don't match any entry in the allowlist. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `listAccessKeys` | `SELECT` |  | List all access keys in your account. |
-| `createAccessKey` | `INSERT` | `data__label` | Creates a new access ID and key pair. The new access key can be used from the domains specified in corsHeaders field. Whether Sumo Logic accepts or rejects an API request depends on whether it contains an ORIGIN header and the entries in the allowlist. Sumo Logic will reject:<br />  1. Requests with an ORIGIN header but the allowlist is empty.<br />  2. Requests with an ORIGIN header that don't match any entry in the allowlist. |
-| `deleteAccessKey` | `DELETE` | `id` | Deletes the access key with the given accessId. |
-| `updateAccessKey` | `EXEC` | `id, data__disabled` | Updates the properties of existing accessKey by accessId. It can be used to enable or disable the access key and to update the corsHeaders list. |
+| `listAccessKeys` | `SELECT` | `region` | List all access keys in your account. |
+| `createAccessKey` | `INSERT` | `data__label, region` | Creates a new access ID and key pair. The new access key can be used from the domains specified in corsHeaders field. Whether Sumo Logic accepts or rejects an API request depends on whether it contains an ORIGIN header and the entries in the allowlist. Sumo Logic will reject:<br />  1. Requests with an ORIGIN header but the allowlist is empty.<br />  2. Requests with an ORIGIN header that don't match any entry in the allowlist. |
+| `deleteAccessKey` | `DELETE` | `id, region` | Deletes the access key with the given accessId. |
+| `updateAccessKey` | `EXEC` | `id, data__disabled, region` | Updates the properties of existing accessKey by accessId. It can be used to enable or disable the access key and to update the corsHeaders list. |

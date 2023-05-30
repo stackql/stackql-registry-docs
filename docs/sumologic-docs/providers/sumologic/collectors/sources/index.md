@@ -29,28 +29,28 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | Source identifer. |
 | `name` | `string` | Source name. |
-| `category` | `string` | Source category. |
-| `encoding` | `string` | Source encoding. |
-| `fields` | `object` | Source fields. |
-| `hashAlgorithm` | `string` | Source hashAlgorithm. |
-| `sourceType` | `string` | Source sourceType. |
-| `forceTimeZone` | `boolean` | Source forceTimeZone. |
-| `useAutolineMatching` | `boolean` | Source useAutolineMatching. |
-| `cutoffTimestamp` | `integer` | Source cutoffTimestamp. |
 | `alive` | `boolean` | Source alive. |
-| `filters` | `array` | Source filters. |
 | `pathExpression` | `string` | Source pathExpression. |
-| `messagePerRequest` | `boolean` | Source messagePerRequest. |
-| `url` | `string` | Source url. |
-| `denylist` | `array` | Source denylist. |
-| `hostName` | `string` | Source hostName. |
-| `automaticDateParsing` | `boolean` | Source automaticDateParsing. |
+| `fields` | `object` | Source fields. |
+| `encoding` | `string` | Source encoding. |
 | `multilineProcessingEnabled` | `boolean` | Source multilineProcessingEnabled. |
+| `url` | `string` | Source url. |
+| `cutoffTimestamp` | `integer` | Source cutoffTimestamp. |
+| `denylist` | `array` | Source denylist. |
+| `automaticDateParsing` | `boolean` | Source automaticDateParsing. |
+| `useAutolineMatching` | `boolean` | Source useAutolineMatching. |
+| `category` | `string` | Source category. |
+| `filters` | `array` | Source filters. |
+| `hashAlgorithm` | `string` | Source hashAlgorithm. |
+| `forceTimeZone` | `boolean` | Source forceTimeZone. |
+| `sourceType` | `string` | Source sourceType. |
+| `hostName` | `string` | Source hostName. |
+| `messagePerRequest` | `boolean` | Source messagePerRequest. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_source_by_id` | `SELECT` | `collectorId, sourceId` | Gets information about a specified Collector and Source. |
-| `list_sources` | `SELECT` | `collectorId` | Gets information about all Sources for a specified Collector. |
-| `create_source` | `INSERT` | `collectorId` | Creates a new Source for a Collector. See Use JSON to Configure Sources for required fields for the request JSON file. |
-| `delete_source` | `DELETE` | `collectorId, sourceId` | Delete Source by ID |
-| `update_source` | `EXEC` | `collectorId, sourceId` | Update a source |
+| `get_source_by_id` | `SELECT` | `collectorId, sourceId, region` | Gets information about a specified Collector and Source. |
+| `list_sources` | `SELECT` | `collectorId, region` | Gets information about all Sources for a specified Collector. |
+| `create_source` | `INSERT` | `collectorId, region` | Creates a new Source for a Collector. See Use JSON to Configure Sources for required fields for the request JSON file. |
+| `delete_source` | `DELETE` | `collectorId, sourceId, region` | Delete Source by ID |
+| `update_source` | `EXEC` | `collectorId, sourceId, region` | Update a source |

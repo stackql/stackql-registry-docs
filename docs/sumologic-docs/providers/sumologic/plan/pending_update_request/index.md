@@ -32,5 +32,5 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getPendingUpdateRequest` | `SELECT` |  | Get the pending plan update request which will be applicable from next billing cycle. |
-| `deletePendingUpdateRequest` | `DELETE` |  | Delete the pending plan update request which would be applicable from next billing cycle. |
+| `getPendingUpdateRequest` | `SELECT` | `region` | Get the pending plan update request which will be applicable from next billing cycle. |
+| `deletePendingUpdateRequest` | `DELETE` | `region` | Delete the pending plan update request which would be applicable from next billing cycle. |

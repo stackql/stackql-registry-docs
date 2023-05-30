@@ -29,25 +29,25 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique identifier of the data forwarding destination. |
 | `description` | `string` | Description of the S3 data forwarding destination. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
 | `roleArn` | `string` | The AWS Role ARN to access the S3 bucket. |
-| `bucketName` | `string` | The name of the Amazon S3 bucket. |
-| `secretAccessKey` | `string` | The AWS Secret Key to access the S3 bucket. |
-| `region` | `string` | The region where the S3 bucket is located. |
-| `authenticationMode` | `string` | AWS IAM authentication method used for access. Possible values are: 1. `AccessKey` 2. `RoleBased` |
-| `accessKeyId` | `string` | The AWS Access ID to access the S3 bucket. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `enabled` | `boolean` | True if the destination is Active. |
 | `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `bucketName` | `string` | The name of the Amazon S3 bucket. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
+| `region` | `string` | The region where the S3 bucket is located. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `accessKeyId` | `string` | The AWS Access ID to access the S3 bucket. |
 | `invalidatedBySystem` | `boolean` | True if invalidated by the system. |
-| `encrypted` | `boolean` | Enable S3 server-side encryption. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `destinationName` | `string` | Name of the S3 data forwarding destination. |
+| `encrypted` | `boolean` | Enable S3 server-side encryption. |
+| `authenticationMode` | `string` | AWS IAM authentication method used for access. Possible values are: 1. `AccessKey` 2. `RoleBased` |
+| `secretAccessKey` | `string` | The AWS Secret Key to access the S3 bucket. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getDataForwardingBuckets` | `SELECT` |  | Get a list of all Amazon S3 data forwarding destinations. |
-| `getDataForwardingDestination` | `SELECT` | `id` | Get an S3 data forwarding destination by the given identifier. |
-| `createDataForwardingBucket` | `INSERT` |  | Create a new Amazon S3 data forwarding destination. |
-| `deleteDataForwardingBucket` | `DELETE` | `id` | Delete an existing Amazon S3 data forwarding destination with the given identifier. |
-| `UpdateDataForwardingBucket` | `EXEC` | `id, data__authenticationMode` | Update an S3 data forwarding destination by the given identifier. |
+| `getDataForwardingBuckets` | `SELECT` | `region` | Get a list of all Amazon S3 data forwarding destinations. |
+| `getDataForwardingDestination` | `SELECT` | `id, region` | Get an S3 data forwarding destination by the given identifier. |
+| `createDataForwardingBucket` | `INSERT` | `region` | Create a new Amazon S3 data forwarding destination. |
+| `deleteDataForwardingBucket` | `DELETE` | `id, region` | Delete an existing Amazon S3 data forwarding destination with the given identifier. |
+| `UpdateDataForwardingBucket` | `EXEC` | `id, data__authenticationMode, region` | Update an S3 data forwarding destination by the given identifier. |

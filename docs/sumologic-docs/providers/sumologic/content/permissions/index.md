@@ -27,9 +27,9 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `implicitPermissions` | `array` | Implicitly inherited content permissions. |
 | `explicitPermissions` | `array` | Explicitly assigned content permissions. |
+| `implicitPermissions` | `array` | Implicitly inherited content permissions. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `getContentPermissions` | `SELECT` | `id` |
+| `getContentPermissions` | `SELECT` | `id, region` |

@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `monitorsCopy` | `EXEC` | `id, data__parentId` |
+| `monitorsCopy` | `EXEC` | `id, data__parentId, region` |

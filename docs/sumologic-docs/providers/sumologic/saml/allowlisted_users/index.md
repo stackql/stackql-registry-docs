@@ -37,6 +37,6 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `getAllowlistedUsers` | `SELECT` |  | Get a list of allowlisted users. |
-| `createAllowlistedUser` | `INSERT` | `userId` | Allowlist a user from SAML lockdown allowing them to sign in using a password in addition to SAML. |
-| `deleteAllowlistedUser` | `DELETE` | `userId` | Remove an allowlisted user requiring them to sign in using SAML. |
+| `getAllowlistedUsers` | `SELECT` | `region` | Get a list of allowlisted users. |
+| `createAllowlistedUser` | `INSERT` | `userId, region` | Allowlist a user from SAML lockdown allowing them to sign in using a password in addition to SAML. |
+| `deleteAllowlistedUser` | `DELETE` | `userId, region` | Remove an allowlisted user requiring them to sign in using SAML. |

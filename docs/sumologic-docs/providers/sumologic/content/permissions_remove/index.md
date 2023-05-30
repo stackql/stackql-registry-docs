@@ -29,4 +29,4 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `removeContentPermissions` | `EXEC` | `id, data__contentPermissionAssignments, data__notificationMessage, data__notifyRecipients` |
+| `removeContentPermissions` | `EXEC` | `id, data__contentPermissionAssignments, data__notificationMessage, data__notifyRecipients, region` |
