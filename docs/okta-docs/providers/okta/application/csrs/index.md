@@ -28,13 +28,13 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `kty` | `string` |
 | `created` | `string` |
 | `csr` | `string` |
-| `kty` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appId, csrId` |  |
-| `list` | `SELECT` | `appId` | Enumerates Certificate Signing Requests for an application |
-| `insert` | `INSERT` | `appId` | Generates a new key pair and returns the Certificate Signing Request for it. |
-| `delete` | `DELETE` | `appId, csrId` |  |
+| `get` | `SELECT` | `appId, csrId, subdomain` |  |
+| `list` | `SELECT` | `appId, subdomain` | Enumerates Certificate Signing Requests for an application |
+| `insert` | `INSERT` | `appId, subdomain` | Generates a new key pair and returns the Certificate Signing Request for it. |
+| `delete` | `DELETE` | `appId, csrId, subdomain` |  |

@@ -28,20 +28,20 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `status` | `string` |
-| `lastUpdated` | `string` |
 | `_embedded` | `object` |
-| `factorType` | `string` |
-| `_links` | `object` |
 | `provider` | `string` |
-| `created` | `string` |
+| `lastUpdated` | `string` |
+| `factorType` | `string` |
+| `status` | `string` |
+| `_links` | `object` |
 | `verify` | `object` |
+| `created` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `factorId, userId` | Fetches a factor for the specified user |
-| `list` | `SELECT` | `userId` | Enumerates all the enrolled factors for the specified user |
-| `insert` | `INSERT` | `userId` | Enrolls a user with a supported factor. |
-| `delete` | `DELETE` | `factorId, userId` | Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor. |
-| `activate` | `EXEC` | `factorId, userId` | The `sms` and `token:software:totp` factor types require activation to complete the enrollment process. |
-| `verify` | `EXEC` | `factorId, userId` | Verifies an OTP for a `token` or `token:hardware` factor |
+| `get` | `SELECT` | `factorId, userId, subdomain` | Fetches a factor for the specified user |
+| `list` | `SELECT` | `userId, subdomain` | Enumerates all the enrolled factors for the specified user |
+| `insert` | `INSERT` | `userId, subdomain` | Enrolls a user with a supported factor. |
+| `delete` | `DELETE` | `factorId, userId, subdomain` | Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor. |
+| `activate` | `EXEC` | `factorId, userId, subdomain` | The `sms` and `token:software:totp` factor types require activation to complete the enrollment process. |
+| `verify` | `EXEC` | `factorId, userId, subdomain` | Verifies an OTP for a `token` or `token:hardware` factor |

@@ -29,18 +29,18 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `description` | `string` |
-| `created` | `string` |
-| `lastUpdated` | `string` |
-| `status` | `string` |
-| `_embedded` | `object` |
-| `type` | `string` |
 | `_links` | `object` |
+| `_embedded` | `object` |
 | `label` | `string` |
+| `status` | `string` |
+| `lastUpdated` | `string` |
 | `assignmentType` | `string` |
+| `type` | `string` |
+| `created` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `roleId, userId` | Gets role that is assigne to user. |
-| `list` | `SELECT` | `userId` | Lists all roles assigned to a user. |
-| `insert` | `INSERT` | `userId` | Assigns a role to a user. |
-| `delete` | `DELETE` | `roleId, userId` | Unassigns a role from a user. |
+| `get` | `SELECT` | `roleId, userId, subdomain` | Gets role that is assigne to user. |
+| `list` | `SELECT` | `userId, subdomain` | Lists all roles assigned to a user. |
+| `insert` | `INSERT` | `userId, subdomain` | Assigns a role to a user. |
+| `delete` | `DELETE` | `roleId, userId, subdomain` | Unassigns a role from a user. |

@@ -28,24 +28,24 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `profile` | `object` |
-| `created` | `string` |
-| `statusChanged` | `string` |
 | `credentials` | `object` |
-| `syncState` | `string` |
-| `_embedded` | `object` |
-| `_links` | `object` |
 | `status` | `string` |
+| `statusChanged` | `string` |
+| `passwordChanged` | `string` |
+| `externalId` | `string` |
 | `lastUpdated` | `string` |
 | `scope` | `string` |
-| `passwordChanged` | `string` |
 | `lastSync` | `string` |
-| `externalId` | `string` |
+| `profile` | `object` |
+| `created` | `string` |
+| `syncState` | `string` |
+| `_links` | `object` |
+| `_embedded` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appId, userId` | Fetches a specific user assignment for application by `id`. |
-| `list` | `SELECT` | `appId` | Enumerates all assigned [application users](#application-user-model) for an application. |
-| `insert` | `INSERT` | `appId` | Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request. |
-| `delete` | `DELETE` | `appId, userId` | Removes an assignment for a user from an application. |
-| `update` | `EXEC` | `appId, userId` | Updates a user's profile for an application |
+| `get` | `SELECT` | `appId, userId, subdomain` | Fetches a specific user assignment for application by `id`. |
+| `list` | `SELECT` | `appId, subdomain` | Enumerates all assigned [application users](#application-user-model) for an application. |
+| `insert` | `INSERT` | `appId, subdomain` | Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request. |
+| `delete` | `DELETE` | `appId, userId, subdomain` | Removes an assignment for a user from an application. |
+| `update` | `EXEC` | `appId, userId, subdomain` | Updates a user's profile for an application |

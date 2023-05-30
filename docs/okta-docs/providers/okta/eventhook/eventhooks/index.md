@@ -29,22 +29,22 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `verificationStatus` | `string` |
-| `_links` | `object` |
+| `createdBy` | `string` |
 | `lastUpdated` | `string` |
-| `events` | `object` |
-| `channel` | `object` |
 | `status` | `string` |
 | `created` | `string` |
-| `createdBy` | `string` |
+| `verificationStatus` | `string` |
+| `channel` | `object` |
+| `_links` | `object` |
+| `events` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `eventHookId` |
-| `list` | `SELECT` |  |
-| `insert` | `INSERT` |  |
-| `delete` | `DELETE` | `eventHookId` |
-| `activate` | `EXEC` | `eventHookId` |
-| `deactivate` | `EXEC` | `eventHookId` |
-| `update` | `EXEC` | `eventHookId` |
-| `verify` | `EXEC` | `eventHookId` |
+| `get` | `SELECT` | `eventHookId, subdomain` |
+| `list` | `SELECT` | `subdomain` |
+| `insert` | `INSERT` | `subdomain` |
+| `delete` | `DELETE` | `eventHookId, subdomain` |
+| `activate` | `EXEC` | `eventHookId, subdomain` |
+| `deactivate` | `EXEC` | `eventHookId, subdomain` |
+| `update` | `EXEC` | `eventHookId, subdomain` |
+| `verify` | `EXEC` | `eventHookId, subdomain` |

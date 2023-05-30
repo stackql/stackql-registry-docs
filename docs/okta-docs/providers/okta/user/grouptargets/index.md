@@ -28,17 +28,17 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `lastUpdated` | `string` |
-| `created` | `string` |
-| `type` | `string` |
-| `_links` | `object` |
-| `_embedded` | `object` |
-| `profile` | `object` |
-| `lastMembershipUpdated` | `string` |
 | `objectClass` | `array` |
+| `type` | `string` |
+| `lastMembershipUpdated` | `string` |
+| `profile` | `object` |
+| `created` | `string` |
+| `lastUpdated` | `string` |
+| `_embedded` | `object` |
+| `_links` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `roleId, userId` |
-| `insert` | `INSERT` | `groupId, roleId, userId` |
-| `delete` | `DELETE` | `groupId, roleId, userId` |
+| `list` | `SELECT` | `roleId, userId, subdomain` |
+| `insert` | `INSERT` | `groupId, roleId, userId, subdomain` |
+| `delete` | `DELETE` | `groupId, roleId, userId, subdomain` |

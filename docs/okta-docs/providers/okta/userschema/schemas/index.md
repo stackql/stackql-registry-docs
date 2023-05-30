@@ -29,16 +29,16 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `created` | `string` |
-| `lastUpdated` | `string` |
-| `properties` | `object` |
 | `title` | `string` |
-| `type` | `string` |
 | `_links` | `object` |
-| `definitions` | `object` |
+| `lastUpdated` | `string` |
 | `$schema` | `string` |
+| `created` | `string` |
+| `definitions` | `object` |
+| `type` | `string` |
+| `properties` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `schemaId` | Fetches the schema for a Schema Id. |
-| `partialUpdate` | `EXEC` | `schemaId` | Partial updates on the User Profile properties of the user schema. |
+| `get` | `SELECT` | `schemaId, subdomain` | Fetches the schema for a Schema Id. |
+| `partialUpdate` | `EXEC` | `schemaId, subdomain` | Partial updates on the User Profile properties of the user schema. |

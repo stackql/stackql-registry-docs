@@ -34,7 +34,7 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `csrId, idpId` | Gets a specific Certificate Signing Request model by id |
-| `list` | `SELECT` | `idpId` | Enumerates Certificate Signing Requests for an IdP |
-| `insert` | `INSERT` | `idpId` | Generates a new key pair and returns a Certificate Signing Request for it. |
-| `delete` | `DELETE` | `csrId, idpId` | Revoke a Certificate Signing Request and delete the key pair from the IdP |
+| `get` | `SELECT` | `csrId, idpId, subdomain` | Gets a specific Certificate Signing Request model by id |
+| `list` | `SELECT` | `idpId, subdomain` | Enumerates Certificate Signing Requests for an IdP |
+| `insert` | `INSERT` | `idpId, subdomain` | Generates a new key pair and returns a Certificate Signing Request for it. |
+| `delete` | `DELETE` | `csrId, idpId, subdomain` | Revoke a Certificate Signing Request and delete the key pair from the IdP |

@@ -29,17 +29,17 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `lastUpdated` | `string` |
-| `_links` | `object` |
-| `created` | `string` |
 | `key` | `string` |
+| `created` | `string` |
+| `_links` | `object` |
+| `lastUpdated` | `string` |
 | `status` | `string` |
 | `type` | `string` |
 | `settings` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `authenticatorId` |
-| `list` | `SELECT` |  |
-| `activate` | `EXEC` | `authenticatorId` |
-| `deactivate` | `EXEC` | `authenticatorId` |
+| `get` | `SELECT` | `authenticatorId, subdomain` |
+| `list` | `SELECT` | `subdomain` |
+| `activate` | `EXEC` | `authenticatorId, subdomain` |
+| `deactivate` | `EXEC` | `authenticatorId, subdomain` |

@@ -37,8 +37,8 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `featureId` |
-| `list` | `SELECT` |  |
-| `listFeatureDependencies` | `EXEC` | `featureId` |
-| `listFeatureDependents` | `EXEC` | `featureId` |
-| `updateFeatureLifecycle` | `EXEC` | `featureId, lifecycle` |
+| `get` | `SELECT` | `featureId, subdomain` |
+| `list` | `SELECT` | `subdomain` |
+| `listFeatureDependencies` | `EXEC` | `featureId, subdomain` |
+| `listFeatureDependents` | `EXEC` | `featureId, subdomain` |
+| `updateFeatureLifecycle` | `EXEC` | `featureId, lifecycle, subdomain` |

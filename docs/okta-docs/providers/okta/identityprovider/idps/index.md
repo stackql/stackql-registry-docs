@@ -29,21 +29,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `policy` | `object` |
-| `created` | `string` |
+| `type` | `string` |
+| `_links` | `object` |
+| `issuerMode` | `string` |
+| `lastUpdated` | `string` |
 | `protocol` | `object` |
 | `status` | `string` |
-| `type` | `string` |
-| `lastUpdated` | `string` |
-| `issuerMode` | `string` |
-| `_links` | `object` |
+| `policy` | `object` |
+| `created` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `idpId` | Fetches an IdP by `id`. |
-| `list` | `SELECT` |  | Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query. |
-| `insert` | `INSERT` |  | Adds a new IdP to your organization. |
-| `delete` | `DELETE` | `idpId` | Removes an IdP from your organization. |
-| `activate` | `EXEC` | `idpId` | Activates an inactive IdP. |
-| `deactivate` | `EXEC` | `idpId` | Activates an inactive IdP. |
-| `update` | `EXEC` | `idpId` | Updates the configuration for an IdP. |
+| `get` | `SELECT` | `idpId, subdomain` | Fetches an IdP by `id`. |
+| `list` | `SELECT` | `subdomain` | Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query. |
+| `insert` | `INSERT` | `subdomain` | Adds a new IdP to your organization. |
+| `delete` | `DELETE` | `idpId, subdomain` | Removes an IdP from your organization. |
+| `activate` | `EXEC` | `idpId, subdomain` | Activates an inactive IdP. |
+| `deactivate` | `EXEC` | `idpId, subdomain` | Activates an inactive IdP. |
+| `update` | `EXEC` | `idpId, subdomain` | Updates the configuration for an IdP. |

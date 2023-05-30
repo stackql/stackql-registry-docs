@@ -28,22 +28,22 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `type` | `object` |
-| `created` | `string` |
-| `_links` | `object` |
-| `statusChanged` | `string` |
-| `credentials` | `object` |
 | `profile` | `object` |
-| `activated` | `string` |
-| `_embedded` | `object` |
+| `lastUpdated` | `string` |
+| `statusChanged` | `string` |
 | `passwordChanged` | `string` |
+| `_links` | `object` |
+| `_embedded` | `object` |
+| `credentials` | `object` |
 | `status` | `string` |
 | `lastLogin` | `string` |
-| `lastUpdated` | `string` |
+| `activated` | `string` |
+| `created` | `string` |
 | `transitioningToStatus` | `string` |
+| `type` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `groupId` | Enumerates all users that are a member of a group. |
-| `insert` | `INSERT` | `groupId, userId` | Adds a user to a group with 'OKTA_GROUP' type. |
-| `delete` | `DELETE` | `groupId, userId` | Removes a user from a group with 'OKTA_GROUP' type. |
+| `list` | `SELECT` | `groupId, subdomain` | Enumerates all users that are a member of a group. |
+| `insert` | `INSERT` | `groupId, userId, subdomain` | Adds a user to a group with 'OKTA_GROUP' type. |
+| `delete` | `DELETE` | `groupId, userId, subdomain` | Removes a user from a group with 'OKTA_GROUP' type. |

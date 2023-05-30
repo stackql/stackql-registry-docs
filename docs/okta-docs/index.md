@@ -75,6 +75,16 @@ stackql.exe shell --auth=$Auth
 ```
 </details>
 
+
+## Server Parameters
+
+
+The following parameter is required for the `okta` provider:  
+
+- `subdomain` - The Okta tenant domain, for example `my-company` would be supplied if your Okta domain is `my-company.okta.com`
+
+This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
+    
 ## Services
 <div class="row">
 <div class="providerDocColumn">

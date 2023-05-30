@@ -28,19 +28,19 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `clientId` | `string` |
-| `_links` | `object` |
-| `status` | `string` |
 | `createdBy` | `object` |
 | `lastUpdated` | `string` |
-| `created` | `string` |
-| `source` | `string` |
-| `scopeId` | `string` |
 | `userId` | `string` |
 | `_embedded` | `object` |
 | `issuer` | `string` |
+| `source` | `string` |
+| `status` | `string` |
+| `created` | `string` |
+| `_links` | `object` |
+| `clientId` | `string` |
+| `scopeId` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `clientId, userId` | Lists all grants for a specified user and client |
-| `delete` | `DELETE` | `clientId, userId` | Revokes all grants for the specified user and client |
+| `list` | `SELECT` | `clientId, userId, subdomain` | Lists all grants for a specified user and client |
+| `delete` | `DELETE` | `clientId, userId, subdomain` | Revokes all grants for the specified user and client |

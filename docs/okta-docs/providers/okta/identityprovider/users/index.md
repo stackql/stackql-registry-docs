@@ -28,16 +28,16 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `_embedded` | `object` |
-| `_links` | `object` |
-| `created` | `string` |
 | `externalId` | `string` |
 | `lastUpdated` | `string` |
 | `profile` | `object` |
+| `_embedded` | `object` |
+| `_links` | `object` |
+| `created` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `idpId, userId` | Fetches a linked IdP user by ID |
-| `list` | `SELECT` | `idpId` | Find all the users linked to an identity provider |
-| `insert` | `INSERT` | `idpId, userId` | Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type |
-| `delete` | `DELETE` | `idpId, userId` | Removes the link between the Okta user and the IdP user. |
+| `get` | `SELECT` | `idpId, userId, subdomain` | Fetches a linked IdP user by ID |
+| `list` | `SELECT` | `idpId, subdomain` | Find all the users linked to an identity provider |
+| `insert` | `INSERT` | `idpId, userId, subdomain` | Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type |
+| `delete` | `DELETE` | `idpId, userId, subdomain` | Removes the link between the Okta user and the IdP user. |

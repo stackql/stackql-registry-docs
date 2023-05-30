@@ -28,8 +28,8 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `domainId` | Fetches a Domain by `id`. |
-| `list` | `SELECT` |  | List all verified custom Domains for the org. |
-| `insert` | `INSERT` |  | Creates your domain. |
-| `delete` | `DELETE` | `domainId` | Deletes a Domain by `id`. |
-| `verify` | `EXEC` | `domainId` | Verifies the Domain by `id`. |
+| `get` | `SELECT` | `domainId, subdomain` | Fetches a Domain by `id`. |
+| `list` | `SELECT` | `subdomain` | List all verified custom Domains for the org. |
+| `insert` | `INSERT` | `subdomain` | Creates your domain. |
+| `delete` | `DELETE` | `domainId, subdomain` | Deletes a Domain by `id`. |
+| `verify` | `EXEC` | `domainId, subdomain` | Verifies the Domain by `id`. |

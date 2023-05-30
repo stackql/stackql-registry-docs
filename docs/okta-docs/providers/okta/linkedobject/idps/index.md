@@ -33,7 +33,7 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `linkedObjectName` |
-| `list` | `SELECT` |  |
-| `insert` | `INSERT` |  |
-| `delete` | `DELETE` | `linkedObjectName` |
+| `get` | `SELECT` | `linkedObjectName, subdomain` |
+| `list` | `SELECT` | `subdomain` |
+| `insert` | `INSERT` | `subdomain` |
+| `delete` | `DELETE` | `linkedObjectName, subdomain` |

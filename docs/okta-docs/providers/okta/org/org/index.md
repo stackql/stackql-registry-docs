@@ -29,25 +29,25 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `status` | `string` |
-| `phoneNumber` | `string` |
-| `website` | `string` |
+| `country` | `string` |
 | `city` | `string` |
 | `address2` | `string` |
-| `_links` | `object` |
-| `expiresAt` | `string` |
-| `address1` | `string` |
-| `subdomain` | `string` |
-| `created` | `string` |
-| `endUserSupportHelpURL` | `string` |
-| `state` | `string` |
-| `country` | `string` |
-| `lastUpdated` | `string` |
-| `supportPhoneNumber` | `string` |
 | `companyName` | `string` |
 | `postalCode` | `string` |
+| `created` | `string` |
+| `phoneNumber` | `string` |
+| `address1` | `string` |
+| `state` | `string` |
+| `endUserSupportHelpURL` | `string` |
+| `supportPhoneNumber` | `string` |
+| `subdomain` | `string` |
+| `lastUpdated` | `string` |
+| `website` | `string` |
+| `expiresAt` | `string` |
+| `_links` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` |  | Get settings of your organization. |
-| `partialUpdate` | `EXEC` |  | Partial update settings of your organization. |
-| `update` | `EXEC` |  | Update settings of your organization. |
+| `get` | `SELECT` | `subdomain` | Get settings of your organization. |
+| `partialUpdate` | `EXEC` | `subdomain` | Partial update settings of your organization. |
+| `update` | `EXEC` | `subdomain` | Update settings of your organization. |

@@ -28,19 +28,19 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `_links` | `object` |
-| `created` | `string` |
-| `expiresAt` | `string` |
 | `issuer` | `string` |
 | `status` | `string` |
-| `_embedded` | `object` |
+| `scopes` | `array` |
 | `clientId` | `string` |
 | `userId` | `string` |
-| `scopes` | `array` |
+| `_embedded` | `object` |
+| `created` | `string` |
+| `expiresAt` | `string` |
 | `lastUpdated` | `string` |
+| `_links` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appId, tokenId` | Gets a token for the specified application |
-| `list` | `SELECT` | `appId` | Lists all tokens for the application |
-| `delete` | `DELETE` | `appId, tokenId` | Revokes the specified token for the specified application |
+| `get` | `SELECT` | `appId, tokenId, subdomain` | Gets a token for the specified application |
+| `list` | `SELECT` | `appId, subdomain` | Lists all tokens for the application |
+| `delete` | `DELETE` | `appId, tokenId, subdomain` | Revokes the specified token for the specified application |

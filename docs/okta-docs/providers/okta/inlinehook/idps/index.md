@@ -29,21 +29,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `created` | `string` |
-| `_links` | `object` |
+| `version` | `string` |
 | `channel` | `object` |
+| `_links` | `object` |
+| `status` | `string` |
+| `created` | `string` |
 | `lastUpdated` | `string` |
 | `type` | `string` |
-| `version` | `string` |
-| `status` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `inlineHookId` | Gets an inline hook by ID |
-| `list` | `SELECT` |  | Success |
-| `insert` | `INSERT` |  | Success |
-| `delete` | `DELETE` | `inlineHookId` | Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion. |
-| `activate` | `EXEC` | `inlineHookId` | Activates the Inline Hook matching the provided id |
-| `deactivate` | `EXEC` | `inlineHookId` | Deactivates the Inline Hook matching the provided id |
-| `execute` | `EXEC` | `inlineHookId` | Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes. |
-| `update` | `EXEC` | `inlineHookId` | Updates an inline hook by ID |
+| `get` | `SELECT` | `inlineHookId, subdomain` | Gets an inline hook by ID |
+| `list` | `SELECT` | `subdomain` | Success |
+| `insert` | `INSERT` | `subdomain` | Success |
+| `delete` | `DELETE` | `inlineHookId, subdomain` | Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion. |
+| `activate` | `EXEC` | `inlineHookId, subdomain` | Activates the Inline Hook matching the provided id |
+| `deactivate` | `EXEC` | `inlineHookId, subdomain` | Deactivates the Inline Hook matching the provided id |
+| `execute` | `EXEC` | `inlineHookId, subdomain` | Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes. |
+| `update` | `EXEC` | `inlineHookId, subdomain` | Updates an inline hook by ID |

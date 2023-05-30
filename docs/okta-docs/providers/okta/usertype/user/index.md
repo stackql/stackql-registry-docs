@@ -30,19 +30,19 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `_links` | `object` |
-| `default` | `boolean` |
-| `createdBy` | `string` |
 | `created` | `string` |
-| `lastUpdatedBy` | `string` |
-| `lastUpdated` | `string` |
 | `displayName` | `string` |
+| `createdBy` | `string` |
+| `default` | `boolean` |
+| `lastUpdatedBy` | `string` |
+| `_links` | `object` |
+| `lastUpdated` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `typeId` | Fetches a User Type by ID. The special identifier `default` may be used to fetch the default User Type. |
-| `list` | `SELECT` |  | Fetches all User Types in your org |
-| `insert` | `INSERT` |  | Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10. |
-| `delete` | `DELETE` | `typeId` | Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users |
-| `partialUpdate` | `EXEC` | `typeId` | Updates an existing User Type |
-| `update` | `EXEC` | `typeId` | Replace an existing User Type |
+| `get` | `SELECT` | `typeId, subdomain` | Fetches a User Type by ID. The special identifier `default` may be used to fetch the default User Type. |
+| `list` | `SELECT` | `subdomain` | Fetches all User Types in your org |
+| `insert` | `INSERT` | `subdomain` | Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10. |
+| `delete` | `DELETE` | `typeId, subdomain` | Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users |
+| `partialUpdate` | `EXEC` | `typeId, subdomain` | Updates an existing User Type |
+| `update` | `EXEC` | `typeId, subdomain` | Replace an existing User Type |

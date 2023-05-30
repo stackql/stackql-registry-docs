@@ -28,13 +28,13 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `_links` | `object` |
 | `properties` | `object` |
 | `source` | `object` |
 | `target` | `object` |
-| `_links` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `mappingId` | Fetches a single Profile Mapping referenced by its ID. |
-| `list` | `SELECT` |  | Enumerates Profile Mappings in your organization with pagination. |
-| `insert` | `INSERT` | `mappingId` | Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings. |
+| `get` | `SELECT` | `mappingId, subdomain` | Fetches a single Profile Mapping referenced by its ID. |
+| `list` | `SELECT` | `subdomain` | Enumerates Profile Mappings in your organization with pagination. |
+| `insert` | `INSERT` | `mappingId, subdomain` | Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings. |

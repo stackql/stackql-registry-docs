@@ -29,25 +29,25 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
+| `gateways` | `array` |
+| `_links` | `object` |
 | `proxies` | `array` |
-| `proxyType` | `string` |
-| `created` | `string` |
+| `locations` | `array` |
 | `status` | `string` |
 | `system` | `boolean` |
-| `_links` | `object` |
-| `asns` | `array` |
-| `usage` | `string` |
-| `gateways` | `array` |
-| `locations` | `array` |
 | `type` | `string` |
+| `asns` | `array` |
+| `created` | `string` |
 | `lastUpdated` | `string` |
+| `usage` | `string` |
+| `proxyType` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `zoneId` | Fetches a network zone from your Okta organization by `id`. |
-| `list` | `SELECT` |  | Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query. |
-| `insert` | `INSERT` |  | Adds a new network zone to your Okta organization. |
-| `delete` | `DELETE` | `zoneId` | Removes network zone. |
-| `activate` | `EXEC` | `zoneId` | Activate Network Zone |
-| `deactivate` | `EXEC` | `zoneId` | Deactivates a network zone. |
-| `update` | `EXEC` | `zoneId` | Updates a network zone in your organization. |
+| `get` | `SELECT` | `zoneId, subdomain` | Fetches a network zone from your Okta organization by `id`. |
+| `list` | `SELECT` | `subdomain` | Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query. |
+| `insert` | `INSERT` | `subdomain` | Adds a new network zone to your Okta organization. |
+| `delete` | `DELETE` | `zoneId, subdomain` | Removes network zone. |
+| `activate` | `EXEC` | `zoneId, subdomain` | Activate Network Zone |
+| `deactivate` | `EXEC` | `zoneId, subdomain` | Deactivates a network zone. |
+| `update` | `EXEC` | `zoneId, subdomain` | Updates a network zone in your organization. |

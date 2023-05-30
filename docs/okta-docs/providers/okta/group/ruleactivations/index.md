@@ -29,5 +29,5 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `insert` | `INSERT` | `ruleId` | Activates a specific group rule by id from your organization |
-| `delete` | `DELETE` | `ruleId` | Deactivates a specific group rule by id from your organization |
+| `insert` | `INSERT` | `ruleId, subdomain` | Activates a specific group rule by id from your organization |
+| `delete` | `DELETE` | `ruleId, subdomain` | Deactivates a specific group rule by id from your organization |

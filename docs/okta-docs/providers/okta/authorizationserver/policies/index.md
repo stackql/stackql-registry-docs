@@ -30,22 +30,22 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `_embedded` | `object` |
-| `created` | `string` |
-| `priority` | `integer` |
-| `_links` | `object` |
-| `conditions` | `object` |
 | `status` | `string` |
-| `lastUpdated` | `string` |
+| `conditions` | `object` |
+| `priority` | `integer` |
 | `system` | `boolean` |
+| `_embedded` | `object` |
+| `_links` | `object` |
+| `created` | `string` |
 | `type` | `string` |
+| `lastUpdated` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `authServerId, policyId` | Success |
-| `list` | `SELECT` | `authServerId` | Success |
-| `insert` | `INSERT` | `authServerId` | Success |
-| `delete` | `DELETE` | `authServerId, policyId` | Success |
-| `activate` | `EXEC` | `authServerId, policyId` | Activate Authorization Server Policy |
-| `deactivate` | `EXEC` | `authServerId, policyId` | Deactivate Authorization Server Policy |
-| `update` | `EXEC` | `authServerId, policyId` | Success |
+| `get` | `SELECT` | `authServerId, policyId, subdomain` | Success |
+| `list` | `SELECT` | `authServerId, subdomain` | Success |
+| `insert` | `INSERT` | `authServerId, subdomain` | Success |
+| `delete` | `DELETE` | `authServerId, policyId, subdomain` | Success |
+| `activate` | `EXEC` | `authServerId, policyId, subdomain` | Activate Authorization Server Policy |
+| `deactivate` | `EXEC` | `authServerId, policyId, subdomain` | Deactivate Authorization Server Policy |
+| `update` | `EXEC` | `authServerId, policyId, subdomain` | Success |

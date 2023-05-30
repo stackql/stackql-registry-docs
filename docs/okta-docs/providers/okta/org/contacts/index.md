@@ -32,6 +32,6 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `contactType` | Retrieves the URL of the User associated with the specified Contact Type. |
-| `list` | `SELECT` |  | Gets Contact Types of your organization. |
-| `update` | `EXEC` | `contactType` | Updates the User associated with the specified Contact Type. |
+| `get` | `SELECT` | `contactType, subdomain` | Retrieves the URL of the User associated with the specified Contact Type. |
+| `list` | `SELECT` | `subdomain` | Gets Contact Types of your organization. |
+| `update` | `EXEC` | `contactType, subdomain` | Updates the User associated with the specified Contact Type. |

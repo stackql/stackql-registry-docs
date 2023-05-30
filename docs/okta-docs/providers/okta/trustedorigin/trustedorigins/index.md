@@ -29,21 +29,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `createdBy` | `string` |
 | `lastUpdated` | `string` |
-| `lastUpdatedBy` | `string` |
 | `origin` | `string` |
-| `scopes` | `array` |
 | `status` | `string` |
-| `_links` | `object` |
 | `created` | `string` |
+| `lastUpdatedBy` | `string` |
+| `createdBy` | `string` |
+| `scopes` | `array` |
+| `_links` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `trustedOriginId` |
-| `list` | `SELECT` |  |
-| `insert` | `INSERT` |  |
-| `delete` | `DELETE` | `trustedOriginId` |
-| `activate` | `EXEC` | `trustedOriginId` |
-| `deactivate` | `EXEC` | `trustedOriginId` |
-| `update` | `EXEC` | `trustedOriginId` |
+| `get` | `SELECT` | `trustedOriginId, subdomain` |
+| `list` | `SELECT` | `subdomain` |
+| `insert` | `INSERT` | `subdomain` |
+| `delete` | `DELETE` | `trustedOriginId, subdomain` |
+| `activate` | `EXEC` | `trustedOriginId, subdomain` |
+| `deactivate` | `EXEC` | `trustedOriginId, subdomain` |
+| `update` | `EXEC` | `trustedOriginId, subdomain` |

@@ -30,21 +30,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `credentials` | `object` |
-| `issuer` | `string` |
-| `created` | `string` |
-| `audiences` | `array` |
 | `issuerMode` | `string` |
+| `_links` | `object` |
+| `issuer` | `string` |
 | `lastUpdated` | `string` |
 | `status` | `string` |
-| `_links` | `object` |
+| `audiences` | `array` |
+| `credentials` | `object` |
+| `created` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `authServerId` |
-| `list` | `SELECT` |  |
-| `insert` | `INSERT` |  |
-| `delete` | `DELETE` | `authServerId` |
-| `activate` | `EXEC` | `authServerId` |
-| `deactivate` | `EXEC` | `authServerId` |
-| `update` | `EXEC` | `authServerId` |
+| `get` | `SELECT` | `authServerId, subdomain` |
+| `list` | `SELECT` | `subdomain` |
+| `insert` | `INSERT` | `subdomain` |
+| `delete` | `DELETE` | `authServerId, subdomain` |
+| `activate` | `EXEC` | `authServerId, subdomain` |
+| `deactivate` | `EXEC` | `authServerId, subdomain` |
+| `update` | `EXEC` | `authServerId, subdomain` |

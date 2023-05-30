@@ -29,20 +29,20 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `alwaysIncludeInToken` | `boolean` |
-| `conditions` | `object` |
-| `_links` | `object` |
+| `valueType` | `string` |
+| `group_filter_type` | `string` |
 | `claimType` | `string` |
+| `alwaysIncludeInToken` | `boolean` |
+| `_links` | `object` |
+| `status` | `string` |
 | `system` | `boolean` |
 | `value` | `string` |
-| `status` | `string` |
-| `group_filter_type` | `string` |
-| `valueType` | `string` |
+| `conditions` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `authServerId, claimId` |
-| `list` | `SELECT` | `authServerId` |
-| `insert` | `INSERT` | `authServerId` |
-| `delete` | `DELETE` | `authServerId, claimId` |
-| `update` | `EXEC` | `authServerId, claimId` |
+| `get` | `SELECT` | `authServerId, claimId, subdomain` |
+| `list` | `SELECT` | `authServerId, subdomain` |
+| `insert` | `INSERT` | `authServerId, subdomain` |
+| `delete` | `DELETE` | `authServerId, claimId, subdomain` |
+| `update` | `EXEC` | `authServerId, claimId, subdomain` |

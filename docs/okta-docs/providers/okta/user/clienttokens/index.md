@@ -28,21 +28,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `createdBy` | `object` |
 | `issuer` | `string` |
-| `clientId` | `string` |
-| `created` | `string` |
-| `lastUpdated` | `string` |
-| `expiresAt` | `string` |
-| `status` | `string` |
-| `_links` | `object` |
+| `createdBy` | `object` |
 | `_embedded` | `object` |
-| `scopes` | `array` |
+| `clientId` | `string` |
+| `_links` | `object` |
+| `created` | `string` |
+| `status` | `string` |
+| `expiresAt` | `string` |
 | `userId` | `string` |
+| `lastUpdated` | `string` |
+| `scopes` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `clientId, tokenId, userId` | Gets a refresh token issued for the specified User and Client. |
-| `list` | `SELECT` | `clientId, userId` | Lists all refresh tokens issued for the specified User and Client. |
-| `delete` | `DELETE` | `clientId, tokenId, userId` | Revokes the specified refresh token. |
-| `deleteAll` | `EXEC` | `clientId, userId` | Revokes all refresh tokens issued for the specified User and Client. |
+| `get` | `SELECT` | `clientId, tokenId, userId, subdomain` | Gets a refresh token issued for the specified User and Client. |
+| `list` | `SELECT` | `clientId, userId, subdomain` | Lists all refresh tokens issued for the specified User and Client. |
+| `delete` | `DELETE` | `clientId, tokenId, userId, subdomain` | Revokes the specified refresh token. |
+| `deleteAll` | `EXEC` | `clientId, userId, subdomain` | Revokes all refresh tokens issued for the specified User and Client. |

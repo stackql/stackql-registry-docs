@@ -30,18 +30,18 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `_links` | `object` |
-| `website` | `string` |
-| `signOnModes` | `array` |
-| `status` | `string` |
 | `category` | `string` |
-| `displayName` | `string` |
 | `features` | `array` |
+| `signOnModes` | `array` |
+| `_links` | `object` |
+| `displayName` | `string` |
+| `status` | `string` |
+| `website` | `string` |
 | `lastUpdated` | `string` |
 | `verificationStatus` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `roleId, userId` | Lists all App targets for an `APP_ADMIN` Role assigned to a User. This methods return list may include full Applications or Instances. The response for an instance will have an `ID` value, while Application will not have an ID. |
-| `insert` | `INSERT` | `appName, applicationId, roleId, userId` | Add App Instance Target to App Administrator Role given to a User |
-| `delete` | `DELETE` | `appName, applicationId, roleId, userId` | Remove App Instance Target to App Administrator Role given to a User |
+| `list` | `SELECT` | `roleId, userId, subdomain` | Lists all App targets for an `APP_ADMIN` Role assigned to a User. This methods return list may include full Applications or Instances. The response for an instance will have an `ID` value, while Application will not have an ID. |
+| `insert` | `INSERT` | `appName, applicationId, roleId, userId, subdomain` | Add App Instance Target to App Administrator Role given to a User |
+| `delete` | `DELETE` | `appName, applicationId, roleId, userId, subdomain` | Remove App Instance Target to App Administrator Role given to a User |

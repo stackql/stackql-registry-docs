@@ -27,26 +27,26 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `use` | `string` |
-| `key_ops` | `array` |
-| `lastUpdated` | `string` |
-| `e` | `string` |
-| `kid` | `string` |
-| `_links` | `object` |
 | `created` | `string` |
-| `x5c` | `array` |
-| `x5u` | `string` |
-| `expiresAt` | `string` |
-| `kty` | `string` |
-| `false` | `string` |
-| `x5t#S256` | `string` |
-| `status` | `string` |
+| `use` | `string` |
 | `x5t` | `string` |
 | `alg` | `string` |
+| `status` | `string` |
+| `x5c` | `array` |
+| `false` | `string` |
+| `lastUpdated` | `string` |
+| `x5t#S256` | `string` |
+| `_links` | `object` |
+| `kid` | `string` |
+| `kty` | `string` |
+| `x5u` | `string` |
+| `expiresAt` | `string` |
+| `e` | `string` |
+| `key_ops` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `idpId, keyId` | Gets a specific IdP Key Credential by `kid` |
-| `list` | `SELECT` | `idpId` | Enumerates signing key credentials for an IdP |
-| `insert` | `INSERT` | `idpId, validityYears` | Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP |
-| `clone` | `EXEC` | `idpId, keyId, targetIdpId` | Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP |
+| `get` | `SELECT` | `idpId, keyId, subdomain` | Gets a specific IdP Key Credential by `kid` |
+| `list` | `SELECT` | `idpId, subdomain` | Enumerates signing key credentials for an IdP |
+| `insert` | `INSERT` | `idpId, validityYears, subdomain` | Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP |
+| `clone` | `EXEC` | `idpId, keyId, targetIdpId, subdomain` | Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP |
