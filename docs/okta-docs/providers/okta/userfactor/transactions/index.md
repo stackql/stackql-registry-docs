@@ -27,12 +27,12 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `_links` | `object` |
-| `expiresAt` | `string` |
 | `factorResult` | `string` |
 | `factorResultMessage` | `string` |
 | `_embedded` | `object` |
+| `_links` | `object` |
+| `expiresAt` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `factorId, transactionId, userId` |
+| `get` | `SELECT` | `factorId, transactionId, userId, subdomain` |

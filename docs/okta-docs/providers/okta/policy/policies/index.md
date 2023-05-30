@@ -31,20 +31,20 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `name` | `string` |
 | `description` | `string` |
 | `status` | `string` |
-| `conditions` | `object` |
-| `type` | `string` |
+| `_embedded` | `object` |
 | `_links` | `object` |
-| `created` | `string` |
+| `type` | `string` |
+| `conditions` | `object` |
 | `lastUpdated` | `string` |
 | `priority` | `integer` |
 | `system` | `boolean` |
-| `_embedded` | `object` |
+| `created` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `policyId` | Gets a policy. |
-| `list` | `SELECT` | `type` | Gets all policies with the specified type. |
-| `insert` | `INSERT` |  | Creates a policy. |
-| `delete` | `DELETE` | `policyId` | Removes a policy. |
-| `activate` | `EXEC` | `policyId, ruleId` | Activates a policy rule. |
-| `deactivate` | `EXEC` | `policyId, ruleId` | Deactivates a policy rule. |
+| `get` | `SELECT` | `policyId, subdomain` | Gets a policy. |
+| `list` | `SELECT` | `type, subdomain` | Gets all policies with the specified type. |
+| `insert` | `INSERT` | `subdomain` | Creates a policy. |
+| `delete` | `DELETE` | `policyId, subdomain` | Removes a policy. |
+| `activate` | `EXEC` | `policyId, ruleId, subdomain` | Activates a policy rule. |
+| `deactivate` | `EXEC` | `policyId, ruleId, subdomain` | Deactivates a policy rule. |

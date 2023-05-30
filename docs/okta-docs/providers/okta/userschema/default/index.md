@@ -29,16 +29,16 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `created` | `string` |
-| `type` | `string` |
-| `_links` | `object` |
 | `properties` | `object` |
-| `title` | `string` |
-| `definitions` | `object` |
+| `_links` | `object` |
+| `created` | `string` |
 | `lastUpdated` | `string` |
+| `title` | `string` |
+| `type` | `string` |
+| `definitions` | `object` |
 | `$schema` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `appInstanceId` | Fetches the Schema for an App User |
-| `insert` | `INSERT` | `appInstanceId` | Partial updates on the User Profile properties of the Application User Schema. |
+| `list` | `SELECT` | `appInstanceId, subdomain` | Fetches the Schema for an App User |
+| `insert` | `INSERT` | `appInstanceId, subdomain` | Partial updates on the User Profile properties of the Application User Schema. |

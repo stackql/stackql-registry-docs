@@ -27,24 +27,24 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `alg` | `string` |
 | `e` | `string` |
-| `created` | `string` |
-| `lastUpdated` | `string` |
-| `use` | `string` |
-| `x5c` | `array` |
-| `kty` | `string` |
-| `_links` | `object` |
-| `x5u` | `string` |
-| `x5t#S256` | `string` |
-| `expiresAt` | `string` |
-| `x5t` | `string` |
-| `key_ops` | `array` |
+| `alg` | `string` |
 | `kid` | `string` |
+| `x5u` | `string` |
+| `expiresAt` | `string` |
+| `lastUpdated` | `string` |
+| `_links` | `object` |
+| `x5t#S256` | `string` |
+| `use` | `string` |
+| `x5t` | `string` |
+| `x5c` | `array` |
+| `created` | `string` |
 | `false` | `string` |
+| `key_ops` | `array` |
+| `kty` | `string` |
 | `status` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `authServerId` |
-| `rotate` | `EXEC` | `authServerId` |
+| `list` | `SELECT` | `authServerId, subdomain` |
+| `rotate` | `EXEC` | `authServerId, subdomain` |

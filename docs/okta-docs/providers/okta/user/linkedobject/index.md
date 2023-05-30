@@ -29,5 +29,5 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `delete` | `DELETE` | `relationshipName, userId` | Delete linked objects for a user, relationshipName can be ONLY a primary relationship name |
-| `update` | `EXEC` | `associatedUserId, primaryRelationshipName, primaryUserId` |  |
+| `delete` | `DELETE` | `relationshipName, userId, subdomain` | Delete linked objects for a user, relationshipName can be ONLY a primary relationship name |
+| `update` | `EXEC` | `associatedUserId, primaryRelationshipName, primaryUserId, subdomain` |  |

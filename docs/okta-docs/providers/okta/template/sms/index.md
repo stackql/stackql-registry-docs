@@ -29,17 +29,17 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `type` | `string` |
 | `created` | `string` |
 | `lastUpdated` | `string` |
 | `template` | `string` |
 | `translations` | `object` |
+| `type` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `templateId` | Fetches a specific template by `id` |
-| `list` | `SELECT` |  | Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type. |
-| `insert` | `INSERT` |  | Adds a new custom SMS template to your organization. |
-| `delete` | `DELETE` | `templateId` | Removes an SMS template. |
-| `partialUpdate` | `EXEC` | `templateId` | Updates only some of the SMS template properties: |
-| `update` | `EXEC` | `templateId` | Updates the SMS template. |
+| `get` | `SELECT` | `templateId, subdomain` | Fetches a specific template by `id` |
+| `list` | `SELECT` | `subdomain` | Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type. |
+| `insert` | `INSERT` | `subdomain` | Adds a new custom SMS template to your organization. |
+| `delete` | `DELETE` | `templateId, subdomain` | Removes an SMS template. |
+| `partialUpdate` | `EXEC` | `templateId, subdomain` | Updates only some of the SMS template properties: |
+| `update` | `EXEC` | `templateId, subdomain` | Updates the SMS template. |

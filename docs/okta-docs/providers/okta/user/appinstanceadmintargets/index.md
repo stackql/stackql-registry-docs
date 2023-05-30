@@ -29,5 +29,5 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `insert` | `INSERT` | `appName, applicationId, roleId, userId` | Add App Instance Target to App Administrator Role given to a User |
-| `delete` | `DELETE` | `appName, applicationId, roleId, userId` | Remove App Instance Target to App Administrator Role given to a User |
+| `insert` | `INSERT` | `appName, applicationId, roleId, userId, subdomain` | Add App Instance Target to App Administrator Role given to a User |
+| `delete` | `DELETE` | `appName, applicationId, roleId, userId, subdomain` | Remove App Instance Target to App Administrator Role given to a User |

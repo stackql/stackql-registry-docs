@@ -28,19 +28,19 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `lastUpdated` | `string` |
 | `_embedded` | `object` |
-| `type` | `string` |
 | `profile` | `object` |
 | `_links` | `object` |
-| `lastMembershipUpdated` | `string` |
-| `objectClass` | `array` |
+| `lastUpdated` | `string` |
 | `created` | `string` |
+| `objectClass` | `array` |
+| `lastMembershipUpdated` | `string` |
+| `type` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `groupId` | Fetches a group from your organization. |
-| `list` | `SELECT` |  | Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query. |
-| `insert` | `INSERT` |  | Adds a new group with `OKTA_GROUP` type to your organization. |
-| `delete` | `DELETE` | `groupId` | Removes a group with `OKTA_GROUP` type from your organization. |
-| `update` | `EXEC` | `groupId` | Updates the profile for a group with `OKTA_GROUP` type from your organization. |
+| `get` | `SELECT` | `groupId, subdomain` | Fetches a group from your organization. |
+| `list` | `SELECT` | `subdomain` | Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query. |
+| `insert` | `INSERT` | `subdomain` | Adds a new group with `OKTA_GROUP` type to your organization. |
+| `delete` | `DELETE` | `groupId, subdomain` | Removes a group with `OKTA_GROUP` type from your organization. |
+| `update` | `EXEC` | `groupId, subdomain` | Updates the profile for a group with `OKTA_GROUP` type from your organization. |

@@ -28,21 +28,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `_embedded` | `object` |
-| `createdBy` | `object` |
-| `userId` | `string` |
+| `clientId` | `string` |
 | `created` | `string` |
 | `lastUpdated` | `string` |
-| `clientId` | `string` |
+| `createdBy` | `object` |
+| `userId` | `string` |
 | `source` | `string` |
-| `status` | `string` |
+| `issuer` | `string` |
 | `scopeId` | `string` |
 | `_links` | `object` |
-| `issuer` | `string` |
+| `status` | `string` |
+| `_embedded` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `grantId, userId` | Gets a grant for the specified user |
-| `list` | `SELECT` | `userId` | Lists all grants for the specified user |
-| `delete` | `DELETE` | `grantId, userId` | Revokes one grant for a specified user |
-| `deleteAll` | `EXEC` | `userId` | Revokes all grants for a specified user |
+| `get` | `SELECT` | `grantId, userId, subdomain` | Gets a grant for the specified user |
+| `list` | `SELECT` | `userId, subdomain` | Lists all grants for the specified user |
+| `delete` | `DELETE` | `grantId, userId, subdomain` | Revokes one grant for a specified user |
+| `deleteAll` | `EXEC` | `userId, subdomain` | Revokes all grants for a specified user |

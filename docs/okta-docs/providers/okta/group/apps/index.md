@@ -29,21 +29,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `status` | `string` |
-| `licensing` | `object` |
-| `signOnMode` | `string` |
-| `settings` | `object` |
-| `created` | `string` |
-| `credentials` | `object` |
-| `_embedded` | `object` |
-| `features` | `array` |
-| `label` | `string` |
-| `lastUpdated` | `string` |
-| `accessibility` | `object` |
 | `visibility` | `object` |
-| `profile` | `object` |
+| `settings` | `object` |
+| `label` | `string` |
+| `_embedded` | `object` |
+| `created` | `string` |
+| `lastUpdated` | `string` |
+| `status` | `string` |
+| `features` | `array` |
+| `accessibility` | `object` |
+| `signOnMode` | `string` |
 | `_links` | `object` |
+| `profile` | `object` |
+| `licensing` | `object` |
+| `credentials` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `groupId` |
+| `list` | `SELECT` | `groupId, subdomain` |

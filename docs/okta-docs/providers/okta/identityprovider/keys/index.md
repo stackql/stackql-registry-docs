@@ -27,26 +27,26 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `use` | `string` |
 | `x5t#S256` | `string` |
-| `x5u` | `string` |
-| `created` | `string` |
-| `expiresAt` | `string` |
 | `key_ops` | `array` |
-| `x5c` | `array` |
-| `kty` | `string` |
-| `x5t` | `string` |
-| `lastUpdated` | `string` |
-| `status` | `string` |
-| `alg` | `string` |
 | `false` | `string` |
-| `kid` | `string` |
-| `_links` | `object` |
+| `use` | `string` |
+| `created` | `string` |
+| `lastUpdated` | `string` |
 | `e` | `string` |
+| `expiresAt` | `string` |
+| `_links` | `object` |
+| `x5t` | `string` |
+| `x5u` | `string` |
+| `alg` | `string` |
+| `status` | `string` |
+| `kid` | `string` |
+| `kty` | `string` |
+| `x5c` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `keyId` | Gets a specific IdP Key Credential by `kid` |
-| `list` | `SELECT` |  | Enumerates IdP key credentials. |
-| `insert` | `INSERT` |  | Adds a new X.509 certificate credential to the IdP key store. |
-| `delete` | `DELETE` | `keyId` | Deletes a specific IdP Key Credential by `kid` if it is not currently being used by an Active or Inactive IdP. |
+| `get` | `SELECT` | `keyId, subdomain` | Gets a specific IdP Key Credential by `kid` |
+| `list` | `SELECT` | `subdomain` | Enumerates IdP key credentials. |
+| `insert` | `INSERT` | `subdomain` | Adds a new X.509 certificate credential to the IdP key store. |
+| `delete` | `DELETE` | `keyId, subdomain` | Deletes a specific IdP Key Credential by `kid` if it is not currently being used by an Active or Inactive IdP. |

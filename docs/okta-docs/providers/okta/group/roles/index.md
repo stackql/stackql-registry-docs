@@ -29,18 +29,18 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `description` | `string` |
-| `label` | `string` |
 | `lastUpdated` | `string` |
-| `created` | `string` |
-| `type` | `string` |
-| `_links` | `object` |
 | `status` | `string` |
-| `_embedded` | `object` |
+| `_links` | `object` |
+| `type` | `string` |
+| `label` | `string` |
 | `assignmentType` | `string` |
+| `_embedded` | `object` |
+| `created` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `groupId, roleId` | Success |
-| `list` | `SELECT` | `groupId` | Success |
-| `insert` | `INSERT` | `groupId` | Assigns a Role to a Group |
-| `delete` | `DELETE` | `groupId, roleId` | Unassigns a Role from a Group |
+| `get` | `SELECT` | `groupId, roleId, subdomain` | Success |
+| `list` | `SELECT` | `groupId, subdomain` | Success |
+| `insert` | `INSERT` | `groupId, subdomain` | Assigns a Role to a Group |
+| `delete` | `DELETE` | `groupId, roleId, subdomain` | Unassigns a Role from a Group |

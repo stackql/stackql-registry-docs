@@ -27,11 +27,11 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `_links` | `object` |
 | `optOutEmailUsers` | `boolean` |
+| `_links` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` |  | Gets Okta Communication Settings of your organization. |
-| `optIn` | `EXEC` |  | Opts in all users of this org to Okta Communication emails. |
-| `optOut` | `EXEC` |  | Opts out all users of this org from Okta Communication emails. |
+| `get` | `SELECT` | `subdomain` | Gets Okta Communication Settings of your organization. |
+| `optIn` | `EXEC` | `subdomain` | Opts in all users of this org to Okta Communication emails. |
+| `optOut` | `EXEC` | `subdomain` | Opts out all users of this org from Okta Communication emails. |

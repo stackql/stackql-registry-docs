@@ -28,16 +28,16 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `logoUrl` | `string` |
+| `appName` | `string` |
+| `hidden` | `boolean` |
+| `linkUrl` | `string` |
+| `sortOrder` | `integer` |
 | `appInstanceId` | `string` |
 | `credentialsSetup` | `boolean` |
-| `linkUrl` | `string` |
-| `logoUrl` | `string` |
-| `appAssignmentId` | `string` |
-| `hidden` | `boolean` |
-| `appName` | `string` |
 | `label` | `string` |
-| `sortOrder` | `integer` |
+| `appAssignmentId` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `userId` |
+| `list` | `SELECT` | `userId, subdomain` |

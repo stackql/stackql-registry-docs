@@ -28,21 +28,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `userId` | `string` |
-| `issuer` | `string` |
-| `scopes` | `array` |
 | `createdBy` | `object` |
+| `created` | `string` |
+| `issuer` | `string` |
+| `expiresAt` | `string` |
+| `userId` | `string` |
+| `_links` | `object` |
+| `status` | `string` |
 | `_embedded` | `object` |
 | `clientId` | `string` |
-| `_links` | `object` |
-| `created` | `string` |
-| `expiresAt` | `string` |
 | `lastUpdated` | `string` |
-| `status` | `string` |
+| `scopes` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `authServerId, clientId, tokenId` |
-| `list` | `SELECT` | `authServerId, clientId` |
-| `delete` | `DELETE` | `authServerId, clientId, tokenId` |
-| `deleteall` | `EXEC` | `authServerId, clientId` |
+| `get` | `SELECT` | `authServerId, clientId, tokenId, subdomain` |
+| `list` | `SELECT` | `authServerId, clientId, subdomain` |
+| `delete` | `DELETE` | `authServerId, clientId, tokenId, subdomain` |
+| `deleteall` | `EXEC` | `authServerId, clientId, subdomain` |

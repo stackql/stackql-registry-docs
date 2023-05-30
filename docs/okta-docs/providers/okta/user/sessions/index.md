@@ -29,4 +29,4 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `delete` | `DELETE` | `userId` |
+| `delete` | `DELETE` | `userId, subdomain` |

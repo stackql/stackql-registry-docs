@@ -38,8 +38,8 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get` | `SELECT` | `authServerId, scopeId` |
-| `list` | `SELECT` | `authServerId` |
-| `insert` | `INSERT` | `authServerId` |
-| `delete` | `DELETE` | `authServerId, scopeId` |
-| `update` | `EXEC` | `authServerId, scopeId` |
+| `get` | `SELECT` | `authServerId, scopeId, subdomain` |
+| `list` | `SELECT` | `authServerId, subdomain` |
+| `insert` | `INSERT` | `authServerId, subdomain` |
+| `delete` | `DELETE` | `authServerId, scopeId, subdomain` |
+| `update` | `EXEC` | `authServerId, scopeId, subdomain` |

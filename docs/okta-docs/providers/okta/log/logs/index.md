@@ -27,23 +27,23 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `published` | `string` |
-| `legacyEventType` | `string` |
-| `displayMessage` | `string` |
-| `actor` | `object` |
-| `client` | `object` |
-| `authenticationContext` | `object` |
-| `target` | `array` |
-| `request` | `object` |
 | `debugContext` | `object` |
-| `uuid` | `string` |
-| `eventType` | `string` |
+| `displayMessage` | `string` |
 | `outcome` | `object` |
-| `version` | `string` |
-| `transaction` | `object` |
-| `severity` | `string` |
+| `legacyEventType` | `string` |
+| `request` | `object` |
+| `authenticationContext` | `object` |
 | `securityContext` | `object` |
+| `published` | `string` |
+| `transaction` | `object` |
+| `client` | `object` |
+| `uuid` | `string` |
+| `version` | `string` |
+| `eventType` | `string` |
+| `target` | `array` |
+| `actor` | `object` |
+| `severity` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` |  |
+| `list` | `SELECT` | `subdomain` |

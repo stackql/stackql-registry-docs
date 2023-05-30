@@ -29,21 +29,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `conditions` | `object` |
-| `status` | `string` |
 | `actions` | `object` |
-| `priority` | `integer` |
-| `system` | `boolean` |
 | `type` | `string` |
+| `status` | `string` |
+| `system` | `boolean` |
+| `conditions` | `object` |
 | `created` | `string` |
 | `lastUpdated` | `string` |
+| `priority` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `authServerId, policyId, ruleId` | Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy. |
-| `list` | `SELECT` | `authServerId, policyId` | Enumerates all policy rules for the specified Custom Authorization Server and Policy. |
-| `insert` | `INSERT` | `authServerId, policyId` | Creates a policy rule for the specified Custom Authorization Server and Policy. |
-| `delete` | `DELETE` | `authServerId, policyId, ruleId` | Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy. |
-| `activate` | `EXEC` | `authServerId, policyId, ruleId` | Activate Authorization Server Policy Rule |
-| `deactivate` | `EXEC` | `authServerId, policyId, ruleId` | Deactivate Authorization Server Policy Rule |
-| `update` | `EXEC` | `authServerId, policyId, ruleId` | Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy. |
+| `get` | `SELECT` | `authServerId, policyId, ruleId, subdomain` | Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy. |
+| `list` | `SELECT` | `authServerId, policyId, subdomain` | Enumerates all policy rules for the specified Custom Authorization Server and Policy. |
+| `insert` | `INSERT` | `authServerId, policyId, subdomain` | Creates a policy rule for the specified Custom Authorization Server and Policy. |
+| `delete` | `DELETE` | `authServerId, policyId, ruleId, subdomain` | Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy. |
+| `activate` | `EXEC` | `authServerId, policyId, ruleId, subdomain` | Activate Authorization Server Policy Rule |
+| `deactivate` | `EXEC` | `authServerId, policyId, ruleId, subdomain` | Deactivate Authorization Server Policy Rule |
+| `update` | `EXEC` | `authServerId, policyId, ruleId, subdomain` | Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy. |

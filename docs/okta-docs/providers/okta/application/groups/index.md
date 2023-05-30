@@ -28,15 +28,15 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `_embedded` | `object` |
 | `_links` | `object` |
 | `lastUpdated` | `string` |
 | `priority` | `integer` |
 | `profile` | `object` |
-| `_embedded` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appId, groupId` | Fetches an application group assignment |
-| `list` | `SELECT` | `appId` | Enumerates group assignments for an application. |
-| `delete` | `DELETE` | `appId, groupId` | Removes a group assignment from an application. |
-| `update` | `EXEC` | `appId, groupId` | Assigns a group to an application |
+| `get` | `SELECT` | `appId, groupId, subdomain` | Fetches an application group assignment |
+| `list` | `SELECT` | `appId, subdomain` | Enumerates group assignments for an application. |
+| `delete` | `DELETE` | `appId, groupId, subdomain` | Removes a group assignment from an application. |
+| `update` | `EXEC` | `appId, groupId, subdomain` | Assigns a group to an application |

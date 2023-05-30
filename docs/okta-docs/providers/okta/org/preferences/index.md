@@ -32,6 +32,6 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` |  | Gets preferences of your organization. |
-| `hideEndUserFooter` | `EXEC` |  | Hide the Okta UI footer for all end users of your organization. |
-| `showEndUserFooter` | `EXEC` |  | Makes the Okta UI footer visible for all end users of your organization. |
+| `get` | `SELECT` | `subdomain` | Gets preferences of your organization. |
+| `hideEndUserFooter` | `EXEC` | `subdomain` | Hide the Okta UI footer for all end users of your organization. |
+| `showEndUserFooter` | `EXEC` | `subdomain` | Makes the Okta UI footer visible for all end users of your organization. |

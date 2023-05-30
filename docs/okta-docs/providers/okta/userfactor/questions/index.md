@@ -33,4 +33,4 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `userId` |
+| `list` | `SELECT` | `userId, subdomain` |

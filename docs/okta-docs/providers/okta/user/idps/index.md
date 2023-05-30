@@ -29,15 +29,15 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `_links` | `object` |
+| `issuerMode` | `string` |
+| `type` | `string` |
+| `lastUpdated` | `string` |
+| `created` | `string` |
+| `protocol` | `object` |
 | `policy` | `object` |
 | `status` | `string` |
-| `created` | `string` |
-| `lastUpdated` | `string` |
-| `type` | `string` |
-| `issuerMode` | `string` |
-| `protocol` | `object` |
+| `_links` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `userId` |
+| `list` | `SELECT` | `userId, subdomain` |

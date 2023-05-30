@@ -29,28 +29,28 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `accessibility` | `object` |
-| `profile` | `object` |
-| `settings` | `object` |
 | `lastUpdated` | `string` |
-| `credentials` | `object` |
-| `features` | `array` |
+| `profile` | `object` |
 | `licensing` | `object` |
 | `status` | `string` |
-| `label` | `string` |
 | `signOnMode` | `string` |
-| `_embedded` | `object` |
-| `created` | `string` |
+| `accessibility` | `object` |
+| `credentials` | `object` |
+| `settings` | `object` |
 | `_links` | `object` |
 | `visibility` | `object` |
+| `created` | `string` |
+| `_embedded` | `object` |
+| `label` | `string` |
+| `features` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appId` | Fetches an application from your Okta organization by `id`. |
-| `list` | `SELECT` |  | Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query. |
-| `insert` | `INSERT` |  | Adds a new application to your Okta organization. |
-| `delete` | `DELETE` | `appId` | Removes an inactive application. |
-| `activate` | `EXEC` | `appId` | Activates an inactive application. |
-| `deactivate` | `EXEC` | `appId` | Deactivates an active application. |
-| `deleteall` | `EXEC` | `appId` | Revokes all tokens for the specified application |
-| `update` | `EXEC` | `appId` | Updates an application in your organization. |
+| `get` | `SELECT` | `appId, subdomain` | Fetches an application from your Okta organization by `id`. |
+| `list` | `SELECT` | `subdomain` | Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query. |
+| `insert` | `INSERT` | `subdomain` | Adds a new application to your Okta organization. |
+| `delete` | `DELETE` | `appId, subdomain` | Removes an inactive application. |
+| `activate` | `EXEC` | `appId, subdomain` | Activates an inactive application. |
+| `deactivate` | `EXEC` | `appId, subdomain` | Deactivates an active application. |
+| `deleteall` | `EXEC` | `appId, subdomain` | Revokes all tokens for the specified application |
+| `update` | `EXEC` | `appId, subdomain` | Updates an application in your organization. |

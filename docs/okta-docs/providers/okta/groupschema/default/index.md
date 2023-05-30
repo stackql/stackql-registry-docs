@@ -30,16 +30,16 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `type` | `string` |
-| `title` | `string` |
-| `$schema` | `string` |
-| `properties` | `object` |
-| `_links` | `object` |
-| `lastUpdated` | `string` |
-| `created` | `string` |
 | `definitions` | `object` |
+| `_links` | `object` |
+| `created` | `string` |
+| `$schema` | `string` |
+| `title` | `string` |
+| `properties` | `object` |
+| `lastUpdated` | `string` |
+| `type` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` |  | Fetches the group schema |
-| `update` | `EXEC` |  | Updates, adds ore removes one or more custom Group Profile properties in the schema |
+| `get` | `SELECT` | `subdomain` | Fetches the group schema |
+| `update` | `EXEC` | `subdomain` | Updates, adds ore removes one or more custom Group Profile properties in the schema |

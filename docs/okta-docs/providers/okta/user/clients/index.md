@@ -27,12 +27,12 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
+| `client_uri` | `string` |
 | `logo_uri` | `string` |
 | `_links` | `object` |
 | `client_id` | `string` |
 | `client_name` | `string` |
-| `client_uri` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list` | `SELECT` | `userId` |
+| `list` | `SELECT` | `userId, subdomain` |

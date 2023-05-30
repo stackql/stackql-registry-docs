@@ -28,21 +28,21 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `userId` | `string` |
-| `issuer` | `string` |
-| `status` | `string` |
-| `scopeId` | `string` |
-| `createdBy` | `object` |
-| `_embedded` | `object` |
 | `lastUpdated` | `string` |
-| `created` | `string` |
 | `source` | `string` |
-| `_links` | `object` |
+| `status` | `string` |
 | `clientId` | `string` |
+| `createdBy` | `object` |
+| `issuer` | `string` |
+| `created` | `string` |
+| `userId` | `string` |
+| `scopeId` | `string` |
+| `_links` | `object` |
+| `_embedded` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `appId, grantId` | Fetches a single scope consent grant for the application |
-| `list` | `SELECT` | `appId` | Lists all scope consent grants for the application |
-| `insert` | `INSERT` | `appId` | Grants consent for the application to request an OAuth 2.0 Okta scope |
-| `delete` | `DELETE` | `appId, grantId` | Revokes permission for the application to request the given scope |
+| `get` | `SELECT` | `appId, grantId, subdomain` | Fetches a single scope consent grant for the application |
+| `list` | `SELECT` | `appId, subdomain` | Lists all scope consent grants for the application |
+| `insert` | `INSERT` | `appId, subdomain` | Grants consent for the application to request an OAuth 2.0 Okta scope |
+| `delete` | `DELETE` | `appId, grantId, subdomain` | Revokes permission for the application to request the given scope |

@@ -29,16 +29,16 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `objectClass` | `array` |
-| `type` | `string` |
-| `_links` | `object` |
-| `lastMembershipUpdated` | `string` |
-| `lastUpdated` | `string` |
-| `profile` | `object` |
-| `_embedded` | `object` |
 | `created` | `string` |
+| `lastMembershipUpdated` | `string` |
+| `_embedded` | `object` |
+| `profile` | `object` |
+| `_links` | `object` |
+| `type` | `string` |
+| `lastUpdated` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `groupId, roleId` | Success |
-| `insert` | `INSERT` | `groupId, roleId, targetGroupId` |  |
-| `delete` | `DELETE` | `groupId, roleId, targetGroupId` |  |
+| `list` | `SELECT` | `groupId, roleId, subdomain` | Success |
+| `insert` | `INSERT` | `groupId, roleId, targetGroupId, subdomain` |  |
+| `delete` | `DELETE` | `groupId, roleId, targetGroupId, subdomain` |  |

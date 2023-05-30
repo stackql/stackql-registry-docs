@@ -30,18 +30,18 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `signOnModes` | `array` |
-| `status` | `string` |
-| `_links` | `object` |
-| `category` | `string` |
-| `lastUpdated` | `string` |
-| `features` | `array` |
-| `website` | `string` |
 | `verificationStatus` | `string` |
+| `website` | `string` |
+| `signOnModes` | `array` |
 | `displayName` | `string` |
+| `_links` | `object` |
+| `lastUpdated` | `string` |
+| `status` | `string` |
+| `category` | `string` |
+| `features` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `groupId, roleId` | Lists all App targets for an `APP_ADMIN` Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an `ID` value, while Application will not have an ID. |
-| `insert` | `INSERT` | `appName, groupId, roleId` | Success |
-| `delete` | `DELETE` | `appName, groupId, roleId` | Success |
+| `list` | `SELECT` | `groupId, roleId, subdomain` | Lists all App targets for an `APP_ADMIN` Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an `ID` value, while Application will not have an ID. |
+| `insert` | `INSERT` | `appName, groupId, roleId, subdomain` | Success |
+| `delete` | `DELETE` | `appName, groupId, roleId, subdomain` | Success |
