@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A brief description of the building. For example, "Chelsea Market". |
-| `coordinates` | `object` | Public API: Resources.buildings |
 | `etags` | `string` | ETag of the resource. |
 | `floorNames` | `array` | The display names for all floors in this building. The floors are expected to be sorted in ascending order, from lowest floor to highest floor. For example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least one entry. |
 | `kind` | `string` | Kind of resource this is. |
 | `address` | `object` | Public API: Resources.buildings |
 | `buildingId` | `string` | Unique identifier for the building. The maximum length is 100 characters. |
 | `buildingName` | `string` | The building name as seen by users in Calendar. Must be unique for the customer. For example, "NYC-CHEL". The maximum length is 100 characters. |
+| `coordinates` | `object` | Public API: Resources.buildings |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

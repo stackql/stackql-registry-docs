@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `displayName` | `string` | Display name. eq. "Brother MFC-8840D" |
 | `makeAndModel` | `string` | Make and model as represented in "make_and_model" field in Printer object. eq. "brother mfc-8840d" |
 | `manufacturer` | `string` | Manufacturer. eq. "Brother" |
+| `displayName` | `string` | Display name. eq. "Brother MFC-8840D" |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
