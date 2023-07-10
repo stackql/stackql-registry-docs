@@ -27,13 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `kind` | `string` | Kind of resource this is. |
 | `verified` | `boolean` | Indicates the verification state of a domain. (Read-only). |
 | `creationTime` | `string` | Creation time of the domain. Expressed in [Unix time](https://en.wikipedia.org/wiki/Epoch_time) format. (Read-only). |
 | `domainAliases` | `array` | A list of domain alias objects. (Read-only) |
 | `domainName` | `string` | The domain name of the customer. |
 | `etag` | `string` | ETag of the resource. |
 | `isPrimary` | `boolean` | Indicates if the domain is a primary domain (Read-only). |
-| `kind` | `string` | Kind of resource this is. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

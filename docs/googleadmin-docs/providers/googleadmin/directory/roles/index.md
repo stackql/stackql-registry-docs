@@ -27,6 +27,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `roleId` | `string` | ID of the role. |
 | `roleName` | `string` | Name of the role. |
 | `rolePrivileges` | `array` | The set of privileges that are granted to this role. |
 | `etag` | `string` | ETag of the resource. |
@@ -34,7 +35,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `isSystemRole` | `boolean` | Returns `true` if this is a pre-defined system role. |
 | `kind` | `string` | The type of the API resource. This is always `admin#directory#role`. |
 | `roleDescription` | `string` | A short description of the role. |
-| `roleId` | `string` | ID of the role. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
