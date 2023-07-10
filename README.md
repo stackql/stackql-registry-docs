@@ -25,8 +25,15 @@ This repository contains documentation for StackQL providers, which is published
 
 Adding docs for a new provider requires creating a new web property (subdomain) and will force an update to the root/base site and all other providers.  The steps are:  
 
-- [ ] create a new netlify site (`stackql-{provider}-docs`)
-- [ ] add `NETLIFY` record in Netlify DNS (mapping `{provider}.stackql.io to `stackql-{provider}-docs.netlify.app`)
+- [ ] update `scripts/docgen/provider_data.py` with metadata for new provider
+- [ ] generate docs for provider using `sh scripts/docgen.sh {provider}`
+- [ ] publish docs for provider using `sh scripts/publish.sh {provider}`
+- [x] add the new provider docs to `docs/{provider}-docs` (following directory structure of existing providers) (done automatically by `scripts/publish.sh`)
+- [x] update frontmatter in the `index.md` at the root of the new providers docs, set `slug` to `/providers/{provider}` and `id` to `{provider}-doc` (done automatically by `scripts/docgen.sh`)
+- [x] update `stackql-provider-registry.mdx` in the root of the new provider to add the `currentProvider` prop, e.g. `<RegistryPage currentProvider="okta" />` (done automatically by `scripts/docgen.sh`)
+- [ ] create a new netlify site (`stackql-{provider}-docs`) - use `yarn build:{provider}` as the `build command`
+- [ ] stop automatic builds for site in Netlify
+- [ ] add `NETLIFY` record in Netlify DNS (mapping `{provider}-docs.stackql.io` (Primary Domain) and `{provider}.stackql.io` (Domain Alias) to `stackql-{provider}-docs.netlify.app`), select `Force HTTPS`
 - [ ] add GitHub Actions secret for netlify site id - `NETLIFY_SITE_ID_{PROVIDER}`
 - [ ] add the Netlify deploy status badge to the table in this `README` (see above)
 - [ ] update the `providers` array in `sidebars.js` with the new provider
@@ -34,9 +41,6 @@ Adding docs for a new provider requires creating a new web property (subdomain) 
 - [ ] update `package.json` with new `start` and `build` scripts
 - [ ] update `allProviders` in `ci-scripts/get-providers-to-deploy.js` with the new provider
 - [ ] add the root site redirects for provider vanity urls to `.github/workflows/build-docs.yaml` to the `add redirects to root site` step of the `deploy-to-netlify` job
-- [x] add the new provider docs to `docs/{provider}-docs` (following directory structure of existing providers) (done automatically by `scripts/publish.sh`)
-- [x] update frontmatter in the `index.md` at the root of the new providers docs, set `slug` to `/providers/{provider}` and `id` to `{provider}-doc` (done automatically by `scripts/docgen.sh`)
-- [x] update `stackql-provider-registry.mdx` in the root of the new provider to add the `currentProvider` prop, e.g. `<RegistryPage currentProvider="okta" />` (done automatically by `scripts/docgen.sh`)
 
 ## Updating Existing Provider Docs
 
