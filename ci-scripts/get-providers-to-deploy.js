@@ -14,6 +14,7 @@ const allProviders = [
     'firebase', 
     'github', 
     'google', 
+    'googleadmin',
     'k8s',
     'linode', 
     'netlify', 

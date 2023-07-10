@@ -31,8 +31,9 @@ Adding docs for a new provider requires creating a new web property (subdomain) 
 - [x] add the new provider docs to `docs/{provider}-docs` (following directory structure of existing providers) (done automatically by `scripts/publish.sh`)
 - [x] update frontmatter in the `index.md` at the root of the new providers docs, set `slug` to `/providers/{provider}` and `id` to `{provider}-doc` (done automatically by `scripts/docgen.sh`)
 - [x] update `stackql-provider-registry.mdx` in the root of the new provider to add the `currentProvider` prop, e.g. `<RegistryPage currentProvider="okta" />` (done automatically by `scripts/docgen.sh`)
-- [ ] create a new netlify site (`stackql-{provider}-docs`)
-- [ ] add `NETLIFY` record in Netlify DNS (mapping `{provider}.stackql.io to `stackql-{provider}-docs.netlify.app`)
+- [ ] create a new netlify site (`stackql-{provider}-docs`) - use `yarn build:{provider}` as the `build command`
+- [ ] stop automatic builds for site in Netlify
+- [ ] add `NETLIFY` record in Netlify DNS (mapping `{provider}-docs.stackql.io` (Primary Domain) and `{provider}.stackql.io` (Domain Alias) to `stackql-{provider}-docs.netlify.app`), select `Force HTTPS`
 - [ ] add GitHub Actions secret for netlify site id - `NETLIFY_SITE_ID_{PROVIDER}`
 - [ ] add the Netlify deploy status badge to the table in this `README` (see above)
 - [ ] update the `providers` array in `sidebars.js` with the new provider
