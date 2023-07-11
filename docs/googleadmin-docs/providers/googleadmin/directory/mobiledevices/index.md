@@ -28,45 +28,45 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `array` | The list of the owner's user names. If your application needs the current list of device owner names, use the [get](/admin-sdk/directory/v1/reference/mobiledevices/get.html) method. For more information about retrieving mobile device user information, see the [Developer's Guide](/admin-sdk/directory/v1/guides/manage-users#get_user). |
-| `deviceCompromisedStatus` | `string` | The compromised device status. |
-| `wifiMacAddress` | `string` | The device's MAC address on Wi-Fi networks. |
-| `supportsWorkProfile` | `boolean` | Work profile supported on device (Read-only) |
+| `networkOperator` | `string` | Mobile Device mobile or network operator (if available) (Read-only) |
 | `hardwareId` | `string` | The IMEI/MEID unique identifier for Android hardware. It is not applicable to Google Sync devices. When adding an Android mobile device, this is an optional property. When updating one of these devices, this is a read-only property. |
-| `etag` | `string` | ETag of the resource. |
-| `buildNumber` | `string` | The device's operating system build number. |
+| `adbStatus` | `boolean` | Adb (USB debugging) enabled or disabled on device (Read-only) |
+| `applications` | `array` | The list of applications installed on an Android mobile device. It is not applicable to Google Sync and iOS devices. The list includes any Android applications that access Google Workspace data. When updating an applications list, it is important to note that updates replace the existing list. If the Android device has two existing applications and the API updates the list with five applications, the is now the updated list of five applications. |
+| `deviceId` | `string` | The serial number for a Google Sync mobile device. For Android and iOS devices, this is a software generated unique identifier. |
+| `otherAccountsInfo` | `array` | The list of accounts added on device (Read-only) |
 | `managedAccountIsOnOwnerProfile` | `boolean` | Boolean indicating if this account is on owner/primary profile or not. |
+| `etag` | `string` | ETag of the resource. |
+| `defaultLanguage` | `string` | The default locale used on the device. |
+| `developerOptionsStatus` | `boolean` | Developer options enabled or disabled on device (Read-only) |
+| `userAgent` | `string` | Gives information about the device such as `os` version. This property can be [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html). For more information, see the [Developer's Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices#update_mobile_device). |
+| `os` | `string` | The mobile device's operating system, for example IOS 4.3 or Android 2.3.5. This property can be [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html). For more information, see the [Developer's Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices#update_mobile_device). |
+| `serialNumber` | `string` | The device's serial number. |
+| `resourceId` | `string` | The unique ID the API service uses to identify the mobile device. |
+| `imei` | `string` | The device's IMEI number. |
+| `meid` | `string` | The device's MEID number. |
+| `basebandVersion` | `string` | The device's baseband version. |
+| `firstSync` | `string` | Date and time the device was first synchronized with the policy settings in the G Suite administrator control panel (Read-only) |
+| `manufacturer` | `string` | Mobile Device manufacturer (Read-only) |
+| `releaseVersion` | `string` | Mobile Device release version version (Read-only) |
+| `securityPatchLevel` | `string` | Mobile Device Security patch level (Read-only) |
+| `lastSync` | `string` | Date and time the device was last synchronized with the policy settings in the G Suite administrator control panel (Read-only) |
+| `email` | `array` | The list of the owner's email addresses. If your application needs the current list of user emails, use the [get](/admin-sdk/directory/v1/reference/mobiledevices/get.html) method. For additional information, see the [retrieve a user](/admin-sdk/directory/v1/guides/manage-users#get_user) method. |
+| `unknownSourcesStatus` | `boolean` | Unknown sources enabled or disabled on device (Read-only) |
+| `buildNumber` | `string` | The device's operating system build number. |
+| `brand` | `string` | Mobile Device Brand (Read-only) |
+| `kernelVersion` | `string` | The device's kernel version. |
+| `status` | `string` | The device's status. |
 | `devicePasswordStatus` | `string` | DevicePasswordStatus (Read-only) |
 | `hardware` | `string` | Mobile Device Hardware (Read-only) |
-| `status` | `string` | The device's status. |
-| `email` | `array` | The list of the owner's email addresses. If your application needs the current list of user emails, use the [get](/admin-sdk/directory/v1/reference/mobiledevices/get.html) method. For additional information, see the [retrieve a user](/admin-sdk/directory/v1/guides/manage-users#get_user) method. |
-| `lastSync` | `string` | Date and time the device was last synchronized with the policy settings in the G Suite administrator control panel (Read-only) |
-| `developerOptionsStatus` | `boolean` | Developer options enabled or disabled on device (Read-only) |
-| `securityPatchLevel` | `string` | Mobile Device Security patch level (Read-only) |
-| `bootloaderVersion` | `string` | Mobile Device Bootloader version (Read-only) |
 | `type` | `string` | The type of mobile device. |
-| `defaultLanguage` | `string` | The default locale used on the device. |
-| `releaseVersion` | `string` | Mobile Device release version version (Read-only) |
-| `kernelVersion` | `string` | The device's kernel version. |
-| `otherAccountsInfo` | `array` | The list of accounts added on device (Read-only) |
-| `imei` | `string` | The device's IMEI number. |
+| `bootloaderVersion` | `string` | Mobile Device Bootloader version (Read-only) |
+| `supportsWorkProfile` | `boolean` | Work profile supported on device (Read-only) |
+| `privilege` | `string` | DMAgentPermission (Read-only) |
 | `kind` | `string` | The type of the API resource. For Mobiledevices resources, the value is `admin#directory#mobiledevice`. |
 | `model` | `string` | The mobile device's model name, for example Nexus S. This property can be [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html). For more information, see the [Developer's Guide](/admin-sdk/directory/v1/guides/manage-mobile=devices#update_mobile_device). |
-| `manufacturer` | `string` | Mobile Device manufacturer (Read-only) |
-| `os` | `string` | The mobile device's operating system, for example IOS 4.3 or Android 2.3.5. This property can be [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html). For more information, see the [Developer's Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices#update_mobile_device). |
-| `meid` | `string` | The device's MEID number. |
-| `privilege` | `string` | DMAgentPermission (Read-only) |
-| `adbStatus` | `boolean` | Adb (USB debugging) enabled or disabled on device (Read-only) |
-| `brand` | `string` | Mobile Device Brand (Read-only) |
-| `unknownSourcesStatus` | `boolean` | Unknown sources enabled or disabled on device (Read-only) |
-| `basebandVersion` | `string` | The device's baseband version. |
+| `wifiMacAddress` | `string` | The device's MAC address on Wi-Fi networks. |
+| `deviceCompromisedStatus` | `string` | The compromised device status. |
 | `encryptionStatus` | `string` | Mobile Device Encryption Status (Read-only) |
-| `userAgent` | `string` | Gives information about the device such as `os` version. This property can be [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html). For more information, see the [Developer's Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices#update_mobile_device). |
-| `firstSync` | `string` | Date and time the device was first synchronized with the policy settings in the G Suite administrator control panel (Read-only) |
-| `networkOperator` | `string` | Mobile Device mobile or network operator (if available) (Read-only) |
-| `resourceId` | `string` | The unique ID the API service uses to identify the mobile device. |
-| `applications` | `array` | The list of applications installed on an Android mobile device. It is not applicable to Google Sync and iOS devices. The list includes any Android applications that access Google Workspace data. When updating an applications list, it is important to note that updates replace the existing list. If the Android device has two existing applications and the API updates the list with five applications, the is now the updated list of five applications. |
-| `serialNumber` | `string` | The device's serial number. |
-| `deviceId` | `string` | The serial number for a Google Sync mobile device. For Android and iOS devices, this is a software generated unique identifier. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -30,13 +30,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | Id of the printer. (During printer creation leave empty) |
 | `name` | `string` | The resource name of the Printer object, in the format customers/&#123;customer-id&#125;/printers/&#123;printer-id&#125; (During printer creation leave empty) |
 | `description` | `string` | Editable. Description of printer. |
-| `displayName` | `string` | Editable. Name of printer. |
 | `createTime` | `string` | Output only. Time when printer was created. |
-| `orgUnitId` | `string` | Organization Unit that owns this printer (Only can be set during Printer creation) |
 | `makeAndModel` | `string` | Editable. Make and model of printer. e.g. Lexmark MS610de Value must be in format as seen in ListPrinterModels response. |
 | `auxiliaryMessages` | `array` | Output only. Auxiliary messages about issues with the printer configuration if any. |
-| `uri` | `string` | Editable. Printer URI. |
+| `displayName` | `string` | Editable. Name of printer. |
+| `orgUnitId` | `string` | Organization Unit that owns this printer (Only can be set during Printer creation) |
 | `useDriverlessConfig` | `boolean` | Editable. flag to use driverless configuration or not. If it's set to be true, make_and_model can be ignored |
+| `uri` | `string` | Editable. Printer URI. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the feature. |
-| `etags` | `string` | ETag of the resource. |
 | `kind` | `string` | Kind of resource this is. |
+| `etags` | `string` | ETag of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
