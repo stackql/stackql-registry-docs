@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
+| `aliases` | `array` |
 | `etag` | `string` |
 | `kind` | `string` |
-| `aliases` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

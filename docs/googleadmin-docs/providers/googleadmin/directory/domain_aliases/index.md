@@ -27,12 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `domainAliasName` | `string` | The domain alias name. |
+| `etag` | `string` | ETag of the resource. |
 | `kind` | `string` | Kind of resource this is. |
 | `parentDomainName` | `string` | The parent domain name that the domain alias is associated with. This can either be a primary or secondary domain name within a customer. |
 | `verified` | `boolean` | Indicates the verification state of a domain alias. (Read-only) |
 | `creationTime` | `string` | The creation time of the domain alias. (Read-only). |
-| `domainAliasName` | `string` | The domain alias name. |
-| `etag` | `string` | ETag of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
