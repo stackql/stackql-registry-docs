@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID of the group member. A member `id` can be used as a member request URI's `memberKey`. |
+| `etag` | `string` | ETag of the resource. |
 | `kind` | `string` | The type of the API resource. For Members resources, the value is `admin#directory#member`. |
 | `role` | `string` | The member's role in a group. The API returns an error for cycles in group memberships. For example, if `group1` is a member of `group2`, `group2` cannot be a member of `group1`. For more information about a member's role, see the [administration help center](https://support.google.com/a/answer/167094). |
 | `status` | `string` | Status of member (Immutable) |
 | `type` | `string` | The type of group member. |
 | `delivery_settings` | `string` | Defines mail delivery preferences of member. This field is only supported by `insert`, `update`, and `get` methods. |
 | `email` | `string` | The member's email address. A member can be a user or another group. This property is required when adding a member to a group. The `email` must be unique and cannot be an alias of another group. If the email address is changed, the API automatically reflects the email address changes. |
-| `etag` | `string` | ETag of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
