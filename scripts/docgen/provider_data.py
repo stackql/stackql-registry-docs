@@ -92,7 +92,7 @@ The following system environment variable is used by default:
 
 - `GOOGLE_CREDENTIALS` - contents of the `google` service account key json fileThis variable is sourced at runtime (from the local machine using export GOOGLE_CREDENTIALS=cat creds/my-sa-key.json` for example or as a CI variable/secret).
 
-This variable is sourced at runtime (from the local machine using <code>export GOOGLE_CREDENTIALS=\`cat creds/my-sa-key.json\`</code> for example or as a CI variable/secret).
+This variable is sourced at runtime (from the local machine using `export GOOGLE_CREDENTIALS=$(cat creds/my-sa-key.json)` for example or as a CI variable/secret).
 
 <details>
 
