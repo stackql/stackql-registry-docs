@@ -27,12 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Kind of resource this is. |
-| `schemaId` | `string` | The unique identifier of the schema (Read-only) |
 | `schemaName` | `string` | The schema's name. Each `schema_name` must be unique within a customer. Reusing a name results in a `409: Entity already exists` error. |
 | `displayName` | `string` | Display name for the schema. |
 | `etag` | `string` | The ETag of the resource. |
 | `fields` | `array` | A list of fields in the schema. |
+| `kind` | `string` | Kind of resource this is. |
+| `schemaId` | `string` | The unique identifier of the schema (Read-only) |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

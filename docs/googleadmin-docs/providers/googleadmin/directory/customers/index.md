@@ -30,12 +30,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | The unique ID for the customer's Google Workspace account. (Readonly) |
 | `kind` | `string` | Identifies the resource as a customer. Value: `admin#directory#customer` |
 | `etag` | `string` | ETag of the resource. |
-| `alternateEmail` | `string` | The customer's secondary contact email address. This email address cannot be on the same domain as the `customerDomain` |
 | `customerCreationTime` | `string` | The customer's creation time (Readonly) |
 | `customerDomain` | `string` | The customer's primary domain name string. Do not include the `www` prefix when creating a new customer. |
-| `postalAddress` | `object` |  |
-| `phoneNumber` | `string` | The customer's contact phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 | `language` | `string` | The customer's ISO 639-2 language code. See the [Language Codes](/admin-sdk/directory/v1/languages) page for the list of supported codes. Valid language codes outside the supported set will be accepted by the API but may lead to unexpected behavior. The default value is `en`. |
+| `phoneNumber` | `string` | The customer's contact phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+| `postalAddress` | `object` |  |
+| `alternateEmail` | `string` | The customer's secondary contact email address. This email address cannot be on the same domain as the `customerDomain` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
