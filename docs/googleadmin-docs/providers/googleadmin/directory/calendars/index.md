@@ -27,21 +27,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etags` | `string` | ETag of the resource. |
-| `resourceType` | `string` | The type of the calendar resource, intended for non-room resources. |
-| `featureInstances` | `any` | Instances of features for the calendar resource. |
-| `buildingId` | `string` | Unique ID for the building a resource is located in. |
-| `kind` | `string` | The type of the resource. For calendar resources, the value is `admin#directory#resources#calendars#CalendarResource`. |
 | `resourceId` | `string` | The unique ID for the calendar resource. |
-| `capacity` | `integer` | Capacity of a resource, number of seats in a room. |
-| `floorSection` | `string` | Name of the section within a floor a resource is located in. |
-| `resourceName` | `string` | The name of the calendar resource. For example, "Training Room 1A". |
-| `floorName` | `string` | Name of the floor a resource is located on. |
 | `userVisibleDescription` | `string` | Description of the resource, visible to users and admins. |
-| `resourceDescription` | `string` | Description of the resource, visible only to admins. |
 | `resourceCategory` | `string` | The category of the calendar resource. Either CONFERENCE_ROOM or OTHER. Legacy data is set to CATEGORY_UNKNOWN. |
-| `generatedResourceName` | `string` | The read-only auto-generated name of the calendar resource which includes metadata about the resource such as building name, floor, capacity, etc. For example, "NYC-2-Training Room 1A (16)". |
+| `kind` | `string` | The type of the resource. For calendar resources, the value is `admin#directory#resources#calendars#CalendarResource`. |
 | `resourceEmail` | `string` | The read-only email for the calendar resource. Generated as part of creating a new calendar resource. |
+| `generatedResourceName` | `string` | The read-only auto-generated name of the calendar resource which includes metadata about the resource such as building name, floor, capacity, etc. For example, "NYC-2-Training Room 1A (16)". |
+| `floorName` | `string` | Name of the floor a resource is located on. |
+| `resourceDescription` | `string` | Description of the resource, visible only to admins. |
+| `floorSection` | `string` | Name of the section within a floor a resource is located in. |
+| `etags` | `string` | ETag of the resource. |
+| `buildingId` | `string` | Unique ID for the building a resource is located in. |
+| `featureInstances` | `any` | Instances of features for the calendar resource. |
+| `resourceType` | `string` | The type of the calendar resource, intended for non-room resources. |
+| `capacity` | `integer` | Capacity of a resource, number of seats in a room. |
+| `resourceName` | `string` | The name of the calendar resource. For example, "Training Room 1A". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
