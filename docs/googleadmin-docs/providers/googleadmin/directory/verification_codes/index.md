@@ -27,10 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | The type of the resource. This is always `admin#directory#verificationCode`. |
-| `userId` | `string` | The obfuscated unique ID of the user. |
 | `verificationCode` | `string` | A current verification code for the user. Invalidated or used verification codes are not returned as part of the result. |
 | `etag` | `string` | ETag of the resource. |
+| `kind` | `string` | The type of the resource. This is always `admin#directory#verificationCode`. |
+| `userId` | `string` | The obfuscated unique ID of the user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
