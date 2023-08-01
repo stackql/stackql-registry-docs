@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The path ID that uniquely identifies the object. |
 | `name` | `string` | The name of the object. |
-| `properties` | `object` | The properties of the backup policy. |
 | `type` | `string` | The hierarchical type of the object. |
 | `kind` | `string` | The Kind of the object. Currently only Series8000 is supported |
+| `properties` | `object` | The properties of the backup policy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

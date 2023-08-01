@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `rowAccessPolicies_setIamPolicy` | `EXEC` | `resource` |
+| `get_iam_policy` | `EXEC` | `resource` |

@@ -28,27 +28,27 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `label` | `object` | Issue Event Label |
-| `requested_reviewer` | `object` | Simple User |
-| `dismissed_review` | `object` |  |
+| `event` | `string` |  |
 | `node_id` | `string` |  |
 | `project_card` | `object` | Issue Event Project Card |
-| `commit_id` | `string` |  |
-| `lock_reason` | `string` |  |
-| `created_at` | `string` |  |
-| `commit_url` | `string` |  |
-| `milestone` | `object` | Issue Event Milestone |
-| `event` | `string` |  |
-| `review_requester` | `object` | Simple User |
-| `rename` | `object` | Issue Event Rename |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `issue` | `object` | Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `actor` | `object` | Simple User |
-| `assignee` | `object` | Simple User |
 | `assigner` | `object` | Simple User |
-| `url` | `string` |  |
+| `actor` | `object` | Simple User |
+| `dismissed_review` | `object` |  |
+| `created_at` | `string` |  |
 | `requested_team` | `object` | Groups of organization members that gives permissions on specified repositories. |
+| `requested_reviewer` | `object` | Simple User |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `label` | `object` | Issue Event Label |
+| `lock_reason` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `rename` | `object` | Issue Event Rename |
+| `assignee` | `object` | Simple User |
+| `milestone` | `object` | Issue Event Milestone |
+| `commit_url` | `string` |  |
+| `review_requester` | `object` | Simple User |
+| `commit_id` | `string` |  |
+| `issue` | `object` | Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. |
+| `url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

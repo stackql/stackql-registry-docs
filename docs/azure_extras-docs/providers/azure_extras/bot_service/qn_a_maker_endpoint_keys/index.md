@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `installedVersion` | `string` | Current version of runtime. |
 | `lastStableVersion` | `string` | Latest version of runtime. |
 | `primaryEndpointKey` | `string` | Primary Access Key. |
 | `secondaryEndpointKey` | `string` | Secondary Access Key. |
+| `installedVersion` | `string` | Current version of runtime. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

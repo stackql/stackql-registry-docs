@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Enables services that service consumers want to use on Google Cloud Platform, lists the available or enabled services, or disables services that service consumers no longer use.  
+Enables Services That Service Consumers Want To Use On Google Cloud Platform, Lists The Available Or Enabled Services, Or Disables Services That Service Consumers No Longer Use.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Enables services that service consumers want to use on Google Cloud Platform, li
 <tr><td><b>Name</b></td><td><code>google.serviceusage</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Usage API</td></tr>
-<tr><td><b>Description</b></td><td>Enables services that service consumers want to use on Google Cloud Platform, lists the available or enabled services, or disables services that service consumers no longer use.</td></tr>
-<tr><td><b>Id</b></td><td><code>serviceusage:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Enables Services That Service Consumers Want To Use On Google Cloud Platform, Lists The Available Or Enabled Services, Or Disables Services That Service Consumers No Longer Use.</td></tr>
+<tr><td><b>Id</b></td><td><code>serviceusage:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

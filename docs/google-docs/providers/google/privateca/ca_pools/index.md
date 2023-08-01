@@ -27,16 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name for this CaPool in the format `projects/*/locations/*/caPools/*`. |
-| `labels` | `object` | Optional. Labels with user-defined metadata. |
-| `publishingOptions` | `object` | Options relating to the publication of each CertificateAuthority's CA certificate and CRLs and their inclusion as extensions in issued Certificates. The options set here apply to certificates issued by any CertificateAuthority in the CaPool. |
-| `tier` | `string` | Required. Immutable. The Tier of this CaPool. |
-| `issuancePolicy` | `object` | Defines controls over all certificate issuance within a CaPool. |
+| `caPools` | `array` | The list of CaPools. |
+| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this value in ListCertificateAuthoritiesRequest.next_page_token to retrieve the next page of results. |
+| `unreachable` | `array` | A list of locations (e.g. "us-west1") that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_caPools_get` | `SELECT` | `caPoolsId, locationsId, projectsId` | Returns a CaPool. |
-| `projects_locations_caPools_list` | `SELECT` | `locationsId, projectsId` | Lists CaPools. |
-| `projects_locations_caPools_create` | `INSERT` | `locationsId, projectsId` | Create a CaPool. |
-| `projects_locations_caPools_delete` | `DELETE` | `caPoolsId, locationsId, projectsId` | Delete a CaPool. |
-| `projects_locations_caPools_patch` | `EXEC` | `caPoolsId, locationsId, projectsId` | Update a CaPool. |
+| `get` | `SELECT` | `caPoolsId, locationsId, projectsId` | Returns a CaPool. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists CaPools. |
+| `create` | `INSERT` | `locationsId, projectsId` | Create a CaPool. |
+| `delete` | `DELETE` | `caPoolsId, locationsId, projectsId` | Delete a CaPool. |
+| `patch` | `EXEC` | `caPoolsId, locationsId, projectsId` | Update a CaPool. |

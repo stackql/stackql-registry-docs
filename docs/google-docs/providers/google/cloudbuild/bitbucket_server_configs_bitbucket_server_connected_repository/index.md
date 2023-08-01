@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_bitbucketServerConfigs_removeBitbucketServerConnectedRepository` | `DELETE` | `bitbucketServerConfigsId, locationsId, projectsId` |
+| `projects_locations_bitbucket_server_configs_remove_bitbucket_server_connected_repository` | `EXEC` | `bitbucketServerConfigsId, locationsId, projectsId` |

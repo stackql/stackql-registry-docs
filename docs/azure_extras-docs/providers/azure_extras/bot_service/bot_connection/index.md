@@ -29,14 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Specifies the resource ID. |
 | `name` | `string` | Specifies the name of the resource. |
-| `zones` | `array` | Entity zones |
 | `etag` | `string` | Entity Tag |
-| `tags` | `object` | Contains resource tags defined as key/value pairs. |
-| `properties` | `object` | Properties for a Connection Setting Item |
-| `type` | `string` | Specifies the type of the resource. |
+| `zones` | `array` | Entity zones |
 | `kind` | `string` | Indicates the type of bot service |
-| `location` | `string` | Specifies the location of the resource. |
+| `properties` | `object` | Properties for a Connection Setting Item |
 | `sku` | `object` | The SKU of the cognitive services account. |
+| `tags` | `object` | Contains resource tags defined as key/value pairs. |
+| `type` | `string` | Specifies the type of the resource. |
+| `location` | `string` | Specifies the location of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,32 +27,28 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The template name. The template will have one of the following formats: `projects/PROJECT_ID/deidentifyTemplates/TEMPLATE_ID` OR `organizations/ORGANIZATION_ID/deidentifyTemplates/TEMPLATE_ID` |
-| `description` | `string` | Short description (max 256 chars). |
-| `updateTime` | `string` | Output only. The last update timestamp of an inspectTemplate. |
-| `createTime` | `string` | Output only. The creation timestamp of an inspectTemplate. |
-| `deidentifyConfig` | `object` | The configuration that controls how the data will change. |
-| `displayName` | `string` | Display name (max 256 chars). |
+| `nextPageToken` | `string` | If the next page is available then the next page token to be used in following ListDeidentifyTemplates request. |
+| `deidentifyTemplates` | `array` | List of deidentify templates, up to page_size in ListDeidentifyTemplatesRequest. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_deidentifyTemplates_get` | `SELECT` | `deidentifyTemplatesId, organizationsId` | Gets a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `organizations_deidentifyTemplates_list` | `SELECT` | `organizationsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `organizations_locations_deidentifyTemplates_get` | `SELECT` | `deidentifyTemplatesId, locationsId, organizationsId` | Gets a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `organizations_locations_deidentifyTemplates_list` | `SELECT` | `locationsId, organizationsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_deidentifyTemplates_get` | `SELECT` | `deidentifyTemplatesId, projectsId` | Gets a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_deidentifyTemplates_list` | `SELECT` | `projectsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_locations_deidentifyTemplates_get` | `SELECT` | `deidentifyTemplatesId, locationsId, projectsId` | Gets a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_locations_deidentifyTemplates_list` | `SELECT` | `locationsId, projectsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `organizations_deidentifyTemplates_create` | `INSERT` | `organizationsId` | Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `organizations_locations_deidentifyTemplates_create` | `INSERT` | `locationsId, organizationsId` | Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_deidentifyTemplates_create` | `INSERT` | `projectsId` | Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_locations_deidentifyTemplates_create` | `INSERT` | `locationsId, projectsId` | Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `organizations_deidentifyTemplates_delete` | `DELETE` | `deidentifyTemplatesId, organizationsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `organizations_locations_deidentifyTemplates_delete` | `DELETE` | `deidentifyTemplatesId, locationsId, organizationsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_deidentifyTemplates_delete` | `DELETE` | `deidentifyTemplatesId, projectsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_locations_deidentifyTemplates_delete` | `DELETE` | `deidentifyTemplatesId, locationsId, projectsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `organizations_deidentifyTemplates_patch` | `EXEC` | `deidentifyTemplatesId, organizationsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `organizations_locations_deidentifyTemplates_patch` | `EXEC` | `deidentifyTemplatesId, locationsId, organizationsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_deidentifyTemplates_patch` | `EXEC` | `deidentifyTemplatesId, projectsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
-| `projects_locations_deidentifyTemplates_patch` | `EXEC` | `deidentifyTemplatesId, locationsId, projectsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_deidentify_templates_get` | `SELECT` | `deidentifyTemplatesId, organizationsId` | Gets a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_deidentify_templates_list` | `SELECT` | `organizationsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_locations_deidentify_templates_get` | `SELECT` | `deidentifyTemplatesId, locationsId, organizationsId` | Gets a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_locations_deidentify_templates_list` | `SELECT` | `locationsId, organizationsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_deidentify_templates_get` | `SELECT` | `deidentifyTemplatesId, projectsId` | Gets a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_deidentify_templates_list` | `SELECT` | `projectsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_locations_deidentify_templates_get` | `SELECT` | `deidentifyTemplatesId, locationsId, projectsId` | Gets a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_locations_deidentify_templates_list` | `SELECT` | `locationsId, projectsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_deidentify_templates_create` | `INSERT` | `organizationsId` | Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_locations_deidentify_templates_create` | `INSERT` | `locationsId, organizationsId` | Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_deidentify_templates_create` | `INSERT` | `projectsId` | Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_locations_deidentify_templates_create` | `INSERT` | `locationsId, projectsId` | Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_deidentify_templates_delete` | `DELETE` | `deidentifyTemplatesId, organizationsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_locations_deidentify_templates_delete` | `DELETE` | `deidentifyTemplatesId, locationsId, organizationsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_deidentify_templates_delete` | `DELETE` | `deidentifyTemplatesId, projectsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_locations_deidentify_templates_delete` | `DELETE` | `deidentifyTemplatesId, locationsId, projectsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_deidentify_templates_patch` | `EXEC` | `deidentifyTemplatesId, organizationsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `organizations_locations_deidentify_templates_patch` | `EXEC` | `deidentifyTemplatesId, locationsId, organizationsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_deidentify_templates_patch` | `EXEC` | `deidentifyTemplatesId, projectsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `projects_locations_deidentify_templates_patch` | `EXEC` | `deidentifyTemplatesId, locationsId, projectsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |

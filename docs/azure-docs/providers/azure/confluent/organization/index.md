@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ARM id of the resource. |
 | `name` | `string` | The name of the resource. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Organization resource tags |
 | `type` | `string` | The type of the resource. |
 | `location` | `string` | Location of Organization resource |
 | `properties` | `object` | Organization resource property |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Organization resource tags |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -17,7 +17,7 @@ slug: /providers/k8s
 ---
 Open source container management platform.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.03.00121)
 
 <div class="row">
 <div class="providerDocColumn">

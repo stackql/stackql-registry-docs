@@ -27,16 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The name of the target project. |
-| `description` | `string` | The target project's description. |
-| `project` | `string` | The target project ID (number) or project name. |
-| `updateTime` | `string` | Output only. The last time the target project resource was updated. |
-| `createTime` | `string` | Output only. The time this target project resource was created (not related to when the Compute Engine project it points to was created). |
+| `nextPageToken` | `string` | Output only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `targetProjects` | `array` | Output only. The list of target response. |
+| `unreachable` | `array` | Output only. Locations that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_targetProjects_get` | `SELECT` | `locationsId, projectsId, targetProjectsId` | Gets details of a single TargetProject. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |
-| `projects_locations_targetProjects_list` | `SELECT` | `locationsId, projectsId` | Lists TargetProjects in a given project. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |
-| `projects_locations_targetProjects_create` | `INSERT` | `locationsId, projectsId` | Creates a new TargetProject in a given project. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |
-| `projects_locations_targetProjects_delete` | `DELETE` | `locationsId, projectsId, targetProjectsId` | Deletes a single TargetProject. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |
-| `projects_locations_targetProjects_patch` | `EXEC` | `locationsId, projectsId, targetProjectsId` | Updates the parameters of a single TargetProject. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |
+| `get` | `SELECT` | `locationsId, projectsId, targetProjectsId` | Gets details of a single TargetProject. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists TargetProjects in a given project. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new TargetProject in a given project. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |
+| `delete` | `DELETE` | `locationsId, projectsId, targetProjectsId` | Deletes a single TargetProject. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |
+| `patch` | `EXEC` | `locationsId, projectsId, targetProjectsId` | Updates the parameters of a single TargetProject. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. |

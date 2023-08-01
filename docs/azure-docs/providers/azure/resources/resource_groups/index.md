@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the resource group. |
 | `name` | `string` | The name of the resource group. |
-| `tags` | `object` | The tags attached to the resource group. |
-| `type` | `string` | The type of the resource group. |
 | `location` | `string` | The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations. |
 | `managedBy` | `string` | The ID of the resource that manages this resource group. |
 | `properties` | `object` | The resource group properties. |
+| `tags` | `object` | The tags attached to the resource group. |
+| `type` | `string` | The type of the resource group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

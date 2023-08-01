@@ -33,7 +33,7 @@ Resource Health
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Resource Health (Microsoft.ResourceHealth)</td></tr>
 <tr><td><b>Description</b></td><td>Resource Health</td></tr>
-<tr><td><b>Id</b></td><td><code>resource_health:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>resource_health:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

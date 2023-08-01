@@ -27,14 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The repository's name. |
-| `npmrcEnvironmentVariablesSecretVersion` | `string` | Optional. The name of the Secret Manager secret version to be used to interpolate variables into the .npmrc file for package installation operations. Must be in the format `projects/*/secrets/*/versions/*`. The file itself must be in a JSON format. |
-| `gitRemoteSettings` | `object` | Controls Git remote configuration for a repository. |
+| `nextPageToken` | `string` | A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `repositories` | `array` | List of repositories. |
+| `unreachable` | `array` | Locations which could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_repositories_get` | `SELECT` | `locationsId, projectsId, repositoriesId` | Fetches a single Repository. |
-| `projects_locations_repositories_list` | `SELECT` | `locationsId, projectsId` | Lists Repositories in a given project and location. |
-| `projects_locations_repositories_create` | `INSERT` | `locationsId, projectsId` | Creates a new Repository in a given project and location. |
-| `projects_locations_repositories_delete` | `DELETE` | `locationsId, projectsId, repositoriesId` | Deletes a single Repository. |
-| `projects_locations_repositories_patch` | `EXEC` | `locationsId, projectsId, repositoriesId` | Updates a single Repository. |
+| `get` | `SELECT` | `locationsId, projectsId, repositoriesId` | Fetches a single Repository. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists Repositories in a given project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new Repository in a given project and location. |
+| `delete` | `DELETE` | `locationsId, projectsId, repositoriesId` | Deletes a single Repository. |
+| `commit` | `EXEC` | `locationsId, projectsId, repositoriesId` | Applies a Git commit to a Repository. The Repository must not have a value for `git_remote_settings.url`. |
+| `compute_access_token_status` | `EXEC` | `locationsId, projectsId, repositoriesId` | Computes a Repository's Git access token status. |
+| `patch` | `EXEC` | `locationsId, projectsId, repositoriesId` | Updates a single Repository. |
+| `query_directory_contents` | `EXEC` | `locationsId, projectsId, repositoriesId` | Returns the contents of a given Repository directory. The Repository must not have a value for `git_remote_settings.url`. |
+| `read_file` | `EXEC` | `locationsId, projectsId, repositoriesId` | Returns the contents of a file (inside a Repository). The Repository must not have a value for `git_remote_settings.url`. |

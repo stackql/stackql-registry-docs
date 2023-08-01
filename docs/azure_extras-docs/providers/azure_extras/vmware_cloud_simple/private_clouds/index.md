@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure Id, e.g. "/subscriptions/4da99247-a172-4ed6-8ae9-ebed2d12f839/providers/Microsoft.VMwareCloudSimple/privateClouds/cloud123" |
 | `name` | `string` | Private cloud name |
+| `location` | `string` | Location where private cloud created, e.g "westus" |
 | `properties` | `object` | Properties of private |
 | `type` | `string` | Azure Resource type |
-| `location` | `string` | Location where private cloud created, e.g "westus" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

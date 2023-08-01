@@ -29,15 +29,15 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `idp` | `object` |
-| `userId` | `string` |
-| `createdAt` | `string` |
-| `status` | `string` |
-| `_links` | `object` |
 | `lastPasswordVerification` | `string` |
-| `login` | `string` |
-| `amr` | `array` |
-| `lastFactorVerification` | `string` |
 | `expiresAt` | `string` |
+| `status` | `string` |
+| `login` | `string` |
+| `_links` | `object` |
+| `lastFactorVerification` | `string` |
+| `amr` | `array` |
+| `createdAt` | `string` |
+| `userId` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

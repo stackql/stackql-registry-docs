@@ -27,18 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Resource name of the API. Format: projects/&#123;project&#125;/locations/global/apis/&#123;api&#125; |
-| `labels` | `object` | Optional. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources |
-| `managedService` | `string` | Optional. Immutable. The name of a Google Managed Service ( https://cloud.google.com/service-infrastructure/docs/glossary#managed). If not specified, a new Service will automatically be created in the same project as this API. |
-| `state` | `string` | Output only. State of the API. |
-| `updateTime` | `string` | Output only. Updated time. |
-| `createTime` | `string` | Output only. Created time. |
-| `displayName` | `string` | Optional. Display name. |
+| `unreachableLocations` | `array` | Locations that could not be reached. |
+| `apis` | `array` | APIs. |
+| `nextPageToken` | `string` | Next page token. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_apis_get` | `SELECT` | `apisId, locationsId, projectsId` | Gets details of a single Api. |
-| `projects_locations_apis_list` | `SELECT` | `locationsId, projectsId` | Lists Apis in a given project and location. |
-| `projects_locations_apis_create` | `INSERT` | `locationsId, projectsId` | Creates a new Api in a given project and location. |
-| `projects_locations_apis_delete` | `DELETE` | `apisId, locationsId, projectsId` | Deletes a single Api. |
-| `projects_locations_apis_patch` | `EXEC` | `apisId, locationsId, projectsId` | Updates the parameters of a single Api. |
+| `get` | `SELECT` | `apisId, locationsId, projectsId` | Gets details of a single Api. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists Apis in a given project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new Api in a given project and location. |
+| `delete` | `DELETE` | `apisId, locationsId, projectsId` | Deletes a single Api. |
+| `patch` | `EXEC` | `apisId, locationsId, projectsId` | Updates the parameters of a single Api. |

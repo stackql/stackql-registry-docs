@@ -33,7 +33,7 @@ Nginx Plus
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Nginx Plus (Nginx.NginxPlus)</td></tr>
 <tr><td><b>Description</b></td><td>Nginx Plus</td></tr>
-<tr><td><b>Id</b></td><td><code>nginx:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>nginx:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

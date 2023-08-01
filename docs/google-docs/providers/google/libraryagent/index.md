@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-A simple Google Example Library API.  
+A Simple Google Example Library API.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ A simple Google Example Library API.
 <tr><td><b>Name</b></td><td><code>google.libraryagent</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Library Agent API</td></tr>
-<tr><td><b>Description</b></td><td>A simple Google Example Library API.</td></tr>
-<tr><td><b>Id</b></td><td><code>libraryagent:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>A Simple Google Example Library API.</td></tr>
+<tr><td><b>Id</b></td><td><code>libraryagent:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

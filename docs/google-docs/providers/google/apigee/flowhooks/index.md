@@ -35,5 +35,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `organizations_environments_flowhooks_get` | `SELECT` | `environmentsId, flowhooksId, organizationsId` | Returns the name of the shared flow attached to the specified flow hook. If there's no shared flow attached to the flow hook, the API does not return an error; it simply does not return a name in the response. |
-| `organizations_environments_flowhooks_attachSharedFlowToFlowHook` | `EXEC` | `environmentsId, flowhooksId, organizationsId` | Attaches a shared flow to a flow hook. |
-| `organizations_environments_flowhooks_detachSharedFlowFromFlowHook` | `EXEC` | `environmentsId, flowhooksId, organizationsId` | Detaches a shared flow from a flow hook. |
+| `organizations_environments_flowhooks_attach_shared_flow_to_flow_hook` | `EXEC` | `environmentsId, flowhooksId, organizationsId` | Attaches a shared flow to a flow hook. |
+| `organizations_environments_flowhooks_detach_shared_flow_from_flow_hook` | `EXEC` | `environmentsId, flowhooksId, organizationsId` | Detaches a shared flow from a flow hook. |

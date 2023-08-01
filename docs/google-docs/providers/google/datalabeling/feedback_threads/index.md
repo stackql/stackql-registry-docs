@@ -32,6 +32,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_datasets_annotatedDatasets_feedbackThreads_get` | `SELECT` | `annotatedDatasetsId, datasetsId, feedbackThreadsId, projectsId` | Get a FeedbackThread object. |
-| `projects_datasets_annotatedDatasets_feedbackThreads_list` | `SELECT` | `annotatedDatasetsId, datasetsId, projectsId` | List FeedbackThreads with pagination. |
-| `projects_datasets_annotatedDatasets_feedbackThreads_delete` | `DELETE` | `annotatedDatasetsId, datasetsId, feedbackThreadsId, projectsId` | Delete a FeedbackThread. |
+| `projects_datasets_annotated_datasets_feedback_threads_get` | `SELECT` | `annotatedDatasetsId, datasetsId, feedbackThreadsId, projectsId` | Get a FeedbackThread object. |
+| `projects_datasets_annotated_datasets_feedback_threads_list` | `SELECT` | `annotatedDatasetsId, datasetsId, projectsId` | List FeedbackThreads with pagination. |
+| `projects_datasets_annotated_datasets_feedback_threads_delete` | `DELETE` | `annotatedDatasetsId, datasetsId, feedbackThreadsId, projectsId` | Delete a FeedbackThread. |

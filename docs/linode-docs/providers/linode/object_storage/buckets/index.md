@@ -27,12 +27,12 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `cluster` | `string` | The ID of the Object Storage Cluster this bucket is in. |
+| `created` | `string` | When this bucket was created. |
 | `hostname` | `string` | The hostname where this bucket can be accessed. This hostname can be accessed through a browser if the bucket is made public.<br /> |
 | `label` | `string` | The name of this bucket. |
 | `objects` | `integer` | The number of objects stored in this bucket.<br /> |
 | `size` | `integer` | The size of the bucket in bytes. |
-| `cluster` | `string` | The ID of the Object Storage Cluster this bucket is in. |
-| `created` | `string` | When this bucket was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -13,14 +13,14 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Help the third party sites to implement federated login.  
+Help The Third Party Sites To Implement Federated Login.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
 <span>total methods:&nbsp;<b>20</b></span><br />
 </div>
 </div>
@@ -32,8 +32,8 @@ Help the third party sites to implement federated login.
 <tr><td><b>Name</b></td><td><code>google.identitytoolkit</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Identity Toolkit API</td></tr>
-<tr><td><b>Description</b></td><td>Help the third party sites to implement federated login.</td></tr>
-<tr><td><b>Id</b></td><td><code>identitytoolkit:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Help The Third Party Sites To Implement Federated Login.</td></tr>
+<tr><td><b>Id</b></td><td><code>identitytoolkit:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

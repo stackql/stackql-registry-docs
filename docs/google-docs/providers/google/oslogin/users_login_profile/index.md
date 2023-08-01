@@ -25,12 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | Required. A unique user ID. |
-| `posixAccounts` | `array` | The list of POSIX accounts associated with the user. |
-| `sshPublicKeys` | `object` | A map from SSH public key fingerprint to the associated key object. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `users_getLoginProfile` | `SELECT` | `usersId` |
+| `get_login_profile` | `EXEC` | `usersId` |

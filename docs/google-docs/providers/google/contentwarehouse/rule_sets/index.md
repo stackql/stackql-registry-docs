@@ -34,8 +34,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_ruleSets_get` | `SELECT` | `locationsId, projectsId, ruleSetsId` | Gets a ruleset. Returns NOT_FOUND if the ruleset does not exist. |
-| `projects_locations_ruleSets_list` | `SELECT` | `locationsId, projectsId` | Lists rulesets. |
-| `projects_locations_ruleSets_create` | `INSERT` | `locationsId, projectsId` | Creates a ruleset. |
-| `projects_locations_ruleSets_delete` | `DELETE` | `locationsId, projectsId, ruleSetsId` | Deletes a ruleset. Returns NOT_FOUND if the document does not exist. |
-| `projects_locations_ruleSets_patch` | `EXEC` | `locationsId, projectsId, ruleSetsId` | Updates a ruleset. Returns INVALID_ARGUMENT if the name of the ruleset is non-empty and does not equal the existing name. |
+| `get` | `SELECT` | `locationsId, projectsId, ruleSetsId` | Gets a ruleset. Returns NOT_FOUND if the ruleset does not exist. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists rulesets. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a ruleset. |
+| `delete` | `DELETE` | `locationsId, projectsId, ruleSetsId` | Deletes a ruleset. Returns NOT_FOUND if the document does not exist. |
+| `patch` | `EXEC` | `locationsId, projectsId, ruleSetsId` | Updates a ruleset. Returns INVALID_ARGUMENT if the name of the ruleset is non-empty and does not equal the existing name. |

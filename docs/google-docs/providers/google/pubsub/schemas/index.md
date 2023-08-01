@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the schema. Format is `projects/&#123;project&#125;/schemas/&#123;schema&#125;`. |
-| `definition` | `string` | The definition of the schema. This should contain a string representing the full definition of the schema that is a valid schema definition of the type specified in `type`. |
 | `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
 | `revisionId` | `string` | Output only. Immutable. The revision ID of the schema. |
 | `type` | `string` | The type of the schema definition. |
+| `definition` | `string` | The definition of the schema. This should contain a string representing the full definition of the schema that is a valid schema definition of the type specified in `type`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -39,5 +39,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_schemas_list` | `SELECT` | `projectsId` | Lists schemas in a project. |
 | `projects_schemas_create` | `INSERT` | `projectsId` | Creates a schema. |
 | `projects_schemas_delete` | `DELETE` | `projectsId, schemasId` | Deletes a schema. |
+| `projects_schemas_commit` | `EXEC` | `projectsId, schemasId` | Commits a new schema revision to an existing schema. |
+| `projects_schemas_rollback` | `EXEC` | `projectsId, schemasId` | Creates a new schema revision that is a copy of the provided revision_id. |
 | `projects_schemas_validate` | `EXEC` | `projectsId` | Validates a schema. |
-| `projects_schemas_validateMessage` | `EXEC` | `projectsId` | Validates a message against a schema. |
+| `projects_schemas_validate_message` | `EXEC` | `projectsId` | Validates a message against a schema. |

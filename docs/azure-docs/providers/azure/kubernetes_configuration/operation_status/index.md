@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified ID for the async operation. |
 | `name` | `string` | Name of the async operation. |
+| `error` | `object` | The error detail. |
 | `properties` | `object` | Additional information, if available. |
 | `status` | `string` | Operation status. |
-| `error` | `object` | The error detail. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

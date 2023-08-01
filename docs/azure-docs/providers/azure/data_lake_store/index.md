@@ -33,7 +33,7 @@ DataLake Store Account Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DataLake Store Account Management Client (Microsoft.DataLakeStore)</td></tr>
 <tr><td><b>Description</b></td><td>DataLake Store Account Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>data_lake_store:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_lake_store:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

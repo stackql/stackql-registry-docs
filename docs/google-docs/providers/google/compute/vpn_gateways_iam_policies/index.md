@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpnGateways_testIamPermissions` | `EXEC` | `project, region, resource` |
+| `test_iam_permissions` | `EXEC` | `project, region, resource` |

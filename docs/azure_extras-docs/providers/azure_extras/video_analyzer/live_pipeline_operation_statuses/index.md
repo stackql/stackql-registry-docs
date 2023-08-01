@@ -28,8 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the live pipeline operation. |
-| `status` | `string` | The status of the live pipeline operation. |
 | `error` | `object` | The error detail. |
+| `status` | `string` | The status of the live pipeline operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

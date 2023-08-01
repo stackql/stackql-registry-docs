@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Sends application trace data to Cloud Trace for viewing. Trace data is collected for all App Engine applications by default. Trace data from other applications can be provided using this API. This library is used to interact with the Cloud Trace API directly. If you are looking to instrument your application for Cloud Trace, we recommend using OpenTelemetry.   
+Sends Application Trace Data To Cloud Trace For Viewing. Trace Data Is Collected For All App Engine Applications By Default. Trace Data From Other Applications Can Be Provided Using This API. This Library Is Used To Interact With The Cloud Trace API Directly. If You Are Looking To Instrument Your Application For Cloud Trace, We Recommend Using OpenTelemetry.   
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Sends application trace data to Cloud Trace for viewing. Trace data is collected
 <tr><td><b>Name</b></td><td><code>google.cloudtrace</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Trace API</td></tr>
-<tr><td><b>Description</b></td><td>Sends application trace data to Cloud Trace for viewing. Trace data is collected for all App Engine applications by default. Trace data from other applications can be provided using this API. This library is used to interact with the Cloud Trace API directly. If you are looking to instrument your application for Cloud Trace, we recommend using OpenTelemetry. </td></tr>
-<tr><td><b>Id</b></td><td><code>cloudtrace:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Sends Application Trace Data To Cloud Trace For Viewing. Trace Data Is Collected For All App Engine Applications By Default. Trace Data From Other Applications Can Be Provided Using This API. This Library Is Used To Interact With The Cloud Trace API Directly. If You Are Looking To Instrument Your Application For Cloud Trace, We Recommend Using OpenTelemetry. </td></tr>
+<tr><td><b>Id</b></td><td><code>cloudtrace:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

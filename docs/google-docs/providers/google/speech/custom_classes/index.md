@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_customClasses_get` | `SELECT` | `customClassesId, locationsId, projectsId` | Get a custom class. |
-| `projects_locations_customClasses_list` | `SELECT` | `locationsId, projectsId` | List custom classes. |
-| `projects_locations_customClasses_create` | `INSERT` | `locationsId, projectsId` | Create a custom class. |
-| `projects_locations_customClasses_delete` | `DELETE` | `customClassesId, locationsId, projectsId` | Delete a custom class. |
-| `projects_locations_customClasses_patch` | `EXEC` | `customClassesId, locationsId, projectsId` | Update a custom class. |
+| `get` | `SELECT` | `customClassesId, locationsId, projectsId` | Get a custom class. |
+| `list` | `SELECT` | `locationsId, projectsId` | List custom classes. |
+| `create` | `INSERT` | `locationsId, projectsId` | Create a custom class. |
+| `delete` | `DELETE` | `customClassesId, locationsId, projectsId` | Delete a custom class. |
+| `patch` | `EXEC` | `customClassesId, locationsId, projectsId` | Update a custom class. |

@@ -25,8 +25,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `inventories` | `array` | List of inventory objects. |
+| `nextPageToken` | `string` | The pagination token to retrieve the next page of inventory objects. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `projects_locations_instances_inventories_get` | `EXEC` | `instancesId, locationsId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `get` | `SELECT` | `instancesId, locationsId, projectsId` | Get inventory data for the specified VM instance. If the VM has no associated inventory, the message `NOT_FOUND` is returned. |
+| `list` | `SELECT` | `instancesId, locationsId, projectsId` | List inventory data for all VM instances in the specified zone. |

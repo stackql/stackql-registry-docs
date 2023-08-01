@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `setAcl` | `EXEC` | `projectsId` |
+| `set_acl` | `EXEC` | `projectsId` |

@@ -27,18 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | For example, www.example.com. |
-| `signatureRrdatas` | `array` | As defined in RFC 4034 (section 3.2). |
-| `ttl` | `integer` | Number of seconds that this ResourceRecordSet can be cached by resolvers. |
-| `type` | `string` | The identifier of a supported record type. See the list of Supported DNS record types. |
-| `kind` | `string` |  |
-| `routingPolicy` | `object` | A RRSetRoutingPolicy represents ResourceRecordSet data that is returned dynamically with the response varying based on configured properties such as geolocation or by weighted random selection. |
-| `rrdatas` | `array` | As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) -- see examples. |
+| `rrsets` | `array` | The resource record set resources. |
+| `header` | `object` | Elements common to every response. |
+| `kind` | `string` | Type of resource. |
+| `nextPageToken` | `string` | The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value as your pagination token. This lets you retrieve complete contents of even larger collections, one page at a time. However, if the contents of the collection change between the first and last paginated list request, the set of elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger than the maximum page size. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `resourceRecordSets_get` | `SELECT` | `managedZone, name, project, type` | Fetches the representation of an existing ResourceRecordSet. |
-| `resourceRecordSets_list` | `SELECT` | `managedZone, project` | Enumerates ResourceRecordSets that you have created but not yet deleted. |
-| `resourceRecordSets_create` | `INSERT` | `managedZone, project` | Creates a new ResourceRecordSet. |
-| `resourceRecordSets_delete` | `DELETE` | `managedZone, name, project, type` | Deletes a previously created ResourceRecordSet. |
-| `resourceRecordSets_patch` | `EXEC` | `managedZone, name, project, type` | Applies a partial update to an existing ResourceRecordSet. |
+| `get` | `SELECT` | `managedZone, name, project, type` | Fetches the representation of an existing ResourceRecordSet. |
+| `list` | `SELECT` | `managedZone, project` | Enumerates ResourceRecordSets that you have created but not yet deleted. |
+| `create` | `INSERT` | `managedZone, project` | Creates a new ResourceRecordSet. |
+| `delete` | `DELETE` | `managedZone, name, project, type` | Deletes a previously created ResourceRecordSet. |
+| `patch` | `EXEC` | `managedZone, name, project, type` | Applies a partial update to an existing ResourceRecordSet. |

@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Allows users to manage BigQuery connections to external data sources.  
+Allows Users To Manage BigQuery Connections To External Data Sources.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>11</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
@@ -32,18 +32,17 @@ Allows users to manage BigQuery connections to external data sources.
 <tr><td><b>Name</b></td><td><code>google.bigqueryconnection</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery Connection API</td></tr>
-<tr><td><b>Description</b></td><td>Allows users to manage BigQuery connections to external data sources.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigqueryconnection:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Allows Users To Manage BigQuery Connections To External Data Sources.</td></tr>
+<tr><td><b>Id</b></td><td><code>bigqueryconnection:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/bigqueryconnection/connections/">connections</a><br />
-<a href="/providers/google/bigqueryconnection/connections_iam_audit_configs/">connections_iam_audit_configs</a><br />
+<a href="/providers/google/bigqueryconnection/connections_credential/">connections_credential</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/bigqueryconnection/connections_iam_bindings/">connections_iam_bindings</a><br />
 <a href="/providers/google/bigqueryconnection/connections_iam_policies/">connections_iam_policies</a><br />
 </div>
 </div>

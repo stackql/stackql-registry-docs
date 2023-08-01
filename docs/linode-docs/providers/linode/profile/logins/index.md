@@ -28,11 +28,11 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The unique ID of this login object.<br /> |
+| `ip` | `string` | The remote IP address that requested the login.<br /> |
 | `restricted` | `boolean` | True if the User that attempted the login was a restricted User, false otherwise.<br /> |
 | `status` | `string` | Whether the login attempt succeeded or failed.<br /> |
 | `username` | `string` | The username of the User that attempted the login.<br /> |
 | `datetime` | `string` | When the login was initiated.<br /> |
-| `ip` | `string` | The remote IP address that requested the login.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

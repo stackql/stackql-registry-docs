@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the operation. |
-| `display` | `object` | The display information of the operation. |
 | `origin` | `string` | The intended executor of the operation. |
 | `properties` | `object` | The additional properties. |
+| `display` | `object` | The display information of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

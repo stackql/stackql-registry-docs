@@ -27,21 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Job name. For example: "projects/123456/locations/us-central1/jobs/job01". |
-| `createTime` | `string` | Output only. When the Job was created. |
-| `logsPolicy` | `object` | LogsPolicy describes how outputs from a Job's Tasks (stdout/stderr) will be preserved. |
-| `updateTime` | `string` | Output only. The last time the Job was updated. |
-| `allocationPolicy` | `object` | A Job's resource allocation policy describes when, where, and how compute resources should be allocated for the Job. |
-| `status` | `object` | Job status. |
-| `notifications` | `array` | Notification configurations. |
-| `uid` | `string` | Output only. A system generated unique ID (in UUID4 format) for the Job. |
-| `priority` | `string` | Priority of the Job. The valid value range is [0, 100). A job with higher priority value is more likely to run earlier if all other requirements are satisfied. |
-| `taskGroups` | `array` | Required. TaskGroups in the Job. Only one TaskGroup is supported now. |
-| `labels` | `object` | Labels for the Job. Labels could be user provided or system generated. For example, "labels": &#123; "department": "finance", "environment": "test" &#125; You can assign up to 64 labels. [Google Compute Engine label restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) apply. Label names that start with "goog-" or "google-" are reserved. |
+| `jobs` | `array` | Jobs. |
+| `nextPageToken` | `string` | Next page token. |
+| `unreachable` | `array` | Locations that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_jobs_get` | `SELECT` | `jobsId, locationsId, projectsId` | Get a Job specified by its resource name. |
-| `projects_locations_jobs_list` | `SELECT` | `locationsId, projectsId` | List all Jobs for a project within a region. |
-| `projects_locations_jobs_create` | `INSERT` | `locationsId, projectsId` | Create a Job. |
-| `projects_locations_jobs_delete` | `DELETE` | `jobsId, locationsId, projectsId` | Delete a Job. |
+| `get` | `SELECT` | `jobsId, locationsId, projectsId` | Get a Job specified by its resource name. |
+| `list` | `SELECT` | `locationsId, projectsId` | List all Jobs for a project within a region. |
+| `create` | `INSERT` | `locationsId, projectsId` | Create a Job. |
+| `delete` | `DELETE` | `jobsId, locationsId, projectsId` | Delete a Job. |

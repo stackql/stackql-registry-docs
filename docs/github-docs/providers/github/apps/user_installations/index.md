@@ -28,25 +28,25 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the installation. |
-| `html_url` | `string` |  |
-| `contact_email` | `string` |  |
-| `repository_selection` | `string` | Describe whether all repositories have been selected or there's a selection involved |
-| `single_file_paths` | `array` |  |
-| `has_multiple_single_files` | `boolean` |  |
 | `app_slug` | `string` |  |
 | `single_file_name` | `string` |  |
-| `repositories_url` | `string` |  |
-| `account` | `` |  |
-| `events` | `array` |  |
-| `suspended_by` | `object` | Simple User |
-| `target_type` | `string` |  |
-| `created_at` | `string` |  |
-| `access_tokens_url` | `string` |  |
-| `permissions` | `object` | The permissions granted to the user-to-server access token. |
-| `suspended_at` | `string` |  |
 | `app_id` | `integer` |  |
-| `target_id` | `integer` | The ID of the user or organization this token is being scoped to. |
+| `single_file_paths` | `array` |  |
+| `account` | `` |  |
+| `access_tokens_url` | `string` |  |
+| `created_at` | `string` |  |
 | `updated_at` | `string` |  |
+| `permissions` | `object` | The permissions granted to the user-to-server access token. |
+| `contact_email` | `string` |  |
+| `suspended_by` | `object` | Simple User |
+| `suspended_at` | `string` |  |
+| `repositories_url` | `string` |  |
+| `target_type` | `string` |  |
+| `has_multiple_single_files` | `boolean` |  |
+| `target_id` | `integer` | The ID of the user or organization this token is being scoped to. |
+| `events` | `array` |  |
+| `html_url` | `string` |  |
+| `repository_selection` | `string` | Describe whether all repositories have been selected or there's a selection involved |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

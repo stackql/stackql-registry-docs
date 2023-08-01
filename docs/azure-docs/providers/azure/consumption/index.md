@@ -33,7 +33,7 @@ Consumption management client provides access to consumption resources for Azure
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Consumption Management Client (Microsoft.Consumption)</td></tr>
 <tr><td><b>Description</b></td><td>Consumption management client provides access to consumption resources for Azure Enterprise Subscriptions.</td></tr>
-<tr><td><b>Id</b></td><td><code>consumption:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>consumption:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

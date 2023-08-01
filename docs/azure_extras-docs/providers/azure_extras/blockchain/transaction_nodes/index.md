@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource Id of the resource. |
 | `name` | `string` | The name of the resource. |
-| `type` | `string` | The type of the service - e.g. "Microsoft.Blockchain" |
 | `location` | `string` | Gets or sets the transaction node location. |
 | `properties` | `object` | Payload of transaction node properties payload in the transaction node payload. |
+| `type` | `string` | The type of the service - e.g. "Microsoft.Blockchain" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

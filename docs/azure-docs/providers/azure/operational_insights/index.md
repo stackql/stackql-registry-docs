@@ -33,7 +33,7 @@ Azure Log Analytics API reference.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Log Analytics (Microsoft.OperationalInsights)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Log Analytics API reference.</td></tr>
-<tr><td><b>Id</b></td><td><code>operational_insights:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>operational_insights:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

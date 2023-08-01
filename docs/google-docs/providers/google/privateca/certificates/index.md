@@ -27,25 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name for this Certificate in the format `projects/*/locations/*/caPools/*/certificates/*`. |
-| `pemCertificate` | `string` | Output only. The pem-encoded, signed X.509 certificate. |
-| `labels` | `object` | Optional. Labels with user-defined metadata. |
-| `createTime` | `string` | Output only. The time at which this Certificate was created. |
-| `certificateTemplate` | `string` | Immutable. The resource name for a CertificateTemplate used to issue this certificate, in the format `projects/*/locations/*/certificateTemplates/*`. If this is specified, the caller must have the necessary permission to use this template. If this is omitted, no template will be used. This template must be in the same location as the Certificate. |
-| `pemCertificateChain` | `array` | Output only. The chain that may be used to verify the X.509 certificate. Expected to be in issuer-to-root order according to RFC 5246. |
-| `revocationDetails` | `object` | Describes fields that are relavent to the revocation of a Certificate. |
-| `issuerCertificateAuthority` | `string` | Output only. The resource name of the issuing CertificateAuthority in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`. |
-| `pemCsr` | `string` | Immutable. A pem-encoded X.509 certificate signing request (CSR). |
-| `lifetime` | `string` | Required. Immutable. The desired lifetime of a certificate. Used to create the "not_before_time" and "not_after_time" fields inside an X.509 certificate. Note that the lifetime may be truncated if it would extend past the life of any certificate authority in the issuing chain. |
-| `subjectMode` | `string` | Immutable. Specifies how the Certificate's identity fields are to be decided. If this is omitted, the `DEFAULT` subject mode will be used. |
-| `certificateDescription` | `object` | A CertificateDescription describes an X.509 certificate or CSR that has been issued, as an alternative to using ASN.1 / X.509. |
-| `config` | `object` | A CertificateConfig describes an X.509 certificate or CSR that is to be created, as an alternative to using ASN.1. |
-| `updateTime` | `string` | Output only. The time at which this Certificate was updated. |
+| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this value in ListCertificatesRequest.next_page_token to retrieve the next page of results. |
+| `unreachable` | `array` | A list of locations (e.g. "us-west1") that could not be reached. |
+| `certificates` | `array` | The list of Certificates. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_caPools_certificates_get` | `SELECT` | `caPoolsId, certificatesId, locationsId, projectsId` | Returns a Certificate. |
-| `projects_locations_caPools_certificates_list` | `SELECT` | `caPoolsId, locationsId, projectsId` | Lists Certificates. |
-| `projects_locations_caPools_certificates_create` | `INSERT` | `caPoolsId, locationsId, projectsId` | Create a new Certificate in a given Project, Location from a particular CaPool. |
-| `projects_locations_caPools_certificates_patch` | `EXEC` | `caPoolsId, certificatesId, locationsId, projectsId` | Update a Certificate. Currently, the only field you can update is the labels field. |
-| `projects_locations_caPools_certificates_revoke` | `EXEC` | `caPoolsId, certificatesId, locationsId, projectsId` | Revoke a Certificate. |
+| `get` | `SELECT` | `caPoolsId, certificatesId, locationsId, projectsId` | Returns a Certificate. |
+| `list` | `SELECT` | `caPoolsId, locationsId, projectsId` | Lists Certificates. |
+| `create` | `INSERT` | `caPoolsId, locationsId, projectsId` | Create a new Certificate in a given Project, Location from a particular CaPool. |
+| `patch` | `EXEC` | `caPoolsId, certificatesId, locationsId, projectsId` | Update a Certificate. Currently, the only field you can update is the labels field. |
+| `revoke` | `EXEC` | `caPoolsId, certificatesId, locationsId, projectsId` | Revoke a Certificate. |

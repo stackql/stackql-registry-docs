@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the operation returned. |
 | `name` | `string` | The name of the operation result. |
+| `properties` | `` | Additional properties of the operation result. |
 | `startTime` | `string` | The time that the operation was started. |
 | `status` | `string` | The status of the operation being performed. |
-| `properties` | `` | Additional properties of the operation result. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -32,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_jobs_stages_getExecutionDetails` | `SELECT` | `jobId, location, projectId, stageId` |
+| `projects_locations_jobs_stages_get_execution_details` | `SELECT` | `jobId, location, projectId, stageId` |

@@ -33,7 +33,7 @@ Machine Learning Experimentation
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Machine Learning Experimentation (Microsoft.MachineLearningExperimentation)</td></tr>
 <tr><td><b>Description</b></td><td>Machine Learning Experimentation</td></tr>
-<tr><td><b>Id</b></td><td><code>machine_learning_experimentation:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>machine_learning_experimentation:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

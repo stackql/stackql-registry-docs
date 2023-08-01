@@ -27,8 +27,8 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nodes` | `array` | List of service map nodes. |
 | `edges` | `array` | List of service map edges. |
+| `nodes` | `array` | List of service map nodes. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

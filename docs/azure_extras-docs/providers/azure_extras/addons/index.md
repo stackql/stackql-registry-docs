@@ -33,7 +33,7 @@ The service for managing third party addons.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Addons Resource Provider (Microsoft.Addons)</td></tr>
 <tr><td><b>Description</b></td><td>The service for managing third party addons.</td></tr>
-<tr><td><b>Id</b></td><td><code>addons:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>addons:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

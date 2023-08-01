@@ -27,16 +27,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | The tags for the prefix list. |
-| `addressFamily` | `string` | The IP address version. |
-| `state` | `string` | The current state of the prefix list. |
 | `prefixListId` | `string` | The ID of the prefix list. |
-| `prefixListName` | `string` | The name of the prefix list. |
+| `version` | `integer` | The version of the prefix list. |
 | `ownerId` | `string` | The ID of the owner of the prefix list. |
-| `maxEntries` | `integer` | The maximum number of entries for the prefix list. |
 | `prefixListArn` | `string` | The Amazon Resource Name (ARN) for the prefix list. |
 | `stateMessage` | `string` | The state message. |
-| `version` | `integer` | The version of the prefix list. |
+| `prefixListName` | `string` | The name of the prefix list. |
+| `tagSet` | `array` | The tags for the prefix list. |
+| `addressFamily` | `string` | The IP address version. |
+| `maxEntries` | `integer` | The maximum number of entries for the prefix list. |
+| `state` | `string` | The current state of the prefix list. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

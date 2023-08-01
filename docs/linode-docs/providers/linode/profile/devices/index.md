@@ -28,11 +28,11 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The unique ID for this TrustedDevice |
+| `expiry` | `string` | When this TrustedDevice session expires.  Sessions typically last 30 days.<br /> |
+| `last_authenticated` | `string` | The last time this TrustedDevice was successfully used to authenticate to &lt;a target="_top" href="https://login.linode.com"&gt;login.linode.com&lt;/a&gt;.<br /> |
 | `last_remote_addr` | `string` | The last IP Address to successfully authenticate with this TrustedDevice.<br /> |
 | `user_agent` | `string` | The User Agent of the browser that created this TrustedDevice session.<br /> |
 | `created` | `string` | When this Remember Me session was started.  This corresponds to the time of login with the "Remember Me" box checked.<br /> |
-| `expiry` | `string` | When this TrustedDevice session expires.  Sessions typically last 30 days.<br /> |
-| `last_authenticated` | `string` | The last time this TrustedDevice was successfully used to authenticate to &lt;a target="_top" href="https://login.linode.com"&gt;login.linode.com&lt;/a&gt;.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

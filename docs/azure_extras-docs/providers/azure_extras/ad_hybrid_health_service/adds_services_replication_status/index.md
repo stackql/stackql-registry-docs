@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `errorDcCount` | `integer` | The total number of domain controllers with error in a given forest. |
 | `forestName` | `string` | The forest name. |
 | `totalDcCount` | `integer` | The total number of domain controllers for a given forest. |
+| `errorDcCount` | `integer` | The total number of domain controllers with error in a given forest. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

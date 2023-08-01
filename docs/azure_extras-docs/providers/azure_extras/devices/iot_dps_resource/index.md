@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `properties` | `object` | the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope |
-| `sku` | `object` | List of possible provisioning service SKUs. |
 | `tags` | `object` | The resource tags. |
+| `properties` | `object` | the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope |
 | `location` | `string` | The resource location. |
-| `type` | `string` | The resource type. |
+| `sku` | `object` | List of possible provisioning service SKUs. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The resource type. |
 | `etag` | `string` | The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

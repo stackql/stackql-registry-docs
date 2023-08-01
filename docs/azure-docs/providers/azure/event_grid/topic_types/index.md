@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified identifier of the resource. |
 | `name` | `string` | Name of the resource. |
-| `type` | `string` | Type of the resource. |
 | `properties` | `object` | Properties of a topic type. |
+| `type` | `string` | Type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

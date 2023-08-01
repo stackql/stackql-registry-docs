@@ -27,14 +27,14 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
-| `localGatewayRouteTableVpcAssociationId` | `string` | The ID of the association. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway route table for the association. |
-| `state` | `string` | The state of the association. |
 | `tagSet` | `array` | The tags assigned to the association. |
 | `vpcId` | `string` | The ID of the VPC. |
 | `localGatewayId` | `string` | The ID of the local gateway. |
 | `localGatewayRouteTableArn` | `string` | The Amazon Resource Name (ARN) of the local gateway route table for the association. |
+| `localGatewayRouteTableId` | `string` | The ID of the local gateway route table. |
+| `localGatewayRouteTableVpcAssociationId` | `string` | The ID of the association. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway route table for the association. |
+| `state` | `string` | The state of the association. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

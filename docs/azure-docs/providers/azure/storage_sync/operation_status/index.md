@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation Id |
-| `error` | `object` | Error type |
 | `startTime` | `string` | Start time of the operation |
 | `status` | `string` | Operation status |
 | `endTime` | `string` | End time of the operation |
+| `error` | `object` | Error type |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

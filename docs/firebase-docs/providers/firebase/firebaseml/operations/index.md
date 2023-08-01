@@ -27,8 +27,8 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | The standard List next-page token. |
 | `operations` | `array` | A list of operations that matches the specified filter in the request. |
+| `nextPageToken` | `string` | The standard List next-page token. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

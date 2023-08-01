@@ -27,12 +27,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `vpcId` | `string` | The ID of the VPC in which the target network (subnet) is located. |
 | `associationId` | `string` | The ID of the association. |
 | `clientVpnEndpointId` | `string` | The ID of the Client VPN endpoint with which the target network is associated. |
 | `securityGroups` | `array` | The IDs of the security groups applied to the target network association. |
 | `status` | `object` | Describes the state of a target network association. |
 | `targetNetworkId` | `string` | The ID of the subnet specified as the target network. |
-| `vpcId` | `string` | The ID of the VPC in which the target network (subnet) is located. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

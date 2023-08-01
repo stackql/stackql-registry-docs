@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `AppId` | `string` | The Application ID for the Application Insights component. |
 | `ExpirationTime` | `string` | Date and time when the daily data volume cap will be reset, and data ingestion will resume. |
 | `ShouldBeThrottled` | `boolean` | The daily data volume cap is met, and data ingestion will be stopped. |
+| `AppId` | `string` | The Application ID for the Application Insights component. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

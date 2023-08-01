@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-The Cloud Filestore API is used for creating and managing cloud file servers.  
+The Cloud Filestore API Is Used For Creating And Managing Cloud File Servers.  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ The Cloud Filestore API is used for creating and managing cloud file servers.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>22</b></span><br />
+<span>total methods:&nbsp;<b>23</b></span><br />
 </div>
 </div>
 
@@ -32,8 +32,8 @@ The Cloud Filestore API is used for creating and managing cloud file servers.
 <tr><td><b>Name</b></td><td><code>google.file</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Filestore API</td></tr>
-<tr><td><b>Description</b></td><td>The Cloud Filestore API is used for creating and managing cloud file servers.</td></tr>
-<tr><td><b>Id</b></td><td><code>file:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>The Cloud Filestore API Is Used For Creating And Managing Cloud File Servers.</td></tr>
+<tr><td><b>Id</b></td><td><code>file:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

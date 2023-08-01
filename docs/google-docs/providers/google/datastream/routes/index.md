@@ -27,17 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource's name. |
-| `createTime` | `string` | Output only. The create time of the resource. |
-| `destinationAddress` | `string` | Required. Destination address for connection |
-| `destinationPort` | `integer` | Destination port for connection |
-| `displayName` | `string` | Required. Display name. |
-| `labels` | `object` | Labels. |
-| `updateTime` | `string` | Output only. The update time of the resource. |
+| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `routes` | `array` | List of Routes. |
+| `unreachable` | `array` | Locations that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_privateConnections_routes_get` | `SELECT` | `locationsId, privateConnectionsId, projectsId, routesId` | Use this method to get details about a route. |
-| `projects_locations_privateConnections_routes_list` | `SELECT` | `locationsId, privateConnectionsId, projectsId` | Use this method to list routes created for a private connectivity configuration in a project and location. |
-| `projects_locations_privateConnections_routes_create` | `INSERT` | `locationsId, privateConnectionsId, projectsId` | Use this method to create a route for a private connectivity configuration in a project and location. |
-| `projects_locations_privateConnections_routes_delete` | `DELETE` | `locationsId, privateConnectionsId, projectsId, routesId` | Use this method to delete a route. |
+| `get` | `SELECT` | `locationsId, privateConnectionsId, projectsId, routesId` | Use this method to get details about a route. |
+| `list` | `SELECT` | `locationsId, privateConnectionsId, projectsId` | Use this method to list routes created for a private connectivity configuration in a project and location. |
+| `create` | `INSERT` | `locationsId, privateConnectionsId, projectsId` | Use this method to create a route for a private connectivity configuration in a project and location. |
+| `delete` | `DELETE` | `locationsId, privateConnectionsId, projectsId, routesId` | Use this method to delete a route. |

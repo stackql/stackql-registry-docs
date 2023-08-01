@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_insightsdata_export` | `EXEC` | `locationsId, projectsId` |
+| `export` | `EXEC` | `locationsId, projectsId` |

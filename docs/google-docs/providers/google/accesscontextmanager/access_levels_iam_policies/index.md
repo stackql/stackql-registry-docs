@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `accessPolicies_accessLevels_testIamPermissions` | `EXEC` | `accessLevelsId, accessPoliciesId` |
+| `test_iam_permissions` | `EXEC` | `accessLevelsId, accessPoliciesId` |

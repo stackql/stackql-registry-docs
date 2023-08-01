@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `properties` | `object` | A managed Virtual Network associated with the Azure Data Factory |
 | `type` | `string` | The resource type. |
 | `etag` | `string` | Etag identifies change in the resource. |
+| `properties` | `object` | A managed Virtual Network associated with the Azure Data Factory |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

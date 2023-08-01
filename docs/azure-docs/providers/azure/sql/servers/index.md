@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | The properties of a server. |
 | `tags` | `object` | Resource tags. |
 | `identity` | `object` | Azure Active Directory identity configuration for a resource. |
 | `kind` | `string` | Kind of sql server. This is metadata used for the Azure portal experience. |
 | `location` | `string` | Resource location. |
+| `properties` | `object` | The properties of a server. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

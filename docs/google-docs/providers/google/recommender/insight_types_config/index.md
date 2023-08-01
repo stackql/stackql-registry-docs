@@ -25,18 +25,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | Name of insight type config. Eg, projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config |
-| `annotations` | `object` | Allows clients to store small amounts of arbitrary data. Annotations must follow the Kubernetes syntax. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
-| `displayName` | `string` | A user-settable field to provide a human-readable name to be used in user interfaces. |
-| `etag` | `string` | Fingerprint of the InsightTypeConfig. Provides optimistic locking when updating. |
-| `insightTypeGenerationConfig` | `object` | A configuration to customize the generation of insights. Eg, customizing the lookback period considered when generating a insight. |
-| `revisionId` | `string` | Output only. Immutable. The revision ID of the config. A new revision is committed whenever the config is changed in any way. The format is an 8-character hexadecimal string. |
-| `updateTime` | `string` | Last time when the config was updated. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `billingAccounts_locations_insightTypes_getConfig` | `SELECT` | `billingAccountsId, insightTypesId, locationsId` |
-| `organizations_locations_insightTypes_getConfig` | `SELECT` | `insightTypesId, locationsId, organizationsId` |
-| `projects_locations_insightTypes_getConfig` | `SELECT` | `insightTypesId, locationsId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `billing_accounts_locations_insight_types_get_config` | `EXEC` | `billingAccountsId, insightTypesId, locationsId` | Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType. |
+| `billing_accounts_locations_insight_types_update_config` | `EXEC` | `billingAccountsId, insightTypesId, locationsId` | Updates an InsightTypeConfig change. This will create a new revision of the config. |
+| `organizations_locations_insight_types_get_config` | `EXEC` | `insightTypesId, locationsId, organizationsId` | Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType. |
+| `organizations_locations_insight_types_update_config` | `EXEC` | `insightTypesId, locationsId, organizationsId` | Updates an InsightTypeConfig change. This will create a new revision of the config. |
+| `projects_locations_insight_types_get_config` | `EXEC` | `insightTypesId, locationsId, projectsId` | Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType. |
+| `projects_locations_insight_types_update_config` | `EXEC` | `insightTypesId, locationsId, projectsId` | Updates an InsightTypeConfig change. This will create a new revision of the config. |

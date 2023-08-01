@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `UserName` | `string` | The user with whom the MFA device is associated. |
 | `EnableDate` | `string` | The date when the MFA device was enabled for the user. |
 | `SerialNumber` | `string` | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. |
+| `UserName` | `string` | The user with whom the MFA device is associated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

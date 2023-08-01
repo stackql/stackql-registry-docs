@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the SAML SSO profile. |
+| `spConfig` | `object` | SAML SP (service provider) configuration. |
 | `customer` | `string` | Immutable. The customer. For example: `customers/C0123abc`. |
 | `displayName` | `string` | Human-readable name of the SAML SSO profile. |
 | `idpConfig` | `object` | SAML IDP (identity provider) configuration. |
-| `spConfig` | `object` | SAML SP (service provider) configuration. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `inboundSamlSsoProfiles_get` | `SELECT` | `inboundSamlSsoProfilesId` | Gets an InboundSamlSsoProfile. |
-| `inboundSamlSsoProfiles_list` | `SELECT` |  | Lists InboundSamlSsoProfiles for a customer. |
-| `inboundSamlSsoProfiles_create` | `INSERT` |  | Creates an InboundSamlSsoProfile for a customer. |
-| `inboundSamlSsoProfiles_delete` | `DELETE` | `inboundSamlSsoProfilesId` | Deletes an InboundSamlSsoProfile. |
-| `inboundSamlSsoProfiles_patch` | `EXEC` | `inboundSamlSsoProfilesId` | Updates an InboundSamlSsoProfile. |
+| `get` | `SELECT` | `inboundSamlSsoProfilesId` | Gets an InboundSamlSsoProfile. |
+| `list` | `SELECT` |  | Lists InboundSamlSsoProfiles for a customer. |
+| `create` | `INSERT` |  | Creates an InboundSamlSsoProfile for a customer. |
+| `delete` | `DELETE` | `inboundSamlSsoProfilesId` | Deletes an InboundSamlSsoProfile. |
+| `patch` | `EXEC` | `inboundSamlSsoProfilesId` | Updates an InboundSamlSsoProfile. |

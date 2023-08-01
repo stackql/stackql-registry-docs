@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The GEO location of the resource. |
 | `properties` | `object` | Service properties payload |
 | `sku` | `object` | Sku of Azure Spring Apps |
 | `tags` | `object` | Tags of the service which is a list of key value pairs that describe the resource. |
+| `location` | `string` | The GEO location of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

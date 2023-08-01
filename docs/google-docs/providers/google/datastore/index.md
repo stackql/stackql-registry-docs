@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application.   
+Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalable Storage For Your Application.   
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Accesses the schemaless NoSQL database to provide fully managed, robust, scalabl
 <tr><td><b>Name</b></td><td><code>google.datastore</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Datastore API</td></tr>
-<tr><td><b>Description</b></td><td>Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application. </td></tr>
-<tr><td><b>Id</b></td><td><code>datastore:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalable Storage For Your Application. </td></tr>
+<tr><td><b>Id</b></td><td><code>datastore:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_datasets_dicomStores_studies_series_instances_delete` | `DELETE` | `datasetsId, dicomStoresId, instancesId, locationsId, projectsId, seriesId, studiesId` |
+| `delete` | `DELETE` | `datasetsId, dicomStoresId, instancesId, locationsId, projectsId, seriesId, studiesId` |

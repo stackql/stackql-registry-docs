@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The fully qualified arm resource id. |
 | `name` | `object` | The Usage Names. |
+| `limit` | `integer` | The limit integer. |
 | `unit` | `string` | The unit details. |
 | `currentValue` | `integer` | The current usage. |
-| `limit` | `integer` | The limit integer. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

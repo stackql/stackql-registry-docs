@@ -27,8 +27,8 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `results` | `array` | List of traces matching the query. |
 | `next` | `string` | Next continuation token. |
+| `results` | `array` | List of traces matching the query. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

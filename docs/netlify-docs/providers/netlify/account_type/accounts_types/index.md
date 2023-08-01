@@ -30,11 +30,11 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
+| `yearly_seats_addon_dollar_price` | `integer` |
+| `capabilities` | `object` |
 | `monthly_dollar_price` | `integer` |
 | `monthly_seats_addon_dollar_price` | `integer` |
 | `yearly_dollar_price` | `integer` |
-| `yearly_seats_addon_dollar_price` | `integer` |
-| `capabilities` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

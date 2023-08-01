@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource Name. |
-| `kind` | `string` | Kind of resource. |
 | `properties` | `object` | DeletedSite resource specific properties |
 | `type` | `string` | Resource type. |
+| `kind` | `string` | Kind of resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

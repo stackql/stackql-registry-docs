@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Path reference to this assessed machine. /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/Microsoft.Migrate/assessmentProjects/&#123;projectName&#125;/groups/&#123;groupName&#125;/assessments/&#123;assessmentName&#125;/assessedMachines/&#123;assessedMachineName&#125; |
 | `name` | `string` | Name of the machine. |
+| `type` | `string` | Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments/assessedMachines]. |
 | `eTag` | `string` | For optimistic concurrency control. |
 | `properties` | `object` | Properties of an assessed machine. |
-| `type` | `string` | Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments/assessedMachines]. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

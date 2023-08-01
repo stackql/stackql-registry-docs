@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `product` | `object` | Product profile. |
-| `tag` | `object` | Contract defining the Tag property in the Tag Resource Contract |
 | `api` | `object` | API contract properties for the Tag Resources. |
 | `operation` | `object` | Operation Entity contract Properties. |
+| `product` | `object` | Product profile. |
+| `tag` | `object` | Contract defining the Tag property in the Tag Resource Contract |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

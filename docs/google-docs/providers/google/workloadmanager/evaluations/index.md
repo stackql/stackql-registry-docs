@@ -27,18 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | name of resource names have the form 'projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/evaluations/&#123;evaluation_id&#125;' |
-| `description` | `string` | Description of the Evaluation |
-| `ruleNames` | `array` | the name of the rule |
-| `labels` | `object` | Labels as key value pairs |
-| `resourceStatus` | `object` | Message describing resource status |
-| `ruleVersions` | `array` | Output only. [Output only] The updated rule ids if exist. |
-| `createTime` | `string` | Output only. [Output only] Create time stamp |
-| `resourceFilter` | `object` | Message describing resource filters |
-| `updateTime` | `string` | Output only. [Output only] Update time stamp |
+| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
+| `unreachable` | `array` | Locations that could not be reached. |
+| `evaluations` | `array` | The list of Evaluation |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_evaluations_get` | `SELECT` | `evaluationsId, locationsId, projectsId` | Gets details of a single Evaluation. |
-| `projects_locations_evaluations_list` | `SELECT` | `locationsId, projectsId` | Lists Evaluations in a given project and location. |
-| `projects_locations_evaluations_create` | `INSERT` | `locationsId, projectsId` | Creates a new Evaluation in a given project and location. |
+| `get` | `SELECT` | `evaluationsId, locationsId, projectsId` | Gets details of a single Evaluation. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists Evaluations in a given project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new Evaluation in a given project and location. |

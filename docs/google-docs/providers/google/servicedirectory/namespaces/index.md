@@ -27,14 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Immutable. The resource name for the namespace in the format `projects/*/locations/*/namespaces/*`. |
-| `uid` | `string` | Output only. The globally unique identifier of the namespace in the UUID4 format. |
-| `labels` | `object` | Optional. Resource labels associated with this namespace. No more than 64 user labels can be associated with a given resource. Label keys and values can be no longer than 63 characters. |
+| `namespaces` | `array` | The list of namespaces. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_namespaces_get` | `SELECT` | `locationsId, namespacesId, projectsId` | Gets a namespace. |
-| `projects_locations_namespaces_list` | `SELECT` | `locationsId, projectsId` | Lists all namespaces. |
-| `projects_locations_namespaces_create` | `INSERT` | `locationsId, projectsId` | Creates a namespace, and returns the new namespace. |
-| `projects_locations_namespaces_delete` | `DELETE` | `locationsId, namespacesId, projectsId` | Deletes a namespace. This also deletes all services and endpoints in the namespace. |
-| `projects_locations_namespaces_patch` | `EXEC` | `locationsId, namespacesId, projectsId` | Updates a namespace. |
+| `get` | `SELECT` | `locationsId, namespacesId, projectsId` | Gets a namespace. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists all namespaces. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a namespace, and returns the new namespace. |
+| `delete` | `DELETE` | `locationsId, namespacesId, projectsId` | Deletes a namespace. This also deletes all services and endpoints in the namespace. |
+| `patch` | `EXEC` | `locationsId, namespacesId, projectsId` | Updates a namespace. |

@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Stores sensitive data such as API keys, passwords, and certificates. Provides convenience while improving security.   
+Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Convenience While Improving Security.   
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>19</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>17</b></span><br />
 </div>
 </div>
 
@@ -32,8 +32,8 @@ Stores sensitive data such as API keys, passwords, and certificates. Provides co
 <tr><td><b>Name</b></td><td><code>google.secretmanager</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Secret Manager API</td></tr>
-<tr><td><b>Description</b></td><td>Stores sensitive data such as API keys, passwords, and certificates. Provides convenience while improving security. </td></tr>
-<tr><td><b>Id</b></td><td><code>secretmanager:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Convenience While Improving Security. </td></tr>
+<tr><td><b>Id</b></td><td><code>secretmanager:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,11 +41,9 @@ Stores sensitive data such as API keys, passwords, and certificates. Provides co
 <div class="providerDocColumn">
 <a href="/providers/google/secretmanager/locations/">locations</a><br />
 <a href="/providers/google/secretmanager/secrets/">secrets</a><br />
-<a href="/providers/google/secretmanager/secrets_iam_audit_configs/">secrets_iam_audit_configs</a><br />
-<a href="/providers/google/secretmanager/secrets_iam_bindings/">secrets_iam_bindings</a><br />
+<a href="/providers/google/secretmanager/secrets_iam_policies/">secrets_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/secretmanager/secrets_iam_policies/">secrets_iam_policies</a><br />
 <a href="/providers/google/secretmanager/secrets_version/">secrets_version</a><br />
 <a href="/providers/google/secretmanager/versions/">versions</a><br />
 </div>

@@ -19,9 +19,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>36</b></span><br />
+<span>total resources:&nbsp;<b>16</b></span><br />
+<span>total selectable resources:&nbsp;<b>15</b></span><br />
+<span>total methods:&nbsp;<b>75</b></span><br />
 </div>
 </div>
 
@@ -33,27 +33,29 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Network Security API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>networksecurity:v23.05.00145</code></td></tr>
+<tr><td><b>Id</b></td><td><code>networksecurity:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/networksecurity/address_groups/">address_groups</a><br />
+<a href="/providers/google/networksecurity/address_groups_iam_policies/">address_groups_iam_policies</a><br />
+<a href="/providers/google/networksecurity/address_groups_items/">address_groups_items</a><br />
+<a href="/providers/google/networksecurity/address_groups_references/">address_groups_references</a><br />
 <a href="/providers/google/networksecurity/authorization_policies/">authorization_policies</a><br />
-<a href="/providers/google/networksecurity/authorization_policies_iam_audit_configs/">authorization_policies_iam_audit_configs</a><br />
-<a href="/providers/google/networksecurity/authorization_policies_iam_bindings/">authorization_policies_iam_bindings</a><br />
 <a href="/providers/google/networksecurity/authorization_policies_iam_policies/">authorization_policies_iam_policies</a><br />
 <a href="/providers/google/networksecurity/client_tls_policies/">client_tls_policies</a><br />
-<a href="/providers/google/networksecurity/client_tls_policies_iam_audit_configs/">client_tls_policies_iam_audit_configs</a><br />
-<a href="/providers/google/networksecurity/client_tls_policies_iam_bindings/">client_tls_policies_iam_bindings</a><br />
+<a href="/providers/google/networksecurity/client_tls_policies_iam_policies/">client_tls_policies_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/networksecurity/client_tls_policies_iam_policies/">client_tls_policies_iam_policies</a><br />
+<a href="/providers/google/networksecurity/gateway_security_policies/">gateway_security_policies</a><br />
 <a href="/providers/google/networksecurity/locations/">locations</a><br />
 <a href="/providers/google/networksecurity/operations/">operations</a><br />
+<a href="/providers/google/networksecurity/rules/">rules</a><br />
 <a href="/providers/google/networksecurity/server_tls_policies/">server_tls_policies</a><br />
-<a href="/providers/google/networksecurity/server_tls_policies_iam_audit_configs/">server_tls_policies_iam_audit_configs</a><br />
-<a href="/providers/google/networksecurity/server_tls_policies_iam_bindings/">server_tls_policies_iam_bindings</a><br />
 <a href="/providers/google/networksecurity/server_tls_policies_iam_policies/">server_tls_policies_iam_policies</a><br />
+<a href="/providers/google/networksecurity/tls_inspection_policies/">tls_inspection_policies</a><br />
+<a href="/providers/google/networksecurity/url_lists/">url_lists</a><br />
 </div>
 </div>

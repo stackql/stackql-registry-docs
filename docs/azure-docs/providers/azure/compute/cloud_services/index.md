@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource name. |
+| `properties` | `object` | Cloud service properties |
+| `systemData` | `object` | The system meta data relating to this resource. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
 | `location` | `string` | Resource location. |
-| `properties` | `object` | Cloud service properties |
-| `systemData` | `object` | The system meta data relating to this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_groups_addGroupMigration` | `INSERT` | `groupsId, locationsId, projectsId` | Adds a MigratingVm to a Group. |
-| `projects_locations_groups_removeGroupMigration` | `DELETE` | `groupsId, locationsId, projectsId` | Removes a MigratingVm from a Group. |
+| `add_group_migration` | `EXEC` | `groupsId, locationsId, projectsId` | Adds a MigratingVm to a Group. |
+| `remove_group_migration` | `EXEC` | `groupsId, locationsId, projectsId` | Removes a MigratingVm from a Group. |

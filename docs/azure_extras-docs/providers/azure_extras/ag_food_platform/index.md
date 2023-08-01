@@ -33,7 +33,7 @@ APIs documentation for Azure AgriFood Resource Provider Service.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure AgriFood RP Service (Microsoft.AgFoodPlatform)</td></tr>
 <tr><td><b>Description</b></td><td>APIs documentation for Azure AgriFood Resource Provider Service.</td></tr>
-<tr><td><b>Id</b></td><td><code>ag_food_platform:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ag_food_platform:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

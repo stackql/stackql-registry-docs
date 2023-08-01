@@ -27,29 +27,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Full name of the workspace resource, in the form of: projects/&#123;project&#125;/locations/&#123;location&#125;/conversionWorkspaces/&#123;conversion_workspace&#125;. |
-| `destination` | `object` | The type and version of a source or destination DB. |
-| `hasUncommittedChanges` | `boolean` | Output only. Whether the workspace has uncommitted changes (changes which were made after the workspace was committed) |
-| `latestCommitTime` | `string` | Output only. The timestamp when the workspace was committed. |
-| `createTime` | `string` | Output only. The timestamp when the workspace resource was created. |
-| `source` | `object` | The type and version of a source or destination DB. |
-| `updateTime` | `string` | Output only. The timestamp when the workspace resource was last updated. |
-| `displayName` | `string` | The display name for the workspace |
-| `globalSettings` | `object` | A generic list of settings for the workspace. The settings are database pair dependant and can indicate default behavior for the mapping rules engine or turn on or off specific features. Such examples can be: convert_foreign_key_to_interleave=true, skip_triggers=false, ignore_non_table_synonyms=true |
-| `latestCommitId` | `string` | Output only. The latest commit id |
+| `unreachable` | `array` | Locations that could not be reached. |
+| `conversionWorkspaces` | `array` | The list of conversion workspace objects. |
+| `nextPageToken` | `string` | A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_conversionWorkspaces_get` | `SELECT` | `conversionWorkspacesId, locationsId, projectsId` | Gets details of a single conversion workspace. |
-| `projects_locations_conversionWorkspaces_list` | `SELECT` | `locationsId, projectsId` | Lists conversion workspaces in a given project and location. |
-| `projects_locations_conversionWorkspaces_create` | `INSERT` | `locationsId, projectsId` | Creates a new conversion workspace in a given project and location. |
-| `projects_locations_conversionWorkspaces_delete` | `DELETE` | `conversionWorkspacesId, locationsId, projectsId` | Deletes a single conversion workspace. |
-| `projects_locations_conversionWorkspaces_apply` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Apply draft tree onto a specific destination database |
-| `projects_locations_conversionWorkspaces_commit` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Marks all the data in the conversion workspace as committed. |
-| `projects_locations_conversionWorkspaces_convert` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Creates a draft tree schema for the destination database. |
-| `projects_locations_conversionWorkspaces_describeConversionWorkspaceRevisions` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Retrieves a list of committed revisions of a specific conversion workspace. |
-| `projects_locations_conversionWorkspaces_describeDatabaseEntities` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Use this method to describe the database entities tree for a specific conversion workspace and a specific tree type. The DB Entities are not a resource like conversion workspace or mapping rule, and they can not be created, updated or deleted like one. Instead they are simple data objects describing the structure of the client database. |
-| `projects_locations_conversionWorkspaces_patch` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Updates the parameters of a single conversion workspace. |
-| `projects_locations_conversionWorkspaces_rollback` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Rollbacks a conversion workspace to the last committed spanshot. |
-| `projects_locations_conversionWorkspaces_searchBackgroundJobs` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Use this method to search/list the background jobs for a specific conversion workspace. The background jobs are not a resource like conversion workspace or mapping rule, and they can not be created, updated or deleted like one. Instead they are a way to expose the data plane jobs log. |
-| `projects_locations_conversionWorkspaces_seed` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Imports a snapshot of the source database into the conversion workspace. |
+| `get` | `SELECT` | `conversionWorkspacesId, locationsId, projectsId` | Gets details of a single conversion workspace. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists conversion workspaces in a given project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new conversion workspace in a given project and location. |
+| `delete` | `DELETE` | `conversionWorkspacesId, locationsId, projectsId` | Deletes a single conversion workspace. |
+| `apply` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Applies draft tree onto a specific destination database. |
+| `commit` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Marks all the data in the conversion workspace as committed. |
+| `convert` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Creates a draft tree schema for the destination database. |
+| `describe_conversion_workspace_revisions` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Retrieves a list of committed revisions of a specific conversion workspace. |
+| `describe_database_entities` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Describes the database entities tree for a specific conversion workspace and a specific tree type. Database entities are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are simple data objects describing the structure of the client database. |
+| `patch` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Updates the parameters of a single conversion workspace. |
+| `rollback` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Rolls back a conversion workspace to the last committed snapshot. |
+| `search_background_jobs` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Searches/lists the background jobs for a specific conversion workspace. The background jobs are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are a way to expose the data plane jobs log. |
+| `seed` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Imports a snapshot of the source database into the conversion workspace. |

@@ -32,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instances_getEffectiveFirewalls` | `SELECT` | `instance, networkInterface, project, zone` |
+| `get_effective_firewalls` | `SELECT` | `instance, networkInterface, project, zone` |

@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `properties` | `object` | Properties used to configure a node pool snapshot. |
 | `tags` | `object` | Resource tags. |
 | `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Properties used to configure a node pool snapshot. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

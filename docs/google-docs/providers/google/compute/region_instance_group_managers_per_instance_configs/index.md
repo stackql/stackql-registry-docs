@@ -25,14 +25,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | The name of a per-instance configuration and its corresponding instance. Serves as a merge key during UpdatePerInstanceConfigs operations, that is, if a per-instance configuration with the same name exists then it will be updated, otherwise a new one will be created for the VM instance with the same name. An attempt to create a per-instance configconfiguration for a VM instance that either doesn't exist or is not part of the group will result in an error. |
-| `fingerprint` | `string` | Fingerprint of this per-instance config. This field can be used in optimistic locking. It is ignored when inserting a per-instance config. An up-to-date fingerprint must be provided in order to update an existing per-instance configuration or the field needs to be unset. |
-| `preservedState` | `object` | Preserved state for a given instance. |
-| `status` | `string` | The status of applying this per-instance configuration on the corresponding managed instance. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `regionInstanceGroupManagers_listPerInstanceConfigs` | `SELECT` | `instanceGroupManager, project, region` | Lists all of the per-instance configurations defined for the managed instance group. The orderBy query parameter is not supported. |
-| `regionInstanceGroupManagers_deletePerInstanceConfigs` | `DELETE` | `instanceGroupManager, project, region` | Deletes selected per-instance configurations for the managed instance group. |
+| `delete_per_instance_configs` | `EXEC` | `instanceGroupManager, project, region` | Deletes selected per-instance configurations for the managed instance group. |
+| `list_per_instance_configs` | `EXEC` | `instanceGroupManager, project, region` | Lists all of the per-instance configurations defined for the managed instance group. The orderBy query parameter is not supported. |
+| `update_per_instance_configs` | `EXEC` | `instanceGroupManager, project, region` | Inserts or updates per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. |

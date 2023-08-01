@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-A data platform for customers to create, manage, share and query data.  
+A Data Platform For Customers To Create, Manage, Share And Query Data.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ A data platform for customers to create, manage, share and query data.
 <tr><td><b>Name</b></td><td><code>google.bigquery</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery API</td></tr>
-<tr><td><b>Description</b></td><td>A data platform for customers to create, manage, share and query data.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigquery:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>A Data Platform For Customers To Create, Manage, Share And Query Data.</td></tr>
+<tr><td><b>Id</b></td><td><code>bigquery:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,12 +44,12 @@ A data platform for customers to create, manage, share and query data.
 <a href="/providers/google/bigquery/jobs_query_results/">jobs_query_results</a><br />
 <a href="/providers/google/bigquery/models/">models</a><br />
 <a href="/providers/google/bigquery/projects/">projects</a><br />
-<a href="/providers/google/bigquery/projects_service_account/">projects_service_account</a><br />
+<a href="/providers/google/bigquery/routines/">routines</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/bigquery/routines/">routines</a><br />
 <a href="/providers/google/bigquery/row_access_policies/">row_access_policies</a><br />
 <a href="/providers/google/bigquery/row_access_policies_iam_policies/">row_access_policies_iam_policies</a><br />
+<a href="/providers/google/bigquery/service_account/">service_account</a><br />
 <a href="/providers/google/bigquery/tabledata/">tabledata</a><br />
 <a href="/providers/google/bigquery/tables/">tables</a><br />
 </div>

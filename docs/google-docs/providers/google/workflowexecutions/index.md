@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Execute workflows created with Workflows API.  
+Execute Workflows Created With Workflows API.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Execute workflows created with Workflows API.
 <tr><td><b>Name</b></td><td><code>google.workflowexecutions</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Workflow Executions API</td></tr>
-<tr><td><b>Description</b></td><td>Execute workflows created with Workflows API.</td></tr>
-<tr><td><b>Id</b></td><td><code>workflowexecutions:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Execute Workflows Created With Workflows API.</td></tr>
+<tr><td><b>Id</b></td><td><code>workflowexecutions:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

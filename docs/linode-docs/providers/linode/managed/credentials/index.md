@@ -28,8 +28,8 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This Credential's unique ID.<br /> |
-| `last_decrypted` | `string` | The date this Credential was last decrypted by a member of Linode special forces.<br /> |
 | `label` | `string` | The unique label for this Credential. This is for display purposes only.<br /> |
+| `last_decrypted` | `string` | The date this Credential was last decrypted by a member of Linode special forces.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

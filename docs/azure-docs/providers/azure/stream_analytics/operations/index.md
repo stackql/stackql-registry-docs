@@ -28,8 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the operation being performed on this particular object. |
-| `isDataAction` | `boolean` | Indicates whether the operation is a data action |
 | `display` | `object` | Contains the localized display information for this particular operation / action. |
+| `isDataAction` | `boolean` | Indicates whether the operation is a data action |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

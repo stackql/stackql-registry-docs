@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Full name of the VolumeRestore resource. Format: `projects/*/locations/*/restorePlans/*/restores/*/volumeRestores/*` |
-| `targetPvc` | `object` | A reference to a namespaced resource in Kubernetes. |
-| `updateTime` | `string` | Output only. The timestamp when this VolumeRestore resource was last updated. |
-| `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
 | `stateMessage` | `string` | Output only. A human readable message explaining why the VolumeRestore is in its current state. |
-| `completeTime` | `string` | Output only. The timestamp when the associated underlying volume restoration completed. |
-| `etag` | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a volume restore from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform volume restore updates in order to avoid race conditions. |
-| `volumeBackup` | `string` | Output only. The full name of the VolumeBackup from which the volume will be restored. Format: `projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*`. |
-| `volumeType` | `string` | Output only. The type of volume provisioned |
+| `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
+| `targetPvc` | `object` | A reference to a namespaced resource in Kubernetes. |
 | `volumeHandle` | `string` | Output only. A storage system-specific opaque handler to the underlying volume created for the target PVC from the volume backup. |
-| `createTime` | `string` | Output only. The timestamp when this VolumeRestore resource was created. |
+| `volumeBackup` | `string` | Output only. The full name of the VolumeBackup from which the volume will be restored. Format: `projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*`. |
+| `etag` | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a volume restore from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform volume restore updates in order to avoid race conditions. |
 | `state` | `string` | Output only. The current state of this VolumeRestore. |
+| `volumeType` | `string` | Output only. The type of volume provisioned |
+| `updateTime` | `string` | Output only. The timestamp when this VolumeRestore resource was last updated. |
+| `completeTime` | `string` | Output only. The timestamp when the associated underlying volume restoration completed. |
+| `createTime` | `string` | Output only. The timestamp when this VolumeRestore resource was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_restorePlans_restores_volumeRestores_get` | `SELECT` | `locationsId, projectsId, restorePlansId, restoresId, volumeRestoresId` | Retrieve the details of a single VolumeRestore. |
-| `projects_locations_restorePlans_restores_volumeRestores_list` | `SELECT` | `locationsId, projectsId, restorePlansId, restoresId` | Lists the VolumeRestores for a given Restore. |
+| `get` | `SELECT` | `locationsId, projectsId, restorePlansId, restoresId, volumeRestoresId` | Retrieve the details of a single VolumeRestore. |
+| `list` | `SELECT` | `locationsId, projectsId, restorePlansId, restoresId` | Lists the VolumeRestores for a given Restore. |

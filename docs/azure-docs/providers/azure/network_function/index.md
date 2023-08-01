@@ -33,7 +33,7 @@ Azure Traffic Collector service
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Traffic Collector (Microsoft.NetworkFunction)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Traffic Collector service</td></tr>
-<tr><td><b>Id</b></td><td><code>network_function:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>network_function:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

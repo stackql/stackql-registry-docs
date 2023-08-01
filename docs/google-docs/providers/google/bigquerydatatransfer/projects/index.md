@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `enrollDataSources` | `EXEC` | `projectsId` |
+| `projects_enroll_data_sources` | `EXEC` | `projectsId` |

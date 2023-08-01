@@ -28,15 +28,15 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description of the Traffic Mirror session. |
-| `networkInterfaceId` | `string` | The ID of the Traffic Mirror session's network interface. |
 | `sessionNumber` | `integer` | &lt;p&gt;The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.&lt;/p&gt; &lt;p&gt;Valid values are 1-32766.&lt;/p&gt; |
-| `tagSet` | `array` | The tags assigned to the Traffic Mirror session. |
-| `virtualNetworkId` | `integer` | The virtual network ID associated with the Traffic Mirror session. |
 | `trafficMirrorSessionId` | `string` | The ID for the Traffic Mirror session. |
+| `packetLength` | `integer` | The number of bytes in each packet to mirror. These are the bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet |
+| `tagSet` | `array` | The tags assigned to the Traffic Mirror session. |
+| `networkInterfaceId` | `string` | The ID of the Traffic Mirror session's network interface. |
 | `trafficMirrorFilterId` | `string` | The ID of the Traffic Mirror filter. |
 | `ownerId` | `string` | The ID of the account that owns the Traffic Mirror session. |
 | `trafficMirrorTargetId` | `string` | The ID of the Traffic Mirror target. |
-| `packetLength` | `integer` | The number of bytes in each packet to mirror. These are the bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet |
+| `virtualNetworkId` | `integer` | The virtual network ID associated with the Traffic Mirror session. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

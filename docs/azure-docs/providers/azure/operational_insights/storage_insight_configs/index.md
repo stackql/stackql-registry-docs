@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `eTag` | `string` | The ETag of the storage insight. |
 | `properties` | `object` | Storage insight properties. |
 | `tags` | `object` | Resource tags. |
-| `eTag` | `string` | The ETag of the storage insight. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

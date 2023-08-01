@@ -25,12 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `annotations` | `object` | Metadata defined as annotations on the network endpoint group. |
-| `healthStatus` | `array` | Health state of the backend instances or endpoints in requested instance or network endpoint group, determined based on configured health checks. |
-| `kind` | `string` | [Output Only] Type of resource. Always compute#backendServiceGroupHealth for the health of backend services. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `regionBackendServices_getHealth` | `SELECT` | `backendService, project, region` |
+| `get_health` | `EXEC` | `backendService, project, region` |

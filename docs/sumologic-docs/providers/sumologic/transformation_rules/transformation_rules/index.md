@@ -28,12 +28,12 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier for the transformation rule. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `enabled` | `boolean` | True if the rule is enabled. |
 | `ruleDefinition` | `object` | The properties that define a transformation rule. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

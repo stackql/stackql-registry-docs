@@ -32,5 +32,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_jobs_getMetrics` | `SELECT` | `jobId, projectId` |
-| `projects_locations_jobs_getMetrics` | `SELECT` | `jobId, location, projectId` |
+| `projects_jobs_get_metrics` | `SELECT` | `jobId, projectId` |
+| `projects_locations_jobs_get_metrics` | `SELECT` | `jobId, location, projectId` |

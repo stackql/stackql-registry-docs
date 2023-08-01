@@ -32,9 +32,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_tenants_get` | `SELECT` | `projectsId, tenantsId` | Retrieves specified tenant. |
-| `projects_tenants_list` | `SELECT` | `projectsId` | Lists all tenants associated with the project. |
-| `projects_tenants_create` | `INSERT` | `projectsId` | Creates a new tenant entity. |
-| `projects_tenants_delete` | `DELETE` | `projectsId, tenantsId` | Deletes specified tenant. |
-| `projects_tenants_completeQuery` | `EXEC` | `projectsId, tenantsId` | Completes the specified prefix with keyword suggestions. Intended for use by a job search auto-complete search box. |
-| `projects_tenants_patch` | `EXEC` | `projectsId, tenantsId` | Updates specified tenant. |
+| `get` | `SELECT` | `projectsId, tenantsId` | Retrieves specified tenant. |
+| `list` | `SELECT` | `projectsId` | Lists all tenants associated with the project. |
+| `create` | `INSERT` | `projectsId` | Creates a new tenant entity. |
+| `delete` | `DELETE` | `projectsId, tenantsId` | Deletes specified tenant. |
+| `complete_query` | `EXEC` | `projectsId, tenantsId` | Completes the specified prefix with keyword suggestions. Intended for use by a job search auto-complete search box. |
+| `patch` | `EXEC` | `projectsId, tenantsId` | Updates specified tenant. |

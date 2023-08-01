@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
-| `zones` | `array` | A list of availability zones denoting where the resource needs to come from. |
 | `tags` | `object` | Resource tags. |
-| `identity` | `object` | Identity for the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
 | `properties` | `object` | Properties of the application gateway. |
+| `location` | `string` | Resource location. |
+| `identity` | `object` | Identity for the resource. |
+| `zones` | `array` | A list of availability zones denoting where the resource needs to come from. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

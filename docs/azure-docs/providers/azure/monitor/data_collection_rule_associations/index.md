@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified ID of the resource. |
 | `name` | `string` | The name of the resource. |
-| `type` | `string` | The type of the resource. |
 | `etag` | `string` | Resource entity tag (ETag). |
 | `properties` | `object` | Resource properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

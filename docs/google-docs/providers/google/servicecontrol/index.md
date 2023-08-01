@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Provides admission control and telemetry reporting for services integrated with Service Infrastructure.   
+Provides Admission Control And Telemetry Reporting For Services Integrated With Service Infrastructure.   
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Provides admission control and telemetry reporting for services integrated with 
 <tr><td><b>Name</b></td><td><code>google.servicecontrol</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Control API</td></tr>
-<tr><td><b>Description</b></td><td>Provides admission control and telemetry reporting for services integrated with Service Infrastructure. </td></tr>
-<tr><td><b>Id</b></td><td><code>servicecontrol:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Provides Admission Control And Telemetry Reporting For Services Integrated With Service Infrastructure. </td></tr>
+<tr><td><b>Id</b></td><td><code>servicecontrol:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

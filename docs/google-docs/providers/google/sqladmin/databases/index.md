@@ -28,20 +28,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the database in the Cloud SQL instance. This does not include the project ID or instance name. |
-| `charset` | `string` | The Cloud SQL charset value. |
-| `collation` | `string` | The Cloud SQL collation value. |
-| `selfLink` | `string` | The URI of this resource. |
+| `sqlserverDatabaseDetails` | `object` | Represents a Sql Server database on the Cloud SQL instance. |
 | `instance` | `string` | The name of the Cloud SQL instance. This does not include the project ID. |
+| `charset` | `string` | The Cloud SQL charset value. |
 | `project` | `string` | The project ID of the project containing the Cloud SQL database. The Google apps domain is prefixed if applicable. |
+| `selfLink` | `string` | The URI of this resource. |
 | `etag` | `string` | This field is deprecated and will be removed from a future version of the API. |
 | `kind` | `string` | This is always `sql#database`. |
-| `sqlserverDatabaseDetails` | `object` | Represents a Sql Server database on the Cloud SQL instance. |
+| `collation` | `string` | The Cloud SQL collation value. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `sql_databases_get` | `SELECT` | `database, instance, project` | Retrieves a resource containing information about a database inside a Cloud SQL instance. |
-| `sql_databases_list` | `SELECT` | `instance, project` | Lists databases in the specified Cloud SQL instance. |
-| `sql_databases_insert` | `INSERT` | `instance, project` | Inserts a resource containing information about a database inside a Cloud SQL instance. |
-| `sql_databases_delete` | `DELETE` | `database, instance, project` | Deletes a database from a Cloud SQL instance. |
-| `sql_databases_patch` | `EXEC` | `database, instance, project` | Partially updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics. |
-| `sql_databases_update` | `EXEC` | `database, instance, project` | Updates a resource containing information about a database inside a Cloud SQL instance. |
+| `get` | `SELECT` | `database, instance, project` | Retrieves a resource containing information about a database inside a Cloud SQL instance. |
+| `list` | `SELECT` | `instance, project` | Lists databases in the specified Cloud SQL instance. |
+| `insert` | `INSERT` | `instance, project` | Inserts a resource containing information about a database inside a Cloud SQL instance. **Note:** You can't modify the default character set and collation. |
+| `delete` | `DELETE` | `database, instance, project` | Deletes a database from a Cloud SQL instance. |
+| `patch` | `EXEC` | `database, instance, project` | Partially updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics. |
+| `update` | `EXEC` | `database, instance, project` | Updates a resource containing information about a database inside a Cloud SQL instance. |

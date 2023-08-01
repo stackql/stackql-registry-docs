@@ -27,17 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | A user-defined name of the Certificate Map. Certificate Map names must be unique globally and match pattern `projects/*/locations/*/certificateMaps/*`. |
-| `description` | `string` | One or more paragraphs of text description of a certificate map. |
-| `updateTime` | `string` | Output only. The update timestamp of a Certificate Map. |
-| `createTime` | `string` | Output only. The creation timestamp of a Certificate Map. |
-| `gclbTargets` | `array` | Output only. A list of GCLB targets that use this Certificate Map. A Target Proxy is only present on this list if it's attached to a Forwarding Rule. |
-| `labels` | `object` | Set of labels associated with a Certificate Map. |
+| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
+| `unreachable` | `array` | Locations that could not be reached. |
+| `certificateMaps` | `array` | A list of certificate maps for the parent resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_certificateMaps_get` | `SELECT` | `certificateMapsId, locationsId, projectsId` | Gets details of a single CertificateMap. |
-| `projects_locations_certificateMaps_list` | `SELECT` | `locationsId, projectsId` | Lists CertificateMaps in a given project and location. |
-| `projects_locations_certificateMaps_create` | `INSERT` | `locationsId, projectsId` | Creates a new CertificateMap in a given project and location. |
-| `projects_locations_certificateMaps_delete` | `DELETE` | `certificateMapsId, locationsId, projectsId` | Deletes a single CertificateMap. A Certificate Map can't be deleted if it contains Certificate Map Entries. Remove all the entries from the map before calling this method. |
-| `projects_locations_certificateMaps_patch` | `EXEC` | `certificateMapsId, locationsId, projectsId` | Updates a CertificateMap. |
+| `get` | `SELECT` | `certificateMapsId, locationsId, projectsId` | Gets details of a single CertificateMap. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists CertificateMaps in a given project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new CertificateMap in a given project and location. |
+| `delete` | `DELETE` | `certificateMapsId, locationsId, projectsId` | Deletes a single CertificateMap. A Certificate Map can't be deleted if it contains Certificate Map Entries. Remove all the entries from the map before calling this method. |
+| `patch` | `EXEC` | `certificateMapsId, locationsId, projectsId` | Updates a CertificateMap. |

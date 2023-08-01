@@ -27,22 +27,22 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `volumeId` | `string` | The ID of the volume. |
-| `targetMultiAttachEnabled` | `boolean` | The target setting for Amazon EBS Multi-Attach. |
 | `originalMultiAttachEnabled` | `boolean` | The original setting for Amazon EBS Multi-Attach. |
-| `endTime` | `string` | The modification completion or failure time. |
-| `originalIops` | `integer` | The original IOPS rate of the volume. |
-| `targetVolumeType` | `string` | The target EBS volume type of the volume. |
-| `targetIops` | `integer` | The target IOPS rate of the volume. |
-| `originalVolumeType` | `string` | The original EBS volume type of the volume. |
-| `modificationState` | `string` | The current modification state. The modification state is null for unmodified volumes. |
-| `startTime` | `string` | The modification start time. |
-| `originalThroughput` | `integer` | The original throughput of the volume, in MiB/s. |
-| `progress` | `integer` | The modification progress, from 0 to 100 percent complete. |
-| `statusMessage` | `string` | A status message about the modification progress or failure. |
+| `volumeId` | `string` | The ID of the volume. |
 | `targetSize` | `integer` | The target size of the volume, in GiB. |
-| `targetThroughput` | `integer` | The target throughput of the volume, in MiB/s. |
+| `originalIops` | `integer` | The original IOPS rate of the volume. |
+| `modificationState` | `string` | The current modification state. The modification state is null for unmodified volumes. |
+| `originalVolumeType` | `string` | The original EBS volume type of the volume. |
+| `progress` | `integer` | The modification progress, from 0 to 100 percent complete. |
+| `endTime` | `string` | The modification completion or failure time. |
 | `originalSize` | `integer` | The original size of the volume, in GiB. |
+| `originalThroughput` | `integer` | The original throughput of the volume, in MiB/s. |
+| `startTime` | `string` | The modification start time. |
+| `targetThroughput` | `integer` | The target throughput of the volume, in MiB/s. |
+| `statusMessage` | `string` | A status message about the modification progress or failure. |
+| `targetIops` | `integer` | The target IOPS rate of the volume. |
+| `targetVolumeType` | `string` | The target EBS volume type of the volume. |
+| `targetMultiAttachEnabled` | `boolean` | The target setting for Amazon EBS Multi-Attach. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

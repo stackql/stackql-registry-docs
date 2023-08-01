@@ -33,4 +33,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `sql_instances_listServerCas` | `SELECT` | `instance, project` |
+| `list_server_cas` | `SELECT` | `instance, project` |

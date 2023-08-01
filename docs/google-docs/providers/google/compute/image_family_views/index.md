@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `imageFamilyViews_get` | `SELECT` | `family, project, zone` |
+| `get` | `SELECT` | `family, project, zone` |

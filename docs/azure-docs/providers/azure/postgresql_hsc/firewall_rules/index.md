@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | The properties of a server group firewall rule. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `properties` | `object` | The properties of a server group firewall rule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

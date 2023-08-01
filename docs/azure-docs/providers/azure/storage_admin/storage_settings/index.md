@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource Name. |
-| `location` | `string` | Resource Location. |
 | `properties` | `object` | Properties of storage setting. |
 | `type` | `string` | Resource Type. |
+| `location` | `string` | Resource Location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

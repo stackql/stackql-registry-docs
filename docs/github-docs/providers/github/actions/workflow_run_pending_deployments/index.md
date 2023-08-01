@@ -27,11 +27,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `wait_timer_started_at` | `string` | The time that the wait timer began. |
-| `current_user_can_approve` | `boolean` | Whether the currently authenticated user can approve the deployment |
 | `environment` | `object` |  |
 | `reviewers` | `array` | The people or teams that may approve jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed. |
 | `wait_timer` | `integer` | The set duration of the wait timer |
+| `wait_timer_started_at` | `string` | The time that the wait timer began. |
+| `current_user_can_approve` | `boolean` | Whether the currently authenticated user can approve the deployment |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

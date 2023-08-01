@@ -28,18 +28,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `repository` | `object` | Minimal Repository |
-| `score` | `number` |  |
 | `url` | `string` |  |
 | `last_modified_at` | `string` |  |
-| `html_url` | `string` |  |
-| `file_size` | `integer` |  |
-| `text_matches` | `array` |  |
-| `path` | `string` |  |
-| `git_url` | `string` |  |
-| `language` | `string` |  |
 | `sha` | `string` |  |
+| `score` | `number` |  |
+| `text_matches` | `array` |  |
+| `language` | `string` |  |
 | `line_numbers` | `array` |  |
+| `html_url` | `string` |  |
+| `repository` | `object` | Minimal Repository |
+| `path` | `string` |  |
+| `file_size` | `integer` |  |
+| `git_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

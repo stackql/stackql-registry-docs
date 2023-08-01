@@ -33,7 +33,7 @@ Redis Cache
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Redis Cache (Microsoft.Cache)</td></tr>
 <tr><td><b>Description</b></td><td>Redis Cache</td></tr>
-<tr><td><b>Id</b></td><td><code>redis:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>redis:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -27,18 +27,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `comments_url` | `string` |  |
-| `committer` | `object` | Metaproperties for Git author/committer information. |
-| `html_url` | `string` |  |
 | `url` | `string` |  |
-| `commit` | `object` |  |
 | `author` | `object` | Simple User |
+| `committer` | `object` | Metaproperties for Git author/committer information. |
+| `comments_url` | `string` |  |
+| `html_url` | `string` |  |
 | `repository` | `object` | Minimal Repository |
+| `parents` | `array` |  |
 | `text_matches` | `array` |  |
+| `node_id` | `string` |  |
+| `commit` | `object` |  |
 | `sha` | `string` |  |
 | `score` | `number` |  |
-| `node_id` | `string` |  |
-| `parents` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

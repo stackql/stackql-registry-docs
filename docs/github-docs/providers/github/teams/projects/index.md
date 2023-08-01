@@ -29,20 +29,20 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` |  |
-| `url` | `string` |  |
 | `columns_url` | `string` |  |
-| `html_url` | `string` |  |
-| `node_id` | `string` |  |
-| `private` | `boolean` | Whether the project is private or not. Only present when owner is an organization. |
-| `number` | `integer` |  |
-| `body` | `string` |  |
-| `owner_url` | `string` |  |
-| `creator` | `object` | Simple User |
-| `organization_permission` | `string` | The organization permission for this project. Only present when owner is an organization. |
-| `updated_at` | `string` |  |
 | `created_at` | `string` |  |
+| `body` | `string` |  |
+| `private` | `boolean` | Whether the project is private or not. Only present when owner is an organization. |
+| `node_id` | `string` |  |
+| `creator` | `object` | Simple User |
+| `owner_url` | `string` |  |
+| `html_url` | `string` |  |
 | `permissions` | `object` |  |
 | `state` | `string` |  |
+| `url` | `string` |  |
+| `updated_at` | `string` |  |
+| `number` | `integer` |  |
+| `organization_permission` | `string` | The organization permission for this project. Only present when owner is an organization. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

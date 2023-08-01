@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `backendServices_addSignedUrlKey` | `INSERT` | `backendService, project` | Adds a key for validating requests with signed URLs for this backend service. |
-| `backendServices_deleteSignedUrlKey` | `DELETE` | `backendService, keyName, project` | Deletes a key for validating requests with signed URLs for this backend service. |
+| `add_signed_url_key` | `EXEC` | `backendService, project` | Adds a key for validating requests with signed URLs for this backend service. |
+| `delete_signed_url_key` | `EXEC` | `backendService, keyName, project` | Deletes a key for validating requests with signed URLs for this backend service. |

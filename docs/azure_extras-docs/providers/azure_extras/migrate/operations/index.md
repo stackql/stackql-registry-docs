@@ -28,8 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the operation. |
-| `display` | `object` | Displayable properties of the operation. |
 | `origin` | `string` | Origin of the operation. |
+| `display` | `object` | Displayable properties of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

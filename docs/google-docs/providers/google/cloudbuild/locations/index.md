@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `regionalWebhook` | `EXEC` | `locationsId` |
+| `locations_regional_webhook` | `EXEC` | `locationsId` |

@@ -17,7 +17,7 @@ slug: /providers/linode
 ---
  Cloud Computing Services by Akamai.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.05.00149)
 
 <div class="row">
 <div class="providerDocColumn">

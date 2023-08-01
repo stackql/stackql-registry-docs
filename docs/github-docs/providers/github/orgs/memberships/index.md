@@ -27,13 +27,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `organization` | `object` | Organization Simple |
+| `organization_url` | `string` |  |
+| `permissions` | `object` |  |
 | `role` | `string` | The user's membership type in the organization. |
 | `state` | `string` | The state of the member in the organization. The `pending` state indicates the user has not yet accepted an invitation. |
 | `url` | `string` |  |
 | `user` | `object` | Simple User |
-| `organization` | `object` | Organization Simple |
-| `organization_url` | `string` |  |
-| `permissions` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

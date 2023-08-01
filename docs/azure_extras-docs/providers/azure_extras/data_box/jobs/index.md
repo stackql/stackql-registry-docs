@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Id of the object. |
 | `name` | `string` | Name of the object. |
-| `identity` | `object` | Msi identity details of the resource |
 | `sku` | `object` | The Sku. |
-| `systemData` | `object` | Provides details about resource creation and update time |
-| `tags` | `object` | The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). |
-| `properties` | `object` | Job Properties |
 | `location` | `string` | The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed. |
+| `tags` | `object` | The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). |
+| `systemData` | `object` | Provides details about resource creation and update time |
 | `type` | `string` | Type of the object. |
+| `identity` | `object` | Msi identity details of the resource |
+| `properties` | `object` | Job Properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,22 +29,22 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the deployment |
 | `description` | `string` |  |
-| `updated_at` | `string` |  |
-| `node_id` | `string` |  |
-| `environment` | `string` | Name for the target deployment environment. |
-| `created_at` | `string` |  |
-| `production_environment` | `boolean` | Specifies if the given environment is one that end-users directly interact with. Default: false. |
-| `repository_url` | `string` |  |
-| `url` | `string` |  |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `creator` | `object` | Simple User |
-| `transient_environment` | `boolean` | Specifies if the given environment is will no longer exist at some point in the future. Default: false. |
+| `node_id` | `string` |  |
 | `original_environment` | `string` |  |
+| `updated_at` | `string` |  |
+| `repository_url` | `string` |  |
+| `created_at` | `string` |  |
+| `transient_environment` | `boolean` | Specifies if the given environment is will no longer exist at some point in the future. Default: false. |
 | `ref` | `string` | The ref to deploy. This can be a branch, tag, or sha. |
-| `task` | `string` | Parameter to specify a task to execute |
+| `production_environment` | `boolean` | Specifies if the given environment is one that end-users directly interact with. Default: false. |
 | `payload` | `` |  |
 | `statuses_url` | `string` |  |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `url` | `string` |  |
 | `sha` | `string` |  |
+| `environment` | `string` | Name for the target deployment environment. |
+| `task` | `string` | Parameter to specify a task to execute |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

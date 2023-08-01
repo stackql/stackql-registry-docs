@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-The Runtime Configurator allows you to dynamically configure and expose variables through Google Cloud Platform. In addition, you can also set Watchers and Waiters that will watch for changes to your data and return based on certain conditions.  
+The Runtime Configurator Allows You To Dynamically Configure And Expose Variables Through Google Cloud Platform. In Addition, You Can Also Set Watchers And Waiters That Will Watch For Changes To Your Data And Return Based On Certain Conditions.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ The Runtime Configurator allows you to dynamically configure and expose variable
 <tr><td><b>Name</b></td><td><code>google.runtimeconfig</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Runtime Configuration API</td></tr>
-<tr><td><b>Description</b></td><td>The Runtime Configurator allows you to dynamically configure and expose variables through Google Cloud Platform. In addition, you can also set Watchers and Waiters that will watch for changes to your data and return based on certain conditions.</td></tr>
-<tr><td><b>Id</b></td><td><code>runtimeconfig:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>The Runtime Configurator Allows You To Dynamically Configure And Expose Variables Through Google Cloud Platform. In Addition, You Can Also Set Watchers And Waiters That Will Watch For Changes To Your Data And Return Based On Certain Conditions.</td></tr>
+<tr><td><b>Id</b></td><td><code>runtimeconfig:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

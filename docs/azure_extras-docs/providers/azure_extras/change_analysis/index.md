@@ -33,7 +33,7 @@ Azure Change Analysis Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Change Analysis Management Client (Microsoft.ChangeAnalysis)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Change Analysis Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>change_analysis:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>change_analysis:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

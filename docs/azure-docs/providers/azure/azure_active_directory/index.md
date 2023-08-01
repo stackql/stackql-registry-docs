@@ -33,7 +33,7 @@ Azure Active Directory Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Active Directory Client (microsoft.aadiam)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Active Directory Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_active_directory:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>azure_active_directory:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

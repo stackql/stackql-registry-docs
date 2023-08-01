@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Setting indicating whether the service has a managed identity associated with it. |
 | `kind` | `string` | The kind of the service. |
 | `properties` | `object` | Fhir Service properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `identity` | `object` | Setting indicating whether the service has a managed identity associated with it. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

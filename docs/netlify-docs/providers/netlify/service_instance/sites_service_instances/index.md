@@ -28,17 +28,17 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `env` | `object` |
-| `service_path` | `string` |
-| `url` | `string` |
 | `service_name` | `string` |
-| `config` | `object` |
-| `external_attributes` | `object` |
-| `created_at` | `string` |
-| `snippets` | `array` |
-| `auth_url` | `string` |
-| `updated_at` | `string` |
 | `service_slug` | `string` |
+| `config` | `object` |
+| `url` | `string` |
+| `service_path` | `string` |
+| `updated_at` | `string` |
+| `snippets` | `array` |
+| `env` | `object` |
+| `auth_url` | `string` |
+| `created_at` | `string` |
+| `external_attributes` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

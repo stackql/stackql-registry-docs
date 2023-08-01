@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `extendedLocation` | `object` | The complex type of the extended location. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Postgres Instance properties. |
 | `sku` | `object` | The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc |
 | `tags` | `object` | Resource tags. |
+| `extendedLocation` | `object` | The complex type of the extended location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

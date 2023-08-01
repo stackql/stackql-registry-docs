@@ -27,19 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Immutable. Resource name for TagValue in the format `tagValues/456`. |
-| `description` | `string` | Optional. User-assigned description of the TagValue. Must not exceed 256 characters. Read-write. |
-| `shortName` | `string` | Required. Immutable. User-assigned short name for TagValue. The short name should be unique for TagValues within the same parent TagKey. The short name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between. |
-| `updateTime` | `string` | Output only. Update time. |
-| `createTime` | `string` | Output only. Creation time. |
-| `etag` | `string` | Optional. Entity tag which users can pass to prevent race conditions. This field is always set in server responses. See UpdateTagValueRequest for details. |
-| `namespacedName` | `string` | Output only. Namespaced name of the TagValue. Now only supported in the format `&#123;organization_id&#125;/&#123;tag_key_short_name&#125;/&#123;short_name&#125;`. Other formats will be supported when we add non-org parented tags. |
-| `parent` | `string` | Immutable. The resource name of the new TagValue's parent TagKey. Must be of the form `tagKeys/&#123;tag_key_id&#125;`. |
+| `nextPageToken` | `string` | A pagination token returned from a previous call to `ListTagValues` that indicates from where listing should continue. This is currently not used, but the server may at any point start supplying a valid token. |
+| `tagValues` | `array` | A possibly paginated list of TagValues that are direct descendants of the specified parent TagKey. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `tagValues_get` | `SELECT` | `tagValuesId` | Retrieves a TagValue. This method will return `PERMISSION_DENIED` if the value does not exist or the user does not have permission to view it. |
-| `tagValues_list` | `SELECT` |  | Lists all TagValues for a specific TagKey. |
-| `tagValues_create` | `INSERT` |  | Creates a TagValue as a child of the specified TagKey. If a another request with the same parameters is sent while the original request is in process the second request will receive an error. A maximum of 1000 TagValues can exist under a TagKey at any given time. |
-| `tagValues_delete` | `DELETE` | `tagValuesId` | Deletes a TagValue. The TagValue cannot have any bindings when it is deleted. |
-| `tagValues_patch` | `EXEC` | `tagValuesId` | Updates the attributes of the TagValue resource. |
+| `get` | `SELECT` | `tagValuesId` | Retrieves a TagValue. This method will return `PERMISSION_DENIED` if the value does not exist or the user does not have permission to view it. |
+| `list` | `SELECT` |  | Lists all TagValues for a specific TagKey. |
+| `create` | `INSERT` |  | Creates a TagValue as a child of the specified TagKey. If a another request with the same parameters is sent while the original request is in process the second request will receive an error. A maximum of 1000 TagValues can exist under a TagKey at any given time. |
+| `delete` | `DELETE` | `tagValuesId` | Deletes a TagValue. The TagValue cannot have any bindings when it is deleted. |
+| `patch` | `EXEC` | `tagValuesId` | Updates the attributes of the TagValue resource. |

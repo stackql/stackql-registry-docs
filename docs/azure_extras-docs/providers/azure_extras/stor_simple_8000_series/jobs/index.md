@@ -29,14 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The path ID that uniquely identifies the object. |
 | `name` | `string` | The name of the object. |
-| `status` | `string` | The current status of the job. |
 | `type` | `string` | The hierarchical type of the object. |
-| `percentComplete` | `integer` | The percentage of the job that is already complete. |
+| `status` | `string` | The current status of the job. |
 | `endTime` | `string` | The UTC time at which the job completed. |
-| `startTime` | `string` | The UTC time at which the job was started. |
 | `error` | `object` | The job error details. Contains list of job error items. |
+| `startTime` | `string` | The UTC time at which the job was started. |
 | `kind` | `string` | The Kind of the object. Currently only Series8000 is supported |
 | `properties` | `object` | The properties of the job. |
+| `percentComplete` | `integer` | The percentage of the job that is already complete. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

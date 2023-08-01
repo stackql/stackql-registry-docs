@@ -27,9 +27,9 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `used` | `integer` | The amount of network usage you have used this billing cycle.<br /> |
 | `billable` | `integer` | The amount of your transfer pool that is billable this billing cycle.<br /> |
 | `quota` | `integer` | The amount of network usage allowed this billing cycle.<br /> |
+| `used` | `integer` | The amount of network usage you have used this billing cycle.<br /> |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

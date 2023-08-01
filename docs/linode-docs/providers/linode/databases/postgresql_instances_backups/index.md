@@ -28,9 +28,9 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the database backup object. |
+| `type` | `string` | The type of database backup, determined by how the backup was created. |
 | `created` | `string` | A time value given in a combined date and time format that represents when the database backup was created. |
 | `label` | `string` | The database backup's label, for display purposes only.<br /><br />Must include only ASCII letters or numbers.<br /> |
-| `type` | `string` | The type of database backup, determined by how the backup was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

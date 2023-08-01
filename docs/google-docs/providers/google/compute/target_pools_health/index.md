@@ -25,11 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `healthStatus` | `array` |  |
-| `kind` | `string` | [Output Only] Type of resource. Always compute#targetPoolInstanceHealth when checking the health of an instance. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `targetPools_getHealth` | `SELECT` | `project, region, targetPool` |
+| `get_health` | `EXEC` | `project, region, targetPool` |

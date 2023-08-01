@@ -27,20 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | A user-defined name of the Certificate Map Entry. Certificate Map Entry names must be unique globally and match pattern `projects/*/locations/*/certificateMaps/*/certificateMapEntries/*`. |
-| `description` | `string` | One or more paragraphs of text description of a certificate map entry. |
-| `createTime` | `string` | Output only. The creation timestamp of a Certificate Map Entry. |
-| `matcher` | `string` | A predefined matcher for particular cases, other than SNI selection. |
-| `labels` | `object` | Set of labels associated with a Certificate Map Entry. |
-| `state` | `string` | Output only. A serving state of this Certificate Map Entry. |
-| `updateTime` | `string` | Output only. The update timestamp of a Certificate Map Entry. |
-| `certificates` | `array` | A set of Certificates defines for the given `hostname`. There can be defined up to fifteen certificates in each Certificate Map Entry. Each certificate must match pattern `projects/*/locations/*/certificates/*`. |
-| `hostname` | `string` | A Hostname (FQDN, e.g. `example.com`) or a wildcard hostname expression (`*.example.com`) for a set of hostnames with common suffix. Used as Server Name Indication (SNI) for selecting a proper certificate. |
+| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
+| `unreachable` | `array` | Locations that could not be reached. |
+| `certificateMapEntries` | `array` | A list of certificate map entries for the parent resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_certificateMaps_certificateMapEntries_get` | `SELECT` | `certificateMapEntriesId, certificateMapsId, locationsId, projectsId` | Gets details of a single CertificateMapEntry. |
-| `projects_locations_certificateMaps_certificateMapEntries_list` | `SELECT` | `certificateMapsId, locationsId, projectsId` | Lists CertificateMapEntries in a given project and location. |
-| `projects_locations_certificateMaps_certificateMapEntries_create` | `INSERT` | `certificateMapsId, locationsId, projectsId` | Creates a new CertificateMapEntry in a given project and location. |
-| `projects_locations_certificateMaps_certificateMapEntries_delete` | `DELETE` | `certificateMapEntriesId, certificateMapsId, locationsId, projectsId` | Deletes a single CertificateMapEntry. |
-| `projects_locations_certificateMaps_certificateMapEntries_patch` | `EXEC` | `certificateMapEntriesId, certificateMapsId, locationsId, projectsId` | Updates a CertificateMapEntry. |
+| `get` | `SELECT` | `certificateMapEntriesId, certificateMapsId, locationsId, projectsId` | Gets details of a single CertificateMapEntry. |
+| `list` | `SELECT` | `certificateMapsId, locationsId, projectsId` | Lists CertificateMapEntries in a given project and location. |
+| `create` | `INSERT` | `certificateMapsId, locationsId, projectsId` | Creates a new CertificateMapEntry in a given project and location. |
+| `delete` | `DELETE` | `certificateMapEntriesId, certificateMapsId, locationsId, projectsId` | Deletes a single CertificateMapEntry. |
+| `patch` | `EXEC` | `certificateMapEntriesId, certificateMapsId, locationsId, projectsId` | Updates a CertificateMapEntry. |

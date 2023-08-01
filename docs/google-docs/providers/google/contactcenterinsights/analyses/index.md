@@ -27,15 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Immutable. The resource name of the analysis. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/conversations/&#123;conversation&#125;/analyses/&#123;analysis&#125; |
-| `createTime` | `string` | Output only. The time at which the analysis was created, which occurs when the long-running operation completes. |
-| `requestTime` | `string` | Output only. The time at which the analysis was requested. |
-| `analysisResult` | `object` | The result of an analysis. |
-| `annotatorSelector` | `object` | Selector of all available annotators and phrase matchers to run. |
+| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `analyses` | `array` | The analyses that match the request. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_conversations_analyses_get` | `SELECT` | `analysesId, conversationsId, locationsId, projectsId` | Gets an analysis. |
-| `projects_locations_conversations_analyses_list` | `SELECT` | `conversationsId, locationsId, projectsId` | Lists analyses. |
-| `projects_locations_conversations_analyses_create` | `INSERT` | `conversationsId, locationsId, projectsId` | Creates an analysis. The long running operation is done when the analysis has completed. |
-| `projects_locations_conversations_analyses_delete` | `DELETE` | `analysesId, conversationsId, locationsId, projectsId` | Deletes an analysis. |
+| `get` | `SELECT` | `analysesId, conversationsId, locationsId, projectsId` | Gets an analysis. |
+| `list` | `SELECT` | `conversationsId, locationsId, projectsId` | Lists analyses. |
+| `create` | `INSERT` | `conversationsId, locationsId, projectsId` | Creates an analysis. The long running operation is done when the analysis has completed. |
+| `delete` | `DELETE` | `analysesId, conversationsId, locationsId, projectsId` | Deletes an analysis. |

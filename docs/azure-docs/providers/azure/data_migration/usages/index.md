@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource ID of the quota object |
 | `name` | `object` | The name of the quota |
+| `unit` | `string` | The unit for the quota, such as Count, Bytes, BytesPerSecond, etc. |
 | `currentValue` | `number` | The current value of the quota. If null or missing, the current value cannot be determined in the context of the request. |
 | `limit` | `number` | The maximum value of the quota. If null or missing, the quota has no maximum, in which case it merely tracks usage. |
-| `unit` | `string` | The unit for the quota, such as Count, Bytes, BytesPerSecond, etc. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

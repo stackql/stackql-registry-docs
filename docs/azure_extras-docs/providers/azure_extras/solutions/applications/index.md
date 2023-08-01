@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `plan` | `object` | Plan for the managed application. |
-| `properties` | `object` | The managed application properties. |
-| `sku` | `object` | SKU for the resource. |
 | `identity` | `object` | Identity for the resource. |
 | `kind` | `string` | The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog. |
 | `managedBy` | `string` | ID of the resource that manages this resource. |
+| `plan` | `object` | Plan for the managed application. |
+| `properties` | `object` | The managed application properties. |
+| `sku` | `object` | SKU for the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

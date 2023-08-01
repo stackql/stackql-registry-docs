@@ -27,17 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name of the model, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/models/&#123;model_id&#125;` |
-| `validateExampleCount` | `integer` | Output only. Number of examples (sentence pairs) used to validate the model. |
-| `createTime` | `string` | Output only. Timestamp when the model resource was created, which is also when the training started. |
-| `displayName` | `string` | The name of the model to show in the interface. The name can be up to 32 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscores (_), and ASCII digits 0-9. |
-| `testExampleCount` | `integer` | Output only. Number of examples (sentence pairs) used to test the model. |
-| `dataset` | `string` | The dataset from which the model is trained, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;` |
-| `deployTime` | `string` | Output only. Timestamp when the model training finished and ready to be used for translation. |
-| `updateTime` | `string` | Output only. Timestamp when this model was last updated. |
-| `sourceLanguageCode` | `string` | Output only. The BCP-47 language code of the source language. |
-| `targetLanguageCode` | `string` | Output only. The BCP-47 language code of the target language. |
-| `trainExampleCount` | `integer` | Output only. Number of examples (sentence pairs) used to train the model. |
+| `models` | `array` | The models read. |
+| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this token to the page_token field in the ListModelsRequest to obtain the corresponding page. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

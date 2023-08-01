@@ -27,14 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the project and contain only lower case letters (a-z) and dashes (-). |
-| `fqdns` | `array` | Unordered list. List of FQDNs that this group applies to. |
-| `cidrs` | `array` | Unordered list. List of CIDRs that this group applies to. |
+| `tunnelDestGroups` | `array` | TunnelDestGroup existing in the project. |
+| `nextPageToken` | `string` | A token that you can send as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_iap_tunnel_locations_destGroups_get` | `SELECT` | `destGroupsId, locationsId, projectsId` | Retrieves an existing TunnelDestGroup. |
-| `projects_iap_tunnel_locations_destGroups_list` | `SELECT` | `locationsId, projectsId` | Lists the existing TunnelDestGroups. To group across all locations, use a `-` as the location ID. For example: `/v1/projects/123/iap_tunnel/locations/-/destGroups` |
-| `projects_iap_tunnel_locations_destGroups_create` | `INSERT` | `locationsId, projectsId` | Creates a new TunnelDestGroup. |
-| `projects_iap_tunnel_locations_destGroups_delete` | `DELETE` | `destGroupsId, locationsId, projectsId` | Deletes a TunnelDestGroup. |
-| `projects_iap_tunnel_locations_destGroups_patch` | `EXEC` | `destGroupsId, locationsId, projectsId` | Updates a TunnelDestGroup. |
+| `get` | `SELECT` | `destGroupsId, locationsId, projectsId` | Retrieves an existing TunnelDestGroup. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists the existing TunnelDestGroups. To group across all locations, use a `-` as the location ID. For example: `/v1/projects/123/iap_tunnel/locations/-/destGroups` |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new TunnelDestGroup. |
+| `delete` | `DELETE` | `destGroupsId, locationsId, projectsId` | Deletes a TunnelDestGroup. |
+| `patch` | `EXEC` | `destGroupsId, locationsId, projectsId` | Updates a TunnelDestGroup. |

@@ -27,8 +27,8 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `type` | `string` |
 | `data` | `` |
+| `type` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

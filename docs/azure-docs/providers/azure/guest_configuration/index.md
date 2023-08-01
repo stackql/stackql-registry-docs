@@ -33,7 +33,7 @@ Guest Configuration
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Guest Configuration (Microsoft.GuestConfiguration)</td></tr>
 <tr><td><b>Description</b></td><td>Guest Configuration</td></tr>
-<tr><td><b>Id</b></td><td><code>guest_configuration:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>guest_configuration:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

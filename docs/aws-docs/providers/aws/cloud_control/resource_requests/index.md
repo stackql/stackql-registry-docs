@@ -27,16 +27,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `ResourceModel` | `string` |
-| `RequestToken` | `string` |
-| `EventTime` | `number` |
 | `Operation` | `string` |
-| `TypeName` | `string` |
-| `ErrorCode` | `string` |
+| `RequestToken` | `string` |
 | `RetryAfter` | `number` |
-| `StatusMessage` | `string` |
-| `Identifier` | `string` |
+| `TypeName` | `string` |
 | `OperationStatus` | `string` |
+| `Identifier` | `string` |
+| `ResourceModel` | `string` |
+| `StatusMessage` | `string` |
+| `ErrorCode` | `string` |
+| `EventTime` | `number` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

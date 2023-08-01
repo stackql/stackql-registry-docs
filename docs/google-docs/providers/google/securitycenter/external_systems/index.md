@@ -29,6 +29,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `folders_sources_findings_externalSystems_patch` | `EXEC` | `externalSystemsId, findingsId, foldersId, sourcesId` |
-| `organizations_sources_findings_externalSystems_patch` | `EXEC` | `externalSystemsId, findingsId, organizationsId, sourcesId` |
-| `projects_sources_findings_externalSystems_patch` | `EXEC` | `externalSystemsId, findingsId, projectsId, sourcesId` |
+| `folders_sources_findings_external_systems_patch` | `EXEC` | `externalSystemsId, findingsId, foldersId, sourcesId` |
+| `organizations_sources_findings_external_systems_patch` | `EXEC` | `externalSystemsId, findingsId, organizationsId, sourcesId` |
+| `projects_sources_findings_external_systems_patch` | `EXEC` | `externalSystemsId, findingsId, projectsId, sourcesId` |

@@ -28,13 +28,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the SKU. Ex - P3. It is typically a letter+number code |
+| `capacity` | `integer` | If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
+| `family` | `string` | If the service has different generations of hardware, for the same SKU, then that can be captured here. |
 | `locations` | `array` | SKU supported locations. |
 | `resourceType` | `string` | The name of the resource type |
 | `size` | `string` | The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.  |
 | `tier` | `string` | This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT. |
 | `capabilities` | `array` | Collection of name/value pairs to describe the SKU capabilities. |
-| `capacity` | `integer` | If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
-| `family` | `string` | If the service has different generations of hardware, for the same SKU, then that can be captured here. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

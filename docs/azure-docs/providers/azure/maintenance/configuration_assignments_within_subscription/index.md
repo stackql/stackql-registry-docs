@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified identifier of the resource |
 | `name` | `string` | Name of the resource |
+| `type` | `string` | Type of the resource |
 | `location` | `string` | Location of the resource |
 | `properties` | `object` | Properties for configuration assignment |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | Type of the resource |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

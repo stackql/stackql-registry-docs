@@ -27,15 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. The resource name of the entry. Format: "projects/*/locations/*/glossaries/*/glossaryEntries/*" |
-| `description` | `string` | Describes the glossary entry. |
-| `termsPair` | `object` | Represents a single entry for an unidirectional glossary. |
-| `termsSet` | `object` | Represents a single entry for an equivalent term set glossary. This is used for equivalent term sets where each term can be replaced by the other terms in the set. |
+| `nextPageToken` | `string` | Optional. A token to retrieve a page of results. Pass this value in the [ListGLossaryEntriesRequest.page_token] field in the subsequent calls. |
+| `glossaryEntries` | `array` | Optional. The Glossary Entries |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_glossaries_glossaryEntries_get` | `SELECT` | `glossariesId, glossaryEntriesId, locationsId, projectsId` | Gets a single glossary entry by the given id. |
-| `projects_locations_glossaries_glossaryEntries_list` | `SELECT` | `glossariesId, locationsId, projectsId` | List the entries for the glossary. |
-| `projects_locations_glossaries_glossaryEntries_create` | `INSERT` | `glossariesId, locationsId, projectsId` | Creates a glossary entry. |
-| `projects_locations_glossaries_glossaryEntries_delete` | `DELETE` | `glossariesId, glossaryEntriesId, locationsId, projectsId` | Deletes a single entry from the glossary |
-| `projects_locations_glossaries_glossaryEntries_patch` | `EXEC` | `glossariesId, glossaryEntriesId, locationsId, projectsId` | Updates a glossary entry. |
+| `projects_locations_glossaries_glossary_entries_get` | `SELECT` | `glossariesId, glossaryEntriesId, locationsId, projectsId` | Gets a single glossary entry by the given id. |
+| `projects_locations_glossaries_glossary_entries_list` | `SELECT` | `glossariesId, locationsId, projectsId` | List the entries for the glossary. |
+| `projects_locations_glossaries_glossary_entries_create` | `INSERT` | `glossariesId, locationsId, projectsId` | Creates a glossary entry. |
+| `projects_locations_glossaries_glossary_entries_delete` | `DELETE` | `glossariesId, glossaryEntriesId, locationsId, projectsId` | Deletes a single entry from the glossary |
+| `projects_locations_glossaries_glossary_entries_patch` | `EXEC` | `glossariesId, glossaryEntriesId, locationsId, projectsId` | Updates a glossary entry. |

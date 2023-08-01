@@ -27,12 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `namespacedTagValue` | `string` | Namespaced name of the TagValue. Now only supported in the format `&#123;organization_id&#125;/&#123;tag_key_short_name&#125;/&#123;tag_value_short_name&#125;`. Other formats will be supported when we add non-org parented tags. |
-| `tagKey` | `string` | The name of the TagKey, in the format `tagKeys/&#123;id&#125;`, such as `tagKeys/123`. |
-| `tagValue` | `string` | Resource name for TagValue in the format `tagValues/456`. |
-| `inherited` | `boolean` | Indicates the inheritance status of a tag value attached to the given resource. If the tag value is inherited from one of the resource's ancestors, inherited will be true. If false, then the tag value is directly attached to the resource, inherited will be false. |
-| `namespacedTagKey` | `string` | The namespaced_name of the TagKey. Now only supported in the format of `&#123;organization_id&#125;/&#123;tag_key_short_name&#125;`. Other formats will be supported when we add non-org parented tags. |
+| `effectiveTags` | `array` | A possibly paginated list of effective tags for the specified resource. |
+| `nextPageToken` | `string` | Pagination token. If the result set is too large to fit in a single response, this token is returned. It encodes the position of the current result cursor. Feeding this value into a new list request with the `page_token` parameter gives the next page of the results. When `next_page_token` is not filled in, there is no next page and the list returned is the last page in the result set. Pagination tokens have a limited lifetime. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `effectiveTags_list` | `SELECT` |  |
+| `list` | `SELECT` |  |

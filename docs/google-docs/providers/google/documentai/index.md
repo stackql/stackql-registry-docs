@@ -13,14 +13,14 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Service to parse structured information from unstructured or semi-structured documents using state-of-the-art Google AI such as natural language, computer vision, translation, and AutoML.  
+Service To Parse Structured Information From Unstructured Or Semi-Structured Documents Using State-Of-The-Art Google AI Such As Natural Language, Computer Vision, Translation, And AutoML.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
 <span>total methods:&nbsp;<b>31</b></span><br />
 </div>
 </div>
@@ -32,8 +32,8 @@ Service to parse structured information from unstructured or semi-structured doc
 <tr><td><b>Name</b></td><td><code>google.documentai</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Document AI API</td></tr>
-<tr><td><b>Description</b></td><td>Service to parse structured information from unstructured or semi-structured documents using state-of-the-art Google AI such as natural language, computer vision, translation, and AutoML.</td></tr>
-<tr><td><b>Id</b></td><td><code>documentai:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Service To Parse Structured Information From Unstructured Or Semi-Structured Documents Using State-Of-The-Art Google AI Such As Natural Language, Computer Vision, Translation, And AutoML.</td></tr>
+<tr><td><b>Id</b></td><td><code>documentai:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,10 +42,9 @@ Service to parse structured information from unstructured or semi-structured doc
 <a href="/providers/google/documentai/evaluations/">evaluations</a><br />
 <a href="/providers/google/documentai/human_review_config/">human_review_config</a><br />
 <a href="/providers/google/documentai/locations/">locations</a><br />
-<a href="/providers/google/documentai/locations_processor_types/">locations_processor_types</a><br />
+<a href="/providers/google/documentai/operations/">operations</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/documentai/operations/">operations</a><br />
 <a href="/providers/google/documentai/processor_types/">processor_types</a><br />
 <a href="/providers/google/documentai/processor_versions/">processor_versions</a><br />
 <a href="/providers/google/documentai/processors/">processors</a><br />

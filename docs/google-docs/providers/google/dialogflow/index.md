@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Builds conversational interfaces (for example, chatbots, and voice-powered apps and devices).  
+Builds Conversational Interfaces (For Example, Chatbots, And Voice-Powered Apps And Devices).  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Builds conversational interfaces (for example, chatbots, and voice-powered apps 
 <tr><td><b>Name</b></td><td><code>google.dialogflow</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dialogflow API</td></tr>
-<tr><td><b>Description</b></td><td>Builds conversational interfaces (for example, chatbots, and voice-powered apps and devices).</td></tr>
-<tr><td><b>Id</b></td><td><code>dialogflow:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Builds Conversational Interfaces (For Example, Chatbots, And Voice-Powered Apps And Devices).</td></tr>
+<tr><td><b>Id</b></td><td><code>dialogflow:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

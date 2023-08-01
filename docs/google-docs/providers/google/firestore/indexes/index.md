@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. A server defined name for this index. The form of this name for composite indexes will be: `projects/&#123;project_id&#125;/databases/&#123;database_id&#125;/collectionGroups/&#123;collection_id&#125;/indexes/&#123;composite_index_id&#125;` For single field indexes, this field will be empty. |
-| `state` | `string` | Output only. The serving state of the index. |
 | `apiScope` | `string` | The API scope supported by this index. |
 | `fields` | `array` | The fields supported by this index. For composite indexes, this requires a minimum of 2 and a maximum of 100 fields. The last field entry is always for the field path `__name__`. If, on creation, `__name__` was not specified as the last field, it will be added automatically with the same direction as that of the last field defined. If the final field in a composite index is not directional, the `__name__` will be ordered ASCENDING (unless explicitly specified). For single field indexes, this will always be exactly one entry with a field path equal to the field path of the associated field. |
 | `queryScope` | `string` | Indexes with a collection query scope specified allow queries against a collection that is the child of a specific document, specified at query time, and that has the same collection id. Indexes with a collection group query scope specified allow queries against all collections descended from a specific document, specified at query time, and that have the same collection id as this index. |
+| `state` | `string` | Output only. The serving state of the index. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_databases_collectionGroups_indexes_get` | `SELECT` | `collectionGroupsId, databasesId, indexesId, projectsId` | Gets a composite index. |
-| `projects_databases_collectionGroups_indexes_list` | `SELECT` | `collectionGroupsId, databasesId, projectsId` | Lists composite indexes. |
-| `projects_databases_collectionGroups_indexes_create` | `INSERT` | `collectionGroupsId, databasesId, projectsId` | Creates a composite index. This returns a google.longrunning.Operation which may be used to track the status of the creation. The metadata for the operation will be the type IndexOperationMetadata. |
-| `projects_databases_collectionGroups_indexes_delete` | `DELETE` | `collectionGroupsId, databasesId, indexesId, projectsId` | Deletes a composite index. |
+| `get` | `SELECT` | `collectionGroupsId, databasesId, indexesId, projectsId` | Gets a composite index. |
+| `list` | `SELECT` | `collectionGroupsId, databasesId, projectsId` | Lists composite indexes. |
+| `create` | `INSERT` | `collectionGroupsId, databasesId, projectsId` | Creates a composite index. This returns a google.longrunning.Operation which may be used to track the status of the creation. The metadata for the operation will be the type IndexOperationMetadata. |
+| `delete` | `DELETE` | `collectionGroupsId, databasesId, indexesId, projectsId` | Deletes a composite index. |

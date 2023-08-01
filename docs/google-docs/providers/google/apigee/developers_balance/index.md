@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_developers_getBalance` | `SELECT` | `developersId, organizationsId` |
+| `organizations_developers_get_balance` | `SELECT` | `developersId, organizationsId` |

@@ -30,21 +30,21 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` | Unique identifier of the team |
 | `name` | `string` | Name of the team |
 | `description` | `string` |  |
-| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
-| `members_count` | `integer` |  |
 | `html_url` | `string` |  |
-| `slug` | `string` |  |
-| `privacy` | `string` | The level of privacy this team should have |
 | `organization` | `object` | Organization Full |
-| `members_url` | `string` |  |
-| `node_id` | `string` |  |
-| `repositories_url` | `string` |  |
-| `url` | `string` | URL for the team |
-| `updated_at` | `string` |  |
 | `created_at` | `string` |  |
+| `repositories_url` | `string` |  |
+| `members_count` | `integer` |  |
+| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
+| `url` | `string` | URL for the team |
+| `node_id` | `string` |  |
+| `slug` | `string` |  |
+| `updated_at` | `string` |  |
 | `repos_count` | `integer` |  |
-| `permission` | `string` | Permission that the team will have for its repositories |
+| `privacy` | `string` | The level of privacy this team should have |
 | `ldap_dn` | `string` | Distinguished Name (DN) that team maps to within LDAP environment |
+| `members_url` | `string` |  |
+| `permission` | `string` | Permission that the team will have for its repositories |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

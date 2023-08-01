@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `useEmailSending` | `boolean` | Whether to use email sending provided by Firebear. |
-| `projectId` | `string` | Project ID of the relying party. |
-| `dynamicLinksDomain` | `string` |  |
-| `authorizedDomains` | `array` | Authorized domains. |
-| `allowPasswordUser` | `boolean` | Whether to allow password user sign in or sign up. |
-| `changeEmailTemplate` | `object` | Template for an email template. |
+| `verifyEmailTemplate` | `object` | Template for an email template. |
 | `legacyResetPasswordTemplate` | `object` | Template for an email template. |
 | `apiKey` | `string` | Browser API key, needed when making http request to Apiary. |
-| `idpConfig` | `array` | OAuth2 provider configuration. |
-| `resetPasswordTemplate` | `object` | Template for an email template. |
-| `verifyEmailTemplate` | `object` | Template for an email template. |
+| `projectId` | `string` | Project ID of the relying party. |
 | `enableAnonymousUser` | `boolean` | Whether anonymous user is enabled. |
+| `idpConfig` | `array` | OAuth2 provider configuration. |
+| `changeEmailTemplate` | `object` | Template for an email template. |
+| `resetPasswordTemplate` | `object` | Template for an email template. |
+| `dynamicLinksDomain` | `string` |  |
+| `allowPasswordUser` | `boolean` | Whether to allow password user sign in or sign up. |
+| `authorizedDomains` | `array` | Authorized domains. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `relyingparty_getProjectConfig` | `SELECT` |  |
+| `get_project_config` | `SELECT` |  |

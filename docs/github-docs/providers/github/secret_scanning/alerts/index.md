@@ -27,17 +27,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `url` | `string` | The REST API URL of the alert resource. |
 | `resolved_by` | `object` | Simple User |
+| `resolved_at` | `string` | The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `html_url` | `string` | The GitHub URL of the alert resource. |
+| `number` | `integer` | The security alert number. |
 | `locations_url` | `string` | The REST API URL of the code locations for this alert. |
 | `state` | `string` | Sets the state of the secret scanning alert. Can be either `open` or `resolved`. You must provide `resolution` when you set the state to `resolved`. |
-| `secret` | `string` | The secret that was detected. |
-| `secret_type` | `string` | The type of secret that secret scanning detected. |
-| `resolved_at` | `string` | The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `number` | `integer` | The security alert number. |
 | `resolution` | `string` | **Required when the `state` is `resolved`.** The reason for resolving the alert. Can be one of `false_positive`, `wont_fix`, `revoked`, or `used_in_tests`. |
+| `secret_type` | `string` | The type of secret that secret scanning detected. |
 | `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `html_url` | `string` | The GitHub URL of the alert resource. |
-| `url` | `string` | The REST API URL of the alert resource. |
+| `secret` | `string` | The secret that was detected. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

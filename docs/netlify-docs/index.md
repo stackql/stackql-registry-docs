@@ -17,7 +17,7 @@ slug: /providers/netlify
 ---
 Web development and content distribution platform.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.04.00141)
 
 <div class="row">
 <div class="providerDocColumn">

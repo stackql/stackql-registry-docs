@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_instances_getAuthString` | `SELECT` | `instancesId, locationsId, projectsId` |
+| `get_auth_string` | `SELECT` | `instancesId, locationsId, projectsId` |

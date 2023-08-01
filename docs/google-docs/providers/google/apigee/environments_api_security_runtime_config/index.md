@@ -35,4 +35,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_environments_getApiSecurityRuntimeConfig` | `SELECT` | `environmentsId, organizationsId` |
+| `organizations_environments_get_api_security_runtime_config` | `SELECT` | `environmentsId, organizationsId` |

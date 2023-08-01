@@ -33,7 +33,7 @@ The AzureArcData management API provides a RESTful set of web APIs to manage Azu
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureArcData Management Client (Microsoft.AzureArcData)</td></tr>
 <tr><td><b>Description</b></td><td>The AzureArcData management API provides a RESTful set of web APIs to manage Azure Data Services on Azure Arc Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_arc_data:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>azure_arc_data:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

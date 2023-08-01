@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | An identifier that represents the resource. |
 | `name` | `string` | The name of the resource. |
-| `properties` | `object` | Properties of delegated subnet |
-| `tags` | `object` | The resource tags. |
 | `type` | `string` | The type of resource. |
 | `location` | `string` | Location of the resource. |
+| `properties` | `object` | Properties of delegated subnet |
+| `tags` | `object` | The resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

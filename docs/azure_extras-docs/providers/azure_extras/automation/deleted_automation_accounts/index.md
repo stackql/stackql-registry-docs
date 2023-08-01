@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets or sets name of the resource. |
+| `type` | `string` | The resource type. |
 | `location` | `string` | Gets or sets the location of the resource. |
 | `properties` | `object` | Definition of the deleted automation account properties. |
-| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

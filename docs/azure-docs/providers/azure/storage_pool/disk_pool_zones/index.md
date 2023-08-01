@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `additionalCapabilities` | `array` | List of additional capabilities for Disk Pool. |
 | `availabilityZones` | `array` | Logical zone for Disk Pool resource; example: ["1"]. |
 | `sku` | `object` | Sku for ARM resource |
+| `additionalCapabilities` | `array` | List of additional capabilities for Disk Pool. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

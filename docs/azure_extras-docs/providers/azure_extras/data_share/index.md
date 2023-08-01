@@ -33,7 +33,7 @@ Creates a Microsoft.DataShare management client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DataShare Management Client (Microsoft.DataShare)</td></tr>
 <tr><td><b>Description</b></td><td>Creates a Microsoft.DataShare management client.</td></tr>
-<tr><td><b>Id</b></td><td><code>data_share:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_share:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

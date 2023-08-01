@@ -20,8 +20,13 @@ def run_query(query):
             data = r.fetchall()
             return pd.DataFrame([i.copy() for i in data])
       except Exception as e:
-            print("ERROR [%s]" % str(e))
-            sys.exit(1)
+            # google workaround
+            if "SELECT not supported for this resource" in str(e):
+                  print("WARN [%s]" % str(e))
+                  return None
+            else:
+                  print("ERROR [%s]" % str(e))
+                  sys.exit(1)
 
 def run_command(query):
       print("running %s..." % query)
@@ -38,6 +43,13 @@ if provider_ver == "latest":
 else:
       iql_query = "REGISTRY PULL %s %s" % (provider, provider_ver)
 run_command(iql_query)
+
+# get version pulled
+if provider_ver == "latest":
+      iql_query = "SHOW PROVIDERS"
+      providers = run_query(iql_query)
+      provider_ver = providers.query("name == '%s'" % provider)["version"].values[0]
+      print("provider_ver: %s" % provider_ver)
 
 provider_root_dir = "%s/devdocs/%s-docs" % (os.getcwd(), provider)
 provider_providers_root_dir = "%s/providers" % (provider_root_dir)
@@ -119,12 +131,13 @@ for serviceIx, serviceRow in services.iterrows():
         total_provider_methods = total_provider_methods + len(methods)
 
         if len(methods.query("SQLVerb == 'SELECT'")) > 0:
-                total_service_selectable_resources = total_service_selectable_resources + 1
-                total_provider_selectable_resources = total_provider_selectable_resources + 1
                 # get fields
                 iql_query = "DESCRIBE EXTENDED %s.%s.%s" % (provider, serviceName, resourceName)
                 fields = run_query(iql_query)
-                resource_doc = resource_doc + generate_fields_table(fields)
+                if fields is not None:
+                  resource_doc = resource_doc + generate_fields_table(fields)
+                  total_service_selectable_resources = total_service_selectable_resources + 1
+                  total_provider_selectable_resources = total_provider_selectable_resources + 1
         else:
                 resource_doc = resource_doc + generate_select_not_supported()
 
@@ -165,7 +178,7 @@ provider_doc = generate_front_matter(provider,
                                     )
 
 # add provider summary and see also links
-provider_doc = provider_doc + generate_provider_summary(len(services), total_provider_methods, total_provider_resources, total_provider_selectable_resources)
+provider_doc = provider_doc + generate_provider_summary(len(services), total_provider_methods, total_provider_resources, total_provider_selectable_resources, provider_ver)
 provider_doc = provider_doc + generate_see_also_links()
 
 # add install and auth blocks to provider doc

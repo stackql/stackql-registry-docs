@@ -27,13 +27,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `commit_url` | `string` |  |
-| `repository` | `object` | Minimal Repository |
 | `sha` | `string` |  |
 | `state` | `string` |  |
 | `statuses` | `array` |  |
 | `total_count` | `integer` |  |
 | `url` | `string` |  |
+| `commit_url` | `string` |  |
+| `repository` | `object` | Minimal Repository |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

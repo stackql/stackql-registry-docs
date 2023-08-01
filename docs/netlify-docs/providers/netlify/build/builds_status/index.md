@@ -27,11 +27,11 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `minutes` | `object` |
-| `pending_concurrency` | `integer` |
 | `active` | `integer` |
 | `build_count` | `integer` |
 | `enqueued` | `integer` |
+| `minutes` | `object` |
+| `pending_concurrency` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

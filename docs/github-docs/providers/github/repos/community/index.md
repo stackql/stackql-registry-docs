@@ -28,11 +28,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `description` | `string` |
+| `files` | `object` |
+| `health_percentage` | `integer` |
 | `updated_at` | `string` |
 | `content_reports_enabled` | `boolean` |
 | `documentation` | `string` |
-| `files` | `object` |
-| `health_percentage` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

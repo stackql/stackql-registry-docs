@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-The Resource Settings API allows users to control and modify the behavior of their GCP resources (e.g., VM, firewall, Project, etc.) across the Cloud Resource Hierarchy.  
+The Resource Settings API Allows Users To Control And Modify The Behavior Of Their GCP Resources (E.G., VM, Firewall, Project, Etc.) Across The Cloud Resource Hierarchy.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ The Resource Settings API allows users to control and modify the behavior of the
 <tr><td><b>Name</b></td><td><code>google.resourcesettings</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Resource Settings API</td></tr>
-<tr><td><b>Description</b></td><td>The Resource Settings API allows users to control and modify the behavior of their GCP resources (e.g., VM, firewall, Project, etc.) across the Cloud Resource Hierarchy.</td></tr>
-<tr><td><b>Id</b></td><td><code>resourcesettings:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>The Resource Settings API Allows Users To Control And Modify The Behavior Of Their GCP Resources (E.G., VM, Firewall, Project, Etc.) Across The Cloud Resource Hierarchy.</td></tr>
+<tr><td><b>Id</b></td><td><code>resourcesettings:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

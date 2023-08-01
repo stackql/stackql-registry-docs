@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The unique name of the app profile. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/appProfiles/_a-zA-Z0-9*`. |
 | `description` | `string` | Long form description of the use case for this AppProfile. |
-| `etag` | `string` | Strongly validated etag for optimistic concurrency control. Preserve the value returned from `GetAppProfile` when calling `UpdateAppProfile` to fail the request if there has been a modification in the mean time. The `update_mask` of the request need not include `etag` for this protection to apply. See [Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETag) and [RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3) for more details. |
 | `multiClusterRoutingUseAny` | `object` | Read/write requests are routed to the nearest cluster in the instance, and will fail over to the nearest cluster that is available in the event of transient errors or delays. Clusters in a region are considered equidistant. Choosing this option sacrifices read-your-writes consistency to improve availability. |
 | `singleClusterRouting` | `object` | Unconditionally routes all read/write requests to a specific cluster. This option preserves read-your-writes consistency but does not improve availability. |
+| `etag` | `string` | Strongly validated etag for optimistic concurrency control. Preserve the value returned from `GetAppProfile` when calling `UpdateAppProfile` to fail the request if there has been a modification in the mean time. The `update_mask` of the request need not include `etag` for this protection to apply. See [Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETag) and [RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3) for more details. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_instances_appProfiles_get` | `SELECT` | `appProfilesId, instancesId, projectsId` | Gets information about an app profile. |
-| `projects_instances_appProfiles_list` | `SELECT` | `instancesId, projectsId` | Lists information about app profiles in an instance. |
-| `projects_instances_appProfiles_create` | `INSERT` | `instancesId, projectsId` | Creates an app profile within an instance. |
-| `projects_instances_appProfiles_delete` | `DELETE` | `appProfilesId, instancesId, projectsId` | Deletes an app profile from an instance. |
-| `projects_instances_appProfiles_patch` | `EXEC` | `appProfilesId, instancesId, projectsId` | Updates an app profile within an instance. |
+| `get` | `SELECT` | `appProfilesId, instancesId, projectsId` | Gets information about an app profile. |
+| `list` | `SELECT` | `instancesId, projectsId` | Lists information about app profiles in an instance. |
+| `create` | `INSERT` | `instancesId, projectsId` | Creates an app profile within an instance. |
+| `delete` | `DELETE` | `appProfilesId, instancesId, projectsId` | Deletes an app profile from an instance. |
+| `patch` | `EXEC` | `appProfilesId, instancesId, projectsId` | Updates an app profile within an instance. |

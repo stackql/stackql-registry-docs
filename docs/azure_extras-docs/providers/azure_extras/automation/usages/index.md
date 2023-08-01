@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Gets or sets the id of the resource. |
 | `name` | `object` | Definition of usage counter name. |
+| `limit` | `integer` | Gets or sets max limit. -1 for unlimited |
 | `throttleStatus` | `string` | Gets or sets the throttle status. |
 | `unit` | `string` | Gets or sets the usage unit name. |
 | `currentValue` | `number` | Gets or sets the current usage value. |
-| `limit` | `integer` | Gets or sets max limit. -1 for unlimited |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

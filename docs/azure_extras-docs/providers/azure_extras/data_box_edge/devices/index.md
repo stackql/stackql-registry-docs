@@ -29,15 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The path ID that uniquely identifies the object. |
 | `name` | `string` | The object name. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `sku` | `object` | The resource model definition representing SKU |
 | `tags` | `object` | The list of tags that describe the device. These tags can be used to view and group this device (across resource groups). |
-| `type` | `string` | The hierarchical type of the object. |
-| `properties` | `object` | The properties of the Data Box Edge/Gateway device. |
-| `location` | `string` | The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed. |
 | `etag` | `string` | The etag for the devices. |
+| `location` | `string` | The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed. |
+| `sku` | `object` | The resource model definition representing SKU |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `identity` | `object` | Msi identity details of the resource |
 | `kind` | `string` | The kind of the device. |
+| `type` | `string` | The hierarchical type of the object. |
+| `properties` | `object` | The properties of the Data Box Edge/Gateway device. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

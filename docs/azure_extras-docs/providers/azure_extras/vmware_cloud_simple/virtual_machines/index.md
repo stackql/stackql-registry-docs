@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/virtualMachines/&#123;virtualMachineName&#125; |
 | `name` | `string` | &#123;virtualMachineName&#125; |
-| `location` | `string` | Azure region |
 | `properties` | `object` | Properties of virtual machine |
 | `tags` | `object` | Tags model |
 | `type` | `string` | &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125; |
+| `location` | `string` | Azure region |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Creates short-lived credentials for impersonating IAM service accounts. To enable this API, you must enable the IAM API (iam.googleapis.com).   
+Creates Short-Lived Credentials For Impersonating IAM Service Accounts. To Enable This API, You Must Enable The IAM API (Iam.Googleapis.Com).   
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Creates short-lived credentials for impersonating IAM service accounts. To enabl
 <tr><td><b>Name</b></td><td><code>google.iamcredentials</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>IAM Service Account Credentials API</td></tr>
-<tr><td><b>Description</b></td><td>Creates short-lived credentials for impersonating IAM service accounts. To enable this API, you must enable the IAM API (iam.googleapis.com). </td></tr>
-<tr><td><b>Id</b></td><td><code>iamcredentials:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Creates Short-Lived Credentials For Impersonating IAM Service Accounts. To Enable This API, You Must Enable The IAM API (Iam.Googleapis.Com). </td></tr>
+<tr><td><b>Id</b></td><td><code>iamcredentials:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

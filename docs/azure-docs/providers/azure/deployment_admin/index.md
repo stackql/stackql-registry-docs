@@ -33,7 +33,7 @@ Deployment Admin Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Deployment Admin Client (Microsoft.Deployment.Admin)</td></tr>
 <tr><td><b>Description</b></td><td>Deployment Admin Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>deployment_admin:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>deployment_admin:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

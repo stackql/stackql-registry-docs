@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name: &#123;provider&#125;/&#123;resource&#125;/&#123;read \| write \| action \| delete&#125; |
-| `origin` | `string` | The intended executor of the operation. |
 | `properties` | `object` | Operation properties. |
 | `display` | `object` | The object that represents the operation. |
 | `isDataAction` | `boolean` | If the operation is a data action (for data plane rbac). |
+| `origin` | `string` | The intended executor of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

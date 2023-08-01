@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Gets the id. |
-| `counterValue` | `integer` | Gets the value of the statistic. |
-| `endTime` | `string` | Gets the endTime of the statistic. |
 | `startTime` | `string` | Gets the startTime of the statistic. |
 | `counterProperty` | `string` | Gets the property value of the statistic. |
+| `counterValue` | `integer` | Gets the value of the statistic. |
+| `endTime` | `string` | Gets the endTime of the statistic. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

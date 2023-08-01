@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the operation |
-| `origin` | `string` | Origin of the operation |
 | `properties` | `object` | Extra Operation properties |
 | `actionType` | `string` | Enum. Indicates the action type. "Internal" refers to actions that are for internal only APIs. |
 | `display` | `object` | Operation display payload |
 | `isDataAction` | `boolean` | Indicates whether the operation is a data action |
+| `origin` | `string` | Origin of the operation |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

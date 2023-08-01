@@ -33,8 +33,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_environments_traceConfig_overrides_get` | `SELECT` | `environmentsId, organizationsId, overridesId` | Gets a trace configuration override. |
-| `organizations_environments_traceConfig_overrides_list` | `SELECT` | `environmentsId, organizationsId` | Lists all of the distributed trace configuration overrides in an environment. |
-| `organizations_environments_traceConfig_overrides_create` | `INSERT` | `environmentsId, organizationsId` | Creates a trace configuration override. The response contains a system-generated UUID, that can be used to view, update, or delete the configuration override. Use the List API to view the existing trace configuration overrides. |
-| `organizations_environments_traceConfig_overrides_delete` | `DELETE` | `environmentsId, organizationsId, overridesId` | Deletes a distributed trace configuration override. |
-| `organizations_environments_traceConfig_overrides_patch` | `EXEC` | `environmentsId, organizationsId, overridesId` | Updates a distributed trace configuration override. Note that the repeated fields have replace semantics when included in the field mask and that they will be overwritten by the value of the fields in the request body. |
+| `organizations_environments_trace_config_overrides_get` | `SELECT` | `environmentsId, organizationsId, overridesId` | Gets a trace configuration override. |
+| `organizations_environments_trace_config_overrides_list` | `SELECT` | `environmentsId, organizationsId` | Lists all of the distributed trace configuration overrides in an environment. |
+| `organizations_environments_trace_config_overrides_create` | `INSERT` | `environmentsId, organizationsId` | Creates a trace configuration override. The response contains a system-generated UUID, that can be used to view, update, or delete the configuration override. Use the List API to view the existing trace configuration overrides. |
+| `organizations_environments_trace_config_overrides_delete` | `DELETE` | `environmentsId, organizationsId, overridesId` | Deletes a distributed trace configuration override. |
+| `organizations_environments_trace_config_overrides_patch` | `EXEC` | `environmentsId, organizationsId, overridesId` | Updates a distributed trace configuration override. Note that the repeated fields have replace semantics when included in the field mask and that they will be overwritten by the value of the fields in the request body. |

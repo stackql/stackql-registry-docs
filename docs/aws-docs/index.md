@@ -17,7 +17,7 @@ slug: /providers/aws
 ---
 Cloud services from AWS.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.04.00136)
 
 <div class="row">
 <div class="providerDocColumn">

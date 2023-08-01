@@ -33,7 +33,7 @@ Self service experience for VMware.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Arc VMware Management Service API (Microsoft.ConnectedVMwarevSphere)</td></tr>
 <tr><td><b>Description</b></td><td>Self service experience for VMware.</td></tr>
-<tr><td><b>Id</b></td><td><code>connected_vsphere:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>connected_vsphere:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

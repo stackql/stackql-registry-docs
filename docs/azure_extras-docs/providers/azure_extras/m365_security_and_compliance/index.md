@@ -33,7 +33,7 @@ M365 Security and Compliance
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>M365 Security and Compliance (Microsoft.M365SecurityAndCompliance)</td></tr>
 <tr><td><b>Description</b></td><td>M365 Security and Compliance</td></tr>
-<tr><td><b>Id</b></td><td><code>m365_security_and_compliance:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>m365_security_and_compliance:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

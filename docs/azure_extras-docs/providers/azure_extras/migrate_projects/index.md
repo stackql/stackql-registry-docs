@@ -33,7 +33,7 @@ Migrate Projects
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Migrate Projects (Microsoft.Migrate)</td></tr>
 <tr><td><b>Description</b></td><td>Migrate Projects</td></tr>
-<tr><td><b>Id</b></td><td><code>migrate_projects:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>migrate_projects:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

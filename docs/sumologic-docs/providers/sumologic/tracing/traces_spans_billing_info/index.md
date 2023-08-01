@@ -27,8 +27,8 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `billedBytes` | `integer` | Number of bytes that were charged for the span. |
 | `billedFormat` | `string` | Billing format of the span. Number of bytes of this representation of the span is equal to `billedBytes`. |
+| `billedBytes` | `integer` | Number of bytes that were charged for the span. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

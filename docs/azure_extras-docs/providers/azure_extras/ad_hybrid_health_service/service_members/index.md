@@ -27,32 +27,32 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `dimensions` | `object` | The server specific configuration related dimensions. |
-| `role` | `string` | The service role that is being monitored in the server. |
-| `lastServerReportedMonitoringLevelChange` | `string` | The date and time, in UTC, when the server's data monitoring configuration was last changed. |
-| `installedQfes` | `object` | The list of installed QFEs for the server. |
-| `serviceMemberId` | `string` | The id of the server. |
-| `serviceId` | `string` | The service id to whom this server belongs. |
-| `tenantId` | `string` | The tenant id to whom this server belongs. |
-| `disabledReason` | `integer` | The reason for disabling the server. |
-| `monitoringConfigurationsCustomized` | `object` | The customized monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
-| `recommendedQfes` | `object` | The list of recommended hotfixes for the server. |
 | `additionalInformation` | `string` | The additional information, if any, for the server. |
 | `resolvedAlerts` | `integer` | The total count of alerts that are resolved for this server. |
-| `osVersion` | `string` | The version of the operating system installed in the machine. |
-| `lastDisabled` | `string` | The date and time , in UTC, when the server was last disabled. |
-| `createdDate` | `string` | The date time , in UTC, when the server was onboarded to Azure Active Directory Connect Health. |
+| `lastReboot` | `string` | The date and time, in UTC, when the server was last rebooted. |
+| `machineId` | `string` | The id of the machine. |
+| `serverReportedMonitoringLevel` | `string` | The monitoring level reported by the server. |
 | `status` | `string` | The health status of the server. |
+| `serviceMemberId` | `string` | The id of the server. |
 | `lastUpdated` | `string` | The date and time, in UTC, when the server properties were last updated. |
-| `properties` | `object` | Server specific properties. |
 | `activeAlerts` | `integer` | The total number of alerts that are currently active for the server. |
 | `osName` | `string` | The name of the operating system installed in the machine. |
-| `machineId` | `string` | The id of the machine. |
-| `lastReboot` | `string` | The date and time, in UTC, when the server was last rebooted. |
-| `serverReportedMonitoringLevel` | `string` | The monitoring level reported by the server. |
-| `monitoringConfigurationsComputed` | `object` | The monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
+| `role` | `string` | The service role that is being monitored in the server. |
+| `disabledReason` | `integer` | The reason for disabling the server. |
+| `lastDisabled` | `string` | The date and time , in UTC, when the server was last disabled. |
 | `disabled` | `boolean` | Indicates if the server is disabled or not.  |
+| `monitoringConfigurationsCustomized` | `object` | The customized monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
+| `properties` | `object` | Server specific properties. |
+| `dimensions` | `object` | The server specific configuration related dimensions. |
 | `machineName` | `string` | The name of the server. |
+| `tenantId` | `string` | The tenant id to whom this server belongs. |
+| `installedQfes` | `object` | The list of installed QFEs for the server. |
+| `monitoringConfigurationsComputed` | `object` | The monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
+| `recommendedQfes` | `object` | The list of recommended hotfixes for the server. |
+| `serviceId` | `string` | The service id to whom this server belongs. |
+| `osVersion` | `string` | The version of the operating system installed in the machine. |
+| `createdDate` | `string` | The date time , in UTC, when the server was onboarded to Azure Active Directory Connect Health. |
+| `lastServerReportedMonitoringLevelChange` | `string` | The date and time, in UTC, when the server's data monitoring configuration was last changed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

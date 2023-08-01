@@ -33,7 +33,7 @@ Purview
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Purview (Microsoft.Purview)</td></tr>
 <tr><td><b>Description</b></td><td>Purview</td></tr>
-<tr><td><b>Id</b></td><td><code>purview:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>purview:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

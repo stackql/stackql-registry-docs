@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_secrets_addVersion` | `INSERT` | `projectsId, secretsId` |
+| `add_version` | `EXEC` | `projectsId, secretsId` |

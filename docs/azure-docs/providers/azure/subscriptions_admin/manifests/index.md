@@ -28,24 +28,24 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The unique identifier of the registration. |
-| `namespace` | `string` | The namespace. |
-| `linkedNotificationRules` | `object` | List of the linked notification rules. |
-| `providerAuthorization` | `object` | The resource provider authorization information. |
-| `displayName` | `string` | The display name. |
-| `routingResourceManagerType` | `string` | Resource manager type. |
-| `resourceHydrationAccounts` | `object` | List of the resource hydration accounts. |
-| `providerLocation` | `string` | The location of the provider. |
-| `extensionCollection` | `object` | The manifest extension collection definition. |
-| `providerType` | `string` | The resource provider type. |
 | `resourceTypes` | `object` | List of the resource types. |
 | `resourceTags` | `object` | The resource tags. |
 | `resourceLocation` | `string` | The location of the resource. |
-| `provisioningState` | `string` | The provisioning state. |
-| `enabled` | `boolean` | A value indicating whether this resource provider is enabled. |
-| `alwaysRoutable` | `boolean` | A value indicating whether the manifest is always routable by all subscriptions. |
-| `resourceGroupName` | `string` | The name of the resource group. |
-| `metadata` | `object` | The metadata. |
+| `providerType` | `string` | The resource provider type. |
 | `subscriptionId` | `string` | The subscription ID under which RP is registered. |
+| `linkedNotificationRules` | `object` | List of the linked notification rules. |
+| `enabled` | `boolean` | A value indicating whether this resource provider is enabled. |
+| `metadata` | `object` | The metadata. |
+| `displayName` | `string` | The display name. |
+| `extensionCollection` | `object` | The manifest extension collection definition. |
+| `resourceHydrationAccounts` | `object` | List of the resource hydration accounts. |
+| `provisioningState` | `string` | The provisioning state. |
+| `resourceGroupName` | `string` | The name of the resource group. |
+| `providerAuthorization` | `object` | The resource provider authorization information. |
+| `providerLocation` | `string` | The location of the provider. |
+| `namespace` | `string` | The namespace. |
+| `routingResourceManagerType` | `string` | Resource manager type. |
+| `alwaysRoutable` | `boolean` | A value indicating whether the manifest is always routable by all subscriptions. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -17,7 +17,7 @@ slug: /providers/github
 ---
 Web-based version-control and collaboration.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.04.00136)
 
 <div class="row">
 <div class="providerDocColumn">

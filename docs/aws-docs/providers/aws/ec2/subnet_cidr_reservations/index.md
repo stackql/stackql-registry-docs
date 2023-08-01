@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `nextToken` | `string` | The token to use to retrieve the next page of results. This value is &lt;code&gt;null&lt;/code&gt; when there are no more results to return. |
 | `subnetIpv4CidrReservationSet` | `array` | Information about the IPv4 subnet CIDR reservations. |
 | `subnetIpv6CidrReservationSet` | `array` | Information about the IPv6 subnet CIDR reservations. |
-| `nextToken` | `string` | The token to use to retrieve the next page of results. This value is &lt;code&gt;null&lt;/code&gt; when there are no more results to return. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

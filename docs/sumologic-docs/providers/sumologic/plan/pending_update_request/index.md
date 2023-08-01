@@ -27,8 +27,8 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `plan` | `object` | Current plan of the account. |
 | `createdOn` | `string` | The date on which the update request was created. |
+| `plan` | `object` | Current plan of the account. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

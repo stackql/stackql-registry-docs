@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `instances_addResourcePolicies` | `INSERT` | `instance, project, zone` | Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations. |
-| `instances_removeResourcePolicies` | `DELETE` | `instance, project, zone` | Removes resource policies from an instance. |
+| `add_resource_policies` | `EXEC` | `instance, project, zone` | Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations. |
+| `remove_resource_policies` | `EXEC` | `instance, project, zone` | Removes resource policies from an instance. |

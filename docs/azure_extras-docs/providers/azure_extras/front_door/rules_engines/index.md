@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `properties` | `object` | The JSON object that contains the properties required to create a Rules Engine Configuration. |
 | `type` | `string` | Resource type. |
+| `properties` | `object` | The JSON object that contains the properties required to create a Rules Engine Configuration. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

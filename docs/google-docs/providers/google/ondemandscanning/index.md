@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-A service to scan container images for vulnerabilities.  
+A Service To Scan Container Images For Vulnerabilities.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ A service to scan container images for vulnerabilities.
 <tr><td><b>Name</b></td><td><code>google.ondemandscanning</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>On-Demand Scanning API</td></tr>
-<tr><td><b>Description</b></td><td>A service to scan container images for vulnerabilities.</td></tr>
-<tr><td><b>Id</b></td><td><code>ondemandscanning:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>A Service To Scan Container Images For Vulnerabilities.</td></tr>
+<tr><td><b>Id</b></td><td><code>ondemandscanning:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

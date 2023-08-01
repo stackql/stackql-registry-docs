@@ -28,33 +28,33 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the pull request review comment. |
-| `position` | `integer` | The line index in the diff to which the comment applies. |
-| `start_side` | `string` | The side of the first line of the range for a multi-line comment. |
-| `pull_request_url` | `string` | URL for the pull request that the review comment belongs to. |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `side` | `string` | The side of the diff to which the comment applies. The side of the last line of the range for a multi-line comment |
-| `_links` | `object` |  |
-| `diff_hunk` | `string` | The diff of the line that the comment refers to. |
-| `created_at` | `string` |  |
-| `path` | `string` | The relative path of the file to which the comment applies. |
-| `body_text` | `string` |  |
-| `line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
-| `original_position` | `integer` | The index of the original line in the diff to which the comment applies. |
-| `html_url` | `string` | HTML URL for the pull request review comment. |
-| `pull_request_review_id` | `integer` | The ID of the pull request review to which the comment belongs. |
-| `original_line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
-| `user` | `object` | Simple User |
-| `reactions` | `object` |  |
-| `original_start_line` | `integer` | The first line of the range for a multi-line comment. |
-| `original_commit_id` | `string` | The SHA of the original commit to which the comment applies. |
-| `body` | `string` | The text of the comment. |
 | `start_line` | `integer` | The first line of the range for a multi-line comment. |
-| `commit_id` | `string` | The SHA of the commit to which the comment applies. |
-| `in_reply_to_id` | `integer` | The comment ID to reply to. |
-| `updated_at` | `string` |  |
-| `node_id` | `string` | The node ID of the pull request review comment. |
-| `body_html` | `string` |  |
+| `path` | `string` | The relative path of the file to which the comment applies. |
 | `url` | `string` | URL for the pull request review comment |
+| `original_line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
+| `html_url` | `string` | HTML URL for the pull request review comment. |
+| `original_position` | `integer` | The index of the original line in the diff to which the comment applies. |
+| `_links` | `object` |  |
+| `created_at` | `string` |  |
+| `side` | `string` | The side of the diff to which the comment applies. The side of the last line of the range for a multi-line comment |
+| `body_html` | `string` |  |
+| `body` | `string` | The text of the comment. |
+| `original_commit_id` | `string` | The SHA of the original commit to which the comment applies. |
+| `diff_hunk` | `string` | The diff of the line that the comment refers to. |
+| `reactions` | `object` |  |
+| `position` | `integer` | The line index in the diff to which the comment applies. |
+| `updated_at` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `original_start_line` | `integer` | The first line of the range for a multi-line comment. |
+| `body_text` | `string` |  |
+| `commit_id` | `string` | The SHA of the commit to which the comment applies. |
+| `line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
+| `pull_request_url` | `string` | URL for the pull request that the review comment belongs to. |
+| `node_id` | `string` | The node ID of the pull request review comment. |
+| `start_side` | `string` | The side of the first line of the range for a multi-line comment. |
+| `pull_request_review_id` | `integer` | The ID of the pull request review to which the comment belongs. |
+| `in_reply_to_id` | `integer` | The comment ID to reply to. |
+| `user` | `object` | Simple User |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

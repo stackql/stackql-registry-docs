@@ -29,9 +29,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the AMI. |
 | `description` | `string` | The description of the AMI. |
-| `imageId` | `string` | The ID of the AMI. |
 | `recycleBinEnterTime` | `string` | The date and time when the AMI entered the Recycle Bin. |
 | `recycleBinExitTime` | `string` | The date and time when the AMI is to be permanently deleted from the Recycle Bin. |
+| `imageId` | `string` | The ID of the AMI. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,19 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. Unique name of the peering in this scope including projects and location using the form: `projects/&#123;project_id&#125;/locations/global/peerings/&#123;peering_id&#125;`. |
-| `updateTime` | `string` | Output only. Last update time. |
-| `authorizedNetwork` | `string` | Required. The full names of the Google Compute Engine [networks](/compute/docs/networks-and-firewalls#networks) to which the instance is connected. Caller needs to make sure that CIDR subnets do not overlap between networks, else peering creation will fail. |
-| `createTime` | `string` | Output only. The time the instance was created. |
-| `domainResource` | `string` | Required. Full domain resource path for the Managed AD Domain involved in peering. The resource path should be in the form: `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;` |
-| `labels` | `object` | Optional. Resource labels to represent user-provided metadata. |
-| `state` | `string` | Output only. The current state of this Peering. |
-| `statusMessage` | `string` | Output only. Additional information about the current status of this peering, if available. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `peerings` | `array` | A list of Managed Identities Service Peerings in the project. |
+| `unreachable` | `array` | Locations that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_global_peerings_get` | `SELECT` | `peeringsId, projectsId` | Gets details of a single Peering. |
-| `projects_locations_global_peerings_list` | `SELECT` | `projectsId` | Lists Peerings in a given project. |
-| `projects_locations_global_peerings_create` | `INSERT` | `projectsId` | Creates a Peering for Managed AD instance. |
-| `projects_locations_global_peerings_delete` | `DELETE` | `peeringsId, projectsId` | Deletes identified Peering. |
-| `projects_locations_global_peerings_patch` | `EXEC` | `peeringsId, projectsId` | Updates the labels for specified Peering. |
+| `get` | `SELECT` | `peeringsId, projectsId` | Gets details of a single Peering. |
+| `list` | `SELECT` | `projectsId` | Lists Peerings in a given project. |
+| `create` | `INSERT` | `projectsId` | Creates a Peering for Managed AD instance. |
+| `delete` | `DELETE` | `peeringsId, projectsId` | Deletes identified Peering. |
+| `patch` | `EXEC` | `peeringsId, projectsId` | Updates the labels for specified Peering. |

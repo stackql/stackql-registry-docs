@@ -28,14 +28,14 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID of this Kernel. |
-| `version` | `string` | Linux Kernel version. |
 | `xen` | `boolean` | If this Kernel is suitable for Xen Linodes. |
-| `kvm` | `boolean` | If this Kernel is suitable for KVM Linodes. |
+| `built` | `string` | The date on which this Kernel was built. |
 | `label` | `string` | The friendly name of this Kernel. |
 | `deprecated` | `boolean` | If this Kernel is marked as deprecated, this field has a value of true; otherwise, this field is false. |
-| `built` | `string` | The date on which this Kernel was built. |
-| `pvops` | `boolean` | If this Kernel is suitable for paravirtualized operations. |
 | `architecture` | `string` | The architecture of this Kernel. |
+| `pvops` | `boolean` | If this Kernel is suitable for paravirtualized operations. |
+| `version` | `string` | Linux Kernel version. |
+| `kvm` | `boolean` | If this Kernel is suitable for KVM Linodes. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

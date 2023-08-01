@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Provides methods for detection, risk analysis, and de-identification of privacy-sensitive fragments in text, images, and Google Cloud Platform storage repositories.  
+Provides Methods For Detection, Risk Analysis, And De-Identification Of Privacy-Sensitive Fragments In Text, Images, And Google Cloud Platform Storage Repositories.  
     
 :::info Service Summary
 
@@ -31,9 +31,9 @@ Provides methods for detection, risk analysis, and de-identification of privacy-
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.dlp</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Cloud Data Loss Prevention (DLP) API</td></tr>
-<tr><td><b>Description</b></td><td>Provides methods for detection, risk analysis, and de-identification of privacy-sensitive fragments in text, images, and Google Cloud Platform storage repositories.</td></tr>
-<tr><td><b>Id</b></td><td><code>dlp:v23.05.00145</code></td></tr>
+<tr><td><b>Title</b></td><td>Cloud Data Loss Prevention (DLP)</td></tr>
+<tr><td><b>Description</b></td><td>Provides Methods For Detection, Risk Analysis, And De-Identification Of Privacy-Sensitive Fragments In Text, Images, And Google Cloud Platform Storage Repositories.</td></tr>
+<tr><td><b>Id</b></td><td><code>dlp:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

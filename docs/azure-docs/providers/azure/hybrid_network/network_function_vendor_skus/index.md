@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `roleName` | `string` | The name of the network function role. |
 | `userDataParameters` | `object` | The user data parameters. |
 | `userDataTemplate` | `object` | The user data template. |
 | `networkInterfaces` | `array` | The network interface configuration. |
+| `roleName` | `string` | The name of the network function role. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

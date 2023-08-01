@@ -25,13 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `updateTime` | `string` | Output only. The timestamp when the source was last queried (if the result is from the cache). |
-| `vmwareVms` | `object` | VmwareVmsDetails describes VMs in vCenter. |
-| `awsVms` | `object` | AWSVmsDetails describes VMs in AWS. |
-| `nextPageToken` | `string` | Output only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_sources_fetchInventory` | `SELECT` | `locationsId, projectsId, sourcesId` |
+| `fetch_inventory` | `EXEC` | `locationsId, projectsId, sourcesId` |

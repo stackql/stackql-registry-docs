@@ -28,12 +28,12 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The OAuth Client ID.  This is used to identify the client, and is a publicly-known value (it is not a secret).<br /> |
-| `redirect_uri` | `string` | The location a successful log in from &lt;a target="_top" href="https://login.linode.com"&gt;https://login.linode.com&lt;/a&gt; should be redirected to for this client.  The receiver of this redirect should be ready to accept an OAuth exchange code and finish the OAuth exchange.<br /> |
 | `secret` | `string` | The OAuth Client secret, used in the OAuth exchange.  This is returned as `&lt;REDACTED&gt;` except when an OAuth Client is created or its secret is reset.  This is a secret, and should not be shared or disclosed publicly.<br /> |
 | `status` | `string` | The status of this application.  `active` by default.<br /> |
 | `thumbnail_url` | `string` | The URL where this client's thumbnail may be viewed, or `null` if this client does not have a thumbnail set.<br /> |
 | `label` | `string` | The name of this application.  This will be presented to users when they are asked to grant it access to their Account.<br /> |
 | `public` | `boolean` | If this is a public or private OAuth Client.  Public clients have a slightly different authentication workflow than private clients.  See the &lt;a target="_top" href="https://oauth.net/2/"&gt;OAuth spec&lt;/a&gt; for more details.<br /> |
+| `redirect_uri` | `string` | The location a successful log in from &lt;a target="_top" href="https://login.linode.com"&gt;https://login.linode.com&lt;/a&gt; should be redirected to for this client.  The receiver of this redirect should be ready to accept an OAuth exchange code and finish the OAuth exchange.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

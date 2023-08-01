@@ -27,9 +27,9 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `billing_history` | `array` |  |
 | `links` | `object` |  |
 | `meta` | `object` | Information about the response itself. |
-| `billing_history` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

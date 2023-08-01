@@ -28,22 +28,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique ID for the entree |
-| `attemptCountThresholdOnTrigger` | `integer` | The attempted count threshold on trigger. |
-| `extranetLockoutErrorCount` | `integer` | The extranet lockout error count |
-| `geographicLocation` | `string` | The geographic location. |
-| `timeSpan` | `string` | The duration of the event |
-| `uniqueUsernamesAttemptedCount` | `integer` | The unique usernames attempted |
-| `badPasswordErrorCount` | `integer` | The bad password error count |
-| `timestamp` | `string` | When the event occurred |
-| `networkLocation` | `string` | The network location |
 | `tenantId` | `string` | The tenant ID |
+| `extranetLockoutErrorCount` | `integer` | The extranet lockout error count |
+| `networkLocation` | `string` | The network location |
+| `timeSpan` | `string` | The duration of the event |
 | `attemptThresholdTypeOnTrigger` | `string` | The attempted threshold type on trigger. |
-| `lastAuditTimestamp` | `string` | The last audit timestamp |
-| `ipAddress` | `string` | The IP address from where the attempted login originated from. |
-| `isWhitelistedIpAddress` | `boolean` | A value indicating whether the IP address has been whitelisted. |
-| `firstAuditTimestamp` | `string` | The first audit timestamp |
 | `attemptCountThresholdIsExceeded` | `boolean` | A value indicating whether the attempt count threshold been exceeded |
+| `geographicLocation` | `string` | The geographic location. |
+| `firstAuditTimestamp` | `string` | The first audit timestamp |
+| `isWhitelistedIpAddress` | `boolean` | A value indicating whether the IP address has been whitelisted. |
+| `attemptCountThresholdOnTrigger` | `integer` | The attempted count threshold on trigger. |
+| `badPasswordErrorCount` | `integer` | The bad password error count |
 | `serviceId` | `string` | The service ID |
+| `timestamp` | `string` | When the event occurred |
+| `ipAddress` | `string` | The IP address from where the attempted login originated from. |
+| `uniqueUsernamesAttemptedCount` | `integer` | The unique usernames attempted |
+| `lastAuditTimestamp` | `string` | The last audit timestamp |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The fully qualified ID for the settings object.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/settings/default. |
 | `name` | `string` | The name of the object. In this case, default. |
-| `type` | `string` | The type of the resource.  For example, Microsoft.Management/managementGroups/settings. |
 | `properties` | `object` | The generic properties of hierarchy settings. |
+| `type` | `string` | The type of the resource.  For example, Microsoft.Management/managementGroups/settings. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

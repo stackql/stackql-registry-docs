@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties that define a rollout. |
 | `tags` | `object` | Resource tags. |
 | `identity` | `object` | Identity for the resource. |
-| `location` | `string` | The geo-location where the resource lives |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

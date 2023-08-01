@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource Id. |
 | `name` | `string` | The resource name. |
-| `properties` | `object` | Properties of the monitor. |
 | `type` | `string` | The resource type. |
+| `properties` | `object` | Properties of the monitor. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

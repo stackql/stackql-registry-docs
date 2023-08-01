@@ -28,11 +28,11 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `profile` | `object` |
 | `_embedded` | `object` |
 | `_links` | `object` |
 | `lastUpdated` | `string` |
 | `priority` | `integer` |
-| `profile` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

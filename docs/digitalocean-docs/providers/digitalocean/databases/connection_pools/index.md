@@ -28,12 +28,12 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | A unique name for the connection pool. Must be between 3 and 60 characters. |
-| `connection` | `object` |  |
-| `db` | `string` | The database for use with the connection pool. |
 | `mode` | `string` | The PGBouncer transaction mode for the connection pool. The allowed values are session, transaction, and statement. |
 | `private_connection` | `object` |  |
 | `size` | `integer` | The desired size of the PGBouncer connection pool. The maximum allowed size is determined by the size of the cluster's primary node. 25 backend server connections are allowed for every 1GB of RAM. Three are reserved for maintenance. For example, a primary node with 1 GB of RAM allows for a maximum of 22 backend server connections while one with 4 GB would allow for 97. Note that these are shared across all connection pools in a cluster. |
 | `user` | `string` | The name of the user for use with the connection pool. When excluded, all sessions connect to the database as the inbound user. |
+| `connection` | `object` |  |
+| `db` | `string` | The database for use with the connection pool. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

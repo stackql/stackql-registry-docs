@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The operation name. |
-| `isDataAction` | `boolean` | Whether the operation applies to data-plane. |
 | `origin` | `string` | Origin of the operation. |
 | `properties` | `object` | Metric properties. |
 | `actionType` | `string` | Indicates the action type. |
 | `display` | `object` | Operation details. |
+| `isDataAction` | `boolean` | Whether the operation applies to data-plane. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

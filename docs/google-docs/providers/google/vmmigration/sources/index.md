@@ -27,18 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The Source name. |
-| `description` | `string` | User-provided description of the source. |
-| `updateTime` | `string` | Output only. The update time timestamp. |
-| `vmware` | `object` | VmwareSourceDetails message describes a specific source details for the vmware source type. |
-| `aws` | `object` | AwsSourceDetails message describes a specific source details for the AWS source type. |
-| `createTime` | `string` | Output only. The create time timestamp. |
-| `labels` | `object` | The labels of the source. |
+| `nextPageToken` | `string` | Output only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `sources` | `array` | Output only. The list of sources response. |
+| `unreachable` | `array` | Output only. Locations that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_sources_get` | `SELECT` | `locationsId, projectsId, sourcesId` | Gets details of a single Source. |
-| `projects_locations_sources_list` | `SELECT` | `locationsId, projectsId` | Lists Sources in a given project and location. |
-| `projects_locations_sources_create` | `INSERT` | `locationsId, projectsId` | Creates a new Source in a given project and location. |
-| `projects_locations_sources_delete` | `DELETE` | `locationsId, projectsId, sourcesId` | Deletes a single Source. |
-| `projects_locations_sources_patch` | `EXEC` | `locationsId, projectsId, sourcesId` | Updates the parameters of a single Source. |
+| `get` | `SELECT` | `locationsId, projectsId, sourcesId` | Gets details of a single Source. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists Sources in a given project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new Source in a given project and location. |
+| `delete` | `DELETE` | `locationsId, projectsId, sourcesId` | Deletes a single Source. |
+| `patch` | `EXEC` | `locationsId, projectsId, sourcesId` | Updates the parameters of a single Source. |

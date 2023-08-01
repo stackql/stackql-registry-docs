@@ -27,15 +27,15 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `_links` | `object` |
-| `timeline_url` | `string` |
-| `current_user_actor_url` | `string` |
 | `current_user_organization_url` | `string` |
-| `security_advisories_url` | `string` |
-| `current_user_public_url` | `string` |
-| `current_user_url` | `string` |
-| `user_url` | `string` |
 | `current_user_organization_urls` | `array` |
+| `current_user_actor_url` | `string` |
+| `user_url` | `string` |
+| `current_user_url` | `string` |
+| `_links` | `object` |
+| `security_advisories_url` | `string` |
+| `timeline_url` | `string` |
+| `current_user_public_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

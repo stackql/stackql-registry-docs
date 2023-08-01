@@ -29,13 +29,13 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
+| `created` | `string` |
+| `type` | `string` |
 | `version` | `string` |
 | `channel` | `object` |
-| `_links` | `object` |
 | `status` | `string` |
-| `created` | `string` |
+| `_links` | `object` |
 | `lastUpdated` | `string` |
-| `type` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -3,9 +3,7 @@ title: azure_extras
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - azure
-  - microsoft azure
-  - microsoft
+  - azure_extras
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -19,7 +17,7 @@ slug: /providers/azure_extras
 ---
  Additional Azure cloud computing services by Microsoft.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.03.00121)
 
 <div class="row">
 <div class="providerDocColumn">
@@ -49,7 +47,8 @@ REGISTRY PULL azure_extras;
 
 ## Authentication
 
-see [__Azure Provider Authentication__](https://azure.stackql.io/providers/azure/#authentication).  
+
+StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 
 ## Services
 <div class="row">

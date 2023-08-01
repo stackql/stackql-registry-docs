@@ -27,11 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | ID of the environment group. |
-| `lastModifiedAt` | `string` | Output only. The time at which the environment group was last updated as milliseconds since epoch. |
-| `state` | `string` | Output only. State of the environment group. Values other than ACTIVE means the resource is not ready to use. |
-| `createdAt` | `string` | Output only. The time at which the environment group was created as milliseconds since epoch. |
-| `hostnames` | `array` | Required. Host names for this environment group. |
+| `environmentGroups` | `array` | EnvironmentGroups in the specified organization. |
+| `nextPageToken` | `string` | Page token that you can include in a ListEnvironmentGroups request to retrieve the next page. If omitted, no subsequent pages exist. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

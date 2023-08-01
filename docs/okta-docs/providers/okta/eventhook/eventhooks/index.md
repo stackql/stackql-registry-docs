@@ -31,12 +31,12 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `name` | `string` |
 | `createdBy` | `string` |
 | `lastUpdated` | `string` |
+| `events` | `object` |
+| `_links` | `object` |
+| `channel` | `object` |
 | `status` | `string` |
 | `created` | `string` |
 | `verificationStatus` | `string` |
-| `channel` | `object` |
-| `_links` | `object` |
-| `events` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

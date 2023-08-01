@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_tagTemplates_fields_enumValues_rename` | `EXEC` | `enumValuesId, fieldsId, locationsId, projectsId, tagTemplatesId` |
+| `projects_locations_tag_templates_fields_enum_values_rename` | `EXEC` | `enumValuesId, fieldsId, locationsId, projectsId, tagTemplatesId` |

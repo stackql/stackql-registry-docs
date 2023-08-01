@@ -32,6 +32,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_keyRings_get` | `SELECT` | `keyRingsId, locationsId, projectsId` | Returns metadata for a given KeyRing. |
-| `projects_locations_keyRings_list` | `SELECT` | `locationsId, projectsId` | Lists KeyRings. |
-| `projects_locations_keyRings_create` | `INSERT` | `locationsId, projectsId` | Create a new KeyRing in a given Project and Location. |
+| `get` | `SELECT` | `keyRingsId, locationsId, projectsId` | Returns metadata for a given KeyRing. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists KeyRings. |
+| `create` | `INSERT` | `locationsId, projectsId` | Create a new KeyRing in a given Project and Location. |

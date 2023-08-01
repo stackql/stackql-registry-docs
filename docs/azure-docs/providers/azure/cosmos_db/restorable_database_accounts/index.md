@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource identifier of the ARM resource. |
 | `name` | `string` | The name of the ARM resource. |
+| `type` | `string` | The type of Azure resource. |
 | `location` | `string` | The location of the resource group to which the resource belongs. |
 | `properties` | `object` | The properties of a restorable database account. |
-| `type` | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

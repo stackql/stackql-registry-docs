@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `targetPools_addInstance` | `INSERT` | `project, region, targetPool` | Adds an instance to a target pool. |
-| `targetPools_removeInstance` | `DELETE` | `project, region, targetPool` | Removes instance URL from a target pool. |
+| `add_instance` | `EXEC` | `project, region, targetPool` | Adds an instance to a target pool. |
+| `remove_instance` | `EXEC` | `project, region, targetPool` | Removes instance URL from a target pool. |

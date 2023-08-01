@@ -27,21 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the experiment. Format: projects//locations//agents//environments//experiments/.. |
-| `description` | `string` | The human-readable description of the experiment. |
-| `createTime` | `string` | Creation time of this experiment. |
-| `startTime` | `string` | Start time of this experiment. |
-| `displayName` | `string` | Required. The human-readable name of the experiment (unique in an environment). Limit of 64 characters. |
-| `rolloutConfig` | `object` | The configuration for auto rollout. |
-| `rolloutState` | `object` | State of the auto-rollout process. |
-| `result` | `object` | The inference result which includes an objective metric to optimize and the confidence interval. |
-| `definition` | `object` | Definition of the experiment. |
-| `experimentLength` | `string` | Maximum number of days to run the experiment/rollout. If auto-rollout is not enabled, default value and maximum will be 30 days. If auto-rollout is enabled, default value and maximum will be 6 days. |
-| `variantsHistory` | `array` | The history of updates to the experiment variants. |
-| `state` | `string` | The current state of the experiment. Transition triggered by Experiments.StartExperiment: DRAFT-&gt;RUNNING. Transition triggered by Experiments.CancelExperiment: DRAFT-&gt;DONE or RUNNING-&gt;DONE. |
-| `lastUpdateTime` | `string` | Last update time of this experiment. |
-| `endTime` | `string` | End time of this experiment. |
-| `rolloutFailureReason` | `string` | The reason why rollout has failed. Should only be set when state is ROLLOUT_FAILED. |
+| `experiments` | `array` | The list of experiments. There will be a maximum number of items returned based on the page_size field in the request. The list may in some cases be empty or contain fewer entries than page_size even if this isn't the last page. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

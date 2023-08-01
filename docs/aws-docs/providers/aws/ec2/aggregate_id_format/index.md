@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resource` | `string` | The type of resource. |
 | `useLongIds` | `boolean` | Indicates whether longer IDs (17-character IDs) are enabled for the resource. |
 | `deadline` | `string` | The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned. |
+| `resource` | `string` | The type of resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

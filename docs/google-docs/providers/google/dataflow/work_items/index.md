@@ -29,7 +29,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_jobs_workItems_lease` | `EXEC` | `jobId, projectId` | Leases a dataflow WorkItem to run. |
-| `projects_jobs_workItems_reportStatus` | `EXEC` | `jobId, projectId` | Reports the status of dataflow WorkItems leased by a worker. |
-| `projects_locations_jobs_workItems_lease` | `EXEC` | `jobId, location, projectId` | Leases a dataflow WorkItem to run. |
-| `projects_locations_jobs_workItems_reportStatus` | `EXEC` | `jobId, location, projectId` | Reports the status of dataflow WorkItems leased by a worker. |
+| `projects_jobs_work_items_lease` | `EXEC` | `jobId, projectId` | Leases a dataflow WorkItem to run. |
+| `projects_jobs_work_items_report_status` | `EXEC` | `jobId, projectId` | Reports the status of dataflow WorkItems leased by a worker. |
+| `projects_locations_jobs_work_items_lease` | `EXEC` | `jobId, location, projectId` | Leases a dataflow WorkItem to run. |
+| `projects_locations_jobs_work_items_report_status` | `EXEC` | `jobId, location, projectId` | Reports the status of dataflow WorkItems leased by a worker. |

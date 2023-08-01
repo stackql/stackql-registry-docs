@@ -28,16 +28,16 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | The description of the scope. |
-| `ipamScopeType` | `string` | The type of the scope. |
-| `state` | `string` | The state of the IPAM scope. |
-| `ipamArn` | `string` | The ARN of the IPAM. |
 | `ipamScopeId` | `string` | The ID of the scope. |
-| `tagSet` | `array` | The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key &lt;code&gt;Owner&lt;/code&gt; and the value &lt;code&gt;TeamA&lt;/code&gt;, specify &lt;code&gt;tag:Owner&lt;/code&gt; for the filter name and &lt;code&gt;TeamA&lt;/code&gt; for the filter value. |
-| `ipamRegion` | `string` | The Amazon Web Services Region of the IPAM scope. |
-| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the scope. |
 | `ipamScopeArn` | `string` | The ARN of the scope. |
-| `isDefault` | `boolean` | Defines if the scope is the default scope or not. |
+| `ipamScopeType` | `string` | The type of the scope. |
+| `ipamRegion` | `string` | The Amazon Web Services Region of the IPAM scope. |
+| `tagSet` | `array` | The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key &lt;code&gt;Owner&lt;/code&gt; and the value &lt;code&gt;TeamA&lt;/code&gt;, specify &lt;code&gt;tag:Owner&lt;/code&gt; for the filter name and &lt;code&gt;TeamA&lt;/code&gt; for the filter value. |
 | `poolCount` | `integer` | The number of pools in the scope. |
+| `state` | `string` | The state of the IPAM scope. |
+| `ownerId` | `string` | The Amazon Web Services account ID of the owner of the scope. |
+| `ipamArn` | `string` | The ARN of the IPAM. |
+| `isDefault` | `boolean` | Defines if the scope is the default scope or not. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -30,14 +30,14 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `category` | `string` |
+| `displayName` | `string` |
 | `features` | `array` |
 | `signOnModes` | `array` |
-| `_links` | `object` |
-| `displayName` | `string` |
 | `status` | `string` |
 | `website` | `string` |
 | `lastUpdated` | `string` |
+| `category` | `string` |
+| `_links` | `object` |
 | `verificationStatus` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |

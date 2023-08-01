@@ -28,9 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name. |
-| `type` | `string` | the accelerator type. |
+| `type` | `string` | The accelerator type. |
+| `acceleratorConfigs` | `array` | The accelerator config. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_acceleratorTypes_get` | `SELECT` | `acceleratorTypesId, locationsId, projectsId` | Gets AcceleratorType. |
-| `projects_locations_acceleratorTypes_list` | `SELECT` | `locationsId, projectsId` | Lists accelerator types supported by this API. |
+| `get` | `SELECT` | `acceleratorTypesId, locationsId, projectsId` | Gets AcceleratorType. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists accelerator types supported by this API. |

@@ -29,21 +29,21 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The id of the check. |
 | `name` | `string` | The name of the check. |
-| `status` | `string` | The phase of the lifecycle that the check is currently in. |
-| `deployment` | `object` | A deployment created as the result of an Actions check run from a workflow that references an environment |
-| `html_url` | `string` |  |
-| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `external_id` | `string` |  |
-| `head_sha` | `string` | The SHA of the commit that is being checked. |
-| `pull_requests` | `array` |  |
-| `details_url` | `string` |  |
-| `url` | `string` |  |
+| `completed_at` | `string` |  |
 | `conclusion` | `string` |  |
+| `deployment` | `object` | A deployment created as the result of an Actions check run from a workflow that references an environment |
+| `head_sha` | `string` | The SHA of the commit that is being checked. |
 | `check_suite` | `object` |  |
 | `output` | `object` |  |
-| `node_id` | `string` |  |
-| `completed_at` | `string` |  |
+| `pull_requests` | `array` |  |
+| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `html_url` | `string` |  |
+| `status` | `string` | The phase of the lifecycle that the check is currently in. |
+| `url` | `string` |  |
+| `details_url` | `string` |  |
 | `started_at` | `string` |  |
+| `node_id` | `string` |  |
+| `external_id` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

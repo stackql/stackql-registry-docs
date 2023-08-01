@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_productSets_addProduct` | `INSERT` | `locationsId, productSetsId, projectsId` | Adds a Product to the specified ProductSet. If the Product is already present, no change is made. One Product can be added to at most 100 ProductSets. Possible errors: * Returns NOT_FOUND if the Product or the ProductSet doesn't exist. |
-| `projects_locations_productSets_removeProduct` | `DELETE` | `locationsId, productSetsId, projectsId` | Removes a Product from the specified ProductSet. |
+| `projects_locations_product_sets_add_product` | `EXEC` | `locationsId, productSetsId, projectsId` | Adds a Product to the specified ProductSet. If the Product is already present, no change is made. One Product can be added to at most 100 ProductSets. Possible errors: * Returns NOT_FOUND if the Product or the ProductSet doesn't exist. |
+| `projects_locations_product_sets_remove_product` | `EXEC` | `locationsId, productSetsId, projectsId` | Removes a Product from the specified ProductSet. |

@@ -28,25 +28,25 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | A unique ID that can be used to identify and reference the Managed Database. |
-| `region` | `string` | The [Region](/docs/api/regions/) ID for the Managed Database. |
-| `label` | `string` | A unique, user-defined string referring to the Managed Database. |
-| `created` | `string` | When this Managed Database was created. |
 | `version` | `string` | The Managed Database engine version. |
-| `updates` | `object` | Configuration settings for automated patch update maintenance for the Managed Database. |
-| `compression_type` | `string` | The type of data compression for this Database.<br /><br />Snappy has a lower comparative compression ratio and resource consumption rate.<br /><br />Zlip has a higher comparative compression ratio and resource consumption rate.<br /> |
-| `hosts` | `object` | The primary and secondary hosts for the Managed Database. These are assigned after provisioning is complete. |
-| `replica_set` | `string` | Label for configuring a MongoDB [replica set](https://www.mongodb.com/docs/manual/replication/). Choose the same label on multiple Databases to include them in the same replica set.<br /><br />If `null`, the Database is not included in any replica set.<br /> |
+| `status` | `string` | The operating status of the Managed Database. |
 | `engine` | `string` | The Managed Database engine type. |
 | `allow_list` | `array` | A list of IP addresses that can access the Managed Database. Each item can be a single IP address or a range in CIDR format.<br /><br />By default, this is an empty array (`[]`), which blocks all connections (both public and private) to the Managed Database.<br /><br />If `0.0.0.0/0` is a value in this list, then all IP addresses can access the Managed Database.<br /> |
-| `ssl_connection` | `boolean` | Whether to require SSL credentials to establish a connection to the Managed Database.<br /><br />Use the **Managed MongoDB Database Credentials View** ([GET /databases/mongodb/instances/&#123;instanceId&#125;/credentials](/docs/api/databases/#managed-mongodb-database-credentials-view)) command for access information.<br /> |
 | `port` | `integer` | The access port for this Managed Database. |
-| `cluster_size` | `integer` | The number of Linode Instance nodes deployed to the Managed Database.<br /><br />Choosing 3 nodes creates a high availability cluster consisting of 1 primary node and 2 replica nodes.<br /> |
-| `status` | `string` | The operating status of the Managed Database. |
-| `type` | `string` | The Linode Instance type used by the Managed Database for its nodes. |
-| `encrypted` | `boolean` | Whether the Managed Databases is encrypted. |
-| `updated` | `string` | When this Managed Database was last updated. |
+| `region` | `string` | The [Region](/docs/api/regions/) ID for the Managed Database. |
 | `storage_engine` | `string` | The type of storage engine for this Database.<br /><br />**Note:** MMAPV1 is not available for MongoDB versions 4.0 and above.<br /> |
+| `replica_set` | `string` | Label for configuring a MongoDB [replica set](https://www.mongodb.com/docs/manual/replication/). Choose the same label on multiple Databases to include them in the same replica set.<br /><br />If `null`, the Database is not included in any replica set.<br /> |
+| `cluster_size` | `integer` | The number of Linode Instance nodes deployed to the Managed Database.<br /><br />Choosing 3 nodes creates a high availability cluster consisting of 1 primary node and 2 replica nodes.<br /> |
+| `updated` | `string` | When this Managed Database was last updated. |
+| `updates` | `object` | Configuration settings for automated patch update maintenance for the Managed Database. |
+| `label` | `string` | A unique, user-defined string referring to the Managed Database. |
 | `peers` | `array` | An array of peer addresses for this Database.<br /> |
+| `encrypted` | `boolean` | Whether the Managed Databases is encrypted. |
+| `type` | `string` | The Linode Instance type used by the Managed Database for its nodes. |
+| `created` | `string` | When this Managed Database was created. |
+| `ssl_connection` | `boolean` | Whether to require SSL credentials to establish a connection to the Managed Database.<br /><br />Use the **Managed MongoDB Database Credentials View** ([GET /databases/mongodb/instances/&#123;instanceId&#125;/credentials](/docs/api/databases/#managed-mongodb-database-credentials-view)) command for access information.<br /> |
+| `hosts` | `object` | The primary and secondary hosts for the Managed Database. These are assigned after provisioning is complete. |
+| `compression_type` | `string` | The type of data compression for this Database.<br /><br />Snappy has a lower comparative compression ratio and resource consumption rate.<br /><br />Zlip has a higher comparative compression ratio and resource consumption rate.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ Use these REST APIs for performing operations on entities like API, Product, and
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Api Management Client (Microsoft.ApiManagement)</td></tr>
 <tr><td><b>Description</b></td><td>Use these REST APIs for performing operations on entities like API, Product, and Subscription associated with your Azure API Management deployment.</td></tr>
-<tr><td><b>Id</b></td><td><code>api_management:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>api_management:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

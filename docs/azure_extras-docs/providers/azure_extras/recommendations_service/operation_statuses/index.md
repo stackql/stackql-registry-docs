@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified ID for the async operation. |
 | `name` | `string` | Name of the async operation. |
-| `operations` | `array` | The operations list. |
-| `percentComplete` | `number` | Percent of the operation that is complete. |
 | `startTime` | `string` | The start time of the operation. |
 | `status` | `string` | Operation status. |
 | `endTime` | `string` | The end time of the operation. |
 | `error` | `object` | The error detail. |
+| `operations` | `array` | The operations list. |
+| `percentComplete` | `number` | Percent of the operation that is complete. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

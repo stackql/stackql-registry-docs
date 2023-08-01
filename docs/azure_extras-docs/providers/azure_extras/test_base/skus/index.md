@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the SKU. This is typically a letter + number code, such as B0 or S0. |
-| `capabilities` | `array` | The capabilities of a SKU. |
-| `locations` | `array` | The locations that the SKU is available. |
 | `resourceType` | `string` | The type of resource the SKU applies to. |
 | `tier` | `string` | The tier of this particular SKU. |
+| `capabilities` | `array` | The capabilities of a SKU. |
+| `locations` | `array` | The locations that the SKU is available. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

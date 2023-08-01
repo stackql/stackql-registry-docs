@@ -33,4 +33,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instanceGroupManagers_listErrors` | `SELECT` | `instanceGroupManager, project, zone` |
+| `list_errors` | `SELECT` | `instanceGroupManager, project, zone` |

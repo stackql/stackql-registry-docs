@@ -33,7 +33,7 @@ Azure Blueprints Client provides access to blueprint definitions, assignments, a
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Blueprint Client (Microsoft.Blueprint)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Blueprints Client provides access to blueprint definitions, assignments, and artifacts, and related blueprint operations.</td></tr>
-<tr><td><b>Id</b></td><td><code>blueprint:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>blueprint:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

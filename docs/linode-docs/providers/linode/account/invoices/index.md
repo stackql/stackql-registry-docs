@@ -28,12 +28,12 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The Invoice's unique ID. |
-| `total` | `number` | The amount of the Invoice after taxes in US Dollars. |
-| `date` | `string` | When this Invoice was generated. |
-| `label` | `string` | The Invoice's display label. |
 | `subtotal` | `number` | The amount of the Invoice before taxes in US Dollars. |
 | `tax` | `number` | The amount of tax levied on the Invoice in US Dollars. |
 | `tax_summary` | `array` | The amount of tax broken down into subtotals by source. |
+| `total` | `number` | The amount of the Invoice after taxes in US Dollars. |
+| `date` | `string` | When this Invoice was generated. |
+| `label` | `string` | The Invoice's display label. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

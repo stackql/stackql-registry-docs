@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `properties` | `object` | Resource properties. |
 | `etag` | `string` | Resource ETAG. |
 | `kind` | `string` | Additional resource type qualifier. |
-| `properties` | `object` | Resource properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

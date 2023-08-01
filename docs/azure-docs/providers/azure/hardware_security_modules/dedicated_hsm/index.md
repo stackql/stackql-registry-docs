@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The Azure Resource Manager resource ID for the dedicated HSM. |
 | `name` | `string` | The name of the dedicated HSM. |
-| `sku` | `object` | SKU of the dedicated HSM |
-| `properties` | `object` | Properties of the dedicated hsm |
-| `location` | `string` | The supported Azure location where the dedicated HSM should be created. |
 | `zones` | `array` | The Dedicated Hsm zones. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of dedicated hsm resource. |
-| `tags` | `object` | Resource tags |
 | `type` | `string` | The resource type of the dedicated HSM. |
+| `location` | `string` | The supported Azure location where the dedicated HSM should be created. |
+| `properties` | `object` | Properties of the dedicated hsm |
+| `tags` | `object` | Resource tags |
+| `sku` | `object` | SKU of the dedicated HSM |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of dedicated hsm resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_assessments_create` | `INSERT` | `projectsId` | Creates an Assessment of the likelihood an event is legitimate. |
-| `projects_assessments_annotate` | `EXEC` | `assessmentsId, projectsId` | Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent. |
+| `create` | `INSERT` | `projectsId` | Creates an Assessment of the likelihood an event is legitimate. |
+| `annotate` | `EXEC` | `assessmentsId, projectsId` | Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent. |

@@ -29,14 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `location` | `string` | Resource location |
-| `sku` | `object` | The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS. |
 | `managedBy` | `string` | A relative URI containing the ID of the VM that has the disk attached. |
-| `properties` | `object` | Disk resource properties. |
-| `extendedLocation` | `object` | The complex type of the extended location. |
 | `managedByExtended` | `array` | List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs. |
 | `tags` | `object` | Resource tags |
 | `zones` | `array` | The Logical zone list for Disk. |
+| `location` | `string` | Resource location |
+| `properties` | `object` | Disk resource properties. |
+| `sku` | `object` | The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS. |
+| `extendedLocation` | `object` | The complex type of the extended location. |
 | `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |

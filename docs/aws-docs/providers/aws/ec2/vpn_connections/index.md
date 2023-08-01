@@ -27,21 +27,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `options` | `object` | Describes VPN connection options. |
-| `vpnConnectionId` | `string` | The ID of the VPN connection. |
-| `vgwTelemetry` | `array` | Information about the VPN tunnel. |
-| `state` | `string` | The current state of the VPN connection. |
-| `routes` | `array` | The static routes associated with the VPN connection. |
-| `coreNetworkArn` | `string` | The ARN of the core network. |
-| `gatewayAssociationState` | `string` | The current state of the gateway association. |
-| `coreNetworkAttachmentArn` | `string` | The ARN of the core network attachment. |
-| `transitGatewayId` | `string` | The ID of the transit gateway associated with the VPN connection. |
-| `type` | `string` | The type of VPN connection. |
-| `customerGatewayConfiguration` | `string` | The configuration information for the VPN connection's customer gateway (in the native XML format). This element is always present in the &lt;a&gt;CreateVpnConnection&lt;/a&gt; response; however, it's present in the &lt;a&gt;DescribeVpnConnections&lt;/a&gt; response only if the VPN connection is in the &lt;code&gt;pending&lt;/code&gt; or &lt;code&gt;available&lt;/code&gt; state. |
-| `customerGatewayId` | `string` | The ID of the customer gateway at your end of the VPN connection. |
 | `category` | `string` | The category of the VPN connection. A value of &lt;code&gt;VPN&lt;/code&gt; indicates an Amazon Web Services VPN connection. A value of &lt;code&gt;VPN-Classic&lt;/code&gt; indicates an Amazon Web Services Classic VPN connection. |
+| `customerGatewayId` | `string` | The ID of the customer gateway at your end of the VPN connection. |
+| `vpnConnectionId` | `string` | The ID of the VPN connection. |
+| `type` | `string` | The type of VPN connection. |
+| `coreNetworkArn` | `string` | The ARN of the core network. |
 | `tagSet` | `array` | Any tags assigned to the VPN connection. |
 | `vpnGatewayId` | `string` | The ID of the virtual private gateway at the Amazon Web Services side of the VPN connection. |
+| `options` | `object` | Describes VPN connection options. |
+| `routes` | `array` | The static routes associated with the VPN connection. |
+| `customerGatewayConfiguration` | `string` | The configuration information for the VPN connection's customer gateway (in the native XML format). This element is always present in the &lt;a&gt;CreateVpnConnection&lt;/a&gt; response; however, it's present in the &lt;a&gt;DescribeVpnConnections&lt;/a&gt; response only if the VPN connection is in the &lt;code&gt;pending&lt;/code&gt; or &lt;code&gt;available&lt;/code&gt; state. |
+| `vgwTelemetry` | `array` | Information about the VPN tunnel. |
+| `state` | `string` | The current state of the VPN connection. |
+| `gatewayAssociationState` | `string` | The current state of the gateway association. |
+| `transitGatewayId` | `string` | The ID of the transit gateway associated with the VPN connection. |
+| `coreNetworkAttachmentArn` | `string` | The ARN of the core network attachment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

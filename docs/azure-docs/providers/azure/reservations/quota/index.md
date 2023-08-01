@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The quota request ID. |
 | `name` | `string` | The name of the quota request. |
-| `properties` | `object` | Quota properties for the resource. |
 | `type` | `string` | Type of resource. "Microsoft.Capacity/ServiceLimits" |
+| `properties` | `object` | Quota properties for the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

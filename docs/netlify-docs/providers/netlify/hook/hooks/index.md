@@ -28,13 +28,13 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `site_id` | `string` |
 | `type` | `string` |
 | `updated_at` | `string` |
 | `created_at` | `string` |
 | `data` | `object` |
 | `disabled` | `boolean` |
 | `event` | `string` |
-| `site_id` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

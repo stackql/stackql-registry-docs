@@ -27,12 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The instance name in the form `projects/*/zones/*/instances/*` |
-| `failureReason` | `string` | If the patch fails, this field provides the reason. |
-| `instanceSystemId` | `string` | The unique identifier for the instance. This identifier is defined by the server. |
-| `state` | `string` | Current state of instance patch. |
-| `attemptCount` | `string` | The number of times the agent that the agent attempts to apply the patch. |
+| `patchJobInstanceDetails` | `array` | A list of instance status. |
+| `nextPageToken` | `string` | A pagination token that can be used to get the next page of results. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_patchJobs_instanceDetails_list` | `SELECT` | `patchJobsId, projectsId` |
+| `list` | `SELECT` | `patchJobsId, projectsId` |

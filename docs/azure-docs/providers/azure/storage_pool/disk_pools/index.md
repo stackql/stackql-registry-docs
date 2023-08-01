@@ -27,13 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
 | `location` | `string` | The geo-location where the resource lives. |
 | `managedBy` | `string` | Azure resource id. Indicates if this resource is managed by another Azure resource. |
 | `managedByExtended` | `array` | List of Azure resource ids that manage this resource. |
 | `properties` | `object` | Disk Pool response properties. |
 | `sku` | `object` | Sku for ARM resource |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

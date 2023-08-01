@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The access review schedule definition id. |
 | `name` | `string` | The access review schedule definition unique id. |
-| `properties` | `object` | Access Review. |
 | `type` | `string` | The resource type. |
+| `properties` | `object` | Access Review. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

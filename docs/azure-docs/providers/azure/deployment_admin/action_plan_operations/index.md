@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of the resource. |
 | `name` | `string` | Name of the resource. |
+| `properties` | `object` | Action Plan Operation Properties |
 | `type` | `string` | Type of Resource. |
 | `eTag` | `string` | Entity tag of the resource |
 | `location` | `string` | Location of the resource. |
-| `properties` | `object` | Action Plan Operation Properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

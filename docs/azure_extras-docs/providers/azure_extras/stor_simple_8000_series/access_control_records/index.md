@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The path ID that uniquely identifies the object. |
 | `name` | `string` | The name of the object. |
+| `kind` | `string` | The Kind of the object. Currently only Series8000 is supported |
 | `properties` | `object` | The properties of access control record. |
 | `type` | `string` | The hierarchical type of the object. |
-| `kind` | `string` | The Kind of the object. Currently only Series8000 is supported |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

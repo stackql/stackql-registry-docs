@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | An identifier that represents the Guest Usages resource. |
 | `name` | `string` | The name of the Guest Usages resource. |
-| `tags` | `object` | Key-value pairs of additional resource provisioning properties. |
-| `type` | `string` | The type of the Guest Usages resource. |
 | `location` | `string` | Location of the Guest Usages resource. |
 | `properties` | `object` | Guest Usages Resource Properties |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Key-value pairs of additional resource provisioning properties. |
+| `type` | `string` | The type of the Guest Usages resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

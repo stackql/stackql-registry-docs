@@ -27,9 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `stateChange` | `string` | State change of the finding between the points in time. |
-| `finding` | `object` | Security Command Center finding. A finding is a record of assessment data like security, risk, health, or privacy, that is ingested into Security Command Center for presentation, notification, analysis, policy testing, and enforcement. For example, a cross-site scripting (XSS) vulnerability in an App Engine application is a finding. |
-| `resource` | `object` | Information related to the Google Cloud resource that is associated with this finding. |
+| `readTime` | `string` | Time used for executing the list request. |
+| `totalSize` | `integer` | The total number of findings matching the query. |
+| `listFindingsResults` | `array` | Findings matching the list request. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,21 +38,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_sources_findings_list` | `SELECT` | `organizationsId, sourcesId` | Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings |
 | `projects_sources_findings_list` | `SELECT` | `projectsId, sourcesId` | Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings |
 | `organizations_sources_findings_create` | `INSERT` | `organizationsId, sourcesId` | Creates a finding. The corresponding source must exist for finding creation to succeed. |
-| `folders_findings_bulkMute` | `EXEC` | `foldersId` | Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. |
+| `folders_findings_bulk_mute` | `EXEC` | `foldersId` | Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. |
 | `folders_sources_findings_group` | `EXEC` | `foldersId, sourcesId` | Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings, /v1/folders/&#123;folder_id&#125;/sources/-/findings, /v1/projects/&#123;project_id&#125;/sources/-/findings |
 | `folders_sources_findings_patch` | `EXEC` | `findingsId, foldersId, sourcesId` | Creates or updates a finding. The corresponding source must exist for a finding creation to succeed. |
-| `folders_sources_findings_setMute` | `EXEC` | `findingsId, foldersId, sourcesId` | Updates the mute state of a finding. |
-| `folders_sources_findings_setState` | `EXEC` | `findingsId, foldersId, sourcesId` | Updates the state of a finding. |
-| `folders_sources_findings_updateSecurityMarks` | `EXEC` | `findingsId, foldersId, sourcesId` | Updates security marks. |
-| `organizations_findings_bulkMute` | `EXEC` | `organizationsId` | Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. |
+| `folders_sources_findings_set_mute` | `EXEC` | `findingsId, foldersId, sourcesId` | Updates the mute state of a finding. |
+| `folders_sources_findings_set_state` | `EXEC` | `findingsId, foldersId, sourcesId` | Updates the state of a finding. |
+| `organizations_findings_bulk_mute` | `EXEC` | `organizationsId` | Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. |
 | `organizations_sources_findings_group` | `EXEC` | `organizationsId, sourcesId` | Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings, /v1/folders/&#123;folder_id&#125;/sources/-/findings, /v1/projects/&#123;project_id&#125;/sources/-/findings |
 | `organizations_sources_findings_patch` | `EXEC` | `findingsId, organizationsId, sourcesId` | Creates or updates a finding. The corresponding source must exist for a finding creation to succeed. |
-| `organizations_sources_findings_setMute` | `EXEC` | `findingsId, organizationsId, sourcesId` | Updates the mute state of a finding. |
-| `organizations_sources_findings_setState` | `EXEC` | `findingsId, organizationsId, sourcesId` | Updates the state of a finding. |
-| `organizations_sources_findings_updateSecurityMarks` | `EXEC` | `findingsId, organizationsId, sourcesId` | Updates security marks. |
-| `projects_findings_bulkMute` | `EXEC` | `projectsId` | Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. |
+| `organizations_sources_findings_set_mute` | `EXEC` | `findingsId, organizationsId, sourcesId` | Updates the mute state of a finding. |
+| `organizations_sources_findings_set_state` | `EXEC` | `findingsId, organizationsId, sourcesId` | Updates the state of a finding. |
+| `projects_findings_bulk_mute` | `EXEC` | `projectsId` | Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. |
 | `projects_sources_findings_group` | `EXEC` | `projectsId, sourcesId` | Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings, /v1/folders/&#123;folder_id&#125;/sources/-/findings, /v1/projects/&#123;project_id&#125;/sources/-/findings |
 | `projects_sources_findings_patch` | `EXEC` | `findingsId, projectsId, sourcesId` | Creates or updates a finding. The corresponding source must exist for a finding creation to succeed. |
-| `projects_sources_findings_setMute` | `EXEC` | `findingsId, projectsId, sourcesId` | Updates the mute state of a finding. |
-| `projects_sources_findings_setState` | `EXEC` | `findingsId, projectsId, sourcesId` | Updates the state of a finding. |
-| `projects_sources_findings_updateSecurityMarks` | `EXEC` | `findingsId, projectsId, sourcesId` | Updates security marks. |
+| `projects_sources_findings_set_mute` | `EXEC` | `findingsId, projectsId, sourcesId` | Updates the mute state of a finding. |
+| `projects_sources_findings_set_state` | `EXEC` | `findingsId, projectsId, sourcesId` | Updates the state of a finding. |

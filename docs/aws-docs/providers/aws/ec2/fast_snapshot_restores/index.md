@@ -27,17 +27,17 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `optimizingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;optimizing&lt;/code&gt; state. |
-| `enabledTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;enabled&lt;/code&gt; state. |
 | `snapshotId` | `string` | The ID of the snapshot. |
-| `disablingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;disabling&lt;/code&gt; state. |
-| `disabledTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;disabled&lt;/code&gt; state. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot. |
-| `availabilityZone` | `string` | The Availability Zone. |
 | `ownerAlias` | `string` | The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use. |
+| `optimizingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;optimizing&lt;/code&gt; state. |
+| `availabilityZone` | `string` | The Availability Zone. |
+| `enabledTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;enabled&lt;/code&gt; state. |
+| `disabledTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;disabled&lt;/code&gt; state. |
+| `disablingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;disabling&lt;/code&gt; state. |
 | `enablingTime` | `string` | The time at which fast snapshot restores entered the &lt;code&gt;enabling&lt;/code&gt; state. |
-| `stateTransitionReason` | `string` | &lt;p&gt;The reason for the state transition. The possible values are as follows:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;Client.UserInitiated&lt;/code&gt; - The state successfully transitioned to &lt;code&gt;enabling&lt;/code&gt; or &lt;code&gt;disabling&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;Client.UserInitiated - Lifecycle state transition&lt;/code&gt; - The state successfully transitioned to &lt;code&gt;optimizing&lt;/code&gt;, &lt;code&gt;enabled&lt;/code&gt;, or &lt;code&gt;disabled&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot. |
 | `state` | `string` | The state of fast snapshot restores. |
+| `stateTransitionReason` | `string` | &lt;p&gt;The reason for the state transition. The possible values are as follows:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;Client.UserInitiated&lt;/code&gt; - The state successfully transitioned to &lt;code&gt;enabling&lt;/code&gt; or &lt;code&gt;disabling&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;Client.UserInitiated - Lifecycle state transition&lt;/code&gt; - The state successfully transitioned to &lt;code&gt;optimizing&lt;/code&gt;, &lt;code&gt;enabled&lt;/code&gt;, or &lt;code&gt;disabled&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

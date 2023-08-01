@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `tags` | `object` | Contains resource tags defined as key/value pairs. |
+| `location` | `string` | Specifies the location of the resource. |
 | `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
+| `sku` | `object` | The resource model definition representing SKU |
 | `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Contains resource tags defined as key/value pairs. |
 | `properties` | `object` | The properties of a machine learning workspace. |
-| `sku` | `object` | The resource model definition representing SKU |
-| `location` | `string` | Specifies the location of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

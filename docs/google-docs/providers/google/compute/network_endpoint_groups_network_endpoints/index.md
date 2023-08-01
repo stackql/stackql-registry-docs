@@ -25,11 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `networkEndpoint` | `object` | The network endpoint. |
-| `healths` | `array` | [Output only] The health status of network endpoint; |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `networkEndpointGroups_listNetworkEndpoints` | `SELECT` | `networkEndpointGroup, project, zone` |
+| `list_network_endpoints` | `EXEC` | `networkEndpointGroup, project, zone` |

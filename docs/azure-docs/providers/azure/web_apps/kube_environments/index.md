@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource Name. |
-| `extendedLocation` | `object` | Extended Location. |
-| `kind` | `string` | Kind of resource. |
-| `location` | `string` | Resource Location. |
 | `properties` | `object` | KubeEnvironment resource specific properties |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
+| `extendedLocation` | `object` | Extended Location. |
+| `kind` | `string` | Kind of resource. |
+| `location` | `string` | Resource Location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -32,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_cryptoKeys_list` | `SELECT` | `projectsId` |
+| `list` | `SELECT` | `projectsId` |

@@ -27,14 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. The resource name of the dns peering zone. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/instances/&#123;instance&#125;/dnsPeerings/&#123;dns_peering&#125; |
-| `description` | `string` | Optional. Optional description of the dns zone. |
-| `targetNetwork` | `string` | Optional. Optional target network to which dns peering should happen. |
-| `targetProject` | `string` | Optional. Optional target project to which dns peering should happen. |
-| `domain` | `string` | Required. The dns name suffix of the zone. |
+| `dnsPeerings` | `array` | List of dns peering. |
+| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_instances_dnsPeerings_list` | `SELECT` | `instancesId, locationsId, projectsId` | Lists DNS peerings for a given resource. |
-| `projects_locations_instances_dnsPeerings_create` | `INSERT` | `instancesId, locationsId, projectsId` | Creates DNS peering on the given resource. |
-| `projects_locations_instances_dnsPeerings_delete` | `DELETE` | `dnsPeeringsId, instancesId, locationsId, projectsId` | Deletes DNS peering on the given resource. |
+| `list` | `SELECT` | `instancesId, locationsId, projectsId` | Lists DNS peerings for a given resource. |
+| `create` | `INSERT` | `instancesId, locationsId, projectsId` | Creates DNS peering on the given resource. |
+| `delete` | `DELETE` | `dnsPeeringsId, instancesId, locationsId, projectsId` | Deletes DNS peering on the given resource. |

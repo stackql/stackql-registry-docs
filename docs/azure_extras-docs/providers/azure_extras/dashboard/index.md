@@ -33,7 +33,7 @@ The Microsoft.Dashboard Rest API spec.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Dashboard (Grafana) (Microsoft.Dashboard)</td></tr>
 <tr><td><b>Description</b></td><td>The Microsoft.Dashboard Rest API spec.</td></tr>
-<tr><td><b>Id</b></td><td><code>dashboard:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dashboard:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

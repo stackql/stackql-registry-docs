@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `expiryTimeInUtcTicks` | `integer` | Expiry time of token. |
 | `securityPIN` | `string` | Security PIN |
 | `token` | `string` | Token value. |
-| `expiryTimeInUtcTicks` | `integer` | Expiry time of token. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

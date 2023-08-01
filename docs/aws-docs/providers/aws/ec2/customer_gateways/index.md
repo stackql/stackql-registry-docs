@@ -27,14 +27,14 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `bgpAsn` | `string` | The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). |
+| `certificateArn` | `string` | The Amazon Resource Name (ARN) for the customer gateway certificate. |
 | `customerGatewayId` | `string` | The ID of the customer gateway. |
 | `deviceName` | `string` | The name of customer gateway device. |
 | `ipAddress` | `string` | The Internet-routable IP address of the customer gateway's outside interface. |
 | `state` | `string` | The current state of the customer gateway (&lt;code&gt;pending \| available \| deleting \| deleted&lt;/code&gt;). |
 | `tagSet` | `array` | Any tags assigned to the customer gateway. |
 | `type` | `string` | The type of VPN connection the customer gateway supports (&lt;code&gt;ipsec.1&lt;/code&gt;). |
-| `bgpAsn` | `string` | The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). |
-| `certificateArn` | `string` | The Amazon Resource Name (ARN) for the customer gateway certificate. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

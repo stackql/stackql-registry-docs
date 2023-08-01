@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `Tag` | `string` | Internally defined geographic location tag. |
 | `DisplayName` | `string` | The display name of the web test location. |
+| `Tag` | `string` | Internally defined geographic location tag. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

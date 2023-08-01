@@ -27,26 +27,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Full name of this resource. |
-| `createTime` | `string` | Output only. Time when this resource was created. |
-| `annotations` | `object` | Client-specified annotations. |
-| `deleteTime` | `string` | Output only. Time when this resource was soft-deleted. |
-| `labels` | `object` | Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources. |
-| `uid` | `string` | Output only. A system-assigned unique identified for this resource. |
-| `updateTime` | `string` | Output only. Time when this resource was most recently updated. |
-| `reconciling` | `boolean` | Output only. Indicates whether this resource is currently being updated to match its intended state. |
-| `host` | `string` | Output only. Host to which clients can send HTTPS traffic that will be received by the workstation. Authorized traffic will be received to the workstation as HTTP on port 80. To send traffic to a different port, clients may prefix the host with the destination port in the format "&#123;port&#125;-&#123;host&#125;". |
-| `displayName` | `string` | Human-readable name for this resource. |
-| `etag` | `string` | Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. |
-| `state` | `string` | Output only. Current state of the workstation. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `unreachable` | `array` | Unreachable resources. |
+| `workstations` | `array` | The requested workstations. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_workstationClusters_workstationConfigs_workstations_get` | `SELECT` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Returns the requested workstation. |
-| `projects_locations_workstationClusters_workstationConfigs_workstations_list` | `SELECT` | `locationsId, projectsId, workstationClustersId, workstationConfigsId` | Returns all Workstations using the specified config. |
-| `projects_locations_workstationClusters_workstationConfigs_workstations_create` | `INSERT` | `locationsId, projectsId, workstationClustersId, workstationConfigsId` | Creates a new workstation. |
-| `projects_locations_workstationClusters_workstationConfigs_workstations_delete` | `DELETE` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Deletes the specified workstation. |
-| `projects_locations_workstationClusters_workstationConfigs_workstations_generateAccessToken` | `EXEC` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Returns a short-lived credential that can be used to send authenticated and authorized traffic to a workstation. |
-| `projects_locations_workstationClusters_workstationConfigs_workstations_patch` | `EXEC` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Updates an existing workstation. |
-| `projects_locations_workstationClusters_workstationConfigs_workstations_start` | `EXEC` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Starts running a workstation so that users can connect to it. |
-| `projects_locations_workstationClusters_workstationConfigs_workstations_stop` | `EXEC` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Stops running a workstation, reducing costs. |
+| `get` | `SELECT` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Returns the requested workstation. |
+| `list` | `SELECT` | `locationsId, projectsId, workstationClustersId, workstationConfigsId` | Returns all Workstations using the specified workstation configuration. |
+| `create` | `INSERT` | `locationsId, projectsId, workstationClustersId, workstationConfigsId` | Creates a new workstation. |
+| `delete` | `DELETE` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Deletes the specified workstation. |
+| `generate_access_token` | `EXEC` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Returns a short-lived credential that can be used to send authenticated and authorized traffic to a workstation. |
+| `patch` | `EXEC` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Updates an existing workstation. |
+| `start` | `EXEC` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Starts running a workstation so that users can connect to it. |
+| `stop` | `EXEC` | `locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId` | Stops running a workstation, reducing costs. |

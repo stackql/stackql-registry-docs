@@ -28,14 +28,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The operation id. |
-| `operationStartTime` | `string` | Operation start time. |
-| `context` | `object` | Operation request context. |
-| `subscriptionId` | `string` | Subscription id for async operation. |
+| `operationEndTime` | `string` | Operation end time. |
 | `httpStatus` | `string` | Http status for the async operation. |
 | `locationHeader` | `string` | Location header for async operation. |
-| `operation` | `object` | Async operation content |
-| `operationEndTime` | `string` | Operation end time. |
+| `context` | `object` | Operation request context. |
+| `operationStartTime` | `string` | Operation start time. |
 | `response` | `string` | Response for the async operation. |
+| `subscriptionId` | `string` | Subscription id for async operation. |
+| `operation` | `object` | Async operation content |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

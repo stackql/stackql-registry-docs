@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Unique ID for the entree |
+| `badPasswordAndExtranetLockoutCombinedDailyThreshold` | `integer` | This threshold setting defines the per day trigger for a new event to be generated in the report. |
+| `badPasswordAndExtranetLockoutCombinedHourlyThreshold` | `integer` | This threshold setting defines the per hour trigger for a new event to be generated in the report. |
 | `emailNotificationEnabled` | `boolean` | A value indicating whether email notification has been enabled. |
 | `extranetLockoutDailyThreshold` | `integer` | This threshold setting defines the per hour trigger for a new event to be generated in the report. |
 | `extranetLockoutHourlyThreshold` | `integer` | This threshold setting defines the per hour trigger for a new event to be generated in the report. |
-| `badPasswordAndExtranetLockoutCombinedDailyThreshold` | `integer` | This threshold setting defines the per day trigger for a new event to be generated in the report. |
-| `badPasswordAndExtranetLockoutCombinedHourlyThreshold` | `integer` | This threshold setting defines the per hour trigger for a new event to be generated in the report. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `targetPools_addHealthCheck` | `INSERT` | `project, region, targetPool` | Adds health check URLs to a target pool. |
-| `targetPools_removeHealthCheck` | `DELETE` | `project, region, targetPool` | Removes health check URL from a target pool. |
+| `add_health_check` | `EXEC` | `project, region, targetPool` | Adds health check URLs to a target pool. |
+| `remove_health_check` | `EXEC` | `project, region, targetPool` | Removes health check URL from a target pool. |

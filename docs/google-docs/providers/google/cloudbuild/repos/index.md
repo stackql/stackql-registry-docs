@@ -27,13 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name of the repository. |
-| `description` | `string` | Description of the repository. |
-| `displayName` | `string` | Display name of the repository. |
-| `repoId` | `object` | BitbucketServerRepositoryId identifies a specific repository hosted on a Bitbucket Server. |
-| `browseUri` | `string` | Link to the browse repo page on the Bitbucket Server instance. |
+| `bitbucketServerRepositories` | `array` | List of Bitbucket Server repositories. |
+| `nextPageToken` | `string` | A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_bitbucketServerConfigs_repos_list` | `SELECT` | `bitbucketServerConfigsId, locationsId, projectsId` | List all repositories for a given `BitbucketServerConfig`. This API is experimental. |
-| `projects_locations_gitLabConfigs_repos_list` | `SELECT` | `gitLabConfigsId, locationsId, projectsId` | List all repositories for a given `GitLabConfig`. This API is experimental |
+| `projects_locations_bitbucket_server_configs_repos_list` | `SELECT` | `bitbucketServerConfigsId, locationsId, projectsId` | List all repositories for a given `BitbucketServerConfig`. This API is experimental. |
+| `projects_locations_gitlab_configs_repos_list` | `SELECT` | `gitLabConfigsId, locationsId, projectsId` | List all repositories for a given `GitLabConfig`. This API is experimental |

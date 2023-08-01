@@ -27,25 +27,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name of the instance, in the format `projects/&#123;project&#125;/locations/&#123;location&#125;/instances/&#123;instance&#125;`. |
-| `description` | `string` | The description of the instance (2048 characters or less). |
-| `fileShares` | `array` | File system shares on the instance. For this version, only a single file share is supported. |
-| `satisfiesPzs` | `boolean` | Output only. Reserved for future use. |
-| `createTime` | `string` | Output only. The time when the instance was created. |
-| `suspensionReasons` | `array` | Output only. Field indicates all the reasons the instance is in "SUSPENDED" state. |
-| `state` | `string` | Output only. The instance state. |
-| `statusMessage` | `string` | Output only. Additional information about the instance state, if available. |
-| `etag` | `string` | Server-specified ETag for the instance resource to prevent simultaneous updates from overwriting each other. |
-| `networks` | `array` | VPC networks to which the instance is connected. For this version, only a single network is supported. |
-| `kmsKeyName` | `string` | KMS key name used for data encryption. |
-| `labels` | `object` | Resource labels to represent user provided metadata. |
-| `tier` | `string` | The service tier of the instance. |
+| `instances` | `array` | A list of instances in the project for the specified location. If the `&#123;location&#125;` value in the request is "-", the response contains a list of instances from all locations. If any location is unreachable, the response will only return instances in reachable locations and the "unreachable" field will be populated with a list of unreachable locations. |
+| `nextPageToken` | `string` | The token you can use to retrieve the next page of results. Not returned if there are no more results in the list. |
+| `unreachable` | `array` | Locations that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_instances_get` | `SELECT` | `instancesId, locationsId, projectsId` | Gets the details of a specific instance. |
-| `projects_locations_instances_list` | `SELECT` | `locationsId, projectsId` | Lists all instances in a project for either a specified location or for all locations. |
-| `projects_locations_instances_create` | `INSERT` | `locationsId, projectsId` | Creates an instance. When creating from a backup, the capacity of the new instance needs to be equal to or larger than the capacity of the backup (and also equal to or larger than the minimum capacity of the tier). |
-| `projects_locations_instances_delete` | `DELETE` | `instancesId, locationsId, projectsId` | Deletes an instance. |
-| `projects_locations_instances_patch` | `EXEC` | `instancesId, locationsId, projectsId` | Updates the settings of a specific instance. |
-| `projects_locations_instances_restore` | `EXEC` | `instancesId, locationsId, projectsId` | Restores an existing instance's file share from a backup. The capacity of the instance needs to be equal to or larger than the capacity of the backup (and also equal to or larger than the minimum capacity of the tier). |
+| `get` | `SELECT` | `instancesId, locationsId, projectsId` | Gets the details of a specific instance. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists all instances in a project for either a specified location or for all locations. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates an instance. When creating from a backup, the capacity of the new instance needs to be equal to or larger than the capacity of the backup (and also equal to or larger than the minimum capacity of the tier). |
+| `delete` | `DELETE` | `instancesId, locationsId, projectsId` | Deletes an instance. |
+| `patch` | `EXEC` | `instancesId, locationsId, projectsId` | Updates the settings of a specific instance. |
+| `restore` | `EXEC` | `instancesId, locationsId, projectsId` | Restores an existing instance's file share from a backup. The capacity of the instance needs to be equal to or larger than the capacity of the backup (and also equal to or larger than the minimum capacity of the tier). |
+| `revert` | `EXEC` | `instancesId, locationsId, projectsId` | Revert an existing instance's file system to a specified snapshot. |

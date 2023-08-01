@@ -28,12 +28,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the machine. |
+| `display_name` | `string` | The display name of the machine includes cores, memory, and storage. |
 | `memory_in_bytes` | `integer` | How much memory is available to the codespace. |
 | `operating_system` | `string` | The operating system of the machine. |
 | `prebuild_availability` | `string` | Whether a prebuild is currently available when creating a codespace for this machine and repository. If a branch was not specified as a ref, the default branch will be assumed. Value will be "null" if prebuilds are not supported or prebuild availability could not be determined. Value is the type of prebuild available, or "none" if none are available. |
 | `storage_in_bytes` | `integer` | How much storage is available to the codespace. |
 | `cpus` | `integer` | How many cores are available to the codespace. |
-| `display_name` | `string` | The display name of the machine includes cores, memory, and storage. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,11 +29,11 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `site_id` | `string` |
 | `submission_count` | `integer` |
 | `created_at` | `string` |
 | `fields` | `array` |
 | `paths` | `array` |
+| `site_id` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

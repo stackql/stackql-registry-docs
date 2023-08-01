@@ -27,10 +27,10 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `account_balance` | `string` | Current balance of the customer's most recent billing activity.  Does not reflect `month_to_date_usage`. |
 | `generated_at` | `string` | The time at which balances were most recently generated. |
 | `month_to_date_balance` | `string` | Balance as of the `generated_at` time.  This value includes the `account_balance` and `month_to_date_usage`. |
 | `month_to_date_usage` | `string` | Amount used in the current billing period as of the `generated_at` time. |
+| `account_balance` | `string` | Current balance of the customer's most recent billing activity.  Does not reflect `month_to_date_usage`. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `importSshPublicKey` | `EXEC` | `usersId` |
+| `import_ssh_public_key` | `EXEC` | `usersId` |

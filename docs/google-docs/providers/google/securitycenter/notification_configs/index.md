@@ -35,18 +35,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `folders_notificationConfigs_get` | `SELECT` | `foldersId, notificationConfigsId` | Gets a notification config. |
-| `folders_notificationConfigs_list` | `SELECT` | `foldersId` | Lists notification configs. |
-| `organizations_notificationConfigs_get` | `SELECT` | `notificationConfigsId, organizationsId` | Gets a notification config. |
-| `organizations_notificationConfigs_list` | `SELECT` | `organizationsId` | Lists notification configs. |
-| `projects_notificationConfigs_get` | `SELECT` | `notificationConfigsId, projectsId` | Gets a notification config. |
-| `projects_notificationConfigs_list` | `SELECT` | `projectsId` | Lists notification configs. |
-| `folders_notificationConfigs_create` | `INSERT` | `foldersId` | Creates a notification config. |
-| `organizations_notificationConfigs_create` | `INSERT` | `organizationsId` | Creates a notification config. |
-| `projects_notificationConfigs_create` | `INSERT` | `projectsId` | Creates a notification config. |
-| `folders_notificationConfigs_delete` | `DELETE` | `foldersId, notificationConfigsId` | Deletes a notification config. |
-| `organizations_notificationConfigs_delete` | `DELETE` | `notificationConfigsId, organizationsId` | Deletes a notification config. |
-| `projects_notificationConfigs_delete` | `DELETE` | `notificationConfigsId, projectsId` | Deletes a notification config. |
-| `folders_notificationConfigs_patch` | `EXEC` | `foldersId, notificationConfigsId` |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
-| `organizations_notificationConfigs_patch` | `EXEC` | `notificationConfigsId, organizationsId` |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
-| `projects_notificationConfigs_patch` | `EXEC` | `notificationConfigsId, projectsId` |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
+| `folders_notification_configs_get` | `SELECT` | `foldersId, notificationConfigsId` | Gets a notification config. |
+| `folders_notification_configs_list` | `SELECT` | `foldersId` | Lists notification configs. |
+| `organizations_notification_configs_get` | `SELECT` | `notificationConfigsId, organizationsId` | Gets a notification config. |
+| `organizations_notification_configs_list` | `SELECT` | `organizationsId` | Lists notification configs. |
+| `projects_notification_configs_get` | `SELECT` | `notificationConfigsId, projectsId` | Gets a notification config. |
+| `projects_notification_configs_list` | `SELECT` | `projectsId` | Lists notification configs. |
+| `folders_notification_configs_create` | `INSERT` | `foldersId` | Creates a notification config. |
+| `organizations_notification_configs_create` | `INSERT` | `organizationsId` | Creates a notification config. |
+| `projects_notification_configs_create` | `INSERT` | `projectsId` | Creates a notification config. |
+| `folders_notification_configs_delete` | `DELETE` | `foldersId, notificationConfigsId` | Deletes a notification config. |
+| `organizations_notification_configs_delete` | `DELETE` | `notificationConfigsId, organizationsId` | Deletes a notification config. |
+| `projects_notification_configs_delete` | `DELETE` | `notificationConfigsId, projectsId` | Deletes a notification config. |
+| `folders_notification_configs_patch` | `EXEC` | `foldersId, notificationConfigsId` |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
+| `organizations_notification_configs_patch` | `EXEC` | `notificationConfigsId, organizationsId` |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
+| `projects_notification_configs_patch` | `EXEC` | `notificationConfigsId, projectsId` |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |

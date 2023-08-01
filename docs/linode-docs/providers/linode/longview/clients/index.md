@@ -28,12 +28,12 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This Client's unique ID.<br /> |
-| `api_key` | `string` | The API key for this Client, used when configuring the Longview<br />Client application on your Linode.<br /><br />Returns as `[REDACTED]` if you do not have read-write access to this client.<br /> |
-| `apps` | `object` | The apps this Client is monitoring on your Linode. This is configured when you install the Longview Client application, and is present here for information purposes only.<br /> |
 | `created` | `string` | When this Longview Client was created.<br /> |
 | `install_code` | `string` | The install code for this Client, used when configuring the Longview<br />Client application on your Linode.<br /><br />Returns as `[REDACTED]` if you do not have read-write access to this client.<br /> |
 | `label` | `string` | This Client's unique label. This is for display purposes only.<br /> |
 | `updated` | `string` | When this Longview Client was last updated.<br /> |
+| `api_key` | `string` | The API key for this Client, used when configuring the Longview<br />Client application on your Linode.<br /><br />Returns as `[REDACTED]` if you do not have read-write access to this client.<br /> |
+| `apps` | `object` | The apps this Client is monitoring on your Linode. This is configured when you install the Longview Client application, and is present here for information purposes only.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

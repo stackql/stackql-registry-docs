@@ -27,22 +27,22 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `e` | `string` |
-| `alg` | `string` |
-| `kid` | `string` |
-| `x5u` | `string` |
-| `expiresAt` | `string` |
 | `lastUpdated` | `string` |
-| `_links` | `object` |
-| `x5t#S256` | `string` |
-| `use` | `string` |
+| `kid` | `string` |
 | `x5t` | `string` |
 | `x5c` | `array` |
+| `_links` | `object` |
 | `created` | `string` |
-| `false` | `string` |
+| `expiresAt` | `string` |
+| `e` | `string` |
+| `x5u` | `string` |
+| `alg` | `string` |
 | `key_ops` | `array` |
-| `kty` | `string` |
+| `x5t#S256` | `string` |
 | `status` | `string` |
+| `use` | `string` |
+| `kty` | `string` |
+| `false` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

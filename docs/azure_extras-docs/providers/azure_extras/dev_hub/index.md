@@ -33,7 +33,7 @@ The AKS Developer Hub Service Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Developer Hub Service Client (Microsoft.DevHub)</td></tr>
 <tr><td><b>Description</b></td><td>The AKS Developer Hub Service Client</td></tr>
-<tr><td><b>Id</b></td><td><code>dev_hub:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dev_hub:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

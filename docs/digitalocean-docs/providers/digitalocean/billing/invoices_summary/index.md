@@ -28,16 +28,16 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `user_company` | `string` | Company of the DigitalOcean customer being invoiced, if set. |
-| `amount` | `string` | Total amount of the invoice, in USD.  This will reflect month-to-date usage in the invoice preview. |
-| `taxes` | `object` | A summary of the taxes contributing to the invoice. |
 | `user_billing_address` | `object` | The billing address of the customer being invoiced. |
-| `billing_period` | `string` | Billing period of usage for which the invoice is issued, in `YYYY-MM`  format. |
-| `product_charges` | `object` | A summary of the product usage charges contributing to the invoice.  This will include an amount, and grouped aggregates by resource type  under the `items` key. |
-| `user_email` | `string` | Email of the DigitalOcean customer being invoiced. |
+| `amount` | `string` | Total amount of the invoice, in USD.  This will reflect month-to-date usage in the invoice preview. |
 | `invoice_uuid` | `string` | UUID of the invoice |
-| `overages` | `object` | A summary of the overages contributing to the invoice. |
 | `credits_and_adjustments` | `object` | A summary of the credits and adjustments contributing to the invoice. |
+| `product_charges` | `object` | A summary of the product usage charges contributing to the invoice.  This will include an amount, and grouped aggregates by resource type  under the `items` key. |
 | `user_name` | `string` | Name of the DigitalOcean customer being invoiced. |
+| `taxes` | `object` | A summary of the taxes contributing to the invoice. |
+| `overages` | `object` | A summary of the overages contributing to the invoice. |
+| `billing_period` | `string` | Billing period of usage for which the invoice is issued, in `YYYY-MM`  format. |
+| `user_email` | `string` | Email of the DigitalOcean customer being invoiced. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

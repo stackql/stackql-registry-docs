@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_workflows_triggerPubsubExecution` | `EXEC` | `locationsId, projectsId, workflowsId` |
+| `trigger_pubsub_execution` | `EXEC` | `locationsId, projectsId, workflowsId` |

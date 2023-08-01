@@ -27,11 +27,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `url` | `string` |
 | `checks` | `array` |
 | `contexts` | `array` |
 | `contexts_url` | `string` |
 | `strict` | `boolean` |
+| `url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

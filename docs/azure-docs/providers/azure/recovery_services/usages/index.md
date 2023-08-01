@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `object` | The name of usage. |
+| `currentValue` | `integer` | Current value of usage. |
+| `limit` | `integer` | Limit of usage. |
 | `nextResetTime` | `string` | Next reset time of usage. |
 | `quotaPeriod` | `string` | Quota period of usage. |
 | `unit` | `string` | Unit of the usage. |
-| `currentValue` | `integer` | Current value of usage. |
-| `limit` | `integer` | Limit of usage. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

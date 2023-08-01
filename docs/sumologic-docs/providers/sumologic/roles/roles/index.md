@@ -30,15 +30,15 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | `id` | `string` | Unique identifier for the role. |
 | `name` | `string` | Name of the role. |
 | `description` | `string` | Description of the role. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `capabilities` | `array` | List of [capabilities](https://help.sumologic.com/Manage/Users-and-Roles/Manage-Roles/Role-Capabilities) associated with this role. Valid values are<br />### Data Management<br />  - viewCollectors<br />  - manageCollectors<br />  - manageBudgets<br />  - manageDataVolumeFeed<br />  - viewFieldExtraction<br />  - manageFieldExtractionRules<br />  - manageS3DataForwarding<br />  - manageContent<br />  - dataVolumeIndex<br />  - manageConnections<br />  - viewScheduledViews<br />  - manageScheduledViews<br />  - viewPartitions<br />  - managePartitions<br />  - viewFields<br />  - manageFields<br />  - viewAccountOverview<br />  - manageTokens<br />  - downloadSearchResults<br /><br />### Entity management<br />  - manageEntityTypeConfig<br /><br />### Metrics<br />  - metricsTransformation<br />  - metricsExtraction<br />  - metricsRules<br /><br />### Security<br />  - managePasswordPolicy<br />  - ipAllowlisting<br />  - createAccessKeys<br />  - manageAccessKeys<br />  - manageSupportAccountAccess<br />  - manageAuditDataFeed<br />  - manageSaml<br />  - shareDashboardOutsideOrg<br />  - manageOrgSettings<br />  - changeDataAccessLevel<br /><br />### Dashboards<br />  - shareDashboardWorld<br />  - shareDashboardAllowlist<br /><br />### UserManagement<br />  - manageUsersAndRoles<br /><br />### Observability<br />  - searchAuditIndex<br />  - auditEventIndex<br /><br />### Cloud SIEM Enterprise<br />  - viewCse<br /><br />### Alerting<br />  - viewMonitorsV2<br />  - manageMonitorsV2<br />  - viewAlerts |
-| `users` | `array` | List of user identifiers to assign the role to. |
-| `filterPredicate` | `string` | A search filter to restrict access to specific logs. The filter is silently added to the beginning of each query a user runs. For example, using '!_sourceCategory=billing' as a filter predicate will prevent users assigned to the role from viewing logs from the source category named 'billing'. |
-| `createdBy` | `string` | Identifier of the user who created the resource. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
 | `systemDefined` | `boolean` | Role is system or user defined. |
 | `autofillDependencies` | `boolean` | Set this to true if you want to automatically append all missing capability requirements. If set to false an error will be thrown if any capabilities are missing their dependencies. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `users` | `array` | List of user identifiers to assign the role to. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `filterPredicate` | `string` | A search filter to restrict access to specific logs. The filter is silently added to the beginning of each query a user runs. For example, using '!_sourceCategory=billing' as a filter predicate will prevent users assigned to the role from viewing logs from the source category named 'billing'. |
+| `createdBy` | `string` | Identifier of the user who created the resource. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

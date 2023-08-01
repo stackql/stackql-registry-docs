@@ -33,7 +33,7 @@ REST API for Azure Blockchain Service
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Blockchain Management Client (Microsoft.Blockchain)</td></tr>
 <tr><td><b>Description</b></td><td>REST API for Azure Blockchain Service</td></tr>
-<tr><td><b>Id</b></td><td><code>blockchain:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>blockchain:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,20 +29,20 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `name` | `string` |
 | `description` | `string` |
-| `aliases` | `array` |
-| `text_matches` | `array` |
+| `curated` | `boolean` |
+| `created_at` | `string` |
+| `featured` | `boolean` |
+| `repository_count` | `integer` |
+| `short_description` | `string` |
+| `logo_url` | `string` |
 | `updated_at` | `string` |
 | `display_name` | `string` |
-| `repository_count` | `integer` |
-| `score` | `number` |
-| `featured` | `boolean` |
-| `short_description` | `string` |
-| `created_at` | `string` |
-| `created_by` | `string` |
 | `released` | `string` |
-| `logo_url` | `string` |
+| `text_matches` | `array` |
+| `score` | `number` |
+| `created_by` | `string` |
+| `aliases` | `array` |
 | `related` | `array` |
-| `curated` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

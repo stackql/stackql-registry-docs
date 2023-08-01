@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `regionInstances_bulkInsert` | `INSERT` | `project, region` |
+| `bulk_insert` | `EXEC` | `project, region` |

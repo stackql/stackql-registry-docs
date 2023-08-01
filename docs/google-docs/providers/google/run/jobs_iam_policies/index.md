@@ -34,6 +34,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_jobs_getIamPolicy` | `SELECT` | `jobsId, locationsId, projectsId` | Gets the IAM Access Control policy currently in effect for the given Job. This result does not include any inherited policies. |
-| `projects_locations_jobs_setIamPolicy` | `EXEC` | `jobsId, locationsId, projectsId` | Sets the IAM Access control policy for the specified Job. Overwrites any existing policy. |
-| `projects_locations_jobs_testIamPermissions` | `EXEC` | `jobsId, locationsId, projectsId` | Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. |
+| `get_iam_policy` | `SELECT` | `jobsId, locationsId, projectsId` | Gets the IAM Access Control policy currently in effect for the given Job. This result does not include any inherited policies. |
+| `set_iam_policy` | `EXEC` | `jobsId, locationsId, projectsId` | Sets the IAM Access control policy for the specified Job. Overwrites any existing policy. |
+| `test_iam_permissions` | `EXEC` | `jobsId, locationsId, projectsId` | Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. |

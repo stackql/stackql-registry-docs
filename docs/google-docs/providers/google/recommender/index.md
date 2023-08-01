@@ -19,8 +19,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
 <span>total methods:&nbsp;<b>48</b></span><br />
 </div>
 </div>
@@ -33,19 +33,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Recommender API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>recommender:v23.05.00145</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recommender:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/google/recommender/insight_types/">insight_types</a><br />
 <a href="/providers/google/recommender/insight_types_config/">insight_types_config</a><br />
 <a href="/providers/google/recommender/insights/">insights</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/recommender/recommendations/">recommendations</a><br />
-<a href="/providers/google/recommender/recommenders/">recommenders</a><br />
 <a href="/providers/google/recommender/recommenders_config/">recommenders_config</a><br />
 </div>
 </div>

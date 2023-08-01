@@ -25,8 +25,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `mappingRules` | `array` | The list of conversion workspace mapping rules. |
+| `nextPageToken` | `string` | A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `projects_locations_conversionWorkspaces_mappingRules_import` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `get` | `SELECT` | `conversionWorkspacesId, locationsId, mappingRulesId, projectsId` | Gets the details of a mapping rule. |
+| `list` | `SELECT` | `conversionWorkspacesId, locationsId, projectsId` | Lists the mapping rules for a specific conversion workspace. |
+| `create` | `INSERT` | `conversionWorkspacesId, locationsId, projectsId` | Creates a new mapping rule for a given conversion workspace. |
+| `delete` | `DELETE` | `conversionWorkspacesId, locationsId, mappingRulesId, projectsId` | Deletes a single mapping rule. |
+| `import` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Imports the mapping rules for a given conversion workspace. Supports various formats of external rules files. |

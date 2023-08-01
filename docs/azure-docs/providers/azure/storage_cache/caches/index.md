@@ -30,12 +30,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `id` | `string` | A fully qualified URL. |
 | `name` | `string` | Schema for the name of resources served by this provider. Note that objects will contain an odata @id annotation as appropriate. This will contain the complete URL of the object. These names are case-preserving, but not case sensitive. |
 | `location` | `string` | Region name string. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `identity` | `object` | Cache identity properties. |
-| `type` | `string` | Type of the Cache; Microsoft.StorageCache/Cache |
 | `sku` | `object` | SKU for the Cache. |
 | `tags` | `object` | Resource tags. |
 | `properties` | `object` | Properties of the Cache. |
+| `type` | `string` | Type of the Cache; Microsoft.StorageCache/Cache |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `identity` | `object` | Cache identity properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

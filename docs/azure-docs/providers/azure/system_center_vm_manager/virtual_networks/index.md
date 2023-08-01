@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
-| `extendedLocation` | `object` | The extended location. |
-| `location` | `string` | Gets or sets the location. |
 | `properties` | `object` | Defines the resource properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Resource Type |
+| `extendedLocation` | `object` | The extended location. |
+| `location` | `string` | Gets or sets the location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

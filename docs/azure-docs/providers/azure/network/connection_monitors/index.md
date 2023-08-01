@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of the connection monitor. |
 | `name` | `string` | Name of the connection monitor. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Connection monitor location. |
 | `properties` | `object` | Describes the properties of a connection monitor. |
 | `tags` | `object` | Connection monitor tags. |
 | `type` | `string` | Connection monitor type. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

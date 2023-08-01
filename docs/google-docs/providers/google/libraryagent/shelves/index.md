@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name of the shelf. Shelf names have the form `shelves/&#123;shelf_id&#125;`. The name is ignored when creating a shelf. |
-| `theme` | `string` | The theme of the shelf |
+| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this value in the ListShelvesRequest.page_token field in the subsequent call to `ListShelves` method to retrieve the next page of results. |
+| `shelves` | `array` | The list of shelves. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,12 +29,12 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
+| `status` | `string` |
+| `type` | `string` |
 | `actions` | `object` |
 | `conditions` | `object` |
 | `created` | `string` |
 | `lastUpdated` | `string` |
-| `status` | `string` |
-| `type` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,15 +27,15 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `state` | `string` | The current state of faster launching for the specified Windows AMI. |
-| `stateTransitionReason` | `string` | The reason that faster launching for the Windows AMI changed to the current state. |
-| `resourceType` | `string` | The resource type that is used for pre-provisioning the Windows AMI. Supported values include: &lt;code&gt;snapshot&lt;/code&gt;. |
-| `snapshotConfiguration` | `object` | Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI. |
-| `maxParallelLaunches` | `integer` | The maximum number of parallel instances that are launched for creating resources. |
-| `launchTemplate` | `object` | Identifies the launch template to use for faster launching of the Windows AMI. |
 | `stateTransitionTime` | `string` | The time that faster launching for the Windows AMI changed to the current state. |
-| `imageId` | `string` | The image ID that identifies the fast-launch enabled Windows image. |
+| `maxParallelLaunches` | `integer` | The maximum number of parallel instances that are launched for creating resources. |
 | `ownerId` | `string` | The owner ID for the fast-launch enabled Windows AMI. |
+| `resourceType` | `string` | The resource type that is used for pre-provisioning the Windows AMI. Supported values include: &lt;code&gt;snapshot&lt;/code&gt;. |
+| `launchTemplate` | `object` | Identifies the launch template to use for faster launching of the Windows AMI. |
+| `state` | `string` | The current state of faster launching for the specified Windows AMI. |
+| `snapshotConfiguration` | `object` | Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI. |
+| `imageId` | `string` | The image ID that identifies the fast-launch enabled Windows image. |
+| `stateTransitionReason` | `string` | The reason that faster launching for the Windows AMI changed to the current state. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

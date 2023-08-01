@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `extendedLocation` | `object` |  |
+| `identity` | `object` | Identity for the Provisioned cluster. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` |  |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
-| `extendedLocation` | `object` |  |
-| `identity` | `object` | Identity for the Provisioned cluster. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

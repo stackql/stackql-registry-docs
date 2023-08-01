@@ -27,11 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `defaultVersion` | `boolean` | Whether this is currently the default version for Cloud Data Fusion |
-| `type` | `string` | Type represents the release availability of the version |
-| `versionNumber` | `string` | The version number of the Data Fusion instance, such as '6.0.1.0'. |
-| `availableFeatures` | `array` | Represents a list of available feature names for a given version. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results or empty if there are no more results in the list. |
+| `availableVersions` | `array` | Represents a list of versions that are supported. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_versions_list` | `SELECT` | `locationsId, projectsId` |
+| `list` | `SELECT` | `locationsId, projectsId` |

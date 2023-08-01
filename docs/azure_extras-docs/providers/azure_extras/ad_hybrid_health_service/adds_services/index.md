@@ -28,29 +28,29 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The id of the service. |
-| `lastDisabled` | `string` | The date and time, in UTC, when the service was last disabled. |
-| `type` | `string` | The service type for the services onboarded to Azure Active Directory Connect Health. Depending on whether the service is monitoring, ADFS, Sync or ADDS roles, the service type can either be AdFederationService or AadSyncService or AdDomainService. |
 | `createdDate` | `string` | The date and time, in UTC, when the service was onboarded to Azure Active Directory Connect Health. |
-| `notificationEmailEnabled` | `boolean` | Indicates if email notification is enabled or not. |
-| `notificationEmails` | `array` | The list of emails to whom service notifications will be sent. |
-| `monitoringConfigurationsComputed` | `object` | The monitoring configuration of the service which determines what activities are monitored by Azure Active Directory Connect Health. |
-| `notificationEmailsEnabledForGlobalAdmins` | `boolean` | Indicates if email notification is enabled for global administrators of the tenant. |
-| `simpleProperties` | `object` | List of service specific configuration properties. |
-| `lastUpdated` | `string` | The date or time , in UTC, when the service properties were last updated. |
-| `disabled` | `boolean` | Indicates if the service is disabled or not. |
 | `resolvedAlerts` | `integer` | The total count of alerts that has been resolved for the service. |
-| `customNotificationEmails` | `array` | The list of additional emails that are configured to receive notifications about the service. |
-| `originalDisabledState` | `boolean` | Gets the original disable state. |
-| `serviceName` | `string` | The name of the service. |
-| `serviceId` | `string` | The id of the service. |
-| `health` | `string` | The health of the service. |
-| `monitoringConfigurationsCustomized` | `object` | The customized monitoring configuration of the service which determines what activities are monitored by Azure Active Directory Connect Health. |
-| `signature` | `string` | The signature of the service. |
 | `activeAlerts` | `integer` | The count of alerts that are currently active for the service. |
-| `displayName` | `string` | The display name of the service. |
 | `tenantId` | `string` | The id of the tenant to which the service is registered to. |
-| `additionalInformation` | `string` | The additional information related to the service. |
+| `displayName` | `string` | The display name of the service. |
+| `notificationEmailEnabled` | `boolean` | Indicates if email notification is enabled or not. |
+| `monitoringConfigurationsCustomized` | `object` | The customized monitoring configuration of the service which determines what activities are monitored by Azure Active Directory Connect Health. |
+| `serviceName` | `string` | The name of the service. |
+| `health` | `string` | The health of the service. |
+| `type` | `string` | The service type for the services onboarded to Azure Active Directory Connect Health. Depending on whether the service is monitoring, ADFS, Sync or ADDS roles, the service type can either be AdFederationService or AadSyncService or AdDomainService. |
+| `simpleProperties` | `object` | List of service specific configuration properties. |
+| `notificationEmailsEnabledForGlobalAdmins` | `boolean` | Indicates if email notification is enabled for global administrators of the tenant. |
+| `customNotificationEmails` | `array` | The list of additional emails that are configured to receive notifications about the service. |
 | `notificationEmailEnabledForGlobalAdmins` | `boolean` | Indicates if email notification is enabled for global administrators of the tenant. |
+| `originalDisabledState` | `boolean` | Gets the original disable state. |
+| `additionalInformation` | `string` | The additional information related to the service. |
+| `monitoringConfigurationsComputed` | `object` | The monitoring configuration of the service which determines what activities are monitored by Azure Active Directory Connect Health. |
+| `lastUpdated` | `string` | The date or time , in UTC, when the service properties were last updated. |
+| `lastDisabled` | `string` | The date and time, in UTC, when the service was last disabled. |
+| `notificationEmails` | `array` | The list of emails to whom service notifications will be sent. |
+| `signature` | `string` | The signature of the service. |
+| `serviceId` | `string` | The id of the service. |
+| `disabled` | `boolean` | Indicates if the service is disabled or not. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

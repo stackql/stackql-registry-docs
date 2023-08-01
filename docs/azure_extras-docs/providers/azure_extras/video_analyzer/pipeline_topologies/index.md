@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sku` | `object` | The SKU details. |
 | `kind` | `string` | Topology kind. |
 | `properties` | `object` | Describes the properties of a pipeline topology. |
+| `sku` | `object` | The SKU details. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

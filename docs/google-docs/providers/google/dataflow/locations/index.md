@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_workerMessages` | `EXEC` | `location, projectId` |
+| `projects_locations_worker_messages` | `EXEC` | `location, projectId` |

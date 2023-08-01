@@ -25,14 +25,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `instance` | `string` | [Output Only] The URL of the instance. |
-| `namedPorts` | `array` | [Output Only] The named ports that belong to this instance group. |
-| `status` | `string` | [Output Only] The status of the instance. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `instanceGroups_listInstances` | `SELECT` | `instanceGroup, project, zone` | Lists the instances in the specified instance group. The orderBy query parameter is not supported. The filter query parameter is supported, but only for expressions that use `eq` (equal) or `ne` (not equal) operators. |
-| `instanceGroups_addInstances` | `INSERT` | `instanceGroup, project, zone` | Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read Adding instances for more information. |
-| `instanceGroups_removeInstances` | `DELETE` | `instanceGroup, project, zone` | Removes one or more instances from the specified instance group, but does not delete those instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration before the VM instance is removed or deleted. |
+| `add_instances` | `EXEC` | `instanceGroup, project, zone` | Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read Adding instances for more information. |
+| `list_instances` | `EXEC` | `instanceGroup, project, zone` | Lists the instances in the specified instance group. The orderBy query parameter is not supported. The filter query parameter is supported, but only for expressions that use `eq` (equal) or `ne` (not equal) operators. |
+| `remove_instances` | `EXEC` | `instanceGroup, project, zone` | Removes one or more instances from the specified instance group, but does not delete those instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration before the VM instance is removed or deleted. |

@@ -33,7 +33,7 @@ The DNS Resolver Management Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dns Resolver Management Client (Microsoft.Network)</td></tr>
 <tr><td><b>Description</b></td><td>The DNS Resolver Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>dns_resolver:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dns_resolver:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

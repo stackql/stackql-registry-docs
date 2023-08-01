@@ -27,11 +27,11 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `netv4` | `object` | IPv4 statistics. |
+| `netv6` | `object` | IPv6 statistics. |
 | `title` | `string` | The title for this data set. |
 | `cpu` | `array` | Percentage of CPU used.<br /> |
 | `io` | `object` | Input/Output statistics. |
-| `netv4` | `object` | IPv4 statistics. |
-| `netv6` | `object` | IPv6 statistics. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

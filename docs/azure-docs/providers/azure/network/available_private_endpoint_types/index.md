@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | A unique identifier of the AvailablePrivateEndpoint Type resource. |
 | `name` | `string` | The name of the service and resource. |
-| `displayName` | `string` | Display name of the resource. |
 | `resourceName` | `string` | The name of the service and resource. |
 | `type` | `string` | Resource type. |
+| `displayName` | `string` | Display name of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

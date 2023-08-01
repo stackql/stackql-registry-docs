@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
+| `location` | `string` | The resource location. |
 | `properties` | `object` | Data Lake Store account properties information. |
 | `tags` | `object` | The resource tags. |
 | `type` | `string` | The resource type. |
 | `identity` | `object` | The encryption identity properties. |
-| `location` | `string` | The resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,21 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. Name of the Gateway resource. It matches pattern `projects/*/locations/*/gateways/`. |
-| `description` | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
-| `type` | `string` | Immutable. The type of the customer managed gateway. This field is required. If unspecified, an error is returned. |
-| `labels` | `object` | Optional. Set of label tags associated with the Gateway resource. |
-| `createTime` | `string` | Output only. The timestamp when the resource was created. |
-| `scope` | `string` | Required. Immutable. Scope determines how configuration across multiple Gateway instances are merged. The configuration for multiple Gateway instances with the same scope will be merged as presented as a single coniguration to the proxy/load balancer. Max length 64 characters. Scope should start with a letter and can only have letters, numbers, hyphens. |
-| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
-| `serverTlsPolicy` | `string` | Optional. A fully-qualified ServerTLSPolicy URL reference. Specifies how TLS traffic is terminated. If empty, TLS termination is disabled. |
-| `selfLink` | `string` | Output only. Server-defined URL of this resource |
-| `ports` | `array` | Required. One or more port numbers (1-65535), on which the Gateway will receive traffic. The proxy binds to the specified ports. Gateways of type 'SECURE_WEB_GATEWAY' are limited to 1 port. Gateways of type 'OPEN_MESH' listen on 0.0.0.0 and support multiple ports. |
+| `unreachable` | `array` | Locations that could not be reached. |
+| `gateways` | `array` | List of Gateway resources. |
+| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_gateways_get` | `SELECT` | `gatewaysId, locationsId, projectsId` | Gets details of a single Gateway. |
-| `projects_locations_gateways_list` | `SELECT` | `locationsId, projectsId` | Lists Gateways in a given project and location. |
-| `projects_locations_gateways_create` | `INSERT` | `locationsId, projectsId` | Creates a new Gateway in a given project and location. |
-| `projects_locations_gateways_delete` | `DELETE` | `gatewaysId, locationsId, projectsId` | Deletes a single Gateway. |
-| `projects_locations_gateways_patch` | `EXEC` | `gatewaysId, locationsId, projectsId` | Updates the parameters of a single Gateway. |
+| `get` | `SELECT` | `gatewaysId, locationsId, projectsId` | Gets details of a single Gateway. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists Gateways in a given project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new Gateway in a given project and location. |
+| `delete` | `DELETE` | `gatewaysId, locationsId, projectsId` | Deletes a single Gateway. |
+| `patch` | `EXEC` | `gatewaysId, locationsId, projectsId` | Updates the parameters of a single Gateway. |

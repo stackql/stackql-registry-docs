@@ -13,14 +13,14 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-The Cloud Asset API manages the history and inventory of Google Cloud resources.  
+The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
 <span>total methods:&nbsp;<b>14</b></span><br />
 </div>
 </div>
@@ -32,21 +32,22 @@ The Cloud Asset API manages the history and inventory of Google Cloud resources.
 <tr><td><b>Name</b></td><td><code>google.cloudasset</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Asset API</td></tr>
-<tr><td><b>Description</b></td><td>The Cloud Asset API manages the history and inventory of Google Cloud resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudasset:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudasset:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/cloudasset/assets/">assets</a><br />
-<a href="/providers/google/cloudasset/assets_history/">assets_history</a><br />
 <a href="/providers/google/cloudasset/cloudasset/">cloudasset</a><br />
-<a href="/providers/google/cloudasset/effective_iam_policies/">effective_iam_policies</a><br />
+<a href="/providers/google/cloudasset/cloudasset_assets_history/">cloudasset_assets_history</a><br />
+<a href="/providers/google/cloudasset/cloudasset_iam_policies/">cloudasset_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/cloudasset/effective_iam_policies/">effective_iam_policies</a><br />
 <a href="/providers/google/cloudasset/feeds/">feeds</a><br />
-<a href="/providers/google/cloudasset/iam_policies/">iam_policies</a><br />
+<a href="/providers/google/cloudasset/operations/">operations</a><br />
 <a href="/providers/google/cloudasset/saved_queries/">saved_queries</a><br />
 </div>
 </div>

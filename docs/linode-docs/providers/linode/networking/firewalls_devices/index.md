@@ -28,9 +28,9 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The Device's unique ID<br /> |
+| `entity` | `object` | The Linode service that this Firewall has been applied to.<br /> |
 | `updated` | `string` | When this Device was last updated.<br /> |
 | `created` | `string` | When this Device was created.<br /> |
-| `entity` | `object` | The Linode service that this Firewall has been applied to.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

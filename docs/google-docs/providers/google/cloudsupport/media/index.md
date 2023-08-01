@@ -27,7 +27,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `download` | `EXEC` | `name` | Download a file attachment on a case. Note: HTTP requests must append "?alt=media" to the URL. |
-| `upload` | `EXEC` | `parent` | Create a file attachment on a case or Cloud resource. The attachment object must have the following fields set: filename. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `upload` | `EXEC` | `parent` |

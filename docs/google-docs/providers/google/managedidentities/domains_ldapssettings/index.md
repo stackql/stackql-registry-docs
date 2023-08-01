@@ -34,6 +34,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `certificate` | `object` | Certificate used to configure LDAPS. |
 | `certificatePassword` | `string` | Input only. The password used to encrypt the uploaded PFX certificate. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `projects_locations_global_domains_getLdapssettings` | `SELECT` | `domainsId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `get_ldapssettings` | `SELECT` | `domainsId, projectsId` | Gets the domain ldaps settings. |
+| `update_ldapssettings` | `EXEC` | `domainsId, projectsId` | Patches a single ldaps settings. |

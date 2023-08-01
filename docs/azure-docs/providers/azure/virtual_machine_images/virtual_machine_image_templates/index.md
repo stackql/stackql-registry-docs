@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Describes the properties of an image template |
 | `tags` | `object` | Resource tags. |
 | `identity` | `object` | Identity for the image template. |
 | `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | Describes the properties of an image template |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

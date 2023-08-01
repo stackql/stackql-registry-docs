@@ -17,7 +17,7 @@ slug: /providers/okta
 ---
 Authentication and authorization services.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.03.00121)
 
 <div class="row">
 <div class="providerDocColumn">

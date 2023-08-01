@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource ID. |
 | `name` | `string` | The resource name. |
+| `location` | `string` | The geo location of the resource. |
+| `properties` | `object` | The properties of the StorSimple Manager. |
 | `tags` | `object` | The tags attached to the resource. |
 | `type` | `string` | The resource type. |
 | `etag` | `string` | The etag of the manager. |
-| `location` | `string` | The geo location of the resource. |
-| `properties` | `object` | The properties of the StorSimple Manager. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

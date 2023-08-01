@@ -33,7 +33,7 @@ Power Platform
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Power Platform (Microsoft.PowerPlatform)</td></tr>
 <tr><td><b>Description</b></td><td>Power Platform</td></tr>
-<tr><td><b>Id</b></td><td><code>power_platform:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>power_platform:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

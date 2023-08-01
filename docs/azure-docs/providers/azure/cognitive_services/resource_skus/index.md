@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of SKU. |
-| `kind` | `string` | The Kind of resources that are supported in this SKU. |
-| `locations` | `array` | The set of locations that the SKU is available. |
 | `resourceType` | `string` | The type of resource the SKU applies to. |
 | `restrictions` | `array` | The restrictions because of which SKU cannot be used. This is empty if there are no restrictions. |
 | `tier` | `string` | Specifies the tier of Cognitive Services account. |
+| `kind` | `string` | The Kind of resources that are supported in this SKU. |
+| `locations` | `array` | The set of locations that the SKU is available. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

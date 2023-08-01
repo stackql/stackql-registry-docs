@@ -28,8 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name: &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125;. |
-| `display` | `object` | Display represents the display details of an operation. |
 | `origin` | `string` | Sources of requests to this operation.  Comma separated list with valid values user or system, e.g. "user,system". |
+| `display` | `object` | Display represents the display details of an operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

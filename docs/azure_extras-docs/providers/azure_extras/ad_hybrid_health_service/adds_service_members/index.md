@@ -27,32 +27,32 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `lastUpdated` | `string` | The date and time, in UTC, when the server properties were last updated. |
-| `serviceMemberId` | `string` | The id of the server. |
-| `lastReboot` | `string` | The date and time, in UTC, when the server was last rebooted. |
-| `recommendedQfes` | `object` | The list of recommended hotfixes for the server. |
-| `properties` | `object` | Server specific properties. |
-| `machineId` | `string` | The id of the machine. |
-| `lastServerReportedMonitoringLevelChange` | `string` | The date and time, in UTC, when the server's data monitoring configuration was last changed. |
-| `osVersion` | `string` | The version of the operating system installed in the machine. |
-| `role` | `string` | The service role that is being monitored in the server. |
-| `dimensions` | `object` | The server specific configuration related dimensions. |
-| `disabledReason` | `integer` | The reason for disabling the server. |
-| `lastDisabled` | `string` | The date and time , in UTC, when the server was last disabled. |
-| `serviceId` | `string` | The service id to whom this server belongs. |
-| `monitoringConfigurationsComputed` | `object` | The monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
-| `resolvedAlerts` | `integer` | The total count of alerts that are resolved for this server. |
-| `status` | `string` | The health status of the server. |
-| `serverReportedMonitoringLevel` | `string` | The monitoring level reported by the server. |
-| `activeAlerts` | `integer` | The total number of alerts that are currently active for the server. |
-| `monitoringConfigurationsCustomized` | `object` | The customized monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
-| `machineName` | `string` | The name of the server. |
 | `disabled` | `boolean` | Indicates if the server is disabled or not.  |
-| `osName` | `string` | The name of the operating system installed in the machine. |
+| `serviceId` | `string` | The service id to whom this server belongs. |
+| `lastDisabled` | `string` | The date and time , in UTC, when the server was last disabled. |
+| `monitoringConfigurationsCustomized` | `object` | The customized monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
+| `serverReportedMonitoringLevel` | `string` | The monitoring level reported by the server. |
+| `recommendedQfes` | `object` | The list of recommended hotfixes for the server. |
 | `additionalInformation` | `string` | The additional information, if any, for the server. |
-| `createdDate` | `string` | The date time , in UTC, when the server was onboarded to Azure Active Directory Connect Health. |
+| `monitoringConfigurationsComputed` | `object` | The monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
+| `lastReboot` | `string` | The date and time, in UTC, when the server was last rebooted. |
 | `tenantId` | `string` | The tenant id to whom this server belongs. |
+| `osName` | `string` | The name of the operating system installed in the machine. |
+| `osVersion` | `string` | The version of the operating system installed in the machine. |
+| `properties` | `object` | Server specific properties. |
+| `lastUpdated` | `string` | The date and time, in UTC, when the server properties were last updated. |
+| `status` | `string` | The health status of the server. |
+| `disabledReason` | `integer` | The reason for disabling the server. |
+| `createdDate` | `string` | The date time , in UTC, when the server was onboarded to Azure Active Directory Connect Health. |
+| `lastServerReportedMonitoringLevelChange` | `string` | The date and time, in UTC, when the server's data monitoring configuration was last changed. |
+| `resolvedAlerts` | `integer` | The total count of alerts that are resolved for this server. |
+| `machineId` | `string` | The id of the machine. |
+| `activeAlerts` | `integer` | The total number of alerts that are currently active for the server. |
 | `installedQfes` | `object` | The list of installed QFEs for the server. |
+| `dimensions` | `object` | The server specific configuration related dimensions. |
+| `serviceMemberId` | `string` | The id of the server. |
+| `machineName` | `string` | The name of the server. |
+| `role` | `string` | The service role that is being monitored in the server. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

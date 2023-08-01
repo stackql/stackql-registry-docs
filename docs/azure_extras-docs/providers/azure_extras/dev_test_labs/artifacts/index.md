@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The identifier of the resource. |
 | `name` | `string` | The name of the resource. |
+| `properties` | `object` | Properties of an artifact. |
 | `tags` | `object` | The tags of the resource. |
 | `type` | `string` | The type of the resource. |
 | `location` | `string` | The location of the resource. |
-| `properties` | `object` | Properties of an artifact. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

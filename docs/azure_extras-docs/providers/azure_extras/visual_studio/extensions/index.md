@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier of the resource. |
 | `name` | `string` | Resource name. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 | `location` | `string` | Resource location. |
 | `plan` | `object` | Plan data for an extension resource. |
 | `properties` | `object` | Resource properties. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

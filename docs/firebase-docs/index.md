@@ -17,7 +17,7 @@ slug: /providers/firebase
 ---
 Application development platform for creating mobile and web applications.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.03.00121)
 
 <div class="row">
 <div class="providerDocColumn">
@@ -58,9 +58,9 @@ The following authentication methods are supported:
 
 The following system environment variable is used by default:  
 
-- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json file
+- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json fileThis variable is sourced at runtime (from the local machine using export GOOGLE_CREDENTIALS=cat creds/my-sa-key.json` for example or as a CI variable/secret).
 
-This variable is sourced at runtime (from the local machine or as a CI variable/secret).
+This variable is sourced at runtime (from the local machine using `export GOOGLE_CREDENTIALS=$(cat creds/my-sa-key.json)` for example or as a CI variable/secret).
 
 <details>
 

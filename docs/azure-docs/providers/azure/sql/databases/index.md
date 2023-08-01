@@ -27,13 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `managedBy` | `string` | Resource that manages the database. |
-| `properties` | `object` | The database's properties. |
-| `sku` | `object` | An ARM Resource SKU. |
 | `tags` | `object` | Resource tags. |
 | `identity` | `object` | Azure Active Directory identity configuration for a resource. |
 | `kind` | `string` | Kind of database. This is metadata used for the Azure portal experience. |
 | `location` | `string` | Resource location. |
+| `managedBy` | `string` | Resource that manages the database. |
+| `properties` | `object` | The database's properties. |
+| `sku` | `object` | An ARM Resource SKU. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

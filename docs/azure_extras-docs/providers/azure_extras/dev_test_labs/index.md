@@ -33,7 +33,7 @@ The DevTest Labs Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DevTest Labs Client (Microsoft.DevTestLab)</td></tr>
 <tr><td><b>Description</b></td><td>The DevTest Labs Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>dev_test_labs:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dev_test_labs:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

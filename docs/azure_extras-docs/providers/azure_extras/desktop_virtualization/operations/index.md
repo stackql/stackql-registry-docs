@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name, in format of &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125; |
-| `isDataAction` | `boolean` | Is a data action. |
 | `properties` | `object` | Properties of the operation |
 | `display` | `object` | Display metadata associated with the operation. |
+| `isDataAction` | `boolean` | Is a data action. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

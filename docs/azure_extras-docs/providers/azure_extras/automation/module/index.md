@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Gets or sets the etag of the resource. |
-| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Definition of the module property type. |
 | `tags` | `object` | Resource tags. |
+| `etag` | `string` | Gets or sets the etag of the resource. |
+| `location` | `string` | The geo-location where the resource lives |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

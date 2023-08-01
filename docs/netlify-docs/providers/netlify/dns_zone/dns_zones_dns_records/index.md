@@ -28,16 +28,16 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `flag` | `integer` |
+| `managed` | `boolean` |
 | `tag` | `string` |
 | `value` | `string` |
+| `dns_zone_id` | `string` |
+| `priority` | `integer` |
 | `type` | `string` |
 | `hostname` | `string` |
-| `ttl` | `integer` |
-| `priority` | `integer` |
 | `site_id` | `string` |
-| `flag` | `integer` |
-| `dns_zone_id` | `string` |
-| `managed` | `boolean` |
+| `ttl` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

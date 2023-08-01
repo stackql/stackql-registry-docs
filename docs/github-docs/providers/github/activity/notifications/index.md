@@ -28,14 +28,14 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` |  |
-| `subject` | `object` |  |
-| `url` | `string` |  |
-| `updated_at` | `string` |  |
-| `last_read_at` | `string` |  |
-| `unread` | `boolean` |  |
-| `reason` | `string` |  |
-| `subscription_url` | `string` |  |
 | `repository` | `object` | Minimal Repository |
+| `last_read_at` | `string` |  |
+| `reason` | `string` |  |
+| `url` | `string` |  |
+| `subject` | `object` |  |
+| `subscription_url` | `string` |  |
+| `unread` | `boolean` |  |
+| `updated_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

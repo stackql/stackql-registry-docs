@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The id of the rule set. |
 | `name` | `string` | Name of the rule set. |
-| `type` | `string` | The type of the rule set. |
 | `properties` | `object` | Definition of the properties for a TagRules resource. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the rule set. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

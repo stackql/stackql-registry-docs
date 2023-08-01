@@ -30,16 +30,16 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
+| `created_at` | `string` |
+| `long_description` | `string` |
+| `slug` | `string` |
+| `environments` | `array` |
+| `tags` | `array` |
+| `service_path` | `string` |
+| `events` | `array` |
 | `icon` | `string` |
 | `updated_at` | `string` |
 | `manifest_url` | `string` |
-| `created_at` | `string` |
-| `environments` | `array` |
-| `events` | `array` |
-| `slug` | `string` |
-| `tags` | `array` |
-| `long_description` | `string` |
-| `service_path` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -33,7 +33,7 @@ PowerBI Dedicated
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>PowerBI Dedicated (Microsoft.PowerBIDedicated)</td></tr>
 <tr><td><b>Description</b></td><td>PowerBI Dedicated</td></tr>
-<tr><td><b>Id</b></td><td><code>powerbi_dedicated:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>powerbi_dedicated:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

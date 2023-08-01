@@ -27,10 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `dimensions` | `array` | List of schema fields grouped as dimensions. |
 | `meta` | `array` | Additional metadata associated with schema. This is a legacy field and usually consists of an empty array of strings. |
 | `metrics` | `array` | List of schema fields grouped as dimensions that can be used with an aggregate function such as `sum`, `avg`, `min`, and `max`. |
+| `dimensions` | `array` | List of schema fields grouped as dimensions. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_environments_analytics_admin_getSchemav2` | `SELECT` | `environmentsId, organizationsId` |
+| `organizations_environments_analytics_admin_get_schemav2` | `SELECT` | `environmentsId, organizationsId` |

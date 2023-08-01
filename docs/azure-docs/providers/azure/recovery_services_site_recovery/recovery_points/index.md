@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
-| `properties` | `object` | Recovery point properties. |
 | `type` | `string` | Resource Type |
 | `location` | `string` | Resource Location |
+| `properties` | `object` | Recovery point properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

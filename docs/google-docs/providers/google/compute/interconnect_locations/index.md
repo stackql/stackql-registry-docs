@@ -30,21 +30,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] An optional description of the resource. |
+| `peeringdbFacilityId` | `string` | [Output Only] The peeringdb identifier for this facility (corresponding with a netfac type in peeringdb). |
+| `facilityProvider` | `string` | [Output Only] The name of the provider for this facility (e.g., EQUINIX). |
 | `city` | `string` | [Output Only] Metropolitan area designator that indicates which city an interconnect is located. For example: "Chicago, IL", "Amsterdam, Netherlands". |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `status` | `string` | [Output Only] The status of this InterconnectLocation, which can take one of the following values: - CLOSED: The InterconnectLocation is closed and is unavailable for provisioning new Interconnects. - AVAILABLE: The InterconnectLocation is available for provisioning new Interconnects.  |
-| `facilityProviderFacilityId` | `string` | [Output Only] A provider-assigned Identifier for this facility (e.g., Ashburn-DC1). |
+| `supportsPzs` | `boolean` | [Output Only] Reserved for future use. |
 | `regionInfos` | `array` | [Output Only] A list of InterconnectLocation.RegionInfo objects, that describe parameters pertaining to the relation between this InterconnectLocation and various Google Cloud regions. |
 | `kind` | `string` | [Output Only] Type of the resource. Always compute#interconnectLocation for interconnect locations. |
 | `address` | `string` | [Output Only] The postal address of the Point of Presence, each line in the address is separated by a newline character. |
+| `facilityProviderFacilityId` | `string` | [Output Only] A provider-assigned Identifier for this facility (e.g., Ashburn-DC1). |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `continent` | `string` | [Output Only] Continent for this location, which can take one of the following values: - AFRICA - ASIA_PAC - EUROPE - NORTH_AMERICA - SOUTH_AMERICA  |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `facilityProvider` | `string` | [Output Only] The name of the provider for this facility (e.g., EQUINIX). |
-| `peeringdbFacilityId` | `string` | [Output Only] The peeringdb identifier for this facility (corresponding with a netfac type in peeringdb). |
 | `availabilityZone` | `string` | [Output Only] Availability zone for this InterconnectLocation. Within a metropolitan area (metro), maintenance will not be simultaneously scheduled in more than one availability zone. Example: "zone1" or "zone2". |
-| `supportsPzs` | `boolean` | [Output Only] Set to true for locations that support physical zone separation. Defaults to false if the field is not present. |
+| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `interconnectLocations_get` | `SELECT` | `interconnectLocation, project` | Returns the details for the specified interconnect location. Gets a list of available interconnect locations by making a list() request. |
-| `interconnectLocations_list` | `SELECT` | `project` | Retrieves the list of interconnect locations available to the specified project. |
+| `get` | `SELECT` | `interconnectLocation, project` | Returns the details for the specified interconnect location. Gets a list of available interconnect locations by making a list() request. |
+| `list` | `SELECT` | `project` | Retrieves the list of interconnect locations available to the specified project. |

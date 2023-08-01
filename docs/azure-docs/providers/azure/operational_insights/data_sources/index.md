@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | The ETag of the data source. |
 | `kind` | `string` | The kind of the DataSource. |
 | `properties` | `object` | JSON object |
 | `tags` | `object` | Resource tags. |
+| `etag` | `string` | The ETag of the data source. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

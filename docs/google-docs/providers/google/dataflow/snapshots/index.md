@@ -25,18 +25,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | The unique ID of this snapshot. |
-| `description` | `string` | User specified description of the snapshot. Maybe empty. |
-| `sourceJobId` | `string` | The job this snapshot was created from. |
-| `region` | `string` | Cloud region where this snapshot lives in, e.g., "us-central1". |
-| `state` | `string` | State of the snapshot. |
-| `pubsubMetadata` | `array` | Pub/Sub snapshot metadata. |
-| `projectId` | `string` | The project this snapshot belongs to. |
-| `diskSizeBytes` | `string` | The disk byte size of the snapshot. Only available for snapshots in READY state. |
-| `ttl` | `string` | The time after which this snapshot will be automatically deleted. |
-| `creationTime` | `string` | The time this snapshot was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,4 +33,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_snapshots_list` | `SELECT` | `location, projectId` | Lists snapshots. |
 | `projects_snapshots_get` | `SELECT` | `projectId, snapshotId` | Gets information about a snapshot. |
 | `projects_snapshots_list` | `SELECT` | `projectId` | Lists snapshots. |
+| `projects_delete_snapshots` | `DELETE` | `projectId` | Deletes a snapshot. |
 | `projects_locations_snapshots_delete` | `DELETE` | `location, projectId, snapshotId` | Deletes a snapshot. |

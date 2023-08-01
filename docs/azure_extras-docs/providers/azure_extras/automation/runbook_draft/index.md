@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `outputTypes` | `array` | Gets or sets the runbook output types. |
 | `parameters` | `object` | Gets or sets the runbook draft parameters. |
 | `creationTime` | `string` | Gets or sets the creation time of the runbook draft. |
 | `draftContentLink` | `object` | Definition of the content link. |
 | `inEdit` | `boolean` | Gets or sets whether runbook is in edit mode. |
 | `lastModifiedTime` | `string` | Gets or sets the last modified time of the runbook draft. |
-| `outputTypes` | `array` | Gets or sets the runbook output types. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

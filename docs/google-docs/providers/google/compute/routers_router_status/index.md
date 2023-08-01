@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Type of resource. |
 | `result` | `object` |  |
+| `kind` | `string` | Type of resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `routers_getRouterStatus` | `SELECT` | `project, region, router` |
+| `get_router_status` | `SELECT` | `project, region, router` |

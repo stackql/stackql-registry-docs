@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the resource. |
 | `name` | `string` | The name of the resource. |
+| `etag` | `string` | The ETag of the resource, used for concurrency statements. |
 | `properties` | `object` | Private endpoint connection properties. |
 | `type` | `string` | The type of the resource. |
-| `etag` | `string` | The ETag of the resource, used for concurrency statements. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

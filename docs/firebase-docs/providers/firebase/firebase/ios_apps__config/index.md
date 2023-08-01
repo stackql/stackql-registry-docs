@@ -27,8 +27,8 @@ image: /img/providers/firebase/stackql-firebase-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `configFileContents` | `string` | The content of the XML configuration file. |
 | `configFilename` | `string` | The filename that the configuration artifact for the `IosApp` is typically saved as. For example: `GoogleService-Info.plist` |
+| `configFileContents` | `string` | The content of the XML configuration file. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

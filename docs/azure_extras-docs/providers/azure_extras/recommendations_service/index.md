@@ -33,7 +33,7 @@ Recommendations Service
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Recommendations Service (Microsoft.RecommendationsService)</td></tr>
 <tr><td><b>Description</b></td><td>Recommendations Service</td></tr>
-<tr><td><b>Id</b></td><td><code>recommendations_service:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recommendations_service:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

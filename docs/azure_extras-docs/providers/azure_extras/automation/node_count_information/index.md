@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | Gets an array of counts |
 | `totalCount` | `integer` | Gets the total number of records matching countType criteria. |
+| `value` | `array` | Gets an array of counts |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

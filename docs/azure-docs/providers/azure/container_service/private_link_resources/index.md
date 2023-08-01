@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the private link resource. |
 | `name` | `string` | The name of the private link resource. |
+| `type` | `string` | The resource type. |
 | `groupId` | `string` | The group ID of the resource. |
 | `privateLinkServiceID` | `string` | The private link service ID of the resource, this field is exposed only to NRP internally. |
 | `requiredMembers` | `array` | The RequiredMembers of the resource |
-| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

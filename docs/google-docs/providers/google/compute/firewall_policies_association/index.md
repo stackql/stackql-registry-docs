@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name for an association. |
+| `shortName` | `string` | [Output Only] The short name of the firewall policy of the association. |
 | `attachmentTarget` | `string` | The target that the firewall policy is attached to. |
 | `displayName` | `string` | [Output Only] Deprecated, please use short name instead. The display name of the firewall policy of the association. |
 | `firewallPolicyId` | `string` | [Output Only] The firewall policy ID of the association. |
-| `shortName` | `string` | [Output Only] The short name of the firewall policy of the association. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `firewallPolicies_getAssociation` | `SELECT` | `firewallPolicy` | Gets an association with the specified name. |
-| `firewallPolicies_addAssociation` | `INSERT` | `firewallPolicy` | Inserts an association for the specified firewall policy. |
-| `firewallPolicies_removeAssociation` | `DELETE` | `firewallPolicy` | Removes an association for the specified firewall policy. |
+| `get_association` | `SELECT` | `firewallPolicy` | Gets an association with the specified name. |
+| `add_association` | `EXEC` | `firewallPolicy` | Inserts an association for the specified firewall policy. |
+| `remove_association` | `EXEC` | `firewallPolicy` | Removes an association for the specified firewall policy. |

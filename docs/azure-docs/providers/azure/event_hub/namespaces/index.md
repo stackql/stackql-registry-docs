@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sku` | `object` | SKU parameters supplied to the create namespace operation |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
 | `identity` | `object` | Properties to configure Identity for Bring your Own Keys |
 | `location` | `string` | Resource location. |
 | `properties` | `` | Namespace properties supplied for create namespace operation. |
+| `sku` | `object` | SKU parameters supplied to the create namespace operation |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

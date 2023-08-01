@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Integrates Google Vision features, including image labeling, face, logo, and landmark detection, optical character recognition (OCR), and detection of explicit content, into applications.  
+Integrates Google Vision Features, Including Image Labeling, Face, Logo, And Landmark Detection, Optical Character Recognition (OCR), And Detection Of Explicit Content, Into Applications.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Integrates Google Vision features, including image labeling, face, logo, and lan
 <tr><td><b>Name</b></td><td><code>google.vision</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Vision API</td></tr>
-<tr><td><b>Description</b></td><td>Integrates Google Vision features, including image labeling, face, logo, and landmark detection, optical character recognition (OCR), and detection of explicit content, into applications.</td></tr>
-<tr><td><b>Id</b></td><td><code>vision:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Integrates Google Vision Features, Including Image Labeling, Face, Logo, And Landmark Detection, Optical Character Recognition (OCR), And Detection Of Explicit Content, Into Applications.</td></tr>
+<tr><td><b>Id</b></td><td><code>vision:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

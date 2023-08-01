@@ -25,12 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `data` | `string` | The HTTP request/response body as raw binary. |
-| `extensions` | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
-| `contentType` | `string` | The HTTP Content-Type header value specifying the content type of the body. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_datasets_dicomStores_studies_series_retrieveMetadata` | `SELECT` | `datasetsId, dicomStoresId, locationsId, projectsId, seriesId, studiesId` |
+| `retrieve_metadata` | `EXEC` | `datasetsId, dicomStoresId, locationsId, projectsId, seriesId, studiesId` |

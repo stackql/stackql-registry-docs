@@ -35,6 +35,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `licenses_getIamPolicy` | `SELECT` | `project, resource` | Gets the access control policy for a resource. May be empty if no such policy or resource exists. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  |
-| `licenses_setIamPolicy` | `EXEC` | `project, resource` | Sets the access control policy on the specified resource. Replaces any existing policy. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  |
-| `licenses_testIamPermissions` | `EXEC` | `project, resource` | Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  |
+| `get_iam_policy` | `SELECT` | `project, resource` | Gets the access control policy for a resource. May be empty if no such policy or resource exists. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  |
+| `set_iam_policy` | `EXEC` | `project, resource` | Sets the access control policy on the specified resource. Replaces any existing policy. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  |
+| `test_iam_permissions` | `EXEC` | `project, resource` | Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  |

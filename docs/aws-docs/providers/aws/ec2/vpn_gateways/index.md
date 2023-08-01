@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagSet` | `array` | Any tags assigned to the virtual private gateway. |
-| `type` | `string` | The type of VPN connection the virtual private gateway supports. |
-| `vpnGatewayId` | `string` | The ID of the virtual private gateway. |
 | `amazonSideAsn` | `integer` | The private Autonomous System Number (ASN) for the Amazon side of a BGP session. |
 | `attachments` | `array` | Any VPCs attached to the virtual private gateway. |
 | `availabilityZone` | `string` | The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned. |
 | `state` | `string` | The current state of the virtual private gateway. |
+| `tagSet` | `array` | Any tags assigned to the virtual private gateway. |
+| `type` | `string` | The type of VPN connection the virtual private gateway supports. |
+| `vpnGatewayId` | `string` | The ID of the virtual private gateway. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

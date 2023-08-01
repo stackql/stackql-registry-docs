@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-The Network Management API provides a collection of network performance monitoring and diagnostic capabilities.  
+The Network Management API Provides A Collection Of Network Performance Monitoring And Diagnostic Capabilities.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>17</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>15</b></span><br />
 </div>
 </div>
 
@@ -32,19 +32,17 @@ The Network Management API provides a collection of network performance monitori
 <tr><td><b>Name</b></td><td><code>google.networkmanagement</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Network Management API</td></tr>
-<tr><td><b>Description</b></td><td>The Network Management API provides a collection of network performance monitoring and diagnostic capabilities.</td></tr>
-<tr><td><b>Id</b></td><td><code>networkmanagement:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>The Network Management API Provides A Collection Of Network Performance Monitoring And Diagnostic Capabilities.</td></tr>
+<tr><td><b>Id</b></td><td><code>networkmanagement:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/networkmanagement/connectivity_tests/">connectivity_tests</a><br />
-<a href="/providers/google/networkmanagement/connectivity_tests_iam_audit_configs/">connectivity_tests_iam_audit_configs</a><br />
-<a href="/providers/google/networkmanagement/connectivity_tests_iam_bindings/">connectivity_tests_iam_bindings</a><br />
+<a href="/providers/google/networkmanagement/connectivity_tests_iam_policies/">connectivity_tests_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/networkmanagement/connectivity_tests_iam_policies/">connectivity_tests_iam_policies</a><br />
 <a href="/providers/google/networkmanagement/locations/">locations</a><br />
 <a href="/providers/google/networkmanagement/operations/">operations</a><br />
 </div>

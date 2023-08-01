@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `disks_createSnapshot` | `INSERT` | `disk, project, zone` |
+| `create_snapshot` | `INSERT` | `disk, project, zone` |

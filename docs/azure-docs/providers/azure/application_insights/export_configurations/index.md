@@ -27,25 +27,25 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `DestinationStorageSubscriptionId` | `string` | The destination storage account subscription ID. |
-| `NotificationQueueEnabled` | `string` | Deprecated |
-| `PermanentErrorReason` | `string` | This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'. |
-| `DestinationType` | `string` | The destination type. |
-| `IsUserEnabled` | `string` | This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'. |
-| `InstrumentationKey` | `string` | The instrumentation key of the Application Insights component. |
-| `ExportId` | `string` | The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created. |
-| `SubscriptionId` | `string` | The subscription of the Application Insights component. |
-| `DestinationAccountId` | `string` | The name of destination account. |
-| `StorageName` | `string` | The name of the destination storage account. |
-| `DestinationStorageLocationId` | `string` | The destination account location ID. |
-| `LastGapTime` | `string` | The last time the Continuous Export configuration started failing. |
-| `ContainerName` | `string` | The name of the destination storage container. |
-| `RecordTypes` | `string` | This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'. |
-| `ResourceGroup` | `string` | The resource group of the Application Insights component. |
 | `LastSuccessTime` | `string` | The last time data was successfully delivered to the destination storage container for this Continuous Export configuration. |
-| `LastUserUpdate` | `string` | Last time the Continuous Export configuration was updated. |
+| `ExportId` | `string` | The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created. |
+| `StorageName` | `string` | The name of the destination storage account. |
+| `DestinationStorageSubscriptionId` | `string` | The destination storage account subscription ID. |
+| `DestinationType` | `string` | The destination type. |
+| `NotificationQueueEnabled` | `string` | Deprecated |
+| `DestinationStorageLocationId` | `string` | The destination account location ID. |
+| `ContainerName` | `string` | The name of the destination storage container. |
 | `ApplicationName` | `string` | The name of the Application Insights component. |
+| `DestinationAccountId` | `string` | The name of destination account. |
 | `ExportStatus` | `string` | This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'. |
+| `IsUserEnabled` | `string` | This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'. |
+| `RecordTypes` | `string` | This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'. |
+| `LastGapTime` | `string` | The last time the Continuous Export configuration started failing. |
+| `ResourceGroup` | `string` | The resource group of the Application Insights component. |
+| `SubscriptionId` | `string` | The subscription of the Application Insights component. |
+| `LastUserUpdate` | `string` | Last time the Continuous Export configuration was updated. |
+| `PermanentErrorReason` | `string` | This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'. |
+| `InstrumentationKey` | `string` | The instrumentation key of the Application Insights component. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

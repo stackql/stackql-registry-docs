@@ -27,10 +27,10 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `inbound` | `array` | The inbound rules for the firewall, as a JSON array.<br /> |
-| `inbound_policy` | `string` | The default behavior for inbound traffic. This setting can be overridden by [updating](/docs/api/networking/#firewall-rules-update) the `inbound.action` property of the Firewall Rule.<br /> |
 | `outbound` | `array` | The outbound rules for the firewall, as a JSON array.<br /> |
 | `outbound_policy` | `string` | The default behavior for outbound traffic. This setting can be overridden by [updating](/docs/api/networking/#firewall-rules-update) the `outbound.action` property of the Firewall Rule.<br /> |
+| `inbound` | `array` | The inbound rules for the firewall, as a JSON array.<br /> |
+| `inbound_policy` | `string` | The default behavior for inbound traffic. This setting can be overridden by [updating](/docs/api/networking/#firewall-rules-update) the `inbound.action` property of the Firewall Rule.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

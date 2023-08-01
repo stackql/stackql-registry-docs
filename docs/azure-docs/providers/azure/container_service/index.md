@@ -33,7 +33,7 @@ The Container Service Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Container Service Client (Microsoft.ContainerService)</td></tr>
 <tr><td><b>Description</b></td><td>The Container Service Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>container_service:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container_service:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

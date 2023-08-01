@@ -35,5 +35,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `backendServices_getIamPolicy` | `SELECT` | `project, resource` | Gets the access control policy for a resource. May be empty if no such policy or resource exists. |
-| `backendServices_setIamPolicy` | `EXEC` | `project, resource` | Sets the access control policy on the specified resource. Replaces any existing policy. |
+| `get_iam_policy` | `SELECT` | `project, resource` | Gets the access control policy for a resource. May be empty if no such policy or resource exists. |
+| `set_iam_policy` | `EXEC` | `project, resource` | Sets the access control policy on the specified resource. Replaces any existing policy. |

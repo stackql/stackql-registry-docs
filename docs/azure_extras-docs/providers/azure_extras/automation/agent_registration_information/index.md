@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Gets or sets the id. |
-| `endpoint` | `string` | Gets or sets the dsc server endpoint. |
 | `keys` | `object` | Definition of the agent registration keys. |
 | `dscMetaConfiguration` | `string` | Gets or sets the dsc meta configuration. |
+| `endpoint` | `string` | Gets or sets the dsc server endpoint. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

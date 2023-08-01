@@ -27,32 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name for this CertificateAuthority in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`. |
-| `lifetime` | `string` | Required. Immutable. The desired lifetime of the CA certificate. Used to create the "not_before_time" and "not_after_time" fields inside an X.509 certificate. |
-| `config` | `object` | A CertificateConfig describes an X.509 certificate or CSR that is to be created, as an alternative to using ASN.1. |
-| `createTime` | `string` | Output only. The time at which this CertificateAuthority was created. |
-| `gcsBucket` | `string` | Immutable. The name of a Cloud Storage bucket where this CertificateAuthority will publish content, such as the CA certificate and CRLs. This must be a bucket name, without any prefixes (such as `gs://`) or suffixes (such as `.googleapis.com`). For example, to use a bucket named `my-bucket`, you would simply specify `my-bucket`. If not specified, a managed bucket will be created. |
-| `accessUrls` | `object` | URLs where a CertificateAuthority will publish content. |
-| `type` | `string` | Required. Immutable. The Type of this CertificateAuthority. |
-| `tier` | `string` | Output only. The CaPool.Tier of the CaPool that includes this CertificateAuthority. |
-| `pemCaCertificates` | `array` | Output only. This CertificateAuthority's certificate chain, including the current CertificateAuthority's certificate. Ordered such that the root issuer is the final element (consistent with RFC 5246). For a self-signed CA, this will only list the current CertificateAuthority's certificate. |
-| `updateTime` | `string` | Output only. The time at which this CertificateAuthority was last updated. |
-| `expireTime` | `string` | Output only. The time at which this CertificateAuthority will be permanently purged, if it is in the DELETED state. |
-| `subordinateConfig` | `object` | Describes a subordinate CA's issuers. This is either a resource name to a known issuing CertificateAuthority, or a PEM issuer certificate chain. |
-| `labels` | `object` | Optional. Labels with user-defined metadata. |
-| `state` | `string` | Output only. The State for this CertificateAuthority. |
-| `deleteTime` | `string` | Output only. The time at which this CertificateAuthority was soft deleted, if it is in the DELETED state. |
-| `keySpec` | `object` | A Cloud KMS key configuration that a CertificateAuthority will use. |
-| `caCertificateDescriptions` | `array` | Output only. A structured description of this CertificateAuthority's CA certificate and its issuers. Ordered as self-to-root. |
+| `unreachable` | `array` | A list of locations (e.g. "us-west1") that could not be reached. |
+| `certificateAuthorities` | `array` | The list of CertificateAuthorities. |
+| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this value in ListCertificateAuthoritiesRequest.next_page_token to retrieve the next page of results. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_caPools_certificateAuthorities_get` | `SELECT` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Returns a CertificateAuthority. |
-| `projects_locations_caPools_certificateAuthorities_list` | `SELECT` | `caPoolsId, locationsId, projectsId` | Lists CertificateAuthorities. |
-| `projects_locations_caPools_certificateAuthorities_create` | `INSERT` | `caPoolsId, locationsId, projectsId` | Create a new CertificateAuthority in a given Project and Location. |
-| `projects_locations_caPools_certificateAuthorities_delete` | `DELETE` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Delete a CertificateAuthority. |
-| `projects_locations_caPools_certificateAuthorities_activate` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Activate a CertificateAuthority that is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. After the parent Certificate Authority signs a certificate signing request from FetchCertificateAuthorityCsr, this method can complete the activation process. |
-| `projects_locations_caPools_certificateAuthorities_disable` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Disable a CertificateAuthority. |
-| `projects_locations_caPools_certificateAuthorities_enable` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Enable a CertificateAuthority. |
-| `projects_locations_caPools_certificateAuthorities_patch` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Update a CertificateAuthority. |
-| `projects_locations_caPools_certificateAuthorities_undelete` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Undelete a CertificateAuthority that has been deleted. |
+| `get` | `SELECT` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Returns a CertificateAuthority. |
+| `list` | `SELECT` | `caPoolsId, locationsId, projectsId` | Lists CertificateAuthorities. |
+| `create` | `INSERT` | `caPoolsId, locationsId, projectsId` | Create a new CertificateAuthority in a given Project and Location. |
+| `delete` | `DELETE` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Delete a CertificateAuthority. |
+| `activate` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Activate a CertificateAuthority that is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. After the parent Certificate Authority signs a certificate signing request from FetchCertificateAuthorityCsr, this method can complete the activation process. |
+| `disable` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Disable a CertificateAuthority. |
+| `enable` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Enable a CertificateAuthority. |
+| `fetch` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Fetch a certificate signing request (CSR) from a CertificateAuthority that is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. The CSR must then be signed by the desired parent Certificate Authority, which could be another CertificateAuthority resource, or could be an on-prem certificate authority. See also ActivateCertificateAuthority. |
+| `patch` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Update a CertificateAuthority. |
+| `undelete` | `EXEC` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Undelete a CertificateAuthority that has been deleted. |

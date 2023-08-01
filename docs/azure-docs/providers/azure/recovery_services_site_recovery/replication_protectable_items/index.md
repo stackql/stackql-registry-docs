@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
-| `location` | `string` | Resource Location |
 | `properties` | `object` | Replication protected item custom data details. |
 | `type` | `string` | Resource Type |
+| `location` | `string` | Resource Location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

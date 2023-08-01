@@ -33,7 +33,7 @@ Microsoft Device Update resource provider.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Device Update (Microsoft.DeviceUpdate)</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Device Update resource provider.</td></tr>
-<tr><td><b>Id</b></td><td><code>device_update:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>device_update:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

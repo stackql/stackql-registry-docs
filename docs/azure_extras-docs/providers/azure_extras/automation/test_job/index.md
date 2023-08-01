@@ -27,17 +27,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `exception` | `string` | Gets or sets the exception of the test job. |
-| `startTime` | `string` | Gets or sets the start time of the test job. |
-| `lastStatusModifiedTime` | `string` | Gets or sets the last status modified time of the test job. |
-| `logActivityTrace` | `integer` | The activity-level tracing options of the runbook. |
-| `creationTime` | `string` | Gets or sets the creation time of the test job. |
-| `runOn` | `string` | Gets or sets the runOn which specifies the group name where the job is to be executed. |
-| `parameters` | `object` | Gets or sets the parameters of the test job. |
 | `endTime` | `string` | Gets or sets the end time of the test job. |
-| `statusDetails` | `string` | Gets or sets the status details of the test job. |
+| `lastStatusModifiedTime` | `string` | Gets or sets the last status modified time of the test job. |
+| `creationTime` | `string` | Gets or sets the creation time of the test job. |
 | `status` | `string` | Gets or sets the status of the test job. |
+| `parameters` | `object` | Gets or sets the parameters of the test job. |
+| `runOn` | `string` | Gets or sets the runOn which specifies the group name where the job is to be executed. |
+| `startTime` | `string` | Gets or sets the start time of the test job. |
+| `statusDetails` | `string` | Gets or sets the status details of the test job. |
 | `lastModifiedTime` | `string` | Gets or sets the last modified time of the test job. |
+| `logActivityTrace` | `integer` | The activity-level tracing options of the runbook. |
+| `exception` | `string` | Gets or sets the exception of the test job. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

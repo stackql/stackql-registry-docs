@@ -29,15 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `etag` | `string` | ETag of the resource. |
-| `location` | `string` | Resource location. |
-| `sku` | `object` | API Management service resource SKU properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | Properties of an API Management service resource description. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type for API Management resource is set to Microsoft.ApiManagement. |
 | `zones` | `array` | A list of availability zones denoting where the resource needs to come from. |
 | `identity` | `object` | Identity properties of the Api Management service resource. |
+| `tags` | `object` | Resource tags. |
+| `etag` | `string` | ETag of the resource. |
+| `sku` | `object` | API Management service resource SKU properties. |
+| `properties` | `object` | Properties of an API Management service resource description. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | Resource type for API Management resource is set to Microsoft.ApiManagement. |
+| `location` | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

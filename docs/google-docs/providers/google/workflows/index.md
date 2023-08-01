@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Manage workflow definitions. To execute workflows and manage executions, see the Workflows Executions API.  
+Manage Workflow Definitions. To Execute Workflows And Manage Executions, See The Workflows Executions API.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Manage workflow definitions. To execute workflows and manage executions, see the
 <tr><td><b>Name</b></td><td><code>google.workflows</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Workflows API</td></tr>
-<tr><td><b>Description</b></td><td>Manage workflow definitions. To execute workflows and manage executions, see the Workflows Executions API.</td></tr>
-<tr><td><b>Id</b></td><td><code>workflows:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Manage Workflow Definitions. To Execute Workflows And Manage Executions, See The Workflows Executions API.</td></tr>
+<tr><td><b>Id</b></td><td><code>workflows:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

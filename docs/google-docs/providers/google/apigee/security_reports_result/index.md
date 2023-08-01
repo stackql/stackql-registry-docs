@@ -27,10 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `data` | `string` | The HTTP request/response body as raw binary. |
 | `extensions` | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
 | `contentType` | `string` | The HTTP Content-Type header value specifying the content type of the body. |
-| `data` | `string` | The HTTP request/response body as raw binary. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_environments_securityReports_getResult` | `SELECT` | `environmentsId, organizationsId, securityReportsId` |
+| `organizations_environments_security_reports_get_result` | `SELECT` | `environmentsId, organizationsId, securityReportsId` |

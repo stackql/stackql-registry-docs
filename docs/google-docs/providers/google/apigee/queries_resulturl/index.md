@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_environments_queries_getResulturl` | `SELECT` | `environmentsId, organizationsId, queriesId` |
+| `organizations_environments_queries_get_resulturl` | `SELECT` | `environmentsId, organizationsId, queriesId` |

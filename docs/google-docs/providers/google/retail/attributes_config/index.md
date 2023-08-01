@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_catalogs_attributesConfig_replaceCatalogAttribute` | `EXEC` | `catalogsId, locationsId, projectsId` |
+| `projects_locations_catalogs_attributes_config_replace_catalog_attribute` | `EXEC` | `catalogsId, locationsId, projectsId` |

@@ -27,10 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `body` | `string` | Output only. The body of the request that was used to visit the URL. |
-| `httpMethod` | `string` | Output only. The http method of the request that was used to visit the URL, in uppercase. |
-| `url` | `string` | Output only. The URL that was crawled. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `crawledUrls` | `array` | The list of CrawledUrls returned. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_scanConfigs_scanRuns_crawledUrls_list` | `SELECT` | `projectsId, scanConfigsId, scanRunsId` |
+| `list` | `SELECT` | `projectsId, scanConfigsId, scanRunsId` |

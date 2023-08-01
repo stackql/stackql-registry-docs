@@ -29,17 +29,17 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the Support Ticket.<br /> |
 | `description` | `string` | The full details of the issue or question.<br /> |
-| `summary` | `string` | The summary or title for this Ticket.<br /> |
-| `opened_by` | `string` | The User who opened this Ticket.<br /> |
-| `status` | `string` | The current status of this Ticket. |
-| `closable` | `boolean` | Whether the Support Ticket may be closed.<br /> |
 | `updated_by` | `string` | The User who last updated this Ticket.<br /> |
-| `opened` | `string` | The date and time this Ticket was created.<br /> |
+| `summary` | `string` | The summary or title for this Ticket.<br /> |
+| `gravatar_id` | `string` | The Gravatar ID of the User who opened this Ticket.<br /> |
+| `closable` | `boolean` | Whether the Support Ticket may be closed.<br /> |
 | `updated` | `string` | The date and time this Ticket was last updated.<br /> |
+| `opened` | `string` | The date and time this Ticket was created.<br /> |
+| `status` | `string` | The current status of this Ticket. |
+| `attachments` | `array` | A list of filenames representing attached files associated with this Ticket.<br /> |
 | `closed` | `string` | The date and time this Ticket was closed.<br /> |
 | `entity` | `object` | The entity this Ticket was opened for.<br /> |
-| `gravatar_id` | `string` | The Gravatar ID of the User who opened this Ticket.<br /> |
-| `attachments` | `array` | A list of filenames representing attached files associated with this Ticket.<br /> |
+| `opened_by` | `string` | The User who opened this Ticket.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

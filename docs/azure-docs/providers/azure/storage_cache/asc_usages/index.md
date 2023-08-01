@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `object` | Naming information for this resource type. |
-| `unit` | `string` | Unit that the limit and usages are expressed in, such as 'Count'. |
 | `currentValue` | `integer` | The current usage of this resource. |
 | `limit` | `integer` | The limit (quota) for this resource. |
+| `unit` | `string` | Unit that the limit and usages are expressed in, such as 'Count'. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

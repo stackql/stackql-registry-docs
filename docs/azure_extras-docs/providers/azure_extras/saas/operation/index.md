@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource uri |
 | `name` | `string` | The name of the resource |
+| `tags` | `object` | the resource tags. |
 | `type` | `string` | Resource type. |
 | `properties` | `object` | saas properties |
-| `tags` | `object` | the resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

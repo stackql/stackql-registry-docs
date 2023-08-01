@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name |
-| `location` | `string` | Resource location |
 | `type` | `string` | Resource type |
 | `identifier` | `object` | The identifier information of community gallery. |
+| `location` | `string` | Resource location |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

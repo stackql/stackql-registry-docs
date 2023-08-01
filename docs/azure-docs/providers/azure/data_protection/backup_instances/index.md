@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Proxy Resource Id represents the complete path to the resource. |
 | `name` | `string` | Proxy Resource name associated with the resource. |
+| `properties` | `object` | Backup Instance |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Proxy Resource tags. |
 | `type` | `string` | Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
-| `properties` | `object` | Backup Instance |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

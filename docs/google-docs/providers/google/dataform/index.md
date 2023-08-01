@@ -19,9 +19,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>13</b></span><br />
-<span>total selectable resources:&nbsp;<b>11</b></span><br />
-<span>total methods:&nbsp;<b>48</b></span><br />
+<span>total resources:&nbsp;<b>16</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>59</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dataform API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>dataform:v23.05.00145</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dataform:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,16 +43,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/dataform/locations/">locations</a><br />
 <a href="/providers/google/dataform/release_configs/">release_configs</a><br />
 <a href="/providers/google/dataform/repositories/">repositories</a><br />
+<a href="/providers/google/dataform/repositories_history/">repositories_history</a><br />
+<a href="/providers/google/dataform/repositories_iam_policies/">repositories_iam_policies</a><br />
 <a href="/providers/google/dataform/repositories_remote_branches/">repositories_remote_branches</a><br />
 <a href="/providers/google/dataform/workflow_configs/">workflow_configs</a><br />
-<a href="/providers/google/dataform/workflow_invocations/">workflow_invocations</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/dataform/workflow_invocations/">workflow_invocations</a><br />
 <a href="/providers/google/dataform/workspaces/">workspaces</a><br />
 <a href="/providers/google/dataform/workspaces_directory/">workspaces_directory</a><br />
 <a href="/providers/google/dataform/workspaces_file/">workspaces_file</a><br />
 <a href="/providers/google/dataform/workspaces_file_diff/">workspaces_file_diff</a><br />
 <a href="/providers/google/dataform/workspaces_file_git_statuses/">workspaces_file_git_statuses</a><br />
 <a href="/providers/google/dataform/workspaces_git_ahead_behind/">workspaces_git_ahead_behind</a><br />
+<a href="/providers/google/dataform/workspaces_iam_policies/">workspaces_iam_policies</a><br />
 </div>
 </div>

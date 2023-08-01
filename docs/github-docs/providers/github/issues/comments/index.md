@@ -28,19 +28,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the issue comment |
-| `created_at` | `string` |  |
-| `node_id` | `string` |  |
-| `issue_url` | `string` |  |
-| `html_url` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `reactions` | `object` |  |
-| `body_text` | `string` |  |
-| `body` | `string` | Contents of the issue comment |
-| `body_html` | `string` |  |
-| `url` | `string` | URL for the issue comment |
-| `updated_at` | `string` |  |
 | `user` | `object` | Simple User |
+| `node_id` | `string` |  |
+| `created_at` | `string` |  |
+| `html_url` | `string` |  |
+| `reactions` | `object` |  |
+| `issue_url` | `string` |  |
+| `body` | `string` | Contents of the issue comment |
+| `updated_at` | `string` |  |
+| `url` | `string` | URL for the issue comment |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `body_text` | `string` |  |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `body_html` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

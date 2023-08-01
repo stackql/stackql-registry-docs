@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the partner |
 | `name` | `string` | Name of the partner |
-| `properties` | `object` | this is the management partner properties |
 | `type` | `string` | Type of resource. "Microsoft.ManagementPartner/partners" |
 | `etag` | `integer` | Type of the partner |
+| `properties` | `object` | this is the management partner properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

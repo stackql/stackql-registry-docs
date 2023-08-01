@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The id of the reservation. |
 | `name` | `string` | The name of the reservation. |
-| `location` | `string` | The location of the reservation. |
 | `properties` | `object` | The property of reservation object. |
 | `sku` | `object` | The property of reservation sku object. |
 | `type` | `string` | The type of the reservation. |
+| `location` | `string` | The location of the reservation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

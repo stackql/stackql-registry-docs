@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The path ID that uniquely identifies the object. |
 | `name` | `string` | The name of the object. |
-| `type` | `string` | The hierarchical type of the object. |
-| `startTime` | `string` | The UTC date and time at which the job started. |
 | `endTime` | `string` | The UTC date and time at which the job completed. |
-| `error` | `object` | The job error information containing the list of job errors. |
-| `status` | `string` | The current status of the job. |
-| `properties` | `object` | The properties for the job. |
 | `percentComplete` | `integer` | The percentage of the job that is complete. |
+| `startTime` | `string` | The UTC date and time at which the job started. |
+| `type` | `string` | The hierarchical type of the object. |
+| `error` | `object` | The job error information containing the list of job errors. |
+| `properties` | `object` | The properties for the job. |
+| `status` | `string` | The current status of the job. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

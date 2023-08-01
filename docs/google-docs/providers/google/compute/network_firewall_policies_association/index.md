@@ -35,6 +35,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `networkFirewallPolicies_getAssociation` | `SELECT` | `firewallPolicy, project` | Gets an association with the specified name. |
-| `networkFirewallPolicies_addAssociation` | `INSERT` | `firewallPolicy, project` | Inserts an association for the specified firewall policy. |
-| `networkFirewallPolicies_removeAssociation` | `DELETE` | `firewallPolicy, project` | Removes an association for the specified firewall policy. |
+| `get_association` | `SELECT` | `firewallPolicy, project` | Gets an association with the specified name. |
+| `add_association` | `EXEC` | `firewallPolicy, project` | Inserts an association for the specified firewall policy. |
+| `remove_association` | `EXEC` | `firewallPolicy, project` | Removes an association for the specified firewall policy. |

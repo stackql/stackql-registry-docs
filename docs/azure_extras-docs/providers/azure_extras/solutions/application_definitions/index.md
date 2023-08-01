@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sku` | `object` | SKU for the resource. |
 | `managedBy` | `string` | ID of the resource that manages this resource. |
 | `properties` | `object` | The managed application definition properties. |
+| `sku` | `object` | SKU for the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

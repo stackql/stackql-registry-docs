@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets the workflow trigger name. |
-| `type` | `string` | Gets the workflow trigger type. |
 | `properties` | `object` | The workflow trigger properties. |
+| `type` | `string` | Gets the workflow trigger type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

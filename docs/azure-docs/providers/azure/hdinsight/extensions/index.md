@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `clusterMonitoringEnabled` | `boolean` | The status of the monitor on the HDInsight cluster. |
 | `workspaceId` | `string` | The workspace ID of the monitor on the HDInsight cluster. |
+| `clusterMonitoringEnabled` | `boolean` | The status of the monitor on the HDInsight cluster. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

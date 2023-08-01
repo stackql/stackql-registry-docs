@@ -19,9 +19,9 @@ Discovery Engine API.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>20</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>48</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Discovery Engine API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Discovery Engine API</td></tr>
 <tr><td><b>Description</b></td><td>Discovery Engine API.</td></tr>
-<tr><td><b>Id</b></td><td><code>discoveryengine:v23.05.00145</code></td></tr>
+<tr><td><b>Id</b></td><td><code>discoveryengine:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,9 +41,11 @@ Discovery Engine API.
 <div class="providerDocColumn">
 <a href="/providers/google/discoveryengine/documents/">documents</a><br />
 <a href="/providers/google/discoveryengine/operations/">operations</a><br />
+<a href="/providers/google/discoveryengine/search_engine_operations/">search_engine_operations</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/discoveryengine/serving_configs/">serving_configs</a><br />
+<a href="/providers/google/discoveryengine/target_site_operations/">target_site_operations</a><br />
 <a href="/providers/google/discoveryengine/user_events/">user_events</a><br />
 </div>
 </div>

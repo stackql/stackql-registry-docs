@@ -29,13 +29,13 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `string` |
-| `path` | `string` |
-| `branches` | `array` |
-| `updated_at` | `string` |
 | `site_id` | `string` |
+| `path` | `string` |
+| `unpublished_at` | `string` |
+| `branches` | `array` |
 | `active` | `boolean` |
 | `created_at` | `string` |
-| `unpublished_at` | `string` |
+| `updated_at` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

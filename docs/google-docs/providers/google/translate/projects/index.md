@@ -29,5 +29,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `detectLanguage` | `EXEC` | `projectsId` | Detects the language of text within a request. |
-| `translateText` | `EXEC` | `projectsId` | Translates input text and returns translated text. |
+| `projects_detect_language` | `EXEC` | `projectsId` | Detects the language of text within a request. |
+| `projects_romanize_text` | `EXEC` | `projectsId` | Romanize input text written in non-Latin scripts to Latin text. |
+| `projects_translate_text` | `EXEC` | `projectsId` | Translates input text and returns translated text. |

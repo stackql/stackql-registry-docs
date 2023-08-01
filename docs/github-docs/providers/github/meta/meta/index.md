@@ -27,18 +27,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
+| `web` | `array` |
+| `dependabot` | `array` |
 | `git` | `array` |
-| `packages` | `array` |
-| `actions` | `array` |
-| `ssh_key_fingerprints` | `object` |
+| `ssh_keys` | `array` |
 | `api` | `array` |
 | `importer` | `array` |
-| `pages` | `array` |
 | `hooks` | `array` |
-| `dependabot` | `array` |
-| `web` | `array` |
+| `packages` | `array` |
+| `pages` | `array` |
+| `ssh_key_fingerprints` | `object` |
+| `actions` | `array` |
 | `verifiable_password_authentication` | `boolean` |
-| `ssh_keys` | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,8 +28,8 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The Node's ID.<br /> |
-| `status` | `string` | The creation status of this Node. This status is distinct from this Node's readiness as a Kubernetes Node Object as determined by the command `kubectl get nodes`.<br /><br />`not_ready` indicates that the Linode is still being created.<br /><br />`ready` indicates that the Linode has successfully been created and is running Kubernetes software.<br /> |
 | `instance_id` | `integer` | The Linode's ID. If no Linode is currently provisioned for this Node, this is `null`.<br /> |
+| `status` | `string` | The creation status of this Node. This status is distinct from this Node's readiness as a Kubernetes Node Object as determined by the command `kubectl get nodes`.<br /><br />`not_ready` indicates that the Linode is still being created.<br /><br />`ready` indicates that the Linode has successfully been created and is running Kubernetes software.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

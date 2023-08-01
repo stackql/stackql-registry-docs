@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Represents the properties of a database transparent data encryption. |
 | `location` | `string` | Resource location. |
+| `properties` | `object` | Represents the properties of a database transparent data encryption. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

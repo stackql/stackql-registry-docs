@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the operation |
-| `properties` | `object` | Extra Operation properties |
-| `actionType` | `string` | Enum. Indicates the action type. "Internal" refers to actions that are for internal only APIs. |
 | `display` | `object` | The object that represents the operation. |
 | `isDataAction` | `boolean` | Whether the operation applies to data-plane. This is "true" for data-plane operations and "false" for ARM/control-plane operations. |
 | `origin` | `string` | Default value is 'user,system'. |
+| `properties` | `object` | Extra Operation properties |
+| `actionType` | `string` | Enum. Indicates the action type. "Internal" refers to actions that are for internal only APIs. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

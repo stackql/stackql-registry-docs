@@ -27,13 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name for the test case result. Format: `projects//locations//agents//testCases/ /results/`. |
-| `environment` | `string` | Environment where the test was run. If not set, it indicates the draft environment. |
-| `testResult` | `string` | Whether the test case passed in the agent environment. |
-| `testTime` | `string` | The time that the test was run. |
-| `conversationTurns` | `array` | The conversation turns uttered during the test case replay in chronological order. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `testCaseResults` | `array` | The list of test case results. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_agents_testCases_results_get` | `SELECT` | `agentsId, locationsId, projectsId, resultsId, testCasesId` | Gets a test case result. |
-| `projects_locations_agents_testCases_results_list` | `SELECT` | `agentsId, locationsId, projectsId, testCasesId` | Fetches a list of results for a given test case. |
+| `projects_locations_agents_test_cases_results_get` | `SELECT` | `agentsId, locationsId, projectsId, resultsId, testCasesId` | Gets a test case result. |
+| `projects_locations_agents_test_cases_results_list` | `SELECT` | `agentsId, locationsId, projectsId, testCasesId` | Fetches the list of run results for the given test case. A maximum of 100 results are kept for each test case. |

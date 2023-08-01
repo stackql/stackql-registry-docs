@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `email_address` | `string` | The ID of the notification. |
 | `kind` | `string` | The kind of item this is. For notifications, this is always storage#notification. |
+| `email_address` | `string` | The ID of the notification. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_serviceAccount_get` | `SELECT` | `projectId` |
+| `get` | `SELECT` | `projectId` |

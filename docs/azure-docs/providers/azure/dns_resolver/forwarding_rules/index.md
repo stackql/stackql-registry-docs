@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `etag` | `string` | ETag of the forwarding rule. |
 | `properties` | `object` | Represents the properties of a forwarding rule within a DNS forwarding ruleset. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `etag` | `string` | ETag of the forwarding rule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

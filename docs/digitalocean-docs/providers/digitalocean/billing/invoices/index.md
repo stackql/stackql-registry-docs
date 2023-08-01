@@ -27,10 +27,10 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `invoice_preview` | `object` | The invoice preview. |
 | `invoices` | `array` |  |
 | `links` | `object` |  |
 | `meta` | `object` | Information about the response itself. |
-| `invoice_preview` | `object` | The invoice preview. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

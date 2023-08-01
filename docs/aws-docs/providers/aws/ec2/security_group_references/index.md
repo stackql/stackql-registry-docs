@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `vpcPeeringConnectionId` | `string` | The ID of the VPC peering connection. |
 | `groupId` | `string` | The ID of your security group. |
 | `referencingVpcId` | `string` | The ID of the VPC with the referencing security group. |
-| `vpcPeeringConnectionId` | `string` | The ID of the VPC peering connection. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
