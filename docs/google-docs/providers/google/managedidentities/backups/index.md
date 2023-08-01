@@ -27,18 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The unique name of the Backup in the form of `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;/backups/&#123;name&#125;` |
-| `labels` | `object` | Optional. Resource labels to represent user provided metadata. |
-| `state` | `string` | Output only. The current state of the backup. |
-| `statusMessage` | `string` | Output only. Additional information about the current status of this backup, if available. |
-| `type` | `string` | Output only. Indicates whether it’s an on-demand backup or scheduled. |
-| `updateTime` | `string` | Output only. Last update time. |
-| `createTime` | `string` | Output only. The time the backups was created. |
+| `backups` | `array` | A list of Cloud AD backups in the domain. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `unreachable` | `array` | Locations that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_global_domains_backups_get` | `SELECT` | `backupsId, domainsId, projectsId` | Gets details of a single Backup. |
-| `projects_locations_global_domains_backups_list` | `SELECT` | `domainsId, projectsId` | Lists Backup in a given project. |
-| `projects_locations_global_domains_backups_create` | `INSERT` | `domainsId, projectsId` | Creates a Backup for a domain. |
-| `projects_locations_global_domains_backups_delete` | `DELETE` | `backupsId, domainsId, projectsId` | Deletes identified Backup. |
-| `projects_locations_global_domains_backups_patch` | `EXEC` | `backupsId, domainsId, projectsId` | Updates the labels for specified Backup. |
+| `get` | `SELECT` | `backupsId, domainsId, projectsId` | Gets details of a single Backup. |
+| `list` | `SELECT` | `domainsId, projectsId` | Lists Backup in a given project. |
+| `create` | `INSERT` | `domainsId, projectsId` | Creates a Backup for a domain. |
+| `delete` | `DELETE` | `backupsId, domainsId, projectsId` | Deletes identified Backup. |
+| `patch` | `EXEC` | `backupsId, domainsId, projectsId` | Updates the labels for specified Backup. |

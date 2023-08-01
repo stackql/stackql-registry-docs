@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Cloud Data Fusion is a fully-managed, cloud native, enterprise data integration service for quickly building and managing data pipelines. It provides a graphical interface to increase time efficiency and reduce complexity, and allows business users, developers, and data scientists to easily and reliably build scalable data integration solutions to cleanse, prepare, blend, transfer and transform data without having to wrestle with infrastructure.  
+Cloud Data Fusion Is A Fully-Managed, Cloud Native, Enterprise Data Integration Service For Quickly Building And Managing Data Pipelines. It Provides A Graphical Interface To Increase Time Efficiency And Reduce Complexity, And Allows Business Users, Developers, And Data Scientists To Easily And Reliably Build Scalable Data Integration Solutions To Cleanse, Prepare, Blend, Transfer And Transform Data Without Having To Wrestle With Infrastructure.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>21</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>19</b></span><br />
 </div>
 </div>
 
@@ -32,8 +32,8 @@ Cloud Data Fusion is a fully-managed, cloud native, enterprise data integration 
 <tr><td><b>Name</b></td><td><code>google.datafusion</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Data Fusion API</td></tr>
-<tr><td><b>Description</b></td><td>Cloud Data Fusion is a fully-managed, cloud native, enterprise data integration service for quickly building and managing data pipelines. It provides a graphical interface to increase time efficiency and reduce complexity, and allows business users, developers, and data scientists to easily and reliably build scalable data integration solutions to cleanse, prepare, blend, transfer and transform data without having to wrestle with infrastructure.</td></tr>
-<tr><td><b>Id</b></td><td><code>datafusion:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Cloud Data Fusion Is A Fully-Managed, Cloud Native, Enterprise Data Integration Service For Quickly Building And Managing Data Pipelines. It Provides A Graphical Interface To Increase Time Efficiency And Reduce Complexity, And Allows Business Users, Developers, And Data Scientists To Easily And Reliably Build Scalable Data Integration Solutions To Cleanse, Prepare, Blend, Transfer And Transform Data Without Having To Wrestle With Infrastructure.</td></tr>
+<tr><td><b>Id</b></td><td><code>datafusion:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,11 +41,9 @@ Cloud Data Fusion is a fully-managed, cloud native, enterprise data integration 
 <div class="providerDocColumn">
 <a href="/providers/google/datafusion/dns_peerings/">dns_peerings</a><br />
 <a href="/providers/google/datafusion/instances/">instances</a><br />
-<a href="/providers/google/datafusion/instances_iam_audit_configs/">instances_iam_audit_configs</a><br />
-<a href="/providers/google/datafusion/instances_iam_bindings/">instances_iam_bindings</a><br />
+<a href="/providers/google/datafusion/instances_iam_policies/">instances_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/datafusion/instances_iam_policies/">instances_iam_policies</a><br />
 <a href="/providers/google/datafusion/locations/">locations</a><br />
 <a href="/providers/google/datafusion/operations/">operations</a><br />
 <a href="/providers/google/datafusion/versions/">versions</a><br />

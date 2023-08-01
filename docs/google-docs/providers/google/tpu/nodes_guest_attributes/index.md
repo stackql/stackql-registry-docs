@@ -25,7 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_nodes_getGuestAttributes` | `SELECT` | `locationsId, nodesId, projectsId` |
+| `get_guest_attributes` | `EXEC` | `locationsId, nodesId, projectsId` |

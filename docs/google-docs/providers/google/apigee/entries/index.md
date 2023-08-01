@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Resource URI that can be used to identify the scope of the key value map entries. |
-| `value` | `string` | Required. Data or payload that is being retrieved and associated with the unique key. |
+| `keyValueEntries` | `array` | One or more key value map keys and values. |
+| `nextPageToken` | `string` | Token that can be sent as `next_page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

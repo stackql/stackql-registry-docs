@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name: &#123;provider&#125;/&#123;resource&#125;/&#123;read \| write \| action \| delete&#125; |
-| `origin` | `string` | The intended executor of the operation. |
 | `properties` | `object` | Additional descriptions for the operation. |
 | `display` | `object` | The object that represents the operation. |
+| `origin` | `string` | The intended executor of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

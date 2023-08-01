@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_protectedResources_search` | `EXEC` | `organizationsId` |
+| `search` | `EXEC` | `organizationsId` |

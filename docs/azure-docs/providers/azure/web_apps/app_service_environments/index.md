@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource Name. |
-| `properties` | `object` | Description of an App Service Environment. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
 | `kind` | `string` | Kind of resource. |
 | `location` | `string` | Resource Location. |
+| `properties` | `object` | Description of an App Service Environment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

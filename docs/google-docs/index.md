@@ -17,16 +17,16 @@ slug: /providers/google
 ---
 Cloud computing services offered by Google.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.08.00155)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>146</b></span><br />
-<span>total methods:&nbsp;<b>5487</b></span><br />
+<span>total services:&nbsp;<b>149</b></span><br />
+<span>total methods:&nbsp;<b>5754</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1628</b></span><br />
-<span>total selectable resources:&nbsp;<b>1436</b></span><br />
+<span>total resources:&nbsp;<b>1418</b></span><br />
+<span>total selectable resources:&nbsp;<b>1101</b></span><br />
 </div>
 </div>
 
@@ -58,9 +58,9 @@ The following authentication methods are supported:
 
 The following system environment variable is used by default:  
 
-- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json file
+- `GOOGLE_CREDENTIALS` - contents of the `google` service account key json fileThis variable is sourced at runtime (from the local machine using export GOOGLE_CREDENTIALS=cat creds/my-sa-key.json` for example or as a CI variable/secret).
 
-This variable is sourced at runtime (from the local machine or as a CI variable/secret).
+This variable is sourced at runtime (from the local machine using `export GOOGLE_CREDENTIALS=$(cat creds/my-sa-key.json)` for example or as a CI variable/secret).
 
 <details>
 
@@ -102,6 +102,7 @@ stackql.exe shell --auth=$Auth
 <div class="providerDocColumn">
 <a href="/providers/google/accessapproval/">accessapproval</a><br />
 <a href="/providers/google/accesscontextmanager/">accesscontextmanager</a><br />
+<a href="/providers/google/advisorynotifications/">advisorynotifications</a><br />
 <a href="/providers/google/analyticshub/">analyticshub</a><br />
 <a href="/providers/google/apigateway/">apigateway</a><br />
 <a href="/providers/google/apigee/">apigee</a><br />
@@ -120,22 +121,19 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/bigtableadmin/">bigtableadmin</a><br />
 <a href="/providers/google/billingbudgets/">billingbudgets</a><br />
 <a href="/providers/google/binaryauthorization/">binaryauthorization</a><br />
+<a href="/providers/google/blockchainnodeengine/">blockchainnodeengine</a><br />
 <a href="/providers/google/certificatemanager/">certificatemanager</a><br />
 <a href="/providers/google/cloudasset/">cloudasset</a><br />
 <a href="/providers/google/cloudbilling/">cloudbilling</a><br />
 <a href="/providers/google/cloudbuild/">cloudbuild</a><br />
-<a href="/providers/google/cloudchannel/">cloudchannel</a><br />
-<a href="/providers/google/clouddebugger/">clouddebugger</a><br />
 <a href="/providers/google/clouddeploy/">clouddeploy</a><br />
 <a href="/providers/google/clouderrorreporting/">clouderrorreporting</a><br />
 <a href="/providers/google/cloudfunctions/">cloudfunctions</a><br />
 <a href="/providers/google/cloudidentity/">cloudidentity</a><br />
-<a href="/providers/google/cloudiot/">cloudiot</a><br />
 <a href="/providers/google/cloudkms/">cloudkms</a><br />
 <a href="/providers/google/cloudprofiler/">cloudprofiler</a><br />
 <a href="/providers/google/cloudresourcemanager/">cloudresourcemanager</a><br />
 <a href="/providers/google/cloudscheduler/">cloudscheduler</a><br />
-<a href="/providers/google/cloudsearch/">cloudsearch</a><br />
 <a href="/providers/google/cloudshell/">cloudshell</a><br />
 <a href="/providers/google/cloudsupport/">cloudsupport</a><br />
 <a href="/providers/google/cloudtasks/">cloudtasks</a><br />
@@ -153,6 +151,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/dataform/">dataform</a><br />
 <a href="/providers/google/datafusion/">datafusion</a><br />
 <a href="/providers/google/datalabeling/">datalabeling</a><br />
+<a href="/providers/google/datalineage/">datalineage</a><br />
 <a href="/providers/google/datamigration/">datamigration</a><br />
 <a href="/providers/google/datapipelines/">datapipelines</a><br />
 <a href="/providers/google/dataplex/">dataplex</a><br />
@@ -168,22 +167,21 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/domains/">domains</a><br />
 <a href="/providers/google/essentialcontacts/">essentialcontacts</a><br />
 <a href="/providers/google/eventarc/">eventarc</a><br />
-<a href="/providers/google/fcm/">fcm</a><br />
-<a href="/providers/google/fcmdata/">fcmdata</a><br />
 <a href="/providers/google/file/">file</a><br />
 <a href="/providers/google/firestore/">firestore</a><br />
 <a href="/providers/google/gameservices/">gameservices</a><br />
-</div>
-<div class="providerDocColumn">
-<a href="/providers/google/genomics/">genomics</a><br />
 <a href="/providers/google/gkebackup/">gkebackup</a><br />
 <a href="/providers/google/gkehub/">gkehub</a><br />
+<a href="/providers/google/gkeonprem/">gkeonprem</a><br />
 <a href="/providers/google/healthcare/">healthcare</a><br />
 <a href="/providers/google/iam/">iam</a><br />
+</div>
+<div class="providerDocColumn">
 <a href="/providers/google/iamcredentials/">iamcredentials</a><br />
 <a href="/providers/google/iap/">iap</a><br />
 <a href="/providers/google/identitytoolkit/">identitytoolkit</a><br />
 <a href="/providers/google/ids/">ids</a><br />
+<a href="/providers/google/integrations/">integrations</a><br />
 <a href="/providers/google/jobs/">jobs</a><br />
 <a href="/providers/google/kmsinventory/">kmsinventory</a><br />
 <a href="/providers/google/language/">language</a><br />
@@ -193,6 +191,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/managedidentities/">managedidentities</a><br />
 <a href="/providers/google/memcache/">memcache</a><br />
 <a href="/providers/google/metastore/">metastore</a><br />
+<a href="/providers/google/migrationcenter/">migrationcenter</a><br />
 <a href="/providers/google/ml/">ml</a><br />
 <a href="/providers/google/monitoring/">monitoring</a><br />
 <a href="/providers/google/networkconnectivity/">networkconnectivity</a><br />
@@ -204,10 +203,13 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/orgpolicy/">orgpolicy</a><br />
 <a href="/providers/google/osconfig/">osconfig</a><br />
 <a href="/providers/google/oslogin/">oslogin</a><br />
+<a href="/providers/google/places/">places</a><br />
 <a href="/providers/google/policyanalyzer/">policyanalyzer</a><br />
 <a href="/providers/google/policysimulator/">policysimulator</a><br />
 <a href="/providers/google/policytroubleshooter/">policytroubleshooter</a><br />
 <a href="/providers/google/privateca/">privateca</a><br />
+<a href="/providers/google/prod_tt_sasportal/">prod_tt_sasportal</a><br />
+<a href="/providers/google/publicca/">publicca</a><br />
 <a href="/providers/google/pubsub/">pubsub</a><br />
 <a href="/providers/google/pubsublite/">pubsublite</a><br />
 <a href="/providers/google/recaptchaenterprise/">recaptchaenterprise</a><br />
@@ -218,6 +220,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/retail/">retail</a><br />
 <a href="/providers/google/run/">run</a><br />
 <a href="/providers/google/runtimeconfig/">runtimeconfig</a><br />
+<a href="/providers/google/sasportal/">sasportal</a><br />
 <a href="/providers/google/secretmanager/">secretmanager</a><br />
 <a href="/providers/google/securitycenter/">securitycenter</a><br />
 <a href="/providers/google/serviceconsumermanagement/">serviceconsumermanagement</a><br />
@@ -232,7 +235,6 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/sqladmin/">sqladmin</a><br />
 <a href="/providers/google/storage/">storage</a><br />
 <a href="/providers/google/storagetransfer/">storagetransfer</a><br />
-<a href="/providers/google/sts/">sts</a><br />
 <a href="/providers/google/testing/">testing</a><br />
 <a href="/providers/google/texttospeech/">texttospeech</a><br />
 <a href="/providers/google/tpu/">tpu</a><br />
@@ -242,6 +244,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/videointelligence/">videointelligence</a><br />
 <a href="/providers/google/vision/">vision</a><br />
 <a href="/providers/google/vmmigration/">vmmigration</a><br />
+<a href="/providers/google/vpcaccess/">vpcaccess</a><br />
 <a href="/providers/google/webrisk/">webrisk</a><br />
 <a href="/providers/google/websecurityscanner/">websecurityscanner</a><br />
 <a href="/providers/google/workflowexecutions/">workflowexecutions</a><br />

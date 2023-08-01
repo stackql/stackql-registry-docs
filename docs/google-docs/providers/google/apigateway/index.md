@@ -19,9 +19,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>36</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>30</b></span><br />
 </div>
 </div>
 
@@ -33,25 +33,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>API Gateway API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>apigateway:v23.05.00145</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apigateway:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/apigateway/apis/">apis</a><br />
-<a href="/providers/google/apigateway/apis_iam_audit_configs/">apis_iam_audit_configs</a><br />
-<a href="/providers/google/apigateway/apis_iam_bindings/">apis_iam_bindings</a><br />
 <a href="/providers/google/apigateway/apis_iam_policies/">apis_iam_policies</a><br />
 <a href="/providers/google/apigateway/configs/">configs</a><br />
-<a href="/providers/google/apigateway/configs_iam_audit_configs/">configs_iam_audit_configs</a><br />
-<a href="/providers/google/apigateway/configs_iam_bindings/">configs_iam_bindings</a><br />
+<a href="/providers/google/apigateway/configs_iam_policies/">configs_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/apigateway/configs_iam_policies/">configs_iam_policies</a><br />
 <a href="/providers/google/apigateway/gateways/">gateways</a><br />
-<a href="/providers/google/apigateway/gateways_iam_audit_configs/">gateways_iam_audit_configs</a><br />
-<a href="/providers/google/apigateway/gateways_iam_bindings/">gateways_iam_bindings</a><br />
 <a href="/providers/google/apigateway/gateways_iam_policies/">gateways_iam_policies</a><br />
 <a href="/providers/google/apigateway/locations/">locations</a><br />
 <a href="/providers/google/apigateway/operations/">operations</a><br />

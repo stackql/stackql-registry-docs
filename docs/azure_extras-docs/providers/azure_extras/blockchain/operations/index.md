@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Gets or sets the operation name. |
-| `origin` | `string` | Gets or sets the origin. |
 | `display` | `object` | Operation display payload which is exposed in the response of the resource provider. |
 | `isDataAction` | `boolean` | Gets or sets a value indicating whether the operation is a data action or not. |
+| `origin` | `string` | Gets or sets the origin. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

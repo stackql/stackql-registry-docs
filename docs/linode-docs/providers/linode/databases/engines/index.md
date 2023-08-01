@@ -28,8 +28,8 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The Managed Database engine ID in engine/version format. |
-| `version` | `string` | The Managed Database engine version. |
 | `engine` | `string` | The Managed Database engine type. |
+| `version` | `string` | The Managed Database engine version. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

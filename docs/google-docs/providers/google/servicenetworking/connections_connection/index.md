@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `services_connections_deleteConnection` | `DELETE` | `connectionsId, servicesId` |
+| `delete_connection` | `EXEC` | `connectionsId, servicesId` |

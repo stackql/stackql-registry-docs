@@ -28,45 +28,45 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `deploy_key_fingerprint` | `string` |  |
-| `blocked_user` | `string` | The username of the account being blocked. |
-| `data` | `object` |  |
-| `visibility` | `string` | The repository visibility, for example `public` or `private`. |
-| `team` | `string` |  |
-| `transport_protocol` | `integer` | The type of protocol (for example, HTTP or SSH) used to transfer Git data. |
-| `emoji` | `string` |  |
-| `content_type` | `string` |  |
-| `org_id` | `integer` |  |
-| `repository` | `string` | The name of the repository. |
-| `target_login` | `string` |  |
-| `business` | `string` |  |
-| `events_were` | `array` |  |
-| `actor` | `string` | The actor who performed the action. |
-| `previous_visibility` | `string` |  |
-| `openssh_public_key` | `string` |  |
-| `message` | `string` |  |
-| `@timestamp` | `integer` | The time the audit log event occurred, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time). |
-| `explanation` | `string` |  |
-| `old_user` | `string` |  |
-| `config` | `array` |  |
-| `created_at` | `integer` | The time the audit log event was recorded, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time). |
-| `actor_location` | `object` |  |
-| `_document_id` | `string` | A unique identifier for an audit event. |
-| `transport_protocol_name` | `string` | A human readable name for the protocol (for example, HTTP or SSH) used to transfer Git data. |
-| `action` | `string` | The name of the action that was performed, for example `user.login` or `repo.create`. |
-| `hook_id` | `integer` |  |
-| `fingerprint` | `string` |  |
-| `actor_id` | `integer` | The id of the actor who performed the action. |
-| `user` | `string` | The user that was affected by the action performed (if available). |
-| `read_only` | `boolean` |  |
-| `repository_public` | `boolean` |  |
-| `config_was` | `array` |  |
-| `events` | `array` |  |
-| `active_was` | `boolean` |  |
-| `repo` | `string` | The name of the repository. |
-| `active` | `boolean` |  |
 | `limited_availability` | `boolean` |  |
+| `active` | `boolean` |  |
 | `org` | `string` |  |
+| `explanation` | `string` |  |
+| `actor_id` | `integer` | The id of the actor who performed the action. |
+| `org_id` | `integer` |  |
+| `transport_protocol` | `integer` | The type of protocol (for example, HTTP or SSH) used to transfer Git data. |
+| `repo` | `string` | The name of the repository. |
+| `target_login` | `string` |  |
+| `transport_protocol_name` | `string` | A human readable name for the protocol (for example, HTTP or SSH) used to transfer Git data. |
+| `repository` | `string` | The name of the repository. |
+| `data` | `object` |  |
+| `fingerprint` | `string` |  |
+| `deploy_key_fingerprint` | `string` |  |
+| `events_were` | `array` |  |
+| `action` | `string` | The name of the action that was performed, for example `user.login` or `repo.create`. |
+| `emoji` | `string` |  |
+| `hook_id` | `integer` |  |
+| `read_only` | `boolean` |  |
+| `config_was` | `array` |  |
+| `repository_public` | `boolean` |  |
+| `visibility` | `string` | The repository visibility, for example `public` or `private`. |
+| `_document_id` | `string` | A unique identifier for an audit event. |
+| `created_at` | `integer` | The time the audit log event was recorded, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time). |
+| `user` | `string` | The user that was affected by the action performed (if available). |
+| `events` | `array` |  |
+| `previous_visibility` | `string` |  |
+| `actor` | `string` | The actor who performed the action. |
+| `message` | `string` |  |
+| `config` | `array` |  |
+| `old_user` | `string` |  |
+| `@timestamp` | `integer` | The time the audit log event occurred, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time). |
+| `active_was` | `boolean` |  |
+| `blocked_user` | `string` | The username of the account being blocked. |
+| `business` | `string` |  |
+| `actor_location` | `object` |  |
+| `content_type` | `string` |  |
+| `team` | `string` |  |
+| `openssh_public_key` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

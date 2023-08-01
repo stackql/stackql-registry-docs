@@ -29,4 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_dataStores_servingConfigs_recommend` | `EXEC` | `dataStoresId, locationsId, projectsId, servingConfigsId` |
+| `projects_locations_collections_data_stores_serving_configs_recommend` | `EXEC` | `collectionsId, dataStoresId, locationsId, projectsId, servingConfigsId` |
+| `projects_locations_data_stores_serving_configs_recommend` | `EXEC` | `dataStoresId, locationsId, projectsId, servingConfigsId` |

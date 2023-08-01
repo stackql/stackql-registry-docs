@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Id of the object. |
 | `name` | `string` | Name of the object. |
-| `properties` | `object` | Job Properties |
 | `startTime` | `string` | Time at which the job was started in UTC ISO 8601 format. |
 | `status` | `string` | Status of the job. |
 | `type` | `string` | Type of the object. |
 | `endTime` | `string` | Time at which the job ended in UTC ISO 8601 format. |
 | `error` | `object` | Top level error for the job. |
+| `properties` | `object` | Job Properties |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

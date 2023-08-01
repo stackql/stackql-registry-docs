@@ -25,12 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `status` | `string` | [Output Only] The status of the instance. |
-| `instance` | `string` | [Output Only] The URL of the instance. |
-| `namedPorts` | `array` | [Output Only] The named ports that belong to this instance group. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `regionInstanceGroups_listInstances` | `SELECT` | `instanceGroup, project, region` |
+| `list_instances` | `EXEC` | `instanceGroup, project, region` |

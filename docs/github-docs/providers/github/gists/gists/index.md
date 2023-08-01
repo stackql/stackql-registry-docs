@@ -29,25 +29,25 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `description` | `string` |  |
-| `comments` | `integer` |  |
-| `created_at` | `string` |  |
-| `files` | `object` |  |
-| `public` | `boolean` |  |
-| `git_pull_url` | `string` |  |
-| `fork_of` | `object` | Gist |
-| `updated_at` | `string` |  |
+| `node_id` | `string` |  |
 | `forks` | `array` |  |
-| `git_push_url` | `string` |  |
-| `forks_url` | `string` |  |
-| `owner` | `object` | Simple User |
+| `created_at` | `string` |  |
+| `history` | `array` |  |
+| `html_url` | `string` |  |
 | `comments_url` | `string` |  |
 | `truncated` | `boolean` |  |
-| `html_url` | `string` |  |
-| `user` | `string` |  |
 | `commits_url` | `string` |  |
-| `history` | `array` |  |
+| `git_push_url` | `string` |  |
+| `user` | `string` |  |
+| `files` | `object` |  |
+| `owner` | `object` | Simple User |
+| `comments` | `integer` |  |
+| `public` | `boolean` |  |
+| `git_pull_url` | `string` |  |
+| `forks_url` | `string` |  |
 | `url` | `string` |  |
-| `node_id` | `string` |  |
+| `updated_at` | `string` |  |
+| `fork_of` | `object` | Gist |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

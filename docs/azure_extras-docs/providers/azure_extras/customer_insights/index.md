@@ -33,7 +33,7 @@ The Azure Customer Insights management API provides a RESTful set of web service
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Customer Insights Management Client (Microsoft.CustomerInsights)</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Customer Insights management API provides a RESTful set of web services that interact with Azure Customer Insights service to manage your resources. The API has entities that capture the relationship between an end user and the Azure Customer Insights service.</td></tr>
-<tr><td><b>Id</b></td><td><code>customer_insights:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>customer_insights:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

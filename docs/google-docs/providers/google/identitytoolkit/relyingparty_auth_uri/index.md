@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `relyingparty_createAuthUri` | `INSERT` |  |
+| `create_auth_uri` | `INSERT` |  |

@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `sku` | `object` | The resource model definition representing SKU |
 | `tags` | `object` | Resource tags. |
 | `identity` | `object` | Identity for the virtual machine. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties of a private cloud resource |
-| `sku` | `object` | The resource model definition representing SKU |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

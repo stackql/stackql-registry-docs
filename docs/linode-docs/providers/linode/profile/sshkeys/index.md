@@ -28,9 +28,9 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The unique identifier of an SSH Key object.<br /> |
-| `created` | `string` | The date this key was added.<br /> |
 | `label` | `string` | A label for the SSH Key.<br /> |
 | `ssh_key` | `string` | The public SSH Key, which is used to authenticate to the root user of the Linodes you deploy.<br /><br />Accepted formats:<br />* ssh-dss<br />* ssh-rsa<br />* ecdsa-sha2-nistp<br />* ssh-ed25519<br />* sk-ecdsa-sha2-nistp256 (Akamai-specific)<br /> |
+| `created` | `string` | The date this key was added.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

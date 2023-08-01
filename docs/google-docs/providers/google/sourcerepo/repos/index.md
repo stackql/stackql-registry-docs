@@ -27,17 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Resource name of the repository, of the form `projects//repos/`. The repo name may contain slashes. eg, `projects/myproject/repos/name/with/slash` |
-| `mirrorConfig` | `object` | Configuration to automatically mirror a repository from another hosting service, for example GitHub or Bitbucket. |
-| `pubsubConfigs` | `object` | How this repository publishes a change in the repository through Cloud Pub/Sub. Keyed by the topic names. |
-| `size` | `string` | The disk usage of the repo, in bytes. Read-only field. Size is only returned by GetRepo. |
-| `url` | `string` | URL to clone the repository from Google Cloud Source Repositories. Read-only field. |
+| `repos` | `array` | The listed repos. |
+| `nextPageToken` | `string` | If non-empty, additional repositories exist within the project. These can be retrieved by including this value in the next ListReposRequest's page_token field. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_repos_get` | `SELECT` | `projectsId, reposId` | Returns information about a repo. |
-| `projects_repos_list` | `SELECT` | `projectsId` | Returns all repos belonging to a project. The sizes of the repos are not set by ListRepos. To get the size of a repo, use GetRepo. |
-| `projects_repos_create` | `INSERT` | `projectsId` | Creates a repo in the given project with the given name. If the named repository already exists, `CreateRepo` returns `ALREADY_EXISTS`. |
-| `projects_repos_delete` | `DELETE` | `projectsId, reposId` | Deletes a repo. |
-| `projects_repos_patch` | `EXEC` | `projectsId, reposId` | Updates information about a repo. |
-| `projects_repos_sync` | `EXEC` | `projectsId, reposId` | Synchronize a connected repo. The response contains SyncRepoMetadata in the metadata field. |
+| `get` | `SELECT` | `projectsId, reposId` | Returns information about a repo. |
+| `list` | `SELECT` | `projectsId` | Returns all repos belonging to a project. The sizes of the repos are not set by ListRepos. To get the size of a repo, use GetRepo. |
+| `create` | `INSERT` | `projectsId` | Creates a repo in the given project with the given name. If the named repository already exists, `CreateRepo` returns `ALREADY_EXISTS`. |
+| `delete` | `DELETE` | `projectsId, reposId` | Deletes a repo. |
+| `patch` | `EXEC` | `projectsId, reposId` | Updates information about a repo. |
+| `sync` | `EXEC` | `projectsId, reposId` | Synchronize a connected repo. The response contains SyncRepoMetadata in the metadata field. |

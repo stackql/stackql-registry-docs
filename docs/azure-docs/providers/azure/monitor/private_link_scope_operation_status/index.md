@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The operation Id. |
 | `name` | `string` | The operation name. |
-| `endTime` | `string` | End time of the job in standard ISO8601 format. |
-| `error` | `object` | The error detail. |
 | `startTime` | `string` | Start time of the job in standard ISO8601 format. |
 | `status` | `string` | The status of the operation. |
+| `endTime` | `string` | End time of the job in standard ISO8601 format. |
+| `error` | `object` | The error detail. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

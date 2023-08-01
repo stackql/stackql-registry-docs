@@ -27,19 +27,19 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
 | `purchaseToken` | `string` | The purchase token. This token expires in two hours. |
+| `instanceType` | `string` | The instance type. You can specify one of the C3, C4, M4, or R3 instance types. |
+| `platform` | `string` | The platform (&lt;code&gt;Linux/UNIX&lt;/code&gt; or &lt;code&gt;Windows&lt;/code&gt;). |
 | `minTermDurationInDays` | `integer` | The minimum term. The only possible value is 365 days. |
-| `hourlyPrice` | `string` | The hourly price for a single instance. |
+| `maxTermDurationInDays` | `integer` | The maximum term. The only possible value is 365 days. |
 | `totalScheduledInstanceHours` | `integer` | The total number of hours for a single instance for the entire term. |
 | `recurrence` | `object` | Describes the recurring schedule for a Scheduled Instance. |
+| `availableInstanceCount` | `integer` | The number of available instances. |
 | `slotDurationInHours` | `integer` | The number of hours in the schedule. |
 | `networkPlatform` | `string` | The network platform (&lt;code&gt;EC2-Classic&lt;/code&gt; or &lt;code&gt;EC2-VPC&lt;/code&gt;). |
 | `firstSlotStartTime` | `string` | The time period for the first schedule to start. |
-| `maxTermDurationInDays` | `integer` | The maximum term. The only possible value is 365 days. |
+| `hourlyPrice` | `string` | The hourly price for a single instance. |
 | `availabilityZone` | `string` | The Availability Zone. |
-| `instanceType` | `string` | The instance type. You can specify one of the C3, C4, M4, or R3 instance types. |
-| `availableInstanceCount` | `integer` | The number of available instances. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

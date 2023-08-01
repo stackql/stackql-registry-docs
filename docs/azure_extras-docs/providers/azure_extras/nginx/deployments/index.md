@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `type` | `string` |  |
-| `sku` | `object` |  |
-| `properties` | `object` |  |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `identity` | `object` |  |
 | `location` | `string` |  |
+| `identity` | `object` |  |
 | `tags` | `object` |  |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `properties` | `object` |  |
+| `sku` | `object` |  |
+| `type` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

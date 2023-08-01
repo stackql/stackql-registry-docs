@@ -28,14 +28,14 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | A unique numeric ID that can be used to identify and reference an action. |
-| `started_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the action was initiated. |
-| `status` | `string` | The current status of the action. This can be "in-progress", "completed", or "errored". |
-| `region` | `object` |  |
-| `resource_type` | `string` | The type of resource that the action is associated with. |
-| `region_slug` | `string` | A human-readable string that is used as a unique identifier for each region. |
-| `completed_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the action was completed. |
-| `resource_id` | `integer` | A unique identifier for the resource that the action is associated with. |
 | `type` | `string` | This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action. |
+| `resource_id` | `integer` | A unique identifier for the resource that the action is associated with. |
+| `completed_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the action was completed. |
+| `region` | `object` |  |
+| `region_slug` | `string` | A human-readable string that is used as a unique identifier for each region. |
+| `status` | `string` | The current status of the action. This can be "in-progress", "completed", or "errored". |
+| `resource_type` | `string` | The type of resource that the action is associated with. |
+| `started_at` | `string` | A time value given in ISO8601 combined date and time format that represents when the action was initiated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

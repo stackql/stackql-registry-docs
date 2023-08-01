@@ -28,23 +28,24 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the operation. |
-| `error` | `object` | Database instance operation errors list wrapper. |
-| `insertTime` | `string` | The time this operation was enqueued in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `selfLink` | `string` | The URI of this resource. |
-| `backupContext` | `object` | Backup context. |
 | `targetProject` | `string` | The project ID of the target instance related to this operation. |
 | `targetId` | `string` | Name of the database instance related to this operation. |
-| `importContext` | `object` | Database instance import context. |
 | `user` | `string` | The email address of the user who initiated this operation. |
-| `startTime` | `string` | The time this operation actually started in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `endTime` | `string` | The time this operation finished in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `kind` | `string` | This is always `sql#operation`. |
-| `operationType` | `string` | The type of the operation. Valid values are: * `CREATE` * `DELETE` * `UPDATE` * `RESTART` * `IMPORT` * `EXPORT` * `BACKUP_VOLUME` * `RESTORE_VOLUME` * `CREATE_USER` * `DELETE_USER` * `CREATE_DATABASE` * `DELETE_DATABASE` |
-| `exportContext` | `object` | Database instance export context. |
+| `importContext` | `object` | Database instance import context. |
 | `status` | `string` | The status of an operation. |
+| `exportContext` | `object` | Database instance export context. |
+| `operationType` | `string` | The type of the operation. Valid values are: * `CREATE` * `DELETE` * `UPDATE` * `RESTART` * `IMPORT` * `EXPORT` * `BACKUP_VOLUME` * `RESTORE_VOLUME` * `CREATE_USER` * `DELETE_USER` * `CREATE_DATABASE` * `DELETE_DATABASE` |
+| `kind` | `string` | This is always `sql#operation`. |
+| `endTime` | `string` | The time this operation finished in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `error` | `object` | Database instance operation errors list wrapper. |
+| `backupContext` | `object` | Backup context. |
+| `startTime` | `string` | The time this operation actually started in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `insertTime` | `string` | The time this operation was enqueued in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
 | `targetLink` | `string` |  |
+| `selfLink` | `string` | The URI of this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `sql_operations_get` | `SELECT` | `operation, project` | Retrieves an instance operation that has been performed on an instance. |
-| `sql_operations_list` | `SELECT` | `project` | Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time. |
+| `get` | `SELECT` | `operation, project` | Retrieves an instance operation that has been performed on an instance. |
+| `list` | `SELECT` | `project` | Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time. |
+| `cancel` | `EXEC` | `operation, project` | Cancels an instance operation that has been performed on an instance. |

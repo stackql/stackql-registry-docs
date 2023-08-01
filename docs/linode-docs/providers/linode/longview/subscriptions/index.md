@@ -28,9 +28,9 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID of this Subscription tier.<br /> |
-| `price` | `object` | Pricing information about this Subscription tier.<br /> |
 | `clients_included` | `integer` | The number of Longview Clients that may be created with this Subscription tier.<br /> |
 | `label` | `string` | A display name for this Subscription tier.<br /> |
+| `price` | `object` | Pricing information about this Subscription tier.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

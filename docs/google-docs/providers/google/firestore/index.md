@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Accesses the NoSQL document database built for automatic scaling, high performance, and ease of application development.   
+Accesses The NoSQL Document Database Built For Automatic Scaling, High Performance, And Ease Of Application Development.   
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total resources:&nbsp;<b>12</b></span><br />
 <span>total selectable resources:&nbsp;<b>9</b></span><br />
-<span>total methods:&nbsp;<b>37</b></span><br />
+<span>total methods:&nbsp;<b>46</b></span><br />
 </div>
 </div>
 
@@ -32,20 +32,22 @@ Accesses the NoSQL document database built for automatic scaling, high performan
 <tr><td><b>Name</b></td><td><code>google.firestore</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Firestore API</td></tr>
-<tr><td><b>Description</b></td><td>Accesses the NoSQL document database built for automatic scaling, high performance, and ease of application development. </td></tr>
-<tr><td><b>Id</b></td><td><code>firestore:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Accesses The NoSQL Document Database Built For Automatic Scaling, High Performance, And Ease Of Application Development. </td></tr>
+<tr><td><b>Id</b></td><td><code>firestore:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/firestore/backup_schedules/">backup_schedules</a><br />
+<a href="/providers/google/firestore/backups/">backups</a><br />
 <a href="/providers/google/firestore/databases/">databases</a><br />
 <a href="/providers/google/firestore/documents/">documents</a><br />
 <a href="/providers/google/firestore/documents_collection_ids/">documents_collection_ids</a><br />
 <a href="/providers/google/firestore/documents_document/">documents_document</a><br />
-<a href="/providers/google/firestore/documents_documents/">documents_documents</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/firestore/documents_documents/">documents_documents</a><br />
 <a href="/providers/google/firestore/documents_en/">documents_en</a><br />
 <a href="/providers/google/firestore/fields/">fields</a><br />
 <a href="/providers/google/firestore/indexes/">indexes</a><br />

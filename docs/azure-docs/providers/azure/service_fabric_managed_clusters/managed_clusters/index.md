@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure resource identifier. |
 | `name` | `string` | Azure resource name. |
-| `etag` | `string` | Azure resource etag. |
 | `location` | `string` | Azure resource location. |
+| `etag` | `string` | Azure resource etag. |
 | `sku` | `object` | Service Fabric managed cluster Sku definition |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Azure resource type. |
-| `tags` | `object` | Azure resource tags. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Describes the managed cluster resource properties. |
+| `tags` | `object` | Azure resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

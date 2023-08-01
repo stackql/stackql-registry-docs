@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Integrates text translation into your website or application.  
+Integrates Text Translation Into Your Website Or Application.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>9</b></span><br />
-<span>total methods:&nbsp;<b>37</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>39</b></span><br />
 </div>
 </div>
 
@@ -32,8 +32,8 @@ Integrates text translation into your website or application.
 <tr><td><b>Name</b></td><td><code>google.translate</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Translation API</td></tr>
-<tr><td><b>Description</b></td><td>Integrates text translation into your website or application.</td></tr>
-<tr><td><b>Id</b></td><td><code>translate:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Integrates Text Translation Into Your Website Or Application.</td></tr>
+<tr><td><b>Id</b></td><td><code>translate:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -46,10 +46,9 @@ Integrates text translation into your website or application.
 <a href="/providers/google/translate/locations/">locations</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/translate/locations_supported_languages/">locations_supported_languages</a><br />
 <a href="/providers/google/translate/models/">models</a><br />
 <a href="/providers/google/translate/operations/">operations</a><br />
 <a href="/providers/google/translate/projects/">projects</a><br />
-<a href="/providers/google/translate/projects_supported_languages/">projects_supported_languages</a><br />
+<a href="/providers/google/translate/supported_languages/">supported_languages</a><br />
 </div>
 </div>

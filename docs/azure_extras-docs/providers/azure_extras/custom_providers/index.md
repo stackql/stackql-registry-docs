@@ -33,7 +33,7 @@ Allows extension of ARM control plane with custom resource providers.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Custom Providers (Microsoft.CustomProviders)</td></tr>
 <tr><td><b>Description</b></td><td>Allows extension of ARM control plane with custom resource providers.</td></tr>
-<tr><td><b>Id</b></td><td><code>custom_providers:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>custom_providers:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

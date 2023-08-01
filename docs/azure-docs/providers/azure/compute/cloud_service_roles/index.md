@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource id |
 | `name` | `string` | Resource name |
+| `sku` | `object` | Describes the cloud service role sku. |
 | `type` | `string` | Resource type |
 | `location` | `string` | Resource location |
 | `properties` | `object` | The cloud service role properties. |
-| `sku` | `object` | Describes the cloud service role sku. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

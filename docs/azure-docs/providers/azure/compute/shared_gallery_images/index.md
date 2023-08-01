@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Describes the properties of a gallery image definition. |
 | `identifier` | `object` | The identifier information of shared gallery. |
+| `properties` | `object` | Describes the properties of a gallery image definition. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

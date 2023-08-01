@@ -30,16 +30,16 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` |  |
 | `name` | `string` |  |
 | `description` | `string` |  |
-| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
-| `html_url` | `string` |  |
-| `node_id` | `string` |  |
-| `repositories_url` | `string` |  |
-| `url` | `string` |  |
 | `permissions` | `object` |  |
-| `members_url` | `string` |  |
+| `html_url` | `string` |  |
+| `privacy` | `string` |  |
+| `node_id` | `string` |  |
+| `parent` | `object` | Groups of organization members that gives permissions on specified repositories. |
 | `permission` | `string` |  |
 | `slug` | `string` |  |
-| `privacy` | `string` |  |
+| `members_url` | `string` |  |
+| `url` | `string` |  |
+| `repositories_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

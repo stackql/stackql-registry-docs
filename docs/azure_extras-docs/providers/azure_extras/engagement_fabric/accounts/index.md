@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `location` | `string` | The location of the resource |
 | `sku` | `object` | The EngagementFabric SKU |
 | `tags` | `object` | The tags of the resource |
-| `location` | `string` | The location of the resource |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource identifier of the database account. |
 | `name` | `string` | The name of the database account. |
-| `properties` | `object` | The properties of a DataTransfer Job |
 | `type` | `string` | The type of Azure resource. |
+| `properties` | `object` | The properties of a DataTransfer Job |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

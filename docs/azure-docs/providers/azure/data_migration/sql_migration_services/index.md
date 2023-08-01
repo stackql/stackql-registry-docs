@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `type` | `string` |  |
 | `location` | `string` |  |
 | `properties` | `object` | The SQL Migration Service properties. |
 | `systemData` | `object` |  |
 | `tags` | `object` |  |
+| `type` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

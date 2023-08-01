@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | The name of the extension. |
-| `properties` | `object` | Describes the properties of a Virtual Machine Scale Set Extension. |
 | `type` | `string` | Resource type |
+| `properties` | `object` | Describes the properties of a Virtual Machine Scale Set Extension. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

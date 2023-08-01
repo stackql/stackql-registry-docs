@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `localGatewayId` | `string` | The ID of the local gateway. |
 | `localGatewayVirtualInterfaceGroupId` | `string` | The ID of the virtual interface group. |
 | `localGatewayVirtualInterfaceIdSet` | `array` | The IDs of the virtual interfaces. |
 | `ownerId` | `string` | The ID of the Amazon Web Services account that owns the local gateway virtual interface group. |
 | `tagSet` | `array` | The tags assigned to the virtual interface group. |
-| `localGatewayId` | `string` | The ID of the local gateway. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

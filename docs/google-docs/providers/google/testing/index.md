@@ -13,14 +13,14 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Allows developers to run automated tests for their mobile applications on Google infrastructure.  
+Allows Developers To Run Automated Tests For Their Mobile Applications On Google Infrastructure.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
-<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
 <span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
@@ -32,8 +32,8 @@ Allows developers to run automated tests for their mobile applications on Google
 <tr><td><b>Name</b></td><td><code>google.testing</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Testing API</td></tr>
-<tr><td><b>Description</b></td><td>Allows developers to run automated tests for their mobile applications on Google infrastructure.</td></tr>
-<tr><td><b>Id</b></td><td><code>testing:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Allows Developers To Run Automated Tests For Their Mobile Applications On Google Infrastructure.</td></tr>
+<tr><td><b>Id</b></td><td><code>testing:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

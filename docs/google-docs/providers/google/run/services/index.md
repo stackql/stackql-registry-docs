@@ -27,39 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The fully qualified name of this Service. In CreateServiceRequest, this field is ignored, and instead composed from CreateServiceRequest.parent and CreateServiceRequest.service_id. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/services/&#123;service_id&#125; |
-| `description` | `string` | User-provided description of the Service. This field currently has a 512-character limit. |
-| `clientVersion` | `string` | Arbitrary version identifier for the API client. |
-| `creator` | `string` | Output only. Email address of the authenticated creator. |
-| `createTime` | `string` | Output only. The creation time. |
-| `deleteTime` | `string` | Output only. The deletion time. |
-| `binaryAuthorization` | `object` | Settings for Binary Authorization feature. |
-| `traffic` | `array` | Specifies how to distribute traffic over a collection of Revisions belonging to the Service. If traffic is empty or not provided, defaults to 100% traffic to the latest `Ready` Revision. |
-| `annotations` | `object` | Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2 does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system annotations in v1 now have a corresponding field in v2 Service. This field follows Kubernetes annotations' namespacing, limits, and rules. More info: https://kubernetes.io/docs/user-guide/annotations |
-| `ingress` | `string` | Provides the ingress settings for this Service. On output, returns the currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if no revision is active. |
-| `template` | `object` | RevisionTemplate describes the data a revision should have when created from a template. |
-| `client` | `string` | Arbitrary identifier for the API client. |
-| `generation` | `string` | Output only. A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a `string` instead of an `integer`. |
-| `launchStage` | `string` | The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed. |
-| `expireTime` | `string` | Output only. For a deleted resource, the time after which it will be permamently deleted. |
-| `terminalCondition` | `object` | Defines a status condition for a resource. |
-| `etag` | `string` | Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. |
-| `latestReadyRevision` | `string` | Output only. Name of the latest revision that is serving traffic. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. |
-| `trafficStatuses` | `array` | Output only. Detailed status information for corresponding traffic targets. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. |
-| `uri` | `string` | Output only. The main URI in which this Service is serving traffic. |
-| `conditions` | `array` | Output only. The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Service does not reach its Serving state. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. |
-| `uid` | `string` | Output only. Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
-| `reconciling` | `boolean` | Output only. Returns true if the Service is currently being acted upon by the system to bring it into the desired state. When a new Service is created, or an existing one is updated, Cloud Run will asynchronously perform all necessary steps to bring the Service to the desired serving state. This process is called reconciliation. While reconciliation is in process, `observed_generation`, `latest_ready_revison`, `traffic_statuses`, and `uri` will have transient values that might mismatch the intended state: Once reconciliation is over (and this field is false), there are two possible outcomes: reconciliation succeeded and the serving state matches the Service, or there was an error, and reconciliation failed. This state can be found in `terminal_condition.state`. If reconciliation succeeded, the following fields will match: `traffic` and `traffic_statuses`, `observed_generation` and `generation`, `latest_ready_revision` and `latest_created_revision`. If reconciliation failed, `traffic_statuses`, `observed_generation`, and `latest_ready_revision` will have the state of the last serving revision, or empty for newly created Services. Additional information on the failure can be found in `terminal_condition` and `conditions`. |
-| `updateTime` | `string` | Output only. The last-modified time. |
-| `lastModifier` | `string` | Output only. Email address of the last authenticated modifier. |
-| `labels` | `object` | Map of string keys and values that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels Cloud Run API v2 does not support labels with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system labels in v1 now have a corresponding field in v2 Service. |
-| `latestCreatedRevision` | `string` | Output only. Name of the last created revision. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. |
-| `observedGeneration` | `string` | Output only. The generation of this Service currently serving traffic. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a `string` instead of an `integer`. |
+| `nextPageToken` | `string` | A token indicating there are more items than page_size. Use it in the next ListServices request to continue. |
+| `services` | `array` | The resulting list of Services. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_services_get` | `SELECT` | `locationsId, projectsId, servicesId` | Gets information about a Service. |
-| `projects_locations_services_list` | `SELECT` | `locationsId, projectsId` | Lists Services. |
-| `projects_locations_services_create` | `INSERT` | `locationsId, projectsId` | Creates a new Service in a given project and location. |
-| `projects_locations_services_delete` | `DELETE` | `locationsId, projectsId, servicesId` | Deletes a Service. This will cause the Service to stop serving traffic and will delete all revisions. |
-| `projects_locations_services_patch` | `EXEC` | `locationsId, projectsId, servicesId` | Updates a Service. |
+| `get` | `SELECT` | `locationsId, projectsId, servicesId` | Gets information about a Service. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists Services. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new Service in a given project and location. |
+| `delete` | `DELETE` | `locationsId, projectsId, servicesId` | Deletes a Service. This will cause the Service to stop serving traffic and will delete all revisions. |
+| `patch` | `EXEC` | `locationsId, projectsId, servicesId` | Updates a Service. |

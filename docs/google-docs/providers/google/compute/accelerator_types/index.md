@@ -31,14 +31,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] An optional textual description of the resource. |
 | `maximumCardsPerInstance` | `integer` | [Output Only] Maximum number of accelerator cards allowed per instance. |
-| `kind` | `string` | [Output Only] The type of the resource. Always compute#acceleratorType for accelerator types. |
-| `deprecated` | `object` | Deprecation status for a public resource. |
 | `selfLink` | `string` | [Output Only] Server-defined, fully qualified URL for this resource. |
-| `zone` | `string` | [Output Only] The name of the zone where the accelerator type resides, such as us-central1-a. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `kind` | `string` | [Output Only] The type of the resource. Always compute#acceleratorType for accelerator types. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
+| `deprecated` | `object` | Deprecation status for a public resource. |
+| `zone` | `string` | [Output Only] The name of the zone where the accelerator type resides, such as us-central1-a. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `acceleratorTypes_aggregatedList` | `SELECT` | `project` | Retrieves an aggregated list of accelerator types. |
-| `acceleratorTypes_get` | `SELECT` | `acceleratorType, project, zone` | Returns the specified accelerator type. |
-| `acceleratorTypes_list` | `SELECT` | `project, zone` | Retrieves a list of accelerator types that are available to the specified project. |
+| `get` | `SELECT` | `acceleratorType, project, zone` | Returns the specified accelerator type. |
+| `list` | `SELECT` | `project, zone` | Retrieves a list of accelerator types that are available to the specified project. |
+| `aggregated_list` | `EXEC` | `project` | Retrieves an aggregated list of accelerator types. |

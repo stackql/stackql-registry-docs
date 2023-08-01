@@ -28,11 +28,11 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID of this Region. |
-| `country` | `string` | The country where this Region resides. |
 | `label` | `string` | Detailed location information for this Region, including city, state or region, and country. |
 | `resolvers` | `object` |  |
 | `status` | `string` | This region's current operational status.<br /> |
 | `capabilities` | `array` | A list of capabilities of this region.<br /> |
+| `country` | `string` | The country where this Region resides. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_instances_databases_databaseRoles_testIamPermissions` | `EXEC` | `databaseRolesId, databasesId, instancesId, projectsId` |
+| `projects_instances_databases_database_roles_test_iam_permissions` | `EXEC` | `databaseRolesId, databasesId, instancesId, projectsId` |

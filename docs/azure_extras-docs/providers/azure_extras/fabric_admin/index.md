@@ -33,7 +33,7 @@ Fabric Admin Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Fabric Admin Client (Microsoft.Fabric.Admin)</td></tr>
 <tr><td><b>Description</b></td><td>Fabric Admin Client</td></tr>
-<tr><td><b>Id</b></td><td><code>fabric_admin:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>fabric_admin:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

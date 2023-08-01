@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `Identifier` | `string` |
 | `Properties` | `string` |
+| `Identifier` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

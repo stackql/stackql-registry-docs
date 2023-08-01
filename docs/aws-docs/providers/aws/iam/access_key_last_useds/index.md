@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `AccessKeyLastUsed` | `object` | &lt;p&gt;Contains information about the last time an Amazon Web Services access key was used since IAM began tracking this information on April 22, 2015.&lt;/p&gt; &lt;p&gt;This data type is used as a response element in the &lt;a&gt;GetAccessKeyLastUsed&lt;/a&gt; operation.&lt;/p&gt; |
 | `UserName` | `string` | &lt;p&gt;The name of the IAM user that owns this access key.&lt;/p&gt; &lt;p/&gt; |
+| `AccessKeyLastUsed` | `object` | &lt;p&gt;Contains information about the last time an Amazon Web Services access key was used since IAM began tracking this information on April 22, 2015.&lt;/p&gt; &lt;p&gt;This data type is used as a response element in the &lt;a&gt;GetAccessKeyLastUsed&lt;/a&gt; operation.&lt;/p&gt; |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

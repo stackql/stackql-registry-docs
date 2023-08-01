@@ -28,13 +28,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name for the EkmConnection in the format `projects/*/locations/*/ekmConnections/*`. |
+| `keyManagementMode` | `string` | Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL. |
 | `serviceResolvers` | `array` | A list of ServiceResolvers where the EKM can be reached. There should be one ServiceResolver per EKM replica. Currently, only a single ServiceResolver is supported. |
 | `createTime` | `string` | Output only. The time at which the EkmConnection was created. |
+| `cryptoSpacePath` | `string` | Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if KeyManagementMode is CLOUD_KMS. |
 | `etag` | `string` | Optional. Etag of the currently stored EkmConnection. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_ekmConnections_get` | `SELECT` | `ekmConnectionsId, locationsId, projectsId` | Returns metadata for a given EkmConnection. |
-| `projects_locations_ekmConnections_list` | `SELECT` | `locationsId, projectsId` | Lists EkmConnections. |
-| `projects_locations_ekmConnections_create` | `INSERT` | `locationsId, projectsId` | Creates a new EkmConnection in a given Project and Location. |
-| `projects_locations_ekmConnections_patch` | `EXEC` | `ekmConnectionsId, locationsId, projectsId` | Updates an EkmConnection's metadata. |
+| `get` | `SELECT` | `ekmConnectionsId, locationsId, projectsId` | Returns metadata for a given EkmConnection. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists EkmConnections. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new EkmConnection in a given Project and Location. |
+| `patch` | `EXEC` | `ekmConnectionsId, locationsId, projectsId` | Updates an EkmConnection's metadata. |
+| `verify_connectivity` | `EXEC` | `ekmConnectionsId, locationsId, projectsId` | Verifies that Cloud KMS can successfully connect to the external key manager specified by an EkmConnection. If there is an error connecting to the EKM, this method returns a FAILED_PRECONDITION status containing structured information as described at https://cloud.google.com/kms/docs/reference/ekm_errors. |

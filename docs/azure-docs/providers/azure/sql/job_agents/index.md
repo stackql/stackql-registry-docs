@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of a job agent. |
 | `sku` | `object` | An ARM Resource SKU. |
 | `tags` | `object` | Resource tags. |
 | `location` | `string` | Resource location. |
+| `properties` | `object` | Properties of a job agent. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `firewallPolicys` | `array` | Effective firewalls from firewall policy. |
 | `firewalls` | `array` | Effective firewalls on the network. |
+| `firewallPolicys` | `array` | Effective firewalls from firewall policy. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `regionNetworkFirewallPolicies_getEffectiveFirewalls` | `SELECT` | `network, project, region` |
+| `get_effective_firewalls` | `SELECT` | `network, project, region` |

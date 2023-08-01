@@ -32,12 +32,12 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `description` | `string` |
 | `issuerMode` | `string` |
 | `_links` | `object` |
-| `issuer` | `string` |
 | `lastUpdated` | `string` |
 | `status` | `string` |
-| `audiences` | `array` |
-| `credentials` | `object` |
 | `created` | `string` |
+| `credentials` | `object` |
+| `audiences` | `array` |
+| `issuer` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

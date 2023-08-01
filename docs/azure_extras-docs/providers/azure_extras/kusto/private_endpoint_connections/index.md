@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of a private endpoint connection. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `properties` | `object` | Properties of a private endpoint connection. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_traces_spans_createSpan` | `INSERT` | `projectsId, spansId, tracesId` |
+| `create_span` | `INSERT` | `projectsId, spansId, tracesId` |

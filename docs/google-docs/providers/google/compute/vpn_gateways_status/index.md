@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `vpnGateways_getStatus` | `SELECT` | `project, region, vpnGateway` |
+| `get_status` | `SELECT` | `project, region, vpnGateway` |

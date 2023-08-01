@@ -27,12 +27,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `permissionState` | `object` | Describes the state of a network interface permission. |
-| `awsAccountId` | `string` | The Amazon Web Services account ID. |
 | `awsService` | `string` | The Amazon Web Service. |
 | `networkInterfaceId` | `string` | The ID of the network interface. |
 | `networkInterfacePermissionId` | `string` | The ID of the network interface permission. |
 | `permission` | `string` | The type of permission. |
+| `permissionState` | `object` | Describes the state of a network interface permission. |
+| `awsAccountId` | `string` | The Amazon Web Services account ID. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

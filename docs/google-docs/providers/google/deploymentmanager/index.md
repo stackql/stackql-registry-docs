@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-The Google Cloud Deployment Manager v2 API provides services for configuring, deploying, and viewing Google Cloud services and APIs via templates which specify deployments of Cloud resources.  
+The Google Cloud Deployment Manager V2 API Provides Services For Configuring, Deploying, And Viewing Google Cloud Services And APIs Via Templates Which Specify Deployments Of Cloud Resources.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>20</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>18</b></span><br />
 </div>
 </div>
 
@@ -32,20 +32,18 @@ The Google Cloud Deployment Manager v2 API provides services for configuring, de
 <tr><td><b>Name</b></td><td><code>google.deploymentmanager</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Deployment Manager V2 API</td></tr>
-<tr><td><b>Description</b></td><td>The Google Cloud Deployment Manager v2 API provides services for configuring, deploying, and viewing Google Cloud services and APIs via templates which specify deployments of Cloud resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>deploymentmanager:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>The Google Cloud Deployment Manager V2 API Provides Services For Configuring, Deploying, And Viewing Google Cloud Services And APIs Via Templates Which Specify Deployments Of Cloud Resources.</td></tr>
+<tr><td><b>Id</b></td><td><code>deploymentmanager:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/deploymentmanager/deployments/">deployments</a><br />
-<a href="/providers/google/deploymentmanager/deployments_iam_audit_configs/">deployments_iam_audit_configs</a><br />
-<a href="/providers/google/deploymentmanager/deployments_iam_bindings/">deployments_iam_bindings</a><br />
 <a href="/providers/google/deploymentmanager/deployments_iam_policies/">deployments_iam_policies</a><br />
+<a href="/providers/google/deploymentmanager/manifests/">manifests</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/deploymentmanager/manifests/">manifests</a><br />
 <a href="/providers/google/deploymentmanager/operations/">operations</a><br />
 <a href="/providers/google/deploymentmanager/resources/">resources</a><br />
 <a href="/providers/google/deploymentmanager/types/">types</a><br />

@@ -27,12 +27,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `transitGatewayAttachment` | `object` | Describes a transit gateway prefix list attachment. |
-| `transitGatewayRouteTableId` | `string` | The ID of the transit gateway route table. |
 | `blackhole` | `boolean` | Indicates whether traffic that matches this route is dropped. |
 | `prefixListId` | `string` | The ID of the prefix list. |
 | `prefixListOwnerId` | `string` | The ID of the prefix list owner. |
 | `state` | `string` | The state of the prefix list reference. |
+| `transitGatewayAttachment` | `object` | Describes a transit gateway prefix list attachment. |
+| `transitGatewayRouteTableId` | `string` | The ID of the transit gateway route table. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

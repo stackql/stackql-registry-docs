@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
+| `properties` | `object` | Describes the properties of an Image. |
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Resource type |
 | `extendedLocation` | `object` | The complex type of the extended location. |
 | `location` | `string` | Resource location |
-| `properties` | `object` | Describes the properties of an Image. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,10 +27,10 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `region` | `string` | The region for this pool of IPv6 addresses.<br /> |
-| `route_target` | `string` | The last address in this block of IPv6 addresses.<br /> |
 | `prefix` | `integer` | The prefix length of the address, denoting how many addresses can be assigned from this pool calculated as 2 &lt;sup&gt;128-prefix&lt;/sup&gt;.<br /> |
 | `range` | `string` | The IPv6 range of addresses in this pool.<br /> |
+| `region` | `string` | The region for this pool of IPv6 addresses.<br /> |
+| `route_target` | `string` | The last address in this block of IPv6 addresses.<br /> |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

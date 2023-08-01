@@ -20,8 +20,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>31</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>32</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Datastream API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>datastream:v23.05.00145</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datastream:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,13 +41,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <div class="providerDocColumn">
 <a href="/providers/google/datastream/connection_profiles/">connection_profiles</a><br />
 <a href="/providers/google/datastream/locations/">locations</a><br />
-<a href="/providers/google/datastream/locations_static_ips/">locations_static_ips</a><br />
 <a href="/providers/google/datastream/objects/">objects</a><br />
+<a href="/providers/google/datastream/operations/">operations</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/datastream/operations/">operations</a><br />
 <a href="/providers/google/datastream/private_connections/">private_connections</a><br />
 <a href="/providers/google/datastream/routes/">routes</a><br />
+<a href="/providers/google/datastream/static_ips/">static_ips</a><br />
 <a href="/providers/google/datastream/streams/">streams</a><br />
 </div>
 </div>

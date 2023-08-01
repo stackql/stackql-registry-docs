@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `statusCode` | `string` | HTTP Status Code of the operation. |
 | `headers` | `object` | HTTP headers associated with this operation. |
 | `operation` | `object` | Base class for operation result info. |
+| `statusCode` | `string` | HTTP Status Code of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

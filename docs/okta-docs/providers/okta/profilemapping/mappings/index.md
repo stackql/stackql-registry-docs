@@ -28,10 +28,10 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `_links` | `object` |
-| `properties` | `object` |
 | `source` | `object` |
 | `target` | `object` |
+| `_links` | `object` |
+| `properties` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

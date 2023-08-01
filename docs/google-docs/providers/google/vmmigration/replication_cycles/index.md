@@ -27,17 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The identifier of the ReplicationCycle. |
-| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
-| `cycleNumber` | `integer` | The cycle's ordinal number. |
-| `startTime` | `string` | The time the replication cycle has started. |
-| `steps` | `array` | The cycle's steps list representing its progress. |
-| `state` | `string` | State of the ReplicationCycle. |
-| `progressPercent` | `integer` | The current progress in percentage of this cycle. Was replaced by 'steps' field, which breaks down the cycle progression more accurately. |
-| `totalPauseDuration` | `string` | The accumulated duration the replication cycle was paused. |
-| `endTime` | `string` | The time the replication cycle has ended. |
+| `nextPageToken` | `string` | Output only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `replicationCycles` | `array` | Output only. The list of replication cycles response. |
+| `unreachable` | `array` | Output only. Locations that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_sources_migratingVms_replicationCycles_get` | `SELECT` | `locationsId, migratingVmsId, projectsId, replicationCyclesId, sourcesId` | Gets details of a single ReplicationCycle. |
-| `projects_locations_sources_migratingVms_replicationCycles_list` | `SELECT` | `locationsId, migratingVmsId, projectsId, sourcesId` | Lists ReplicationCycles in a given MigratingVM. |
+| `get` | `SELECT` | `locationsId, migratingVmsId, projectsId, replicationCyclesId, sourcesId` | Gets details of a single ReplicationCycle. |
+| `list` | `SELECT` | `locationsId, migratingVmsId, projectsId, sourcesId` | Lists ReplicationCycles in a given MigratingVM. |

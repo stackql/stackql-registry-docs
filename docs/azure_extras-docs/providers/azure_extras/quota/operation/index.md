@@ -28,8 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
-| `display` | `object` |
 | `origin` | `string` |
+| `display` | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

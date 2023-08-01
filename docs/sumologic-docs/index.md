@@ -17,7 +17,7 @@ slug: /providers/sumologic
 ---
 Cloud-native, real-time, unified logs and metrics analytics platform.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.04.00143)
 
 <div class="row">
 <div class="providerDocColumn">

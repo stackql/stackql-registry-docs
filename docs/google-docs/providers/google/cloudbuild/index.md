@@ -13,14 +13,14 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Creates and manages builds on Google Cloud Platform.  
+Creates And Manages Builds On Google Cloud Platform.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
 <span>total methods:&nbsp;<b>64</b></span><br />
 </div>
 </div>
@@ -32,8 +32,8 @@ Creates and manages builds on Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.cloudbuild</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Build API</td></tr>
-<tr><td><b>Description</b></td><td>Creates and manages builds on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudbuild:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Creates And Manages Builds On Google Cloud Platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudbuild:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,12 +44,12 @@ Creates and manages builds on Google Cloud Platform.
 <a href="/providers/google/cloudbuild/builds/">builds</a><br />
 <a href="/providers/google/cloudbuild/cloudbuild/">cloudbuild</a><br />
 <a href="/providers/google/cloudbuild/connected_repositories/">connected_repositories</a><br />
-<a href="/providers/google/cloudbuild/git_lab_configs/">git_lab_configs</a><br />
-<a href="/providers/google/cloudbuild/git_lab_configs_git_lab_connected_repository/">git_lab_configs_git_lab_connected_repository</a><br />
+<a href="/providers/google/cloudbuild/github_enterprise_configs/">github_enterprise_configs</a><br />
+<a href="/providers/google/cloudbuild/githubdotcom_webhook/">githubdotcom_webhook</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/cloudbuild/github_dot_com_webhook/">github_dot_com_webhook</a><br />
-<a href="/providers/google/cloudbuild/github_enterprise_configs/">github_enterprise_configs</a><br />
+<a href="/providers/google/cloudbuild/gitlab_configs/">gitlab_configs</a><br />
+<a href="/providers/google/cloudbuild/gitlab_configs_gitlab_connected_repository/">gitlab_configs_gitlab_connected_repository</a><br />
 <a href="/providers/google/cloudbuild/locations/">locations</a><br />
 <a href="/providers/google/cloudbuild/operations/">operations</a><br />
 <a href="/providers/google/cloudbuild/repos/">repos</a><br />

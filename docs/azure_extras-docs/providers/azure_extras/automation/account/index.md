@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
-| `etag` | `string` | Gets or sets the etag of the resource. |
 | `identity` | `object` | Identity for the resource. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Definition of the account property. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Resource tags. |
+| `etag` | `string` | Gets or sets the etag of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

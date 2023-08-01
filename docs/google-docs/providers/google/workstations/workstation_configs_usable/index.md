@@ -33,4 +33,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_workstationClusters_workstationConfigs_listUsable` | `SELECT` | `locationsId, projectsId, workstationClustersId` |
+| `list_usable` | `SELECT` | `locationsId, projectsId, workstationClustersId` |

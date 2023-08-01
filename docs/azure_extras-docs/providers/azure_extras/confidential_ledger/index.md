@@ -33,7 +33,7 @@ Microsoft Azure Confidential Compute Ledger Control Plane REST API version 2020-
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Confidential Ledger (Microsoft.ConfidentialLedger)</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Azure Confidential Compute Ledger Control Plane REST API version 2020-12-01-preview.</td></tr>
-<tr><td><b>Id</b></td><td><code>confidential_ledger:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>confidential_ledger:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

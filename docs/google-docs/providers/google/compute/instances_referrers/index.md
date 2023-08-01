@@ -34,4 +34,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instances_listReferrers` | `SELECT` | `instance, project, zone` |
+| `list_referrers` | `SELECT` | `instance, project, zone` |

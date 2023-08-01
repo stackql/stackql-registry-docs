@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Identity for the resource. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | FarmBeats ARM Resource properties. |
 | `tags` | `object` | Resource tags. |
+| `identity` | `object` | Identity for the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

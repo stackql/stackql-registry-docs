@@ -27,15 +27,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `protectedItemName` | `string` | Specifies the product specific ds name. E.g. vm;iaasvmcontainer;csname;vmname. |
-| `containerName` | `string` | Specifies the product specific container name. E.g. iaasvmcontainer;iaasvmcontainer;csname;vmname. |
 | `fabricName` | `string` | Specifies the fabric name - Azure or AD |
+| `protectionStatus` | `string` | Specifies whether the container is registered or not |
 | `registrationStatus` | `string` | Container registration status |
+| `containerName` | `string` | Specifies the product specific container name. E.g. iaasvmcontainer;iaasvmcontainer;csname;vmname. |
 | `errorMessage` | `string` | ErrorMessage in case of intent failed. |
+| `protectedItemName` | `string` | Specifies the product specific ds name. E.g. vm;iaasvmcontainer;csname;vmname. |
+| `policyName` | `string` | Specifies the policy name which is used for protection |
 | `vaultId` | `string` | Specifies the arm resource id of the vault |
 | `errorCode` | `string` | ErrorCode in case of intent failed |
-| `protectionStatus` | `string` | Specifies whether the container is registered or not |
-| `policyName` | `string` | Specifies the policy name which is used for protection |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

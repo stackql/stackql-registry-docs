@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The access review history definition id. |
 | `name` | `string` | The access review history definition unique id. |
-| `properties` | `object` | Access Review History Instances. |
 | `type` | `string` | The resource type. |
+| `properties` | `object` | Access Review History Instances. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

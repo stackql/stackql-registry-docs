@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Path reference to this group. /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/Microsoft.Migrate/assessmentProjects/&#123;projectName&#125;/groups/&#123;groupName&#125; |
 | `name` | `string` | Name of the group. |
-| `type` | `string` | Type of the object = [Microsoft.Migrate/assessmentProjects/groups]. |
 | `eTag` | `string` | For optimistic concurrency control. |
 | `properties` | `object` | Properties of group resource. |
+| `type` | `string` | Type of the object = [Microsoft.Migrate/assessmentProjects/groups]. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

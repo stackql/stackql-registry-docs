@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The path ID that uniquely identifies the object. |
 | `name` | `string` | The object name. |
+| `properties` | `object` | The storage account properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The hierarchical type of the object. |
-| `properties` | `object` | The storage account properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

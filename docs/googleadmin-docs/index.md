@@ -17,7 +17,7 @@ slug: /providers/googleadmin
 ---
 Google Workspace identity services.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.07.00153)
 
 <div class="row">
 <div class="providerDocColumn">

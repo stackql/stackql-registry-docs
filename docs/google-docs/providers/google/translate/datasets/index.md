@@ -27,16 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name of the dataset, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;` |
-| `displayName` | `string` | The name of the dataset to show in the interface. The name can be up to 32 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscores (_), and ASCII digits 0-9. |
-| `targetLanguageCode` | `string` | The BCP-47 language code of the target language. |
-| `validateExampleCount` | `integer` | Output only. Number of validation examples (sentence pairs). |
-| `trainExampleCount` | `integer` | Output only. Number of training examples (sentence pairs). |
-| `sourceLanguageCode` | `string` | The BCP-47 language code of the source language. |
-| `updateTime` | `string` | Output only. Timestamp when this dataset was last updated. |
-| `createTime` | `string` | Output only. Timestamp when this dataset was created. |
-| `exampleCount` | `integer` | Output only. The number of examples in the dataset. |
-| `testExampleCount` | `integer` | Output only. Number of test examples (sentence pairs). |
+| `datasets` | `array` | The datasets read. |
+| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this token to the page_token field in the ListDatasetsRequest to obtain the corresponding page. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,5 +36,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_datasets_list` | `SELECT` | `locationsId, projectsId` | Lists datasets. |
 | `projects_locations_datasets_create` | `INSERT` | `locationsId, projectsId` | Creates a Dataset. |
 | `projects_locations_datasets_delete` | `DELETE` | `datasetsId, locationsId, projectsId` | Deletes a dataset and all of its contents. |
-| `projects_locations_datasets_exportData` | `EXEC` | `datasetsId, locationsId, projectsId` | Exports dataset's data to the provided output location. |
-| `projects_locations_datasets_importData` | `EXEC` | `datasetsId, locationsId, projectsId` | Import sentence pairs into translation Dataset. |
+| `projects_locations_datasets_export_data` | `EXEC` | `datasetsId, locationsId, projectsId` | Exports dataset's data to the provided output location. |
+| `projects_locations_datasets_import_data` | `EXEC` | `datasetsId, locationsId, projectsId` | Import sentence pairs into translation Dataset. |

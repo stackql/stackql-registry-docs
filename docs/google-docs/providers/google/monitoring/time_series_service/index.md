@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_timeSeries_createService` | `INSERT` | `projectsId` |
+| `projects_time_series_create_service` | `INSERT` | `projectsId` |

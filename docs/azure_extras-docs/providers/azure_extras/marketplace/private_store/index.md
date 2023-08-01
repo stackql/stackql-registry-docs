@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource ID. |
 | `name` | `string` | The name of the resource. |
-| `properties` | `object` | Describes the json payload on whether or not the private store is enabled for a given tenant |
 | `systemData` | `object` | Read only system data |
 | `type` | `string` | The type of the resource. |
+| `properties` | `object` | Describes the json payload on whether or not the private store is enabled for a given tenant |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

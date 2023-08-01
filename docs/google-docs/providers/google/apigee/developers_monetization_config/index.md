@@ -26,6 +26,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 
 ## Fields
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `organizations_developers_getMonetizationConfig` | `SELECT` | `developersId, organizationsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `organizations_developers_get_monetization_config` | `SELECT` | `developersId, organizationsId` | Gets the monetization configuration for the developer. |
+| `organizations_developers_update_monetization_config` | `EXEC` | `developersId, organizationsId` | Updates the monetization configuration for the developer. |

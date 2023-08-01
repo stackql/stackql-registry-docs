@@ -27,14 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Identity for the resource. |
-| `kind` | `object` | The resource model definition representing SKU |
-| `location` | `string` | The geo-location where the resource lives |
-| `plan` | `object` | Identity for the resource. |
 | `properties` | `object` | Common Properties shared by Mixed Reality Accounts |
 | `sku` | `object` | The resource model definition representing SKU |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
+| `identity` | `object` | Identity for the resource. |
+| `kind` | `object` | The resource model definition representing SKU |
+| `location` | `string` | The geo-location where the resource lives |
+| `plan` | `object` | Identity for the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

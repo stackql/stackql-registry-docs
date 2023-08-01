@@ -27,11 +27,11 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `action` | `string` |
 | `created` | `string` |
 | `excludeZones` | `array` |
 | `lastUpdated` | `string` |
 | `_links` | `object` |
+| `action` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

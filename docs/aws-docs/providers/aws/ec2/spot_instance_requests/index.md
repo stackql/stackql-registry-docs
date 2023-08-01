@@ -27,25 +27,25 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceInterruptionBehavior` | `string` | The behavior when a Spot Instance is interrupted. |
-| `actualBlockHourlyPrice` | `string` | Deprecated. |
-| `productDescription` | `string` | The product description associated with the Spot Instance. |
-| `spotInstanceRequestId` | `string` | The ID of the Spot Instance request. |
-| `createTime` | `string` | The date and time when the Spot Instance request was created, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). |
-| `tagSet` | `array` | Any tags assigned to the resource. |
-| `launchGroup` | `string` | The instance launch group. Launch groups are Spot Instances that launch together and terminate together. |
-| `blockDurationMinutes` | `integer` | Deprecated. |
-| `state` | `string` | The state of the Spot Instance request. Spot request status information helps track your Spot Instance requests. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html"&gt;Spot request status&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide for Linux Instances&lt;/i&gt;. |
+| `fault` | `object` | Describes a Spot Instance state change. |
 | `validFrom` | `string` | The start date of the request, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). The request becomes active at this date and time. |
+| `actualBlockHourlyPrice` | `string` | Deprecated. |
+| `spotInstanceRequestId` | `string` | The ID of the Spot Instance request. |
+| `availabilityZoneGroup` | `string` | The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone. |
+| `tagSet` | `array` | Any tags assigned to the resource. |
+| `createTime` | `string` | The date and time when the Spot Instance request was created, in UTC format (for example, &lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z). |
+| `launchGroup` | `string` | The instance launch group. Launch groups are Spot Instances that launch together and terminate together. |
+| `state` | `string` | The state of the Spot Instance request. Spot request status information helps track your Spot Instance requests. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html"&gt;Spot request status&lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide for Linux Instances&lt;/i&gt;. |
+| `blockDurationMinutes` | `integer` | Deprecated. |
+| `productDescription` | `string` | The product description associated with the Spot Instance. |
+| `type` | `string` | The Spot Instance request type. |
+| `instanceInterruptionBehavior` | `string` | The behavior when a Spot Instance is interrupted. |
+| `spotPrice` | `string` | The maximum price per hour that you are willing to pay for a Spot Instance. |
+| `instanceId` | `string` | The instance ID, if an instance has been launched to fulfill the Spot Instance request. |
 | `validUntil` | `string` | &lt;p&gt;The end date of the request, in UTC format (&lt;i&gt;YYYY&lt;/i&gt;-&lt;i&gt;MM&lt;/i&gt;-&lt;i&gt;DD&lt;/i&gt;T&lt;i&gt;HH&lt;/i&gt;:&lt;i&gt;MM&lt;/i&gt;:&lt;i&gt;SS&lt;/i&gt;Z).&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;For a persistent request, the request remains active until the &lt;code&gt;validUntil&lt;/code&gt; date and time is reached. Otherwise, the request remains active until you cancel it. &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;For a one-time request, the request remains active until all instances launch, the request is canceled, or the &lt;code&gt;validUntil&lt;/code&gt; date and time is reached. By default, the request is valid for 7 days from the date the request was created.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; |
 | `launchedAvailabilityZone` | `string` | The Availability Zone in which the request is launched. |
 | `launchSpecification` | `object` | Describes the launch specification for an instance. |
 | `status` | `object` | Describes the status of a Spot Instance request. |
-| `availabilityZoneGroup` | `string` | The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone. |
-| `type` | `string` | The Spot Instance request type. |
-| `spotPrice` | `string` | The maximum price per hour that you are willing to pay for a Spot Instance. |
-| `fault` | `object` | Describes a Spot Instance state change. |
-| `instanceId` | `string` | The instance ID, if an instance has been launched to fulfill the Spot Instance request. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

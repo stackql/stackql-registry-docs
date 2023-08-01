@@ -33,7 +33,7 @@ Use these APIs to manage Visual Studio Team Services resources through the Azure
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Visual Studio Resource Provider Client (microsoft.visualstudio)</td></tr>
 <tr><td><b>Description</b></td><td>Use these APIs to manage Visual Studio Team Services resources through the Azure Resource Manager. All task operations conform to the HTTP/1.1 protocol specification and each operation returns an x-ms-request-id header that can be used to obtain information about the request. You must make sure that requests made to these resources are secure. For more information, see https://docs.microsoft.com/en-us/rest/api/index.</td></tr>
-<tr><td><b>Id</b></td><td><code>visual_studio:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>visual_studio:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

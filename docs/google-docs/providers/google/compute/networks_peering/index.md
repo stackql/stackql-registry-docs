@@ -29,5 +29,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `networks_addPeering` | `INSERT` | `network, project` | Adds a peering to the specified network. |
-| `networks_removePeering` | `DELETE` | `network, project` | Removes a peering from the specified network. |
+| `add_peering` | `EXEC` | `network, project` | Adds a peering to the specified network. |
+| `remove_peering` | `EXEC` | `network, project` | Removes a peering from the specified network. |
+| `update_peering` | `EXEC` | `network, project` | Updates the specified network peering with the data included in the request. You can only modify the NetworkPeering.export_custom_routes field and the NetworkPeering.import_custom_routes field. |

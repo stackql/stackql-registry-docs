@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | The resource name. |
+| `location` | `string` | The resource location. |
 | `properties` | `object` | The container group properties |
 | `tags` | `object` | The resource tags. |
 | `type` | `string` | The resource type. |
 | `zones` | `array` | The zones for the container group. |
 | `identity` | `object` | Identity for the container group. |
-| `location` | `string` | The resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

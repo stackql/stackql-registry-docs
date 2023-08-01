@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_tenants_clientEvents_create` | `INSERT` | `projectsId, tenantsId` |
+| `create` | `INSERT` | `projectsId, tenantsId` |

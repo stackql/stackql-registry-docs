@@ -29,14 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `etag` | `string` | The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention. |
-| `properties` | `object` | The properties of an IoT hub. |
-| `tags` | `object` | The resource tags. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `location` | `string` | The resource location. |
-| `type` | `string` | The resource type. |
 | `identity` | `object` |  |
 | `sku` | `object` | Information about the SKU of the IoT hub. |
+| `etag` | `string` | The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention. |
+| `tags` | `object` | The resource tags. |
+| `type` | `string` | The resource type. |
+| `location` | `string` | The resource location. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `properties` | `object` | The properties of an IoT hub. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

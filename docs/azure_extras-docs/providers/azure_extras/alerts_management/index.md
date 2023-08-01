@@ -33,7 +33,7 @@ APIs for Azure alert processing rules CRUD operations.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Alerts Management Service Resource Provider (Microsoft.AlertsManagement)</td></tr>
 <tr><td><b>Description</b></td><td>APIs for Azure alert processing rules CRUD operations.</td></tr>
-<tr><td><b>Id</b></td><td><code>alerts_management:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>alerts_management:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

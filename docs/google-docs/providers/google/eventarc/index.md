@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Build event-driven applications on Google Cloud Platform.  
+Build Event-Driven Applications On Google Cloud Platform.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>16</b></span><br />
-<span>total selectable resources:&nbsp;<b>16</b></span><br />
-<span>total methods:&nbsp;<b>39</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>33</b></span><br />
 </div>
 </div>
 
@@ -32,30 +32,24 @@ Build event-driven applications on Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.eventarc</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Eventarc API</td></tr>
-<tr><td><b>Description</b></td><td>Build event-driven applications on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>eventarc:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Build Event-Driven Applications On Google Cloud Platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>eventarc:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/eventarc/channel_connections/">channel_connections</a><br />
-<a href="/providers/google/eventarc/channel_connections_iam_audit_configs/">channel_connections_iam_audit_configs</a><br />
-<a href="/providers/google/eventarc/channel_connections_iam_bindings/">channel_connections_iam_bindings</a><br />
 <a href="/providers/google/eventarc/channel_connections_iam_policies/">channel_connections_iam_policies</a><br />
 <a href="/providers/google/eventarc/channels/">channels</a><br />
-<a href="/providers/google/eventarc/channels_iam_audit_configs/">channels_iam_audit_configs</a><br />
-<a href="/providers/google/eventarc/channels_iam_bindings/">channels_iam_bindings</a><br />
 <a href="/providers/google/eventarc/channels_iam_policies/">channels_iam_policies</a><br />
+<a href="/providers/google/eventarc/google_channel_config/">google_channel_config</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/eventarc/locations/">locations</a><br />
-<a href="/providers/google/eventarc/locations_google_channel_config/">locations_google_channel_config</a><br />
 <a href="/providers/google/eventarc/operations/">operations</a><br />
 <a href="/providers/google/eventarc/providers/">providers</a><br />
 <a href="/providers/google/eventarc/triggers/">triggers</a><br />
-<a href="/providers/google/eventarc/triggers_iam_audit_configs/">triggers_iam_audit_configs</a><br />
-<a href="/providers/google/eventarc/triggers_iam_bindings/">triggers_iam_bindings</a><br />
 <a href="/providers/google/eventarc/triggers_iam_policies/">triggers_iam_policies</a><br />
 </div>
 </div>

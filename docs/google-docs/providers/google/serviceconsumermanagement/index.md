@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Manages the service consumers of a Service Infrastructure service.  
+Manages The Service Consumers Of A Service Infrastructure Service.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Manages the service consumers of a Service Infrastructure service.
 <tr><td><b>Name</b></td><td><code>google.serviceconsumermanagement</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Consumer Management API</td></tr>
-<tr><td><b>Description</b></td><td>Manages the service consumers of a Service Infrastructure service.</td></tr>
-<tr><td><b>Id</b></td><td><code>serviceconsumermanagement:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages The Service Consumers Of A Service Infrastructure Service.</td></tr>
+<tr><td><b>Id</b></td><td><code>serviceconsumermanagement:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

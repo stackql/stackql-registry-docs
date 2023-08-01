@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `object` | User name model |
-| `unit` | `string` | The usages' unit |
 | `currentValue` | `integer` | The current usage value |
 | `limit` | `integer` | limit of a given sku in a region for a subscription. The maximum permitted value for the usage quota. If there is no limit, this value will be -1 |
+| `unit` | `string` | The usages' unit |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

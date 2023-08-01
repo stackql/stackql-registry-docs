@@ -27,13 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name for the comment. |
-| `createTime` | `string` | Output only. The time when this comment was created. |
-| `creator` | `object` | An object containing information about the effective user and authenticated principal responsible for an action. |
-| `plainTextBody` | `string` | Output only. An automatically generated plain text version of body with all rich text syntax stripped. |
-| `body` | `string` | The full comment body. Maximum of 120000 characters. This can contain rich text syntax. |
+| `nextPageToken` | `string` | A token to retrieve the next page of results. This should be set in the `page_token` field of subsequent `ListCommentsRequest` message that is issued. If unspecified, there are no more results to retrieve. |
+| `comments` | `array` | The list of Comments associated with the given Case. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `cases_comments_list` | `SELECT` | `parent` | Retrieve all Comments associated with the Case object. |
-| `cases_comments_create` | `INSERT` | `parent` | Add a new comment to the specified Case. The comment object must have the following fields set: body. |
+| `list` | `SELECT` | `parent` | Retrieve all comments associated with the Case object. Here is an example of calling this endpoint using cURL: ```shell case="projects/cloud-support-qa-premium/cases/43595344" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$case/comments" ``` |
+| `create` | `INSERT` | `parent` | Add a new comment to the specified Case. The comment object must have the following fields set: body. Here is an example of calling this endpoint using cURL: ```shell case="projects/some-project/cases/43591344" curl \ --request POST \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --header 'Content-Type: application/json' \ --data '&#123; "body": "This is a test comment." &#125;' \ "https://cloudsupport.googleapis.com/v2/$case/comments" ``` |

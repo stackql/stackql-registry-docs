@@ -28,10 +28,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
-| `body` | `string` |
 | `html_url` | `string` |
 | `key` | `string` |
 | `url` | `string` |
+| `body` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

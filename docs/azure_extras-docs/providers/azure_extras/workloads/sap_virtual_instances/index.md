@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `tags` | `object` | Resource tags. |
 | `identity` | `object` | Managed service identity (user assigned identities) |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Defines the Virtual Instance for SAP solutions resource properties. |
-| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

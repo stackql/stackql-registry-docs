@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `data` | `array` | the value of the collection. |
 | `interval` | `string` | The interval (window size) for which the metric data was returned in.  This may be adjusted in the future and returned back from what was originally requested.  This is not present if a metadata request was made. |
 | `metricName` | `string` | The metrics being queried |
 | `targetResourceId` | `string` | resource of the predictive metric. |
 | `timespan` | `string` | The timespan for which the data was retrieved. Its value consists of two datetimes concatenated, separated by '/'.  This may be adjusted in the future and returned back from what was originally requested. |
+| `data` | `array` | the value of the collection. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

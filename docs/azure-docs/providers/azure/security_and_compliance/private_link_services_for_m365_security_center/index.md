@@ -29,14 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `location` | `string` | The resource location. |
-| `properties` | `object` | The properties of a service instance. |
-| `type` | `string` | The resource type. |
-| `kind` | `string` | The kind of the service. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `identity` | `object` | Setting indicating whether the service has a managed identity associated with it. |
-| `tags` | `object` | The resource tags. |
+| `properties` | `object` | The properties of a service instance. |
 | `etag` | `string` | An etag associated with the resource, used for optimistic concurrency when editing it. |
+| `kind` | `string` | The kind of the service. |
+| `identity` | `object` | Setting indicating whether the service has a managed identity associated with it. |
+| `type` | `string` | The resource type. |
+| `location` | `string` | The resource location. |
+| `tags` | `object` | The resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -25,12 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `email` | `string` | The email address that the email is sent to. |
-| `kind` | `string` | The fixed string "identitytoolkit#GetOobConfirmationCodeResponse". |
-| `oobCode` | `string` | The code to be send to the user. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `relyingparty_getOobConfirmationCode` | `SELECT` |  |
+| `get_oob_confirmation_code` | `EXEC` |  |

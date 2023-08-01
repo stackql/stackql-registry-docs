@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `extendedLocation` | `object` | ExtendedLocation complex type. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | VirtualNetworkGateway properties. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `extendedLocation` | `object` | ExtendedLocation complex type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Creates and manages jobs run on a regular recurring schedule.  
+Creates And Manages Jobs Run On A Regular Recurring Schedule.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Creates and manages jobs run on a regular recurring schedule.
 <tr><td><b>Name</b></td><td><code>google.cloudscheduler</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Scheduler API</td></tr>
-<tr><td><b>Description</b></td><td>Creates and manages jobs run on a regular recurring schedule.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudscheduler:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Creates And Manages Jobs Run On A Regular Recurring Schedule.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudscheduler:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

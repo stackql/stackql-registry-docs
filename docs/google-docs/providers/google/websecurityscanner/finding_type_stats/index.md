@@ -25,11 +25,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `findingCount` | `integer` | Output only. The count of findings belonging to this finding type. |
-| `findingType` | `string` | Output only. The finding type associated with the stats. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_scanConfigs_scanRuns_findingTypeStats_list` | `SELECT` | `projectsId, scanConfigsId, scanRunsId` |
+| `list` | `SELECT` | `projectsId, scanConfigsId, scanRunsId` |

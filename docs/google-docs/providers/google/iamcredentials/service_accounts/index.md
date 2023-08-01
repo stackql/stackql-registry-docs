@@ -29,7 +29,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_serviceAccounts_generateAccessToken` | `EXEC` | `projectsId, serviceAccountsId` | Generates an OAuth 2.0 access token for a service account. |
-| `projects_serviceAccounts_generateIdToken` | `EXEC` | `projectsId, serviceAccountsId` | Generates an OpenID Connect ID token for a service account. |
-| `projects_serviceAccounts_signBlob` | `EXEC` | `projectsId, serviceAccountsId` | Signs a blob using a service account's system-managed private key. |
-| `projects_serviceAccounts_signJwt` | `EXEC` | `projectsId, serviceAccountsId` | Signs a JWT using a service account's system-managed private key. |
+| `generate_access_token` | `EXEC` | `projectsId, serviceAccountsId` | Generates an OAuth 2.0 access token for a service account. |
+| `generate_id_token` | `EXEC` | `projectsId, serviceAccountsId` | Generates an OpenID Connect ID token for a service account. |
+| `sign_blob` | `EXEC` | `projectsId, serviceAccountsId` | Signs a blob using a service account's system-managed private key. |
+| `sign_jwt` | `EXEC` | `projectsId, serviceAccountsId` | Signs a JWT using a service account's system-managed private key. |

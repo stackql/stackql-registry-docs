@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_datasets_evaluations_exampleComparisons_search` | `EXEC` | `datasetsId, evaluationsId, projectsId` |
+| `projects_datasets_evaluations_example_comparisons_search` | `EXEC` | `datasetsId, evaluationsId, projectsId` |

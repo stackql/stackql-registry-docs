@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets the resource name. |
-| `identity` | `object` | Managed service identity properties. |
 | `location` | `string` | The resource location. |
 | `properties` | `object` | The workflow properties. |
 | `tags` | `object` | The resource tags. |
 | `type` | `string` | Gets the resource type. |
+| `identity` | `object` | Managed service identity properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

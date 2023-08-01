@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Provides natural language understanding technologies, such as sentiment analysis, entity recognition, entity sentiment analysis, and other text annotations, to developers.  
+Provides Natural Language Understanding Technologies, Such As Sentiment Analysis, Entity Recognition, Entity Sentiment Analysis, And Other Text Annotations, To Developers.  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Provides natural language understanding technologies, such as sentiment analysis
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>1</b></span><br />
 <span>total selectable resources:&nbsp;<b>0</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>7</b></span><br />
 </div>
 </div>
 
@@ -32,8 +32,8 @@ Provides natural language understanding technologies, such as sentiment analysis
 <tr><td><b>Name</b></td><td><code>google.language</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Natural Language API</td></tr>
-<tr><td><b>Description</b></td><td>Provides natural language understanding technologies, such as sentiment analysis, entity recognition, entity sentiment analysis, and other text annotations, to developers.</td></tr>
-<tr><td><b>Id</b></td><td><code>language:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Provides Natural Language Understanding Technologies, Such As Sentiment Analysis, Entity Recognition, Entity Sentiment Analysis, And Other Text Annotations, To Developers.</td></tr>
+<tr><td><b>Id</b></td><td><code>language:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

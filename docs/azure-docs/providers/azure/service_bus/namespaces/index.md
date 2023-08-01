@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `identity` | `object` | Properties to configure User Assigned Identities for Bring your Own Keys |
 | `location` | `string` | The Geo-location where the resource lives |
 | `properties` | `object` | Properties of the namespace. |
 | `sku` | `object` | SKU of the namespace. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags |
+| `identity` | `object` | Properties to configure User Assigned Identities for Bring your Own Keys |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name for an association. |
-| `displayName` | `string` | [Output Only] Deprecated, please use short name instead. The display name of the firewall policy of the association. |
-| `firewallPolicyId` | `string` | [Output Only] The firewall policy ID of the association. |
 | `shortName` | `string` | [Output Only] The short name of the firewall policy of the association. |
 | `attachmentTarget` | `string` | The target that the firewall policy is attached to. |
+| `displayName` | `string` | [Output Only] Deprecated, please use short name instead. The display name of the firewall policy of the association. |
+| `firewallPolicyId` | `string` | [Output Only] The firewall policy ID of the association. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `regionNetworkFirewallPolicies_getAssociation` | `SELECT` | `firewallPolicy, project, region` | Gets an association with the specified name. |
-| `regionNetworkFirewallPolicies_addAssociation` | `INSERT` | `firewallPolicy, project, region` | Inserts an association for the specified network firewall policy. |
-| `regionNetworkFirewallPolicies_removeAssociation` | `DELETE` | `firewallPolicy, project, region` | Removes an association for the specified network firewall policy. |
+| `get_association` | `SELECT` | `firewallPolicy, project, region` | Gets an association with the specified name. |
+| `add_association` | `EXEC` | `firewallPolicy, project, region` | Inserts an association for the specified network firewall policy. |
+| `remove_association` | `EXEC` | `firewallPolicy, project, region` | Removes an association for the specified network firewall policy. |

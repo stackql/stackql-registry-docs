@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
-| `etag` | `string` | Resource Etag. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Properties of a Fleet. |
+| `tags` | `object` | Resource tags. |
+| `etag` | `string` | Resource Etag. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

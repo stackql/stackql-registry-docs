@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified ID for the alias resource. |
 | `name` | `string` | Alias ID. |
-| `properties` | `object` | Put subscription creation result properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Resource type, Microsoft.Subscription/aliases. |
+| `properties` | `object` | Put subscription creation result properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

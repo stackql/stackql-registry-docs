@@ -33,7 +33,7 @@ Open Energy Platform Management Service APIs
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Open Energy Platform Management Service APIs (Microsoft.OpenEnergyPlatform)</td></tr>
 <tr><td><b>Description</b></td><td>Open Energy Platform Management Service APIs</td></tr>
-<tr><td><b>Id</b></td><td><code>open_energy_platform:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>open_energy_platform:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

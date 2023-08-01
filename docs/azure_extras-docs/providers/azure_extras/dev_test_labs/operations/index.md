@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `statusCode` | `string` | The status code for the operation. |
 | `error` | `object` | Error details for the operation in case of a failure. |
 | `status` | `string` | The operation status. |
+| `statusCode` | `string` | The status code for the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

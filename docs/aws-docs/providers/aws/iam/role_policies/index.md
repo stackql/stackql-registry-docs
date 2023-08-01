@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `PolicyName` | `string` | The name of the policy. |
 | `RoleName` | `string` | The role the policy is associated with. |
 | `PolicyDocument` | `string` | &lt;p&gt;The policy document.&lt;/p&gt; &lt;p&gt;IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.&lt;/p&gt; |
+| `PolicyName` | `string` | The name of the policy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

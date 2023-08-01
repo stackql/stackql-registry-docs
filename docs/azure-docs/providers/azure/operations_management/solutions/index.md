@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `location` | `string` | Resource location |
 | `plan` | `object` | Plan for solution object supported by the OperationsManagement resource provider. |
 | `properties` | `object` | Solution properties supported by the OperationsManagement resource provider. |
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Resource type. |
-| `location` | `string` | Resource location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

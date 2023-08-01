@@ -27,19 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | This is always `sql#sslCert`. |
-| `certSerialNumber` | `string` | Serial number, as extracted from the certificate. |
+| `expirationTime` | `string` | The time when the certificate expires in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
 | `selfLink` | `string` | The URI of this resource. |
 | `sha1Fingerprint` | `string` | Sha1 Fingerprint. |
-| `cert` | `string` | PEM representation. |
-| `commonName` | `string` | User supplied name. Constrained to [a-zA-Z.-_ ]+. |
-| `expirationTime` | `string` | The time when the certificate expires in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `instance` | `string` | Name of the database instance. |
 | `createTime` | `string` | The time when the certificate was created in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z` |
+| `instance` | `string` | Name of the database instance. |
+| `kind` | `string` | This is always `sql#sslCert`. |
+| `cert` | `string` | PEM representation. |
+| `certSerialNumber` | `string` | Serial number, as extracted from the certificate. |
+| `commonName` | `string` | User supplied name. Constrained to [a-zA-Z.-_ ]+. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `sql_sslCerts_get` | `SELECT` | `instance, project, sha1Fingerprint` | Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to initial creation. |
-| `sql_sslCerts_list` | `SELECT` | `instance, project` | Lists all of the current SSL certificates for the instance. |
-| `sql_sslCerts_insert` | `INSERT` | `instance, project` | Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the instance is restarted. |
-| `sql_sslCerts_delete` | `DELETE` | `instance, project, sha1Fingerprint` | Deletes the SSL certificate. For First Generation instances, the certificate remains valid until the instance is restarted. |
+| `get` | `SELECT` | `instance, project, sha1Fingerprint` | Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to initial creation. |
+| `list` | `SELECT` | `instance, project` | Lists all of the current SSL certificates for the instance. |
+| `insert` | `INSERT` | `instance, project` | Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the instance is restarted. |
+| `delete` | `DELETE` | `instance, project, sha1Fingerprint` | Deletes the SSL certificate. For First Generation instances, the certificate remains valid until the instance is restarted. |

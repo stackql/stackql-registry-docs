@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
+| `etag` | `string` | Resource etag |
+| `location` | `string` | Resource location |
 | `properties` | `object` | Properties of the data catalog. |
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Resource type |
-| `etag` | `string` | Resource etag |
-| `location` | `string` | Resource location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

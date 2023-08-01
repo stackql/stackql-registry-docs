@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `regionDisks_addResourcePolicies` | `INSERT` | `disk, project, region` | Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. |
-| `regionDisks_removeResourcePolicies` | `DELETE` | `disk, project, region` | Removes resource policies from a regional disk. |
+| `add_resource_policies` | `EXEC` | `disk, project, region` | Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. |
+| `remove_resource_policies` | `EXEC` | `disk, project, region` | Removes resource policies from a regional disk. |

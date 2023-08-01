@@ -33,6 +33,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_repositories_getIamPolicy` | `SELECT` | `locationsId, projectsId, repositoriesId` | Gets the IAM policy for a given resource. |
-| `projects_locations_repositories_setIamPolicy` | `EXEC` | `locationsId, projectsId, repositoriesId` | Updates the IAM policy for a given resource. |
-| `projects_locations_repositories_testIamPermissions` | `EXEC` | `locationsId, projectsId, repositoriesId` | Tests if the caller has a list of permissions on a resource. |
+| `get_iam_policy` | `SELECT` | `locationsId, projectsId, repositoriesId` | Gets the IAM policy for a given resource. |
+| `set_iam_policy` | `EXEC` | `locationsId, projectsId, repositoriesId` | Updates the IAM policy for a given resource. |
+| `test_iam_permissions` | `EXEC` | `locationsId, projectsId, repositoriesId` | Tests if the caller has a list of permissions on a resource. |

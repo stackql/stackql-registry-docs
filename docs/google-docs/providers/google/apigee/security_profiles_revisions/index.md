@@ -32,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_securityProfiles_listRevisions` | `SELECT` | `organizationsId, securityProfilesId` |
+| `organizations_security_profiles_list_revisions` | `SELECT` | `organizationsId, securityProfilesId` |

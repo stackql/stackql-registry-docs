@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ARM id of the monitor resource. |
 | `name` | `string` | Name of the monitor resource. |
-| `location` | `string` |  |
-| `sku` | `object` |  |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | Properties specific to the monitor resource. |
-| `tags` | `object` |  |
-| `type` | `string` | The type of the monitor resource. |
 | `identity` | `object` |  |
+| `properties` | `object` | Properties specific to the monitor resource. |
+| `type` | `string` | The type of the monitor resource. |
+| `location` | `string` |  |
+| `tags` | `object` |  |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `sku` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

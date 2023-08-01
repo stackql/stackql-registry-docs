@@ -28,17 +28,17 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The unique ID of this Volume. |
-| `hardware_type` | `string` | The storage type of this Volume. |
-| `linode_label` | `string` | If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.<br /> |
-| `tags` | `array` | An array of Tags applied to this object.  Tags are for organizational purposes only.<br /> |
-| `created` | `string` | When this Volume was created. |
 | `label` | `string` | The Volume's label is for display purposes only.<br /> |
 | `size` | `integer` | The Volume's size, in GiB.<br /> |
-| `region` | `string` | The unique ID of this Region. |
-| `updated` | `string` | When this Volume was last updated. |
 | `status` | `string` | The current status of the volume.  Can be one of:<br /><br />  * `creating` - the Volume is being created and is not yet available<br />    for use.<br />  * `active` - the Volume is online and available for use.<br />  * `resizing` - the Volume is in the process of upgrading<br />    its current capacity.<br /> |
 | `linode_id` | `integer` | If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.<br /> |
+| `tags` | `array` | An array of Tags applied to this object.  Tags are for organizational purposes only.<br /> |
+| `hardware_type` | `string` | The storage type of this Volume. |
+| `updated` | `string` | When this Volume was last updated. |
+| `region` | `string` | The unique ID of this Region. |
+| `created` | `string` | When this Volume was created. |
 | `filesystem_path` | `string` | The full filesystem path for the Volume based on the Volume's label. Path is /dev/disk/by-id/scsi-0Linode_Volume_ + Volume label.<br /> |
+| `linode_label` | `string` | If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

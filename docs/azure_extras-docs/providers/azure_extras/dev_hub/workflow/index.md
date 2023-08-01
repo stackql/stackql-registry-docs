@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `properties` | `object` | Workflow properties |
 | `tags` | `object` | Resource tags. |
 | `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | Workflow properties |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

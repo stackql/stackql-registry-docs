@@ -33,4 +33,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_hostSecurityReports_getResult` | `SELECT` | `hostSecurityReportsId, organizationsId` |
+| `organizations_host_security_reports_get_result` | `SELECT` | `hostSecurityReportsId, organizationsId` |

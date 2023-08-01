@@ -27,13 +27,13 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `token` | `string` | The token used to identify and accept or cancel this transfer.<br /> |
 | `updated` | `string` | When this transfer was last updated.<br /> |
 | `created` | `string` | When this transfer was created.<br /> |
 | `entities` | `object` | A collection of the services to include in this transfer request, separated by type.<br /> |
 | `expiry` | `string` | When this transfer expires. Transfers will automatically expire 24 hours after creation.<br /> |
 | `is_sender` | `boolean` | If the requesting account created this transfer.<br /> |
 | `status` | `string` | The status of the transfer request.<br /><br />`accepted`: The transfer has been accepted by another user and is currently in progress.<br />Transfers can take up to 3 hours to complete.<br /><br />`cancelled`: The transfer has been cancelled by the sender.<br /><br />`completed`: The transfer has completed successfully.<br /><br />`failed`: The transfer has failed after initiation.<br /><br />`pending`: The transfer is ready to be accepted.<br /><br />`stale`: The transfer has exceeded its expiration date. It can no longer be accepted or<br />cancelled.<br /> |
-| `token` | `string` | The token used to identify and accept or cancel this transfer.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

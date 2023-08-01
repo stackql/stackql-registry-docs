@@ -33,7 +33,7 @@ REST API for Azure Logic Apps.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Logic Management Client (Microsoft.Logic)</td></tr>
 <tr><td><b>Description</b></td><td>REST API for Azure Logic Apps.</td></tr>
-<tr><td><b>Id</b></td><td><code>logic_apps:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>logic_apps:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

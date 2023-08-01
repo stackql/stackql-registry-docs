@@ -27,14 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The unique identifier of the transition route group. TransitionRouteGroups.CreateTransitionRouteGroup populates the name automatically. Format: `projects//locations//agents//flows//transitionRouteGroups/`. |
-| `displayName` | `string` | Required. The human-readable name of the transition route group, unique within the flow. The display name can be no longer than 30 characters. |
-| `transitionRoutes` | `array` | Transition routes associated with the TransitionRouteGroup. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `transitionRouteGroups` | `array` | The list of transition route groups. There will be a maximum number of items returned based on the page_size field in the request. The list may in some cases be empty or contain fewer entries than page_size even if this isn't the last page. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_agents_flows_transitionRouteGroups_get` | `SELECT` | `agentsId, flowsId, locationsId, projectsId, transitionRouteGroupsId` | Retrieves the specified TransitionRouteGroup. |
-| `projects_locations_agents_flows_transitionRouteGroups_list` | `SELECT` | `agentsId, flowsId, locationsId, projectsId` | Returns the list of all transition route groups in the specified flow. |
-| `projects_locations_agents_flows_transitionRouteGroups_create` | `INSERT` | `agentsId, flowsId, locationsId, projectsId` | Creates an TransitionRouteGroup in the specified flow. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
-| `projects_locations_agents_flows_transitionRouteGroups_delete` | `DELETE` | `agentsId, flowsId, locationsId, projectsId, transitionRouteGroupsId` | Deletes the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
-| `projects_locations_agents_flows_transitionRouteGroups_patch` | `EXEC` | `agentsId, flowsId, locationsId, projectsId, transitionRouteGroupsId` | Updates the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
+| `projects_locations_agents_flows_transition_route_groups_get` | `SELECT` | `agentsId, flowsId, locationsId, projectsId, transitionRouteGroupsId` | Retrieves the specified TransitionRouteGroup. |
+| `projects_locations_agents_flows_transition_route_groups_list` | `SELECT` | `agentsId, flowsId, locationsId, projectsId` | Returns the list of all transition route groups in the specified flow. |
+| `projects_locations_agents_flows_transition_route_groups_create` | `INSERT` | `agentsId, flowsId, locationsId, projectsId` | Creates an TransitionRouteGroup in the specified flow. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
+| `projects_locations_agents_flows_transition_route_groups_delete` | `DELETE` | `agentsId, flowsId, locationsId, projectsId, transitionRouteGroupsId` | Deletes the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
+| `projects_locations_agents_flows_transition_route_groups_patch` | `EXEC` | `agentsId, flowsId, locationsId, projectsId, transitionRouteGroupsId` | Updates the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |

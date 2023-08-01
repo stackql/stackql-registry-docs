@@ -33,7 +33,7 @@ Manage the Azure resource for an Azure Active Directory B2C tenant and guestUsag
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>External Identities ((Customer and Partner Identity Management))</td></tr>
 <tr><td><b>Description</b></td><td>Manage the Azure resource for an Azure Active Directory B2C tenant and guestUsages resource for External Identities in Azure AD</td></tr>
-<tr><td><b>Id</b></td><td><code>external_identities:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>external_identities:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

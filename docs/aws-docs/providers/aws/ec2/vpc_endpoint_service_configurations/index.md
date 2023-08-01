@@ -27,21 +27,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
-| `acceptanceRequired` | `boolean` | Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted. |
-| `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
-| `privateDnsNameConfiguration` | `object` | Information about the private DNS name for the service endpoint. |
-| `privateDnsName` | `string` | The private DNS name for the service. |
-| `serviceName` | `string` | The name of the service. |
-| `availabilityZoneSet` | `array` | The Availability Zones in which the service is available. |
-| `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
-| `payerResponsibility` | `string` | The payer responsibility. |
-| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Network Load Balancers for the service. |
 | `tagSet` | `array` | Any tags assigned to the service. |
-| `serviceId` | `string` | The ID of the service. |
+| `serviceName` | `string` | The name of the service. |
+| `acceptanceRequired` | `boolean` | Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted. |
 | `serviceType` | `array` | The type of service. |
-| `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
+| `serviceId` | `string` | The ID of the service. |
+| `managesVpcEndpoints` | `boolean` | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted. |
+| `baseEndpointDnsNameSet` | `array` | The DNS names for the service. |
+| `availabilityZoneSet` | `array` | The Availability Zones in which the service is available. |
+| `payerResponsibility` | `string` | The payer responsibility. |
+| `privateDnsNameConfiguration` | `object` | Information about the private DNS name for the service endpoint. |
+| `networkLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Network Load Balancers for the service. |
 | `serviceState` | `string` | The service state. |
+| `privateDnsName` | `string` | The private DNS name for the service. |
+| `supportedIpAddressTypeSet` | `array` | The supported IP address types. |
+| `gatewayLoadBalancerArnSet` | `array` | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

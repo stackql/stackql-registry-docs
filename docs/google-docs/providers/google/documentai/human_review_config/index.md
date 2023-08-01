@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_processors_humanReviewConfig_reviewDocument` | `EXEC` | `locationsId, processorsId, projectsId` |
+| `projects_locations_processors_human_review_config_review_document` | `EXEC` | `locationsId, processorsId, projectsId` |

@@ -30,14 +30,14 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `definitions` | `object` |
-| `_links` | `object` |
-| `created` | `string` |
-| `$schema` | `string` |
-| `title` | `string` |
-| `properties` | `object` |
 | `lastUpdated` | `string` |
+| `_links` | `object` |
+| `title` | `string` |
+| `created` | `string` |
 | `type` | `string` |
+| `properties` | `object` |
+| `definitions` | `object` |
+| `$schema` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

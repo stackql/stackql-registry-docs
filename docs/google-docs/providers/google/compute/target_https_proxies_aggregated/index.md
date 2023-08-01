@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `targetHttpsProxies_aggregatedList` | `EXEC` | `project` |
+| `aggregated_list` | `EXEC` | `project` |

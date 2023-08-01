@@ -30,15 +30,15 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `system` | `boolean` |
-| `type` | `string` |
-| `_links` | `object` |
-| `conditions` | `object` |
-| `priority` | `integer` |
+| `_embedded` | `object` |
 | `lastUpdated` | `string` |
+| `system` | `boolean` |
+| `priority` | `integer` |
+| `conditions` | `object` |
+| `_links` | `object` |
+| `type` | `string` |
 | `created` | `string` |
 | `status` | `string` |
-| `_embedded` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

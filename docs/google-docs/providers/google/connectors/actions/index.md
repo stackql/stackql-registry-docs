@@ -33,5 +33,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_connections_actions_list` | `SELECT` | `connectionsId, locationsId, projectsId` | Gets the schema of all the actions supported by the connector. |
-| `projects_locations_connections_actions_execute` | `EXEC` | `actionsId, connectionsId, locationsId, projectsId` | Executes an action with the name specified in the request. The input parameters for executing the action are passed through the body of the ExecuteAction request. |
+| `list` | `SELECT` | `connectionsId, locationsId, projectsId` | Gets the schema of all the actions supported by the connector. |
+| `execute` | `EXEC` | `actionsId, connectionsId, locationsId, projectsId` | Executes an action with the name specified in the request. The input parameters for executing the action are passed through the body of the ExecuteAction request. |

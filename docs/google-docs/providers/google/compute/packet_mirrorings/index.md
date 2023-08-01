@@ -30,22 +30,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `mirroredResources` | `object` |  |
-| `collectorIlb` | `object` |  |
-| `priority` | `integer` | The priority of applying this configuration. Priority is used to break ties in cases where there is more than one matching rule. In the case of two rules that apply for a given Instance, the one with the lowest-numbered priority value wins. Default value is 1000. Valid range is 0 through 65535. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#packetMirroring for packet mirrorings. |
-| `enable` | `string` | Indicates whether or not this packet mirroring takes effect. If set to FALSE, this packet mirroring policy will not be enforced on the network. The default is TRUE. |
-| `network` | `object` |  |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `filter` | `object` |  |
+| `priority` | `integer` | The priority of applying this configuration. Priority is used to break ties in cases where there is more than one matching rule. In the case of two rules that apply for a given Instance, the one with the lowest-numbered priority value wins. Default value is 1000. Valid range is 0 through 65535. |
+| `network` | `object` |  |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#packetMirroring for packet mirrorings. |
 | `region` | `string` | [Output Only] URI of the region where the packetMirroring resides. |
+| `enable` | `string` | Indicates whether or not this packet mirroring takes effect. If set to FALSE, this packet mirroring policy will not be enforced on the network. The default is TRUE. |
+| `filter` | `object` |  |
+| `collectorIlb` | `object` |  |
+| `mirroredResources` | `object` |  |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `packetMirrorings_aggregatedList` | `SELECT` | `project` | Retrieves an aggregated list of packetMirrorings. |
-| `packetMirrorings_get` | `SELECT` | `packetMirroring, project, region` | Returns the specified PacketMirroring resource. |
-| `packetMirrorings_list` | `SELECT` | `project, region` | Retrieves a list of PacketMirroring resources available to the specified project and region. |
-| `packetMirrorings_insert` | `INSERT` | `project, region` | Creates a PacketMirroring resource in the specified project and region using the data included in the request. |
-| `packetMirrorings_delete` | `DELETE` | `packetMirroring, project, region` | Deletes the specified PacketMirroring resource. |
-| `packetMirrorings_patch` | `EXEC` | `packetMirroring, project, region` | Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
+| `get` | `SELECT` | `packetMirroring, project, region` | Returns the specified PacketMirroring resource. |
+| `list` | `SELECT` | `project, region` | Retrieves a list of PacketMirroring resources available to the specified project and region. |
+| `insert` | `INSERT` | `project, region` | Creates a PacketMirroring resource in the specified project and region using the data included in the request. |
+| `delete` | `DELETE` | `packetMirroring, project, region` | Deletes the specified PacketMirroring resource. |
+| `aggregated_list` | `EXEC` | `project` | Retrieves an aggregated list of packetMirrorings. |
+| `patch` | `EXEC` | `packetMirroring, project, region` | Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |

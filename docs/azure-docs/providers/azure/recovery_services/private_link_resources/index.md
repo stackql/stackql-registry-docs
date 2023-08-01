@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified identifier of the resource. |
 | `name` | `string` | Name of the resource. |
-| `type` | `string` | e.g. Microsoft.RecoveryServices/vaults/privateLinkResources |
 | `properties` | `object` | Properties of the private link resource. |
+| `type` | `string` | e.g. Microsoft.RecoveryServices/vaults/privateLinkResources |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

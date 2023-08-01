@@ -29,17 +29,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the connection in the form of: `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/connections/&#123;connection_id&#125;` |
 | `description` | `string` | User provided description. |
-| `cloudSql` | `object` | Connection properties specific to the Cloud SQL. |
 | `creationTime` | `string` | Output only. The creation timestamp of the connection. |
 | `friendlyName` | `string` | User provided display name for the connection. |
 | `hasCredential` | `boolean` | Output only. True, if credential is configured for this connection. |
 | `lastModifiedTime` | `string` | Output only. The last update timestamp of the connection. |
+| `cloudSql` | `object` | Connection properties specific to the Cloud SQL. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_connections_get` | `SELECT` | `connectionsId, locationsId, projectsId` | Returns specified connection. |
-| `projects_locations_connections_list` | `SELECT` | `locationsId, projectsId` | Returns a list of connections in the given project. |
-| `projects_locations_connections_create` | `INSERT` | `locationsId, projectsId` | Creates a new connection. |
-| `projects_locations_connections_delete` | `DELETE` | `connectionsId, locationsId, projectsId` | Deletes connection and associated credential. |
-| `projects_locations_connections_patch` | `EXEC` | `connectionsId, locationsId, projectsId` | Updates the specified connection. For security reasons, also resets credential if connection properties are in the update field mask. |
-| `projects_locations_connections_updateCredential` | `EXEC` | `connectionsId, locationsId, projectsId` | Sets the credential for the specified connection. |
+| `get` | `SELECT` | `connectionsId, locationsId, projectsId` | Returns specified connection. |
+| `list` | `SELECT` | `locationsId, projectsId` | Returns a list of connections in the given project. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new connection. |
+| `delete` | `DELETE` | `connectionsId, locationsId, projectsId` | Deletes connection and associated credential. |
+| `patch` | `EXEC` | `connectionsId, locationsId, projectsId` | Updates the specified connection. For security reasons, also resets credential if connection properties are in the update field mask. |

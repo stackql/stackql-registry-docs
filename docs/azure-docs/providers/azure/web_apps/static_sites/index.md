@@ -30,12 +30,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource Name. |
 | `tags` | `object` | Resource tags. |
+| `location` | `string` | Resource Location. |
+| `kind` | `string` | Kind of resource. |
+| `sku` | `object` | Description of a SKU for a scalable resource. |
+| `type` | `string` | Resource type. |
 | `properties` | `object` | A static site. |
 | `identity` | `object` | Managed service identity. |
-| `kind` | `string` | Kind of resource. |
-| `location` | `string` | Resource Location. |
-| `type` | `string` | Resource type. |
-| `sku` | `object` | Description of a SKU for a scalable resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

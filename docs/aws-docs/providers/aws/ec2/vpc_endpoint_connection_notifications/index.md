@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `vpcEndpointId` | `string` | The ID of the VPC endpoint. |
-| `connectionEvents` | `array` | The events for the notification. Valid values are &lt;code&gt;Accept&lt;/code&gt;, &lt;code&gt;Connect&lt;/code&gt;, &lt;code&gt;Delete&lt;/code&gt;, and &lt;code&gt;Reject&lt;/code&gt;. |
-| `connectionNotificationArn` | `string` | The ARN of the SNS topic for the notification. |
 | `connectionNotificationId` | `string` | The ID of the notification. |
 | `connectionNotificationState` | `string` | The state of the notification. |
 | `connectionNotificationType` | `string` | The type of notification. |
 | `serviceId` | `string` | The ID of the endpoint service. |
+| `vpcEndpointId` | `string` | The ID of the VPC endpoint. |
+| `connectionEvents` | `array` | The events for the notification. Valid values are &lt;code&gt;Accept&lt;/code&gt;, &lt;code&gt;Connect&lt;/code&gt;, &lt;code&gt;Delete&lt;/code&gt;, and &lt;code&gt;Reject&lt;/code&gt;. |
+| `connectionNotificationArn` | `string` | The ARN of the SNS topic for the notification. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

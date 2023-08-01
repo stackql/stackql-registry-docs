@@ -27,24 +27,24 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `hostProperties` | `object` | Describes the properties of a Dedicated Host. |
-| `allowsMultipleInstanceTypes` | `string` | Indicates whether the Dedicated Host supports multiple instance types of the same instance family. If the value is &lt;code&gt;on&lt;/code&gt;, the Dedicated Host supports multiple instance types in the instance family. If the value is &lt;code&gt;off&lt;/code&gt;, the Dedicated Host supports a single instance type only. |
-| `autoPlacement` | `string` | Whether auto-placement is on or off. |
-| `clientToken` | `string` | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring Idempotency&lt;/a&gt;. |
+| `releaseTime` | `string` | The time that the Dedicated Host was released. |
 | `hostRecovery` | `string` | Indicates whether host recovery is enabled or disabled for the Dedicated Host. |
-| `availableCapacity` | `object` | The capacity information for instances that can be launched onto the Dedicated Host.  |
-| `availabilityZone` | `string` | The Availability Zone of the Dedicated Host. |
-| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the Dedicated Host. |
-| `hostReservationId` | `string` | The reservation ID of the Dedicated Host. This returns a &lt;code&gt;null&lt;/code&gt; response if the Dedicated Host doesn't have an associated reservation. |
-| `allocationTime` | `string` | The time that the Dedicated Host was allocated. |
-| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which the Dedicated Host is allocated. |
-| `availabilityZoneId` | `string` | The ID of the Availability Zone in which the Dedicated Host is allocated. |
-| `state` | `string` | The Dedicated Host's state. |
-| `hostId` | `string` | The ID of the Dedicated Host. |
 | `tagSet` | `array` | Any tags assigned to the Dedicated Host. |
 | `memberOfServiceLinkedResourceGroup` | `boolean` | Indicates whether the Dedicated Host is in a host resource group. If &lt;b&gt;memberOfServiceLinkedResourceGroup&lt;/b&gt; is &lt;code&gt;true&lt;/code&gt;, the host is in a host resource group; otherwise, it is not. |
+| `hostProperties` | `object` | Describes the properties of a Dedicated Host. |
+| `ownerId` | `string` | The ID of the Amazon Web Services account that owns the Dedicated Host. |
 | `instances` | `array` | The IDs and instance type that are currently running on the Dedicated Host. |
-| `releaseTime` | `string` | The time that the Dedicated Host was released. |
+| `hostId` | `string` | The ID of the Dedicated Host. |
+| `autoPlacement` | `string` | Whether auto-placement is on or off. |
+| `allocationTime` | `string` | The time that the Dedicated Host was allocated. |
+| `availableCapacity` | `object` | The capacity information for instances that can be launched onto the Dedicated Host.  |
+| `allowsMultipleInstanceTypes` | `string` | Indicates whether the Dedicated Host supports multiple instance types of the same instance family. If the value is &lt;code&gt;on&lt;/code&gt;, the Dedicated Host supports multiple instance types in the instance family. If the value is &lt;code&gt;off&lt;/code&gt;, the Dedicated Host supports a single instance type only. |
+| `hostReservationId` | `string` | The reservation ID of the Dedicated Host. This returns a &lt;code&gt;null&lt;/code&gt; response if the Dedicated Host doesn't have an associated reservation. |
+| `availabilityZone` | `string` | The Availability Zone of the Dedicated Host. |
+| `state` | `string` | The Dedicated Host's state. |
+| `availabilityZoneId` | `string` | The ID of the Availability Zone in which the Dedicated Host is allocated. |
+| `clientToken` | `string` | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see &lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html"&gt;Ensuring Idempotency&lt;/a&gt;. |
+| `outpostArn` | `string` | The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which the Dedicated Host is allocated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

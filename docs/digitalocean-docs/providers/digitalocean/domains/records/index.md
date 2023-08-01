@@ -29,14 +29,14 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `integer` | A unique identifier for each domain record. |
 | `name` | `string` | The host name, alias, or service being defined by the record. |
-| `tag` | `string` | The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef" |
-| `type` | `string` | The type of the DNS record. For example: A, CNAME, TXT, ... |
-| `port` | `integer` | The port for SRV records. |
-| `data` | `string` | Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates. |
-| `ttl` | `integer` | This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested. |
-| `weight` | `integer` | The weight for SRV records. |
 | `priority` | `integer` | The priority for SRV and MX records. |
+| `data` | `string` | Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates. |
+| `type` | `string` | The type of the DNS record. For example: A, CNAME, TXT, ... |
 | `flags` | `integer` | An unsigned integer between 0-255 used for CAA records. |
+| `ttl` | `integer` | This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested. |
+| `tag` | `string` | The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef" |
+| `weight` | `integer` | The weight for SRV records. |
+| `port` | `integer` | The port for SRV records. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

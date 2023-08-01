@@ -33,7 +33,7 @@ The AzureData management API provides a RESTful set of web APIs to manage Azure 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureData Management Client (Microsoft.AzureData)</td></tr>
 <tr><td><b>Description</b></td><td>The AzureData management API provides a RESTful set of web APIs to manage Azure Data Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_data:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>azure_data:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_traces_batchWrite` | `EXEC` | `projectsId` |
+| `batch_write` | `EXEC` | `projectsId` |

@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `partition` | `string` | The partition this is for. |
-| `cursor` | `object` | A cursor that describes the position of a message within a topic partition. |
+| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `partitionCursors` | `array` | The partition cursors from this request. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

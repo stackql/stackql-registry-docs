@@ -31,11 +31,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `name` | `string` |
 | `description` | `string` |
 | `text_matches` | `array` |
-| `url` | `string` |
-| `default` | `boolean` |
+| `color` | `string` |
 | `node_id` | `string` |
 | `score` | `number` |
-| `color` | `string` |
+| `url` | `string` |
+| `default` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

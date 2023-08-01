@@ -27,24 +27,24 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `status` | `string` | Status of the integration runtime node. |
-| `lastStartUpdateTime` | `string` | The last time for the integration runtime node update start. |
+| `lastEndUpdateTime` | `string` | The last time for the integration runtime node update end. |
 | `registerTime` | `string` | The time at which the integration runtime node was registered in ISO8601 format. |
-| `versionStatus` | `string` | Status of the integration runtime node version. |
+| `lastStartUpdateTime` | `string` | The last time for the integration runtime node update start. |
+| `concurrentJobsLimit` | `integer` | Maximum concurrent jobs on the integration runtime node. |
+| `machineName` | `string` | Machine name of the integration runtime node. |
 | `isActiveDispatcher` | `boolean` | Indicates whether this node is the active dispatcher for integration runtime requests. |
-| `nodeName` | `string` | Name of the integration runtime node. |
+| `lastStartTime` | `string` | The time the node last started up. |
+| `versionStatus` | `string` | Status of the integration runtime node version. |
+| `expiryTime` | `string` | The time at which the integration runtime will expire in ISO8601 format. |
+| `maxConcurrentJobs` | `integer` | The maximum concurrent jobs in this integration runtime. |
 | `capabilities` | `object` | The integration runtime capabilities dictionary |
 | `hostServiceUri` | `string` | URI for the host machine of the integration runtime. |
-| `lastConnectTime` | `string` | The most recent time at which the integration runtime was connected in ISO8601 format. |
-| `lastEndUpdateTime` | `string` | The last time for the integration runtime node update end. |
-| `concurrentJobsLimit` | `integer` | Maximum concurrent jobs on the integration runtime node. |
-| `version` | `string` | Version of the integration runtime node. |
-| `machineName` | `string` | Machine name of the integration runtime node. |
-| `expiryTime` | `string` | The time at which the integration runtime will expire in ISO8601 format. |
-| `lastUpdateResult` | `string` | The result of the last integration runtime node update. |
-| `maxConcurrentJobs` | `integer` | The maximum concurrent jobs in this integration runtime. |
 | `lastStopTime` | `string` | The integration runtime node last stop time. |
-| `lastStartTime` | `string` | The time the node last started up. |
+| `nodeName` | `string` | Name of the integration runtime node. |
+| `lastUpdateResult` | `string` | The result of the last integration runtime node update. |
+| `version` | `string` | Version of the integration runtime node. |
+| `status` | `string` | Status of the integration runtime node. |
+| `lastConnectTime` | `string` | The most recent time at which the integration runtime was connected in ISO8601 format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

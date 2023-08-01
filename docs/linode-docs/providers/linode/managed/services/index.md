@@ -28,18 +28,18 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This Service's unique ID.<br /> |
-| `notes` | `string` | Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.<br /> |
-| `label` | `string` | The label for this Service. This is for display purposes only.<br /> |
-| `updated` | `string` | When this Managed Service was last updated. |
-| `service_type` | `string` | How this Service is monitored.<br /> |
-| `timeout` | `integer` | How long to wait, in seconds, for a response before considering the Service to be down.<br /> |
-| `credentials` | `array` | An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.<br /> |
 | `address` | `string` | The URL at which this Service is monitored.<br /><br />URL parameters such as `?no-cache=1` are preserved.<br /><br />URL fragments/anchors such as `#monitor` are **not** preserved.<br /> |
-| `status` | `string` | The current status of this Service.<br /> |
-| `body` | `string` | What to expect to find in the response body for the Service to be considered up.<br /> |
 | `consultation_group` | `string` | The group of ManagedContacts who should be notified or consulted with when an Issue is detected.<br /> |
+| `status` | `string` | The current status of this Service.<br /> |
+| `label` | `string` | The label for this Service. This is for display purposes only.<br /> |
+| `notes` | `string` | Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.<br /> |
+| `service_type` | `string` | How this Service is monitored.<br /> |
 | `created` | `string` | When this Managed Service was created. |
+| `credentials` | `array` | An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.<br /> |
 | `region` | `string` | The Region in which this Service is located. This is required if address is a private IP, and may not be set otherwise.<br /> |
+| `timeout` | `integer` | How long to wait, in seconds, for a response before considering the Service to be down.<br /> |
+| `updated` | `string` | When this Managed Service was last updated. |
+| `body` | `string` | What to expect to find in the response body for the Service to be considered up.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

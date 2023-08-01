@@ -28,23 +28,23 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This Linode's ID which must be provided for all operations impacting this Linode.<br /> |
-| `type` | `string` | This is the [Linode Type](/docs/api/linode-types/#types-list) that this Linode was deployed with.<br />To change a Linode's Type, use [POST /linode/instances/&#123;linodeId&#125;/resize](/docs/api/linode-instances/#linode-resize).<br /> |
-| `hypervisor` | `string` | The virtualization software powering this Linode.<br /> |
-| `region` | `string` | This is the [Region](/docs/api/regions/#regions-list) where the Linode was deployed. A Linode's region can only be changed by initiating a [cross data center migration](/docs/api/linode-instances/#dc-migrationpending-host-migration-initiate).<br /> |
-| `updated` | `string` | When this Linode was last updated. |
-| `label` | `string` | The Linode's label is for display purposes only. If no label is provided for a Linode,<br />a default will be assigned.<br /><br />Linode labels have the following constraints:<br /><br />  * Must begin and end with an alphanumeric character.<br />  * May only consist of alphanumeric characters, dashes (`-`), underscores (`_`) or periods (`.`).<br />  * Cannot have two dashes (`--`), underscores (`__`) or periods (`..`) in a row.<br /> |
-| `specs` | `object` | Information about the resources available to this Linode. |
-| `host_uuid` | `string` | The Linode's host machine, as a UUID. |
-| `image` | `string` | An Image ID to deploy the Linode Disk from.<br /><br />Access the Images List ([GET /images](/docs/api/images/#images-list)) endpoint with authentication to view<br />all available Images. Official Linode Images start with `linode/`, while your Account's Images start with `private/`. Creating<br />a disk from a Private Image requires `read_only` or `read_write` permissions for that Image. Access the User's<br />Grant Update ([PUT /account/users/&#123;username&#125;/grants](/docs/api/account/#users-grants-update)) endpoint to<br />adjust permissions for an Account Image.<br /> |
 | `created` | `string` | When this Linode was created. |
-| `tags` | `array` | An array of tags applied to this object.  Tags are for organizational purposes only.<br /> |
-| `alerts` | `object` |  |
-| `backups` | `object` | Information about this Linode's backups status. For information about available backups, see [/linode/instances/&#123;linodeId&#125;/backups](/docs/api/linode-instances/#backups-list).<br /> |
-| `watchdog_enabled` | `boolean` | The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly. It works by issuing a boot job when your Linode powers off without a shutdown job being responsible.<br />To prevent a loop, Lassie will give up if there have been more than 5 boot jobs issued within 15 minutes.<br /> |
-| `status` | `string` | A brief description of this Linode's current state. This field may change without direct action from you. For example, when a Linode goes into maintenance mode its status will display "stopped".<br /> |
-| `ipv6` | `string` | This Linode's IPv6 SLAAC address. This address is specific to a Linode, and may not be shared. If the Linode has not been assigned an IPv6 address, the return value will be `null`.<br /> |
+| `host_uuid` | `string` | The Linode's host machine, as a UUID. |
+| `region` | `string` | This is the [Region](/docs/api/regions/#regions-list) where the Linode was deployed. A Linode's region can only be changed by initiating a [cross data center migration](/docs/api/linode-instances/#dc-migrationpending-host-migration-initiate).<br /> |
 | `ipv4` | `array` | This Linode's IPv4 Addresses. Each Linode is assigned a single public IPv4 address<br />upon creation, and may get a single private IPv4 address if needed. You may need to<br />[open a support ticket](/docs/api/support/#support-ticket-open)<br />to get additional IPv4 addresses.<br /><br />IPv4 addresses may be reassigned between your Linodes, or shared with other Linodes.<br />See the [/networking](/docs/api/networking/) endpoints for details.<br /> |
+| `backups` | `object` | Information about this Linode's backups status. For information about available backups, see [/linode/instances/&#123;linodeId&#125;/backups](/docs/api/linode-instances/#backups-list).<br /> |
+| `label` | `string` | The Linode's label is for display purposes only. If no label is provided for a Linode,<br />a default will be assigned.<br /><br />Linode labels have the following constraints:<br /><br />  * Must begin and end with an alphanumeric character.<br />  * May only consist of alphanumeric characters, dashes (`-`), underscores (`_`) or periods (`.`).<br />  * Cannot have two dashes (`--`), underscores (`__`) or periods (`..`) in a row.<br /> |
+| `status` | `string` | A brief description of this Linode's current state. This field may change without direct action from you. For example, when a Linode goes into maintenance mode its status will display "stopped".<br /> |
+| `specs` | `object` | Information about the resources available to this Linode. |
+| `updated` | `string` | When this Linode was last updated. |
+| `ipv6` | `string` | This Linode's IPv6 SLAAC address. This address is specific to a Linode, and may not be shared. If the Linode has not been assigned an IPv6 address, the return value will be `null`.<br /> |
+| `watchdog_enabled` | `boolean` | The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly. It works by issuing a boot job when your Linode powers off without a shutdown job being responsible.<br />To prevent a loop, Lassie will give up if there have been more than 5 boot jobs issued within 15 minutes.<br /> |
 | `group` | `string` | A deprecated property denoting a group label for this Linode.<br /> |
+| `tags` | `array` | An array of tags applied to this object.  Tags are for organizational purposes only.<br /> |
+| `type` | `string` | This is the [Linode Type](/docs/api/linode-types/#types-list) that this Linode was deployed with.<br />To change a Linode's Type, use [POST /linode/instances/&#123;linodeId&#125;/resize](/docs/api/linode-instances/#linode-resize).<br /> |
+| `image` | `string` | An Image ID to deploy the Linode Disk from.<br /><br />Access the Images List ([GET /images](/docs/api/images/#images-list)) endpoint with authentication to view<br />all available Images. Official Linode Images start with `linode/`, while your Account's Images start with `private/`. Creating<br />a disk from a Private Image requires `read_only` or `read_write` permissions for that Image. Access the User's<br />Grant Update ([PUT /account/users/&#123;username&#125;/grants](/docs/api/account/#users-grants-update)) endpoint to<br />adjust permissions for an Account Image.<br /> |
+| `hypervisor` | `string` | The virtualization software powering this Linode.<br /> |
+| `alerts` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

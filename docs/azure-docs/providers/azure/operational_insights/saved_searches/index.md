@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Value object for saved search results. |
 | `etag` | `string` | The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag |
+| `properties` | `object` | Value object for saved search results. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

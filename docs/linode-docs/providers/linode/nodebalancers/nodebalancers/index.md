@@ -28,16 +28,16 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This NodeBalancer's unique ID.<br /> |
+| `label` | `string` | This NodeBalancer's label. These must be unique on your Account.<br /> |
 | `client_conn_throttle` | `integer` | Throttle connections per second.  Set to 0 (zero) to disable throttling.<br /> |
-| `tags` | `array` | An array of Tags applied to this object.  Tags are for organizational purposes only.<br /> |
+| `created` | `string` | When this NodeBalancer was created.<br /> |
+| `ipv4` | `string` | This NodeBalancer's public IPv4 address.<br /> |
 | `region` | `string` | The Region where this NodeBalancer is located. NodeBalancers only support backends in the same Region.<br /> |
-| `updated` | `string` | When this NodeBalancer was last updated.<br /> |
+| `transfer` | `object` | Information about the amount of transfer this NodeBalancer has had so far this month.<br /> |
+| `tags` | `array` | An array of Tags applied to this object.  Tags are for organizational purposes only.<br /> |
 | `hostname` | `string` | This NodeBalancer's hostname, beginning with its IP address and ending with _.ip.linodeusercontent.com_.<br /> |
 | `ipv6` | `string` | This NodeBalancer's public IPv6 address.<br /> |
-| `created` | `string` | When this NodeBalancer was created.<br /> |
-| `transfer` | `object` | Information about the amount of transfer this NodeBalancer has had so far this month.<br /> |
-| `ipv4` | `string` | This NodeBalancer's public IPv4 address.<br /> |
-| `label` | `string` | This NodeBalancer's label. These must be unique on your Account.<br /> |
+| `updated` | `string` | When this NodeBalancer was last updated.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

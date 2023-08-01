@@ -30,6 +30,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Output only. The resource name of the security settings. Shall be of the form `groups/&#123;group_id&#125;/securitySettings`. |
 | `memberRestriction` | `object` | The definition of MemberRestriction |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `groups_getSecuritySettings` | `SELECT` | `groupsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `get_security_settings` | `SELECT` | `groupsId` | Get Security Settings |
+| `update_security_settings` | `EXEC` | `groupsId` | Update Security Settings |

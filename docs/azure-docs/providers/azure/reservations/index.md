@@ -33,7 +33,7 @@ Capacity Reservations
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Capacity Reservations (Microsoft.Capacity)</td></tr>
 <tr><td><b>Description</b></td><td>Capacity Reservations</td></tr>
-<tr><td><b>Id</b></td><td><code>reservations:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>reservations:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

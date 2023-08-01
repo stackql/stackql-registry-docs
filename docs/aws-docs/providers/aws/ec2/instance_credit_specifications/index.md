@@ -27,8 +27,8 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `cpuCredits` | `string` | The credit option for CPU usage of the instance. Valid values are &lt;code&gt;standard&lt;/code&gt; and &lt;code&gt;unlimited&lt;/code&gt;. |
 | `instanceId` | `string` | The ID of the instance. |
+| `cpuCredits` | `string` | The credit option for CPU usage of the instance. Valid values are &lt;code&gt;standard&lt;/code&gt; and &lt;code&gt;unlimited&lt;/code&gt;. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

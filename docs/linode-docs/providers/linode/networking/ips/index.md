@@ -27,15 +27,15 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `subnet_mask` | `string` | The mask that separates host bits from network bits for this address.<br /> |
+| `linode_id` | `integer` | The ID of the Linode this address currently belongs to. For IPv4 addresses, this is by default the Linode that this address was assigned to on creation, and these addresses my be moved using the [/networking/ipv4/assign](/docs/api/networking/#ips-to-linodes-assign) endpoint. For SLAAC and link-local addresses, this value may not be changed.<br /> |
 | `type` | `string` | The type of address this is.<br /> |
 | `address` | `string` | The IP address.<br /> |
-| `public` | `boolean` | Whether this is a public or private IP address.<br /> |
-| `prefix` | `integer` | The number of bits set in the subnet mask.<br /> |
-| `region` | `string` | The Region this IP address resides in.<br /> |
-| `subnet_mask` | `string` | The mask that separates host bits from network bits for this address.<br /> |
-| `gateway` | `string` | The default gateway for this address.<br /> |
-| `linode_id` | `integer` | The ID of the Linode this address currently belongs to. For IPv4 addresses, this is by default the Linode that this address was assigned to on creation, and these addresses my be moved using the [/networking/ipv4/assign](/docs/api/networking/#ips-to-linodes-assign) endpoint. For SLAAC and link-local addresses, this value may not be changed.<br /> |
 | `rdns` | `string` | The reverse DNS assigned to this address. For public IPv4 addresses, this will be set to a default value provided by Linode if not explicitly set.<br /> |
+| `region` | `string` | The Region this IP address resides in.<br /> |
+| `prefix` | `integer` | The number of bits set in the subnet mask.<br /> |
+| `gateway` | `string` | The default gateway for this address.<br /> |
+| `public` | `boolean` | Whether this is a public or private IP address.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

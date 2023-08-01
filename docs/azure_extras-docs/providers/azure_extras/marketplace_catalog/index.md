@@ -33,7 +33,7 @@ Marketplace Catalog
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Marketplace Catalog (Microsoft.Marketplace)</td></tr>
 <tr><td><b>Description</b></td><td>Marketplace Catalog</td></tr>
-<tr><td><b>Id</b></td><td><code>marketplace_catalog:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>marketplace_catalog:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

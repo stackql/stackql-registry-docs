@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID |
 | `name` | `string` | Resource name |
+| `type` | `string` | Resource type |
+| `location` | `string` | Resource location |
 | `properties` | `object` | Information about JIT request properties |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
-| `location` | `string` | Resource location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

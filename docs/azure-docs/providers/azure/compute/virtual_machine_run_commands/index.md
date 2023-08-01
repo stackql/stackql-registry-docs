@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The VM run command id. |
 | `description` | `string` | The VM run command description. |
+| `label` | `string` | The VM run command label. |
 | `osType` | `string` | The Operating System type. |
 | `parameters` | `array` | The parameters used by the script. |
 | `script` | `array` | The script to be executed. |
 | `$schema` | `string` | The VM run command schema. |
-| `label` | `string` | The VM run command label. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

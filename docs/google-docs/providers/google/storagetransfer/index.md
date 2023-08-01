@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.   
+Transfers Data From External Data Sources To A Google Cloud Storage Bucket Or Between Google Cloud Storage Buckets.   
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Transfers data from external data sources to a Google Cloud Storage bucket or be
 <tr><td><b>Name</b></td><td><code>google.storagetransfer</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Storage Transfer API</td></tr>
-<tr><td><b>Description</b></td><td>Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. </td></tr>
-<tr><td><b>Id</b></td><td><code>storagetransfer:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Transfers Data From External Data Sources To A Google Cloud Storage Bucket Or Between Google Cloud Storage Buckets. </td></tr>
+<tr><td><b>Id</b></td><td><code>storagetransfer:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

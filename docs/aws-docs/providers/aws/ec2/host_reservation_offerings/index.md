@@ -27,13 +27,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `paymentOption` | `string` | The available payment option. |
 | `upfrontPrice` | `string` | The upfront price of the offering. Does not apply to No Upfront offerings. |
 | `currencyCode` | `string` | The currency of the offering. |
 | `duration` | `integer` | The duration of the offering (in seconds). |
 | `hourlyPrice` | `string` | The hourly price of the offering. |
 | `instanceFamily` | `string` | The instance family of the offering. |
 | `offeringId` | `string` | The ID of the offering. |
+| `paymentOption` | `string` | The available payment option. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

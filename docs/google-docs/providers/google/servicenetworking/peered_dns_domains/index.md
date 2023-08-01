@@ -25,13 +25,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | User assigned name for this resource. Must be unique within the consumer network. The name must be 1-63 characters long, must begin with a letter, end with a letter or digit, and only contain lowercase letters, digits or dashes. |
-| `dnsSuffix` | `string` | The DNS domain name suffix e.g. `example.com.`. Cloud DNS requires that a DNS suffix ends with a trailing dot. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `services_projects_global_networks_peeredDnsDomains_list` | `SELECT` | `networksId, projectsId, servicesId` | Lists peered DNS domains for a connection. |
-| `services_projects_global_networks_peeredDnsDomains_create` | `INSERT` | `networksId, projectsId, servicesId` | Creates a peered DNS domain which sends requests for records in given namespace originating in the service producer VPC network to the consumer VPC network to be resolved. |
-| `services_projects_global_networks_peeredDnsDomains_delete` | `DELETE` | `networksId, peeredDnsDomainsId, projectsId, servicesId` | Deletes a peered DNS domain. |
+| `list` | `SELECT` | `networksId, projectsId, servicesId` | Lists peered DNS domains for a connection. |
+| `create` | `INSERT` | `networksId, projectsId, servicesId` | Creates a peered DNS domain which sends requests for records in given namespace originating in the service producer VPC network to the consumer VPC network to be resolved. |
+| `delete` | `DELETE` | `networksId, peeredDnsDomainsId, projectsId, servicesId` | Deletes a peered DNS domain. |

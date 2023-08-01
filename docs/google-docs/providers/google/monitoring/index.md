@@ -13,14 +13,14 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Manages your Cloud Monitoring data and configurations.  
+Manages Your Cloud Monitoring Data And Configurations.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>16</b></span><br />
-<span>total selectable resources:&nbsp;<b>14</b></span><br />
+<span>total selectable resources:&nbsp;<b>13</b></span><br />
 <span>total methods:&nbsp;<b>51</b></span><br />
 </div>
 </div>
@@ -32,8 +32,8 @@ Manages your Cloud Monitoring data and configurations.
 <tr><td><b>Name</b></td><td><code>google.monitoring</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Monitoring API</td></tr>
-<tr><td><b>Description</b></td><td>Manages your Cloud Monitoring data and configurations.</td></tr>
-<tr><td><b>Id</b></td><td><code>monitoring:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages Your Cloud Monitoring Data And Configurations.</td></tr>
+<tr><td><b>Id</b></td><td><code>monitoring:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

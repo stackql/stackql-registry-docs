@@ -28,10 +28,10 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID for this cluster. |
-| `domain` | `string` | The base URL for this cluster, used for connecting with third-party clients. |
 | `region` | `string` | The region where this cluster is located. |
 | `static_site_domain` | `string` | The base URL for this cluster used when hosting static sites. |
 | `status` | `string` | This cluster's status. |
+| `domain` | `string` | The base URL for this cluster, used for connecting with third-party clients. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

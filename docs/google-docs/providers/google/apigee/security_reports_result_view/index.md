@@ -35,4 +35,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_environments_securityReports_getResultView` | `SELECT` | `environmentsId, organizationsId, securityReportsId` |
+| `organizations_environments_security_reports_get_result_view` | `SELECT` | `environmentsId, organizationsId, securityReportsId` |

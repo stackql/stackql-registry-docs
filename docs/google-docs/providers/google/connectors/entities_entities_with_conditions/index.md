@@ -27,6 +27,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `projects_locations_connections_entityTypes_entities_deleteEntitiesWithConditions` | `DELETE` | `connectionsId, entityTypesId, locationsId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `delete_entities_with_conditions` | `EXEC` | `connectionsId, entityTypesId, locationsId, projectsId` | Deletes entities based on conditions specified in the request and not on entity id. |
+| `update_entities_with_conditions` | `EXEC` | `connectionsId, entityTypesId, locationsId, projectsId` | Updates entities based on conditions specified in the request and not on entity id. |

@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Resource etag |
-| `identity` | `object` | Identity used for BYOS |
 | `kind` | `string` | The kind of workbook. Only valid value is shared. |
 | `properties` | `object` | Properties that contain a workbook. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `etag` | `string` | Resource etag |
+| `identity` | `object` | Identity used for BYOS |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

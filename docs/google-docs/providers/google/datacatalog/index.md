@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-A fully managed and highly scalable data discovery and metadata management service.   
+A Fully Managed And Highly Scalable Data Discovery And Metadata Management Service.   
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>20</b></span><br />
-<span>total selectable resources:&nbsp;<b>17</b></span><br />
-<span>total methods:&nbsp;<b>70</b></span><br />
+<span>total resources:&nbsp;<b>15</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>66</b></span><br />
 </div>
 </div>
 
@@ -32,8 +32,8 @@ A fully managed and highly scalable data discovery and metadata management servi
 <tr><td><b>Name</b></td><td><code>google.datacatalog</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Cloud Data Catalog API</td></tr>
-<tr><td><b>Description</b></td><td>A fully managed and highly scalable data discovery and metadata management service. </td></tr>
-<tr><td><b>Id</b></td><td><code>datacatalog:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>A Fully Managed And Highly Scalable Data Discovery And Metadata Management Service. </td></tr>
+<tr><td><b>Id</b></td><td><code>datacatalog:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,10 +41,8 @@ A fully managed and highly scalable data discovery and metadata management servi
 <div class="providerDocColumn">
 <a href="/providers/google/datacatalog/catalog/">catalog</a><br />
 <a href="/providers/google/datacatalog/entries/">entries</a><br />
-<a href="/providers/google/datacatalog/entries_iam_bindings/">entries_iam_bindings</a><br />
 <a href="/providers/google/datacatalog/entries_iam_policies/">entries_iam_policies</a><br />
 <a href="/providers/google/datacatalog/entry_groups/">entry_groups</a><br />
-<a href="/providers/google/datacatalog/entry_groups_iam_bindings/">entry_groups_iam_bindings</a><br />
 <a href="/providers/google/datacatalog/entry_groups_iam_policies/">entry_groups_iam_policies</a><br />
 <a href="/providers/google/datacatalog/enum_values/">enum_values</a><br />
 <a href="/providers/google/datacatalog/fields/">fields</a><br />
@@ -52,14 +50,11 @@ A fully managed and highly scalable data discovery and metadata management servi
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/datacatalog/policy_tags/">policy_tags</a><br />
-<a href="/providers/google/datacatalog/policy_tags_iam_bindings/">policy_tags_iam_bindings</a><br />
 <a href="/providers/google/datacatalog/policy_tags_iam_policies/">policy_tags_iam_policies</a><br />
 <a href="/providers/google/datacatalog/tag_templates/">tag_templates</a><br />
-<a href="/providers/google/datacatalog/tag_templates_iam_bindings/">tag_templates_iam_bindings</a><br />
 <a href="/providers/google/datacatalog/tag_templates_iam_policies/">tag_templates_iam_policies</a><br />
 <a href="/providers/google/datacatalog/tags/">tags</a><br />
 <a href="/providers/google/datacatalog/taxonomies/">taxonomies</a><br />
-<a href="/providers/google/datacatalog/taxonomies_iam_bindings/">taxonomies_iam_bindings</a><br />
 <a href="/providers/google/datacatalog/taxonomies_iam_policies/">taxonomies_iam_policies</a><br />
 </div>
 </div>

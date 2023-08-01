@@ -27,9 +27,9 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `createVolumePermission` | `array` | The users and groups that have the permissions for creating volumes from the snapshot. |
 | `productCodes` | `array` | The product codes. |
 | `snapshotId` | `string` | The ID of the EBS snapshot. |
-| `createVolumePermission` | `array` | The users and groups that have the permissions for creating volumes from the snapshot. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

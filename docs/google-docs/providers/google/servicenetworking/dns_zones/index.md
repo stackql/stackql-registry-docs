@@ -25,9 +25,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `services_dnsZones_add` | `INSERT` | `servicesId` | Service producers can use this method to add private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
-| `services_dnsZones_remove` | `DELETE` | `servicesId` | Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
+| `list` | `SELECT` | `servicesId` | * Service producers can use this method to retrieve a list of available DNS zones in the shared producer host project and the matching peering zones in the consumer project. * |
+| `add` | `EXEC` | `servicesId` | Service producers can use this method to add private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
+| `remove` | `EXEC` | `servicesId` | Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. |

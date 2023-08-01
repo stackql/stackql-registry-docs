@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Schedule queries or transfer external data from SaaS applications to Google BigQuery on a regular basis.  
+Schedule Queries Or Transfer External Data From SaaS Applications To Google BigQuery On A Regular Basis.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ Schedule queries or transfer external data from SaaS applications to Google BigQ
 <tr><td><b>Name</b></td><td><code>google.bigquerydatatransfer</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery Data Transfer API</td></tr>
-<tr><td><b>Description</b></td><td>Schedule queries or transfer external data from SaaS applications to Google BigQuery on a regular basis.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigquerydatatransfer:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Schedule Queries Or Transfer External Data From SaaS Applications To Google BigQuery On A Regular Basis.</td></tr>
+<tr><td><b>Id</b></td><td><code>bigquerydatatransfer:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

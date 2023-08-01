@@ -19,9 +19,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>42</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>40</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud DNS API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>dns:v23.05.00145</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dns:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,11 +43,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/dns/dns_keys/">dns_keys</a><br />
 <a href="/providers/google/dns/managed_zone_operations/">managed_zone_operations</a><br />
 <a href="/providers/google/dns/managed_zones/">managed_zones</a><br />
-<a href="/providers/google/dns/managed_zones_iam_audit_configs/">managed_zones_iam_audit_configs</a><br />
-<a href="/providers/google/dns/managed_zones_iam_bindings/">managed_zones_iam_bindings</a><br />
+<a href="/providers/google/dns/managed_zones_iam_policies/">managed_zones_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/dns/managed_zones_iam_policies/">managed_zones_iam_policies</a><br />
 <a href="/providers/google/dns/policies/">policies</a><br />
 <a href="/providers/google/dns/projects/">projects</a><br />
 <a href="/providers/google/dns/resource_record_sets/">resource_record_sets</a><br />

@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `properties` | `object` | Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags |
 | `location` | `string` | Resource location |
-| `properties` | `object` | Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_catalogs_eventStores_placements_predict` | `EXEC` | `catalogsId, eventStoresId, locationsId, placementsId, projectsId` |
+| `projects_locations_catalogs_event_stores_placements_predict` | `EXEC` | `catalogsId, eventStoresId, locationsId, placementsId, projectsId` |

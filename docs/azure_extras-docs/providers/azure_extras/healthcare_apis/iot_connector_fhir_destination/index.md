@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | The resource location. |
 | `properties` | `object` | IoT Connector destination properties for an Azure FHIR service. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `location` | `string` | The resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

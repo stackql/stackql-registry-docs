@@ -27,25 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The connector's name. |
-| `bucket` | `string` | Output only. The communication channel between the datacenter connector and Google Cloud. |
-| `createTime` | `string` | Output only. The time the connector was created (as an API call, not when it was actually installed). |
-| `updateTime` | `string` | Output only. The last time the connector was updated with an API call. |
-| `stateTime` | `string` | Output only. The time the state was last set. |
-| `state` | `string` | Output only. State of the DatacenterConnector, as determined by the health checks. |
-| `upgradeStatus` | `object` | UpgradeStatus contains information about upgradeAppliance operation. |
-| `availableVersions` | `object` | Holds informatiom about the available versions for upgrade. |
-| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
-| `registrationId` | `string` | Immutable. A unique key for this connector. This key is internal to the OVA connector and is supplied with its creation during the registration process and can not be modified. |
-| `version` | `string` | The version running in the DatacenterConnector. This is supplied by the OVA connector during the registration process and can not be modified. |
-| `serviceAccount` | `string` | The service account to use in the connector when communicating with the cloud. |
-| `applianceSoftwareVersion` | `string` | Output only. Appliance last installed update bundle version. This is the version of the automatically updatable components on the appliance. |
-| `applianceInfrastructureVersion` | `string` | Output only. Appliance OVA version. This is the OVA which is manually installed by the user and contains the infrastructure for the automatically updatable components on the appliance. |
+| `datacenterConnectors` | `array` | Output only. The list of sources response. |
+| `nextPageToken` | `string` | Output only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `unreachable` | `array` | Output only. Locations that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_sources_datacenterConnectors_get` | `SELECT` | `datacenterConnectorsId, locationsId, projectsId, sourcesId` | Gets details of a single DatacenterConnector. |
-| `projects_locations_sources_datacenterConnectors_list` | `SELECT` | `locationsId, projectsId, sourcesId` | Lists DatacenterConnectors in a given Source. |
-| `projects_locations_sources_datacenterConnectors_create` | `INSERT` | `locationsId, projectsId, sourcesId` | Creates a new DatacenterConnector in a given Source. |
-| `projects_locations_sources_datacenterConnectors_delete` | `DELETE` | `datacenterConnectorsId, locationsId, projectsId, sourcesId` | Deletes a single DatacenterConnector. |
-| `projects_locations_sources_datacenterConnectors_upgradeAppliance` | `EXEC` | `datacenterConnectorsId, locationsId, projectsId, sourcesId` | Upgrades the appliance relate to this DatacenterConnector to the in-place updateable version. |
+| `get` | `SELECT` | `datacenterConnectorsId, locationsId, projectsId, sourcesId` | Gets details of a single DatacenterConnector. |
+| `list` | `SELECT` | `locationsId, projectsId, sourcesId` | Lists DatacenterConnectors in a given Source. |
+| `create` | `INSERT` | `locationsId, projectsId, sourcesId` | Creates a new DatacenterConnector in a given Source. |
+| `delete` | `DELETE` | `datacenterConnectorsId, locationsId, projectsId, sourcesId` | Deletes a single DatacenterConnector. |
+| `upgrade_appliance` | `EXEC` | `datacenterConnectorsId, locationsId, projectsId, sourcesId` | Upgrades the appliance relate to this DatacenterConnector to the in-place updateable version. |

@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of the resource. |
 | `name` | `string` | Name of the resource. |
+| `status` | `string` | Specifies the state of the Operation result. |
 | `endTime` | `string` | The deployment end time |
 | `percentComplete` | `number` | Percentage completed. |
 | `startTime` | `string` | The deployment start time |
-| `status` | `string` | Specifies the state of the Operation result. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

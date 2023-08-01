@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Manages Google Cloud Dataflow projects on Google Cloud Platform.  
+Manages Google Cloud Dataflow Projects On Google Cloud Platform.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>16</b></span><br />
-<span>total selectable resources:&nbsp;<b>9</b></span><br />
-<span>total methods:&nbsp;<b>42</b></span><br />
+<span>total resources:&nbsp;<b>13</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>41</b></span><br />
 </div>
 </div>
 
@@ -32,8 +32,8 @@ Manages Google Cloud Dataflow projects on Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.dataflow</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dataflow API</td></tr>
-<tr><td><b>Description</b></td><td>Manages Google Cloud Dataflow projects on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataflow:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages Google Cloud Dataflow Projects On Google Cloud Platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>dataflow:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,7 +43,6 @@ Manages Google Cloud Dataflow projects on Google Cloud Platform.
 <a href="/providers/google/dataflow/debug_config/">debug_config</a><br />
 <a href="/providers/google/dataflow/flex_templates/">flex_templates</a><br />
 <a href="/providers/google/dataflow/jobs/">jobs</a><br />
-<a href="/providers/google/dataflow/jobs_aggregated/">jobs_aggregated</a><br />
 <a href="/providers/google/dataflow/jobs_execution_details/">jobs_execution_details</a><br />
 <a href="/providers/google/dataflow/jobs_metrics/">jobs_metrics</a><br />
 <a href="/providers/google/dataflow/locations/">locations</a><br />
@@ -51,9 +50,7 @@ Manages Google Cloud Dataflow projects on Google Cloud Platform.
 <div class="providerDocColumn">
 <a href="/providers/google/dataflow/messages/">messages</a><br />
 <a href="/providers/google/dataflow/projects/">projects</a><br />
-<a href="/providers/google/dataflow/projects_snapshots/">projects_snapshots</a><br />
 <a href="/providers/google/dataflow/snapshots/">snapshots</a><br />
-<a href="/providers/google/dataflow/sql/">sql</a><br />
 <a href="/providers/google/dataflow/stages_execution_details/">stages_execution_details</a><br />
 <a href="/providers/google/dataflow/templates/">templates</a><br />
 <a href="/providers/google/dataflow/work_items/">work_items</a><br />

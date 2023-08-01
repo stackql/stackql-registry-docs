@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-A service to modify your BigQuery flat-rate reservations.  
+A Service To Modify Your BigQuery Flat-Rate Reservations.  
     
 :::info Service Summary
 
@@ -32,19 +32,19 @@ A service to modify your BigQuery flat-rate reservations.
 <tr><td><b>Name</b></td><td><code>google.bigqueryreservation</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery Reservation API</td></tr>
-<tr><td><b>Description</b></td><td>A service to modify your BigQuery flat-rate reservations.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigqueryreservation:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>A Service To Modify Your BigQuery Flat-Rate Reservations.</td></tr>
+<tr><td><b>Id</b></td><td><code>bigqueryreservation:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/bigqueryreservation/assignments/">assignments</a><br />
+<a href="/providers/google/bigqueryreservation/bi_reservation/">bi_reservation</a><br />
 <a href="/providers/google/bigqueryreservation/capacity_commitments/">capacity_commitments</a><br />
-<a href="/providers/google/bigqueryreservation/locations/">locations</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/bigqueryreservation/locations_bi_reservation/">locations_bi_reservation</a><br />
+<a href="/providers/google/bigqueryreservation/locations/">locations</a><br />
 <a href="/providers/google/bigqueryreservation/reservations/">reservations</a><br />
 </div>
 </div>

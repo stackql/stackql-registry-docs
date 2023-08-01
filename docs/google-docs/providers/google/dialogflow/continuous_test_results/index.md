@@ -32,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_agents_environments_continuousTestResults_list` | `SELECT` | `agentsId, environmentsId, locationsId, projectsId` |
+| `projects_locations_agents_environments_continuous_test_results_list` | `SELECT` | `agentsId, environmentsId, locationsId, projectsId` |

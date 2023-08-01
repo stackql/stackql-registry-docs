@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `catalogs` | `array` | Output only. All the customer's catalogs. |
 | `nextPageToken` | `string` | Pagination token, if not returned indicates the last page. |
+| `catalogs` | `array` | Output only. All the customer's catalogs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

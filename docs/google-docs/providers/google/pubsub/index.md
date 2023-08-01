@@ -13,14 +13,14 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Provides reliable, many-to-many, asynchronous messaging between applications.   
+Provides Reliable, Many-To-Many, Asynchronous Messaging Between Applications.   
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
 <span>total methods:&nbsp;<b>46</b></span><br />
 </div>
 </div>
@@ -32,26 +32,24 @@ Provides reliable, many-to-many, asynchronous messaging between applications.
 <tr><td><b>Name</b></td><td><code>google.pubsub</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Pub/Sub API</td></tr>
-<tr><td><b>Description</b></td><td>Provides reliable, many-to-many, asynchronous messaging between applications. </td></tr>
-<tr><td><b>Id</b></td><td><code>pubsub:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Provides Reliable, Many-To-Many, Asynchronous Messaging Between Applications. </td></tr>
+<tr><td><b>Id</b></td><td><code>pubsub:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/pubsub/schemas/">schemas</a><br />
-<a href="/providers/google/pubsub/schemas_iam_bindings/">schemas_iam_bindings</a><br />
 <a href="/providers/google/pubsub/schemas_iam_policies/">schemas_iam_policies</a><br />
+<a href="/providers/google/pubsub/schemas_revision/">schemas_revision</a><br />
+<a href="/providers/google/pubsub/schemas_revisions/">schemas_revisions</a><br />
 <a href="/providers/google/pubsub/snapshots/">snapshots</a><br />
-<a href="/providers/google/pubsub/snapshots_iam_bindings/">snapshots_iam_bindings</a><br />
-<a href="/providers/google/pubsub/snapshots_iam_policies/">snapshots_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/pubsub/snapshots_iam_policies/">snapshots_iam_policies</a><br />
 <a href="/providers/google/pubsub/subscriptions/">subscriptions</a><br />
-<a href="/providers/google/pubsub/subscriptions_iam_bindings/">subscriptions_iam_bindings</a><br />
 <a href="/providers/google/pubsub/subscriptions_iam_policies/">subscriptions_iam_policies</a><br />
 <a href="/providers/google/pubsub/topics/">topics</a><br />
-<a href="/providers/google/pubsub/topics_iam_bindings/">topics_iam_bindings</a><br />
 <a href="/providers/google/pubsub/topics_iam_policies/">topics_iam_policies</a><br />
 </div>
 </div>

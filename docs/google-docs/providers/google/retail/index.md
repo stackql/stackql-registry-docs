@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Cloud Retail service enables customers to build end-to-end personalized recommendation systems without requiring a high level of expertise in machine learning, recommendation system, or Google Cloud.  
+Cloud Retail Service Enables Customers To Build End-To-End Personalized Recommendation Systems Without Requiring A High Level Of Expertise In Machine Learning, Recommendation System, Or Google Cloud.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>16</b></span><br />
+<span>total resources:&nbsp;<b>17</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>52</b></span><br />
+<span>total methods:&nbsp;<b>61</b></span><br />
 </div>
 </div>
 
@@ -32,8 +32,8 @@ Cloud Retail service enables customers to build end-to-end personalized recommen
 <tr><td><b>Name</b></td><td><code>google.retail</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Retail API</td></tr>
-<tr><td><b>Description</b></td><td>Cloud Retail service enables customers to build end-to-end personalized recommendation systems without requiring a high level of expertise in machine learning, recommendation system, or Google Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>retail:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Cloud Retail Service Enables Customers To Build End-To-End Personalized Recommendation Systems Without Requiring A High Level Of Expertise In Machine Learning, Recommendation System, Or Google Cloud.</td></tr>
+<tr><td><b>Id</b></td><td><code>retail:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -47,6 +47,7 @@ Cloud Retail service enables customers to build end-to-end personalized recommen
 <a href="/providers/google/retail/catalogs_default_branch/">catalogs_default_branch</a><br />
 <a href="/providers/google/retail/completion_data/">completion_data</a><br />
 <a href="/providers/google/retail/controls/">controls</a><br />
+<a href="/providers/google/retail/models/">models</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/retail/operations/">operations</a><br />

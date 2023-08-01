@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `object` | The usage names that can be used; currently limited to StorageAccount. |
-| `unit` | `string` | Gets the unit of measurement. |
 | `currentValue` | `integer` | Gets the current count of the allocated resources in the subscription. |
 | `limit` | `integer` | Gets the maximum count of the resources that can be allocated in the subscription. |
+| `unit` | `string` | Gets the unit of measurement. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

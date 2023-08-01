@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `interconnects_getDiagnostics` | `SELECT` | `interconnect, project` |
+| `get_diagnostics` | `SELECT` | `interconnect, project` |

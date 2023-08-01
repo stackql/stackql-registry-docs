@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | resource pool id (privateCloudId:vsphereId) |
 | `name` | `string` | &#123;ResourcePoolName&#125; |
-| `privateCloudId` | `string` | The Private Cloud Id |
 | `properties` | `object` | Properties of resource pool |
 | `type` | `string` | &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125; |
 | `location` | `string` | Azure region |
+| `privateCloudId` | `string` | The Private Cloud Id |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

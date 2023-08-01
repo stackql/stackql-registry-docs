@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `securityPolicies_listPreconfiguredExpressionSets` | `SELECT` | `project` |
+| `list_preconfigured_expression_sets` | `SELECT` | `project` |

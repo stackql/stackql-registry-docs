@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_environments_securityStats_queryTabularStats` | `EXEC` | `environmentsId, organizationsId` | Retrieve security statistics as tabular rows. |
-| `organizations_environments_securityStats_queryTimeSeriesStats` | `EXEC` | `environmentsId, organizationsId` | Retrieve security statistics as a collection of time series. |
+| `organizations_environments_security_stats_query_tabular_stats` | `EXEC` | `environmentsId, organizationsId` | Retrieve security statistics as tabular rows. |
+| `organizations_environments_security_stats_query_time_series_stats` | `EXEC` | `environmentsId, organizationsId` | Retrieve security statistics as a collection of time series. |

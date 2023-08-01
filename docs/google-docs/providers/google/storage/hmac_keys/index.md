@@ -28,20 +28,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the HMAC key, including the Project ID and the Access ID. |
-| `kind` | `string` | The kind of item this is. For HMAC Key metadata, this is always storage#hmacKeyMetadata. |
-| `selfLink` | `string` | The link to this resource. |
-| `etag` | `string` | HTTP 1.1 Entity tag for the HMAC key. |
-| `state` | `string` | The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED. |
-| `accessId` | `string` | The ID of the HMAC Key. |
-| `serviceAccountEmail` | `string` | The email address of the key's associated service account. |
 | `timeCreated` | `string` | The creation time of the HMAC key in RFC 3339 format. |
-| `updated` | `string` | The last modification time of the HMAC key metadata in RFC 3339 format. |
+| `accessId` | `string` | The ID of the HMAC Key. |
+| `selfLink` | `string` | The link to this resource. |
+| `serviceAccountEmail` | `string` | The email address of the key's associated service account. |
+| `state` | `string` | The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED. |
+| `etag` | `string` | HTTP 1.1 Entity tag for the HMAC key. |
 | `projectId` | `string` | Project ID owning the service account to which the key authenticates. |
+| `updated` | `string` | The last modification time of the HMAC key metadata in RFC 3339 format. |
+| `kind` | `string` | The kind of item this is. For HMAC Key metadata, this is always storage#hmacKeyMetadata. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_hmacKeys_get` | `SELECT` | `accessId, projectId` | Retrieves an HMAC key's metadata |
-| `projects_hmacKeys_list` | `SELECT` | `projectId` | Retrieves a list of HMAC keys matching the criteria. |
-| `projects_hmacKeys_create` | `INSERT` | `projectId, serviceAccountEmail` | Creates a new HMAC key for the specified service account. |
-| `projects_hmacKeys_delete` | `DELETE` | `accessId, projectId` | Deletes an HMAC key. |
-| `projects_hmacKeys_update` | `EXEC` | `accessId, projectId` | Updates the state of an HMAC key. See the HMAC Key resource descriptor for valid states. |
+| `get` | `SELECT` | `accessId, projectId` | Retrieves an HMAC key's metadata |
+| `list` | `SELECT` | `projectId` | Retrieves a list of HMAC keys matching the criteria. |
+| `create` | `INSERT` | `projectId, serviceAccountEmail` | Creates a new HMAC key for the specified service account. |
+| `delete` | `DELETE` | `accessId, projectId` | Deletes an HMAC key. |
+| `update` | `EXEC` | `accessId, projectId` | Updates the state of an HMAC key. See the HMAC Key resource descriptor for valid states. |

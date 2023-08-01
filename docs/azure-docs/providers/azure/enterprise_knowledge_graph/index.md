@@ -33,7 +33,7 @@ Azure Enterprise Knowledge Graph Service is a platform for creating knowledge gr
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Enterprise Knowledge Graph Service (Microsoft.EnterpriseKnowledgeGraph)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Enterprise Knowledge Graph Service is a platform for creating knowledge graphs at scale.</td></tr>
-<tr><td><b>Id</b></td><td><code>enterprise_knowledge_graph:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>enterprise_knowledge_graph:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

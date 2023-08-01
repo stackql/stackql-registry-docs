@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `regionSslPolicies_listAvailableFeatures` | `SELECT` | `project, region` |
+| `list_available_features` | `SELECT` | `project, region` |

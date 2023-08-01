@@ -33,7 +33,7 @@ The billing client allows you to view and manage your billing details programmat
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Billing Management Client (Microsoft.Billing)</td></tr>
 <tr><td><b>Description</b></td><td>The billing client allows you to view and manage your billing details programmatically.</td></tr>
-<tr><td><b>Id</b></td><td><code>billing:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>billing:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

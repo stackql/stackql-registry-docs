@@ -25,11 +25,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `network` | `object` | A Network. |
-| `usedIps` | `array` | All used IP addresses in this network. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_networks_listNetworkUsage` | `SELECT` | `locationsId, projectsId` |
+| `list_network_usage` | `SELECT` | `locationsId, projectsId` |

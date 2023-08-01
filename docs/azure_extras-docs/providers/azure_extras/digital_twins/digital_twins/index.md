@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
+| `type` | `string` | The resource type. |
+| `identity` | `object` | The managed identity for the DigitalTwinsInstance. |
 | `location` | `string` | The resource location. |
 | `properties` | `object` | The properties of a DigitalTwinsInstance. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | The resource tags. |
-| `type` | `string` | The resource type. |
-| `identity` | `object` | The managed identity for the DigitalTwinsInstance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

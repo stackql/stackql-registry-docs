@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the Operation. |
-| `properties` | `object` | Class to represent shoebox properties in json client discovery. |
 | `display` | `object` | Localized display information of an operation. |
 | `origin` | `string` | The intended executor of the operation;governs the display of the operation in the RBAC UX and the audit logs UX |
+| `properties` | `object` | Class to represent shoebox properties in json client discovery. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

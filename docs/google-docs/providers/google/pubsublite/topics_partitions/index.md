@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `admin_projects_locations_topics_getPartitions` | `SELECT` | `locationsId, projectsId, topicsId` |
+| `admin_projects_locations_topics_get_partitions` | `SELECT` | `locationsId, projectsId, topicsId` |

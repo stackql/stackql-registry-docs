@@ -27,20 +27,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Resource name for the location, which may vary between implementations. For example: "projects/example-project/locations/us-east1" |
-| `displayName` | `string` | The friendly name for this location, typically a nearby city name. For example, "Tokyo". |
-| `labels` | `object` | Cross-service attributes for the location. For example &#123;"cloud.googleapis.com/region": "us-east1"&#125;  |
-| `locationId` | `string` | The canonical id for this location. For example: "us-east1". |
-| `metadata` | `object` | Service-specific metadata. For example the available capacity at the given location. |
+| `locations` | `array` | A list of locations that matches the specified filter in the request. |
+| `nextPageToken` | `string` | The standard List next-page token. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `billingAccounts_locations_get` | `SELECT` | `billingAccountsId, locationsId` | Gets information about a location. |
-| `billingAccounts_locations_list` | `SELECT` | `billingAccountsId` | Lists information about the supported locations for this service. |
-| `folders_locations_get` | `SELECT` | `foldersId, locationsId` | Gets information about a location. |
+| `billing_accounts_locations_list` | `SELECT` | `billingAccountsId` | Lists information about the supported locations for this service. |
 | `folders_locations_list` | `SELECT` | `foldersId` | Lists information about the supported locations for this service. |
-| `list` | `SELECT` | `name` | Lists information about the supported locations for this service. |
-| `organizations_locations_get` | `SELECT` | `locationsId, organizationsId` | Gets information about a location. |
+| `locations_list` | `SELECT` | `name` | Lists information about the supported locations for this service. |
 | `organizations_locations_list` | `SELECT` | `organizationsId` | Lists information about the supported locations for this service. |
-| `projects_locations_get` | `SELECT` | `locationsId, projectsId` | Gets information about a location. |
 | `projects_locations_list` | `SELECT` | `projectsId` | Lists information about the supported locations for this service. |
+| `billing_accounts_locations_get` | `EXEC` | `billingAccountsId, locationsId` | Gets information about a location. |
+| `folders_locations_get` | `EXEC` | `foldersId, locationsId` | Gets information about a location. |
+| `organizations_locations_get` | `EXEC` | `locationsId, organizationsId` | Gets information about a location. |
+| `projects_locations_get` | `EXEC` | `locationsId, projectsId` | Gets information about a location. |

@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of the redis cache. |
-| `tags` | `object` | Resource tags. |
 | `zones` | `array` | A list of availability zones denoting where the resource needs to come from. |
 | `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
 | `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | Properties of the redis cache. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

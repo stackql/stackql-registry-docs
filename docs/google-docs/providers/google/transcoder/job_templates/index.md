@@ -27,13 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name of the job template. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/jobTemplates/&#123;job_template&#125;` |
-| `config` | `object` | Job configuration |
-| `labels` | `object` | The labels associated with this job template. You can use these to organize and group your job templates. |
+| `nextPageToken` | `string` | The pagination token. |
+| `unreachable` | `array` | List of regions that could not be reached. |
+| `jobTemplates` | `array` | List of job templates in the specified region. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_jobTemplates_get` | `SELECT` | `jobTemplatesId, locationsId, projectsId` | Returns the job template data. |
-| `projects_locations_jobTemplates_list` | `SELECT` | `locationsId, projectsId` | Lists job templates in the specified region. |
-| `projects_locations_jobTemplates_create` | `INSERT` | `locationsId, projectsId` | Creates a job template in the specified region. |
-| `projects_locations_jobTemplates_delete` | `DELETE` | `jobTemplatesId, locationsId, projectsId` | Deletes a job template. |
+| `get` | `SELECT` | `jobTemplatesId, locationsId, projectsId` | Returns the job template data. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists job templates in the specified region. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a job template in the specified region. |
+| `delete` | `DELETE` | `jobTemplatesId, locationsId, projectsId` | Deletes a job template. |

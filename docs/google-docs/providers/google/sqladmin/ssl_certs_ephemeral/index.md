@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `sql_sslCerts_createEphemeral` | `INSERT` | `instance, project` |
+| `create_ephemeral` | `INSERT` | `instance, project` |

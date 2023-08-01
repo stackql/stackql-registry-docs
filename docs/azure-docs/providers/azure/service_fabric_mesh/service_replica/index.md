@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `osType` | `string` | The operation system required by the code in service. |
 | `replicaName` | `string` | Name of the replica. |
 | `codePackages` | `array` | Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.). |
 | `diagnostics` | `object` | Reference to sinks in DiagnosticsDescription. |
 | `networkRefs` | `array` | The names of the private networks that this service needs to be part of. |
+| `osType` | `string` | The operation system required by the code in service. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_documents_documentLinks_create` | `INSERT` | `documentsId, locationsId, projectsId` | Create a link between a source document and a target document. |
-| `projects_locations_documents_documentLinks_delete` | `DELETE` | `documentLinksId, documentsId, locationsId, projectsId` | Remove the link between the source and target documents. |
+| `create` | `INSERT` | `documentsId, locationsId, projectsId` | Create a link between a source document and a target document. |
+| `delete` | `DELETE` | `documentLinksId, documentsId, locationsId, projectsId` | Remove the link between the source and target documents. |

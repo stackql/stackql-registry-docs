@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure resource Id |
 | `name` | `string` | Azure resource name |
+| `location` | `string` | Resource location |
 | `properties` | `object` | An Azure Activity Log Alert rule. |
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Azure resource type |
-| `location` | `string` | Resource location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

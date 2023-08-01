@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the deployment. |
 | `name` | `string` | The name of the deployment. |
+| `tags` | `object` | Deployment tags |
 | `type` | `string` | The type of the deployment. |
 | `location` | `string` | the location of the deployment. |
 | `properties` | `object` | Deployment properties with additional details. |
-| `tags` | `object` | Deployment tags |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

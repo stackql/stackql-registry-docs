@@ -33,7 +33,7 @@ Service Bus
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Bus (Microsoft.ServiceBus)</td></tr>
 <tr><td><b>Description</b></td><td>Service Bus</td></tr>
-<tr><td><b>Id</b></td><td><code>service_bus:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_bus:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

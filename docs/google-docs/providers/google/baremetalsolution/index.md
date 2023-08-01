@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Provides ways to manage Bare Metal Solution hardware installed in a regional extension located near a Google Cloud data center.  
+Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Extension Located Near A Google Cloud Data Center.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>13</b></span><br />
-<span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>42</b></span><br />
+<span>total resources:&nbsp;<b>12</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>46</b></span><br />
 </div>
 </div>
 
@@ -32,14 +32,13 @@ Provides ways to manage Bare Metal Solution hardware installed in a regional ext
 <tr><td><b>Name</b></td><td><code>google.baremetalsolution</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Bare Metal Solution API</td></tr>
-<tr><td><b>Description</b></td><td>Provides ways to manage Bare Metal Solution hardware installed in a regional extension located near a Google Cloud data center.</td></tr>
-<tr><td><b>Id</b></td><td><code>baremetalsolution:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Extension Located Near A Google Cloud Data Center.</td></tr>
+<tr><td><b>Id</b></td><td><code>baremetalsolution:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/google/baremetalsolution/instance_provisioning_settings/">instance_provisioning_settings</a><br />
 <a href="/providers/google/baremetalsolution/instances/">instances</a><br />
 <a href="/providers/google/baremetalsolution/locations/">locations</a><br />
 <a href="/providers/google/baremetalsolution/luns/">luns</a><br />

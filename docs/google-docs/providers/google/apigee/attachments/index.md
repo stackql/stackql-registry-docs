@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. ID of the attachment. |
-| `environment` | `string` | ID of the attached environment. |
 | `createdAt` | `string` | Output only. Time the attachment was created in milliseconds since epoch. |
+| `environment` | `string` | ID of the attached environment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

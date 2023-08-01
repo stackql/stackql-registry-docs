@@ -27,15 +27,15 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `currencyCode` | `string` | The currency of the transaction. |
-| `reservedInstanceValueRollup` | `object` | The cost associated with the Reserved Instance. |
 | `validationFailureReason` | `string` | Describes the reason why the exchange cannot be completed. |
+| `reservedInstanceValueSet` | `array` | The configuration of your Convertible Reserved Instances. |
+| `currencyCode` | `string` | The currency of the transaction. |
 | `outputReservedInstancesWillExpireAt` | `string` | The new end date of the reservation term. |
 | `targetConfigurationValueRollup` | `object` | The cost associated with the Reserved Instance. |
-| `targetConfigurationValueSet` | `array` | The values of the target Convertible Reserved Instances. |
 | `isValidExchange` | `boolean` | If &lt;code&gt;true&lt;/code&gt;, the exchange is valid. If &lt;code&gt;false&lt;/code&gt;, the exchange cannot be completed. |
+| `reservedInstanceValueRollup` | `object` | The cost associated with the Reserved Instance. |
 | `paymentDue` | `string` | The total true upfront charge for the exchange. |
-| `reservedInstanceValueSet` | `array` | The configuration of your Convertible Reserved Instances. |
+| `targetConfigurationValueSet` | `array` | The values of the target Convertible Reserved Instances. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

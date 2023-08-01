@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `sslPolicies_listAvailableFeatures` | `SELECT` | `project` |
+| `list_available_features` | `SELECT` | `project` |

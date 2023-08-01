@@ -35,6 +35,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `regionNetworkFirewallPolicies_getIamPolicy` | `SELECT` | `project, region, resource` | Gets the access control policy for a resource. May be empty if no such policy or resource exists. |
-| `regionNetworkFirewallPolicies_setIamPolicy` | `EXEC` | `project, region, resource` | Sets the access control policy on the specified resource. Replaces any existing policy. |
-| `regionNetworkFirewallPolicies_testIamPermissions` | `EXEC` | `project, region, resource` | Returns permissions that a caller has on the specified resource. |
+| `get_iam_policy` | `SELECT` | `project, region, resource` | Gets the access control policy for a resource. May be empty if no such policy or resource exists. |
+| `set_iam_policy` | `EXEC` | `project, region, resource` | Sets the access control policy on the specified resource. Replaces any existing policy. |
+| `test_iam_permissions` | `EXEC` | `project, region, resource` | Returns permissions that a caller has on the specified resource. |

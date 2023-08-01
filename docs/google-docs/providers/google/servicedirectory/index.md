@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Service Directory is a platform for discovering, publishing, and connecting services.   
+Service Directory Is A Platform For Discovering, Publishing, And Connecting Services.   
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>26</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>24</b></span><br />
 </div>
 </div>
 
@@ -32,8 +32,8 @@ Service Directory is a platform for discovering, publishing, and connecting serv
 <tr><td><b>Name</b></td><td><code>google.servicedirectory</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Directory API</td></tr>
-<tr><td><b>Description</b></td><td>Service Directory is a platform for discovering, publishing, and connecting services. </td></tr>
-<tr><td><b>Id</b></td><td><code>servicedirectory:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Service Directory Is A Platform For Discovering, Publishing, And Connecting Services. </td></tr>
+<tr><td><b>Id</b></td><td><code>servicedirectory:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,12 +42,10 @@ Service Directory is a platform for discovering, publishing, and connecting serv
 <a href="/providers/google/servicedirectory/endpoints/">endpoints</a><br />
 <a href="/providers/google/servicedirectory/locations/">locations</a><br />
 <a href="/providers/google/servicedirectory/namespaces/">namespaces</a><br />
-<a href="/providers/google/servicedirectory/namespaces_iam_bindings/">namespaces_iam_bindings</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/servicedirectory/namespaces_iam_policies/">namespaces_iam_policies</a><br />
 <a href="/providers/google/servicedirectory/services/">services</a><br />
-<a href="/providers/google/servicedirectory/services_iam_bindings/">services_iam_bindings</a><br />
 <a href="/providers/google/servicedirectory/services_iam_policies/">services_iam_policies</a><br />
 </div>
 </div>

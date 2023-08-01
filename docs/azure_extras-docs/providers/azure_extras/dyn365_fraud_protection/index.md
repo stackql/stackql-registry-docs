@@ -33,7 +33,7 @@ DFP Web API provides a RESTful set of web services that enables users to create,
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DFP (Microsoft.Dynamics365FraudProtection)</td></tr>
 <tr><td><b>Description</b></td><td>DFP Web API provides a RESTful set of web services that enables users to create, retrieve, update, and delete DFP instances</td></tr>
-<tr><td><b>Id</b></td><td><code>dyn365_fraud_protection:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dyn365_fraud_protection:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

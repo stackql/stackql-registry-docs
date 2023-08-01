@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Path reference to this private endpoint endpoint connection. /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/Microsoft.Migrate/assessmentProjects/&#123;projectName&#125;/privateEndpointConnections/&#123;privateEndpointConnectionName&#125; |
 | `name` | `string` | Name of the private endpoint endpoint connection. |
+| `type` | `string` | Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections]. |
 | `eTag` | `string` | For optimistic concurrency control. |
 | `properties` | `object` | Private endpoint connection properties. |
-| `type` | `string` | Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections]. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

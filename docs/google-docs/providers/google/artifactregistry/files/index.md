@@ -28,13 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the file, for example: "projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt". If the file ID part contains slashes, they are escaped. |
+| `updateTime` | `string` | Output only. The time when the File was last updated. |
+| `createTime` | `string` | Output only. The time when the File was created. |
+| `fetchTime` | `string` | Output only. The time when the last attempt to refresh the file's data was made. Only set when the repository is remote. |
 | `hashes` | `array` | The hashes of the file content. |
 | `owner` | `string` | The name of the Package or Version that owns this file, if any. |
 | `sizeBytes` | `string` | The size of the File in bytes. |
-| `updateTime` | `string` | The time when the File was last updated. |
-| `createTime` | `string` | The time when the File was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_repositories_files_get` | `SELECT` | `filesId, locationsId, projectsId, repositoriesId` | Gets a file. |
-| `projects_locations_repositories_files_list` | `SELECT` | `locationsId, projectsId, repositoriesId` | Lists files. |
+| `get` | `SELECT` | `filesId, locationsId, projectsId, repositoriesId` | Gets a file. |
+| `list` | `SELECT` | `locationsId, projectsId, repositoriesId` | Lists files. |

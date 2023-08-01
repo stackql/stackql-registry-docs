@@ -28,38 +28,38 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `node_id` | `string` |  |
 | `title` | `string` | Title of the issue |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `created_at` | `string` |  |
-| `draft` | `boolean` |  |
-| `comments` | `integer` |  |
-| `url` | `string` | URL for the issue |
-| `events_url` | `string` |  |
-| `body_text` | `string` |  |
-| `state` | `string` | State of the issue; either 'open' or 'closed' |
-| `labels` | `array` | Labels to associate with this issue; pass one or more label names to replace the set of labels on this issue; send an empty array to clear all labels from the issue; note that the labels are silently dropped for users without push access to the repository |
-| `assignee` | `object` | Simple User |
 | `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `assignees` | `array` |  |
-| `milestone` | `object` | A collection of related issues and pull requests. |
-| `labels_url` | `string` |  |
-| `body` | `string` | Contents of the issue |
-| `number` | `integer` | Number uniquely identifying the issue within its repository |
-| `reactions` | `object` |  |
 | `user` | `object` | Simple User |
-| `repository` | `object` | A git repository |
+| `labels_url` | `string` |  |
+| `labels` | `array` | Labels to associate with this issue; pass one or more label names to replace the set of labels on this issue; send an empty array to clear all labels from the issue; note that the labels are silently dropped for users without push access to the repository |
 | `html_url` | `string` |  |
+| `reactions` | `object` |  |
+| `repository` | `object` | A git repository |
+| `author_association` | `string` | How the author is associated with the repository. |
 | `repository_url` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `closed_at` | `string` |  |
+| `state` | `string` | State of the issue; either 'open' or 'closed' |
 | `body_html` | `string` |  |
+| `node_id` | `string` |  |
+| `body_text` | `string` |  |
+| `draft` | `boolean` |  |
+| `body` | `string` | Contents of the issue |
 | `closed_by` | `object` | Simple User |
-| `timeline_url` | `string` |  |
-| `comments_url` | `string` |  |
-| `pull_request` | `object` |  |
 | `locked` | `boolean` |  |
+| `events_url` | `string` |  |
+| `active_lock_reason` | `string` |  |
+| `created_at` | `string` |  |
+| `timeline_url` | `string` |  |
 | `updated_at` | `string` |  |
+| `comments` | `integer` |  |
+| `milestone` | `object` | A collection of related issues and pull requests. |
+| `comments_url` | `string` |  |
+| `closed_at` | `string` |  |
+| `number` | `integer` | Number uniquely identifying the issue within its repository |
+| `url` | `string` | URL for the issue |
+| `assignees` | `array` |  |
+| `assignee` | `object` | Simple User |
+| `pull_request` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

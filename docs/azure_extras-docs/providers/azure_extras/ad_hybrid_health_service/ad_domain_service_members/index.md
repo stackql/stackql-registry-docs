@@ -27,40 +27,40 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `osVersion` | `string` | The version of the operating system installed in the machine. |
-| `serviceId` | `string` | The service id to whom this server belongs. |
-| `activeAlerts` | `integer` | The total number of alerts that are currently active for the server. |
-| `dimensions` | `array` | The server specific configuration related dimensions. |
-| `addsRoles` | `array` | The list of ADDS roles. |
-| `lastDisabled` | `string` | The date and time , in UTC, when the server was last disabled. |
-| `recommendedQfes` | `array` | The list of recommended hotfixes for the server. |
-| `monitoringConfigurationsCustomized` | `array` | The customized monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
-| `machineId` | `string` | The id of the machine. |
-| `osName` | `string` | The name of the operating system installed in the machine. |
+| `dcTypes` | `array` | The list of domain controller types. |
 | `serviceMemberId` | `string` | The id of the server. |
-| `machineName` | `string` | The name of the server. |
+| `createdDate` | `string` | The date time , in UTC, when the server was onboarded to Azure Active Directory Connect Health. |
+| `disabled` | `boolean` | Indicates if the server is disabled or not.  |
+| `recommendedQfes` | `array` | The list of recommended hotfixes for the server. |
+| `tenantId` | `string` | The tenant id to whom this server belongs. |
+| `dimensions` | `array` | The server specific configuration related dimensions. |
+| `status` | `string` | The health status of the server. |
+| `serviceId` | `string` | The service id to whom this server belongs. |
+| `gcReachable` | `boolean` | Indicates if the global catalog for this domain is reachable or not. |
+| `osVersion` | `string` | The version of the operating system installed in the machine. |
 | `properties` | `array` | Server specific properties. |
 | `resolvedAlerts` | `integer` | The total count of alerts that are resolved for this server. |
-| `status` | `string` | The health status of the server. |
+| `machineId` | `string` | The id of the machine. |
 | `serverReportedMonitoringLevel` | `string` | The monitoring level reported by the server. |
-| `additionalInformation` | `string` | The additional information, if any, for the server. |
-| `siteName` | `string` | The site name. |
-| `pdcReachable` | `boolean` | Indicates if the primary domain controller is reachable or not. |
-| `disabledReason` | `integer` | The reason for disabling the server. |
-| `lastServerReportedMonitoringLevelChange` | `string` | The date and time, in UTC, when the server's data monitoring configuration was last changed. |
-| `createdDate` | `string` | The date time , in UTC, when the server was onboarded to Azure Active Directory Connect Health. |
-| `installedQfes` | `array` | The list of installed QFEs for the server. |
-| `lastUpdated` | `string` | The date and time, in UTC, when the server properties were last updated. |
-| `isAdvertising` | `boolean` | Indicates if the Dc is advertising or not. |
-| `tenantId` | `string` | The tenant id to whom this server belongs. |
-| `disabled` | `boolean` | Indicates if the server is disabled or not.  |
-| `gcReachable` | `boolean` | Indicates if the global catalog for this domain is reachable or not. |
-| `role` | `string` | The service role that is being monitored in the server. |
-| `monitoringConfigurationsComputed` | `array` | The monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
-| `dcTypes` | `array` | The list of domain controller types. |
-| `lastReboot` | `string` | The date and time, in UTC, when the server was last rebooted. |
+| `osName` | `string` | The name of the operating system installed in the machine. |
 | `sysvolState` | `boolean` | Indicates if the SYSVOL state is healthy or not. |
+| `monitoringConfigurationsCustomized` | `array` | The customized monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
 | `domainName` | `string` | The domain name. |
+| `lastServerReportedMonitoringLevelChange` | `string` | The date and time, in UTC, when the server's data monitoring configuration was last changed. |
+| `additionalInformation` | `string` | The additional information, if any, for the server. |
+| `activeAlerts` | `integer` | The total number of alerts that are currently active for the server. |
+| `installedQfes` | `array` | The list of installed QFEs for the server. |
+| `monitoringConfigurationsComputed` | `array` | The monitoring configuration of the server which determines what activities are monitored by Azure Active Directory Connect Health. |
+| `lastDisabled` | `string` | The date and time , in UTC, when the server was last disabled. |
+| `machineName` | `string` | The name of the server. |
+| `siteName` | `string` | The site name. |
+| `disabledReason` | `integer` | The reason for disabling the server. |
+| `lastUpdated` | `string` | The date and time, in UTC, when the server properties were last updated. |
+| `addsRoles` | `array` | The list of ADDS roles. |
+| `pdcReachable` | `boolean` | Indicates if the primary domain controller is reachable or not. |
+| `isAdvertising` | `boolean` | Indicates if the Dc is advertising or not. |
+| `role` | `string` | The service role that is being monitored in the server. |
+| `lastReboot` | `string` | The date and time, in UTC, when the server was last rebooted. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

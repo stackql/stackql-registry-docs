@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
 | `identity` | `object` | Managed service identity (either system assigned, or none) |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties of an IoT Central application. |
 | `sku` | `object` | Information about the SKU of the IoT Central application. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

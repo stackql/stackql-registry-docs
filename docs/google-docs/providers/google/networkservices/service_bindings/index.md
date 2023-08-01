@@ -27,16 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. Name of the ServiceBinding resource. It matches pattern `projects/*/locations/global/serviceBindings/service_binding_name`. |
-| `description` | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
-| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
-| `createTime` | `string` | Output only. The timestamp when the resource was created. |
-| `labels` | `object` | Optional. Set of label tags associated with the ServiceBinding resource. |
-| `service` | `string` | Required. The full Service Directory Service name of the format projects/*/locations/*/namespaces/*/services/* |
+| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
+| `serviceBindings` | `array` | List of ServiceBinding resources. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_serviceBindings_get` | `SELECT` | `locationsId, projectsId, serviceBindingsId` | Gets details of a single ServiceBinding. |
-| `projects_locations_serviceBindings_list` | `SELECT` | `locationsId, projectsId` | Lists ServiceBinding in a given project and location. |
-| `projects_locations_serviceBindings_create` | `INSERT` | `locationsId, projectsId` | Creates a new ServiceBinding in a given project and location. |
-| `projects_locations_serviceBindings_delete` | `DELETE` | `locationsId, projectsId, serviceBindingsId` | Deletes a single ServiceBinding. |
+| `get` | `SELECT` | `locationsId, projectsId, serviceBindingsId` | Gets details of a single ServiceBinding. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists ServiceBinding in a given project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new ServiceBinding in a given project and location. |
+| `delete` | `DELETE` | `locationsId, projectsId, serviceBindingsId` | Deletes a single ServiceBinding. |

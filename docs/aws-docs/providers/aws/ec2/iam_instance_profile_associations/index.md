@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `instanceId` | `string` | The ID of the instance. |
-| `state` | `string` | The state of the association. |
 | `timestamp` | `string` | The time the IAM instance profile was associated with the instance. |
 | `associationId` | `string` | The ID of the association. |
 | `iamInstanceProfile` | `object` | Describes an IAM instance profile. |
+| `instanceId` | `string` | The ID of the instance. |
+| `state` | `string` | The state of the association. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

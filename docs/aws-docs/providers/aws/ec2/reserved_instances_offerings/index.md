@@ -27,21 +27,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `offeringType` | `string` | The Reserved Instance offering type. |
-| `offeringClass` | `string` | If &lt;code&gt;convertible&lt;/code&gt; it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If &lt;code&gt;standard&lt;/code&gt;, it is not possible to perform an exchange. |
-| `duration` | `integer` | The duration of the Reserved Instance, in seconds. |
-| `pricingDetailsSet` | `array` | The pricing details of the Reserved Instance offering. |
-| `reservedInstancesOfferingId` | `string` | The ID of the Reserved Instance offering. This is the offering ID used in &lt;a&gt;GetReservedInstancesExchangeQuote&lt;/a&gt; to confirm that an exchange can be made. |
-| `recurringCharges` | `array` | The recurring charge tag assigned to the resource. |
-| `instanceTenancy` | `string` | The tenancy of the instance. |
-| `marketplace` | `boolean` | Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or Amazon Web Services. If it's a Reserved Instance Marketplace offering, this is &lt;code&gt;true&lt;/code&gt;. |
 | `instanceType` | `string` | The instance type on which the Reserved Instance can be used. |
 | `usagePrice` | `number` | The usage price of the Reserved Instance, per hour. |
-| `availabilityZone` | `string` | The Availability Zone in which the Reserved Instance can be used. |
+| `marketplace` | `boolean` | Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or Amazon Web Services. If it's a Reserved Instance Marketplace offering, this is &lt;code&gt;true&lt;/code&gt;. |
 | `fixedPrice` | `number` | The purchase price of the Reserved Instance. |
+| `pricingDetailsSet` | `array` | The pricing details of the Reserved Instance offering. |
+| `productDescription` | `string` | The Reserved Instance product platform description. |
 | `currencyCode` | `string` | The currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is &lt;code&gt;USD&lt;/code&gt;. |
 | `scope` | `string` | Whether the Reserved Instance is applied to instances in a Region or an Availability Zone. |
-| `productDescription` | `string` | The Reserved Instance product platform description. |
+| `availabilityZone` | `string` | The Availability Zone in which the Reserved Instance can be used. |
+| `reservedInstancesOfferingId` | `string` | The ID of the Reserved Instance offering. This is the offering ID used in &lt;a&gt;GetReservedInstancesExchangeQuote&lt;/a&gt; to confirm that an exchange can be made. |
+| `duration` | `integer` | The duration of the Reserved Instance, in seconds. |
+| `recurringCharges` | `array` | The recurring charge tag assigned to the resource. |
+| `offeringType` | `string` | The Reserved Instance offering type. |
+| `instanceTenancy` | `string` | The tenancy of the instance. |
+| `offeringClass` | `string` | If &lt;code&gt;convertible&lt;/code&gt; it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If &lt;code&gt;standard&lt;/code&gt;, it is not possible to perform an exchange. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

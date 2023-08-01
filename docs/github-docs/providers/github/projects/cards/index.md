@@ -28,18 +28,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The project card's ID |
-| `project_id` | `string` |  |
-| `content_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `creator` | `object` | Simple User |
-| `archived` | `boolean` | Whether or not the card is archived |
-| `note` | `string` |  |
-| `url` | `string` |  |
-| `column_url` | `string` |  |
-| `created_at` | `string` |  |
 | `node_id` | `string` |  |
+| `updated_at` | `string` |  |
+| `url` | `string` |  |
+| `created_at` | `string` |  |
 | `column_name` | `string` |  |
+| `creator` | `object` | Simple User |
 | `project_url` | `string` |  |
+| `archived` | `boolean` | Whether or not the card is archived |
+| `project_id` | `string` |  |
+| `column_url` | `string` |  |
+| `note` | `string` |  |
+| `content_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

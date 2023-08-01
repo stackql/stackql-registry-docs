@@ -4,8 +4,6 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - azure
-  - microsoft azure
-  - microsoft
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -19,7 +17,7 @@ slug: /providers/azure
 ---
  Cloud computing services operated by Microsoft.  
     
-:::info Provider Summary
+:::info Provider Summary (v23.03.00121)
 
 <div class="row">
 <div class="providerDocColumn">
@@ -48,6 +46,7 @@ REGISTRY PULL azure;
 > To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
 ## Authentication
+
 
 StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 

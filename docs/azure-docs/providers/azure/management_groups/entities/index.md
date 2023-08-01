@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The URL to use for getting the next set of results. |
 | `value` | `array` | The list of entities. |
 | `count` | `integer` | Total count of records that match the filter |
+| `nextLink` | `string` | The URL to use for getting the next set of results. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
+| `error` | `object` | The error detail. |
 | `percentComplete` | `number` | Percent completion |
 | `startTime` | `string` | Start time |
 | `status` | `string` | The operation status |
 | `endTime` | `string` | End time |
-| `error` | `object` | The error detail. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

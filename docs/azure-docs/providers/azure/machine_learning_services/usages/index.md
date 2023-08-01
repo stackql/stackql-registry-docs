@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Specifies the resource ID. |
 | `name` | `object` | The Usage Names. |
-| `unit` | `string` | An enum describing the unit of usage measurement. |
-| `amlWorkspaceLocation` | `string` | Region of the AML workspace in the id. |
 | `currentValue` | `integer` | The current usage of the resource. |
 | `limit` | `integer` | The maximum permitted usage of the resource. |
 | `type` | `string` | Specifies the resource type. |
+| `unit` | `string` | An enum describing the unit of usage measurement. |
+| `amlWorkspaceLocation` | `string` | Region of the AML workspace in the id. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

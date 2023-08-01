@@ -28,11 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the SKU |
+| `resourceType` | `string` | The fully qualified resource type |
+| `restrictions` | `array` | The restrictions because of which SKU cannot be used |
 | `tier` | `string` | The price tier of the SKU |
 | `locationInfo` | `array` | Locations and zones |
 | `locations` | `array` | The set of locations that the SKU is available |
-| `resourceType` | `string` | The fully qualified resource type |
-| `restrictions` | `array` | The restrictions because of which SKU cannot be used |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -28,4 +28,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_keys_getKeyString` | `SELECT` | `keysId, locationsId, projectsId` |
+| `get_key_string` | `SELECT` | `keysId, locationsId, projectsId` |

@@ -28,10 +28,10 @@ image: /img/providers/netlify/stackql-netlify-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `full_name` | `string` |
 | `role` | `string` |
 | `avatar` | `string` |
 | `email` | `string` |
-| `full_name` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

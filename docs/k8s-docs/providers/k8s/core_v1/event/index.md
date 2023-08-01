@@ -27,23 +27,23 @@ image: /img/providers/k8s/stackql-k8s-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `message` | `string` | A human-readable description of the status of this operation. |
-| `related` | `object` | ObjectReference contains enough information to let you inspect or modify the referred object. |
-| `apiVersion` | `string` | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |
-| `count` | `integer` | The number of times this event has occurred. |
-| `series` | `object` | EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time. |
-| `source` | `object` | EventSource contains information for an event. |
-| `reportingComponent` | `string` | Name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`. |
-| `lastTimestamp` | `string` | Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. |
-| `reportingInstance` | `string` | ID of the controller instance, e.g. `kubelet-xyzf`. |
 | `action` | `string` | What action was taken/failed regarding to the Regarding object. |
-| `eventTime` | `string` | MicroTime is version of Time with microsecond level precision. |
-| `type` | `string` | Type of this event (Normal, Warning), new types could be added in the future |
-| `involvedObject` | `object` | ObjectReference contains enough information to let you inspect or modify the referred object. |
+| `reason` | `string` | This should be a short, machine understandable string that gives the reason for the transition into the object's current status. |
+| `reportingInstance` | `string` | ID of the controller instance, e.g. `kubelet-xyzf`. |
 | `firstTimestamp` | `string` | Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. |
 | `metadata` | `object` | ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create. |
-| `reason` | `string` | This should be a short, machine understandable string that gives the reason for the transition into the object's current status. |
+| `related` | `object` | ObjectReference contains enough information to let you inspect or modify the referred object. |
 | `kind` | `string` | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |
+| `lastTimestamp` | `string` | Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. |
+| `type` | `string` | Type of this event (Normal, Warning), new types could be added in the future |
+| `reportingComponent` | `string` | Name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`. |
+| `involvedObject` | `object` | ObjectReference contains enough information to let you inspect or modify the referred object. |
+| `eventTime` | `string` | MicroTime is version of Time with microsecond level precision. |
+| `message` | `string` | A human-readable description of the status of this operation. |
+| `series` | `object` | EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time. |
+| `count` | `integer` | The number of times this event has occurred. |
+| `source` | `object` | EventSource contains information for an event. |
+| `apiVersion` | `string` | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

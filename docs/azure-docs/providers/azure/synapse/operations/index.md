@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name |
-| `display` | `object` | Description of an available operation |
-| `isDataAction` | `string` | Whether this operation is a data action |
 | `origin` | `string` | Operation origin |
 | `properties` | `object` | What is this? |
+| `display` | `object` | Description of an available operation |
+| `isDataAction` | `string` | Whether this operation is a data action |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

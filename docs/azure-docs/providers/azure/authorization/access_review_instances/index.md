@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The access review instance id. |
 | `name` | `string` | The access review instance name. |
-| `properties` | `object` | Access Review Instance properties. |
 | `type` | `string` | The resource type. |
+| `properties` | `object` | Access Review Instance properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

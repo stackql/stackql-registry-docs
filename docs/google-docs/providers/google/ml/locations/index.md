@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` |  |
-| `capabilities` | `array` | Capabilities available in the location. |
+| `nextPageToken` | `string` | Optional. Pass this token as the `page_token` field of the request for a subsequent call. |
+| `locations` | `array` | Locations where at least one type of CMLE capability is available. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

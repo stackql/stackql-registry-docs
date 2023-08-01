@@ -29,10 +29,10 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The unique ID of this Support Ticket reply.<br /> |
 | `description` | `string` | The body of this Support Ticket reply.<br /> |
+| `created` | `string` | The date and time this Ticket reply was created.<br /> |
 | `created_by` | `string` | The User who submitted this reply.<br /> |
 | `from_linode` | `boolean` | If set to true, this reply came from a Linode employee.<br /> |
 | `gravatar_id` | `string` | The Gravatar ID of the User who created this reply.<br /> |
-| `created` | `string` | The date and time this Ticket reply was created.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

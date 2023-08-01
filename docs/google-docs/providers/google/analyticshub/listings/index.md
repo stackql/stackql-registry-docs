@@ -25,12 +25,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `nextPageToken` | `string` | A token to request the next page of results. |
+| `listings` | `array` | The list of Listing. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_dataExchanges_listings_get` | `SELECT` | `dataExchangesId, listingsId, locationsId, projectsId` | Gets the details of a listing. |
-| `projects_locations_dataExchanges_listings_list` | `SELECT` | `dataExchangesId, locationsId, projectsId` | Lists all listings in a given project and location. |
-| `projects_locations_dataExchanges_listings_create` | `INSERT` | `dataExchangesId, locationsId, projectsId` | Creates a new listing. |
-| `projects_locations_dataExchanges_listings_delete` | `DELETE` | `dataExchangesId, listingsId, locationsId, projectsId` | Deletes a listing. |
-| `projects_locations_dataExchanges_listings_patch` | `EXEC` | `dataExchangesId, listingsId, locationsId, projectsId` | Updates an existing listing. |
-| `projects_locations_dataExchanges_listings_subscribe` | `EXEC` | `dataExchangesId, listingsId, locationsId, projectsId` | Subscribes to a listing. Currently, with Analytics Hub, you can create listings that reference only BigQuery datasets. Upon subscription to a listing for a BigQuery dataset, Analytics Hub creates a linked dataset in the subscriber's project. |
+| `projects_locations_data_exchanges_listings_get` | `SELECT` | `dataExchangesId, listingsId, locationsId, projectsId` | Gets the details of a listing. |
+| `projects_locations_data_exchanges_listings_list` | `SELECT` | `dataExchangesId, locationsId, projectsId` | Lists all listings in a given project and location. |
+| `projects_locations_data_exchanges_listings_create` | `INSERT` | `dataExchangesId, locationsId, projectsId` | Creates a new listing. |
+| `projects_locations_data_exchanges_listings_delete` | `DELETE` | `dataExchangesId, listingsId, locationsId, projectsId` | Deletes a listing. |
+| `projects_locations_data_exchanges_listings_patch` | `EXEC` | `dataExchangesId, listingsId, locationsId, projectsId` | Updates an existing listing. |
+| `projects_locations_data_exchanges_listings_subscribe` | `EXEC` | `dataExchangesId, listingsId, locationsId, projectsId` | Subscribes to a listing. Currently, with Analytics Hub, you can create listings that reference only BigQuery datasets. Upon subscription to a listing for a BigQuery dataset, Analytics Hub creates a linked dataset in the subscriber's project. |

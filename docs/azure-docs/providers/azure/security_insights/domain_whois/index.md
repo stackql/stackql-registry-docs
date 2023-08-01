@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `created` | `string` | The timestamp at which this record was created |
-| `domain` | `string` | The domain for this whois record |
-| `expires` | `string` | The timestamp at which this record will expire |
 | `parsedWhois` | `object` | The whois record for a given domain |
 | `server` | `string` | The hostname of this registrar's whois server |
 | `updated` | `string` | The timestamp at which this record was last updated |
+| `created` | `string` | The timestamp at which this record was created |
+| `domain` | `string` | The domain for this whois record |
+| `expires` | `string` | The timestamp at which this record will expire |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

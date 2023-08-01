@@ -29,26 +29,26 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the span. |
 | `service` | `string` | The name of the service this span is part of. |
-| `operationName` | `string` | The name of the operation given to the span. |
 | `serviceColor` | `string` | Color hex code assigned to the service. |
-| `kind` | `string` | Span kind describes the relationship between the Span, its parents, and its children in a Trace. Possible values: `CLIENT`, `SERVER`, `PRODUCER`, `CONSUMER`, `INTERNAL`. |
-| `events` | `array` | Events attached to this span. |
 | `remoteServiceColor` | `string` | Color hex code assigned to the remote service. |
 | `criticalPathContribution` | `object` |  |
-| `duration` | `integer` | Number of nanoseconds the span lasted. |
-| `status` | `object` |  |
-| `parentId` | `string` | Identifier of the parent span, if any. If the span has no parent it's considered a root span. |
 | `serviceType` | `string` | Defines type of service. |
-| `logs` | `array` | Logs attached to this span. |
+| `operationName` | `string` | The name of the operation given to the span. |
 | `startedAt` | `string` | Date and time the span was started in the [ISO 8601 / RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `parentId` | `string` | Identifier of the parent span, if any. If the span has no parent it's considered a root span. |
+| `remoteServiceType` | `string` | Defines type of service. |
+| `errorMessage` | `string` | Produced error message (could be a stack trace, database error code, ..) |
 | `resource` | `string` | The name of the resource attached to the span. |
 | `fields` | `object` | Fields attached to this span. |
-| `remoteService` | `string` | Name of the possible remote span's service. |
-| `numberOfLinks` | `integer` | Number of span links in this span. |
-| `remoteServiceType` | `string` | Defines type of service. |
-| `info` | `object` |  |
-| `errorMessage` | `string` | Produced error message (could be a stack trace, database error code, ..) |
+| `events` | `array` | Events attached to this span. |
+| `kind` | `string` | Span kind describes the relationship between the Span, its parents, and its children in a Trace. Possible values: `CLIENT`, `SERVER`, `PRODUCER`, `CONSUMER`, `INTERNAL`. |
+| `status` | `object` |  |
+| `duration` | `integer` | Number of nanoseconds the span lasted. |
 | `links` | `array` | List of casually related spans. |
+| `remoteService` | `string` | Name of the possible remote span's service. |
+| `logs` | `array` | Logs attached to this span. |
+| `numberOfLinks` | `integer` | Number of span links in this span. |
+| `info` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_catalogs_attributesConfig_addCatalogAttribute` | `INSERT` | `catalogsId, locationsId, projectsId` | Adds the specified CatalogAttribute to the AttributesConfig. If the CatalogAttribute to add already exists, an ALREADY_EXISTS error is returned. |
-| `projects_locations_catalogs_attributesConfig_removeCatalogAttribute` | `DELETE` | `catalogsId, locationsId, projectsId` | Removes the specified CatalogAttribute from the AttributesConfig. If the CatalogAttribute to remove does not exist, a NOT_FOUND error is returned. |
+| `projects_locations_catalogs_attributes_config_add_catalog_attribute` | `EXEC` | `catalogsId, locationsId, projectsId` | Adds the specified CatalogAttribute to the AttributesConfig. If the CatalogAttribute to add already exists, an ALREADY_EXISTS error is returned. |
+| `projects_locations_catalogs_attributes_config_remove_catalog_attribute` | `EXEC` | `catalogsId, locationsId, projectsId` | Removes the specified CatalogAttribute from the AttributesConfig. If the CatalogAttribute to remove does not exist, a NOT_FOUND error is returned. |

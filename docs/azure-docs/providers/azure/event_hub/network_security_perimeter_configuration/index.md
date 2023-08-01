@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `tags` | `object` | Resource tags. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties of NetworkSecurityPerimeterConfiguration |
-| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,16 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Immutable. The resource name of the view. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/views/&#123;view&#125; |
-| `value` | `string` | String with specific view properties, must be non-empty. |
-| `createTime` | `string` | Output only. The time at which this view was created. |
-| `displayName` | `string` | The human-readable display name of the view. |
-| `updateTime` | `string` | Output only. The most recent time at which the view was updated. |
+| `views` | `array` | The views that match the request. |
+| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_views_get` | `SELECT` | `locationsId, projectsId, viewsId` | Gets a view. |
-| `projects_locations_views_list` | `SELECT` | `locationsId, projectsId` | Lists views. |
-| `projects_locations_views_create` | `INSERT` | `locationsId, projectsId` | Creates a view. |
-| `projects_locations_views_delete` | `DELETE` | `locationsId, projectsId, viewsId` | Deletes a view. |
-| `projects_locations_views_patch` | `EXEC` | `locationsId, projectsId, viewsId` | Updates a view. |
+| `get` | `SELECT` | `locationsId, projectsId, viewsId` | Gets a view. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists views. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a view. |
+| `delete` | `DELETE` | `locationsId, projectsId, viewsId` | Deletes a view. |
+| `patch` | `EXEC` | `locationsId, projectsId, viewsId` | Updates a view. |

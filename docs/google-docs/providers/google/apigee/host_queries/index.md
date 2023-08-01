@@ -25,24 +25,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | Asynchronous Query Name. |
-| `result` | `object` |  |
-| `state` | `string` | Query state could be "enqueued", "running", "completed", "failed". |
-| `error` | `string` | Error is set when query fails. |
-| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostQueries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
-| `resultRows` | `string` | ResultRows is available only after the query is completed. |
-| `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
-| `queryParams` | `object` |  |
-| `created` | `string` | Creation time of the query. |
-| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
-| `reportDefinitionId` | `string` | Asynchronous Report ID. |
-| `updated` | `string` | Last updated timestamp for the query. |
-| `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_hostQueries_get` | `SELECT` | `hostQueriesId, organizationsId` | Get status of a query submitted at host level. If the query is still in progress, the `state` is set to "running" After the query has completed successfully, `state` is set to "completed" |
-| `organizations_hostQueries_list` | `SELECT` | `organizationsId` | Return a list of Asynchronous Queries at host level. |
-| `organizations_hostQueries_create` | `INSERT` | `organizationsId` | Submit a query at host level to be processed in the background. If the submission of the query succeeds, the API returns a 201 status and an ID that refer to the query. In addition to the HTTP status 201, the `state` of "enqueued" means that the request succeeded. |
+| `organizations_host_queries_get` | `SELECT` | `hostQueriesId, organizationsId` | Get status of a query submitted at host level. If the query is still in progress, the `state` is set to "running" After the query has completed successfully, `state` is set to "completed" |
+| `organizations_host_queries_list` | `SELECT` | `organizationsId` | Return a list of Asynchronous Queries at host level. |
+| `organizations_host_queries_create` | `INSERT` | `organizationsId` | Submit a query at host level to be processed in the background. If the submission of the query succeeds, the API returns a 201 status and an ID that refer to the query. In addition to the HTTP status 201, the `state` of "enqueued" means that the request succeeded. |

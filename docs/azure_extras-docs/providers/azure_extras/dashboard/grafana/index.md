@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ARM id of the grafana resource |
 | `name` | `string` | Name of the grafana resource. |
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
-| `properties` | `object` | Properties specific to the grafana resource. |
 | `tags` | `object` | The tags for grafana resource. |
+| `properties` | `object` | Properties specific to the grafana resource. |
+| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
 | `location` | `string` | The geo-location where the grafana resource lives |
 | `sku` | `object` |  |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |

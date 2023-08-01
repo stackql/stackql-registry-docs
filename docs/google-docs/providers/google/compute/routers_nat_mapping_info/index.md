@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
-| `warning` | `object` | [Output Only] Informational warning message. |
-| `kind` | `string` | [Output Only] Type of resource. Always compute#vmEndpointNatMappingsList for lists of Nat mappings of VM endpoints. |
 | `nextPageToken` | `string` | [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results. |
 | `result` | `array` | [Output Only] A list of Nat mapping information of VM endpoints. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for this resource. |
+| `warning` | `object` | [Output Only] Informational warning message. |
+| `kind` | `string` | [Output Only] Type of resource. Always compute#vmEndpointNatMappingsList for lists of Nat mappings of VM endpoints. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `routers_getNatMappingInfo` | `SELECT` | `project, region, router` |
+| `get_nat_mapping_info` | `SELECT` | `project, region, router` |

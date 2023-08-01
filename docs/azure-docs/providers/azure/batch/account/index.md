@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the resource. |
 | `name` | `string` | The name of the resource. |
-| `tags` | `object` | The tags of the resource. |
-| `type` | `string` | The type of the resource. |
 | `identity` | `object` | The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode. |
 | `location` | `string` | The location of the resource. |
 | `properties` | `object` | Account specific properties. |
+| `tags` | `object` | The tags of the resource. |
+| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

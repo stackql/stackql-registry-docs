@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Gets or sets the Id. |
 | `name` | `string` | Gets or sets the name. |
-| `properties` | `object` | Defines the resource properties. |
+| `kind` | `string` | Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Gets or sets the Resource tags. |
 | `location` | `string` | Gets or sets the location. |
 | `extendedLocation` | `object` | The extended location. |
+| `properties` | `object` | Defines the resource properties. |
 | `type` | `string` | Gets or sets the type of the resource. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `kind` | `string` | Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
-| `tags` | `object` | Gets or sets the Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

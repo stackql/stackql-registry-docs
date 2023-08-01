@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
 | `properties` | `object` | Differentiated Services Code Point configuration properties. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `location` | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

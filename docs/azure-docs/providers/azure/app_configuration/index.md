@@ -33,7 +33,7 @@ App Configuration Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>App Configuration Management Client (Microsoft.AppConfiguration)</td></tr>
 <tr><td><b>Description</b></td><td>App Configuration Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>app_configuration:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>app_configuration:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

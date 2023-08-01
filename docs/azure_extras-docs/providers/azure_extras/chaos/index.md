@@ -33,7 +33,7 @@ Azure Chaos Resource Provider REST API
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Chaos Management (Microsoft.Chaos)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Chaos Resource Provider REST API</td></tr>
-<tr><td><b>Id</b></td><td><code>chaos:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>chaos:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

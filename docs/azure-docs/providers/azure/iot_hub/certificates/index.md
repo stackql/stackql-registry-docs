@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The name of the certificate. |
-| `type` | `string` | The resource type. |
 | `etag` | `string` | The entity tag. |
 | `properties` | `object` | The description of an X509 CA Certificate. |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

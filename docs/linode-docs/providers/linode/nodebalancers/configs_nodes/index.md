@@ -28,13 +28,13 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This node's unique ID. |
-| `label` | `string` | The label for this node.  This is for display purposes only.<br /> |
 | `mode` | `string` | The mode this NodeBalancer should use when sending traffic to this backend.<br />* If set to `accept` this backend is accepting traffic.<br />* If set to `reject` this backend will not receive traffic.<br />* If set to `drain` this backend will not receive _new_ traffic, but connections already<br />  pinned to it will continue to be routed to it.<br /><br />* If set to `backup`, this backend will only receive traffic if all `accept` nodes<br />  are down.<br /> |
 | `nodebalancer_id` | `integer` | The NodeBalancer ID that this Node belongs to.<br /> |
 | `status` | `string` | The current status of this node, based on the configured checks of its NodeBalancer Config.<br /> |
 | `weight` | `integer` | Used when picking a backend to serve a request and is not pinned to a single backend yet.  Nodes with a higher weight will receive more traffic.<br /> |
 | `address` | `string` | The private IP Address where this backend can be reached. This _must_ be a private IP address.<br /> |
 | `config_id` | `integer` | The NodeBalancer Config ID that this Node belongs to.<br /> |
+| `label` | `string` | The label for this node.  This is for display purposes only.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

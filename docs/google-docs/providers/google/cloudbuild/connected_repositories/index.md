@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_bitbucketServerConfigs_connectedRepositories_batchCreate` | `INSERT` | `bitbucketServerConfigsId, locationsId, projectsId` | Batch connecting Bitbucket Server repositories to Cloud Build. |
-| `projects_locations_gitLabConfigs_connectedRepositories_batchCreate` | `INSERT` | `gitLabConfigsId, locationsId, projectsId` | Batch connecting GitLab repositories to Cloud Build. This API is experimental. |
+| `projects_locations_bitbucket_server_configs_connected_repositories_batch_create` | `EXEC` | `bitbucketServerConfigsId, locationsId, projectsId` | Batch connecting Bitbucket Server repositories to Cloud Build. |
+| `projects_locations_gitlab_configs_connected_repositories_batch_create` | `EXEC` | `gitLabConfigsId, locationsId, projectsId` | Batch connecting GitLab repositories to Cloud Build. This API is experimental. |

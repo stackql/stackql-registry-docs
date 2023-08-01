@@ -25,24 +25,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | The name of the node. |
-| `totalResources` | `object` |  |
-| `instances` | `array` | Instances scheduled on this node. |
-| `serverBinding` | `object` |  |
-| `consumedResources` | `object` |  |
-| `disks` | `array` | Local disk configurations. |
-| `cpuOvercommitType` | `string` | CPU overcommit. |
-| `serverId` | `string` | Server ID associated with this node. |
-| `instanceConsumptionData` | `array` | Instance data that shows consumed resources on the node. |
-| `accelerators` | `array` | Accelerators for this node. |
-| `status` | `string` |  |
-| `satisfiesPzs` | `boolean` | [Output Only] Reserved for future use. |
-| `nodeType` | `string` | The type of this node. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `nodeGroups_listNodes` | `SELECT` | `nodeGroup, project, zone` | Lists nodes in the node group. |
-| `nodeGroups_addNodes` | `INSERT` | `nodeGroup, project, zone` | Adds specified number of nodes to the node group. |
-| `nodeGroups_deleteNodes` | `DELETE` | `nodeGroup, project, zone` | Deletes specified nodes from the node group. |
+| `add_nodes` | `EXEC` | `nodeGroup, project, zone` | Adds specified number of nodes to the node group. |
+| `delete_nodes` | `EXEC` | `nodeGroup, project, zone` | Deletes specified nodes from the node group. |
+| `list_nodes` | `EXEC` | `nodeGroup, project, zone` | Lists nodes in the node group. |

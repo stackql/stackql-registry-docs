@@ -28,23 +28,23 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | A unique ID that can be used to identify and reference the Managed Database. |
-| `ssl_connection` | `boolean` | Whether to require SSL credentials to establish a connection to the Managed Database.<br /><br />Use the **Managed PostgreSQL Database Credentials View** ([GET /databases/postgresql/instances/&#123;instanceId&#125;/credentials](/docs/api/databases/#managed-postgresql-database-credentials-view)) command for access information.<br /> |
+| `engine` | `string` | The Managed Database engine type. |
+| `updated` | `string` | When this Managed Database was last updated. |
+| `label` | `string` | A unique, user-defined string referring to the Managed Database. |
+| `created` | `string` | When this Managed Database was created. |
 | `type` | `string` | The Linode Instance type used by the Managed Database for its nodes. |
 | `updates` | `object` | Configuration settings for automated patch update maintenance for the Managed Database. |
-| `replication_type` | `string` | The replication method used for the Managed Database.<br /><br />Defaults to `none` for a single cluster and `semi_synch` for a high availability cluster.<br /><br />Must be `none` for a single node cluster.<br /><br />Must be `asynch` or `semi_synch` for a high availability cluster.<br /> |
-| `allow_list` | `array` | A list of IP addresses that can access the Managed Database. Each item can be a single IP address or a range in CIDR format.<br /><br />By default, this is an empty array (`[]`), which blocks all connections (both public and private) to the Managed Database.<br /><br />If `0.0.0.0/0` is a value in this list, then all IP addresses can access the Managed Database.<br /> |
 | `cluster_size` | `integer` | The number of Linode Instance nodes deployed to the Managed Database.<br /><br />Choosing 3 nodes creates a high availability cluster consisting of 1 primary node and 2 replica nodes.<br /> |
-| `version` | `string` | The Managed Database engine version. |
-| `replication_commit_type` | `string` | The synchronization level of the replicating server.<br /><br />Must be `local` or `off` for the `asynch` replication type.<br /><br />Must be `on`, `remote_write`, or `remote_apply` for the `semi_synch` replication type.<br /> |
-| `encrypted` | `boolean` | Whether the Managed Databases is encrypted. |
-| `engine` | `string` | The Managed Database engine type. |
-| `created` | `string` | When this Managed Database was created. |
-| `status` | `string` | The operating status of the Managed Database. |
-| `label` | `string` | A unique, user-defined string referring to the Managed Database. |
 | `region` | `string` | The [Region](/docs/api/regions/) ID for the Managed Database. |
+| `encrypted` | `boolean` | Whether the Managed Databases is encrypted. |
+| `replication_commit_type` | `string` | The synchronization level of the replicating server.<br /><br />Must be `local` or `off` for the `asynch` replication type.<br /><br />Must be `on`, `remote_write`, or `remote_apply` for the `semi_synch` replication type.<br /> |
 | `hosts` | `object` | The primary and secondary hosts for the Managed Database. These are assigned after provisioning is complete. |
-| `updated` | `string` | When this Managed Database was last updated. |
+| `version` | `string` | The Managed Database engine version. |
 | `port` | `integer` | The access port for this Managed Database. |
+| `replication_type` | `string` | The replication method used for the Managed Database.<br /><br />Defaults to `none` for a single cluster and `semi_synch` for a high availability cluster.<br /><br />Must be `none` for a single node cluster.<br /><br />Must be `asynch` or `semi_synch` for a high availability cluster.<br /> |
+| `status` | `string` | The operating status of the Managed Database. |
+| `allow_list` | `array` | A list of IP addresses that can access the Managed Database. Each item can be a single IP address or a range in CIDR format.<br /><br />By default, this is an empty array (`[]`), which blocks all connections (both public and private) to the Managed Database.<br /><br />If `0.0.0.0/0` is a value in this list, then all IP addresses can access the Managed Database.<br /> |
+| `ssl_connection` | `boolean` | Whether to require SSL credentials to establish a connection to the Managed Database.<br /><br />Use the **Managed PostgreSQL Database Credentials View** ([GET /databases/postgresql/instances/&#123;instanceId&#125;/credentials](/docs/api/databases/#managed-postgresql-database-credentials-view)) command for access information.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

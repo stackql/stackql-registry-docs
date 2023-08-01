@@ -28,12 +28,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A brief description of the route. |
-| `clientVpnEndpointId` | `string` | The ID of the Client VPN endpoint with which the route is associated. |
 | `destinationCidr` | `string` | The IPv4 address range, in CIDR notation, of the route destination. |
 | `origin` | `string` | Indicates how the route was associated with the Client VPN endpoint. &lt;code&gt;associate&lt;/code&gt; indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. &lt;code&gt;add-route&lt;/code&gt; indicates that the route was manually added using the &lt;b&gt;CreateClientVpnRoute&lt;/b&gt; action. |
 | `status` | `object` | Describes the state of a Client VPN endpoint route. |
 | `targetSubnet` | `string` | The ID of the subnet through which traffic is routed. |
 | `type` | `string` | The route type. |
+| `clientVpnEndpointId` | `string` | The ID of the Client VPN endpoint with which the route is associated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

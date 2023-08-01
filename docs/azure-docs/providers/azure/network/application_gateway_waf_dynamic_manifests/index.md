@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | The list of application gateway waf manifest. |
 | `nextLink` | `string` | URL to get the next set of results. |
+| `value` | `array` | The list of application gateway waf manifest. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,9 +27,9 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `answer` | `string` |
 | `question` | `string` |
 | `questionText` | `string` |
+| `answer` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

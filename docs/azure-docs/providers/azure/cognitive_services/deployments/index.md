@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of Cognitive Services account deployment. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `etag` | `string` | Resource Etag. |
+| `properties` | `object` | Properties of Cognitive Services account deployment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

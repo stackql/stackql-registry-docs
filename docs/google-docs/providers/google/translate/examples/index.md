@@ -27,10 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name of the example, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/examples/&#123;example_id&#125;' |
-| `sourceText` | `string` | Sentence in source language. |
-| `targetText` | `string` | Sentence in target language. |
-| `usage` | `string` | Output only. Usage of the sentence pair. Options are TRAIN\|VALIDATION\|TEST. |
+| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this token to the page_token field in the ListExamplesRequest to obtain the corresponding page. |
+| `examples` | `array` | The sentence pairs. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

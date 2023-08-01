@@ -28,13 +28,13 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This Kubernetes cluster's unique ID. |
-| `updated` | `string` | When this Kubernetes cluster was updated. |
-| `control_plane` | `object` | Defines settings for the Kubernetes Control Plane. Allows for the enabling of High Availability (HA) for Control Plane Components. Enabling High Avaialability for LKE is an **irreversible** change.<br /> |
 | `created` | `string` | When this Kubernetes cluster was created. |
 | `k8s_version` | `string` | The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version will be deployed.<br /> |
 | `label` | `string` | This Kubernetes cluster's unique label for display purposes only.<br />Labels have the following constraints:<br /><br />  * UTF-8 characters will be returned by the API using escape<br />    sequences of their Unicode code points. For example, the<br />    Japanese character *か* is 3 bytes in UTF-8 (`0xE382AB`). Its<br />    Unicode code point is 2 bytes (`0x30AB`). APIv4 supports this<br />    character and the API will return it as the escape sequence<br />    using six 1 byte characters which represent 2 bytes of Unicode<br />    code point (`"\u30ab"`).<br />  * 4 byte UTF-8 characters are not supported.<br />  * If the label is entirely composed of UTF-8 characters, the API<br />    response will return the code points using up to 193 1 byte<br />    characters.<br /> |
 | `region` | `string` | This Kubernetes cluster's location. |
 | `tags` | `array` | An array of tags applied to the Kubernetes cluster. Tags are for organizational purposes only.<br /> |
+| `updated` | `string` | When this Kubernetes cluster was updated. |
+| `control_plane` | `object` | Defines settings for the Kubernetes Control Plane. Allows for the enabling of High Availability (HA) for Control Plane Components. Enabling High Avaialability for LKE is an **irreversible** change.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

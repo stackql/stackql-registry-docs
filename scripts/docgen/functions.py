@@ -294,8 +294,8 @@ def run_stackql_query(query, retries):
 def create_html_link(url, title):
     return """<a href="%s">%s</a>""" % (url, title)
 
-def generate_provider_summary(num_services, num_methods, num_resources, num_selectable_resources):
-    output = ":::info Provider Summary\n\n"
+def generate_provider_summary(num_services, num_methods, num_resources, num_selectable_resources, provider_ver):
+    output = ":::info Provider Summary (" + provider_ver + ")\n\n"
     output = output + '<div class="row">\n'
     output = output + '<div class="providerDocColumn">\n'
     output = output + '<span>total services:&nbsp;<b>%s</b></span><br />\n' % num_services

@@ -25,11 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `domains` | `array` | A list of domains that the calling user manages in Google Domains. |
-| `nextPageToken` | `string` | When present, there are more results to retrieve. Set `page_token` to this value on a subsequent call to get the next page of results. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_registrations_retrieveImportableDomains` | `SELECT` | `locationsId, projectsId` |
+| `retrieve_importable_domains` | `EXEC` | `locationsId, projectsId` |

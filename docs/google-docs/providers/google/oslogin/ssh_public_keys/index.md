@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The canonical resource name. |
-| `key` | `string` | Public key text in SSH format, defined by RFC4253 section 6.6. |
 | `expirationTimeUsec` | `string` | An expiration time in microseconds since epoch. |
 | `fingerprint` | `string` | Output only. The SHA-256 fingerprint of the SSH public key. |
+| `key` | `string` | Public key text in SSH format, defined by RFC4253 section 6.6. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `users_sshPublicKeys_get` | `SELECT` | `sshPublicKeysId, usersId` | Retrieves an SSH public key. |
-| `users_sshPublicKeys_create` | `INSERT` | `usersId` | Create an SSH public key |
-| `users_sshPublicKeys_delete` | `DELETE` | `sshPublicKeysId, usersId` | Deletes an SSH public key. |
-| `users_sshPublicKeys_patch` | `EXEC` | `sshPublicKeysId, usersId` | Updates an SSH public key and returns the profile information. This method supports patch semantics. |
+| `get` | `SELECT` | `sshPublicKeysId, usersId` | Retrieves an SSH public key. |
+| `create` | `INSERT` | `usersId` | Create an SSH public key |
+| `delete` | `DELETE` | `sshPublicKeysId, usersId` | Deletes an SSH public key. |
+| `patch` | `EXEC` | `sshPublicKeysId, usersId` | Updates an SSH public key and returns the profile information. This method supports patch semantics. |

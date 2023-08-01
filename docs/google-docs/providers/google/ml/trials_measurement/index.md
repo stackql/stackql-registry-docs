@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_studies_trials_addMeasurement` | `INSERT` | `locationsId, projectsId, studiesId, trialsId` |
+| `projects_locations_studies_trials_add_measurement` | `EXEC` | `locationsId, projectsId, studiesId, trialsId` |

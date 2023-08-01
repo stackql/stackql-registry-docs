@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Azure Video Indexer account properties |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
-| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Region where the Azure resource is located. |
 | `properties` | `object` |  |
 | `sku` | `object` | Model representing SKU for Azure Dev Spaces Controller. |
 | `tags` | `object` | Tags for the Azure resource. |
+| `location` | `string` | Region where the Azure resource is located. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

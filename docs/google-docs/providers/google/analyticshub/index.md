@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Exchange data and analytics assets securely and efficiently.  
+Exchange Data And Analytics Assets Securely And Efficiently.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>22</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>18</b></span><br />
 </div>
 </div>
 
@@ -32,22 +32,18 @@ Exchange data and analytics assets securely and efficiently.
 <tr><td><b>Name</b></td><td><code>google.analyticshub</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Analytics Hub API</td></tr>
-<tr><td><b>Description</b></td><td>Exchange data and analytics assets securely and efficiently.</td></tr>
-<tr><td><b>Id</b></td><td><code>analyticshub:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Exchange Data And Analytics Assets Securely And Efficiently.</td></tr>
+<tr><td><b>Id</b></td><td><code>analyticshub:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/analyticshub/data_exchanges/">data_exchanges</a><br />
-<a href="/providers/google/analyticshub/data_exchanges_iam_audit_configs/">data_exchanges_iam_audit_configs</a><br />
-<a href="/providers/google/analyticshub/data_exchanges_iam_bindings/">data_exchanges_iam_bindings</a><br />
 <a href="/providers/google/analyticshub/data_exchanges_iam_policies/">data_exchanges_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/analyticshub/listings/">listings</a><br />
-<a href="/providers/google/analyticshub/listings_iam_audit_configs/">listings_iam_audit_configs</a><br />
-<a href="/providers/google/analyticshub/listings_iam_bindings/">listings_iam_bindings</a><br />
 <a href="/providers/google/analyticshub/listings_iam_policies/">listings_iam_policies</a><br />
 </div>
 </div>

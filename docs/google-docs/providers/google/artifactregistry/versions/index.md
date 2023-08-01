@@ -27,15 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The name of the version, for example: "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1". If the package or version ID parts contain slashes, the slashes are escaped. |
-| `description` | `string` | Optional. Description of the version, as specified in its metadata. |
-| `relatedTags` | `array` | Output only. A list of related tags. Will contain up to 100 tags that reference this version. |
-| `updateTime` | `string` | The time when the version was last updated. |
-| `createTime` | `string` | The time when the version was created. |
-| `metadata` | `object` | Output only. Repository-specific Metadata stored against this version. The fields returned are defined by the underlying repository-specific resource. Currently, the resources could be: DockerImage MavenArtifact |
+| `nextPageToken` | `string` | The token to retrieve the next page of versions, or empty if there are no more versions to return. |
+| `versions` | `array` | The versions returned. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_repositories_packages_versions_get` | `SELECT` | `locationsId, packagesId, projectsId, repositoriesId, versionsId` | Gets a version |
-| `projects_locations_repositories_packages_versions_list` | `SELECT` | `locationsId, packagesId, projectsId, repositoriesId` | Lists versions. |
-| `projects_locations_repositories_packages_versions_delete` | `DELETE` | `locationsId, packagesId, projectsId, repositoriesId, versionsId` | Deletes a version and all of its content. The returned operation will complete once the version has been deleted. |
+| `get` | `SELECT` | `locationsId, packagesId, projectsId, repositoriesId, versionsId` | Gets a version |
+| `list` | `SELECT` | `locationsId, packagesId, projectsId, repositoriesId` | Lists versions. |
+| `delete` | `DELETE` | `locationsId, packagesId, projectsId, repositoriesId, versionsId` | Deletes a version and all of its content. The returned operation will complete once the version has been deleted. |
+| `batch_delete` | `EXEC` | `locationsId, packagesId, projectsId, repositoriesId` | Deletes multiple versions across a repository. The returned operation will complete once the versions have been deleted. |

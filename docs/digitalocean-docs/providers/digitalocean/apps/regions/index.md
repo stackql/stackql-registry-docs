@@ -27,6 +27,7 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `slug` | `string` |  |
 | `continent` | `string` |  |
 | `data_centers` | `array` |  |
 | `default` | `boolean` | Whether or not the region is presented as the default. |
@@ -34,7 +35,6 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | `flag` | `string` |  |
 | `label` | `string` |  |
 | `reason` | `string` |  |
-| `slug` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

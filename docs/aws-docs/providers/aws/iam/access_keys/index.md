@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `Status` | `string` | The status of the access key. &lt;code&gt;Active&lt;/code&gt; means that the key is valid for API calls; &lt;code&gt;Inactive&lt;/code&gt; means it is not. |
 | `UserName` | `string` | The name of the IAM user that the key is associated with. |
 | `AccessKeyId` | `string` | The ID for this access key. |
 | `CreateDate` | `string` | The date when the access key was created. |
+| `Status` | `string` | The status of the access key. &lt;code&gt;Active&lt;/code&gt; means that the key is valid for API calls; &lt;code&gt;Inactive&lt;/code&gt; means it is not. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,21 +27,21 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ipamId` | `string` | The IPAM ID for an IPAM resource. |
-| `resourceOwnerId` | `string` | The Amazon Web Services account number of the owner of an IPAM resource. |
-| `complianceStatus` | `string` | The compliance status of the IPAM resource. For more information on compliance statuses, see &lt;a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html"&gt;Monitor CIDR usage by resource&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
-| `managementState` | `string` | The management state of the resource. For more information about management states, see &lt;a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html"&gt;Monitor CIDR usage by resource&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
-| `resourceId` | `string` | The ID of an IPAM resource. |
-| `ipUsage` | `number` | The IP address space in the IPAM pool that is allocated to this resource. To convert the decimal to a percentage, multiply the decimal by 100. |
-| `ipamScopeId` | `string` | The scope ID for an IPAM resource. |
-| `resourceCidr` | `string` | The CIDR for an IPAM resource. |
-| `vpcId` | `string` | The ID of a VPC. |
-| `overlapStatus` | `string` | The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see &lt;a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html"&gt;Monitor CIDR usage by resource&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
-| `ipamPoolId` | `string` | The pool ID for an IPAM resource. |
-| `resourceType` | `string` | The type of IPAM resource. |
-| `resourceName` | `string` | The name of an IPAM resource. |
 | `resourceTagSet` | `array` | The tags for an IPAM resource. |
+| `managementState` | `string` | The management state of the resource. For more information about management states, see &lt;a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html"&gt;Monitor CIDR usage by resource&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
+| `resourceType` | `string` | The type of IPAM resource. |
+| `resourceOwnerId` | `string` | The Amazon Web Services account number of the owner of an IPAM resource. |
+| `ipamScopeId` | `string` | The scope ID for an IPAM resource. |
+| `ipamId` | `string` | The IPAM ID for an IPAM resource. |
+| `overlapStatus` | `string` | The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see &lt;a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html"&gt;Monitor CIDR usage by resource&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
+| `resourceId` | `string` | The ID of an IPAM resource. |
+| `vpcId` | `string` | The ID of a VPC. |
+| `ipUsage` | `number` | The IP address space in the IPAM pool that is allocated to this resource. To convert the decimal to a percentage, multiply the decimal by 100. |
+| `resourceName` | `string` | The name of an IPAM resource. |
 | `resourceRegion` | `string` | The Amazon Web Services Region for an IPAM resource. |
+| `ipamPoolId` | `string` | The pool ID for an IPAM resource. |
+| `complianceStatus` | `string` | The compliance status of the IPAM resource. For more information on compliance statuses, see &lt;a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html"&gt;Monitor CIDR usage by resource&lt;/a&gt; in the &lt;i&gt;Amazon VPC IPAM User Guide&lt;/i&gt;. |
+| `resourceCidr` | `string` | The CIDR for an IPAM resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `notActions` | `array` | The set of actions that the caller is not allowed to perform. |
 | `actions` | `array` | The set of actions that the caller is allowed to perform. |
+| `notActions` | `array` | The set of actions that the caller is not allowed to perform. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource ID. |
 | `name` | `string` | The name of the resource. |
-| `location` | `string` | The location of the resource. This cannot be changed after the resource is created. |
 | `properties` | `object` | The properties of a machine learning team account workspace. |
 | `tags` | `object` | The tags of the resource. |
 | `type` | `string` | The type of the resource. |
+| `location` | `string` | The location of the resource. This cannot be changed after the resource is created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

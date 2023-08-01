@@ -28,15 +28,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The fully qualified ID of the tenant. For example, /tenants/00000000-0000-0000-0000-000000000000. |
-| `tenantId` | `string` | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. |
-| `domains` | `array` | The list of domains for the tenant. |
-| `tenantBrandingLogoUrl` | `string` | The tenant's branding logo URL. Only available for 'Home' tenant category. |
 | `country` | `string` | Country/region name of the address for the tenant. |
-| `defaultDomain` | `string` | The default domain for the tenant. |
 | `countryCode` | `string` | Country/region abbreviation for the tenant. |
-| `tenantType` | `string` | The tenant type. Only available for 'Home' tenant category. |
-| `displayName` | `string` | The display name of the tenant. |
+| `defaultDomain` | `string` | The default domain for the tenant. |
+| `tenantId` | `string` | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. |
+| `tenantBrandingLogoUrl` | `string` | The tenant's branding logo URL. Only available for 'Home' tenant category. |
+| `domains` | `array` | The list of domains for the tenant. |
 | `tenantCategory` | `string` | Category of the tenant. |
+| `displayName` | `string` | The display name of the tenant. |
+| `tenantType` | `string` | The tenant type. Only available for 'Home' tenant category. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

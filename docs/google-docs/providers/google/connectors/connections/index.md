@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_connections_executeSqlQuery` | `EXEC` | `connectionsId, locationsId, projectsId` |
+| `execute_sql_query` | `EXEC` | `connectionsId, locationsId, projectsId` |

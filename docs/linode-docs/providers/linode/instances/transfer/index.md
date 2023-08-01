@@ -27,9 +27,9 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `quota` | `integer` | The amount of network transfer this Linode adds to your transfer pool, in GB, for the current month's billing cycle.<br /> |
 | `used` | `integer` | The amount of network transfer used by this Linode, in bytes, for the current month's billing cycle.<br /> |
 | `billable` | `integer` | The amount of network transfer this Linode has used, in GB, past your monthly quota.<br /> |
-| `quota` | `integer` | The amount of network transfer this Linode adds to your transfer pool, in GB, for the current month's billing cycle.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

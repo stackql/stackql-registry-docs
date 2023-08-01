@@ -27,22 +27,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Immutable. The name of the spoke. Spoke names must be unique. They use the following form: `projects/&#123;project_number&#125;/locations/&#123;region&#125;/spokes/&#123;spoke_id&#125;` |
-| `description` | `string` | An optional description of the spoke. |
-| `updateTime` | `string` | Output only. The time the spoke was last updated. |
-| `createTime` | `string` | Output only. The time the spoke was created. |
-| `linkedInterconnectAttachments` | `object` | A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes. |
-| `state` | `string` | Output only. The current lifecycle state of this spoke. |
-| `labels` | `object` | Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
-| `linkedRouterApplianceInstances` | `object` | A collection of router appliance instances. If you configure multiple router appliance instances to receive data from the same set of sites outside of Google Cloud, we recommend that you associate those instances with the same spoke. |
-| `linkedVpnTunnels` | `object` | A collection of Cloud VPN tunnel resources. These resources should be redundant HA VPN tunnels that all advertise the same prefixes to Google Cloud. Alternatively, in a passive/active configuration, all tunnels should be capable of advertising the same prefixes. |
-| `hub` | `string` | Immutable. The name of the hub that this spoke is attached to. |
-| `uniqueId` | `string` | Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different unique_id. |
+| `spokes` | `array` | The requested spokes. |
+| `unreachable` | `array` | Locations that could not be reached. |
+| `nextPageToken` | `string` | The token for the next page of the response. To see more results, use this value as the page_token for your next request. If this value is empty, there are no more results. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_spokes_get` | `SELECT` | `locationsId, projectsId, spokesId` | Gets details about a Network Connectivity Center spoke. |
-| `projects_locations_spokes_list` | `SELECT` | `locationsId, projectsId` | Lists the Network Connectivity Center spokes in a specified project and location. |
-| `projects_locations_spokes_create` | `INSERT` | `locationsId, projectsId` | Creates a Network Connectivity Center spoke. |
-| `projects_locations_spokes_delete` | `DELETE` | `locationsId, projectsId, spokesId` | Deletes a Network Connectivity Center spoke. |
-| `projects_locations_spokes_patch` | `EXEC` | `locationsId, projectsId, spokesId` | Updates the parameters of a Network Connectivity Center spoke. |
+| `get` | `SELECT` | `locationsId, projectsId, spokesId` | Gets details about a Network Connectivity Center spoke. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists the Network Connectivity Center spokes in a specified project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a Network Connectivity Center spoke. |
+| `delete` | `DELETE` | `locationsId, projectsId, spokesId` | Deletes a Network Connectivity Center spoke. |
+| `accept` | `EXEC` | `locationsId, projectsId, spokesId` | Accepts a proposal to attach a Network Connectivity Center spoke to the hub. |
+| `patch` | `EXEC` | `locationsId, projectsId, spokesId` | Updates the parameters of a Network Connectivity Center spoke. |
+| `reject` | `EXEC` | `locationsId, projectsId, spokesId` | Rejects a Network Connectivity Center spoke from being attached to the hub. If the spoke was previously in the `ACTIVE` state, it transitions to the `INACTIVE` state and is no longer able to connect to other spokes that are attached to the hub. |

@@ -25,6 +25,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `nextPageToken` | `string` | A token that can be sent as `page_token` to retrieve the next page of results. If this field is omitted, there are no more results. |
+| `topics` | `array` | The list of topic in the requested parent. The order of the topics is unspecified. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -34,6 +38,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `admin_projects_locations_topics_create` | `INSERT` | `locationsId, projectsId` | Creates a new topic. |
 | `admin_projects_locations_topics_delete` | `DELETE` | `locationsId, projectsId, topicsId` | Deletes the specified topic. |
 | `admin_projects_locations_topics_patch` | `EXEC` | `locationsId, projectsId, topicsId` | Updates properties of the specified topic. |
-| `topicStats_projects_locations_topics_computeHeadCursor` | `EXEC` | `locationsId, projectsId, topicsId` | Compute the head cursor for the partition. The head cursor's offset is guaranteed to be less than or equal to all messages which have not yet been acknowledged as published, and greater than the offset of any message whose publish has already been acknowledged. It is zero if there have never been messages in the partition. |
-| `topicStats_projects_locations_topics_computeMessageStats` | `EXEC` | `locationsId, projectsId, topicsId` | Compute statistics about a range of messages in a given topic and partition. |
-| `topicStats_projects_locations_topics_computeTimeCursor` | `EXEC` | `locationsId, projectsId, topicsId` | Compute the corresponding cursor for a publish or event time in a topic partition. |
+| `topic_stats_projects_locations_topics_compute_head_cursor` | `EXEC` | `locationsId, projectsId, topicsId` | Compute the head cursor for the partition. The head cursor's offset is guaranteed to be less than or equal to all messages which have not yet been acknowledged as published, and greater than the offset of any message whose publish has already been acknowledged. It is zero if there have never been messages in the partition. |
+| `topic_stats_projects_locations_topics_compute_message_stats` | `EXEC` | `locationsId, projectsId, topicsId` | Compute statistics about a range of messages in a given topic and partition. |
+| `topic_stats_projects_locations_topics_compute_time_cursor` | `EXEC` | `locationsId, projectsId, topicsId` | Compute the corresponding cursor for a publish or event time in a topic partition. |

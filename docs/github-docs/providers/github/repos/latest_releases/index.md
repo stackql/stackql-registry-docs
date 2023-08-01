@@ -29,27 +29,27 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` |  |
-| `mentions_count` | `integer` |  |
-| `node_id` | `string` |  |
-| `body` | `string` |  |
-| `draft` | `boolean` | true to create a draft (unpublished) release, false to create a published one. |
 | `target_commitish` | `string` | Specifies the commitish value that determines where the Git tag is created from. |
-| `assets_url` | `string` |  |
-| `prerelease` | `boolean` | Whether to identify the release as a prerelease or a full release. |
-| `published_at` | `string` |  |
-| `tag_name` | `string` | The name of the tag. |
-| `tarball_url` | `string` |  |
-| `assets` | `array` |  |
-| `upload_url` | `string` |  |
-| `created_at` | `string` |  |
-| `body_text` | `string` |  |
 | `body_html` | `string` |  |
-| `author` | `object` | Simple User |
+| `assets_url` | `string` |  |
+| `tarball_url` | `string` |  |
+| `body_text` | `string` |  |
 | `url` | `string` |  |
+| `author` | `object` | Simple User |
+| `body` | `string` |  |
 | `discussion_url` | `string` | The URL of the release discussion. |
-| `reactions` | `object` |  |
-| `html_url` | `string` |  |
+| `mentions_count` | `integer` |  |
 | `zipball_url` | `string` |  |
+| `prerelease` | `boolean` | Whether to identify the release as a prerelease or a full release. |
+| `created_at` | `string` |  |
+| `reactions` | `object` |  |
+| `node_id` | `string` |  |
+| `published_at` | `string` |  |
+| `assets` | `array` |  |
+| `draft` | `boolean` | true to create a draft (unpublished) release, false to create a published one. |
+| `html_url` | `string` |  |
+| `tag_name` | `string` | The name of the tag. |
+| `upload_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

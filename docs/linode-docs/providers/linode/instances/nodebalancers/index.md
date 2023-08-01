@@ -29,15 +29,15 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | This NodeBalancer's unique ID.<br /> |
 | `ipv4` | `string` | This NodeBalancer's public IPv4 address.<br /> |
-| `region` | `string` | The Region where this NodeBalancer is located. NodeBalancers only support backends in the same Region.<br /> |
-| `updated` | `string` | When this NodeBalancer was last updated.<br /> |
-| `created` | `string` | When this NodeBalancer was created.<br /> |
-| `label` | `string` | This NodeBalancer's label. These must be unique on your Account.<br /> |
-| `tags` | `array` | An array of Tags applied to this object.  Tags are for organizational purposes only.<br /> |
-| `hostname` | `string` | This NodeBalancer's hostname, beginning with its IP address and ending with _.ip.linodeusercontent.com_.<br /> |
-| `ipv6` | `string` | This NodeBalancer's public IPv6 address.<br /> |
-| `client_conn_throttle` | `integer` | Throttle connections per second.  Set to 0 (zero) to disable throttling.<br /> |
 | `transfer` | `object` | Information about the amount of transfer this NodeBalancer has had so far this month.<br /> |
+| `ipv6` | `string` | This NodeBalancer's public IPv6 address.<br /> |
+| `label` | `string` | This NodeBalancer's label. These must be unique on your Account.<br /> |
+| `region` | `string` | The Region where this NodeBalancer is located. NodeBalancers only support backends in the same Region.<br /> |
+| `created` | `string` | When this NodeBalancer was created.<br /> |
+| `client_conn_throttle` | `integer` | Throttle connections per second.  Set to 0 (zero) to disable throttling.<br /> |
+| `updated` | `string` | When this NodeBalancer was last updated.<br /> |
+| `hostname` | `string` | This NodeBalancer's hostname, beginning with its IP address and ending with _.ip.linodeusercontent.com_.<br /> |
+| `tags` | `array` | An array of Tags applied to this object.  Tags are for organizational purposes only.<br /> |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

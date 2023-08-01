@@ -30,6 +30,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `protoDescriptors` | `string` | Proto descriptors stored in the database. Contains a protobuf-serialized [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto). For more details, see protobuffer [self description](https://developers.google.com/protocol-buffers/docs/techniques#self-description). |
 | `statements` | `array` | A list of formatted DDL statements defining the schema of the database specified in the request. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `projects_instances_databases_getDdl` | `SELECT` | `databasesId, instancesId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `projects_instances_databases_get_ddl` | `SELECT` | `databasesId, instancesId, projectsId` | Returns the schema of a Cloud Spanner database as a list of formatted DDL statements. This method does not show pending schema updates, those may be queried using the Operations API. |
+| `projects_instances_databases_update_ddl` | `EXEC` | `databasesId, instancesId, projectsId` | Updates the schema of a Cloud Spanner database by creating/altering/dropping tables, columns, indexes, etc. The returned long-running operation will have a name of the format `/operations/` and can be used to track execution of the schema change(s). The metadata field type is UpdateDatabaseDdlMetadata. The operation has no response. |

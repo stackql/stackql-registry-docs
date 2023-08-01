@@ -27,21 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | The resource name for the Key in the format "projects/&#123;project&#125;/keys/&#123;key&#125;". |
-| `webSettings` | `object` | Settings specific to keys that can be used by websites. |
-| `createTime` | `string` | The timestamp corresponding to the creation of this Key. |
-| `displayName` | `string` | Human-readable display name of this key. Modifiable by user. |
-| `androidSettings` | `object` | Settings specific to keys that can be used by Android apps. |
-| `labels` | `object` | See Creating and managing labels. |
-| `wafSettings` | `object` | Settings specific to keys that can be used for WAF (Web Application Firewall). |
-| `iosSettings` | `object` | Settings specific to keys that can be used by iOS apps. |
-| `testingOptions` | `object` | Options for user acceptance testing. |
+| `keys` | `array` | Key details. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results. It is set to empty if no keys remain in results. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_keys_get` | `SELECT` | `keysId, projectsId` | Returns the specified key. |
-| `projects_keys_list` | `SELECT` | `projectsId` | Returns the list of all keys that belong to a project. |
-| `projects_keys_create` | `INSERT` | `projectsId` | Creates a new reCAPTCHA Enterprise key. |
-| `projects_keys_delete` | `DELETE` | `keysId, projectsId` | Deletes the specified key. |
-| `projects_keys_migrate` | `EXEC` | `keysId, projectsId` | Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Site Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project. |
-| `projects_keys_patch` | `EXEC` | `keysId, projectsId` | Updates the specified key. |
+| `get` | `SELECT` | `keysId, projectsId` | Returns the specified key. |
+| `list` | `SELECT` | `projectsId` | Returns the list of all keys that belong to a project. |
+| `create` | `INSERT` | `projectsId` | Creates a new reCAPTCHA Enterprise key. |
+| `delete` | `DELETE` | `keysId, projectsId` | Deletes the specified key. |
+| `migrate` | `EXEC` | `keysId, projectsId` | Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project. |
+| `patch` | `EXEC` | `keysId, projectsId` | Updates the specified key. |

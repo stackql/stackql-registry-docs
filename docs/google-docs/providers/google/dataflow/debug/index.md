@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_jobs_debug_sendCapture` | `EXEC` | `jobId, projectId` |
-| `projects_locations_jobs_debug_sendCapture` | `EXEC` | `jobId, location, projectId` |
+| `projects_jobs_debug_send_capture` | `EXEC` | `jobId, projectId` |
+| `projects_locations_jobs_debug_send_capture` | `EXEC` | `jobId, location, projectId` |

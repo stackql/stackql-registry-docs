@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `IndexDocument` | `object` | Container for the &lt;code&gt;Suffix&lt;/code&gt; element. |
 | `RedirectAllRequestsTo` | `object` | Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket. |
 | `RoutingRules` | `array` | Rules that define when a redirect is applied and the redirect behavior. |
 | `ErrorDocument` | `object` | The error information. |
-| `IndexDocument` | `object` | Container for the &lt;code&gt;Suffix&lt;/code&gt; element. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

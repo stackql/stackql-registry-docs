@@ -13,15 +13,15 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-An API to manage the running of batch jobs on Google Cloud Platform.  
+An API To Manage The Running Of Batch Jobs On Google Cloud Platform.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
@@ -32,21 +32,18 @@ An API to manage the running of batch jobs on Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.batch</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Batch API</td></tr>
-<tr><td><b>Description</b></td><td>An API to manage the running of batch jobs on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>batch:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>An API To Manage The Running Of Batch Jobs On Google Cloud Platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>batch:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/batch/jobs/">jobs</a><br />
-<a href="/providers/google/batch/jobs_iam_audit_configs/">jobs_iam_audit_configs</a><br />
-<a href="/providers/google/batch/jobs_iam_bindings/">jobs_iam_bindings</a><br />
-<a href="/providers/google/batch/jobs_iam_policies/">jobs_iam_policies</a><br />
-</div>
-<div class="providerDocColumn">
 <a href="/providers/google/batch/locations/">locations</a><br />
 <a href="/providers/google/batch/operations/">operations</a><br />
+</div>
+<div class="providerDocColumn">
 <a href="/providers/google/batch/state/">state</a><br />
 <a href="/providers/google/batch/tasks/">tasks</a><br />
 </div>

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of the resource. |
 | `name` | `string` | Name of the resource. |
-| `type` | `string` | Type of Resource. |
 | `etag` | `string` | The entity tag used for optimistic concurrency when modifying the resource. |
 | `properties` | `object` | Customer subscription properties. |
+| `type` | `string` | Type of Resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

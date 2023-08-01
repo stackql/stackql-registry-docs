@@ -25,10 +25,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `services_dnsRecordSets_add` | `INSERT` | `servicesId` | Service producers can use this method to add DNS record sets to private DNS zones in the shared producer host project. |
-| `services_dnsRecordSets_remove` | `DELETE` | `servicesId` | Service producers can use this method to remove DNS record sets from private DNS zones in the shared producer host project. |
-| `services_dnsRecordSets_update` | `EXEC` | `servicesId` | Service producers can use this method to update DNS record sets from private DNS zones in the shared producer host project. |
+| `list` | `SELECT` | `servicesId` | Producers can use this method to retrieve a list of available DNS RecordSets available inside the private zone on the tenant host project accessible from their network. |
+| `add` | `EXEC` | `servicesId` | Service producers can use this method to add DNS record sets to private DNS zones in the shared producer host project. |
+| `remove` | `EXEC` | `servicesId` | Service producers can use this method to remove DNS record sets from private DNS zones in the shared producer host project. |
+| `update` | `EXEC` | `servicesId` | Service producers can use this method to update DNS record sets from private DNS zones in the shared producer host project. |

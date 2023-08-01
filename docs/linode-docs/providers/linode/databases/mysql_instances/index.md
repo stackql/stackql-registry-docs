@@ -28,22 +28,22 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | A unique ID that can be used to identify and reference the Managed Database. |
-| `region` | `string` | The [Region](/docs/api/regions/) ID for the Managed Database. |
-| `engine` | `string` | The Managed Database engine type. |
-| `updated` | `string` | When this Managed Database was last updated. |
 | `updates` | `object` | Configuration settings for automated patch update maintenance for the Managed Database. |
-| `version` | `string` | The Managed Database engine version. |
-| `type` | `string` | The Linode Instance type used by the Managed Database for its nodes. |
-| `hosts` | `object` | The primary and secondary hosts for the Managed Database. These are assigned after provisioning is complete. |
 | `allow_list` | `array` | A list of IP addresses that can access the Managed Database. Each item can be a single IP address or a range in CIDR format.<br /><br />By default, this is an empty array (`[]`), which blocks all connections (both public and private) to the Managed Database.<br /><br />If `0.0.0.0/0` is a value in this list, then all IP addresses can access the Managed Database.<br /> |
-| `label` | `string` | A unique, user-defined string referring to the Managed Database. |
-| `port` | `integer` | The access port for this Managed Database. |
-| `encrypted` | `boolean` | Whether the Managed Databases is encrypted. |
-| `replication_type` | `string` | The replication method used for the Managed Database.<br /><br />Defaults to `none` for a single cluster and `semi_synch` for a high availability cluster.<br /><br />Must be `none` for a single node cluster.<br /><br />Must be `asynch` or `semi_synch` for a high availability cluster.<br /> |
 | `created` | `string` | When this Managed Database was created. |
-| `cluster_size` | `integer` | The number of Linode Instance nodes deployed to the Managed Database.<br /><br />Choosing 3 nodes creates a high availability cluster consisting of 1 primary node and 2 replica nodes.<br /> |
-| `ssl_connection` | `boolean` | Whether to require SSL credentials to establish a connection to the Managed Database.<br /><br />Use the **Managed MySQL Database Credentials View** ([GET /databases/mysql/instances/&#123;instanceId&#125;/credentials](/docs/api/databases/#managed-mysql-database-credentials-view)) command for access information.<br /> |
+| `encrypted` | `boolean` | Whether the Managed Databases is encrypted. |
 | `status` | `string` | The operating status of the Managed Database. |
+| `replication_type` | `string` | The replication method used for the Managed Database.<br /><br />Defaults to `none` for a single cluster and `semi_synch` for a high availability cluster.<br /><br />Must be `none` for a single node cluster.<br /><br />Must be `asynch` or `semi_synch` for a high availability cluster.<br /> |
+| `version` | `string` | The Managed Database engine version. |
+| `ssl_connection` | `boolean` | Whether to require SSL credentials to establish a connection to the Managed Database.<br /><br />Use the **Managed MySQL Database Credentials View** ([GET /databases/mysql/instances/&#123;instanceId&#125;/credentials](/docs/api/databases/#managed-mysql-database-credentials-view)) command for access information.<br /> |
+| `cluster_size` | `integer` | The number of Linode Instance nodes deployed to the Managed Database.<br /><br />Choosing 3 nodes creates a high availability cluster consisting of 1 primary node and 2 replica nodes.<br /> |
+| `type` | `string` | The Linode Instance type used by the Managed Database for its nodes. |
+| `engine` | `string` | The Managed Database engine type. |
+| `region` | `string` | The [Region](/docs/api/regions/) ID for the Managed Database. |
+| `port` | `integer` | The access port for this Managed Database. |
+| `label` | `string` | A unique, user-defined string referring to the Managed Database. |
+| `hosts` | `object` | The primary and secondary hosts for the Managed Database. These are assigned after provisioning is complete. |
+| `updated` | `string` | When this Managed Database was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | Indicates which kind of php workload this resource represent e.g WordPress |
-| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | PHP workload resource properties |
 | `sku` | `object` | The resource model definition representing SKU |
 | `tags` | `object` | Resource tags. |
 | `identity` | `object` | Identity for the resource. Currently not supported |
+| `kind` | `string` | Indicates which kind of php workload this resource represent e.g WordPress |
+| `location` | `string` | The geo-location where the resource lives |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

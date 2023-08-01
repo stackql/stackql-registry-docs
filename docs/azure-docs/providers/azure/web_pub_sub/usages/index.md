@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified ARM resource id |
 | `name` | `object` | Localizable String object containing the name and a localized value. |
+| `currentValue` | `integer` | Current value for the usage quota. |
 | `limit` | `integer` | The maximum permitted value for the usage quota. If there is no limit, this value will be -1. |
 | `unit` | `string` | Representing the units of the usage quota. Possible values are: Count, Bytes, Seconds, Percent, CountPerSecond, BytesPerSecond. |
-| `currentValue` | `integer` | Current value for the usage quota. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

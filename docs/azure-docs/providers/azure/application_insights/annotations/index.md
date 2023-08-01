@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `Properties` | `string` | Serialized JSON object for detailed properties |
-| `RelatedAnnotation` | `string` | Related parent annotation if any |
-| `AnnotationName` | `string` | Name of annotation |
 | `Category` | `string` | Category of annotation, free form |
 | `EventTime` | `string` | Time when event occurred |
 | `Id` | `string` | Unique Id for annotation |
+| `Properties` | `string` | Serialized JSON object for detailed properties |
+| `RelatedAnnotation` | `string` | Related parent annotation if any |
+| `AnnotationName` | `string` | Name of annotation |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

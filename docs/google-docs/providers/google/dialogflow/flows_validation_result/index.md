@@ -33,4 +33,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_agents_flows_getValidationResult` | `SELECT` | `agentsId, flowsId, locationsId, projectsId` |
+| `projects_locations_agents_flows_get_validation_result` | `SELECT` | `agentsId, flowsId, locationsId, projectsId` |

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the metric namespace. |
 | `name` | `string` | The escaped name of the namespace. |
+| `properties` | `object` | The fully qualified metric namespace name. |
 | `type` | `string` | The type of the namespace. |
 | `classification` | `string` | Kind of namespace |
-| `properties` | `object` | The fully qualified metric namespace name. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

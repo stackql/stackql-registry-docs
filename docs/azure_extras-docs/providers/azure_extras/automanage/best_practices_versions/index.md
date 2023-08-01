@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The fully qualified ID for the best practice.  For example, /providers/Microsoft.Automanage/bestPractices/azureBestPracticesProduction |
 | `name` | `string` | The name of the best practice. For example, azureBestPracticesProduction |
+| `properties` | `object` | Automanage configuration profile properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The type of the resource.  For example, Microsoft.Automanage/bestPractices |
-| `properties` | `object` | Automanage configuration profile properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

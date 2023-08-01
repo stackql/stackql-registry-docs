@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Path reference to this project /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/Microsoft.Migrate/assessmentProjects/&#123;projectName&#125; |
 | `name` | `string` | Name of the project. |
+| `type` | `string` | Type of the object = [Microsoft.Migrate/assessmentProjects]. |
 | `eTag` | `string` | For optimistic concurrency control. |
 | `location` | `string` | Azure location in which project is created. |
 | `properties` | `object` | Properties of a project. |
 | `tags` | `object` | Tags provided by Azure Tagging service. |
-| `type` | `string` | Type of the object = [Microsoft.Migrate/assessmentProjects]. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

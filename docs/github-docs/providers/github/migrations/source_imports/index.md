@@ -27,29 +27,29 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `use_lfs` | `boolean` |  |
-| `large_files_count` | `integer` |  |
-| `html_url` | `string` |  |
-| `commit_count` | `integer` |  |
-| `vcs_url` | `string` | The URL of the originating repository. |
-| `import_percent` | `integer` |  |
-| `authors_url` | `string` |  |
-| `svc_root` | `string` |  |
-| `repository_url` | `string` |  |
-| `vcs` | `string` |  |
-| `message` | `string` |  |
-| `large_files_size` | `integer` |  |
-| `status` | `string` |  |
-| `push_percent` | `integer` |  |
 | `svn_root` | `string` |  |
+| `svc_root` | `string` |  |
+| `message` | `string` |  |
+| `tfvc_project` | `string` |  |
+| `vcs` | `string` |  |
+| `large_files_count` | `integer` |  |
+| `project_choices` | `array` |  |
+| `import_percent` | `integer` |  |
+| `large_files_size` | `integer` |  |
+| `failed_step` | `string` |  |
+| `use_lfs` | `boolean` |  |
+| `commit_count` | `integer` |  |
+| `has_large_files` | `boolean` |  |
 | `status_text` | `string` |  |
 | `authors_count` | `integer` |  |
-| `has_large_files` | `boolean` |  |
-| `failed_step` | `string` |  |
-| `url` | `string` |  |
-| `tfvc_project` | `string` |  |
-| `project_choices` | `array` |  |
 | `error_message` | `string` |  |
+| `repository_url` | `string` |  |
+| `authors_url` | `string` |  |
+| `push_percent` | `integer` |  |
+| `vcs_url` | `string` | The URL of the originating repository. |
+| `status` | `string` |  |
+| `html_url` | `string` |  |
+| `url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

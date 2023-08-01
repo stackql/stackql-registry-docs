@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of RedisEnterprise clusters, as opposed to general resource properties like location, tags |
 | `sku` | `object` | SKU parameters supplied to the create RedisEnterprise operation. |
 | `tags` | `object` | Resource tags. |
 | `zones` | `array` | The Availability Zones where this cluster will be deployed. |
 | `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | Properties of RedisEnterprise clusters, as opposed to general resource properties like location, tags |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

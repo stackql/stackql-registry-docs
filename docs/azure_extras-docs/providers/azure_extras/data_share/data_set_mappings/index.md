@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id of the azure resource |
 | `name` | `string` | Name of the azure resource |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Type of the azure resource |
 | `kind` | `string` | Kind of data set mapping. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

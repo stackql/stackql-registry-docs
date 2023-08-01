@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The alert rule arm id. |
 | `name` | `string` | The status name. |
-| `properties` | `object` | An alert status properties. |
 | `type` | `string` | The extended resource type name. |
+| `properties` | `object` | An alert status properties. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

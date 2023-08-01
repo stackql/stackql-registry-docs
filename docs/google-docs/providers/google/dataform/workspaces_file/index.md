@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_repositories_workspaces_removeFile` | `DELETE` | `locationsId, projectsId, repositoriesId, workspacesId` |
+| `remove_file` | `EXEC` | `locationsId, projectsId, repositoriesId, workspacesId` |

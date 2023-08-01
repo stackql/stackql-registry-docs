@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Synthesizes natural-sounding speech by applying powerful neural network models.  
+Synthesizes Natural-Sounding Speech By Applying Powerful Neural Network Models.  
     
 :::info Service Summary
 
@@ -31,9 +31,9 @@ Synthesizes natural-sounding speech by applying powerful neural network models.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.texttospeech</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Cloud Text-to-Speech API</td></tr>
-<tr><td><b>Description</b></td><td>Synthesizes natural-sounding speech by applying powerful neural network models.</td></tr>
-<tr><td><b>Id</b></td><td><code>texttospeech:v23.05.00145</code></td></tr>
+<tr><td><b>Title</b></td><td>Cloud Text-To-Speech API</td></tr>
+<tr><td><b>Description</b></td><td>Synthesizes Natural-Sounding Speech By Applying Powerful Neural Network Models.</td></tr>
+<tr><td><b>Id</b></td><td><code>texttospeech:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

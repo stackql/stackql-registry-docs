@@ -30,15 +30,15 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` |
 | `name` | `string` |
 | `description` | `string` |
-| `has_free_trial` | `boolean` |
-| `url` | `string` |
-| `yearly_price_in_cents` | `integer` |
-| `state` | `string` |
-| `accounts_url` | `string` |
-| `number` | `integer` |
 | `bullets` | `array` |
 | `price_model` | `string` |
 | `unit_name` | `string` |
+| `accounts_url` | `string` |
+| `number` | `integer` |
+| `url` | `string` |
+| `has_free_trial` | `boolean` |
+| `yearly_price_in_cents` | `integer` |
+| `state` | `string` |
 | `monthly_price_in_cents` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |

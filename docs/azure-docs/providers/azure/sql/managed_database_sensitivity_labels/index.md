@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `managedBy` | `string` | Resource that manages the sensitivity label. |
 | `properties` | `object` | Properties of a sensitivity label. |
+| `managedBy` | `string` | Resource that manages the sensitivity label. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

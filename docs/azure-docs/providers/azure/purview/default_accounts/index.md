@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `scopeTenantId` | `string` | The scope tenant in which the default account is set. |
-| `scopeType` | `string` | The scope where the default account is set. |
-| `subscriptionId` | `string` | The subscription ID of the account that is set as the default. |
 | `accountName` | `string` | The name of the account that is set as the default. |
 | `resourceGroupName` | `string` | The resource group name of the account that is set as the default. |
 | `scope` | `string` | The scope object ID. For example, sub ID or tenant ID. |
+| `scopeTenantId` | `string` | The scope tenant in which the default account is set. |
+| `scopeType` | `string` | The scope where the default account is set. |
+| `subscriptionId` | `string` | The subscription ID of the account that is set as the default. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

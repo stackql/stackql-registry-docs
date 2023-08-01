@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `tenantId` | `string` | The tenant ID of resource. |
 | `type` | `string` | The identity type. |
 | `principalId` | `string` | The principal ID of resource identity. |
-| `tenantId` | `string` | The tenant ID of resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

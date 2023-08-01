@@ -28,11 +28,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `meta` | `object` |
 | `schemas` | `array` |
 | `displayName` | `string` |
 | `externalId` | `string` |
 | `members` | `array` |
-| `meta` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Path reference to this machine. /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/Microsoft.Migrate/assessmentProjects/&#123;projectName&#125;/machines/&#123;machineName&#125; |
 | `name` | `string` | Name of the machine. It is a GUID which is unique identifier of machine in private data center. For user-readable name, we have a displayName property on this machine. |
-| `properties` | `object` | Properties of a machine. |
 | `type` | `string` | Type of the object = [Microsoft.Migrate/assessmentProjects/machines]. |
 | `eTag` | `string` | For optimistic concurrency control. |
+| `properties` | `object` | Properties of a machine. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The access review reviewer id. |
 | `name` | `string` | The access review reviewer id. |
-| `properties` | `object` | Properties of access review contacted reviewer. |
 | `type` | `string` | The resource type. |
+| `properties` | `object` | Properties of access review contacted reviewer. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

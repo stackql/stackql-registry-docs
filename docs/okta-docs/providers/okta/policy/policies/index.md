@@ -30,12 +30,12 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `description` | `string` |
-| `status` | `string` |
-| `_embedded` | `object` |
-| `_links` | `object` |
-| `type` | `string` |
 | `conditions` | `object` |
+| `_links` | `object` |
 | `lastUpdated` | `string` |
+| `status` | `string` |
+| `type` | `string` |
+| `_embedded` | `object` |
 | `priority` | `integer` |
 | `system` | `boolean` |
 | `created` | `string` |

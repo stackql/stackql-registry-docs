@@ -13,13 +13,13 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors.   
+Groups And Counts Similar Errors From Cloud Services And Applications, Reports New Errors, And Provides Access To Error Groups And Their Associated Errors.   
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
 <span>total methods:&nbsp;<b>6</b></span><br />
 </div>
@@ -32,8 +32,8 @@ Groups and counts similar errors from cloud services and applications, reports n
 <tr><td><b>Name</b></td><td><code>google.clouderrorreporting</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Error Reporting API</td></tr>
-<tr><td><b>Description</b></td><td>Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors. </td></tr>
-<tr><td><b>Id</b></td><td><code>clouderrorreporting:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>Groups And Counts Similar Errors From Cloud Services And Applications, Reports New Errors, And Provides Access To Error Groups And Their Associated Errors. </td></tr>
+<tr><td><b>Id</b></td><td><code>clouderrorreporting:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -44,6 +44,5 @@ Groups and counts similar errors from cloud services and applications, reports n
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/clouderrorreporting/groups/">groups</a><br />
-<a href="/providers/google/clouderrorreporting/projects_events/">projects_events</a><br />
 </div>
 </div>

@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | virtual machine template id (privateCloudId:vsphereId) |
 | `name` | `string` | &#123;virtualMachineTemplateName&#125; |
-| `location` | `string` | Azure region |
 | `properties` | `object` | Properties of virtual machine template |
 | `type` | `string` | &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125; |
+| `location` | `string` | Azure region |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

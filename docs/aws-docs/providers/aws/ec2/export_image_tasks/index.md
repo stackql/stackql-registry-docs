@@ -28,13 +28,13 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A description of the image being exported. |
-| `imageId` | `string` | The ID of the image. |
-| `progress` | `string` | The percent complete of the export image task. |
-| `s3ExportLocation` | `object` | Describes the destination for an export image task. |
 | `status` | `string` | The status of the export image task. The possible values are &lt;code&gt;active&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt;, &lt;code&gt;deleting&lt;/code&gt;, and &lt;code&gt;deleted&lt;/code&gt;. |
 | `statusMessage` | `string` | The status message for the export image task. |
 | `tagSet` | `array` | Any tags assigned to the export image task. |
 | `exportImageTaskId` | `string` | The ID of the export image task. |
+| `imageId` | `string` | The ID of the image. |
+| `progress` | `string` | The percent complete of the export image task. |
+| `s3ExportLocation` | `object` | Describes the destination for an export image task. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

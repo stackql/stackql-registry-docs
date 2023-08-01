@@ -29,32 +29,32 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `start_line` | `integer` | The first line of the range for a multi-line comment. |
-| `url` | `string` |  |
-| `body_html` | `string` |  |
-| `pull_request_url` | `string` |  |
-| `body_text` | `string` |  |
-| `user` | `object` | Simple User |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `side` | `string` | The side of the first line of the range for a multi-line comment. |
-| `_links` | `object` |  |
-| `start_side` | `string` | The side of the first line of the range for a multi-line comment. |
-| `original_position` | `integer` |  |
-| `position` | `integer` |  |
-| `diff_hunk` | `string` |  |
-| `body` | `string` |  |
-| `pull_request_review_id` | `integer` |  |
-| `original_commit_id` | `string` |  |
 | `path` | `string` |  |
-| `updated_at` | `string` |  |
-| `node_id` | `string` |  |
-| `original_line` | `integer` | The original line of the blob to which the comment applies. The last line of the range for a multi-line comment |
-| `commit_id` | `string` |  |
-| `line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
+| `pull_request_review_id` | `integer` |  |
+| `position` | `integer` |  |
+| `body` | `string` |  |
+| `body_text` | `string` |  |
 | `html_url` | `string` |  |
+| `body_html` | `string` |  |
+| `side` | `string` | The side of the first line of the range for a multi-line comment. |
+| `original_line` | `integer` | The original line of the blob to which the comment applies. The last line of the range for a multi-line comment |
 | `reactions` | `object` |  |
-| `created_at` | `string` |  |
+| `original_position` | `integer` |  |
 | `in_reply_to_id` | `integer` |  |
+| `node_id` | `string` |  |
+| `original_commit_id` | `string` |  |
+| `updated_at` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `_links` | `object` |  |
+| `line` | `integer` | The line of the blob to which the comment applies. The last line of the range for a multi-line comment |
+| `commit_id` | `string` |  |
+| `user` | `object` | Simple User |
 | `original_start_line` | `integer` | The original first line of the range for a multi-line comment. |
+| `diff_hunk` | `string` |  |
+| `url` | `string` |  |
+| `start_side` | `string` | The side of the first line of the range for a multi-line comment. |
+| `pull_request_url` | `string` |  |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

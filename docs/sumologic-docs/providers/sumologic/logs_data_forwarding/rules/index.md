@@ -28,17 +28,17 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The unique identifier of the data forwarding rule. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `indexId` | `string` | The `id` of the Partition or Scheduled View the rule applies to. |
+| `bucket` | `object` |  |
 | `enabled` | `boolean` | True when the data forwarding rule is enabled. |
-| `payloadSchema` | `string` | Schema for the payload. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
+| `format` | `string` | Format of the payload. |
 | `destinationId` | `string` | The data forwarding destination id. |
 | `fileFormat` | `string` | Specify the path prefix to a directory in the S3 bucket and how to format the file name. |
-| `format` | `string` | Format of the payload. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `bucket` | `object` |  |
-| `indexId` | `string` | The `id` of the Partition or Scheduled View the rule applies to. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `payloadSchema` | `string` | Schema for the payload. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,19 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The resource name for this CertificateRevocationList in the format `projects/*/locations/*/caPools/*certificateAuthorities/*/ certificateRevocationLists/*`. |
-| `revisionId` | `string` | Output only. The revision ID of this CertificateRevocationList. A new revision is committed whenever a new CRL is published. The format is an 8-character hexadecimal string. |
-| `accessUrl` | `string` | Output only. The location where 'pem_crl' can be accessed. |
-| `pemCrl` | `string` | Output only. The PEM-encoded X.509 CRL. |
-| `state` | `string` | Output only. The State for this CertificateRevocationList. |
-| `revokedCertificates` | `array` | Output only. The revoked serial numbers that appear in pem_crl. |
-| `updateTime` | `string` | Output only. The time at which this CertificateRevocationList was updated. |
-| `createTime` | `string` | Output only. The time at which this CertificateRevocationList was created. |
-| `labels` | `object` | Optional. Labels with user-defined metadata. |
-| `sequenceNumber` | `string` | Output only. The CRL sequence number that appears in pem_crl. |
+| `certificateRevocationLists` | `array` | The list of CertificateRevocationLists. |
+| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this value in ListCertificateRevocationListsRequest.next_page_token to retrieve the next page of results. |
+| `unreachable` | `array` | A list of locations (e.g. "us-west1") that could not be reached. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_caPools_certificateAuthorities_certificateRevocationLists_get` | `SELECT` | `caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId` | Returns a CertificateRevocationList. |
-| `projects_locations_caPools_certificateAuthorities_certificateRevocationLists_list` | `SELECT` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Lists CertificateRevocationLists. |
-| `projects_locations_caPools_certificateAuthorities_certificateRevocationLists_patch` | `EXEC` | `caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId` | Update a CertificateRevocationList. |
+| `get` | `SELECT` | `caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId` | Returns a CertificateRevocationList. |
+| `list` | `SELECT` | `caPoolsId, certificateAuthoritiesId, locationsId, projectsId` | Lists CertificateRevocationLists. |
+| `patch` | `EXEC` | `caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId` | Update a CertificateRevocationList. |

@@ -25,11 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `commitsAhead` | `integer` | The number of commits in the remote branch that are not in the workspace. |
-| `commitsBehind` | `integer` | The number of commits in the workspace that are not in the remote branch. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_repositories_workspaces_fetchGitAheadBehind` | `SELECT` | `locationsId, projectsId, repositoriesId, workspacesId` |
+| `fetch_git_ahead_behind` | `EXEC` | `locationsId, projectsId, repositoriesId, workspacesId` |

@@ -27,11 +27,11 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `Url` | `string` | Contains a URL that specifies the endpoint for an OpenID Connect provider. |
-| `ClientIDList` | `array` | A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see &lt;a&gt;CreateOpenIDConnectProvider&lt;/a&gt;. |
 | `CreateDate` | `string` | The date and time when the IAM OIDC provider resource object was created in the Amazon Web Services account. |
 | `Tags` | `array` | A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html"&gt;Tagging IAM resources&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;. |
 | `ThumbprintList` | `array` | Contains a list of thumbprints of identity provider server certificates. |
+| `Url` | `string` | Contains a URL that specifies the endpoint for an OpenID Connect provider. |
+| `ClientIDList` | `array` | A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see &lt;a&gt;CreateOpenIDConnectProvider&lt;/a&gt;. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

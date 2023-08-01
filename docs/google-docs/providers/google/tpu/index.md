@@ -13,14 +13,14 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-TPU API provides customers with access to Google TPU technology.  
+TPU API Provides Customers With Access To Google TPU Technology.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
 <span>total methods:&nbsp;<b>19</b></span><br />
 </div>
 </div>
@@ -32,8 +32,8 @@ TPU API provides customers with access to Google TPU technology.
 <tr><td><b>Name</b></td><td><code>google.tpu</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud TPU API</td></tr>
-<tr><td><b>Description</b></td><td>TPU API provides customers with access to Google TPU technology.</td></tr>
-<tr><td><b>Id</b></td><td><code>tpu:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>TPU API Provides Customers With Access To Google TPU Technology.</td></tr>
+<tr><td><b>Id</b></td><td><code>tpu:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

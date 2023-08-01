@@ -27,13 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `commandExpireTime` | `string` | The time at which the command will expire. If the device doesn't execute the command within this time the command will become expired. |
-| `commandId` | `string` | Unique ID of a device command. |
 | `commandResult` | `object` | The result of executing a command. |
 | `issueTime` | `string` | The timestamp when the command was issued by the admin. |
 | `payload` | `string` | The payload that the command specified, if any. |
 | `state` | `string` | Indicates the command state. |
 | `type` | `string` | The type of the command. |
+| `commandExpireTime` | `string` | The time at which the command will expire. If the device doesn't execute the command within this time the command will become expired. |
+| `commandId` | `string` | Unique ID of a device command. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

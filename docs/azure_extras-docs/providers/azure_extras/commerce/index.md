@@ -33,7 +33,7 @@ Usage Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Usage Management Client (Microsoft.Commerce)</td></tr>
 <tr><td><b>Description</b></td><td>Usage Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>commerce:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>commerce:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

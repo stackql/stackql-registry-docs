@@ -27,10 +27,10 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `CreateDate` | `string` | The date and time when the SAML provider was created. |
-| `SAMLMetadataDocument` | `string` | The XML metadata document that includes information about an identity provider. |
 | `Tags` | `array` | A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html"&gt;Tagging IAM resources&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;. |
 | `ValidUntil` | `string` | The expiration date and time for the SAML provider. |
+| `CreateDate` | `string` | The date and time when the SAML provider was created. |
+| `SAMLMetadataDocument` | `string` | The XML metadata document that includes information about an identity provider. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

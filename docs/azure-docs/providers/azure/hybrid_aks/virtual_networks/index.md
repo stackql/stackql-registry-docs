@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
 | `extendedLocation` | `object` |  |
 | `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

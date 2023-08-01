@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the private endpoint connection. |
 | `name` | `string` | The name of the private endpoint connection. |
-| `type` | `string` | The resource type. |
 | `properties` | `object` | Properties of a private endpoint connection. |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

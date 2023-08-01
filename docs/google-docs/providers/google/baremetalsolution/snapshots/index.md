@@ -36,8 +36,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_volumes_snapshots_get` | `SELECT` | `locationsId, projectsId, snapshotsId, volumesId` | Returns the specified snapshot resource. Returns INVALID_ARGUMENT if called for a non-boot volume. |
-| `projects_locations_volumes_snapshots_list` | `SELECT` | `locationsId, projectsId, volumesId` | Retrieves the list of snapshots for the specified volume. Returns a response with an empty list of snapshots if called for a non-boot volume. |
-| `projects_locations_volumes_snapshots_create` | `INSERT` | `locationsId, projectsId, volumesId` | Takes a snapshot of a boot volume. Returns INVALID_ARGUMENT if called for a non-boot volume. |
-| `projects_locations_volumes_snapshots_delete` | `DELETE` | `locationsId, projectsId, snapshotsId, volumesId` | Deletes a volume snapshot. Returns INVALID_ARGUMENT if called for a non-boot volume. |
-| `projects_locations_volumes_snapshots_restoreVolumeSnapshot` | `EXEC` | `locationsId, projectsId, snapshotsId, volumesId` | Uses the specified snapshot to restore its parent volume. Returns INVALID_ARGUMENT if called for a non-boot volume. |
+| `get` | `SELECT` | `locationsId, projectsId, snapshotsId, volumesId` | Returns the specified snapshot resource. Returns INVALID_ARGUMENT if called for a non-boot volume. |
+| `list` | `SELECT` | `locationsId, projectsId, volumesId` | Retrieves the list of snapshots for the specified volume. Returns a response with an empty list of snapshots if called for a non-boot volume. |
+| `create` | `INSERT` | `locationsId, projectsId, volumesId` | Takes a snapshot of a boot volume. Returns INVALID_ARGUMENT if called for a non-boot volume. |
+| `delete` | `DELETE` | `locationsId, projectsId, snapshotsId, volumesId` | Deletes a volume snapshot. Returns INVALID_ARGUMENT if called for a non-boot volume. |
+| `restore_volume_snapshot` | `EXEC` | `locationsId, projectsId, snapshotsId, volumesId` | Uses the specified snapshot to restore its parent volume. Returns INVALID_ARGUMENT if called for a non-boot volume. |

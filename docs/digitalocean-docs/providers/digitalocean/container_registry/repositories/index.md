@@ -28,9 +28,9 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the repository. |
-| `tag_count` | `integer` | The number of tags in the repository. |
 | `latest_tag` | `object` |  |
 | `registry_name` | `string` | The name of the container registry. |
+| `tag_count` | `integer` | The number of tags in the repository. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

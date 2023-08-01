@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `services_roles_add` | `INSERT` | `servicesId` |
+| `add` | `EXEC` | `servicesId` |

@@ -28,8 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Full deployment operation ID. |
-| `properties` | `object` | Deployment operation properties. |
 | `operationId` | `string` | Deployment operation ID. |
+| `properties` | `object` | Deployment operation properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ System Center VM Manager
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>System Center VM Manager (Microsoft.ScVmm)</td></tr>
 <tr><td><b>Description</b></td><td>System Center VM Manager</td></tr>
-<tr><td><b>Id</b></td><td><code>system_center_vm_manager:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>system_center_vm_manager:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,13 +29,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `string` |
 | `name` | `object` |
-| `externalId` | `string` |
-| `groups` | `array` |
-| `active` | `boolean` |
-| `emails` | `array` |
-| `schemas` | `array` |
 | `userName` | `string` |
+| `emails` | `array` |
+| `groups` | `array` |
+| `externalId` | `string` |
 | `meta` | `object` |
+| `schemas` | `array` |
+| `active` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

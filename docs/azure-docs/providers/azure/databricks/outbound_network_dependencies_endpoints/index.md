@@ -27,8 +27,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `endpoints` | `array` | The endpoints that Workspace connect to |
 | `category` | `string` | The category of endpoints accessed by the Workspace, e.g. azure-storage, azure-mysql, etc. |
+| `endpoints` | `array` | The endpoints that Workspace connect to |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -30,13 +30,13 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | `id` | `string` |
 | `name` | `string` |
 | `issuerMode` | `string` |
-| `type` | `string` |
-| `lastUpdated` | `string` |
-| `created` | `string` |
-| `protocol` | `object` |
 | `policy` | `object` |
+| `created` | `string` |
+| `lastUpdated` | `string` |
 | `status` | `string` |
+| `protocol` | `object` |
 | `_links` | `object` |
+| `type` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

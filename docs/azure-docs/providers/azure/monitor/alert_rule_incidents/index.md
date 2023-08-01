@@ -28,10 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Incident name. |
-| `activatedTime` | `string` | The time at which the incident was activated in ISO8601 format. |
-| `isActive` | `boolean` | A boolean to indicate whether the incident is active or resolved. |
 | `resolvedTime` | `string` | The time at which the incident was resolved in ISO8601 format. If null, it means the incident is still active. |
 | `ruleName` | `string` | Rule name that is associated with the incident. |
+| `activatedTime` | `string` | The time at which the incident was activated in ISO8601 format. |
+| `isActive` | `boolean` | A boolean to indicate whether the incident is active or resolved. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,9 +28,9 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This Issue's unique ID.<br /> |
+| `entity` | `object` | The ticket this Managed Issue opened.<br /> |
 | `services` | `array` | An array of Managed Service IDs that were affected by this Issue.<br /> |
 | `created` | `string` | When this Issue was created. Issues are created in response to issues detected with Managed Services, so this is also when the Issue was detected.<br /> |
-| `entity` | `object` | The ticket this Managed Issue opened.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

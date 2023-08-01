@@ -33,7 +33,7 @@ API for using the Azure IoT Hub Device Provisioning Service features.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>IoT Device Provisioning Service Client (Microsoft.Devices)</td></tr>
 <tr><td><b>Description</b></td><td>API for using the Azure IoT Hub Device Provisioning Service features.</td></tr>
-<tr><td><b>Id</b></td><td><code>devices:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>devices:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

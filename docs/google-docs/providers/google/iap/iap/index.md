@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `updateIapSettings` | `EXEC` | `v1Id` |
+| `validate_attribute_expression` | `EXEC` | `v1Id` |

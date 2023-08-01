@@ -17,7 +17,7 @@ slug: /providers/digitalocean
 ---
 Cloud computing services and Infrastructure as a Service (IaaS).  
     
-:::info Provider Summary
+:::info Provider Summary (v23.04.00139)
 
 <div class="row">
 <div class="providerDocColumn">
@@ -63,7 +63,7 @@ To use different environment variables (instead of the defaults), use the `--aut
 
 AUTH='{ "digitalocean": { "type": "bearer",  "credentialsenvvar": "YOUR_DIGITALOCEAN_TOKEN_VAR" }}'
 stackql shell --auth="${AUTH}"
- 
+
 ```
 or using PowerShell:  
 
@@ -71,7 +71,7 @@ or using PowerShell:
 
 $Auth = "{ 'digitalocean': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_DIGITALOCEAN_TOKEN_VAR' }}"
 stackql.exe shell --auth=$Auth
- 
+
 ```
 </details>
 

@@ -29,10 +29,10 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 |:-----|:---------|:------------|
 | `id` | `string` | A unique ID that can be used to identify and reference the check. |
 | `name` | `string` | A human-friendly display name. |
-| `regions` | `array` | An array containing the selected regions to perform healthchecks from. |
-| `target` | `string` | The endpoint to perform healthchecks on. |
 | `type` | `string` | The type of health check to perform. |
 | `enabled` | `boolean` | A boolean value indicating whether the check is enabled/disabled. |
+| `regions` | `array` | An array containing the selected regions to perform healthchecks from. |
+| `target` | `string` | The endpoint to perform healthchecks on. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

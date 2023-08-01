@@ -27,6 +27,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
 | `zones` | `array` | An array represents the availability zones of the cluster. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
@@ -34,7 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Class representing the Kusto cluster properties. |
 | `sku` | `object` | Azure SKU definition. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

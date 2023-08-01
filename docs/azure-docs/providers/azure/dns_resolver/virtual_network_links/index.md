@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `properties` | `object` | Represents the properties of a virtual network link. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `etag` | `string` | ETag of the virtual network link. |
-| `properties` | `object` | Represents the properties of a virtual network link. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

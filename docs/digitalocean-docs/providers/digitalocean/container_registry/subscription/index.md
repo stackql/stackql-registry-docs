@@ -27,9 +27,9 @@ image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `created_at` | `string` | The time at which the subscription was created. |
 | `tier` | `object` |  |
 | `updated_at` | `string` | The time at which the subscription was last updated. |
-| `created_at` | `string` | The time at which the subscription was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

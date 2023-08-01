@@ -28,18 +28,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `protection_url` | `string` |  |
-| `allow_deletions` | `object` |  |
-| `restrictions` | `object` | Branch Restriction Policy |
-| `allow_force_pushes` | `object` |  |
-| `required_signatures` | `object` |  |
-| `url` | `string` |  |
+| `required_pull_request_reviews` | `object` | Protected Branch Pull Request Review |
 | `required_status_checks` | `object` | Protected Branch Required Status Check |
 | `enforce_admins` | `object` | Protected Branch Admin Enforced |
-| `required_pull_request_reviews` | `object` | Protected Branch Pull Request Review |
+| `allow_deletions` | `object` |  |
+| `url` | `string` |  |
 | `enabled` | `boolean` |  |
-| `required_conversation_resolution` | `object` |  |
+| `restrictions` | `object` | Branch Restriction Policy |
+| `protection_url` | `string` |  |
 | `required_linear_history` | `object` |  |
+| `required_signatures` | `object` |  |
+| `allow_force_pushes` | `object` |  |
+| `required_conversation_resolution` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

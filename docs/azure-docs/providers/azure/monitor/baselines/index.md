@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The metric baseline Id. |
 | `name` | `string` | The name of the metric for which the baselines were retrieved. |
-| `type` | `string` | The resource type of the metric baseline resource. |
 | `properties` | `object` | The response to a metric baselines query. |
+| `type` | `string` | The resource type of the metric baseline resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

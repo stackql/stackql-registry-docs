@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Name of the virtual appliance site. |
-| `properties` | `object` | Properties of the rule group. |
 | `type` | `string` | Site type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `properties` | `object` | Properties of the rule group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

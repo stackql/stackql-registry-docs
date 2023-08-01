@@ -28,12 +28,12 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This Node Pool's unique ID.<br /> |
-| `autoscaler` | `object` | When enabled, the number of nodes autoscales within the defined minimum and maximum values.<br /> |
-| `count` | `integer` | The number of nodes in the Node Pool. |
-| `disks` | `array` | This Node Pool's custom disk layout.<br /> |
 | `nodes` | `array` | Status information for the Nodes which are members of this Node Pool. If a Linode has not been provisioned for a given Node slot, the instance_id will be returned as null.<br /> |
 | `tags` | `array` | An array of tags applied to this object. Tags are for organizational purposes only.<br /> |
 | `type` | `string` | The Linode Type for all of the nodes in the Node Pool. |
+| `autoscaler` | `object` | When enabled, the number of nodes autoscales within the defined minimum and maximum values.<br /> |
+| `count` | `integer` | The number of nodes in the Node Pool. |
+| `disks` | `array` | This Node Pool's custom disk layout.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

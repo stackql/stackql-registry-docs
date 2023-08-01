@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `properties` | `object` | Payload of the blockchain member properties for a blockchain member. |
 | `sku` | `object` | Blockchain member Sku in payload |
 | `tags` | `object` | Tags of the service which is a list of key value pairs that describes the resource. |
 | `location` | `string` | The GEO location of the blockchain service. |
-| `properties` | `object` | Payload of the blockchain member properties for a blockchain member. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

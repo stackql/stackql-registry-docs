@@ -27,12 +27,12 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
-| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `subdomain` | `string` | The new subdomain. |
 | `url` | `string` | Login URL corresponding to the subdomain. |
 | `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format.<br /> |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
+| `subdomain` | `string` | The new subdomain. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

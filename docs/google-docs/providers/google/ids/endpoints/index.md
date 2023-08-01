@@ -27,23 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The name of the endpoint. |
-| `description` | `string` | User-provided description of the endpoint |
-| `labels` | `object` | The labels of the endpoint. |
-| `severity` | `string` | Required. Lowest threat severity that this endpoint will alert on. |
-| `threatExceptions` | `array` | List of threat IDs to be excepted from generating alerts. |
-| `updateTime` | `string` | Output only. The update time timestamp. |
-| `trafficLogs` | `boolean` | Whether the endpoint should report traffic logs in addition to threat logs. |
-| `createTime` | `string` | Output only. The create time timestamp. |
-| `network` | `string` | Required. The fully qualified URL of the network to which the IDS Endpoint is attached. |
-| `state` | `string` | Output only. Current state of the endpoint. |
-| `endpointForwardingRule` | `string` | Output only. The fully qualified URL of the endpoint's ILB Forwarding Rule. |
-| `endpointIp` | `string` | Output only. The IP address of the IDS Endpoint's ILB. |
+| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `unreachable` | `array` | Locations that could not be reached. |
+| `endpoints` | `array` | The list of endpoints response. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_endpoints_get` | `SELECT` | `endpointsId, locationsId, projectsId` | Gets details of a single Endpoint. |
-| `projects_locations_endpoints_list` | `SELECT` | `locationsId, projectsId` | Lists Endpoints in a given project and location. |
-| `projects_locations_endpoints_create` | `INSERT` | `locationsId, projectsId` | Creates a new Endpoint in a given project and location. |
-| `projects_locations_endpoints_delete` | `DELETE` | `endpointsId, locationsId, projectsId` | Deletes a single Endpoint. |
-| `projects_locations_endpoints_patch` | `EXEC` | `endpointsId, locationsId, projectsId` | Updates the parameters of a single Endpoint. |
+| `get` | `SELECT` | `endpointsId, locationsId, projectsId` | Gets details of a single Endpoint. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists Endpoints in a given project and location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new Endpoint in a given project and location. |
+| `delete` | `DELETE` | `endpointsId, locationsId, projectsId` | Deletes a single Endpoint. |
+| `patch` | `EXEC` | `endpointsId, locationsId, projectsId` | Updates the parameters of a single Endpoint. |

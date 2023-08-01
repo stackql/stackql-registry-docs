@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the operation being performed on an object. |
-| `origin` | `string` | Origin for the operation. |
 | `display` | `object` | Contains the localized display information for this particular operation / action. |
 | `isDataAction` | `boolean` | Whether the operation applies to data-plane. This is "true" for data-plane operations and "false" for ARM/control-plane operations. |
+| `origin` | `string` | Origin for the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

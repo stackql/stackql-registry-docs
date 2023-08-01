@@ -27,14 +27,14 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ErrorDetails` | `object` | &lt;p&gt;Contains information about the reason that the operation failed.&lt;/p&gt; &lt;p&gt;This data type is used as a response element in the &lt;a&gt;GetOrganizationsAccessReport&lt;/a&gt;, &lt;a&gt;GetServiceLastAccessedDetails&lt;/a&gt;, and &lt;a&gt;GetServiceLastAccessedDetailsWithEntities&lt;/a&gt; operations.&lt;/p&gt; |
-| `IsTruncated` | `boolean` | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the &lt;code&gt;Marker&lt;/code&gt; request parameter to retrieve more items. Note that IAM might return fewer than the &lt;code&gt;MaxItems&lt;/code&gt; number of results even when there are more results available. We recommend that you check &lt;code&gt;IsTruncated&lt;/code&gt; after every call to ensure that you receive all your results. |
-| `NumberOfServicesAccessible` | `integer` | The number of services that the applicable SCPs allow account principals to access. |
-| `AccessDetails` | `array` | An object that contains details about the most recent attempt to access the service. |
-| `JobCompletionDate` | `string` | &lt;p&gt;The date and time, in &lt;a href="http://www.iso.org/iso/iso8601"&gt;ISO 8601 date-time format&lt;/a&gt;, when the generated report job was completed or failed.&lt;/p&gt; &lt;p&gt;This field is null if the job is still in progress, as indicated by a job status value of &lt;code&gt;IN_PROGRESS&lt;/code&gt;.&lt;/p&gt; |
-| `JobStatus` | `string` | The status of the job. |
 | `Marker` | `string` | When &lt;code&gt;IsTruncated&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, this element is present and contains the value to use for the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent pagination request. |
+| `ErrorDetails` | `object` | &lt;p&gt;Contains information about the reason that the operation failed.&lt;/p&gt; &lt;p&gt;This data type is used as a response element in the &lt;a&gt;GetOrganizationsAccessReport&lt;/a&gt;, &lt;a&gt;GetServiceLastAccessedDetails&lt;/a&gt;, and &lt;a&gt;GetServiceLastAccessedDetailsWithEntities&lt;/a&gt; operations.&lt;/p&gt; |
 | `JobCreationDate` | `string` | The date and time, in &lt;a href="http://www.iso.org/iso/iso8601"&gt;ISO 8601 date-time format&lt;/a&gt;, when the report job was created. |
+| `JobCompletionDate` | `string` | &lt;p&gt;The date and time, in &lt;a href="http://www.iso.org/iso/iso8601"&gt;ISO 8601 date-time format&lt;/a&gt;, when the generated report job was completed or failed.&lt;/p&gt; &lt;p&gt;This field is null if the job is still in progress, as indicated by a job status value of &lt;code&gt;IN_PROGRESS&lt;/code&gt;.&lt;/p&gt; |
+| `NumberOfServicesAccessible` | `integer` | The number of services that the applicable SCPs allow account principals to access. |
+| `IsTruncated` | `boolean` | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the &lt;code&gt;Marker&lt;/code&gt; request parameter to retrieve more items. Note that IAM might return fewer than the &lt;code&gt;MaxItems&lt;/code&gt; number of results even when there are more results available. We recommend that you check &lt;code&gt;IsTruncated&lt;/code&gt; after every call to ensure that you receive all your results. |
+| `JobStatus` | `string` | The status of the job. |
+| `AccessDetails` | `array` | An object that contains details about the most recent attempt to access the service. |
 | `NumberOfServicesNotAccessed` | `integer` | The number of services that account principals are allowed but did not attempt to access. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

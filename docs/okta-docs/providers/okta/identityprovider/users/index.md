@@ -28,12 +28,12 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
-| `externalId` | `string` |
-| `lastUpdated` | `string` |
-| `profile` | `object` |
 | `_embedded` | `object` |
 | `_links` | `object` |
 | `created` | `string` |
+| `externalId` | `string` |
+| `lastUpdated` | `string` |
+| `profile` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -33,7 +33,7 @@ Stor Simple 8000 Series
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Stor Simple 8000 Series (Microsoft.StorSimple)</td></tr>
 <tr><td><b>Description</b></td><td>Stor Simple 8000 Series</td></tr>
-<tr><td><b>Id</b></td><td><code>stor_simple_8000_series:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>stor_simple_8000_series:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

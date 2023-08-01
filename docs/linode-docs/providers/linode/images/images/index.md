@@ -29,17 +29,17 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique ID of this Image. |
 | `description` | `string` | A detailed description of this Image. |
-| `is_public` | `boolean` | True if the Image is a public distribution image. False if Image is private Account-specific Image. |
-| `status` | `string` | The current status of this Image.<br /><br />Only Images in an "available" status can be deployed. Images in a "creating" status are being created from a Linode Disk, and will become "available" shortly. Images in a "pending_upload" status are waiting for data to be [uploaded](/docs/api/images/#image-upload), and become "available" after the upload and processing are complete.<br /><br />The "+order_by" and "+order" operators are not available for [filtering](/docs/api/#filtering-and-sorting) on this key.<br /> |
+| `vendor` | `string` | The upstream distribution vendor. `None` for private Images.<br /> |
+| `created` | `string` | When this Image was created. |
+| `deprecated` | `boolean` | Whether or not this Image is deprecated. Will only be true for deprecated public Images.<br /> |
 | `updated` | `string` | When this Image was last updated. |
 | `expiry` | `string` | Only Images created automatically from a deleted Linode (type=automatic) will expire.<br /> |
-| `type` | `string` | How the Image was created.<br /><br />"Manual" Images can be created at any time.<br /><br />"Automatic" Images are created automatically from a deleted Linode.<br /> |
 | `label` | `string` | A short description of the Image.<br /> |
-| `created_by` | `string` | The name of the User who created this Image, or "linode" for public Images.<br /> |
-| `deprecated` | `boolean` | Whether or not this Image is deprecated. Will only be true for deprecated public Images.<br /> |
-| `created` | `string` | When this Image was created. |
 | `size` | `integer` | The minimum size this Image needs to deploy. Size is in MB.<br /> |
-| `vendor` | `string` | The upstream distribution vendor. `None` for private Images.<br /> |
+| `created_by` | `string` | The name of the User who created this Image, or "linode" for public Images.<br /> |
+| `is_public` | `boolean` | True if the Image is a public distribution image. False if Image is private Account-specific Image. |
+| `status` | `string` | The current status of this Image.<br /><br />Only Images in an "available" status can be deployed. Images in a "creating" status are being created from a Linode Disk, and will become "available" shortly. Images in a "pending_upload" status are waiting for data to be [uploaded](/docs/api/images/#image-upload), and become "available" after the upload and processing are complete.<br /><br />The "+order_by" and "+order" operators are not available for [filtering](/docs/api/#filtering-and-sorting) on this key.<br /> |
+| `type` | `string` | How the Image was created.<br /><br />"Manual" Images can be created at any time.<br /><br />"Automatic" Images are created automatically from a deleted Linode.<br /> |
 | `eol` | `string` | The date of the public Image's planned end of life. `None` for private Images.<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |

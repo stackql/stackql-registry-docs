@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `sku` | `object` | SKU of nat gateway. |
+| `location` | `string` | Resource location. |
 | `tags` | `object` | Resource tags. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Nat Gateway properties. |
-| `location` | `string` | Resource location. |
 | `type` | `string` | Resource type. |
+| `sku` | `object` | SKU of nat gateway. |
 | `zones` | `array` | A list of availability zones denoting the zone in which Nat Gateway should be deployed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

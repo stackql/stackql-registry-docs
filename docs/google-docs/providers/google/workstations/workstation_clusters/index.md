@@ -27,26 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Full name of this resource. |
-| `uid` | `string` | Output only. A system-assigned unique identified for this resource. |
-| `conditions` | `array` | Output only. Status conditions describing the current resource state. |
-| `updateTime` | `string` | Output only. Time when this resource was most recently updated. |
-| `network` | `string` | Immutable. Name of the Compute Engine network in which instances associated with this cluster will be created. |
-| `degraded` | `boolean` | Output only. Whether this resource is in degraded mode, in which case it may require user action to restore full functionality. Details can be found in the `conditions` field. |
-| `deleteTime` | `string` | Output only. Time when this resource was soft-deleted. |
-| `labels` | `object` | Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources. |
-| `subnetwork` | `string` | Immutable. Name of the Compute Engine subnetwork in which instances associated with this cluster will be created. Must be part of the subnetwork specified for this cluster. |
-| `privateClusterConfig` | `object` | Configuration options for private clusters. |
-| `annotations` | `object` | Client-specified annotations. |
-| `displayName` | `string` | Human-readable name for this resource. |
-| `createTime` | `string` | Output only. Time when this resource was created. |
-| `etag` | `string` | Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. |
-| `reconciling` | `boolean` | Output only. Indicates whether this resource is currently being updated to match its intended state. |
+| `workstationClusters` | `array` | The requested workstation clusters. |
+| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `unreachable` | `array` | Unreachable resources. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_workstationClusters_get` | `SELECT` | `locationsId, projectsId, workstationClustersId` | Returns the requested workstation cluster. |
-| `projects_locations_workstationClusters_list` | `SELECT` | `locationsId, projectsId` | Returns all workstation clusters in the specified location. |
-| `projects_locations_workstationClusters_create` | `INSERT` | `locationsId, projectsId` | Creates a new workstation cluster. |
-| `projects_locations_workstationClusters_delete` | `DELETE` | `locationsId, projectsId, workstationClustersId` | Deletes the specified workstation cluster. |
-| `projects_locations_workstationClusters_patch` | `EXEC` | `locationsId, projectsId, workstationClustersId` | Updates an existing workstation cluster. |
+| `get` | `SELECT` | `locationsId, projectsId, workstationClustersId` | Returns the requested workstation cluster. |
+| `list` | `SELECT` | `locationsId, projectsId` | Returns all workstation clusters in the specified location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new workstation cluster. |
+| `delete` | `DELETE` | `locationsId, projectsId, workstationClustersId` | Deletes the specified workstation cluster. |
+| `patch` | `EXEC` | `locationsId, projectsId, workstationClustersId` | Updates an existing workstation cluster. |

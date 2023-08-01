@@ -27,16 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Name of the endpoint attachment. Use the following structure in your request: `organizations/&#123;org&#125;/endpointAttachments/&#123;endpoint_attachment&#125;` |
-| `connectionState` | `string` | Output only. State of the endpoint attachment connection to the service attachment. |
-| `host` | `string` | Output only. Host that can be used in either the HTTP target endpoint directly or as the host in target server. |
-| `location` | `string` | Required. Location of the endpoint attachment. |
-| `serviceAttachment` | `string` | Format: projects/*/regions/*/serviceAttachments/* |
-| `state` | `string` | Output only. State of the endpoint attachment. Values other than `ACTIVE` mean the resource is not ready to use. |
+| `endpointAttachments` | `array` | Endpoint attachments in the specified organization. |
+| `nextPageToken` | `string` | Page token that you can include in an `ListEndpointAttachments` request to retrieve the next page. If omitted, no subsequent pages exist. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_endpointAttachments_get` | `SELECT` | `endpointAttachmentsId, organizationsId` | Gets the endpoint attachment. |
-| `organizations_endpointAttachments_list` | `SELECT` | `organizationsId` | Lists the endpoint attachments in an organization. |
-| `organizations_endpointAttachments_create` | `INSERT` | `organizationsId` | Creates an endpoint attachment. **Note:** Not supported for Apigee hybrid. |
-| `organizations_endpointAttachments_delete` | `DELETE` | `endpointAttachmentsId, organizationsId` | Deletes an endpoint attachment. |
+| `organizations_endpoint_attachments_get` | `SELECT` | `endpointAttachmentsId, organizationsId` | Gets the endpoint attachment. |
+| `organizations_endpoint_attachments_list` | `SELECT` | `organizationsId` | Lists the endpoint attachments in an organization. |
+| `organizations_endpoint_attachments_create` | `INSERT` | `organizationsId` | Creates an endpoint attachment. **Note:** Not supported for Apigee hybrid. |
+| `organizations_endpoint_attachments_delete` | `DELETE` | `endpointAttachmentsId, organizationsId` | Deletes an endpoint attachment. |

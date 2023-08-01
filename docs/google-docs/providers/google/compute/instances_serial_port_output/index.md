@@ -35,4 +35,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instances_getSerialPortOutput` | `SELECT` | `instance, project, zone` |
+| `get_serial_port_output` | `SELECT` | `instance, project, zone` |

@@ -28,12 +28,12 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | This Disk's ID which must be provided for all operations impacting this Disk.<br /> |
+| `created` | `string` | When this Disk was created. |
+| `filesystem` | `string` | The Disk filesystem can be one of:<br /><br />  * raw - No filesystem, just a raw binary stream.<br />  * swap - Linux swap area.<br />  * ext3 - The ext3 journaling filesystem for Linux.<br />  * ext4 - The ext4 journaling filesystem for Linux.<br />  * initrd - initrd (uncompressed initrd, ext2, max 32 MB).<br /> |
 | `label` | `string` | The Disk's label is for display purposes only.<br /> |
 | `size` | `integer` | The size of the Disk in MB. |
 | `status` | `string` | A brief description of this Disk's current state. This field may change without direct action from you, as a result of operations performed to the Disk or the Linode containing the Disk.<br /> |
 | `updated` | `string` | When this Disk was last updated. |
-| `created` | `string` | When this Disk was created. |
-| `filesystem` | `string` | The Disk filesystem can be one of:<br /><br />  * raw - No filesystem, just a raw binary stream.<br />  * swap - Linux swap area.<br />  * ext3 - The ext3 journaling filesystem for Linux.<br />  * ext4 - The ext4 journaling filesystem for Linux.<br />  * initrd - initrd (uncompressed initrd, ext2, max 32 MB).<br /> |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,14 +29,14 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier for the field extraction rule. |
 | `name` | `string` | Name of the field extraction rule. Use a name that makes it easy to identify the rule. |
-| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
-| `fieldNames` | `array` | List of extracted fields from "parseExpression". |
 | `scope` | `string` | Scope of the field extraction rule. This could be a sourceCategory, sourceHost, or any other metadata that describes the data you want to extract from. Think of the Scope as the first portion of an ad hoc search, before the first pipe ( \| ). You'll use the Scope to run a search against the rule. |
+| `modifiedAt` | `string` | Last modification timestamp in UTC. |
 | `enabled` | `boolean` | Is the field extraction rule enabled. |
 | `modifiedBy` | `string` | Identifier of the user who last modified the resource. |
-| `parseExpression` | `string` | Describes the fields to be parsed. |
+| `createdAt` | `string` | Creation timestamp in UTC in [RFC3339](https://tools.ietf.org/html/rfc3339) format. |
 | `createdBy` | `string` | Identifier of the user who created the resource. |
-| `modifiedAt` | `string` | Last modification timestamp in UTC. |
+| `parseExpression` | `string` | Describes the fields to be parsed. |
+| `fieldNames` | `array` | List of extracted fields from "parseExpression". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

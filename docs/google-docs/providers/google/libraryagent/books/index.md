@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the book. Book names have the form `shelves/&#123;shelf_id&#125;/books/&#123;book_id&#125;`. The name is ignored when creating a book. |
-| `read` | `boolean` | Value indicating whether the book has been read. |
 | `title` | `string` | The title of the book. |
 | `author` | `string` | The name of the book author. |
+| `read` | `boolean` | Value indicating whether the book has been read. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `shelves_books_get` | `SELECT` | `booksId, shelvesId` | Gets a book. Returns NOT_FOUND if the book does not exist. |
-| `shelves_books_list` | `SELECT` | `shelvesId` | Lists books in a shelf. The order is unspecified but deterministic. Newly created books will not necessarily be added to the end of this list. Returns NOT_FOUND if the shelf does not exist. |
-| `shelves_books_borrow` | `EXEC` | `booksId, shelvesId` | Borrow a book from the library. Returns the book if it is borrowed successfully. Returns NOT_FOUND if the book does not exist in the library. Returns quota exceeded error if the amount of books borrowed exceeds allocation quota in any dimensions. |
-| `shelves_books_return` | `EXEC` | `booksId, shelvesId` | Return a book to the library. Returns the book if it is returned to the library successfully. Returns error if the book does not belong to the library or the users didn't borrow before. |
+| `get` | `SELECT` | `booksId, shelvesId` | Gets a book. Returns NOT_FOUND if the book does not exist. |
+| `list` | `SELECT` | `shelvesId` | Lists books in a shelf. The order is unspecified but deterministic. Newly created books will not necessarily be added to the end of this list. Returns NOT_FOUND if the shelf does not exist. |
+| `borrow` | `EXEC` | `booksId, shelvesId` | Borrow a book from the library. Returns the book if it is borrowed successfully. Returns NOT_FOUND if the book does not exist in the library. Returns quota exceeded error if the amount of books borrowed exceeds allocation quota in any dimensions. |
+| `return` | `EXEC` | `booksId, shelvesId` | Return a book to the library. Returns the book if it is returned to the library successfully. Returns error if the book does not belong to the library or the users didn't borrow before. |

@@ -27,10 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `encryptionKey` | `object` | A Shielded Instance Identity Entry. |
 | `kind` | `string` | [Output Only] Type of the resource. Always compute#shieldedInstanceIdentity for shielded Instance identity entry. |
 | `signingKey` | `object` | A Shielded Instance Identity Entry. |
-| `encryptionKey` | `object` | A Shielded Instance Identity Entry. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `instances_getShieldedInstanceIdentity` | `SELECT` | `instance, project, zone` |
+| `get_shielded_instance_identity` | `SELECT` | `instance, project, zone` |

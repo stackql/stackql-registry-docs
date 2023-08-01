@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | virtual network id (privateCloudId:vsphereId) |
 | `name` | `string` | &#123;VirtualNetworkName&#125; |
-| `properties` | `object` | Properties of virtual network |
-| `type` | `string` | &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125; |
 | `assignable` | `boolean` | can be used in vm creation/deletion |
 | `location` | `string` | Azure region |
+| `properties` | `object` | Properties of virtual network |
+| `type` | `string` | &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125; |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

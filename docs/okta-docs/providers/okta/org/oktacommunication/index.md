@@ -27,8 +27,8 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `optOutEmailUsers` | `boolean` |
 | `_links` | `object` |
+| `optOutEmailUsers` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

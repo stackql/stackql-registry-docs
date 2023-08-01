@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_flexTemplates_launch` | `EXEC` | `location, projectId` |
+| `projects_locations_flex_templates_launch` | `EXEC` | `location, projectId` |

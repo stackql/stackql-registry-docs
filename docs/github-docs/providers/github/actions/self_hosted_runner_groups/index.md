@@ -29,12 +29,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `number` |  |
 | `name` | `string` |  |
-| `allows_public_repositories` | `boolean` |  |
-| `inherited` | `boolean` |  |
+| `selected_repositories_url` | `string` | Link to the selected repositories resource for this runner group. Not present unless visibility was set to `selected` |
 | `runners_url` | `string` |  |
 | `visibility` | `string` |  |
 | `default` | `boolean` |  |
-| `selected_repositories_url` | `string` | Link to the selected repositories resource for this runner group. Not present unless visibility was set to `selected` |
+| `allows_public_repositories` | `boolean` |  |
+| `inherited` | `boolean` |  |
 | `inherited_allows_public_repositories` | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -27,13 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `defaultImageType` | `string` | Default image type. |
 | `validImageTypes` | `array` | List of valid image types. |
 | `validMasterVersions` | `array` | List of valid master versions, in descending order. |
 | `validNodeVersions` | `array` | List of valid node upgrade target versions, in descending order. |
 | `channels` | `array` | List of release channel configurations. |
 | `defaultClusterVersion` | `string` | Version of Kubernetes the service deploys by default. |
-| `defaultImageType` | `string` | Default image type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_zones_getServerconfig` | `SELECT` | `projectId, zone` |
+| `projects_zones_get_serverconfig` | `SELECT` | `projectId, zone` |

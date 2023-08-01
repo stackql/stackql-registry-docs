@@ -28,12 +28,12 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A description of the address pool. |
-| `networkBorderGroup` | `string` | The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where Amazon Web Services advertises public IP addresses. |
 | `poolAddressRangeSet` | `array` | The address ranges. |
 | `poolId` | `string` | The ID of the address pool. |
 | `tagSet` | `array` | Any tags for the address pool. |
 | `totalAddressCount` | `integer` | The total number of addresses. |
 | `totalAvailableAddressCount` | `integer` | The total number of available addresses. |
+| `networkBorderGroup` | `string` | The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where Amazon Web Services advertises public IP addresses. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

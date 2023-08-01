@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | ID of groundStation. |
 | `name` | `string` | Name of the ground station. |
-| `properties` | `object` | The properties bag for this resource. |
 | `type` | `string` | Resource type. |
 | `location` | `string` | Azure region. |
+| `properties` | `object` | The properties bag for this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `networkEndpointGroups_testIamPermissions` | `EXEC` | `project, resource, zone` |
+| `test_iam_permissions` | `EXEC` | `project, resource, zone` |

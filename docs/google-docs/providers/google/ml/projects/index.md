@@ -29,5 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `explain` | `EXEC` | `projectsId` | Performs explanation on the data in the request. &#123;% dynamic include "/ai-platform/includes/___explain-request" %&#125;  |
-| `predict` | `EXEC` | `projectsId` | Performs online prediction on the data in the request. &#123;% dynamic include "/ai-platform/includes/___predict-request" %&#125;  |
+| `projects_explain` | `EXEC` | `projectsId` | Performs explanation on the data in the request. &#123;% dynamic include "/ai-platform/includes/___explain-request" %&#125;  |
+| `projects_predict` | `EXEC` | `projectsId` | Performs online prediction on the data in the request. &#123;% dynamic include "/ai-platform/includes/___predict-request" %&#125;  |

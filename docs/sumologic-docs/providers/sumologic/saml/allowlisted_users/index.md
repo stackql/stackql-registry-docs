@@ -27,13 +27,13 @@ image: /img/providers/sumologic/stackql-sumologic-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `isActive` | `boolean` | Checks if the user is active. |
 | `lastLogin` | `string` | Timestamp of the last login of the user. |
 | `lastName` | `string` | Last name of the user. |
 | `userId` | `string` | Unique identifier of the user. |
 | `canManageSaml` | `boolean` | If the user can manage SAML Configurations. |
 | `email` | `string` | Email of the user. |
 | `firstName` | `string` | First name of the user. |
-| `isActive` | `boolean` | Checks if the user is active. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

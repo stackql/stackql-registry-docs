@@ -13,7 +13,7 @@ description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
-The Cloud Billing Budget API stores Cloud Billing budgets, which define a budget plan and the rules to execute as spend is tracked against that plan.  
+The Cloud Billing Budget API Stores Cloud Billing Budgets, Which Define A Budget Plan And The Rules To Execute As Spend Is Tracked Against That Plan.  
     
 :::info Service Summary
 
@@ -32,8 +32,8 @@ The Cloud Billing Budget API stores Cloud Billing budgets, which define a budget
 <tr><td><b>Name</b></td><td><code>google.billingbudgets</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Billing Budget API</td></tr>
-<tr><td><b>Description</b></td><td>The Cloud Billing Budget API stores Cloud Billing budgets, which define a budget plan and the rules to execute as spend is tracked against that plan.</td></tr>
-<tr><td><b>Id</b></td><td><code>billingbudgets:v23.05.00145</code></td></tr>
+<tr><td><b>Description</b></td><td>The Cloud Billing Budget API Stores Cloud Billing Budgets, Which Define A Budget Plan And The Rules To Execute As Spend Is Tracked Against That Plan.</td></tr>
+<tr><td><b>Id</b></td><td><code>billingbudgets:v23.08.00155</code></td></tr>
 </tbody></table>
 
 ## Resources

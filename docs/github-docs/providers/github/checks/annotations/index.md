@@ -27,16 +27,16 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `raw_details` | `string` |
 | `message` | `string` |
-| `path` | `string` |
-| `blob_href` | `string` |
-| `end_column` | `integer` |
+| `start_line` | `integer` |
+| `title` | `string` |
 | `end_line` | `integer` |
 | `start_column` | `integer` |
+| `path` | `string` |
+| `end_column` | `integer` |
 | `annotation_level` | `string` |
-| `title` | `string` |
-| `start_line` | `integer` |
+| `blob_href` | `string` |
+| `raw_details` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

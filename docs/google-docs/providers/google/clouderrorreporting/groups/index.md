@@ -34,5 +34,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_groups_get` | `SELECT` | `groupsId, projectsId` | Get the specified group. |
-| `projects_groups_update` | `EXEC` | `groupsId, projectsId` | Replace the data for the specified group. Fails if the group does not exist. |
+| `get` | `SELECT` | `groupsId, projectsId` | Get the specified group. |
+| `update` | `EXEC` | `groupsId, projectsId` | Replace the data for the specified group. Fails if the group does not exist. |

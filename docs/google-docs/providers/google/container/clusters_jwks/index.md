@@ -32,4 +32,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_locations_clusters_getJwks` | `SELECT` | `clustersId, locationsId, projectsId` |
+| `projects_locations_clusters_get_jwks` | `SELECT` | `clustersId, locationsId, projectsId` |

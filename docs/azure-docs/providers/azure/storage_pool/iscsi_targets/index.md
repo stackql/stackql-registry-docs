@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `managedBy` | `string` | Azure resource id. Indicates if this resource is managed by another Azure resource. |
 | `managedByExtended` | `array` | List of Azure resource ids that manage this resource. |
 | `properties` | `object` | Response properties for iSCSI Target operations. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

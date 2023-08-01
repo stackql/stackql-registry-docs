@@ -27,14 +27,14 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tagger` | `object` |  |
-| `url` | `string` | URL for the tag |
-| `verification` | `object` |  |
 | `message` | `string` | Message describing the purpose of the tag |
 | `node_id` | `string` |  |
 | `object` | `object` |  |
 | `sha` | `string` |  |
 | `tag` | `string` | Name of the tag |
+| `tagger` | `object` |  |
+| `url` | `string` | URL for the tag |
+| `verification` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

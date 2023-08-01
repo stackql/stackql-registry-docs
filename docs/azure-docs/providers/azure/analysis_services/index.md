@@ -33,7 +33,7 @@ The Azure Analysis Services Web API provides a RESTful set of web services that 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Analysis Services (Microsoft.AnalysisServices)</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Analysis Services Web API provides a RESTful set of web services that enables users to create, retrieve, update, and delete Analysis Services servers</td></tr>
-<tr><td><b>Id</b></td><td><code>analysis_services:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>analysis_services:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

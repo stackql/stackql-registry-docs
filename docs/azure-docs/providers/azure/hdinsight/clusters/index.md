@@ -27,13 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `identity` | `object` | Identity for the cluster. |
+| `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | The properties of cluster. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
 | `zones` | `array` | The availability zones. |
 | `etag` | `string` | The ETag for the resource |
-| `identity` | `object` | Identity for the cluster. |
-| `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | The properties of cluster. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

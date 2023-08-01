@@ -28,11 +28,11 @@ image: /img/providers/okta/stackql-okta-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `string` |
+| `tokenAuthScheme` | `string` |
 | `tokenType` | `string` |
 | `expiresAt` | `string` |
 | `scopes` | `array` |
 | `token` | `string` |
-| `tokenAuthScheme` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

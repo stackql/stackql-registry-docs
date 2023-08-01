@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_databases_documents_createDocument` | `INSERT` | `collectionId, databasesId, documentsId, projectsId` |
+| `create_document` | `INSERT` | `collectionId, databasesId, documentsId, projectsId` |

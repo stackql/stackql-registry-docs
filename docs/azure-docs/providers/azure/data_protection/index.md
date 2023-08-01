@@ -33,7 +33,7 @@ Data Protection Backup Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Data Protection Backup Client (Microsoft.DataProtection)</td></tr>
 <tr><td><b>Description</b></td><td>Data Protection Backup Client</td></tr>
-<tr><td><b>Id</b></td><td><code>data_protection:v23.01.00104</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_protection:v23.03.00121</code></td></tr>
 </tbody></table>
 
 ## Resources

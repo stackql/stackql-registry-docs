@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `organizations_environments_apis_revisions_debugsessions_deleteData` | `DELETE` | `apisId, debugsessionsId, environmentsId, organizationsId, revisionsId` |
+| `organizations_environments_apis_revisions_debugsessions_delete_data` | `DELETE` | `apisId, debugsessionsId, environmentsId, organizationsId, revisionsId` |

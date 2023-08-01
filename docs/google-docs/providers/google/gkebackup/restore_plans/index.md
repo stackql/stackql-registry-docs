@@ -27,21 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The full name of the RestorePlan resource. Format: `projects/*/locations/*/restorePlans/*`. |
-| `description` | `string` | User specified descriptive string for this RestorePlan. |
-| `labels` | `object` | A set of custom labels supplied by user. |
-| `cluster` | `string` | Required. Immutable. The target cluster into which Restores created via this RestorePlan will restore data. NOTE: the cluster's region must be the same as the RestorePlan. Valid formats: - `projects/*/locations/*/clusters/*` - `projects/*/zones/*/clusters/*` |
-| `restoreConfig` | `object` | Configuration of a restore. Next id: 9 |
-| `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
-| `backupPlan` | `string` | Required. Immutable. A reference to the BackupPlan from which Backups may be used as the source for Restores created via this RestorePlan. Format: `projects/*/locations/*/backupPlans/*`. |
-| `updateTime` | `string` | Output only. The timestamp when this RestorePlan resource was last updated. |
-| `etag` | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a restore from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform restore updates in order to avoid race conditions: An `etag` is returned in the response to `GetRestorePlan`, and systems are expected to put that etag in the request to `UpdateRestorePlan` or `DeleteRestorePlan` to ensure that their change will be applied to the same version of the resource. |
-| `createTime` | `string` | Output only. The timestamp when this RestorePlan resource was created. |
+| `restorePlans` | `array` | The list of RestorePlans matching the given criteria. |
+| `unreachable` | `array` | Locations that could not be reached. |
+| `nextPageToken` | `string` | A token which may be sent as page_token in a subsequent `ListRestorePlans` call to retrieve the next page of results. If this field is omitted or empty, then there are no more results to return. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_restorePlans_get` | `SELECT` | `locationsId, projectsId, restorePlansId` | Retrieve the details of a single RestorePlan. |
-| `projects_locations_restorePlans_list` | `SELECT` | `locationsId, projectsId` | Lists RestorePlans in a given location. |
-| `projects_locations_restorePlans_create` | `INSERT` | `locationsId, projectsId` | Creates a new RestorePlan in a given location. |
-| `projects_locations_restorePlans_delete` | `DELETE` | `locationsId, projectsId, restorePlansId` | Deletes an existing RestorePlan. |
-| `projects_locations_restorePlans_patch` | `EXEC` | `locationsId, projectsId, restorePlansId` | Update a RestorePlan. |
+| `get` | `SELECT` | `locationsId, projectsId, restorePlansId` | Retrieve the details of a single RestorePlan. |
+| `list` | `SELECT` | `locationsId, projectsId` | Lists RestorePlans in a given location. |
+| `create` | `INSERT` | `locationsId, projectsId` | Creates a new RestorePlan in a given location. |
+| `delete` | `DELETE` | `locationsId, projectsId, restorePlansId` | Deletes an existing RestorePlan. |
+| `patch` | `EXEC` | `locationsId, projectsId, restorePlansId` | Update a RestorePlan. |

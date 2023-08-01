@@ -27,8 +27,8 @@ image: /img/providers/linode/stackql-linode-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `password` | `string` | The randomly-generated root password for the Managed Database instance. |
 | `username` | `string` | The root username for the Managed Database instance. |
+| `password` | `string` | The randomly-generated root password for the Managed Database instance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
