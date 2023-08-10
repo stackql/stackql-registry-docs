@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The connector's name. |
-| `state` | `string` | Output only. State of the DatacenterConnector, as determined by the health checks. |
-| `version` | `string` | The version running in the DatacenterConnector. This is supplied by the OVA connector during the registration process and can not be modified. |
-| `serviceAccount` | `string` | The service account to use in the connector when communicating with the cloud. |
-| `upgradeStatus` | `object` | UpgradeStatus contains information about upgradeAppliance operation. |
+| `createTime` | `string` | Output only. The time the connector was created (as an API call, not when it was actually installed). |
 | `registrationId` | `string` | Immutable. A unique key for this connector. This key is internal to the OVA connector and is supplied with its creation during the registration process and can not be modified. |
-| `updateTime` | `string` | Output only. The last time the connector was updated with an API call. |
+| `applianceSoftwareVersion` | `string` | Output only. Appliance last installed update bundle version. This is the version of the automatically updatable components on the appliance. |
 | `availableVersions` | `object` | Holds informatiom about the available versions for upgrade. |
 | `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
 | `stateTime` | `string` | Output only. The time the state was last set. |
-| `applianceInfrastructureVersion` | `string` | Output only. Appliance OVA version. This is the OVA which is manually installed by the user and contains the infrastructure for the automatically updatable components on the appliance. |
-| `applianceSoftwareVersion` | `string` | Output only. Appliance last installed update bundle version. This is the version of the automatically updatable components on the appliance. |
+| `updateTime` | `string` | Output only. The last time the connector was updated with an API call. |
+| `version` | `string` | The version running in the DatacenterConnector. This is supplied by the OVA connector during the registration process and can not be modified. |
+| `state` | `string` | Output only. State of the DatacenterConnector, as determined by the health checks. |
+| `upgradeStatus` | `object` | UpgradeStatus contains information about upgradeAppliance operation. |
 | `bucket` | `string` | Output only. The communication channel between the datacenter connector and Google Cloud. |
-| `createTime` | `string` | Output only. The time the connector was created (as an API call, not when it was actually installed). |
+| `serviceAccount` | `string` | The service account to use in the connector when communicating with the cloud. |
+| `applianceInfrastructureVersion` | `string` | Output only. Appliance OVA version. This is the OVA which is manually installed by the user and contains the infrastructure for the automatically updatable components on the appliance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

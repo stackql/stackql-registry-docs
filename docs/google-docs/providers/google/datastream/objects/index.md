@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The object resource's name. |
-| `backfillJob` | `object` | Represents a backfill job on a specific stream object. |
-| `createTime` | `string` | Output only. The creation time of the object. |
 | `displayName` | `string` | Required. Display name. |
 | `errors` | `array` | Output only. Active errors on the object. |
 | `sourceObject` | `object` | Represents an identifier of an object in the data source. |
 | `updateTime` | `string` | Output only. The last update time of the object. |
+| `backfillJob` | `object` | Represents a backfill job on a specific stream object. |
+| `createTime` | `string` | Output only. The creation time of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

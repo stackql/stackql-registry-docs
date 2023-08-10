@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Name for the resource value config |
 | `description` | `string` | Description of the resource value config. |
-| `tagValues` | `array` | Required. Tag values combined with AND to check against. Values in the form "tagValues/123" E.g. [ "tagValues/123", "tagValues/456", "tagValues/789" ] https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing |
-| `createTime` | `string` | Output only. Timestamp this resource value config was created. |
 | `resourceLabelsSelector` | `object` | List of resource labels to search for, evaluated with AND. E.g. "resource_labels_selector": &#123;"key": "value", "env": "prod"&#125; will match resources with labels "key": "value" AND "env": "prod" https://cloud.google.com/resource-manager/docs/creating-managing-labels |
+| `updateTime` | `string` | Output only. Timestamp this resource value config was last updated. |
 | `resourceValue` | `string` | Required. Resource value level this expression represents |
 | `scope` | `string` | Project or folder to scope this config to. For example, "project/456" would apply this config only to resources in "project/456" scope will be checked with "AND" of other resources. |
-| `updateTime` | `string` | Output only. Timestamp this resource value config was last updated. |
 | `resourceType` | `string` | Apply resource_value only to resources that match resource_type. resource_type will be checked with "AND" of other resources. E.g. "storage.googleapis.com/Bucket" with resource_value "HIGH" will apply "HIGH" value only to "storage.googleapis.com/Bucket" resources. |
+| `createTime` | `string` | Output only. Timestamp this resource value config was created. |
+| `tagValues` | `array` | Required. Tag values combined with AND to check against. Values in the form "tagValues/123" E.g. [ "tagValues/123", "tagValues/456", "tagValues/789" ] https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

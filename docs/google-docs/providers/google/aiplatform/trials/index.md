@@ -29,16 +29,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Output only. The identifier of the Trial assigned by the service. |
 | `name` | `string` | Output only. Resource name of the Trial assigned by the service. |
+| `customJob` | `string` | Output only. The CustomJob name linked to the Trial. It's set for a HyperparameterTuningJob's Trial. |
 | `webAccessUris` | `object` | Output only. URIs for accessing [interactive shells](https://cloud.google.com/vertex-ai/docs/training/monitor-debug-interactive-shell) (one URI for each training node). Only available if this trial is part of a HyperparameterTuningJob and the job's trial_job_spec.enable_web_access field is `true`. The keys are names of each node used for the trial; for example, `workerpool0-0` for the primary node, `workerpool1-0` for the first node in the second worker pool, and `workerpool1-1` for the second node in the second worker pool. The values are the URIs for each node's interactive shell. |
 | `endTime` | `string` | Output only. Time when the Trial's status changed to `SUCCEEDED` or `INFEASIBLE`. |
-| `startTime` | `string` | Output only. Time when the Trial was started. |
-| `infeasibleReason` | `string` | Output only. A human readable string describing why the Trial is infeasible. This is set only if Trial state is `INFEASIBLE`. |
-| `parameters` | `array` | Output only. The parameters of the Trial. |
-| `clientId` | `string` | Output only. The identifier of the client that originally requested this Trial. Each client is identified by a unique client_id. When a client asks for a suggestion, Vertex AI Vizier will assign it a Trial. The client should evaluate the Trial, complete it, and report back to Vertex AI Vizier. If suggestion is asked again by same client_id before the Trial is completed, the same Trial will be returned. Multiple clients with different client_ids can ask for suggestions simultaneously, each of them will get their own Trial. |
 | `finalMeasurement` | `object` | A message representing a Measurement of a Trial. A Measurement contains the Metrics got by executing a Trial using suggested hyperparameter values. |
-| `state` | `string` | Output only. The detailed state of the Trial. |
+| `clientId` | `string` | Output only. The identifier of the client that originally requested this Trial. Each client is identified by a unique client_id. When a client asks for a suggestion, Vertex AI Vizier will assign it a Trial. The client should evaluate the Trial, complete it, and report back to Vertex AI Vizier. If suggestion is asked again by same client_id before the Trial is completed, the same Trial will be returned. Multiple clients with different client_ids can ask for suggestions simultaneously, each of them will get their own Trial. |
+| `startTime` | `string` | Output only. Time when the Trial was started. |
 | `measurements` | `array` | Output only. A list of measurements that are strictly lexicographically ordered by their induced tuples (steps, elapsed_duration). These are used for early stopping computations. |
-| `customJob` | `string` | Output only. The CustomJob name linked to the Trial. It's set for a HyperparameterTuningJob's Trial. |
+| `parameters` | `array` | Output only. The parameters of the Trial. |
+| `infeasibleReason` | `string` | Output only. A human readable string describing why the Trial is infeasible. This is set only if Trial state is `INFEASIBLE`. |
+| `state` | `string` | Output only. The detailed state of the Trial. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

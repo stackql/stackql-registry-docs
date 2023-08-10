@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The name of a ServiceConnectionMap. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/serviceConnectionMaps/&#123;service_connection_map&#125; See: https://google.aip.dev/122#fields-representing-resource-names |
 | `description` | `string` | A description of this resource. |
+| `createTime` | `string` | Output only. Time when the ServiceConnectionMap was created. |
+| `labels` | `object` | User-defined labels. |
 | `consumerPscConfigs` | `array` | The PSC configurations on consumer side. |
-| `infrastructure` | `string` | Output only. The infrastructure used for connections between consumers/producers. |
-| `serviceClassUri` | `string` | Output only. The service class uri this ServiceConnectionMap is for. |
 | `producerPscConfigs` | `array` | The PSC configurations on producer side. |
 | `consumerPscConnections` | `array` | Output only. PSC connection details on consumer side. |
+| `infrastructure` | `string` | Output only. The infrastructure used for connections between consumers/producers. |
 | `serviceClass` | `string` | The service class identifier this ServiceConnectionMap is for. The user of ServiceConnectionMap create API needs to have networkconnecitivty.serviceclasses.use iam permission for the service class. |
-| `token` | `string` | The token provided by the consumer. This token authenticates that the consumer can create a connecton within the specified project and network. |
-| `labels` | `object` | User-defined labels. |
+| `serviceClassUri` | `string` | Output only. The service class uri this ServiceConnectionMap is for. |
 | `updateTime` | `string` | Output only. Time when the ServiceConnectionMap was updated. |
-| `createTime` | `string` | Output only. Time when the ServiceConnectionMap was created. |
 | `etag` | `string` | Optional. The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
+| `token` | `string` | The token provided by the consumer. This token authenticates that the consumer can create a connecton within the specified project and network. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

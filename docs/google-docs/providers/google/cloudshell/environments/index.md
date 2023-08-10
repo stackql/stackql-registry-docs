@@ -32,10 +32,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `sshPort` | `integer` | Output only. Port to which clients can connect to initiate SSH sessions with the environment. |
 | `sshUsername` | `string` | Output only. Username that clients should use when initiating SSH sessions with the environment. |
 | `publicKeys` | `array` | Output only. Public keys associated with the environment. Clients can connect to this environment via SSH only if they possess a private key corresponding to at least one of these public keys. Keys can be added to or removed from the environment using the AddPublicKey and RemovePublicKey methods. |
-| `dockerImage` | `string` | Required. Immutable. Full path to the Docker image used to run this environment, e.g. "gcr.io/dev-con/cloud-devshell:latest". |
-| `state` | `string` | Output only. Current execution state of this environment. |
-| `webHost` | `string` | Output only. Host to which clients can connect to initiate HTTPS or WSS connections with the environment. |
 | `sshHost` | `string` | Output only. Host to which clients can connect to initiate SSH sessions with the environment. |
+| `webHost` | `string` | Output only. Host to which clients can connect to initiate HTTPS or WSS connections with the environment. |
+| `state` | `string` | Output only. Current execution state of this environment. |
+| `dockerImage` | `string` | Required. Immutable. Full path to the Docker image used to run this environment, e.g. "gcr.io/dev-con/cloud-devshell:latest". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

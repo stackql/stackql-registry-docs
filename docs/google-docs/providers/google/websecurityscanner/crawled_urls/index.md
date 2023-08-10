@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `url` | `string` | Output only. The URL that was crawled. |
 | `body` | `string` | Output only. The body of the request that was used to visit the URL. |
 | `httpMethod` | `string` | Output only. The http method of the request that was used to visit the URL, in uppercase. |
-| `url` | `string` | Output only. The URL that was crawled. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

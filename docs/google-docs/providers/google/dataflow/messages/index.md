@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | Deprecated. |
+| `messageImportance` | `string` | Importance level of the message. |
 | `messageText` | `string` | The text of the message. |
 | `time` | `string` | The timestamp of the message. |
-| `messageImportance` | `string` | Importance level of the message. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

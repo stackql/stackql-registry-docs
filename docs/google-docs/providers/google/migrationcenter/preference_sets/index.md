@@ -29,10 +29,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the preference set. |
 | `description` | `string` | A description of the preference set. |
-| `createTime` | `string` | Output only. The timestamp when the preference set was created. |
 | `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
 | `updateTime` | `string` | Output only. The timestamp when the preference set was last updated. |
 | `virtualMachinePreferences` | `object` | VirtualMachinePreferences enables you to create sets of assumptions, for example, a geographical location and pricing track, for your migrated virtual machines. The set of preferences influence recommendations for migrating virtual machine assets. |
+| `createTime` | `string` | Output only. The timestamp when the preference set was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

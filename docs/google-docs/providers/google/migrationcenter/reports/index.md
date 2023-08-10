@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of resource. |
 | `description` | `string` | Free-text description. |
-| `state` | `string` | Report creation state. |
-| `summary` | `object` | Describes the Summary view of a Report, which contains aggregated values for all the groups and preference sets included in this Report. |
-| `type` | `string` | Report type. |
 | `updateTime` | `string` | Output only. Last update timestamp. |
 | `createTime` | `string` | Output only. Creation timestamp. |
 | `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
+| `state` | `string` | Report creation state. |
+| `summary` | `object` | Describes the Summary view of a Report, which contains aggregated values for all the groups and preference sets included in this Report. |
+| `type` | `string` | Report type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

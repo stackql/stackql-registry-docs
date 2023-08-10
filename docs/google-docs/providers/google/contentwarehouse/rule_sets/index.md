@@ -29,8 +29,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the rule set. Managed internally. Format: projects/&#123;project_number&#125;/locations/&#123;location&#125;/ruleSet/&#123;rule_set_id&#125;. The name is ignored when creating a rule set. |
 | `description` | `string` | Short description of the rule-set. |
-| `source` | `string` | Source of the rules i.e., customer name. |
 | `rules` | `array` | List of rules given by the customer. |
+| `source` | `string` | Source of the rules i.e., customer name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

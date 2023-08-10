@@ -27,11 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `type` | `string` | The type of the peering route. |
+| `destRange` | `string` | The destination range of the route. |
 | `imported` | `boolean` | True if the peering route has been imported from a peer. The actual import happens if the field networkPeering.importCustomRoutes is true for this network, and networkPeering.exportCustomRoutes is true for the peer network, and the import does not result in a route conflict. |
 | `nextHopRegion` | `string` | The region of peering route next hop, only applies to dynamic routes. |
 | `priority` | `integer` | The priority of the peering route. |
-| `type` | `string` | The type of the peering route. |
-| `destRange` | `string` | The destination range of the route. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

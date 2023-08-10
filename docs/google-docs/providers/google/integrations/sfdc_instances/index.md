@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name of the SFDC instance projects/&#123;project&#125;/locations/&#123;location&#125;/sfdcInstances/&#123;sfdcInstance&#125;. |
 | `description` | `string` | A description of the sfdc instance. |
-| `serviceAuthority` | `string` | URL used for API calls after authentication (the login authority is configured within the referenced AuthConfig). |
-| `authConfigId` | `array` | A list of AuthConfigs that can be tried to open the channel to SFDC |
 | `displayName` | `string` | User selected unique name/alias to easily reference an instance. |
+| `deleteTime` | `string` | Output only. Time when the instance was deleted. Empty if not deleted. |
 | `updateTime` | `string` | Output only. Time when the instance was last updated |
 | `createTime` | `string` | Output only. Time when the instance is created |
-| `deleteTime` | `string` | Output only. Time when the instance was deleted. Empty if not deleted. |
+| `authConfigId` | `array` | A list of AuthConfigs that can be tried to open the channel to SFDC |
 | `sfdcOrgId` | `string` | The SFDC Org Id. This is defined in salesforce. |
+| `serviceAuthority` | `string` | URL used for API calls after authentication (the login authority is configured within the referenced AuthConfig). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the NasJob. |
 | `encryptionSpec` | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
-| `labels` | `object` | The labels with user-defined metadata to organize NasJobs. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
-| `state` | `string` | Output only. The detailed state of the job. |
-| `endTime` | `string` | Output only. Time when the NasJob entered any of the following states: `JOB_STATE_SUCCEEDED`, `JOB_STATE_FAILED`, `JOB_STATE_CANCELLED`. |
-| `enableRestrictedImageTraining` | `boolean` | Optional. Enable a separation of Custom model training and restricted image training for tenant project. |
 | `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
+| `labels` | `object` | The labels with user-defined metadata to organize NasJobs. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
+| `startTime` | `string` | Output only. Time when the NasJob for the first time entered the `JOB_STATE_RUNNING` state. |
+| `state` | `string` | Output only. The detailed state of the job. |
+| `createTime` | `string` | Output only. Time when the NasJob was created. |
+| `enableRestrictedImageTraining` | `boolean` | Optional. Enable a separation of Custom model training and restricted image training for tenant project. |
+| `updateTime` | `string` | Output only. Time when the NasJob was most recently updated. |
+| `nasJobSpec` | `object` | Represents the spec of a NasJob. |
 | `nasJobOutput` | `object` | Represents a uCAIP NasJob output. |
 | `displayName` | `string` | Required. The display name of the NasJob. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
-| `nasJobSpec` | `object` | Represents the spec of a NasJob. |
-| `startTime` | `string` | Output only. Time when the NasJob for the first time entered the `JOB_STATE_RUNNING` state. |
-| `updateTime` | `string` | Output only. Time when the NasJob was most recently updated. |
-| `createTime` | `string` | Output only. Time when the NasJob was created. |
+| `endTime` | `string` | Output only. Time when the NasJob entered any of the following states: `JOB_STATE_SUCCEEDED`, `JOB_STATE_FAILED`, `JOB_STATE_CANCELLED`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,15 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `selfLink` | `string` | The URI of this resource. |
-| `cert` | `string` | PEM representation. |
-| `certSerialNumber` | `string` | Serial number, as extracted from the certificate. |
-| `sha1Fingerprint` | `string` | Sha1 Fingerprint. |
-| `commonName` | `string` | User supplied name. Constrained to [a-zA-Z.-_ ]+. |
 | `kind` | `string` | This is always `sql#sslCert`. |
 | `instance` | `string` | Name of the database instance. |
-| `expirationTime` | `string` | The time when the certificate expires in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `certSerialNumber` | `string` | Serial number, as extracted from the certificate. |
 | `createTime` | `string` | The time when the certificate was created in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z` |
+| `expirationTime` | `string` | The time when the certificate expires in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `commonName` | `string` | User supplied name. Constrained to [a-zA-Z.-_ ]+. |
+| `selfLink` | `string` | The URI of this resource. |
+| `cert` | `string` | PEM representation. |
+| `sha1Fingerprint` | `string` | Sha1 Fingerprint. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,10 +29,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the MetadataStore instance. |
 | `description` | `string` | Description of the MetadataStore. |
-| `encryptionSpec` | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
 | `state` | `object` | Represents state information for a MetadataStore. |
 | `updateTime` | `string` | Output only. Timestamp when this MetadataStore was last updated. |
 | `createTime` | `string` | Output only. Timestamp when this MetadataStore was created. |
+| `encryptionSpec` | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

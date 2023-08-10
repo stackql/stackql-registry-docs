@@ -29,22 +29,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Data source resource name. |
 | `description` | `string` | User friendly data source description string. |
-| `defaultDataRefreshWindowDays` | `integer` | Default data refresh window on days. Only meaningful when `data_refresh_type` = `SLIDING_WINDOW`. |
-| `dataRefreshType` | `string` | Specifies whether the data source supports automatic data refresh for the past few days, and how it's supported. For some data sources, data might not be complete until a few days later, so it's useful to refresh data automatically. |
-| `parameters` | `array` | Data source parameters. |
-| `manualRunsDisabled` | `boolean` | Disables backfilling and manual run scheduling for the data source. |
-| `dataSourceId` | `string` | Data source id. |
-| `helpUrl` | `string` | Url for the help document for this data source. |
-| `transferType` | `string` | Deprecated. This field has no effect. |
-| `scopes` | `array` | Api auth scopes for which refresh token needs to be obtained. These are scopes needed by a data source to prepare data and ingest them into BigQuery, e.g., https://www.googleapis.com/auth/bigquery |
-| `updateDeadlineSeconds` | `integer` | The number of seconds to wait for an update from the data source before the Data Transfer Service marks the transfer as FAILED. |
-| `supportsMultipleTransfers` | `boolean` | Deprecated. This field has no effect. |
-| `defaultSchedule` | `string` | Default data transfer schedule. Examples of valid schedules include: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`, and `first sunday of quarter 00:00`. |
-| `minimumScheduleInterval` | `string` | The minimum interval for scheduler to schedule runs. |
-| `displayName` | `string` | User friendly data source name. |
-| `authorizationType` | `string` | Indicates the type of authorization. |
 | `supportsCustomSchedule` | `boolean` | Specifies whether the data source supports a user defined schedule, or operates on the default schedule. When set to `true`, user can override default schedule. |
+| `supportsMultipleTransfers` | `boolean` | Deprecated. This field has no effect. |
+| `scopes` | `array` | Api auth scopes for which refresh token needs to be obtained. These are scopes needed by a data source to prepare data and ingest them into BigQuery, e.g., https://www.googleapis.com/auth/bigquery |
 | `clientId` | `string` | Data source client id which should be used to receive refresh token. |
+| `minimumScheduleInterval` | `string` | The minimum interval for scheduler to schedule runs. |
+| `dataRefreshType` | `string` | Specifies whether the data source supports automatic data refresh for the past few days, and how it's supported. For some data sources, data might not be complete until a few days later, so it's useful to refresh data automatically. |
+| `transferType` | `string` | Deprecated. This field has no effect. |
+| `authorizationType` | `string` | Indicates the type of authorization. |
+| `parameters` | `array` | Data source parameters. |
+| `dataSourceId` | `string` | Data source id. |
+| `manualRunsDisabled` | `boolean` | Disables backfilling and manual run scheduling for the data source. |
+| `defaultSchedule` | `string` | Default data transfer schedule. Examples of valid schedules include: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`, and `first sunday of quarter 00:00`. |
+| `defaultDataRefreshWindowDays` | `integer` | Default data refresh window on days. Only meaningful when `data_refresh_type` = `SLIDING_WINDOW`. |
+| `displayName` | `string` | User friendly data source name. |
+| `updateDeadlineSeconds` | `integer` | The number of seconds to wait for an update from the data source before the Data Transfer Service marks the transfer as FAILED. |
+| `helpUrl` | `string` | Url for the help document for this data source. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

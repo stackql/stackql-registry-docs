@@ -30,12 +30,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Resource name of the SFDC channel projects/&#123;project&#125;/locations/&#123;location&#125;/sfdcInstances/&#123;sfdc_instance&#125;/sfdcChannels/&#123;sfdc_channel&#125;. |
 | `description` | `string` | The description for this channel |
 | `updateTime` | `string` | Output only. Time when the channel was last updated |
-| `lastReplayId` | `string` | Last sfdc messsage replay id for channel |
-| `createTime` | `string` | Output only. Time when the channel is created |
+| `isActive` | `boolean` | Indicated if a channel has any active integrations referencing it. Set to false when the channel is created, and set to true if there is any integration published with the channel configured in it. |
+| `displayName` | `string` | Client level unique name/alias to easily reference a channel. |
 | `channelTopic` | `string` | The Channel topic defined by salesforce once an channel is opened |
 | `deleteTime` | `string` | Output only. Time when the channel was deleted. Empty if not deleted. |
-| `displayName` | `string` | Client level unique name/alias to easily reference a channel. |
-| `isActive` | `boolean` | Indicated if a channel has any active integrations referencing it. Set to false when the channel is created, and set to true if there is any integration published with the channel configured in it. |
+| `lastReplayId` | `string` | Last sfdc messsage replay id for channel |
+| `createTime` | `string` | Output only. Time when the channel is created |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

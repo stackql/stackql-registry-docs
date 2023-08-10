@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Full name of this resource. |
+| `displayName` | `string` | Human-readable name for this resource. |
+| `labels` | `object` | Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources. |
+| `state` | `string` | Output only. Current state of the workstation. |
 | `host` | `string` | Output only. Host to which clients can send HTTPS traffic that will be received by the workstation. Authorized traffic will be received to the workstation as HTTP on port 80. To send traffic to a different port, clients may prefix the host with the destination port in the format `&#123;port&#125;-&#123;host&#125;`. |
 | `reconciling` | `boolean` | Output only. Indicates whether this resource is currently being updated to match its intended state. |
-| `annotations` | `object` | Client-specified annotations. |
-| `deleteTime` | `string` | Output only. Time when this resource was soft-deleted. |
-| `env` | `object` | Environment variables passed to the workstation container's entrypoint. |
-| `labels` | `object` | Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources. |
-| `uid` | `string` | Output only. A system-assigned unique identifier for this resource. |
 | `createTime` | `string` | Output only. Time when this resource was created. |
-| `displayName` | `string` | Human-readable name for this resource. |
-| `state` | `string` | Output only. Current state of the workstation. |
-| `etag` | `string` | Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
+| `deleteTime` | `string` | Output only. Time when this resource was soft-deleted. |
 | `updateTime` | `string` | Output only. Time when this resource was most recently updated. |
+| `etag` | `string` | Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
+| `uid` | `string` | Output only. A system-assigned unique identifier for this resource. |
+| `annotations` | `object` | Client-specified annotations. |
+| `env` | `object` | Environment variables passed to the workstation container's entrypoint. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

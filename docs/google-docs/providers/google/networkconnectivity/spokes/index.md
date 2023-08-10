@@ -29,19 +29,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The name of the spoke. Spoke names must be unique. They use the following form: `projects/&#123;project_number&#125;/locations/&#123;region&#125;/spokes/&#123;spoke_id&#125;` |
 | `description` | `string` | An optional description of the spoke. |
-| `createTime` | `string` | Output only. The time the spoke was created. |
-| `hub` | `string` | Immutable. The name of the hub that this spoke is attached to. |
-| `labels` | `object` | Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
-| `linkedVpcNetwork` | `object` | An existing VPC network. |
-| `uniqueId` | `string` | Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different `unique_id`. |
 | `group` | `string` | The name of the group that this spoke is associated with. |
 | `linkedInterconnectAttachments` | `object` | A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes. |
-| `linkedVpnTunnels` | `object` | A collection of Cloud VPN tunnel resources. These resources should be redundant HA VPN tunnels that all advertise the same prefixes to Google Cloud. Alternatively, in a passive/active configuration, all tunnels should be capable of advertising the same prefixes. |
-| `state` | `string` | Output only. The current lifecycle state of this spoke. |
-| `reasons` | `array` | Output only. The reasons for current state of the spoke. Only present when the spoke is in the `INACTIVE` state. |
-| `spokeType` | `string` | Output only. The type of resource associated with the spoke. |
 | `updateTime` | `string` | Output only. The time the spoke was last updated. |
+| `state` | `string` | Output only. The current lifecycle state of this spoke. |
 | `linkedRouterApplianceInstances` | `object` | A collection of router appliance instances. If you configure multiple router appliance instances to receive data from the same set of sites outside of Google Cloud, we recommend that you associate those instances with the same spoke. |
+| `reasons` | `array` | Output only. The reasons for current state of the spoke. Only present when the spoke is in the `INACTIVE` state. |
+| `uniqueId` | `string` | Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different `unique_id`. |
+| `labels` | `object` | Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
+| `linkedVpcNetwork` | `object` | An existing VPC network. |
+| `createTime` | `string` | Output only. The time the spoke was created. |
+| `hub` | `string` | Immutable. The name of the hub that this spoke is attached to. |
+| `linkedVpnTunnels` | `object` | A collection of Cloud VPN tunnel resources. These resources should be redundant HA VPN tunnels that all advertise the same prefixes to Google Cloud. Alternatively, in a passive/active configuration, all tunnels should be capable of advertising the same prefixes. |
+| `spokeType` | `string` | Output only. The type of resource associated with the spoke. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
