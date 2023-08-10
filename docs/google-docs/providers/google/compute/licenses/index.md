@@ -30,13 +30,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | Name of the resource. The name must be 1-63 characters long and comply with RFC1035. |
 | `description` | `string` | An optional textual description of the resource; provided by the client when the resource is created. |
-| `transferable` | `boolean` | If false, licenses will not be copied from the source resource when creating an image from a disk, disk from snapshot, or snapshot from disk. |
-| `chargesUseFee` | `boolean` | [Output Only] Deprecated. This field no longer reflects whether a license charges a usage fee. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `kind` | `string` | [Output Only] Type of resource. Always compute#license for licenses. |
+| `transferable` | `boolean` | If false, licenses will not be copied from the source resource when creating an image from a disk, disk from snapshot, or snapshot from disk. |
 | `resourceRequirements` | `object` |  |
-| `licenseCode` | `string` | [Output Only] The unique code used to attach this license to images, snapshots, and disks. |
+| `chargesUseFee` | `boolean` | [Output Only] Deprecated. This field no longer reflects whether a license charges a usage fee. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `kind` | `string` | [Output Only] Type of resource. Always compute#license for licenses. |
+| `licenseCode` | `string` | [Output Only] The unique code used to attach this license to images, snapshots, and disks. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

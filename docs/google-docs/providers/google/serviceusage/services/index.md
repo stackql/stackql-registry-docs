@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the consumer and service. A valid name would be: - projects/123/services/serviceusage.googleapis.com |
-| `state` | `string` | Whether or not the service has been enabled for use by the consumer. |
 | `config` | `object` | The configuration of the service. |
 | `parent` | `string` | The resource name of the consumer. A valid name would be: - projects/123 |
+| `state` | `string` | Whether or not the service has been enabled for use by the consumer. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

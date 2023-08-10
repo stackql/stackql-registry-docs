@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the Dataset. |
 | `description` | `string` | The description of the Dataset. |
-| `createTime` | `string` | Output only. Timestamp when this Dataset was created. |
-| `etag` | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
 | `labels` | `object` | The labels with user-defined metadata to organize your Datasets. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one Dataset (System labels are excluded). See https://goo.gl/xmQnxf for more information and examples of labels. System reserved label keys are prefixed with "aiplatform.googleapis.com/" and are immutable. Following system labels exist for each Dataset: * "aiplatform.googleapis.com/dataset_metadata_schema": output only, its value is the metadata_schema's title. |
-| `metadataArtifact` | `string` | Output only. The resource name of the Artifact that was created in MetadataStore when creating the Dataset. The Artifact resource name pattern is `projects/&#123;project&#125;/locations/&#123;location&#125;/metadataStores/&#123;metadata_store&#125;/artifacts/&#123;artifact&#125;`. |
-| `savedQueries` | `array` | All SavedQueries belong to the Dataset will be returned in List/Get Dataset response. The annotation_specs field will not be populated except for UI cases which will only use annotation_spec_count. In CreateDataset request, a SavedQuery is created together if this field is set, up to one SavedQuery can be set in CreateDatasetRequest. The SavedQuery should not contain any AnnotationSpec. |
-| `metadata` | `any` | Required. Additional information about the Dataset. |
 | `metadataSchemaUri` | `string` | Required. Points to a YAML file stored on Google Cloud Storage describing additional information about the Dataset. The schema is defined as an OpenAPI 3.0.2 Schema Object. The schema files that can be used here are found in gs://google-cloud-aiplatform/schema/dataset/metadata/. |
 | `encryptionSpec` | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
-| `dataItemCount` | `string` | Output only. The number of DataItems in this Dataset. Only apply for non-structured Dataset. |
-| `updateTime` | `string` | Output only. Timestamp when this Dataset was last updated. |
+| `savedQueries` | `array` | All SavedQueries belong to the Dataset will be returned in List/Get Dataset response. The annotation_specs field will not be populated except for UI cases which will only use annotation_spec_count. In CreateDataset request, a SavedQuery is created together if this field is set, up to one SavedQuery can be set in CreateDatasetRequest. The SavedQuery should not contain any AnnotationSpec. |
+| `etag` | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
+| `metadataArtifact` | `string` | Output only. The resource name of the Artifact that was created in MetadataStore when creating the Dataset. The Artifact resource name pattern is `projects/&#123;project&#125;/locations/&#123;location&#125;/metadataStores/&#123;metadata_store&#125;/artifacts/&#123;artifact&#125;`. |
 | `displayName` | `string` | Required. The user-defined name of the Dataset. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
+| `updateTime` | `string` | Output only. Timestamp when this Dataset was last updated. |
+| `metadata` | `any` | Required. Additional information about the Dataset. |
+| `createTime` | `string` | Output only. Timestamp when this Dataset was created. |
+| `dataItemCount` | `string` | Output only. The number of DataItems in this Dataset. Only apply for non-structured Dataset. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

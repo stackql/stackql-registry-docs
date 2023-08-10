@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `outputSchema` | `string` | Output parameter schema for the action. |
 | `action` | `string` | Name of the action. |
 | `inputSchema` | `string` | Input parameter schema for the action. |
-| `outputSchema` | `string` | Output parameter schema for the action. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

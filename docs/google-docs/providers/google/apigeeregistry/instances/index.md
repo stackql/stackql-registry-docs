@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Format: `projects/*/locations/*/instance`. Currently only `locations/global` is supported. |
-| `stateMessage` | `string` | Output only. Extra information of Instance.State if the state is `FAILED`. |
-| `updateTime` | `string` | Output only. Last update timestamp. |
-| `build` | `object` | Build information of the Instance if it's in `ACTIVE` state. |
 | `config` | `object` | Available configurations to provision an Instance. |
 | `createTime` | `string` | Output only. Creation timestamp. |
 | `state` | `string` | Output only. The current state of the Instance. |
+| `stateMessage` | `string` | Output only. Extra information of Instance.State if the state is `FAILED`. |
+| `updateTime` | `string` | Output only. Last update timestamp. |
+| `build` | `object` | Build information of the Instance if it's in `ACTIVE` state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -31,16 +31,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | The project ID. For example: my-example-project. Use the project ID to make requests to Compute Engine. |
 | `description` | `string` | An optional textual description of the resource. |
 | `vmDnsSetting` | `string` | [Output Only] Default internal DNS setting used by VMs running in this project. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#project for projects. |
+| `defaultNetworkTier` | `string` | This signifies the default network tier used for configuring resources of the project and can only take the following values: PREMIUM, STANDARD. Initially the default network tier is PREMIUM. |
+| `xpnProjectStatus` | `string` | [Output Only] The role this project has in a shared VPC configuration. Currently, only projects with the host role, which is specified by the value HOST, are differentiated. |
 | `usageExportLocation` | `object` | The location in Cloud Storage and naming method of the daily usage report. Contains bucket_name and report_name prefix. |
 | `commonInstanceMetadata` | `object` | A metadata key/value entry. |
-| `xpnProjectStatus` | `string` | [Output Only] The role this project has in a shared VPC configuration. Currently, only projects with the host role, which is specified by the value HOST, are differentiated. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `defaultNetworkTier` | `string` | This signifies the default network tier used for configuring resources of the project and can only take the following values: PREMIUM, STANDARD. Initially the default network tier is PREMIUM. |
-| `enabledFeatures` | `array` | Restricted features enabled for use on this project. |
-| `defaultServiceAccount` | `string` | [Output Only] Default service account used by VMs running in this project. |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | `quotas` | `array` | [Output Only] Quotas assigned to this project. |
+| `defaultServiceAccount` | `string` | [Output Only] Default service account used by VMs running in this project. |
+| `enabledFeatures` | `array` | Restricted features enabled for use on this project. |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#project for projects. |
+| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -29,15 +29,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The full name of the source. |
 | `description` | `string` | Free-text description. |
-| `displayName` | `string` | User-friendly display name. |
-| `type` | `string` | Data source type. |
-| `managed` | `boolean` | If `true`, the source is managed by other service(s). |
+| `pendingFrameCount` | `integer` | Output only. Number of frames that are still being processed. |
 | `priority` | `integer` | The information confidence of the source. The higher the value, the higher the confidence. |
 | `errorFrameCount` | `integer` | Output only. The number of frames that were reported by the source and contained errors. |
-| `pendingFrameCount` | `integer` | Output only. Number of frames that are still being processed. |
-| `state` | `string` | Output only. The state of the source. |
+| `displayName` | `string` | User-friendly display name. |
 | `updateTime` | `string` | Output only. The timestamp when the source was last updated. |
+| `type` | `string` | Data source type. |
+| `state` | `string` | Output only. The state of the source. |
 | `createTime` | `string` | Output only. The timestamp when the source was created. |
+| `managed` | `boolean` | If `true`, the source is managed by other service(s). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

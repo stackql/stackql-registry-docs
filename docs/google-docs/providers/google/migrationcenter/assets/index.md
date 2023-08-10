@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The full name of the asset. |
-| `insightList` | `object` | Message containing insights list. |
-| `labels` | `object` | Labels as key value pairs. |
-| `sources` | `array` | Output only. The list of sources contributing to the asset. |
-| `updateTime` | `string` | Output only. The timestamp when the asset was last updated. |
-| `attributes` | `object` | Generic asset attributes. |
-| `assignedGroups` | `array` | Output only. The list of groups that the asset is assigned to. |
 | `createTime` | `string` | Output only. The timestamp when the asset was created. |
+| `assignedGroups` | `array` | Output only. The list of groups that the asset is assigned to. |
+| `insightList` | `object` | Message containing insights list. |
+| `updateTime` | `string` | Output only. The timestamp when the asset was last updated. |
+| `sources` | `array` | Output only. The list of sources contributing to the asset. |
 | `performanceData` | `object` | Performance data for an asset. |
+| `attributes` | `object` | Generic asset attributes. |
+| `labels` | `object` | Labels as key value pairs. |
 | `machineDetails` | `object` | Details of a machine. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

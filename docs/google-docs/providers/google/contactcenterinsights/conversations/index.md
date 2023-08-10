@@ -28,25 +28,25 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The resource name of the conversation. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/conversations/&#123;conversation&#125; |
-| `medium` | `string` | Immutable. The conversation medium, if unspecified will default to PHONE_CALL. |
 | `runtimeAnnotations` | `array` | Output only. The annotations that were generated during the customer and agent interaction. |
-| `ttl` | `string` | Input only. The TTL for this resource. If specified, then this TTL will be used to calculate the expire time. |
-| `transcript` | `object` | A message representing the transcript of a conversation. |
-| `dialogflowIntents` | `object` | Output only. All the matched Dialogflow intents in the call. The key corresponds to a Dialogflow intent, format: projects/&#123;project&#125;/agent/&#123;agent&#125;/intents/&#123;intent&#125; |
-| `dataSource` | `object` | The conversation source, which is a combination of transcript and audio. |
-| `agentId` | `string` | An opaque, user-specified string representing the human agent who handled the conversation. |
+| `medium` | `string` | Immutable. The conversation medium, if unspecified will default to PHONE_CALL. |
+| `duration` | `string` | Output only. The duration of the conversation. |
+| `languageCode` | `string` | A user-specified language code for the conversation. |
 | `createTime` | `string` | Output only. The time at which the conversation was created. |
+| `expireTime` | `string` | The time at which this conversation should expire. After this time, the conversation data and any associated analyses will be deleted. |
 | `latestAnalysis` | `object` | The analysis resource. |
-| `turnCount` | `integer` | Output only. The number of turns in the conversation. |
+| `agentId` | `string` | An opaque, user-specified string representing the human agent who handled the conversation. |
+| `ttl` | `string` | Input only. The TTL for this resource. If specified, then this TTL will be used to calculate the expire time. |
+| `labels` | `object` | A map for the user to specify any custom fields. A maximum of 20 labels per conversation is allowed, with a maximum of 256 characters per entry. |
 | `obfuscatedUserId` | `string` | Obfuscated user ID which the customer sent to us. |
 | `latestSummary` | `object` | Conversation summarization suggestion data. |
-| `languageCode` | `string` | A user-specified language code for the conversation. |
-| `labels` | `object` | A map for the user to specify any custom fields. A maximum of 20 labels per conversation is allowed, with a maximum of 256 characters per entry. |
-| `duration` | `string` | Output only. The duration of the conversation. |
-| `callMetadata` | `object` | Call-specific metadata. |
-| `updateTime` | `string` | Output only. The most recent time at which the conversation was updated. |
-| `expireTime` | `string` | The time at which this conversation should expire. After this time, the conversation data and any associated analyses will be deleted. |
+| `transcript` | `object` | A message representing the transcript of a conversation. |
+| `dialogflowIntents` | `object` | Output only. All the matched Dialogflow intents in the call. The key corresponds to a Dialogflow intent, format: projects/&#123;project&#125;/agent/&#123;agent&#125;/intents/&#123;intent&#125; |
 | `startTime` | `string` | The time at which the conversation started. |
+| `turnCount` | `integer` | Output only. The number of turns in the conversation. |
+| `updateTime` | `string` | Output only. The most recent time at which the conversation was updated. |
+| `callMetadata` | `object` | Call-specific metadata. |
+| `dataSource` | `object` | The conversation source, which is a combination of transcript and audio. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

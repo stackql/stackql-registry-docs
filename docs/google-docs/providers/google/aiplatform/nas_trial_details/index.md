@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the NasTrialDetail. |
-| `trainTrial` | `object` | Represents a uCAIP NasJob trial. |
 | `parameters` | `string` | The parameters for the NasJob NasTrial. |
 | `searchTrial` | `object` | Represents a uCAIP NasJob trial. |
+| `trainTrial` | `object` | Represents a uCAIP NasJob trial. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

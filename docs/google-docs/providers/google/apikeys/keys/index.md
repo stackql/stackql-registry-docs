@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the key. The `name` has the form: `projects//locations/global/keys/`. For example: `projects/123456867718/locations/global/keys/b7ff1f9f-8275-410a-94dd-3855ee9b5dd2` NOTE: Key is a global resource; hence the only supported value for location is `global`. |
+| `createTime` | `string` | Output only. A timestamp identifying the time this key was originally created. |
+| `displayName` | `string` | Human-readable display name of this key that you can modify. The maximum length is 63 characters. |
+| `etag` | `string` | Output only. A checksum computed by the server based on the current value of the Key resource. This may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. See https://google.aip.dev/154. |
+| `uid` | `string` | Output only. Unique id in UUID4 format. |
+| `keyString` | `string` | Output only. An encrypted and signed value held by this key. This field can be accessed only through the `GetKeyString` method. |
+| `deleteTime` | `string` | Output only. A timestamp when this key was deleted. If the resource is not deleted, this must be empty. |
+| `annotations` | `object` | Annotations is an unstructured key-value map stored with a policy that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. |
 | `restrictions` | `object` | Describes the restrictions on the key. |
 | `updateTime` | `string` | Output only. A timestamp identifying the time this key was last updated. |
-| `uid` | `string` | Output only. Unique id in UUID4 format. |
-| `annotations` | `object` | Annotations is an unstructured key-value map stored with a policy that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. |
-| `deleteTime` | `string` | Output only. A timestamp when this key was deleted. If the resource is not deleted, this must be empty. |
-| `displayName` | `string` | Human-readable display name of this key that you can modify. The maximum length is 63 characters. |
-| `createTime` | `string` | Output only. A timestamp identifying the time this key was originally created. |
-| `keyString` | `string` | Output only. An encrypted and signed value held by this key. This field can be accessed only through the `GetKeyString` method. |
-| `etag` | `string` | Output only. A checksum computed by the server based on the current value of the Key resource. This may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. See https://google.aip.dev/154. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

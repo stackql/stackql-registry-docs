@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the `Replay`, which has the following format: `&#123;projects\|folders\|organizations&#125;/&#123;resource-id&#125;/locations/global/replays/&#123;replay-id&#125;`, where `&#123;resource-id&#125;` is the ID of the project, folder, or organization that owns the Replay. Example: `projects/my-example-project/locations/global/replays/506a5f7f-38ce-4d7d-8e03-479ce1833c36` |
-| `config` | `object` | The configuration used for a Replay. |
 | `resultsSummary` | `object` | Summary statistics about the replayed log entries. |
 | `state` | `string` | Output only. The current state of the `Replay`. |
+| `config` | `object` | The configuration used for a Replay. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

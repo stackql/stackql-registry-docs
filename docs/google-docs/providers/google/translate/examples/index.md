@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the example, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/examples/&#123;example_id&#125;' |
-| `usage` | `string` | Output only. Usage of the sentence pair. Options are TRAIN\|VALIDATION\|TEST. |
 | `sourceText` | `string` | Sentence in source language. |
 | `targetText` | `string` | Sentence in target language. |
+| `usage` | `string` | Output only. Usage of the sentence pair. Options are TRAIN\|VALIDATION\|TEST. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

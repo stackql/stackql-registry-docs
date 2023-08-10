@@ -28,16 +28,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name in the format `projects/*/locations/*/connectors/*`. |
-| `machineType` | `string` | Machine type of VM Instance underlying connector. Default is e2-micro |
 | `maxThroughput` | `integer` | Maximum throughput of the connector in Mbps. Default is 300, max is 1000. |
-| `minThroughput` | `integer` | Minimum throughput of the connector in Mbps. Default and min is 200. |
-| `network` | `string` | Name of a VPC network. |
-| `subnet` | `object` | The subnet in which to house the connector |
-| `connectedProjects` | `array` | Output only. List of projects using the connector. |
 | `minInstances` | `integer` | Minimum value of instances in autoscaling group underlying the connector. |
 | `state` | `string` | Output only. State of the VPC access connector. |
-| `ipCidrRange` | `string` | The range of internal addresses that follows RFC 4632 notation. Example: `10.132.0.0/28`. |
+| `network` | `string` | Name of a VPC network. |
 | `maxInstances` | `integer` | Maximum value of instances in autoscaling group underlying the connector. |
+| `connectedProjects` | `array` | Output only. List of projects using the connector. |
+| `minThroughput` | `integer` | Minimum throughput of the connector in Mbps. Default and min is 200. |
+| `ipCidrRange` | `string` | The range of internal addresses that follows RFC 4632 notation. Example: `10.132.0.0/28`. |
+| `subnet` | `object` | The subnet in which to house the connector |
+| `machineType` | `string` | Machine type of VM Instance underlying connector. Default is e2-micro |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

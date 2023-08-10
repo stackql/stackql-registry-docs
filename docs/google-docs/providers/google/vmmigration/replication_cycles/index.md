@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The identifier of the ReplicationCycle. |
-| `progressPercent` | `integer` | The current progress in percentage of this cycle. Was replaced by 'steps' field, which breaks down the cycle progression more accurately. |
-| `totalPauseDuration` | `string` | The accumulated duration the replication cycle was paused. |
-| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
-| `cycleNumber` | `integer` | The cycle's ordinal number. |
-| `state` | `string` | State of the ReplicationCycle. |
 | `steps` | `array` | The cycle's steps list representing its progress. |
+| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
+| `state` | `string` | State of the ReplicationCycle. |
+| `progressPercent` | `integer` | The current progress in percentage of this cycle. Was replaced by 'steps' field, which breaks down the cycle progression more accurately. |
 | `endTime` | `string` | The time the replication cycle has ended. |
-| `startTime` | `string` | The time the replication cycle has started. |
 | `warnings` | `array` | Output only. Warnings that occurred during the cycle. |
+| `totalPauseDuration` | `string` | The accumulated duration the replication cycle was paused. |
+| `cycleNumber` | `integer` | The cycle's ordinal number. |
+| `startTime` | `string` | The time the replication cycle has started. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

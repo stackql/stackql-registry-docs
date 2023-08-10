@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the file. |
+| `uploadFileInfo` | `object` | A resource that contains a URI to which a data file can be uploaded. |
 | `createTime` | `string` | Output only. The timestamp when the file was created. |
 | `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
 | `format` | `string` | Required. The payload format. |
 | `state` | `string` | Output only. The state of the import data file. |
-| `uploadFileInfo` | `object` | A resource that contains a URI to which a data file can be uploaded. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

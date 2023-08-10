@@ -27,13 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `startTime` | `string` | Start time of this stage. |
 | `state` | `string` | State of this stage. |
 | `stragglerSummary` | `object` | Summarized straggler identification details. |
 | `endTime` | `string` | End time of this stage. If the work item is completed, this is the actual end time of the stage. Otherwise, it is the predicted end time. |
 | `metrics` | `array` | Metrics for this stage. |
 | `progress` | `object` | Information about the progress of some component of job execution. |
 | `stageId` | `string` | ID of this stage |
+| `startTime` | `string` | Start time of this stage. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

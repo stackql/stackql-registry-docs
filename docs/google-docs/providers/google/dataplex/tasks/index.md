@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the task, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/ tasks/&#123;task_id&#125;. |
 | `description` | `string` | Optional. Description of the task. |
-| `executionSpec` | `object` | Execution related settings, like retry and service_account. |
-| `executionStatus` | `object` | Status of the task execution (e.g. Jobs). |
-| `notebook` | `object` | Config for running scheduled notebooks. |
-| `spark` | `object` | User-specified config for running a Spark task. |
+| `labels` | `object` | Optional. User-defined labels for the task. |
+| `uid` | `string` | Output only. System generated globally unique ID for the task. This ID will be different if the task is deleted and re-created with the same name. |
 | `updateTime` | `string` | Output only. The time when the task was last updated. |
-| `triggerSpec` | `object` | Task scheduling and trigger settings. |
+| `createTime` | `string` | Output only. The time when the task was created. |
+| `notebook` | `object` | Config for running scheduled notebooks. |
 | `displayName` | `string` | Optional. User friendly display name. |
 | `state` | `string` | Output only. Current state of the task. |
-| `uid` | `string` | Output only. System generated globally unique ID for the task. This ID will be different if the task is deleted and re-created with the same name. |
-| `createTime` | `string` | Output only. The time when the task was created. |
-| `labels` | `object` | Optional. User-defined labels for the task. |
+| `spark` | `object` | User-specified config for running a Spark task. |
+| `executionStatus` | `object` | Status of the task execution (e.g. Jobs). |
+| `triggerSpec` | `object` | Task scheduling and trigger settings. |
+| `executionSpec` | `object` | Execution related settings, like retry and service_account. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

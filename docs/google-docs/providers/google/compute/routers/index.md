@@ -31,16 +31,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `network` | `string` | URI of the network to which this router belongs. |
-| `md5AuthenticationKeys` | `array` | Keys used for MD5 authentication. |
-| `region` | `string` | [Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
-| `interfaces` | `array` | Router interfaces. Each interface requires either one linked resource, (for example, linkedVpnTunnel), or IP address and IP address range (for example, ipRange), or both. |
-| `bgpPeers` | `array` | BGP information that must be configured into the routing stack to establish BGP peering. This information must specify the peer ASN and either the interface name, IP address, or peer IP address. Please refer to RFC4273. |
-| `kind` | `string` | [Output Only] Type of resource. Always compute#router for routers. |
-| `encryptedInterconnectRouter` | `boolean` | Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). |
-| `nats` | `array` | A list of NAT services created in this router. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `bgp` | `object` |  |
+| `encryptedInterconnectRouter` | `boolean` | Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). |
+| `region` | `string` | [Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `kind` | `string` | [Output Only] Type of resource. Always compute#router for routers. |
+| `nats` | `array` | A list of NAT services created in this router. |
+| `network` | `string` | URI of the network to which this router belongs. |
+| `interfaces` | `array` | Router interfaces. Each interface requires either one linked resource, (for example, linkedVpnTunnel), or IP address and IP address range (for example, ipRange), or both. |
+| `md5AuthenticationKeys` | `array` | Keys used for MD5 authentication. |
+| `bgpPeers` | `array` | BGP information that must be configured into the routing stack to establish BGP peering. This information must specify the peer ASN and either the interface name, IP address, or peer IP address. Please refer to RFC4273. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

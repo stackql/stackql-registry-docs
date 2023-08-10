@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The system-generated name of the provisioning config. This follows the UUID format. |
-| `handoverServiceAccount` | `string` | A service account to enable customers to access instance credentials upon handover. |
+| `volumes` | `array` | Volumes to be created. |
+| `location` | `string` | Optional. Location name of this ProvisioningConfig. It is optional only for Intake UI transition period. |
 | `statusMessage` | `string` | Optional status messages associated with the FAILED state. |
-| `updateTime` | `string` | Output only. Last update timestamp. |
+| `customId` | `string` | Optional. The user-defined identifier of the provisioning config. |
+| `cloudConsoleUri` | `string` | Output only. URI to Cloud Console UI view of this provisioning config. |
 | `ticketId` | `string` | A generated ticket id to track provisioning request. |
+| `handoverServiceAccount` | `string` | A service account to enable customers to access instance credentials upon handover. |
+| `updateTime` | `string` | Output only. Last update timestamp. |
+| `vpcScEnabled` | `boolean` | If true, VPC SC is enabled for the cluster. |
+| `networks` | `array` | Networks to be created. |
 | `instances` | `array` | Instances to be created. |
 | `email` | `string` | Email provided to send a confirmation with provisioning config to. Deprecated in favour of email field in request messages. |
 | `state` | `string` | Output only. State of ProvisioningConfig. |
-| `networks` | `array` | Networks to be created. |
-| `vpcScEnabled` | `boolean` | If true, VPC SC is enabled for the cluster. |
-| `customId` | `string` | Optional. The user-defined identifier of the provisioning config. |
-| `location` | `string` | Optional. Location name of this ProvisioningConfig. It is optional only for Intake UI transition period. |
-| `cloudConsoleUri` | `string` | Output only. URI to Cloud Console UI view of this provisioning config. |
-| `volumes` | `array` | Volumes to be created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

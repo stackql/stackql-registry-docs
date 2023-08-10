@@ -27,12 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `qaEnabled` | `boolean` | If the qa is enabled on this project. |
+| `state` | `string` | State of the project. |
 | `accessControlMode` | `string` | Access control mode. |
 | `databaseType` | `string` | Database type. |
 | `documentCreatorDefaultRole` | `string` | The default role for the person who create a document. |
 | `location` | `string` | The location of the queried project. |
-| `qaEnabled` | `boolean` | If the qa is enabled on this project. |
-| `state` | `string` | State of the project. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

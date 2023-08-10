@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the scope `projects/&#123;project&#125;/locations/&#123;location&#125;/scopes/&#123;scope&#125;` |
-| `allMemberships` | `boolean` | If true, all Memberships in the Fleet bind to this Scope. |
 | `createTime` | `string` | Output only. When the scope was created. |
-| `state` | `object` | ScopeLifecycleState describes the state of a Scope resource. |
-| `labels` | `object` | Optional. Labels for this Scope. |
+| `allMemberships` | `boolean` | If true, all Memberships in the Fleet bind to this Scope. |
 | `deleteTime` | `string` | Output only. When the scope was deleted. |
+| `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all scope resources. If a scope resource is deleted and another resource with the same name is created, it gets a different uid. |
 | `updateTime` | `string` | Output only. When the scope was last updated. |
 | `namespaceLabels` | `object` | Optional. Scope-level cluster namespace labels. For the member clusters bound to the Scope, these labels are applied to each namespace under the Scope. Scope-level labels take precedence over Namespace-level labels (`namespace_labels` in the Fleet Namespace resource) if they share a key. Keys and values must be Kubernetes-conformant. |
-| `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all scope resources. If a scope resource is deleted and another resource with the same name is created, it gets a different uid. |
+| `state` | `object` | ScopeLifecycleState describes the state of a Scope resource. |
+| `labels` | `object` | Optional. Labels for this Scope. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

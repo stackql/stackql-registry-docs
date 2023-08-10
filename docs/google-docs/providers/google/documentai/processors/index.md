@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Immutable. The resource name of the processor. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processors/&#123;processor&#125;` |
-| `type` | `string` | The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. To get a list of processor types, see FetchProcessorTypes. |
-| `createTime` | `string` | The time the processor was created. |
-| `processorVersionAliases` | `array` | Output only. The processor version aliases. |
-| `kmsKeyName` | `string` | The [KMS key](https://cloud.google.com/security-key-management) used for encryption and decryption in CMEK scenarios. |
-| `state` | `string` | Output only. The state of the processor. |
 | `defaultProcessorVersion` | `string` | The default processor version. |
-| `processEndpoint` | `string` | Output only. Immutable. The http endpoint that can be called to invoke processing. |
+| `kmsKeyName` | `string` | The [KMS key](https://cloud.google.com/security-key-management) used for encryption and decryption in CMEK scenarios. |
 | `displayName` | `string` | The display name of the processor. |
+| `createTime` | `string` | The time the processor was created. |
+| `processEndpoint` | `string` | Output only. Immutable. The http endpoint that can be called to invoke processing. |
+| `type` | `string` | The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. To get a list of processor types, see FetchProcessorTypes. |
+| `state` | `string` | Output only. The state of the processor. |
+| `processorVersionAliases` | `array` | Output only. The processor version aliases. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

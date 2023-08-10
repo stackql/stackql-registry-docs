@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the app. |
-| `status` | `string` | Status of the credential. |
-| `keyExpiresIn` | `string` | Duration, in milliseconds, of the consumer key that will be generated for the app. The default value, -1, indicates an infinite validity period. Once set, the expiration can't be updated. json key: keyExpiresIn |
-| `apiProducts` | `array` | List of API products associated with the app. |
-| `attributes` | `array` | List of attributes. |
-| `developerId` | `string` | ID of the developer. |
 | `appId` | `string` | ID of the app. |
 | `credentials` | `array` | Output only. Set of credentials for the app. Credentials are API key/secret pairs associated with API products. |
-| `callbackUrl` | `string` | Callback URL used by OAuth 2.0 authorization servers to communicate authorization codes back to apps. |
-| `companyName` | `string` | Name of the company that owns the app. |
-| `developerEmail` | `string` | Email of the developer. |
+| `developerId` | `string` | ID of the developer. |
+| `attributes` | `array` | List of attributes. |
+| `keyExpiresIn` | `string` | Duration, in milliseconds, of the consumer key that will be generated for the app. The default value, -1, indicates an infinite validity period. Once set, the expiration can't be updated. json key: keyExpiresIn |
 | `scopes` | `array` | Scopes to apply to the app. The specified scope names must already exist on the API product that you associate with the app. |
-| `createdAt` | `string` | Output only. Unix time when the app was created. |
+| `status` | `string` | Status of the credential. |
+| `apiProducts` | `array` | List of API products associated with the app. |
 | `lastModifiedAt` | `string` | Output only. Last modified time as milliseconds since epoch. |
+| `createdAt` | `string` | Output only. Unix time when the app was created. |
+| `callbackUrl` | `string` | Callback URL used by OAuth 2.0 authorization servers to communicate authorization codes back to apps. |
+| `developerEmail` | `string` | Email of the developer. |
+| `companyName` | `string` | Name of the company that owns the app. |
 | `appGroup` | `string` | Name of the AppGroup |
 ## Methods
 | Name | Accessible by | Required Params | Description |

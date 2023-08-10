@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the access-control entry. |
+| `projectTeam` | `object` | The project team associated with the entity, if any. |
 | `etag` | `string` | HTTP 1.1 Entity tag for the access-control entry. |
-| `selfLink` | `string` | The link to this access-control entry. |
-| `bucket` | `string` | The name of the bucket. |
+| `object` | `string` | The name of the object, if applied to an object. |
+| `role` | `string` | The access permission for the entity. |
+| `kind` | `string` | The kind of item this is. For object access control entries, this is always storage#objectAccessControl. |
 | `entity` | `string` | The entity holding the permission, in one of the following forms: <br />- user-userId <br />- user-email <br />- group-groupId <br />- group-email <br />- domain-domain <br />- project-team-projectId <br />- allUsers <br />- allAuthenticatedUsers Examples: <br />- The user liz@example.com would be user-liz@example.com. <br />- The group example@googlegroups.com would be group-example@googlegroups.com. <br />- To refer to all members of the Google Apps for Business domain example.com, the entity would be domain-example.com. |
+| `generation` | `string` | The content generation of the object, if applied to an object. |
+| `bucket` | `string` | The name of the bucket. |
+| `selfLink` | `string` | The link to this access-control entry. |
 | `email` | `string` | The email address associated with the entity, if any. |
 | `entityId` | `string` | The ID for the entity, if any. |
-| `projectTeam` | `object` | The project team associated with the entity, if any. |
-| `role` | `string` | The access permission for the entity. |
 | `domain` | `string` | The domain associated with the entity, if any. |
-| `object` | `string` | The name of the object, if applied to an object. |
-| `generation` | `string` | The content generation of the object, if applied to an object. |
-| `kind` | `string` | The kind of item this is. For object access control entries, this is always storage#objectAccessControl. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

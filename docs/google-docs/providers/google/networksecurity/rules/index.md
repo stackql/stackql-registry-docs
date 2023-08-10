@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Immutable. Name of the resource. ame is the full resource name so projects/&#123;project&#125;/locations/&#123;location&#125;/gatewaySecurityPolicies/&#123;gateway_security_policy&#125;/rules/&#123;rule&#125; rule should match the pattern: (^[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?$). |
 | `description` | `string` | Optional. Free-text description of the resource. |
-| `sessionMatcher` | `string` | Required. CEL expression for matching on session criteria. |
-| `createTime` | `string` | Output only. Time when the rule was created. |
-| `tlsInspectionEnabled` | `boolean` | Optional. Flag to enable TLS inspection of traffic matching on , can only be true if the parent GatewaySecurityPolicy references a TLSInspectionConfig. |
-| `basicProfile` | `string` | Required. Profile which tells what the primitive action should be. |
-| `updateTime` | `string` | Output only. Time when the rule was updated. |
-| `priority` | `integer` | Required. Priority of the rule. Lower number corresponds to higher precedence. |
 | `applicationMatcher` | `string` | Optional. CEL expression for matching on L7/application level criteria. |
 | `enabled` | `boolean` | Required. Whether the rule is enforced. |
+| `priority` | `integer` | Required. Priority of the rule. Lower number corresponds to higher precedence. |
+| `updateTime` | `string` | Output only. Time when the rule was updated. |
+| `sessionMatcher` | `string` | Required. CEL expression for matching on session criteria. |
+| `tlsInspectionEnabled` | `boolean` | Optional. Flag to enable TLS inspection of traffic matching on , can only be true if the parent GatewaySecurityPolicy references a TLSInspectionConfig. |
+| `createTime` | `string` | Output only. Time when the rule was created. |
+| `basicProfile` | `string` | Required. Profile which tells what the primitive action should be. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -30,16 +30,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | A user-defined name of the function. Function names must be unique globally and match pattern `projects/*/locations/*/functions/*` |
 | `description` | `string` | User-provided description of a function. |
 | `kmsKeyName` | `string` | [Preview] Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources. It must match the pattern `projects/&#123;project&#125;/locations/&#123;location&#125;/keyRings/&#123;key_ring&#125;/cryptoKeys/&#123;crypto_key&#125;`. |
-| `environment` | `string` | Describe whether the function is 1st Gen or 2nd Gen. |
-| `satisfiesPzs` | `boolean` | Output only. Reserved for future use. |
 | `serviceConfig` | `object` | Describes the Service being deployed. Currently Supported : Cloud Run (fully managed). |
-| `state` | `string` | Output only. State of the function. |
-| `buildConfig` | `object` | Describes the Build step of the function that builds a container from the given source. |
-| `labels` | `object` | Labels associated with this Cloud Function. |
-| `url` | `string` | Output only. The deployed url for the function. |
 | `eventTrigger` | `object` | Describes EventTrigger, used to request events to be sent from another service. |
-| `updateTime` | `string` | Output only. The last update timestamp of a Cloud Function. |
+| `labels` | `object` | Labels associated with this Cloud Function. |
+| `satisfiesPzs` | `boolean` | Output only. Reserved for future use. |
+| `buildConfig` | `object` | Describes the Build step of the function that builds a container from the given source. |
 | `stateMessages` | `array` | Output only. State Messages for this Cloud Function. |
+| `url` | `string` | Output only. The deployed url for the function. |
+| `environment` | `string` | Describe whether the function is 1st Gen or 2nd Gen. |
+| `state` | `string` | Output only. State of the function. |
+| `updateTime` | `string` | Output only. The last update timestamp of a Cloud Function. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

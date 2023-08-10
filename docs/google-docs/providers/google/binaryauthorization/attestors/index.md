@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name, in the format: `projects/*/attestors/*`. This field may not be updated. |
 | `description` | `string` | Optional. A descriptive comment. This field may be updated. The field may be displayed in chooser dialogs. |
-| `etag` | `string` | Optional. A checksum, returned by the server, that can be sent on update requests to ensure the attestor has an up-to-date value before attempting to update it. See https://google.aip.dev/154. |
 | `updateTime` | `string` | Output only. Time when the attestor was last updated. |
 | `userOwnedGrafeasNote` | `object` | An user owned Grafeas note references a Grafeas Attestation.Authority Note created by the user. |
+| `etag` | `string` | Optional. A checksum, returned by the server, that can be sent on update requests to ensure the attestor has an up-to-date value before attempting to update it. See https://google.aip.dev/154. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

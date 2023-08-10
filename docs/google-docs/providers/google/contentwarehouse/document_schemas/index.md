@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the document schema. Format: projects/&#123;project_number&#125;/locations/&#123;location&#125;/documentSchemas/&#123;document_schema_id&#125;. The name is ignored when creating a document schema. |
 | `description` | `string` | Schema description. |
-| `propertyDefinitions` | `array` | Document details. |
 | `updateTime` | `string` | Output only. The time when the document schema is last updated. |
 | `createTime` | `string` | Output only. The time when the document schema is created. |
 | `displayName` | `string` | Required. Name of the schema given by the user. Must be unique per project. |
 | `documentIsFolder` | `boolean` | Document Type, true refers the document is a folder, otherwise it is a typical document. |
+| `propertyDefinitions` | `array` | Document details. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
