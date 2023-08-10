@@ -25,13 +25,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `nextPageToken` | `string` | If empty, the list is complete. If nonempty, pass the token to the next request's `ListPredictionApiKeysRegistrationsRequest.pageToken`. |
-| `predictionApiKeyRegistrations` | `array` | The list of registered API keys. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_catalogs_event_stores_prediction_api_key_registrations_list` | `SELECT` | `catalogsId, eventStoresId, locationsId, projectsId` | List the registered apiKeys for use with predict method. |
 | `projects_locations_catalogs_event_stores_prediction_api_key_registrations_create` | `INSERT` | `catalogsId, eventStoresId, locationsId, projectsId` | Register an API key for use with predict method. |
 | `projects_locations_catalogs_event_stores_prediction_api_key_registrations_delete` | `DELETE` | `catalogsId, eventStoresId, locationsId, predictionApiKeyRegistrationsId, projectsId` | Unregister an apiKey from using for predict method. |
+| `_projects_locations_catalogs_event_stores_prediction_api_key_registrations_list` | `EXEC` | `catalogsId, eventStoresId, locationsId, projectsId` | List the registered apiKeys for use with predict method. |

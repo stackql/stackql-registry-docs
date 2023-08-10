@@ -30,17 +30,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `encryptedInterconnectRouter` | `boolean` | Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `interfaces` | `array` | Router interfaces. Each interface requires either one linked resource, (for example, linkedVpnTunnel), or IP address and IP address range (for example, ipRange), or both. |
 | `network` | `string` | URI of the network to which this router belongs. |
-| `bgpPeers` | `array` | BGP information that must be configured into the routing stack to establish BGP peering. This information must specify the peer ASN and either the interface name, IP address, or peer IP address. Please refer to RFC4273. |
-| `nats` | `array` | A list of NAT services created in this router. |
-| `bgp` | `object` |  |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `region` | `string` | [Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
 | `md5AuthenticationKeys` | `array` | Keys used for MD5 authentication. |
+| `region` | `string` | [Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `interfaces` | `array` | Router interfaces. Each interface requires either one linked resource, (for example, linkedVpnTunnel), or IP address and IP address range (for example, ipRange), or both. |
+| `bgpPeers` | `array` | BGP information that must be configured into the routing stack to establish BGP peering. This information must specify the peer ASN and either the interface name, IP address, or peer IP address. Please refer to RFC4273. |
 | `kind` | `string` | [Output Only] Type of resource. Always compute#router for routers. |
+| `encryptedInterconnectRouter` | `boolean` | Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). |
+| `nats` | `array` | A list of NAT services created in this router. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `bgp` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,6 +48,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `project, region` | Retrieves a list of Router resources available to the specified project. |
 | `insert` | `INSERT` | `project, region` | Creates a Router resource in the specified project and region using the data included in the request. |
 | `delete` | `DELETE` | `project, region, router` | Deletes the specified Router resource. |
+| `_list` | `EXEC` | `project, region` | Retrieves a list of Router resources available to the specified project. |
 | `aggregated_list` | `EXEC` | `project` | Retrieves an aggregated list of routers. |
 | `patch` | `EXEC` | `project, region, router` | Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
 | `preview` | `EXEC` | `project, region, router` | Preview fields auto-generated during router create and update operations. Calling this method does NOT create or update the router. |

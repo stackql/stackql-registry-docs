@@ -27,10 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
-| `addressGroupReferences` | `array` | A list of references that matches the specified filter in the request. |
+| `firewallPolicy` | `string` | FirewallPolicy that is using the Address Group. |
+| `rulePriority` | `integer` | Rule priority of the FirewallPolicy that is using the Address Group. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `organizations_locations_address_groups_list_references` | `SELECT` | `addressGroupsId, locationsId, organizationsId` |
 | `projects_locations_address_groups_list_references` | `SELECT` | `addressGroupsId, locationsId, projectsId` |
+| `_organizations_locations_address_groups_list_references` | `EXEC` | `addressGroupsId, locationsId, organizationsId` |
+| `_projects_locations_address_groups_list_references` | `EXEC` | `addressGroupsId, locationsId, projectsId` |

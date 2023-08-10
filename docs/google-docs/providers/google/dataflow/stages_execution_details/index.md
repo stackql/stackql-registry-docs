@@ -27,9 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If present, this response does not contain all requested tasks. To obtain the next page of results, repeat the request with page_token set to this value. |
-| `workers` | `array` | Workers that have done work on the stage. |
+| `workItems` | `array` | Work items processed by this worker, sorted by time. |
+| `workerName` | `string` | Name of this worker |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_locations_jobs_stages_get_execution_details` | `SELECT` | `jobId, location, projectId, stageId` |
+| `_projects_locations_jobs_stages_get_execution_details` | `EXEC` | `jobId, location, projectId, stageId` |

@@ -25,11 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `databaseRoles` | `array` | Database roles that matched the request. |
-| `nextPageToken` | `string` | `next_page_token` can be sent in a subsequent ListDatabaseRoles call to fetch more of the matching roles. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_instances_databases_database_roles_list` | `SELECT` | `databasesId, instancesId, projectsId` |
+| `_projects_instances_databases_database_roles_list` | `EXEC` | `databasesId, instancesId, projectsId` |

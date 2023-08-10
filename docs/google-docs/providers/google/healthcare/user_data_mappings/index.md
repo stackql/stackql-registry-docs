@@ -27,8 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `userDataMappings` | `array` | The returned User data mappings. The maximum number of User data mappings returned is determined by the value of page_size in the ListUserDataMappingsRequest. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `name` | `string` | Resource name of the User data mapping, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/userDataMappings/&#123;user_data_mapping_id&#125;`. |
+| `archived` | `boolean` | Output only. Indicates whether this mapping is archived. |
+| `dataId` | `string` | Required. A unique identifier for the mapped resource. |
+| `resourceAttributes` | `array` | Attributes of the resource. Only explicitly set attributes are displayed here. Attribute definitions with defaults set implicitly apply to these User data mappings. Attributes listed here must be single valued, that is, exactly one value is specified for the field "values" in each Attribute. |
+| `userId` | `string` | Required. User's UUID provided by the client. |
+| `archiveTime` | `string` | Output only. Indicates the time when this mapping was archived. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,5 +40,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `consentStoresId, datasetsId, locationsId, projectsId` | Lists the User data mappings in the specified consent store. |
 | `create` | `INSERT` | `consentStoresId, datasetsId, locationsId, projectsId` | Creates a new User data mapping in the parent consent store. |
 | `delete` | `DELETE` | `consentStoresId, datasetsId, locationsId, projectsId, userDataMappingsId` | Deletes the specified User data mapping. |
+| `_list` | `EXEC` | `consentStoresId, datasetsId, locationsId, projectsId` | Lists the User data mappings in the specified consent store. |
 | `archive` | `EXEC` | `consentStoresId, datasetsId, locationsId, projectsId, userDataMappingsId` | Archives the specified User data mapping. |
 | `patch` | `EXEC` | `consentStoresId, datasetsId, locationsId, projectsId, userDataMappingsId` | Updates the specified User data mapping. |

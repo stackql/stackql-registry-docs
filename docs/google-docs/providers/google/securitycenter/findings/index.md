@@ -27,10 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `readTime` | `string` | Time used for executing the list request. |
-| `totalSize` | `integer` | The total number of findings matching the query. |
-| `listFindingsResults` | `array` | Findings matching the list request. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results. |
+| `finding` | `object` | Security Command Center finding. A finding is a record of assessment data like security, risk, health, or privacy, that is ingested into Security Command Center for presentation, notification, analysis, policy testing, and enforcement. For example, a cross-site scripting (XSS) vulnerability in an App Engine application is a finding. |
+| `resource` | `object` | Information related to the Google Cloud resource that is associated with this finding. |
+| `stateChange` | `string` | State change of the finding between the points in time. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -38,6 +37,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_sources_findings_list` | `SELECT` | `organizationsId, sourcesId` | Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings |
 | `projects_sources_findings_list` | `SELECT` | `projectsId, sourcesId` | Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings |
 | `organizations_sources_findings_create` | `INSERT` | `organizationsId, sourcesId` | Creates a finding. The corresponding source must exist for finding creation to succeed. |
+| `_folders_sources_findings_list` | `EXEC` | `foldersId, sourcesId` | Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings |
+| `_organizations_sources_findings_list` | `EXEC` | `organizationsId, sourcesId` | Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings |
+| `_projects_sources_findings_list` | `EXEC` | `projectsId, sourcesId` | Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings |
 | `folders_findings_bulk_mute` | `EXEC` | `foldersId` | Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. |
 | `folders_sources_findings_group` | `EXEC` | `foldersId, sourcesId` | Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1/organizations/&#123;organization_id&#125;/sources/-/findings, /v1/folders/&#123;folder_id&#125;/sources/-/findings, /v1/projects/&#123;project_id&#125;/sources/-/findings |
 | `folders_sources_findings_patch` | `EXEC` | `findingsId, foldersId, sourcesId` | Creates or updates a finding. The corresponding source must exist for a finding creation to succeed. |

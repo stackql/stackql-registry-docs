@@ -20,8 +20,8 @@ Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>77</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>86</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Dataproc API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataproc:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dataproc:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

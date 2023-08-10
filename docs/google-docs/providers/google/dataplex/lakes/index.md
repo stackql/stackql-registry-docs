@@ -27,14 +27,24 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachableLocations` | `array` | Locations that could not be reached. |
-| `lakes` | `array` | Lakes under the given parent location. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `name` | `string` | Output only. The relative resource name of the lake, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;. |
+| `description` | `string` | Optional. Description of the lake. |
+| `createTime` | `string` | Output only. The time when the lake was created. |
+| `uid` | `string` | Output only. System generated globally unique ID for the lake. This ID will be different if the lake is deleted and re-created with the same name. |
+| `labels` | `object` | Optional. User-defined labels for the lake. |
+| `assetStatus` | `object` | Aggregated status of the underlying assets of a lake or zone. |
+| `serviceAccount` | `string` | Output only. Service account associated with this lake. This service account must be authorized to access or operate on resources managed by the lake. |
+| `state` | `string` | Output only. Current state of the lake. |
+| `updateTime` | `string` | Output only. The time when the lake was last updated. |
+| `displayName` | `string` | Optional. User friendly display name. |
+| `metastore` | `object` | Settings to manage association of Dataproc Metastore with a lake. |
+| `metastoreStatus` | `object` | Status of Lake and Dataproc Metastore service instance association. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_lakes_list` | `SELECT` | `locationsId, projectsId` | Lists lake resources in a project and location. |
 | `projects_locations_lakes_create` | `INSERT` | `locationsId, projectsId` | Creates a lake resource. |
 | `projects_locations_lakes_delete` | `DELETE` | `lakesId, locationsId, projectsId` | Deletes a lake resource. All zones within the lake must be deleted before the lake can be deleted. |
+| `_projects_locations_lakes_list` | `EXEC` | `locationsId, projectsId` | Lists lake resources in a project and location. |
 | `projects_locations_lakes_get` | `EXEC` | `lakesId, locationsId, projectsId` | Retrieves a lake resource. |
 | `projects_locations_lakes_patch` | `EXEC` | `lakesId, locationsId, projectsId` | Updates a lake resource. |

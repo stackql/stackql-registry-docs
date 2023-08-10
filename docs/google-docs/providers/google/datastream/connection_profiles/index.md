@@ -27,9 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `connectionProfiles` | `array` | List of connection profiles. |
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `name` | `string` | Output only. The resource's name. |
+| `oracleProfile` | `object` | Oracle database profile. |
+| `mysqlProfile` | `object` | MySQL database profile. |
+| `postgresqlProfile` | `object` | PostgreSQL database profile. |
+| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. Used when the source database is configured to allow incoming connections from the Datastream public IP addresses for the region specified in the connection profile. |
+| `createTime` | `string` | Output only. The create time of the resource. |
+| `privateConnectivity` | `object` | Private Connectivity |
+| `updateTime` | `string` | Output only. The update time of the resource. |
+| `labels` | `object` | Labels. |
+| `displayName` | `string` | Required. Display name. |
+| `forwardSshConnectivity` | `object` | Forward SSH Tunnel connectivity. |
+| `bigqueryProfile` | `object` | BigQuery warehouse profile. |
+| `gcsProfile` | `object` | Cloud Storage bucket profile. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,5 +47,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Use this method to list connection profiles created in a project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Use this method to create a connection profile in a project and location. |
 | `delete` | `DELETE` | `connectionProfilesId, locationsId, projectsId` | Use this method to delete a connection profile. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Use this method to list connection profiles created in a project and location. |
 | `discover` | `EXEC` | `locationsId, projectsId` | Use this method to discover a connection profile. The discover API call exposes the data objects and metadata belonging to the profile. Typically, a request returns children data objects of a parent data object that's optionally supplied in the request. |
 | `patch` | `EXEC` | `connectionProfilesId, locationsId, projectsId` | Use this method to update the parameters of a connection profile. |

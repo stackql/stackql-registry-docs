@@ -27,11 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Page token that you can include in a ListDebugSessionsRequest to retrieve the next page. If omitted, no subsequent pages exist. |
-| `sessions` | `array` | Session info that includes debug session ID and the first transaction creation timestamp. |
+| `id` | `string` | The debug session ID. |
+| `timestampMs` | `string` | The first transaction creation timestamp in millisecond, recorded by UAP. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `organizations_environments_apis_revisions_debugsessions_get` | `SELECT` | `apisId, debugsessionsId, environmentsId, organizationsId, revisionsId` | Retrieves a debug session. |
 | `organizations_environments_apis_revisions_debugsessions_list` | `SELECT` | `apisId, environmentsId, organizationsId, revisionsId` | Lists debug sessions that are currently active in the given API Proxy revision. |
 | `organizations_environments_apis_revisions_debugsessions_create` | `INSERT` | `apisId, environmentsId, organizationsId, revisionsId` | Creates a debug session for a deployed API Proxy revision. |
+| `_organizations_environments_apis_revisions_debugsessions_list` | `EXEC` | `apisId, environmentsId, organizationsId, revisionsId` | Lists debug sessions that are currently active in the given API Proxy revision. |

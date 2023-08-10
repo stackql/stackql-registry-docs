@@ -28,19 +28,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The unique identifier of the test case. TestCases.CreateTestCase will populate the name automatically. Otherwise use format: `projects//locations//agents/ /testCases/`. |
+| `creationTime` | `string` | Output only. When the test was created. |
 | `displayName` | `string` | Required. The human-readable name of the test case, unique within the agent. Limit of 200 characters. |
 | `lastTestResult` | `object` | Represents a result from running a test case in an agent environment. |
 | `notes` | `string` | Additional freeform notes about the test case. Limit of 400 characters. |
 | `tags` | `array` | Tags are short descriptions that users may apply to test cases for organizational and filtering purposes. Each tag should start with "#" and has a limit of 30 characters. |
 | `testCaseConversationTurns` | `array` | The conversation turns uttered when the test case was created, in chronological order. These include the canonical set of agent utterances that should occur when the agent is working properly. |
 | `testConfig` | `object` | Represents configurations for a test case. |
-| `creationTime` | `string` | Output only. When the test was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_agents_test_cases_get` | `SELECT` | `agentsId, locationsId, projectsId, testCasesId` | Gets a test case. |
 | `projects_locations_agents_test_cases_list` | `SELECT` | `agentsId, locationsId, projectsId` | Fetches a list of test cases for a given agent. |
 | `projects_locations_agents_test_cases_create` | `INSERT` | `agentsId, locationsId, projectsId` | Creates a test case for the given agent. |
+| `_projects_locations_agents_test_cases_list` | `EXEC` | `agentsId, locationsId, projectsId` | Fetches a list of test cases for a given agent. |
 | `projects_locations_agents_test_cases_batch_delete` | `EXEC` | `agentsId, locationsId, projectsId` | Batch deletes test cases. |
 | `projects_locations_agents_test_cases_batch_run` | `EXEC` | `agentsId, locationsId, projectsId` | Kicks off a batch run of test cases. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: BatchRunTestCasesMetadata - `response`: BatchRunTestCasesResponse |
 | `projects_locations_agents_test_cases_calculate_coverage` | `EXEC` | `agentsId, locationsId, projectsId` | Calculates the test coverage for an agent. |

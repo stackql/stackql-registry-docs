@@ -27,9 +27,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `contactCenters` | `array` | The list of ContactCenter |
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
-| `unreachable` | `array` | Locations that could not be reached. |
+| `name` | `string` | name of resource |
+| `updateTime` | `string` | Output only. [Output only] Update time stamp |
+| `userEmail` | `string` | Optional. Email address of the first admin user. |
+| `createTime` | `string` | Output only. [Output only] Create time stamp |
+| `ccaipManagedUsers` | `boolean` | Optional. Whether to enable users to be created in the CCAIP-instance concurrently to having users in Cloud identity |
+| `labels` | `object` | Labels as key value pairs |
+| `state` | `string` | Output only. The state of this contact center. |
+| `customerDomainPrefix` | `string` | Required. Immutable. At least 2 and max 16 char long, must conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). |
+| `displayName` | `string` | Required. A user friendly name for the ContactCenter. |
+| `adminUser` | `object` | Message storing info about the first admin user. Next ID: 3 |
+| `instanceConfig` | `object` | Message storing the instance configuration. |
+| `samlParams` | `object` | Message storing SAML params to enable Google as IDP. |
+| `kmsKey` | `string` | Immutable. The KMS key name to encrypt the user input (`ContactCenter`). |
+| `uris` | `object` | Message storing the URIs of the ContactCenter. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +48,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists ContactCenters in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new ContactCenter in a given project and location. |
 | `delete` | `DELETE` | `contactCentersId, locationsId, projectsId` | Deletes a single ContactCenter. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists ContactCenters in a given project and location. |
 | `patch` | `EXEC` | `contactCentersId, locationsId, projectsId` | Updates the parameters of a single ContactCenter. |

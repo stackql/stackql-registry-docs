@@ -25,11 +25,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `scannedResources` | `array` | All scanned resources in response |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` | `evaluationsId, executionsId, locationsId, projectsId` |
+| `_list` | `EXEC` | `evaluationsId, executionsId, locationsId, projectsId` |

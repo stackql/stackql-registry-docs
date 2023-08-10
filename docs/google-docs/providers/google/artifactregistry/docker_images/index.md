@@ -40,3 +40,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `dockerImagesId, locationsId, projectsId, repositoriesId` | Gets a docker image. |
 | `list` | `SELECT` | `locationsId, projectsId, repositoriesId` | Lists docker images. |
+| `_list` | `EXEC` | `locationsId, projectsId, repositoriesId` | Lists docker images. |

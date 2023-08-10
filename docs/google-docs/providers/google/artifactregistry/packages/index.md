@@ -37,3 +37,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `get` | `SELECT` | `locationsId, packagesId, projectsId, repositoriesId` | Gets a package. |
 | `list` | `SELECT` | `locationsId, projectsId, repositoriesId` | Lists packages. |
 | `delete` | `DELETE` | `locationsId, packagesId, projectsId, repositoriesId` | Deletes a package and all of its versions and tags. The returned operation will complete once the package has been deleted. |
+| `_list` | `EXEC` | `locationsId, projectsId, repositoriesId` | Lists packages. |

@@ -27,15 +27,26 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
-| `tasks` | `array` | Tasks under the given parent lake. |
-| `unreachableLocations` | `array` | Locations that could not be reached. |
+| `name` | `string` | Output only. The relative resource name of the task, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/ tasks/&#123;task_id&#125;. |
+| `description` | `string` | Optional. Description of the task. |
+| `executionSpec` | `object` | Execution related settings, like retry and service_account. |
+| `executionStatus` | `object` | Status of the task execution (e.g. Jobs). |
+| `notebook` | `object` | Config for running scheduled notebooks. |
+| `spark` | `object` | User-specified config for running a Spark task. |
+| `updateTime` | `string` | Output only. The time when the task was last updated. |
+| `triggerSpec` | `object` | Task scheduling and trigger settings. |
+| `displayName` | `string` | Optional. User friendly display name. |
+| `state` | `string` | Output only. Current state of the task. |
+| `uid` | `string` | Output only. System generated globally unique ID for the task. This ID will be different if the task is deleted and re-created with the same name. |
+| `createTime` | `string` | Output only. The time when the task was created. |
+| `labels` | `object` | Optional. User-defined labels for the task. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_lakes_tasks_list` | `SELECT` | `lakesId, locationsId, projectsId` | Lists tasks under the given lake. |
 | `projects_locations_lakes_tasks_create` | `INSERT` | `lakesId, locationsId, projectsId` | Creates a task resource within a lake. |
 | `projects_locations_lakes_tasks_delete` | `DELETE` | `lakesId, locationsId, projectsId, tasksId` | Delete the task resource. |
+| `_projects_locations_lakes_tasks_list` | `EXEC` | `lakesId, locationsId, projectsId` | Lists tasks under the given lake. |
 | `projects_locations_lakes_tasks_get` | `EXEC` | `lakesId, locationsId, projectsId, tasksId` | Get task resource. |
 | `projects_locations_lakes_tasks_patch` | `EXEC` | `lakesId, locationsId, projectsId, tasksId` | Update the task resource. |
 | `projects_locations_lakes_tasks_run` | `EXEC` | `lakesId, locationsId, projectsId, tasksId` | Run an on demand execution of a Task. |

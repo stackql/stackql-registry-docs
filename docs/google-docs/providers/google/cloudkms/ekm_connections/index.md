@@ -39,5 +39,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `get` | `SELECT` | `ekmConnectionsId, locationsId, projectsId` | Returns metadata for a given EkmConnection. |
 | `list` | `SELECT` | `locationsId, projectsId` | Lists EkmConnections. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new EkmConnection in a given Project and Location. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists EkmConnections. |
 | `patch` | `EXEC` | `ekmConnectionsId, locationsId, projectsId` | Updates an EkmConnection's metadata. |
 | `verify_connectivity` | `EXEC` | `ekmConnectionsId, locationsId, projectsId` | Verifies that Cloud KMS can successfully connect to the external key manager specified by an EkmConnection. If there is an error connecting to the EKM, this method returns a FAILED_PRECONDITION status containing structured information as described at https://cloud.google.com/kms/docs/reference/ekm_errors. |

@@ -21,7 +21,7 @@ Writes Log Entries And Manages Your Cloud Logging Configuration.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>18</b></span><br />
 <span>total selectable resources:&nbsp;<b>16</b></span><br />
-<span>total methods:&nbsp;<b>190</b></span><br />
+<span>total methods:&nbsp;<b>236</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Writes Log Entries And Manages Your Cloud Logging Configuration.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Logging API</td></tr>
 <tr><td><b>Description</b></td><td>Writes Log Entries And Manages Your Cloud Logging Configuration.</td></tr>
-<tr><td><b>Id</b></td><td><code>logging:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>logging:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

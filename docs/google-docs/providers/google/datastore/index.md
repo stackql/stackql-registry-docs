@@ -21,7 +21,7 @@ Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalabl
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total methods:&nbsp;<b>20</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalabl
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Datastore API</td></tr>
 <tr><td><b>Description</b></td><td>Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalable Storage For Your Application. </td></tr>
-<tr><td><b>Id</b></td><td><code>datastore:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datastore:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

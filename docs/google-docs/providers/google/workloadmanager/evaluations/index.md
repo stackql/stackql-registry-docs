@@ -27,12 +27,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
-| `unreachable` | `array` | Locations that could not be reached. |
-| `evaluations` | `array` | The list of Evaluation |
+| `name` | `string` | name of resource names have the form 'projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/evaluations/&#123;evaluation_id&#125;' |
+| `description` | `string` | Description of the Evaluation |
+| `ruleVersions` | `array` | Output only. [Output only] The updated rule ids if exist. |
+| `customRulesBucket` | `string` | The Cloud Storage bucket name for custom rules. |
+| `updateTime` | `string` | Output only. [Output only] Update time stamp |
+| `createTime` | `string` | Output only. [Output only] Create time stamp |
+| `schedule` | `string` | crontab format schedule for scheduled evaluation, currently only support the following schedule: "0 */1 * * *", "0 */6 * * *", "0 */12 * * *", "0 0 */1 * *", "0 0 */7 * *", |
+| `labels` | `object` | Labels as key value pairs |
+| `resourceFilter` | `object` | Message describing resource filters |
+| `resourceStatus` | `object` | Message describing resource status |
+| `ruleNames` | `array` | the name of the rule |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `evaluationsId, locationsId, projectsId` | Gets details of a single Evaluation. |
 | `list` | `SELECT` | `locationsId, projectsId` | Lists Evaluations in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new Evaluation in a given project and location. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists Evaluations in a given project and location. |

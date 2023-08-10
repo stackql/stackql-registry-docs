@@ -27,10 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Pagination token, if not returned indicates the last page. |
-| `catalogs` | `array` | Output only. All the customer's catalogs. |
+| `name` | `string` | The fully qualified resource name of the catalog. |
+| `catalogItemLevelConfig` | `object` | Configures the catalog level that users send events to, and the level at which predictions are made. |
+| `defaultEventStoreId` | `string` | Required. The ID of the default event store. |
+| `displayName` | `string` | Required. The catalog display name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_catalogs_list` | `SELECT` | `locationsId, projectsId` | Lists all the catalog configurations associated with the project. |
+| `_projects_locations_catalogs_list` | `EXEC` | `locationsId, projectsId` | Lists all the catalog configurations associated with the project. |
 | `projects_locations_catalogs_patch` | `EXEC` | `catalogsId, locationsId, projectsId` | Updates the catalog configuration. |

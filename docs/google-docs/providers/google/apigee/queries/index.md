@@ -25,6 +25,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | Asynchronous Query Name. |
+| `reportDefinitionId` | `string` | Asynchronous Report ID. |
+| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostQueries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
+| `error` | `string` | Error is set when query fails. |
+| `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
+| `result` | `object` |  |
+| `queryParams` | `object` |  |
+| `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
+| `updated` | `string` | Last updated timestamp for the query. |
+| `created` | `string` | Creation time of the query. |
+| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
+| `resultRows` | `string` | ResultRows is available only after the query is completed. |
+| `state` | `string` | Query state could be "enqueued", "running", "completed", "failed". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

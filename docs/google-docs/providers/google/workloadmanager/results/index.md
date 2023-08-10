@@ -27,9 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `executionResults` | `array` | The versions from the specified publisher. |
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `severity` | `string` | severity of violation |
+| `violationDetails` | `object` | Message describing the violdation in execution result |
+| `violationMessage` | `string` | the violation message of an execution |
+| `documentationUrl` | `string` | the document url of the rule |
+| `resource` | `object` | Message represent resource in execution result |
+| `rule` | `string` | the rule which violate in execution |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` | `evaluationsId, executionsId, locationsId, projectsId` |
+| `_list` | `EXEC` | `evaluationsId, executionsId, locationsId, projectsId` |

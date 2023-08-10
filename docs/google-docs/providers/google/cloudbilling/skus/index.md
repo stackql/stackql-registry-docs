@@ -27,9 +27,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token to retrieve the next page of results. To retrieve the next page, call `ListSkus` again with the `page_token` field set to this value. This field is empty if there are no more results to retrieve. |
-| `skus` | `array` | The list of public SKUs of the given service. |
+| `name` | `string` | The resource name for the SKU. Example: "services/DA34-426B-A397/skus/AA95-CD31-42FE" |
+| `description` | `string` | A human readable description of the SKU, has a maximum length of 256 characters. |
+| `serviceProviderName` | `string` | Identifies the service provider. This is 'Google' for first party services in Google Cloud Platform. |
+| `serviceRegions` | `array` | List of service regions this SKU is offered at. Example: "asia-east1" Service regions can be found at https://cloud.google.com/about/locations/ |
+| `skuId` | `string` | The identifier for the SKU. Example: "AA95-CD31-42FE" |
+| `category` | `object` | Represents the category hierarchy of a SKU. |
+| `geoTaxonomy` | `object` | Encapsulates the geographic taxonomy data for a sku. |
+| `pricingInfo` | `array` | A timeline of pricing info for this SKU in chronological order. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` | `servicesId` |
+| `_list` | `EXEC` | `servicesId` |

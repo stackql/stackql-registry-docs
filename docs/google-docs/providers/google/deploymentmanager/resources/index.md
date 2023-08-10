@@ -27,10 +27,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token used to continue a truncated list request. |
-| `resources` | `array` | Resources contained in this list response. |
+| `id` | `string` |  |
+| `name` | `string` | Output only. The name of the resource as it appears in the YAML config. |
+| `finalProperties` | `string` | Output only. The evaluated properties of the resource with references expanded. Returned as serialized YAML. |
+| `insertTime` | `string` | Output only. Creation timestamp in RFC3339 text format. |
+| `manifest` | `string` | Output only. URL of the manifest representing the current configuration of this resource. |
+| `updateTime` | `string` | Output only. Update timestamp in RFC3339 text format. |
+| `update` | `object` |  |
+| `accessControl` | `object` | The access controls set on the resource. |
+| `type` | `string` | Output only. The type of the resource, for example `compute.v1.instance`, or `cloudfunctions.v1beta1.function`. |
+| `url` | `string` | Output only. The URL of the actual resource. |
+| `warnings` | `array` | Output only. If warning messages are generated during processing of this resource, this field will be populated. |
+| `properties` | `string` | Output only. The current properties of the resource before any references have been filled in. Returned as serialized YAML. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `deployment, project, resource` | Gets information about a single resource. |
 | `list` | `SELECT` | `deployment, project` | Lists all resources in a given deployment. |
+| `_list` | `EXEC` | `deployment, project` | Lists all resources in a given deployment. |

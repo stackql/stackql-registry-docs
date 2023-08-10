@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. ID of the attachment. |
-| `createdAt` | `string` | Output only. Time the attachment was created in milliseconds since epoch. |
 | `environment` | `string` | ID of the attached environment. |
+| `createdAt` | `string` | Output only. Time the attachment was created in milliseconds since epoch. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -41,3 +41,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_instances_attachments_create` | `INSERT` | `instancesId, organizationsId` | Creates a new attachment of an environment to an instance. **Note:** Not supported for Apigee hybrid. |
 | `organizations_envgroups_attachments_delete` | `DELETE` | `attachmentsId, envgroupsId, organizationsId` | Deletes an environment group attachment. |
 | `organizations_instances_attachments_delete` | `DELETE` | `attachmentsId, instancesId, organizationsId` | Deletes an attachment. **Note:** Not supported for Apigee hybrid. |
+| `_organizations_envgroups_attachments_list` | `EXEC` | `envgroupsId, organizationsId` | Lists all attachments of an environment group. |
+| `_organizations_instances_attachments_list` | `EXEC` | `instancesId, organizationsId` | Lists all attachments to an instance. **Note:** Not supported for Apigee hybrid. |

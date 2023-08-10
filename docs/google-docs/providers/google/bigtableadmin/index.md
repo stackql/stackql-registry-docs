@@ -20,8 +20,8 @@ Administer Your Cloud Bigtable Tables And Instances.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>11</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>50</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>58</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Administer Your Cloud Bigtable Tables And Instances.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Bigtable Admin API</td></tr>
 <tr><td><b>Description</b></td><td>Administer Your Cloud Bigtable Tables And Instances.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigtableadmin:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bigtableadmin:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

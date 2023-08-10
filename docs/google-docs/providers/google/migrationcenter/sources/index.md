@@ -27,9 +27,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
-| `sources` | `array` | The list of sources. |
+| `name` | `string` | Output only. The full name of the source. |
+| `description` | `string` | Free-text description. |
+| `displayName` | `string` | User-friendly display name. |
+| `type` | `string` | Data source type. |
+| `managed` | `boolean` | If `true`, the source is managed by other service(s). |
+| `priority` | `integer` | The information confidence of the source. The higher the value, the higher the confidence. |
+| `errorFrameCount` | `integer` | Output only. The number of frames that were reported by the source and contained errors. |
+| `pendingFrameCount` | `integer` | Output only. Number of frames that are still being processed. |
+| `state` | `string` | Output only. The state of the source. |
+| `updateTime` | `string` | Output only. The timestamp when the source was last updated. |
+| `createTime` | `string` | Output only. The timestamp when the source was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +45,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists all the sources in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new source in a given project and location. |
 | `delete` | `DELETE` | `locationsId, projectsId, sourcesId` | Deletes a source. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists all the sources in a given project and location. |
 | `patch` | `EXEC` | `locationsId, projectsId, sourcesId` | Updates the parameters of a source. |

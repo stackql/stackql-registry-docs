@@ -39,4 +39,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` |  | Lists InboundSamlSsoProfiles for a customer. |
 | `create` | `INSERT` |  | Creates an InboundSamlSsoProfile for a customer. |
 | `delete` | `DELETE` | `inboundSamlSsoProfilesId` | Deletes an InboundSamlSsoProfile. |
+| `_list` | `EXEC` |  | Lists InboundSamlSsoProfiles for a customer. |
 | `patch` | `EXEC` | `inboundSamlSsoProfilesId` | Updates an InboundSamlSsoProfile. |

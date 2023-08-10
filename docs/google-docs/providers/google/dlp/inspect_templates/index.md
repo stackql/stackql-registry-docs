@@ -27,8 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `inspectTemplates` | `array` | List of inspectTemplates, up to page_size in ListInspectTemplatesRequest. |
-| `nextPageToken` | `string` | If the next page is available then the next page token to be used in following ListInspectTemplates request. |
+| `name` | `string` | Output only. The template name. The template will have one of the following formats: `projects/PROJECT_ID/inspectTemplates/TEMPLATE_ID` OR `organizations/ORGANIZATION_ID/inspectTemplates/TEMPLATE_ID`; |
+| `description` | `string` | Short description (max 256 chars). |
+| `displayName` | `string` | Display name (max 256 chars). |
+| `inspectConfig` | `object` | Configuration description of the scanning process. When used with redactContent only info_types and min_likelihood are currently used. |
+| `updateTime` | `string` | Output only. The last update timestamp of an inspectTemplate. |
+| `createTime` | `string` | Output only. The creation timestamp of an inspectTemplate. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,6 +52,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_locations_inspect_templates_delete` | `DELETE` | `inspectTemplatesId, locationsId, organizationsId` | Deletes an InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `projects_inspect_templates_delete` | `DELETE` | `inspectTemplatesId, projectsId` | Deletes an InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `projects_locations_inspect_templates_delete` | `DELETE` | `inspectTemplatesId, locationsId, projectsId` | Deletes an InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
+| `_organizations_inspect_templates_list` | `EXEC` | `organizationsId` | Lists InspectTemplates. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
+| `_organizations_locations_inspect_templates_list` | `EXEC` | `locationsId, organizationsId` | Lists InspectTemplates. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
+| `_projects_inspect_templates_list` | `EXEC` | `projectsId` | Lists InspectTemplates. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
+| `_projects_locations_inspect_templates_list` | `EXEC` | `locationsId, projectsId` | Lists InspectTemplates. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `organizations_inspect_templates_patch` | `EXEC` | `inspectTemplatesId, organizationsId` | Updates the InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `organizations_locations_inspect_templates_patch` | `EXEC` | `inspectTemplatesId, locationsId, organizationsId` | Updates the InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |
 | `projects_inspect_templates_patch` | `EXEC` | `inspectTemplatesId, projectsId` | Updates the InspectTemplate. See https://cloud.google.com/dlp/docs/creating-templates to learn more. |

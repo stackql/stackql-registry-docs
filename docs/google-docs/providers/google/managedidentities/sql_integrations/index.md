@@ -37,3 +37,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `domainsId, projectsId, sqlIntegrationsId` | Gets details of a single sqlIntegration. |
 | `list` | `SELECT` | `domainsId, projectsId` | Lists SqlIntegrations in a given domain. |
+| `_list` | `EXEC` | `domainsId, projectsId` | Lists SqlIntegrations in a given domain. |

@@ -21,7 +21,7 @@ Deploy And Manage Infrastructure For Global Multiplayer Gaming Experiences.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Deploy And Manage Infrastructure For Global Multiplayer Gaming Experiences.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Game Services API</td></tr>
 <tr><td><b>Description</b></td><td>Deploy And Manage Infrastructure For Global Multiplayer Gaming Experiences.</td></tr>
-<tr><td><b>Id</b></td><td><code>gameservices:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gameservices:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

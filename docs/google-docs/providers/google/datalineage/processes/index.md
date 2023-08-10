@@ -27,8 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | The token to specify as `page_token` in the next call to get the next page. If this field is omitted, there are no subsequent pages. |
-| `processes` | `array` | The processes from the specified project and location. |
+| `name` | `string` | Immutable. The resource name of the lineage process. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processes/&#123;process&#125;`. Can be specified or auto-assigned. &#123;process&#125; must be not longer than 200 characters and only contain characters in a set: `a-zA-Z0-9_-:.` |
+| `attributes` | `object` | Optional. The attributes of the process. Should only be used for the purpose of non-semantic management (classifying, describing or labeling the process). Up to 100 attributes are allowed. |
+| `displayName` | `string` | Optional. A human-readable name you can set to display in a user interface. Must be not longer than 200 characters and only contain UTF-8 letters or numbers, spaces or characters like `_-:&.` |
+| `origin` | `object` | Origin of a process. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +38,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | List processes in the given project and location. List order is descending by insertion time. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new process. |
 | `delete` | `DELETE` | `locationsId, processesId, projectsId` | Deletes the process with the specified name. |
+| `_list` | `EXEC` | `locationsId, projectsId` | List processes in the given project and location. List order is descending by insertion time. |
 | `patch` | `EXEC` | `locationsId, processesId, projectsId` | Updates a process. |

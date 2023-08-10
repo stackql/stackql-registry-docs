@@ -27,15 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `expirationTime` | `string` | The time when the certificate expires in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
 | `selfLink` | `string` | The URI of this resource. |
-| `sha1Fingerprint` | `string` | Sha1 Fingerprint. |
-| `createTime` | `string` | The time when the certificate was created in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z` |
-| `instance` | `string` | Name of the database instance. |
-| `kind` | `string` | This is always `sql#sslCert`. |
 | `cert` | `string` | PEM representation. |
 | `certSerialNumber` | `string` | Serial number, as extracted from the certificate. |
+| `sha1Fingerprint` | `string` | Sha1 Fingerprint. |
 | `commonName` | `string` | User supplied name. Constrained to [a-zA-Z.-_ ]+. |
+| `kind` | `string` | This is always `sql#sslCert`. |
+| `instance` | `string` | Name of the database instance. |
+| `expirationTime` | `string` | The time when the certificate expires in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `createTime` | `string` | The time when the certificate was created in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

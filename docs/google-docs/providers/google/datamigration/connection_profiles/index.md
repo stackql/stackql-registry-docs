@@ -27,9 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `connectionProfiles` | `array` | The response list of connection profiles. |
-| `nextPageToken` | `string` | A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `unreachable` | `array` | Locations that could not be reached. |
+| `name` | `string` | The name of this connection profile resource in the form of projects/&#123;project&#125;/locations/&#123;location&#125;/connectionProfiles/&#123;connectionProfile&#125;. |
+| `alloydb` | `object` | Specifies required connection parameters, and the parameters required to create an AlloyDB destination cluster. |
+| `cloudsql` | `object` | Specifies required connection parameters, and, optionally, the parameters required to create a Cloud SQL destination database instance. |
+| `createTime` | `string` | Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". |
+| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
+| `labels` | `object` | The resource labels for connection profile to use to annotate any related underlying resources such as Compute Engine VMs. An object containing a list of "key": "value" pairs. Example: `&#123; "name": "wrench", "mass": "1.3kg", "count": "3" &#125;`. |
+| `mysql` | `object` | Specifies connection parameters required specifically for MySQL databases. |
+| `displayName` | `string` | The connection profile display name. |
+| `state` | `string` | The current connection profile state (e.g. DRAFT, READY, or FAILED). |
+| `provider` | `string` | The database provider. |
+| `postgresql` | `object` | Specifies connection parameters required specifically for PostgreSQL databases. |
+| `oracle` | `object` | Specifies connection parameters required specifically for Oracle databases. |
+| `updateTime` | `string` | Output only. The timestamp when the resource was last updated. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +47,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Retrieves a list of all connection profiles in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new connection profile in a given project and location. |
 | `delete` | `DELETE` | `connectionProfilesId, locationsId, projectsId` | Deletes a single Database Migration Service connection profile. A connection profile can only be deleted if it is not in use by any active migration jobs. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Retrieves a list of all connection profiles in a given project and location. |
 | `patch` | `EXEC` | `connectionProfilesId, locationsId, projectsId` | Update the configuration of a single connection profile. |

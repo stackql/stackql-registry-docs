@@ -27,12 +27,28 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `batches` | `array` | Output only. The batches from the specified collection. |
-| `nextPageToken` | `string` | A token, which can be sent as page_token to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `name` | `string` | Output only. The resource name of the batch. |
+| `uuid` | `string` | Output only. A batch UUID (Unique Universal Identifier). The service generates this value when it creates the batch. |
+| `operation` | `string` | Output only. The resource name of the operation associated with this batch. |
+| `sparkSqlBatch` | `object` | A configuration for running Apache Spark SQL (https://spark.apache.org/sql/) queries as a batch workload. |
+| `state` | `string` | Output only. The state of the batch. |
+| `sparkBatch` | `object` | A configuration for running an Apache Spark (https://spark.apache.org/) batch workload. |
+| `pysparkBatch` | `object` | A configuration for running an Apache PySpark (https://spark.apache.org/docs/latest/api/python/getting_started/quickstart.html) batch workload. |
+| `runtimeInfo` | `object` | Runtime information about workload execution. |
+| `runtimeConfig` | `object` | Runtime configuration for a workload. |
+| `environmentConfig` | `object` | Environment configuration for a workload. |
+| `stateHistory` | `array` | Output only. Historical state information for the batch. |
+| `createTime` | `string` | Output only. The time when the batch was created. |
+| `labels` | `object` | Optional. The labels to associate with this batch. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a batch. |
+| `creator` | `string` | Output only. The email address of the user who created the batch. |
+| `stateTime` | `string` | Output only. The time when the batch entered a current state. |
+| `stateMessage` | `string` | Output only. Batch state details, such as a failure description if the state is FAILED. |
+| `sparkRBatch` | `object` | A configuration for running an Apache SparkR (https://spark.apache.org/docs/latest/sparkr.html) batch workload. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_batches_list` | `SELECT` | `locationsId, projectsId` | Lists batch workloads. |
 | `projects_locations_batches_create` | `INSERT` | `locationsId, projectsId` | Creates a batch workload that executes asynchronously. |
 | `projects_locations_batches_delete` | `DELETE` | `batchesId, locationsId, projectsId` | Deletes the batch workload resource. If the batch is not in a CANCELLED, SUCCEEDED or FAILED State, the delete operation fails and the response returns FAILED_PRECONDITION. |
+| `_projects_locations_batches_list` | `EXEC` | `locationsId, projectsId` | Lists batch workloads. |
 | `projects_locations_batches_get` | `EXEC` | `batchesId, locationsId, projectsId` | Gets the batch workload resource representation. |

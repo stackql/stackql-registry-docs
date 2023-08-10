@@ -27,9 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `relatedAccountGroupMemberships` | `array` | The memberships listed by the query. |
+| `name` | `string` | Required. The resource name for this membership in the format `projects/&#123;project&#125;/relatedaccountgroups/&#123;relatedaccountgroup&#125;/memberships/&#123;membership&#125;`. |
+| `hashedAccountId` | `string` | The unique stable hashed user identifier of the member. The identifier corresponds to a `hashed_account_id` provided in a previous `CreateAssessment` or `AnnotateAssessment` call. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` | `projectsId, relatedaccountgroupsId` |
+| `_list` | `EXEC` | `projectsId, relatedaccountgroupsId` |

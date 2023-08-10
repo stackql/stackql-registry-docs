@@ -27,9 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Next page token. |
-| `runtimeActionSchemas` | `array` | Runtime action schemas. |
+| `action` | `string` | Name of the action. |
+| `inputSchema` | `string` | Input parameter schema for the action. |
+| `outputSchema` | `string` | Output parameter schema for the action. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_locations_connections_runtime_action_schemas_list` | `SELECT` | `connectionsId, locationsId, projectsId` |
+| `_projects_locations_connections_runtime_action_schemas_list` | `EXEC` | `connectionsId, locationsId, projectsId` |

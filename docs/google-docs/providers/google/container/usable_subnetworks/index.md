@@ -27,9 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | This token allows you to get the next page of results for list requests. If the number of results is larger than `page_size`, use the `next_page_token` as a value for the query parameter `page_token` in the next request. The value will become empty when there are no more pages. |
-| `subnetworks` | `array` | A list of usable subnetworks in the specified network project. |
+| `network` | `string` | Network Name. Example: projects/my-project/global/networks/my-network |
+| `secondaryIpRanges` | `array` | Secondary IP ranges. |
+| `statusMessage` | `string` | A human readable status message representing the reasons for cases where the caller cannot use the secondary ranges under the subnet. For example if the secondary_ip_ranges is empty due to a permission issue, an insufficient permission message will be given by status_message. |
+| `subnetwork` | `string` | Subnetwork Name. Example: projects/my-project/regions/us-central1/subnetworks/my-subnet |
+| `ipCidrRange` | `string` | The range of internal addresses that are owned by this subnetwork. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_aggregated_usable_subnetworks_list` | `SELECT` | `projectsId` |
+| `_projects_aggregated_usable_subnetworks_list` | `EXEC` | `projectsId` |

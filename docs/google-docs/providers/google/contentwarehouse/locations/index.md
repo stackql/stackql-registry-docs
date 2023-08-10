@@ -27,6 +27,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `initialize` | `EXEC` | `locationsId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `initialize` | `EXEC` | `locationsId, projectsId` | Provisions resources for given tenant project. Returns a long running operation. |
+| `run_pipeline` | `EXEC` | `locationsId, projectsId` | Run a predefined pipeline. |

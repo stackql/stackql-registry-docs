@@ -27,12 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | A hash of the page of results |
-| `kind` | `string` | The type of list. |
-| `nextPageToken` | `string` | A token to request the next page of results. |
-| `projects` | `array` | Projects to which you have at least READ access. |
-| `totalItems` | `integer` | The total number of projects in the list. |
+| `id` | `string` | An opaque ID of this project. |
+| `friendlyName` | `string` | A descriptive name for this project. |
+| `kind` | `string` | The resource type. |
+| `numericId` | `string` | The numeric ID of this project. |
+| `projectReference` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

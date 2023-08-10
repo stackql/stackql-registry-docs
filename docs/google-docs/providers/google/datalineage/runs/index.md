@@ -27,8 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | The token to specify as `page_token` in the next call to get the next page. If this field is omitted, there are no subsequent pages. |
-| `runs` | `array` | The runs from the specified project and location. |
+| `name` | `string` | Immutable. The resource name of the run. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processes/&#123;process&#125;/runs/&#123;run&#125;`. Can be specified or auto-assigned. &#123;run&#125; must be not longer than 200 characters and only contain characters in a set: `a-zA-Z0-9_-:.` |
+| `displayName` | `string` | Optional. A human-readable name you can set to display in a user interface. Must be not longer than 1024 characters and only contain UTF-8 letters or numbers, spaces or characters like `_-:&.` |
+| `endTime` | `string` | Optional. The timestamp of the end of the run. |
+| `startTime` | `string` | Required. The timestamp of the start of the run. |
+| `state` | `string` | Required. The state of the run. |
+| `attributes` | `object` | Optional. The attributes of the run. Should only be used for the purpose of non-semantic management (classifying, describing or labeling the run). Up to 100 attributes are allowed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +40,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, processesId, projectsId` | Lists runs in the given project and location. List order is descending by `start_time`. |
 | `create` | `INSERT` | `locationsId, processesId, projectsId` | Creates a new run. |
 | `delete` | `DELETE` | `locationsId, processesId, projectsId, runsId` | Deletes the run with the specified name. |
+| `_list` | `EXEC` | `locationsId, processesId, projectsId` | Lists runs in the given project and location. List order is descending by `start_time`. |
 | `patch` | `EXEC` | `locationsId, processesId, projectsId, runsId` | Updates a run. |

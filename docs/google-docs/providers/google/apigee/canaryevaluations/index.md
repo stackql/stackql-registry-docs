@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the canary evalution. |
-| `createTime` | `string` | Output only. Create time of the canary evaluation. |
-| `startTime` | `string` | Required. Start time for the canary evaluation's analysis. |
-| `endTime` | `string` | Required. End time for the evaluation's analysis. |
 | `verdict` | `string` | Output only. The resulting verdict of the canary evaluations: NONE, PASS, or FAIL. |
+| `treatment` | `string` | Required. The newer version that is serving requests. |
+| `createTime` | `string` | Output only. Create time of the canary evaluation. |
+| `metricLabels` | `object` | Labels that can be used to filter Apigee metrics. |
+| `startTime` | `string` | Required. Start time for the canary evaluation's analysis. |
 | `control` | `string` | Required. The stable version that is serving requests. |
 | `state` | `string` | Output only. The current state of the canary evaluation. |
-| `treatment` | `string` | Required. The newer version that is serving requests. |
-| `metricLabels` | `object` | Labels that can be used to filter Apigee metrics. |
+| `endTime` | `string` | Required. End time for the evaluation's analysis. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

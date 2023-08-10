@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/osPolicyAssignments/&#123;os_policy_assignment_id&#125;` This field is ignored when you create an OS policy assignment. |
 | `description` | `string` | OS policy assignment description. Length of the description is limited to 1024 characters. |
-| `osPolicies` | `array` | Required. List of OS policies to be applied to the VMs. |
-| `rollout` | `object` | Message to configure the rollout at the zonal level for the OS policy assignment. |
-| `instanceFilter` | `object` | Filters to select target VMs for an assignment. If more than one filter criteria is specified below, a VM will be selected if and only if it satisfies all of them. |
 | `rolloutState` | `string` | Output only. OS policy assignment rollout state |
-| `uid` | `string` | Output only. Server generated unique id for the OS policy assignment resource. |
-| `deleted` | `boolean` | Output only. Indicates that this revision deletes the OS policy assignment. |
-| `revisionId` | `string` | Output only. The assignment revision ID A new revision is committed whenever a rollout is triggered for a OS policy assignment |
-| `baseline` | `boolean` | Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision. For a given OS policy assignment, there is only one revision with a value of `true` for this field. |
-| `etag` | `string` | The etag for this OS policy assignment. If this is provided on update, it must match the server's etag. |
-| `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
+| `osPolicies` | `array` | Required. List of OS policies to be applied to the VMs. |
 | `reconciling` | `boolean` | Output only. Indicates that reconciliation is in progress for the revision. This value is `true` when the `rollout_state` is one of: * IN_PROGRESS * CANCELLING |
+| `etag` | `string` | The etag for this OS policy assignment. If this is provided on update, it must match the server's etag. |
+| `instanceFilter` | `object` | Filters to select target VMs for an assignment. If more than one filter criteria is specified below, a VM will be selected if and only if it satisfies all of them. |
+| `rollout` | `object` | Message to configure the rollout at the zonal level for the OS policy assignment. |
+| `revisionId` | `string` | Output only. The assignment revision ID A new revision is committed whenever a rollout is triggered for a OS policy assignment |
+| `uid` | `string` | Output only. Server generated unique id for the OS policy assignment resource. |
+| `baseline` | `boolean` | Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision. For a given OS policy assignment, there is only one revision with a value of `true` for this field. |
+| `deleted` | `boolean` | Output only. Indicates that this revision deletes the OS policy assignment. |
+| `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,4 +47,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | List the OS policy assignments under the parent resource. For each OS policy assignment, the latest revision is returned. |
 | `create` | `INSERT` | `locationsId, projectsId` | Create an OS policy assignment. This method also creates the first revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel). |
 | `delete` | `DELETE` | `locationsId, osPolicyAssignmentsId, projectsId` | Delete the OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. If the LRO completes and is not cancelled, all revisions associated with the OS policy assignment are deleted. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel). |
+| `_list` | `EXEC` | `locationsId, projectsId` | List the OS policy assignments under the parent resource. For each OS policy assignment, the latest revision is returned. |
 | `patch` | `EXEC` | `locationsId, osPolicyAssignmentsId, projectsId` | Update an existing OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel). |

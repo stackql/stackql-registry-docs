@@ -21,7 +21,7 @@ The Cloud Billing Budget API Stores Cloud Billing Budgets, Which Define A Budget
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>1</b></span><br />
 <span>total selectable resources:&nbsp;<b>1</b></span><br />
-<span>total methods:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ The Cloud Billing Budget API Stores Cloud Billing Budgets, Which Define A Budget
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Billing Budget API</td></tr>
 <tr><td><b>Description</b></td><td>The Cloud Billing Budget API Stores Cloud Billing Budgets, Which Define A Budget Plan And The Rules To Execute As Spend Is Tracked Against That Plan.</td></tr>
-<tr><td><b>Id</b></td><td><code>billingbudgets:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>billingbudgets:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

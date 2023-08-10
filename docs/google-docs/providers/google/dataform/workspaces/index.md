@@ -25,11 +25,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `unreachable` | `array` | Locations which could not be reached. |
-| `workspaces` | `array` | List of workspaces. |
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,6 +32,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId, repositoriesId` | Lists Workspaces in a given Repository. |
 | `create` | `INSERT` | `locationsId, projectsId, repositoriesId` | Creates a new Workspace in a given Repository. |
 | `delete` | `DELETE` | `locationsId, projectsId, repositoriesId, workspacesId` | Deletes a single Workspace. |
+| `_list` | `EXEC` | `locationsId, projectsId, repositoriesId` | Lists Workspaces in a given Repository. |
 | `commit` | `EXEC` | `locationsId, projectsId, repositoriesId, workspacesId` | Applies a Git commit for uncommitted files in a Workspace. |
 | `install_npm_packages` | `EXEC` | `locationsId, projectsId, repositoriesId, workspacesId` | Installs dependency NPM packages (inside a Workspace). |
 | `make_directory` | `EXEC` | `locationsId, projectsId, repositoriesId, workspacesId` | Creates a directory inside a Workspace. |

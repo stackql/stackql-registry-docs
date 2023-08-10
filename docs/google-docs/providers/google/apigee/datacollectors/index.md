@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | ID of the data collector. Must begin with `dc_`. |
 | `description` | `string` | A description of the data collector. |
+| `lastModifiedAt` | `string` | Output only. The time at which the Data Collector was last updated in milliseconds since the epoch. |
 | `type` | `string` | Immutable. The type of data this data collector will collect. |
 | `createdAt` | `string` | Output only. The time at which the data collector was created in milliseconds since the epoch. |
-| `lastModifiedAt` | `string` | Output only. The time at which the Data Collector was last updated in milliseconds since the epoch. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -39,4 +39,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_datacollectors_list` | `SELECT` | `organizationsId` | Lists all data collectors. |
 | `organizations_datacollectors_create` | `INSERT` | `organizationsId` | Creates a new data collector. |
 | `organizations_datacollectors_delete` | `DELETE` | `datacollectorsId, organizationsId` | Deletes a data collector. |
+| `_organizations_datacollectors_list` | `EXEC` | `organizationsId` | Lists all data collectors. |
 | `organizations_datacollectors_patch` | `EXEC` | `datacollectorsId, organizationsId` | Updates a data collector. |

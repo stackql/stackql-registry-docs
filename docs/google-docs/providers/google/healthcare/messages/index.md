@@ -27,8 +27,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `hl7V2Messages` | `array` | The returned Messages. Won't be more Messages than the value of page_size in the request. See view for populated fields. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results or empty if there are no more results in the list. |
+| `name` | `string` | Resource name of the Message, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/hl7V2Stores/&#123;hl7_v2_store_id&#125;/messages/&#123;message_id&#125;`. Assigned by the server. |
+| `sendFacility` | `string` | The hospital that this message came from. MSH-4. |
+| `createTime` | `string` | Output only. The datetime when the message was created. Set by the server. |
+| `messageType` | `string` | The message type for this message. MSH-9.1. |
+| `sendTime` | `string` | The datetime the sending application sent this message. MSH-7. |
+| `patientIds` | `array` | All patient IDs listed in the PID-2, PID-3, and PID-4 segments of this message. |
+| `schematizedData` | `object` | The content of an HL7v2 message in a structured format as specified by a schema. |
+| `parsedData` | `object` | The content of a HL7v2 message in a structured format. |
+| `labels` | `object` | User-supplied key-value pairs used to organize HL7v2 stores. Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: \p&#123;Ll&#125;\p&#123;Lo&#125;&#123;0,62&#125; Label values are optional, must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to the following PCRE regular expression: [\p&#123;Ll&#125;\p&#123;Lo&#125;\p&#123;N&#125;_-]&#123;0,63&#125; No more than 64 labels can be associated with a given store. |
+| `data` | `string` | Raw message bytes. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,5 +44,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `datasetsId, hl7V2StoresId, locationsId, projectsId` | Lists all the messages in the given HL7v2 store with support for filtering. Note: HL7v2 messages are indexed asynchronously, so there might be a slight delay between the time a message is created and when it can be found through a filter. |
 | `create` | `INSERT` | `datasetsId, hl7V2StoresId, locationsId, projectsId` | Parses and stores an HL7v2 message. This method triggers an asynchronous notification to any Pub/Sub topic configured in Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter transmits the message when a notification is received. |
 | `delete` | `DELETE` | `datasetsId, hl7V2StoresId, locationsId, messagesId, projectsId` | Deletes an HL7v2 message. |
+| `_list` | `EXEC` | `datasetsId, hl7V2StoresId, locationsId, projectsId` | Lists all the messages in the given HL7v2 store with support for filtering. Note: HL7v2 messages are indexed asynchronously, so there might be a slight delay between the time a message is created and when it can be found through a filter. |
 | `ingest` | `EXEC` | `datasetsId, hl7V2StoresId, locationsId, projectsId` | Parses and stores an HL7v2 message. This method triggers an asynchronous notification to any Pub/Sub topic configured in Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter transmits the message when a notification is received. If the method is successful, it generates a response containing an HL7v2 acknowledgment (`ACK`) message. If the method encounters an error, it returns a negative acknowledgment (`NACK`) message. This behavior is suitable for replying to HL7v2 interface systems that expect these acknowledgments. |
 | `patch` | `EXEC` | `datasetsId, hl7V2StoresId, locationsId, messagesId, projectsId` | Update the message. The contents of the message in Message.data and data extracted from the contents such as Message.create_time cannot be altered. Only the Message.labels field is allowed to be updated. The labels in the request are merged with the existing set of labels. Existing labels with the same keys are updated. |

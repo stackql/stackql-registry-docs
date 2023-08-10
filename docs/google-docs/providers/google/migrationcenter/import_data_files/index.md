@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `importDataFiles` | `array` | The list of import data files. |
-| `nextPageToken` | `string` | A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `name` | `string` | Output only. The name of the file. |
+| `createTime` | `string` | Output only. The timestamp when the file was created. |
+| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
+| `format` | `string` | Required. The payload format. |
+| `state` | `string` | Output only. The state of the import data file. |
+| `uploadFileInfo` | `object` | A resource that contains a URI to which a data file can be uploaded. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,3 +40,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `importJobsId, locationsId, projectsId` | List import data files. |
 | `create` | `INSERT` | `importJobsId, locationsId, projectsId` | Creates an import data file. |
 | `delete` | `DELETE` | `importDataFilesId, importJobsId, locationsId, projectsId` | Delete an import data file. |
+| `_list` | `EXEC` | `importJobsId, locationsId, projectsId` | List import data files. |

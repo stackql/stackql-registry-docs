@@ -27,10 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Optional. Pass this token as the `page_token` field of the request for a subsequent call. |
-| `locations` | `array` | Locations where at least one type of CMLE capability is available. |
+| `name` | `string` |  |
+| `capabilities` | `array` | Capabilities available in the location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_get` | `SELECT` | `locationsId, projectsId` | Get the complete list of CMLE capabilities in a location, along with their location-specific properties. |
 | `projects_locations_list` | `SELECT` | `projectsId` | List all locations that provides at least one type of CMLE capability. |
+| `_projects_locations_list` | `EXEC` | `projectsId` | List all locations that provides at least one type of CMLE capability. |

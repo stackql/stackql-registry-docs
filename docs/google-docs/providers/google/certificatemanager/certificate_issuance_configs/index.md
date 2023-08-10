@@ -27,9 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
-| `unreachable` | `array` | Locations that could not be reached. |
-| `certificateIssuanceConfigs` | `array` | A list of certificate configs for the parent resource. |
+| `name` | `string` | A user-defined name of the certificate issuance config. CertificateIssuanceConfig names must be unique globally and match pattern `projects/*/locations/*/certificateIssuanceConfigs/*`. |
+| `description` | `string` | One or more paragraphs of text description of a CertificateIssuanceConfig. |
+| `createTime` | `string` | Output only. The creation timestamp of a CertificateIssuanceConfig. |
+| `rotationWindowPercentage` | `integer` | Required. Specifies the percentage of elapsed time of the certificate lifetime to wait before renewing the certificate. Must be a number between 1-99, inclusive. |
+| `keyAlgorithm` | `string` | Required. The key algorithm to use when generating the private key. |
+| `labels` | `object` | Set of labels associated with a CertificateIssuanceConfig. |
+| `lifetime` | `string` | Required. Workload certificate lifetime requested. |
+| `updateTime` | `string` | Output only. The last update timestamp of a CertificateIssuanceConfig. |
+| `certificateAuthorityConfig` | `object` | The CA that issues the workload certificate. It includes CA address, type, authentication to CA service, etc. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,3 +43,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists CertificateIssuanceConfigs in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new CertificateIssuanceConfig in a given project and location. |
 | `delete` | `DELETE` | `certificateIssuanceConfigsId, locationsId, projectsId` | Deletes a single CertificateIssuanceConfig. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists CertificateIssuanceConfigs in a given project and location. |

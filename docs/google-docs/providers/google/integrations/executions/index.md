@@ -27,13 +27,24 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `executionInfos` | `array` | Required. The detailed information of requested executions. |
-| `executions` | `array` | The detailed information of requested executions |
-| `nextPageToken` | `string` | The token used to retrieve the next page results. |
+| `name` | `string` | Auto-generated primary key. |
+| `requestParameters` | `object` | Event parameters come in as part of the request. |
+| `triggerId` | `string` | The trigger id of the integration trigger config. If both trigger_id and client_id is present, the integration is executed from the start tasks provided by the matching trigger config otherwise it is executed from the default start tasks. |
+| `updateTime` | `string` | Output only. Last modified time of the execution. |
+| `executionMethod` | `string` | The ways user posts this event. |
+| `directSubExecutions` | `array` | Direct sub executions of the following Execution. |
+| `requestParams` | `array` | Event parameters come in as part of the request. |
+| `responseParams` | `array` | Event parameters come out as part of the response. |
+| `eventExecutionDetails` | `object` | Contains the details of the execution info of this event: this includes the tasks execution details plus the event execution statistics. Next available id: 10 |
+| `responseParameters` | `object` | Event parameters returned as part of the response. |
+| `createTime` | `string` | Output only. Created time of the execution. |
+| `executionDetails` | `object` | Contains the details of the execution info: this includes the tasks execution details plus the event execution statistics. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_integrations_executions_list` | `SELECT` | `integrationsId, locationsId, projectsId` | Lists the results of all the integration executions. The response includes the same information as the [execution log](https://cloud.google.com/application-integration/docs/viewing-logs) in the Integration UI. |
 | `projects_locations_products_integrations_executions_list` | `SELECT` | `integrationsId, locationsId, productsId, projectsId` | Lists the results of all the integration executions. The response includes the same information as the [execution log](https://cloud.google.com/application-integration/docs/viewing-logs) in the Integration UI. |
+| `_projects_locations_integrations_executions_list` | `EXEC` | `integrationsId, locationsId, projectsId` | Lists the results of all the integration executions. The response includes the same information as the [execution log](https://cloud.google.com/application-integration/docs/viewing-logs) in the Integration UI. |
+| `_projects_locations_products_integrations_executions_list` | `EXEC` | `integrationsId, locationsId, productsId, projectsId` | Lists the results of all the integration executions. The response includes the same information as the [execution log](https://cloud.google.com/application-integration/docs/viewing-logs) in the Integration UI. |
 | `projects_locations_products_integrations_executions_cancel` | `EXEC` | `executionsId, integrationsId, locationsId, productsId, projectsId` | Cancellation of an execution |
 | `projects_locations_products_integrations_executions_get` | `EXEC` | `executionsId, integrationsId, locationsId, productsId, projectsId` | Get an execution in the specified project. |

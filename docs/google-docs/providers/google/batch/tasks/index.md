@@ -27,11 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tasks` | `array` | Tasks. |
-| `unreachable` | `array` | Locations that could not be reached. |
-| `nextPageToken` | `string` | Next page token. |
+| `name` | `string` | Task name. The name is generated from the parent TaskGroup name and 'id' field. For example: "projects/123456/locations/us-west1/jobs/job01/taskGroups/group01/tasks/task01". |
+| `status` | `object` | Status of a task |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `jobsId, locationsId, projectsId, taskGroupsId, tasksId` | Return a single Task. |
 | `list` | `SELECT` | `jobsId, locationsId, projectsId, taskGroupsId` | List Tasks associated with a job. |
+| `_list` | `EXEC` | `jobsId, locationsId, projectsId, taskGroupsId` | List Tasks associated with a job. |

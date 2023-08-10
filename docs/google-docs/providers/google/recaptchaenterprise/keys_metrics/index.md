@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the metrics, in the format "projects/&#123;project&#125;/keys/&#123;key&#125;/metrics". |
-| `challengeMetrics` | `array` | Metrics will be continuous and in order by dates, and in the granularity of day. Only challenge-based keys (CHECKBOX, INVISIBLE), will have challenge-based data. |
 | `scoreMetrics` | `array` | Metrics will be continuous and in order by dates, and in the granularity of day. All Key types should have score-based data. |
 | `startTime` | `string` | Inclusive start time aligned to a day (UTC). |
+| `challengeMetrics` | `array` | Metrics will be continuous and in order by dates, and in the granularity of day. Only challenge-based keys (CHECKBOX, INVISIBLE), will have challenge-based data. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

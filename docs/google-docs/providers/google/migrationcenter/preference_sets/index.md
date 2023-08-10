@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
-| `preferenceSets` | `array` | The list of PreferenceSets |
+| `name` | `string` | Output only. Name of the preference set. |
+| `description` | `string` | A description of the preference set. |
+| `createTime` | `string` | Output only. The timestamp when the preference set was created. |
+| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
+| `updateTime` | `string` | Output only. The timestamp when the preference set was last updated. |
+| `virtualMachinePreferences` | `object` | VirtualMachinePreferences enables you to create sets of assumptions, for example, a geographical location and pricing track, for your migrated virtual machines. The set of preferences influence recommendations for migrating virtual machine assets. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +40,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists all the preference sets in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new preference set in a given project and location. |
 | `delete` | `DELETE` | `locationsId, preferenceSetsId, projectsId` | Deletes a preference set. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists all the preference sets in a given project and location. |
 | `patch` | `EXEC` | `locationsId, preferenceSetsId, projectsId` | Updates the parameters of a preference set. |

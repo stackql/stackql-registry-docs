@@ -27,9 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `rules` | `array` | all rules in response |
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
+| `name` | `string` | rule name |
+| `description` | `string` | descrite rule in plain language |
+| `errorMessage` | `string` | the message template for rule |
+| `secondaryCategory` | `string` | the secondary category |
+| `uri` | `string` | the docuement url for the rule |
+| `primaryCategory` | `string` | the primary category |
+| `severity` | `string` | the severity of the rule |
+| `displayName` | `string` | the name display in UI |
+| `remediation` | `string` | the remediation for the rule |
+| `revisionId` | `string` | Output only. the version of the rule |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` | `locationsId, projectsId` |
+| `_list` | `EXEC` | `locationsId, projectsId` |

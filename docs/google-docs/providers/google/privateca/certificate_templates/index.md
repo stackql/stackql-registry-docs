@@ -27,9 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this value in ListCertificateTemplatesRequest.next_page_token to retrieve the next page of results. |
-| `unreachable` | `array` | A list of locations (e.g. "us-west1") that could not be reached. |
-| `certificateTemplates` | `array` | The list of CertificateTemplates. |
+| `name` | `string` | Output only. The resource name for this CertificateTemplate in the format `projects/*/locations/*/certificateTemplates/*`. |
+| `description` | `string` | Optional. A human-readable description of scenarios this template is intended for. |
+| `predefinedValues` | `object` | An X509Parameters is used to describe certain fields of an X.509 certificate, such as the key usage fields, fields specific to CA certificates, certificate policy extensions and custom extensions. |
+| `updateTime` | `string` | Output only. The time at which this CertificateTemplate was updated. |
+| `createTime` | `string` | Output only. The time at which this CertificateTemplate was created. |
+| `identityConstraints` | `object` | Describes constraints on a Certificate's Subject and SubjectAltNames. |
+| `labels` | `object` | Optional. Labels with user-defined metadata. |
+| `passthroughExtensions` | `object` | Describes a set of X.509 extensions that may be part of some certificate issuance controls. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +42,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists CertificateTemplates. |
 | `create` | `INSERT` | `locationsId, projectsId` | Create a new CertificateTemplate in a given Project and Location. |
 | `delete` | `DELETE` | `certificateTemplatesId, locationsId, projectsId` | DeleteCertificateTemplate deletes a CertificateTemplate. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists CertificateTemplates. |
 | `patch` | `EXEC` | `certificateTemplatesId, locationsId, projectsId` | Update a CertificateTemplate. |

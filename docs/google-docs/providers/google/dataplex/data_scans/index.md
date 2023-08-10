@@ -27,15 +27,29 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `dataScans` | `array` | DataScans (BASIC view only) under the given parent location. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
-| `unreachable` | `array` | Locations that could not be reached. |
+| `name` | `string` | Output only. The relative resource name of the scan, of the form: projects/&#123;project&#125;/locations/&#123;location_id&#125;/dataScans/&#123;datascan_id&#125;, where project refers to a project_id or project_number and location_id refers to a GCP region. |
+| `description` | `string` | Optional. Description of the scan. Must be between 1-1024 characters. |
+| `state` | `string` | Output only. Current state of the DataScan. |
+| `dataQualityResult` | `object` | The output of a DataQualityScan. |
+| `executionSpec` | `object` | DataScan execution settings. |
+| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
+| `uid` | `string` | Output only. System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name. |
+| `dataProfileSpec` | `object` | DataProfileScan related setting. |
+| `labels` | `object` | Optional. User-defined labels for the scan. |
+| `displayName` | `string` | Optional. User friendly display name. Must be between 1-256 characters. |
+| `createTime` | `string` | Output only. The time when the scan was created. |
+| `executionStatus` | `object` | Status of the data scan execution. |
+| `data` | `object` | The data source for DataScan. |
+| `type` | `string` | Output only. The type of DataScan. |
+| `updateTime` | `string` | Output only. The time when the scan was last updated. |
+| `dataQualitySpec` | `object` | DataQualityScan related setting. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_data_scans_list` | `SELECT` | `locationsId, projectsId` | Lists DataScans. |
 | `projects_locations_data_scans_create` | `INSERT` | `locationsId, projectsId` | Creates a DataScan resource. |
 | `projects_locations_data_scans_delete` | `DELETE` | `dataScansId, locationsId, projectsId` | Deletes a DataScan resource. |
+| `_projects_locations_data_scans_list` | `EXEC` | `locationsId, projectsId` | Lists DataScans. |
 | `projects_locations_data_scans_get` | `EXEC` | `dataScansId, locationsId, projectsId` | Gets a DataScan resource. |
 | `projects_locations_data_scans_patch` | `EXEC` | `dataScansId, locationsId, projectsId` | Updates a DataScan resource. |
 | `projects_locations_data_scans_run` | `EXEC` | `dataScansId, locationsId, projectsId` | Runs an on-demand execution of a DataScan |

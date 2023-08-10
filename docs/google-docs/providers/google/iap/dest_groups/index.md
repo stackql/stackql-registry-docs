@@ -27,8 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tunnelDestGroups` | `array` | TunnelDestGroup existing in the project. |
-| `nextPageToken` | `string` | A token that you can send as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `name` | `string` | Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the project and contain only lower case letters (a-z) and dashes (-). |
+| `fqdns` | `array` | Unordered list. List of FQDNs that this group applies to. |
+| `cidrs` | `array` | Unordered list. List of CIDRs that this group applies to. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +37,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists the existing TunnelDestGroups. To group across all locations, use a `-` as the location ID. For example: `/v1/projects/123/iap_tunnel/locations/-/destGroups` |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new TunnelDestGroup. |
 | `delete` | `DELETE` | `destGroupsId, locationsId, projectsId` | Deletes a TunnelDestGroup. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists the existing TunnelDestGroups. To group across all locations, use a `-` as the location ID. For example: `/v1/projects/123/iap_tunnel/locations/-/destGroups` |
 | `patch` | `EXEC` | `destGroupsId, locationsId, projectsId` | Updates a TunnelDestGroup. |

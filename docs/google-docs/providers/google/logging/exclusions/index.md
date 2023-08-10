@@ -56,6 +56,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `folders_exclusions_delete` | `DELETE` | `exclusionsId, foldersId` | Deletes an exclusion in the _Default sink. |
 | `organizations_exclusions_delete` | `DELETE` | `exclusionsId, organizationsId` | Deletes an exclusion in the _Default sink. |
 | `projects_exclusions_delete` | `DELETE` | `exclusionsId, projectsId` | Deletes an exclusion in the _Default sink. |
+| `_billing_accounts_exclusions_list` | `EXEC` | `billingAccountsId` | Lists all the exclusions on the _Default sink in a parent resource. |
+| `_exclusions_list` | `EXEC` | `parent` | Lists all the exclusions on the _Default sink in a parent resource. |
+| `_folders_exclusions_list` | `EXEC` | `foldersId` | Lists all the exclusions on the _Default sink in a parent resource. |
+| `_organizations_exclusions_list` | `EXEC` | `organizationsId` | Lists all the exclusions on the _Default sink in a parent resource. |
+| `_projects_exclusions_list` | `EXEC` | `projectsId` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `billing_accounts_exclusions_patch` | `EXEC` | `billingAccountsId, exclusionsId` | Changes one or more properties of an existing exclusion in the _Default sink. |
 | `exclusions_patch` | `EXEC` | `name` | Changes one or more properties of an existing exclusion in the _Default sink. |
 | `folders_exclusions_patch` | `EXEC` | `exclusionsId, foldersId` | Changes one or more properties of an existing exclusion in the _Default sink. |

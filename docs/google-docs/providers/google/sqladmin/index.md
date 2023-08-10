@@ -21,7 +21,7 @@ API For Cloud SQL Database Instance Management
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>14</b></span><br />
 <span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>56</b></span><br />
+<span>total methods:&nbsp;<b>60</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ API For Cloud SQL Database Instance Management
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud SQL Admin API</td></tr>
 <tr><td><b>Description</b></td><td>API For Cloud SQL Database Instance Management</td></tr>
-<tr><td><b>Id</b></td><td><code>sqladmin:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>sqladmin:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

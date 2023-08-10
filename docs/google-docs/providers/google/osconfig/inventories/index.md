@@ -27,10 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `inventories` | `array` | List of inventory objects. |
-| `nextPageToken` | `string` | The pagination token to retrieve the next page of inventory objects. |
+| `name` | `string` | Output only. The `Inventory` API resource name. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/instances/&#123;instance_id&#125;/inventory` |
+| `updateTime` | `string` | Output only. Timestamp of the last reported inventory for the VM. |
+| `items` | `object` | Inventory items related to the VM keyed by an opaque unique identifier for each inventory item. The identifier is unique to each distinct and addressable inventory item and will change, when there is a new package version. |
+| `osInfo` | `object` | Operating system information for the VM. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `instancesId, locationsId, projectsId` | Get inventory data for the specified VM instance. If the VM has no associated inventory, the message `NOT_FOUND` is returned. |
 | `list` | `SELECT` | `instancesId, locationsId, projectsId` | List inventory data for all VM instances in the specified zone. |
+| `_list` | `EXEC` | `instancesId, locationsId, projectsId` | List inventory data for all VM instances in the specified zone. |

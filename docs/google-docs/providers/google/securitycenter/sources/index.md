@@ -27,8 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results. |
-| `sources` | `array` | Sources belonging to the requested parent. |
+| `name` | `string` | The relative resource name of this source. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example: "organizations/&#123;organization_id&#125;/sources/&#123;source_id&#125;" |
+| `description` | `string` | The description of the source (max of 1024 characters). Example: "Web Security Scanner is a web security scanner for common vulnerabilities in App Engine applications. It can automatically scan and detect four common vulnerabilities, including cross-site-scripting (XSS), Flash injection, mixed content (HTTP in HTTPS), and outdated or insecure libraries." |
+| `canonicalName` | `string` | The canonical name of the finding. It's either "organizations/&#123;organization_id&#125;/sources/&#123;source_id&#125;", "folders/&#123;folder_id&#125;/sources/&#123;source_id&#125;" or "projects/&#123;project_number&#125;/sources/&#123;source_id&#125;", depending on the closest CRM ancestor of the resource associated with the finding. |
+| `displayName` | `string` | The source's display name. A source's display name must be unique amongst its siblings, for example, two sources with the same parent can't share the same display name. The display name must have a length between 1 and 64 characters (inclusive). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +39,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_sources_list` | `SELECT` | `organizationsId` | Lists all sources belonging to an organization. |
 | `projects_sources_list` | `SELECT` | `projectsId` | Lists all sources belonging to an organization. |
 | `organizations_sources_create` | `INSERT` | `organizationsId` | Creates a source. |
+| `_folders_sources_list` | `EXEC` | `foldersId` | Lists all sources belonging to an organization. |
+| `_organizations_sources_list` | `EXEC` | `organizationsId` | Lists all sources belonging to an organization. |
+| `_projects_sources_list` | `EXEC` | `projectsId` | Lists all sources belonging to an organization. |
 | `organizations_sources_patch` | `EXEC` | `organizationsId, sourcesId` | Updates a source. |

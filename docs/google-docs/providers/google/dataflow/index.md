@@ -21,7 +21,7 @@ Manages Google Cloud Dataflow Projects On Google Cloud Platform.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>13</b></span><br />
 <span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>41</b></span><br />
+<span>total methods:&nbsp;<b>47</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Manages Google Cloud Dataflow Projects On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dataflow API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Google Cloud Dataflow Projects On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataflow:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dataflow:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

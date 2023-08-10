@@ -27,10 +27,23 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value as your page token. This lets you the complete contents of even very large collections one page at a time. However, if the contents of the collection change between the first and last paginated list request, the set of all elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger than the maximum page size. |
-| `header` | `object` | Elements common to every response. |
-| `kind` | `string` | Type of resource. |
-| `managedZones` | `array` | The managed zone resources. |
+| `id` | `string` | Unique identifier for the resource; defined by the server (output only) |
+| `name` | `string` | User assigned name for this resource. Must be unique within the project. The name must be 1-63 characters long, must begin with a letter, end with a letter or digit, and only contain lowercase letters, digits or dashes. |
+| `description` | `string` | A mutable string of at most 1024 characters associated with this resource for the user's convenience. Has no effect on the managed zone's function. |
+| `nameServers` | `array` | Delegate your managed_zone to these virtual name servers; defined by the server (output only) |
+| `dnsName` | `string` | The DNS name of this managed zone, for instance "example.com.". |
+| `forwardingConfig` | `object` |  |
+| `peeringConfig` | `object` |  |
+| `privateVisibilityConfig` | `object` |  |
+| `visibility` | `string` | The zone's visibility: public zones are exposed to the Internet, while private zones are visible only to Virtual Private Cloud resources. |
+| `kind` | `string` |  |
+| `cloudLoggingConfig` | `object` | Cloud Logging configurations for publicly visible zones. |
+| `serviceDirectoryConfig` | `object` | Contains information about Service Directory-backed zones. |
+| `labels` | `object` | User labels. |
+| `nameServerSet` | `string` | Optionally specifies the NameServerSet for this ManagedZone. A NameServerSet is a set of DNS name servers that all host the same ManagedZones. Most users leave this field unset. If you need to use this field, contact your account team. |
+| `reverseLookupConfig` | `object` |  |
+| `creationTime` | `string` | The time that this resource was created on the server. This is in RFC3339 text format. Output only. |
+| `dnssecConfig` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -38,5 +51,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `project` | Enumerates ManagedZones that have been created but not yet deleted. |
 | `create` | `INSERT` | `project` | Creates a new ManagedZone. |
 | `delete` | `DELETE` | `managedZone, project` | Deletes a previously created ManagedZone. |
+| `_list` | `EXEC` | `project` | Enumerates ManagedZones that have been created but not yet deleted. |
 | `patch` | `EXEC` | `managedZone, project` | Applies a partial update to an existing ManagedZone. |
 | `update` | `EXEC` | `managedZone, project` | Updates an existing ManagedZone. |

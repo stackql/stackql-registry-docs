@@ -42,3 +42,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `project, region` | Lists the NotificationEndpoints for a project in the given region. |
 | `insert` | `INSERT` | `project, region` | Create a NotificationEndpoint in the specified project in the given region using the parameters that are included in the request. |
 | `delete` | `DELETE` | `notificationEndpoint, project, region` | Deletes the specified NotificationEndpoint in the given region |
+| `_list` | `EXEC` | `project, region` | Lists the NotificationEndpoints for a project in the given region. |

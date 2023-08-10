@@ -21,7 +21,7 @@ Manages Your Cloud Monitoring Data And Configurations.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>16</b></span><br />
 <span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>51</b></span><br />
+<span>total methods:&nbsp;<b>66</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Manages Your Cloud Monitoring Data And Configurations.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Monitoring API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Your Cloud Monitoring Data And Configurations.</td></tr>
-<tr><td><b>Id</b></td><td><code>monitoring:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>monitoring:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

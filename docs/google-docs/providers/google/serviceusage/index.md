@@ -21,7 +21,7 @@ Enables Services That Service Consumers Want To Use On Google Cloud Platform, Li
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>2</b></span><br />
 <span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Enables Services That Service Consumers Want To Use On Google Cloud Platform, Li
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Usage API</td></tr>
 <tr><td><b>Description</b></td><td>Enables Services That Service Consumers Want To Use On Google Cloud Platform, Lists The Available Or Enabled Services, Or Disables Services That Service Consumers No Longer Use.</td></tr>
-<tr><td><b>Id</b></td><td><code>serviceusage:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>serviceusage:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

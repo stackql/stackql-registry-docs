@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of resource. |
 | `description` | `string` | Free-text description. |
-| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
 | `state` | `string` | Report creation state. |
 | `summary` | `object` | Describes the Summary view of a Report, which contains aggregated values for all the groups and preference sets included in this Report. |
 | `type` | `string` | Report type. |
 | `updateTime` | `string` | Output only. Last update timestamp. |
 | `createTime` | `string` | Output only. Creation timestamp. |
+| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,3 +42,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId, reportConfigsId` | Lists Reports in a given ReportConfig. |
 | `create` | `INSERT` | `locationsId, projectsId, reportConfigsId` | Creates a report. |
 | `delete` | `DELETE` | `locationsId, projectsId, reportConfigsId, reportsId` | Deletes a Report. |
+| `_list` | `EXEC` | `locationsId, projectsId, reportConfigsId` | Lists Reports in a given ReportConfig. |

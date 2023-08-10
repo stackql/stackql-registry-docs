@@ -27,9 +27,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `conversionWorkspaces` | `array` | The list of conversion workspace objects. |
-| `nextPageToken` | `string` | A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `name` | `string` | Full name of the workspace resource, in the form of: projects/&#123;project&#125;/locations/&#123;location&#125;/conversionWorkspaces/&#123;conversion_workspace&#125;. |
+| `latestCommitTime` | `string` | Output only. The timestamp when the workspace was committed. |
+| `displayName` | `string` | Optional. The display name for the workspace. |
+| `destination` | `object` | The type and version of a source or destination database. |
+| `hasUncommittedChanges` | `boolean` | Output only. Whether the workspace has uncommitted changes (changes which were made after the workspace was committed). |
+| `latestCommitId` | `string` | Output only. The latest commit ID. |
+| `source` | `object` | The type and version of a source or destination database. |
+| `updateTime` | `string` | Output only. The timestamp when the workspace resource was last updated. |
+| `createTime` | `string` | Output only. The timestamp when the workspace resource was created. |
+| `globalSettings` | `object` | Optional. A generic list of settings for the workspace. The settings are database pair dependant and can indicate default behavior for the mapping rules engine or turn on or off specific features. Such examples can be: convert_foreign_key_to_interleave=true, skip_triggers=false, ignore_non_table_synonyms=true |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,6 +44,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists conversion workspaces in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new conversion workspace in a given project and location. |
 | `delete` | `DELETE` | `conversionWorkspacesId, locationsId, projectsId` | Deletes a single conversion workspace. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists conversion workspaces in a given project and location. |
 | `apply` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Applies draft tree onto a specific destination database. |
 | `commit` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Marks all the data in the conversion workspace as committed. |
 | `convert` | `EXEC` | `conversionWorkspacesId, locationsId, projectsId` | Creates a draft tree schema for the destination database. |

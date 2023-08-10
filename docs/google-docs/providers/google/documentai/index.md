@@ -21,7 +21,7 @@ Service To Parse Structured Information From Unstructured Or Semi-Structured Doc
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>7</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>31</b></span><br />
+<span>total methods:&nbsp;<b>37</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Service To Parse Structured Information From Unstructured Or Semi-Structured Doc
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Document AI API</td></tr>
 <tr><td><b>Description</b></td><td>Service To Parse Structured Information From Unstructured Or Semi-Structured Documents Using State-Of-The-Art Google AI Such As Natural Language, Computer Vision, Translation, And AutoML.</td></tr>
-<tr><td><b>Id</b></td><td><code>documentai:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>documentai:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

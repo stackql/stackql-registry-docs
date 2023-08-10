@@ -27,11 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results. |
-| `attackPaths` | `array` | The attack paths that the attack path simulation identified. |
+| `name` | `string` | The attack path name, for example, `organizations/12/simulation/34/valuedResources/56/attackPaths/78` |
+| `edges` | `array` | A list of the edges between nodes in this attack path. |
+| `pathNodes` | `array` | A list of nodes that exist in this attack path. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `organizations_simulations_attack_exposure_results_attack_paths_list` | `SELECT` | `attackExposureResultsId, organizationsId, simulationsId` |
 | `organizations_simulations_attack_paths_list` | `SELECT` | `organizationsId, simulationsId` |
 | `organizations_simulations_valued_resources_attack_paths_list` | `SELECT` | `organizationsId, simulationsId, valuedResourcesId` |
+| `_organizations_simulations_attack_exposure_results_attack_paths_list` | `EXEC` | `attackExposureResultsId, organizationsId, simulationsId` |
+| `_organizations_simulations_attack_paths_list` | `EXEC` | `organizationsId, simulationsId` |
+| `_organizations_simulations_valued_resources_attack_paths_list` | `EXEC` | `organizationsId, simulationsId, valuedResourcesId` |

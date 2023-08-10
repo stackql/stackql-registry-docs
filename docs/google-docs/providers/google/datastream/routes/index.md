@@ -27,9 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `routes` | `array` | List of Routes. |
-| `unreachable` | `array` | Locations that could not be reached. |
+| `name` | `string` | Output only. The resource's name. |
+| `updateTime` | `string` | Output only. The update time of the resource. |
+| `createTime` | `string` | Output only. The create time of the resource. |
+| `destinationAddress` | `string` | Required. Destination address for connection |
+| `destinationPort` | `integer` | Destination port for connection |
+| `displayName` | `string` | Required. Display name. |
+| `labels` | `object` | Labels. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,3 +41,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, privateConnectionsId, projectsId` | Use this method to list routes created for a private connectivity configuration in a project and location. |
 | `create` | `INSERT` | `locationsId, privateConnectionsId, projectsId` | Use this method to create a route for a private connectivity configuration in a project and location. |
 | `delete` | `DELETE` | `locationsId, privateConnectionsId, projectsId, routesId` | Use this method to delete a route. |
+| `_list` | `EXEC` | `locationsId, privateConnectionsId, projectsId` | Use this method to list routes created for a private connectivity configuration in a project and location. |

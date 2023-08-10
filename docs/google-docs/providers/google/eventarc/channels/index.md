@@ -27,9 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A page token that can be sent to `ListChannels` to request the next page. If this is empty, then there are no more pages. |
-| `unreachable` | `array` | Unreachable resources, if any. |
-| `channels` | `array` | The requested channels, up to the number specified in `page_size`. |
+| `name` | `string` | Required. The resource name of the channel. Must be unique within the location on the project and must be in `projects/&#123;project&#125;/locations/&#123;location&#125;/channels/&#123;channel_id&#125;` format. |
+| `pubsubTopic` | `string` | Output only. The name of the Pub/Sub topic created and managed by Eventarc system as a transport for the event delivery. Format: `projects/&#123;project&#125;/topics/&#123;topic_id&#125;`. |
+| `updateTime` | `string` | Output only. The last-modified time. |
+| `uid` | `string` | Output only. Server assigned unique identifier for the channel. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
+| `provider` | `string` | The name of the event provider (e.g. Eventarc SaaS partner) associated with the channel. This provider will be granted permissions to publish events to the channel. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/providers/&#123;provider_id&#125;`. |
+| `activationToken` | `string` | Output only. The activation token for the channel. The token must be used by the provider to register the channel for publishing. |
+| `state` | `string` | Output only. The state of a Channel. |
+| `createTime` | `string` | Output only. The creation time. |
+| `cryptoKeyName` | `string` | Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt their event data. It must match the pattern `projects/*/locations/*/keyRings/*/cryptoKeys/*`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +43,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | List channels. |
 | `create` | `INSERT` | `locationsId, projectsId` | Create a new channel in a particular project and location. |
 | `delete` | `DELETE` | `channelsId, locationsId, projectsId` | Delete a single channel. |
+| `_list` | `EXEC` | `locationsId, projectsId` | List channels. |
 | `patch` | `EXEC` | `channelsId, locationsId, projectsId` | Update a single channel. |

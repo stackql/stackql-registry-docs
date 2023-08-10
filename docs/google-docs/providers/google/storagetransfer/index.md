@@ -21,7 +21,7 @@ Transfers Data From External Data Sources To A Google Cloud Storage Bucket Or Be
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>17</b></span><br />
+<span>total methods:&nbsp;<b>20</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Transfers Data From External Data Sources To A Google Cloud Storage Bucket Or Be
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Storage Transfer API</td></tr>
 <tr><td><b>Description</b></td><td>Transfers Data From External Data Sources To A Google Cloud Storage Bucket Or Between Google Cloud Storage Buckets. </td></tr>
-<tr><td><b>Id</b></td><td><code>storagetransfer:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storagetransfer:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

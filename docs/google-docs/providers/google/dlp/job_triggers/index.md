@@ -27,8 +27,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `jobTriggers` | `array` | List of triggeredJobs, up to page_size in ListJobTriggersRequest. |
-| `nextPageToken` | `string` | If the next page is available then the next page token to be used in following ListJobTriggers request. |
+| `name` | `string` | Unique resource name for the triggeredJob, assigned by the service when the triggeredJob is created, for example `projects/dlp-test-project/jobTriggers/53234423`. |
+| `description` | `string` | User provided description (max 256 chars) |
+| `errors` | `array` | Output only. A stream of errors encountered when the trigger was activated. Repeated errors may result in the JobTrigger automatically being paused. Will return the last 100 errors. Whenever the JobTrigger is modified this list will be cleared. |
+| `lastRunTime` | `string` | Output only. The timestamp of the last time this trigger executed. |
+| `status` | `string` | Required. A status for this trigger. |
+| `createTime` | `string` | Output only. The creation timestamp of a triggeredJob. |
+| `displayName` | `string` | Display name (max 100 chars) |
+| `triggers` | `array` | A list of triggers which will be OR'ed together. Only one in the list needs to trigger for a job to be started. The list may contain only a single Schedule trigger and must have at least one object. |
+| `inspectJob` | `object` | Controls what and how to inspect for findings. |
+| `updateTime` | `string` | Output only. The last update timestamp of a triggeredJob. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,6 +52,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_locations_job_triggers_delete` | `DELETE` | `jobTriggersId, locationsId, organizationsId` | Deletes a job trigger. See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more. |
 | `projects_job_triggers_delete` | `DELETE` | `jobTriggersId, projectsId` | Deletes a job trigger. See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more. |
 | `projects_locations_job_triggers_delete` | `DELETE` | `jobTriggersId, locationsId, projectsId` | Deletes a job trigger. See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more. |
+| `_organizations_locations_job_triggers_list` | `EXEC` | `locationsId, organizationsId` | Lists job triggers. See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more. |
+| `_projects_job_triggers_list` | `EXEC` | `projectsId` | Lists job triggers. See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more. |
+| `_projects_locations_job_triggers_list` | `EXEC` | `locationsId, projectsId` | Lists job triggers. See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more. |
 | `organizations_locations_job_triggers_patch` | `EXEC` | `jobTriggersId, locationsId, organizationsId` | Updates a job trigger. See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more. |
 | `projects_job_triggers_activate` | `EXEC` | `jobTriggersId, projectsId` | Activate a job trigger. Causes the immediate execute of a trigger instead of waiting on the trigger event to occur. |
 | `projects_job_triggers_patch` | `EXEC` | `jobTriggersId, projectsId` | Updates a job trigger. See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more. |

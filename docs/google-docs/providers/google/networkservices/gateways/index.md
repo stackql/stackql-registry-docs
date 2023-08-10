@@ -27,9 +27,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `gateways` | `array` | List of Gateway resources. |
-| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
+| `name` | `string` | Required. Name of the Gateway resource. It matches pattern `projects/*/locations/*/gateways/`. |
+| `description` | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
+| `scope` | `string` | Optional. Scope determines how configuration across multiple Gateway instances are merged. The configuration for multiple Gateway instances with the same scope will be merged as presented as a single coniguration to the proxy/load balancer. Max length 64 characters. Scope should start with a letter and can only have letters, numbers, hyphens. |
+| `createTime` | `string` | Output only. The timestamp when the resource was created. |
+| `ports` | `array` | Required. One or more port numbers (1-65535), on which the Gateway will receive traffic. The proxy binds to the specified ports. Gateways of type 'SECURE_WEB_GATEWAY' are limited to 1 port. Gateways of type 'OPEN_MESH' listen on 0.0.0.0 for IPv4 and :: for IPv6 and support multiple ports. |
+| `addresses` | `array` | Optional. Zero or one IPv4 or IPv6 address on which the Gateway will receive the traffic. When no address is provided, an IP from the subnetwork is allocated This field only applies to gateways of type 'SECURE_WEB_GATEWAY'. Gateways of type 'OPEN_MESH' listen on 0.0.0.0 for IPv4 and :: for IPv6. |
+| `type` | `string` | Immutable. The type of the customer managed gateway. This field is required. If unspecified, an error is returned. |
+| `selfLink` | `string` | Output only. Server-defined URL of this resource |
+| `certificateUrls` | `array` | Optional. A fully-qualified Certificates URL reference. The proxy presents a Certificate (selected based on SNI) when establishing a TLS connection. This feature only applies to gateways of type 'SECURE_WEB_GATEWAY'. |
+| `labels` | `object` | Optional. Set of label tags associated with the Gateway resource. |
+| `network` | `string` | Optional. The relative resource name identifying the VPC network that is using this configuration. For example: `projects/*/global/networks/network-1`. Currently, this field is specific to gateways of type 'SECURE_WEB_GATEWAY'. |
+| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
+| `gatewaySecurityPolicy` | `string` | Optional. A fully-qualified GatewaySecurityPolicy URL reference. Defines how a server should apply security policy to inbound (VM to Proxy) initiated connections. For example: `projects/*/locations/*/gatewaySecurityPolicies/swg-policy`. This policy is specific to gateways of type 'SECURE_WEB_GATEWAY'. |
+| `serverTlsPolicy` | `string` | Optional. A fully-qualified ServerTLSPolicy URL reference. Specifies how TLS traffic is terminated. If empty, TLS termination is disabled. |
+| `subnetwork` | `string` | Optional. The relative resource name identifying the subnetwork in which this SWG is allocated. For example: `projects/*/regions/us-central1/subnetworks/network-1` Currently, this field is specific to gateways of type 'SECURE_WEB_GATEWAY". |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +49,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists Gateways in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new Gateway in a given project and location. |
 | `delete` | `DELETE` | `gatewaysId, locationsId, projectsId` | Deletes a single Gateway. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists Gateways in a given project and location. |
 | `patch` | `EXEC` | `gatewaysId, locationsId, projectsId` | Updates the parameters of a single Gateway. |

@@ -30,16 +30,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] Textual description of the resource. |
+| `availableCpuPlatforms` | `array` | [Output Only] Available cpu/platform selections for the zone. |
+| `supportsPzs` | `boolean` | [Output Only] Reserved for future use. |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#zone for zones. |
 | `deprecated` | `object` | Deprecation status for a public resource. |
+| `region` | `string` | [Output Only] Full URL reference to the region which hosts the zone. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | `status` | `string` | [Output Only] Status of the zone, either UP or DOWN. |
-| `region` | `string` | [Output Only] Full URL reference to the region which hosts the zone. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `availableCpuPlatforms` | `array` | [Output Only] Available cpu/platform selections for the zone. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#zone for zones. |
-| `supportsPzs` | `boolean` | [Output Only] Reserved for future use. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `project, zone` | Returns the specified Zone resource. |
 | `list` | `SELECT` | `project` | Retrieves the list of Zone resources available to the specified project. |
+| `_list` | `EXEC` | `project` | Retrieves the list of Zone resources available to the specified project. |

@@ -20,8 +20,8 @@ Allows Users To Manage BigQuery Connections To External Data Sources.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
-<span>total selectable resources:&nbsp;<b>1</b></span><br />
-<span>total methods:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Allows Users To Manage BigQuery Connections To External Data Sources.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery Connection API</td></tr>
 <tr><td><b>Description</b></td><td>Allows Users To Manage BigQuery Connections To External Data Sources.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigqueryconnection:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bigqueryconnection:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

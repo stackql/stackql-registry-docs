@@ -21,7 +21,7 @@ Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Crea
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
 <span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total methods:&nbsp;<b>22</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Crea
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>ReCAPTCHA Enterprise API</td></tr>
 <tr><td><b>Description</b></td><td>Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Creating Friction.</td></tr>
-<tr><td><b>Id</b></td><td><code>recaptchaenterprise:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recaptchaenterprise:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

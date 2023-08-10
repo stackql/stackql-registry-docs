@@ -27,8 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `storedInfoTypes` | `array` | List of storedInfoTypes, up to page_size in ListStoredInfoTypesRequest. |
-| `nextPageToken` | `string` | If the next page is available then the next page token to be used in following ListStoredInfoTypes request. |
+| `name` | `string` | Resource name. |
+| `currentVersion` | `object` | Version of a StoredInfoType, including the configuration used to build it, create timestamp, and current state. |
+| `pendingVersions` | `array` | Pending versions of the stored info type. Empty if no versions are pending. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,6 +49,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_stored_info_types_delete` | `DELETE` | `organizationsId, storedInfoTypesId` | Deletes a stored infoType. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |
 | `projects_locations_stored_info_types_delete` | `DELETE` | `locationsId, projectsId, storedInfoTypesId` | Deletes a stored infoType. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |
 | `projects_stored_info_types_delete` | `DELETE` | `projectsId, storedInfoTypesId` | Deletes a stored infoType. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |
+| `_organizations_locations_stored_info_types_list` | `EXEC` | `locationsId, organizationsId` | Lists stored infoTypes. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |
+| `_organizations_stored_info_types_list` | `EXEC` | `organizationsId` | Lists stored infoTypes. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |
+| `_projects_locations_stored_info_types_list` | `EXEC` | `locationsId, projectsId` | Lists stored infoTypes. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |
+| `_projects_stored_info_types_list` | `EXEC` | `projectsId` | Lists stored infoTypes. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |
 | `organizations_locations_stored_info_types_patch` | `EXEC` | `locationsId, organizationsId, storedInfoTypesId` | Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |
 | `organizations_stored_info_types_patch` | `EXEC` | `organizationsId, storedInfoTypesId` | Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |
 | `projects_locations_stored_info_types_patch` | `EXEC` | `locationsId, projectsId, storedInfoTypesId` | Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more. |

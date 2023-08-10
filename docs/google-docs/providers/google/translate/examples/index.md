@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this token to the page_token field in the ListExamplesRequest to obtain the corresponding page. |
-| `examples` | `array` | The sentence pairs. |
+| `name` | `string` | Output only. The resource name of the example, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/examples/&#123;example_id&#125;' |
+| `usage` | `string` | Output only. Usage of the sentence pair. Options are TRAIN\|VALIDATION\|TEST. |
+| `sourceText` | `string` | Sentence in source language. |
+| `targetText` | `string` | Sentence in target language. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_locations_datasets_examples_list` | `SELECT` | `datasetsId, locationsId, projectsId` |
+| `_projects_locations_datasets_examples_list` | `EXEC` | `datasetsId, locationsId, projectsId` |

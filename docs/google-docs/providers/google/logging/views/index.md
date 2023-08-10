@@ -27,8 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If there might be more results than appear in this response, then nextPageToken is included. To get the next set of results, call the same method again using the value of nextPageToken as pageToken. |
-| `views` | `array` | A list of views. |
+| `name` | `string` | The resource name of the view.For example:projects/my-project/locations/global/buckets/my-bucket/views/my-view |
+| `description` | `string` | Describes this view. |
+| `updateTime` | `string` | Output only. The last update timestamp of the view. |
+| `createTime` | `string` | Output only. The creation timestamp of the view. |
+| `filter` | `string` | Filter that restricts which log entries in a bucket are visible in this view.Filters are restricted to be a logical AND of ==/!= of any of the following: originating project/folder/organization/billing account. resource type log idFor example:SOURCE("projects/myproject") AND resource.type = "gce_instance" AND LOG_ID("stdout") |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -50,6 +53,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `folders_locations_buckets_views_delete` | `DELETE` | `bucketsId, foldersId, locationsId, viewsId` | Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. |
 | `organizations_locations_buckets_views_delete` | `DELETE` | `bucketsId, locationsId, organizationsId, viewsId` | Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. |
 | `projects_locations_buckets_views_delete` | `DELETE` | `bucketsId, locationsId, projectsId, viewsId` | Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. |
+| `_billing_accounts_locations_buckets_views_list` | `EXEC` | `billingAccountsId, bucketsId, locationsId` | Lists views on a log bucket. |
+| `_folders_locations_buckets_views_list` | `EXEC` | `bucketsId, foldersId, locationsId` | Lists views on a log bucket. |
+| `_locations_buckets_views_list` | `EXEC` | `parent` | Lists views on a log bucket. |
+| `_organizations_locations_buckets_views_list` | `EXEC` | `bucketsId, locationsId, organizationsId` | Lists views on a log bucket. |
+| `_projects_locations_buckets_views_list` | `EXEC` | `bucketsId, locationsId, projectsId` | Lists views on a log bucket. |
 | `billing_accounts_locations_buckets_views_patch` | `EXEC` | `billingAccountsId, bucketsId, locationsId, viewsId` | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
 | `folders_locations_buckets_views_patch` | `EXEC` | `bucketsId, foldersId, locationsId, viewsId` | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
 | `organizations_locations_buckets_views_patch` | `EXEC` | `bucketsId, locationsId, organizationsId, viewsId` | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |

@@ -27,11 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `providers` | `array` | The requested providers, up to the number specified in `page_size`. |
-| `unreachable` | `array` | Unreachable resources, if any. |
-| `nextPageToken` | `string` | A page token that can be sent to `ListProviders` to request the next page. If this is empty, then there are no more pages. |
+| `name` | `string` | Output only. In `projects/&#123;project&#125;/locations/&#123;location&#125;/providers/&#123;provider_id&#125;` format. |
+| `displayName` | `string` | Output only. Human friendly name for the Provider. For example "Cloud Storage". |
+| `eventTypes` | `array` | Output only. Event types for this provider. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `locationsId, projectsId, providersId` | Get a single Provider. |
 | `list` | `SELECT` | `locationsId, projectsId` | List providers. |
+| `_list` | `EXEC` | `locationsId, projectsId` | List providers. |

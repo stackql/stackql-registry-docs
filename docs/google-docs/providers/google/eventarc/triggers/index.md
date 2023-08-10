@@ -27,9 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `triggers` | `array` | The requested triggers, up to the number specified in `page_size`. |
-| `unreachable` | `array` | Unreachable resources, if any. |
-| `nextPageToken` | `string` | A page token that can be sent to `ListTriggers` to request the next page. If this is empty, then there are no more pages. |
+| `name` | `string` | Required. The resource name of the trigger. Must be unique within the location of the project and must be in `projects/&#123;project&#125;/locations/&#123;location&#125;/triggers/&#123;trigger&#125;` format. |
+| `destination` | `object` | Represents a target of an invocation over HTTP. |
+| `eventDataContentType` | `string` | Optional. EventDataContentType specifies the type of payload in MIME format that is expected from the CloudEvent data field. This is set to `application/json` if the value is not defined. |
+| `updateTime` | `string` | Output only. The last-modified time. |
+| `labels` | `object` | Optional. User labels attached to the triggers that can be used to group resources. |
+| `eventFilters` | `array` | Required. Unordered list. The list of filters that applies to event attributes. Only events that match all the provided filters are sent to the destination. |
+| `serviceAccount` | `string` | Optional. The IAM service account email associated with the trigger. The service account represents the identity of the trigger. The `iam.serviceAccounts.actAs` permission must be granted on the service account to allow a principal to impersonate the service account. For more information, see the [Roles and permissions](/eventarc/docs/all-roles-permissions) page specific to the trigger destination. |
+| `channel` | `string` | Optional. The name of the channel associated with the trigger in `projects/&#123;project&#125;/locations/&#123;location&#125;/channels/&#123;channel&#125;` format. You must provide a channel to receive events from Eventarc SaaS partners. |
+| `conditions` | `object` | Output only. The reason(s) why a trigger is in FAILED state. |
+| `uid` | `string` | Output only. Server-assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
+| `createTime` | `string` | Output only. The creation time. |
+| `transport` | `object` | Represents the transport intermediaries created for the trigger to deliver events. |
+| `etag` | `string` | Output only. This checksum is computed by the server based on the value of other fields, and might be sent only on create requests to ensure that the client has an up-to-date value before proceeding. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +47,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | List triggers. |
 | `create` | `INSERT` | `locationsId, projectsId` | Create a new trigger in a particular project and location. |
 | `delete` | `DELETE` | `locationsId, projectsId, triggersId` | Delete a single trigger. |
+| `_list` | `EXEC` | `locationsId, projectsId` | List triggers. |
 | `patch` | `EXEC` | `locationsId, projectsId, triggersId` | Update a single trigger. |

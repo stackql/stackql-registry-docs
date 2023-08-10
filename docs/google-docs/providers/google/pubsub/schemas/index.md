@@ -39,6 +39,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_schemas_list` | `SELECT` | `projectsId` | Lists schemas in a project. |
 | `projects_schemas_create` | `INSERT` | `projectsId` | Creates a schema. |
 | `projects_schemas_delete` | `DELETE` | `projectsId, schemasId` | Deletes a schema. |
+| `_projects_schemas_list` | `EXEC` | `projectsId` | Lists schemas in a project. |
 | `projects_schemas_commit` | `EXEC` | `projectsId, schemasId` | Commits a new schema revision to an existing schema. |
 | `projects_schemas_rollback` | `EXEC` | `projectsId, schemasId` | Creates a new schema revision that is a copy of the provided revision_id. |
 | `projects_schemas_validate` | `EXEC` | `projectsId` | Validates a schema. |

@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name. |
-| `displayName` | `string` | The deployment's display name. |
 | `frns` | `array` | Output only. The FCC Registration Numbers (FRNs) copied from its direct parent. |
 | `sasUserIds` | `array` | User ID used by the devices belonging to this deployment. Each deployment should be associated with one unique user ID. |
+| `displayName` | `string` | The deployment's display name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -46,6 +46,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `nodes_nodes_deployments_create` | `INSERT` | `nodesId, nodesId1` | Creates a new deployment. |
 | `customers_deployments_delete` | `DELETE` | `customersId, deploymentsId` | Deletes a deployment. |
 | `nodes_deployments_delete` | `DELETE` | `deploymentsId, nodesId` | Deletes a deployment. |
+| `_customers_deployments_list` | `EXEC` | `customersId` | Lists deployments. |
+| `_customers_nodes_deployments_list` | `EXEC` | `customersId, nodesId` | Lists deployments. |
+| `_nodes_deployments_list` | `EXEC` | `nodesId` | Lists deployments. |
+| `_nodes_nodes_deployments_list` | `EXEC` | `nodesId, nodesId1` | Lists deployments. |
 | `customers_deployments_move` | `EXEC` | `customersId, deploymentsId` | Moves a deployment under another node or customer. |
 | `customers_deployments_patch` | `EXEC` | `customersId, deploymentsId` | Updates an existing deployment. |
 | `nodes_deployments_move` | `EXEC` | `deploymentsId, nodesId` | Moves a deployment under another node or customer. |

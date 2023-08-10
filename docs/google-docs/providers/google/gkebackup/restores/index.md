@@ -27,9 +27,23 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `nextPageToken` | `string` | A token which may be sent as page_token in a subsequent `ListRestores` call to retrieve the next page of results. If this field is omitted or empty, then there are no more results to return. |
-| `restores` | `array` | The list of Restores matching the given criteria. |
+| `name` | `string` | Output only. The full name of the Restore resource. Format: `projects/*/locations/*/restorePlans/*/restores/*` |
+| `description` | `string` | User specified descriptive string for this Restore. |
+| `resourcesFailedCount` | `integer` | Output only. Number of resources that failed to be restored during the restore execution. |
+| `completeTime` | `string` | Output only. Timestamp of when the restore operation completed. |
+| `state` | `string` | Output only. The current state of the Restore. |
+| `restoreConfig` | `object` | Configuration of a restore. Next id: 12 |
+| `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
+| `stateReason` | `string` | Output only. Human-readable description of why the Restore is in its current state. |
+| `cluster` | `string` | Output only. The target cluster into which this Restore will restore data. Valid formats: - `projects/*/locations/*/clusters/*` - `projects/*/zones/*/clusters/*` Inherited from parent RestorePlan's cluster value. |
+| `backup` | `string` | Required. Immutable. A reference to the Backup used as the source from which this Restore will restore. Note that this Backup must be a sub-resource of the RestorePlan's backup_plan. Format: `projects/*/locations/*/backupPlans/*/backups/*`. |
+| `updateTime` | `string` | Output only. The timestamp when this Restore resource was last updated. |
+| `etag` | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a restore from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform restore updates in order to avoid race conditions: An `etag` is returned in the response to `GetRestore`, and systems are expected to put that etag in the request to `UpdateRestore` or `DeleteRestore` to ensure that their change will be applied to the same version of the resource. |
+| `labels` | `object` | A set of custom labels supplied by user. |
+| `volumesRestoredCount` | `integer` | Output only. Number of volumes restored during the restore execution. |
+| `createTime` | `string` | Output only. The timestamp when this Restore resource was created. |
+| `resourcesExcludedCount` | `integer` | Output only. Number of resources excluded during the restore execution. |
+| `resourcesRestoredCount` | `integer` | Output only. Number of resources restored during the restore execution. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +51,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId, restorePlansId` | Lists the Restores for a given RestorePlan. |
 | `create` | `INSERT` | `locationsId, projectsId, restorePlansId` | Creates a new Restore for the given RestorePlan. |
 | `delete` | `DELETE` | `locationsId, projectsId, restorePlansId, restoresId` | Deletes an existing Restore. |
+| `_list` | `EXEC` | `locationsId, projectsId, restorePlansId` | Lists the Restores for a given RestorePlan. |
 | `patch` | `EXEC` | `locationsId, projectsId, restorePlansId, restoresId` | Update a Restore. |

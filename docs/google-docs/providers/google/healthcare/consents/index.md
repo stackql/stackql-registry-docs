@@ -27,8 +27,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `consents` | `array` | The returned Consents. The maximum number of Consents returned is determined by the value of page_size in the ListConsentsRequest. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `name` | `string` | Resource name of the Consent, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/consents/&#123;consent_id&#125;`. Cannot be changed after creation. |
+| `state` | `string` | Required. Indicates the current state of this Consent. |
+| `revisionId` | `string` | Output only. The revision ID of the Consent. The format is an 8-character hexadecimal string. Refer to a specific revision of a Consent by appending `@&#123;revision_id&#125;` to the Consent's resource name. |
+| `policies` | `array` | Optional. Represents a user's consent in terms of the resources that can be accessed and under what conditions. |
+| `userId` | `string` | Required. User's UUID provided by the client. |
+| `ttl` | `string` | Input only. The time to live for this Consent from when it is created. |
+| `consentArtifact` | `string` | Required. The resource name of the Consent artifact that contains proof of the end user's consent, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/consentArtifacts/&#123;consent_artifact_id&#125;`. |
+| `metadata` | `object` | Optional. User-supplied key-value pairs used to organize Consent resources. Metadata keys must: - be between 1 and 63 characters long - have a UTF-8 encoding of maximum 128 bytes - begin with a letter - consist of up to 63 characters including lowercase letters, numeric characters, underscores, and dashes Metadata values must be: - be between 1 and 63 characters long - have a UTF-8 encoding of maximum 128 bytes - consist of up to 63 characters including lowercase letters, numeric characters, underscores, and dashes No more than 64 metadata entries can be associated with a given consent. |
+| `expireTime` | `string` | Timestamp in UTC of when this Consent is considered expired. |
+| `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,6 +44,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `consentStoresId, datasetsId, locationsId, projectsId` | Lists the Consent in the given consent store, returning each Consent's latest revision. |
 | `create` | `INSERT` | `consentStoresId, datasetsId, locationsId, projectsId` | Creates a new Consent in the parent consent store. |
 | `delete` | `DELETE` | `consentStoresId, consentsId, datasetsId, locationsId, projectsId` | Deletes the Consent and its revisions. To keep a record of the Consent but mark it inactive, see [RevokeConsent]. To delete a revision of a Consent, see [DeleteConsentRevision]. This operation does not delete the related Consent artifact. |
+| `_list` | `EXEC` | `consentStoresId, datasetsId, locationsId, projectsId` | Lists the Consent in the given consent store, returning each Consent's latest revision. |
 | `activate` | `EXEC` | `consentStoresId, consentsId, datasetsId, locationsId, projectsId` | Activates the latest revision of the specified Consent by committing a new revision with `state` updated to `ACTIVE`. If the latest revision of the specified Consent is in the `ACTIVE` state, no new revision is committed. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `REJECTED` or `REVOKED` state. |
 | `patch` | `EXEC` | `consentStoresId, consentsId, datasetsId, locationsId, projectsId` | Updates the latest revision of the specified Consent by committing a new revision with the changes. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `REJECTED` or `REVOKED` state. |
 | `reject` | `EXEC` | `consentStoresId, consentsId, datasetsId, locationsId, projectsId` | Rejects the latest revision of the specified Consent by committing a new revision with `state` updated to `REJECTED`. If the latest revision of the specified Consent is in the `REJECTED` state, no new revision is committed. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `ACTIVE` or `REVOKED` state. |

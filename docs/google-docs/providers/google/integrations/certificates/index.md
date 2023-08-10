@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Auto generated primary key |
 | `description` | `string` | Description of the certificate |
-| `validStartTime` | `string` | Output only. The timestamp after which certificate will be valid |
 | `validEndTime` | `string` | Output only. The timestamp after which certificate will expire |
+| `displayName` | `string` | Name of the certificate |
+| `validStartTime` | `string` | Output only. The timestamp after which certificate will be valid |
+| `requestorId` | `string` | Immutable. Requestor ID to be used to register certificate with trawler |
 | `credentialId` | `string` | Immutable. Credential id that will be used to register with trawler INTERNAL_ONLY |
 | `rawCertificate` | `object` | Contains client certificate information |
-| `displayName` | `string` | Required. Name of the certificate |
-| `requestorId` | `string` | Immutable. Requestor ID to be used to register certificate with trawler |
 | `certificateStatus` | `string` | Status of the certificate |
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -44,4 +44,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_products_certificates_list` | `SELECT` | `locationsId, productsId, projectsId` | List all the certificates that match the filter. Restrict to certificate of current client only. |
 | `projects_locations_products_certificates_create` | `INSERT` | `locationsId, productsId, projectsId` | Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. |
 | `projects_locations_products_certificates_delete` | `DELETE` | `certificatesId, locationsId, productsId, projectsId` | Delete a certificate |
+| `_projects_locations_products_certificates_list` | `EXEC` | `locationsId, productsId, projectsId` | List all the certificates that match the filter. Restrict to certificate of current client only. |
 | `projects_locations_products_certificates_patch` | `EXEC` | `certificatesId, locationsId, productsId, projectsId` | Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields will directly update the Spanner record. Returns the Certificate. |

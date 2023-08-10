@@ -27,11 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | The type of list. |
-| `nextPageToken` | `string` | A token to request the next page of results. |
-| `tables` | `array` | Tables in the requested dataset. |
-| `totalItems` | `integer` | The total number of tables in the dataset. |
-| `etag` | `string` | A hash of this page of results. |
+| `id` | `string` | An opaque ID of the table |
+| `kind` | `string` | The resource type. |
+| `tableReference` | `object` |  |
+| `type` | `string` | The type of table. Possible values are: TABLE, VIEW. |
+| `expirationTime` | `string` | [Optional] The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed. |
+| `friendlyName` | `string` | The user-friendly name for this table. |
+| `timePartitioning` | `object` |  |
+| `view` | `object` | Additional details for a view. |
+| `clustering` | `object` |  |
+| `creationTime` | `string` | The time when this table was created, in milliseconds since the epoch. |
+| `labels` | `object` | The labels associated with this table. You can use these to organize and group your tables. |
+| `rangePartitioning` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -39,5 +46,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `datasetId, projectId` | Lists all tables in the specified dataset. Requires the READER dataset role. |
 | `insert` | `INSERT` | `datasetId, projectId` | Creates a new, empty table in the dataset. |
 | `delete` | `DELETE` | `datasetId, projectId, tableId` | Deletes the table specified by tableId from the dataset. If the table contains data, all the data will be deleted. |
+| `_list` | `EXEC` | `datasetId, projectId` | Lists all tables in the specified dataset. Requires the READER dataset role. |
 | `patch` | `EXEC` | `datasetId, projectId, tableId` | Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. This method supports patch semantics. |
 | `update` | `EXEC` | `datasetId, projectId, tableId` | Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. |

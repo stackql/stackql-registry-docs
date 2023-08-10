@@ -40,4 +40,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists Groups in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new Group in a given project and location. |
 | `delete` | `DELETE` | `groupsId, locationsId, projectsId` | Deletes a single Group. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists Groups in a given project and location. |
 | `patch` | `EXEC` | `groupsId, locationsId, projectsId` | Updates the parameters of a single Group. |

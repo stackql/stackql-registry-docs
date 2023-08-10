@@ -27,8 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A pagination token returned from a previous call to ListNodes that indicates from where listing should continue. If the field is missing or empty, it means there is no more nodes. |
-| `nodes` | `array` | The nodes that match the request. |
+| `name` | `string` | Output only. Resource name. |
+| `sasUserIds` | `array` | User ids used by the devices belonging to this node. |
+| `displayName` | `string` | The node's display name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,3 +38,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `customers_nodes_create` | `INSERT` | `customersId` | Creates a new node. |
 | `customers_nodes_nodes_create` | `INSERT` | `customersId, nodesId` | Creates a new node. |
 | `customers_nodes_delete` | `DELETE` | `customersId, nodesId` | Deletes a node. |
+| `_customers_nodes_list` | `EXEC` | `customersId` | Lists nodes. |
+| `_customers_nodes_nodes_list` | `EXEC` | `customersId, nodesId` | Lists nodes. |

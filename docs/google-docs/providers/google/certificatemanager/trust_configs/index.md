@@ -27,9 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `trustConfigs` | `array` | A list of TrustConfigs for the parent resource. |
-| `unreachable` | `array` | Locations that could not be reached. |
-| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
+| `name` | `string` | A user-defined name of the trust config. TrustConfig names must be unique globally and match pattern `projects/*/locations/*/trustConfigs/*`. |
+| `description` | `string` | One or more paragraphs of text description of a TrustConfig. |
+| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
+| `labels` | `object` | Set of labels associated with a TrustConfig. |
+| `trustStores` | `array` | Set of trust stores to perform validation against. This field is supported when TrustConfig is configured with Load Balancers, currently not supported for SPIFFE certificate validation. Only one TrustStore specified is currently allowed. |
+| `updateTime` | `string` | Output only. The last update timestamp of a TrustConfig. |
+| `createTime` | `string` | Output only. The creation timestamp of a TrustConfig. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +41,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists TrustConfigs in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new TrustConfig in a given project and location. |
 | `delete` | `DELETE` | `locationsId, projectsId, trustConfigsId` | Deletes a single TrustConfig. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists TrustConfigs in a given project and location. |
 | `patch` | `EXEC` | `locationsId, projectsId, trustConfigsId` | Updates a TrustConfig. |

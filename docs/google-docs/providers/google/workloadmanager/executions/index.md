@@ -27,12 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `executions` | `array` | The list of Execution |
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
+| `name` | `string` | The name of execution resource. The format is projects/&#123;project&#125;/locations/&#123;location&#125;/evaluations/&#123;evaluation&#125;/executions/&#123;execution&#125; |
+| `inventoryTime` | `string` | Output only. [Output only] Inventory time stamp |
+| `labels` | `object` | Labels as key value pairs |
+| `runType` | `string` | type represent whether the execution executed directly by user or scheduled according evaluation.schedule field. |
+| `startTime` | `string` | Output only. [Output only] Start time stamp |
+| `state` | `string` | Output only. [Output only] State |
+| `endTime` | `string` | Output only. [Output only] End time stamp |
+| `evaluationId` | `string` | Output only. [Output only] Evaluation ID |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `evaluationsId, executionsId, locationsId, projectsId` | Gets details of a single Execution. |
 | `list` | `SELECT` | `evaluationsId, locationsId, projectsId` | Lists Executions in a given project and location. |
+| `_list` | `EXEC` | `evaluationsId, locationsId, projectsId` | Lists Executions in a given project and location. |
 | `run` | `EXEC` | `evaluationsId, locationsId, projectsId` | Creates a new Execution in a given project and location. |

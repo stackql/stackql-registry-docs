@@ -21,7 +21,7 @@ Provides Methods For Detection, Risk Analysis, And De-Identification Of Privacy-
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>101</b></span><br />
+<span>total methods:&nbsp;<b>119</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Provides Methods For Detection, Risk Analysis, And De-Identification Of Privacy-
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Data Loss Prevention (DLP)</td></tr>
 <tr><td><b>Description</b></td><td>Provides Methods For Detection, Risk Analysis, And De-Identification Of Privacy-Sensitive Fragments In Text, Images, And Google Cloud Platform Storage Repositories.</td></tr>
-<tr><td><b>Id</b></td><td><code>dlp:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dlp:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

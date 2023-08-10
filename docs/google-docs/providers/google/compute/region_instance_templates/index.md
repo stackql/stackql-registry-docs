@@ -33,9 +33,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `creationTimestamp` | `string` | [Output Only] The creation timestamp for this instance template in RFC3339 text format. |
 | `region` | `string` | [Output Only] URL of the region where the instance template resides. Only applicable for regional resources. |
 | `sourceInstance` | `string` | The source instance used to create the template. You can provide this as a partial or full URL to the resource. For example, the following are valid values: - https://www.googleapis.com/compute/v1/projects/project/zones/zone /instances/instance - projects/project/zones/zone/instances/instance  |
-| `sourceInstanceParams` | `object` | A specification of the parameters to use when creating the instance template from a source instance. |
-| `selfLink` | `string` | [Output Only] The URL for this instance template. The server defines this URL. |
 | `kind` | `string` | [Output Only] The resource type, which is always compute#instanceTemplate for instance templates. |
+| `selfLink` | `string` | [Output Only] The URL for this instance template. The server defines this URL. |
+| `sourceInstanceParams` | `object` | A specification of the parameters to use when creating the instance template from a source instance. |
 | `properties` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -44,3 +44,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `project, region` | Retrieves a list of instance templates that are contained within the specified project and region. |
 | `insert` | `INSERT` | `project, region` | Creates an instance template in the specified project and region using the global instance template whose URL is included in the request. |
 | `delete` | `DELETE` | `instanceTemplate, project, region` | Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. |
+| `_list` | `EXEC` | `project, region` | Retrieves a list of instance templates that are contained within the specified project and region. |

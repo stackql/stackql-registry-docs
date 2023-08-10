@@ -39,4 +39,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_url_lists_list` | `SELECT` | `locationsId, projectsId` | Lists UrlLists in a given project and location. |
 | `projects_locations_url_lists_create` | `INSERT` | `locationsId, projectsId` | Creates a new UrlList in a given project and location. |
 | `projects_locations_url_lists_delete` | `DELETE` | `locationsId, projectsId, urlListsId` | Deletes a single UrlList. |
+| `_projects_locations_url_lists_list` | `EXEC` | `locationsId, projectsId` | Lists UrlLists in a given project and location. |
 | `projects_locations_url_lists_patch` | `EXEC` | `locationsId, projectsId, urlListsId` | Updates the parameters of a single UrlList. |

@@ -28,27 +28,27 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Unique identifier for the report T his is a legacy field used to encode custom report unique id |
-| `environment` | `string` | Output only. Environment name |
-| `timeUnit` | `string` | This field contains the time unit of aggregation for the report |
-| `organization` | `string` | Output only. Organization name |
-| `createdAt` | `string` | Output only. Unix time when the app was created json key: createdAt |
-| `offset` | `string` | Legacy field: not used. This field contains the offset for the data |
-| `toTime` | `string` | Legacy field: not used. Contains the end time for the report |
-| `tags` | `array` | Legacy field: not used. This field contains a list of tags associated with custom report |
-| `properties` | `array` | This field contains report properties such as ui metadata etc. |
-| `chartType` | `string` | This field contains the chart type for the report |
-| `filter` | `string` | This field contains the filter expression |
 | `lastViewedAt` | `string` | Output only. Last viewed time of this entity as milliseconds since epoch |
-| `displayName` | `string` | This is the display name for the report |
-| `lastModifiedAt` | `string` | Output only. Modified time of this entity as milliseconds since epoch. json key: lastModifiedAt |
-| `sortOrder` | `string` | Legacy field: not used much. Contains the sort order for the sort columns |
-| `topk` | `string` | Legacy field: not used. This field contains the top k parameter value for restricting the result |
-| `comments` | `array` | Legacy field: not used. This field contains a list of comments associated with custom report |
-| `fromTime` | `string` | Legacy field: not used. Contains the from time for the report |
-| `limit` | `string` | Legacy field: not used This field contains the limit for the result retrieved |
 | `metrics` | `array` | Required. This contains the list of metrics |
-| `sortByCols` | `array` | Legacy field: not used much. Contains the list of sort by columns |
+| `organization` | `string` | Output only. Organization name |
+| `topk` | `string` | Legacy field: not used. This field contains the top k parameter value for restricting the result |
+| `createdAt` | `string` | Output only. Unix time when the app was created json key: createdAt |
+| `comments` | `array` | Legacy field: not used. This field contains a list of comments associated with custom report |
 | `dimensions` | `array` | This contains the list of dimensions for the report |
+| `limit` | `string` | Legacy field: not used This field contains the limit for the result retrieved |
+| `displayName` | `string` | This is the display name for the report |
+| `tags` | `array` | Legacy field: not used. This field contains a list of tags associated with custom report |
+| `lastModifiedAt` | `string` | Output only. Modified time of this entity as milliseconds since epoch. json key: lastModifiedAt |
+| `environment` | `string` | Output only. Environment name |
+| `filter` | `string` | This field contains the filter expression |
+| `sortByCols` | `array` | Legacy field: not used much. Contains the list of sort by columns |
+| `properties` | `array` | This field contains report properties such as ui metadata etc. |
+| `fromTime` | `string` | Legacy field: not used. Contains the from time for the report |
+| `sortOrder` | `string` | Legacy field: not used much. Contains the sort order for the sort columns |
+| `toTime` | `string` | Legacy field: not used. Contains the end time for the report |
+| `timeUnit` | `string` | This field contains the time unit of aggregation for the report |
+| `offset` | `string` | Legacy field: not used. This field contains the offset for the data |
+| `chartType` | `string` | This field contains the chart type for the report |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
