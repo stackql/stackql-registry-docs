@@ -19,9 +19,9 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>187</b></span><br />
-<span>total selectable resources:&nbsp;<b>140</b></span><br />
-<span>total methods:&nbsp;<b>711</b></span><br />
+<span>total resources:&nbsp;<b>188</b></span><br />
+<span>total selectable resources:&nbsp;<b>141</b></span><br />
+<span>total methods:&nbsp;<b>801</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Compute Engine API</td></tr>
 <tr><td><b>Description</b></td><td>Creates And Runs Virtual Machines On Google Cloud Platform. </td></tr>
-<tr><td><b>Id</b></td><td><code>compute:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>compute:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -184,6 +184,7 @@ Creates And Runs Virtual Machines On Google Cloud Platform.
 <a href="/providers/google/compute/resource_policies/">resource_policies</a><br />
 <a href="/providers/google/compute/resource_policies_iam_policies/">resource_policies_iam_policies</a><br />
 <a href="/providers/google/compute/routers/">routers</a><br />
+<a href="/providers/google/compute/routers_nat_ip_info/">routers_nat_ip_info</a><br />
 <a href="/providers/google/compute/routers_nat_mapping_info/">routers_nat_mapping_info</a><br />
 <a href="/providers/google/compute/routers_router_status/">routers_router_status</a><br />
 <a href="/providers/google/compute/routes/">routes</a><br />

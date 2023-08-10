@@ -27,8 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `addressGroups` | `array` | List of AddressGroups resources. |
-| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
+| `name` | `string` | Required. Name of the AddressGroup resource. It matches pattern `projects/*/locations/&#123;location&#125;/addressGroups/`. |
+| `description` | `string` | Optional. Free-text description of the resource. |
+| `labels` | `object` | Optional. Set of label tags associated with the AddressGroup resource. |
+| `capacity` | `integer` | Required. Capacity of the Address Group |
+| `selfLink` | `string` | Output only. Server-defined fully-qualified URL for this resource. |
+| `items` | `array` | Optional. List of items. |
+| `createTime` | `string` | Output only. The timestamp when the resource was created. |
+| `type` | `string` | Required. The type of the Address Group. Possible values are "IPv4" or "IPV6". |
+| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -38,6 +45,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_address_groups_create` | `INSERT` | `locationsId, projectsId` | Creates a new address group in a given project and location. |
 | `organizations_locations_address_groups_delete` | `DELETE` | `addressGroupsId, locationsId, organizationsId` | Deletes an address group. |
 | `projects_locations_address_groups_delete` | `DELETE` | `addressGroupsId, locationsId, projectsId` | Deletes a single address group. |
+| `_organizations_locations_address_groups_list` | `EXEC` | `locationsId, organizationsId` | Lists address groups in a given project and location. |
+| `_projects_locations_address_groups_list` | `EXEC` | `locationsId, projectsId` | Lists address groups in a given project and location. |
 | `organizations_locations_address_groups_clone_items` | `EXEC` | `addressGroupsId, locationsId, organizationsId` | Clones items from one address group to another. |
 | `organizations_locations_address_groups_get` | `EXEC` | `addressGroupsId, locationsId, organizationsId` | Gets details of a single address group. |
 | `organizations_locations_address_groups_patch` | `EXEC` | `addressGroupsId, locationsId, organizationsId` | Updates parameters of an address group. |

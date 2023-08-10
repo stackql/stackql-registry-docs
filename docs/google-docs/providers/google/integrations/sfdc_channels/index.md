@@ -27,8 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | The token used to retrieve the next page of results. |
-| `sfdcChannels` | `array` | The list of SfdcChannels retrieved. |
+| `name` | `string` | Resource name of the SFDC channel projects/&#123;project&#125;/locations/&#123;location&#125;/sfdcInstances/&#123;sfdc_instance&#125;/sfdcChannels/&#123;sfdc_channel&#125;. |
+| `description` | `string` | The description for this channel |
+| `updateTime` | `string` | Output only. Time when the channel was last updated |
+| `lastReplayId` | `string` | Last sfdc messsage replay id for channel |
+| `createTime` | `string` | Output only. Time when the channel is created |
+| `channelTopic` | `string` | The Channel topic defined by salesforce once an channel is opened |
+| `deleteTime` | `string` | Output only. Time when the channel was deleted. Empty if not deleted. |
+| `displayName` | `string` | Client level unique name/alias to easily reference a channel. |
+| `isActive` | `boolean` | Indicated if a channel has any active integrations referencing it. Set to false when the channel is created, and set to true if there is any integration published with the channel configured in it. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -40,5 +47,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_sfdc_instances_sfdc_channels_create` | `INSERT` | `locationsId, projectsId, sfdcInstancesId` | Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel. |
 | `projects_locations_products_sfdc_instances_sfdc_channels_delete` | `DELETE` | `locationsId, productsId, projectsId, sfdcChannelsId, sfdcInstancesId` | Deletes an sfdc channel. |
 | `projects_locations_sfdc_instances_sfdc_channels_delete` | `DELETE` | `locationsId, projectsId, sfdcChannelsId, sfdcInstancesId` | Deletes an sfdc channel. |
+| `_projects_locations_products_sfdc_instances_sfdc_channels_list` | `EXEC` | `locationsId, productsId, projectsId, sfdcInstancesId` | Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only. |
+| `_projects_locations_sfdc_instances_sfdc_channels_list` | `EXEC` | `locationsId, projectsId, sfdcInstancesId` | Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only. |
 | `projects_locations_products_sfdc_instances_sfdc_channels_patch` | `EXEC` | `locationsId, productsId, projectsId, sfdcChannelsId, sfdcInstancesId` | Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. |
 | `projects_locations_sfdc_instances_sfdc_channels_patch` | `EXEC` | `locationsId, projectsId, sfdcChannelsId, sfdcInstancesId` | Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. |

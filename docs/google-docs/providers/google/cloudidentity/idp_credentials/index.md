@@ -27,12 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `idpCredentials` | `array` | The IdpCredentials from the specified InboundSamlSsoProfile. |
+| `name` | `string` | Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the credential. |
+| `rsaKeyInfo` | `object` | Information of a RSA public key. |
+| `updateTime` | `string` | Output only. Time when the `IdpCredential` was last updated. |
+| `dsaKeyInfo` | `object` | Information of a DSA public key. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `idpCredentialsId, inboundSamlSsoProfilesId` | Gets an IdpCredential. |
 | `list` | `SELECT` | `inboundSamlSsoProfilesId` | Returns a list of IdpCredentials in an InboundSamlSsoProfile. |
 | `delete` | `DELETE` | `idpCredentialsId, inboundSamlSsoProfilesId` | Deletes an IdpCredential. |
+| `_list` | `EXEC` | `inboundSamlSsoProfilesId` | Returns a list of IdpCredentials in an InboundSamlSsoProfile. |
 | `add` | `EXEC` | `inboundSamlSsoProfilesId` | Adds an IdpCredential. Up to 2 credentials are allowed. |

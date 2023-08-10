@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `metaData` | `object` | Encapsulates additional information about query execution. |
 | `environments` | `array` | List of query results on the environment level. |
 | `hosts` | `array` | List of query results grouped by host. |
+| `metaData` | `object` | Encapsulates additional information about query execution. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,10 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `deployments` | `array` | The list of deployments. There will be a maximum number of items returned based on the page_size field in the request. The list may in some cases be empty or contain fewer entries than page_size even if this isn't the last page. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `name` | `string` | The name of the deployment. Format: projects//locations//agents//environments//deployments/. |
+| `result` | `object` | Result of the deployment. |
+| `startTime` | `string` | Start time of this deployment. |
+| `state` | `string` | The current state of the deployment. |
+| `endTime` | `string` | End time of this deployment. |
+| `flowVersion` | `string` | The name of the flow version for this deployment. Format: projects//locations//agents//flows//versions/. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_agents_environments_deployments_get` | `SELECT` | `agentsId, deploymentsId, environmentsId, locationsId, projectsId` | Retrieves the specified Deployment. |
 | `projects_locations_agents_environments_deployments_list` | `SELECT` | `agentsId, environmentsId, locationsId, projectsId` | Returns the list of all deployments in the specified Environment. |
+| `_projects_locations_agents_environments_deployments_list` | `EXEC` | `agentsId, environmentsId, locationsId, projectsId` | Returns the list of all deployments in the specified Environment. |

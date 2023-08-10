@@ -27,11 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | The token to obtain the next page of results if there are more. |
-| `autoscalingEvents` | `array` | Autoscaling events in ascending timestamp order. |
-| `jobMessages` | `array` | Messages in ascending timestamp order. |
+| `id` | `string` | Deprecated. |
+| `messageText` | `string` | The text of the message. |
+| `time` | `string` | The timestamp of the message. |
+| `messageImportance` | `string` | Importance level of the message. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_jobs_messages_list` | `SELECT` | `jobId, projectId` |
 | `projects_locations_jobs_messages_list` | `SELECT` | `jobId, location, projectId` |
+| `_projects_jobs_messages_list` | `EXEC` | `jobId, projectId` |
+| `_projects_locations_jobs_messages_list` | `EXEC` | `jobId, location, projectId` |

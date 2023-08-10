@@ -27,9 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `header` | `object` | Elements common to every response. |
-| `nextPageToken` | `string` | The presence of this field indicates that more results exist following your last page of results in pagination order. To fetch them, make another list request by using this value as your page token. This lets you view the complete contents of even very large collections one page at a time. However, if the contents of the collection change between the first and last paginated list request, the set of all elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger than the maximum page size. |
-| `responsePolicies` | `array` | The Response Policy resources. |
+| `id` | `string` | Unique identifier for the resource; defined by the server (output only). |
+| `description` | `string` | User-provided description for this Response Policy. |
+| `gkeClusters` | `array` | The list of Google Kubernetes Engine clusters to which this response policy is applied. |
+| `kind` | `string` |  |
+| `labels` | `object` | User labels. |
+| `networks` | `array` | List of network names specifying networks to which this policy is applied. |
+| `responsePolicyName` | `string` | User assigned name for this Response Policy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,5 +41,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `project` | Enumerates all Response Policies associated with a project. |
 | `create` | `INSERT` | `project` | Creates a new Response Policy |
 | `delete` | `DELETE` | `project, responsePolicy` | Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network. |
+| `_list` | `EXEC` | `project` | Enumerates all Response Policies associated with a project. |
 | `patch` | `EXEC` | `project, responsePolicy` | Applies a partial update to an existing Response Policy. |
 | `update` | `EXEC` | `project, responsePolicy` | Updates an existing Response Policy. |

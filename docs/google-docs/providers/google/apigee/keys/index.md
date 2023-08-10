@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `attributes` | `array` | List of attributes associated with the credential. |
-| `expiresAt` | `string` | Time the developer app expires in milliseconds since epoch. |
-| `expiresInSeconds` | `string` | Input only. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
-| `consumerKey` | `string` | Consumer key. |
 | `scopes` | `array` | Scopes to apply to the app. The specified scope names must already be defined for the API product that you associate with the app. |
-| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
-| `consumerSecret` | `string` | Secret key. |
-| `issuedAt` | `string` | Time the developer app was created in milliseconds since epoch. |
 | `apiProducts` | `array` | List of API products for which the credential can be used. **Note**: Do not specify the list of API products when creating a consumer key and secret for a developer app. Instead, use the UpdateDeveloperAppKey API to make the association after the consumer key and secret are created. |
+| `consumerKey` | `string` | Consumer key. |
+| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
+| `expiresInSeconds` | `string` | Input only. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
+| `consumerSecret` | `string` | Secret key. |
+| `expiresAt` | `string` | Time the developer app expires in milliseconds since epoch. |
+| `issuedAt` | `string` | Time the developer app was created in milliseconds since epoch. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

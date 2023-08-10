@@ -27,8 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `dataItems` | `array` | The list of data items to return. |
-| `nextPageToken` | `string` | A token to retrieve next page of results. |
+| `name` | `string` | Output only. Name of the data item, in format of: projects/&#123;project_id&#125;/datasets/&#123;dataset_id&#125;/dataItems/&#123;data_item_id&#125; |
+| `imagePayload` | `object` | Container of information about an image. |
+| `textPayload` | `object` | Container of information about a piece of text. |
+| `videoPayload` | `object` | Container of information of a video. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,3 +38,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_datasets_annotated_datasets_data_items_list` | `SELECT` | `annotatedDatasetsId, datasetsId, projectsId` | Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. |
 | `projects_datasets_data_items_get` | `SELECT` | `dataItemsId, datasetsId, projectsId` | Gets a data item in a dataset by resource name. This API can be called after data are imported into dataset. |
 | `projects_datasets_data_items_list` | `SELECT` | `datasetsId, projectsId` | Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. |
+| `_projects_datasets_annotated_datasets_data_items_list` | `EXEC` | `annotatedDatasetsId, datasetsId, projectsId` | Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. |
+| `_projects_datasets_data_items_list` | `EXEC` | `datasetsId, projectsId` | Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. |

@@ -27,8 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `environmentGroups` | `array` | EnvironmentGroups in the specified organization. |
-| `nextPageToken` | `string` | Page token that you can include in a ListEnvironmentGroups request to retrieve the next page. If omitted, no subsequent pages exist. |
+| `name` | `string` | ID of the environment group. |
+| `hostnames` | `array` | Required. Host names for this environment group. |
+| `lastModifiedAt` | `string` | Output only. The time at which the environment group was last updated as milliseconds since epoch. |
+| `state` | `string` | Output only. State of the environment group. Values other than ACTIVE means the resource is not ready to use. |
+| `createdAt` | `string` | Output only. The time at which the environment group was created as milliseconds since epoch. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +39,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_envgroups_list` | `SELECT` | `organizationsId` | Lists all environment groups. |
 | `organizations_envgroups_create` | `INSERT` | `organizationsId` | Creates a new environment group. |
 | `organizations_envgroups_delete` | `DELETE` | `envgroupsId, organizationsId` | Deletes an environment group. |
+| `_organizations_envgroups_list` | `EXEC` | `organizationsId` | Lists all environment groups. |
 | `organizations_envgroups_patch` | `EXEC` | `envgroupsId, organizationsId` | Updates an environment group. |

@@ -27,9 +27,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `importJobs` | `array` | The list of import jobs. |
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
-| `unreachable` | `array` | Locations that could not be reached. |
+| `name` | `string` | Output only. The full name of the import job. |
+| `updateTime` | `string` | Output only. The timestamp when the import job was last updated. |
+| `createTime` | `string` | Output only. The timestamp when the import job was created. |
+| `labels` | `object` | Labels as key value pairs. |
+| `completeTime` | `string` | Output only. The timestamp when the import job was completed. |
+| `assetSource` | `string` | Required. Reference to a source. |
+| `executionReport` | `object` | A resource that reports result of the import job execution. |
+| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
+| `validationReport` | `object` | A resource that aggregates errors across import job files. |
+| `state` | `string` | Output only. The state of the import job. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,6 +44,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists all import jobs. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates an import job. |
 | `delete` | `DELETE` | `importJobsId, locationsId, projectsId` | Deletes an import job. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists all import jobs. |
 | `patch` | `EXEC` | `importJobsId, locationsId, projectsId` | Updates an import job. |
 | `run` | `EXEC` | `importJobsId, locationsId, projectsId` | Runs an import job. |
 | `validate` | `EXEC` | `importJobsId, locationsId, projectsId` | Validates an import job. |

@@ -27,9 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Set if not all hot tablets could be returned in a single response. Pass this value to `page_token` in another request to get the next page of results. |
-| `hotTablets` | `array` | List of hot tablets in the tables of the requested cluster that fall within the requested time range. Hot tablets are ordered by node cpu usage percent. If there are multiple hot tablets that correspond to the same tablet within a 15-minute interval, only the hot tablet with the highest node cpu usage will be included in the response. |
+| `name` | `string` | The unique name of the hot tablet. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/clusters/&#123;cluster&#125;/hotTablets/[a-zA-Z0-9_-]*`. |
+| `startTime` | `string` | Output only. The start time of the hot tablet. |
+| `tableName` | `string` | Name of the table that contains the tablet. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/tables/_a-zA-Z0-9*`. |
+| `endKey` | `string` | Tablet End Key (inclusive). |
+| `endTime` | `string` | Output only. The end time of the hot tablet. |
+| `nodeCpuUsagePercent` | `number` | Output only. The average CPU usage spent by a node on this tablet over the start_time to end_time time range. The percentage is the amount of CPU used by the node to serve the tablet, from 0% (tablet was not interacted with) to 100% (the node spent all cycles serving the hot tablet). |
+| `startKey` | `string` | Tablet Start Key (inclusive). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` | `clustersId, instancesId, projectsId` |
+| `_list` | `EXEC` | `clustersId, instancesId, projectsId` |

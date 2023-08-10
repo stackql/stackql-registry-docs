@@ -27,9 +27,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
-| `provisioningQuotas` | `array` | The provisioning quotas registered in this project. |
+| `name` | `string` | Output only. The name of the provisioning quota. |
+| `location` | `string` | The specific location of the provisioining quota. |
+| `storageGib` | `string` | Storage size (GB). |
+| `instanceQuota` | `object` | A resource budget. |
+| `serverCount` | `string` | Server count. |
+| `networkBandwidth` | `string` | Network bandwidth, Gbps |
+| `availableCount` | `integer` | The available count of the provisioning quota. |
+| `assetType` | `string` | The asset type of this provisioning quota. |
+| `gcpService` | `string` | The gcp service of the provisioning quota. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` | `locationsId, projectsId` |
+| `_list` | `EXEC` | `locationsId, projectsId` |

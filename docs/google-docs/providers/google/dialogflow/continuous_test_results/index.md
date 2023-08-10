@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
-| `continuousTestResults` | `array` | The list of continuous test results. |
+| `name` | `string` | The resource name for the continuous test result. Format: `projects//locations//agents//environments//continuousTestResults/`. |
+| `testCaseResults` | `array` | A list of individual test case results names in this continuous test run. |
+| `result` | `string` | The result of this continuous test run, i.e. whether all the tests in this continuous test run pass or not. |
+| `runTime` | `string` | Time when the continuous testing run starts. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_locations_agents_environments_continuous_test_results_list` | `SELECT` | `agentsId, environmentsId, locationsId, projectsId` |
+| `_projects_locations_agents_environments_continuous_test_results_list` | `EXEC` | `agentsId, environmentsId, locationsId, projectsId` |

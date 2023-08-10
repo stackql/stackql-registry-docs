@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token to retrieve the next page of results. To retrieve the next page, call `ListServices` again with the `page_token` field set to this value. This field is empty if there are no more results to retrieve. |
-| `services` | `array` | A list of services. |
+| `name` | `string` | The resource name for the service. Example: "services/DA34-426B-A397" |
+| `serviceId` | `string` | The identifier for the service. Example: "DA34-426B-A397" |
+| `businessEntityName` | `string` | The business under which the service is offered. Ex. "businessEntities/GCP", "businessEntities/Maps" |
+| `displayName` | `string` | A human readable display name for this service. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

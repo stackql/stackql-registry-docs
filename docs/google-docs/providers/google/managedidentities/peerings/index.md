@@ -27,9 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
-| `peerings` | `array` | A list of Managed Identities Service Peerings in the project. |
-| `unreachable` | `array` | Locations that could not be reached. |
+| `name` | `string` | Output only. Unique name of the peering in this scope including projects and location using the form: `projects/&#123;project_id&#125;/locations/global/peerings/&#123;peering_id&#125;`. |
+| `domainResource` | `string` | Required. Full domain resource path for the Managed AD Domain involved in peering. The resource path should be in the form: `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;` |
+| `labels` | `object` | Optional. Resource labels to represent user-provided metadata. |
+| `state` | `string` | Output only. The current state of this Peering. |
+| `statusMessage` | `string` | Output only. Additional information about the current status of this peering, if available. |
+| `updateTime` | `string` | Output only. Last update time. |
+| `authorizedNetwork` | `string` | Required. The full names of the Google Compute Engine [networks](/compute/docs/networks-and-firewalls#networks) to which the instance is connected. Caller needs to make sure that CIDR subnets do not overlap between networks, else peering creation will fail. |
+| `createTime` | `string` | Output only. The time the instance was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +42,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `projectsId` | Lists Peerings in a given project. |
 | `create` | `INSERT` | `projectsId` | Creates a Peering for Managed AD instance. |
 | `delete` | `DELETE` | `peeringsId, projectsId` | Deletes identified Peering. |
+| `_list` | `EXEC` | `projectsId` | Lists Peerings in a given project. |
 | `patch` | `EXEC` | `peeringsId, projectsId` | Updates the labels for specified Peering. |

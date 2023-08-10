@@ -21,7 +21,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>30</b></span><br />
+<span>total methods:&nbsp;<b>35</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>API Gateway API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>apigateway:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apigateway:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

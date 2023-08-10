@@ -21,7 +21,7 @@ A Data Platform For Customers To Create, Manage, Share And Query Data.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>11</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>34</b></span><br />
+<span>total methods:&nbsp;<b>41</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ A Data Platform For Customers To Create, Manage, Share And Query Data.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery API</td></tr>
 <tr><td><b>Description</b></td><td>A Data Platform For Customers To Create, Manage, Share And Query Data.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigquery:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bigquery:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -48,9 +48,9 @@ A Data Platform For Customers To Create, Manage, Share And Query Data.
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/bigquery/row_access_policies/">row_access_policies</a><br />
-<a href="/providers/google/bigquery/row_access_policies_iam_policies/">row_access_policies_iam_policies</a><br />
 <a href="/providers/google/bigquery/service_account/">service_account</a><br />
 <a href="/providers/google/bigquery/tabledata/">tabledata</a><br />
 <a href="/providers/google/bigquery/tables/">tables</a><br />
+<a href="/providers/google/bigquery/tables_iam_policies/">tables_iam_policies</a><br />
 </div>
 </div>

@@ -27,13 +27,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `apiVersions` | `array` | The versions from the specified publisher. |
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `name` | `string` | Resource name. |
+| `description` | `string` | A detailed description. |
+| `state` | `string` | A user-definable description of the lifecycle phase of this API version. Format: free-form, but we expect single words that describe API maturity, e.g., "CONCEPT", "DESIGN", "DEVELOPMENT", "STAGING", "PRODUCTION", "DEPRECATED", "RETIRED". |
+| `updateTime` | `string` | Output only. Last update timestamp. |
+| `createTime` | `string` | Output only. Creation timestamp. |
+| `displayName` | `string` | Human-meaningful name. |
+| `labels` | `object` | Labels attach identifying metadata to resources. Identifying metadata can be used to filter list operations. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one resource (System labels are excluded). See https://goo.gl/xmQnxf for more information and examples of labels. System reserved label keys are prefixed with `apigeeregistry.googleapis.com/` and cannot be changed. |
+| `primarySpec` | `string` | The primary spec for this version. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/apis/&#123;api&#125;/versions/&#123;version&#125;/specs/&#123;spec&#125; |
+| `annotations` | `object` | Annotations attach non-identifying metadata to resources. Annotation keys and values are less restricted than those of labels, but should be generally used for small values of broad interest. Larger, topic- specific metadata should be stored in Artifacts. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_apis_versions_list` | `SELECT` | `apisId, locationsId, projectsId` | Returns matching versions. |
 | `projects_locations_apis_versions_create` | `INSERT` | `apisId, locationsId, projectsId` | Creates a specified version. |
 | `projects_locations_apis_versions_delete` | `DELETE` | `apisId, locationsId, projectsId, versionsId` | Removes a specified version and all of the resources that it owns. |
+| `_projects_locations_apis_versions_list` | `EXEC` | `apisId, locationsId, projectsId` | Returns matching versions. |
 | `projects_locations_apis_versions_get` | `EXEC` | `apisId, locationsId, projectsId, versionsId` | Returns a specified version. |
 | `projects_locations_apis_versions_patch` | `EXEC` | `apisId, locationsId, projectsId, versionsId` | Used to modify a specified version. |

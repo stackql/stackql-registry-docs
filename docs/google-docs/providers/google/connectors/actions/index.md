@@ -27,11 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Next page token if more actions available. |
-| `unsupportedActionNames` | `array` | List of actions which contain unsupported Datatypes. Check datatype.proto for more information. |
-| `actions` | `array` | List of action metadata. |
+| `name` | `string` | Name of the action. |
+| `inputParameters` | `array` | List containing input parameter metadata. |
+| `resultMetadata` | `array` | List containing the metadata of result fields. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `list` | `SELECT` | `connectionsId, locationsId, projectsId` | Gets the schema of all the actions supported by the connector. |
+| `_list` | `EXEC` | `connectionsId, locationsId, projectsId` | Gets the schema of all the actions supported by the connector. |
 | `execute` | `EXEC` | `actionsId, connectionsId, locationsId, projectsId` | Executes an action with the name specified in the request. The input parameters for executing the action are passed through the body of the ExecuteAction request. |

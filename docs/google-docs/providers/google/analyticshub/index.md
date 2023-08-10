@@ -19,9 +19,9 @@ Exchange Data And Analytics Assets Securely And Efficiently.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>32</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Exchange Data And Analytics Assets Securely And Efficiently.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Analytics Hub API</td></tr>
 <tr><td><b>Description</b></td><td>Exchange Data And Analytics Assets Securely And Efficiently.</td></tr>
-<tr><td><b>Id</b></td><td><code>analyticshub:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>analyticshub:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,9 +41,12 @@ Exchange Data And Analytics Assets Securely And Efficiently.
 <div class="providerDocColumn">
 <a href="/providers/google/analyticshub/data_exchanges/">data_exchanges</a><br />
 <a href="/providers/google/analyticshub/data_exchanges_iam_policies/">data_exchanges_iam_policies</a><br />
+<a href="/providers/google/analyticshub/data_exchanges_subscriptions/">data_exchanges_subscriptions</a><br />
+<a href="/providers/google/analyticshub/listings/">listings</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/analyticshub/listings/">listings</a><br />
 <a href="/providers/google/analyticshub/listings_iam_policies/">listings_iam_policies</a><br />
+<a href="/providers/google/analyticshub/listings_subscriptions/">listings_subscriptions</a><br />
+<a href="/providers/google/analyticshub/subscriptions/">subscriptions</a><br />
 </div>
 </div>

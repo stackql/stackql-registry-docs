@@ -37,3 +37,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:--------------|:----------------|:------------|
 | `projects_datasets_annotated_datasets_examples_get` | `SELECT` | `annotatedDatasetsId, datasetsId, examplesId, projectsId` | Gets an example by resource name, including both data and annotation. |
 | `projects_datasets_annotated_datasets_examples_list` | `SELECT` | `annotatedDatasetsId, datasetsId, projectsId` | Lists examples in an annotated dataset. Pagination is supported. |
+| `_projects_datasets_annotated_datasets_examples_list` | `EXEC` | `annotatedDatasetsId, datasetsId, projectsId` | Lists examples in an annotated dataset. Pagination is supported. |

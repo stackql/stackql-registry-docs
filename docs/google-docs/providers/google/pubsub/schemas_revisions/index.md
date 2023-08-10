@@ -27,9 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `schemas` | `array` | The revisions of the schema. |
-| `nextPageToken` | `string` | A token that can be sent as `page_token` to retrieve the next page. If this field is empty, there are no subsequent pages. |
+| `name` | `string` | Required. Name of the schema. Format is `projects/&#123;project&#125;/schemas/&#123;schema&#125;`. |
+| `definition` | `string` | The definition of the schema. This should contain a string representing the full definition of the schema that is a valid schema definition of the type specified in `type`. |
+| `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
+| `revisionId` | `string` | Output only. Immutable. The revision ID of the schema. |
+| `type` | `string` | The type of the schema definition. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_schemas_list_revisions` | `SELECT` | `projectsId, schemasId` |
+| `_projects_schemas_list_revisions` | `EXEC` | `projectsId, schemasId` |

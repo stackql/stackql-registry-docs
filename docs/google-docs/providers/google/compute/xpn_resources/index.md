@@ -27,10 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `resources` | `array` | Service resources (a.k.a service projects) attached to this project as their shared VPC host. |
-| `kind` | `string` | [Output Only] Type of resource. Always compute#projectsGetXpnResources for lists of service resources (a.k.a service projects) |
-| `nextPageToken` | `string` | [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results. |
+| `id` | `string` | The ID of the service resource. In the case of projects, this field supports project id (e.g., my-project-123) and project number (e.g. 12345678). |
+| `type` | `string` | The type of the service resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `get_xpn_resources` | `SELECT` | `project` |
+| `_get_xpn_resources` | `EXEC` | `project` |

@@ -27,8 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Page token used to retrieve the next page. This is currently not used, but the server may at any point start supplying a valid token. |
-| `policies` | `array` | All policies that exist on the resource. It will be empty if no policies are set. |
+| `name` | `string` | Immutable. The resource name of the policy. Must be one of the following forms, where `constraint_name` is the name of the constraint which this policy configures: * `projects/&#123;project_number&#125;/policies/&#123;constraint_name&#125;` * `folders/&#123;folder_id&#125;/policies/&#123;constraint_name&#125;` * `organizations/&#123;organization_id&#125;/policies/&#123;constraint_name&#125;` For example, `projects/123/policies/compute.disableSerialPortAccess`. Note: `projects/&#123;project_id&#125;/policies/&#123;constraint_name&#125;` is also an acceptable name for API requests, but responses will return the name using the equivalent project number. |
+| `alternate` | `object` | Similar to PolicySpec but with an extra 'launch' field for launch reference. The PolicySpec here is specific for dry-run/darklaunch. |
+| `dryRunSpec` | `object` | Defines a Google Cloud policy specification which is used to specify constraints for configurations of Google Cloud resources. |
+| `spec` | `object` | Defines a Google Cloud policy specification which is used to specify constraints for configurations of Google Cloud resources. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,6 +46,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `folders_policies_delete` | `DELETE` | `foldersId, policiesId` | Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. |
 | `organizations_policies_delete` | `DELETE` | `organizationsId, policiesId` | Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. |
 | `projects_policies_delete` | `DELETE` | `policiesId, projectsId` | Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. |
+| `_folders_policies_list` | `EXEC` | `foldersId` | Retrieves all of the policies that exist on a particular resource. |
+| `_organizations_policies_list` | `EXEC` | `organizationsId` | Retrieves all of the policies that exist on a particular resource. |
+| `_projects_policies_list` | `EXEC` | `projectsId` | Retrieves all of the policies that exist on a particular resource. |
 | `folders_policies_patch` | `EXEC` | `foldersId, policiesId` | Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields. |
 | `organizations_policies_patch` | `EXEC` | `organizationsId, policiesId` | Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields. |
 | `projects_policies_patch` | `EXEC` | `policiesId, projectsId` | Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields. |

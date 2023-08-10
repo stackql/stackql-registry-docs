@@ -30,31 +30,32 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the operation. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the operation. |
 | `description` | `string` | [Output Only] A textual description of the operation, which is set when the operation is created. |
-| `startTime` | `string` | [Output Only] The time that this operation was started by the server. This value is in RFC3339 text format. |
-| `status` | `string` | [Output Only] The status of the operation, which can be one of the following: `PENDING`, `RUNNING`, or `DONE`. |
-| `setCommonInstanceMetadataOperationMetadata` | `object` |  |
-| `user` | `string` | [Output Only] User who requested the operation, for example: `user@example.com` or `alice_smith_identifier (global/workforcePools/example-com-us-employees)`. |
-| `operationType` | `string` | [Output Only] The type of operation, such as `insert`, `update`, or `delete`, and so on. |
-| `progress` | `integer` | [Output Only] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used to guess when the operation will be complete. This number should monotonically increase as the operation progresses. |
 | `kind` | `string` | [Output Only] Type of the resource. Always `compute#operation` for Operation resources. |
-| `targetLink` | `string` | [Output Only] The URL of the resource that the operation modifies. For operations related to creating a snapshot, this points to the persistent disk that the snapshot was created from. |
-| `endTime` | `string` | [Output Only] The time that this operation was completed. This value is in RFC3339 text format. |
-| `operationGroupId` | `string` | [Output Only] An ID that represents a group of operations, such as when a group of operations results from a `bulkInsert` API request. |
-| `statusMessage` | `string` | [Output Only] An optional textual description of the current status of the operation. |
-| `targetId` | `string` | [Output Only] The unique target ID, which identifies a specific incarnation of the target resource. |
-| `region` | `string` | [Output Only] The URL of the region where the operation resides. Only applicable when performing regional operations. |
-| `httpErrorStatusCode` | `integer` | [Output Only] If the operation fails, this field contains the HTTP error status code that was returned. For example, a `404` means the resource was not found. |
-| `clientOperationId` | `string` | [Output Only] The value of `requestId` if you provided it in the request. Not present otherwise. |
-| `insertTime` | `string` | [Output Only] The time that this operation was requested. This value is in RFC3339 text format. |
-| `error` | `object` | [Output Only] If errors are generated during processing of the operation, this field will be populated. |
-| `httpErrorMessage` | `string` | [Output Only] If the operation fails, this field contains the HTTP error message that was returned, such as `NOT FOUND`. |
-| `warnings` | `array` | [Output Only] If warning messages are generated during processing of the operation, this field will be populated. |
-| `creationTimestamp` | `string` | [Deprecated] This field is deprecated. |
-| `zone` | `string` | [Output Only] The URL of the zone where the operation resides. Only applicable when performing per-zone operations. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `creationTimestamp` | `string` | [Deprecated] This field is deprecated. |
+| `clientOperationId` | `string` | [Output Only] The value of `requestId` if you provided it in the request. Not present otherwise. |
+| `status` | `string` | [Output Only] The status of the operation, which can be one of the following: `PENDING`, `RUNNING`, or `DONE`. |
+| `region` | `string` | [Output Only] The URL of the region where the operation resides. Only applicable when performing regional operations. |
+| `setCommonInstanceMetadataOperationMetadata` | `object` |  |
+| `targetLink` | `string` | [Output Only] The URL of the resource that the operation modifies. For operations related to creating a snapshot, this points to the persistent disk that the snapshot was created from. |
+| `statusMessage` | `string` | [Output Only] An optional textual description of the current status of the operation. |
+| `progress` | `integer` | [Output Only] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used to guess when the operation will be complete. This number should monotonically increase as the operation progresses. |
+| `httpErrorMessage` | `string` | [Output Only] If the operation fails, this field contains the HTTP error message that was returned, such as `NOT FOUND`. |
+| `zone` | `string` | [Output Only] The URL of the zone where the operation resides. Only applicable when performing per-zone operations. |
+| `insertTime` | `string` | [Output Only] The time that this operation was requested. This value is in RFC3339 text format. |
+| `operationGroupId` | `string` | [Output Only] An ID that represents a group of operations, such as when a group of operations results from a `bulkInsert` API request. |
+| `startTime` | `string` | [Output Only] The time that this operation was started by the server. This value is in RFC3339 text format. |
+| `user` | `string` | [Output Only] User who requested the operation, for example: `user@example.com` or `alice_smith_identifier (global/workforcePools/example-com-us-employees)`. |
+| `endTime` | `string` | [Output Only] The time that this operation was completed. This value is in RFC3339 text format. |
+| `httpErrorStatusCode` | `integer` | [Output Only] If the operation fails, this field contains the HTTP error status code that was returned. For example, a `404` means the resource was not found. |
+| `operationType` | `string` | [Output Only] The type of operation, such as `insert`, `update`, or `delete`, and so on. |
+| `targetId` | `string` | [Output Only] The unique target ID, which identifies a specific incarnation of the target resource. |
+| `warnings` | `array` | [Output Only] If warning messages are generated during processing of the operation, this field will be populated. |
+| `error` | `object` | [Output Only] If errors are generated during processing of the operation, this field will be populated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `operation` | Retrieves the specified Operations resource. Gets a list of operations by making a `list()` request. |
 | `list` | `SELECT` |  | Retrieves a list of Operation resources contained within the specified organization. |
 | `delete` | `DELETE` | `operation` | Deletes the specified Operations resource. |
+| `_list` | `EXEC` |  | Retrieves a list of Operation resources contained within the specified organization. |

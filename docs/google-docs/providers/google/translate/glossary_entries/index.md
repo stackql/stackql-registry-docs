@@ -27,8 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Optional. A token to retrieve a page of results. Pass this value in the [ListGLossaryEntriesRequest.page_token] field in the subsequent calls. |
-| `glossaryEntries` | `array` | Optional. The Glossary Entries |
+| `name` | `string` | Required. The resource name of the entry. Format: "projects/*/locations/*/glossaries/*/glossaryEntries/*" |
+| `description` | `string` | Describes the glossary entry. |
+| `termsPair` | `object` | Represents a single entry for an unidirectional glossary. |
+| `termsSet` | `object` | Represents a single entry for an equivalent term set glossary. This is used for equivalent term sets where each term can be replaced by the other terms in the set. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +38,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_glossaries_glossary_entries_list` | `SELECT` | `glossariesId, locationsId, projectsId` | List the entries for the glossary. |
 | `projects_locations_glossaries_glossary_entries_create` | `INSERT` | `glossariesId, locationsId, projectsId` | Creates a glossary entry. |
 | `projects_locations_glossaries_glossary_entries_delete` | `DELETE` | `glossariesId, glossaryEntriesId, locationsId, projectsId` | Deletes a single entry from the glossary |
+| `_projects_locations_glossaries_glossary_entries_list` | `EXEC` | `glossariesId, locationsId, projectsId` | List the entries for the glossary. |
 | `projects_locations_glossaries_glossary_entries_patch` | `EXEC` | `glossariesId, glossaryEntriesId, locationsId, projectsId` | Updates a glossary entry. |

@@ -27,9 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Required. The unique identifier of the session entity type. Format: `projects//locations//agents//sessions//entityTypes/` or `projects//locations//agents//environments//sessions//entityTypes/`. If `Environment ID` is not specified, we assume default 'draft' environment. |
-| `entityOverrideMode` | `string` | Required. Indicates whether the additional data should override or supplement the custom entity type definition. |
-| `entities` | `array` | Required. The collection of entities to override or supplement the custom entity type. |
+| `name` | `string` | The unique identifier of the entity type. Required for EntityTypes.UpdateEntityType. Format: `projects//locations//agents//entityTypes/`. |
+| `autoExpansionMode` | `string` | Indicates whether the entity type can be automatically expanded. |
+| `displayName` | `string` | Required. The human-readable name of the entity type, unique within the agent. |
+| `enableFuzzyExtraction` | `boolean` | Enables fuzzy entity extraction during classification. |
+| `entities` | `array` | The collection of entity entries associated with the entity type. |
+| `excludedPhrases` | `array` | Collection of exceptional words and phrases that shouldn't be matched. For example, if you have a size entity type with entry `giant`(an adjective), you might consider adding `giants`(a noun) as an exclusion. If the kind of entity type is `KIND_MAP`, then the phrases specified by entities and excluded phrases should be mutually exclusive. |
+| `kind` | `string` | Required. Indicates the kind of entity type. |
+| `redact` | `boolean` | Indicates whether parameters of the entity type should be redacted in log. If redaction is enabled, page parameters and intent parameters referring to the entity type will be replaced by parameter name when logging. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,6 +50,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_agents_entity_types_delete` | `DELETE` | `agentsId, entityTypesId, locationsId, projectsId` | Deletes the specified entity type. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | `projects_locations_agents_environments_sessions_entity_types_delete` | `DELETE` | `agentsId, entityTypesId, environmentsId, locationsId, projectsId, sessionsId` | Deletes the specified session entity type. |
 | `projects_locations_agents_sessions_entity_types_delete` | `DELETE` | `agentsId, entityTypesId, locationsId, projectsId, sessionsId` | Deletes the specified session entity type. |
+| `_projects_locations_agents_entity_types_list` | `EXEC` | `agentsId, locationsId, projectsId` | Returns the list of all entity types in the specified agent. |
+| `_projects_locations_agents_environments_sessions_entity_types_list` | `EXEC` | `agentsId, environmentsId, locationsId, projectsId, sessionsId` | Returns the list of all session entity types in the specified session. |
+| `_projects_locations_agents_sessions_entity_types_list` | `EXEC` | `agentsId, locationsId, projectsId, sessionsId` | Returns the list of all session entity types in the specified session. |
 | `projects_locations_agents_entity_types_patch` | `EXEC` | `agentsId, entityTypesId, locationsId, projectsId` | Updates the specified entity type. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | `projects_locations_agents_environments_sessions_entity_types_patch` | `EXEC` | `agentsId, entityTypesId, environmentsId, locationsId, projectsId, sessionsId` | Updates the specified session entity type. |
 | `projects_locations_agents_sessions_entity_types_patch` | `EXEC` | `agentsId, entityTypesId, locationsId, projectsId, sessionsId` | Updates the specified session entity type. |

@@ -27,9 +27,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Page token that can be used to continue listing from the last result in the next list call. |
-| `unreachable` | `array` | Locations that could not be reached. For example, ['us-west1-a', 'us-central1-b']. A ListInstancesResponse will only contain either instances or unreachables, |
-| `instances` | `array` | A list of returned instances. |
+| `id` | `string` | Output only. Unique ID of the resource. |
+| `name` | `string` | Output only. The name of this notebook instance. Format: `projects/&#123;project_id&#125;/locations/&#123;location&#125;/instances/&#123;instance_id&#125;` |
+| `creator` | `string` | Output only. Email address of entity that sent original CreateInstance request. |
+| `labels` | `object` | Optional. Labels to apply to this instance. These can be later modified by the UpdateInstance method. |
+| `proxyUri` | `string` | Output only. The proxy endpoint that is used to access the Jupyter notebook. |
+| `updateTime` | `string` | Output only. Instance update time. |
+| `healthInfo` | `object` | Output only. Additional information about instance health. Example: healthInfo": &#123; "docker_proxy_agent_status": "1", "docker_status": "1", "jupyterlab_api_status": "-1", "jupyterlab_status": "-1", "updated": "2020-10-18 09:40:03.573409" &#125; |
+| `gceSetup` | `object` | The definition of how to configure a VM instance outside of Resources and Identity. |
+| `createTime` | `string` | Output only. Instance creation time. |
+| `healthState` | `string` | Output only. Instance health_state. |
+| `instanceOwners` | `array` | Optional. Input only. The owner of this instance after creation. Format: `alias@example.com` Currently supports one owner only. If not specified, all of the service account users of your VM instance's service account can use the instance. |
+| `disableProxyAccess` | `boolean` | Optional. If true, the notebook instance will not register with the proxy. |
+| `state` | `string` | Output only. The state of this instance. |
+| `upgradeHistory` | `array` | Output only. The upgrade history of this instance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,6 +48,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists instances in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new Instance in a given project and location. |
 | `delete` | `DELETE` | `instancesId, locationsId, projectsId` | Deletes a single Instance. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists instances in a given project and location. |
 | `check_upgradability` | `EXEC` | `instancesId, locationsId, projectsId` | Checks whether a notebook instance is upgradable. |
 | `diagnose` | `EXEC` | `instancesId, locationsId, projectsId` | Creates a Diagnostic File and runs Diagnostic Tool given an Instance. |
 | `patch` | `EXEC` | `instancesId, locationsId, projectsId` | UpdateInstance updates an Instance. |

@@ -25,6 +25,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | Immutable. The resource name of the issue. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/issueModels/&#123;issue_model&#125;/issues/&#123;issue&#125; |
+| `sampleUtterances` | `array` | Output only. Resource names of the sample representative utterances that match to this issue. |
+| `updateTime` | `string` | Output only. The most recent time that this issue was updated. |
+| `createTime` | `string` | Output only. The time at which this issue was created. |
+| `displayName` | `string` | The representative name for the issue. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

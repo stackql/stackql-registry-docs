@@ -27,8 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `keys` | `array` | Key details. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results. It is set to empty if no keys remain in results. |
+| `name` | `string` | The resource name for the Key in the format "projects/&#123;project&#125;/keys/&#123;key&#125;". |
+| `iosSettings` | `object` | Settings specific to keys that can be used by iOS apps. |
+| `createTime` | `string` | Output only. The timestamp corresponding to the creation of this key. |
+| `wafSettings` | `object` | Settings specific to keys that can be used for WAF (Web Application Firewall). |
+| `androidSettings` | `object` | Settings specific to keys that can be used by Android apps. |
+| `labels` | `object` | See Creating and managing labels. |
+| `displayName` | `string` | Human-readable display name of this key. Modifiable by user. |
+| `testingOptions` | `object` | Options for user acceptance testing. |
+| `webSettings` | `object` | Settings specific to keys that can be used by websites. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,5 +43,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `projectsId` | Returns the list of all keys that belong to a project. |
 | `create` | `INSERT` | `projectsId` | Creates a new reCAPTCHA Enterprise key. |
 | `delete` | `DELETE` | `keysId, projectsId` | Deletes the specified key. |
+| `_list` | `EXEC` | `projectsId` | Returns the list of all keys that belong to a project. |
 | `migrate` | `EXEC` | `keysId, projectsId` | Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project. |
 | `patch` | `EXEC` | `keysId, projectsId` | Updates the specified key. |

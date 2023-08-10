@@ -27,9 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Next page token. |
-| `runtimeEntitySchemas` | `array` | Runtime entity schemas. |
+| `fieldSchema` | `string` | List of fields in the entity. |
+| `arrayFieldSchema` | `string` | The above schema, but for an array of the associated entity. |
+| `entity` | `string` | Name of the entity. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_locations_connections_runtime_entity_schemas_list` | `SELECT` | `connectionsId, locationsId, projectsId` |
+| `_projects_locations_connections_runtime_entity_schemas_list` | `EXEC` | `connectionsId, locationsId, projectsId` |

@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `actions` | `array` | List of actions. |
 | `entities` | `array` | List of entity names. |
+| `actions` | `array` | List of actions. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

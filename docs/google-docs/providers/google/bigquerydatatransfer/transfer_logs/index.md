@@ -27,10 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Output only. The next-pagination token. For multiple-page list results, this token can be used as the `GetTransferRunLogRequest.page_token` to request the next page of list results. |
-| `transferMessages` | `array` | Output only. The stored pipeline transfer messages. |
+| `messageText` | `string` | Message text. |
+| `messageTime` | `string` | Time when message was logged. |
+| `severity` | `string` | Message severity. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_locations_transfer_configs_runs_transfer_logs_list` | `SELECT` | `locationsId, projectsId, runsId, transferConfigsId` |
 | `projects_transfer_configs_runs_transfer_logs_list` | `SELECT` | `projectsId, runsId, transferConfigsId` |
+| `_projects_locations_transfer_configs_runs_transfer_logs_list` | `EXEC` | `locationsId, projectsId, runsId, transferConfigsId` |
+| `_projects_transfer_configs_runs_transfer_logs_list` | `EXEC` | `projectsId, runsId, transferConfigsId` |

@@ -27,9 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `streams` | `array` | List of streams |
-| `unreachable` | `array` | Locations that could not be reached. |
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `name` | `string` | Output only. The stream's name. |
+| `backfillNone` | `object` | Backfill strategy to disable automatic backfill for the Stream's objects. |
+| `customerManagedEncryptionKey` | `string` | Immutable. A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data will be encrypted using an internal Stream-specific encryption key provisioned through KMS. |
+| `destinationConfig` | `object` | The configuration of the stream destination. |
+| `errors` | `array` | Output only. Errors on the Stream. |
+| `backfillAll` | `object` | Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded. |
+| `displayName` | `string` | Required. Display name. |
+| `createTime` | `string` | Output only. The creation time of the stream. |
+| `labels` | `object` | Labels. |
+| `updateTime` | `string` | Output only. The last update time of the stream. |
+| `state` | `string` | The state of the stream. |
+| `sourceConfig` | `object` | The configuration of the stream source. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,5 +46,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Use this method to list streams in a project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Use this method to create a stream. |
 | `delete` | `DELETE` | `locationsId, projectsId, streamsId` | Use this method to delete a stream. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Use this method to list streams in a project and location. |
 | `patch` | `EXEC` | `locationsId, projectsId, streamsId` | Use this method to update the configuration of a stream. |
 | `run` | `EXEC` | `locationsId, projectsId, streamsId` | Use this method to start, resume or recover a stream with a non default CDC strategy. |

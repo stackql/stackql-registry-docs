@@ -21,7 +21,7 @@ Synthesizes Natural-Sounding Speech By Applying Powerful Neural Network Models.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
 <span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>8</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Synthesizes Natural-Sounding Speech By Applying Powerful Neural Network Models.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Text-To-Speech API</td></tr>
 <tr><td><b>Description</b></td><td>Synthesizes Natural-Sounding Speech By Applying Powerful Neural Network Models.</td></tr>
-<tr><td><b>Id</b></td><td><code>texttospeech:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>texttospeech:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

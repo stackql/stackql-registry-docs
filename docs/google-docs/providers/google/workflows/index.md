@@ -21,7 +21,7 @@ Manage Workflow Definitions. To Execute Workflows And Manage Executions, See The
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Manage Workflow Definitions. To Execute Workflows And Manage Executions, See The
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Workflows API</td></tr>
 <tr><td><b>Description</b></td><td>Manage Workflow Definitions. To Execute Workflows And Manage Executions, See The Workflows Executions API.</td></tr>
-<tr><td><b>Id</b></td><td><code>workflows:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>workflows:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

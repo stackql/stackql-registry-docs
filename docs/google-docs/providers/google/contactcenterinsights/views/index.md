@@ -27,8 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `views` | `array` | The views that match the request. |
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `name` | `string` | Immutable. The resource name of the view. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/views/&#123;view&#125; |
+| `updateTime` | `string` | Output only. The most recent time at which the view was updated. |
+| `value` | `string` | String with specific view properties, must be non-empty. |
+| `createTime` | `string` | Output only. The time at which this view was created. |
+| `displayName` | `string` | The human-readable display name of the view. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +39,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists views. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a view. |
 | `delete` | `DELETE` | `locationsId, projectsId, viewsId` | Deletes a view. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists views. |
 | `patch` | `EXEC` | `locationsId, projectsId, viewsId` | Updates a view. |

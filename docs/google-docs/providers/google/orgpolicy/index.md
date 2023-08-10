@@ -21,7 +21,7 @@ The Organization Policy API Allows Users To Configure Governance Rules On Their 
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>26</b></span><br />
+<span>total methods:&nbsp;<b>33</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ The Organization Policy API Allows Users To Configure Governance Rules On Their 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Organization Policy API</td></tr>
 <tr><td><b>Description</b></td><td>The Organization Policy API Allows Users To Configure Governance Rules On Their Google Cloud Resources Across The Resource Hierarchy.</td></tr>
-<tr><td><b>Id</b></td><td><code>orgpolicy:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>orgpolicy:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

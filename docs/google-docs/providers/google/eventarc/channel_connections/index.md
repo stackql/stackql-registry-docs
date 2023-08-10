@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `channelConnections` | `array` | The requested channel connections, up to the number specified in `page_size`. |
-| `nextPageToken` | `string` | A page token that can be sent to `ListChannelConnections` to request the next page. If this is empty, then there are no more pages. |
-| `unreachable` | `array` | Unreachable resources, if any. |
+| `name` | `string` | Required. The name of the connection. |
+| `uid` | `string` | Output only. Server assigned ID of the resource. The server guarantees uniqueness and immutability until deleted. |
+| `updateTime` | `string` | Output only. The last-modified time. |
+| `activationToken` | `string` | Input only. Activation token for the channel. The token will be used during the creation of ChannelConnection to bind the channel with the provider project. This field will not be stored in the provider resource. |
+| `channel` | `string` | Required. The name of the connected subscriber Channel. This is a weak reference to avoid cross project and cross accounts references. This must be in `projects/&#123;project&#125;/location/&#123;location&#125;/channels/&#123;channel_id&#125;` format. |
+| `createTime` | `string` | Output only. The creation time. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,3 +40,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | List channel connections. |
 | `create` | `INSERT` | `locationsId, projectsId` | Create a new ChannelConnection in a particular project and location. |
 | `delete` | `DELETE` | `channelConnectionsId, locationsId, projectsId` | Delete a single ChannelConnection. |
+| `_list` | `EXEC` | `locationsId, projectsId` | List channel connections. |

@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The unique identifier of the flow validation result. Format: `projects//locations//agents//flows//validationResult`. |
-| `updateTime` | `string` | Last time the flow was validated. |
 | `validationMessages` | `array` | Contains all validation messages. |
+| `updateTime` | `string` | Last time the flow was validated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

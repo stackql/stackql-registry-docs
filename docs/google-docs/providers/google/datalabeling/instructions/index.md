@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Instruction resource name, format: projects/&#123;project_id&#125;/instructions/&#123;instruction_id&#125; |
 | `description` | `string` | Optional. User-provided description of the instruction. The description can be up to 10000 characters long. |
-| `dataType` | `string` | Required. The data type of this instruction. |
-| `displayName` | `string` | Required. The display name of the instruction. Maximum of 64 characters. |
-| `pdfInstruction` | `object` | Instruction from a PDF file. |
-| `createTime` | `string` | Output only. Creation time of instruction. |
-| `blockingResources` | `array` | Output only. The names of any related resources that are blocking changes to the instruction. |
 | `csvInstruction` | `object` | Deprecated: this instruction format is not supported any more. Instruction from a CSV file. |
+| `displayName` | `string` | Required. The display name of the instruction. Maximum of 64 characters. |
+| `createTime` | `string` | Output only. Creation time of instruction. |
+| `pdfInstruction` | `object` | Instruction from a PDF file. |
+| `blockingResources` | `array` | Output only. The names of any related resources that are blocking changes to the instruction. |
+| `dataType` | `string` | Required. The data type of this instruction. |
 | `updateTime` | `string` | Output only. Last update time of instruction. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -43,3 +43,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_instructions_list` | `SELECT` | `projectsId` | Lists instructions for a project. Pagination is supported. |
 | `projects_instructions_create` | `INSERT` | `projectsId` | Creates an instruction for how data should be labeled. |
 | `projects_instructions_delete` | `DELETE` | `instructionsId, projectsId` | Deletes an instruction object by resource name. |
+| `_projects_instructions_list` | `EXEC` | `projectsId` | Lists instructions for a project. Pagination is supported. |

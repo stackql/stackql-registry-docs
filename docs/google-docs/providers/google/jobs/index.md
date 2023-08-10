@@ -21,7 +21,7 @@ Cloud Talent Solution Provides The Capability To Create, Read, Update, And Delet
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>23</b></span><br />
+<span>total methods:&nbsp;<b>26</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Cloud Talent Solution Provides The Capability To Create, Read, Update, And Delet
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Talent Solution API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud Talent Solution Provides The Capability To Create, Read, Update, And Delete Job Postings, As Well As Search Jobs Based On Keywords And Filters. </td></tr>
-<tr><td><b>Id</b></td><td><code>jobs:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>jobs:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

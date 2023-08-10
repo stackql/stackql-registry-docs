@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the setting. Must be in one of the following forms: * `projects/&#123;project_number&#125;/settings/&#123;setting_name&#125;` * `folders/&#123;folder_id&#125;/settings/&#123;setting_name&#125;` * `organizations/&#123;organization_id&#125;/settings/&#123;setting_name&#125;` For example, "/projects/123/settings/gcp-enableMyFeature" |
+| `effectiveValue` | `object` | The data in a setting value. |
 | `etag` | `string` | A fingerprint used for optimistic concurrency. See UpdateSetting for more details. |
 | `localValue` | `object` | The data in a setting value. |
 | `metadata` | `object` | Metadata about a setting which is not editable by the end user. |
-| `effectiveValue` | `object` | The data in a setting value. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -41,6 +41,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_settings_list` | `SELECT` | `organizationsId` | Lists all the settings that are available on the Cloud resource `parent`. |
 | `projects_settings_get` | `SELECT` | `projectsId, settingsId` | Returns a specified setting. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the setting does not exist. |
 | `projects_settings_list` | `SELECT` | `projectsId` | Lists all the settings that are available on the Cloud resource `parent`. |
+| `_folders_settings_list` | `EXEC` | `foldersId` | Lists all the settings that are available on the Cloud resource `parent`. |
+| `_organizations_settings_list` | `EXEC` | `organizationsId` | Lists all the settings that are available on the Cloud resource `parent`. |
+| `_projects_settings_list` | `EXEC` | `projectsId` | Lists all the settings that are available on the Cloud resource `parent`. |
 | `folders_settings_patch` | `EXEC` | `foldersId, settingsId` | Updates a specified setting. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the setting does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.FAILED_PRECONDITION` if the setting is flagged as read only. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the setting value. On success, the response will contain only `name`, `local_value` and `etag`. The `metadata` and `effective_value` cannot be updated through this API. Note: the supplied setting will perform a full overwrite of the `local_value` field. |
 | `organizations_settings_patch` | `EXEC` | `organizationsId, settingsId` | Updates a specified setting. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the setting does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.FAILED_PRECONDITION` if the setting is flagged as read only. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the setting value. On success, the response will contain only `name`, `local_value` and `etag`. The `metadata` and `effective_value` cannot be updated through this API. Note: the supplied setting will perform a full overwrite of the `local_value` field. |
 | `projects_settings_patch` | `EXEC` | `projectsId, settingsId` | Updates a specified setting. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the setting does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.FAILED_PRECONDITION` if the setting is flagged as read only. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the setting value. On success, the response will contain only `name`, `local_value` and `etag`. The `metadata` and `effective_value` cannot be updated through this API. Note: the supplied setting will perform a full overwrite of the `local_value` field. |

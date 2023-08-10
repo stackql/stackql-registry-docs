@@ -27,11 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | The next page token or empty if none. |
-| `runtimeVersions` | `array` | The listed nodes. |
-| `unreachable` | `array` | Locations that could not be reached. |
+| `name` | `string` | The resource name. |
+| `version` | `string` | The runtime version. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `locationsId, projectsId, runtimeVersionsId` | Gets a runtime version. |
 | `list` | `SELECT` | `locationsId, projectsId` | Lists runtime versions supported by this API. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists runtime versions supported by this API. |

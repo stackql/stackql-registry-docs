@@ -27,14 +27,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachableLocations` | `array` | Locations that could not be reached. |
-| `dataTaxonomies` | `array` | DataTaxonomies under the given parent location. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `name` | `string` | Output only. The relative resource name of the DataTaxonomy, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/dataTaxonomies/&#123;data_taxonomy_id&#125;. |
+| `description` | `string` | Optional. Description of the DataTaxonomy. |
+| `classCount` | `integer` | Output only. The number of classes in the DataTaxonomy. |
+| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
+| `updateTime` | `string` | Output only. The time when the DataTaxonomy was last updated. |
+| `createTime` | `string` | Output only. The time when the DataTaxonomy was created. |
+| `labels` | `object` | Optional. User-defined labels for the DataTaxonomy. |
+| `attributeCount` | `integer` | Output only. The number of attributes in the DataTaxonomy. |
+| `displayName` | `string` | Optional. User friendly display name. |
+| `uid` | `string` | Output only. System generated globally unique ID for the dataTaxonomy. This ID will be different if the DataTaxonomy is deleted and re-created with the same name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_data_taxonomies_list` | `SELECT` | `locationsId, projectsId` | Lists DataTaxonomy resources in a project and location. |
 | `projects_locations_data_taxonomies_create` | `INSERT` | `locationsId, projectsId` | Create a DataTaxonomy resource. |
 | `projects_locations_data_taxonomies_delete` | `DELETE` | `dataTaxonomiesId, locationsId, projectsId` | Deletes a DataTaxonomy resource. All attributes within the DataTaxonomy must be deleted before the DataTaxonomy can be deleted. |
+| `_projects_locations_data_taxonomies_list` | `EXEC` | `locationsId, projectsId` | Lists DataTaxonomy resources in a project and location. |
 | `projects_locations_data_taxonomies_get` | `EXEC` | `dataTaxonomiesId, locationsId, projectsId` | Retrieves a DataTaxonomy resource. |
 | `projects_locations_data_taxonomies_patch` | `EXEC` | `dataTaxonomiesId, locationsId, projectsId` | Updates a DataTaxonomy resource. |

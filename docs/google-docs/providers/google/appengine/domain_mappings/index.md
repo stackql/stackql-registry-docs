@@ -38,4 +38,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `appsId` | Lists the domain mappings on an application. |
 | `create` | `INSERT` | `appsId` | Maps a domain to an application. A user must be authorized to administer a domain in order to map it to an application. For a list of available authorized domains, see AuthorizedDomains.ListAuthorizedDomains. |
 | `delete` | `DELETE` | `appsId, domainMappingsId` | Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. |
+| `_list` | `EXEC` | `appsId` | Lists the domain mappings on an application. |
 | `patch` | `EXEC` | `appsId, domainMappingsId` | Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource. |

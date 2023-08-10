@@ -27,8 +27,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `experiments` | `array` | The list of experiments. There will be a maximum number of items returned based on the page_size field in the request. The list may in some cases be empty or contain fewer entries than page_size even if this isn't the last page. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `name` | `string` | The name of the experiment. Format: projects//locations//agents//environments//experiments/.. |
+| `description` | `string` | The human-readable description of the experiment. |
+| `definition` | `object` | Definition of the experiment. |
+| `createTime` | `string` | Creation time of this experiment. |
+| `rolloutFailureReason` | `string` | The reason why rollout has failed. Should only be set when state is ROLLOUT_FAILED. |
+| `result` | `object` | The inference result which includes an objective metric to optimize and the confidence interval. |
+| `rolloutConfig` | `object` | The configuration for auto rollout. |
+| `displayName` | `string` | Required. The human-readable name of the experiment (unique in an environment). Limit of 64 characters. |
+| `startTime` | `string` | Start time of this experiment. |
+| `endTime` | `string` | End time of this experiment. |
+| `lastUpdateTime` | `string` | Last update time of this experiment. |
+| `rolloutState` | `object` | State of the auto-rollout process. |
+| `variantsHistory` | `array` | The history of updates to the experiment variants. |
+| `experimentLength` | `string` | Maximum number of days to run the experiment/rollout. If auto-rollout is not enabled, default value and maximum will be 30 days. If auto-rollout is enabled, default value and maximum will be 6 days. |
+| `state` | `string` | The current state of the experiment. Transition triggered by Experiments.StartExperiment: DRAFT-&gt;RUNNING. Transition triggered by Experiments.CancelExperiment: DRAFT-&gt;DONE or RUNNING-&gt;DONE. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,6 +49,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_agents_environments_experiments_list` | `SELECT` | `agentsId, environmentsId, locationsId, projectsId` | Returns the list of all experiments in the specified Environment. |
 | `projects_locations_agents_environments_experiments_create` | `INSERT` | `agentsId, environmentsId, locationsId, projectsId` | Creates an Experiment in the specified Environment. |
 | `projects_locations_agents_environments_experiments_delete` | `DELETE` | `agentsId, environmentsId, experimentsId, locationsId, projectsId` | Deletes the specified Experiment. |
+| `_projects_locations_agents_environments_experiments_list` | `EXEC` | `agentsId, environmentsId, locationsId, projectsId` | Returns the list of all experiments in the specified Environment. |
 | `projects_locations_agents_environments_experiments_patch` | `EXEC` | `agentsId, environmentsId, experimentsId, locationsId, projectsId` | Updates the specified Experiment. |
 | `projects_locations_agents_environments_experiments_start` | `EXEC` | `agentsId, environmentsId, experimentsId, locationsId, projectsId` | Starts the specified Experiment. This rpc only changes the state of experiment from PENDING to RUNNING. |
 | `projects_locations_agents_environments_experiments_stop` | `EXEC` | `agentsId, environmentsId, experimentsId, locationsId, projectsId` | Stops the specified Experiment. This rpc only changes the state of experiment from RUNNING to DONE. |

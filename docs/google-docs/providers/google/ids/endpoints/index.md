@@ -27,9 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `unreachable` | `array` | Locations that could not be reached. |
-| `endpoints` | `array` | The list of endpoints response. |
+| `name` | `string` | Output only. The name of the endpoint. |
+| `description` | `string` | User-provided description of the endpoint |
+| `trafficLogs` | `boolean` | Whether the endpoint should report traffic logs in addition to threat logs. |
+| `threatExceptions` | `array` | List of threat IDs to be excepted from generating alerts. |
+| `endpointForwardingRule` | `string` | Output only. The fully qualified URL of the endpoint's ILB Forwarding Rule. |
+| `endpointIp` | `string` | Output only. The IP address of the IDS Endpoint's ILB. |
+| `network` | `string` | Required. The fully qualified URL of the network to which the IDS Endpoint is attached. |
+| `state` | `string` | Output only. Current state of the endpoint. |
+| `updateTime` | `string` | Output only. The update time timestamp. |
+| `labels` | `object` | The labels of the endpoint. |
+| `createTime` | `string` | Output only. The create time timestamp. |
+| `severity` | `string` | Required. Lowest threat severity that this endpoint will alert on. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +46,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists Endpoints in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new Endpoint in a given project and location. |
 | `delete` | `DELETE` | `endpointsId, locationsId, projectsId` | Deletes a single Endpoint. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists Endpoints in a given project and location. |
 | `patch` | `EXEC` | `endpointsId, locationsId, projectsId` | Updates the parameters of a single Endpoint. |

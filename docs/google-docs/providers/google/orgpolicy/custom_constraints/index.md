@@ -31,7 +31,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `description` | `string` | Detailed information about this custom policy constraint. The max length of the description is 2000 characters. |
 | `updateTime` | `string` | Output only. The last time this custom constraint was updated. This represents the last time that the `CreateCustomConstraint` or `UpdateCustomConstraint` RPC was called |
 | `actionType` | `string` | Allow or deny type. |
-| `condition` | `string` | Org policy condition/expression. For example: `resource.instanceName.matches("[production\|test]_.*_(\d)+")'` or, `resource.management.auto_upgrade == true` The max length of the condition is 1000 characters. |
+| `condition` | `string` | Org policy condition/expression. For example: `resource.instanceName.matches("[production\|test]_.*_(\d)+")` or, `resource.management.auto_upgrade == true` The max length of the condition is 1000 characters. |
 | `displayName` | `string` | One line display name for the UI. The max length of the display_name is 200 characters. |
 | `methodTypes` | `array` | All the operations being applied for this constraint. |
 | `resourceTypes` | `array` | Immutable. The resource instance type on which this policy applies. Format will be of the form : `/` Example: * `compute.googleapis.com/Instance`. |
@@ -42,4 +42,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_custom_constraints_list` | `SELECT` | `organizationsId` | Retrieves all of the custom constraints that exist on a particular organization resource. |
 | `organizations_custom_constraints_create` | `INSERT` | `organizationsId` | Creates a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the organization does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the constraint already exists on the given organization. |
 | `organizations_custom_constraints_delete` | `DELETE` | `customConstraintsId, organizationsId` | Deletes a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. |
+| `_organizations_custom_constraints_list` | `EXEC` | `organizationsId` | Retrieves all of the custom constraints that exist on a particular organization resource. |
 | `organizations_custom_constraints_patch` | `EXEC` | `customConstraintsId, organizationsId` | Updates a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Note: the supplied policy will perform a full overwrite of all fields. |

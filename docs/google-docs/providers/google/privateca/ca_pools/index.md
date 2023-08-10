@@ -27,9 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `caPools` | `array` | The list of CaPools. |
-| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this value in ListCertificateAuthoritiesRequest.next_page_token to retrieve the next page of results. |
-| `unreachable` | `array` | A list of locations (e.g. "us-west1") that could not be reached. |
+| `name` | `string` | Output only. The resource name for this CaPool in the format `projects/*/locations/*/caPools/*`. |
+| `publishingOptions` | `object` | Options relating to the publication of each CertificateAuthority's CA certificate and CRLs and their inclusion as extensions in issued Certificates. The options set here apply to certificates issued by any CertificateAuthority in the CaPool. |
+| `tier` | `string` | Required. Immutable. The Tier of this CaPool. |
+| `issuancePolicy` | `object` | Defines controls over all certificate issuance within a CaPool. |
+| `labels` | `object` | Optional. Labels with user-defined metadata. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +39,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists CaPools. |
 | `create` | `INSERT` | `locationsId, projectsId` | Create a CaPool. |
 | `delete` | `DELETE` | `caPoolsId, locationsId, projectsId` | Delete a CaPool. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists CaPools. |
 | `patch` | `EXEC` | `caPoolsId, locationsId, projectsId` | Update a CaPool. |

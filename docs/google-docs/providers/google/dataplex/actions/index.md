@@ -27,11 +27,28 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `actions` | `array` | Actions under the given parent lake/zone/asset. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `name` | `string` | Output only. The relative resource name of the action, of the form: projects/&#123;project&#125;/locations/&#123;location&#125;/lakes/&#123;lake&#125;/actions/&#123;action&#125; projects/&#123;project&#125;/locations/&#123;location&#125;/lakes/&#123;lake&#125;/zones/&#123;zone&#125;/actions/&#123;action&#125; projects/&#123;project&#125;/locations/&#123;location&#125;/lakes/&#123;lake&#125;/zones/&#123;zone&#125;/assets/&#123;asset&#125;/actions/&#123;action&#125;. |
+| `failedSecurityPolicyApply` | `object` | Failed to apply security policy to the managed resource(s) under a lake, zone or an asset. For a lake or zone resource, one or more underlying assets has a failure applying security policy to the associated managed resource. |
+| `lake` | `string` | Output only. The relative resource name of the lake, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;. |
+| `zone` | `string` | Output only. The relative resource name of the zone, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;. |
+| `category` | `string` | The category of issue associated with the action. |
+| `detectTime` | `string` | The time that the issue was detected. |
+| `incompatibleDataSchema` | `object` | Action details for incompatible schemas detected by discovery. |
+| `invalidDataPartition` | `object` | Action details for invalid or unsupported partitions detected by discovery. |
+| `invalidDataFormat` | `object` | Action details for invalid or unsupported data files detected by discovery. |
+| `asset` | `string` | Output only. The relative resource name of the asset, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;/assets/&#123;asset_id&#125;. |
+| `invalidDataOrganization` | `object` | Action details for invalid data arrangement. |
+| `unauthorizedResource` | `object` | Action details for unauthorized resource issues raised to indicate that the service account associated with the lake instance is not authorized to access or manage the resource associated with an asset. |
+| `missingData` | `object` | Action details for absence of data detected by discovery. |
+| `issue` | `string` | Detailed description of the issue requiring action. |
+| `missingResource` | `object` | Action details for resource references in assets that cannot be located. |
+| `dataLocations` | `array` | The list of data locations associated with this action. Cloud Storage locations are represented as URI paths(E.g. gs://bucket/table1/year=2020/month=Jan/). BigQuery locations refer to resource names(E.g. bigquery.googleapis.com/projects/project-id/datasets/dataset-id). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_lakes_actions_list` | `SELECT` | `lakesId, locationsId, projectsId` | Lists action resources in a lake. |
 | `projects_locations_lakes_zones_actions_list` | `SELECT` | `lakesId, locationsId, projectsId, zonesId` | Lists action resources in a zone. |
 | `projects_locations_lakes_zones_assets_actions_list` | `SELECT` | `assetsId, lakesId, locationsId, projectsId, zonesId` | Lists action resources in an asset. |
+| `_projects_locations_lakes_actions_list` | `EXEC` | `lakesId, locationsId, projectsId` | Lists action resources in a lake. |
+| `_projects_locations_lakes_zones_actions_list` | `EXEC` | `lakesId, locationsId, projectsId, zonesId` | Lists action resources in a zone. |
+| `_projects_locations_lakes_zones_assets_actions_list` | `EXEC` | `assetsId, lakesId, locationsId, projectsId, zonesId` | Lists action resources in an asset. |

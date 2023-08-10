@@ -27,9 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `domains` | `array` | The authorized domains belonging to the user. |
-| `nextPageToken` | `string` | Continuation token for fetching the next page of results. |
+| `id` | `string` | Fully qualified domain name of the domain authorized for use. Example: example.com. |
+| `name` | `string` | Full path to the AuthorizedDomain resource in the API. Example: apps/myapp/authorizedDomains/example.com.@OutputOnly |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list` | `SELECT` | `appsId` |
+| `_list` | `EXEC` | `appsId` |

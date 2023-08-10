@@ -27,9 +27,25 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
-| `unreachable` | `array` | Locations that could not be reached. |
-| `instances` | `array` | A list of Memcached instances in the project in the specified location, or across all locations. If the `location_id` in the parent field of the request is "-", all regions available to the project are queried, and the results aggregated. |
+| `name` | `string` | Required. Unique name of the resource in this scope including project and location using the form: `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/instances/&#123;instance_id&#125;` Note: Memcached instances are managed and addressed at the regional level so `location_id` here refers to a Google Cloud region; however, users may choose which zones Memcached nodes should be provisioned in within an instance. Refer to zones field for more details. |
+| `memcacheVersion` | `string` | The major version of Memcached software. If not provided, latest supported version will be used. Currently the latest supported major version is `MEMCACHE_1_5`. The minor version will be automatically determined by our system based on the latest supported minor version. |
+| `labels` | `object` | Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources |
+| `memcacheNodes` | `array` | Output only. List of Memcached nodes. Refer to Node message for more details. |
+| `maintenancePolicy` | `object` | Maintenance policy per instance. |
+| `memcacheFullVersion` | `string` | Output only. The full version of memcached server running on this instance. System automatically determines the full memcached version for an instance based on the input MemcacheVersion. The full version format will be "memcached-1.5.16". |
+| `nodeConfig` | `object` | Configuration for a Memcached Node. |
+| `updateTime` | `string` | Output only. The time the instance was updated. |
+| `state` | `string` | Output only. The state of this Memcached instance. |
+| `displayName` | `string` | User provided name for the instance, which is only used for display purposes. Cannot be more than 80 characters. |
+| `parameters` | `object` |  |
+| `createTime` | `string` | Output only. The time the instance was created. |
+| `nodeCount` | `integer` | Required. Number of nodes in the Memcached instance. |
+| `reservedIpRangeId` | `array` | Optional. Contains the id of allocated IP address ranges associated with the private service access connection for example, "test-default" associated with IP range 10.0.0.0/29. |
+| `instanceMessages` | `array` | List of messages that describe the current state of the Memcached instance. |
+| `maintenanceSchedule` | `object` | Upcoming maintenance schedule. |
+| `discoveryEndpoint` | `string` | Output only. Endpoint for the Discovery API. |
+| `zones` | `array` | Zones in which Memcached nodes should be provisioned. Memcached nodes will be equally distributed across these zones. If not provided, the service will by default create nodes in all zones in the region for the instance. |
+| `authorizedNetwork` | `string` | The full name of the Google Compute Engine [network](/compute/docs/networks-and-firewalls#networks) to which the instance is connected. If left unspecified, the `default` network will be used. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,6 +53,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists Instances in a given location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new Instance in a given location. |
 | `delete` | `DELETE` | `instancesId, locationsId, projectsId` | Deletes a single Instance. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists Instances in a given location. |
 | `apply_parameters` | `EXEC` | `instancesId, locationsId, projectsId` | `ApplyParameters` restarts the set of specified nodes in order to update them to the current set of parameters for the Memcached Instance. |
 | `patch` | `EXEC` | `instancesId, locationsId, projectsId` | Updates an existing Instance in a given project and location. |
 | `reschedule_maintenance` | `EXEC` | `instancesId, locationsId, projectsId` | Reschedules upcoming maintenance event. |

@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `keyValueEntries` | `array` | One or more key value map keys and values. |
-| `nextPageToken` | `string` | Token that can be sent as `next_page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| `name` | `string` | Resource URI that can be used to identify the scope of the key value map entries. |
+| `value` | `string` | Required. Data or payload that is being retrieved and associated with the unique key. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,3 +44,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_apis_keyvaluemaps_entries_delete` | `DELETE` | `apisId, entriesId, keyvaluemapsId, organizationsId` | Deletes a key value entry from a key value map scoped to an organization, environment, or API proxy. **Notes:** * After you delete the key value entry, the policy consuming the entry will continue to function with its cached values for a few minutes. This is expected behavior. * Supported for Apigee hybrid 1.8.x and higher. |
 | `organizations_environments_keyvaluemaps_entries_delete` | `DELETE` | `entriesId, environmentsId, keyvaluemapsId, organizationsId` | Deletes a key value entry from a key value map scoped to an organization, environment, or API proxy. **Notes:** * After you delete the key value entry, the policy consuming the entry will continue to function with its cached values for a few minutes. This is expected behavior. * Supported for Apigee hybrid 1.8.x and higher. |
 | `organizations_keyvaluemaps_entries_delete` | `DELETE` | `entriesId, keyvaluemapsId, organizationsId` | Deletes a key value entry from a key value map scoped to an organization, environment, or API proxy. **Notes:** * After you delete the key value entry, the policy consuming the entry will continue to function with its cached values for a few minutes. This is expected behavior. * Supported for Apigee hybrid 1.8.x and higher. |
+| `_organizations_apis_keyvaluemaps_entries_list` | `EXEC` | `apisId, keyvaluemapsId, organizationsId` | Lists key value entries for key values maps scoped to an organization, environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and higher. |
+| `_organizations_environments_keyvaluemaps_entries_list` | `EXEC` | `environmentsId, keyvaluemapsId, organizationsId` | Lists key value entries for key values maps scoped to an organization, environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and higher. |
+| `_organizations_keyvaluemaps_entries_list` | `EXEC` | `keyvaluemapsId, organizationsId` | Lists key value entries for key values maps scoped to an organization, environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and higher. |

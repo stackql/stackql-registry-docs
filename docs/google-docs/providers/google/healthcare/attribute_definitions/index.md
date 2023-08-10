@@ -27,8 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
-| `attributeDefinitions` | `array` | The returned Attribute definitions. The maximum number of attributes returned is determined by the value of page_size in the ListAttributeDefinitionsRequest. |
+| `name` | `string` | Resource name of the Attribute definition, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/attributeDefinitions/&#123;attribute_definition_id&#125;`. Cannot be changed after creation. |
+| `description` | `string` | Optional. A description of the attribute. |
+| `consentDefaultValues` | `array` | Optional. Default values of the attribute in Consents. If no default values are specified, it defaults to an empty value. |
+| `dataMappingDefaultValue` | `string` | Optional. Default value of the attribute in User data mappings. If no default value is specified, it defaults to an empty value. This field is only applicable to attributes of the category `RESOURCE`. |
+| `allowedValues` | `array` | Required. Possible values for the attribute. The number of allowed values must not exceed 500. An empty list is invalid. The list can only be expanded after creation. |
+| `category` | `string` | Required. The category of the attribute. The value of this field cannot be changed after creation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +40,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `consentStoresId, datasetsId, locationsId, projectsId` | Lists the Attribute definitions in the specified consent store. |
 | `create` | `INSERT` | `consentStoresId, datasetsId, locationsId, projectsId` | Creates a new Attribute definition in the parent consent store. |
 | `delete` | `DELETE` | `attributeDefinitionsId, consentStoresId, datasetsId, locationsId, projectsId` | Deletes the specified Attribute definition. Fails if the Attribute definition is referenced by any User data mapping, or the latest revision of any Consent. |
+| `_list` | `EXEC` | `consentStoresId, datasetsId, locationsId, projectsId` | Lists the Attribute definitions in the specified consent store. |
 | `patch` | `EXEC` | `attributeDefinitionsId, consentStoresId, datasetsId, locationsId, projectsId` | Updates the specified Attribute definition. |

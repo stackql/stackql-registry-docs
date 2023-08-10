@@ -27,15 +27,44 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `bareMetalClusters` | `array` | The list of bare metal Clusters. |
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. If the token is not empty this means that more results are available and should be retrieved by repeating the request with the provided page token. |
+| `name` | `string` | Immutable. The bare metal user cluster resource name. |
+| `description` | `string` | A human readable description of this bare metal user cluster. |
+| `createTime` | `string` | Output only. The time when the bare metal user cluster was created. |
+| `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the bare metal user cluster. |
+| `maintenanceStatus` | `object` | Represents the maintenance status of the bare metal user cluster. |
+| `osEnvironmentConfig` | `object` | Specifies operating system settings for cluster provisioning. |
+| `adminClusterName` | `string` | Output only. The resource name of the bare metal admin cluster managing this user cluster. |
+| `endpoint` | `string` | Output only. The IP address of the bare metal user cluster's API server. |
+| `state` | `string` | Output only. The current state of the bare metal user cluster. |
+| `localName` | `string` | Output only. The object name of the bare metal user cluster custom resource on the associated admin cluster. This field is used to support conflicting names when enrolling existing clusters to the API. When used as a part of cluster enrollment, this field will differ from the name in the resource name. For new clusters, this field will match the user provided cluster name and be visible in the last component of the resource name. It is not modifiable. When the local name and cluster name differ, the local name is used in the admin cluster controller logs. You use the cluster name when accessing the cluster using bmctl and kubectl. |
+| `bareMetalVersion` | `string` | Required. The Anthos clusters on bare metal version for your user cluster. |
+| `etag` | `string` | Output only. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control. |
+| `annotations` | `object` | Annotations on the bare metal user cluster. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
+| `deleteTime` | `string` | Output only. The time when the bare metal user cluster was deleted. If the resource is not deleted, this must be empty |
+| `nodeConfig` | `object` | Specifies the workload node configurations. |
+| `nodeAccessConfig` | `object` | Specifies the node access related settings for the bare metal user cluster. |
+| `validationCheck` | `object` | ValidationCheck represents the result of preflight check. |
+| `storage` | `object` | BareMetalStorageConfig specifies the cluster storage configuration. |
+| `fleet` | `object` | Fleet related configuration. Fleets are a Google Cloud concept for logically organizing clusters, letting you use and manage multi-cluster capabilities and apply consistent policies across your systems. See [Anthos Fleets](`https://cloud.google.com/anthos/multicluster-management/fleets`) for more details on Anthos multi-cluster capabilities using Fleets. ## |
+| `networkConfig` | `object` | Specifies the cluster network configuration. |
+| `securityConfig` | `object` | Specifies the security related settings for the bare metal user cluster. |
+| `proxy` | `object` | Specifies the cluster proxy configuration. |
+| `clusterOperations` | `object` | Specifies the bare metal user cluster's observability infrastructure. |
+| `upgradePolicy` | `object` | BareMetalClusterUpgradePolicy defines the cluster upgrade policy. |
+| `controlPlane` | `object` | Specifies the control plane configuration. |
+| `adminClusterMembership` | `string` | Required. The admin cluster this bare metal user cluster belongs to. This is the full resource name of the admin cluster's fleet membership. |
+| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
+| `updateTime` | `string` | Output only. The time when the bare metal user cluster was last updated. |
+| `uid` | `string` | Output only. The unique identifier of the bare metal user cluster. |
+| `loadBalancer` | `object` | Specifies the load balancer configuration. |
+| `maintenanceConfig` | `object` | Specifies configurations to put bare metal nodes in and out of maintenance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_bare_metal_clusters_list` | `SELECT` | `locationsId, projectsId` | Lists bare metal clusters in a given project and location. |
 | `projects_locations_bare_metal_clusters_create` | `INSERT` | `locationsId, projectsId` | Creates a new bare metal cluster in a given project and location. |
 | `projects_locations_bare_metal_clusters_delete` | `DELETE` | `bareMetalClustersId, locationsId, projectsId` | Deletes a single bare metal Cluster. |
+| `_projects_locations_bare_metal_clusters_list` | `EXEC` | `locationsId, projectsId` | Lists bare metal clusters in a given project and location. |
 | `projects_locations_bare_metal_clusters_enroll` | `EXEC` | `locationsId, projectsId` | Enrolls an existing bare metal user cluster and its node pools to the Anthos On-Prem API within a given project and location. Through enrollment, an existing cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster and/or its node pools will be expected to be performed through the API. |
 | `projects_locations_bare_metal_clusters_get` | `EXEC` | `bareMetalClustersId, locationsId, projectsId` | Gets details of a single bare metal Cluster. |
 | `projects_locations_bare_metal_clusters_patch` | `EXEC` | `bareMetalClustersId, locationsId, projectsId` | Updates the parameters of a single bare metal Cluster. |

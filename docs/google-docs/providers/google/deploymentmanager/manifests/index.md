@@ -27,10 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Output only. A token used to continue a truncated list request. |
-| `manifests` | `array` | Output only. Manifests contained in this list response. |
+| `id` | `string` |  |
+| `name` | `string` | Output only. The name of the manifest. |
+| `selfLink` | `string` | Output only. Self link for the manifest. |
+| `expandedConfig` | `string` | Output only. The fully-expanded configuration file, including any templates and references. |
+| `insertTime` | `string` | Output only. Creation timestamp in RFC3339 text format. |
+| `manifestSizeLimitBytes` | `string` | Output only. The size limit for expanded manifests in the project. |
+| `imports` | `array` | Output only. The imported files for this manifest. |
+| `config` | `object` |  |
+| `manifestSizeBytes` | `string` | Output only. The computed size of the fully expanded manifest. |
+| `layout` | `string` | Output only. The YAML layout for this manifest. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `deployment, manifest, project` | Gets information about a specific manifest. |
 | `list` | `SELECT` | `deployment, project` | Lists all manifests for a given deployment. |
+| `_list` | `EXEC` | `deployment, project` | Lists all manifests for a given deployment. |

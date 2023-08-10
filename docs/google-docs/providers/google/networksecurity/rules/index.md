@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Immutable. Name of the resource. ame is the full resource name so projects/&#123;project&#125;/locations/&#123;location&#125;/gatewaySecurityPolicies/&#123;gateway_security_policy&#125;/rules/&#123;rule&#125; rule should match the pattern: (^[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?$). |
 | `description` | `string` | Optional. Free-text description of the resource. |
-| `createTime` | `string` | Output only. Time when the rule was created. |
 | `sessionMatcher` | `string` | Required. CEL expression for matching on session criteria. |
-| `basicProfile` | `string` | Required. Profile which tells what the primitive action should be. |
-| `enabled` | `boolean` | Required. Whether the rule is enforced. |
-| `updateTime` | `string` | Output only. Time when the rule was updated. |
+| `createTime` | `string` | Output only. Time when the rule was created. |
 | `tlsInspectionEnabled` | `boolean` | Optional. Flag to enable TLS inspection of traffic matching on , can only be true if the parent GatewaySecurityPolicy references a TLSInspectionConfig. |
-| `applicationMatcher` | `string` | Optional. CEL expression for matching on L7/application level criteria. |
+| `basicProfile` | `string` | Required. Profile which tells what the primitive action should be. |
+| `updateTime` | `string` | Output only. Time when the rule was updated. |
 | `priority` | `integer` | Required. Priority of the rule. Lower number corresponds to higher precedence. |
+| `applicationMatcher` | `string` | Optional. CEL expression for matching on L7/application level criteria. |
+| `enabled` | `boolean` | Required. Whether the rule is enforced. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,4 +44,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_gateway_security_policies_rules_list` | `SELECT` | `gatewaySecurityPoliciesId, locationsId, projectsId` | Lists GatewaySecurityPolicyRules in a given project and location. |
 | `projects_locations_gateway_security_policies_rules_create` | `INSERT` | `gatewaySecurityPoliciesId, locationsId, projectsId` | Creates a new GatewaySecurityPolicy in a given project and location. |
 | `projects_locations_gateway_security_policies_rules_delete` | `DELETE` | `gatewaySecurityPoliciesId, locationsId, projectsId, rulesId` | Deletes a single GatewaySecurityPolicyRule. |
+| `_projects_locations_gateway_security_policies_rules_list` | `EXEC` | `gatewaySecurityPoliciesId, locationsId, projectsId` | Lists GatewaySecurityPolicyRules in a given project and location. |
 | `projects_locations_gateway_security_policies_rules_patch` | `EXEC` | `gatewaySecurityPoliciesId, locationsId, projectsId, rulesId` | Updates the parameters of a single GatewaySecurityPolicyRule. |

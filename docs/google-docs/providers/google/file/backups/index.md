@@ -27,9 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | The token you can use to retrieve the next page of results. Not returned if there are no more results in the list. |
-| `unreachable` | `array` | Locations that could not be reached. |
-| `backups` | `array` | A list of backups in the project for the specified location. If the `&#123;location&#125;` value in the request is "-", the response contains a list of backups from all locations. If any location is unreachable, the response will only return backups in reachable locations and the "unreachable" field will be populated with a list of unreachable locations. |
+| `name` | `string` | Output only. The resource name of the backup, in the format `projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/backups/&#123;backup_id&#125;`. |
+| `description` | `string` | A description of the backup with 2048 characters or less. Requests with longer descriptions will be rejected. |
+| `labels` | `object` | Resource labels to represent user provided metadata. |
+| `sourceInstanceTier` | `string` | Output only. The service tier of the source Filestore instance that this backup is created from. |
+| `storageBytes` | `string` | Output only. The size of the storage used by the backup. As backups share storage, this number is expected to change with backup creation/deletion. |
+| `sourceInstance` | `string` | The resource name of the source Filestore instance, in the format `projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/instances/&#123;instance_id&#125;`, used to create this backup. |
+| `createTime` | `string` | Output only. The time when the backup was created. |
+| `capacityGb` | `string` | Output only. Capacity of the source file share when the backup was created. |
+| `downloadBytes` | `string` | Output only. Amount of bytes that will be downloaded if the backup is restored. This may be different than storage bytes, since sequential backups of the same disk will share storage. |
+| `kmsKey` | `string` | Immutable. KMS key name used for data encryption. |
+| `state` | `string` | Output only. The backup state. |
+| `sourceFileShare` | `string` | Name of the file share in the source Filestore instance that the backup is created from. |
+| `satisfiesPzs` | `boolean` | Output only. Reserved for future use. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +47,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists all backups in a project for either a specified location or for all locations. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a backup. |
 | `delete` | `DELETE` | `backupsId, locationsId, projectsId` | Deletes a backup. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists all backups in a project for either a specified location or for all locations. |
 | `patch` | `EXEC` | `backupsId, locationsId, projectsId` | Updates the settings of a specific backup. |

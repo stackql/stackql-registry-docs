@@ -21,7 +21,7 @@ Manages The API Keys Associated With Developer Projects.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Manages The API Keys Associated With Developer Projects.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>API Keys API</td></tr>
 <tr><td><b>Description</b></td><td>Manages The API Keys Associated With Developer Projects.</td></tr>
-<tr><td><b>Id</b></td><td><code>apikeys:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apikeys:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

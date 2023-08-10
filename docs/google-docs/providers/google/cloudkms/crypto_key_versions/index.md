@@ -27,15 +27,29 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `cryptoKeyVersions` | `array` | The list of CryptoKeyVersions. |
-| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this value in ListCryptoKeyVersionsRequest.page_token to retrieve the next page of results. |
-| `totalSize` | `integer` | The total number of CryptoKeyVersions that matched the query. |
+| `name` | `string` | Output only. The resource name for this CryptoKeyVersion in the format `projects/*/locations/*/keyRings/*/cryptoKeys/*/cryptoKeyVersions/*`. |
+| `importJob` | `string` | Output only. The name of the ImportJob used in the most recent import of this CryptoKeyVersion. Only present if the underlying key material was imported. |
+| `destroyTime` | `string` | Output only. The time this CryptoKeyVersion's key material is scheduled for destruction. Only present if state is DESTROY_SCHEDULED. |
+| `externalDestructionFailureReason` | `string` | Output only. The root cause of the most recent external destruction failure. Only present if state is EXTERNAL_DESTRUCTION_FAILED. |
+| `algorithm` | `string` | Output only. The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports. |
+| `destroyEventTime` | `string` | Output only. The time this CryptoKeyVersion's key material was destroyed. Only present if state is DESTROYED. |
+| `generationFailureReason` | `string` | Output only. The root cause of the most recent generation failure. Only present if state is GENERATION_FAILED. |
+| `createTime` | `string` | Output only. The time at which this CryptoKeyVersion was created. |
+| `externalProtectionLevelOptions` | `object` | ExternalProtectionLevelOptions stores a group of additional fields for configuring a CryptoKeyVersion that are specific to the EXTERNAL protection level and EXTERNAL_VPC protection levels. |
+| `state` | `string` | The current state of the CryptoKeyVersion. |
+| `importFailureReason` | `string` | Output only. The root cause of the most recent import failure. Only present if state is IMPORT_FAILED. |
+| `importTime` | `string` | Output only. The time at which this CryptoKeyVersion's key material was most recently imported. |
+| `attestation` | `object` | Contains an HSM-generated attestation about a key operation. For more information, see [Verifying attestations] (https://cloud.google.com/kms/docs/attest-key). |
+| `generateTime` | `string` | Output only. The time this CryptoKeyVersion's key material was generated. |
+| `reimportEligible` | `boolean` | Output only. Whether or not this key version is eligible for reimport, by being specified as a target in ImportCryptoKeyVersionRequest.crypto_key_version. |
+| `protectionLevel` | `string` | Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `cryptoKeyVersionsId, cryptoKeysId, keyRingsId, locationsId, projectsId` | Returns metadata for a given CryptoKeyVersion. |
 | `list` | `SELECT` | `cryptoKeysId, keyRingsId, locationsId, projectsId` | Lists CryptoKeyVersions. |
 | `create` | `INSERT` | `cryptoKeysId, keyRingsId, locationsId, projectsId` | Create a new CryptoKeyVersion in a CryptoKey. The server will assign the next sequential id. If unset, state will be set to ENABLED. |
+| `_list` | `EXEC` | `cryptoKeysId, keyRingsId, locationsId, projectsId` | Lists CryptoKeyVersions. |
 | `asymmetric_decrypt` | `EXEC` | `cryptoKeyVersionsId, cryptoKeysId, keyRingsId, locationsId, projectsId` | Decrypts data that was encrypted with a public key retrieved from GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_DECRYPT. |
 | `asymmetric_sign` | `EXEC` | `cryptoKeyVersionsId, cryptoKeysId, keyRingsId, locationsId, projectsId` | Signs data using a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_SIGN, producing a signature that can be verified with the public key retrieved from GetPublicKey. |
 | `destroy` | `EXEC` | `cryptoKeyVersionsId, cryptoKeysId, keyRingsId, locationsId, projectsId` | Schedule a CryptoKeyVersion for destruction. Upon calling this method, CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time will be set to the time destroy_scheduled_duration in the future. At that time, the state will automatically change to DESTROYED, and the key material will be irrevocably destroyed. Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to reverse the process. |

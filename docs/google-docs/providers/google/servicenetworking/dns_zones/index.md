@@ -25,9 +25,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype |
+|:-----|:---------|
+| `producerPrivateZone` | `object` |
+| `consumerPeeringZone` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `servicesId` | * Service producers can use this method to retrieve a list of available DNS zones in the shared producer host project and the matching peering zones in the consumer project. * |
+| `get` | `SELECT` | `dnsZonesId, networksId, projectsId, servicesId` | Service producers can use this method to retrieve a DNS zone in the shared producer host project and the matching peering zones in consumer project |
+| `list` | `SELECT` | `networksId, projectsId, servicesId` | * Service producers can use this method to retrieve a list of available DNS zones in the shared producer host project and the matching peering zones in the consumer project. * |
 | `add` | `EXEC` | `servicesId` | Service producers can use this method to add private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
 | `remove` | `EXEC` | `servicesId` | Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. |

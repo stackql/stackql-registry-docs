@@ -19,9 +19,9 @@ Creates And Manages Builds On Google Cloud Platform.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>64</b></span><br />
+<span>total resources:&nbsp;<b>15</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>73</b></span><br />
 </div>
 </div>
 
@@ -33,12 +33,13 @@ Creates And Manages Builds On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Build API</td></tr>
 <tr><td><b>Description</b></td><td>Creates And Manages Builds On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudbuild:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudbuild:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/cloudbuild/bitbucket_repos/">bitbucket_repos</a><br />
 <a href="/providers/google/cloudbuild/bitbucket_server_configs/">bitbucket_server_configs</a><br />
 <a href="/providers/google/cloudbuild/bitbucket_server_configs_bitbucket_server_connected_repository/">bitbucket_server_configs_bitbucket_server_connected_repository</a><br />
 <a href="/providers/google/cloudbuild/builds/">builds</a><br />
@@ -50,9 +51,9 @@ Creates And Manages Builds On Google Cloud Platform.
 <div class="providerDocColumn">
 <a href="/providers/google/cloudbuild/gitlab_configs/">gitlab_configs</a><br />
 <a href="/providers/google/cloudbuild/gitlab_configs_gitlab_connected_repository/">gitlab_configs_gitlab_connected_repository</a><br />
+<a href="/providers/google/cloudbuild/gitlab_repos/">gitlab_repos</a><br />
 <a href="/providers/google/cloudbuild/locations/">locations</a><br />
 <a href="/providers/google/cloudbuild/operations/">operations</a><br />
-<a href="/providers/google/cloudbuild/repos/">repos</a><br />
 <a href="/providers/google/cloudbuild/triggers/">triggers</a><br />
 <a href="/providers/google/cloudbuild/worker_pools/">worker_pools</a><br />
 </div>

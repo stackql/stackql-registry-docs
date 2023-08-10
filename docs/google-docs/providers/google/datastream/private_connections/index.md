@@ -27,9 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `privateConnections` | `array` | List of private connectivity configurations. |
+| `name` | `string` | Output only. The resource's name. |
+| `labels` | `object` | Labels. |
+| `state` | `string` | Output only. The state of the Private Connection. |
+| `updateTime` | `string` | Output only. The update time of the resource. |
+| `vpcPeeringConfig` | `object` | The VPC Peering configuration is used to create VPC peering between Datastream and the consumer's VPC. |
+| `createTime` | `string` | Output only. The create time of the resource. |
+| `displayName` | `string` | Required. Display name. |
+| `error` | `object` | Represent a user-facing Error. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,3 +42,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Use this method to list private connectivity configurations in a project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Use this method to create a private connectivity configuration. |
 | `delete` | `DELETE` | `locationsId, privateConnectionsId, projectsId` | Use this method to delete a private connectivity configuration. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Use this method to list private connectivity configurations in a project and location. |

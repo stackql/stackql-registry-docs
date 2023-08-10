@@ -27,8 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no remaining results in the list. |
-| `partitions` | `array` | Partitions under the specified parent entity. |
+| `name` | `string` | Output only. Partition values used in the HTTP URL must be double encoded. For example, url_encode(url_encode(value)) can be used to encode "US:CA/CA#Sunnyvale so that the request URL ends with "/partitions/US%253ACA/CA%2523Sunnyvale". The name field in the response retains the encoded format. |
+| `values` | `array` | Required. Immutable. The set of values representing the partition, which correspond to the partition schema defined in the parent entity. |
+| `etag` | `string` | Optional. The etag for this partition. |
+| `location` | `string` | Required. Immutable. The location of the entity data within the partition, for example, gs://bucket/path/to/entity/key1=value1/key2=value2. Or projects//datasets//tables/ |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,3 +38,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_lakes_zones_entities_partitions_list` | `SELECT` | `entitiesId, lakesId, locationsId, projectsId, zonesId` | List metadata partitions of an entity. |
 | `projects_locations_lakes_zones_entities_partitions_create` | `INSERT` | `entitiesId, lakesId, locationsId, projectsId, zonesId` | Create a metadata partition. |
 | `projects_locations_lakes_zones_entities_partitions_delete` | `DELETE` | `entitiesId, lakesId, locationsId, partitionsId, projectsId, zonesId` | Delete a metadata partition. |
+| `_projects_locations_lakes_zones_entities_partitions_list` | `EXEC` | `entitiesId, lakesId, locationsId, projectsId, zonesId` | List metadata partitions of an entity. |

@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `unreachable` | `array` | Locations which could not be reached. |
-| `workflowConfigs` | `array` | List of workflow configs. |
+| `name` | `string` | Output only. The workflow config's name. |
+| `recentScheduledExecutionRecords` | `array` | Output only. Records of the 10 most recent scheduled execution attempts, ordered in in descending order of `execution_time`. Updated whenever automatic creation of a workflow invocation is triggered by cron_schedule. |
+| `releaseConfig` | `string` | Required. The name of the release config whose release_compilation_result should be executed. Must be in the format `projects/*/locations/*/repositories/*/releaseConfigs/*`. |
+| `timeZone` | `string` | Optional. Specifies the time zone to be used when interpreting cron_schedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC. |
+| `cronSchedule` | `string` | Optional. Optional schedule (in cron format) for automatic execution of this workflow config. |
+| `invocationConfig` | `object` | Includes various configuration options for a workflow invocation. If both `included_targets` and `included_tags` are unset, all actions will be included. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +40,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId, repositoriesId` | Lists WorkflowConfigs in a given Repository. |
 | `create` | `INSERT` | `locationsId, projectsId, repositoriesId` | Creates a new WorkflowConfig in a given Repository. |
 | `delete` | `DELETE` | `locationsId, projectsId, repositoriesId, workflowConfigsId` | Deletes a single WorkflowConfig. |
+| `_list` | `EXEC` | `locationsId, projectsId, repositoriesId` | Lists WorkflowConfigs in a given Repository. |
 | `patch` | `EXEC` | `locationsId, projectsId, repositoriesId, workflowConfigsId` | Updates a single WorkflowConfig. |

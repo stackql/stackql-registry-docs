@@ -27,13 +27,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `cutoverJobs` | `array` | Output only. The list of cutover jobs response. |
-| `nextPageToken` | `string` | Output only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `unreachable` | `array` | Output only. Locations that could not be reached. |
+| `name` | `string` | Output only. The name of the cutover job. |
+| `createTime` | `string` | Output only. The time the cutover job was created (as an API call, not when it was actually created in the target). |
+| `progressPercent` | `integer` | Output only. The current progress in percentage of the cutover job. |
+| `state` | `string` | Output only. State of the cutover job. |
+| `steps` | `array` | Output only. The cutover steps list representing its progress. |
+| `stateTime` | `string` | Output only. The time the state was last updated. |
+| `endTime` | `string` | Output only. The time the cutover job had finished. |
+| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
+| `computeEngineDisksTargetDetails` | `object` | ComputeEngineDisksTargetDetails is a collection of created Persistent Disks details. |
+| `stateMessage` | `string` | Output only. A message providing possible extra details about the current state. |
+| `computeEngineTargetDetails` | `object` | ComputeEngineTargetDetails is a collection of details for creating a VM in a target Compute Engine project. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `cutoverJobsId, locationsId, migratingVmsId, projectsId, sourcesId` | Gets details of a single CutoverJob. |
 | `list` | `SELECT` | `locationsId, migratingVmsId, projectsId, sourcesId` | Lists CutoverJobs of a given migrating VM. |
 | `create` | `INSERT` | `locationsId, migratingVmsId, projectsId, sourcesId` | Initiates a Cutover of a specific migrating VM. The returned LRO is completed when the cutover job resource is created and the job is initiated. |
+| `_list` | `EXEC` | `locationsId, migratingVmsId, projectsId, sourcesId` | Lists CutoverJobs of a given migrating VM. |
 | `cancel` | `EXEC` | `cutoverJobsId, locationsId, migratingVmsId, projectsId, sourcesId` | Initiates the cancellation of a running cutover job. |

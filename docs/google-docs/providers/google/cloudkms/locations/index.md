@@ -27,11 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `locations` | `array` | A list of locations that matches the specified filter in the request. |
-| `nextPageToken` | `string` | The standard List next-page token. |
+| `name` | `string` | Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` |
+| `displayName` | `string` | The friendly name for this location, typically a nearby city name. For example, "Tokyo". |
+| `labels` | `object` | Cross-service attributes for the location. For example &#123;"cloud.googleapis.com/region": "us-east1"&#125; |
+| `locationId` | `string` | The canonical id for this location. For example: `"us-east1"`. |
+| `metadata` | `object` | Service-specific metadata. For example the available capacity at the given location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `locationsId, projectsId` | Gets information about a location. |
 | `list` | `SELECT` | `projectsId` | Lists information about the supported locations for this service. |
+| `_list` | `EXEC` | `projectsId` | Lists information about the supported locations for this service. |
 | `generate_random_bytes` | `EXEC` | `locationsId, projectsId` | Generate random bytes using the Cloud KMS randomness source in the provided location. |

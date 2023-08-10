@@ -27,10 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `datasets` | `array` | An array of the dataset resources in the project. Each resource contains basic information. For full information about a particular dataset resource, use the Datasets: get method. This property is omitted when there are no datasets in the project. |
-| `etag` | `string` | A hash value of the results page. You can use this property to determine if the page has changed since the last request. |
-| `kind` | `string` | The list type. This property always returns the value "bigquery#datasetList". |
-| `nextPageToken` | `string` | A token that can be used to request the next results page. This property is omitted on the final results page. |
+| `id` | `string` | The fully-qualified, unique, opaque ID of the dataset. |
+| `friendlyName` | `string` | A descriptive name for the dataset, if one exists. |
+| `kind` | `string` | The resource type. This property always returns the value "bigquery#dataset". |
+| `labels` | `object` | The labels associated with this dataset. You can use these to organize and group your datasets. |
+| `location` | `string` | The geographic location where the data resides. |
+| `datasetReference` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -38,5 +40,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `projectId` | Lists all datasets in the specified project to which you have been granted the READER dataset role. |
 | `insert` | `INSERT` | `projectId` | Creates a new empty dataset. |
 | `delete` | `DELETE` | `datasetId, projectId` | Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables, either manually or by specifying deleteContents. Immediately after deletion, you can create another dataset with the same name. |
+| `_list` | `EXEC` | `projectId` | Lists all datasets in the specified project to which you have been granted the READER dataset role. |
 | `patch` | `EXEC` | `datasetId, projectId` | Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. This method supports patch semantics. |
 | `update` | `EXEC` | `datasetId, projectId` | Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. |

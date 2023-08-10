@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
-| `unreachable` | `array` | Locations which could not be reached. |
-| `workflowInvocations` | `array` | List of workflow invocations. |
+| `name` | `string` | Output only. The workflow invocation's name. |
+| `state` | `string` | Output only. This workflow invocation's current state. |
+| `workflowConfig` | `string` | Immutable. The name of the workflow config to invoke. Must be in the format `projects/*/locations/*/repositories/*/workflowConfigs/*`. |
+| `compilationResult` | `string` | Immutable. The name of the compilation result to use for this invocation. Must be in the format `projects/*/locations/*/repositories/*/compilationResults/*`. |
+| `invocationConfig` | `object` | Includes various configuration options for a workflow invocation. If both `included_targets` and `included_tags` are unset, all actions will be included. |
+| `invocationTiming` | `object` | Represents a time interval, encoded as a Timestamp start (inclusive) and a Timestamp end (exclusive). The start must be less than or equal to the end. When the start equals the end, the interval is empty (matches no time). When both start and end are unspecified, the interval matches any time. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,5 +40,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId, repositoriesId` | Lists WorkflowInvocations in a given Repository. |
 | `create` | `INSERT` | `locationsId, projectsId, repositoriesId` | Creates a new WorkflowInvocation in a given Repository. |
 | `delete` | `DELETE` | `locationsId, projectsId, repositoriesId, workflowInvocationsId` | Deletes a single WorkflowInvocation. |
+| `_list` | `EXEC` | `locationsId, projectsId, repositoriesId` | Lists WorkflowInvocations in a given Repository. |
 | `cancel` | `EXEC` | `locationsId, projectsId, repositoriesId, workflowInvocationsId` | Requests cancellation of a running WorkflowInvocation. |
 | `query` | `EXEC` | `locationsId, projectsId, repositoriesId, workflowInvocationsId` | Returns WorkflowInvocationActions in a given WorkflowInvocation. |

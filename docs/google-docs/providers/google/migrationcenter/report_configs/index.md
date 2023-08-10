@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
-| `reportConfigs` | `array` | A list of report configs. |
+| `name` | `string` | Output only. Name of resource. |
+| `description` | `string` | Free-text description. |
+| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
+| `groupPreferencesetAssignments` | `array` | Required. Collection of combinations of groups and preference sets. |
+| `updateTime` | `string` | Output only. The timestamp when the resource was last updated. |
+| `createTime` | `string` | Output only. The timestamp when the resource was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,3 +40,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists ReportConfigs in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a report configuration. |
 | `delete` | `DELETE` | `locationsId, projectsId, reportConfigsId` | Deletes a ReportConfig. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists ReportConfigs in a given project and location. |

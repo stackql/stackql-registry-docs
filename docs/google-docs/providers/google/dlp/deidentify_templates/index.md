@@ -27,8 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If the next page is available then the next page token to be used in following ListDeidentifyTemplates request. |
-| `deidentifyTemplates` | `array` | List of deidentify templates, up to page_size in ListDeidentifyTemplatesRequest. |
+| `name` | `string` | Output only. The template name. The template will have one of the following formats: `projects/PROJECT_ID/deidentifyTemplates/TEMPLATE_ID` OR `organizations/ORGANIZATION_ID/deidentifyTemplates/TEMPLATE_ID` |
+| `description` | `string` | Short description (max 256 chars). |
+| `deidentifyConfig` | `object` | The configuration that controls how the data will change. |
+| `displayName` | `string` | Display name (max 256 chars). |
+| `updateTime` | `string` | Output only. The last update timestamp of an inspectTemplate. |
+| `createTime` | `string` | Output only. The creation timestamp of an inspectTemplate. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,6 +52,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_locations_deidentify_templates_delete` | `DELETE` | `deidentifyTemplatesId, locationsId, organizationsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
 | `projects_deidentify_templates_delete` | `DELETE` | `deidentifyTemplatesId, projectsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
 | `projects_locations_deidentify_templates_delete` | `DELETE` | `deidentifyTemplatesId, locationsId, projectsId` | Deletes a DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `_organizations_deidentify_templates_list` | `EXEC` | `organizationsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `_organizations_locations_deidentify_templates_list` | `EXEC` | `locationsId, organizationsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `_projects_deidentify_templates_list` | `EXEC` | `projectsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
+| `_projects_locations_deidentify_templates_list` | `EXEC` | `locationsId, projectsId` | Lists DeidentifyTemplates. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
 | `organizations_deidentify_templates_patch` | `EXEC` | `deidentifyTemplatesId, organizationsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
 | `organizations_locations_deidentify_templates_patch` | `EXEC` | `deidentifyTemplatesId, locationsId, organizationsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |
 | `projects_deidentify_templates_patch` | `EXEC` | `deidentifyTemplatesId, projectsId` | Updates the DeidentifyTemplate. See https://cloud.google.com/dlp/docs/creating-templates-deid to learn more. |

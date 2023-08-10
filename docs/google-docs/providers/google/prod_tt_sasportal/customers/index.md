@@ -35,6 +35,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:--------------|:----------------|:------------|
 | `customers_get` | `SELECT` | `customersId` | Returns a requested customer. |
 | `customers_list` | `SELECT` |  | Returns a list of requested customers. |
+| `_customers_list` | `EXEC` |  | Returns a list of requested customers. |
 | `customers_check_has_provisioned_deployment` | `EXEC` |  | Checks whether a SAS deployment for the authentication context exists. |
 | `customers_migrate_organization` | `EXEC` |  | Migrates a SAS organization to the cloud. This will create GCP projects for each deployment and associate them. The SAS Organization is linked to the gcp project that called the command. go/sas-legacy-customer-migration |
 | `customers_patch` | `EXEC` | `customersId` | Updates an existing customer. |

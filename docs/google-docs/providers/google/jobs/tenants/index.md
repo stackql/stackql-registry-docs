@@ -36,5 +36,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `projectsId` | Lists all tenants associated with the project. |
 | `create` | `INSERT` | `projectsId` | Creates a new tenant entity. |
 | `delete` | `DELETE` | `projectsId, tenantsId` | Deletes specified tenant. |
+| `_list` | `EXEC` | `projectsId` | Lists all tenants associated with the project. |
 | `complete_query` | `EXEC` | `projectsId, tenantsId` | Completes the specified prefix with keyword suggestions. Intended for use by a job search auto-complete search box. |
 | `patch` | `EXEC` | `projectsId, tenantsId` | Updates specified tenant. |

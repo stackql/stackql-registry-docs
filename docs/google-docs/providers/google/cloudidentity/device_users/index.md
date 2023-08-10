@@ -27,14 +27,23 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Token to retrieve the next page of results. Empty if there are no more results. |
-| `deviceUsers` | `array` | Devices meeting the list restrictions. |
+| `name` | `string` | Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the DeviceUser in format: `devices/&#123;device&#125;/deviceUsers/&#123;device_user&#125;`, where `device_user` uniquely identifies a user's use of a device. |
+| `createTime` | `string` | When the user first signed in to the device |
+| `compromisedState` | `string` | Compromised State of the DeviceUser object |
+| `managementState` | `string` | Output only. Management state of the user on the device. |
+| `userAgent` | `string` | Output only. User agent on the device for this specific user |
+| `userEmail` | `string` | Email address of the user registered on the device. |
+| `languageCode` | `string` | Output only. Default locale used on device, in IETF BCP-47 format. |
+| `lastSyncTime` | `string` | Output only. Last time when user synced with policies. |
+| `firstSyncTime` | `string` | Output only. Most recent time when user registered with this service. |
+| `passwordState` | `string` | Password state of the DeviceUser object |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `deviceUsersId, devicesId` | Retrieves the specified DeviceUser |
 | `list` | `SELECT` | `devicesId` | Lists/Searches DeviceUsers. |
 | `delete` | `DELETE` | `deviceUsersId, devicesId` | Deletes the specified DeviceUser. This also revokes the user's access to device data. |
+| `_list` | `EXEC` | `devicesId` | Lists/Searches DeviceUsers. |
 | `approve` | `EXEC` | `deviceUsersId, devicesId` | Approves device to access user data. |
 | `block` | `EXEC` | `deviceUsersId, devicesId` | Blocks device from accessing user data |
 | `cancel_wipe` | `EXEC` | `deviceUsersId, devicesId` | Cancels an unfinished user account wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. |

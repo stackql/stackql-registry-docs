@@ -27,8 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If there are more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token` and the rest of the parameters the same as the original request. |
-| `contacts` | `array` | The contacts for the specified resource. |
+| `name` | `string` | Output only. The identifier for the contact. Format: &#123;resource_type&#125;/&#123;resource_id&#125;/contacts/&#123;contact_id&#125; |
+| `validateTime` | `string` | The last time the validation_state was updated, either manually or automatically. A contact is considered stale if its validation state was updated more than 1 year ago. |
+| `validationState` | `string` | The validity of the contact. A contact is considered valid if it is the correct recipient for notifications for a particular resource. |
+| `email` | `string` | Required. The email address to send notifications to. The email address does not need to be a Google Account. |
+| `languageTag` | `string` | Required. The preferred language for notifications, as a ISO 639-1 language code. See [Supported languages](https://cloud.google.com/resource-manager/docs/managing-notification-contacts#supported-languages) for a list of supported languages. |
+| `notificationCategorySubscriptions` | `array` | Required. The categories of notifications that the contact will receive communications for. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,6 +48,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `folders_contacts_delete` | `DELETE` | `contactsId, foldersId` | Deletes a contact. |
 | `organizations_contacts_delete` | `DELETE` | `contactsId, organizationsId` | Deletes a contact. |
 | `projects_contacts_delete` | `DELETE` | `contactsId, projectsId` | Deletes a contact. |
+| `_folders_contacts_list` | `EXEC` | `foldersId` | Lists the contacts that have been set on a resource. |
+| `_organizations_contacts_list` | `EXEC` | `organizationsId` | Lists the contacts that have been set on a resource. |
+| `_projects_contacts_list` | `EXEC` | `projectsId` | Lists the contacts that have been set on a resource. |
 | `folders_contacts_compute` | `EXEC` | `foldersId` | Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. |
 | `folders_contacts_patch` | `EXEC` | `contactsId, foldersId` | Updates a contact. Note: A contact's email address cannot be changed. |
 | `folders_contacts_send_test_message` | `EXEC` | `foldersId` | Allows a contact admin to send a test message to contact to verify that it has been configured correctly. |

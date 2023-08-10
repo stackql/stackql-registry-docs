@@ -25,16 +25,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `nextPageToken` | `string` | Optional. If not empty, indicates that there may be more subscriptions that match the request; this value should be passed in a new `ListTopicSubscriptionsRequest` to get more subscriptions. |
-| `subscriptions` | `array` | Optional. The names of subscriptions attached to the topic specified in the request. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_subscriptions_list` | `SELECT` | `projectsId` | Lists matching subscriptions. |
 | `projects_topics_subscriptions_list` | `SELECT` | `projectsId, topicsId` | Lists the names of the attached subscriptions on this topic. |
 | `projects_subscriptions_delete` | `DELETE` | `projectsId, subscriptionsId` | Deletes an existing subscription. All messages retained in the subscription are immediately dropped. Calls to `Pull` after deletion will return `NOT_FOUND`. After a subscription is deleted, a new one may be created with the same name, but the new one has no association with the old subscription or its topic unless the same topic is specified. |
+| `_projects_subscriptions_list` | `EXEC` | `projectsId` | Lists matching subscriptions. |
+| `_projects_topics_subscriptions_list` | `EXEC` | `projectsId, topicsId` | Lists the names of the attached subscriptions on this topic. |
 | `projects_subscriptions_acknowledge` | `EXEC` | `projectsId, subscriptionsId` | Acknowledges the messages associated with the `ack_ids` in the `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages from the subscription. Acknowledging a message whose ack deadline has expired may succeed, but such a message may be redelivered later. Acknowledging a message more than once will not result in an error. |
 | `projects_subscriptions_create` | `EXEC` | `projectsId, subscriptionsId` | Creates a subscription to a given topic. See the [resource name rules] (https://cloud.google.com/pubsub/docs/admin#resource_names). If the subscription already exists, returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the request, the server will assign a random name for this subscription on the same project as the topic, conforming to the [resource name format] (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated name is populated in the returned Subscription object. Note that for REST API requests, you must specify a name in the request. |
 | `projects_subscriptions_detach` | `EXEC` | `projectsId, subscriptionsId` | Detaches a subscription from this topic. All messages retained in the subscription are dropped. Subsequent `Pull` and `StreamingPull` requests will return FAILED_PRECONDITION. If the subscription is a push subscription, pushes to the endpoint will stop. |

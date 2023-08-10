@@ -37,4 +37,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `get` | `SELECT` | `name` | Returns the service configuration and enabled state for a given service. |
 | `batch_enable` | `EXEC` | `parent` | Enable multiple services on a project. The operation is atomic: if enabling any service fails, then the entire batch fails, and no state changes occur. To enable a single service, use the `EnableService` method instead. |
 | `batch_get` | `EXEC` | `parent` | Returns the service configurations and enabled states for a given list of services. |
-| `disable` | `EXEC` | `name` | Disable a service so that it can no longer be used with a project. This prevents unintended usage that may cause unexpected billing charges or security leaks. It is not valid to call the disable method on a service that is not currently enabled. Callers will receive a `FAILED_PRECONDITION` status if the target service is not currently enabled. |
+| `enable` | `EXEC` | `name` | Enable a service so that it can be used with a project. |

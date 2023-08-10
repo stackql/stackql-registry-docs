@@ -21,7 +21,7 @@ An API For Controlling Access To Data By Google Personnel.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>27</b></span><br />
+<span>total methods:&nbsp;<b>30</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ An API For Controlling Access To Data By Google Personnel.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Access Approval API</td></tr>
 <tr><td><b>Description</b></td><td>An API For Controlling Access To Data By Google Personnel.</td></tr>
-<tr><td><b>Id</b></td><td><code>accessapproval:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>accessapproval:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

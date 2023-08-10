@@ -38,3 +38,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, processesId, projectsId, runsId` | Lists lineage events in the given project and location. The list order is not defined. |
 | `create` | `INSERT` | `locationsId, processesId, projectsId, runsId` | Creates a new lineage event. |
 | `delete` | `DELETE` | `lineageEventsId, locationsId, processesId, projectsId, runsId` | Deletes the lineage event with the specified name. |
+| `_list` | `EXEC` | `locationsId, processesId, projectsId, runsId` | Lists lineage events in the given project and location. The list order is not defined. |

@@ -37,4 +37,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `brandsId, projectsId` | Lists the existing clients for the brand. |
 | `create` | `INSERT` | `brandsId, projectsId` | Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned by IAP. Requires that the brand for the project exists and that it is set for internal-only use. |
 | `delete` | `DELETE` | `brandsId, identityAwareProxyClientsId, projectsId` | Deletes an Identity Aware Proxy (IAP) OAuth client. Useful for removing obsolete clients, managing the number of clients in a given project, and cleaning up after tests. Requires that the client is owned by IAP. |
+| `_list` | `EXEC` | `brandsId, projectsId` | Lists the existing clients for the brand. |
 | `reset_secret` | `EXEC` | `brandsId, identityAwareProxyClientsId, projectsId` | Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful if the secret was compromised. Requires that the client is owned by IAP. |

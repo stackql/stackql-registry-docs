@@ -27,14 +27,26 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token to retrieve next page of results. Pass this value in ListCertificatesRequest.next_page_token to retrieve the next page of results. |
-| `unreachable` | `array` | A list of locations (e.g. "us-west1") that could not be reached. |
-| `certificates` | `array` | The list of Certificates. |
+| `name` | `string` | Output only. The resource name for this Certificate in the format `projects/*/locations/*/caPools/*/certificates/*`. |
+| `pemCsr` | `string` | Immutable. A pem-encoded X.509 certificate signing request (CSR). |
+| `certificateTemplate` | `string` | Immutable. The resource name for a CertificateTemplate used to issue this certificate, in the format `projects/*/locations/*/certificateTemplates/*`. If this is specified, the caller must have the necessary permission to use this template. If this is omitted, no template will be used. This template must be in the same location as the Certificate. |
+| `issuerCertificateAuthority` | `string` | Output only. The resource name of the issuing CertificateAuthority in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`. |
+| `revocationDetails` | `object` | Describes fields that are relavent to the revocation of a Certificate. |
+| `config` | `object` | A CertificateConfig describes an X.509 certificate or CSR that is to be created, as an alternative to using ASN.1. |
+| `createTime` | `string` | Output only. The time at which this Certificate was created. |
+| `subjectMode` | `string` | Immutable. Specifies how the Certificate's identity fields are to be decided. If this is omitted, the `DEFAULT` subject mode will be used. |
+| `pemCertificate` | `string` | Output only. The pem-encoded, signed X.509 certificate. |
+| `certificateDescription` | `object` | A CertificateDescription describes an X.509 certificate or CSR that has been issued, as an alternative to using ASN.1 / X.509. |
+| `updateTime` | `string` | Output only. The time at which this Certificate was updated. |
+| `pemCertificateChain` | `array` | Output only. The chain that may be used to verify the X.509 certificate. Expected to be in issuer-to-root order according to RFC 5246. |
+| `lifetime` | `string` | Required. Immutable. The desired lifetime of a certificate. Used to create the "not_before_time" and "not_after_time" fields inside an X.509 certificate. Note that the lifetime may be truncated if it would extend past the life of any certificate authority in the issuing chain. |
+| `labels` | `object` | Optional. Labels with user-defined metadata. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `caPoolsId, certificatesId, locationsId, projectsId` | Returns a Certificate. |
 | `list` | `SELECT` | `caPoolsId, locationsId, projectsId` | Lists Certificates. |
 | `create` | `INSERT` | `caPoolsId, locationsId, projectsId` | Create a new Certificate in a given Project, Location from a particular CaPool. |
+| `_list` | `EXEC` | `caPoolsId, locationsId, projectsId` | Lists Certificates. |
 | `patch` | `EXEC` | `caPoolsId, certificatesId, locationsId, projectsId` | Update a Certificate. Currently, the only field you can update is the labels field. |
 | `revoke` | `EXEC` | `caPoolsId, certificatesId, locationsId, projectsId` | Revoke a Certificate. |

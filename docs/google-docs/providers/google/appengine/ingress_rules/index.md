@@ -38,5 +38,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `appsId` | Lists the firewall rules of an application. |
 | `create` | `INSERT` | `appsId` | Creates a firewall rule for the application. |
 | `delete` | `DELETE` | `appsId, ingressRulesId` | Deletes the specified firewall rule. |
+| `_list` | `EXEC` | `appsId` | Lists the firewall rules of an application. |
 | `batch_update` | `EXEC` | `appsId` | Replaces the entire firewall ruleset in one bulk operation. This overrides and replaces the rules of an existing firewall with the new rules.If the final rule does not match traffic with the '*' wildcard IP range, then an "allow all" rule is explicitly added to the end of the list. |
 | `patch` | `EXEC` | `appsId, ingressRulesId` | Updates the specified firewall rule. |

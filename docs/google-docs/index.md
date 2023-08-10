@@ -17,16 +17,16 @@ slug: /providers/google
 ---
 Cloud computing services offered by Google.  
     
-:::info Provider Summary (v23.08.00155)
+:::info Provider Summary (v23.08.00157)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>149</b></span><br />
-<span>total methods:&nbsp;<b>5754</b></span><br />
+<span>total services:&nbsp;<b>150</b></span><br />
+<span>total methods:&nbsp;<b>7015</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1418</b></span><br />
-<span>total selectable resources:&nbsp;<b>1101</b></span><br />
+<span>total resources:&nbsp;<b>1469</b></span><br />
+<span>total selectable resources:&nbsp;<b>1181</b></span><br />
 </div>
 </div>
 
@@ -103,6 +103,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/accessapproval/">accessapproval</a><br />
 <a href="/providers/google/accesscontextmanager/">accesscontextmanager</a><br />
 <a href="/providers/google/advisorynotifications/">advisorynotifications</a><br />
+<a href="/providers/google/aiplatform/">aiplatform</a><br />
 <a href="/providers/google/analyticshub/">analyticshub</a><br />
 <a href="/providers/google/apigateway/">apigateway</a><br />
 <a href="/providers/google/apigee/">apigee</a><br />
@@ -174,9 +175,9 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/gkehub/">gkehub</a><br />
 <a href="/providers/google/gkeonprem/">gkeonprem</a><br />
 <a href="/providers/google/healthcare/">healthcare</a><br />
-<a href="/providers/google/iam/">iam</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/iam/">iam</a><br />
 <a href="/providers/google/iamcredentials/">iamcredentials</a><br />
 <a href="/providers/google/iap/">iap</a><br />
 <a href="/providers/google/identitytoolkit/">identitytoolkit</a><br />

@@ -21,7 +21,7 @@ Integrates Text Translation Into Your Website Or Application.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>9</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>39</b></span><br />
+<span>total methods:&nbsp;<b>46</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Integrates Text Translation Into Your Website Or Application.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Translation API</td></tr>
 <tr><td><b>Description</b></td><td>Integrates Text Translation Into Your Website Or Application.</td></tr>
-<tr><td><b>Id</b></td><td><code>translate:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>translate:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

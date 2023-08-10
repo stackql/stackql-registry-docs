@@ -27,9 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `stages` | `array` | The stages of the job execution. |
-| `nextPageToken` | `string` | If present, this response does not contain all requested tasks. To obtain the next page of results, repeat the request with page_token set to this value. |
+| `startTime` | `string` | Start time of this stage. |
+| `state` | `string` | State of this stage. |
+| `stragglerSummary` | `object` | Summarized straggler identification details. |
+| `endTime` | `string` | End time of this stage. If the work item is completed, this is the actual end time of the stage. Otherwise, it is the predicted end time. |
+| `metrics` | `array` | Metrics for this stage. |
+| `progress` | `object` | Information about the progress of some component of job execution. |
+| `stageId` | `string` | ID of this stage |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `projects_locations_jobs_get_execution_details` | `SELECT` | `jobId, location, projectId` |
+| `_projects_locations_jobs_get_execution_details` | `EXEC` | `jobId, location, projectId` |

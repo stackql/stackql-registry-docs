@@ -27,11 +27,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `totalSize` | `integer` | The estimated total number of results matching the query. |
-| `valuedResources` | `array` | The valued resources that the attack path simulation identified. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results. |
+| `name` | `string` | Valued resource name, for example, e.g.: `organizations/123/simulations/456/valuedResources/789` |
+| `resourceValue` | `string` | How valuable this resource is. |
+| `resourceValueConfigsUsed` | `array` | List of resource value configurations' metadata used to determine the value of this resource. Maximum of 100. |
+| `displayName` | `string` | Human-readable name of the valued resource. |
+| `exposedScore` | `number` | Exposed score for this valued resource. A value of 0 means no exposure was detected exposure. |
+| `resource` | `string` | The [full resource name](https://cloud.google.com/apis/design/resource_names#full_resource_name) of the valued resource. |
+| `resourceType` | `string` | The [resource type](https://cloud.google.com/asset-inventory/docs/supported-asset-types) of the valued resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `organizations_simulations_attack_exposure_results_valued_resources_list` | `SELECT` | `attackExposureResultsId, organizationsId, simulationsId` |
 | `organizations_simulations_valued_resources_list` | `SELECT` | `organizationsId, simulationsId` |
+| `_organizations_simulations_attack_exposure_results_valued_resources_list` | `EXEC` | `attackExposureResultsId, organizationsId, simulationsId` |
+| `_organizations_simulations_valued_resources_list` | `EXEC` | `organizationsId, simulationsId` |

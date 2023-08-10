@@ -25,35 +25,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | Output only. Name of the Apigee organization. |
-| `description` | `string` | Description of the Apigee organization. |
-| `apiConsumerDataEncryptionKeyName` | `string` | Cloud KMS key name used for encrypting API consumer data. Required for US/EU regions when [BillingType](#BillingType) is `SUBSCRIPTION`. When [BillingType](#BillingType) is `EVALUATION` or the region is not US/EU, a Google-Managed encryption key will be used. Format: `projects/*/locations/*/keyRings/*/cryptoKeys/*` |
-| `analyticsRegion` | `string` | Required. DEPRECATED: This field will eventually be deprecated and replaced with a differently-named field. Primary Google Cloud region for analytics data storage. For valid values, see [Create an Apigee organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org). |
-| `createdAt` | `string` | Output only. Time that the Apigee organization was created in milliseconds since epoch. |
-| `attributes` | `array` | Not used by Apigee. |
-| `authorizedNetwork` | `string` | Compute Engine network used for Service Networking to be peered with Apigee runtime instances. See [Getting started with the Service Networking API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started). Valid only when [RuntimeType](#RuntimeType) is set to `CLOUD`. The value must be set before the creation of a runtime instance and can be updated only when there are no runtime instances. For example: `default`. Apigee also supports shared VPC (that is, the host network project is not the same as the one that is peering with Apigee). See [Shared VPC overview](https://cloud.google.com/vpc/docs/shared-vpc). To use a shared VPC network, use the following format: `projects/&#123;host-project-id&#125;/&#123;region&#125;/networks/&#123;network-name&#125;`. For example: `projects/my-sharedvpc-host/global/networks/mynetwork` **Note:** Not supported for Apigee hybrid. |
-| `portalDisabled` | `boolean` | Configuration for the Portals settings. |
-| `addonsConfig` | `object` | Add-on configurations for the Apigee organization. |
-| `properties` | `object` | Message for compatibility with legacy Edge specification for Java Properties object in JSON. |
-| `runtimeDatabaseEncryptionKeyName` | `string` | Cloud KMS key name used for encrypting the data that is stored and replicated across runtime instances. Update is not allowed after the organization is created. Required when [RuntimeType](#RuntimeType) is `CLOUD`. If not specified when [RuntimeType](#RuntimeType) is `TRIAL`, a Google-Managed encryption key will be used. For example: "projects/foo/locations/us/keyRings/bar/cryptoKeys/baz". **Note:** Not supported for Apigee hybrid. |
-| `billingType` | `string` | Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing). |
-| `subscriptionType` | `string` | Output only. DEPRECATED: This will eventually be replaced by BillingType. Subscription type of the Apigee organization. Valid values include trial (free, limited, and for evaluation purposes only) or paid (full subscription has been purchased). See [Apigee pricing](https://cloud.google.com/apigee/pricing/). |
-| `runtimeType` | `string` | Required. Runtime type of the Apigee organization based on the Apigee subscription purchased. |
-| `lastModifiedAt` | `string` | Output only. Time that the Apigee organization was last modified in milliseconds since epoch. |
-| `apigeeProjectId` | `string` | Output only. Apigee Project ID associated with the organization. Use this project to allowlist Apigee in the Service Attachment when using private service connect with Apigee. |
-| `customerName` | `string` | Not used by Apigee. |
-| `environments` | `array` | Output only. List of environments in the Apigee organization. |
-| `projectId` | `string` | Output only. Project ID associated with the Apigee organization. |
-| `type` | `string` | Not used by Apigee. |
-| `expiresAt` | `string` | Output only. Time that the Apigee organization is scheduled for deletion. |
-| `apiConsumerDataLocation` | `string` | This field is needed only for customers with control plane in US or EU. Apigee stores some control plane data only in single region. This field determines which single region Apigee should use. For example: "us-west1" when control plane is in US or "europe-west2" when control plane is in EU. |
-| `displayName` | `string` | Display name for the Apigee organization. Unused, but reserved for future use. |
-| `state` | `string` | Output only. State of the organization. Values other than ACTIVE means the resource is not ready to use. |
-| `controlPlaneEncryptionKeyName` | `string` | Cloud KMS key name used for encrypting control plane data that is stored in a multi region. Required when [BillingType](#BillingType) is `SUBSCRIPTION`. When [BillingType](#BillingType) is `EVALUATION`, a Google-Managed encryption key will be used. Format: `projects/*/locations/*/keyRings/*/cryptoKeys/*` |
-| `caCertificate` | `string` | Output only. Base64-encoded public certificate for the root CA of the Apigee organization. Valid only when [RuntimeType](#RuntimeType) is `CLOUD`. |
-| `disableVpcPeering` | `boolean` | Optional. Flag that specifies whether the VPC Peering through Private Google Access should be disabled between the consumer network and Apigee. Valid only when RuntimeType is set to CLOUD. Required if an authorizedNetwork on the consumer project is not provided, in which case the flag should be set to true. The value must be set before the creation of any Apigee runtime instance and can be updated only when there are no runtime instances. **Note:** Apigee will be deprecating the vpc peering model that requires you to provide 'authorizedNetwork', by making the non-peering model as the default way of provisioning Apigee organization in future. So, this will be a temporary flag to enable the transition. Not supported for Apigee hybrid. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

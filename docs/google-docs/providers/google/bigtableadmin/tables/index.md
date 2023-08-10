@@ -27,8 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | Set if not all tables could be returned in a single response. Pass this value to `page_token` in another request to get the next page of results. |
-| `tables` | `array` | The tables present in the requested instance. |
+| `name` | `string` | The unique name of the table. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/tables/_a-zA-Z0-9*`. Views: `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `STATS_VIEW`, `FULL` |
+| `columnFamilies` | `object` | The column families configured for this table, mapped by column family ID. Views: `SCHEMA_VIEW`, `STATS_VIEW`, `FULL` |
+| `deletionProtection` | `boolean` | Set to true to make the table protected against data loss. i.e. deleting the following resources through Admin APIs are prohibited: * The table. * The column families in the table. * The instance containing the table. Note one can still delete the data stored in the table through Data APIs. |
+| `granularity` | `string` | Immutable. The granularity (i.e. `MILLIS`) at which timestamps are stored in this table. Timestamps not matching the granularity will be rejected. If unspecified at creation time, the value will be set to `MILLIS`. Views: `SCHEMA_VIEW`, `FULL`. |
+| `restoreInfo` | `object` | Information about a table restore. |
+| `stats` | `object` | Approximate statistics related to a table. These statistics are calculated infrequently, while simultaneously, data in the table can change rapidly. Thus the values reported here (e.g. row count) are very likely out-of date, even the instant they are received in this API. Thus, only treat these values as approximate. IMPORTANT: Everything below is approximate, unless otherwise specified. |
+| `changeStreamConfig` | `object` | Change stream configuration. |
+| `clusterStates` | `object` | Output only. Map from cluster ID to per-cluster table state. If it could not be determined whether or not the table has data in a particular cluster (for example, if its zone is unavailable), then there will be an entry for the cluster with UNKNOWN `replication_status`. Views: `REPLICATION_VIEW`, `ENCRYPTION_VIEW`, `FULL` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,6 +42,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `instancesId, projectsId` | Lists all tables served from a specified instance. |
 | `create` | `INSERT` | `instancesId, projectsId` | Creates a new table in the specified instance. The table can be created with a full set of initial column families, specified in the request. |
 | `delete` | `DELETE` | `instancesId, projectsId, tablesId` | Permanently deletes a specified table and all of its data. |
+| `_list` | `EXEC` | `instancesId, projectsId` | Lists all tables served from a specified instance. |
 | `check_consistency` | `EXEC` | `instancesId, projectsId, tablesId` | Checks replication consistency based on a consistency token, that is, if replication has caught up based on the conditions specified in the token and the check request. |
 | `drop_row_range` | `EXEC` | `instancesId, projectsId, tablesId` | Permanently drop/delete a row range from a specified table. The request can specify whether to delete all rows in a table, or only those that match a particular prefix. |
 | `generate_consistency_token` | `EXEC` | `instancesId, projectsId, tablesId` | Generates a consistency token for a Table, which can be used in CheckConsistency to check whether mutations to the table that finished before this call started have been replicated. The tokens will be available for 90 days. |

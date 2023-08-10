@@ -29,21 +29,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name of the SFDC instance projects/&#123;project&#125;/locations/&#123;location&#125;/authConfigs/&#123;authConfig&#125;. |
 | `description` | `string` | A description of the auth config. |
-| `reason` | `string` | The reason / details of the current status. |
-| `lastModifierEmail` | `string` | The last modifier's email address. Generated based on the End User Credentials/LOAS role of the user making the call. |
-| `createTime` | `string` | Output only. The timestamp when the auth config is created. |
-| `credentialType` | `string` | Credential type of the encrypted credential. |
-| `certificateId` | `string` | Certificate id for client certificate |
-| `expiryNotificationDuration` | `array` | User can define the time to receive notification after which the auth config becomes invalid. Support up to 30 days. Support granularity in hours. |
-| `overrideValidTime` | `string` | User provided expiry time to override. For the example of Salesforce, username/password credentials can be valid for 6 months depending on the instance settings. |
-| `displayName` | `string` | Required. The name of the auth config. |
-| `decryptedCredential` | `object` | Defines parameters for a single, canonical credential. |
-| `validTime` | `string` | The time until the auth config is valid. Empty or max value is considered the auth config won't expire. |
-| `creatorEmail` | `string` | The creator's email address. Generated based on the End User Credentials/LOAS role of the user making the call. |
 | `encryptedCredential` | `string` | Auth credential encrypted by Cloud KMS. Can be decrypted as Credential with proper KMS key. |
 | `state` | `string` | The status of the auth config. |
-| `updateTime` | `string` | Output only. The timestamp when the auth config is modified. |
+| `createTime` | `string` | Output only. The timestamp when the auth config is created. |
+| `displayName` | `string` | Required. The name of the auth config. |
+| `creatorEmail` | `string` | The creator's email address. Generated based on the End User Credentials/LOAS role of the user making the call. |
 | `visibility` | `string` | The visibility of the auth config. |
+| `expiryNotificationDuration` | `array` | User can define the time to receive notification after which the auth config becomes invalid. Support up to 30 days. Support granularity in hours. |
+| `reason` | `string` | The reason / details of the current status. |
+| `decryptedCredential` | `object` | Defines parameters for a single, canonical credential. |
+| `credentialType` | `string` | Credential type of the encrypted credential. |
+| `validTime` | `string` | The time until the auth config is valid. Empty or max value is considered the auth config won't expire. |
+| `updateTime` | `string` | Output only. The timestamp when the auth config is modified. |
+| `lastModifierEmail` | `string` | The last modifier's email address. Generated based on the End User Credentials/LOAS role of the user making the call. |
+| `overrideValidTime` | `string` | User provided expiry time to override. For the example of Salesforce, username/password credentials can be valid for 6 months depending on the instance settings. |
+| `certificateId` | `string` | Certificate id for client certificate |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,5 +55,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_products_auth_configs_create` | `INSERT` | `locationsId, productsId, projectsId` | Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config. |
 | `projects_locations_auth_configs_delete` | `DELETE` | `authConfigsId, locationsId, projectsId` | Deletes an auth config. |
 | `projects_locations_products_auth_configs_delete` | `DELETE` | `authConfigsId, locationsId, productsId, projectsId` | Deletes an auth config. |
+| `_projects_locations_auth_configs_list` | `EXEC` | `locationsId, projectsId` | Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only. |
+| `_projects_locations_products_auth_configs_list` | `EXEC` | `locationsId, productsId, projectsId` | Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only. |
 | `projects_locations_auth_configs_patch` | `EXEC` | `authConfigsId, locationsId, projectsId` | Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config. |
 | `projects_locations_products_auth_configs_patch` | `EXEC` | `authConfigsId, locationsId, productsId, projectsId` | Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config. |

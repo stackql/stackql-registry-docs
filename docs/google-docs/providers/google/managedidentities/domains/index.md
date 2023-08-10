@@ -27,9 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `domains` | `array` | A list of Managed Identities Service domains in the project. |
-| `nextPageToken` | `string` | A token to retrieve the next page of results, or empty if there are no more results in the list. |
-| `unreachable` | `array` | A list of locations that could not be reached. |
+| `name` | `string` | Required. The unique name of the domain using the form: `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;`. |
+| `createTime` | `string` | Output only. The time the instance was created. |
+| `fqdn` | `string` | Output only. The fully-qualified domain name of the exposed domain used by clients to connect to the service. Similar to what would be chosen for an Active Directory set up on an internal network. |
+| `state` | `string` | Output only. The current state of this domain. |
+| `admin` | `string` | Optional. The name of delegated administrator account used to perform Active Directory operations. If not specified, `setupadmin` will be used. |
+| `locations` | `array` | Required. Locations where domain needs to be provisioned. regions e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location will use a /26 block. |
+| `statusMessage` | `string` | Output only. Additional information about the current status of this domain, if available. |
+| `reservedIpRange` | `string` | Required. The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger. Ranges must be unique and non-overlapping with existing subnets in [Domain].[authorized_networks]. |
+| `auditLogsEnabled` | `boolean` | Optional. Configuration for audit logs. True if audit logs are enabled, else false. Default is audit logs disabled. |
+| `trusts` | `array` | Output only. The current trusts associated with the domain. |
+| `updateTime` | `string` | Output only. The last update time. |
+| `authorizedNetworks` | `array` | Optional. The full names of the Google Compute Engine [networks](/compute/docs/networks-and-firewalls#networks) the domain instance is connected to. Networks can be added using UpdateDomain. The domain is only available on networks listed in `authorized_networks`. If CIDR subnets overlap between networks, domain creation will fail. |
+| `labels` | `object` | Optional. Resource labels that can contain user-provided metadata. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,6 +47,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `projectsId` | Lists domains in a project. |
 | `create` | `INSERT` | `projectsId` | Creates a Microsoft AD domain. |
 | `delete` | `DELETE` | `domainsId, projectsId` | Deletes a domain. |
+| `_list` | `EXEC` | `projectsId` | Lists domains in a project. |
 | `attach_trust` | `EXEC` | `domainsId, projectsId` | Adds an AD trust to a domain. |
 | `check_migration_permission` | `EXEC` | `domainsId, projectsId` | CheckMigrationPermission API gets the current state of DomainMigration |
 | `detach_trust` | `EXEC` | `domainsId, projectsId` | Removes an AD trust. |

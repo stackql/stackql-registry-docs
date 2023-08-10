@@ -27,8 +27,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `devices` | `array` | The devices that match the request. |
-| `nextPageToken` | `string` | A pagination token returned from a previous call to ListDevices that indicates from where listing should continue. If the field is missing or empty, it means there is no more devices. |
+| `name` | `string` | Output only. The resource path name. |
+| `state` | `string` | Output only. Device state. |
+| `displayName` | `string` | Device display name. |
+| `serialNumber` | `string` | A serial number assigned to the device by the device manufacturer. |
+| `preloadedConfig` | `object` | Information about the device configuration. |
+| `grants` | `array` | Output only. Grants held by the device. |
+| `deviceMetadata` | `object` | Device data overridable by both SAS Portal and registration requests. |
+| `grantRangeAllowlists` | `array` | Only ranges that are within the allowlists are available for new grants. |
+| `activeConfig` | `object` | Information about the device configuration. |
+| `currentChannels` | `array` | Output only. Current channels with scores. |
+| `fccId` | `string` | The FCC identifier of the device. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -50,6 +59,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `customers_devices_delete` | `DELETE` | `customersId, devicesId` | Deletes a device. |
 | `deployments_devices_delete` | `DELETE` | `deploymentsId, devicesId` | Deletes a device. |
 | `nodes_devices_delete` | `DELETE` | `devicesId, nodesId` | Deletes a device. |
+| `_customers_deployments_devices_list` | `EXEC` | `customersId, deploymentsId` | Lists devices under a node or customer. |
+| `_customers_devices_list` | `EXEC` | `customersId` | Lists devices under a node or customer. |
+| `_customers_nodes_devices_list` | `EXEC` | `customersId, nodesId` | Lists devices under a node or customer. |
+| `_nodes_deployments_devices_list` | `EXEC` | `deploymentsId, nodesId` | Lists devices under a node or customer. |
+| `_nodes_devices_list` | `EXEC` | `nodesId` | Lists devices under a node or customer. |
+| `_nodes_nodes_devices_list` | `EXEC` | `nodesId, nodesId1` | Lists devices under a node or customer. |
 | `customers_devices_move` | `EXEC` | `customersId, devicesId` | Moves a device under another node or customer. |
 | `customers_devices_patch` | `EXEC` | `customersId, devicesId` | Updates a device. |
 | `customers_devices_sign_device` | `EXEC` | `customersId, devicesId` | Signs a device. |

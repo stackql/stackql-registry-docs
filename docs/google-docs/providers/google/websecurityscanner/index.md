@@ -21,7 +21,7 @@ Scans Your Compute And App Engine Apps For Common Web Vulnerabilities.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>13</b></span><br />
+<span>total methods:&nbsp;<b>17</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Scans Your Compute And App Engine Apps For Common Web Vulnerabilities.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Web Security Scanner API</td></tr>
 <tr><td><b>Description</b></td><td>Scans Your Compute And App Engine Apps For Common Web Vulnerabilities.</td></tr>
-<tr><td><b>Id</b></td><td><code>websecurityscanner:v23.08.00155</code></td></tr>
+<tr><td><b>Id</b></td><td><code>websecurityscanner:v23.08.00157</code></td></tr>
 </tbody></table>
 
 ## Resources

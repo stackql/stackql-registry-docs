@@ -27,10 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `header` | `object` | Elements common to every response. |
-| `kind` | `string` | Type of resource. |
-| `nextPageToken` | `string` | The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value as your page token. This lets you the complete contents of even very large collections one page at a time. However, if the contents of the collection change between the first and last paginated list request, the set of all elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger than the maximum page size. |
-| `policies` | `array` | The policy resources. |
+| `id` | `string` | Unique identifier for the resource; defined by the server (output only). |
+| `name` | `string` | User-assigned name for this policy. |
+| `description` | `string` | A mutable string of at most 1024 characters associated with this resource for the user's convenience. Has no effect on the policy's function. |
+| `kind` | `string` |  |
+| `networks` | `array` | List of network names specifying networks to which this policy is applied. |
+| `alternativeNameServerConfig` | `object` |  |
+| `enableInboundForwarding` | `boolean` | Allows networks bound to this policy to receive DNS queries sent by VMs or applications over VPN connections. When enabled, a virtual IP address is allocated from each of the subnetworks that are bound to this policy. |
+| `enableLogging` | `boolean` | Controls whether logging is enabled for the networks bound to this policy. Defaults to no logging if not set. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -38,5 +42,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `project` | Enumerates all Policies associated with a project. |
 | `create` | `INSERT` | `project` | Creates a new Policy. |
 | `delete` | `DELETE` | `policy, project` | Deletes a previously created Policy. Fails if the policy is still being referenced by a network. |
+| `_list` | `EXEC` | `project` | Enumerates all Policies associated with a project. |
 | `patch` | `EXEC` | `policy, project` | Applies a partial update to an existing Policy. |
 | `update` | `EXEC` | `policy, project` | Updates an existing Policy. |

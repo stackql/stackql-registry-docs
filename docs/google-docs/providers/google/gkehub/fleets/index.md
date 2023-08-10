@@ -27,8 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `fleets` | `array` | The list of matching fleets. |
-| `nextPageToken` | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. The token is only valid for 1h. |
+| `name` | `string` | Output only. The full, unique resource name of this fleet in the format of `projects/&#123;project&#125;/locations/&#123;location&#125;/fleets/&#123;fleet&#125;`. Each Google Cloud project can have at most one fleet resource, named "default". |
+| `labels` | `object` | Optional. Labels for this Fleet. |
+| `state` | `object` | FleetLifecycleState describes the state of a Fleet resource. |
+| `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all Fleet resources. If a Fleet resource is deleted and another resource with the same name is created, it gets a different uid. |
+| `updateTime` | `string` | Output only. When the Fleet was last updated. |
+| `createTime` | `string` | Output only. When the Fleet was created. |
+| `deleteTime` | `string` | Output only. When the Fleet was deleted. |
+| `displayName` | `string` | Optional. A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point. Example: `Production Fleet` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,5 +42,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_locations_fleets_list` | `SELECT` | `locationsId, projectsId` | Returns all fleets within an organization or a project that the caller has access to. |
 | `projects_locations_fleets_create` | `INSERT` | `locationsId, projectsId` | Creates a fleet. |
 | `projects_locations_fleets_delete` | `DELETE` | `fleetsId, locationsId, projectsId` | Removes a Fleet. There must be no memberships remaining in the Fleet. |
+| `_organizations_locations_fleets_list` | `EXEC` | `locationsId, organizationsId` | Returns all fleets within an organization or a project that the caller has access to. |
+| `_projects_locations_fleets_list` | `EXEC` | `locationsId, projectsId` | Returns all fleets within an organization or a project that the caller has access to. |
 | `projects_locations_fleets_get` | `EXEC` | `fleetsId, locationsId, projectsId` | Returns the details of a fleet. |
 | `projects_locations_fleets_patch` | `EXEC` | `fleetsId, locationsId, projectsId` | Updates a fleet. |

@@ -27,10 +27,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | A token which may be sent as page_token in a subsequent `ListVolumeBackups` call to retrieve the next page of results. If this field is omitted or empty, then there are no more results to return. |
-| `volumeBackups` | `array` | The list of VolumeBackups matching the given criteria. |
+| `name` | `string` | Output only. The full name of the VolumeBackup resource. Format: `projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*`. |
+| `sourcePvc` | `object` | A reference to a namespaced resource in Kubernetes. |
+| `format` | `string` | Output only. The format used for the volume backup. |
+| `volumeBackupHandle` | `string` | Output only. A storage system-specific opaque handle to the underlying volume backup. |
+| `etag` | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a volume backup from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform volume backup updates in order to avoid race conditions. |
+| `stateMessage` | `string` | Output only. A human readable message explaining why the VolumeBackup is in its current state. |
+| `storageBytes` | `string` | Output only. The aggregate size of the underlying artifacts associated with this VolumeBackup in the backup storage. This may change over time when multiple backups of the same volume share the same backup storage location. In particular, this is likely to increase in size when the immediately preceding backup of the same volume is deleted. |
+| `updateTime` | `string` | Output only. The timestamp when this VolumeBackup resource was last updated. |
+| `completeTime` | `string` | Output only. The timestamp when the associated underlying volume backup operation completed. |
+| `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
+| `createTime` | `string` | Output only. The timestamp when this VolumeBackup resource was created. |
+| `state` | `string` | Output only. The current state of this VolumeBackup. |
+| `diskSizeBytes` | `string` | Output only. The minimum size of the disk to which this VolumeBackup can be restored. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `backupPlansId, backupsId, locationsId, projectsId, volumeBackupsId` | Retrieve the details of a single VolumeBackup. |
 | `list` | `SELECT` | `backupPlansId, backupsId, locationsId, projectsId` | Lists the VolumeBackups for a given Backup. |
+| `_list` | `EXEC` | `backupPlansId, backupsId, locationsId, projectsId` | Lists the VolumeBackups for a given Backup. |

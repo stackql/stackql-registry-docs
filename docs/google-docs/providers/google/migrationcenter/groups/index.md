@@ -27,9 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `groups` | `array` | The list of Group |
-| `nextPageToken` | `string` | A token identifying a page of results the server should return. |
-| `unreachable` | `array` | Locations that could not be reached. |
+| `name` | `string` | Output only. The name of the group. |
+| `description` | `string` | The description of the resource. |
+| `updateTime` | `string` | Output only. The timestamp when the group was last updated. |
+| `createTime` | `string` | Output only. The timestamp when the group was created. |
+| `displayName` | `string` | User-friendly display name. |
+| `labels` | `object` | Labels as key value pairs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,4 +40,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists all groups in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new group in a given project and location. |
 | `delete` | `DELETE` | `groupsId, locationsId, projectsId` | Deletes a group. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists all groups in a given project and location. |
 | `patch` | `EXEC` | `groupsId, locationsId, projectsId` | Updates the parameters of a group. |

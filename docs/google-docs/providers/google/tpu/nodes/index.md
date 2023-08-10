@@ -27,9 +27,30 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `unreachable` | `array` | Locations that could not be reached. |
-| `nextPageToken` | `string` | The next page token or empty if none. |
-| `nodes` | `array` | The listed nodes. |
+| `id` | `string` | Output only. The unique identifier for the TPU Node. |
+| `name` | `string` | Output only. Immutable. The name of the TPU. |
+| `description` | `string` | The user-supplied description of the TPU. Maximum of 512 characters. |
+| `serviceAccount` | `object` | A service account. |
+| `createTime` | `string` | Output only. The time when the node was created. |
+| `state` | `string` | Output only. The current state for the TPU Node. |
+| `symptoms` | `array` | Output only. The Symptoms that have occurred to the TPU Node. |
+| `health` | `string` | The health status of the TPU node. |
+| `networkEndpoints` | `array` | Output only. The network endpoints where TPU workers can be accessed and sent work. It is recommended that runtime clients of the node reach out to the 0th entry in this map first. |
+| `healthDescription` | `string` | Output only. If this field is populated, it contains a description of why the TPU Node is unhealthy. |
+| `metadata` | `object` | Custom metadata to apply to the TPU Node. Can set startup-script and shutdown-script |
+| `multisliceNode` | `boolean` | Output only. Whether the Node belongs to a Multislice group. |
+| `acceleratorConfig` | `object` | A TPU accelerator configuration. |
+| `dataDisks` | `array` | The additional data disks for the Node. |
+| `apiVersion` | `string` | Output only. The API version that created this Node. |
+| `runtimeVersion` | `string` | Required. The runtime version running in the Node. |
+| `tags` | `array` | Tags to apply to the TPU Node. Tags are used to identify valid sources or targets for network firewalls. |
+| `networkConfig` | `object` | Network related configurations. |
+| `schedulingConfig` | `object` | Sets the scheduling options for this node. |
+| `shieldedInstanceConfig` | `object` | A set of Shielded Instance options. |
+| `acceleratorType` | `string` | Optional. The type of hardware accelerators associated with this node. |
+| `labels` | `object` | Resource labels to represent user-provided metadata. |
+| `cidrBlock` | `string` | The CIDR block that the TPU node will use when selecting an IP address. This CIDR block must be a /29 block; the Compute Engine networks API forbids a smaller block, and using a larger block would be wasteful (a node can only consume one IP address). Errors will occur if the CIDR block has already been used for a currently existing TPU node, the CIDR block conflicts with any subnetworks in the user's provided network, or the provided network is peered with another network that is using that CIDR block. |
+| `queuedResource` | `string` | Output only. The qualified name of the QueuedResource that requested this Node. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,6 +58,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists nodes. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a node. |
 | `delete` | `DELETE` | `locationsId, nodesId, projectsId` | Deletes a node. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists nodes. |
 | `patch` | `EXEC` | `locationsId, nodesId, projectsId` | Updates the configurations of a node. |
 | `start` | `EXEC` | `locationsId, nodesId, projectsId` | Starts a node. |
 | `stop` | `EXEC` | `locationsId, nodesId, projectsId` | Stops a node. This operation is only available with single TPU nodes. |

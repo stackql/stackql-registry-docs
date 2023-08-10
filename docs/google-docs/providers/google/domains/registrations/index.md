@@ -27,14 +27,27 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | When present, there are more results to retrieve. Set `page_token` to this value on a subsequent call to get the next page of results. |
-| `registrations` | `array` | A list of `Registration`s. |
+| `name` | `string` | Output only. Name of the `Registration` resource, in the format `projects/*/locations/*/registrations/`. |
+| `managementSettings` | `object` | Defines renewal, billing, and transfer settings for a `Registration`. |
+| `labels` | `object` | Set of labels associated with the `Registration`. |
+| `issues` | `array` | Output only. The set of issues with the `Registration` that require attention. |
+| `dnsSettings` | `object` | Defines the DNS configuration of a `Registration`, including name servers, DNSSEC, and glue records. |
+| `pendingContactSettings` | `object` | Defines the contact information associated with a `Registration`. [ICANN](https://icann.org/) requires all domain names to have associated contact information. The `registrant_contact` is considered the domain's legal owner, and often the other contacts are identical. |
+| `state` | `string` | Output only. The state of the `Registration` |
+| `expireTime` | `string` | Output only. The expiration timestamp of the `Registration`. |
+| `createTime` | `string` | Output only. The creation timestamp of the `Registration` resource. |
+| `contactSettings` | `object` | Defines the contact information associated with a `Registration`. [ICANN](https://icann.org/) requires all domain names to have associated contact information. The `registrant_contact` is considered the domain's legal owner, and often the other contacts are identical. |
+| `domainName` | `string` | Required. Immutable. The domain name. Unicode domain names must be expressed in Punycode format. |
+| `supportedPrivacy` | `array` | Output only. Set of options for the `contact_settings.privacy` field that this `Registration` supports. |
+| `transferFailureReason` | `string` | Output only. The reason the domain transfer failed. Only set for domains in TRANSFER_FAILED state. |
+| `registerFailureReason` | `string` | Output only. The reason the domain registration failed. Only set for domains in REGISTRATION_FAILED state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `locationsId, projectsId, registrationsId` | Gets the details of a `Registration` resource. |
 | `list` | `SELECT` | `locationsId, projectsId` | Lists the `Registration` resources in a project. |
 | `delete` | `DELETE` | `locationsId, projectsId, registrationsId` | Deletes a `Registration` resource. This method works on any `Registration` resource using [Subscription or Commitment billing](/domains/pricing#billing-models), provided that the resource was created at least 1 day in the past. For `Registration` resources using [Monthly billing](/domains/pricing#billing-models), this method works if: * `state` is `EXPORTED` with `expire_time` in the past * `state` is `REGISTRATION_FAILED` * `state` is `TRANSFER_FAILED` When an active registration is successfully deleted, you can continue to use the domain in [Google Domains](https://domains.google/) until it expires. The calling user becomes the domain's sole owner in Google Domains, and permissions for the domain are subsequently managed there. The domain does not renew automatically unless the new owner sets up billing in Google Domains. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists the `Registration` resources in a project. |
 | `configure_contact_settings` | `EXEC` | `locationsId, projectsId, registrationsId` | Updates a `Registration`'s contact settings. Some changes require confirmation by the domain's registrant contact . |
 | `configure_dns_settings` | `EXEC` | `locationsId, projectsId, registrationsId` | Updates a `Registration`'s DNS settings. |
 | `configure_management_settings` | `EXEC` | `locationsId, projectsId, registrationsId` | Updates a `Registration`'s management settings. |

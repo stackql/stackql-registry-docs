@@ -35,3 +35,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `get` | `SELECT` | `keyRingsId, locationsId, projectsId` | Returns metadata for a given KeyRing. |
 | `list` | `SELECT` | `locationsId, projectsId` | Lists KeyRings. |
 | `create` | `INSERT` | `locationsId, projectsId` | Create a new KeyRing in a given Project and Location. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists KeyRings. |

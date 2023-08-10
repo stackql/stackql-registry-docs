@@ -27,8 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextPageToken` | `string` | If there might be more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of `next_page_token` as `page_token`. |
-| `tcpRoutes` | `array` | List of TcpRoute resources. |
+| `name` | `string` | Required. Name of the TcpRoute resource. It matches pattern `projects/*/locations/global/tcpRoutes/tcp_route_name&gt;`. |
+| `description` | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
+| `rules` | `array` | Required. Rules that define how traffic is routed and handled. At least one RouteRule must be supplied. If there are multiple rules then the action taken will be the first rule to match. |
+| `meshes` | `array` | Optional. Meshes defines a list of meshes this TcpRoute is attached to, as one of the routing rules to route the requests served by the mesh. Each mesh reference should match the pattern: `projects/*/locations/global/meshes/` The attached Mesh should be of a type SIDECAR |
+| `selfLink` | `string` | Output only. Server-defined URL of this resource |
+| `gateways` | `array` | Optional. Gateways defines a list of gateways this TcpRoute is attached to, as one of the routing rules to route the requests served by the gateway. Each gateway reference should match the pattern: `projects/*/locations/global/gateways/` |
+| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
+| `createTime` | `string` | Output only. The timestamp when the resource was created. |
+| `labels` | `object` | Optional. Set of label tags associated with the TcpRoute resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +43,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists TcpRoute in a given project and location. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a new TcpRoute in a given project and location. |
 | `delete` | `DELETE` | `locationsId, projectsId, tcpRoutesId` | Deletes a single TcpRoute. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists TcpRoute in a given project and location. |
 | `patch` | `EXEC` | `locationsId, projectsId, tcpRoutesId` | Updates the parameters of a single TcpRoute. |

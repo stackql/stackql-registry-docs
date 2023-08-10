@@ -27,8 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `namespaces` | `array` | The list of namespaces. |
-| `nextPageToken` | `string` | Token to retrieve the next page of results, or empty if there are no more results in the list. |
+| `name` | `string` | Immutable. The resource name for the namespace in the format `projects/*/locations/*/namespaces/*`. |
+| `labels` | `object` | Optional. Resource labels associated with this namespace. No more than 64 user labels can be associated with a given resource. Label keys and values can be no longer than 63 characters. |
+| `uid` | `string` | Output only. The globally unique identifier of the namespace in the UUID4 format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +37,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `list` | `SELECT` | `locationsId, projectsId` | Lists all namespaces. |
 | `create` | `INSERT` | `locationsId, projectsId` | Creates a namespace, and returns the new namespace. |
 | `delete` | `DELETE` | `locationsId, namespacesId, projectsId` | Deletes a namespace. This also deletes all services and endpoints in the namespace. |
+| `_list` | `EXEC` | `locationsId, projectsId` | Lists all namespaces. |
 | `patch` | `EXEC` | `locationsId, namespacesId, projectsId` | Updates a namespace. |

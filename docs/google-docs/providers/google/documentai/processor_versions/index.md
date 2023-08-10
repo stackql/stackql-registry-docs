@@ -27,14 +27,23 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `processorVersions` | `array` | The list of processors. |
-| `nextPageToken` | `string` | Points to the next processor, otherwise empty. |
+| `name` | `string` | The resource name of the processor version. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processors/&#123;processor&#125;/processorVersions/&#123;processor_version&#125;` |
+| `state` | `string` | The state of the processor version. |
+| `kmsKeyVersionName` | `string` | The KMS key version with which data is encrypted. |
+| `deprecationInfo` | `object` | Information about the upcoming deprecation of this processor version. |
+| `displayName` | `string` | The display name of the processor version. |
+| `latestEvaluation` | `object` | Gives a short summary of an evaluation, and links to the evaluation itself. |
+| `documentSchema` | `object` | The schema defines the output of the processed document by a processor. |
+| `googleManaged` | `boolean` | Output only. Denotes that this `ProcessorVersion` is managed by Google. |
+| `kmsKeyName` | `string` | The KMS key name used for encryption. |
+| `createTime` | `string` | The time the processor version was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `projects_locations_processors_processor_versions_get` | `SELECT` | `locationsId, processorVersionsId, processorsId, projectsId` | Gets a processor version detail. |
 | `projects_locations_processors_processor_versions_list` | `SELECT` | `locationsId, processorsId, projectsId` | Lists all versions of a processor. |
 | `projects_locations_processors_processor_versions_delete` | `DELETE` | `locationsId, processorVersionsId, processorsId, projectsId` | Deletes the processor version, all artifacts under the processor version will be deleted. |
+| `_projects_locations_processors_processor_versions_list` | `EXEC` | `locationsId, processorsId, projectsId` | Lists all versions of a processor. |
 | `projects_locations_processors_processor_versions_batch_process` | `EXEC` | `locationsId, processorVersionsId, processorsId, projectsId` | LRO endpoint to batch process many documents. The output is written to Cloud Storage as JSON in the [Document] format. |
 | `projects_locations_processors_processor_versions_deploy` | `EXEC` | `locationsId, processorVersionsId, processorsId, projectsId` | Deploys the processor version. |
 | `projects_locations_processors_processor_versions_evaluate_processor_version` | `EXEC` | `locationsId, processorVersionsId, processorsId, projectsId` | Evaluates a ProcessorVersion against annotated documents, producing an Evaluation. |
