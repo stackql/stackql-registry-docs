@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The full name of the import job. |
-| `validationReport` | `object` | A resource that aggregates errors across import job files. |
-| `createTime` | `string` | Output only. The timestamp when the import job was created. |
-| `updateTime` | `string` | Output only. The timestamp when the import job was last updated. |
-| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
-| `state` | `string` | Output only. The state of the import job. |
-| `assetSource` | `string` | Required. Reference to a source. |
-| `executionReport` | `object` | A resource that reports result of the import job execution. |
 | `labels` | `object` | Labels as key value pairs. |
 | `completeTime` | `string` | Output only. The timestamp when the import job was completed. |
+| `createTime` | `string` | Output only. The timestamp when the import job was created. |
+| `updateTime` | `string` | Output only. The timestamp when the import job was last updated. |
+| `assetSource` | `string` | Required. Reference to a source. |
+| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
+| `validationReport` | `object` | A resource that aggregates errors across import job files. |
+| `state` | `string` | Output only. The state of the import job. |
+| `executionReport` | `object` | A resource that reports result of the import job execution. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

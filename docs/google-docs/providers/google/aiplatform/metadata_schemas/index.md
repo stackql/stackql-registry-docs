@@ -29,10 +29,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the MetadataSchema. |
 | `description` | `string` | Description of the Metadata Schema |
-| `schemaVersion` | `string` | The version of the MetadataSchema. The version's format must match the following regular expression: `^[0-9]+.+.+$`, which would allow to order/compare different versions. Example: 1.0.0, 1.0.1, etc. |
-| `createTime` | `string` | Output only. Timestamp when this MetadataSchema was created. |
 | `schema` | `string` | Required. The raw YAML string representation of the MetadataSchema. The combination of [MetadataSchema.version] and the schema name given by `title` in [MetadataSchema.schema] must be unique within a MetadataStore. The schema is defined as an OpenAPI 3.0.2 [MetadataSchema Object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#schemaObject) |
 | `schemaType` | `string` | The type of the MetadataSchema. This is a property that identifies which metadata types will use the MetadataSchema. |
+| `schemaVersion` | `string` | The version of the MetadataSchema. The version's format must match the following regular expression: `^[0-9]+.+.+$`, which would allow to order/compare different versions. Example: 1.0.0, 1.0.1, etc. |
+| `createTime` | `string` | Output only. Timestamp when this MetadataSchema was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

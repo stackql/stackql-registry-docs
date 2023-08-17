@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the clone. |
 | `state` | `string` | Output only. State of the clone job. |
-| `endTime` | `string` | Output only. The time the clone job was ended. |
-| `steps` | `array` | Output only. The clone steps list representing its progress. |
-| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
-| `computeEngineTargetDetails` | `object` | ComputeEngineTargetDetails is a collection of details for creating a VM in a target Compute Engine project. |
 | `createTime` | `string` | Output only. The time the clone job was created (as an API call, not when it was actually created in the target). |
 | `computeEngineDisksTargetDetails` | `object` | ComputeEngineDisksTargetDetails is a collection of created Persistent Disks details. |
+| `computeEngineTargetDetails` | `object` | ComputeEngineTargetDetails is a collection of details for creating a VM in a target Compute Engine project. |
+| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
+| `steps` | `array` | Output only. The clone steps list representing its progress. |
+| `endTime` | `string` | Output only. The time the clone job was ended. |
 | `stateTime` | `string` | Output only. The time the state was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

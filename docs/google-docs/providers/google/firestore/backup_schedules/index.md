@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The unique backup schedule identifier across all locations and databases for the given project. This will be auto-assigned. Format is `projects/&#123;project&#125;/databases/&#123;database&#125;/backupSchedules/&#123;backup_schedule&#125;` |
+| `weeklyRecurrence` | `object` | Represents a recurring schedule that runs on a specified day of the week. The time zone is UTC. |
 | `createTime` | `string` | Output only. The timestamp at which this backup schedule was created and effective since. No backups will be created for this schedule before this time. |
 | `dailyRecurrence` | `object` | Represent a recurring schedule that runs at a specific time every day. The time zone is UTC. |
 | `retention` | `string` | At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days. |
 | `updateTime` | `string` | Output only. The timestamp at which this backup schedule was most recently updated. When a backup schedule is first created, this is the same as create_time. |
-| `weeklyRecurrence` | `object` | Represents a recurring schedule that runs on a specified day of the week. The time zone is UTC. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

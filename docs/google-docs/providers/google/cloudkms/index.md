@@ -33,7 +33,7 @@ Manages Keys And Performs Cryptographic Operations In A Central Cloud Service, F
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Key Management Service (KMS) API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Keys And Performs Cryptographic Operations In A Central Cloud Service, For Direct Use By Other Cloud Resources And Applications. </td></tr>
-<tr><td><b>Id</b></td><td><code>cloudkms:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudkms:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

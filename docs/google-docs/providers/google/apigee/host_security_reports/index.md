@@ -27,19 +27,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `created` | `string` | Creation time of the query. |
 | `queryParams` | `object` | Metadata for the security report. |
-| `result` | `object` | Contains informations about the security report results. |
-| `resultRows` | `string` | ResultRows is available only after the query is completed. |
-| `state` | `string` | Query state could be "enqueued", "running", "completed", "expired" and "failed". |
-| `reportDefinitionId` | `string` | Report Definition ID. |
 | `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
-| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
-| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
-| `updated` | `string` | Output only. Last updated timestamp for the query. |
 | `displayName` | `string` | Display Name specified by the user. |
-| `error` | `string` | Error is set when query fails. |
+| `updated` | `string` | Output only. Last updated timestamp for the query. |
+| `resultRows` | `string` | ResultRows is available only after the query is completed. |
+| `created` | `string` | Creation time of the query. |
 | `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
+| `result` | `object` | Contains informations about the security report results. |
+| `error` | `string` | Error is set when query fails. |
+| `reportDefinitionId` | `string` | Report Definition ID. |
+| `state` | `string` | Query state could be "enqueued", "running", "completed", "expired" and "failed". |
+| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
+| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

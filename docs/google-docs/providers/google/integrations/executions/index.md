@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Auto-generated primary key. |
-| `responseParams` | `array` | Event parameters come out as part of the response. |
-| `directSubExecutions` | `array` | Direct sub executions of the following Execution. |
-| `responseParameters` | `object` | Event parameters returned as part of the response. |
 | `updateTime` | `string` | Output only. Last modified time of the execution. |
-| `createTime` | `string` | Output only. Created time of the execution. |
-| `requestParameters` | `object` | Event parameters come in as part of the request. |
 | `eventExecutionDetails` | `object` | Contains the details of the execution info of this event: this includes the tasks execution details plus the event execution statistics. Next available id: 10 |
-| `executionMethod` | `string` | The ways user posts this event. |
 | `requestParams` | `array` | Event parameters come in as part of the request. |
-| `executionDetails` | `object` | Contains the details of the execution info: this includes the tasks execution details plus the event execution statistics. |
+| `executionMethod` | `string` | The ways user posts this event. |
 | `triggerId` | `string` | The trigger id of the integration trigger config. If both trigger_id and client_id is present, the integration is executed from the start tasks provided by the matching trigger config otherwise it is executed from the default start tasks. |
+| `createTime` | `string` | Output only. Created time of the execution. |
+| `directSubExecutions` | `array` | Direct sub executions of the following Execution. |
+| `executionDetails` | `object` | Contains the details of the execution info: this includes the tasks execution details plus the event execution statistics. |
+| `requestParameters` | `object` | Event parameters come in as part of the request. |
+| `responseParams` | `array` | Event parameters come out as part of the response. |
+| `responseParameters` | `object` | Event parameters returned as part of the response. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

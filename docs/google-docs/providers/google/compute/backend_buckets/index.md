@@ -32,13 +32,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `description` | `string` | An optional textual description of the resource; provided by the client when the resource is created. |
 | `customResponseHeaders` | `array` | Headers that the Application Load Balancer should add to proxied responses. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `compressionMode` | `string` | Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header. |
-| `enableCdn` | `boolean` | If true, enable Cloud CDN for this BackendBucket. |
-| `cdnPolicy` | `object` | Message containing Cloud CDN configuration for a backend bucket. |
-| `bucketName` | `string` | Cloud Storage bucket name. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `edgeSecurityPolicy` | `string` | [Output Only] The resource URL for the edge security policy associated with this backend bucket. |
+| `enableCdn` | `boolean` | If true, enable Cloud CDN for this BackendBucket. |
 | `kind` | `string` | Type of the resource. |
+| `cdnPolicy` | `object` | Message containing Cloud CDN configuration for a backend bucket. |
+| `compressionMode` | `string` | Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header. |
+| `edgeSecurityPolicy` | `string` | [Output Only] The resource URL for the edge security policy associated with this backend bucket. |
+| `bucketName` | `string` | Cloud Storage bucket name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

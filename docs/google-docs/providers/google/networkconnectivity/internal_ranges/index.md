@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The name of an internal range. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/internalRanges/&#123;internal_range&#125; See: https://google.aip.dev/122#fields-representing-resource-names |
 | `description` | `string` | A description of this resource. |
-| `updateTime` | `string` | Time when the internal range was updated. |
-| `usage` | `string` | The type of usage set for this InternalRange. |
-| `createTime` | `string` | Time when the internal range was created. |
-| `prefixLength` | `integer` | An alternate to ip_cidr_range. Can be set when trying to create a reservation that automatically finds a free range of the given size. If both ip_cidr_range and prefix_length are set, there is an error if the range sizes do not match. Can also be used during updates to change the range size. |
+| `ipCidrRange` | `string` | The IP range that this internal range defines. |
+| `users` | `array` | Output only. The list of resources that refer to this internal range. Resources that use the internal range for their range allocation are referred to as users of the range. Other resources mark themselves as users while doing so by creating a reference to this internal range. Having a user, based on this reference, prevents deletion of the internal range referred to. Can be empty. |
 | `targetCidrRange` | `array` | Optional. Can be set to narrow down or pick a different address space while searching for a free range. If not set, defaults to the "10.0.0.0/8" address space. This can be used to search in other rfc-1918 address spaces like "172.16.0.0/12" and "192.168.0.0/16" or non-rfc-1918 address spaces used in the VPC. |
 | `labels` | `object` | User-defined labels. |
+| `updateTime` | `string` | Time when the internal range was updated. |
 | `network` | `string` | The URL or resource ID of the network in which to reserve the internal range. The network cannot be deleted if there are any reserved internal ranges referring to it. Legacy networks are not supported. This can only be specified for a global internal address. Example: - URL: /compute/v1/projects/&#123;project&#125;/global/networks/&#123;resourceId&#125; - ID: network123 |
 | `overlaps` | `array` | Optional. Types of resources that are allowed to overlap with the current internal range. |
-| `ipCidrRange` | `string` | The IP range that this internal range defines. |
+| `prefixLength` | `integer` | An alternate to ip_cidr_range. Can be set when trying to create a reservation that automatically finds a free range of the given size. If both ip_cidr_range and prefix_length are set, there is an error if the range sizes do not match. Can also be used during updates to change the range size. |
+| `createTime` | `string` | Time when the internal range was created. |
+| `usage` | `string` | The type of usage set for this InternalRange. |
 | `peering` | `string` | The type of peering set for this internal range. |
-| `users` | `array` | Output only. The list of resources that refer to this internal range. Resources that use the internal range for their range allocation are referred to as users of the range. Other resources mark themselves as users while doing so by creating a reference to this internal range. Having a user, based on this reference, prevents deletion of the internal range referred to. Can be empty. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

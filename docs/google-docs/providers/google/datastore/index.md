@@ -33,7 +33,7 @@ Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalabl
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Datastore API</td></tr>
 <tr><td><b>Description</b></td><td>Accesses The Schemaless NoSQL Database To Provide Fully Managed, Robust, Scalable Storage For Your Application. </td></tr>
-<tr><td><b>Id</b></td><td><code>datastore:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datastore:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

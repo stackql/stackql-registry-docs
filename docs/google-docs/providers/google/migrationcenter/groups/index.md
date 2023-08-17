@@ -29,10 +29,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the group. |
 | `description` | `string` | The description of the resource. |
-| `labels` | `object` | Labels as key value pairs. |
 | `updateTime` | `string` | Output only. The timestamp when the group was last updated. |
 | `createTime` | `string` | Output only. The timestamp when the group was created. |
 | `displayName` | `string` | User-friendly display name. |
+| `labels` | `object` | Labels as key value pairs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

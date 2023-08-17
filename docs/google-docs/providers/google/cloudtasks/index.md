@@ -21,7 +21,7 @@ Manages The Execution Of Large Numbers Of Distributed Requests.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>21</b></span><br />
+<span>total methods:&nbsp;<b>22</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Manages The Execution Of Large Numbers Of Distributed Requests.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Tasks API</td></tr>
 <tr><td><b>Description</b></td><td>Manages The Execution Of Large Numbers Of Distributed Requests.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudtasks:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudtasks:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

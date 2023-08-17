@@ -33,7 +33,7 @@ Stores And Retrieves Potentially Large, Immutable Data Objects.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Storage JSON API</td></tr>
 <tr><td><b>Description</b></td><td>Stores And Retrieves Potentially Large, Immutable Data Objects.</td></tr>
-<tr><td><b>Id</b></td><td><code>storage:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storage:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

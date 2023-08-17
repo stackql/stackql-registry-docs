@@ -29,8 +29,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name of the integration. |
 | `description` | `string` | Optional. |
-| `active` | `boolean` | Required. If any integration version is published. |
 | `updateTime` | `string` | Output only. Auto-generated. |
+| `active` | `boolean` | Required. If any integration version is published. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

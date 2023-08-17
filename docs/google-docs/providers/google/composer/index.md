@@ -33,7 +33,7 @@ Manages Apache Airflow Environments On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Composer API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Apache Airflow Environments On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>composer:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>composer:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

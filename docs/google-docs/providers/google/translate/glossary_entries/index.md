@@ -29,8 +29,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name of the entry. Format: "projects/*/locations/*/glossaries/*/glossaryEntries/*" |
 | `description` | `string` | Describes the glossary entry. |
-| `termsSet` | `object` | Represents a single entry for an equivalent term set glossary. This is used for equivalent term sets where each term can be replaced by the other terms in the set. |
 | `termsPair` | `object` | Represents a single entry for an unidirectional glossary. |
+| `termsSet` | `object` | Represents a single entry for an equivalent term set glossary. This is used for equivalent term sets where each term can be replaced by the other terms in the set. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

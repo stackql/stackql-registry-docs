@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Unique opaque ID of the job. |
 | `jobReference` | `object` |  |
-| `configuration` | `object` |  |
-| `statistics` | `object` |  |
-| `kind` | `string` | The resource type. |
-| `state` | `string` | Running state of the job. When the state is DONE, errorResult can be checked to determine whether the job succeeded or failed. |
-| `user_email` | `string` | [Full-projection-only] Email address of the user who ran the job. |
-| `errorResult` | `object` |  |
 | `status` | `object` |  |
+| `state` | `string` | Running state of the job. When the state is DONE, errorResult can be checked to determine whether the job succeeded or failed. |
+| `errorResult` | `object` |  |
+| `kind` | `string` | The resource type. |
+| `user_email` | `string` | [Full-projection-only] Email address of the user who ran the job. |
+| `statistics` | `object` |  |
+| `configuration` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

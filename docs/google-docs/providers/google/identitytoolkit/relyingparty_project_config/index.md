@@ -27,18 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `legacyResetPasswordTemplate` | `object` | Template for an email template. |
+| `allowPasswordUser` | `boolean` | Whether to allow password user sign in or sign up. |
+| `enableAnonymousUser` | `boolean` | Whether anonymous user is enabled. |
+| `resetPasswordTemplate` | `object` | Template for an email template. |
+| `useEmailSending` | `boolean` | Whether to use email sending provided by Firebear. |
+| `changeEmailTemplate` | `object` | Template for an email template. |
+| `apiKey` | `string` | Browser API key, needed when making http request to Apiary. |
 | `authorizedDomains` | `array` | Authorized domains. |
 | `dynamicLinksDomain` | `string` |  |
-| `legacyResetPasswordTemplate` | `object` | Template for an email template. |
 | `idpConfig` | `array` | OAuth2 provider configuration. |
 | `projectId` | `string` | Project ID of the relying party. |
-| `resetPasswordTemplate` | `object` | Template for an email template. |
-| `enableAnonymousUser` | `boolean` | Whether anonymous user is enabled. |
-| `useEmailSending` | `boolean` | Whether to use email sending provided by Firebear. |
-| `allowPasswordUser` | `boolean` | Whether to allow password user sign in or sign up. |
-| `changeEmailTemplate` | `object` | Template for an email template. |
 | `verifyEmailTemplate` | `object` | Template for an email template. |
-| `apiKey` | `string` | Browser API key, needed when making http request to Apiary. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

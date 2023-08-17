@@ -28,16 +28,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the access-control entry. |
-| `projectTeam` | `object` | The project team associated with the entity, if any. |
-| `email` | `string` | The email address associated with the entity, if any. |
+| `bucket` | `string` | The name of the bucket. |
 | `etag` | `string` | HTTP 1.1 Entity tag for the access-control entry. |
-| `kind` | `string` | The kind of item this is. For bucket access control entries, this is always storage#bucketAccessControl. |
+| `email` | `string` | The email address associated with the entity, if any. |
+| `entity` | `string` | The entity holding the permission, in one of the following forms: <br />- user-userId <br />- user-email <br />- group-groupId <br />- group-email <br />- domain-domain <br />- project-team-projectId <br />- allUsers <br />- allAuthenticatedUsers Examples: <br />- The user liz@example.com would be user-liz@example.com. <br />- The group example@googlegroups.com would be group-example@googlegroups.com. <br />- To refer to all members of the Google Apps for Business domain example.com, the entity would be domain-example.com. |
 | `role` | `string` | The access permission for the entity. |
 | `domain` | `string` | The domain associated with the entity, if any. |
-| `entity` | `string` | The entity holding the permission, in one of the following forms: <br />- user-userId <br />- user-email <br />- group-groupId <br />- group-email <br />- domain-domain <br />- project-team-projectId <br />- allUsers <br />- allAuthenticatedUsers Examples: <br />- The user liz@example.com would be user-liz@example.com. <br />- The group example@googlegroups.com would be group-example@googlegroups.com. <br />- To refer to all members of the Google Apps for Business domain example.com, the entity would be domain-example.com. |
+| `projectTeam` | `object` | The project team associated with the entity, if any. |
 | `selfLink` | `string` | The link to this access-control entry. |
-| `bucket` | `string` | The name of the bucket. |
 | `entityId` | `string` | The ID for the entity, if any. |
+| `kind` | `string` | The kind of item this is. For bucket access control entries, this is always storage#bucketAccessControl. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,21 +29,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name for this CertificateAuthority in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`. |
 | `gcsBucket` | `string` | Immutable. The name of a Cloud Storage bucket where this CertificateAuthority will publish content, such as the CA certificate and CRLs. This must be a bucket name, without any prefixes (such as `gs://`) or suffixes (such as `.googleapis.com`). For example, to use a bucket named `my-bucket`, you would simply specify `my-bucket`. If not specified, a managed bucket will be created. |
-| `caCertificateDescriptions` | `array` | Output only. A structured description of this CertificateAuthority's CA certificate and its issuers. Ordered as self-to-root. |
-| `subordinateConfig` | `object` | Describes a subordinate CA's issuers. This is either a resource name to a known issuing CertificateAuthority, or a PEM issuer certificate chain. |
+| `state` | `string` | Output only. The State for this CertificateAuthority. |
+| `createTime` | `string` | Output only. The time at which this CertificateAuthority was created. |
+| `deleteTime` | `string` | Output only. The time at which this CertificateAuthority was soft deleted, if it is in the DELETED state. |
+| `labels` | `object` | Optional. Labels with user-defined metadata. |
+| `pemCaCertificates` | `array` | Output only. This CertificateAuthority's certificate chain, including the current CertificateAuthority's certificate. Ordered such that the root issuer is the final element (consistent with RFC 5246). For a self-signed CA, this will only list the current CertificateAuthority's certificate. |
 | `accessUrls` | `object` | URLs where a CertificateAuthority will publish content. |
+| `tier` | `string` | Output only. The CaPool.Tier of the CaPool that includes this CertificateAuthority. |
+| `subordinateConfig` | `object` | Describes a subordinate CA's issuers. This is either a resource name to a known issuing CertificateAuthority, or a PEM issuer certificate chain. |
+| `type` | `string` | Required. Immutable. The Type of this CertificateAuthority. |
 | `updateTime` | `string` | Output only. The time at which this CertificateAuthority was last updated. |
 | `lifetime` | `string` | Required. Immutable. The desired lifetime of the CA certificate. Used to create the "not_before_time" and "not_after_time" fields inside an X.509 certificate. |
-| `deleteTime` | `string` | Output only. The time at which this CertificateAuthority was soft deleted, if it is in the DELETED state. |
-| `keySpec` | `object` | A Cloud KMS key configuration that a CertificateAuthority will use. |
-| `pemCaCertificates` | `array` | Output only. This CertificateAuthority's certificate chain, including the current CertificateAuthority's certificate. Ordered such that the root issuer is the final element (consistent with RFC 5246). For a self-signed CA, this will only list the current CertificateAuthority's certificate. |
-| `createTime` | `string` | Output only. The time at which this CertificateAuthority was created. |
-| `type` | `string` | Required. Immutable. The Type of this CertificateAuthority. |
-| `expireTime` | `string` | Output only. The time at which this CertificateAuthority will be permanently purged, if it is in the DELETED state. |
-| `labels` | `object` | Optional. Labels with user-defined metadata. |
-| `state` | `string` | Output only. The State for this CertificateAuthority. |
+| `caCertificateDescriptions` | `array` | Output only. A structured description of this CertificateAuthority's CA certificate and its issuers. Ordered as self-to-root. |
 | `config` | `object` | A CertificateConfig describes an X.509 certificate or CSR that is to be created, as an alternative to using ASN.1. |
-| `tier` | `string` | Output only. The CaPool.Tier of the CaPool that includes this CertificateAuthority. |
+| `keySpec` | `object` | A Cloud KMS key configuration that a CertificateAuthority will use. |
+| `expireTime` | `string` | Output only. The time at which this CertificateAuthority will be permanently purged, if it is in the DELETED state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

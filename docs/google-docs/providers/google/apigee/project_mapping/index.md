@@ -27,10 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Output only. The Google Cloud region where control plane data is located. For more information, see https://cloud.google.com/about/locations/. |
-| `organization` | `string` | Name of the Apigee organization. |
 | `projectId` | `string` | Google Cloud project associated with the Apigee organization |
 | `projectIds` | `array` | DEPRECATED: Use `project_id`. An Apigee Organization is mapped to a single project. |
+| `location` | `string` | Output only. The Google Cloud region where control plane data is located. For more information, see https://cloud.google.com/about/locations/. |
+| `organization` | `string` | Name of the Apigee organization. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

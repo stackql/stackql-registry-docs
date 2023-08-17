@@ -21,7 +21,7 @@ Service Directory Is A Platform For Discovering, Publishing, And Connecting Serv
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>28</b></span><br />
+<span>total methods:&nbsp;<b>30</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Service Directory Is A Platform For Discovering, Publishing, And Connecting Serv
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Directory API</td></tr>
 <tr><td><b>Description</b></td><td>Service Directory Is A Platform For Discovering, Publishing, And Connecting Services. </td></tr>
-<tr><td><b>Id</b></td><td><code>servicedirectory:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>servicedirectory:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

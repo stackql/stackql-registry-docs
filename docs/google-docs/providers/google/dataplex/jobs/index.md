@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the DataScanJob, of the form: projects/&#123;project&#125;/locations/&#123;location_id&#125;/dataScans/&#123;datascan_id&#125;/jobs/&#123;job_id&#125;, where project refers to a project_id or project_number and location_id refers to a GCP region. |
-| `state` | `string` | Output only. Execution state for the DataScanJob. |
-| `dataQualityResult` | `object` | The output of a DataQualityScan. |
 | `startTime` | `string` | Output only. The time when the DataScanJob was started. |
-| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
-| `dataProfileSpec` | `object` | DataProfileScan related setting. |
-| `endTime` | `string` | Output only. The time when the DataScanJob ended. |
+| `state` | `string` | Output only. Execution state for the DataScanJob. |
 | `type` | `string` | Output only. The type of the parent DataScan. |
 | `uid` | `string` | Output only. System generated globally unique ID for the DataScanJob. |
+| `endTime` | `string` | Output only. The time when the DataScanJob ended. |
+| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
+| `dataProfileSpec` | `object` | DataProfileScan related setting. |
 | `dataQualitySpec` | `object` | DataQualityScan related setting. |
+| `dataQualityResult` | `object` | The output of a DataQualityScan. |
 | `message` | `string` | Output only. Additional information about the current state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

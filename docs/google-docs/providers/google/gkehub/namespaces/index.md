@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the namespace `projects/&#123;project&#125;/locations/&#123;location&#125;/namespaces/&#123;namespace&#125;` |
+| `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all namespace resources. If a namespace resource is deleted and another resource with the same name is created, it gets a different uid. |
+| `namespaceLabels` | `object` | Optional. Namespace-level cluster namespace labels. These labels are applied to the related namespace of the member clusters bound to the parent Scope. Scope-level labels (`namespace_labels` in the Fleet Scope resource) take precedence over Namespace-level labels if they share a key. Keys and values must be Kubernetes-conformant. |
+| `state` | `object` | NamespaceLifecycleState describes the state of a Namespace resource. |
 | `scope` | `string` | Required. Scope associated with the namespace |
+| `labels` | `object` | Optional. Labels for this Namespace. |
+| `updateTime` | `string` | Output only. When the namespace was last updated. |
 | `createTime` | `string` | Output only. When the namespace was created. |
 | `deleteTime` | `string` | Output only. When the namespace was deleted. |
-| `state` | `object` | NamespaceLifecycleState describes the state of a Namespace resource. |
-| `namespaceLabels` | `object` | Optional. Namespace-level cluster namespace labels. These labels are applied to the related namespace of the member clusters bound to the parent Scope. Scope-level labels (`namespace_labels` in the Fleet Scope resource) take precedence over Namespace-level labels if they share a key. Keys and values must be Kubernetes-conformant. |
-| `updateTime` | `string` | Output only. When the namespace was last updated. |
-| `labels` | `object` | Optional. Labels for this Namespace. |
-| `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all namespace resources. If a namespace resource is deleted and another resource with the same name is created, it gets a different uid. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

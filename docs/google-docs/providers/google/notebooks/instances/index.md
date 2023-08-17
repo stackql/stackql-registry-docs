@@ -29,18 +29,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Output only. Unique ID of the resource. |
 | `name` | `string` | Output only. The name of this notebook instance. Format: `projects/&#123;project_id&#125;/locations/&#123;location&#125;/instances/&#123;instance_id&#125;` |
-| `upgradeHistory` | `array` | Output only. The upgrade history of this instance. |
-| `gceSetup` | `object` | The definition of how to configure a VM instance outside of Resources and Identity. |
-| `healthInfo` | `object` | Output only. Additional information about instance health. Example: healthInfo": &#123; "docker_proxy_agent_status": "1", "docker_status": "1", "jupyterlab_api_status": "-1", "jupyterlab_status": "-1", "updated": "2020-10-18 09:40:03.573409" &#125; |
-| `instanceOwners` | `array` | Optional. Input only. The owner of this instance after creation. Format: `alias@example.com` Currently supports one owner only. If not specified, all of the service account users of your VM instance's service account can use the instance. |
-| `labels` | `object` | Optional. Labels to apply to this instance. These can be later modified by the UpdateInstance method. |
-| `creator` | `string` | Output only. Email address of entity that sent original CreateInstance request. |
-| `disableProxyAccess` | `boolean` | Optional. If true, the notebook instance will not register with the proxy. |
-| `updateTime` | `string` | Output only. Instance update time. |
-| `proxyUri` | `string` | Output only. The proxy endpoint that is used to access the Jupyter notebook. |
 | `healthState` | `string` | Output only. Instance health_state. |
-| `createTime` | `string` | Output only. Instance creation time. |
 | `state` | `string` | Output only. The state of this instance. |
+| `instanceOwners` | `array` | Optional. Input only. The owner of this instance after creation. Format: `alias@example.com` Currently supports one owner only. If not specified, all of the service account users of your VM instance's service account can use the instance. |
+| `healthInfo` | `object` | Output only. Additional information about instance health. Example: healthInfo": &#123; "docker_proxy_agent_status": "1", "docker_status": "1", "jupyterlab_api_status": "-1", "jupyterlab_status": "-1", "updated": "2020-10-18 09:40:03.573409" &#125; |
+| `gceSetup` | `object` | The definition of how to configure a VM instance outside of Resources and Identity. |
+| `updateTime` | `string` | Output only. Instance update time. |
+| `labels` | `object` | Optional. Labels to apply to this instance. These can be later modified by the UpdateInstance method. |
+| `proxyUri` | `string` | Output only. The proxy endpoint that is used to access the Jupyter notebook. |
+| `disableProxyAccess` | `boolean` | Optional. If true, the notebook instance will not register with the proxy. |
+| `creator` | `string` | Output only. Email address of entity that sent original CreateInstance request. |
+| `upgradeHistory` | `array` | Output only. The upgrade history of this instance. |
+| `createTime` | `string` | Output only. Instance creation time. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

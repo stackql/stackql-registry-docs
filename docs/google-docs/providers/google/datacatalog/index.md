@@ -33,7 +33,7 @@ A Fully Managed And Highly Scalable Data Discovery And Metadata Management Servi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Cloud Data Catalog API</td></tr>
 <tr><td><b>Description</b></td><td>A Fully Managed And Highly Scalable Data Discovery And Metadata Management Service. </td></tr>
-<tr><td><b>Id</b></td><td><code>datacatalog:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datacatalog:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

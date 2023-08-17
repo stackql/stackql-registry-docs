@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name for this ImportJob in the format `projects/*/locations/*/keyRings/*/importJobs/*`. |
-| `importMethod` | `string` | Required. Immutable. The wrapping method to be used for incoming key material. |
-| `expireTime` | `string` | Output only. The time at which this ImportJob is scheduled for expiration and can no longer be used to import key material. |
-| `generateTime` | `string` | Output only. The time this ImportJob's key material was generated. |
-| `publicKey` | `object` | The public key component of the wrapping key. For details of the type of key this public key corresponds to, see the ImportMethod. |
 | `attestation` | `object` | Contains an HSM-generated attestation about a key operation. For more information, see [Verifying attestations] (https://cloud.google.com/kms/docs/attest-key). |
 | `createTime` | `string` | Output only. The time at which this ImportJob was created. |
-| `protectionLevel` | `string` | Required. Immutable. The protection level of the ImportJob. This must match the protection_level of the version_template on the CryptoKey you attempt to import into. |
 | `state` | `string` | Output only. The current state of the ImportJob, indicating if it can be used. |
+| `protectionLevel` | `string` | Required. Immutable. The protection level of the ImportJob. This must match the protection_level of the version_template on the CryptoKey you attempt to import into. |
 | `expireEventTime` | `string` | Output only. The time this ImportJob expired. Only present if state is EXPIRED. |
+| `expireTime` | `string` | Output only. The time at which this ImportJob is scheduled for expiration and can no longer be used to import key material. |
+| `generateTime` | `string` | Output only. The time this ImportJob's key material was generated. |
+| `importMethod` | `string` | Required. Immutable. The wrapping method to be used for incoming key material. |
+| `publicKey` | `object` | The public key component of the wrapping key. For details of the type of key this public key corresponds to, see the ImportMethod. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

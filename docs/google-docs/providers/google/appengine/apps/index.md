@@ -31,17 +31,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Output only. Full path to the Application resource in the API. Example: apps/myapp.@OutputOnly |
 | `defaultHostname` | `string` | Output only. Hostname used to reach this application, as resolved by App Engine.@OutputOnly |
 | `defaultBucket` | `string` | Output only. Google Cloud Storage bucket that can be used by this application to store content.@OutputOnly |
+| `authDomain` | `string` | Google Apps authentication domain that controls which users can access this application.Defaults to open access for any Google Account. |
+| `gcrDomain` | `string` | Output only. The Google Container Registry domain used for storing managed build docker images for this application. |
+| `serviceAccount` | `string` | The service account associated with the application. This is the app-level default identity. If no identity provided during create version, Admin API will fallback to this one. |
+| `defaultCookieExpiration` | `string` | Cookie expiration policy for this application. |
+| `locationId` | `string` | Location from which this application runs. Application instances run out of the data centers in the specified location, which is also where all of the application's end user content is stored.Defaults to us-central.View the list of supported locations (https://cloud.google.com/appengine/docs/locations). |
+| `dispatchRules` | `array` | HTTP path dispatch rules for requests to the application that do not explicitly target a service or version. Rules are order-dependent. Up to 20 dispatch rules can be supported. |
 | `databaseType` | `string` | The type of the Cloud Firestore or Cloud Datastore database associated with this application. |
 | `iap` | `object` | Identity-Aware Proxy |
-| `serviceAccount` | `string` | The service account associated with the application. This is the app-level default identity. If no identity provided during create version, Admin API will fallback to this one. |
+| `codeBucket` | `string` | Output only. Google Cloud Storage bucket that can be used for storing files associated with this application. This bucket is associated with the application and can be used by the gcloud deployment commands.@OutputOnly |
 | `servingStatus` | `string` | Serving status of this application. |
 | `featureSettings` | `object` | The feature specific settings to be used in the application. These define behaviors that are user configurable. |
-| `defaultCookieExpiration` | `string` | Cookie expiration policy for this application. |
-| `dispatchRules` | `array` | HTTP path dispatch rules for requests to the application that do not explicitly target a service or version. Rules are order-dependent. Up to 20 dispatch rules can be supported. |
-| `locationId` | `string` | Location from which this application runs. Application instances run out of the data centers in the specified location, which is also where all of the application's end user content is stored.Defaults to us-central.View the list of supported locations (https://cloud.google.com/appengine/docs/locations). |
-| `authDomain` | `string` | Google Apps authentication domain that controls which users can access this application.Defaults to open access for any Google Account. |
-| `codeBucket` | `string` | Output only. Google Cloud Storage bucket that can be used for storing files associated with this application. This bucket is associated with the application and can be used by the gcloud deployment commands.@OutputOnly |
-| `gcrDomain` | `string` | Output only. The Google Container Registry domain used for storing managed build docker images for this application. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

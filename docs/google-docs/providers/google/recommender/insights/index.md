@@ -29,15 +29,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the insight. |
 | `description` | `string` | Free-form human readable summary in English. The maximum length is 500 characters. |
-| `content` | `object` | A struct of custom fields to explain the insight. Example: "grantedPermissionsCount": "1000" |
-| `severity` | `string` | Insight's severity. |
-| `stateInfo` | `object` | Information related to insight state. |
-| `insightSubtype` | `string` | Insight subtype. Insight content schema will be stable for a given subtype. |
-| `lastRefreshTime` | `string` | Timestamp of the latest data used to generate the insight. |
-| `targetResources` | `array` | Fully qualified resource names that this insight is targeting. |
 | `associatedRecommendations` | `array` | Recommendations derived from this insight. |
+| `lastRefreshTime` | `string` | Timestamp of the latest data used to generate the insight. |
 | `category` | `string` | Category being targeted by the insight. |
 | `observationPeriod` | `string` | Observation period that led to the insight. The source data used to generate the insight ends at last_refresh_time and begins at (last_refresh_time - observation_period). |
+| `targetResources` | `array` | Fully qualified resource names that this insight is targeting. |
+| `insightSubtype` | `string` | Insight subtype. Insight content schema will be stable for a given subtype. |
+| `severity` | `string` | Insight's severity. |
+| `stateInfo` | `object` | Information related to insight state. |
+| `content` | `object` | A struct of custom fields to explain the insight. Example: "grantedPermissionsCount": "1000" |
 | `etag` | `string` | Fingerprint of the Insight. Provides optimistic locking when updating states. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

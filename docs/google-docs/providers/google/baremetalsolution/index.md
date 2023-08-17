@@ -33,7 +33,7 @@ Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Ext
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Bare Metal Solution API</td></tr>
 <tr><td><b>Description</b></td><td>Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Extension Located Near A Google Cloud Data Center.</td></tr>
-<tr><td><b>Id</b></td><td><code>baremetalsolution:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>baremetalsolution:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

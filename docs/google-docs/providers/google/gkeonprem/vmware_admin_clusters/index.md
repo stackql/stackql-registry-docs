@@ -29,28 +29,28 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The VMware admin cluster resource name. |
 | `description` | `string` | A human readable description of this VMware admin cluster. |
-| `networkConfig` | `object` | VmwareAdminNetworkConfig contains network configuration for VMware admin cluster. |
-| `vcenter` | `object` | VmwareAdminVCenterConfig contains VCenter configuration for VMware admin cluster. |
-| `bootstrapClusterMembership` | `string` | The bootstrap cluster this VMware admin cluster belongs to. |
-| `autoRepairConfig` | `object` | Specifies config to enable/disable auto repair. The cluster-health-controller is deployed only if Enabled is true. |
-| `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the VMware admin cluster. |
-| `createTime` | `string` | Output only. The time at which VMware admin cluster was created. |
-| `antiAffinityGroups` | `object` | Specifies anti affinity group config for the VMware user cluster. |
-| `loadBalancer` | `object` | VmwareAdminLoadBalancerConfig contains load balancer configuration for VMware admin cluster. |
-| `state` | `string` | Output only. The current state of VMware admin cluster. |
-| `fleet` | `object` | Fleet related configuration. Fleets are a Google Cloud concept for logically organizing clusters, letting you use and manage multi-cluster capabilities and apply consistent policies across your systems. See [Anthos Fleets](`https://cloud.google.com/anthos/multicluster-management/fleets`) for more details on Anthos multi-cluster capabilities using Fleets. ## |
-| `platformConfig` | `object` | VmwarePlatformConfig represents configuration for the VMware platform. |
-| `addonNode` | `object` | VmwareAdminAddonNodeConfig contains add-on node configurations for VMware admin cluster. |
-| `controlPlaneNode` | `object` | VmwareAdminControlPlaneNodeConfig contains control plane node configuration for VMware admin cluster. |
 | `imageType` | `string` | The OS image type for the VMware admin cluster. |
-| `onPremVersion` | `string` | The Anthos clusters on the VMware version for the admin cluster. |
-| `localName` | `string` | Output only. The object name of the VMware OnPremAdminCluster custom resource. This field is used to support conflicting names when enrolling existing clusters to the API. When used as a part of cluster enrollment, this field will differ from the ID in the resource name. For new clusters, this field will match the user provided cluster name and be visible in the last component of the resource name. It is not modifiable. All users should use this name to access their cluster using gkectl or kubectl and should expect to see the local name when viewing admin cluster controller logs. |
-| `uid` | `string` | Output only. The unique identifier of the VMware admin cluster. |
-| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
 | `endpoint` | `string` | Output only. The DNS name of VMware admin cluster's API server. |
-| `updateTime` | `string` | Output only. The time at which VMware admin cluster was last updated. |
 | `annotations` | `object` | Annotations on the VMware admin cluster. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
+| `vcenter` | `object` | VmwareAdminVCenterConfig contains VCenter configuration for VMware admin cluster. |
 | `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control. |
+| `platformConfig` | `object` | VmwarePlatformConfig represents configuration for the VMware platform. |
+| `localName` | `string` | Output only. The object name of the VMware OnPremAdminCluster custom resource. This field is used to support conflicting names when enrolling existing clusters to the API. When used as a part of cluster enrollment, this field will differ from the ID in the resource name. For new clusters, this field will match the user provided cluster name and be visible in the last component of the resource name. It is not modifiable. All users should use this name to access their cluster using gkectl or kubectl and should expect to see the local name when viewing admin cluster controller logs. |
+| `addonNode` | `object` | VmwareAdminAddonNodeConfig contains add-on node configurations for VMware admin cluster. |
+| `state` | `string` | Output only. The current state of VMware admin cluster. |
+| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
+| `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the VMware admin cluster. |
+| `fleet` | `object` | Fleet related configuration. Fleets are a Google Cloud concept for logically organizing clusters, letting you use and manage multi-cluster capabilities and apply consistent policies across your systems. See [Anthos Fleets](`https://cloud.google.com/anthos/multicluster-management/fleets`) for more details on Anthos multi-cluster capabilities using Fleets. ## |
+| `antiAffinityGroups` | `object` | Specifies anti affinity group config for the VMware user cluster. |
+| `createTime` | `string` | Output only. The time at which VMware admin cluster was created. |
+| `autoRepairConfig` | `object` | Specifies config to enable/disable auto repair. The cluster-health-controller is deployed only if Enabled is true. |
+| `onPremVersion` | `string` | The Anthos clusters on the VMware version for the admin cluster. |
+| `controlPlaneNode` | `object` | VmwareAdminControlPlaneNodeConfig contains control plane node configuration for VMware admin cluster. |
+| `loadBalancer` | `object` | VmwareAdminLoadBalancerConfig contains load balancer configuration for VMware admin cluster. |
+| `networkConfig` | `object` | VmwareAdminNetworkConfig contains network configuration for VMware admin cluster. |
+| `bootstrapClusterMembership` | `string` | The bootstrap cluster this VMware admin cluster belongs to. |
+| `updateTime` | `string` | Output only. The time at which VMware admin cluster was last updated. |
+| `uid` | `string` | Output only. The unique identifier of the VMware admin cluster. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

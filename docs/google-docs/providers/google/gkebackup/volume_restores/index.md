@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Full name of the VolumeRestore resource. Format: `projects/*/locations/*/restorePlans/*/restores/*/volumeRestores/*` |
-| `completeTime` | `string` | Output only. The timestamp when the associated underlying volume restoration completed. |
+| `updateTime` | `string` | Output only. The timestamp when this VolumeRestore resource was last updated. |
+| `state` | `string` | Output only. The current state of this VolumeRestore. |
+| `targetPvc` | `object` | A reference to a namespaced resource in Kubernetes. |
+| `volumeHandle` | `string` | Output only. A storage system-specific opaque handler to the underlying volume created for the target PVC from the volume backup. |
 | `stateMessage` | `string` | Output only. A human readable message explaining why the VolumeRestore is in its current state. |
 | `etag` | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a volume restore from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform volume restore updates in order to avoid race conditions. |
-| `state` | `string` | Output only. The current state of this VolumeRestore. |
-| `updateTime` | `string` | Output only. The timestamp when this VolumeRestore resource was last updated. |
-| `volumeBackup` | `string` | Output only. The full name of the VolumeBackup from which the volume will be restored. Format: `projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*`. |
-| `volumeHandle` | `string` | Output only. A storage system-specific opaque handler to the underlying volume created for the target PVC from the volume backup. |
-| `volumeType` | `string` | Output only. The type of volume provisioned |
-| `targetPvc` | `object` | A reference to a namespaced resource in Kubernetes. |
-| `createTime` | `string` | Output only. The timestamp when this VolumeRestore resource was created. |
 | `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
+| `createTime` | `string` | Output only. The timestamp when this VolumeRestore resource was created. |
+| `volumeBackup` | `string` | Output only. The full name of the VolumeBackup from which the volume will be restored. Format: `projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*`. |
+| `volumeType` | `string` | Output only. The type of volume provisioned |
+| `completeTime` | `string` | Output only. The timestamp when the associated underlying volume restoration completed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -30,14 +30,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] An optional description of this resource. |
-| `zone` | `string` | [Output Only] URL of the zone where the disk type resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `defaultDiskSizeGb` | `string` | [Output Only] Server-defined default disk size in GB. |
-| `validDiskSize` | `string` | [Output Only] An optional textual description of the valid disk size, such as "10GB-10TB". |
-| `deprecated` | `object` | Deprecation status for a public resource. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#diskType for disk types. |
 | `region` | `string` | [Output Only] URL of the region where the disk type resides. Only applicable for regional resources. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `defaultDiskSizeGb` | `string` | [Output Only] Server-defined default disk size in GB. |
+| `deprecated` | `object` | Deprecation status for a public resource. |
+| `zone` | `string` | [Output Only] URL of the zone where the disk type resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `validDiskSize` | `string` | [Output Only] An optional textual description of the valid disk size, such as "10GB-10TB". |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#diskType for disk types. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | An opaque ID of the table |
-| `rangePartitioning` | `object` |  |
-| `timePartitioning` | `object` |  |
-| `type` | `string` | The type of table. Possible values are: TABLE, VIEW. |
 | `clustering` | `object` |  |
-| `creationTime` | `string` | The time when this table was created, in milliseconds since the epoch. |
-| `kind` | `string` | The resource type. |
 | `labels` | `object` | The labels associated with this table. You can use these to organize and group your tables. |
+| `timePartitioning` | `object` |  |
+| `rangePartitioning` | `object` |  |
+| `kind` | `string` | The resource type. |
 | `expirationTime` | `string` | [Optional] The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed. |
-| `view` | `object` | Additional details for a view. |
 | `friendlyName` | `string` | The user-friendly name for this table. |
 | `tableReference` | `object` |  |
+| `creationTime` | `string` | The time when this table was created, in milliseconds since the epoch. |
+| `type` | `string` | The type of table. Possible values are: TABLE, VIEW. |
+| `view` | `object` | Additional details for a view. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

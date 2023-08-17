@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the action. |
-| `inputParameters` | `array` | List containing input parameter metadata. |
 | `resultMetadata` | `array` | List containing the metadata of result fields. |
+| `inputParameters` | `array` | List containing input parameter metadata. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

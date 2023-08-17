@@ -29,34 +29,34 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Device in format: `devices/&#123;device&#125;`, where device is the unique id assigned to the Device. |
 | `lastSyncTime` | `string` | Most recent time when device synced with this service. |
-| `androidSpecificAttributes` | `object` | Resource representing the Android specific attributes of a Device. |
-| `basebandVersion` | `string` | Output only. Baseband version of the device. |
-| `deviceType` | `string` | Output only. Type of device. |
-| `managementState` | `string` | Output only. Management state of the device |
-| `imei` | `string` | Output only. IMEI number of device if GSM device; empty otherwise. |
-| `hostname` | `string` | Host name of the device. |
 | `brand` | `string` | Output only. Device brand. Example: Samsung. |
-| `releaseVersion` | `string` | Output only. OS release version. Example: 6.0. |
-| `otherAccounts` | `array` | Output only. Domain name for Google accounts on device. Type for other accounts on device. On Android, will only be populated if \|ownership_privilege\| is \|PROFILE_OWNER\| or \|DEVICE_OWNER\|. Does not include the account signed in to the device policy app if that account's domain has only one account. Examples: "com.example", "xyz.com". |
-| `enabledUsbDebugging` | `boolean` | Output only. Whether USB debugging is enabled on device. |
-| `deviceId` | `string` | Unique identifier for the device. |
-| `createTime` | `string` | Output only. When the Company-Owned device was imported. This field is empty for BYOD devices. |
-| `assetTag` | `string` | Asset tag of the device. |
-| `serialNumber` | `string` | Serial Number of device. Example: HT82V1A01076. |
-| `kernelVersion` | `string` | Output only. Kernel version of the device. |
-| `ownerType` | `string` | Output only. Whether the device is owned by the company or an individual |
-| `securityPatchTime` | `string` | Output only. OS security patch update time on device. |
-| `bootloaderVersion` | `string` | Output only. Device bootloader version. Example: 0.6.7. |
-| `osVersion` | `string` | Output only. OS version of the device. Example: Android 8.1.0. |
-| `buildNumber` | `string` | Output only. Build number of the device. |
-| `model` | `string` | Output only. Model name of device. Example: Pixel 3. |
+| `imei` | `string` | Output only. IMEI number of device if GSM device; empty otherwise. |
 | `meid` | `string` | Output only. MEID number of device if CDMA device; empty otherwise. |
+| `buildNumber` | `string` | Output only. Build number of the device. |
+| `hostname` | `string` | Host name of the device. |
+| `model` | `string` | Output only. Model name of device. Example: Pixel 3. |
+| `createTime` | `string` | Output only. When the Company-Owned device was imported. This field is empty for BYOD devices. |
+| `securityPatchTime` | `string` | Output only. OS security patch update time on device. |
+| `manufacturer` | `string` | Output only. Device manufacturer. Example: Motorola. |
+| `managementState` | `string` | Output only. Management state of the device |
+| `releaseVersion` | `string` | Output only. OS release version. Example: 6.0. |
+| `encryptionState` | `string` | Output only. Device encryption state. |
+| `serialNumber` | `string` | Serial Number of device. Example: HT82V1A01076. |
+| `basebandVersion` | `string` | Output only. Baseband version of the device. |
+| `bootloaderVersion` | `string` | Output only. Device bootloader version. Example: 0.6.7. |
+| `otherAccounts` | `array` | Output only. Domain name for Google accounts on device. Type for other accounts on device. On Android, will only be populated if \|ownership_privilege\| is \|PROFILE_OWNER\| or \|DEVICE_OWNER\|. Does not include the account signed in to the device policy app if that account's domain has only one account. Examples: "com.example", "xyz.com". |
+| `kernelVersion` | `string` | Output only. Kernel version of the device. |
+| `androidSpecificAttributes` | `object` | Resource representing the Android specific attributes of a Device. |
+| `osVersion` | `string` | Output only. OS version of the device. Example: Android 8.1.0. |
+| `assetTag` | `string` | Asset tag of the device. |
+| `ownerType` | `string` | Output only. Whether the device is owned by the company or an individual |
 | `compromisedState` | `string` | Output only. Represents whether the Device is compromised. |
 | `wifiMacAddresses` | `array` | WiFi MAC addresses of device. |
+| `deviceId` | `string` | Unique identifier for the device. |
 | `networkOperator` | `string` | Output only. Mobile or network operator of device, if available. |
-| `manufacturer` | `string` | Output only. Device manufacturer. Example: Motorola. |
+| `deviceType` | `string` | Output only. Type of device. |
 | `enabledDeveloperOptions` | `boolean` | Output only. Whether developer options is enabled on device. |
-| `encryptionState` | `string` | Output only. Device encryption state. |
+| `enabledUsbDebugging` | `boolean` | Output only. Whether USB debugging is enabled on device. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

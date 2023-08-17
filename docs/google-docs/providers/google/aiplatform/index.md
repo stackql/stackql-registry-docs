@@ -21,7 +21,7 @@ Train High-Quality Custom Machine Learning Models With Minimal Machine Learning 
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>51</b></span><br />
 <span>total selectable resources:&nbsp;<b>41</b></span><br />
-<span>total methods:&nbsp;<b>273</b></span><br />
+<span>total methods:&nbsp;<b>275</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Train High-Quality Custom Machine Learning Models With Minimal Machine Learning 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Vertex AI API</td></tr>
 <tr><td><b>Description</b></td><td>Train High-Quality Custom Machine Learning Models With Minimal Machine Learning Expertise And Effort.</td></tr>
-<tr><td><b>Id</b></td><td><code>aiplatform:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>aiplatform:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

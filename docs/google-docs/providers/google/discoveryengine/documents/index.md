@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Immutable. The identifier of the document. Id should conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 63 characters. |
 | `name` | `string` | Immutable. The full resource name of the document. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/collections/&#123;collection&#125;/dataStores/&#123;data_store&#125;/branches/&#123;branch&#125;/documents/&#123;document_id&#125;`. This field must be a UTF-8 encoded string with a length limit of 1024 characters. |
+| `jsonData` | `string` | The JSON string representation of the document. It should conform to the registered Schema or an `INVALID_ARGUMENT` error is thrown. |
 | `parentDocumentId` | `string` | The identifier of the parent document. Currently supports at most two level document hierarchy. Id should conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 63 characters. |
 | `schemaId` | `string` | The identifier of the schema located in the same data store. |
 | `structData` | `object` | The structured JSON data for the document. It should conform to the registered Schema or an `INVALID_ARGUMENT` error is thrown. |
 | `content` | `object` | Unstructured data linked to this document. |
 | `derivedStructData` | `object` | Output only. This field is OUTPUT_ONLY. It contains derived data that are not in the original input document. |
-| `jsonData` | `string` | The JSON string representation of the document. It should conform to the registered Schema or an `INVALID_ARGUMENT` error is thrown. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

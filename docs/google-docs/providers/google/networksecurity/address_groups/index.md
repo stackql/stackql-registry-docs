@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the AddressGroup resource. It matches pattern `projects/*/locations/&#123;location&#125;/addressGroups/`. |
 | `description` | `string` | Optional. Free-text description of the resource. |
-| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
-| `type` | `string` | Required. The type of the Address Group. Possible values are "IPv4" or "IPV6". |
-| `createTime` | `string` | Output only. The timestamp when the resource was created. |
-| `capacity` | `integer` | Required. Capacity of the Address Group |
-| `labels` | `object` | Optional. Set of label tags associated with the AddressGroup resource. |
 | `items` | `array` | Optional. List of items. |
+| `createTime` | `string` | Output only. The timestamp when the resource was created. |
 | `selfLink` | `string` | Output only. Server-defined fully-qualified URL for this resource. |
+| `type` | `string` | Required. The type of the Address Group. Possible values are "IPv4" or "IPV6". |
+| `labels` | `object` | Optional. Set of label tags associated with the AddressGroup resource. |
+| `capacity` | `integer` | Required. Capacity of the Address Group |
+| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

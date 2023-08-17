@@ -30,19 +30,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] An optional textual description of the resource. |
-| `scratchDisks` | `array` | [Output Only] A list of extended scratch disks assigned to the instance. |
-| `maximumPersistentDisks` | `integer` | [Output Only] Maximum persistent disks allowed. |
+| `imageSpaceGb` | `integer` | [Deprecated] This property is deprecated and will never be populated with any relevant values. |
 | `guestCpus` | `integer` | [Output Only] The number of virtual CPUs that are available to the instance. |
+| `memoryMb` | `integer` | [Output Only] The amount of physical memory available to the instance, defined in MB. |
+| `zone` | `string` | [Output Only] The name of the zone where the machine type resides, such as us-central1-a. |
+| `maximumPersistentDisks` | `integer` | [Output Only] Maximum persistent disks allowed. |
+| `scratchDisks` | `array` | [Output Only] A list of extended scratch disks assigned to the instance. |
+| `maximumPersistentDisksSizeGb` | `string` | [Output Only] Maximum total persistent disks size (GB) allowed. |
+| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | `accelerators` | `array` | [Output Only] A list of accelerator configurations assigned to this machine type. |
 | `isSharedCpu` | `boolean` | [Output Only] Whether this machine type has a shared CPU. See Shared-core machine types for more information. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `maximumPersistentDisksSizeGb` | `string` | [Output Only] Maximum total persistent disks size (GB) allowed. |
-| `imageSpaceGb` | `integer` | [Deprecated] This property is deprecated and will never be populated with any relevant values. |
-| `zone` | `string` | [Output Only] The name of the zone where the machine type resides, such as us-central1-a. |
-| `memoryMb` | `integer` | [Output Only] The amount of physical memory available to the instance, defined in MB. |
-| `deprecated` | `object` | Deprecation status for a public resource. |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | `kind` | `string` | [Output Only] The type of the resource. Always compute#machineType for machine types. |
+| `deprecated` | `object` | Deprecation status for a public resource. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

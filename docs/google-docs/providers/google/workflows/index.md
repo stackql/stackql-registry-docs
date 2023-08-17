@@ -33,7 +33,7 @@ Manage Workflow Definitions. To Execute Workflows And Manage Executions, See The
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Workflows API</td></tr>
 <tr><td><b>Description</b></td><td>Manage Workflow Definitions. To Execute Workflows And Manage Executions, See The Workflows Executions API.</td></tr>
-<tr><td><b>Id</b></td><td><code>workflows:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>workflows:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

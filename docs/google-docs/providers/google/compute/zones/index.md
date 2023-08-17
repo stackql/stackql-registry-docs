@@ -30,14 +30,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] Textual description of the resource. |
-| `availableCpuPlatforms` | `array` | [Output Only] Available cpu/platform selections for the zone. |
-| `supportsPzs` | `boolean` | [Output Only] Reserved for future use. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `status` | `string` | [Output Only] Status of the zone, either UP or DOWN. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#zone for zones. |
-| `region` | `string` | [Output Only] Full URL reference to the region which hosts the zone. |
 | `deprecated` | `object` | Deprecation status for a public resource. |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#zone for zones. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `status` | `string` | [Output Only] Status of the zone, either UP or DOWN. |
+| `supportsPzs` | `boolean` | [Output Only] Reserved for future use. |
+| `region` | `string` | [Output Only] Full URL reference to the region which hosts the zone. |
+| `availableCpuPlatforms` | `array` | [Output Only] Available cpu/platform selections for the zone. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

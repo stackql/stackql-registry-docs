@@ -33,7 +33,7 @@ API For Provisioning And Managing Identity Resources.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Identity API</td></tr>
 <tr><td><b>Description</b></td><td>API For Provisioning And Managing Identity Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudidentity:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudidentity:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

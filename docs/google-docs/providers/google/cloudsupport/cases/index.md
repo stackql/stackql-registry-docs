@@ -29,19 +29,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the case. |
 | `description` | `string` | A broad description of the issue. |
-| `escalated` | `boolean` | Whether the case is currently escalated. |
-| `displayName` | `string` | The short summary of the issue reported in this case. |
-| `updateTime` | `string` | Output only. The time this case was last updated. |
-| `testCase` | `boolean` | Whether this case was created for internal API testing and should not be acted on by the support team. |
-| `classification` | `object` | A classification object with a product type and value. |
-| `priority` | `string` | The priority of this case. |
 | `timeZone` | `string` | The timezone of the user who created the support case. It should be in a format IANA recognizes: https://www.iana.org/time-zones. There is no additional validation done by the API. |
-| `subscriberEmailAddresses` | `array` | The email addresses to receive updates on this case. |
-| `languageCode` | `string` | The language the user has requested to receive support in. This should be a BCP 47 language code (e.g., `"en"`, `"zh-CN"`, `"zh-TW"`, `"ja"`, `"ko"`). If no language or an unsupported language is specified, this field defaults to English (en). Language selection during case creation may affect your available support options. For a list of supported languages and their support working hours, see: https://cloud.google.com/support/docs/language-working-hours |
-| `createTime` | `string` | Output only. The time this case was created. |
-| `contactEmail` | `string` | A user-supplied email address to send case update notifications for. This should only be used in BYOID flows, where we cannot infer the user's email address directly from their EUCs. |
-| `state` | `string` | Output only. The current status of the support case. |
+| `priority` | `string` | The priority of this case. |
 | `creator` | `object` | An object containing information about the effective user and authenticated principal responsible for an action. |
+| `createTime` | `string` | Output only. The time this case was created. |
+| `updateTime` | `string` | Output only. The time this case was last updated. |
+| `escalated` | `boolean` | Whether the case is currently escalated. |
+| `classification` | `object` | A classification object with a product type and value. |
+| `contactEmail` | `string` | A user-supplied email address to send case update notifications for. This should only be used in BYOID flows, where we cannot infer the user's email address directly from their EUCs. |
+| `languageCode` | `string` | The language the user has requested to receive support in. This should be a BCP 47 language code (e.g., `"en"`, `"zh-CN"`, `"zh-TW"`, `"ja"`, `"ko"`). If no language or an unsupported language is specified, this field defaults to English (en). Language selection during case creation may affect your available support options. For a list of supported languages and their support working hours, see: https://cloud.google.com/support/docs/language-working-hours |
+| `subscriberEmailAddresses` | `array` | The email addresses to receive updates on this case. |
+| `state` | `string` | Output only. The current status of the support case. |
+| `testCase` | `boolean` | Whether this case was created for internal API testing and should not be acted on by the support team. |
+| `displayName` | `string` | The short summary of the issue reported in this case. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

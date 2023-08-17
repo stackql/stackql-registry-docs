@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the resource. Name is of the form projects/&#123;project&#125;/locations/&#123;location&#125;/gatewaySecurityPolicies/&#123;gateway_security_policy&#125; gateway_security_policy should match the pattern:(^[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?$). |
 | `description` | `string` | Optional. Free-text description of the resource. |
-| `createTime` | `string` | Output only. The timestamp when the resource was created. |
 | `tlsInspectionPolicy` | `string` | Optional. Name of a TLS Inspection Policy resource that defines how TLS inspection will be performed for any rule(s) which enables it. |
 | `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
+| `createTime` | `string` | Output only. The timestamp when the resource was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -21,7 +21,7 @@ An API For Setting Attribute Based Access Control To Requests To Google Cloud Se
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>9</b></span><br />
 <span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>43</b></span><br />
+<span>total methods:&nbsp;<b>44</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ An API For Setting Attribute Based Access Control To Requests To Google Cloud Se
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Access Context Manager API</td></tr>
 <tr><td><b>Description</b></td><td>An API For Setting Attribute Based Access Control To Requests To Google Cloud Services.</td></tr>
-<tr><td><b>Id</b></td><td><code>accesscontextmanager:v23.08.00159</code></td></tr>
+<tr><td><b>Id</b></td><td><code>accesscontextmanager:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources
