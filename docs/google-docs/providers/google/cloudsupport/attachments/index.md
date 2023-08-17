@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the attachment. |
-| `filename` | `string` | The filename of the attachment (e.g. `"graph.jpg"`). |
-| `mimeType` | `string` | Output only. The MIME type of the attachment (e.g. text/plain). |
 | `sizeBytes` | `string` | Output only. The size of the attachment in bytes. |
 | `createTime` | `string` | Output only. The time at which the attachment was created. |
 | `creator` | `object` | An object containing information about the effective user and authenticated principal responsible for an action. |
+| `filename` | `string` | The filename of the attachment (e.g. `"graph.jpg"`). |
+| `mimeType` | `string` | Output only. The MIME type of the attachment (e.g. text/plain). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -21,7 +21,7 @@ Dataplex API Is Used To Manage The Lifecycle Of Data Lakes.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>32</b></span><br />
 <span>total selectable resources:&nbsp;<b>32</b></span><br />
-<span>total methods:&nbsp;<b>144</b></span><br />
+<span>total methods:&nbsp;<b>158</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Dataplex API Is Used To Manage The Lifecycle Of Data Lakes.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Dataplex API</td></tr>
 <tr><td><b>Description</b></td><td>Dataplex API Is Used To Manage The Lifecycle Of Data Lakes.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataplex:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dataplex:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

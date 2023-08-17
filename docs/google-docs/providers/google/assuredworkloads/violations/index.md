@@ -29,19 +29,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Immutable. Name of the Violation. Format: organizations/&#123;organization&#125;/locations/&#123;location&#125;/workloads/&#123;workload_id&#125;/violations/&#123;violations_id&#125; |
 | `description` | `string` | Output only. Description for the Violation. e.g. OrgPolicy gcp.resourceLocations has non compliant value. |
-| `beginTime` | `string` | Output only. Time of the event which triggered the Violation. |
-| `acknowledgementTime` | `string` | Optional. Timestamp when this violation was acknowledged first. Check exception_contexts to find the last time the violation was acknowledged when there are more than one violations. This field will be absent when acknowledged field is marked as false. |
-| `resolveTime` | `string` | Output only. Time of the event which fixed the Violation. If the violation is ACTIVE this will be empty. |
-| `updateTime` | `string` | Output only. The last time when the Violation record was updated. |
 | `state` | `string` | Output only. State of the violation |
+| `acknowledged` | `boolean` | A boolean that indicates if the violation is acknowledged |
 | `auditLogLink` | `string` | Output only. Immutable. Audit Log Link for violated resource Format: https://console.cloud.google.com/logs/query;query=&#123;logName&#125;&#123;protoPayload.resourceName&#125;&#123;timeRange&#125;&#123;folder&#125; |
+| `resolveTime` | `string` | Output only. Time of the event which fixed the Violation. If the violation is ACTIVE this will be empty. |
+| `category` | `string` | Output only. Category under which this violation is mapped. e.g. Location, Service Usage, Access, Encryption, etc. |
 | `nonCompliantOrgPolicy` | `string` | Output only. Immutable. Name of the OrgPolicy which was modified with non-compliant change and resulted this violation. Format: projects/&#123;project_number&#125;/policies/&#123;constraint_name&#125; folders/&#123;folder_id&#125;/policies/&#123;constraint_name&#125; organizations/&#123;organization_id&#125;/policies/&#123;constraint_name&#125; |
 | `exceptionContexts` | `array` | Output only. List of all the exception detail added for the violation. |
-| `category` | `string` | Output only. Category under which this violation is mapped. e.g. Location, Service Usage, Access, Encryption, etc. |
+| `acknowledgementTime` | `string` | Optional. Timestamp when this violation was acknowledged first. Check exception_contexts to find the last time the violation was acknowledged when there are more than one violations. This field will be absent when acknowledged field is marked as false. |
 | `exceptionAuditLogLink` | `string` | Output only. Immutable. Audit Log link to find business justification provided for violation exception. Format: https://console.cloud.google.com/logs/query;query=&#123;logName&#125;&#123;protoPayload.resourceName&#125;&#123;protoPayload.methodName&#125;&#123;timeRange&#125;&#123;organization&#125; |
-| `acknowledged` | `boolean` | A boolean that indicates if the violation is acknowledged |
-| `orgPolicyConstraint` | `string` | Output only. Immutable. The org-policy-constraint that was incorrectly changed, which resulted in this violation. |
+| `updateTime` | `string` | Output only. The last time when the Violation record was updated. |
+| `beginTime` | `string` | Output only. Time of the event which triggered the Violation. |
 | `remediation` | `object` | Represents remediation guidance to resolve compliance violation for AssuredWorkload |
+| `orgPolicyConstraint` | `string` | Output only. Immutable. The org-policy-constraint that was incorrectly changed, which resulted in this violation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,7 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `projects_locations_collections_data_stores_serving_configs_recommend` | `EXEC` | `collectionsId, dataStoresId, locationsId, projectsId, servingConfigsId` |
-| `projects_locations_data_stores_serving_configs_recommend` | `EXEC` | `dataStoresId, locationsId, projectsId, servingConfigsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `projects_locations_collections_data_stores_serving_configs_recommend` | `EXEC` | `collectionsId, dataStoresId, locationsId, projectsId, servingConfigsId` | Makes a recommendation, which requires a contextual user event. |
+| `projects_locations_collections_data_stores_serving_configs_search` | `EXEC` | `collectionsId, dataStoresId, locationsId, projectsId, servingConfigsId` | Performs a search. |
+| `projects_locations_data_stores_serving_configs_recommend` | `EXEC` | `dataStoresId, locationsId, projectsId, servingConfigsId` | Makes a recommendation, which requires a contextual user event. |
+| `projects_locations_data_stores_serving_configs_search` | `EXEC` | `dataStoresId, locationsId, projectsId, servingConfigsId` | Performs a search. |

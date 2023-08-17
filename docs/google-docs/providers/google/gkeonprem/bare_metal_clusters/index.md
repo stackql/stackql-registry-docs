@@ -29,35 +29,35 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The bare metal user cluster resource name. |
 | `description` | `string` | A human readable description of this bare metal user cluster. |
-| `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the bare metal user cluster. |
-| `securityConfig` | `object` | Specifies the security related settings for the bare metal user cluster. |
+| `adminClusterName` | `string` | Output only. The resource name of the bare metal admin cluster managing this user cluster. |
+| `state` | `string` | Output only. The current state of the bare metal user cluster. |
+| `fleet` | `object` | Fleet related configuration. Fleets are a Google Cloud concept for logically organizing clusters, letting you use and manage multi-cluster capabilities and apply consistent policies across your systems. See [Anthos Fleets](`https://cloud.google.com/anthos/multicluster-management/fleets`) for more details on Anthos multi-cluster capabilities using Fleets. ## |
+| `maintenanceConfig` | `object` | Specifies configurations to put bare metal nodes in and out of maintenance. |
+| `loadBalancer` | `object` | Specifies the load balancer configuration. |
+| `createTime` | `string` | Output only. The time when the bare metal user cluster was created. |
 | `adminClusterMembership` | `string` | Required. The admin cluster this bare metal user cluster belongs to. This is the full resource name of the admin cluster's fleet membership. |
 | `deleteTime` | `string` | Output only. The time when the bare metal user cluster was deleted. If the resource is not deleted, this must be empty |
-| `uid` | `string` | Output only. The unique identifier of the bare metal user cluster. |
-| `validationCheck` | `object` | ValidationCheck represents the result of preflight check. |
+| `networkConfig` | `object` | Specifies the cluster network configuration. |
+| `nodeConfig` | `object` | Specifies the workload node configurations. |
+| `endpoint` | `string` | Output only. The IP address of the bare metal user cluster's API server. |
+| `upgradePolicy` | `object` | BareMetalClusterUpgradePolicy defines the cluster upgrade policy. |
+| `annotations` | `object` | Annotations on the bare metal user cluster. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
 | `etag` | `string` | Output only. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control. |
+| `proxy` | `object` | Specifies the cluster proxy configuration. |
+| `localName` | `string` | Output only. The object name of the bare metal user cluster custom resource on the associated admin cluster. This field is used to support conflicting names when enrolling existing clusters to the API. When used as a part of cluster enrollment, this field will differ from the name in the resource name. For new clusters, this field will match the user provided cluster name and be visible in the last component of the resource name. It is not modifiable. When the local name and cluster name differ, the local name is used in the admin cluster controller logs. You use the cluster name when accessing the cluster using bmctl and kubectl. |
+| `clusterOperations` | `object` | Specifies the bare metal user cluster's observability infrastructure. |
+| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
+| `osEnvironmentConfig` | `object` | Specifies operating system settings for cluster provisioning. |
+| `nodeAccessConfig` | `object` | Specifies the node access related settings for the bare metal user cluster. |
+| `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the bare metal user cluster. |
+| `securityConfig` | `object` | Specifies the security related settings for the bare metal user cluster. |
+| `uid` | `string` | Output only. The unique identifier of the bare metal user cluster. |
+| `controlPlane` | `object` | Specifies the control plane configuration. |
 | `maintenanceStatus` | `object` | Represents the maintenance status of the bare metal user cluster. |
 | `storage` | `object` | BareMetalStorageConfig specifies the cluster storage configuration. |
-| `networkConfig` | `object` | Specifies the cluster network configuration. |
-| `annotations` | `object` | Annotations on the bare metal user cluster. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
-| `nodeAccessConfig` | `object` | Specifies the node access related settings for the bare metal user cluster. |
-| `state` | `string` | Output only. The current state of the bare metal user cluster. |
-| `endpoint` | `string` | Output only. The IP address of the bare metal user cluster's API server. |
-| `adminClusterName` | `string` | Output only. The resource name of the bare metal admin cluster managing this user cluster. |
-| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
-| `loadBalancer` | `object` | Specifies the load balancer configuration. |
 | `bareMetalVersion` | `string` | Required. The Anthos clusters on bare metal version for your user cluster. |
-| `upgradePolicy` | `object` | BareMetalClusterUpgradePolicy defines the cluster upgrade policy. |
-| `createTime` | `string` | Output only. The time when the bare metal user cluster was created. |
-| `fleet` | `object` | Fleet related configuration. Fleets are a Google Cloud concept for logically organizing clusters, letting you use and manage multi-cluster capabilities and apply consistent policies across your systems. See [Anthos Fleets](`https://cloud.google.com/anthos/multicluster-management/fleets`) for more details on Anthos multi-cluster capabilities using Fleets. ## |
-| `osEnvironmentConfig` | `object` | Specifies operating system settings for cluster provisioning. |
 | `updateTime` | `string` | Output only. The time when the bare metal user cluster was last updated. |
-| `nodeConfig` | `object` | Specifies the workload node configurations. |
-| `controlPlane` | `object` | Specifies the control plane configuration. |
-| `clusterOperations` | `object` | Specifies the bare metal user cluster's observability infrastructure. |
-| `localName` | `string` | Output only. The object name of the bare metal user cluster custom resource on the associated admin cluster. This field is used to support conflicting names when enrolling existing clusters to the API. When used as a part of cluster enrollment, this field will differ from the name in the resource name. For new clusters, this field will match the user provided cluster name and be visible in the last component of the resource name. It is not modifiable. When the local name and cluster name differ, the local name is used in the admin cluster controller logs. You use the cluster name when accessing the cluster using bmctl and kubectl. |
-| `proxy` | `object` | Specifies the cluster proxy configuration. |
-| `maintenanceConfig` | `object` | Specifies configurations to put bare metal nodes in and out of maintenance. |
+| `validationCheck` | `object` | ValidationCheck represents the result of preflight check. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

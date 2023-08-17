@@ -33,7 +33,7 @@ Provides Methods For Detection, Risk Analysis, And De-Identification Of Privacy-
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Data Loss Prevention (DLP)</td></tr>
 <tr><td><b>Description</b></td><td>Provides Methods For Detection, Risk Analysis, And De-Identification Of Privacy-Sensitive Fragments In Text, Images, And Google Cloud Platform Storage Repositories.</td></tr>
-<tr><td><b>Id</b></td><td><code>dlp:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dlp:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

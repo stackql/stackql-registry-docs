@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the configuration. |
-| `defaultSkaffoldVersion` | `string` | Default Skaffold version that is assigned when a Release is created without specifying a Skaffold version. |
 | `supportedVersions` | `array` | All supported versions of Skaffold. |
+| `defaultSkaffoldVersion` | `string` | Default Skaffold version that is assigned when a Release is created without specifying a Skaffold version. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

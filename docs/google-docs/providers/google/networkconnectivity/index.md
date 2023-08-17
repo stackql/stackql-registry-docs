@@ -21,7 +21,7 @@ This API Enables Connectivity With And Between Google Cloud Resources.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>19</b></span><br />
 <span>total selectable resources:&nbsp;<b>19</b></span><br />
-<span>total methods:&nbsp;<b>82</b></span><br />
+<span>total methods:&nbsp;<b>89</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ This API Enables Connectivity With And Between Google Cloud Resources.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Network Connectivity API</td></tr>
 <tr><td><b>Description</b></td><td>This API Enables Connectivity With And Between Google Cloud Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>networkconnectivity:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>networkconnectivity:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

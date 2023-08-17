@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Output only. The internal ID for the job. |
 | `name` | `string` | Required. The fully qualified resource name for the job. |
-| `createTime` | `string` | Output only. The time of job creation. |
 | `dataflowJobDetails` | `object` | Pipeline job details specific to the Dataflow API. This is encapsulated here to allow for more executors to store their specific details separately. |
 | `endTime` | `string` | Output only. The time of job termination. This is absent if the job is still running. |
 | `state` | `string` | The current state of the job. |
 | `status` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
+| `createTime` | `string` | Output only. The time of job creation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

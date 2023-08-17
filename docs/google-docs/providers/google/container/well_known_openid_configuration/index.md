@@ -27,14 +27,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id_token_signing_alg_values_supported` | `array` | supported ID Token signing Algorithms. |
-| `issuer` | `string` | OIDC Issuer. |
 | `jwks_uri` | `string` | JSON Web Key uri. |
 | `response_types_supported` | `array` | Supported response types. |
 | `subject_types_supported` | `array` | Supported subject types. |
 | `cacheHeader` | `object` | RFC-2616: cache control support |
 | `claims_supported` | `array` | Supported claims. |
 | `grant_types` | `array` | Supported grant types. |
+| `id_token_signing_alg_values_supported` | `array` | supported ID Token signing Algorithms. |
+| `issuer` | `string` | OIDC Issuer. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

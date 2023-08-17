@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name of the User data mapping, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/userDataMappings/&#123;user_data_mapping_id&#125;`. |
+| `archiveTime` | `string` | Output only. Indicates the time when this mapping was archived. |
+| `archived` | `boolean` | Output only. Indicates whether this mapping is archived. |
 | `dataId` | `string` | Required. A unique identifier for the mapped resource. |
 | `resourceAttributes` | `array` | Attributes of the resource. Only explicitly set attributes are displayed here. Attribute definitions with defaults set implicitly apply to these User data mappings. Attributes listed here must be single valued, that is, exactly one value is specified for the field "values" in each Attribute. |
 | `userId` | `string` | Required. User's UUID provided by the client. |
-| `archiveTime` | `string` | Output only. Indicates the time when this mapping was archived. |
-| `archived` | `boolean` | Output only. Indicates whether this mapping is archived. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,16 +29,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the lake, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;. |
 | `description` | `string` | Optional. Description of the lake. |
+| `state` | `string` | Output only. Current state of the lake. |
 | `displayName` | `string` | Optional. User friendly display name. |
 | `metastoreStatus` | `object` | Status of Lake and Dataproc Metastore service instance association. |
-| `state` | `string` | Output only. Current state of the lake. |
-| `updateTime` | `string` | Output only. The time when the lake was last updated. |
-| `serviceAccount` | `string` | Output only. Service account associated with this lake. This service account must be authorized to access or operate on resources managed by the lake. |
-| `createTime` | `string` | Output only. The time when the lake was created. |
 | `assetStatus` | `object` | Aggregated status of the underlying assets of a lake or zone. |
-| `labels` | `object` | Optional. User-defined labels for the lake. |
-| `metastore` | `object` | Settings to manage association of Dataproc Metastore with a lake. |
+| `serviceAccount` | `string` | Output only. Service account associated with this lake. This service account must be authorized to access or operate on resources managed by the lake. |
 | `uid` | `string` | Output only. System generated globally unique ID for the lake. This ID will be different if the lake is deleted and re-created with the same name. |
+| `updateTime` | `string` | Output only. The time when the lake was last updated. |
+| `labels` | `object` | Optional. User-defined labels for the lake. |
+| `createTime` | `string` | Output only. The time when the lake was created. |
+| `metastore` | `object` | Settings to manage association of Dataproc Metastore with a lake. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

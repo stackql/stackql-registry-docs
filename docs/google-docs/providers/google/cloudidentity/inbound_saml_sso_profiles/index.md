@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the SAML SSO profile. |
-| `customer` | `string` | Immutable. The customer. For example: `customers/C0123abc`. |
 | `displayName` | `string` | Human-readable name of the SAML SSO profile. |
 | `idpConfig` | `object` | SAML IDP (identity provider) configuration. |
 | `spConfig` | `object` | SAML SP (service provider) configuration. |
+| `customer` | `string` | Immutable. The customer. For example: `customers/C0123abc`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,31 +29,33 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of an entry in URL format. Note: The entry itself and its child resources might not be stored in the location specified in its name. |
 | `description` | `string` | Entry description that can consist of several sentences or paragraphs that describe entry contents. The description must not contain Unicode non-characters as well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF). The maximum size is 2000 bytes when encoded in UTF-8. Default value is an empty string. |
-| `integratedSystem` | `string` | Output only. Indicates the entry's source system that Data Catalog integrates with, such as BigQuery, Pub/Sub, or Dataproc Metastore. |
 | `gcsFilesetSpec` | `object` | Describes a Cloud Storage fileset entry. |
 | `labels` | `object` | Cloud labels attached to the entry. In Data Catalog, you can create and modify labels attached only to custom entries. Synced entries have unmodifiable labels that come from the source system. |
+| `usageSignal` | `object` | The set of all usage signals that Data Catalog stores. Note: Usually, these signals are updated daily. In rare cases, an update may fail but will be performed again on the next day. |
+| `linkedResource` | `string` | The resource this metadata entry refers to. For Google Cloud Platform resources, `linked_resource` is the [Full Resource Name] (https://cloud.google.com/apis/design/resource_names#full_resource_name). For example, the `linked_resource` for a table resource from BigQuery is: `//bigquery.googleapis.com/projects/&#123;PROJECT_ID&#125;/datasets/&#123;DATASET_ID&#125;/tables/&#123;TABLE_ID&#125;` Output only when the entry is one of the types in the `EntryType` enum. For entries with a `user_specified_type`, this field is optional and defaults to an empty string. The resource string must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), periods (.), colons (:), slashes (/), dashes (-), and hashes (#). The maximum size is 200 bytes when encoded in UTF-8. |
 | `businessContext` | `object` | Business Context of the entry. |
+| `cloudBigtableSystemSpec` | `object` | Specification that applies to all entries that are part of `CLOUD_BIGTABLE` system (user_specified_type) |
 | `filesetSpec` | `object` | Specification that applies to a fileset. Valid only for entries with the 'FILESET' type. |
+| `schema` | `object` | Represents a schema, for example, a BigQuery, GoogleSQL, or Avro schema. |
+| `dataSource` | `object` | Physical location of an entry. |
+| `modelSpec` | `object` | Specification that applies to a model. Valid only for entries with the `MODEL` type. |
+| `lookerSystemSpec` | `object` | Specification that applies to entries that are part `LOOKER` system (user_specified_type) |
+| `serviceSpec` | `object` | Specification that applies to a Service resource. Valid only for entries with the `SERVICE` type. |
+| `datasetSpec` | `object` | Specification that applies to a dataset. Valid only for entries with the `DATASET` type. |
+| `routineSpec` | `object` | Specification that applies to a routine. Valid only for entries with the `ROUTINE` type. |
+| `sourceSystemTimestamps` | `object` | Timestamps associated with this resource in a particular system. |
+| `sqlDatabaseSystemSpec` | `object` | Specification that applies to entries that are part `SQL_DATABASE` system (user_specified_type) |
 | `dataSourceConnectionSpec` | `object` | Specification that applies to a data source connection. Valid only for entries with the `DATA_SOURCE_CONNECTION` type. Only one of internal specs can be set at the time, and cannot be changed later. |
+| `userSpecifiedSystem` | `string` | Indicates the entry's source system that Data Catalog doesn't automatically integrate with. The `user_specified_system` string has the following limitations: * Is case insensitive. * Must begin with a letter or underscore. * Can only contain letters, numbers, and underscores. * Must be at least 1 character and at most 64 characters long. |
 | `fullyQualifiedName` | `string` | [Fully Qualified Name (FQN)](https://cloud.google.com//data-catalog/docs/fully-qualified-names) of the resource. Set automatically for entries representing resources from synced systems. Settable only during creation, and read-only later. Can be used for search and lookup of the entries.  |
+| `bigqueryDateShardedSpec` | `object` | Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD` name pattern. For more information, see [Introduction to partitioned tables] (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding). |
+| `bigqueryTableSpec` | `object` | Describes a BigQuery table. |
+| `databaseTableSpec` | `object` | Specification that applies to a table resource. Valid only for entries with the `TABLE` type. |
+| `displayName` | `string` | Display name of an entry. The maximum size is 500 bytes when encoded in UTF-8. Default value is an empty string. |
 | `userSpecifiedType` | `string` | Custom entry type that doesn't match any of the values allowed for input and listed in the `EntryType` enum. When creating an entry, first check the type values in the enum. If there are no appropriate types for the new entry, provide a custom value, for example, `my_special_type`. The `user_specified_type` string has the following limitations: * Is case insensitive. * Must begin with a letter or underscore. * Can only contain letters, numbers, and underscores. * Must be at least 1 character and at most 64 characters long. |
 | `personalDetails` | `object` | Entry metadata relevant only to the user and private to them. |
-| `userSpecifiedSystem` | `string` | Indicates the entry's source system that Data Catalog doesn't automatically integrate with. The `user_specified_system` string has the following limitations: * Is case insensitive. * Must begin with a letter or underscore. * Can only contain letters, numbers, and underscores. * Must be at least 1 character and at most 64 characters long. |
-| `displayName` | `string` | Display name of an entry. The maximum size is 500 bytes when encoded in UTF-8. Default value is an empty string. |
-| `databaseTableSpec` | `object` | Specification that applies to a table resource. Valid only for entries with the `TABLE` type. |
-| `dataSource` | `object` | Physical location of an entry. |
-| `serviceSpec` | `object` | Specification that applies to a Service resource. Valid only for entries with the `SERVICE` type. |
-| `bigqueryDateShardedSpec` | `object` | Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD` name pattern. For more information, see [Introduction to partitioned tables] (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding). |
-| `sqlDatabaseSystemSpec` | `object` | Specification that applies to entries that are part `SQL_DATABASE` system (user_specified_type) |
-| `bigqueryTableSpec` | `object` | Describes a BigQuery table. |
-| `cloudBigtableSystemSpec` | `object` | Specification that applies to all entries that are part of `CLOUD_BIGTABLE` system (user_specified_type) |
-| `sourceSystemTimestamps` | `object` | Timestamps associated with this resource in a particular system. |
-| `lookerSystemSpec` | `object` | Specification that applies to entries that are part `LOOKER` system (user_specified_type) |
-| `usageSignal` | `object` | The set of all usage signals that Data Catalog stores. Note: Usually, these signals are updated daily. In rare cases, an update may fail but will be performed again on the next day. |
-| `routineSpec` | `object` | Specification that applies to a routine. Valid only for entries with the `ROUTINE` type. |
-| `schema` | `object` | Represents a schema, for example, a BigQuery, GoogleSQL, or Avro schema. |
-| `linkedResource` | `string` | The resource this metadata entry refers to. For Google Cloud Platform resources, `linked_resource` is the [Full Resource Name] (https://cloud.google.com/apis/design/resource_names#full_resource_name). For example, the `linked_resource` for a table resource from BigQuery is: `//bigquery.googleapis.com/projects/&#123;PROJECT_ID&#125;/datasets/&#123;DATASET_ID&#125;/tables/&#123;TABLE_ID&#125;` Output only when the entry is one of the types in the `EntryType` enum. For entries with a `user_specified_type`, this field is optional and defaults to an empty string. The resource string must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), periods (.), colons (:), slashes (/), dashes (-), and hashes (#). The maximum size is 200 bytes when encoded in UTF-8. |
 | `type` | `string` | The type of the entry. For details, see [`EntryType`](#entrytype). |
+| `integratedSystem` | `string` | Output only. Indicates the entry's source system that Data Catalog integrates with, such as BigQuery, Pub/Sub, or Dataproc Metastore. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

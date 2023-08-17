@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `timestamp` | `string` | [Output Only] The time that this error occurred. This value is in RFC3339 text format. |
 | `error` | `object` |  |
 | `instanceActionDetails` | `object` |  |
-| `timestamp` | `string` | [Output Only] The time that this error occurred. This value is in RFC3339 text format. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

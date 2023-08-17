@@ -33,7 +33,7 @@ Data Pipelines Provides An Interface For Creating, Updating, And Managing Recurr
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Data Pipelines API</td></tr>
 <tr><td><b>Description</b></td><td>Data Pipelines Provides An Interface For Creating, Updating, And Managing Recurring Data Analytics Jobs.</td></tr>
-<tr><td><b>Id</b></td><td><code>datapipelines:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datapipelines:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

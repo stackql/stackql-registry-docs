@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name of the Consent, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/consents/&#123;consent_id&#125;`. Cannot be changed after creation. |
-| `consentArtifact` | `string` | Required. The resource name of the Consent artifact that contains proof of the end user's consent, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/consentArtifacts/&#123;consent_artifact_id&#125;`. |
-| `expireTime` | `string` | Timestamp in UTC of when this Consent is considered expired. |
-| `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
-| `ttl` | `string` | Input only. The time to live for this Consent from when it is created. |
-| `state` | `string` | Required. Indicates the current state of this Consent. |
-| `userId` | `string` | Required. User's UUID provided by the client. |
 | `metadata` | `object` | Optional. User-supplied key-value pairs used to organize Consent resources. Metadata keys must: - be between 1 and 63 characters long - have a UTF-8 encoding of maximum 128 bytes - begin with a letter - consist of up to 63 characters including lowercase letters, numeric characters, underscores, and dashes Metadata values must be: - be between 1 and 63 characters long - have a UTF-8 encoding of maximum 128 bytes - consist of up to 63 characters including lowercase letters, numeric characters, underscores, and dashes No more than 64 metadata entries can be associated with a given consent. |
 | `policies` | `array` | Optional. Represents a user's consent in terms of the resources that can be accessed and under what conditions. |
+| `ttl` | `string` | Input only. The time to live for this Consent from when it is created. |
+| `userId` | `string` | Required. User's UUID provided by the client. |
+| `expireTime` | `string` | Timestamp in UTC of when this Consent is considered expired. |
+| `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
+| `consentArtifact` | `string` | Required. The resource name of the Consent artifact that contains proof of the end user's consent, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/consentArtifacts/&#123;consent_artifact_id&#125;`. |
 | `revisionId` | `string` | Output only. The revision ID of the Consent. The format is an 8-character hexadecimal string. Refer to a specific revision of a Consent by appending `@&#123;revision_id&#125;` to the Consent's resource name. |
+| `state` | `string` | Required. Indicates the current state of this Consent. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

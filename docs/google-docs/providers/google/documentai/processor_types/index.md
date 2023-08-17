@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the processor type. Format: `projects/&#123;project&#125;/processorTypes/&#123;processor_type&#125;` |
+| `category` | `string` | The processor category, used by UI to group processor types. |
 | `launchStage` | `string` | Launch stage of the processor type |
 | `sampleDocumentUris` | `array` | A set of Cloud Storage URIs of sample documents for this processor. |
 | `type` | `string` | The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. |
 | `allowCreation` | `boolean` | Whether the processor type allows creation. If true, users can create a processor of this processor type. Otherwise, users need to request access. |
 | `availableLocations` | `array` | The locations in which this processor is available. |
-| `category` | `string` | The processor category, used by UI to group processor types. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

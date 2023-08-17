@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the environment group in the following format: `organizations/&#123;org&#125;/envgroups/&#123;envgroup&#125;`. |
+| `hostnames` | `array` | Host names for the environment group. |
+| `location` | `string` | When this message appears in the top-level IngressConfig, this field will be populated in lieu of the inlined routing_rules and hostnames fields. Some URL for downloading the full EnvironmentGroupConfig for this group. |
 | `revisionId` | `string` | Revision id that defines the ordering of the EnvironmentGroupConfig resource. The higher the revision, the more recently the configuration was deployed. |
 | `routingRules` | `array` | Ordered list of routing rules defining how traffic to this environment group's hostnames should be routed to different environments. |
 | `uid` | `string` | A unique id for the environment group config that will only change if the environment group is deleted and recreated. |
 | `endpointChainingRules` | `array` | A list of proxies in each deployment group for proxy chaining calls. |
-| `hostnames` | `array` | Host names for the environment group. |
-| `location` | `string` | When this message appears in the top-level IngressConfig, this field will be populated in lieu of the inlined routing_rules and hostnames fields. Some URL for downloading the full EnvironmentGroupConfig for this group. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `recaptchaStoken` | `string` | The stoken field for the recaptcha widget, used to request captcha challenge. |
 | `kind` | `string` | The fixed string "identitytoolkit#GetRecaptchaParamResponse". |
 | `recaptchaSiteKey` | `string` | Site key registered at recaptcha. |
-| `recaptchaStoken` | `string` | The stoken field for the recaptcha widget, used to request captcha challenge. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

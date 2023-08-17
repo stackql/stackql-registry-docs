@@ -21,7 +21,7 @@ Enables Management And Configuration Of Domain Names.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>27</b></span><br />
+<span>total methods:&nbsp;<b>28</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Enables Management And Configuration Of Domain Names.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Domains API</td></tr>
 <tr><td><b>Description</b></td><td>Enables Management And Configuration Of Domain Names.</td></tr>
-<tr><td><b>Id</b></td><td><code>domains:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>domains:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

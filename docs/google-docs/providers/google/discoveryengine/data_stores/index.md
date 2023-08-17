@@ -1,10 +1,10 @@
 ---
-title: tables_iam_policies
+title: data_stores
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - tables_iam_policies
-  - bigquery
+  - data_stores
+  - discoveryengine
   - google    
   - stackql
   - infrastructure-as-code
@@ -19,9 +19,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>tables_iam_policies</code></td></tr>
+<tr><td><b>Name</b></td><td><code>data_stores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>google.bigquery.tables_iam_policies</code></td></tr>
+<tr><td><b>Id</b></td><td><code>google.discoveryengine.data_stores</code></td></tr>
 </tbody></table>
 
 ## Fields
@@ -29,4 +29,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `set_iam_policy` | `EXEC` | `resource` |
+| `projects_locations_collections_data_stores_complete_query` | `EXEC` | `collectionsId, dataStoresId, locationsId, projectsId` |
+| `projects_locations_data_stores_complete_query` | `EXEC` | `dataStoresId, locationsId, projectsId` |

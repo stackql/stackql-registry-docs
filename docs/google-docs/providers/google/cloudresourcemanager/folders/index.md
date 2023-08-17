@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the folder. Its format is `folders/&#123;folder_id&#125;`, for example: "folders/1234". |
-| `createTime` | `string` | Output only. Timestamp when the folder was created. |
-| `deleteTime` | `string` | Output only. Timestamp when the folder was requested to be deleted. |
-| `displayName` | `string` | The folder's display name. A folder's display name must be unique amongst its siblings. For example, no two folders with the same parent can share the same display name. The display name must start and end with a letter or digit, may contain letters, digits, spaces, hyphens and underscores and can be no longer than 30 characters. This is captured by the regular expression: `[\p&#123;L&#125;\p&#123;N&#125;]([\p&#123;L&#125;\p&#123;N&#125;_- ]&#123;0,28&#125;[\p&#123;L&#125;\p&#123;N&#125;])?`. |
 | `etag` | `string` | Output only. A checksum computed by the server based on the current value of the folder resource. This may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | `parent` | `string` | Required. The folder's parent's resource name. Updates to the folder's parent must be performed using MoveFolder. |
 | `state` | `string` | Output only. The lifecycle state of the folder. Updates to the state must be performed using DeleteFolder and UndeleteFolder. |
 | `updateTime` | `string` | Output only. Timestamp when the folder was last modified. |
+| `createTime` | `string` | Output only. Timestamp when the folder was created. |
+| `deleteTime` | `string` | Output only. Timestamp when the folder was requested to be deleted. |
+| `displayName` | `string` | The folder's display name. A folder's display name must be unique amongst its siblings. For example, no two folders with the same parent can share the same display name. The display name must start and end with a letter or digit, may contain letters, digits, spaces, hyphens and underscores and can be no longer than 30 characters. This is captured by the regular expression: `[\p&#123;L&#125;\p&#123;N&#125;]([\p&#123;L&#125;\p&#123;N&#125;_- ]&#123;0,28&#125;[\p&#123;L&#125;\p&#123;N&#125;])?`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

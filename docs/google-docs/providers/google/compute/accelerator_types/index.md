@@ -30,12 +30,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] An optional textual description of the resource. |
+| `maximumCardsPerInstance` | `integer` | [Output Only] Maximum number of accelerator cards allowed per instance. |
+| `selfLink` | `string` | [Output Only] Server-defined, fully qualified URL for this resource. |
+| `zone` | `string` | [Output Only] The name of the zone where the accelerator type resides, such as us-central1-a. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `kind` | `string` | [Output Only] The type of the resource. Always compute#acceleratorType for accelerator types. |
 | `deprecated` | `object` | Deprecation status for a public resource. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `zone` | `string` | [Output Only] The name of the zone where the accelerator type resides, such as us-central1-a. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
-| `selfLink` | `string` | [Output Only] Server-defined, fully qualified URL for this resource. |
-| `maximumCardsPerInstance` | `integer` | [Output Only] Maximum number of accelerator cards allowed per instance. |
-| `kind` | `string` | [Output Only] The type of the resource. Always compute#acceleratorType for accelerator types. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

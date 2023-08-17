@@ -19,7 +19,7 @@ The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
 <span>total methods:&nbsp;<b>16</b></span><br />
 </div>
@@ -33,7 +33,7 @@ The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Asset API</td></tr>
 <tr><td><b>Description</b></td><td>The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudasset:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudasset:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -47,6 +47,7 @@ The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.
 <div class="providerDocColumn">
 <a href="/providers/google/cloudasset/effective_iam_policies/">effective_iam_policies</a><br />
 <a href="/providers/google/cloudasset/feeds/">feeds</a><br />
+<a href="/providers/google/cloudasset/operations/">operations</a><br />
 <a href="/providers/google/cloudasset/saved_queries/">saved_queries</a><br />
 </div>
 </div>

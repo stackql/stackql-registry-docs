@@ -20,8 +20,8 @@ Manages Google Cloud Technical Support Cases For Customer Care Support Offerings
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Manages Google Cloud Technical Support Cases For Customer Care Support Offerings
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Cloud Support API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Google Cloud Technical Support Cases For Customer Care Support Offerings. </td></tr>
-<tr><td><b>Id</b></td><td><code>cloudsupport:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudsupport:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

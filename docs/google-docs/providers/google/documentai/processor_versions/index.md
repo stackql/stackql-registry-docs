@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the processor version. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processors/&#123;processor&#125;/processorVersions/&#123;processor_version&#125;` |
-| `deprecationInfo` | `object` | Information about the upcoming deprecation of this processor version. |
-| `googleManaged` | `boolean` | Output only. Denotes that this `ProcessorVersion` is managed by Google. |
-| `state` | `string` | The state of the processor version. |
-| `latestEvaluation` | `object` | Gives a short summary of an evaluation, and links to the evaluation itself. |
-| `createTime` | `string` | The time the processor version was created. |
 | `kmsKeyVersionName` | `string` | The KMS key version with which data is encrypted. |
-| `displayName` | `string` | The display name of the processor version. |
+| `createTime` | `string` | The time the processor version was created. |
 | `documentSchema` | `object` | The schema defines the output of the processed document by a processor. |
+| `state` | `string` | The state of the processor version. |
 | `kmsKeyName` | `string` | The KMS key name used for encryption. |
+| `latestEvaluation` | `object` | Gives a short summary of an evaluation, and links to the evaluation itself. |
+| `googleManaged` | `boolean` | Output only. Denotes that this `ProcessorVersion` is managed by Google. |
+| `deprecationInfo` | `object` | Information about the upcoming deprecation of this processor version. |
+| `displayName` | `string` | The display name of the processor version. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

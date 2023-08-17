@@ -21,7 +21,7 @@ Provides Natural Language Understanding Technologies, Such As Sentiment Analysis
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>1</b></span><br />
 <span>total selectable resources:&nbsp;<b>0</b></span><br />
-<span>total methods:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Provides Natural Language Understanding Technologies, Such As Sentiment Analysis
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Natural Language API</td></tr>
 <tr><td><b>Description</b></td><td>Provides Natural Language Understanding Technologies, Such As Sentiment Analysis, Entity Recognition, Entity Sentiment Analysis, And Other Text Annotations, To Developers.</td></tr>
-<tr><td><b>Id</b></td><td><code>language:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>language:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

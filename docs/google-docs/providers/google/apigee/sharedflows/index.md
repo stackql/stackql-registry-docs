@@ -25,6 +25,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | The ID of the shared flow. |
+| `latestRevisionId` | `string` | The id of the most recently created revision for this shared flow. |
+| `metaData` | `object` | Metadata common to many entities in this API. |
+| `revision` | `array` | A list of revisions of this shared flow. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

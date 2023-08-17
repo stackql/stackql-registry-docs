@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the repository |
 | `description` | `string` | Description of the repository |
+| `displayName` | `string` | Display name of the repository |
 | `repositoryId` | `object` | GitLabRepositoryId identifies a specific repository hosted on GitLab.com or GitLabEnterprise |
 | `browseUri` | `string` | Link to the browse repo page on the GitLab instance |
-| `displayName` | `string` | Display name of the repository |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

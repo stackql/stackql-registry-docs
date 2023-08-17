@@ -21,7 +21,7 @@ Beyondcorp Enterprise Provides Identity And Context Aware Access Controls For En
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>10</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>48</b></span><br />
+<span>total methods:&nbsp;<b>53</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Beyondcorp Enterprise Provides Identity And Context Aware Access Controls For En
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BeyondCorp API</td></tr>
 <tr><td><b>Description</b></td><td>Beyondcorp Enterprise Provides Identity And Context Aware Access Controls For Enterprise Resources And Enables Zero-Trust Access. Using The Beyondcorp Enterprise APIs, Enterprises Can Set Up Multi-Cloud And On-Prem Connectivity Solutions.</td></tr>
-<tr><td><b>Id</b></td><td><code>beyondcorp:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>beyondcorp:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

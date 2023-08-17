@@ -21,7 +21,7 @@ Build Event-Driven Applications On Google Cloud Platform.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>10</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>39</b></span><br />
+<span>total methods:&nbsp;<b>42</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Build Event-Driven Applications On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Eventarc API</td></tr>
 <tr><td><b>Description</b></td><td>Build Event-Driven Applications On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>eventarc:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>eventarc:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

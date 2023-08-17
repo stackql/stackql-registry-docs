@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. Name of the security incident resource. Format: organizations/&#123;org&#125;/environments/&#123;environment&#125;/securityIncidents/&#123;incident&#125; Example: organizations/apigee-org/environments/dev/securityIncidents/1234-5678-9101-1111 |
-| `riskLevel` | `string` | Output only. Risk level of the incident. |
-| `trafficCount` | `string` | Total traffic detected as part of the incident. |
 | `detectionTypes` | `array` | Output only. Detection types which are part of the incident. Examples: Flooder, OAuth Abuser, Static Content Scraper, Anomaly Detection. |
 | `displayName` | `string` | Display name of the security incident. |
 | `firstDetectedTime` | `string` | Output only. The time when events associated with the incident were first detected. |
 | `lastDetectedTime` | `string` | Output only. The time when events associated with the incident were last detected. |
+| `riskLevel` | `string` | Output only. Risk level of the incident. |
+| `trafficCount` | `string` | Total traffic detected as part of the incident. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

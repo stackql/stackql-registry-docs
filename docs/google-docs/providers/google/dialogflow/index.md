@@ -33,7 +33,7 @@ Builds Conversational Interfaces (For Example, Chatbots, And Voice-Powered Apps 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dialogflow API</td></tr>
 <tr><td><b>Description</b></td><td>Builds Conversational Interfaces (For Example, Chatbots, And Voice-Powered Apps And Devices).</td></tr>
-<tr><td><b>Id</b></td><td><code>dialogflow:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dialogflow:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

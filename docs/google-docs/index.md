@@ -17,16 +17,16 @@ slug: /providers/google
 ---
 Cloud computing services offered by Google.  
     
-:::info Provider Summary (v23.08.00157)
+:::info Provider Summary (v23.08.00161)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>150</b></span><br />
-<span>total methods:&nbsp;<b>7015</b></span><br />
+<span>total services:&nbsp;<b>149</b></span><br />
+<span>total methods:&nbsp;<b>7201</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1469</b></span><br />
-<span>total selectable resources:&nbsp;<b>1181</b></span><br />
+<span>total resources:&nbsp;<b>1471</b></span><br />
+<span>total selectable resources:&nbsp;<b>1183</b></span><br />
 </div>
 </div>
 
@@ -170,14 +170,13 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/eventarc/">eventarc</a><br />
 <a href="/providers/google/file/">file</a><br />
 <a href="/providers/google/firestore/">firestore</a><br />
-<a href="/providers/google/gameservices/">gameservices</a><br />
 <a href="/providers/google/gkebackup/">gkebackup</a><br />
 <a href="/providers/google/gkehub/">gkehub</a><br />
 <a href="/providers/google/gkeonprem/">gkeonprem</a><br />
 <a href="/providers/google/healthcare/">healthcare</a><br />
+<a href="/providers/google/iam/">iam</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/iam/">iam</a><br />
 <a href="/providers/google/iamcredentials/">iamcredentials</a><br />
 <a href="/providers/google/iap/">iap</a><br />
 <a href="/providers/google/identitytoolkit/">identitytoolkit</a><br />

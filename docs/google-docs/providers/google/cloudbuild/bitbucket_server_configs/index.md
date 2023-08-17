@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the config. |
-| `sslCa` | `string` | Optional. SSL certificate to use for requests to Bitbucket Server. The format should be PEM format but the extension can be one of .pem, .cer, or .crt. |
-| `connectedRepositories` | `array` | Output only. Connected Bitbucket Server repositories for this config. |
-| `createTime` | `string` | Time when the config was created. |
-| `username` | `string` | Username of the account Cloud Build will use on Bitbucket Server. |
-| `webhookKey` | `string` | Output only. UUID included in webhook requests. The UUID is used to look up the corresponding config. |
-| `peeredNetwork` | `string` | Optional. The network to be used when reaching out to the Bitbucket Server instance. The VPC network must be enabled for private service connection. This should be set if the Bitbucket Server instance is hosted on-premises and not reachable by public internet. If this field is left empty, no network peering will occur and calls to the Bitbucket Server instance will be made over the public internet. Must be in the format `projects/&#123;project&#125;/global/networks/&#123;network&#125;`, where &#123;project&#125; is a project number or id and &#123;network&#125; is the name of a VPC network in the project. |
 | `apiKey` | `string` | Required. Immutable. API Key that will be attached to webhook. Once this field has been set, it cannot be changed. If you need to change it, please create another BitbucketServerConfig. |
 | `hostUri` | `string` | Required. Immutable. The URI of the Bitbucket Server host. Once this field has been set, it cannot be changed. If you need to change it, please create another BitbucketServerConfig. |
 | `secrets` | `object` | BitbucketServerSecrets represents the secrets in Secret Manager for a Bitbucket Server. |
+| `peeredNetwork` | `string` | Optional. The network to be used when reaching out to the Bitbucket Server instance. The VPC network must be enabled for private service connection. This should be set if the Bitbucket Server instance is hosted on-premises and not reachable by public internet. If this field is left empty, no network peering will occur and calls to the Bitbucket Server instance will be made over the public internet. Must be in the format `projects/&#123;project&#125;/global/networks/&#123;network&#125;`, where &#123;project&#125; is a project number or id and &#123;network&#125; is the name of a VPC network in the project. |
+| `createTime` | `string` | Time when the config was created. |
+| `sslCa` | `string` | Optional. SSL certificate to use for requests to Bitbucket Server. The format should be PEM format but the extension can be one of .pem, .cer, or .crt. |
+| `username` | `string` | Username of the account Cloud Build will use on Bitbucket Server. |
+| `webhookKey` | `string` | Output only. UUID included in webhook requests. The UUID is used to look up the corresponding config. |
+| `connectedRepositories` | `array` | Output only. Connected Bitbucket Server repositories for this config. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

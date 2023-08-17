@@ -21,7 +21,7 @@ Cloud IDS (Cloud Intrusion Detection System) Detects Malware, Spyware, Command-A
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>17</b></span><br />
+<span>total methods:&nbsp;<b>18</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Cloud IDS (Cloud Intrusion Detection System) Detects Malware, Spyware, Command-A
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud IDS API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud IDS (Cloud Intrusion Detection System) Detects Malware, Spyware, Command-And-Control Attacks, And Other Network-Based Threats. Its Security Efficacy Is Industry Leading, Built With Palo Alto Networks Technologies. When You Use This Product, Your Organization Name And Consumption Levels Will Be Shared With Palo Alto Networks.</td></tr>
-<tr><td><b>Id</b></td><td><code>ids:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ids:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

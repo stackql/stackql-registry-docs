@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the model, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/models/&#123;model_id&#125;` |
-| `sourceLanguageCode` | `string` | Output only. The BCP-47 language code of the source language. |
-| `testExampleCount` | `integer` | Output only. Number of examples (sentence pairs) used to test the model. |
-| `trainExampleCount` | `integer` | Output only. Number of examples (sentence pairs) used to train the model. |
-| `validateExampleCount` | `integer` | Output only. Number of examples (sentence pairs) used to validate the model. |
-| `createTime` | `string` | Output only. Timestamp when the model resource was created, which is also when the training started. |
 | `targetLanguageCode` | `string` | Output only. The BCP-47 language code of the target language. |
-| `dataset` | `string` | The dataset from which the model is trained, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;` |
+| `sourceLanguageCode` | `string` | Output only. The BCP-47 language code of the source language. |
+| `trainExampleCount` | `integer` | Output only. Number of examples (sentence pairs) used to train the model. |
+| `testExampleCount` | `integer` | Output only. Number of examples (sentence pairs) used to test the model. |
 | `updateTime` | `string` | Output only. Timestamp when this model was last updated. |
+| `validateExampleCount` | `integer` | Output only. Number of examples (sentence pairs) used to validate the model. |
 | `displayName` | `string` | The name of the model to show in the interface. The name can be up to 32 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscores (_), and ASCII digits 0-9. |
+| `createTime` | `string` | Output only. Timestamp when the model resource was created, which is also when the training started. |
+| `dataset` | `string` | The dataset from which the model is trained, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -21,7 +21,7 @@ Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Co
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>20</b></span><br />
+<span>total methods:&nbsp;<b>21</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Co
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Secret Manager API</td></tr>
 <tr><td><b>Description</b></td><td>Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Convenience While Improving Security. </td></tr>
-<tr><td><b>Id</b></td><td><code>secretmanager:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>secretmanager:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

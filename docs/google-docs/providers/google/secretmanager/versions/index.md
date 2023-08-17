@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the SecretVersion in the format `projects/*/secrets/*/versions/*`. SecretVersion IDs in a Secret start at 1 and are incremented for each subsequent version of the secret. |
-| `createTime` | `string` | Output only. The time at which the SecretVersion was created. |
-| `destroyTime` | `string` | Output only. The time this SecretVersion was destroyed. Only present if state is DESTROYED. |
-| `etag` | `string` | Output only. Etag of the currently stored SecretVersion. |
 | `replicationStatus` | `object` | The replication status of a SecretVersion. |
 | `state` | `string` | Output only. The current state of the SecretVersion. |
 | `clientSpecifiedPayloadChecksum` | `boolean` | Output only. True if payload checksum specified in SecretPayload object has been received by SecretManagerService on SecretManagerService.AddSecretVersion. |
+| `createTime` | `string` | Output only. The time at which the SecretVersion was created. |
+| `destroyTime` | `string` | Output only. The time this SecretVersion was destroyed. Only present if state is DESTROYED. |
+| `etag` | `string` | Output only. Etag of the currently stored SecretVersion. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

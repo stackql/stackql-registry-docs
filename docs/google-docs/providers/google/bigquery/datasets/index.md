@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The fully-qualified, unique, opaque ID of the dataset. |
+| `friendlyName` | `string` | A descriptive name for the dataset, if one exists. |
 | `kind` | `string` | The resource type. This property always returns the value "bigquery#dataset". |
 | `labels` | `object` | The labels associated with this dataset. You can use these to organize and group your datasets. |
 | `location` | `string` | The geographic location where the data resides. |
 | `datasetReference` | `object` |  |
-| `friendlyName` | `string` | A descriptive name for the dataset, if one exists. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

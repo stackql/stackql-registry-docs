@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the resource in the following format: `organizations/&#123;org&#125;/deployedIngressConfig`. |
-| `environmentGroups` | `array` | List of environment groups in the organization. |
-| `revisionCreateTime` | `string` | Time at which the IngressConfig revision was created. |
 | `revisionId` | `string` | Revision id that defines the ordering on IngressConfig resources. The higher the revision, the more recently the configuration was deployed. |
 | `uid` | `string` | A unique id for the ingress config that will only change if the organization is deleted and recreated. |
+| `environmentGroups` | `array` | List of environment groups in the organization. |
+| `revisionCreateTime` | `string` | Time at which the IngressConfig revision was created. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

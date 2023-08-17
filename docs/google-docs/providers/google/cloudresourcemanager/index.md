@@ -21,7 +21,7 @@ Creates, Reads, And Updates Metadata For Google Cloud Platform Resource Containe
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>17</b></span><br />
 <span>total selectable resources:&nbsp;<b>15</b></span><br />
-<span>total methods:&nbsp;<b>65</b></span><br />
+<span>total methods:&nbsp;<b>70</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Creates, Reads, And Updates Metadata For Google Cloud Platform Resource Containe
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Resource Manager API</td></tr>
 <tr><td><b>Description</b></td><td>Creates, Reads, And Updates Metadata For Google Cloud Platform Resource Containers.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudresourcemanager:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudresourcemanager:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -30,7 +30,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `message` | `string` | Description of the operation. |
 | `requestId` | `string` | ID that can be used to find request details in the log files. |
 | `status` | `string` | Status of the operation. |
-| `data` | `object` | the Api category resource. |
+| `data` | `array` | Details of categories. |
 | `errorCode` | `string` | ID that can be used to find errors in the log files. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

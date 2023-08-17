@@ -21,7 +21,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>10</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>45</b></span><br />
+<span>total methods:&nbsp;<b>47</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Deploy API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>clouddeploy:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>clouddeploy:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

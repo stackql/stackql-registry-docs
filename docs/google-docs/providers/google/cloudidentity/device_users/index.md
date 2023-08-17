@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the DeviceUser in format: `devices/&#123;device&#125;/deviceUsers/&#123;device_user&#125;`, where `device_user` uniquely identifies a user's use of a device. |
 | `compromisedState` | `string` | Compromised State of the DeviceUser object |
+| `managementState` | `string` | Output only. Management state of the user on the device. |
+| `firstSyncTime` | `string` | Output only. Most recent time when user registered with this service. |
+| `lastSyncTime` | `string` | Output only. Last time when user synced with policies. |
 | `userAgent` | `string` | Output only. User agent on the device for this specific user |
 | `userEmail` | `string` | Email address of the user registered on the device. |
 | `languageCode` | `string` | Output only. Default locale used on device, in IETF BCP-47 format. |
-| `lastSyncTime` | `string` | Output only. Last time when user synced with policies. |
-| `firstSyncTime` | `string` | Output only. Most recent time when user registered with this service. |
-| `managementState` | `string` | Output only. Management state of the user on the device. |
-| `passwordState` | `string` | Password state of the DeviceUser object |
 | `createTime` | `string` | When the user first signed in to the device |
+| `passwordState` | `string` | Password state of the DeviceUser object |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

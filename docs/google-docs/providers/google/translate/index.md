@@ -33,7 +33,7 @@ Integrates Text Translation Into Your Website Or Application.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Translation API</td></tr>
 <tr><td><b>Description</b></td><td>Integrates Text Translation Into Your Website Or Application.</td></tr>
-<tr><td><b>Id</b></td><td><code>translate:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>translate:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

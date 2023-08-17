@@ -29,10 +29,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `analyze_entities` | `EXEC` |  | Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties. |
-| `analyze_entity_sentiment` | `EXEC` |  | Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions. |
+| `analyze_entities` | `EXEC` |  | Finds named entities (currently proper names and common nouns) in the text along with entity types, probability, mentions for each entity, and other properties. |
 | `analyze_sentiment` | `EXEC` |  | Analyzes the sentiment of the provided text. |
-| `analyze_syntax` | `EXEC` |  | Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties. |
-| `annotate_text` | `EXEC` |  | A convenience method that provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call. |
+| `annotate_text` | `EXEC` |  | A convenience method that provides all features in one call. |
 | `classify_text` | `EXEC` |  | Classifies a document into categories. |
 | `moderate_text` | `EXEC` |  | Moderates a document for harmful and sensitive categories. |

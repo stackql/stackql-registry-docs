@@ -33,7 +33,7 @@ An API For Accessing Advisory Notifications In Google Cloud
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Advisory Notifications API</td></tr>
 <tr><td><b>Description</b></td><td>An API For Accessing Advisory Notifications In Google Cloud</td></tr>
-<tr><td><b>Id</b></td><td><code>advisorynotifications:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>advisorynotifications:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

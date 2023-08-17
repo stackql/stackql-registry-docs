@@ -29,20 +29,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the view.For example:projects/my-project/locations/global/buckets/my-bucket/views/my-view |
 | `description` | `string` | Describes this view. |
-| `createTime` | `string` | Output only. The creation timestamp of the view. |
 | `filter` | `string` | Filter that restricts which log entries in a bucket are visible in this view.Filters are restricted to be a logical AND of ==/!= of any of the following: originating project/folder/organization/billing account. resource type log idFor example:SOURCE("projects/myproject") AND resource.type = "gce_instance" AND LOG_ID("stdout") |
 | `updateTime` | `string` | Output only. The last update timestamp of the view. |
+| `createTime` | `string` | Output only. The creation timestamp of the view. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `billing_accounts_locations_buckets_views_get` | `SELECT` | `billingAccountsId, bucketsId, locationsId, viewsId` | Gets a view on a log bucket.. |
+| `billing_accounts_locations_buckets_views_get` | `SELECT` | `billingAccountsId, bucketsId, locationsId, viewsId` | Gets a view on a log bucket. |
 | `billing_accounts_locations_buckets_views_list` | `SELECT` | `billingAccountsId, bucketsId, locationsId` | Lists views on a log bucket. |
-| `folders_locations_buckets_views_get` | `SELECT` | `bucketsId, foldersId, locationsId, viewsId` | Gets a view on a log bucket.. |
+| `folders_locations_buckets_views_get` | `SELECT` | `bucketsId, foldersId, locationsId, viewsId` | Gets a view on a log bucket. |
 | `folders_locations_buckets_views_list` | `SELECT` | `bucketsId, foldersId, locationsId` | Lists views on a log bucket. |
 | `locations_buckets_views_list` | `SELECT` | `parent` | Lists views on a log bucket. |
-| `organizations_locations_buckets_views_get` | `SELECT` | `bucketsId, locationsId, organizationsId, viewsId` | Gets a view on a log bucket.. |
+| `organizations_locations_buckets_views_get` | `SELECT` | `bucketsId, locationsId, organizationsId, viewsId` | Gets a view on a log bucket. |
 | `organizations_locations_buckets_views_list` | `SELECT` | `bucketsId, locationsId, organizationsId` | Lists views on a log bucket. |
-| `projects_locations_buckets_views_get` | `SELECT` | `bucketsId, locationsId, projectsId, viewsId` | Gets a view on a log bucket.. |
+| `projects_locations_buckets_views_get` | `SELECT` | `bucketsId, locationsId, projectsId, viewsId` | Gets a view on a log bucket. |
 | `projects_locations_buckets_views_list` | `SELECT` | `bucketsId, locationsId, projectsId` | Lists views on a log bucket. |
 | `billing_accounts_locations_buckets_views_create` | `INSERT` | `billingAccountsId, bucketsId, locationsId` | Creates a view over log entries in a log bucket. A bucket may contain a maximum of 30 views. |
 | `folders_locations_buckets_views_create` | `INSERT` | `bucketsId, foldersId, locationsId` | Creates a view over log entries in a log bucket. A bucket may contain a maximum of 30 views. |

@@ -27,22 +27,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Full name of this resource. |
-| `annotations` | `object` | Client-specified annotations. |
-| `uid` | `string` | Output only. A system-assigned unique identifier for this resource. |
-| `network` | `string` | Immutable. Name of the Compute Engine network in which instances associated with this cluster will be created. |
-| `etag` | `string` | Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
-| `updateTime` | `string` | Output only. Time when this resource was most recently updated. |
-| `reconciling` | `boolean` | Output only. Indicates whether this resource is currently being updated to match its intended state. |
-| `conditions` | `array` | Output only. Status conditions describing the current resource state. |
-| `subnetwork` | `string` | Immutable. Name of the Compute Engine subnetwork in which instances associated with this cluster will be created. Must be part of the subnetwork specified for this cluster. |
-| `displayName` | `string` | Human-readable name for this resource. |
-| `privateClusterConfig` | `object` | Configuration options for private clusters. |
-| `deleteTime` | `string` | Output only. Time when this resource was soft-deleted. |
-| `createTime` | `string` | Output only. Time when this resource was created. |
-| `degraded` | `boolean` | Output only. Whether this resource is in degraded mode, in which case it may require user action to restore full functionality. Details can be found in the `conditions` field. |
-| `labels` | `object` | Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources. |
-| `controlPlaneIp` | `string` | Output only. The private IP address of the control plane for this cluster. Workstation VMs need access to this IP address to work with the service, so make sure that your firewall rules allow egress from the workstation VMs to this address. |
+| `name` | `string` | Full name of this workstation cluster. |
+| `etag` | `string` | Optional. Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
+| `controlPlaneIp` | `string` | Output only. The private IP address of the control plane for this workstation cluster. Workstation VMs need access to this IP address to work with the service, so make sure that your firewall rules allow egress from the workstation VMs to this address. |
+| `subnetwork` | `string` | Immutable. Name of the Compute Engine subnetwork in which instances associated with this workstation cluster will be created. Must be part of the subnetwork specified for this workstation cluster. |
+| `uid` | `string` | Output only. A system-assigned unique identifier for this workstation cluster. |
+| `labels` | `object` | Optional. [Labels](https://cloud.google.com/workstations/docs/label-resources) that are applied to the workstation cluster and that are also propagated to the underlying Compute Engine resources. |
+| `displayName` | `string` | Optional. Human-readable name for this workstation cluster. |
+| `reconciling` | `boolean` | Output only. Indicates whether this workstation cluster is currently being updated to match its intended state. |
+| `privateClusterConfig` | `object` | Configuration options for private workstation clusters. |
+| `annotations` | `object` | Optional. Client-specified annotations. |
+| `createTime` | `string` | Output only. Time when this workstation cluster was created. |
+| `network` | `string` | Immutable. Name of the Compute Engine network in which instances associated with this workstation cluster will be created. |
+| `deleteTime` | `string` | Output only. Time when this workstation cluster was soft-deleted. |
+| `degraded` | `boolean` | Output only. Whether this workstation cluster is in degraded mode, in which case it may require user action to restore full functionality. Details can be found in conditions. |
+| `conditions` | `array` | Output only. Status conditions describing the workstation cluster's current state. |
+| `updateTime` | `string` | Output only. Time when this workstation cluster was most recently updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

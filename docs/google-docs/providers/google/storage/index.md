@@ -21,7 +21,7 @@ Stores And Retrieves Potentially Large, Immutable Data Objects.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>11</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>55</b></span><br />
+<span>total methods:&nbsp;<b>57</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Stores And Retrieves Potentially Large, Immutable Data Objects.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Storage JSON API</td></tr>
 <tr><td><b>Description</b></td><td>Stores And Retrieves Potentially Large, Immutable Data Objects.</td></tr>
-<tr><td><b>Id</b></td><td><code>storage:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storage:v23.08.00161</code></td></tr>
 </tbody></table>
 
 ## Resources

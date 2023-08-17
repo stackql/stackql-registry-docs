@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the TensorboardTimeSeries. |
 | `description` | `string` | Description of this TensorboardTimeSeries. |
-| `updateTime` | `string` | Output only. Timestamp when this TensorboardTimeSeries was last updated. |
-| `createTime` | `string` | Output only. Timestamp when this TensorboardTimeSeries was created. |
-| `displayName` | `string` | Required. User provided name of this TensorboardTimeSeries. This value should be unique among all TensorboardTimeSeries resources belonging to the same TensorboardRun resource (parent resource). |
-| `valueType` | `string` | Required. Immutable. Type of TensorboardTimeSeries value. |
-| `pluginName` | `string` | Immutable. Name of the plugin this time series pertain to. Such as Scalar, Tensor, Blob |
-| `etag` | `string` | Used to perform a consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
 | `metadata` | `object` | Describes metadata for a TensorboardTimeSeries. |
 | `pluginData` | `string` | Data of the current plugin, with the size limited to 65KB. |
+| `etag` | `string` | Used to perform a consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
+| `valueType` | `string` | Required. Immutable. Type of TensorboardTimeSeries value. |
+| `displayName` | `string` | Required. User provided name of this TensorboardTimeSeries. This value should be unique among all TensorboardTimeSeries resources belonging to the same TensorboardRun resource (parent resource). |
+| `pluginName` | `string` | Immutable. Name of the plugin this time series pertain to. Such as Scalar, Tensor, Blob |
+| `updateTime` | `string` | Output only. Timestamp when this TensorboardTimeSeries was last updated. |
+| `createTime` | `string` | Output only. Timestamp when this TensorboardTimeSeries was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
