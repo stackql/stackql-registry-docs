@@ -29,21 +29,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name of the SFDC instance projects/&#123;project&#125;/locations/&#123;location&#125;/authConfigs/&#123;authConfig&#125;. |
 | `description` | `string` | A description of the auth config. |
-| `expiryNotificationDuration` | `array` | User can define the time to receive notification after which the auth config becomes invalid. Support up to 30 days. Support granularity in hours. |
-| `updateTime` | `string` | Output only. The timestamp when the auth config is modified. |
-| `overrideValidTime` | `string` | User provided expiry time to override. For the example of Salesforce, username/password credentials can be valid for 6 months depending on the instance settings. |
-| `createTime` | `string` | Output only. The timestamp when the auth config is created. |
-| `decryptedCredential` | `object` | Defines parameters for a single, canonical credential. |
-| `displayName` | `string` | Required. The name of the auth config. |
-| `lastModifierEmail` | `string` | The last modifier's email address. Generated based on the End User Credentials/LOAS role of the user making the call. |
-| `validTime` | `string` | The time until the auth config is valid. Empty or max value is considered the auth config won't expire. |
 | `encryptedCredential` | `string` | Auth credential encrypted by Cloud KMS. Can be decrypted as Credential with proper KMS key. |
-| `reason` | `string` | The reason / details of the current status. |
-| `credentialType` | `string` | Credential type of the encrypted credential. |
-| `visibility` | `string` | The visibility of the auth config. |
 | `creatorEmail` | `string` | The creator's email address. Generated based on the End User Credentials/LOAS role of the user making the call. |
-| `state` | `string` | The status of the auth config. |
+| `decryptedCredential` | `object` | Defines parameters for a single, canonical credential. |
+| `expiryNotificationDuration` | `array` | User can define the time to receive notification after which the auth config becomes invalid. Support up to 30 days. Support granularity in hours. |
+| `reason` | `string` | The reason / details of the current status. |
+| `createTime` | `string` | Output only. The timestamp when the auth config is created. |
+| `lastModifierEmail` | `string` | The last modifier's email address. Generated based on the End User Credentials/LOAS role of the user making the call. |
+| `overrideValidTime` | `string` | User provided expiry time to override. For the example of Salesforce, username/password credentials can be valid for 6 months depending on the instance settings. |
+| `credentialType` | `string` | Credential type of the encrypted credential. |
+| `displayName` | `string` | Required. The name of the auth config. |
+| `visibility` | `string` | The visibility of the auth config. |
 | `certificateId` | `string` | Certificate id for client certificate |
+| `state` | `string` | The status of the auth config. |
+| `updateTime` | `string` | Output only. The timestamp when the auth config is modified. |
+| `validTime` | `string` | The time until the auth config is valid. Empty or max value is considered the auth config won't expire. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

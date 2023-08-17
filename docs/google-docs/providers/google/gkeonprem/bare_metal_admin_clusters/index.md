@@ -29,32 +29,32 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The bare metal admin cluster resource name. |
 | `description` | `string` | A human readable description of this bare metal admin cluster. |
+| `nodeAccessConfig` | `object` | Specifies the node access related settings for the bare metal admin cluster. |
+| `deleteTime` | `string` | Output only. The time at which this bare metal admin cluster was deleted. If the resource is not deleted, this must be empty |
+| `loadBalancer` | `object` | BareMetalAdminLoadBalancerConfig specifies the load balancer configuration. |
+| `fleet` | `object` | Fleet related configuration. Fleets are a Google Cloud concept for logically organizing clusters, letting you use and manage multi-cluster capabilities and apply consistent policies across your systems. See [Anthos Fleets](`https://cloud.google.com/anthos/multicluster-management/fleets`) for more details on Anthos multi-cluster capabilities using Fleets. ## |
+| `nodeConfig` | `object` | BareMetalAdminWorkloadNodeConfig specifies the workload node configurations. |
+| `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the bare metal Admin Cluster. |
+| `osEnvironmentConfig` | `object` | Specifies operating system operation settings for cluster provisioning. |
+| `validationCheck` | `object` | ValidationCheck represents the result of preflight check. |
 | `maintenanceStatus` | `object` | BareMetalAdminMaintenanceStatus represents the maintenance status for bare metal Admin cluster CR's nodes. |
 | `securityConfig` | `object` | Specifies the security related settings for the bare metal admin cluster. |
-| `nodeConfig` | `object` | BareMetalAdminWorkloadNodeConfig specifies the workload node configurations. |
-| `loadBalancer` | `object` | BareMetalAdminLoadBalancerConfig specifies the load balancer configuration. |
+| `updateTime` | `string` | Output only. The time at which this bare metal admin cluster was last updated. |
 | `storage` | `object` | BareMetalAdminStorageConfig specifies the cluster storage configuration. |
-| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
-| `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the bare metal Admin Cluster. |
-| `deleteTime` | `string` | Output only. The time at which this bare metal admin cluster was deleted. If the resource is not deleted, this must be empty |
-| `localName` | `string` | Output only. The object name of the bare metal cluster custom resource. This field is used to support conflicting names when enrolling existing clusters to the API. When used as a part of cluster enrollment, this field will differ from the ID in the resource name. For new clusters, this field will match the user provided cluster name and be visible in the last component of the resource name. It is not modifiable. All users should use this name to access their cluster using gkectl or kubectl and should expect to see the local name when viewing admin cluster controller logs. |
-| `clusterOperations` | `object` | BareMetalAdminClusterOperationsConfig specifies the admin cluster's observability infrastructure. |
-| `bareMetalVersion` | `string` | The Anthos clusters on bare metal version for the bare metal admin cluster. |
-| `createTime` | `string` | Output only. The time at which this bare metal admin cluster was created. |
-| `endpoint` | `string` | Output only. The IP address name of bare metal admin cluster's API server. |
 | `annotations` | `object` | Annotations on the bare metal admin cluster. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
 | `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control. |
-| `updateTime` | `string` | Output only. The time at which this bare metal admin cluster was last updated. |
+| `createTime` | `string` | Output only. The time at which this bare metal admin cluster was created. |
+| `clusterOperations` | `object` | BareMetalAdminClusterOperationsConfig specifies the admin cluster's observability infrastructure. |
 | `uid` | `string` | Output only. The unique identifier of the bare metal admin cluster. |
-| `networkConfig` | `object` | BareMetalAdminNetworkConfig specifies the cluster network configuration. |
-| `osEnvironmentConfig` | `object` | Specifies operating system operation settings for cluster provisioning. |
-| `nodeAccessConfig` | `object` | Specifies the node access related settings for the bare metal admin cluster. |
-| `maintenanceConfig` | `object` | BareMetalAdminMaintenanceConfig specifies configurations to put bare metal Admin cluster CRs nodes in and out of maintenance. |
-| `validationCheck` | `object` | ValidationCheck represents the result of preflight check. |
-| `controlPlane` | `object` | BareMetalAdminControlPlaneConfig specifies the control plane configuration. |
-| `state` | `string` | Output only. The current state of the bare metal admin cluster. |
 | `proxy` | `object` | BareMetalAdminProxyConfig specifies the cluster proxy configuration. |
-| `fleet` | `object` | Fleet related configuration. Fleets are a Google Cloud concept for logically organizing clusters, letting you use and manage multi-cluster capabilities and apply consistent policies across your systems. See [Anthos Fleets](`https://cloud.google.com/anthos/multicluster-management/fleets`) for more details on Anthos multi-cluster capabilities using Fleets. ## |
+| `localName` | `string` | Output only. The object name of the bare metal cluster custom resource. This field is used to support conflicting names when enrolling existing clusters to the API. When used as a part of cluster enrollment, this field will differ from the ID in the resource name. For new clusters, this field will match the user provided cluster name and be visible in the last component of the resource name. It is not modifiable. All users should use this name to access their cluster using gkectl or kubectl and should expect to see the local name when viewing admin cluster controller logs. |
+| `controlPlane` | `object` | BareMetalAdminControlPlaneConfig specifies the control plane configuration. |
+| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
+| `networkConfig` | `object` | BareMetalAdminNetworkConfig specifies the cluster network configuration. |
+| `state` | `string` | Output only. The current state of the bare metal admin cluster. |
+| `bareMetalVersion` | `string` | The Anthos clusters on bare metal version for the bare metal admin cluster. |
+| `endpoint` | `string` | Output only. The IP address name of bare metal admin cluster's API server. |
+| `maintenanceConfig` | `object` | BareMetalAdminMaintenanceConfig specifies configurations to put bare metal Admin cluster CRs nodes in and out of maintenance. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

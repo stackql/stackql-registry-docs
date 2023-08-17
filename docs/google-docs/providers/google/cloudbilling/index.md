@@ -21,7 +21,7 @@ Allows Developers To Manage Billing For Their Google Cloud Platform Projects Pro
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>16</b></span><br />
+<span>total methods:&nbsp;<b>17</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Allows Developers To Manage Billing For Their Google Cloud Platform Projects Pro
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Billing API</td></tr>
 <tr><td><b>Description</b></td><td>Allows Developers To Manage Billing For Their Google Cloud Platform Projects Programmatically.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudbilling:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudbilling:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

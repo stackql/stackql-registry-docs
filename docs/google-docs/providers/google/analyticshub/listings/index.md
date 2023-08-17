@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the listing. e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456` |
 | `description` | `string` | Optional. Short description of the listing. The description must not contain Unicode non-characters and C0 and C1 control codes except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF). Default value is an empty string. Max length: 2000 bytes. |
-| `icon` | `string` | Optional. Base64 encoded image representing the listing. Max Size: 3.0MiB Expected image dimensions are 512x512 pixels, however the API only performs validation on size of the encoded data. Note: For byte fields, the contents of the field are base64-encoded (which increases the size of the data by 33-36%) when using JSON on the wire. |
-| `documentation` | `string` | Optional. Documentation describing the listing. |
 | `publisher` | `object` | Contains details of the listing publisher. |
-| `requestAccess` | `string` | Optional. Email or URL of the request access of the listing. Subscribers can use this reference to request access. Max Length: 1000 bytes. |
-| `dataProvider` | `object` | Contains details of the data provider. |
-| `displayName` | `string` | Required. Human-readable display name of the listing. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), ampersands (&) and can't start or end with spaces. Default value is an empty string. Max length: 63 bytes. |
-| `restrictedExportConfig` | `object` | Restricted export config, used to configure restricted export on linked dataset. |
 | `bigqueryDataset` | `object` | A reference to a shared dataset. It is an existing BigQuery dataset with a collection of objects such as tables and views that you want to share with subscribers. When subscriber's subscribe to a listing, Analytics Hub creates a linked dataset in the subscriber's project. A Linked dataset is an opaque, read-only BigQuery dataset that serves as a _symbolic link_ to a shared dataset. |
-| `categories` | `array` | Optional. Categories of the listing. Up to two categories are allowed. |
+| `documentation` | `string` | Optional. Documentation describing the listing. |
+| `icon` | `string` | Optional. Base64 encoded image representing the listing. Max Size: 3.0MiB Expected image dimensions are 512x512 pixels, however the API only performs validation on size of the encoded data. Note: For byte fields, the contents of the field are base64-encoded (which increases the size of the data by 33-36%) when using JSON on the wire. |
+| `restrictedExportConfig` | `object` | Restricted export config, used to configure restricted export on linked dataset. |
 | `primaryContact` | `string` | Optional. Email or URL of the primary point of contact of the listing. Max Length: 1000 bytes. |
+| `dataProvider` | `object` | Contains details of the data provider. |
 | `state` | `string` | Output only. Current state of the listing. |
+| `requestAccess` | `string` | Optional. Email or URL of the request access of the listing. Subscribers can use this reference to request access. Max Length: 1000 bytes. |
+| `categories` | `array` | Optional. Categories of the listing. Up to two categories are allowed. |
+| `displayName` | `string` | Required. Human-readable display name of the listing. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), ampersands (&) and can't start or end with spaces. Default value is an empty string. Max length: 63 bytes. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

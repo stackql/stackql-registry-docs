@@ -33,7 +33,7 @@ A Unified Platform That Helps You Accelerate Your End-To-End Cloud Journey From 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Migration Center API</td></tr>
 <tr><td><b>Description</b></td><td>A Unified Platform That Helps You Accelerate Your End-To-End Cloud Journey From Your Current On-Premises Or Cloud Environments To Google Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>migrationcenter:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>migrationcenter:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

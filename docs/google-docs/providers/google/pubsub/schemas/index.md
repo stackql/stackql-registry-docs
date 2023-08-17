@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the schema. Format is `projects/&#123;project&#125;/schemas/&#123;schema&#125;`. |
-| `revisionId` | `string` | Output only. Immutable. The revision ID of the schema. |
 | `type` | `string` | The type of the schema definition. |
 | `definition` | `string` | The definition of the schema. This should contain a string representing the full definition of the schema that is a valid schema definition of the type specified in `type`. |
 | `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
+| `revisionId` | `string` | Output only. Immutable. The revision ID of the schema. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

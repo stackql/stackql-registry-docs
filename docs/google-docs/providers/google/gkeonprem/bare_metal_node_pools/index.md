@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The bare metal node pool resource name. |
+| `state` | `string` | Output only. The current state of the bare metal node pool. |
 | `createTime` | `string` | Output only. The time at which this bare metal node pool was created. |
-| `displayName` | `string` | The display name for the bare metal node pool. |
-| `uid` | `string` | Output only. The unique identifier of the bare metal node pool. |
 | `deleteTime` | `string` | Output only. The time at which this bare metal node pool was deleted. If the resource is not deleted, this must be empty |
-| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
+| `updateTime` | `string` | Output only. The time at which this bare metal node pool was last updated. |
+| `uid` | `string` | Output only. The unique identifier of the bare metal node pool. |
 | `annotations` | `object` | Annotations on the bare metal node pool. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
 | `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control. |
+| `displayName` | `string` | The display name for the bare metal node pool. |
+| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
 | `nodePoolConfig` | `object` | BareMetalNodePoolConfig describes the configuration of all nodes within a given bare metal node pool. |
-| `state` | `string` | Output only. The current state of the bare metal node pool. |
 | `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the bare metal node pool. |
 | `upgradePolicy` | `object` | BareMetalNodePoolUpgradePolicy defines the node pool upgrade policy. |
-| `updateTime` | `string` | Output only. The time at which this bare metal node pool was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -27,16 +27,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ipCidrRange` | `string` | The range of internal addresses that are owned by this subnetwork. |
-| `role` | `string` | The role of subnetwork. Currently, this field is only used when purpose = REGIONAL_MANAGED_PROXY. The value can be set to ACTIVE or BACKUP. An ACTIVE subnetwork is one that is currently being used for Envoy-based load balancers in a region. A BACKUP subnetwork is one that is ready to be promoted to ACTIVE or is currently draining. This field can be updated with a patch request. |
-| `network` | `string` | Network URL. |
 | `ipv6AccessType` | `string` | The access type of IPv6 address this subnet holds. It's immutable and can only be specified during creation or the first time the subnet is updated into IPV4_IPV6 dual stack. |
 | `stackType` | `string` | The stack type for the subnet. If set to IPV4_ONLY, new VMs in the subnet are assigned IPv4 addresses only. If set to IPV4_IPV6, new VMs in the subnet can be assigned both IPv4 and IPv6 addresses. If not specified, IPV4_ONLY is used. This field can be both set at resource creation time and updated using patch. |
+| `network` | `string` | Network URL. |
 | `subnetwork` | `string` | Subnetwork URL. |
+| `role` | `string` | The role of subnetwork. Currently, this field is only used when purpose = REGIONAL_MANAGED_PROXY. The value can be set to ACTIVE or BACKUP. An ACTIVE subnetwork is one that is currently being used for Envoy-based load balancers in a region. A BACKUP subnetwork is one that is ready to be promoted to ACTIVE or is currently draining. This field can be updated with a patch request. |
 | `externalIpv6Prefix` | `string` | [Output Only] The external IPv6 address range that is assigned to this subnetwork. |
+| `ipCidrRange` | `string` | The range of internal addresses that are owned by this subnetwork. |
 | `purpose` | `string` | The purpose of the resource. This field can be either PRIVATE, REGIONAL_MANAGED_PROXY, PRIVATE_SERVICE_CONNECT, or INTERNAL_HTTPS_LOAD_BALANCER. PRIVATE is the default purpose for user-created subnets or subnets that are automatically created in auto mode networks. A subnet with purpose set to REGIONAL_MANAGED_PROXY is a user-created subnetwork that is reserved for regional Envoy-based load balancers. A subnet with purpose set to PRIVATE_SERVICE_CONNECT is used to publish services using Private Service Connect. A subnet with purpose set to INTERNAL_HTTPS_LOAD_BALANCER is a proxy-only subnet that can be used only by regional internal HTTP(S) load balancers. Note that REGIONAL_MANAGED_PROXY is the preferred setting for all regional Envoy load balancers. If unspecified, the subnet purpose defaults to PRIVATE. The enableFlowLogs field isn't supported if the subnet purpose field is set to REGIONAL_MANAGED_PROXY. |
-| `internalIpv6Prefix` | `string` | [Output Only] The internal IPv6 address range that is assigned to this subnetwork. |
 | `secondaryIpRanges` | `array` | Secondary IP ranges. |
+| `internalIpv6Prefix` | `string` | [Output Only] The internal IPv6 address range that is assigned to this subnetwork. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

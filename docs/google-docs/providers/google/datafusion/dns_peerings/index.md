@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name of the dns peering zone. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/instances/&#123;instance&#125;/dnsPeerings/&#123;dns_peering&#125; |
 | `description` | `string` | Optional. Optional description of the dns zone. |
+| `domain` | `string` | Required. The dns name suffix of the zone. |
 | `targetNetwork` | `string` | Optional. Optional target network to which dns peering should happen. |
 | `targetProject` | `string` | Optional. Optional target project to which dns peering should happen. |
-| `domain` | `string` | Required. The dns name suffix of the zone. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

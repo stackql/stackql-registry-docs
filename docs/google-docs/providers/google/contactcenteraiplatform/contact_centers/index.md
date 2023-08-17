@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | name of resource |
-| `userEmail` | `string` | Optional. Email address of the first admin user. |
-| `ccaipManagedUsers` | `boolean` | Optional. Whether to enable users to be created in the CCAIP-instance concurrently to having users in Cloud identity |
-| `createTime` | `string` | Output only. [Output only] Create time stamp |
+| `uris` | `object` | Message storing the URIs of the ContactCenter. |
 | `customerDomainPrefix` | `string` | Required. Immutable. At least 2 and max 16 char long, must conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). |
-| `state` | `string` | Output only. The state of this contact center. |
-| `samlParams` | `object` | Message storing SAML params to enable Google as IDP. |
-| `displayName` | `string` | Required. A user friendly name for the ContactCenter. |
+| `kmsKey` | `string` | Immutable. The KMS key name to encrypt the user input (`ContactCenter`). |
 | `instanceConfig` | `object` | Message storing the instance configuration. |
 | `labels` | `object` | Labels as key value pairs |
-| `adminUser` | `object` | Message storing info about the first admin user. Next ID: 3 |
-| `uris` | `object` | Message storing the URIs of the ContactCenter. |
+| `userEmail` | `string` | Optional. Email address of the first admin user. |
+| `createTime` | `string` | Output only. [Output only] Create time stamp |
 | `updateTime` | `string` | Output only. [Output only] Update time stamp |
-| `kmsKey` | `string` | Immutable. The KMS key name to encrypt the user input (`ContactCenter`). |
+| `samlParams` | `object` | Message storing SAML params to enable Google as IDP. |
+| `adminUser` | `object` | Message storing info about the first admin user. Next ID: 3 |
+| `ccaipManagedUsers` | `boolean` | Optional. Whether to enable users to be created in the CCAIP-instance concurrently to having users in Cloud identity |
+| `displayName` | `string` | Required. A user friendly name for the ContactCenter. |
+| `state` | `string` | Output only. The state of this contact center. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Specifies a unique string that identifies the agent pool. Format: `projects/&#123;project_id&#125;/agentPools/&#123;agent_pool_id&#125;` |
+| `displayName` | `string` | Specifies the client-specified AgentPool description. |
 | `state` | `string` | Output only. Specifies the state of the AgentPool. |
 | `bandwidthLimit` | `object` | Specifies a bandwidth limit for an agent pool. |
-| `displayName` | `string` | Specifies the client-specified AgentPool description. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

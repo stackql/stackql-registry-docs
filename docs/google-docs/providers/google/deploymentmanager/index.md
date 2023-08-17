@@ -21,7 +21,7 @@ The Google Cloud Deployment Manager V2 API Provides Services For Configuring, De
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>23</b></span><br />
+<span>total methods:&nbsp;<b>24</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ The Google Cloud Deployment Manager V2 API Provides Services For Configuring, De
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Deployment Manager V2 API</td></tr>
 <tr><td><b>Description</b></td><td>The Google Cloud Deployment Manager V2 API Provides Services For Configuring, Deploying, And Viewing Google Cloud Services And APIs Via Templates Which Specify Deployments Of Cloud Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>deploymentmanager:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>deploymentmanager:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

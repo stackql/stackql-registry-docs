@@ -21,7 +21,7 @@ Cloud Data Fusion Is A Fully-Managed, Cloud Native, Enterprise Data Integration 
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>24</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Cloud Data Fusion Is A Fully-Managed, Cloud Native, Enterprise Data Integration 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Data Fusion API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud Data Fusion Is A Fully-Managed, Cloud Native, Enterprise Data Integration Service For Quickly Building And Managing Data Pipelines. It Provides A Graphical Interface To Increase Time Efficiency And Reduce Complexity, And Allows Business Users, Developers, And Data Scientists To Easily And Reliably Build Scalable Data Integration Solutions To Cleanse, Prepare, Blend, Transfer And Transform Data Without Having To Wrestle With Infrastructure.</td></tr>
-<tr><td><b>Id</b></td><td><code>datafusion:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datafusion:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

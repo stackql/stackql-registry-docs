@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the subscription. Structured like: projects/&#123;project_number&#125;/locations/&#123;location&#125;/subscriptions/&#123;subscription_id&#125; |
-| `deliveryConfig` | `object` | The settings for a subscription's message delivery. |
 | `exportConfig` | `object` | Configuration for a Pub/Sub Lite subscription that writes messages to a destination. User subscriber clients must not connect to this subscription. |
 | `topic` | `string` | The name of the topic this subscription is attached to. Structured like: projects/&#123;project_number&#125;/locations/&#123;location&#125;/topics/&#123;topic_id&#125; |
+| `deliveryConfig` | `object` | The settings for a subscription's message delivery. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

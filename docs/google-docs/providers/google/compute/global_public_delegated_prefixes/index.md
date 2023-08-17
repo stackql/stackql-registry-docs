@@ -32,14 +32,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | `region` | `string` | [Output Only] URL of the region where the public delegated prefix resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#publicDelegatedPrefix for public delegated prefixes. |
+| `publicDelegatedSubPrefixs` | `array` | The list of sub public delegated prefixes that exist for this public delegated prefix. |
 | `fingerprint` | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a new PublicDelegatedPrefix. An up-to-date fingerprint must be provided in order to update the PublicDelegatedPrefix, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve a PublicDelegatedPrefix. |
 | `ipCidrRange` | `string` | The IP address range, in CIDR format, represented by this public delegated prefix. |
-| `status` | `string` | [Output Only] The status of the public delegated prefix, which can be one of following values: - `INITIALIZING` The public delegated prefix is being initialized and addresses cannot be created yet. - `READY_TO_ANNOUNCE` The public delegated prefix is a live migration prefix and is active. - `ANNOUNCED` The public delegated prefix is active. - `DELETING` The public delegated prefix is being deprovsioned.  |
 | `parentPrefix` | `string` | The URL of parent prefix. Either PublicAdvertisedPrefix or PublicDelegatedPrefix. |
 | `isLiveMigration` | `boolean` | If true, the prefix will be live migrated. |
-| `publicDelegatedSubPrefixs` | `array` | The list of sub public delegated prefixes that exist for this public delegated prefix. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#publicDelegatedPrefix for public delegated prefixes. |
+| `status` | `string` | [Output Only] The status of the public delegated prefix, which can be one of following values: - `INITIALIZING` The public delegated prefix is being initialized and addresses cannot be created yet. - `READY_TO_ANNOUNCE` The public delegated prefix is a live migration prefix and is active. - `ANNOUNCED` The public delegated prefix is active. - `DELETING` The public delegated prefix is being deprovsioned.  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

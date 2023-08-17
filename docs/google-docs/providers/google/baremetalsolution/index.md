@@ -19,9 +19,9 @@ Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Ext
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>11</b></span><br />
-<span>total methods:&nbsp;<b>55</b></span><br />
+<span>total resources:&nbsp;<b>13</b></span><br />
+<span>total selectable resources:&nbsp;<b>12</b></span><br />
+<span>total methods:&nbsp;<b>57</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Ext
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Bare Metal Solution API</td></tr>
 <tr><td><b>Description</b></td><td>Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Extension Located Near A Google Cloud Data Center.</td></tr>
-<tr><td><b>Id</b></td><td><code>baremetalsolution:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>baremetalsolution:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -45,9 +45,10 @@ Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Ext
 <a href="/providers/google/baremetalsolution/networks/">networks</a><br />
 <a href="/providers/google/baremetalsolution/networks_network_usage/">networks_network_usage</a><br />
 <a href="/providers/google/baremetalsolution/nfs_shares/">nfs_shares</a><br />
+<a href="/providers/google/baremetalsolution/operations/">operations</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/baremetalsolution/operations/">operations</a><br />
+<a href="/providers/google/baremetalsolution/os_images/">os_images</a><br />
 <a href="/providers/google/baremetalsolution/provisioning_configs/">provisioning_configs</a><br />
 <a href="/providers/google/baremetalsolution/provisioning_quotas/">provisioning_quotas</a><br />
 <a href="/providers/google/baremetalsolution/snapshots/">snapshots</a><br />

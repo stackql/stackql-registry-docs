@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the rbacrolebinding `projects/&#123;project&#125;/locations/&#123;location&#125;/namespaces/&#123;namespace&#125;/rbacrolebindings/&#123;rbacrolebinding&#125;` or `projects/&#123;project&#125;/locations/&#123;location&#125;/memberships/&#123;membership&#125;/rbacrolebindings/&#123;rbacrolebinding&#125;` |
-| `state` | `object` | RBACRoleBindingLifecycleState describes the state of a RbacRoleBinding resource. |
-| `updateTime` | `string` | Output only. When the rbacrolebinding was last updated. |
-| `user` | `string` | user is the name of the user as seen by the kubernetes cluster, example "alice" or "alice@domain.tld" |
 | `createTime` | `string` | Output only. When the rbacrolebinding was created. |
-| `role` | `object` | Role is the type for Kubernetes roles |
 | `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all rbacrolebinding resources. If a rbacrolebinding resource is deleted and another resource with the same name is created, it gets a different uid. |
-| `labels` | `object` | Optional. Labels for this RBACRolebinding. |
+| `role` | `object` | Role is the type for Kubernetes roles |
+| `user` | `string` | user is the name of the user as seen by the kubernetes cluster, example "alice" or "alice@domain.tld" |
 | `deleteTime` | `string` | Output only. When the rbacrolebinding was deleted. |
 | `group` | `string` | group is the group, as seen by the kubernetes cluster. |
+| `labels` | `object` | Optional. Labels for this RBACRolebinding. |
+| `state` | `object` | RBACRoleBindingLifecycleState describes the state of a RbacRoleBinding resource. |
+| `updateTime` | `string` | Output only. When the rbacrolebinding was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

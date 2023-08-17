@@ -33,7 +33,7 @@ A Service To Scan Container Images For Vulnerabilities.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>On-Demand Scanning API</td></tr>
 <tr><td><b>Description</b></td><td>A Service To Scan Container Images For Vulnerabilities.</td></tr>
-<tr><td><b>Id</b></td><td><code>ondemandscanning:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ondemandscanning:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -32,14 +32,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `baseline` | `boolean` | Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision. For a given OS policy assignment, there is only one revision with a value of `true` for this field. |
 | `rollout` | `object` | Message to configure the rollout at the zonal level for the OS policy assignment. |
 | `deleted` | `boolean` | Output only. Indicates that this revision deletes the OS policy assignment. |
-| `rolloutState` | `string` | Output only. OS policy assignment rollout state |
 | `uid` | `string` | Output only. Server generated unique id for the OS policy assignment resource. |
-| `instanceFilter` | `object` | Filters to select target VMs for an assignment. If more than one filter criteria is specified below, a VM will be selected if and only if it satisfies all of them. |
-| `osPolicies` | `array` | Required. List of OS policies to be applied to the VMs. |
-| `reconciling` | `boolean` | Output only. Indicates that reconciliation is in progress for the revision. This value is `true` when the `rollout_state` is one of: * IN_PROGRESS * CANCELLING |
-| `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
+| `rolloutState` | `string` | Output only. OS policy assignment rollout state |
 | `etag` | `string` | The etag for this OS policy assignment. If this is provided on update, it must match the server's etag. |
+| `osPolicies` | `array` | Required. List of OS policies to be applied to the VMs. |
 | `revisionId` | `string` | Output only. The assignment revision ID A new revision is committed whenever a rollout is triggered for a OS policy assignment |
+| `revisionCreateTime` | `string` | Output only. The timestamp that the revision was created. |
+| `instanceFilter` | `object` | Filters to select target VMs for an assignment. If more than one filter criteria is specified below, a VM will be selected if and only if it satisfies all of them. |
+| `reconciling` | `boolean` | Output only. Indicates that reconciliation is in progress for the revision. This value is `true` when the `rollout_state` is one of: * IN_PROGRESS * CANCELLING |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

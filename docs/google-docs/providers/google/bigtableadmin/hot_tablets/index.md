@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The unique name of the hot tablet. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/clusters/&#123;cluster&#125;/hotTablets/[a-zA-Z0-9_-]*`. |
+| `tableName` | `string` | Name of the table that contains the tablet. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/tables/_a-zA-Z0-9*`. |
+| `endKey` | `string` | Tablet End Key (inclusive). |
 | `endTime` | `string` | Output only. The end time of the hot tablet. |
 | `nodeCpuUsagePercent` | `number` | Output only. The average CPU usage spent by a node on this tablet over the start_time to end_time time range. The percentage is the amount of CPU used by the node to serve the tablet, from 0% (tablet was not interacted with) to 100% (the node spent all cycles serving the hot tablet). |
 | `startKey` | `string` | Tablet Start Key (inclusive). |
 | `startTime` | `string` | Output only. The start time of the hot tablet. |
-| `tableName` | `string` | Name of the table that contains the tablet. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/tables/_a-zA-Z0-9*`. |
-| `endKey` | `string` | Tablet End Key (inclusive). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

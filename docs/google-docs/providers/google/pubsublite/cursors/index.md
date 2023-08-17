@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `partition` | `string` | The partition this is for. |
 | `cursor` | `object` | A cursor that describes the position of a message within a topic partition. |
+| `partition` | `string` | The partition this is for. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

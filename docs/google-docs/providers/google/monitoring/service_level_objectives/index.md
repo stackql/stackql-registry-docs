@@ -39,4 +39,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:--------------|:----------------|:------------|
 | `services_service_level_objectives_list` | `SELECT` | `parent` | List the ServiceLevelObjectives for the given Service. |
 | `services_service_level_objectives_create` | `INSERT` | `parent` | Create a ServiceLevelObjective for the given Service. |
+| `services_service_level_objectives_delete` | `DELETE` | `name` | Delete the given ServiceLevelObjective. |
 | `_services_service_level_objectives_list` | `EXEC` | `parent` | List the ServiceLevelObjectives for the given Service. |
+| `services_service_level_objectives_get` | `EXEC` | `name` | Get a ServiceLevelObjective by name. |
+| `services_service_level_objectives_patch` | `EXEC` | `name` | Update the given ServiceLevelObjective. |

@@ -30,19 +30,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Output only. The relative resource name of the scan, of the form: projects/&#123;project&#125;/locations/&#123;location_id&#125;/dataScans/&#123;datascan_id&#125;, where project refers to a project_id or project_number and location_id refers to a GCP region. |
 | `description` | `string` | Optional. Description of the scan. Must be between 1-1024 characters. |
 | `dataQualityResult` | `object` | The output of a DataQualityScan. |
-| `updateTime` | `string` | Output only. The time when the scan was last updated. |
-| `executionSpec` | `object` | DataScan execution settings. |
-| `createTime` | `string` | Output only. The time when the scan was created. |
-| `dataProfileSpec` | `object` | DataProfileScan related setting. |
 | `data` | `object` | The data source for DataScan. |
-| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
-| `dataQualitySpec` | `object` | DataQualityScan related setting. |
-| `displayName` | `string` | Optional. User friendly display name. Must be between 1-256 characters. |
-| `uid` | `string` | Output only. System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name. |
-| `executionStatus` | `object` | Status of the data scan execution. |
-| `state` | `string` | Output only. Current state of the DataScan. |
 | `type` | `string` | Output only. The type of DataScan. |
+| `uid` | `string` | Output only. System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name. |
+| `dataProfileSpec` | `object` | DataProfileScan related setting. |
+| `executionSpec` | `object` | DataScan execution settings. |
+| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
+| `executionStatus` | `object` | Status of the data scan execution. |
 | `labels` | `object` | Optional. User-defined labels for the scan. |
+| `updateTime` | `string` | Output only. The time when the scan was last updated. |
+| `state` | `string` | Output only. Current state of the DataScan. |
+| `createTime` | `string` | Output only. The time when the scan was created. |
+| `displayName` | `string` | Optional. User friendly display name. Must be between 1-256 characters. |
+| `dataQualitySpec` | `object` | DataQualityScan related setting. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -21,7 +21,7 @@ Backup For GKE Is A Managed Kubernetes Workload Backup And Restore Service For G
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>14</b></span><br />
 <span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>56</b></span><br />
+<span>total methods:&nbsp;<b>62</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Backup For GKE Is A Managed Kubernetes Workload Backup And Restore Service For G
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Backup For GKE API</td></tr>
 <tr><td><b>Description</b></td><td>Backup For GKE Is A Managed Kubernetes Workload Backup And Restore Service For GKE Clusters.</td></tr>
-<tr><td><b>Id</b></td><td><code>gkebackup:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gkebackup:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

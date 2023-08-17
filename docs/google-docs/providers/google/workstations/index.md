@@ -21,7 +21,7 @@ Allows Administrators To Create Managed Developer Environments In The Cloud.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>36</b></span><br />
+<span>total methods:&nbsp;<b>38</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Allows Administrators To Create Managed Developer Environments In The Cloud.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Workstations API</td></tr>
 <tr><td><b>Description</b></td><td>Allows Administrators To Create Managed Developer Environments In The Cloud. </td></tr>
-<tr><td><b>Id</b></td><td><code>workstations:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>workstations:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

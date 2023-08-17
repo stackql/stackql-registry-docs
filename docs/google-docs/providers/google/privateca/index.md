@@ -21,7 +21,7 @@ The Certificate Authority Service API Is A Highly-Available, Scalable Service Th
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>11</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>51</b></span><br />
+<span>total methods:&nbsp;<b>54</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ The Certificate Authority Service API Is A Highly-Available, Scalable Service Th
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Certificate Authority API</td></tr>
 <tr><td><b>Description</b></td><td>The Certificate Authority Service API Is A Highly-Available, Scalable Service That Enables You To Simplify And Automate The Management Of Private Certificate Authorities (CAs) While Staying In Control Of Your Private Keys. </td></tr>
-<tr><td><b>Id</b></td><td><code>privateca:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>privateca:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

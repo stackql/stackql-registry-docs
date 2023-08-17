@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the repository. |
 | `description` | `string` | Description of the repository. |
-| `repoId` | `object` | BitbucketServerRepositoryId identifies a specific repository hosted on a Bitbucket Server. |
 | `browseUri` | `string` | Link to the browse repo page on the Bitbucket Server instance. |
 | `displayName` | `string` | Display name of the repository. |
+| `repoId` | `object` | BitbucketServerRepositoryId identifies a specific repository hosted on a Bitbucket Server. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

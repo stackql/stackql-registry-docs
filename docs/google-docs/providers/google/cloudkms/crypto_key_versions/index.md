@@ -28,21 +28,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name for this CryptoKeyVersion in the format `projects/*/locations/*/keyRings/*/cryptoKeys/*/cryptoKeyVersions/*`. |
-| `attestation` | `object` | Contains an HSM-generated attestation about a key operation. For more information, see [Verifying attestations] (https://cloud.google.com/kms/docs/attest-key). |
 | `externalDestructionFailureReason` | `string` | Output only. The root cause of the most recent external destruction failure. Only present if state is EXTERNAL_DESTRUCTION_FAILED. |
-| `algorithm` | `string` | Output only. The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports. |
-| `importFailureReason` | `string` | Output only. The root cause of the most recent import failure. Only present if state is IMPORT_FAILED. |
-| `reimportEligible` | `boolean` | Output only. Whether or not this key version is eligible for reimport, by being specified as a target in ImportCryptoKeyVersionRequest.crypto_key_version. |
-| `importTime` | `string` | Output only. The time at which this CryptoKeyVersion's key material was most recently imported. |
-| `state` | `string` | The current state of the CryptoKeyVersion. |
 | `protectionLevel` | `string` | Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. |
-| `externalProtectionLevelOptions` | `object` | ExternalProtectionLevelOptions stores a group of additional fields for configuring a CryptoKeyVersion that are specific to the EXTERNAL protection level and EXTERNAL_VPC protection levels. |
+| `attestation` | `object` | Contains an HSM-generated attestation about a key operation. For more information, see [Verifying attestations] (https://cloud.google.com/kms/docs/attest-key). |
 | `generateTime` | `string` | Output only. The time this CryptoKeyVersion's key material was generated. |
-| `generationFailureReason` | `string` | Output only. The root cause of the most recent generation failure. Only present if state is GENERATION_FAILED. |
-| `createTime` | `string` | Output only. The time at which this CryptoKeyVersion was created. |
+| `state` | `string` | The current state of the CryptoKeyVersion. |
+| `importTime` | `string` | Output only. The time at which this CryptoKeyVersion's key material was most recently imported. |
 | `destroyEventTime` | `string` | Output only. The time this CryptoKeyVersion's key material was destroyed. Only present if state is DESTROYED. |
+| `createTime` | `string` | Output only. The time at which this CryptoKeyVersion was created. |
+| `importFailureReason` | `string` | Output only. The root cause of the most recent import failure. Only present if state is IMPORT_FAILED. |
 | `destroyTime` | `string` | Output only. The time this CryptoKeyVersion's key material is scheduled for destruction. Only present if state is DESTROY_SCHEDULED. |
+| `generationFailureReason` | `string` | Output only. The root cause of the most recent generation failure. Only present if state is GENERATION_FAILED. |
+| `reimportEligible` | `boolean` | Output only. Whether or not this key version is eligible for reimport, by being specified as a target in ImportCryptoKeyVersionRequest.crypto_key_version. |
+| `externalProtectionLevelOptions` | `object` | ExternalProtectionLevelOptions stores a group of additional fields for configuring a CryptoKeyVersion that are specific to the EXTERNAL protection level and EXTERNAL_VPC protection levels. |
 | `importJob` | `string` | Output only. The name of the ImportJob used in the most recent import of this CryptoKeyVersion. Only present if the underlying key material was imported. |
+| `algorithm` | `string` | Output only. The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

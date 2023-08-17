@@ -21,7 +21,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>21</b></span><br />
 <span>total selectable resources:&nbsp;<b>19</b></span><br />
-<span>total methods:&nbsp;<b>111</b></span><br />
+<span>total methods:&nbsp;<b>121</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Apigee Registry API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>apigeeregistry:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apigeeregistry:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

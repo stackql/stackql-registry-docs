@@ -33,7 +33,7 @@ An Implementation Of The Grafeas API, Which Stores, And Enables Querying And Ret
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Container Analysis API</td></tr>
 <tr><td><b>Description</b></td><td>An Implementation Of The Grafeas API, Which Stores, And Enables Querying And Retrieval Of Critical Metadata About All Of Your Software Artifacts.</td></tr>
-<tr><td><b>Id</b></td><td><code>containeranalysis:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>containeranalysis:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

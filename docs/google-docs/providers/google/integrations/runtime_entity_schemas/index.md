@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `fieldSchema` | `string` | List of fields in the entity. |
 | `arrayFieldSchema` | `string` | The above schema, but for an array of the associated entity. |
 | `entity` | `string` | Name of the entity. |
-| `fieldSchema` | `string` | List of fields in the entity. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

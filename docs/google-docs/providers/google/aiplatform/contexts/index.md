@@ -29,15 +29,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The resource name of the Context. |
 | `description` | `string` | Description of the Context |
+| `schemaVersion` | `string` | The version of the schema in schema_name to use. Schema title and version is expected to be registered in earlier Create Schema calls. And both are used together as unique identifiers to identify schemas within the local metadata store. |
 | `displayName` | `string` | User provided display name of the Context. May be up to 128 Unicode characters. |
-| `parentContexts` | `array` | Output only. A list of resource names of Contexts that are parents of this Context. A Context may have at most 10 parent_contexts. |
 | `schemaTitle` | `string` | The title of the schema describing the metadata. Schema title and version is expected to be registered in earlier Create Schema calls. And both are used together as unique identifiers to identify schemas within the local metadata store. |
-| `updateTime` | `string` | Output only. Timestamp when this Context was last updated. |
 | `labels` | `object` | The labels with user-defined metadata to organize your Contexts. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one Context (System labels are excluded). |
 | `metadata` | `object` | Properties of the Context. Top level metadata keys' heading and trailing spaces will be trimmed. The size of this field should not exceed 200KB. |
-| `etag` | `string` | An eTag used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
-| `schemaVersion` | `string` | The version of the schema in schema_name to use. Schema title and version is expected to be registered in earlier Create Schema calls. And both are used together as unique identifiers to identify schemas within the local metadata store. |
+| `updateTime` | `string` | Output only. Timestamp when this Context was last updated. |
 | `createTime` | `string` | Output only. Timestamp when this Context was created. |
+| `etag` | `string` | An eTag used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
+| `parentContexts` | `array` | Output only. A list of resource names of Contexts that are parents of this Context. A Context may have at most 10 parent_contexts. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

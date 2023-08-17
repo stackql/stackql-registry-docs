@@ -29,16 +29,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the endpoint. |
 | `description` | `string` | User-provided description of the endpoint |
-| `severity` | `string` | Required. Lowest threat severity that this endpoint will alert on. |
-| `state` | `string` | Output only. Current state of the endpoint. |
 | `createTime` | `string` | Output only. The create time timestamp. |
-| `updateTime` | `string` | Output only. The update time timestamp. |
-| `endpointIp` | `string` | Output only. The IP address of the IDS Endpoint's ILB. |
-| `trafficLogs` | `boolean` | Whether the endpoint should report traffic logs in addition to threat logs. |
+| `severity` | `string` | Required. Lowest threat severity that this endpoint will alert on. |
 | `labels` | `object` | The labels of the endpoint. |
-| `threatExceptions` | `array` | List of threat IDs to be excepted from generating alerts. |
 | `endpointForwardingRule` | `string` | Output only. The fully qualified URL of the endpoint's ILB Forwarding Rule. |
+| `updateTime` | `string` | Output only. The update time timestamp. |
+| `state` | `string` | Output only. Current state of the endpoint. |
+| `threatExceptions` | `array` | List of threat IDs to be excepted from generating alerts. |
+| `endpointIp` | `string` | Output only. The IP address of the IDS Endpoint's ILB. |
 | `network` | `string` | Required. The fully qualified URL of the network to which the IDS Endpoint is attached. |
+| `trafficLogs` | `boolean` | Whether the endpoint should report traffic logs in addition to threat logs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

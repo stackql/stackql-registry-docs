@@ -28,21 +28,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the operation. |
-| `status` | `string` | The status of an operation. |
-| `importContext` | `object` | Database instance import context. |
-| `exportContext` | `object` | Database instance export context. |
-| `endTime` | `string` | The time this operation finished in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `operationType` | `string` | The type of the operation. Valid values are: * `CREATE` * `DELETE` * `UPDATE` * `RESTART` * `IMPORT` * `EXPORT` * `BACKUP_VOLUME` * `RESTORE_VOLUME` * `CREATE_USER` * `DELETE_USER` * `CREATE_DATABASE` * `DELETE_DATABASE` |
-| `backupContext` | `object` | Backup context. |
-| `error` | `object` | Database instance operation errors list wrapper. |
-| `insertTime` | `string` | The time this operation was enqueued in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `targetId` | `string` | Name of the database instance related to this operation. |
 | `kind` | `string` | This is always `sql#operation`. |
-| `startTime` | `string` | The time this operation actually started in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `targetLink` | `string` |  |
+| `exportContext` | `object` | Database instance export context. |
+| `backupContext` | `object` | Backup context. |
+| `operationType` | `string` | The type of the operation. Valid values are: * `CREATE` * `DELETE` * `UPDATE` * `RESTART` * `IMPORT` * `EXPORT` * `BACKUP_VOLUME` * `RESTORE_VOLUME` * `CREATE_USER` * `DELETE_USER` * `CREATE_DATABASE` * `DELETE_DATABASE` |
+| `importContext` | `object` | Database instance import context. |
+| `targetId` | `string` | Name of the database instance related to this operation. |
+| `insertTime` | `string` | The time this operation was enqueued in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
 | `targetProject` | `string` | The project ID of the target instance related to this operation. |
 | `selfLink` | `string` | The URI of this resource. |
+| `endTime` | `string` | The time this operation finished in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `startTime` | `string` | The time this operation actually started in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
 | `user` | `string` | The email address of the user who initiated this operation. |
-| `targetLink` | `string` |  |
+| `error` | `object` | Database instance operation errors list wrapper. |
+| `status` | `string` | The status of an operation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

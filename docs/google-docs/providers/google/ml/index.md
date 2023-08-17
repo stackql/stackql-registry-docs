@@ -21,7 +21,7 @@ An API To Enable Creating And Using Machine Learning Models.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>13</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>51</b></span><br />
+<span>total methods:&nbsp;<b>53</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ An API To Enable Creating And Using Machine Learning Models.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AI Platform Training & Prediction API</td></tr>
 <tr><td><b>Description</b></td><td>An API To Enable Creating And Using Machine Learning Models.</td></tr>
-<tr><td><b>Id</b></td><td><code>ml:v23.08.00157</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ml:v23.08.00159</code></td></tr>
 </tbody></table>
 
 ## Resources

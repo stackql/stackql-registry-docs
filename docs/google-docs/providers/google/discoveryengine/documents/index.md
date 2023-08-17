@@ -32,6 +32,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `parentDocumentId` | `string` | The identifier of the parent document. Currently supports at most two level document hierarchy. Id should conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 63 characters. |
 | `schemaId` | `string` | The identifier of the schema located in the same data store. |
 | `structData` | `object` | The structured JSON data for the document. It should conform to the registered Schema or an `INVALID_ARGUMENT` error is thrown. |
+| `content` | `object` | Unstructured data linked to this document. |
+| `derivedStructData` | `object` | Output only. This field is OUTPUT_ONLY. It contains derived data that are not in the original input document. |
 | `jsonData` | `string` | The JSON string representation of the document. It should conform to the registered Schema or an `INVALID_ARGUMENT` error is thrown. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -28,16 +28,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource path name. |
-| `grants` | `array` | Output only. Grants held by the device. |
-| `currentChannels` | `array` | Output only. Current channels with scores. |
-| `preloadedConfig` | `object` | Information about the device configuration. |
-| `serialNumber` | `string` | A serial number assigned to the device by the device manufacturer. |
-| `deviceMetadata` | `object` | Device data overridable by both SAS Portal and registration requests. |
-| `state` | `string` | Output only. Device state. |
 | `displayName` | `string` | Device display name. |
+| `grants` | `array` | Output only. Grants held by the device. |
+| `deviceMetadata` | `object` | Device data overridable by both SAS Portal and registration requests. |
+| `grantRangeAllowlists` | `array` | Only ranges that are within the allowlists are available for new grants. |
+| `currentChannels` | `array` | Output only. Current channels with scores. |
 | `activeConfig` | `object` | Information about the device configuration. |
 | `fccId` | `string` | The FCC identifier of the device. |
-| `grantRangeAllowlists` | `array` | Only ranges that are within the allowlists are available for new grants. |
+| `preloadedConfig` | `object` | Information about the device configuration. |
+| `serialNumber` | `string` | A serial number assigned to the device by the device manufacturer. |
+| `state` | `string` | Output only. Device state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

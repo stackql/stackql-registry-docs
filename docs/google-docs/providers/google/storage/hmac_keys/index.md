@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the HMAC key, including the Project ID and the Access ID. |
-| `state` | `string` | The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED. |
-| `updated` | `string` | The last modification time of the HMAC key metadata in RFC 3339 format. |
-| `etag` | `string` | HTTP 1.1 Entity tag for the HMAC key. |
-| `selfLink` | `string` | The link to this resource. |
 | `projectId` | `string` | Project ID owning the service account to which the key authenticates. |
-| `timeCreated` | `string` | The creation time of the HMAC key in RFC 3339 format. |
-| `accessId` | `string` | The ID of the HMAC Key. |
 | `kind` | `string` | The kind of item this is. For HMAC Key metadata, this is always storage#hmacKeyMetadata. |
+| `updated` | `string` | The last modification time of the HMAC key metadata in RFC 3339 format. |
+| `accessId` | `string` | The ID of the HMAC Key. |
+| `etag` | `string` | HTTP 1.1 Entity tag for the HMAC key. |
+| `timeCreated` | `string` | The creation time of the HMAC key in RFC 3339 format. |
 | `serviceAccountEmail` | `string` | The email address of the key's associated service account. |
+| `state` | `string` | The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED. |
+| `selfLink` | `string` | The link to this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

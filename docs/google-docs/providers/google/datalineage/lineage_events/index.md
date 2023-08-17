@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The resource name of the lineage event. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processes/&#123;process&#125;/runs/&#123;run&#125;/lineageEvents/&#123;lineage_event&#125;`. Can be specified or auto-assigned. &#123;lineage_event&#125; must be not longer than 200 characters and only contain characters in a set: `a-zA-Z0-9_-:.` |
+| `links` | `array` | Optional. List of source-target pairs. Can't contain more than 100 tuples. |
 | `startTime` | `string` | Required. The beginning of the transformation which resulted in this lineage event. For streaming scenarios, it should be the beginning of the period from which the lineage is being reported. |
 | `endTime` | `string` | Optional. The end of the transformation which resulted in this lineage event. For streaming scenarios, it should be the end of the period from which the lineage is being reported. |
-| `links` | `array` | Optional. List of source-target pairs. Can't contain more than 100 tuples. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

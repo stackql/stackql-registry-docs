@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the request. Format is "&#123;projects\|folders\|organizations&#125;/&#123;id&#125;/approvalRequests/&#123;approval_request&#125;". |
-| `dismiss` | `object` | A decision that has been made to dismiss an approval request. |
-| `approve` | `object` | A decision that has been made to approve access to a resource. |
-| `requestTime` | `string` | The time at which approval was requested. |
-| `requestedResourceName` | `string` | The resource for which approval is being requested. The format of the resource name is defined at https://cloud.google.com/apis/design/resource_names. The resource name here may either be a "full" resource name (e.g. "//library.googleapis.com/shelves/shelf1/books/book2") or a "relative" resource name (e.g. "shelves/shelf1/books/book2") as described in the resource name specification. |
-| `requestedExpiration` | `string` | The requested expiration for the approval. If the request is approved, access will be granted from the time of approval until the expiration time. |
-| `requestedResourceProperties` | `object` | The properties associated with the resource of the request. |
 | `requestedLocations` | `object` | Home office and physical location of the principal. |
 | `requestedReason` | `object` |  |
+| `dismiss` | `object` | A decision that has been made to dismiss an approval request. |
+| `requestedResourceName` | `string` | The resource for which approval is being requested. The format of the resource name is defined at https://cloud.google.com/apis/design/resource_names. The resource name here may either be a "full" resource name (e.g. "//library.googleapis.com/shelves/shelf1/books/book2") or a "relative" resource name (e.g. "shelves/shelf1/books/book2") as described in the resource name specification. |
+| `requestedResourceProperties` | `object` | The properties associated with the resource of the request. |
+| `requestTime` | `string` | The time at which approval was requested. |
+| `requestedExpiration` | `string` | The requested expiration for the approval. If the request is approved, access will be granted from the time of approval until the expiration time. |
+| `approve` | `object` | A decision that has been made to approve access to a resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

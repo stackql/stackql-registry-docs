@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | name of resource names have the form 'projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/evaluations/&#123;evaluation_id&#125;' |
 | `description` | `string` | Description of the Evaluation |
-| `updateTime` | `string` | Output only. [Output only] Update time stamp |
-| `resourceFilter` | `object` | Message describing resource filters |
 | `ruleNames` | `array` | the name of the rule |
-| `createTime` | `string` | Output only. [Output only] Create time stamp |
-| `customRulesBucket` | `string` | The Cloud Storage bucket name for custom rules. |
+| `resourceFilter` | `object` | Message describing resource filters |
 | `resourceStatus` | `object` | Message describing resource status |
-| `schedule` | `string` | crontab format schedule for scheduled evaluation, currently only support the following schedule: "0 */1 * * *", "0 */6 * * *", "0 */12 * * *", "0 0 */1 * *", "0 0 */7 * *", |
+| `createTime` | `string` | Output only. [Output only] Create time stamp |
+| `updateTime` | `string` | Output only. [Output only] Update time stamp |
+| `customRulesBucket` | `string` | The Cloud Storage bucket name for custom rules. |
 | `ruleVersions` | `array` | Output only. [Output only] The updated rule ids if exist. |
+| `schedule` | `string` | crontab format schedule for scheduled evaluation, currently only support the following schedule: "0 */1 * * *", "0 */6 * * *", "0 */12 * * *", "0 0 */1 * *", "0 0 */7 * *", |
 | `labels` | `object` | Labels as key value pairs |
 ## Methods
 | Name | Accessible by | Required Params | Description |
