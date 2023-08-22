@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `ratePlans` | `array` | List of rate plans in an organization. |
 | `nextStartKey` | `string` | Value that can be sent as `startKey` to retrieve the next page of content. If this field is omitted, there are no subsequent pages. |
+| `ratePlans` | `array` | List of rate plans in an organization. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

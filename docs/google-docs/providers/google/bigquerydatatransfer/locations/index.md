@@ -35,7 +35,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `projects_locations_get` | `SELECT` | `locationsId, projectsId` | Gets information about a location. |
 | `projects_locations_list` | `SELECT` | `projectsId` | Lists information about the supported locations for this service. |
 | `_projects_locations_list` | `EXEC` | `projectsId` | Lists information about the supported locations for this service. |
 | `projects_locations_enroll_data_sources` | `EXEC` | `locationsId, projectsId` | Enroll data sources in a user project. This allows users to create transfer configurations for these data sources. They will also appear in the ListDataSources RPC and as such, will appear in the [BigQuery UI](https://console.cloud.google.com/bigquery), and the documents can be found in the public guide for [BigQuery Web UI](https://cloud.google.com/bigquery/bigquery-web-ui) and [Data Transfer Service](https://cloud.google.com/bigquery/docs/working-with-transfers). |
-| `projects_locations_get` | `EXEC` | `locationsId, projectsId` | Gets information about a location. |

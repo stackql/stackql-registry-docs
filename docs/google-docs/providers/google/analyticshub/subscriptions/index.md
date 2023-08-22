@@ -28,21 +28,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the subscription. e.g. `projects/myproject/locations/US/subscriptions/123`. |
-| `organizationDisplayName` | `string` | Output only. Display name of the project of this subscription. |
+| `lastModifyTime` | `string` | Output only. Timestamp when the subscription was last modified. |
 | `state` | `string` | Output only. Current state of the subscription. |
+| `organizationDisplayName` | `string` | Output only. Display name of the project of this subscription. |
+| `listing` | `string` | Output only. Resource name of the source Listing. e.g. projects/123/locations/US/dataExchanges/456/listings/789 |
+| `creationTime` | `string` | Output only. Timestamp when the subscription was created. |
+| `organizationId` | `string` | Output only. Organization of the project this subscription belongs to. |
+| `dataExchange` | `string` | Output only. Resource name of the source Data Exchange. e.g. projects/123/locations/US/dataExchanges/456 |
 | `subscriberContact` | `string` | Output only. Email of the subscriber. |
 | `linkedDatasetMap` | `object` | Output only. Map of listing resource names to associated linked resource, e.g. projects/123/locations/US/dataExchanges/456/listings/789 -&gt; projects/123/datasets/my_dataset For listing-level subscriptions, this is a map of size 1. Only contains values if state == STATE_ACTIVE. |
-| `dataExchange` | `string` | Output only. Resource name of the source Data Exchange. e.g. projects/123/locations/US/dataExchanges/456 |
-| `listing` | `string` | Output only. Resource name of the source Listing. e.g. projects/123/locations/US/dataExchanges/456/listings/789 |
-| `lastModifyTime` | `string` | Output only. Timestamp when the subscription was last modified. |
-| `organizationId` | `string` | Output only. Organization of the project this subscription belongs to. |
-| `creationTime` | `string` | Output only. Timestamp when the subscription was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `projects_locations_subscriptions_get` | `SELECT` | `locationsId, projectsId, subscriptionsId` | Gets the details of a Subscription. |
 | `projects_locations_subscriptions_list` | `SELECT` | `locationsId, projectsId` | Lists all subscriptions in a given project and location. |
 | `projects_locations_subscriptions_delete` | `DELETE` | `locationsId, projectsId, subscriptionsId` | Deletes a subscription. |
 | `_projects_locations_subscriptions_list` | `EXEC` | `locationsId, projectsId` | Lists all subscriptions in a given project and location. |
-| `projects_locations_subscriptions_get` | `EXEC` | `locationsId, projectsId, subscriptionsId` | Gets the details of a Subscription. |
 | `projects_locations_subscriptions_refresh` | `EXEC` | `locationsId, projectsId, subscriptionsId` | Refreshes a Subscription to a Data Exchange. A Data Exchange can become stale when a publisher adds or removes data. This is a long-running operation as it may create many linked datasets. |
 | `projects_locations_subscriptions_revoke` | `EXEC` | `locationsId, projectsId, subscriptionsId` | Revokes a given subscription. |

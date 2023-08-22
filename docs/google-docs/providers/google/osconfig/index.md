@@ -19,8 +19,8 @@ OS Management Tools That Can Be Used For Patch Management, Patch Compliance, And
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>11</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
+<span>total resources:&nbsp;<b>12</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
 <span>total methods:&nbsp;<b>34</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ OS Management Tools That Can Be Used For Patch Management, Patch Compliance, And
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>OS Config API</td></tr>
 <tr><td><b>Description</b></td><td>OS Management Tools That Can Be Used For Patch Management, Patch Compliance, And Configuration Management On VM Instances.</td></tr>
-<tr><td><b>Id</b></td><td><code>osconfig:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>osconfig:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,12 +41,13 @@ OS Management Tools That Can Be Used For Patch Management, Patch Compliance, And
 <div class="providerDocColumn">
 <a href="/providers/google/osconfig/instance_details/">instance_details</a><br />
 <a href="/providers/google/osconfig/inventories/">inventories</a><br />
+<a href="/providers/google/osconfig/inventory/">inventory</a><br />
 <a href="/providers/google/osconfig/operations/">operations</a><br />
 <a href="/providers/google/osconfig/os_policy_assignments/">os_policy_assignments</a><br />
 <a href="/providers/google/osconfig/os_policy_assignments_revisions/">os_policy_assignments_revisions</a><br />
-<a href="/providers/google/osconfig/patch_deployments/">patch_deployments</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/osconfig/patch_deployments/">patch_deployments</a><br />
 <a href="/providers/google/osconfig/patch_jobs/">patch_jobs</a><br />
 <a href="/providers/google/osconfig/report/">report</a><br />
 <a href="/providers/google/osconfig/reports/">reports</a><br />

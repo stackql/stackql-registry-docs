@@ -33,7 +33,7 @@ Public API For Google Cloud AI Data Labeling Service.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Data Labeling API</td></tr>
 <tr><td><b>Description</b></td><td>Public API For Google Cloud AI Data Labeling Service.</td></tr>
-<tr><td><b>Id</b></td><td><code>datalabeling:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>datalabeling:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the credential. |
+| `rsaKeyInfo` | `object` | Information of a RSA public key. |
 | `updateTime` | `string` | Output only. Time when the `IdpCredential` was last updated. |
 | `dsaKeyInfo` | `object` | Information of a DSA public key. |
-| `rsaKeyInfo` | `object` | Information of a RSA public key. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

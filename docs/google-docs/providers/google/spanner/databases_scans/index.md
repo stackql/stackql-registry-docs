@@ -25,8 +25,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | The unique name of the scan, specific to the Database service implementing this interface. |
+| `scanData` | `object` | ScanData contains Cloud Key Visualizer scan data used by the caller to construct a visualization. |
+| `startTime` | `string` | A range of time (inclusive) for when the scan is defined. The lower bound for when the scan is defined. |
+| `details` | `object` | Additional information provided by the implementer. |
+| `endTime` | `string` | The upper bound for when the scan is defined. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `projects_instances_databases_get_scans` | `EXEC` | `databasesId, instancesId, projectsId` |
+| `projects_instances_databases_get_scans` | `SELECT` | `databasesId, instancesId, projectsId` |

@@ -25,21 +25,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | Required. Name of the AddressGroup resource. It matches pattern `projects/*/locations/&#123;location&#125;/addressGroups/`. |
-| `description` | `string` | Optional. Free-text description of the resource. |
-| `items` | `array` | Optional. List of items. |
-| `createTime` | `string` | Output only. The timestamp when the resource was created. |
-| `selfLink` | `string` | Output only. Server-defined fully-qualified URL for this resource. |
-| `type` | `string` | Required. The type of the Address Group. Possible values are "IPv4" or "IPV6". |
-| `labels` | `object` | Optional. Set of label tags associated with the AddressGroup resource. |
-| `capacity` | `integer` | Required. Capacity of the Address Group |
-| `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `organizations_locations_address_groups_get` | `SELECT` | `addressGroupsId, locationsId, organizationsId` | Gets details of a single address group. |
 | `organizations_locations_address_groups_list` | `SELECT` | `locationsId, organizationsId` | Lists address groups in a given project and location. |
+| `projects_locations_address_groups_get` | `SELECT` | `addressGroupsId, locationsId, projectsId` | Gets details of a single address group. |
 | `projects_locations_address_groups_list` | `SELECT` | `locationsId, projectsId` | Lists address groups in a given project and location. |
 | `organizations_locations_address_groups_create` | `INSERT` | `locationsId, organizationsId` | Creates a new address group in a given project and location. |
 | `projects_locations_address_groups_create` | `INSERT` | `locationsId, projectsId` | Creates a new address group in a given project and location. |
@@ -48,8 +39,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `_organizations_locations_address_groups_list` | `EXEC` | `locationsId, organizationsId` | Lists address groups in a given project and location. |
 | `_projects_locations_address_groups_list` | `EXEC` | `locationsId, projectsId` | Lists address groups in a given project and location. |
 | `organizations_locations_address_groups_clone_items` | `EXEC` | `addressGroupsId, locationsId, organizationsId` | Clones items from one address group to another. |
-| `organizations_locations_address_groups_get` | `EXEC` | `addressGroupsId, locationsId, organizationsId` | Gets details of a single address group. |
 | `organizations_locations_address_groups_patch` | `EXEC` | `addressGroupsId, locationsId, organizationsId` | Updates parameters of an address group. |
 | `projects_locations_address_groups_clone_items` | `EXEC` | `addressGroupsId, locationsId, projectsId` | Clones items from one address group to another. |
-| `projects_locations_address_groups_get` | `EXEC` | `addressGroupsId, locationsId, projectsId` | Gets details of a single address group. |
 | `projects_locations_address_groups_patch` | `EXEC` | `addressGroupsId, locationsId, projectsId` | Updates the parameters of a single address group. |

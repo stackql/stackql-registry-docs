@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the customer. |
-| `displayName` | `string` | Required. Name of the organization that the customer entity represents. |
 | `sasUserIds` | `array` | User IDs used by the devices belonging to this customer. |
+| `displayName` | `string` | Required. Name of the organization that the customer entity represents. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -40,3 +40,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `customers_migrate_organization` | `EXEC` |  | Migrates a SAS organization to the cloud. This will create GCP projects for each deployment and associate them. The SAS Organization is linked to the gcp project that called the command. go/sas-legacy-customer-migration |
 | `customers_patch` | `EXEC` | `customersId` | Updates an existing customer. |
 | `customers_provision_deployment` | `EXEC` |  | Creates a new SAS deployment through the GCP workflow. Creates a SAS organization if an organization match is not found. |
+| `customers_setup_sas_analytics` | `EXEC` |  | Setups the a GCP Project to receive SAS Analytics messages via GCP Pub/Sub with a subscription to BigQuery. All the Pub/Sub topics and BigQuery tables are created automatically as part of this service. |

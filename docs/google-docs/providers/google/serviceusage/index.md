@@ -33,7 +33,7 @@ Enables Services That Service Consumers Want To Use On Google Cloud Platform, Li
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Usage API</td></tr>
 <tr><td><b>Description</b></td><td>Enables Services That Service Consumers Want To Use On Google Cloud Platform, Lists The Available Or Enabled Services, Or Disables Services That Service Consumers No Longer Use.</td></tr>
-<tr><td><b>Id</b></td><td><code>serviceusage:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>serviceusage:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

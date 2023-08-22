@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The identifier of the ErrorFrame. |
+| `violations` | `array` | Output only. All the violations that were detected for the frame. |
 | `ingestionTime` | `string` | Output only. Frame ingestion time. |
 | `originalFrame` | `object` | Contains data reported from an inventory source on an asset. |
-| `violations` | `array` | Output only. All the violations that were detected for the frame. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

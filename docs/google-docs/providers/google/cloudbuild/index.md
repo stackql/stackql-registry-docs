@@ -20,7 +20,7 @@ Creates And Manages Builds On Google Cloud Platform.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>15</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
 <span>total methods:&nbsp;<b>73</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ Creates And Manages Builds On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Build API</td></tr>
 <tr><td><b>Description</b></td><td>Creates And Manages Builds On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudbuild:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudbuild:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

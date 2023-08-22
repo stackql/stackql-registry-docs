@@ -38,9 +38,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `projects_locations_server_tls_policies_get` | `SELECT` | `locationsId, projectsId, serverTlsPoliciesId` | Gets details of a single ServerTlsPolicy. |
 | `projects_locations_server_tls_policies_list` | `SELECT` | `locationsId, projectsId` | Lists ServerTlsPolicies in a given project and location. |
 | `projects_locations_server_tls_policies_create` | `INSERT` | `locationsId, projectsId` | Creates a new ServerTlsPolicy in a given project and location. |
 | `projects_locations_server_tls_policies_delete` | `DELETE` | `locationsId, projectsId, serverTlsPoliciesId` | Deletes a single ServerTlsPolicy. |
 | `_projects_locations_server_tls_policies_list` | `EXEC` | `locationsId, projectsId` | Lists ServerTlsPolicies in a given project and location. |
-| `projects_locations_server_tls_policies_get` | `EXEC` | `locationsId, projectsId, serverTlsPoliciesId` | Gets details of a single ServerTlsPolicy. |
 | `projects_locations_server_tls_policies_patch` | `EXEC` | `locationsId, projectsId, serverTlsPoliciesId` | Updates the parameters of a single ServerTlsPolicy. |

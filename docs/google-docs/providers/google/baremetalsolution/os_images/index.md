@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. OS Image's unique name. |
 | `description` | `string` | OS Image description. |
-| `supportedNetworkTemplates` | `array` | Network templates that can be used with this OS Image. |
 | `applicableInstanceTypes` | `array` | Instance types this image is applicable to. [Available types](https://cloud.google.com/bare-metal/docs/bms-planning#server_configurations) |
 | `code` | `string` | OS Image code. |
+| `supportedNetworkTemplates` | `array` | Network templates that can be used with this OS Image. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

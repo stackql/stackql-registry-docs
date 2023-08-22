@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `workItems` | `array` | Work items processed by this worker, sorted by time. |
 | `workerName` | `string` | Name of this worker |
+| `workItems` | `array` | Work items processed by this worker, sorted by time. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

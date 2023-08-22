@@ -33,7 +33,7 @@ The Resource Settings API Allows Users To Control And Modify The Behavior Of The
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Resource Settings API</td></tr>
 <tr><td><b>Description</b></td><td>The Resource Settings API Allows Users To Control And Modify The Behavior Of Their GCP Resources (E.G., VM, Firewall, Project, Etc.) Across The Cloud Resource Hierarchy.</td></tr>
-<tr><td><b>Id</b></td><td><code>resourcesettings:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>resourcesettings:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

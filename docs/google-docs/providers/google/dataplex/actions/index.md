@@ -28,21 +28,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the action, of the form: projects/&#123;project&#125;/locations/&#123;location&#125;/lakes/&#123;lake&#125;/actions/&#123;action&#125; projects/&#123;project&#125;/locations/&#123;location&#125;/lakes/&#123;lake&#125;/zones/&#123;zone&#125;/actions/&#123;action&#125; projects/&#123;project&#125;/locations/&#123;location&#125;/lakes/&#123;lake&#125;/zones/&#123;zone&#125;/assets/&#123;asset&#125;/actions/&#123;action&#125;. |
-| `invalidDataOrganization` | `object` | Action details for invalid data arrangement. |
-| `unauthorizedResource` | `object` | Action details for unauthorized resource issues raised to indicate that the service account associated with the lake instance is not authorized to access or manage the resource associated with an asset. |
-| `issue` | `string` | Detailed description of the issue requiring action. |
-| `lake` | `string` | Output only. The relative resource name of the lake, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;. |
-| `invalidDataFormat` | `object` | Action details for invalid or unsupported data files detected by discovery. |
-| `asset` | `string` | Output only. The relative resource name of the asset, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;/assets/&#123;asset_id&#125;. |
 | `dataLocations` | `array` | The list of data locations associated with this action. Cloud Storage locations are represented as URI paths(E.g. gs://bucket/table1/year=2020/month=Jan/). BigQuery locations refer to resource names(E.g. bigquery.googleapis.com/projects/project-id/datasets/dataset-id). |
-| `zone` | `string` | Output only. The relative resource name of the zone, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;. |
-| `invalidDataPartition` | `object` | Action details for invalid or unsupported partitions detected by discovery. |
+| `invalidDataOrganization` | `object` | Action details for invalid data arrangement. |
+| `issue` | `string` | Detailed description of the issue requiring action. |
+| `missingResource` | `object` | Action details for resource references in assets that cannot be located. |
+| `incompatibleDataSchema` | `object` | Action details for incompatible schemas detected by discovery. |
+| `asset` | `string` | Output only. The relative resource name of the asset, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;/assets/&#123;asset_id&#125;. |
+| `unauthorizedResource` | `object` | Action details for unauthorized resource issues raised to indicate that the service account associated with the lake instance is not authorized to access or manage the resource associated with an asset. |
 | `missingData` | `object` | Action details for absence of data detected by discovery. |
 | `category` | `string` | The category of issue associated with the action. |
-| `failedSecurityPolicyApply` | `object` | Failed to apply security policy to the managed resource(s) under a lake, zone or an asset. For a lake or zone resource, one or more underlying assets has a failure applying security policy to the associated managed resource. |
-| `missingResource` | `object` | Action details for resource references in assets that cannot be located. |
 | `detectTime` | `string` | The time that the issue was detected. |
-| `incompatibleDataSchema` | `object` | Action details for incompatible schemas detected by discovery. |
+| `invalidDataPartition` | `object` | Action details for invalid or unsupported partitions detected by discovery. |
+| `invalidDataFormat` | `object` | Action details for invalid or unsupported data files detected by discovery. |
+| `lake` | `string` | Output only. The relative resource name of the lake, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;. |
+| `failedSecurityPolicyApply` | `object` | Failed to apply security policy to the managed resource(s) under a lake, zone or an asset. For a lake or zone resource, one or more underlying assets has a failure applying security policy to the associated managed resource. |
+| `zone` | `string` | Output only. The relative resource name of the zone, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

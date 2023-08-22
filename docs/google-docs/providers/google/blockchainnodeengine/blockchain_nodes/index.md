@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The fully qualified name of the blockchain node. e.g. `projects/my-project/locations/us-central1/blockchainNodes/my-node`. |
-| `labels` | `object` | User-provided key-value pairs. |
 | `state` | `string` | Output only. A status representing the state of the node. |
 | `updateTime` | `string` | Output only. The timestamp at which the blockchain node was last updated. |
 | `blockchainType` | `string` | Immutable. The blockchain type of the node. |
 | `connectionInfo` | `object` | The connection information through which to interact with a blockchain node. |
 | `createTime` | `string` | Output only. The timestamp at which the blockchain node was first created. |
 | `ethereumDetails` | `object` | Ethereum-specific blockchain node details. |
+| `labels` | `object` | User-provided key-value pairs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

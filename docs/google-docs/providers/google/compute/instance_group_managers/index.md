@@ -30,37 +30,37 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] A unique identifier for this resource type. The server generates this identifier. |
 | `name` | `string` | The name of the managed instance group. The name must be 1-63 characters long, and comply with RFC1035. |
 | `description` | `string` | An optional description of this resource. |
-| `instanceTemplate` | `string` | The URL of the instance template that is specified for this managed instance group. The group uses this template to create all new instances in the managed instance group. The templates for existing instances in the group do not change unless you run recreateInstances, run applyUpdatesToInstances, or set the group's updatePolicy.type to PROACTIVE. |
-| `instanceLifecyclePolicy` | `object` |  |
-| `kind` | `string` | [Output Only] The resource type, which is always compute#instanceGroupManager for managed instance groups. |
-| `listManagedInstancesResults` | `string` | Pagination behavior of the listManagedInstances API method for this managed instance group. |
-| `updatePolicy` | `object` |  |
-| `instanceGroup` | `string` | [Output Only] The URL of the Instance Group resource. |
-| `currentActions` | `object` |  |
-| `targetSize` | `integer` | The target number of running instances for this managed instance group. You can reduce this number by using the instanceGroupManager deleteInstances or abandonInstances methods. Resizing the group also changes this number. |
-| `autoHealingPolicies` | `array` | The autohealing policy for this managed instance group. You can specify only one value. |
-| `zone` | `string` | [Output Only] The URL of a zone where the managed instance group is located (for zonal resources). |
-| `creationTimestamp` | `string` | [Output Only] The creation timestamp for this managed instance group in RFC3339 text format. |
-| `region` | `string` | [Output Only] The URL of the region where the managed instance group resides (for regional resources). |
 | `versions` | `array` | Specifies the instance templates used by this managed instance group to create instances. Each version is defined by an instanceTemplate and a name. Every version can appear at most once per instance group. This field overrides the top-level instanceTemplate field. Read more about the relationships between these fields. Exactly one version must leave the targetSize field unset. That version will be applied to all remaining instances. For more information, read about canary updates. |
-| `namedPorts` | `array` | Named ports configured for the Instance Groups complementary to this Instance Group Manager. |
+| `instanceLifecyclePolicy` | `object` |  |
+| `statefulPolicy` | `object` |  |
+| `targetPools` | `array` | The URLs for all TargetPool resources to which instances in the instanceGroup field are added. The target pools automatically apply to all of the instances in the managed instance group. |
+| `selfLink` | `string` | [Output Only] The URL for this managed instance group. The server defines this URL. |
+| `listManagedInstancesResults` | `string` | Pagination behavior of the listManagedInstances API method for this managed instance group. |
 | `distributionPolicy` | `object` |  |
 | `fingerprint` | `string` | Fingerprint of this resource. This field may be used in optimistic locking. It will be ignored when inserting an InstanceGroupManager. An up-to-date fingerprint must be provided in order to update the InstanceGroupManager, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve an InstanceGroupManager. |
+| `creationTimestamp` | `string` | [Output Only] The creation timestamp for this managed instance group in RFC3339 text format. |
+| `targetSize` | `integer` | The target number of running instances for this managed instance group. You can reduce this number by using the instanceGroupManager deleteInstances or abandonInstances methods. Resizing the group also changes this number. |
 | `status` | `object` |  |
-| `selfLink` | `string` | [Output Only] The URL for this managed instance group. The server defines this URL. |
-| `statefulPolicy` | `object` |  |
+| `currentActions` | `object` |  |
+| `zone` | `string` | [Output Only] The URL of a zone where the managed instance group is located (for zonal resources). |
 | `baseInstanceName` | `string` | The base instance name to use for instances in this group. The value must be 1-58 characters long. Instances are named by appending a hyphen and a random four-character string to the base instance name. The base instance name must comply with RFC1035. |
-| `targetPools` | `array` | The URLs for all TargetPool resources to which instances in the instanceGroup field are added. The target pools automatically apply to all of the instances in the managed instance group. |
+| `autoHealingPolicies` | `array` | The autohealing policy for this managed instance group. You can specify only one value. |
+| `updatePolicy` | `object` |  |
+| `region` | `string` | [Output Only] The URL of the region where the managed instance group resides (for regional resources). |
+| `kind` | `string` | [Output Only] The resource type, which is always compute#instanceGroupManager for managed instance groups. |
+| `namedPorts` | `array` | Named ports configured for the Instance Groups complementary to this Instance Group Manager. |
+| `instanceTemplate` | `string` | The URL of the instance template that is specified for this managed instance group. The group uses this template to create all new instances in the managed instance group. The templates for existing instances in the group do not change unless you run recreateInstances, run applyUpdatesToInstances, or set the group's updatePolicy.type to PROACTIVE. |
+| `instanceGroup` | `string` | [Output Only] The URL of the Instance Group resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `aggregated_list` | `SELECT` | `project` | Retrieves the list of managed instance groups and groups them by zone. |
 | `get` | `SELECT` | `instanceGroupManager, project, zone` | Returns all of the details about the specified managed instance group. |
 | `list` | `SELECT` | `project, zone` | Retrieves a list of managed instance groups that are contained within the specified project and zone. |
 | `insert` | `INSERT` | `project, zone` | Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method. A managed instance group can have up to 1000 VM instances per group. Please contact Cloud Support if you need an increase in this limit. |
 | `delete` | `DELETE` | `instanceGroupManager, project, zone` | Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service. Read Deleting an instance group for more information. |
-| `_list` | `EXEC` | `project, zone` | Retrieves a list of managed instance groups that are contained within the specified project and zone. |
+| `_aggregated_list` | `EXEC` | `project` | Retrieves the list of managed instance groups and groups them by zone. |
 | `abandon_instances` | `EXEC` | `instanceGroupManager, project, zone` | Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request. |
-| `aggregated_list` | `EXEC` | `project` | Retrieves the list of managed instance groups and groups them by zone. |
 | `apply_updates_to_instances` | `EXEC` | `instanceGroupManager, project, zone` | Applies changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions. |
 | `patch` | `EXEC` | `instanceGroupManager, project, zone` | Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the listManagedInstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. If you update your group to specify a new template or instance configuration, it's possible that your intended specification for each VM in the group is different from the current state of that VM. To learn how to apply an updated configuration to the VMs in a MIG, see Updating instances in a MIG. |
 | `patch_per_instance_configs` | `EXEC` | `instanceGroupManager, project, zone` | Inserts or patches per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. |

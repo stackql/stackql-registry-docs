@@ -33,7 +33,7 @@ Scans Your Compute And App Engine Apps For Common Web Vulnerabilities.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Web Security Scanner API</td></tr>
 <tr><td><b>Description</b></td><td>Scans Your Compute And App Engine Apps For Common Web Vulnerabilities.</td></tr>
-<tr><td><b>Id</b></td><td><code>websecurityscanner:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>websecurityscanner:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

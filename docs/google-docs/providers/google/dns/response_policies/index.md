@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier for the resource; defined by the server (output only). |
 | `description` | `string` | User-provided description for this Response Policy. |
+| `responsePolicyName` | `string` | User assigned name for this Response Policy. |
+| `gkeClusters` | `array` | The list of Google Kubernetes Engine clusters to which this response policy is applied. |
 | `kind` | `string` |  |
 | `labels` | `object` | User labels. |
 | `networks` | `array` | List of network names specifying networks to which this policy is applied. |
-| `responsePolicyName` | `string` | User assigned name for this Response Policy. |
-| `gkeClusters` | `array` | The list of Google Kubernetes Engine clusters to which this response policy is applied. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

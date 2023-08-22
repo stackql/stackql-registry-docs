@@ -27,9 +27,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. ID of the attachment. |
-| `createdAt` | `string` | Output only. Time the attachment was created in milliseconds since epoch. |
-| `environment` | `string` | ID of the attached environment. |
+| `name` | `string` | ID of the environment group attachment. |
+| `environmentGroupId` | `string` | Output only. ID of the environment group. |
+| `createdAt` | `string` | Output only. The time at which the environment group attachment was created as milliseconds since epoch. |
+| `environment` | `string` | Required. ID of the attached environment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

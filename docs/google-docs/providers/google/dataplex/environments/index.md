@@ -29,22 +29,22 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the environment, of the form: projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/environment/&#123;environment_id&#125; |
 | `description` | `string` | Optional. Description of the environment. |
+| `uid` | `string` | Output only. System generated globally unique ID for the environment. This ID will be different if the environment is deleted and re-created with the same name. |
+| `createTime` | `string` | Output only. Environment creation time. |
 | `labels` | `object` | Optional. User defined labels for the environment. |
 | `sessionStatus` | `object` | Status of sessions created for this environment. |
-| `endpoints` | `object` | URI Endpoints to access sessions associated with the Environment. |
-| `uid` | `string` | Output only. System generated globally unique ID for the environment. This ID will be different if the environment is deleted and re-created with the same name. |
-| `state` | `string` | Output only. Current state of the environment. |
 | `infrastructureSpec` | `object` | Configuration for the underlying infrastructure used to run workloads. |
-| `sessionSpec` | `object` | Configuration for sessions created for this environment. |
-| `createTime` | `string` | Output only. Environment creation time. |
+| `endpoints` | `object` | URI Endpoints to access sessions associated with the Environment. |
 | `displayName` | `string` | Optional. User friendly display name. |
+| `sessionSpec` | `object` | Configuration for sessions created for this environment. |
+| `state` | `string` | Output only. Current state of the environment. |
 | `updateTime` | `string` | Output only. The time when the environment was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `projects_locations_lakes_environments_get` | `SELECT` | `environmentsId, lakesId, locationsId, projectsId` | Get environment resource. |
 | `projects_locations_lakes_environments_list` | `SELECT` | `lakesId, locationsId, projectsId` | Lists environments under the given lake. |
 | `projects_locations_lakes_environments_create` | `INSERT` | `lakesId, locationsId, projectsId` | Create an environment resource. |
 | `projects_locations_lakes_environments_delete` | `DELETE` | `environmentsId, lakesId, locationsId, projectsId` | Delete the environment resource. All the child resources must have been deleted before environment deletion can be initiated. |
 | `_projects_locations_lakes_environments_list` | `EXEC` | `lakesId, locationsId, projectsId` | Lists environments under the given lake. |
-| `projects_locations_lakes_environments_get` | `EXEC` | `environmentsId, lakesId, locationsId, projectsId` | Get environment resource. |
 | `projects_locations_lakes_environments_patch` | `EXEC` | `environmentsId, lakesId, locationsId, projectsId` | Update the environment resource. |

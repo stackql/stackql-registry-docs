@@ -33,7 +33,7 @@ An API To Manage The Running Of Batch Jobs On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Batch API</td></tr>
 <tr><td><b>Description</b></td><td>An API To Manage The Running Of Batch Jobs On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>batch:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>batch:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

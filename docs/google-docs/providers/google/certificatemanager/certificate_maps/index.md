@@ -29,10 +29,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | A user-defined name of the Certificate Map. Certificate Map names must be unique globally and match pattern `projects/*/locations/*/certificateMaps/*`. |
 | `description` | `string` | One or more paragraphs of text description of a certificate map. |
+| `gclbTargets` | `array` | Output only. A list of GCLB targets that use this Certificate Map. A Target Proxy is only present on this list if it's attached to a Forwarding Rule. |
 | `labels` | `object` | Set of labels associated with a Certificate Map. |
 | `updateTime` | `string` | Output only. The update timestamp of a Certificate Map. |
 | `createTime` | `string` | Output only. The creation timestamp of a Certificate Map. |
-| `gclbTargets` | `array` | Output only. A list of GCLB targets that use this Certificate Map. A Target Proxy is only present on this list if it's attached to a Forwarding Rule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

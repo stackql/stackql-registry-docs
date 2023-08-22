@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the dataset, in form of `projects/&#123;project-number-or-id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;` |
-| `displayName` | `string` | The name of the dataset to show in the interface. The name can be up to 32 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscores (_), and ASCII digits 0-9. |
-| `sourceLanguageCode` | `string` | The BCP-47 language code of the source language. |
-| `testExampleCount` | `integer` | Output only. Number of test examples (sentence pairs). |
 | `trainExampleCount` | `integer` | Output only. Number of training examples (sentence pairs). |
+| `testExampleCount` | `integer` | Output only. Number of test examples (sentence pairs). |
 | `createTime` | `string` | Output only. Timestamp when this dataset was created. |
 | `updateTime` | `string` | Output only. Timestamp when this dataset was last updated. |
-| `exampleCount` | `integer` | Output only. The number of examples in the dataset. |
-| `targetLanguageCode` | `string` | The BCP-47 language code of the target language. |
 | `validateExampleCount` | `integer` | Output only. Number of validation examples (sentence pairs). |
+| `sourceLanguageCode` | `string` | The BCP-47 language code of the source language. |
+| `exampleCount` | `integer` | Output only. The number of examples in the dataset. |
+| `displayName` | `string` | The name of the dataset to show in the interface. The name can be up to 32 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscores (_), and ASCII digits 0-9. |
+| `targetLanguageCode` | `string` | The BCP-47 language code of the target language. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

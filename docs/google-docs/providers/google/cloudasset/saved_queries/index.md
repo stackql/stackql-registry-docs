@@ -40,4 +40,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:--------------|:----------------|:------------|
 | `list` | `SELECT` | `parent` | Lists all saved queries in a parent project/folder/organization. |
 | `create` | `INSERT` | `parent` | Creates a saved query in a parent project/folder/organization. |
+| `delete` | `DELETE` | `name` | Deletes a saved query. |
 | `_list` | `EXEC` | `parent` | Lists all saved queries in a parent project/folder/organization. |
+| `patch` | `EXEC` | `name` | Updates a saved query. |

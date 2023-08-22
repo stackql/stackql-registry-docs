@@ -29,21 +29,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The identifier for this backup run. Unique only for a specific Cloud SQL instance. |
 | `description` | `string` | The description of this run, only applicable to on-demand backups. |
-| `location` | `string` | Location of the backups. |
-| `type` | `string` | The type of this run; can be either "AUTOMATED" or "ON_DEMAND" or "FINAL". This field defaults to "ON_DEMAND" and is ignored, when specified for insert requests. |
-| `selfLink` | `string` | The URI of this resource. |
-| `timeZone` | `string` | Backup time zone to prevent restores to an instance with a different time zone. Now relevant only for SQL Server. |
-| `instance` | `string` | Name of the database instance. |
+| `error` | `object` | Database instance operation error. |
 | `status` | `string` | The status of this run. |
 | `diskEncryptionConfiguration` | `object` | Disk encryption configuration for an instance. |
-| `windowStartTime` | `string` | The start time of the backup window during which this the backup was attempted in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `timeZone` | `string` | Backup time zone to prevent restores to an instance with a different time zone. Now relevant only for SQL Server. |
 | `kind` | `string` | This is always `sql#backupRun`. |
-| `enqueuedTime` | `string` | The time the run was enqueued in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `startTime` | `string` | The time the backup operation actually started in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `endTime` | `string` | The time the backup operation completed in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
-| `backupKind` | `string` | Specifies the kind of backup, PHYSICAL or DEFAULT_SNAPSHOT. |
-| `error` | `object` | Database instance operation error. |
+| `type` | `string` | The type of this run; can be either "AUTOMATED" or "ON_DEMAND" or "FINAL". This field defaults to "ON_DEMAND" and is ignored, when specified for insert requests. |
 | `diskEncryptionStatus` | `object` | Disk encryption status for an instance. |
+| `endTime` | `string` | The time the backup operation completed in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `location` | `string` | Location of the backups. |
+| `enqueuedTime` | `string` | The time the run was enqueued in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `instance` | `string` | Name of the database instance. |
+| `backupKind` | `string` | Specifies the kind of backup, PHYSICAL or DEFAULT_SNAPSHOT. |
+| `startTime` | `string` | The time the backup operation actually started in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `selfLink` | `string` | The URI of this resource. |
+| `windowStartTime` | `string` | The start time of the backup window during which this the backup was attempted in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

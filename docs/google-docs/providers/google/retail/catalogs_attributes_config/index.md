@@ -25,9 +25,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | Required. Immutable. The fully qualified resource name of the attribute config. Format: `projects/*/locations/*/catalogs/*/attributesConfig` |
+| `attributeConfigLevel` | `string` | Output only. The AttributeConfigLevel used for this catalog. |
+| `catalogAttributes` | `object` | Enable attribute(s) config at catalog level. For example, indexable, dynamic_facetable, or searchable for each attribute. The key is catalog attribute's name. For example: `color`, `brands`, `attributes.custom_attribute`, such as `attributes.xyz`. The maximum number of catalog attributes allowed in a request is 1000. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `projects_locations_catalogs_get_attributes_config` | `EXEC` | `catalogsId, locationsId, projectsId` | Gets an AttributesConfig. |
+| `projects_locations_catalogs_get_attributes_config` | `SELECT` | `catalogsId, locationsId, projectsId` | Gets an AttributesConfig. |
 | `projects_locations_catalogs_update_attributes_config` | `EXEC` | `catalogsId, locationsId, projectsId` | Updates the AttributesConfig. The catalog attributes in the request will be updated in the catalog, or inserted if they do not exist. Existing catalog attributes not included in the request will remain unchanged. Attributes that are assigned to products, but do not exist at the catalog level, are always included in the response. The product attribute is assigned default values for missing catalog attribute fields, e.g., searchable and dynamic facetable options. |

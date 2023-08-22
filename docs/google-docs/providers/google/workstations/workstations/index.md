@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Full name of this workstation. |
 | `annotations` | `object` | Optional. Client-specified annotations. |
-| `reconciling` | `boolean` | Output only. Indicates whether this workstation is currently being updated to match its intended state. |
-| `uid` | `string` | Output only. A system-assigned unique identifier for this workstation. |
-| `host` | `string` | Output only. Host to which clients can send HTTPS traffic that will be received by the workstation. Authorized traffic will be received to the workstation as HTTP on port 80. To send traffic to a different port, clients may prefix the host with the destination port in the format `&#123;port&#125;-&#123;host&#125;`. |
+| `updateTime` | `string` | Output only. Time when this workstation was most recently updated. |
 | `deleteTime` | `string` | Output only. Time when this workstation was soft-deleted. |
-| `env` | `object` | Optional. Environment variables passed to the workstation container's entrypoint. |
-| `displayName` | `string` | Optional. Human-readable name for this workstation. |
 | `etag` | `string` | Optional. Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
 | `labels` | `object` | Optional. [Labels](https://cloud.google.com/workstations/docs/label-resources) that are applied to the workstation and that are also propagated to the underlying Compute Engine resources. |
-| `state` | `string` | Output only. Current state of the workstation. |
-| `updateTime` | `string` | Output only. Time when this workstation was most recently updated. |
+| `reconciling` | `boolean` | Output only. Indicates whether this workstation is currently being updated to match its intended state. |
+| `displayName` | `string` | Optional. Human-readable name for this workstation. |
+| `env` | `object` | Optional. Environment variables passed to the workstation container's entrypoint. |
+| `uid` | `string` | Output only. A system-assigned unique identifier for this workstation. |
+| `host` | `string` | Output only. Host to which clients can send HTTPS traffic that will be received by the workstation. Authorized traffic will be received to the workstation as HTTP on port 80. To send traffic to a different port, clients may prefix the host with the destination port in the format `&#123;port&#125;-&#123;host&#125;`. |
 | `createTime` | `string` | Output only. Time when this workstation was created. |
+| `state` | `string` | Output only. Current state of the workstation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

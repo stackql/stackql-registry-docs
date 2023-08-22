@@ -33,7 +33,7 @@ Provides Automatic Management Of Network Configurations Necessary For Certain Se
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Networking API</td></tr>
 <tr><td><b>Description</b></td><td>Provides Automatic Management Of Network Configurations Necessary For Certain Services.</td></tr>
-<tr><td><b>Id</b></td><td><code>servicenetworking:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>servicenetworking:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,30 +29,30 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the Connection. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/connections/&#123;connection&#125; |
 | `description` | `string` | Optional. Description of the resource. |
-| `serviceAccount` | `string` | Optional. Service account needed for runtime plane to access Google Cloud resources. |
-| `connectorVersion` | `string` | Required. Connector version on which the connection is created. The format is: projects/*/locations/*/providers/*/connectors/*/versions/* Only global location is supported for ConnectorVersion resource. |
 | `sslConfig` | `object` | SSL Configuration of a connection |
-| `serviceDirectory` | `string` | Output only. The name of the Service Directory service name. Used for Private Harpoon to resolve the ILB address. e.g. "projects/cloud-connectors-e2e-testing/locations/us-central1/namespaces/istio-system/services/istio-ingressgateway-connectors" |
-| `nodeConfig` | `object` | Node configuration for the connection. |
+| `labels` | `object` | Optional. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources |
+| `authConfig` | `object` | AuthConfig defines details of a authentication type. |
+| `configVariables` | `array` | Optional. Configuration for configuring the connection with an external system. |
+| `destinationConfigs` | `array` | Optional. Configuration of the Connector's destination. Only accepted for Connectors that accepts user defined destination(s). |
+| `suspended` | `boolean` | Optional. Suspended indicates if a user has suspended a connection or not. |
 | `subscriptionType` | `string` | Output only. This subscription type enum states the subscription type of the project. |
+| `envoyImageLocation` | `string` | Output only. GCR location where the envoy image is stored. formatted like: gcr.io/&#123;bucketName&#125;/&#123;imageName&#125; |
+| `eventingEnablementType` | `string` | Optional. Eventing enablement type. Will be nil if eventing is not enabled. |
+| `imageLocation` | `string` | Output only. GCR location where the runtime image is stored. formatted like: gcr.io/&#123;bucketName&#125;/&#123;imageName&#125; |
 | `connectorVersionInfraConfig` | `object` | This cofiguration provides infra configs like rate limit threshold which need to be configurable for every connector version |
+| `connectorVersionLaunchStage` | `string` | Output only. Flag to mark the version indicating the launch stage. |
 | `createTime` | `string` | Output only. Created time. |
 | `connectionRevision` | `string` | Output only. Connection revision. This field is only updated when the connection is created or updated by User. |
-| `labels` | `object` | Optional. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources |
-| `imageLocation` | `string` | Output only. GCR location where the runtime image is stored. formatted like: gcr.io/&#123;bucketName&#125;/&#123;imageName&#125; |
-| `authConfig` | `object` | AuthConfig defines details of a authentication type. |
-| `updateTime` | `string` | Output only. Updated time. |
-| `eventingEnablementType` | `string` | Optional. Eventing enablement type. Will be nil if eventing is not enabled. |
-| `envoyImageLocation` | `string` | Output only. GCR location where the envoy image is stored. formatted like: gcr.io/&#123;bucketName&#125;/&#123;imageName&#125; |
-| `lockConfig` | `object` | Determines whether or no a connection is locked. If locked, a reason must be specified. |
-| `suspended` | `boolean` | Optional. Suspended indicates if a user has suspended a connection or not. |
-| `eventingConfig` | `object` | Eventing Configuration of a connection |
-| `configVariables` | `array` | Optional. Configuration for configuring the connection with an external system. |
-| `logConfig` | `object` | Log configuration for the connection. |
 | `eventingRuntimeData` | `object` | Eventing runtime data has the details related to eventing managed by the system. |
-| `connectorVersionLaunchStage` | `string` | Output only. Flag to mark the version indicating the launch stage. |
+| `serviceDirectory` | `string` | Output only. The name of the Service Directory service name. Used for Private Harpoon to resolve the ILB address. e.g. "projects/cloud-connectors-e2e-testing/locations/us-central1/namespaces/istio-system/services/istio-ingressgateway-connectors" |
+| `nodeConfig` | `object` | Node configuration for the connection. |
+| `updateTime` | `string` | Output only. Updated time. |
+| `lockConfig` | `object` | Determines whether or no a connection is locked. If locked, a reason must be specified. |
+| `serviceAccount` | `string` | Optional. Service account needed for runtime plane to access Google Cloud resources. |
+| `logConfig` | `object` | Log configuration for the connection. |
+| `connectorVersion` | `string` | Required. Connector version on which the connection is created. The format is: projects/*/locations/*/providers/*/connectors/*/versions/* Only global location is supported for ConnectorVersion resource. |
 | `status` | `object` | ConnectionStatus indicates the state of the connection. |
-| `destinationConfigs` | `array` | Optional. Configuration of the Connector's destination. Only accepted for Connectors that accepts user defined destination(s). |
+| `eventingConfig` | `object` | Eventing Configuration of a connection |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

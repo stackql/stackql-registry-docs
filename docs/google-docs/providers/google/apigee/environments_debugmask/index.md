@@ -25,9 +25,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | Name of the debug mask. |
+| `variables` | `array` | List of variables that should be masked from the debug output. |
+| `faultXPaths` | `array` | List of XPaths that specify the XML elements to be filtered from XML payloads in error flows. |
+| `namespaces` | `object` | Map of namespaces to URIs. |
+| `requestJSONPaths` | `array` | List of JSON paths that specify the JSON elements to be filtered from JSON request message payloads. |
+| `faultJSONPaths` | `array` | List of JSON paths that specify the JSON elements to be filtered from JSON payloads in error flows. |
+| `responseXPaths` | `array` | List of XPaths that specify the XML elements to be filtered from XML response message payloads. |
+| `responseJSONPaths` | `array` | List of JSON paths that specify the JSON elements to be filtered from JSON response message payloads. |
+| `requestXPaths` | `array` | List of XPaths that specify the XML elements to be filtered from XML request message payloads. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `organizations_environments_get_debugmask` | `EXEC` | `environmentsId, organizationsId` | Gets the debug mask singleton resource for an environment. |
+| `organizations_environments_get_debugmask` | `SELECT` | `environmentsId, organizationsId` | Gets the debug mask singleton resource for an environment. |
 | `organizations_environments_update_debugmask` | `EXEC` | `environmentsId, organizationsId` | Updates the debug mask singleton resource for an environment. |

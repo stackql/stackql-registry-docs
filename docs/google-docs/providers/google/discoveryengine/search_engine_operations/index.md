@@ -33,7 +33,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
 | `metadata` | `object` | Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `projects_locations_collections_data_stores_site_search_engine_operations_list` | `SELECT` | `collectionsId, dataStoresId, locationsId, projectsId` |
-| `_projects_locations_collections_data_stores_site_search_engine_operations_list` | `EXEC` | `collectionsId, dataStoresId, locationsId, projectsId` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `projects_locations_collections_data_stores_site_search_engine_operations_get` | `SELECT` | `collectionsId, dataStoresId, locationsId, operationsId, projectsId` | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| `projects_locations_collections_data_stores_site_search_engine_operations_list` | `SELECT` | `collectionsId, dataStoresId, locationsId, projectsId` | Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. |
+| `_projects_locations_collections_data_stores_site_search_engine_operations_list` | `EXEC` | `collectionsId, dataStoresId, locationsId, projectsId` | Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. |

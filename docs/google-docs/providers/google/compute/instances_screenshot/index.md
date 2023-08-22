@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `contents` | `string` | [Output Only] The Base64-encoded screenshot data. |
 | `kind` | `string` | [Output Only] Type of the resource. Always compute#screenshot for the screenshots. |
+| `contents` | `string` | [Output Only] The Base64-encoded screenshot data. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
