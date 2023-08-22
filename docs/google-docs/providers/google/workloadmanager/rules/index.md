@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | rule name |
 | `description` | `string` | descrite rule in plain language |
+| `secondaryCategory` | `string` | the secondary category |
 | `primaryCategory` | `string` | the primary category |
 | `revisionId` | `string` | Output only. the version of the rule |
-| `uri` | `string` | the docuement url for the rule |
-| `displayName` | `string` | the name display in UI |
-| `errorMessage` | `string` | the message template for rule |
-| `remediation` | `string` | the remediation for the rule |
 | `severity` | `string` | the severity of the rule |
-| `secondaryCategory` | `string` | the secondary category |
+| `uri` | `string` | the docuement url for the rule |
+| `remediation` | `string` | the remediation for the rule |
+| `errorMessage` | `string` | the message template for rule |
+| `displayName` | `string` | the name display in UI |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

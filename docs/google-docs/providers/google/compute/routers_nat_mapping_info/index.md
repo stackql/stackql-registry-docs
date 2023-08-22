@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `interfaceNatMappings` | `array` |  |
 | `instanceName` | `string` | Name of the VM instance which the endpoint belongs to |
+| `interfaceNatMappings` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

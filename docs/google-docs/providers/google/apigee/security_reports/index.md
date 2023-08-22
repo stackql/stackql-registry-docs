@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `resultRows` | `string` | ResultRows is available only after the query is completed. |
 | `created` | `string` | Creation time of the query. |
-| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
-| `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
-| `state` | `string` | Query state could be "enqueued", "running", "completed", "expired" and "failed". |
-| `error` | `string` | Error is set when query fails. |
-| `queryParams` | `object` | Metadata for the security report. |
-| `displayName` | `string` | Display Name specified by the user. |
-| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
-| `updated` | `string` | Output only. Last updated timestamp for the query. |
 | `result` | `object` | Contains informations about the security report results. |
-| `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
+| `executionTime` | `string` | ExecutionTime is available only after the query is completed. |
+| `queryParams` | `object` | Metadata for the security report. |
+| `updated` | `string` | Output only. Last updated timestamp for the query. |
+| `self` | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
 | `reportDefinitionId` | `string` | Report Definition ID. |
+| `resultFileSize` | `string` | ResultFileSize is available only after the query is completed. |
+| `error` | `string` | Error is set when query fails. |
+| `state` | `string` | Query state could be "enqueued", "running", "completed", "expired" and "failed". |
+| `envgroupHostname` | `string` | Hostname is available only when query is executed at host level. |
+| `displayName` | `string` | Display Name specified by the user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

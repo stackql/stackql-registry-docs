@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The fully qualified resource name of the catalog. |
-| `catalogItemLevelConfig` | `object` | Configures the catalog level that users send events to, and the level at which predictions are made. |
 | `defaultEventStoreId` | `string` | Required. The ID of the default event store. |
 | `displayName` | `string` | Required. The catalog display name. |
+| `catalogItemLevelConfig` | `object` | Configures the catalog level that users send events to, and the level at which predictions are made. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

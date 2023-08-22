@@ -38,6 +38,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:--------------|:----------------|:------------|
 | `billing_accounts_exclusions_get` | `SELECT` | `billingAccountsId, exclusionsId` | Gets the description of an exclusion in the _Default sink. |
 | `billing_accounts_exclusions_list` | `SELECT` | `billingAccountsId` | Lists all the exclusions on the _Default sink in a parent resource. |
+| `exclusions_get` | `SELECT` | `name` | Gets the description of an exclusion in the _Default sink. |
 | `exclusions_list` | `SELECT` | `parent` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `folders_exclusions_get` | `SELECT` | `exclusionsId, foldersId` | Gets the description of an exclusion in the _Default sink. |
 | `folders_exclusions_list` | `SELECT` | `foldersId` | Lists all the exclusions on the _Default sink in a parent resource. |
@@ -51,6 +52,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_exclusions_create` | `INSERT` | `organizationsId` | Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. |
 | `projects_exclusions_create` | `INSERT` | `projectsId` | Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. |
 | `billing_accounts_exclusions_delete` | `DELETE` | `billingAccountsId, exclusionsId` | Deletes an exclusion in the _Default sink. |
+| `exclusions_delete` | `DELETE` | `name` | Deletes an exclusion in the _Default sink. |
 | `folders_exclusions_delete` | `DELETE` | `exclusionsId, foldersId` | Deletes an exclusion in the _Default sink. |
 | `organizations_exclusions_delete` | `DELETE` | `exclusionsId, organizationsId` | Deletes an exclusion in the _Default sink. |
 | `projects_exclusions_delete` | `DELETE` | `exclusionsId, projectsId` | Deletes an exclusion in the _Default sink. |
@@ -60,6 +62,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `_organizations_exclusions_list` | `EXEC` | `organizationsId` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `_projects_exclusions_list` | `EXEC` | `projectsId` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `billing_accounts_exclusions_patch` | `EXEC` | `billingAccountsId, exclusionsId` | Changes one or more properties of an existing exclusion in the _Default sink. |
+| `exclusions_patch` | `EXEC` | `name` | Changes one or more properties of an existing exclusion in the _Default sink. |
 | `folders_exclusions_patch` | `EXEC` | `exclusionsId, foldersId` | Changes one or more properties of an existing exclusion in the _Default sink. |
 | `organizations_exclusions_patch` | `EXEC` | `exclusionsId, organizationsId` | Changes one or more properties of an existing exclusion in the _Default sink. |
 | `projects_exclusions_patch` | `EXEC` | `exclusionsId, projectsId` | Changes one or more properties of an existing exclusion in the _Default sink. |

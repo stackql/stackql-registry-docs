@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name for the comment. |
-| `plainTextBody` | `string` | Output only. DEPRECATED. An automatically generated plain text version of body with all rich text syntax stripped. |
 | `body` | `string` | The full comment body. Maximum of 12800 characters. This can contain rich text syntax. |
 | `createTime` | `string` | Output only. The time when this comment was created. |
 | `creator` | `object` | An object containing information about the effective user and authenticated principal responsible for an action. |
+| `plainTextBody` | `string` | Output only. DEPRECATED. An automatically generated plain text version of body with all rich text syntax stripped. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

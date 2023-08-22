@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The name of the database. Values are of the form `projects//instances//databases/`, where `` is as specified in the `CREATE DATABASE` statement. This name can be passed to other API methods to identify the database. |
+| `databaseDialect` | `string` | Output only. The dialect of the Cloud Spanner Database. |
+| `restoreInfo` | `object` | Information about the database restore. |
+| `state` | `string` | Output only. The current database state. |
+| `versionRetentionPeriod` | `string` | Output only. The period in which Cloud Spanner retains all versions of data for the database. This is the same as the value of version_retention_period database option set using UpdateDatabaseDdl. Defaults to 1 hour, if not set. |
 | `defaultLeader` | `string` | Output only. The read-write region which contains the database's leader replicas. This is the same as the value of default_leader database option set using DatabaseAdmin.CreateDatabase or DatabaseAdmin.UpdateDatabaseDdl. If not explicitly set, this is empty. |
 | `enableDropProtection` | `boolean` | Whether drop protection is enabled for this database. Defaults to false, if not set. For more details, please see how to [prevent accidental database deletion](https://cloud.google.com/spanner/docs/prevent-database-deletion). |
+| `reconciling` | `boolean` | Output only. If true, the database is being updated. If false, there are no ongoing update operations for the database. |
+| `createTime` | `string` | Output only. If exists, the time at which the database creation started. |
 | `earliestVersionTime` | `string` | Output only. Earliest timestamp at which older versions of the data can be read. This value is continuously updated by Cloud Spanner and becomes stale the moment it is queried. If you are using this value to recover data, make sure to account for the time from the moment when the value is queried to the moment when you initiate the recovery. |
-| `restoreInfo` | `object` | Information about the database restore. |
 | `encryptionConfig` | `object` | Encryption configuration for a Cloud Spanner database. |
 | `encryptionInfo` | `array` | Output only. For databases that are using customer managed encryption, this field contains the encryption information for the database, such as all Cloud KMS key versions that are in use. The `encryption_status' field inside of each `EncryptionInfo` is not populated. For databases that are using Google default or other types of encryption, this field is empty. This field is propagated lazily from the backend. There might be a delay from when a key version is being used and when it appears in this field. |
-| `reconciling` | `boolean` | Output only. If true, the database is being updated. If false, there are no ongoing update operations for the database. |
-| `databaseDialect` | `string` | Output only. The dialect of the Cloud Spanner Database. |
-| `versionRetentionPeriod` | `string` | Output only. The period in which Cloud Spanner retains all versions of data for the database. This is the same as the value of version_retention_period database option set using UpdateDatabaseDdl. Defaults to 1 hour, if not set. |
-| `createTime` | `string` | Output only. If exists, the time at which the database creation started. |
-| `state` | `string` | Output only. The current database state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

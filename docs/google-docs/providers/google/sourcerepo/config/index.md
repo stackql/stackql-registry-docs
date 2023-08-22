@@ -25,9 +25,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | The name of the project. Values are of the form `projects/`. |
+| `enablePrivateKeyCheck` | `boolean` | Reject a Git push that contains a private key. |
+| `pubsubConfigs` | `object` | How this project publishes a change in the repositories through Cloud Pub/Sub. Keyed by the topic names. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get_config` | `EXEC` | `projectsId` | Returns the Cloud Source Repositories configuration of the project. |
+| `get_config` | `SELECT` | `projectsId` | Returns the Cloud Source Repositories configuration of the project. |
 | `update_config` | `EXEC` | `projectsId` | Updates the Cloud Source Repositories configuration of the project. |

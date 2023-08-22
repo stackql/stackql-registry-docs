@@ -20,7 +20,7 @@ Cloud Spanner Is A Managed, Mission-Critical, Globally Consistent And Scalable R
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>17</b></span><br />
-<span>total selectable resources:&nbsp;<b>15</b></span><br />
+<span>total selectable resources:&nbsp;<b>16</b></span><br />
 <span>total methods:&nbsp;<b>90</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ Cloud Spanner Is A Managed, Mission-Critical, Globally Consistent And Scalable R
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Spanner API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud Spanner Is A Managed, Mission-Critical, Globally Consistent And Scalable Relational Database Service.</td></tr>
-<tr><td><b>Id</b></td><td><code>spanner:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>spanner:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of execution resource. The format is projects/&#123;project&#125;/locations/&#123;location&#125;/evaluations/&#123;evaluation&#125;/executions/&#123;execution&#125; |
-| `labels` | `object` | Labels as key value pairs |
 | `runType` | `string` | type represent whether the execution executed directly by user or scheduled according evaluation.schedule field. |
 | `startTime` | `string` | Output only. [Output only] Start time stamp |
 | `state` | `string` | Output only. [Output only] State |
 | `endTime` | `string` | Output only. [Output only] End time stamp |
 | `evaluationId` | `string` | Output only. [Output only] Evaluation ID |
 | `inventoryTime` | `string` | Output only. [Output only] Inventory time stamp |
+| `labels` | `object` | Labels as key value pairs |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

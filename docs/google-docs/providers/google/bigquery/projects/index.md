@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | An opaque ID of this project. |
-| `friendlyName` | `string` | A descriptive name for this project. |
 | `kind` | `string` | The resource type. |
 | `numericId` | `string` | The numeric ID of this project. |
 | `projectReference` | `object` |  |
+| `friendlyName` | `string` | A descriptive name for this project. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

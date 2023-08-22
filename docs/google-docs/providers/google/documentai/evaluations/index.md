@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the evaluation. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processors/&#123;processor&#125;/processorVersions/&#123;processor_version&#125;/evaluations/&#123;evaluation&#125;` |
+| `documentCounters` | `object` | Evaluation counters for the documents that were used. |
+| `entityMetrics` | `object` | Metrics across confidence levels, for different entities. |
 | `kmsKeyName` | `string` | The KMS key name used for encryption. |
 | `kmsKeyVersionName` | `string` | The KMS key version with which data is encrypted. |
 | `allEntitiesMetrics` | `object` | Metrics across multiple confidence levels. |
 | `createTime` | `string` | The time that the evaluation was created. |
-| `documentCounters` | `object` | Evaluation counters for the documents that were used. |
-| `entityMetrics` | `object` | Metrics across confidence levels, for different entities. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `projects_locations_processors_processor_versions_evaluations_get` | `SELECT` | `evaluationsId, locationsId, processorVersionsId, processorsId, projectsId` | Retrieves a specific evaluation. |
 | `projects_locations_processors_processor_versions_evaluations_list` | `SELECT` | `locationsId, processorVersionsId, processorsId, projectsId` | Retrieves a set of evaluations for a given processor version. |
 | `_projects_locations_processors_processor_versions_evaluations_list` | `EXEC` | `locationsId, processorVersionsId, processorsId, projectsId` | Retrieves a set of evaluations for a given processor version. |
-| `projects_locations_processors_processor_versions_evaluations_get` | `EXEC` | `evaluationsId, locationsId, processorVersionsId, processorsId, projectsId` | Retrieves a specific evaluation. |

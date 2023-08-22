@@ -33,7 +33,7 @@ Enables Management And Configuration Of Domain Names.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Domains API</td></tr>
 <tr><td><b>Description</b></td><td>Enables Management And Configuration Of Domain Names.</td></tr>
-<tr><td><b>Id</b></td><td><code>domains:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>domains:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -30,5 +30,3 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:--------------|:----------------|:------------|
 | `list` | `SELECT` | `parent` | Lists all asset feeds in a parent project/folder/organization. |
 | `create` | `INSERT` | `parent` | Creates a feed in a parent project/folder/organization to listen to its asset updates. |
-| `delete` | `DELETE` | `name` | Deletes an asset feed. |
-| `patch` | `EXEC` | `name` | Updates an asset feed configuration. |

@@ -35,6 +35,6 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `projects_locations_get` | `SELECT` | `locationsId, projectsId` | Gets information about a location. |
 | `projects_locations_list` | `SELECT` | `projectsId` | Lists information about the supported locations for this service. |
 | `_projects_locations_list` | `EXEC` | `projectsId` | Lists information about the supported locations for this service. |
-| `projects_locations_get` | `EXEC` | `locationsId, projectsId` | Gets information about a location. |

@@ -20,7 +20,7 @@ Use The Apigee API To Programmatically Develop And Manage APIs With A Set Of RES
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>90</b></span><br />
-<span>total selectable resources:&nbsp;<b>70</b></span><br />
+<span>total selectable resources:&nbsp;<b>72</b></span><br />
 <span>total methods:&nbsp;<b>310</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ Use The Apigee API To Programmatically Develop And Manage APIs With A Set Of RES
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Apigee API</td></tr>
 <tr><td><b>Description</b></td><td>Use The Apigee API To Programmatically Develop And Manage APIs With A Set Of RESTful Operations. Develop And Secure API Proxies, Deploy And Undeploy API Proxy Revisions, Monitor APIs, Configure Environments, Manage Users, And More. Note: This Product Is Available As A Free Trial For A Time Period Of 60 Days.</td></tr>
-<tr><td><b>Id</b></td><td><code>apigee:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apigee:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the TagBinding. This is a String of the form: `tagBindings/&#123;full-resource-name&#125;/&#123;tag-value-name&#125;` (e.g. `tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F123/tagValues/456`). |
-| `tagValueNamespacedName` | `string` | The namespaced name for the TagValue of the TagBinding. Must be in the format `&#123;parent_id&#125;/&#123;tag_key_short_name&#125;/&#123;short_name&#125;`. For methods that support TagValue namespaced name, only one of tag_value_namespaced_name or tag_value may be filled. Requests with both fields will be rejected. |
 | `parent` | `string` | The full resource name of the resource the TagValue is bound to. E.g. `//cloudresourcemanager.googleapis.com/projects/123` |
 | `tagValue` | `string` | The TagValue of the TagBinding. Must be of the form `tagValues/456`. |
+| `tagValueNamespacedName` | `string` | The namespaced name for the TagValue of the TagBinding. Must be in the format `&#123;parent_id&#125;/&#123;tag_key_short_name&#125;/&#123;short_name&#125;`. For methods that support TagValue namespaced name, only one of tag_value_namespaced_name or tag_value may be filled. Requests with both fields will be rejected. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

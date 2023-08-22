@@ -29,21 +29,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the Data Attribute Binding, of the form: projects/&#123;project_number&#125;/locations/&#123;location&#125;/dataAttributeBindings/&#123;data_attribute_binding_id&#125; |
 | `description` | `string` | Optional. Description of the DataAttributeBinding. |
-| `resource` | `string` | Optional. Immutable. The resource name of the resource that is associated to attributes. Presently, only entity resource is supported in the form: projects/&#123;project&#125;/locations/&#123;location&#125;/lakes/&#123;lake&#125;/zones/&#123;zone&#125;/entities/&#123;entity_id&#125; Must belong in the same project and region as the attribute binding, and there can only exist one active binding for a resource. |
-| `attributes` | `array` | Optional. List of attributes to be associated with the resource, provided in the form: projects/&#123;project&#125;/locations/&#123;location&#125;/dataTaxonomies/&#123;dataTaxonomy&#125;/attributes/&#123;data_attribute_id&#125; |
-| `displayName` | `string` | Optional. User friendly display name. |
-| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. Etags must be used when calling the DeleteDataAttributeBinding and the UpdateDataAttributeBinding method. |
-| `labels` | `object` | Optional. User-defined labels for the DataAttributeBinding. |
 | `paths` | `array` | Optional. The list of paths for items within the associated resource (eg. columns and partitions within a table) along with attribute bindings. |
-| `uid` | `string` | Output only. System generated globally unique ID for the DataAttributeBinding. This ID will be different if the DataAttributeBinding is deleted and re-created with the same name. |
+| `displayName` | `string` | Optional. User friendly display name. |
+| `labels` | `object` | Optional. User-defined labels for the DataAttributeBinding. |
+| `attributes` | `array` | Optional. List of attributes to be associated with the resource, provided in the form: projects/&#123;project&#125;/locations/&#123;location&#125;/dataTaxonomies/&#123;dataTaxonomy&#125;/attributes/&#123;data_attribute_id&#125; |
 | `updateTime` | `string` | Output only. The time when the DataAttributeBinding was last updated. |
+| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. Etags must be used when calling the DeleteDataAttributeBinding and the UpdateDataAttributeBinding method. |
+| `uid` | `string` | Output only. System generated globally unique ID for the DataAttributeBinding. This ID will be different if the DataAttributeBinding is deleted and re-created with the same name. |
 | `createTime` | `string` | Output only. The time when the DataAttributeBinding was created. |
+| `resource` | `string` | Optional. Immutable. The resource name of the resource that is associated to attributes. Presently, only entity resource is supported in the form: projects/&#123;project&#125;/locations/&#123;location&#125;/lakes/&#123;lake&#125;/zones/&#123;zone&#125;/entities/&#123;entity_id&#125; Must belong in the same project and region as the attribute binding, and there can only exist one active binding for a resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `projects_locations_data_attribute_bindings_get` | `SELECT` | `dataAttributeBindingsId, locationsId, projectsId` | Retrieves a DataAttributeBinding resource. |
 | `projects_locations_data_attribute_bindings_list` | `SELECT` | `locationsId, projectsId` | Lists DataAttributeBinding resources in a project and location. |
 | `projects_locations_data_attribute_bindings_create` | `INSERT` | `locationsId, projectsId` | Create a DataAttributeBinding resource. |
 | `projects_locations_data_attribute_bindings_delete` | `DELETE` | `dataAttributeBindingsId, locationsId, projectsId` | Deletes a DataAttributeBinding resource. All attributes within the DataAttributeBinding must be deleted before the DataAttributeBinding can be deleted. |
 | `_projects_locations_data_attribute_bindings_list` | `EXEC` | `locationsId, projectsId` | Lists DataAttributeBinding resources in a project and location. |
-| `projects_locations_data_attribute_bindings_get` | `EXEC` | `dataAttributeBindingsId, locationsId, projectsId` | Retrieves a DataAttributeBinding resource. |
 | `projects_locations_data_attribute_bindings_patch` | `EXEC` | `dataAttributeBindingsId, locationsId, projectsId` | Updates a DataAttributeBinding resource. |

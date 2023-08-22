@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `name` | `string` | Output only. The name of the manifest. |
-| `selfLink` | `string` | Output only. Self link for the manifest. |
-| `imports` | `array` | Output only. The imported files for this manifest. |
 | `manifestSizeLimitBytes` | `string` | Output only. The size limit for expanded manifests in the project. |
+| `selfLink` | `string` | Output only. Self link for the manifest. |
 | `config` | `object` |  |
-| `manifestSizeBytes` | `string` | Output only. The computed size of the fully expanded manifest. |
-| `expandedConfig` | `string` | Output only. The fully-expanded configuration file, including any templates and references. |
 | `insertTime` | `string` | Output only. Creation timestamp in RFC3339 text format. |
+| `imports` | `array` | Output only. The imported files for this manifest. |
+| `manifestSizeBytes` | `string` | Output only. The computed size of the fully expanded manifest. |
 | `layout` | `string` | Output only. The YAML layout for this manifest. |
+| `expandedConfig` | `string` | Output only. The fully-expanded configuration file, including any templates and references. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

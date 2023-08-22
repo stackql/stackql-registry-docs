@@ -25,6 +25,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | Immutable. Name of the AppGroup app whose resource name format is of syntax (organizations/*/appgroups/*/apps/*). |
+| `callbackUrl` | `string` | Callback URL used by OAuth 2.0 authorization servers to communicate authorization codes back to AppGroup apps. |
+| `scopes` | `array` | Scopes to apply to the AppGroup app. The specified scopes must already exist for the API product that you associate with the AppGroup app. |
+| `appGroup` | `string` | Immutable. Name of the parent AppGroup whose resource name format is of syntax (organizations/*/appgroups/*). |
+| `createdAt` | `string` | Output only. Time the AppGroup app was created in milliseconds since epoch. |
+| `status` | `string` | Status of the App. Valid values include `approved` or `revoked`. |
+| `appId` | `string` | Immutable. ID of the AppGroup app. |
+| `attributes` | `array` | List of attributes for the AppGroup app. |
+| `credentials` | `array` | Output only. Set of credentials for the AppGroup app consisting of the consumer key/secret pairs associated with the API products. |
+| `apiProducts` | `array` | List of API products associated with the AppGroup app. |
+| `keyExpiresIn` | `string` | Immutable. Expiration time, in seconds, for the consumer key that is generated for the AppGroup app. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
+| `lastModifiedAt` | `string` | Output only. Time the AppGroup app was modified in milliseconds since epoch. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

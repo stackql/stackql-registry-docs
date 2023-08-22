@@ -33,7 +33,7 @@ TPU API Provides Customers With Access To Google TPU Technology.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud TPU API</td></tr>
 <tr><td><b>Description</b></td><td>TPU API Provides Customers With Access To Google TPU Technology.</td></tr>
-<tr><td><b>Id</b></td><td><code>tpu:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>tpu:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

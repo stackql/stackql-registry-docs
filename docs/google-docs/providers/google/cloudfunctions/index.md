@@ -33,7 +33,7 @@ Manages Lightweight User-Provided Functions Executed In Response To Events.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Functions API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Lightweight User-Provided Functions Executed In Response To Events.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudfunctions:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudfunctions:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources

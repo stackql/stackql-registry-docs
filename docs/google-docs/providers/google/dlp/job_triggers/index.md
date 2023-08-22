@@ -29,14 +29,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Unique resource name for the triggeredJob, assigned by the service when the triggeredJob is created, for example `projects/dlp-test-project/jobTriggers/53234423`. |
 | `description` | `string` | User provided description (max 256 chars) |
-| `displayName` | `string` | Display name (max 100 chars) |
 | `lastRunTime` | `string` | Output only. The timestamp of the last time this trigger executed. |
-| `status` | `string` | Required. A status for this trigger. |
-| `errors` | `array` | Output only. A stream of errors encountered when the trigger was activated. Repeated errors may result in the JobTrigger automatically being paused. Will return the last 100 errors. Whenever the JobTrigger is modified this list will be cleared. |
 | `inspectJob` | `object` | Controls what and how to inspect for findings. |
-| `updateTime` | `string` | Output only. The last update timestamp of a triggeredJob. |
-| `triggers` | `array` | A list of triggers which will be OR'ed together. Only one in the list needs to trigger for a job to be started. The list may contain only a single Schedule trigger and must have at least one object. |
+| `status` | `string` | Required. A status for this trigger. |
 | `createTime` | `string` | Output only. The creation timestamp of a triggeredJob. |
+| `displayName` | `string` | Display name (max 100 chars) |
+| `errors` | `array` | Output only. A stream of errors encountered when the trigger was activated. Repeated errors may result in the JobTrigger automatically being paused. Will return the last 100 errors. Whenever the JobTrigger is modified this list will be cleared. |
+| `triggers` | `array` | A list of triggers which will be OR'ed together. Only one in the list needs to trigger for a job to be started. The list may contain only a single Schedule trigger and must have at least one object. |
+| `updateTime` | `string` | Output only. The last update timestamp of a triggeredJob. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

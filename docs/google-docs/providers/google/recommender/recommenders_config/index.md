@@ -25,13 +25,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | Name of recommender config. Eg, projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config |
+| `updateTime` | `string` | Last time when the config was updated. |
+| `annotations` | `object` | Allows clients to store small amounts of arbitrary data. Annotations must follow the Kubernetes syntax. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
+| `displayName` | `string` | A user-settable field to provide a human-readable name to be used in user interfaces. |
+| `etag` | `string` | Fingerprint of the RecommenderConfig. Provides optimistic locking when updating. |
+| `recommenderGenerationConfig` | `object` | A Configuration to customize the generation of recommendations. Eg, customizing the lookback period considered when generating a recommendation. |
+| `revisionId` | `string` | Output only. Immutable. The revision ID of the config. A new revision is committed whenever the config is changed in any way. The format is an 8-character hexadecimal string. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `billing_accounts_locations_recommenders_get_config` | `EXEC` | `billingAccountsId, locationsId, recommendersId` | Gets the requested Recommender Config. There is only one instance of the config for each Recommender. |
+| `billing_accounts_locations_recommenders_get_config` | `SELECT` | `billingAccountsId, locationsId, recommendersId` | Gets the requested Recommender Config. There is only one instance of the config for each Recommender. |
+| `organizations_locations_recommenders_get_config` | `SELECT` | `locationsId, organizationsId, recommendersId` | Gets the requested Recommender Config. There is only one instance of the config for each Recommender. |
+| `projects_locations_recommenders_get_config` | `SELECT` | `locationsId, projectsId, recommendersId` | Gets the requested Recommender Config. There is only one instance of the config for each Recommender. |
 | `billing_accounts_locations_recommenders_update_config` | `EXEC` | `billingAccountsId, locationsId, recommendersId` | Updates a Recommender Config. This will create a new revision of the config. |
-| `organizations_locations_recommenders_get_config` | `EXEC` | `locationsId, organizationsId, recommendersId` | Gets the requested Recommender Config. There is only one instance of the config for each Recommender. |
 | `organizations_locations_recommenders_update_config` | `EXEC` | `locationsId, organizationsId, recommendersId` | Updates a Recommender Config. This will create a new revision of the config. |
-| `projects_locations_recommenders_get_config` | `EXEC` | `locationsId, projectsId, recommendersId` | Gets the requested Recommender Config. There is only one instance of the config for each Recommender. |
 | `projects_locations_recommenders_update_config` | `EXEC` | `locationsId, projectsId, recommendersId` | Updates a Recommender Config. This will create a new revision of the config. |

@@ -29,27 +29,27 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the scan, of the form: projects/&#123;project&#125;/locations/&#123;location_id&#125;/dataScans/&#123;datascan_id&#125;, where project refers to a project_id or project_number and location_id refers to a GCP region. |
 | `description` | `string` | Optional. Description of the scan. Must be between 1-1024 characters. |
-| `state` | `string` | Output only. Current state of the DataScan. |
+| `executionStatus` | `object` | Status of the data scan execution. |
 | `createTime` | `string` | Output only. The time when the scan was created. |
+| `type` | `string` | Output only. The type of DataScan. |
+| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
+| `uid` | `string` | Output only. System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name. |
+| `dataQualityResult` | `object` | The output of a DataQualityScan. |
+| `labels` | `object` | Optional. User-defined labels for the scan. |
+| `data` | `object` | The data source for DataScan. |
+| `state` | `string` | Output only. Current state of the DataScan. |
+| `displayName` | `string` | Optional. User friendly display name. Must be between 1-256 characters. |
+| `dataQualitySpec` | `object` | DataQualityScan related setting. |
+| `updateTime` | `string` | Output only. The time when the scan was last updated. |
 | `dataProfileSpec` | `object` | DataProfileScan related setting. |
 | `executionSpec` | `object` | DataScan execution settings. |
-| `dataQualityResult` | `object` | The output of a DataQualityScan. |
-| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
-| `executionStatus` | `object` | Status of the data scan execution. |
-| `data` | `object` | The data source for DataScan. |
-| `type` | `string` | Output only. The type of DataScan. |
-| `updateTime` | `string` | Output only. The time when the scan was last updated. |
-| `uid` | `string` | Output only. System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name. |
-| `dataQualitySpec` | `object` | DataQualityScan related setting. |
-| `displayName` | `string` | Optional. User friendly display name. Must be between 1-256 characters. |
-| `labels` | `object` | Optional. User-defined labels for the scan. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `projects_locations_data_scans_get` | `SELECT` | `dataScansId, locationsId, projectsId` | Gets a DataScan resource. |
 | `projects_locations_data_scans_list` | `SELECT` | `locationsId, projectsId` | Lists DataScans. |
 | `projects_locations_data_scans_create` | `INSERT` | `locationsId, projectsId` | Creates a DataScan resource. |
 | `projects_locations_data_scans_delete` | `DELETE` | `dataScansId, locationsId, projectsId` | Deletes a DataScan resource. |
 | `_projects_locations_data_scans_list` | `EXEC` | `locationsId, projectsId` | Lists DataScans. |
-| `projects_locations_data_scans_get` | `EXEC` | `dataScansId, locationsId, projectsId` | Gets a DataScan resource. |
 | `projects_locations_data_scans_patch` | `EXEC` | `dataScansId, locationsId, projectsId` | Updates a DataScan resource. |
 | `projects_locations_data_scans_run` | `EXEC` | `dataScansId, locationsId, projectsId` | Runs an on-demand execution of a DataScan |

@@ -27,12 +27,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `documentationUrl` | `string` | the document url of the rule |
 | `resource` | `object` | Message represent resource in execution result |
 | `rule` | `string` | the rule which violate in execution |
 | `severity` | `string` | severity of violation |
 | `violationDetails` | `object` | Message describing the violdation in execution result |
 | `violationMessage` | `string` | the violation message of an execution |
-| `documentationUrl` | `string` | the document url of the rule |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

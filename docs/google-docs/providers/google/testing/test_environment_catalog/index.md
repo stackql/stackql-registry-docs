@@ -27,11 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `androidDeviceCatalog` | `object` | The currently supported Android devices. |
 | `deviceIpBlockCatalog` | `object` | List of IP blocks used by the Firebase Test Lab |
 | `iosDeviceCatalog` | `object` | The currently supported iOS devices. |
 | `networkConfigurationCatalog` | `object` |  |
 | `softwareCatalog` | `object` | The currently provided software environment on the devices under test. |
+| `androidDeviceCatalog` | `object` | The currently supported Android devices. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

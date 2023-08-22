@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The system-generated name of the provisioning config. This follows the UUID format. |
-| `updateTime` | `string` | Output only. Last update timestamp. |
-| `handoverServiceAccount` | `string` | A service account to enable customers to access instance credentials upon handover. |
-| `customId` | `string` | Optional. The user-defined identifier of the provisioning config. |
-| `instances` | `array` | Instances to be created. |
-| `cloudConsoleUri` | `string` | Output only. URI to Cloud Console UI view of this provisioning config. |
 | `volumes` | `array` | Volumes to be created. |
-| `statusMessage` | `string` | Optional status messages associated with the FAILED state. |
+| `ticketId` | `string` | A generated ticket id to track provisioning request. |
+| `instances` | `array` | Instances to be created. |
 | `vpcScEnabled` | `boolean` | If true, VPC SC is enabled for the cluster. |
-| `location` | `string` | Optional. Location name of this ProvisioningConfig. It is optional only for Intake UI transition period. |
-| `email` | `string` | Email provided to send a confirmation with provisioning config to. Deprecated in favour of email field in request messages. |
+| `cloudConsoleUri` | `string` | Output only. URI to Cloud Console UI view of this provisioning config. |
+| `updateTime` | `string` | Output only. Last update timestamp. |
 | `networks` | `array` | Networks to be created. |
 | `state` | `string` | Output only. State of ProvisioningConfig. |
-| `ticketId` | `string` | A generated ticket id to track provisioning request. |
+| `handoverServiceAccount` | `string` | A service account to enable customers to access instance credentials upon handover. |
+| `customId` | `string` | Optional. The user-defined identifier of the provisioning config. |
+| `email` | `string` | Email provided to send a confirmation with provisioning config to. Deprecated in favour of email field in request messages. |
+| `statusMessage` | `string` | Optional status messages associated with the FAILED state. |
+| `location` | `string` | Optional. Location name of this ProvisioningConfig. It is optional only for Intake UI transition period. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

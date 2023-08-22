@@ -19,9 +19,9 @@ Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>11</b></span><br />
-<span>total methods:&nbsp;<b>86</b></span><br />
+<span>total resources:&nbsp;<b>14</b></span><br />
+<span>total selectable resources:&nbsp;<b>14</b></span><br />
+<span>total methods:&nbsp;<b>99</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Dataproc API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataproc:v23.08.00161</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dataproc:v23.08.00163</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -45,12 +45,14 @@ Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.
 <a href="/providers/google/dataproc/clusters/">clusters</a><br />
 <a href="/providers/google/dataproc/clusters_iam_policies/">clusters_iam_policies</a><br />
 <a href="/providers/google/dataproc/jobs/">jobs</a><br />
+<a href="/providers/google/dataproc/jobs_iam_policies/">jobs_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/dataproc/jobs_iam_policies/">jobs_iam_policies</a><br />
 <a href="/providers/google/dataproc/node_groups/">node_groups</a><br />
 <a href="/providers/google/dataproc/operations/">operations</a><br />
 <a href="/providers/google/dataproc/operations_iam_policies/">operations_iam_policies</a><br />
+<a href="/providers/google/dataproc/session_templates/">session_templates</a><br />
+<a href="/providers/google/dataproc/sessions/">sessions</a><br />
 <a href="/providers/google/dataproc/workflow_templates/">workflow_templates</a><br />
 <a href="/providers/google/dataproc/workflow_templates_iam_policies/">workflow_templates_iam_policies</a><br />
 </div>

@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | name of resource |
-| `createTime` | `string` | Output only. [Output only] Create time stamp |
-| `labels` | `object` | Labels as key value pairs |
-| `state` | `string` | Output only. The state of this contact center. |
-| `customerDomainPrefix` | `string` | Required. Immutable. At least 2 and max 16 char long, must conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). |
 | `samlParams` | `object` | Message storing SAML params to enable Google as IDP. |
-| `uris` | `object` | Message storing the URIs of the ContactCenter. |
-| `adminUser` | `object` | Message storing info about the first admin user. Next ID: 3 |
+| `ccaipManagedUsers` | `boolean` | Optional. Whether to enable users to be created in the CCAIP-instance concurrently to having users in Cloud identity |
+| `instanceConfig` | `object` | Message storing the instance configuration. |
+| `displayName` | `string` | Required. A user friendly name for the ContactCenter. |
+| `labels` | `object` | Labels as key value pairs |
+| `kmsKey` | `string` | Immutable. The KMS key name to encrypt the user input (`ContactCenter`). |
 | `userEmail` | `string` | Optional. Email address of the first admin user. |
 | `updateTime` | `string` | Output only. [Output only] Update time stamp |
-| `instanceConfig` | `object` | Message storing the instance configuration. |
-| `ccaipManagedUsers` | `boolean` | Optional. Whether to enable users to be created in the CCAIP-instance concurrently to having users in Cloud identity |
-| `displayName` | `string` | Required. A user friendly name for the ContactCenter. |
-| `kmsKey` | `string` | Immutable. The KMS key name to encrypt the user input (`ContactCenter`). |
+| `state` | `string` | Output only. The state of this contact center. |
+| `customerDomainPrefix` | `string` | Required. Immutable. At least 2 and max 16 char long, must conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). |
+| `uris` | `object` | Message storing the URIs of the ContactCenter. |
+| `createTime` | `string` | Output only. [Output only] Create time stamp |
+| `adminUser` | `object` | Message storing info about the first admin user. Next ID: 3 |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

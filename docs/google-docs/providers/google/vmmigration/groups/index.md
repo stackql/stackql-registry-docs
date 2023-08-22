@@ -29,10 +29,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The Group name. |
 | `description` | `string` | User-provided description of the group. |
+| `migrationTargetType` | `string` | Immutable. The target type of this group. |
 | `updateTime` | `string` | Output only. The update time timestamp. |
 | `createTime` | `string` | Output only. The create time timestamp. |
 | `displayName` | `string` | Display name is a user defined name for this group which can be updated. |
-| `migrationTargetType` | `string` | Immutable. The target type of this group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

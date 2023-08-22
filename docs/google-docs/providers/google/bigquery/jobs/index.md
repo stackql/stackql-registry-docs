@@ -27,13 +27,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Unique opaque ID of the job. |
-| `jobReference` | `object` |  |
+| `id` | `string` | [Output-only] Opaque ID field of the job |
+| `user_email` | `string` | [Output-only] Email address of the user who ran the job. |
+| `selfLink` | `string` | [Output-only] A URL that can be used to access this resource again. |
+| `etag` | `string` | [Output-only] A hash of this resource. |
+| `kind` | `string` | [Output-only] The type of the resource. |
 | `status` | `object` |  |
-| `state` | `string` | Running state of the job. When the state is DONE, errorResult can be checked to determine whether the job succeeded or failed. |
-| `errorResult` | `object` |  |
-| `kind` | `string` | The resource type. |
-| `user_email` | `string` | [Full-projection-only] Email address of the user who ran the job. |
+| `jobReference` | `object` |  |
 | `statistics` | `object` |  |
 | `configuration` | `object` |  |
 ## Methods

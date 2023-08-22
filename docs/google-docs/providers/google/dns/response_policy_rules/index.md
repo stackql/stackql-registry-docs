@@ -27,11 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `behavior` | `string` | Answer this query with a behavior rather than DNS data. |
-| `dnsName` | `string` | The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule. |
 | `kind` | `string` |  |
 | `localData` | `object` |  |
 | `ruleName` | `string` | An identifier for this rule. Must be unique with the ResponsePolicy. |
+| `behavior` | `string` | Answer this query with a behavior rather than DNS data. |
+| `dnsName` | `string` | The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
