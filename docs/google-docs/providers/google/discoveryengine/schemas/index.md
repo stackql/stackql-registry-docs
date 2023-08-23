@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The full resource name of the schema, in the format of `projects/&#123;project&#125;/locations/&#123;location&#125;/collections/&#123;collection&#125;/dataStores/&#123;data_store&#125;/schemas/&#123;schema&#125;`. This field must be a UTF-8 encoded string with a length limit of 1024 characters. |
-| `structSchema` | `object` | The structured representation of the schema. |
 | `jsonSchema` | `string` | The JSON representation of the schema. |
+| `structSchema` | `object` | The structured representation of the schema. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

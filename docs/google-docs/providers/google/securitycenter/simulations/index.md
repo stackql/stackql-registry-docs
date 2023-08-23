@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Full resource name of the Simulation: organizations/123/simulations/456 |
-| `resourceValueConfigsMetadata` | `array` | Resource value configurations' metadata used in this simulation. Maximum of 100. |
 | `createTime` | `string` | Output only. Time simulation was created |
+| `resourceValueConfigsMetadata` | `array` | Resource value configurations' metadata used in this simulation. Maximum of 100. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

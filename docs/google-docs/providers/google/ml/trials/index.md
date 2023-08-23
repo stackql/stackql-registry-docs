@@ -25,6 +25,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | Output only. Name of the trial assigned by the service. |
+| `trialInfeasible` | `boolean` | Output only. If true, the parameters in this trial are not attempted again. |
+| `state` | `string` | The detailed state of a trial. |
+| `startTime` | `string` | Output only. Time at which the trial was started. |
+| `clientId` | `string` | Output only. The identifier of the client that originally requested this trial. |
+| `infeasibleReason` | `string` | Output only. A human readable string describing why the trial is infeasible. This should only be set if trial_infeasible is true. |
+| `parameters` | `array` | The parameters of the trial. |
+| `finalMeasurement` | `object` | A message representing a measurement. |
+| `endTime` | `string` | Output only. Time at which the trial's status changed to COMPLETED. |
+| `measurements` | `array` | A list of measurements that are strictly lexicographically ordered by their induced tuples (steps, elapsed_time). These are used for early stopping computations. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

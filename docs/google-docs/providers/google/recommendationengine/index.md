@@ -33,7 +33,7 @@ Note That We Now Highly Recommend New Customers To Use Retail API, Which Incorpo
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Recommendations AI (Beta)</td></tr>
 <tr><td><b>Description</b></td><td>Note That We Now Highly Recommend New Customers To Use Retail API, Which Incorporates The GA Version Of The Recommendations AI Funtionalities. To Enable Retail API, Please Visit Https://Console.Cloud.Google.Com/Apis/Library/Retail.Googleapis.Com. The Recommendations AI Service Enables Customers To Build End-To-End Personalized Recommendation Systems Without Requiring A High Level Of Expertise In Machine Learning, Recommendation System, Or Google Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>recommendationengine:v23.08.00163</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recommendationengine:v23.08.00165</code></td></tr>
 </tbody></table>
 
 ## Resources

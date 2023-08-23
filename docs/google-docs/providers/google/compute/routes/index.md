@@ -30,25 +30,25 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?`. The first character must be a lowercase letter, and all following characters (except for the last character) must be a dash, lowercase letter, or digit. The last character must be a lowercase letter or digit. |
 | `description` | `string` | An optional description of this resource. Provide this field when you create the resource. |
-| `nextHopHub` | `string` | [Output Only] The full resource name of the Network Connectivity Center hub that will handle matching packets. |
-| `asPaths` | `array` | [Output Only] AS path. |
-| `nextHopIp` | `string` | The network IP address of an instance that should handle matching packets. Both IPv6 address and IPv4 addresses are supported. Must specify an IPv4 address in dot-decimal notation (e.g. 192.0.2.99) or an IPv6 address in RFC 4291 format (e.g. 2001:db8::2d9:51:0:0 or 2001:db8:0:0:2d9:51:0:0). IPv6 addresses will be displayed using RFC 5952 compressed format (e.g. 2001:db8::2d9:51:0:0). Should never be an IPv4-mapped IPv6 address. |
-| `priority` | `integer` | The priority of this route. Priority is used to break ties in cases where there is more than one matching route of equal prefix length. In cases where multiple routes have equal prefix length, the one with the lowest-numbered priority value wins. The default value is `1000`. The priority value must be from `0` to `65535`, inclusive. |
 | `nextHopNetwork` | `string` | The URL of the local network if it should handle matching packets. |
-| `routeType` | `string` | [Output Only] The type of this route, which can be one of the following values: - 'TRANSIT' for a transit route that this router learned from another Cloud Router and will readvertise to one of its BGP peers - 'SUBNET' for a route from a subnet of the VPC - 'BGP' for a route learned from a BGP peer of this router - 'STATIC' for a static route |
-| `tags` | `array` | A list of instance tags to which this route applies. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `selfLink` | `string` | [Output Only] Server-defined fully-qualified URL for this resource. |
-| `destRange` | `string` | The destination range of outgoing packets that this route applies to. Both IPv4 and IPv6 are supported. Must specify an IPv4 range (e.g. 192.0.2.0/24) or an IPv6 range in RFC 4291 format (e.g. 2001:db8::/32). IPv6 range will be displayed using RFC 5952 compressed format. |
+| `nextHopHub` | `string` | [Output Only] The full resource name of the Network Connectivity Center hub that will handle matching packets. |
 | `nextHopGateway` | `string` | The URL to a gateway that should handle matching packets. You can only specify the internet gateway using a full or partial valid URL: projects/ project/global/gateways/default-internet-gateway |
-| `nextHopInstance` | `string` | The URL to an instance that should handle matching packets. You can specify this as a full or partial URL. For example: https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/ |
-| `nextHopVpnTunnel` | `string` | The URL to a VpnTunnel that should handle matching packets. |
-| `network` | `string` | Fully-qualified URL of the network that this route applies to. |
+| `asPaths` | `array` | [Output Only] AS path. |
+| `selfLink` | `string` | [Output Only] Server-defined fully-qualified URL for this resource. |
 | `nextHopIlb` | `string` | The URL to a forwarding rule of type loadBalancingScheme=INTERNAL that should handle matching packets or the IP address of the forwarding Rule. For example, the following are all valid URLs: - 10.128.0.56 - https://www.googleapis.com/compute/v1/projects/project/regions/region /forwardingRules/forwardingRule - regions/region/forwardingRules/forwardingRule  |
-| `routeStatus` | `string` | [Output only] The status of the route. |
 | `warnings` | `array` | [Output Only] If potential misconfigurations are detected for this route, this field will be populated with warning messages. |
-| `nextHopPeering` | `string` | [Output Only] The network peering name that should handle matching packets, which should conform to RFC1035. |
+| `destRange` | `string` | The destination range of outgoing packets that this route applies to. Both IPv4 and IPv6 are supported. Must specify an IPv4 range (e.g. 192.0.2.0/24) or an IPv6 range in RFC 4291 format (e.g. 2001:db8::/32). IPv6 range will be displayed using RFC 5952 compressed format. |
+| `priority` | `integer` | The priority of this route. Priority is used to break ties in cases where there is more than one matching route of equal prefix length. In cases where multiple routes have equal prefix length, the one with the lowest-numbered priority value wins. The default value is `1000`. The priority value must be from `0` to `65535`, inclusive. |
+| `tags` | `array` | A list of instance tags to which this route applies. |
 | `kind` | `string` | [Output Only] Type of this resource. Always compute#routes for Route resources. |
+| `routeStatus` | `string` | [Output only] The status of the route. |
+| `nextHopVpnTunnel` | `string` | The URL to a VpnTunnel that should handle matching packets. |
+| `nextHopPeering` | `string` | [Output Only] The network peering name that should handle matching packets, which should conform to RFC1035. |
+| `network` | `string` | Fully-qualified URL of the network that this route applies to. |
+| `nextHopInstance` | `string` | The URL to an instance that should handle matching packets. You can specify this as a full or partial URL. For example: https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/ |
+| `nextHopIp` | `string` | The network IP address of an instance that should handle matching packets. Both IPv6 address and IPv4 addresses are supported. Must specify an IPv4 address in dot-decimal notation (e.g. 192.0.2.99) or an IPv6 address in RFC 4291 format (e.g. 2001:db8::2d9:51:0:0 or 2001:db8:0:0:2d9:51:0:0). IPv6 addresses will be displayed using RFC 5952 compressed format (e.g. 2001:db8::2d9:51:0:0). Should never be an IPv4-mapped IPv6 address. |
+| `routeType` | `string` | [Output Only] The type of this route, which can be one of the following values: - 'TRANSIT' for a transit route that this router learned from another Cloud Router and will readvertise to one of its BGP peers - 'SUBNET' for a route from a subnet of the VPC - 'BGP' for a route learned from a BGP peer of this router - 'STATIC' for a static route |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

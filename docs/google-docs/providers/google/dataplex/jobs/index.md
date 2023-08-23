@@ -27,17 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The relative resource name of the DataScanJob, of the form: projects/&#123;project&#125;/locations/&#123;location_id&#125;/dataScans/&#123;datascan_id&#125;/jobs/&#123;job_id&#125;, where project refers to a project_id or project_number and location_id refers to a GCP region. |
-| `dataQualitySpec` | `object` | DataQualityScan related setting. |
-| `type` | `string` | Output only. The type of the parent DataScan. |
-| `endTime` | `string` | Output only. The time when the DataScanJob ended. |
-| `startTime` | `string` | Output only. The time when the DataScanJob was started. |
+| `name` | `string` | Output only. The relative resource name of the job, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/tasks/&#123;task_id&#125;/jobs/&#123;job_id&#125;. |
+| `executionSpec` | `object` | Execution related settings, like retry and service_account. |
+| `endTime` | `string` | Output only. The time when the job ended. |
+| `labels` | `object` | Output only. User-defined labels for the task. |
+| `retryCount` | `integer` | Output only. The number of times the job has been retried (excluding the initial attempt). |
+| `serviceJob` | `string` | Output only. The full resource name for the job run under a particular service. |
+| `uid` | `string` | Output only. System generated globally unique ID for the job. |
+| `startTime` | `string` | Output only. The time when the job was started. |
+| `trigger` | `string` | Output only. Job execution trigger. |
+| `service` | `string` | Output only. The underlying service running a job. |
 | `message` | `string` | Output only. Additional information about the current state. |
-| `uid` | `string` | Output only. System generated globally unique ID for the DataScanJob. |
-| `dataProfileSpec` | `object` | DataProfileScan related setting. |
-| `state` | `string` | Output only. Execution state for the DataScanJob. |
-| `dataProfileResult` | `object` | DataProfileResult defines the output of DataProfileScan. Each field of the table will have field type specific profile result. |
-| `dataQualityResult` | `object` | The output of a DataQualityScan. |
+| `state` | `string` | Output only. Execution state for the job. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

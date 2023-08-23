@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | name of resource |
+| `instanceConfig` | `object` | Message storing the instance configuration. |
+| `createTime` | `string` | Output only. [Output only] Create time stamp |
+| `kmsKey` | `string` | Immutable. The KMS key name to encrypt the user input (`ContactCenter`). |
+| `updateTime` | `string` | Output only. [Output only] Update time stamp |
+| `customerDomainPrefix` | `string` | Required. Immutable. At least 2 and max 16 char long, must conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). |
+| `state` | `string` | Output only. The state of this contact center. |
+| `displayName` | `string` | Required. A user friendly name for the ContactCenter. |
+| `userEmail` | `string` | Optional. Email address of the first admin user. |
+| `adminUser` | `object` | Message storing info about the first admin user. Next ID: 3 |
+| `labels` | `object` | Labels as key value pairs |
 | `samlParams` | `object` | Message storing SAML params to enable Google as IDP. |
 | `ccaipManagedUsers` | `boolean` | Optional. Whether to enable users to be created in the CCAIP-instance concurrently to having users in Cloud identity |
-| `instanceConfig` | `object` | Message storing the instance configuration. |
-| `displayName` | `string` | Required. A user friendly name for the ContactCenter. |
-| `labels` | `object` | Labels as key value pairs |
-| `kmsKey` | `string` | Immutable. The KMS key name to encrypt the user input (`ContactCenter`). |
-| `userEmail` | `string` | Optional. Email address of the first admin user. |
-| `updateTime` | `string` | Output only. [Output only] Update time stamp |
-| `state` | `string` | Output only. The state of this contact center. |
-| `customerDomainPrefix` | `string` | Required. Immutable. At least 2 and max 16 char long, must conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). |
 | `uris` | `object` | Message storing the URIs of the ContactCenter. |
-| `createTime` | `string` | Output only. [Output only] Create time stamp |
-| `adminUser` | `object` | Message storing info about the first admin user. Next ID: 3 |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

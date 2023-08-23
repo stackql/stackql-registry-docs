@@ -33,7 +33,7 @@ Enables Users To Create And Manage Connections To Google Cloud Services And Thir
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Connectors API</td></tr>
 <tr><td><b>Description</b></td><td>Enables Users To Create And Manage Connections To Google Cloud Services And Third-Party Business Applications Using The Connectors Interface.</td></tr>
-<tr><td><b>Id</b></td><td><code>connectors:v23.08.00163</code></td></tr>
+<tr><td><b>Id</b></td><td><code>connectors:v23.08.00165</code></td></tr>
 </tbody></table>
 
 ## Resources

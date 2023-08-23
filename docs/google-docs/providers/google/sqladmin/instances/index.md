@@ -29,42 +29,42 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the Cloud SQL instance. This does not include the project ID. |
 | `suspensionReason` | `array` | If the instance state is SUSPENDED, the reason for the suspension. |
-| `diskEncryptionStatus` | `object` | Disk encryption status for an instance. |
-| `availableMaintenanceVersions` | `array` | Output only. List all maintenance versions applicable on the instance |
-| `settings` | `object` | Database instance settings. |
-| `databaseInstalledVersion` | `string` | Output only. Stores the current database version running on the instance including minor version such as `MYSQL_8_0_18`. |
-| `pscServiceAttachmentLink` | `string` | Output only. The link to service attachment of PSC instance. |
-| `state` | `string` | The current serving state of the Cloud SQL instance. |
-| `instanceType` | `string` | The instance type. |
-| `outOfDiskReport` | `object` | This message wraps up the information written by out-of-disk detection job. |
-| `ipAddresses` | `array` | The assigned IP addresses for the instance. |
-| `serverCaCert` | `object` | SslCerts Resource |
-| `connectionName` | `string` | Connection name of the Cloud SQL instance used in connection strings. |
-| `dnsName` | `string` | Output only. The dns name of the instance. |
-| `etag` | `string` | This field is deprecated and will be removed from a future version of the API. Use the `settings.settingsVersion` field instead. |
-| `databaseVersion` | `string` | The database engine type and version. The `databaseVersion` field cannot be changed after instance creation. |
-| `serviceAccountEmailAddress` | `string` | The service account email address assigned to the instance.\This property is read-only. |
-| `replicaConfiguration` | `object` | Read-replica configuration for connecting to the primary instance. |
-| `selfLink` | `string` | The URI of this resource. |
-| `ipv6Address` | `string` | The IPv6 address assigned to the instance. (Deprecated) This property was applicable only to First Generation instances. |
-| `gceZone` | `string` | The Compute Engine zone that the instance is currently serving from. This value could be different from the zone that was specified when the instance was created if the instance has failed over to its secondary zone. WARNING: Changing this might restart the instance. |
-| `currentDiskSize` | `string` | The current disk usage of the instance in bytes. This property has been deprecated. Use the "cloudsql.googleapis.com/database/disk/bytes_used" metric in Cloud Monitoring API instead. Please see [this announcement](https://groups.google.com/d/msg/google-cloud-sql-announce/I_7-F9EBhT0/BtvFtdFeAgAJ) for details. |
+| `kind` | `string` | This is always `sql#instance`. |
 | `secondaryGceZone` | `string` | The Compute Engine zone that the failover instance is currently serving from for a regional instance. This value could be different from the zone that was specified when the instance was created if the instance has failed over to its secondary/failover zone. |
+| `databaseVersion` | `string` | The database engine type and version. The `databaseVersion` field cannot be changed after instance creation. |
+| `pscServiceAttachmentLink` | `string` | Output only. The link to service attachment of PSC instance. |
+| `project` | `string` | The project ID of the project containing the Cloud SQL instance. The Google apps domain is prefixed if applicable. |
+| `onPremisesConfiguration` | `object` | On-premises instance configuration. |
+| `settings` | `object` | Database instance settings. |
+| `state` | `string` | The current serving state of the Cloud SQL instance. |
+| `connectionName` | `string` | Connection name of the Cloud SQL instance used in connection strings. |
+| `failoverReplica` | `object` | The name and status of the failover replica. |
+| `ipv6Address` | `string` | The IPv6 address assigned to the instance. (Deprecated) This property was applicable only to First Generation instances. |
+| `createTime` | `string` | Output only. The time when the instance was created in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
 | `maxDiskSize` | `string` | The maximum disk size of the instance in bytes. |
 | `masterInstanceName` | `string` | The name of the instance which will act as primary in the replication setup. |
-| `scheduledMaintenance` | `object` | Any scheduled maintenance for this instance. |
-| `replicaNames` | `array` | The replicas of the instance. |
-| `region` | `string` | The geographical region. Can be: * `us-central` (`FIRST_GEN` instances only) * `us-central1` (`SECOND_GEN` instances only) * `asia-east1` or `europe-west1`. Defaults to `us-central` or `us-central1` depending on the instance type. The region cannot be changed after instance creation. |
-| `satisfiesPzs` | `boolean` | The status indicating if instance satisfiesPzs. Reserved for future use. |
-| `onPremisesConfiguration` | `object` | On-premises instance configuration. |
-| `kind` | `string` | This is always `sql#instance`. |
-| `rootPassword` | `string` | Initial root password. Use only on creation. You must set root passwords before you can connect to PostgreSQL instances. |
 | `backendType` | `string` | The backend type. `SECOND_GEN`: Cloud SQL database instance. `EXTERNAL`: A database server that is not managed by Google. This property is read-only; use the `tier` property in the `settings` object to determine the database type. |
-| `failoverReplica` | `object` | The name and status of the failover replica. |
-| `diskEncryptionConfiguration` | `object` | Disk encryption configuration for an instance. |
-| `project` | `string` | The project ID of the project containing the Cloud SQL instance. The Google apps domain is prefixed if applicable. |
-| `createTime` | `string` | Output only. The time when the instance was created in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
+| `satisfiesPzs` | `boolean` | The status indicating if instance satisfiesPzs. Reserved for future use. |
+| `replicaNames` | `array` | The replicas of the instance. |
+| `ipAddresses` | `array` | The assigned IP addresses for the instance. |
+| `scheduledMaintenance` | `object` | Any scheduled maintenance for this instance. |
+| `serverCaCert` | `object` | SslCerts Resource |
+| `serviceAccountEmailAddress` | `string` | The service account email address assigned to the instance.\This property is read-only. |
+| `instanceType` | `string` | The instance type. |
+| `databaseInstalledVersion` | `string` | Output only. Stores the current database version running on the instance including minor version such as `MYSQL_8_0_18`. |
+| `currentDiskSize` | `string` | The current disk usage of the instance in bytes. This property has been deprecated. Use the "cloudsql.googleapis.com/database/disk/bytes_used" metric in Cloud Monitoring API instead. Please see [this announcement](https://groups.google.com/d/msg/google-cloud-sql-announce/I_7-F9EBhT0/BtvFtdFeAgAJ) for details. |
 | `maintenanceVersion` | `string` | The current software version on the instance. |
+| `diskEncryptionConfiguration` | `object` | Disk encryption configuration for an instance. |
+| `diskEncryptionStatus` | `object` | Disk encryption status for an instance. |
+| `rootPassword` | `string` | Initial root password. Use only on creation. You must set root passwords before you can connect to PostgreSQL instances. |
+| `replicaConfiguration` | `object` | Read-replica configuration for connecting to the primary instance. |
+| `outOfDiskReport` | `object` | This message wraps up the information written by out-of-disk detection job. |
+| `selfLink` | `string` | The URI of this resource. |
+| `gceZone` | `string` | The Compute Engine zone that the instance is currently serving from. This value could be different from the zone that was specified when the instance was created if the instance has failed over to its secondary zone. WARNING: Changing this might restart the instance. |
+| `dnsName` | `string` | Output only. The dns name of the instance. |
+| `availableMaintenanceVersions` | `array` | Output only. List all maintenance versions applicable on the instance |
+| `etag` | `string` | This field is deprecated and will be removed from a future version of the API. Use the `settings.settingsVersion` field instead. |
+| `region` | `string` | The geographical region. Can be: * `us-central` (`FIRST_GEN` instances only) * `us-central1` (`SECOND_GEN` instances only) * `asia-east1` or `europe-west1`. Defaults to `us-central` or `us-central1` depending on the instance type. The region cannot be changed after instance creation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

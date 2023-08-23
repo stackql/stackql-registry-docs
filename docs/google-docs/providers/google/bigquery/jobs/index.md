@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | [Output-only] Opaque ID field of the job |
-| `user_email` | `string` | [Output-only] Email address of the user who ran the job. |
-| `selfLink` | `string` | [Output-only] A URL that can be used to access this resource again. |
-| `etag` | `string` | [Output-only] A hash of this resource. |
-| `kind` | `string` | [Output-only] The type of the resource. |
 | `status` | `object` |  |
+| `configuration` | `object` |  |
+| `kind` | `string` | [Output-only] The type of the resource. |
+| `selfLink` | `string` | [Output-only] A URL that can be used to access this resource again. |
+| `user_email` | `string` | [Output-only] Email address of the user who ran the job. |
 | `jobReference` | `object` |  |
 | `statistics` | `object` |  |
-| `configuration` | `object` |  |
+| `etag` | `string` | [Output-only] A hash of this resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

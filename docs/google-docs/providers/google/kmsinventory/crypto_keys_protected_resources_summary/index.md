@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The full name of the ProtectedResourcesSummary resource. Example: projects/test-project/locations/us/keyRings/test-keyring/cryptoKeys/test-key/protectedResourcesSummary |
+| `locations` | `object` | The number of resources protected by the key grouped by region. |
 | `projectCount` | `integer` | The number of distinct Cloud projects in the same Cloud organization as the key that have resources protected by the key. |
 | `resourceCount` | `string` | The total number of protected resources in the same Cloud organization as the key. |
 | `resourceTypes` | `object` | The number of resources protected by the key grouped by resource type. |
 | `cloudProducts` | `object` | The number of resources protected by the key grouped by Cloud product. |
-| `locations` | `object` | The number of resources protected by the key grouped by region. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

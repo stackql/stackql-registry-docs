@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `producerPrivateZone` | `object` |
 | `consumerPeeringZone` | `object` |
+| `producerPrivateZone` | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

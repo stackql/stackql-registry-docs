@@ -27,49 +27,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | [Output-only] An opaque ID uniquely identifying the table. |
-| `description` | `string` | [Optional] A user-friendly description of this table. |
-| `numPhysicalBytes` | `string` | [Output-only] [TrustedTester] The physical size of this table in bytes, excluding any data in the streaming buffer. This includes compression and storage used for time travel. |
-| `type` | `string` | [Output-only] Describes the table type. The following values are supported: TABLE: A normal BigQuery table. VIEW: A virtual table defined by a SQL query. SNAPSHOT: An immutable, read-only table that is a copy of another table. [TrustedTester] MATERIALIZED_VIEW: SQL query whose result is persisted. EXTERNAL: A table that references data stored in an external storage system, such as Google Cloud Storage. The default value is TABLE. |
-| `selfLink` | `string` | [Output-only] A URL that can be used to access this resource again. |
-| `snapshotDefinition` | `object` |  |
-| `tableConstraints` | `object` |  |
-| `kind` | `string` | [Output-only] The type of the resource. |
-| `expirationTime` | `string` | [Optional] The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed. The defaultTableExpirationMs property of the encapsulating dataset can be used to set a default expirationTime on newly created tables. |
+| `id` | `string` | An opaque ID of the table |
 | `timePartitioning` | `object` |  |
-| `etag` | `string` | [Output-only] A hash of the table metadata. Used to ensure there were no concurrent modifications to the resource when attempting an update. Not guaranteed to change when the table contents or the fields numRows, numBytes, numLongTermBytes or lastModifiedTime change. |
-| `numRows` | `string` | [Output-only] The number of rows of data in this table, excluding any data in the streaming buffer. |
-| `schema` | `object` |  |
-| `cloneDefinition` | `object` |  |
-| `friendlyName` | `string` | [Optional] A descriptive name for this table. |
-| `location` | `string` | [Output-only] The geographic location where the table resides. This value is inherited from the dataset. |
-| `defaultRoundingMode` | `string` | [Output-only] The default rounding mode of the table. |
-| `numTotalPhysicalBytes` | `string` | [Output-only] The physical size of this table in bytes. This also includes storage used for time travel. This data is not kept in real time, and might be delayed by a few seconds to a few minutes. |
-| `defaultCollation` | `string` | [Output-only] The default collation of the table. |
-| `requirePartitionFilter` | `boolean` | [Optional] If set to true, queries over this table require a partition filter that can be used for partition elimination to be specified. |
-| `view` | `object` |  |
-| `biglakeConfiguration` | `object` |  |
-| `numLongTermPhysicalBytes` | `string` | [Output-only] Number of physical bytes more than 90 days old. This data is not kept in real time, and might be delayed by a few seconds to a few minutes. |
-| `creationTime` | `string` | [Output-only] The time when this table was created, in milliseconds since the epoch. |
-| `clustering` | `object` |  |
-| `labels` | `object` | The labels associated with this table. You can use these to organize and group your tables. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key. |
-| `numTimeTravelPhysicalBytes` | `string` | [Output-only] Number of physical bytes used by time travel storage (deleted or changed data). This data is not kept in real time, and might be delayed by a few seconds to a few minutes. |
-| `numPartitions` | `string` | [Output-only] The number of partitions present in the table or materialized view. This data is not kept in real time, and might be delayed by a few seconds to a few minutes. |
-| `numTotalLogicalBytes` | `string` | [Output-only] Total number of logical bytes in the table or materialized view. |
-| `externalDataConfiguration` | `object` |  |
+| `expirationTime` | `string` | [Optional] The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed. |
+| `kind` | `string` | The resource type. |
+| `friendlyName` | `string` | The user-friendly name for this table. |
+| `view` | `object` | Additional details for a view. |
 | `tableReference` | `object` |  |
-| `model` | `object` |  |
-| `maxStaleness` | `string` | [Optional] Max staleness of data that could be returned when table or materialized view is queried (formatted as Google SQL Interval type). |
-| `numActiveLogicalBytes` | `string` | [Output-only] Number of logical bytes that are less than 90 days old. |
+| `type` | `string` | The type of table. Possible values are: TABLE, VIEW. |
 | `rangePartitioning` | `object` |  |
-| `encryptionConfiguration` | `object` |  |
-| `lastModifiedTime` | `string` | [Output-only] The time when this table was last modified, in milliseconds since the epoch. |
-| `materializedView` | `object` |  |
-| `streamingBuffer` | `object` |  |
-| `numActivePhysicalBytes` | `string` | [Output-only] Number of physical bytes less than 90 days old. This data is not kept in real time, and might be delayed by a few seconds to a few minutes. |
-| `numLongTermLogicalBytes` | `string` | [Output-only] Number of logical bytes that are more than 90 days old. |
-| `numBytes` | `string` | [Output-only] The size of this table in bytes, excluding any data in the streaming buffer. |
-| `numLongTermBytes` | `string` | [Output-only] The number of bytes in the table that are considered "long-term storage". |
+| `clustering` | `object` |  |
+| `creationTime` | `string` | The time when this table was created, in milliseconds since the epoch. |
+| `labels` | `object` | The labels associated with this table. You can use these to organize and group your tables. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

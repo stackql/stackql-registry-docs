@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name of the SpecialistPool. |
-| `specialistWorkerEmails` | `array` | The email addresses of workers in the SpecialistPool. |
-| `displayName` | `string` | Required. The user-defined name of the SpecialistPool. The name can be up to 128 characters long and can consist of any UTF-8 characters. This field should be unique on project-level. |
 | `pendingDataLabelingJobs` | `array` | Output only. The resource name of the pending data labeling jobs. |
 | `specialistManagerEmails` | `array` | The email addresses of the managers in the SpecialistPool. |
 | `specialistManagersCount` | `integer` | Output only. The number of managers in this SpecialistPool. |
+| `specialistWorkerEmails` | `array` | The email addresses of workers in the SpecialistPool. |
+| `displayName` | `string` | Required. The user-defined name of the SpecialistPool. The name can be up to 128 characters long and can consist of any UTF-8 characters. This field should be unique on project-level. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

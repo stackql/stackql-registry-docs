@@ -33,7 +33,7 @@ Writes Log Entries And Manages Your Cloud Logging Configuration.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Logging API</td></tr>
 <tr><td><b>Description</b></td><td>Writes Log Entries And Manages Your Cloud Logging Configuration.</td></tr>
-<tr><td><b>Id</b></td><td><code>logging:v23.08.00163</code></td></tr>
+<tr><td><b>Id</b></td><td><code>logging:v23.08.00165</code></td></tr>
 </tbody></table>
 
 ## Resources

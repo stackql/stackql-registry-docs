@@ -30,13 +30,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | [Output Only] Name of the resource. |
 | `description` | `string` | [Output Only] An optional textual description of the resource. |
-| `cpuPlatform` | `string` | [Output Only] The CPU platform used by this node type. |
-| `zone` | `string` | [Output Only] The name of the zone where the node type resides, such as us-central1-a. |
-| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `kind` | `string` | [Output Only] The type of the resource. Always compute#nodeType for node types. |
-| `localSsdGb` | `integer` | [Output Only] Local SSD available to the node type, defined in GB. |
 | `memoryMb` | `integer` | [Output Only] The amount of physical memory available to the node type, defined in MB. |
+| `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
+| `localSsdGb` | `integer` | [Output Only] Local SSD available to the node type, defined in GB. |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
+| `zone` | `string` | [Output Only] The name of the zone where the node type resides, such as us-central1-a. |
+| `cpuPlatform` | `string` | [Output Only] The CPU platform used by this node type. |
 | `deprecated` | `object` | Deprecation status for a public resource. |
 | `guestCpus` | `integer` | [Output Only] The number of virtual CPUs that are available to the node type. |
 ## Methods

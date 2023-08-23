@@ -29,10 +29,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of resource. |
 | `description` | `string` | Free-text description. |
+| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
 | `groupPreferencesetAssignments` | `array` | Required. Collection of combinations of groups and preference sets. |
 | `updateTime` | `string` | Output only. The timestamp when the resource was last updated. |
 | `createTime` | `string` | Output only. The timestamp when the resource was created. |
-| `displayName` | `string` | User-friendly display name. Maximum length is 63 characters. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -39,7 +39,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `billing_accounts_exclusions_get` | `SELECT` | `billingAccountsId, exclusionsId` | Gets the description of an exclusion in the _Default sink. |
 | `billing_accounts_exclusions_list` | `SELECT` | `billingAccountsId` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `exclusions_get` | `SELECT` | `name` | Gets the description of an exclusion in the _Default sink. |
-| `exclusions_list` | `SELECT` | `parent` | Lists all the exclusions on the _Default sink in a parent resource. |
+| `exclusions_list` | `SELECT` | `parent, parentType` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `folders_exclusions_get` | `SELECT` | `exclusionsId, foldersId` | Gets the description of an exclusion in the _Default sink. |
 | `folders_exclusions_list` | `SELECT` | `foldersId` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `organizations_exclusions_get` | `SELECT` | `exclusionsId, organizationsId` | Gets the description of an exclusion in the _Default sink. |
@@ -47,7 +47,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `projects_exclusions_get` | `SELECT` | `exclusionsId, projectsId` | Gets the description of an exclusion in the _Default sink. |
 | `projects_exclusions_list` | `SELECT` | `projectsId` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `billing_accounts_exclusions_create` | `INSERT` | `billingAccountsId` | Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. |
-| `exclusions_create` | `INSERT` | `parent` | Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. |
+| `exclusions_create` | `INSERT` | `parent, parentType` | Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. |
 | `folders_exclusions_create` | `INSERT` | `foldersId` | Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. |
 | `organizations_exclusions_create` | `INSERT` | `organizationsId` | Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. |
 | `projects_exclusions_create` | `INSERT` | `projectsId` | Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. |
@@ -57,7 +57,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `organizations_exclusions_delete` | `DELETE` | `exclusionsId, organizationsId` | Deletes an exclusion in the _Default sink. |
 | `projects_exclusions_delete` | `DELETE` | `exclusionsId, projectsId` | Deletes an exclusion in the _Default sink. |
 | `_billing_accounts_exclusions_list` | `EXEC` | `billingAccountsId` | Lists all the exclusions on the _Default sink in a parent resource. |
-| `_exclusions_list` | `EXEC` | `parent` | Lists all the exclusions on the _Default sink in a parent resource. |
+| `_exclusions_list` | `EXEC` | `parent, parentType` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `_folders_exclusions_list` | `EXEC` | `foldersId` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `_organizations_exclusions_list` | `EXEC` | `organizationsId` | Lists all the exclusions on the _Default sink in a parent resource. |
 | `_projects_exclusions_list` | `EXEC` | `projectsId` | Lists all the exclusions on the _Default sink in a parent resource. |

@@ -25,6 +25,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | Output only. Identifier of the brand. NOTE: GCP project number achieves the same brand identification purpose as only one brand per project can be created. |
+| `orgInternalOnly` | `boolean` | Output only. Whether the brand is only intended for usage inside the G Suite organization only. |
+| `supportEmail` | `string` | Support email displayed on the OAuth consent screen. |
+| `applicationTitle` | `string` | Application name displayed on OAuth consent screen. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

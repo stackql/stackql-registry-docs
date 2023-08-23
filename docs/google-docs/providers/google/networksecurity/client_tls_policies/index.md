@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the ClientTlsPolicy resource. It matches the pattern `projects/*/locations/&#123;location&#125;/clientTlsPolicies/&#123;client_tls_policy&#125;` |
 | `description` | `string` | Optional. Free-text description of the resource. |
-| `serverValidationCa` | `array` | Optional. Defines the mechanism to obtain the Certificate Authority certificate to validate the server certificate. If empty, client does not validate the server certificate. |
 | `sni` | `string` | Optional. Server Name Indication string to present to the server during TLS handshake. E.g: "secure.example.com". |
 | `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
 | `clientCertificate` | `object` | Specification of certificate provider. Defines the mechanism to obtain the certificate and private key for peer to peer authentication. |
 | `createTime` | `string` | Output only. The timestamp when the resource was created. |
 | `labels` | `object` | Optional. Set of label tags associated with the resource. |
+| `serverValidationCa` | `array` | Optional. Defines the mechanism to obtain the Certificate Authority certificate to validate the server certificate. If empty, client does not validate the server certificate. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

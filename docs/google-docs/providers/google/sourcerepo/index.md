@@ -33,7 +33,7 @@ Accesses Source Code Repositories Hosted By Google.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Source Repositories API</td></tr>
 <tr><td><b>Description</b></td><td>Accesses Source Code Repositories Hosted By Google.</td></tr>
-<tr><td><b>Id</b></td><td><code>sourcerepo:v23.08.00163</code></td></tr>
+<tr><td><b>Id</b></td><td><code>sourcerepo:v23.08.00165</code></td></tr>
 </tbody></table>
 
 ## Resources

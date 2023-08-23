@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Auto-generated primary key. |
-| `executionDetails` | `object` | Contains the details of the execution info: this includes the tasks execution details plus the event execution statistics. |
+| `responseParameters` | `object` | Event parameters returned as part of the response. |
 | `requestParams` | `array` | Event parameters come in as part of the request. |
-| `triggerId` | `string` | The trigger id of the integration trigger config. If both trigger_id and client_id is present, the integration is executed from the start tasks provided by the matching trigger config otherwise it is executed from the default start tasks. |
+| `updateTime` | `string` | Output only. Last modified time of the execution. |
+| `directSubExecutions` | `array` | Direct sub executions of the following Execution. |
+| `createTime` | `string` | Output only. Created time of the execution. |
+| `requestParameters` | `object` | Event parameters come in as part of the request. |
+| `eventExecutionDetails` | `object` | Contains the details of the execution info of this event: this includes the tasks execution details plus the event execution statistics. Next available id: 10 |
 | `executionMethod` | `string` | The ways user posts this event. |
 | `responseParams` | `array` | Event parameters come out as part of the response. |
-| `directSubExecutions` | `array` | Direct sub executions of the following Execution. |
-| `updateTime` | `string` | Output only. Last modified time of the execution. |
-| `responseParameters` | `object` | Event parameters returned as part of the response. |
-| `createTime` | `string` | Output only. Created time of the execution. |
-| `eventExecutionDetails` | `object` | Contains the details of the execution info of this event: this includes the tasks execution details plus the event execution statistics. Next available id: 10 |
-| `requestParameters` | `object` | Event parameters come in as part of the request. |
+| `executionDetails` | `object` | Contains the details of the execution info: this includes the tasks execution details plus the event execution statistics. |
+| `triggerId` | `string` | The trigger id of the integration trigger config. If both trigger_id and client_id is present, the integration is executed from the start tasks provided by the matching trigger config otherwise it is executed from the default start tasks. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the Key in the format "projects/&#123;project&#125;/keys/&#123;key&#125;". |
-| `iosSettings` | `object` | Settings specific to keys that can be used by iOS apps. |
-| `labels` | `object` | See Creating and managing labels. |
 | `webSettings` | `object` | Settings specific to keys that can be used by websites. |
+| `labels` | `object` | See Creating and managing labels. |
+| `createTime` | `string` | Output only. The timestamp corresponding to the creation of this key. |
 | `wafSettings` | `object` | Settings specific to keys that can be used for WAF (Web Application Firewall). |
+| `iosSettings` | `object` | Settings specific to keys that can be used by iOS apps. |
+| `displayName` | `string` | Human-readable display name of this key. Modifiable by user. |
 | `androidSettings` | `object` | Settings specific to keys that can be used by Android apps. |
 | `testingOptions` | `object` | Options for user acceptance testing. |
-| `createTime` | `string` | Output only. The timestamp corresponding to the creation of this key. |
-| `displayName` | `string` | Human-readable display name of this key. Modifiable by user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

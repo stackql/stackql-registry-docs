@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the backup, in the format `projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/backups/&#123;backup_id&#125;`. |
 | `description` | `string` | A description of the backup with 2048 characters or less. Requests with longer descriptions will be rejected. |
-| `labels` | `object` | Resource labels to represent user provided metadata. |
-| `capacityGb` | `string` | Output only. Capacity of the source file share when the backup was created. |
-| `createTime` | `string` | Output only. The time when the backup was created. |
-| `state` | `string` | Output only. The backup state. |
 | `kmsKey` | `string` | Immutable. KMS key name used for data encryption. |
-| `sourceInstance` | `string` | The resource name of the source Filestore instance, in the format `projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/instances/&#123;instance_id&#125;`, used to create this backup. |
-| `downloadBytes` | `string` | Output only. Amount of bytes that will be downloaded if the backup is restored. This may be different than storage bytes, since sequential backups of the same disk will share storage. |
-| `sourceInstanceTier` | `string` | Output only. The service tier of the source Filestore instance that this backup is created from. |
 | `sourceFileShare` | `string` | Name of the file share in the source Filestore instance that the backup is created from. |
-| `storageBytes` | `string` | Output only. The size of the storage used by the backup. As backups share storage, this number is expected to change with backup creation/deletion. |
 | `satisfiesPzs` | `boolean` | Output only. Reserved for future use. |
+| `labels` | `object` | Resource labels to represent user provided metadata. |
+| `downloadBytes` | `string` | Output only. Amount of bytes that will be downloaded if the backup is restored. This may be different than storage bytes, since sequential backups of the same disk will share storage. |
+| `sourceInstance` | `string` | The resource name of the source Filestore instance, in the format `projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/instances/&#123;instance_id&#125;`, used to create this backup. |
+| `createTime` | `string` | Output only. The time when the backup was created. |
+| `capacityGb` | `string` | Output only. Capacity of the source file share when the backup was created. |
+| `sourceInstanceTier` | `string` | Output only. The service tier of the source Filestore instance that this backup is created from. |
+| `state` | `string` | Output only. The backup state. |
+| `storageBytes` | `string` | Output only. The size of the storage used by the backup. As backups share storage, this number is expected to change with backup creation/deletion. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,5 +28,5 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list` | `SELECT` | `parent` | Lists all asset feeds in a parent project/folder/organization. |
-| `create` | `INSERT` | `parent` | Creates a feed in a parent project/folder/organization to listen to its asset updates. |
+| `list` | `SELECT` | `parent, parentType` | Lists all asset feeds in a parent project/folder/organization. |
+| `create` | `INSERT` | `parent, parentType` | Creates a feed in a parent project/folder/organization to listen to its asset updates. |

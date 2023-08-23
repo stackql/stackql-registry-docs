@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the TensorboardExperiment. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/tensorboards/&#123;tensorboard&#125;/experiments/&#123;experiment&#125;` |
 | `description` | `string` | Description of this TensorboardExperiment. |
-| `displayName` | `string` | User provided name of this TensorboardExperiment. |
-| `etag` | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
 | `labels` | `object` | The labels with user-defined metadata to organize your TensorboardExperiment. Label keys and values cannot be longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one Dataset (System labels are excluded). See https://goo.gl/xmQnxf for more information and examples of labels. System reserved label keys are prefixed with `aiplatform.googleapis.com/` and are immutable. The following system labels exist for each Dataset: * `aiplatform.googleapis.com/dataset_metadata_schema`: output only. Its value is the metadata_schema's title. |
 | `source` | `string` | Immutable. Source of the TensorboardExperiment. Example: a custom training job. |
 | `updateTime` | `string` | Output only. Timestamp when this TensorboardExperiment was last updated. |
 | `createTime` | `string` | Output only. Timestamp when this TensorboardExperiment was created. |
+| `displayName` | `string` | User provided name of this TensorboardExperiment. |
+| `etag` | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

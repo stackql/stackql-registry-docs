@@ -29,10 +29,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the snapshot, in the format `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/instances/&#123;instance_id&#125;/snapshots/&#123;snapshot_id&#125;`. |
 | `description` | `string` | A description of the snapshot with 2048 characters or less. Requests with longer descriptions will be rejected. |
+| `createTime` | `string` | Output only. The time when the snapshot was created. |
 | `filesystemUsedBytes` | `string` | Output only. The amount of bytes needed to allocate a full copy of the snapshot content |
 | `labels` | `object` | Resource labels to represent user provided metadata. |
 | `state` | `string` | Output only. The snapshot state. |
-| `createTime` | `string` | Output only. The time when the snapshot was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

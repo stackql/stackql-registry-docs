@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of a study. The study's globally unique identifier. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/studies/&#123;study&#125;` |
-| `state` | `string` | Output only. The detailed state of a Study. |
 | `studySpec` | `object` | Represents specification of a Study. |
 | `createTime` | `string` | Output only. Time at which the study was created. |
 | `displayName` | `string` | Required. Describes the Study, default value is empty string. |
 | `inactiveReason` | `string` | Output only. A human readable reason why the Study is inactive. This should be empty if a study is ACTIVE or COMPLETED. |
+| `state` | `string` | Output only. The detailed state of a Study. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

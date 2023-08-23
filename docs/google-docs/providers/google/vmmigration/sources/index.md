@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The Source name. |
 | `description` | `string` | User-provided description of the source. |
+| `labels` | `object` | The labels of the source. |
 | `updateTime` | `string` | Output only. The update time timestamp. |
 | `vmware` | `object` | VmwareSourceDetails message describes a specific source details for the vmware source type. |
 | `aws` | `object` | AwsSourceDetails message describes a specific source details for the AWS source type. |
 | `createTime` | `string` | Output only. The create time timestamp. |
-| `labels` | `object` | The labels of the source. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

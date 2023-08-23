@@ -29,4 +29,4 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `batch_get_assets_history` | `EXEC` | `parent` |
+| `batch_get_assets_history` | `EXEC` | `parent, parentType` |

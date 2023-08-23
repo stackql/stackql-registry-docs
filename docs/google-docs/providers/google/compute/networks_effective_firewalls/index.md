@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `firewalls` | `array` | Effective firewalls on the network. |
 | `firewallPolicys` | `array` | Effective firewalls from firewall policy. |
+| `firewalls` | `array` | Effective firewalls on the network. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

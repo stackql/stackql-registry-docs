@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the membershipbinding itself `projects/&#123;project&#125;/locations/&#123;location&#125;/memberships/&#123;membership&#125;/bindings/&#123;membershipbinding&#125;` |
+| `state` | `object` | MembershipBindingLifecycleState describes the state of a Binding resource. |
+| `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all membershipbinding resources. If a membershipbinding resource is deleted and another resource with the same name is created, it gets a different uid. |
+| `updateTime` | `string` | Output only. When the membership binding was last updated. |
 | `createTime` | `string` | Output only. When the membership binding was created. |
 | `deleteTime` | `string` | Output only. When the membership binding was deleted. |
 | `labels` | `object` | Optional. Labels for this MembershipBinding. |
 | `scope` | `string` | A Scope resource name in the format `projects/*/locations/*/scopes/*`. |
-| `state` | `object` | MembershipBindingLifecycleState describes the state of a Binding resource. |
-| `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all membershipbinding resources. If a membershipbinding resource is deleted and another resource with the same name is created, it gets a different uid. |
-| `updateTime` | `string` | Output only. When the membership binding was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

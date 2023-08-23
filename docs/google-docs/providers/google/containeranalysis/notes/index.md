@@ -28,26 +28,26 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the note in the form of `projects/[PROVIDER_ID]/notes/[NOTE_ID]`. |
-| `relatedUrl` | `array` | URLs associated with this note. |
-| `kind` | `string` | Output only. The type of analysis. This field can be used as a filter in list requests. |
-| `vulnerability` | `object` | A security vulnerability that can be found in resources. |
-| `createTime` | `string` | Output only. The time this note was created. This field can be used as a filter in list requests. |
-| `vulnerabilityAssessment` | `object` | A single VulnerabilityAssessmentNote represents one particular product's vulnerability assessment for one CVE. |
+| `expirationTime` | `string` | Time of expiration for this note. Empty if note does not expire. |
+| `attestation` | `object` | Note kind that represents a logical attestation "role" or "authority". For example, an organization might have one `Authority` for "QA" and one for "build". This note is intended to act strictly as a grouping mechanism for the attached occurrences (Attestations). This grouping mechanism also provides a security boundary, since IAM ACLs gate the ability for a principle to attach an occurrence to a given note. It also provides a single point of lookup to find all attached attestation occurrences, even if they don't all live in the same project. |
+| `updateTime` | `string` | Output only. The time this note was last updated. This field can be used as a filter in list requests. |
+| `longDescription` | `string` | A detailed description of this note. |
 | `package` | `object` | PackageNote represents a particular package version. |
 | `compliance` | `object` |  |
-| `sbomReference` | `object` | The note representing an SBOM reference. |
-| `deployment` | `object` | An artifact that can be deployed in some runtime. |
-| `image` | `object` | Basis describes the base image portion (Note) of the DockerImage relationship. Linked occurrences are derived from this or an equivalent image via: FROM Or an equivalent reference, e.g., a tag of the resource_url. |
-| `shortDescription` | `string` | A one sentence description of this note. |
-| `updateTime` | `string` | Output only. The time this note was last updated. This field can be used as a filter in list requests. |
-| `relatedNoteNames` | `array` | Other notes related to this note. |
-| `discovery` | `object` | A note that indicates a type of analysis a provider would perform. This note exists in a provider's project. A `Discovery` occurrence is created in a consumer's project at the start of analysis. |
-| `attestation` | `object` | Note kind that represents a logical attestation "role" or "authority". For example, an organization might have one `Authority` for "QA" and one for "build". This note is intended to act strictly as a grouping mechanism for the attached occurrences (Attestations). This grouping mechanism also provides a security boundary, since IAM ACLs gate the ability for a principle to attach an occurrence to a given note. It also provides a single point of lookup to find all attached attestation occurrences, even if they don't all live in the same project. |
-| `upgrade` | `object` | An Upgrade Note represents a potential upgrade of a package to a given version. For each package version combination (i.e. bash 4.0, bash 4.1, bash 4.1.2), there will be an Upgrade Note. For Windows, windows_update field represents the information related to the update. |
 | `dsseAttestation` | `object` |  |
-| `longDescription` | `string` | A detailed description of this note. |
-| `expirationTime` | `string` | Time of expiration for this note. Empty if note does not expire. |
+| `sbomReference` | `object` | The note representing an SBOM reference. |
+| `vulnerability` | `object` | A security vulnerability that can be found in resources. |
+| `kind` | `string` | Output only. The type of analysis. This field can be used as a filter in list requests. |
+| `shortDescription` | `string` | A one sentence description of this note. |
+| `vulnerabilityAssessment` | `object` | A single VulnerabilityAssessmentNote represents one particular product's vulnerability assessment for one CVE. |
+| `relatedNoteNames` | `array` | Other notes related to this note. |
+| `deployment` | `object` | An artifact that can be deployed in some runtime. |
 | `build` | `object` | Note holding the version of the provider's builder and the signature of the provenance message in the build details occurrence. |
+| `discovery` | `object` | A note that indicates a type of analysis a provider would perform. This note exists in a provider's project. A `Discovery` occurrence is created in a consumer's project at the start of analysis. |
+| `createTime` | `string` | Output only. The time this note was created. This field can be used as a filter in list requests. |
+| `image` | `object` | Basis describes the base image portion (Note) of the DockerImage relationship. Linked occurrences are derived from this or an equivalent image via: FROM Or an equivalent reference, e.g., a tag of the resource_url. |
+| `upgrade` | `object` | An Upgrade Note represents a potential upgrade of a package to a given version. For each package version combination (i.e. bash 4.0, bash 4.1, bash 4.1.2), there will be an Upgrade Note. For Windows, windows_update field represents the information related to the update. |
+| `relatedUrl` | `array` | URLs associated with this note. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
