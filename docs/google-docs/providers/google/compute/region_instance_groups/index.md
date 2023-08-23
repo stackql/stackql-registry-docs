@@ -31,15 +31,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | The name of the instance group. The name must be 1-63 characters long, and comply with RFC1035. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
 | `creationTimestamp` | `string` | [Output Only] The creation timestamp for this instance group in RFC3339 text format. |
-| `fingerprint` | `string` | [Output Only] The fingerprint of the named ports. The system uses this fingerprint to detect conflicts when multiple users change the named ports concurrently. |
 | `size` | `integer` | [Output Only] The total number of instances in the instance group. |
-| `network` | `string` | [Output Only] The URL of the network to which all instances in the instance group belong. If your instance has multiple network interfaces, then the network and subnetwork fields only refer to the network and subnet used by your primary interface (nic0). |
 | `subnetwork` | `string` | [Output Only] The URL of the subnetwork to which all instances in the instance group belong. If your instance has multiple network interfaces, then the network and subnetwork fields only refer to the network and subnet used by your primary interface (nic0). |
 | `zone` | `string` | [Output Only] The URL of the zone where the instance group is located (for zonal resources). |
-| `region` | `string` | [Output Only] The URL of the region where the instance group is located (for regional resources). |
-| `kind` | `string` | [Output Only] The resource type, which is always compute#instanceGroup for instance groups. |
 | `namedPorts` | `array` |  Assigns a name to a port number. For example: &#123;name: "http", port: 80&#125; This allows the system to reference ports by the assigned name instead of a port number. Named ports can also contain multiple ports. For example: [&#123;name: "app1", port: 8080&#125;, &#123;name: "app1", port: 8081&#125;, &#123;name: "app2", port: 8082&#125;] Named ports apply to all instances in this instance group.  |
+| `region` | `string` | [Output Only] The URL of the region where the instance group is located (for regional resources). |
+| `network` | `string` | [Output Only] The URL of the network to which all instances in the instance group belong. If your instance has multiple network interfaces, then the network and subnetwork fields only refer to the network and subnet used by your primary interface (nic0). |
+| `fingerprint` | `string` | [Output Only] The fingerprint of the named ports. The system uses this fingerprint to detect conflicts when multiple users change the named ports concurrently. |
 | `selfLink` | `string` | [Output Only] The URL for this instance group. The server generates this URL. |
+| `kind` | `string` | [Output Only] The resource type, which is always compute#instanceGroup for instance groups. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

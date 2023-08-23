@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `kind` | `string` | This is always `sql#getDiskShrinkConfig`. |
 | `message` | `string` | Additional message to customers. |
 | `minimalTargetSizeGb` | `string` | The minimum size to which a disk can be shrunk in GigaBytes. |
+| `kind` | `string` | This is always `sql#getDiskShrinkConfig`. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

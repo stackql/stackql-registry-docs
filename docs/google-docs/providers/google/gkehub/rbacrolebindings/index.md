@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the rbacrolebinding `projects/&#123;project&#125;/locations/&#123;location&#125;/namespaces/&#123;namespace&#125;/rbacrolebindings/&#123;rbacrolebinding&#125;` or `projects/&#123;project&#125;/locations/&#123;location&#125;/memberships/&#123;membership&#125;/rbacrolebindings/&#123;rbacrolebinding&#125;` |
-| `deleteTime` | `string` | Output only. When the rbacrolebinding was deleted. |
-| `createTime` | `string` | Output only. When the rbacrolebinding was created. |
-| `updateTime` | `string` | Output only. When the rbacrolebinding was last updated. |
 | `role` | `object` | Role is the type for Kubernetes roles |
-| `user` | `string` | user is the name of the user as seen by the kubernetes cluster, example "alice" or "alice@domain.tld" |
 | `group` | `string` | group is the group, as seen by the kubernetes cluster. |
-| `state` | `object` | RBACRoleBindingLifecycleState describes the state of a RbacRoleBinding resource. |
 | `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all rbacrolebinding resources. If a rbacrolebinding resource is deleted and another resource with the same name is created, it gets a different uid. |
+| `user` | `string` | user is the name of the user as seen by the kubernetes cluster, example "alice" or "alice@domain.tld" |
+| `deleteTime` | `string` | Output only. When the rbacrolebinding was deleted. |
+| `updateTime` | `string` | Output only. When the rbacrolebinding was last updated. |
+| `createTime` | `string` | Output only. When the rbacrolebinding was created. |
 | `labels` | `object` | Optional. Labels for this RBACRolebinding. |
+| `state` | `object` | RBACRoleBindingLifecycleState describes the state of a RbacRoleBinding resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,13 +29,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name of the session template. |
 | `description` | `string` | Optional. Brief description of the template. |
+| `creator` | `string` | Output only. The email address of the user who created the template. |
 | `runtimeConfig` | `object` | Runtime configuration for a workload. |
 | `updateTime` | `string` | Output only. The time template was last updated. |
-| `createTime` | `string` | Output only. The time when the template was created. |
-| `creator` | `string` | Output only. The email address of the user who created the template. |
-| `jupyterSession` | `object` | Jupyter configuration for an interactive session. |
 | `labels` | `object` | Optional. The labels to associate with sessions created using this template. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a session. |
 | `environmentConfig` | `object` | Environment configuration for a workload. |
+| `createTime` | `string` | Output only. The time when the template was created. |
+| `jupyterSession` | `object` | Jupyter configuration for an interactive session. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

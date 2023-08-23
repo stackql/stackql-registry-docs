@@ -28,26 +28,26 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | Optional. A user-friendly description of this model. |
-| `expirationTime` | `string` | Optional. The time when this model expires, in milliseconds since the epoch. If not present, the model will persist indefinitely. Expired models will be deleted and their storage reclaimed. The defaultTableExpirationMs property of the encapsulating dataset can be used to set a default expirationTime on newly created models. |
-| `modelReference` | `object` |  |
-| `trainingRuns` | `array` | Information for all training runs in increasing order of start_time. |
-| `bestTrialId` | `string` | The best trial_id across all training runs. |
-| `friendlyName` | `string` | Optional. A descriptive name for this model. |
-| `location` | `string` | Output only. The geographic location where the model resides. This value is inherited from the dataset. |
-| `transformColumns` | `array` | Output only. This field will be populated if a TRANSFORM clause was used to train a model. TRANSFORM clause (if used) takes feature_columns as input and outputs transform_columns. transform_columns then are used to train the model. |
-| `etag` | `string` | Output only. A hash of this resource. |
-| `featureColumns` | `array` | Output only. Input feature columns for the model inference. If the model is trained with TRANSFORM clause, these are the input of the TRANSFORM clause. |
 | `lastModifiedTime` | `string` | Output only. The time when this model was last modified, in millisecs since the epoch. |
-| `hparamTrials` | `array` | Output only. Trials of a [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) model sorted by trial_id. |
-| `optimalTrialIds` | `array` | Output only. For single-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, it only contains the best trial. For multi-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, it contains all Pareto optimal trials sorted by trial_id. |
-| `labels` | `object` | The labels associated with this model. You can use these to organize and group your models. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key. |
-| `encryptionConfiguration` | `object` |  |
-| `remoteModelInfo` | `object` | Remote Model Info |
-| `modelType` | `string` | Output only. Type of the model resource. |
-| `hparamSearchSpaces` | `object` | Hyperparameter search spaces. These should be a subset of training_options. |
-| `defaultTrialId` | `string` | Output only. The default trial_id to use in TVFs when the trial_id is not passed in. For single-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, this is the best trial ID. For multi-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, this is the smallest trial ID among all Pareto optimal trials. |
+| `trainingRuns` | `array` | Information for all training runs in increasing order of start_time. |
 | `creationTime` | `string` | Output only. The time when this model was created, in millisecs since the epoch. |
+| `etag` | `string` | Output only. A hash of this resource. |
+| `labels` | `object` | The labels associated with this model. You can use these to organize and group your models. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key. |
 | `labelColumns` | `array` | Output only. Label columns that were used to train this model. The output of the model will have a "predicted_" prefix to these columns. |
+| `expirationTime` | `string` | Optional. The time when this model expires, in milliseconds since the epoch. If not present, the model will persist indefinitely. Expired models will be deleted and their storage reclaimed. The defaultTableExpirationMs property of the encapsulating dataset can be used to set a default expirationTime on newly created models. |
+| `modelType` | `string` | Output only. Type of the model resource. |
+| `friendlyName` | `string` | Optional. A descriptive name for this model. |
+| `featureColumns` | `array` | Output only. Input feature columns for the model inference. If the model is trained with TRANSFORM clause, these are the input of the TRANSFORM clause. |
+| `hparamTrials` | `array` | Output only. Trials of a [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) model sorted by trial_id. |
+| `bestTrialId` | `string` | The best trial_id across all training runs. |
+| `remoteModelInfo` | `object` | Remote Model Info |
+| `location` | `string` | Output only. The geographic location where the model resides. This value is inherited from the dataset. |
+| `encryptionConfiguration` | `object` |  |
+| `hparamSearchSpaces` | `object` | Hyperparameter search spaces. These should be a subset of training_options. |
+| `modelReference` | `object` |  |
+| `defaultTrialId` | `string` | Output only. The default trial_id to use in TVFs when the trial_id is not passed in. For single-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, this is the best trial ID. For multi-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, this is the smallest trial ID among all Pareto optimal trials. |
+| `optimalTrialIds` | `array` | Output only. For single-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, it only contains the best trial. For multi-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, it contains all Pareto optimal trials sorted by trial_id. |
+| `transformColumns` | `array` | Output only. This field will be populated if a TRANSFORM clause was used to train a model. TRANSFORM clause (if used) takes feature_columns as input and outputs transform_columns. transform_columns then are used to train the model. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

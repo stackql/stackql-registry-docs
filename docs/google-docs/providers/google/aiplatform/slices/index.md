@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the ModelEvaluationSlice. |
-| `modelExplanation` | `object` | Aggregated explanation metrics for a Model over a set of instances. |
 | `slice` | `object` | Definition of a slice. |
 | `createTime` | `string` | Output only. Timestamp when this ModelEvaluationSlice was created. |
 | `metrics` | `any` | Output only. Sliced evaluation metrics of the Model. The schema of the metrics is stored in metrics_schema_uri |
 | `metricsSchemaUri` | `string` | Output only. Points to a YAML file stored on Google Cloud Storage describing the metrics of this ModelEvaluationSlice. The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject). |
+| `modelExplanation` | `object` | Aggregated explanation metrics for a Model over a set of instances. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -32,7 +32,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `billing_accounts_logs_list` | `SELECT` | `billingAccountsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `folders_locations_buckets_views_logs_list` | `SELECT` | `bucketsId, foldersId, locationsId, viewsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `folders_logs_list` | `SELECT` | `foldersId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| `logs_list` | `SELECT` | `parent` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
+| `logs_list` | `SELECT` | `parent, parentType` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `organizations_locations_buckets_views_logs_list` | `SELECT` | `bucketsId, locationsId, organizationsId, viewsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `organizations_logs_list` | `SELECT` | `organizationsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `projects_locations_buckets_views_logs_list` | `SELECT` | `bucketsId, locationsId, projectsId, viewsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
@@ -46,7 +46,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `_billing_accounts_logs_list` | `EXEC` | `billingAccountsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `_folders_locations_buckets_views_logs_list` | `EXEC` | `bucketsId, foldersId, locationsId, viewsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `_folders_logs_list` | `EXEC` | `foldersId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| `_logs_list` | `EXEC` | `parent` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
+| `_logs_list` | `EXEC` | `parent, parentType` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `_organizations_locations_buckets_views_logs_list` | `EXEC` | `bucketsId, locationsId, organizationsId, viewsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `_organizations_logs_list` | `EXEC` | `organizationsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
 | `_projects_locations_buckets_views_logs_list` | `EXEC` | `bucketsId, locationsId, projectsId, viewsId` | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |

@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. Fully qualified name `project/*/locations/global/collections/&#123;collection&#125;/dataStore/*/conversations/*` |
+| `state` | `string` | The state of the Conversation. |
 | `userPseudoId` | `string` | A unique identifier for tracking users. |
 | `endTime` | `string` | Output only. The time the conversation finished. |
 | `messages` | `array` | Conversation messages. |
 | `startTime` | `string` | Output only. The time the conversation started. |
-| `state` | `string` | The state of the Conversation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name. |
-| `type` | `string` | The accelerator type. |
 | `acceleratorConfigs` | `array` | The accelerator config. |
+| `type` | `string` | The accelerator type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

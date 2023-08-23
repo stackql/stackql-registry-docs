@@ -30,15 +30,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `id` | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. |
 | `name` | `string` | Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | `description` | `string` | An optional description of this resource. Provide this property when you create the resource. |
-| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#packetMirroring for packet mirrorings. |
-| `priority` | `integer` | The priority of applying this configuration. Priority is used to break ties in cases where there is more than one matching rule. In the case of two rules that apply for a given Instance, the one with the lowest-numbered priority value wins. Default value is 1000. Valid range is 0 through 65535. |
 | `region` | `string` | [Output Only] URI of the region where the packetMirroring resides. |
-| `filter` | `object` |  |
-| `network` | `object` |  |
+| `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `enable` | `string` | Indicates whether or not this packet mirroring takes effect. If set to FALSE, this packet mirroring policy will not be enforced on the network. The default is TRUE. |
+| `priority` | `integer` | The priority of applying this configuration. Priority is used to break ties in cases where there is more than one matching rule. In the case of two rules that apply for a given Instance, the one with the lowest-numbered priority value wins. Default value is 1000. Valid range is 0 through 65535. |
+| `filter` | `object` |  |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#packetMirroring for packet mirrorings. |
 | `collectorIlb` | `object` |  |
+| `network` | `object` |  |
+| `enable` | `string` | Indicates whether or not this packet mirroring takes effect. If set to FALSE, this packet mirroring policy will not be enforced on the network. The default is TRUE. |
 | `mirroredResources` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |

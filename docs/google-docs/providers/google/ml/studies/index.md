@@ -28,10 +28,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of a study. |
+| `inactiveReason` | `string` | Output only. A human readable reason why the Study is inactive. This should be empty if a study is ACTIVE or COMPLETED. |
 | `state` | `string` | Output only. The detailed state of a study. |
 | `studyConfig` | `object` | Represents configuration of a study. |
 | `createTime` | `string` | Output only. Time at which the study was created. |
-| `inactiveReason` | `string` | Output only. A human readable reason why the Study is inactive. This should be empty if a study is ACTIVE or COMPLETED. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

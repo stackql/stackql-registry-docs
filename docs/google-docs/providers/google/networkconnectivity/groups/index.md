@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The name of the group. Group names must be unique. They use the following form: `projects/&#123;project_number&#125;/locations/global/hubs/&#123;hub&#125;/groups/&#123;group_id&#125;` |
 | `description` | `string` | Optional. The description of the group. |
-| `updateTime` | `string` | Output only. The time the group was last updated. |
-| `createTime` | `string` | Output only. The time the group was created. |
 | `labels` | `object` | Optional. Labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
 | `state` | `string` | Output only. The current lifecycle state of this group. |
 | `uid` | `string` | Output only. The Google-generated UUID for the group. This value is unique across all group resources. If a group is deleted and another with the same name is created, the new route table is assigned a different unique_id. |
+| `updateTime` | `string` | Output only. The time the group was last updated. |
+| `createTime` | `string` | Output only. The time the group was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

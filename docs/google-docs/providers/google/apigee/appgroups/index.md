@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. Name of the AppGroup. Characters you can use in the name are restricted to: A-Z0-9._\-$ %. |
-| `appGroupId` | `string` | Output only. Internal identifier that cannot be edited |
+| `organization` | `string` | Immutable. the org the app group is created |
 | `status` | `string` | Valid values are `active` or `inactive`. Note that the status of the AppGroup should be updated via UpdateAppGroupRequest by setting the action as `active` or `inactive`. |
 | `createdAt` | `string` | Output only. Created time as milliseconds since epoch. |
-| `organization` | `string` | Immutable. the org the app group is created |
-| `channelUri` | `string` | A reference to the associated storefront/marketplace. |
 | `displayName` | `string` | app group name displayed in the UI |
-| `attributes` | `array` | A list of attributes |
-| `lastModifiedAt` | `string` | Output only. Modified time as milliseconds since epoch. |
 | `channelId` | `string` | channel identifier identifies the owner maintaing this grouping. |
+| `channelUri` | `string` | A reference to the associated storefront/marketplace. |
+| `lastModifiedAt` | `string` | Output only. Modified time as milliseconds since epoch. |
+| `appGroupId` | `string` | Output only. Internal identifier that cannot be edited |
+| `attributes` | `array` | A list of attributes |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,16 +28,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The pipeline name. For example: `projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID`. * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]), hyphens (-), colons (:), and periods (.). For more information, see [Identifying projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects). * `LOCATION_ID` is the canonical ID for the pipeline's location. The list of available locations can be obtained by calling `google.cloud.location.Locations.ListLocations`. Note that the Data Pipelines service is not available in all regions. It depends on Cloud Scheduler, an App Engine application, so it's only available in [App Engine regions](https://cloud.google.com/about/locations#region). * `PIPELINE_ID` is the ID of the pipeline. Must be unique for the selected project and location. |
-| `jobCount` | `integer` | Output only. Number of jobs. |
-| `pipelineSources` | `object` | Immutable. The sources of the pipeline (for example, Dataplex). The keys and values are set by the corresponding sources during pipeline creation. |
+| `displayName` | `string` | Required. The display name of the pipeline. It can contain only letters ([A-Za-z]), numbers ([0-9]), hyphens (-), and underscores (_). |
 | `lastUpdateTime` | `string` | Output only. Immutable. The timestamp when the pipeline was last modified. Set by the Data Pipelines service. |
 | `state` | `string` | Required. The state of the pipeline. When the pipeline is created, the state is set to 'PIPELINE_STATE_ACTIVE' by default. State changes can be requested by setting the state to stopping, paused, or resuming. State cannot be changed through UpdatePipeline requests. |
-| `type` | `string` | Required. The type of the pipeline. This field affects the scheduling of the pipeline and the type of metrics to show for the pipeline. |
-| `scheduleInfo` | `object` | Details of the schedule the pipeline runs on. |
-| `createTime` | `string` | Output only. Immutable. The timestamp when the pipeline was initially created. Set by the Data Pipelines service. |
 | `workload` | `object` | Workload details for creating the pipeline jobs. |
-| `displayName` | `string` | Required. The display name of the pipeline. It can contain only letters ([A-Za-z]), numbers ([0-9]), hyphens (-), and underscores (_). |
+| `scheduleInfo` | `object` | Details of the schedule the pipeline runs on. |
+| `pipelineSources` | `object` | Immutable. The sources of the pipeline (for example, Dataplex). The keys and values are set by the corresponding sources during pipeline creation. |
+| `jobCount` | `integer` | Output only. Number of jobs. |
 | `schedulerServiceAccountEmail` | `string` | Optional. A service account email to be used with the Cloud Scheduler job. If not specified, the default compute engine service account will be used. |
+| `createTime` | `string` | Output only. Immutable. The timestamp when the pipeline was initially created. Set by the Data Pipelines service. |
+| `type` | `string` | Required. The type of the pipeline. This field affects the scheduling of the pipeline and the type of metrics to show for the pipeline. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

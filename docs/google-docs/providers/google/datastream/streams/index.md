@@ -28,16 +28,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The stream's name. |
-| `createTime` | `string` | Output only. The creation time of the stream. |
-| `labels` | `object` | Labels. |
-| `backfillAll` | `object` | Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded. |
-| `sourceConfig` | `object` | The configuration of the stream source. |
-| `destinationConfig` | `object` | The configuration of the stream destination. |
-| `errors` | `array` | Output only. Errors on the Stream. |
 | `state` | `string` | The state of the stream. |
-| `backfillNone` | `object` | Backfill strategy to disable automatic backfill for the Stream's objects. |
 | `customerManagedEncryptionKey` | `string` | Immutable. A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data will be encrypted using an internal Stream-specific encryption key provisioned through KMS. |
+| `sourceConfig` | `object` | The configuration of the stream source. |
+| `backfillNone` | `object` | Backfill strategy to disable automatic backfill for the Stream's objects. |
 | `displayName` | `string` | Required. Display name. |
+| `labels` | `object` | Labels. |
+| `errors` | `array` | Output only. Errors on the Stream. |
+| `backfillAll` | `object` | Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded. |
+| `destinationConfig` | `object` | The configuration of the stream destination. |
+| `createTime` | `string` | Output only. The creation time of the stream. |
 | `updateTime` | `string` | Output only. The last update time of the stream. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

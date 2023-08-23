@@ -27,9 +27,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `messageTime` | `string` | Time when message was logged. |
 | `severity` | `string` | Message severity. |
 | `messageText` | `string` | Message text. |
-| `messageTime` | `string` | Time when message was logged. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

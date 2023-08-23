@@ -28,19 +28,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The connector's name. |
-| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
-| `bucket` | `string` | Output only. The communication channel between the datacenter connector and Google Cloud. |
-| `updateTime` | `string` | Output only. The last time the connector was updated with an API call. |
-| `registrationId` | `string` | Immutable. A unique key for this connector. This key is internal to the OVA connector and is supplied with its creation during the registration process and can not be modified. |
-| `applianceSoftwareVersion` | `string` | Output only. Appliance last installed update bundle version. This is the version of the automatically updatable components on the appliance. |
-| `applianceInfrastructureVersion` | `string` | Output only. Appliance OVA version. This is the OVA which is manually installed by the user and contains the infrastructure for the automatically updatable components on the appliance. |
 | `stateTime` | `string` | Output only. The time the state was last set. |
-| `upgradeStatus` | `object` | UpgradeStatus contains information about upgradeAppliance operation. |
-| `version` | `string` | The version running in the DatacenterConnector. This is supplied by the OVA connector during the registration process and can not be modified. |
+| `createTime` | `string` | Output only. The time the connector was created (as an API call, not when it was actually installed). |
+| `updateTime` | `string` | Output only. The last time the connector was updated with an API call. |
 | `availableVersions` | `object` | Holds informatiom about the available versions for upgrade. |
+| `bucket` | `string` | Output only. The communication channel between the datacenter connector and Google Cloud. |
+| `registrationId` | `string` | Immutable. A unique key for this connector. This key is internal to the OVA connector and is supplied with its creation during the registration process and can not be modified. |
+| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
+| `applianceSoftwareVersion` | `string` | Output only. Appliance last installed update bundle version. This is the version of the automatically updatable components on the appliance. |
+| `upgradeStatus` | `object` | UpgradeStatus contains information about upgradeAppliance operation. |
+| `applianceInfrastructureVersion` | `string` | Output only. Appliance OVA version. This is the OVA which is manually installed by the user and contains the infrastructure for the automatically updatable components on the appliance. |
+| `version` | `string` | The version running in the DatacenterConnector. This is supplied by the OVA connector during the registration process and can not be modified. |
 | `serviceAccount` | `string` | The service account to use in the connector when communicating with the cloud. |
 | `state` | `string` | Output only. State of the DatacenterConnector, as determined by the health checks. |
-| `createTime` | `string` | Output only. The time the connector was created (as an API call, not when it was actually installed). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

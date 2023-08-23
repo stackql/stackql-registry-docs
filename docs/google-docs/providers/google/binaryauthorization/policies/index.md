@@ -29,8 +29,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the BinAuthz platform policy, in the form of `projects/*/platforms/*/policies/*`. |
 | `description` | `string` | Optional. A description comment about the policy. |
-| `gkePolicy` | `object` | A Binary Authorization policy for a GKE cluster. This is one type of policy that can occur as a `PlatformPolicy`. |
 | `updateTime` | `string` | Output only. Time when the policy was last updated. |
+| `gkePolicy` | `object` | A Binary Authorization policy for a GKE cluster. This is one type of policy that can occur as a `PlatformPolicy`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

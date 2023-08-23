@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the customer. |
-| `sasUserIds` | `array` | User IDs used by the devices belonging to this customer. |
 | `displayName` | `string` | Required. Name of the organization that the customer entity represents. |
+| `sasUserIds` | `array` | User IDs used by the devices belonging to this customer. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The resource name of this node pool. |
-| `nodePoolAutoscaling` | `object` | NodePoolAutoscaling config for the NodePool to allow for the kubernetes to scale NodePool. |
+| `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the node pool. |
 | `state` | `string` | Output only. The current state of the node pool. |
-| `updateTime` | `string` | Output only. The time at which this node pool was last updated. |
-| `onPremVersion` | `string` | Anthos version for the node pool. Defaults to the user cluster version. |
-| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
 | `uid` | `string` | Output only. The unique identifier of the node pool. |
-| `annotations` | `object` | Annotations on the node pool. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
+| `nodePoolAutoscaling` | `object` | NodePoolAutoscaling config for the NodePool to allow for the kubernetes to scale NodePool. |
+| `status` | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
+| `onPremVersion` | `string` | Anthos version for the node pool. Defaults to the user cluster version. |
+| `createTime` | `string` | Output only. The time at which this node pool was created. |
 | `displayName` | `string` | The display name for the node pool. |
+| `annotations` | `object` | Annotations on the node pool. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
 | `deleteTime` | `string` | Output only. The time at which this node pool was deleted. If the resource is not deleted, this must be empty |
 | `config` | `object` | Parameters that describe the configuration of all nodes within a given node pool. |
-| `reconciling` | `boolean` | Output only. If set, there are currently changes in flight to the node pool. |
-| `createTime` | `string` | Output only. The time at which this node pool was created. |
+| `updateTime` | `string` | Output only. The time at which this node pool was last updated. |
 | `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

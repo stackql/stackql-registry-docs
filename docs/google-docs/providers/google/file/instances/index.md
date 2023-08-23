@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the instance, in the format `projects/&#123;project&#125;/locations/&#123;location&#125;/instances/&#123;instance&#125;`. |
 | `description` | `string` | The description of the instance (2048 characters or less). |
-| `tier` | `string` | The service tier of the instance. |
+| `labels` | `object` | Resource labels to represent user provided metadata. |
+| `suspensionReasons` | `array` | Output only. Field indicates all the reasons the instance is in "SUSPENDED" state. |
 | `statusMessage` | `string` | Output only. Additional information about the instance state, if available. |
+| `etag` | `string` | Server-specified ETag for the instance resource to prevent simultaneous updates from overwriting each other. |
 | `fileShares` | `array` | File system shares on the instance. For this version, only a single file share is supported. |
 | `networks` | `array` | VPC networks to which the instance is connected. For this version, only a single network is supported. |
-| `createTime` | `string` | Output only. The time when the instance was created. |
-| `suspensionReasons` | `array` | Output only. Field indicates all the reasons the instance is in "SUSPENDED" state. |
-| `etag` | `string` | Server-specified ETag for the instance resource to prevent simultaneous updates from overwriting each other. |
-| `kmsKeyName` | `string` | KMS key name used for data encryption. |
-| `labels` | `object` | Resource labels to represent user provided metadata. |
-| `satisfiesPzs` | `boolean` | Output only. Reserved for future use. |
+| `tier` | `string` | The service tier of the instance. |
 | `state` | `string` | Output only. The instance state. |
+| `satisfiesPzs` | `boolean` | Output only. Reserved for future use. |
+| `kmsKeyName` | `string` | KMS key name used for data encryption. |
+| `createTime` | `string` | Output only. The time when the instance was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

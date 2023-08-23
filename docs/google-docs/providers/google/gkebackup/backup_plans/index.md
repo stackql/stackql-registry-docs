@@ -29,19 +29,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The full name of the BackupPlan resource. Format: `projects/*/locations/*/backupPlans/*` |
 | `description` | `string` | Optional. User specified descriptive string for this BackupPlan. |
-| `updateTime` | `string` | Output only. The timestamp when this BackupPlan resource was last updated. |
-| `stateReason` | `string` | Output only. Human-readable description of why BackupPlan is in the current `state` |
-| `backupSchedule` | `object` | Defines scheduling parameters for automatically creating Backups via this BackupPlan. |
 | `labels` | `object` | Optional. A set of custom labels supplied by user. |
-| `retentionPolicy` | `object` | RetentionPolicy defines a Backup retention policy for a BackupPlan. |
-| `etag` | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a backup plan from overwriting each other. It is strongly suggested that systems make use of the 'etag' in the read-modify-write cycle to perform BackupPlan updates in order to avoid race conditions: An `etag` is returned in the response to `GetBackupPlan`, and systems are expected to put that etag in the request to `UpdateBackupPlan` or `DeleteBackupPlan` to ensure that their change will be applied to the same version of the resource. |
+| `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
+| `backupSchedule` | `object` | Defines scheduling parameters for automatically creating Backups via this BackupPlan. |
+| `cluster` | `string` | Required. Immutable. The source cluster from which Backups will be created via this BackupPlan. Valid formats: - `projects/*/locations/*/clusters/*` - `projects/*/zones/*/clusters/*` |
 | `protectedPodCount` | `integer` | Output only. The number of Kubernetes Pods backed up in the last successful Backup created via this BackupPlan. |
 | `state` | `string` | Output only. State of the BackupPlan. This State field reflects the various stages a BackupPlan can be in during the Create operation. It will be set to "DEACTIVATED" if the BackupPlan is deactivated on an Update |
-| `cluster` | `string` | Required. Immutable. The source cluster from which Backups will be created via this BackupPlan. Valid formats: - `projects/*/locations/*/clusters/*` - `projects/*/zones/*/clusters/*` |
-| `uid` | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
 | `backupConfig` | `object` | BackupConfig defines the configuration of Backups created via this BackupPlan. |
-| `createTime` | `string` | Output only. The timestamp when this BackupPlan resource was created. |
+| `etag` | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a backup plan from overwriting each other. It is strongly suggested that systems make use of the 'etag' in the read-modify-write cycle to perform BackupPlan updates in order to avoid race conditions: An `etag` is returned in the response to `GetBackupPlan`, and systems are expected to put that etag in the request to `UpdateBackupPlan` or `DeleteBackupPlan` to ensure that their change will be applied to the same version of the resource. |
 | `deactivated` | `boolean` | Optional. This flag indicates whether this BackupPlan has been deactivated. Setting this field to True locks the BackupPlan such that no further updates will be allowed (except deletes), including the deactivated field itself. It also prevents any new Backups from being created via this BackupPlan (including scheduled Backups). Default: False |
+| `retentionPolicy` | `object` | RetentionPolicy defines a Backup retention policy for a BackupPlan. |
+| `createTime` | `string` | Output only. The timestamp when this BackupPlan resource was created. |
+| `stateReason` | `string` | Output only. Human-readable description of why BackupPlan is in the current `state` |
+| `updateTime` | `string` | Output only. The timestamp when this BackupPlan resource was last updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

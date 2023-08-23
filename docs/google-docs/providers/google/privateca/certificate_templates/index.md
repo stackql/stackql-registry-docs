@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name for this CertificateTemplate in the format `projects/*/locations/*/certificateTemplates/*`. |
 | `description` | `string` | Optional. A human-readable description of scenarios this template is intended for. |
-| `passthroughExtensions` | `object` | Describes a set of X.509 extensions that may be part of some certificate issuance controls. |
-| `predefinedValues` | `object` | An X509Parameters is used to describe certain fields of an X.509 certificate, such as the key usage fields, fields specific to CA certificates, certificate policy extensions and custom extensions. |
 | `updateTime` | `string` | Output only. The time at which this CertificateTemplate was updated. |
 | `createTime` | `string` | Output only. The time at which this CertificateTemplate was created. |
 | `identityConstraints` | `object` | Describes constraints on a Certificate's Subject and SubjectAltNames. |
 | `labels` | `object` | Optional. Labels with user-defined metadata. |
+| `passthroughExtensions` | `object` | Describes a set of X.509 extensions that may be part of some certificate issuance controls. |
+| `predefinedValues` | `object` | An X509Parameters is used to describe certain fields of an X.509 certificate, such as the key usage fields, fields specific to CA certificates, certificate policy extensions and custom extensions. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

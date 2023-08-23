@@ -27,13 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `name` | `string` | Output only. The unique resource name of the Backup. Format is `projects/&#123;project&#125;/locations/&#123;location&#125;/backups/&#123;backup&#125;`. |
-| `expireTime` | `string` | Output only. The timestamp at which this backup expires. |
-| `snapshotTime` | `string` | Output only. The backup contains an externally consistent copy of the database at this time. |
-| `state` | `string` | Output only. The current state of the backup. |
-| `stats` | `object` | Backup specific statistics. |
-| `database` | `string` | Output only. Name of the Firestore database that the backup is from. Format is `projects/&#123;project&#125;/databases/&#123;database&#125;`. |
-| `databaseUid` | `string` | Output only. The system-generated UUID4 for the Firestore database that the backup is from. |
+| `backups` | `array` | List of all backups for the project. Ordered by `location ASC, create_time DESC, name ASC`. |
+| `unreachable` | `array` | List of locations that existing backups were not able to be fetched from. Instead of failing the entire requests when a single location is unreachable, this response returns a partial result set and list of locations unable to be reached here. The request can be retried against a single location to get a concrete error. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,20 +28,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Optional. Name of the `JobRun`. Format is projects/&#123;project&#125;/locations/&#123;location&#125;/ deliveryPipelines/&#123;deliveryPipeline&#125;/releases/&#123;releases&#125;/rollouts/ &#123;rollouts&#125;/jobRuns/&#123;uuid&#125;. |
-| `etag` | `string` | Output only. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
-| `verifyJobRun` | `object` | VerifyJobRun contains information specific to a verify `JobRun`. |
 | `createChildRolloutJobRun` | `object` | CreateChildRolloutJobRun contains information specific to a createChildRollout `JobRun`. |
-| `phaseId` | `string` | Output only. ID of the `Rollout` phase this `JobRun` belongs in. |
-| `uid` | `string` | Output only. Unique identifier of the `JobRun`. |
-| `predeployJobRun` | `object` | PredeployJobRun contains information specific to a predeploy `JobRun`. |
-| `deployJobRun` | `object` | DeployJobRun contains information specific to a deploy `JobRun`. |
-| `postdeployJobRun` | `object` | PostdeployJobRun contains information specific to a postdeploy `JobRun`. |
-| `createTime` | `string` | Output only. Time at which the `JobRun` was created. |
 | `startTime` | `string` | Output only. Time at which the `JobRun` was started. |
-| `endTime` | `string` | Output only. Time at which the `JobRun` ended. |
+| `predeployJobRun` | `object` | PredeployJobRun contains information specific to a predeploy `JobRun`. |
+| `verifyJobRun` | `object` | VerifyJobRun contains information specific to a verify `JobRun`. |
 | `state` | `string` | Output only. The current state of the `JobRun`. |
 | `jobId` | `string` | Output only. ID of the `Rollout` job this `JobRun` corresponds to. |
+| `uid` | `string` | Output only. Unique identifier of the `JobRun`. |
+| `postdeployJobRun` | `object` | PostdeployJobRun contains information specific to a postdeploy `JobRun`. |
+| `createTime` | `string` | Output only. Time at which the `JobRun` was created. |
+| `deployJobRun` | `object` | DeployJobRun contains information specific to a deploy `JobRun`. |
+| `endTime` | `string` | Output only. Time at which the `JobRun` ended. |
 | `advanceChildRolloutJobRun` | `object` | AdvanceChildRolloutJobRun contains information specific to a advanceChildRollout `JobRun`. |
+| `phaseId` | `string` | Output only. ID of the `Rollout` phase this `JobRun` belongs in. |
+| `etag` | `string` | Output only. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

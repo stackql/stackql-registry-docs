@@ -27,11 +27,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `tier` | `string` | An identifier for the machine type, for example, `db-custom-1-3840`. For related information, see [Pricing](/sql/pricing). |
 | `DiskQuota` | `string` | The maximum disk size of this tier in bytes. |
 | `RAM` | `string` | The maximum RAM usage of this tier in bytes. |
 | `kind` | `string` | This is always `sql#tier`. |
 | `region` | `array` | The applicable regions for this tier. |
-| `tier` | `string` | An identifier for the machine type, for example, `db-custom-1-3840`. For related information, see [Pricing](/sql/pricing). |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

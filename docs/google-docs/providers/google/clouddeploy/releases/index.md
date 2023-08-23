@@ -29,25 +29,25 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Optional. Name of the `Release`. Format is projects/&#123;project&#125;/ locations/&#123;location&#125;/deliveryPipelines/&#123;deliveryPipeline&#125;/ releases/a-z&#123;0,62&#125;. |
 | `description` | `string` | Description of the `Release`. Max length is 255 characters. |
+| `renderStartTime` | `string` | Output only. Time at which the render began. |
+| `targetArtifacts` | `object` | Output only. Map from target ID to the target artifacts created during the render operation. |
 | `abandoned` | `boolean` | Output only. Indicates whether this is an abandoned release. |
+| `buildArtifacts` | `array` | List of artifacts to pass through to Skaffold command. |
+| `deployParameters` | `object` | Optional. The deploy parameters to use for all targets in this release. |
+| `deliveryPipelineSnapshot` | `object` | A `DeliveryPipeline` resource in the Cloud Deploy API. A `DeliveryPipeline` defines a pipeline through which a Skaffold configuration can progress. |
+| `renderEndTime` | `string` | Output only. Time at which the render completed. |
+| `skaffoldConfigUri` | `string` | Cloud Storage URI of tar.gz archive containing Skaffold configuration. |
+| `createTime` | `string` | Output only. Time at which the `Release` was created. |
+| `skaffoldConfigPath` | `string` | Filepath of the Skaffold config inside of the config URI. |
+| `targetRenders` | `object` | Output only. Map from target ID to details of the render operation for that target. |
+| `renderState` | `string` | Output only. Current state of the render operation. |
+| `labels` | `object` | Labels are attributes that can be set and used by both the user and by Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be &lt;= 128 bytes. |
+| `uid` | `string` | Output only. Unique identifier of the `Release`. |
 | `condition` | `object` | ReleaseCondition contains all conditions relevant to a Release. |
 | `annotations` | `object` | User annotations. These attributes can only be set and used by the user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and size limitations. |
-| `buildArtifacts` | `array` | List of artifacts to pass through to Skaffold command. |
-| `uid` | `string` | Output only. Unique identifier of the `Release`. |
-| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
-| `targetArtifacts` | `object` | Output only. Map from target ID to the target artifacts created during the render operation. |
-| `renderEndTime` | `string` | Output only. Time at which the render completed. |
-| `createTime` | `string` | Output only. Time at which the `Release` was created. |
-| `deliveryPipelineSnapshot` | `object` | A `DeliveryPipeline` resource in the Cloud Deploy API. A `DeliveryPipeline` defines a pipeline through which a Skaffold configuration can progress. |
-| `skaffoldVersion` | `string` | The Skaffold version to use when operating on this release, such as "1.20.0". Not all versions are valid; Cloud Deploy supports a specific set of versions. If unset, the most recent supported Skaffold version will be used. |
-| `deployParameters` | `object` | Optional. The deploy parameters to use for all targets in this release. |
-| `skaffoldConfigUri` | `string` | Cloud Storage URI of tar.gz archive containing Skaffold configuration. |
 | `targetSnapshots` | `array` | Output only. Snapshot of the targets taken at release creation time. |
-| `labels` | `object` | Labels are attributes that can be set and used by both the user and by Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be &lt;= 128 bytes. |
-| `renderState` | `string` | Output only. Current state of the render operation. |
-| `skaffoldConfigPath` | `string` | Filepath of the Skaffold config inside of the config URI. |
-| `renderStartTime` | `string` | Output only. Time at which the render began. |
-| `targetRenders` | `object` | Output only. Map from target ID to details of the render operation for that target. |
+| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
+| `skaffoldVersion` | `string` | The Skaffold version to use when operating on this release, such as "1.20.0". Not all versions are valid; Cloud Deploy supports a specific set of versions. If unset, the most recent supported Skaffold version will be used. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
