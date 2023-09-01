@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the `WorkerPool`, with format `projects/&#123;project&#125;/locations/&#123;location&#125;/workerPools/&#123;worker_pool&#125;`. The value of `&#123;worker_pool&#125;` is provided by `worker_pool_id` in `CreateWorkerPool` request and the value of `&#123;location&#125;` is determined by the endpoint accessed. |
-| `updateTime` | `string` | Output only. Time at which the request to update the `WorkerPool` was received. |
+| `createTime` | `string` | Output only. Time at which the request to create the `WorkerPool` was received. |
+| `deleteTime` | `string` | Output only. Time at which the request to delete the `WorkerPool` was received. |
 | `displayName` | `string` | A user-specified, human-readable name for the `WorkerPool`. If provided, this value must be 1-63 characters. |
+| `etag` | `string` | Output only. Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. |
 | `privatePoolV1Config` | `object` | Configuration for a V1 `PrivatePool`. |
 | `annotations` | `object` | User specified annotations. See https://google.aip.dev/128#annotations for more details such as format and size limitations. |
-| `etag` | `string` | Output only. Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. |
-| `state` | `string` | Output only. `WorkerPool` state. |
-| `deleteTime` | `string` | Output only. Time at which the request to delete the `WorkerPool` was received. |
 | `uid` | `string` | Output only. A unique identifier for the `WorkerPool`. |
-| `createTime` | `string` | Output only. Time at which the request to create the `WorkerPool` was received. |
+| `state` | `string` | Output only. `WorkerPool` state. |
+| `updateTime` | `string` | Output only. Time at which the request to update the `WorkerPool` was received. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

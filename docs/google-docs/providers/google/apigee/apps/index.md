@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. Name of the AppGroup app whose resource name format is of syntax (organizations/*/appgroups/*/apps/*). |
-| `apiProducts` | `array` | List of API products associated with the AppGroup app. |
-| `keyExpiresIn` | `string` | Immutable. Expiration time, in seconds, for the consumer key that is generated for the AppGroup app. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
-| `status` | `string` | Status of the App. Valid values include `approved` or `revoked`. |
 | `callbackUrl` | `string` | Callback URL used by OAuth 2.0 authorization servers to communicate authorization codes back to AppGroup apps. |
 | `credentials` | `array` | Output only. Set of credentials for the AppGroup app consisting of the consumer key/secret pairs associated with the API products. |
+| `status` | `string` | Status of the App. Valid values include `approved` or `revoked`. |
 | `appGroup` | `string` | Immutable. Name of the parent AppGroup whose resource name format is of syntax (organizations/*/appgroups/*). |
-| `attributes` | `array` | List of attributes for the AppGroup app. |
-| `createdAt` | `string` | Output only. Time the AppGroup app was created in milliseconds since epoch. |
 | `scopes` | `array` | Scopes to apply to the AppGroup app. The specified scopes must already exist for the API product that you associate with the AppGroup app. |
+| `keyExpiresIn` | `string` | Immutable. Expiration time, in seconds, for the consumer key that is generated for the AppGroup app. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
+| `createdAt` | `string` | Output only. Time the AppGroup app was created in milliseconds since epoch. |
 | `appId` | `string` | Immutable. ID of the AppGroup app. |
+| `attributes` | `array` | List of attributes for the AppGroup app. |
 | `lastModifiedAt` | `string` | Output only. Time the AppGroup app was modified in milliseconds since epoch. |
+| `apiProducts` | `array` | List of API products associated with the AppGroup app. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

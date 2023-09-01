@@ -27,8 +27,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `latestRecoveryTime` | `string` | Timestamp, identifies the latest recovery time of the source instance. |
 | `kind` | `string` | This is always `sql#getLatestRecoveryTime`. |
+| `latestRecoveryTime` | `string` | Timestamp, identifies the latest recovery time of the source instance. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

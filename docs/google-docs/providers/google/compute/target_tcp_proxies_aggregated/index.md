@@ -33,10 +33,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `region` | `string` | [Output Only] URL of the region where the regional TCP proxy resides. This field is not applicable to global TCP proxy. |
 | `proxyHeader` | `string` | Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. |
 | `creationTimestamp` | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
-| `proxyBind` | `boolean` | This field only applies when the forwarding rule that references this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED. When this field is set to true, Envoy proxies set up inbound traffic interception and bind to the IP address and port specified in the forwarding rule. This is generally useful when using Traffic Director to configure Envoy as a gateway or middle proxy (in other words, not a sidecar proxy). The Envoy proxy listens for inbound requests and handles requests when it receives them. The default is false. |
+| `kind` | `string` | [Output Only] Type of the resource. Always compute#targetTcpProxy for target TCP proxies. |
 | `service` | `string` | URL to the BackendService resource. |
 | `selfLink` | `string` | [Output Only] Server-defined URL for the resource. |
-| `kind` | `string` | [Output Only] Type of the resource. Always compute#targetTcpProxy for target TCP proxies. |
+| `proxyBind` | `boolean` | This field only applies when the forwarding rule that references this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED. When this field is set to true, Envoy proxies set up inbound traffic interception and bind to the IP address and port specified in the forwarding rule. This is generally useful when using Traffic Director to configure Envoy as a gateway or middle proxy (in other words, not a sidecar proxy). The Envoy proxy listens for inbound requests and handles requests when it receives them. The default is false. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

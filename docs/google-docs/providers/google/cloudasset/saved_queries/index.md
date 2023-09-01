@@ -29,18 +29,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name of the saved query. The format must be: * projects/project_number/savedQueries/saved_query_id * folders/folder_number/savedQueries/saved_query_id * organizations/organization_number/savedQueries/saved_query_id |
 | `description` | `string` | The description of this saved query. This value should be fewer than 255 characters. |
-| `createTime` | `string` | Output only. The create time of this saved query. |
-| `creator` | `string` | Output only. The account's email address who has created this saved query. |
 | `labels` | `object` | Labels applied on the resource. This value should not contain more than 10 entries. The key and value of each entry must be non-empty and fewer than 64 characters. |
 | `lastUpdateTime` | `string` | Output only. The last update time of this saved query. |
 | `lastUpdater` | `string` | Output only. The account's email address who has updated this saved query most recently. |
 | `content` | `object` | The query content. |
+| `createTime` | `string` | Output only. The create time of this saved query. |
+| `creator` | `string` | Output only. The account's email address who has created this saved query. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `name` | Gets details about a saved query. |
 | `list` | `SELECT` | `parent, parentType` | Lists all saved queries in a parent project/folder/organization. |
 | `create` | `INSERT` | `parent, parentType` | Creates a saved query in a parent project/folder/organization. |
-| `delete` | `DELETE` | `name` | Deletes a saved query. |
 | `_list` | `EXEC` | `parent, parentType` | Lists all saved queries in a parent project/folder/organization. |
-| `patch` | `EXEC` | `name` | Updates a saved query. |

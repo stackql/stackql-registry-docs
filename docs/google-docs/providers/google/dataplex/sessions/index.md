@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the content, of the form: projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/environment/&#123;environment_id&#125;/sessions/&#123;session_id&#125; |
+| `createTime` | `string` | Output only. Session start time. |
 | `state` | `string` | Output only. State of Session |
 | `userId` | `string` | Output only. Email of user running the session. |
-| `createTime` | `string` | Output only. Session start time. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

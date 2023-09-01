@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The full, unique resource name of this fleet in the format of `projects/&#123;project&#125;/locations/&#123;location&#125;/fleets/&#123;fleet&#125;`. Each Google Cloud project can have at most one fleet resource, named "default". |
+| `createTime` | `string` | Output only. When the Fleet was created. |
+| `deleteTime` | `string` | Output only. When the Fleet was deleted. |
+| `displayName` | `string` | Optional. A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point. Example: `Production Fleet` |
 | `labels` | `object` | Optional. Labels for this Fleet. |
 | `state` | `object` | FleetLifecycleState describes the state of a Fleet resource. |
 | `uid` | `string` | Output only. Google-generated UUID for this resource. This is unique across all Fleet resources. If a Fleet resource is deleted and another resource with the same name is created, it gets a different uid. |
 | `updateTime` | `string` | Output only. When the Fleet was last updated. |
-| `createTime` | `string` | Output only. When the Fleet was created. |
-| `deleteTime` | `string` | Output only. When the Fleet was deleted. |
-| `displayName` | `string` | Optional. A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point. Example: `Production Fleet` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

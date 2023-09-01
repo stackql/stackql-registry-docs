@@ -33,7 +33,7 @@ Groups And Counts Similar Errors From Cloud Services And Applications, Reports N
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Error Reporting API</td></tr>
 <tr><td><b>Description</b></td><td>Groups And Counts Similar Errors From Cloud Services And Applications, Reports New Errors, And Provides Access To Error Groups And Their Associated Errors. </td></tr>
-<tr><td><b>Id</b></td><td><code>clouderrorreporting:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>clouderrorreporting:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -29,9 +29,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the resource provided by the user. Name is of the form projects/&#123;project&#125;/locations/&#123;location&#125;/urlLists/&#123;url_list&#125; url_list should match the pattern:(^[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?$). |
 | `description` | `string` | Optional. Free-text description of the resource. |
+| `createTime` | `string` | Output only. Time when the security policy was created. |
 | `updateTime` | `string` | Output only. Time when the security policy was updated. |
 | `values` | `array` | Required. FQDNs and URLs. |
-| `createTime` | `string` | Output only. Time when the security policy was created. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

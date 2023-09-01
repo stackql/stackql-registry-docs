@@ -33,7 +33,7 @@ Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Dataproc API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataproc:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dataproc:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

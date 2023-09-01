@@ -30,15 +30,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Output only. The relative resource name of the dataAttribute, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/dataTaxonomies/&#123;dataTaxonomy&#125;/attributes/&#123;data_attribute_id&#125;. |
 | `description` | `string` | Optional. Description of the DataAttribute. |
 | `uid` | `string` | Output only. System generated globally unique ID for the DataAttribute. This ID will be different if the DataAttribute is deleted and re-created with the same name. |
-| `resourceAccessSpec` | `object` | ResourceAccessSpec holds the access control configuration to be enforced on the resources, for example, Cloud Storage bucket, BigQuery dataset, BigQuery table. |
 | `attributeCount` | `integer` | Output only. The number of child attributes present for this attribute. |
-| `parentId` | `string` | Optional. The ID of the parent DataAttribute resource, should belong to the same data taxonomy. Circular dependency in parent chain is not valid. Maximum depth of the hierarchy allowed is 4. a -&gt; b -&gt; c -&gt; d -&gt; e, depth = 4 |
-| `createTime` | `string` | Output only. The time when the DataAttribute was created. |
-| `dataAccessSpec` | `object` | DataAccessSpec holds the access control configuration to be enforced on data stored within resources (eg: rows, columns in BigQuery Tables). When associated with data, the data is only accessible to principals explicitly granted access through the DataAccessSpec. Principals with access to the containing resource are not implicitly granted access. |
 | `updateTime` | `string` | Output only. The time when the DataAttribute was last updated. |
-| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
-| `displayName` | `string` | Optional. User friendly display name. |
+| `dataAccessSpec` | `object` | DataAccessSpec holds the access control configuration to be enforced on data stored within resources (eg: rows, columns in BigQuery Tables). When associated with data, the data is only accessible to principals explicitly granted access through the DataAccessSpec. Principals with access to the containing resource are not implicitly granted access. |
+| `createTime` | `string` | Output only. The time when the DataAttribute was created. |
+| `parentId` | `string` | Optional. The ID of the parent DataAttribute resource, should belong to the same data taxonomy. Circular dependency in parent chain is not valid. Maximum depth of the hierarchy allowed is 4. a -&gt; b -&gt; c -&gt; d -&gt; e, depth = 4 |
 | `labels` | `object` | Optional. User-defined labels for the DataAttribute. |
+| `resourceAccessSpec` | `object` | ResourceAccessSpec holds the access control configuration to be enforced on the resources, for example, Cloud Storage bucket, BigQuery dataset, BigQuery table. |
+| `displayName` | `string` | Optional. User friendly display name. |
+| `etag` | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

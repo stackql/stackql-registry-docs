@@ -28,26 +28,26 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The relative resource name of the metastore service, in the following format:projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/services/&#123;service_id&#125;. |
-| `telemetryConfig` | `object` | Telemetry Configuration for the Dataproc Metastore service. |
-| `releaseChannel` | `string` | Immutable. The release channel of the service. If unspecified, defaults to STABLE. |
-| `scalingConfig` | `object` | Represents the scaling configuration of a metastore service. |
-| `endpointUri` | `string` | Output only. The URI of the endpoint used to access the metastore service. |
-| `port` | `integer` | The TCP port at which the metastore service is reached. Default: 9083. |
-| `hiveMetastoreConfig` | `object` | Specifies configuration information specific to running Hive metastore software as the metastore service. |
-| `databaseType` | `string` | Immutable. The database type that the Metastore service stores its data. |
-| `uid` | `string` | Output only. The globally unique resource identifier of the metastore service. |
-| `labels` | `object` | User-defined labels for the metastore service. |
-| `metadataManagementActivity` | `object` | The metadata management activities of the metastore service. |
-| `artifactGcsUri` | `string` | Output only. A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored. |
-| `maintenanceWindow` | `object` | Maintenance window. This specifies when Dataproc Metastore may perform system maintenance operation to the service. |
-| `tier` | `string` | The tier of the service. |
-| `network` | `string` | Immutable. The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:projects/&#123;project_number&#125;/global/networks/&#123;network_id&#125;. |
-| `networkConfig` | `object` | Network configuration for the Dataproc Metastore service.Next available ID: 4 |
-| `createTime` | `string` | Output only. The time when the metastore service was created. |
-| `encryptionConfig` | `object` | Encryption settings for the service. |
-| `updateTime` | `string` | Output only. The time when the metastore service was last updated. |
 | `stateMessage` | `string` | Output only. Additional information about the current state of the metastore service, if available. |
+| `encryptionConfig` | `object` | Encryption settings for the service. |
+| `createTime` | `string` | Output only. The time when the metastore service was created. |
+| `databaseType` | `string` | Immutable. The database type that the Metastore service stores its data. |
+| `port` | `integer` | The TCP port at which the metastore service is reached. Default: 9083. |
+| `artifactGcsUri` | `string` | Output only. A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored. |
+| `network` | `string` | Immutable. The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:projects/&#123;project_number&#125;/global/networks/&#123;network_id&#125;. |
+| `maintenanceWindow` | `object` | Maintenance window. This specifies when Dataproc Metastore may perform system maintenance operation to the service. |
+| `networkConfig` | `object` | Network configuration for the Dataproc Metastore service.Next available ID: 4 |
 | `state` | `string` | Output only. The current state of the metastore service. |
+| `uid` | `string` | Output only. The globally unique resource identifier of the metastore service. |
+| `endpointUri` | `string` | Output only. The URI of the endpoint used to access the metastore service. |
+| `telemetryConfig` | `object` | Telemetry Configuration for the Dataproc Metastore service. |
+| `updateTime` | `string` | Output only. The time when the metastore service was last updated. |
+| `labels` | `object` | User-defined labels for the metastore service. |
+| `tier` | `string` | The tier of the service. |
+| `releaseChannel` | `string` | Immutable. The release channel of the service. If unspecified, defaults to STABLE. |
+| `metadataManagementActivity` | `object` | The metadata management activities of the metastore service. |
+| `hiveMetastoreConfig` | `object` | Specifies configuration information specific to running Hive metastore software as the metastore service. |
+| `scalingConfig` | `object` | Represents the scaling configuration of a metastore service. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

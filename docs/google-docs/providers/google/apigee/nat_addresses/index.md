@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Resource ID of the NAT address. |
-| `state` | `string` | Output only. State of the nat address. |
 | `ipAddress` | `string` | Output only. The static IPV4 address. |
+| `state` | `string` | Output only. State of the nat address. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

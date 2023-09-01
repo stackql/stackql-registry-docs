@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The unique identifier of the changelog. Format: `projects//locations//agents//changelogs/`. |
-| `action` | `string` | The action of the change. |
 | `createTime` | `string` | The timestamp of the change. |
 | `displayName` | `string` | The affected resource display name of the change. |
 | `resource` | `string` | The affected resource name of the change. |
 | `type` | `string` | The affected resource type. |
 | `userEmail` | `string` | Email address of the authenticated user. |
+| `action` | `string` | The action of the change. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,21 +29,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the repository, for example: "projects/p1/locations/us-central1/repositories/repo1". |
 | `description` | `string` | The user-provided description of the repository. |
-| `cleanupPolicies` | `object` | Optional. Cleanup policies for this repository. Cleanup policies indicate when certain package versions can be automatically deleted. Map keys are policy IDs supplied by users during policy creation. They must unique within a repository and be under 128 characters in length. |
 | `virtualRepositoryConfig` | `object` | Virtual repository configuration. |
-| `sbomConfig` | `object` | Config for whether to generate SBOMs for resources in this repository, as well as output fields describing current state. |
-| `sizeBytes` | `string` | Output only. The size, in bytes, of all artifact storage in this repository. Repositories that are generally available or in public preview use this to calculate storage costs. |
 | `updateTime` | `string` | Output only. The time when the repository was last updated. |
-| `labels` | `object` | Labels with user-defined metadata. This field may contain up to 64 entries. Label keys and values may be no longer than 63 characters. Label keys must begin with a lowercase letter and may only contain lowercase letters, numeric characters, underscores, and dashes. |
-| `mavenConfig` | `object` | MavenRepositoryConfig is maven related repository details. Provides additional configuration details for repositories of the maven format type. |
 | `mode` | `string` | The mode of the repository. |
-| `cleanupPolicyDryRun` | `boolean` | Optional. If true, the cleanup pipeline is prevented from deleting versions in this repository. |
-| `format` | `string` | The format of packages that are stored in the repository. |
 | `kmsKeyName` | `string` | The Cloud KMS resource name of the customer managed encryption key that's used to encrypt the contents of the Repository. Has the form: `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`. This value may not be changed after the Repository has been created. |
-| `dockerConfig` | `object` | DockerRepositoryConfig is docker related repository details. Provides additional configuration details for repositories of the docker format type. |
-| `createTime` | `string` | Output only. The time when the repository was created. |
-| `satisfiesPzs` | `boolean` | Output only. If set, the repository satisfies physical zone separation. |
 | `remoteRepositoryConfig` | `object` | Remote repository configuration. |
+| `format` | `string` | The format of packages that are stored in the repository. |
+| `dockerConfig` | `object` | DockerRepositoryConfig is docker related repository details. Provides additional configuration details for repositories of the docker format type. |
+| `mavenConfig` | `object` | MavenRepositoryConfig is maven related repository details. Provides additional configuration details for repositories of the maven format type. |
+| `createTime` | `string` | Output only. The time when the repository was created. |
+| `sbomConfig` | `object` | Config for whether to generate SBOMs for resources in this repository, as well as output fields describing current state. |
+| `cleanupPolicies` | `object` | Optional. Cleanup policies for this repository. Cleanup policies indicate when certain package versions can be automatically deleted. Map keys are policy IDs supplied by users during policy creation. They must unique within a repository and be under 128 characters in length. |
+| `satisfiesPzs` | `boolean` | Output only. If set, the repository satisfies physical zone separation. |
+| `sizeBytes` | `string` | Output only. The size, in bytes, of all artifact storage in this repository. Repositories that are generally available or in public preview use this to calculate storage costs. |
+| `cleanupPolicyDryRun` | `boolean` | Optional. If true, the cleanup pipeline is prevented from deleting versions in this repository. |
+| `labels` | `object` | Labels with user-defined metadata. This field may contain up to 64 entries. Label keys and values may be no longer than 63 characters. Label keys must begin with a lowercase letter and may only contain lowercase letters, numeric characters, underscores, and dashes. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

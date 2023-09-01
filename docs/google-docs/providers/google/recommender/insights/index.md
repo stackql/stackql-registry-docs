@@ -29,15 +29,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Name of the insight. |
 | `description` | `string` | Free-form human readable summary in English. The maximum length is 500 characters. |
-| `targetResources` | `array` | Fully qualified resource names that this insight is targeting. |
-| `observationPeriod` | `string` | Observation period that led to the insight. The source data used to generate the insight ends at last_refresh_time and begins at (last_refresh_time - observation_period). |
-| `associatedRecommendations` | `array` | Recommendations derived from this insight. |
-| `etag` | `string` | Fingerprint of the Insight. Provides optimistic locking when updating states. |
 | `lastRefreshTime` | `string` | Timestamp of the latest data used to generate the insight. |
+| `targetResources` | `array` | Fully qualified resource names that this insight is targeting. |
 | `content` | `object` | A struct of custom fields to explain the insight. Example: "grantedPermissionsCount": "1000" |
-| `insightSubtype` | `string` | Insight subtype. Insight content schema will be stable for a given subtype. |
+| `etag` | `string` | Fingerprint of the Insight. Provides optimistic locking when updating states. |
 | `stateInfo` | `object` | Information related to insight state. |
+| `associatedRecommendations` | `array` | Recommendations derived from this insight. |
 | `category` | `string` | Category being targeted by the insight. |
+| `insightSubtype` | `string` | Insight subtype. Insight content schema will be stable for a given subtype. |
+| `observationPeriod` | `string` | Observation period that led to the insight. The source data used to generate the insight ends at last_refresh_time and begins at (last_refresh_time - observation_period). |
 | `severity` | `string` | Insight's severity. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

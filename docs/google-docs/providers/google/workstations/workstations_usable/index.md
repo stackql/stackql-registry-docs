@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Full name of this workstation. |
+| `reconciling` | `boolean` | Output only. Indicates whether this workstation is currently being updated to match its intended state. |
+| `host` | `string` | Output only. Host to which clients can send HTTPS traffic that will be received by the workstation. Authorized traffic will be received to the workstation as HTTP on port 80. To send traffic to a different port, clients may prefix the host with the destination port in the format `&#123;port&#125;-&#123;host&#125;`. |
+| `deleteTime` | `string` | Output only. Time when this workstation was soft-deleted. |
 | `createTime` | `string` | Output only. Time when this workstation was created. |
 | `state` | `string` | Output only. Current state of the workstation. |
 | `env` | `object` | Optional. Environment variables passed to the workstation container's entrypoint. |
-| `reconciling` | `boolean` | Output only. Indicates whether this workstation is currently being updated to match its intended state. |
-| `host` | `string` | Output only. Host to which clients can send HTTPS traffic that will be received by the workstation. Authorized traffic will be received to the workstation as HTTP on port 80. To send traffic to a different port, clients may prefix the host with the destination port in the format `&#123;port&#125;-&#123;host&#125;`. |
-| `updateTime` | `string` | Output only. Time when this workstation was most recently updated. |
 | `displayName` | `string` | Optional. Human-readable name for this workstation. |
+| `updateTime` | `string` | Output only. Time when this workstation was most recently updated. |
+| `etag` | `string` | Optional. Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
+| `uid` | `string` | Output only. A system-assigned unique identifier for this workstation. |
 | `labels` | `object` | Optional. [Labels](https://cloud.google.com/workstations/docs/label-resources) that are applied to the workstation and that are also propagated to the underlying Compute Engine resources. |
 | `annotations` | `object` | Optional. Client-specified annotations. |
-| `deleteTime` | `string` | Output only. Time when this workstation was soft-deleted. |
-| `uid` | `string` | Output only. A system-assigned unique identifier for this workstation. |
-| `etag` | `string` | Optional. Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

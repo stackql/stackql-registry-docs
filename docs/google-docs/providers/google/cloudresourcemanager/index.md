@@ -33,7 +33,7 @@ Creates, Reads, And Updates Metadata For Google Cloud Platform Resource Containe
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Resource Manager API</td></tr>
 <tr><td><b>Description</b></td><td>Creates, Reads, And Updates Metadata For Google Cloud Platform Resource Containers.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudresourcemanager:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudresourcemanager:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

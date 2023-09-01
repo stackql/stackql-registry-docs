@@ -33,7 +33,7 @@ Workload Manager Is A Service That Provides Tooling For Enterprise Workloads To 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Workload Manager API</td></tr>
 <tr><td><b>Description</b></td><td>Workload Manager Is A Service That Provides Tooling For Enterprise Workloads To Automate The Deployment And Validation Of Your Workloads Against Best Practices And Recommendations.</td></tr>
-<tr><td><b>Id</b></td><td><code>workloadmanager:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>workloadmanager:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

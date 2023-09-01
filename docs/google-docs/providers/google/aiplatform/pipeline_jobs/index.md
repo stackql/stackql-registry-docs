@@ -28,24 +28,24 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the PipelineJob. |
-| `startTime` | `string` | Output only. Pipeline start time. |
-| `state` | `string` | Output only. The detailed state of the job. |
-| `serviceAccount` | `string` | The service account that the pipeline workload runs as. If not specified, the Compute Engine default service account in the project will be used. See https://cloud.google.com/compute/docs/access/service-accounts#default_service_account Users starting the pipeline must have the `iam.serviceAccounts.actAs` permission on this service account. |
-| `encryptionSpec` | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
+| `runtimeConfig` | `object` | The runtime config of a PipelineJob. |
+| `displayName` | `string` | The display name of the Pipeline. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
 | `pipelineSpec` | `object` | The spec of the pipeline. |
-| `templateMetadata` | `object` | Pipeline template metadata if PipelineJob.template_uri is from supported template registry. Currently, the only supported registry is Artifact Registry. |
-| `templateUri` | `string` | A template uri from where the PipelineJob.pipeline_spec, if empty, will be downloaded. |
+| `updateTime` | `string` | Output only. Timestamp when this PipelineJob was most recently updated. |
+| `state` | `string` | Output only. The detailed state of the job. |
 | `labels` | `object` | The labels with user-defined metadata to organize PipelineJob. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. Note there is some reserved label key for Vertex AI Pipelines. - `vertex-ai-pipelines-run-billing-id`, user set value will get overrided. |
+| `reservedIpRanges` | `array` | A list of names for the reserved ip ranges under the VPC network that can be used for this Pipeline Job's workload. If set, we will deploy the Pipeline Job's workload within the provided ip ranges. Otherwise, the job will be deployed to any ip ranges under the provided VPC network. Example: ['vertex-ai-ip-range']. |
+| `endTime` | `string` | Output only. Pipeline end time. |
+| `scheduleName` | `string` | Output only. The schedule resource name. Only returned if the Pipeline is created by Schedule API. |
+| `startTime` | `string` | Output only. Pipeline start time. |
+| `templateUri` | `string` | A template uri from where the PipelineJob.pipeline_spec, if empty, will be downloaded. |
+| `serviceAccount` | `string` | The service account that the pipeline workload runs as. If not specified, the Compute Engine default service account in the project will be used. See https://cloud.google.com/compute/docs/access/service-accounts#default_service_account Users starting the pipeline must have the `iam.serviceAccounts.actAs` permission on this service account. |
 | `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
 | `jobDetail` | `object` | The runtime detail of PipelineJob. |
-| `scheduleName` | `string` | Output only. The schedule resource name. Only returned if the Pipeline is created by Schedule API. |
-| `reservedIpRanges` | `array` | A list of names for the reserved ip ranges under the VPC network that can be used for this Pipeline Job's workload. If set, we will deploy the Pipeline Job's workload within the provided ip ranges. Otherwise, the job will be deployed to any ip ranges under the provided VPC network. Example: ['vertex-ai-ip-range']. |
+| `templateMetadata` | `object` | Pipeline template metadata if PipelineJob.template_uri is from supported template registry. Currently, the only supported registry is Artifact Registry. |
+| `encryptionSpec` | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
 | `createTime` | `string` | Output only. Pipeline creation time. |
-| `runtimeConfig` | `object` | The runtime config of a PipelineJob. |
-| `updateTime` | `string` | Output only. Timestamp when this PipelineJob was most recently updated. |
-| `endTime` | `string` | Output only. Pipeline end time. |
 | `network` | `string` | The full name of the Compute Engine [network](/compute/docs/networks-and-firewalls#networks) to which the Pipeline Job's workload should be peered. For example, `projects/12345/global/networks/myVPC`. [Format](/compute/docs/reference/rest/v1/networks/insert) is of the form `projects/&#123;project&#125;/global/networks/&#123;network&#125;`. Where &#123;project&#125; is a project number, as in `12345`, and &#123;network&#125; is a network name. Private services access must already be configured for the network. Pipeline job will apply the network configuration to the Google Cloud resources being launched, if applied, such as Vertex AI Training or Dataflow job. If left unspecified, the workload is not peered with any network. |
-| `displayName` | `string` | The display name of the Pipeline. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

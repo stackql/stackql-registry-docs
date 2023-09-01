@@ -28,20 +28,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name of the session. |
-| `runtimeConfig` | `object` | Runtime configuration for a workload. |
-| `createTime` | `string` | Output only. The time when the session was created. |
 | `environmentConfig` | `object` | Environment configuration for a workload. |
-| `uuid` | `string` | Output only. A session UUID (Unique Universal Identifier). The service generates this value when it creates the session. |
-| `state` | `string` | Output only. A state of the session. |
-| `runtimeInfo` | `object` | Runtime information about workload execution. |
-| `sessionTemplate` | `string` | Optional. The session template used by the session.Only resource names including project ID and location are valid.Example: * https://www.googleapis.com/compute/v1/projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id] * projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]Note that the template must be in the same project and Dataproc region. |
-| `stateTime` | `string` | Output only. The time when the session entered a current state. |
-| `stateHistory` | `array` | Output only. Historical state information for the session. |
-| `creator` | `string` | Output only. The email address of the user who created the session. |
-| `jupyterSession` | `object` | Jupyter configuration for an interactive session. |
 | `stateMessage` | `string` | Output only. Session state details, such as a failure description if the state is FAILED. |
-| `labels` | `object` | Optional. The labels to associate with this session. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a session. |
+| `sessionTemplate` | `string` | Optional. The session template used by the session.Only resource names including project ID and location are valid.Example: * https://www.googleapis.com/compute/v1/projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id] * projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]Note that the template must be in the same project and Dataproc region. |
+| `stateHistory` | `array` | Output only. Historical state information for the session. |
 | `user` | `string` | Optional. The email address of the user who owns the session. |
+| `state` | `string` | Output only. A state of the session. |
+| `labels` | `object` | Optional. The labels to associate with this session. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a session. |
+| `createTime` | `string` | Output only. The time when the session was created. |
+| `jupyterSession` | `object` | Jupyter configuration for an interactive session. |
+| `runtimeConfig` | `object` | Runtime configuration for a workload. |
+| `creator` | `string` | Output only. The email address of the user who created the session. |
+| `runtimeInfo` | `object` | Runtime information about workload execution. |
+| `uuid` | `string` | Output only. A session UUID (Unique Universal Identifier). The service generates this value when it creates the session. |
+| `stateTime` | `string` | Output only. The time when the session entered a current state. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Name of the data item, in format of: projects/&#123;project_id&#125;/datasets/&#123;dataset_id&#125;/dataItems/&#123;data_item_id&#125; |
-| `videoPayload` | `object` | Container of information of a video. |
 | `imagePayload` | `object` | Container of information about an image. |
 | `textPayload` | `object` | Container of information about a piece of text. |
+| `videoPayload` | `object` | Container of information of a video. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

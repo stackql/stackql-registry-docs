@@ -33,7 +33,7 @@ Manages Continuous Profiling Information.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Profiler API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Continuous Profiling Information.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudprofiler:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudprofiler:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The name of the provisioning quota. |
+| `gcpService` | `string` | The gcp service of the provisioning quota. |
+| `location` | `string` | The specific location of the provisioining quota. |
+| `networkBandwidth` | `string` | Network bandwidth, Gbps |
+| `storageGib` | `string` | Storage size (GB). |
+| `instanceQuota` | `object` | A resource budget. |
 | `availableCount` | `integer` | The available count of the provisioning quota. |
 | `serverCount` | `string` | Server count. |
-| `gcpService` | `string` | The gcp service of the provisioning quota. |
-| `storageGib` | `string` | Storage size (GB). |
 | `assetType` | `string` | The asset type of this provisioning quota. |
-| `networkBandwidth` | `string` | Network bandwidth, Gbps |
-| `location` | `string` | The specific location of the provisioining quota. |
-| `instanceQuota` | `object` | A resource budget. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -27,15 +27,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `expiresInSeconds` | `string` | Immutable. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
+| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
+| `expiresAt` | `string` | Output only. Time the AppGroup app expires in milliseconds since epoch. |
 | `apiProducts` | `array` | Output only. List of API products and its status for which the credential can be used. **Note**: Use UpdateAppGroupAppKeyApiProductRequest API to make the association after the consumer key and secret are created. |
 | `attributes` | `array` | List of attributes associated with the credential. |
-| `consumerKey` | `string` | Immutable. Consumer key. |
 | `issuedAt` | `string` | Output only. Time the AppGroup app was created in milliseconds since epoch. |
-| `consumerSecret` | `string` | Secret key. |
-| `status` | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
 | `scopes` | `array` | Scopes to apply to the app. The specified scope names must already be defined for the API product that you associate with the app. |
-| `expiresAt` | `string` | Output only. Time the AppGroup app expires in milliseconds since epoch. |
-| `expiresInSeconds` | `string` | Immutable. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
+| `consumerSecret` | `string` | Secret key. |
+| `consumerKey` | `string` | Immutable. Consumer key. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

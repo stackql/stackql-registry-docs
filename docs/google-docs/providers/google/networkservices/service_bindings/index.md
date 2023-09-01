@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the ServiceBinding resource. It matches pattern `projects/*/locations/global/serviceBindings/service_binding_name`. |
 | `description` | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
+| `service` | `string` | Required. The full Service Directory Service name of the format projects/*/locations/*/namespaces/*/services/* |
+| `serviceId` | `string` | Output only. The unique identifier of the Service Directory Service against which the Service Binding resource is validated. This is populated when the Service Binding resource is used in another resource (like Backend Service). This is of the UUID4 format. |
 | `updateTime` | `string` | Output only. The timestamp when the resource was updated. |
 | `createTime` | `string` | Output only. The timestamp when the resource was created. |
 | `labels` | `object` | Optional. Set of label tags associated with the ServiceBinding resource. |
-| `service` | `string` | Required. The full Service Directory Service name of the format projects/*/locations/*/namespaces/*/services/* |
-| `serviceId` | `string` | Output only. The unique identifier of the Service Directory Service against which the Service Binding resource is validated. This is populated when the Service Binding resource is used in another resource (like Backend Service). This is of the UUID4 format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

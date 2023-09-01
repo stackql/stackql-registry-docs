@@ -28,5 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `get` | `SELECT` | `name` | Gets details about an asset feed. |
 | `list` | `SELECT` | `parent, parentType` | Lists all asset feeds in a parent project/folder/organization. |
 | `create` | `INSERT` | `parent, parentType` | Creates a feed in a parent project/folder/organization to listen to its asset updates. |
+| `delete` | `DELETE` | `name` | Deletes an asset feed. |
+| `patch` | `EXEC` | `name` | Updates an asset feed configuration. |

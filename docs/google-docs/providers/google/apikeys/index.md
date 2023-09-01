@@ -33,7 +33,7 @@ Manages The API Keys Associated With Developer Projects.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>API Keys API</td></tr>
 <tr><td><b>Description</b></td><td>Manages The API Keys Associated With Developer Projects.</td></tr>
-<tr><td><b>Id</b></td><td><code>apikeys:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apikeys:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

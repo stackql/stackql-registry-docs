@@ -28,13 +28,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The compilation result's name. |
+| `releaseConfig` | `string` | Immutable. The name of the release config to compile. The release config's 'current_compilation_result' field will be updated to this compilation result. Must be in the format `projects/*/locations/*/repositories/*/releaseConfigs/*`. |
+| `resolvedGitCommitSha` | `string` | Output only. The fully resolved Git commit SHA of the code that was compiled. Not set for compilation results whose source is a workspace. |
 | `workspace` | `string` | Immutable. The name of the workspace to compile. Must be in the format `projects/*/locations/*/repositories/*/workspaces/*`. |
 | `codeCompilationConfig` | `object` | Configures various aspects of Dataform code compilation. |
 | `compilationErrors` | `array` | Output only. Errors encountered during project compilation. |
 | `dataformCoreVersion` | `string` | Output only. The version of `@dataform/core` that was used for compilation. |
 | `gitCommitish` | `string` | Immutable. Git commit/tag/branch name at which the repository should be compiled. Must exist in the remote repository. Examples: - a commit SHA: `12ade345` - a tag: `tag1` - a branch name: `branch1` |
-| `releaseConfig` | `string` | Immutable. The name of the release config to compile. The release config's 'current_compilation_result' field will be updated to this compilation result. Must be in the format `projects/*/locations/*/repositories/*/releaseConfigs/*`. |
-| `resolvedGitCommitSha` | `string` | Output only. The fully resolved Git commit SHA of the code that was compiled. Not set for compilation results whose source is a workspace. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

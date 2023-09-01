@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name. |
+| `displayName` | `string` | The deployment's display name. |
 | `frns` | `array` | Output only. The FCC Registration Numbers (FRNs) copied from its direct parent. |
 | `sasUserIds` | `array` | User ID used by the devices belonging to this deployment. Each deployment should be associated with one unique user ID. |
-| `displayName` | `string` | The deployment's display name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. In `projects/&#123;project&#125;/locations/&#123;location&#125;/providers/&#123;provider_id&#125;` format. |
-| `eventTypes` | `array` | Output only. Event types for this provider. |
 | `displayName` | `string` | Output only. Human friendly name for the Provider. For example "Cloud Storage". |
+| `eventTypes` | `array` | Output only. Event types for this provider. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

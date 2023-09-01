@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource id of this target server. Values must match the regular expression  |
 | `description` | `string` | Optional. A human-readable description of this TargetServer. |
-| `isEnabled` | `boolean` | Optional. Enabling/disabling a TargetServer is useful when TargetServers are used in load balancing configurations, and one or more TargetServers need to taken out of rotation periodically. Defaults to true. |
-| `port` | `integer` | Required. The port number this target connects to on the given host. Value must be between 1 and 65535, inclusive. |
 | `protocol` | `string` | Immutable. The protocol used by this TargetServer. |
 | `sSLInfo` | `object` | TLS configuration information for virtual hosts and TargetServers. |
 | `host` | `string` | Required. The host name this target connects to. Value must be a valid hostname as described by RFC-1123. |
+| `isEnabled` | `boolean` | Optional. Enabling/disabling a TargetServer is useful when TargetServers are used in load balancing configurations, and one or more TargetServers need to taken out of rotation periodically. Defaults to true. |
+| `port` | `integer` | Required. The port number this target connects to on the given host. Value must be between 1 and 65535, inclusive. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The attack path name, for example, `organizations/12/simulation/34/valuedResources/56/attackPaths/78` |
-| `edges` | `array` | A list of the edges between nodes in this attack path. |
 | `pathNodes` | `array` | A list of nodes that exist in this attack path. |
+| `edges` | `array` | A list of the edges between nodes in this attack path. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

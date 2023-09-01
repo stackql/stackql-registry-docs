@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource name of the config. Must be in the format of, `projects/&#123;project&#125;/locations/&#123;location&#125;/googleChannelConfig`. |
-| `updateTime` | `string` | Output only. The last-modified time. |
 | `cryptoKeyName` | `string` | Optional. Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt their event data. It must match the pattern `projects/*/locations/*/keyRings/*/cryptoKeys/*`. |
+| `updateTime` | `string` | Output only. The last-modified time. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

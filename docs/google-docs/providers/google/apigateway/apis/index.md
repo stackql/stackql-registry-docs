@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the API. Format: projects/&#123;project&#125;/locations/global/apis/&#123;api&#125; |
+| `updateTime` | `string` | Output only. Updated time. |
 | `createTime` | `string` | Output only. Created time. |
 | `displayName` | `string` | Optional. Display name. |
 | `labels` | `object` | Optional. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources |
 | `managedService` | `string` | Optional. Immutable. The name of a Google Managed Service ( https://cloud.google.com/service-infrastructure/docs/glossary#managed). If not specified, a new Service will automatically be created in the same project as this API. |
 | `state` | `string` | Output only. State of the API. |
-| `updateTime` | `string` | Output only. Updated time. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

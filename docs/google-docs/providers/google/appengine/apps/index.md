@@ -29,19 +29,19 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the Application resource. This identifier is equivalent to the project ID of the Google Cloud Platform project where you want to deploy your application. Example: myapp. |
 | `name` | `string` | Output only. Full path to the Application resource in the API. Example: apps/myapp.@OutputOnly |
-| `gcrDomain` | `string` | Output only. The Google Container Registry domain used for storing managed build docker images for this application. |
-| `locationId` | `string` | Location from which this application runs. Application instances run out of the data centers in the specified location, which is also where all of the application's end user content is stored.Defaults to us-central.View the list of supported locations (https://cloud.google.com/appengine/docs/locations). |
-| `authDomain` | `string` | Google Apps authentication domain that controls which users can access this application.Defaults to open access for any Google Account. |
-| `databaseType` | `string` | The type of the Cloud Firestore or Cloud Datastore database associated with this application. |
 | `defaultHostname` | `string` | Output only. Hostname used to reach this application, as resolved by App Engine.@OutputOnly |
-| `iap` | `object` | Identity-Aware Proxy |
-| `dispatchRules` | `array` | HTTP path dispatch rules for requests to the application that do not explicitly target a service or version. Rules are order-dependent. Up to 20 dispatch rules can be supported. |
-| `defaultCookieExpiration` | `string` | Cookie expiration policy for this application. |
-| `serviceAccount` | `string` | The service account associated with the application. This is the app-level default identity. If no identity provided during create version, Admin API will fallback to this one. |
 | `defaultBucket` | `string` | Output only. Google Cloud Storage bucket that can be used by this application to store content.@OutputOnly |
-| `servingStatus` | `string` | Serving status of this application. |
-| `featureSettings` | `object` | The feature specific settings to be used in the application. These define behaviors that are user configurable. |
 | `codeBucket` | `string` | Output only. Google Cloud Storage bucket that can be used for storing files associated with this application. This bucket is associated with the application and can be used by the gcloud deployment commands.@OutputOnly |
+| `featureSettings` | `object` | The feature specific settings to be used in the application. These define behaviors that are user configurable. |
+| `servingStatus` | `string` | Serving status of this application. |
+| `dispatchRules` | `array` | HTTP path dispatch rules for requests to the application that do not explicitly target a service or version. Rules are order-dependent. Up to 20 dispatch rules can be supported. |
+| `iap` | `object` | Identity-Aware Proxy |
+| `locationId` | `string` | Location from which this application runs. Application instances run out of the data centers in the specified location, which is also where all of the application's end user content is stored.Defaults to us-central.View the list of supported locations (https://cloud.google.com/appengine/docs/locations). |
+| `databaseType` | `string` | The type of the Cloud Firestore or Cloud Datastore database associated with this application. |
+| `authDomain` | `string` | Google Apps authentication domain that controls which users can access this application.Defaults to open access for any Google Account. |
+| `gcrDomain` | `string` | Output only. The Google Container Registry domain used for storing managed build docker images for this application. |
+| `serviceAccount` | `string` | The service account associated with the application. This is the app-level default identity. If no identity provided during create version, Admin API will fallback to this one. |
+| `defaultCookieExpiration` | `string` | Cookie expiration policy for this application. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

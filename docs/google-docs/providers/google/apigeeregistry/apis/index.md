@@ -30,13 +30,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Resource name. |
 | `description` | `string` | A detailed description. |
 | `annotations` | `object` | Annotations attach non-identifying metadata to resources. Annotation keys and values are less restricted than those of labels, but should be generally used for small values of broad interest. Larger, topic- specific metadata should be stored in Artifacts. |
-| `displayName` | `string` | Human-meaningful name. |
-| `recommendedDeployment` | `string` | The recommended deployment of the API. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/apis/&#123;api&#125;/deployments/&#123;deployment&#125;` |
-| `availability` | `string` | A user-definable description of the availability of this service. Format: free-form, but we expect single words that describe availability, e.g., "NONE", "TESTING", "PREVIEW", "GENERAL", "DEPRECATED", "SHUTDOWN". |
 | `createTime` | `string` | Output only. Creation timestamp. |
+| `displayName` | `string` | Human-meaningful name. |
 | `labels` | `object` | Labels attach identifying metadata to resources. Identifying metadata can be used to filter list operations. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. No more than 64 user labels can be associated with one resource (System labels are excluded). See https://goo.gl/xmQnxf for more information and examples of labels. System reserved label keys are prefixed with `apigeeregistry.googleapis.com/` and cannot be changed. |
-| `recommendedVersion` | `string` | The recommended version of the API. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/apis/&#123;api&#125;/versions/&#123;version&#125;` |
 | `updateTime` | `string` | Output only. Last update timestamp. |
+| `recommendedVersion` | `string` | The recommended version of the API. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/apis/&#123;api&#125;/versions/&#123;version&#125;` |
+| `availability` | `string` | A user-definable description of the availability of this service. Format: free-form, but we expect single words that describe availability, e.g., "NONE", "TESTING", "PREVIEW", "GENERAL", "DEPRECATED", "SHUTDOWN". |
+| `recommendedDeployment` | `string` | The recommended deployment of the API. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/apis/&#123;api&#125;/deployments/&#123;deployment&#125;` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

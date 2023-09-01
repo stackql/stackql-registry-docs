@@ -29,12 +29,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Auto generated primary key |
 | `description` | `string` | Description of the certificate |
-| `validEndTime` | `string` | Output only. The timestamp after which certificate will expire |
-| `certificateStatus` | `string` | Status of the certificate |
-| `credentialId` | `string` | Immutable. Credential id that will be used to register with trawler INTERNAL_ONLY |
 | `validStartTime` | `string` | Output only. The timestamp after which certificate will be valid |
-| `displayName` | `string` | Required. Name of the certificate |
+| `certificateStatus` | `string` | Status of the certificate |
 | `requestorId` | `string` | Immutable. Requestor ID to be used to register certificate with trawler |
+| `displayName` | `string` | Required. Name of the certificate |
+| `validEndTime` | `string` | Output only. The timestamp after which certificate will expire |
+| `credentialId` | `string` | Immutable. Credential id that will be used to register with trawler INTERNAL_ONLY |
 | `rawCertificate` | `object` | Contains client certificate information |
 ## Methods
 | Name | Accessible by | Required Params | Description |

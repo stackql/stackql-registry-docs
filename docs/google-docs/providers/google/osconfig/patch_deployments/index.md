@@ -30,15 +30,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Unique name for the patch deployment resource in a project. The patch deployment name is in the form: `projects/&#123;project_id&#125;/patchDeployments/&#123;patch_deployment_id&#125;`. This field is ignored when you create a new patch deployment. |
 | `description` | `string` | Optional. Description of the patch deployment. Length of the description is limited to 1024 characters. |
 | `recurringSchedule` | `object` | Sets the time for recurring patch deployments. |
-| `patchConfig` | `object` | Patch configuration specifications. Contains details on how to apply the patch(es) to a VM instance. |
-| `lastExecuteTime` | `string` | Output only. The last time a patch job was started by this deployment. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
-| `oneTimeSchedule` | `object` | Sets the time for a one time patch deployment. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
-| `rollout` | `object` | Patch rollout configuration specifications. Contains details on the concurrency control when applying patch(es) to all targeted VMs. |
-| `updateTime` | `string` | Output only. Time the patch deployment was last updated. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
-| `duration` | `string` | Optional. Duration of the patch. After the duration ends, the patch times out. |
 | `instanceFilter` | `object` | A filter to target VM instances for patching. The targeted VMs must meet all criteria specified. So if both labels and zones are specified, the patch job targets only VMs with those labels and in those zones. |
-| `state` | `string` | Output only. Current state of the patch deployment. |
+| `updateTime` | `string` | Output only. Time the patch deployment was last updated. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
 | `createTime` | `string` | Output only. Time the patch deployment was created. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
+| `duration` | `string` | Optional. Duration of the patch. After the duration ends, the patch times out. |
+| `lastExecuteTime` | `string` | Output only. The last time a patch job was started by this deployment. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
+| `rollout` | `object` | Patch rollout configuration specifications. Contains details on the concurrency control when applying patch(es) to all targeted VMs. |
+| `patchConfig` | `object` | Patch configuration specifications. Contains details on how to apply the patch(es) to a VM instance. |
+| `state` | `string` | Output only. Current state of the patch deployment. |
+| `oneTimeSchedule` | `object` | Sets the time for a one time patch deployment. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

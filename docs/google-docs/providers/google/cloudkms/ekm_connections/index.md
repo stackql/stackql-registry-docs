@@ -28,11 +28,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name for the EkmConnection in the format `projects/*/locations/*/ekmConnections/*`. |
-| `cryptoSpacePath` | `string` | Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if KeyManagementMode is CLOUD_KMS. |
-| `etag` | `string` | Optional. Etag of the currently stored EkmConnection. |
 | `keyManagementMode` | `string` | Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL. |
 | `serviceResolvers` | `array` | A list of ServiceResolvers where the EKM can be reached. There should be one ServiceResolver per EKM replica. Currently, only a single ServiceResolver is supported. |
 | `createTime` | `string` | Output only. The time at which the EkmConnection was created. |
+| `cryptoSpacePath` | `string` | Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if KeyManagementMode is CLOUD_KMS. |
+| `etag` | `string` | Optional. Etag of the currently stored EkmConnection. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

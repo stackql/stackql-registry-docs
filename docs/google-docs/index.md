@@ -17,16 +17,16 @@ slug: /providers/google
 ---
 Cloud computing services offered by Google.  
     
-:::info Provider Summary (v23.08.00165)
+:::info Provider Summary (v23.09.00169)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>149</b></span><br />
-<span>total methods:&nbsp;<b>7174</b></span><br />
+<span>total methods:&nbsp;<b>7179</b></span><br />
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>1475</b></span><br />
-<span>total selectable resources:&nbsp;<b>1225</b></span><br />
+<span>total selectable resources:&nbsp;<b>1226</b></span><br />
 </div>
 </div>
 
