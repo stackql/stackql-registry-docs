@@ -28,18 +28,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. Resource name of the NasJob. |
+| `state` | `string` | Output only. The detailed state of the job. |
+| `encryptionSpec` | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
 | `createTime` | `string` | Output only. Time when the NasJob was created. |
-| `nasJobSpec` | `object` | Represents the spec of a NasJob. |
-| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
+| `enableRestrictedImageTraining` | `boolean` | Optional. Enable a separation of Custom model training and restricted image training for tenant project. |
 | `displayName` | `string` | Required. The display name of the NasJob. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
 | `endTime` | `string` | Output only. Time when the NasJob entered any of the following states: `JOB_STATE_SUCCEEDED`, `JOB_STATE_FAILED`, `JOB_STATE_CANCELLED`. |
-| `startTime` | `string` | Output only. Time when the NasJob for the first time entered the `JOB_STATE_RUNNING` state. |
 | `labels` | `object` | The labels with user-defined metadata to organize NasJobs. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
-| `state` | `string` | Output only. The detailed state of the job. |
-| `updateTime` | `string` | Output only. Time when the NasJob was most recently updated. |
+| `error` | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
+| `nasJobSpec` | `object` | Represents the spec of a NasJob. |
+| `startTime` | `string` | Output only. Time when the NasJob for the first time entered the `JOB_STATE_RUNNING` state. |
 | `nasJobOutput` | `object` | Represents a uCAIP NasJob output. |
-| `encryptionSpec` | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
-| `enableRestrictedImageTraining` | `boolean` | Optional. Enable a separation of Custom model training and restricted image training for tenant project. |
+| `updateTime` | `string` | Output only. Time when the NasJob was most recently updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

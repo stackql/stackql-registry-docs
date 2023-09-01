@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Immutable. The fully qualified resource name of the catalog. |
-| `productLevelConfig` | `object` | Configures what level the product should be uploaded with regards to how users will be send events and how predictions will be made. |
 | `displayName` | `string` | Required. Immutable. The catalog display name. This field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. |
+| `productLevelConfig` | `object` | Configures what level the product should be uploaded with regards to how users will be send events and how predictions will be made. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

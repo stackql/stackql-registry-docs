@@ -33,7 +33,7 @@ Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Co
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Secret Manager API</td></tr>
 <tr><td><b>Description</b></td><td>Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Convenience While Improving Security. </td></tr>
-<tr><td><b>Id</b></td><td><code>secretmanager:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>secretmanager:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

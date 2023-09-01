@@ -29,16 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Name of the environment. Values must match the regular expression `^[.\\p&#123;Alnum&#125;-_]&#123;1,255&#125;$` |
 | `description` | `string` | Optional. Description of the environment. |
-| `deploymentType` | `string` | Optional. Deployment type supported by the environment. The deployment type can be set when creating the environment and cannot be changed. When you enable archive deployment, you will be **prevented from performing** a [subset of actions](/apigee/docs/api-platform/local-development/overview#prevented-actions) within the environment, including: * Managing the deployment of API proxy or shared flow revisions * Creating, updating, or deleting resource files * Creating, updating, or deleting target servers |
-| `state` | `string` | Output only. State of the environment. Values other than ACTIVE means the resource is not ready to use. |
-| `apiProxyType` | `string` | Optional. API Proxy type supported by the environment. The type can be set when creating the Environment and cannot be changed. |
-| `forwardProxyUri` | `string` | Optional. Url of the forward proxy to be applied to the runtime instances in this environment. Must be in the format of &#123;scheme&#125;://&#123;hostname&#125;:&#123;port&#125;. Note that scheme must be one of "http" or "https", and port must be supplied. |
-| `nodeConfig` | `object` | NodeConfig for setting the min/max number of nodes associated with the environment. |
 | `properties` | `object` | Message for compatibility with legacy Edge specification for Java Properties object in JSON. |
-| `displayName` | `string` | Optional. Display name for this environment. |
-| `hasAttachedFlowHooks` | `boolean` |  |
+| `deploymentType` | `string` | Optional. Deployment type supported by the environment. The deployment type can be set when creating the environment and cannot be changed. When you enable archive deployment, you will be **prevented from performing** a [subset of actions](/apigee/docs/api-platform/local-development/overview#prevented-actions) within the environment, including: * Managing the deployment of API proxy or shared flow revisions * Creating, updating, or deleting resource files * Creating, updating, or deleting target servers |
+| `forwardProxyUri` | `string` | Optional. Url of the forward proxy to be applied to the runtime instances in this environment. Must be in the format of &#123;scheme&#125;://&#123;hostname&#125;:&#123;port&#125;. Note that scheme must be one of "http" or "https", and port must be supplied. |
 | `lastModifiedAt` | `string` | Output only. Last modification time of this environment as milliseconds since epoch. |
+| `hasAttachedFlowHooks` | `boolean` |  |
+| `type` | `string` | Optional. EnvironmentType selected for the environment. |
 | `createdAt` | `string` | Output only. Creation time of this environment as milliseconds since epoch. |
+| `nodeConfig` | `object` | NodeConfig for setting the min/max number of nodes associated with the environment. |
+| `apiProxyType` | `string` | Optional. API Proxy type supported by the environment. The type can be set when creating the Environment and cannot be changed. |
+| `state` | `string` | Output only. State of the environment. Values other than ACTIVE means the resource is not ready to use. |
+| `displayName` | `string` | Optional. Display name for this environment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

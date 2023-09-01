@@ -29,11 +29,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Immutable. The name of a ServiceClass resource. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/serviceClasses/&#123;service_class&#125; See: https://google.aip.dev/122#fields-representing-resource-names |
 | `description` | `string` | A description of this resource. |
-| `serviceClass` | `string` | Output only. The generated service class name. Use this name to refer to the Service class in Service Connection Maps and Service Connection Policies. |
 | `updateTime` | `string` | Output only. Time when the ServiceClass was updated. |
 | `createTime` | `string` | Output only. Time when the ServiceClass was created. |
 | `etag` | `string` | Optional. The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | `labels` | `object` | User-defined labels. |
+| `serviceClass` | `string` | Output only. The generated service class name. Use this name to refer to the Service class in Service Connection Maps and Service Connection Policies. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

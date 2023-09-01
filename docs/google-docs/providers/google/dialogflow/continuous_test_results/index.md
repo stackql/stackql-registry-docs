@@ -28,9 +28,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The resource name for the continuous test result. Format: `projects//locations//agents//environments//continuousTestResults/`. |
-| `runTime` | `string` | Time when the continuous testing run starts. |
 | `testCaseResults` | `array` | A list of individual test case results names in this continuous test run. |
 | `result` | `string` | The result of this continuous test run, i.e. whether all the tests in this continuous test run pass or not. |
+| `runTime` | `string` | Time when the continuous testing run starts. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

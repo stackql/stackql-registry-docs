@@ -31,20 +31,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | Output only. The resource name of the entity, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;/entities/&#123;id&#125;. |
 | `description` | `string` | Optional. User friendly longer description text. Must be shorter than or equal to 1024 characters. |
 | `schema` | `object` | Schema information describing the structure and layout of the data. |
-| `type` | `string` | Required. Immutable. The type of entity. |
 | `uid` | `string` | Output only. System generated unique ID for the Entity. This ID will be different if the Entity is deleted and re-created with the same name. |
-| `format` | `object` | Describes the format of the data within its storage location. |
-| `etag` | `string` | Optional. The etag associated with the entity, which can be retrieved with a GetEntity request. Required for update and delete requests. |
 | `dataPath` | `string` | Required. Immutable. The storage path of the entity data. For Cloud Storage data, this is the fully-qualified path to the entity, such as gs://bucket/path/to/data. For BigQuery data, this is the name of the table resource, such as projects/project_id/datasets/dataset_id/tables/table_id. |
-| `updateTime` | `string` | Output only. The time when the entity was last updated. |
-| `displayName` | `string` | Optional. Display name must be shorter than or equal to 256 characters. |
 | `catalogEntry` | `string` | Output only. The name of the associated Data Catalog entry. |
-| `access` | `object` | Describes the access mechanism of the data within its storage location. |
-| `asset` | `string` | Required. Immutable. The ID of the asset associated with the storage location containing the entity data. The entity must be with in the same zone with the asset. |
+| `format` | `object` | Describes the format of the data within its storage location. |
 | `createTime` | `string` | Output only. The time when the entity was created. |
-| `dataPathPattern` | `string` | Optional. The set of items within the data path constituting the data in the entity, represented as a glob path. Example: gs://bucket/path/to/data/**/*.csv. |
 | `system` | `string` | Required. Immutable. Identifies the storage system of the entity data. |
+| `displayName` | `string` | Optional. Display name must be shorter than or equal to 256 characters. |
+| `access` | `object` | Describes the access mechanism of the data within its storage location. |
+| `etag` | `string` | Optional. The etag associated with the entity, which can be retrieved with a GetEntity request. Required for update and delete requests. |
 | `compatibility` | `object` | Provides compatibility information for various metadata stores. |
+| `dataPathPattern` | `string` | Optional. The set of items within the data path constituting the data in the entity, represented as a glob path. Example: gs://bucket/path/to/data/**/*.csv. |
+| `updateTime` | `string` | Output only. The time when the entity was last updated. |
+| `type` | `string` | Required. Immutable. The type of entity. |
+| `asset` | `string` | Required. Immutable. The ID of the asset associated with the storage location containing the entity data. The entity must be with in the same zone with the asset. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

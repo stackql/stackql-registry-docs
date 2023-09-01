@@ -25,6 +25,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` | API key of the attribute. |
+| `value` | `string` | Value of the attribute. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

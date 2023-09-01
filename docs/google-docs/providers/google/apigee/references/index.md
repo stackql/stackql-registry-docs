@@ -29,8 +29,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Required. The resource id of this reference. Values must match the regular expression [\w\s\-.]+. |
 | `description` | `string` | Optional. A human-readable description of this reference. |
-| `refers` | `string` | Required. The id of the resource to which this reference refers. Must be the id of a resource that exists in the parent environment and is of the given resource_type. |
 | `resourceType` | `string` | The type of resource referred to by this reference. Valid values are 'KeyStore' or 'TrustStore'. |
+| `refers` | `string` | Required. The id of the resource to which this reference refers. Must be the id of a resource that exists in the parent environment and is of the given resource_type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

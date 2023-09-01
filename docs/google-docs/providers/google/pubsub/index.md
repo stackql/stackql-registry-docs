@@ -33,7 +33,7 @@ Provides Reliable, Many-To-Many, Asynchronous Messaging Between Applications.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Pub/Sub API</td></tr>
 <tr><td><b>Description</b></td><td>Provides Reliable, Many-To-Many, Asynchronous Messaging Between Applications. </td></tr>
-<tr><td><b>Id</b></td><td><code>pubsub:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>pubsub:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

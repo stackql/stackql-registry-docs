@@ -33,7 +33,7 @@ Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Crea
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>ReCAPTCHA Enterprise API</td></tr>
 <tr><td><b>Description</b></td><td>Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Creating Friction.</td></tr>
-<tr><td><b>Id</b></td><td><code>recaptchaenterprise:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recaptchaenterprise:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

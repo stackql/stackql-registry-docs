@@ -28,15 +28,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name for suspensions suspension/&#123;suspension_id&#125; |
-| `lastModifyTime` | `string` | Output only. Auto-generated. |
-| `createTime` | `string` | Output only. Auto-generated. |
-| `audit` | `object` | Contains when and by whom the suspension was resolved. |
-| `eventExecutionInfoId` | `string` | Required. ID of the associated execution. |
-| `integration` | `string` | Required. The name of the originating integration. |
-| `state` | `string` | Required. State of this suspension, indicating what action a resolver has taken. |
-| `suspensionConfig` | `object` |  |
-| `taskId` | `string` | Required. Task id of the associated SuspensionTask. |
 | `approvalConfig` | `object` | Configurations for approving the Suspension. |
+| `lastModifyTime` | `string` | Output only. Auto-generated. |
+| `taskId` | `string` | Required. Task id of the associated SuspensionTask. |
+| `state` | `string` | Required. State of this suspension, indicating what action a resolver has taken. |
+| `eventExecutionInfoId` | `string` | Required. ID of the associated execution. |
+| `suspensionConfig` | `object` |  |
+| `createTime` | `string` | Output only. Auto-generated. |
+| `integration` | `string` | Required. The name of the originating integration. |
+| `audit` | `object` | Contains when and by whom the suspension was resolved. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

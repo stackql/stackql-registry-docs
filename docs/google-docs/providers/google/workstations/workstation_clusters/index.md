@@ -28,21 +28,21 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Full name of this workstation cluster. |
-| `controlPlaneIp` | `string` | Output only. The private IP address of the control plane for this workstation cluster. Workstation VMs need access to this IP address to work with the service, so make sure that your firewall rules allow egress from the workstation VMs to this address. |
-| `annotations` | `object` | Optional. Client-specified annotations. |
-| `network` | `string` | Immutable. Name of the Compute Engine network in which instances associated with this workstation cluster will be created. |
-| `privateClusterConfig` | `object` | Configuration options for private workstation clusters. |
-| `subnetwork` | `string` | Immutable. Name of the Compute Engine subnetwork in which instances associated with this workstation cluster will be created. Must be part of the subnetwork specified for this workstation cluster. |
 | `reconciling` | `boolean` | Output only. Indicates whether this workstation cluster is currently being updated to match its intended state. |
+| `network` | `string` | Immutable. Name of the Compute Engine network in which instances associated with this workstation cluster will be created. |
 | `etag` | `string` | Optional. Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
-| `deleteTime` | `string` | Output only. Time when this workstation cluster was soft-deleted. |
 | `conditions` | `array` | Output only. Status conditions describing the workstation cluster's current state. |
-| `displayName` | `string` | Optional. Human-readable name for this workstation cluster. |
-| `updateTime` | `string` | Output only. Time when this workstation cluster was most recently updated. |
-| `uid` | `string` | Output only. A system-assigned unique identifier for this workstation cluster. |
-| `degraded` | `boolean` | Output only. Whether this workstation cluster is in degraded mode, in which case it may require user action to restore full functionality. Details can be found in conditions. |
-| `labels` | `object` | Optional. [Labels](https://cloud.google.com/workstations/docs/label-resources) that are applied to the workstation cluster and that are also propagated to the underlying Compute Engine resources. |
+| `deleteTime` | `string` | Output only. Time when this workstation cluster was soft-deleted. |
+| `controlPlaneIp` | `string` | Output only. The private IP address of the control plane for this workstation cluster. Workstation VMs need access to this IP address to work with the service, so make sure that your firewall rules allow egress from the workstation VMs to this address. |
 | `createTime` | `string` | Output only. Time when this workstation cluster was created. |
+| `labels` | `object` | Optional. [Labels](https://cloud.google.com/workstations/docs/label-resources) that are applied to the workstation cluster and that are also propagated to the underlying Compute Engine resources. |
+| `privateClusterConfig` | `object` | Configuration options for private workstation clusters. |
+| `updateTime` | `string` | Output only. Time when this workstation cluster was most recently updated. |
+| `degraded` | `boolean` | Output only. Whether this workstation cluster is in degraded mode, in which case it may require user action to restore full functionality. Details can be found in conditions. |
+| `displayName` | `string` | Optional. Human-readable name for this workstation cluster. |
+| `annotations` | `object` | Optional. Client-specified annotations. |
+| `uid` | `string` | Output only. A system-assigned unique identifier for this workstation cluster. |
+| `subnetwork` | `string` | Immutable. Name of the Compute Engine subnetwork in which instances associated with this workstation cluster will be created. Must be part of the subnetwork specified for this workstation cluster. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

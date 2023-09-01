@@ -29,18 +29,18 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the Endpoint. |
 | `description` | `string` | The description of the Endpoint. |
-| `updateTime` | `string` | Output only. Timestamp when this Endpoint was last updated. |
 | `predictRequestResponseLoggingConfig` | `object` | Configuration for logging request-response to a BigQuery table. |
-| `enablePrivateServiceConnect` | `boolean` | Deprecated: If true, expose the Endpoint via private service connect. Only one of the fields, network or enable_private_service_connect, can be set. |
-| `createTime` | `string` | Output only. Timestamp when this Endpoint was created. |
-| `network` | `string` | Optional. The full name of the Google Compute Engine [network](https://cloud.google.com//compute/docs/networks-and-firewalls#networks) to which the Endpoint should be peered. Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network. Only one of the fields, network or enable_private_service_connect, can be set. [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert): `projects/&#123;project&#125;/global/networks/&#123;network&#125;`. Where `&#123;project&#125;` is a project number, as in `12345`, and `&#123;network&#125;` is network name. |
 | `encryptionSpec` | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
-| `displayName` | `string` | Required. The display name of the Endpoint. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
-| `modelDeploymentMonitoringJob` | `string` | Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by JobService.CreateModelDeploymentMonitoringJob. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/modelDeploymentMonitoringJobs/&#123;model_deployment_monitoring_job&#125;` |
+| `updateTime` | `string` | Output only. Timestamp when this Endpoint was last updated. |
 | `trafficSplit` | `object` | A map from a DeployedModel's ID to the percentage of this Endpoint's traffic that should be forwarded to that DeployedModel. If a DeployedModel's ID is not listed in this map, then it receives no traffic. The traffic percentage values must add up to 100, or map must be empty if the Endpoint is to not accept any traffic at a moment. |
-| `etag` | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
+| `enablePrivateServiceConnect` | `boolean` | Deprecated: If true, expose the Endpoint via private service connect. Only one of the fields, network or enable_private_service_connect, can be set. |
 | `labels` | `object` | The labels with user-defined metadata to organize your Endpoints. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
 | `deployedModels` | `array` | Output only. The models deployed in this Endpoint. To add or remove DeployedModels use EndpointService.DeployModel and EndpointService.UndeployModel respectively. |
+| `modelDeploymentMonitoringJob` | `string` | Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by JobService.CreateModelDeploymentMonitoringJob. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/modelDeploymentMonitoringJobs/&#123;model_deployment_monitoring_job&#125;` |
+| `createTime` | `string` | Output only. Timestamp when this Endpoint was created. |
+| `displayName` | `string` | Required. The display name of the Endpoint. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
+| `etag` | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
+| `network` | `string` | Optional. The full name of the Google Compute Engine [network](https://cloud.google.com//compute/docs/networks-and-firewalls#networks) to which the Endpoint should be peered. Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network. Only one of the fields, network or enable_private_service_connect, can be set. [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert): `projects/&#123;project&#125;/global/networks/&#123;network&#125;`. Where `&#123;project&#125;` is a project number, as in `12345`, and `&#123;network&#125;` is network name. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

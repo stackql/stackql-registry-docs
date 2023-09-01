@@ -21,7 +21,7 @@ Builds And Manages Container-Based Applications, Powered By The Open Source Kube
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>10</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>66</b></span><br />
+<span>total methods:&nbsp;<b>67</b></span><br />
 </div>
 </div>
 
@@ -33,7 +33,7 @@ Builds And Manages Container-Based Applications, Powered By The Open Source Kube
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Kubernetes Engine API</td></tr>
 <tr><td><b>Description</b></td><td>Builds And Manages Container-Based Applications, Powered By The Open Source Kubernetes Technology.</td></tr>
-<tr><td><b>Id</b></td><td><code>container:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The relative resource name of the job, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/tasks/&#123;task_id&#125;/jobs/&#123;job_id&#125;. |
-| `executionSpec` | `object` | Execution related settings, like retry and service_account. |
-| `endTime` | `string` | Output only. The time when the job ended. |
-| `labels` | `object` | Output only. User-defined labels for the task. |
-| `retryCount` | `integer` | Output only. The number of times the job has been retried (excluding the initial attempt). |
-| `serviceJob` | `string` | Output only. The full resource name for the job run under a particular service. |
-| `uid` | `string` | Output only. System generated globally unique ID for the job. |
-| `startTime` | `string` | Output only. The time when the job was started. |
 | `trigger` | `string` | Output only. Job execution trigger. |
-| `service` | `string` | Output only. The underlying service running a job. |
-| `message` | `string` | Output only. Additional information about the current state. |
+| `serviceJob` | `string` | Output only. The full resource name for the job run under a particular service. |
 | `state` | `string` | Output only. Execution state for the job. |
+| `executionSpec` | `object` | Execution related settings, like retry and service_account. |
+| `labels` | `object` | Output only. User-defined labels for the task. |
+| `message` | `string` | Output only. Additional information about the current state. |
+| `retryCount` | `integer` | Output only. The number of times the job has been retried (excluding the initial attempt). |
+| `startTime` | `string` | Output only. The time when the job was started. |
+| `service` | `string` | Output only. The underlying service running a job. |
+| `endTime` | `string` | Output only. The time when the job ended. |
+| `uid` | `string` | Output only. System generated globally unique ID for the job. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

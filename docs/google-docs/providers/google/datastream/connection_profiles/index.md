@@ -28,17 +28,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource's name. |
-| `displayName` | `string` | Required. Display name. |
-| `mysqlProfile` | `object` | MySQL database profile. |
-| `createTime` | `string` | Output only. The create time of the resource. |
-| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. Used when the source database is configured to allow incoming connections from the Datastream public IP addresses for the region specified in the connection profile. |
-| `postgresqlProfile` | `object` | PostgreSQL database profile. |
-| `bigqueryProfile` | `object` | BigQuery warehouse profile. |
-| `forwardSshConnectivity` | `object` | Forward SSH Tunnel connectivity. |
-| `privateConnectivity` | `object` | Private Connectivity |
-| `labels` | `object` | Labels. |
 | `gcsProfile` | `object` | Cloud Storage bucket profile. |
+| `forwardSshConnectivity` | `object` | Forward SSH Tunnel connectivity. |
+| `staticServiceIpConnectivity` | `object` | Static IP address connectivity. Used when the source database is configured to allow incoming connections from the Datastream public IP addresses for the region specified in the connection profile. |
+| `createTime` | `string` | Output only. The create time of the resource. |
+| `mysqlProfile` | `object` | MySQL database profile. |
+| `privateConnectivity` | `object` | Private Connectivity |
+| `displayName` | `string` | Required. Display name. |
+| `bigqueryProfile` | `object` | BigQuery warehouse profile. |
 | `updateTime` | `string` | Output only. The update time of the resource. |
+| `postgresqlProfile` | `object` | PostgreSQL database profile. |
+| `labels` | `object` | Labels. |
 | `oracleProfile` | `object` | Oracle database profile. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

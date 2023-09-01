@@ -33,7 +33,7 @@ Service Directory Is A Platform For Discovering, Publishing, And Connecting Serv
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Directory API</td></tr>
 <tr><td><b>Description</b></td><td>Service Directory Is A Platform For Discovering, Publishing, And Connecting Services. </td></tr>
-<tr><td><b>Id</b></td><td><code>servicedirectory:v23.08.00165</code></td></tr>
+<tr><td><b>Id</b></td><td><code>servicedirectory:v23.09.00169</code></td></tr>
 </tbody></table>
 
 ## Resources

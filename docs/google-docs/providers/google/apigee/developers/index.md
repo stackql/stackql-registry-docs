@@ -27,20 +27,20 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `developerId` | `string` | ID of the developer. **Note**: IDs are generated internally by Apigee and are not guaranteed to stay the same over time. |
-| `organizationName` | `string` | Output only. Name of the Apigee organization in which the developer resides. |
-| `userName` | `string` | Required. User name of the developer. Not used by Apigee hybrid. |
-| `accessType` | `string` | Access type. |
-| `firstName` | `string` | Required. First name of the developer. |
-| `attributes` | `array` | Optional. Developer attributes (name/value pairs). The custom attribute limit is 18. |
-| `apps` | `array` | List of apps associated with the developer. |
-| `lastModifiedAt` | `string` | Output only. Time at which the developer was last modified in milliseconds since epoch. |
-| `createdAt` | `string` | Output only. Time at which the developer was created in milliseconds since epoch. |
-| `lastName` | `string` | Required. Last name of the developer. |
-| `appFamily` | `string` | Developer app family. |
-| `status` | `string` | Output only. Status of the developer. Valid values are `active` and `inactive`. |
-| `companies` | `array` | List of companies associated with the developer. |
 | `email` | `string` | Required. Email address of the developer. This value is used to uniquely identify the developer in Apigee hybrid. Note that the email address has to be in lowercase only. |
+| `attributes` | `array` | Optional. Developer attributes (name/value pairs). The custom attribute limit is 18. |
+| `appFamily` | `string` | Developer app family. |
+| `firstName` | `string` | Required. First name of the developer. |
+| `userName` | `string` | Required. User name of the developer. Not used by Apigee hybrid. |
+| `createdAt` | `string` | Output only. Time at which the developer was created in milliseconds since epoch. |
+| `developerId` | `string` | ID of the developer. **Note**: IDs are generated internally by Apigee and are not guaranteed to stay the same over time. |
+| `apps` | `array` | List of apps associated with the developer. |
+| `organizationName` | `string` | Output only. Name of the Apigee organization in which the developer resides. |
+| `companies` | `array` | List of companies associated with the developer. |
+| `accessType` | `string` | Access type. |
+| `status` | `string` | Output only. Status of the developer. Valid values are `active` and `inactive`. |
+| `lastModifiedAt` | `string` | Output only. Time at which the developer was last modified in milliseconds since epoch. |
+| `lastName` | `string` | Required. Last name of the developer. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

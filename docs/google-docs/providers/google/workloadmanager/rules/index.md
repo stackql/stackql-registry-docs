@@ -30,13 +30,13 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | rule name |
 | `description` | `string` | descrite rule in plain language |
 | `severity` | `string` | the severity of the rule |
-| `remediation` | `string` | the remediation for the rule |
 | `displayName` | `string` | the name display in UI |
-| `errorMessage` | `string` | the message template for rule |
+| `remediation` | `string` | the remediation for the rule |
 | `uri` | `string` | the docuement url for the rule |
-| `secondaryCategory` | `string` | the secondary category |
 | `revisionId` | `string` | Output only. the version of the rule |
 | `primaryCategory` | `string` | the primary category |
+| `errorMessage` | `string` | the message template for rule |
+| `secondaryCategory` | `string` | the secondary category |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

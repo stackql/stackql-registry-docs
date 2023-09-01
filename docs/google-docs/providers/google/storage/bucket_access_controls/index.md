@@ -28,16 +28,16 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the access-control entry. |
+| `etag` | `string` | HTTP 1.1 Entity tag for the access-control entry. |
+| `email` | `string` | The email address associated with the entity, if any. |
+| `role` | `string` | The access permission for the entity. |
+| `entity` | `string` | The entity holding the permission, in one of the following forms: <br />- user-userId <br />- user-email <br />- group-groupId <br />- group-email <br />- domain-domain <br />- project-team-projectId <br />- allUsers <br />- allAuthenticatedUsers Examples: <br />- The user liz@example.com would be user-liz@example.com. <br />- The group example@googlegroups.com would be group-example@googlegroups.com. <br />- To refer to all members of the Google Apps for Business domain example.com, the entity would be domain-example.com. |
 | `bucket` | `string` | The name of the bucket. |
 | `domain` | `string` | The domain associated with the entity, if any. |
-| `entityId` | `string` | The ID for the entity, if any. |
-| `role` | `string` | The access permission for the entity. |
-| `email` | `string` | The email address associated with the entity, if any. |
-| `etag` | `string` | HTTP 1.1 Entity tag for the access-control entry. |
-| `kind` | `string` | The kind of item this is. For bucket access control entries, this is always storage#bucketAccessControl. |
-| `selfLink` | `string` | The link to this access-control entry. |
 | `projectTeam` | `object` | The project team associated with the entity, if any. |
-| `entity` | `string` | The entity holding the permission, in one of the following forms: <br />- user-userId <br />- user-email <br />- group-groupId <br />- group-email <br />- domain-domain <br />- project-team-projectId <br />- allUsers <br />- allAuthenticatedUsers Examples: <br />- The user liz@example.com would be user-liz@example.com. <br />- The group example@googlegroups.com would be group-example@googlegroups.com. <br />- To refer to all members of the Google Apps for Business domain example.com, the entity would be domain-example.com. |
+| `kind` | `string` | The kind of item this is. For bucket access control entries, this is always storage#bucketAccessControl. |
+| `entityId` | `string` | The ID for the entity, if any. |
+| `selfLink` | `string` | The link to this access-control entry. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

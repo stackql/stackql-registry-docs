@@ -29,17 +29,17 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the IndexEndpoint. |
 | `description` | `string` | The description of the IndexEndpoint. |
-| `etag` | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
-| `createTime` | `string` | Output only. Timestamp when this IndexEndpoint was created. |
-| `displayName` | `string` | Required. The display name of the IndexEndpoint. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
-| `publicEndpointDomainName` | `string` | Output only. If public_endpoint_enabled is true, this field will be populated with the domain name to use for this index endpoint. |
-| `updateTime` | `string` | Output only. Timestamp when this IndexEndpoint was last updated. This timestamp is not updated when the endpoint's DeployedIndexes are updated, e.g. due to updates of the original Indexes they are the deployments of. |
-| `labels` | `object` | The labels with user-defined metadata to organize your IndexEndpoints. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
-| `publicEndpointEnabled` | `boolean` | Optional. If true, the deployed index will be accessible through public endpoint. |
 | `deployedIndexes` | `array` | Output only. The indexes deployed in this endpoint. |
-| `enablePrivateServiceConnect` | `boolean` | Optional. Deprecated: If true, expose the IndexEndpoint via private service connect. Only one of the fields, network or enable_private_service_connect, can be set. |
+| `labels` | `object` | The labels with user-defined metadata to organize your IndexEndpoints. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
+| `publicEndpointDomainName` | `string` | Output only. If public_endpoint_enabled is true, this field will be populated with the domain name to use for this index endpoint. |
 | `privateServiceConnectConfig` | `object` | Represents configuration for private service connect. |
 | `network` | `string` | Optional. The full name of the Google Compute Engine [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks) to which the IndexEndpoint should be peered. Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network. network and private_service_connect_config are mutually exclusive. [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert): `projects/&#123;project&#125;/global/networks/&#123;network&#125;`. Where &#123;project&#125; is a project number, as in '12345', and &#123;network&#125; is network name. |
+| `etag` | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
+| `enablePrivateServiceConnect` | `boolean` | Optional. Deprecated: If true, expose the IndexEndpoint via private service connect. Only one of the fields, network or enable_private_service_connect, can be set. |
+| `createTime` | `string` | Output only. Timestamp when this IndexEndpoint was created. |
+| `displayName` | `string` | Required. The display name of the IndexEndpoint. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
+| `publicEndpointEnabled` | `boolean` | Optional. If true, the deployed index will be accessible through public endpoint. |
+| `updateTime` | `string` | Output only. Timestamp when this IndexEndpoint was last updated. This timestamp is not updated when the endpoint's DeployedIndexes are updated, e.g. due to updates of the original Indexes they are the deployments of. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

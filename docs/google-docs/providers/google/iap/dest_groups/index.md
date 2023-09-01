@@ -28,8 +28,8 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the project and contain only lower case letters (a-z) and dashes (-). |
-| `fqdns` | `array` | Unordered list. List of FQDNs that this group applies to. |
 | `cidrs` | `array` | Unordered list. List of CIDRs that this group applies to. |
+| `fqdns` | `array` | Unordered list. List of FQDNs that this group applies to. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

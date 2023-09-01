@@ -28,14 +28,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Output only. The resource name of the subscription. e.g. `projects/myproject/locations/US/subscriptions/123`. |
-| `state` | `string` | Output only. Current state of the subscription. |
-| `lastModifyTime` | `string` | Output only. Timestamp when the subscription was last modified. |
-| `listing` | `string` | Output only. Resource name of the source Listing. e.g. projects/123/locations/US/dataExchanges/456/listings/789 |
-| `subscriberContact` | `string` | Output only. Email of the subscriber. |
-| `creationTime` | `string` | Output only. Timestamp when the subscription was created. |
-| `organizationId` | `string` | Output only. Organization of the project this subscription belongs to. |
 | `dataExchange` | `string` | Output only. Resource name of the source Data Exchange. e.g. projects/123/locations/US/dataExchanges/456 |
+| `lastModifyTime` | `string` | Output only. Timestamp when the subscription was last modified. |
+| `state` | `string` | Output only. Current state of the subscription. |
+| `subscriberContact` | `string` | Output only. Email of the subscriber. |
+| `listing` | `string` | Output only. Resource name of the source Listing. e.g. projects/123/locations/US/dataExchanges/456/listings/789 |
+| `creationTime` | `string` | Output only. Timestamp when the subscription was created. |
 | `linkedDatasetMap` | `object` | Output only. Map of listing resource names to associated linked resource, e.g. projects/123/locations/US/dataExchanges/456/listings/789 -&gt; projects/123/datasets/my_dataset For listing-level subscriptions, this is a map of size 1. Only contains values if state == STATE_ACTIVE. |
+| `organizationId` | `string` | Output only. Organization of the project this subscription belongs to. |
 | `organizationDisplayName` | `string` | Output only. Display name of the project of this subscription. |
 ## Methods
 | Name | Accessible by | Required Params |

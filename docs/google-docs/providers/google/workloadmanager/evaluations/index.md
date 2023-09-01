@@ -30,14 +30,14 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | `name` | `string` | name of resource names have the form 'projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/evaluations/&#123;evaluation_id&#125;' |
 | `description` | `string` | Description of the Evaluation |
 | `customRulesBucket` | `string` | The Cloud Storage bucket name for custom rules. |
-| `labels` | `object` | Labels as key value pairs |
+| `ruleNames` | `array` | the name of the rule |
+| `schedule` | `string` | crontab format schedule for scheduled evaluation, currently only support the following schedule: "0 */1 * * *", "0 */6 * * *", "0 */12 * * *", "0 0 */1 * *", "0 0 */7 * *", |
 | `updateTime` | `string` | Output only. [Output only] Update time stamp |
+| `labels` | `object` | Labels as key value pairs |
+| `resourceFilter` | `object` | Message describing resource filters |
 | `resourceStatus` | `object` | Message describing resource status |
 | `ruleVersions` | `array` | Output only. [Output only] The updated rule ids if exist. |
-| `schedule` | `string` | crontab format schedule for scheduled evaluation, currently only support the following schedule: "0 */1 * * *", "0 */6 * * *", "0 */12 * * *", "0 0 */1 * *", "0 0 */7 * *", |
-| `resourceFilter` | `object` | Message describing resource filters |
 | `createTime` | `string` | Output only. [Output only] Create time stamp |
-| `ruleNames` | `array` | the name of the rule |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

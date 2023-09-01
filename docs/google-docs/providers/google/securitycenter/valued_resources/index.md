@@ -28,12 +28,12 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Valued resource name, for example, e.g.: `organizations/123/simulations/456/valuedResources/789` |
-| `resource` | `string` | The [full resource name](https://cloud.google.com/apis/design/resource_names#full_resource_name) of the valued resource. |
-| `resourceType` | `string` | The [resource type](https://cloud.google.com/asset-inventory/docs/supported-asset-types) of the valued resource. |
-| `resourceValue` | `string` | How valuable this resource is. |
 | `resourceValueConfigsUsed` | `array` | List of resource value configurations' metadata used to determine the value of this resource. Maximum of 100. |
 | `displayName` | `string` | Human-readable name of the valued resource. |
 | `exposedScore` | `number` | Exposed score for this valued resource. A value of 0 means no exposure was detected exposure. |
+| `resource` | `string` | The [full resource name](https://cloud.google.com/apis/design/resource_names#full_resource_name) of the valued resource. |
+| `resourceType` | `string` | The [resource type](https://cloud.google.com/asset-inventory/docs/supported-asset-types) of the valued resource. |
+| `resourceValue` | `string` | How valuable this resource is. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
