@@ -13,15 +13,15 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-Interact with reactions to various GitHub entities.  
+Interact With Reactions To Various GitHub Entities.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>23</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -31,19 +31,24 @@ Interact with reactions to various GitHub entities.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>github.reactions</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>GitHub v3 REST API - reactions</td></tr>
-<tr><td><b>Description</b></td><td>Interact with reactions to various GitHub entities.</td></tr>
-<tr><td><b>Id</b></td><td><code>reactions:v23.04.00136</code></td></tr>
+<tr><td><b>Title</b></td><td>GitHub V3 REST API - Reactions</td></tr>
+<tr><td><b>Description</b></td><td>Interact With Reactions To Various GitHub Entities.</td></tr>
+<tr><td><b>Id</b></td><td><code>reactions:v23.09.00171</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/reactions/commit_comment_reactions/">commit_comment_reactions</a><br />
-<a href="/providers/github/reactions/issue_comment_reactions/">issue_comment_reactions</a><br />
+<a href="/providers/github/reactions/orgs_teams_discussions/">orgs_teams_discussions</a><br />
+<a href="/providers/github/reactions/orgs_teams_discussions_comments/">orgs_teams_discussions_comments</a><br />
+<a href="/providers/github/reactions/repos_comments/">repos_comments</a><br />
+<a href="/providers/github/reactions/repos_issues/">repos_issues</a><br />
+<a href="/providers/github/reactions/repos_issues_comments/">repos_issues_comments</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/reactions/pull_request_review_comment_reactions/">pull_request_review_comment_reactions</a><br />
-<a href="/providers/github/reactions/reactions/">reactions</a><br />
+<a href="/providers/github/reactions/repos_pulls_comments/">repos_pulls_comments</a><br />
+<a href="/providers/github/reactions/repos_releases/">repos_releases</a><br />
+<a href="/providers/github/reactions/teams_discussions/">teams_discussions</a><br />
+<a href="/providers/github/reactions/teams_discussions_comments/">teams_discussions_comments</a><br />
 </div>
 </div>

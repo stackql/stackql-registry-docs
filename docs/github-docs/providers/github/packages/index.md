@@ -13,15 +13,15 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-Manage packages for authenticated users and organizations.  
+Manage Packages For Authenticated Users And Organizations.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>24</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>27</b></span><br />
 </div>
 </div>
 
@@ -31,17 +31,24 @@ Manage packages for authenticated users and organizations.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>github.packages</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>GitHub v3 REST API - packages</td></tr>
-<tr><td><b>Description</b></td><td>Manage packages for authenticated users and organizations.</td></tr>
-<tr><td><b>Id</b></td><td><code>packages:v23.04.00136</code></td></tr>
+<tr><td><b>Title</b></td><td>GitHub V3 REST API - Packages</td></tr>
+<tr><td><b>Description</b></td><td>Manage Packages For Authenticated Users And Organizations.</td></tr>
+<tr><td><b>Id</b></td><td><code>packages:v23.09.00171</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/packages/package_versions/">package_versions</a><br />
+<a href="/providers/github/packages/orgs/">orgs</a><br />
+<a href="/providers/github/packages/orgs_docker_conflicts/">orgs_docker_conflicts</a><br />
+<a href="/providers/github/packages/orgs_versions/">orgs_versions</a><br />
+<a href="/providers/github/packages/user/">user</a><br />
+<a href="/providers/github/packages/user_docker_conflicts/">user_docker_conflicts</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/packages/packages/">packages</a><br />
+<a href="/providers/github/packages/user_versions/">user_versions</a><br />
+<a href="/providers/github/packages/users/">users</a><br />
+<a href="/providers/github/packages/users_docker_conflicts/">users_docker_conflicts</a><br />
+<a href="/providers/github/packages/users_versions/">users_versions</a><br />
 </div>
 </div>

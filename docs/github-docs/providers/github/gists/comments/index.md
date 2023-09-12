@@ -28,13 +28,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `body` | `string` | The comment text. |
-| `created_at` | `string` |  |
 | `node_id` | `string` |  |
 | `updated_at` | `string` |  |
 | `url` | `string` |  |
-| `user` | `object` | Simple User |
+| `user` | `object` | A GitHub user. |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `body` | `string` | The comment text. |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

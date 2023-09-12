@@ -28,12 +28,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `name` | `string` |
+| `body` | `string` |
 | `html_url` | `string` |
 | `key` | `string` |
 | `url` | `string` |
-| `body` | `string` |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `get_all_codes_of_conduct` | `SELECT` |  |
-| `get_conduct_code` | `SELECT` | `key` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `get_all_codes_of_conduct` | `SELECT` |  | Returns array of all GitHub's codes of conduct. |
+| `get_conduct_code` | `SELECT` | `key` | Returns information about the specified GitHub code of conduct. |

@@ -29,27 +29,26 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `integer` |
 | `name` | `string` |
+| `email` | `string` |
+| `gravatar_id` | `string` |
 | `login` | `string` |
+| `repos_url` | `string` |
 | `received_events_url` | `string` |
-| `avatar_url` | `string` |
-| `starred_at` | `string` |
-| `type` | `string` |
-| `site_admin` | `boolean` |
+| `gists_url` | `string` |
 | `node_id` | `string` |
+| `subscriptions_url` | `string` |
+| `events_url` | `string` |
+| `avatar_url` | `string` |
+| `type` | `string` |
+| `starred_url` | `string` |
 | `organizations_url` | `string` |
 | `followers_url` | `string` |
-| `gravatar_id` | `string` |
-| `email` | `string` |
-| `events_url` | `string` |
 | `following_url` | `string` |
-| `subscriptions_url` | `string` |
 | `url` | `string` |
-| `repos_url` | `string` |
-| `gists_url` | `string` |
+| `site_admin` | `boolean` |
+| `starred_at` | `string` |
 | `html_url` | `string` |
-| `starred_url` | `string` |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `list_followers_for_authenticated_user` | `SELECT` |  | Lists the people following the authenticated user. |
-| `list_followers_for_user` | `SELECT` | `username` | Lists the people following the specified user. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list_followers_for_user` | `SELECT` | `username` |

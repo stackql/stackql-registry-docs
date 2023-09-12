@@ -25,21 +25,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `url` | `string` |  |
-| `author` | `object` | Simple User |
-| `committer` | `object` | Metaproperties for Git author/committer information. |
-| `comments_url` | `string` |  |
-| `html_url` | `string` |  |
-| `repository` | `object` | Minimal Repository |
-| `parents` | `array` |  |
-| `text_matches` | `array` |  |
-| `node_id` | `string` |  |
-| `commit` | `object` |  |
-| `sha` | `string` |  |
-| `score` | `number` |  |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `commits` | `SELECT` | `q` |
+| `commits` | `EXEC` | `q` |

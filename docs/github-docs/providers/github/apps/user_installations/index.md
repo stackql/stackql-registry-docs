@@ -25,30 +25,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `integer` | The ID of the installation. |
-| `app_slug` | `string` |  |
-| `single_file_name` | `string` |  |
-| `app_id` | `integer` |  |
-| `single_file_paths` | `array` |  |
-| `account` | `` |  |
-| `access_tokens_url` | `string` |  |
-| `created_at` | `string` |  |
-| `updated_at` | `string` |  |
-| `permissions` | `object` | The permissions granted to the user-to-server access token. |
-| `contact_email` | `string` |  |
-| `suspended_by` | `object` | Simple User |
-| `suspended_at` | `string` |  |
-| `repositories_url` | `string` |  |
-| `target_type` | `string` |  |
-| `has_multiple_single_files` | `boolean` |  |
-| `target_id` | `integer` | The ID of the user or organization this token is being scoped to. |
-| `events` | `array` |  |
-| `html_url` | `string` |  |
-| `repository_selection` | `string` | Describe whether all repositories have been selected or there's a selection involved |
+| Name | Datatype |
+|:-----|:---------|
+| `installations` | `array` |
+| `total_count` | `integer` |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `get_user_installation` | `SELECT` | `username` | Enables an authenticated GitHub App to find the user’s installation information.<br /><br />You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. |
-| `list_installations_for_authenticated_user` | `SELECT` |  | Lists installations of your GitHub App that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.<br /><br />You must use a [user-to-server OAuth access token](https://docs.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.<br /><br />The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.<br /><br />You can find the permissions for the installation under the `permissions` key. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list_installations_for_authenticated_user` | `SELECT` |  |

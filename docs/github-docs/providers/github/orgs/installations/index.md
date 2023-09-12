@@ -25,28 +25,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `integer` | The ID of the installation. |
-| `permissions` | `object` | The permissions granted to the user-to-server access token. |
-| `access_tokens_url` | `string` |  |
-| `created_at` | `string` |  |
-| `account` | `` |  |
-| `target_type` | `string` |  |
-| `suspended_at` | `string` |  |
-| `suspended_by` | `object` | Simple User |
-| `html_url` | `string` |  |
-| `has_multiple_single_files` | `boolean` |  |
-| `contact_email` | `string` |  |
-| `target_id` | `integer` | The ID of the user or organization this token is being scoped to. |
-| `events` | `array` |  |
-| `single_file_name` | `string` |  |
-| `app_slug` | `string` |  |
-| `app_id` | `integer` |  |
-| `repositories_url` | `string` |  |
-| `repository_selection` | `string` | Describe whether all repositories have been selected or there's a selection involved |
-| `single_file_paths` | `array` |  |
-| `updated_at` | `string` |  |
+| Name | Datatype |
+|:-----|:---------|
+| `total_count` | `integer` |
+| `installations` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

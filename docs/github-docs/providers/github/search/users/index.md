@@ -25,43 +25,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `id` | `integer` |
-| `name` | `string` |
-| `blog` | `string` |
-| `public_repos` | `integer` |
-| `site_admin` | `boolean` |
-| `company` | `string` |
-| `hireable` | `boolean` |
-| `gravatar_id` | `string` |
-| `bio` | `string` |
-| `location` | `string` |
-| `followers` | `integer` |
-| `score` | `number` |
-| `repos_url` | `string` |
-| `created_at` | `string` |
-| `following_url` | `string` |
-| `gists_url` | `string` |
-| `updated_at` | `string` |
-| `url` | `string` |
-| `suspended_at` | `string` |
-| `node_id` | `string` |
-| `following` | `integer` |
-| `email` | `string` |
-| `organizations_url` | `string` |
-| `html_url` | `string` |
-| `received_events_url` | `string` |
-| `public_gists` | `integer` |
-| `events_url` | `string` |
-| `subscriptions_url` | `string` |
-| `text_matches` | `array` |
-| `type` | `string` |
-| `login` | `string` |
-| `followers_url` | `string` |
-| `starred_url` | `string` |
-| `avatar_url` | `string` |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `users` | `SELECT` | `q` |
+| `users` | `EXEC` | `q` |

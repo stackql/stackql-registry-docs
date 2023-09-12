@@ -29,32 +29,31 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `description` | `string` |  |
-| `node_id` | `string` |  |
-| `forks` | `array` |  |
-| `created_at` | `string` |  |
+| `url` | `string` |  |
 | `history` | `array` |  |
+| `owner` | `object` | A GitHub user. |
+| `public` | `boolean` |  |
+| `truncated` | `boolean` |  |
+| `created_at` | `string` |  |
 | `html_url` | `string` |  |
 | `comments_url` | `string` |  |
-| `truncated` | `boolean` |  |
-| `commits_url` | `string` |  |
+| `node_id` | `string` |  |
 | `git_push_url` | `string` |  |
-| `user` | `string` |  |
-| `files` | `object` |  |
-| `owner` | `object` | Simple User |
 | `comments` | `integer` |  |
-| `public` | `boolean` |  |
-| `git_pull_url` | `string` |  |
 | `forks_url` | `string` |  |
-| `url` | `string` |  |
-| `updated_at` | `string` |  |
+| `user` | `string` |  |
+| `commits_url` | `string` |  |
+| `files` | `object` |  |
 | `fork_of` | `object` | Gist |
+| `git_pull_url` | `string` |  |
+| `forks` | `array` |  |
+| `updated_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `gist_id` |  |
 | `get_revision` | `SELECT` | `gist_id, sha` |  |
 | `list` | `SELECT` |  | Lists the authenticated user's gists or if called anonymously, this endpoint returns all public gists: |
-| `list_for_user` | `SELECT` | `username` | Lists public gists for the specified user: |
 | `create` | `INSERT` | `data__files` | Allows you to add a new gist with one or more files.<br /><br />**Note:** Don't name your files "gistfile" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally. |
 | `delete` | `DELETE` | `gist_id` |  |
-| `update` | `EXEC` | `gist_id` | Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged. |
+| `update` | `EXEC` | `gist_id` | Allows you to update a gist's description and to update, delete, or rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.<br />At least one of `description` or `files` is required. |

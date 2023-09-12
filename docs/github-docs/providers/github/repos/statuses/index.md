@@ -25,21 +25,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `integer` |  |
-| `description` | `string` |  |
-| `target_url` | `string` |  |
-| `url` | `string` |  |
-| `avatar_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `context` | `string` |  |
-| `created_at` | `string` |  |
-| `creator` | `object` | Simple User |
-| `node_id` | `string` |  |
-| `state` | `string` |  |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `list_commit_statuses_for_ref` | `SELECT` | `owner, ref, repo` | Users with pull access in a repository can view commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name. Statuses are returned in reverse chronological order. The first status in the list will be the latest one.<br /><br />This resource is also available via a legacy route: `GET /repos/:owner/:repo/statuses/:ref`. |
-| `create_commit_status` | `INSERT` | `owner, repo, sha, data__state` | Users with push access in a repository can create commit statuses for a given SHA.<br /><br />Note: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `create_commit_status` | `INSERT` | `owner, repo, sha, data__state` |

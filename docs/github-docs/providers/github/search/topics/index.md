@@ -25,25 +25,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `name` | `string` |
-| `description` | `string` |
-| `curated` | `boolean` |
-| `created_at` | `string` |
-| `featured` | `boolean` |
-| `repository_count` | `integer` |
-| `short_description` | `string` |
-| `logo_url` | `string` |
-| `updated_at` | `string` |
-| `display_name` | `string` |
-| `released` | `string` |
-| `text_matches` | `array` |
-| `score` | `number` |
-| `created_by` | `string` |
-| `aliases` | `array` |
-| `related` | `array` |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `topics` | `SELECT` | `q` |
+| `topics` | `EXEC` | `q` |

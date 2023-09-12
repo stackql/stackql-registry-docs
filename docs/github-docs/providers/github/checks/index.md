@@ -13,14 +13,14 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-Rich interactions with checks run by your integrations.  
+Rich Interactions With Checks Run By Your Integrations.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>3</b></span><br />
-<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
 <span>total methods:&nbsp;<b>12</b></span><br />
 </div>
 </div>
@@ -31,18 +31,21 @@ Rich interactions with checks run by your integrations.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>github.checks</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>GitHub v3 REST API - checks</td></tr>
-<tr><td><b>Description</b></td><td>Rich interactions with checks run by your integrations.</td></tr>
-<tr><td><b>Id</b></td><td><code>checks:v23.04.00136</code></td></tr>
+<tr><td><b>Title</b></td><td>GitHub V3 REST API - Checks</td></tr>
+<tr><td><b>Description</b></td><td>Rich Interactions With Checks Run By Your Integrations.</td></tr>
+<tr><td><b>Id</b></td><td><code>checks:v23.09.00171</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/checks/annotations/">annotations</a><br />
-<a href="/providers/github/checks/runs/">runs</a><br />
+<a href="/providers/github/checks/repos_check_runs/">repos_check_runs</a><br />
+<a href="/providers/github/checks/repos_check_runs_annotations/">repos_check_runs_annotations</a><br />
+<a href="/providers/github/checks/repos_check_suites/">repos_check_suites</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/checks/suites/">suites</a><br />
+<a href="/providers/github/checks/repos_check_suites_check_runs/">repos_check_suites_check_runs</a><br />
+<a href="/providers/github/checks/repos_commits_check_runs/">repos_commits_check_runs</a><br />
+<a href="/providers/github/checks/repos_commits_check_suites/">repos_commits_check_suites</a><br />
 </div>
 </div>

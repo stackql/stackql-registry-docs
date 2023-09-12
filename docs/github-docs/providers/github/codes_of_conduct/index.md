@@ -13,7 +13,7 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-codes_of_conduct  
+Codes Of Conduct  
     
 :::info Service Summary
 
@@ -31,9 +31,9 @@ codes_of_conduct
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>github.codes_of_conduct</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>GitHub v3 REST API - codes_of_conduct</td></tr>
-<tr><td><b>Description</b></td><td>codes_of_conduct</td></tr>
-<tr><td><b>Id</b></td><td><code>codes_of_conduct:v23.04.00136</code></td></tr>
+<tr><td><b>Title</b></td><td>GitHub V3 REST API - Codes Of Conduct</td></tr>
+<tr><td><b>Description</b></td><td>Codes Of Conduct</td></tr>
+<tr><td><b>Id</b></td><td><code>codes_of_conduct:v23.09.00171</code></td></tr>
 </tbody></table>
 
 ## Resources

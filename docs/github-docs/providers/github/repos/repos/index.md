@@ -30,105 +30,108 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` |  |
 | `name` | `string` |  |
 | `description` | `string` |  |
-| `language` | `string` |  |
-| `merges_url` | `string` |  |
-| `default_branch` | `string` |  |
-| `pulls_url` | `string` |  |
-| `has_pages` | `boolean` |  |
-| `stargazers_url` | `string` |  |
-| `private` | `boolean` |  |
-| `created_at` | `string` |  |
-| `permissions` | `object` |  |
 | `events_url` | `string` |  |
-| `contributors_url` | `string` |  |
-| `milestones_url` | `string` |  |
-| `is_template` | `boolean` |  |
-| `subscribers_count` | `integer` |  |
-| `has_wiki` | `boolean` |  |
-| `git_commits_url` | `string` |  |
-| `disabled` | `boolean` |  |
-| `watchers_count` | `integer` |  |
-| `commits_url` | `string` |  |
+| `source` | `object` | A repository on GitHub. |
+| `parent` | `object` | A repository on GitHub. |
 | `languages_url` | `string` |  |
-| `git_refs_url` | `string` |  |
-| `mirror_url` | `string` |  |
-| `stargazers_count` | `integer` |  |
-| `visibility` | `string` |  |
-| `assignees_url` | `string` |  |
-| `owner` | `object` | Simple User |
-| `archived` | `boolean` |  |
-| `issue_comment_url` | `string` |  |
-| `issues_url` | `string` |  |
-| `allow_forking` | `boolean` |  |
-| `blobs_url` | `string` |  |
-| `node_id` | `string` |  |
-| `subscribers_url` | `string` |  |
-| `trees_url` | `string` |  |
-| `compare_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `temp_clone_token` | `string` |  |
+| `has_projects` | `boolean` |  |
+| `commits_url` | `string` |  |
+| `fork` | `boolean` |  |
+| `template_repository` | `object` | A repository on GitHub. |
+| `has_pages` | `boolean` |  |
+| `allow_update_branch` | `boolean` |  |
+| `delete_branch_on_merge` | `boolean` |  |
+| `permissions` | `object` |  |
+| `is_template` | `boolean` |  |
+| `watchers_count` | `integer` |  |
+| `pulls_url` | `string` |  |
 | `has_downloads` | `boolean` |  |
-| `topics` | `array` |  |
-| `code_of_conduct` | `object` | Code Of Conduct |
-| `git_url` | `string` |  |
-| `svn_url` | `string` |  |
-| `ssh_url` | `string` |  |
+| `branches_url` | `string` |  |
+| `temp_clone_token` | `string` |  |
+| `archive_url` | `string` |  |
+| `merge_commit_title` | `string` | The default value for a merge commit title.<br /><br />  - `PR_TITLE` - default to the pull request's title.<br />  - `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name). |
+| `git_tags_url` | `string` |  |
 | `watchers` | `integer` |  |
-| `role_name` | `string` |  |
-| `tags_url` | `string` |  |
+| `keys_url` | `string` |  |
+| `created_at` | `string` |  |
+| `assignees_url` | `string` |  |
+| `node_id` | `string` |  |
+| `squash_merge_commit_title` | `string` | The default value for a squash merge commit title:<br /><br />- `PR_TITLE` - default to the pull request's title.<br />- `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit). |
+| `clone_url` | `string` |  |
+| `network_count` | `integer` |  |
+| `allow_merge_commit` | `boolean` |  |
+| `compare_url` | `string` |  |
+| `deployments_url` | `string` |  |
+| `statuses_url` | `string` |  |
+| `homepage` | `string` |  |
 | `downloads_url` | `string` |  |
+| `mirror_url` | `string` |  |
+| `has_discussions` | `boolean` |  |
+| `html_url` | `string` |  |
 | `open_issues` | `integer` |  |
+| `disabled` | `boolean` | Returns whether or not this repository disabled. |
+| `pushed_at` | `string` |  |
+| `default_branch` | `string` |  |
+| `collaborators_url` | `string` |  |
+| `organization` | `object` | A GitHub user. |
+| `issue_comment_url` | `string` |  |
+| `size` | `integer` | The size of the repository. Size is calculated hourly. When a repository is initially created, the size is 0. |
+| `use_squash_pr_title_as_default` | `boolean` |  |
+| `forks` | `integer` |  |
+| `comments_url` | `string` |  |
+| `owner` | `object` | A GitHub user. |
+| `git_url` | `string` |  |
+| `updated_at` | `string` |  |
+| `releases_url` | `string` |  |
+| `license` | `object` | License Simple |
 | `forks_url` | `string` |  |
 | `forks_count` | `integer` |  |
-| `archive_url` | `string` |  |
-| `license` | `object` |  |
-| `has_projects` | `boolean` |  |
-| `subscription_url` | `string` |  |
-| `labels_url` | `string` |  |
-| `teams_url` | `string` |  |
-| `forks` | `integer` |  |
-| `template_repository` | `object` | A git repository |
-| `pushed_at` | `string` |  |
-| `releases_url` | `string` |  |
-| `homepage` | `string` |  |
-| `full_name` | `string` |  |
-| `comments_url` | `string` |  |
+| `stargazers_url` | `string` |  |
 | `open_issues_count` | `integer` |  |
-| `delete_branch_on_merge` | `boolean` |  |
-| `issue_events_url` | `string` |  |
-| `size` | `integer` |  |
-| `html_url` | `string` |  |
-| `collaborators_url` | `string` |  |
-| `notifications_url` | `string` |  |
-| `statuses_url` | `string` |  |
-| `branches_url` | `string` |  |
-| `contents_url` | `string` |  |
-| `has_issues` | `boolean` |  |
-| `deployments_url` | `string` |  |
-| `keys_url` | `string` |  |
-| `fork` | `boolean` |  |
-| `git_tags_url` | `string` |  |
+| `trees_url` | `string` |  |
+| `blobs_url` | `string` |  |
+| `master_branch` | `string` |  |
 | `hooks_url` | `string` |  |
-| `clone_url` | `string` |  |
+| `ssh_url` | `string` |  |
+| `visibility` | `string` | The repository visibility: public, private, or internal. |
+| `web_commit_signoff_required` | `boolean` |  |
+| `contributors_url` | `string` |  |
+| `anonymous_access_enabled` | `boolean` | Whether anonymous git access is allowed. |
+| `tags_url` | `string` |  |
+| `allow_rebase_merge` | `boolean` |  |
+| `has_wiki` | `boolean` |  |
+| `private` | `boolean` |  |
+| `code_of_conduct` | `object` | Code of Conduct Simple |
+| `notifications_url` | `string` |  |
+| `contents_url` | `string` |  |
+| `merge_commit_message` | `string` | The default value for a merge commit message.<br /><br />- `PR_TITLE` - default to the pull request's title.<br />- `PR_BODY` - default to the pull request's body.<br />- `BLANK` - default to a blank commit message. |
+| `topics` | `array` |  |
+| `milestones_url` | `string` |  |
+| `language` | `string` |  |
+| `issue_events_url` | `string` |  |
+| `svn_url` | `string` |  |
+| `subscription_url` | `string` |  |
 | `url` | `string` |  |
-| `network_count` | `integer` |  |
+| `stargazers_count` | `integer` |  |
+| `full_name` | `string` |  |
+| `allow_squash_merge` | `boolean` |  |
+| `subscribers_url` | `string` |  |
+| `labels_url` | `string` |  |
+| `git_refs_url` | `string` |  |
+| `teams_url` | `string` |  |
+| `allow_auto_merge` | `boolean` |  |
+| `subscribers_count` | `integer` |  |
+| `allow_forking` | `boolean` |  |
+| `squash_merge_commit_message` | `string` | The default value for a squash merge commit message:<br /><br />- `PR_BODY` - default to the pull request's body.<br />- `COMMIT_MESSAGES` - default to the branch's commit messages.<br />- `BLANK` - default to a blank commit message. |
+| `merges_url` | `string` |  |
+| `has_issues` | `boolean` |  |
+| `git_commits_url` | `string` |  |
+| `issues_url` | `string` |  |
+| `archived` | `boolean` |  |
+| `security_and_analysis` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `owner, repo` | The `parent` and `source` objects are present when the repository is a fork. `parent` is the repository this repository was forked from, `source` is the ultimate source for the network. |
-| `list_for_authenticated_user` | `SELECT` |  | Lists repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.<br /><br />The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership. |
-| `list_for_org` | `SELECT` | `org` | Lists repositories for the specified organization. |
-| `list_for_user` | `SELECT` | `username` | Lists public repositories for the specified user. Note: For GitHub AE, this endpoint will list internal repositories for the specified user. |
-| `create_for_authenticated_user` | `INSERT` | `data__name` | Creates a new repository for the authenticated user.<br /><br />**OAuth scope requirements**<br /><br />When using [OAuth](https://docs.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), authorizations must include:<br /><br />*   `public_repo` scope or `repo` scope to create a public repository. Note: For GitHub AE, use `repo` scope to create an internal repository.<br />*   `repo` scope to create a private repository. |
-| `create_in_org` | `INSERT` | `org, data__name` | Creates a new repository in the specified organization. The authenticated user must be a member of the organization.<br /><br />**OAuth scope requirements**<br /><br />When using [OAuth](https://docs.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), authorizations must include:<br /><br />*   `public_repo` scope or `repo` scope to create a public repository. Note: For GitHub AE, use `repo` scope to create an internal repository.<br />*   `repo` scope to create a private repository |
-| `create_using_template` | `INSERT` | `template_owner, template_repo, data__name` | Creates a new repository using a repository template. Use the `template_owner` and `template_repo` route parameters to specify the repository to use as the template. The authenticated user must own or be a member of an organization that owns the repository. To check if a repository is available to use as a template, get the repository's information using the [Get a repository](https://docs.github.com/rest/reference/repos#get-a-repository) endpoint and check that the `is_template` key is `true`.<br /><br />**OAuth scope requirements**<br /><br />When using [OAuth](https://docs.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), authorizations must include:<br /><br />*   `public_repo` scope or `repo` scope to create a public repository. Note: For GitHub AE, use `repo` scope to create an internal repository.<br />*   `repo` scope to create a private repository |
+| `get` | `SELECT` | `owner, repo` | The `parent` and `source` objects are present when the repository is a fork. `parent` is the repository this repository was forked from, `source` is the ultimate source for the network.<br /><br />**Note:** In order to see the `security_and_analysis` block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see "[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)." |
 | `delete` | `DELETE` | `owner, repo` | Deleting a repository requires admin access. If OAuth is used, the `delete_repo` scope is required.<br /><br />If an organization owner has configured the organization to prevent members from deleting organization-owned<br />repositories, you will get a `403 Forbidden` response. |
-| `check_vulnerability_alerts` | `EXEC` | `owner, repo` | Shows whether dependency alerts are enabled or disabled for a repository. The authenticated user must have admin access to the repository. For more information, see "[About security alerts for vulnerable dependencies](https://docs.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)". |
-| `codeowners_errors` | `EXEC` | `owner, repo` | List any syntax errors that are detected in the CODEOWNERS<br />file.<br /><br />For more information about the correct CODEOWNERS syntax,<br />see "[About code owners](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)." |
-| `create_dispatch_event` | `EXEC` | `owner, repo, data__event_type` | You can use this endpoint to trigger a webhook event called `repository_dispatch` when you want activity that happens outside of GitHub to trigger a GitHub Actions workflow or GitHub App webhook. You must configure your GitHub Actions workflow or GitHub App to run when the `repository_dispatch` event occurs. For an example `repository_dispatch` webhook payload, see "[RepositoryDispatchEvent](https://docs.github.com/webhooks/event-payloads/#repository_dispatch)."<br /><br />The `client_payload` parameter is available for any extra information that your workflow might need. This parameter is a JSON payload that will be passed on when the webhook event is dispatched. For example, the `client_payload` can include a message that a user would like to send using a GitHub Actions workflow. Or the `client_payload` can be used as a test to debug your workflow.<br /><br />This endpoint requires write access to the repository by providing either:<br /><br />  - Personal access tokens with `repo` scope. For more information, see "[Creating a personal access token for the command line](https://docs.github.com/articles/creating-a-personal-access-token-for-the-command-line)" in the GitHub Help documentation.<br />  - GitHub Apps with both `metadata:read` and `contents:read&write` permissions.<br /><br />This input example shows how you can use the `client_payload` as a test to debug your workflow. |
-| `disable_automated_security_fixes` | `EXEC` | `owner, repo` | Disables automated security fixes for a repository. The authenticated user must have admin access to the repository. For more information, see "[Configuring automated security fixes](https://docs.github.com/en/articles/configuring-automated-security-fixes)". |
-| `disable_vulnerability_alerts` | `EXEC` | `owner, repo` | Disables dependency alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see "[About security alerts for vulnerable dependencies](https://docs.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)". |
-| `enable_automated_security_fixes` | `EXEC` | `owner, repo` | Enables automated security fixes for a repository. The authenticated user must have admin access to the repository. For more information, see "[Configuring automated security fixes](https://docs.github.com/en/articles/configuring-automated-security-fixes)". |
-| `enable_vulnerability_alerts` | `EXEC` | `owner, repo` | Enables dependency alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see "[About security alerts for vulnerable dependencies](https://docs.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)". |
-| `transfer` | `EXEC` | `owner, repo, data__new_owner` | A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original `owner`, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see [about repository transfers](https://docs.github.com/articles/about-repository-transfers/). |
-| `update` | `EXEC` | `owner, repo` | **Note**: To edit a repository's topics, use the [Replace all repository topics](https://docs.github.com/rest/reference/repos#replace-all-repository-topics) endpoint. |
+| `update` | `EXEC` | `owner, repo` | **Note**: To edit a repository's topics, use the [Replace all repository topics](https://docs.github.com/rest/repos/repos#replace-all-repository-topics) endpoint. |
