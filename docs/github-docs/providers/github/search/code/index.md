@@ -25,22 +25,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` |  |
-| `url` | `string` |  |
-| `last_modified_at` | `string` |  |
-| `sha` | `string` |  |
-| `score` | `number` |  |
-| `text_matches` | `array` |  |
-| `language` | `string` |  |
-| `line_numbers` | `array` |  |
-| `html_url` | `string` |  |
-| `repository` | `object` | Minimal Repository |
-| `path` | `string` |  |
-| `file_size` | `integer` |  |
-| `git_url` | `string` |  |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `code` | `SELECT` | `q` |
+| `code` | `EXEC` | `q` |

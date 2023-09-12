@@ -29,18 +29,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `name` | `string` |
 | `description` | `string` |
-| `node_id` | `string` |
-| `spdx_id` | `string` |
-| `implementation` | `string` |
 | `key` | `string` |
-| `limitations` | `array` |
-| `html_url` | `string` |
+| `conditions` | `array` |
 | `url` | `string` |
 | `body` | `string` |
-| `conditions` | `array` |
-| `featured` | `boolean` |
+| `node_id` | `string` |
+| `html_url` | `string` |
 | `permissions` | `array` |
+| `featured` | `boolean` |
+| `limitations` | `array` |
+| `implementation` | `string` |
+| `spdx_id` | `string` |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `get` | `SELECT` | `license` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `get` | `SELECT` | `license` | Gets information about a specific license. For more information, see "[Licensing a repository ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)." |
+| `get_all_commonly_used` | `SELECT` |  | Lists the most commonly used licenses on GitHub. For more information, see "[Licensing a repository ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)." |

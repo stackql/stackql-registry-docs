@@ -13,13 +13,13 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-Render GitHub flavored markdown  
+Render GitHub Flavored Markdown  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
 <span>total selectable resources:&nbsp;<b>0</b></span><br />
 <span>total methods:&nbsp;<b>2</b></span><br />
 </div>
@@ -31,9 +31,9 @@ Render GitHub flavored markdown
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>github.markdown</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>GitHub v3 REST API - markdown</td></tr>
-<tr><td><b>Description</b></td><td>Render GitHub flavored markdown</td></tr>
-<tr><td><b>Id</b></td><td><code>markdown:v23.04.00136</code></td></tr>
+<tr><td><b>Title</b></td><td>GitHub V3 REST API - Markdown</td></tr>
+<tr><td><b>Description</b></td><td>Render GitHub Flavored Markdown</td></tr>
+<tr><td><b>Id</b></td><td><code>markdown:v23.09.00171</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,5 +42,6 @@ Render GitHub flavored markdown
 <a href="/providers/github/markdown/markdown/">markdown</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/github/markdown/raw/">raw</a><br />
 </div>
 </div>

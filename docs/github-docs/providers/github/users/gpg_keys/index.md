@@ -28,23 +28,21 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `integer` |
-| `key_id` | `string` |
+| `name` | `string` |
 | `subkeys` | `array` |
-| `can_encrypt_storage` | `boolean` |
+| `emails` | `array` |
+| `key_id` | `string` |
+| `created_at` | `string` |
+| `can_sign` | `boolean` |
+| `can_certify` | `boolean` |
+| `primary_key_id` | `integer` |
 | `raw_key` | `string` |
 | `expires_at` | `string` |
-| `can_encrypt_comms` | `boolean` |
-| `can_sign` | `boolean` |
-| `primary_key_id` | `integer` |
-| `emails` | `array` |
-| `can_certify` | `boolean` |
-| `created_at` | `string` |
 | `public_key` | `string` |
+| `revoked` | `boolean` |
+| `can_encrypt_storage` | `boolean` |
+| `can_encrypt_comms` | `boolean` |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `get_gpg_key_for_authenticated_user` | `SELECT` | `gpg_key_id` | View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://docs.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). |
-| `list_gpg_keys_for_authenticated_user` | `SELECT` |  | Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://docs.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). |
-| `list_gpg_keys_for_user` | `SELECT` | `username` | Lists the GPG keys for a user. This information is accessible by anyone. |
-| `create_gpg_key_for_authenticated_user` | `INSERT` | `data__armored_public_key` | Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://docs.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). |
-| `delete_gpg_key_for_authenticated_user` | `DELETE` | `gpg_key_id` | Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://docs.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list_gpg_keys_for_user` | `SELECT` | `username` |

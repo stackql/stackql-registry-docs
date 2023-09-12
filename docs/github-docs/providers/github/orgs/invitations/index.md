@@ -28,19 +28,20 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `node_id` | `string` |  |
-| `team_count` | `integer` |  |
-| `created_at` | `string` |  |
-| `role` | `string` |  |
-| `email` | `string` |  |
-| `failed_at` | `string` |  |
-| `inviter` | `object` | Simple User |
 | `failed_reason` | `string` |  |
-| `invitation_teams_url` | `string` |  |
+| `invitation_source` | `string` |  |
+| `created_at` | `string` |  |
+| `email` | `string` |  |
 | `login` | `string` |  |
+| `role` | `string` |  |
+| `team_count` | `integer` |  |
+| `invitation_teams_url` | `string` |  |
+| `node_id` | `string` |  |
+| `inviter` | `object` | A GitHub user. |
+| `failed_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `list_pending_invitations` | `SELECT` | `org` | The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`. |
-| `create_invitation` | `INSERT` | `org` | Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner.<br /><br />This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. See "[Secondary rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#secondary-rate-limits)" and "[Dealing with secondary rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-secondary-rate-limits)" for details. |
-| `cancel_invitation` | `EXEC` | `invitation_id, org` | Cancel an organization invitation. In order to cancel an organization invitation, the authenticated user must be an organization owner.<br /><br />This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). |
+| `list_pending_invitations` | `SELECT` | `org` | The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, or `hiring_manager`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`. |
+| `create_invitation` | `INSERT` | `org` | Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner.<br /><br />This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. See "[Secondary rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#secondary-rate-limits)" and "[Dealing with secondary rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-secondary-rate-limits)" for details. |
+| `cancel_invitation` | `EXEC` | `invitation_id, org` | Cancel an organization invitation. In order to cancel an organization invitation, the authenticated user must be an organization owner.<br /><br />This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). |

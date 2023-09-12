@@ -13,14 +13,14 @@ description: Query, deploy and manage GitHub resources using SQL
 custom_edit_url: null
 image: /img/providers/github/stackql-github-provider-featured-image.png
 ---
-View, modify your gists.  
+View, Modify Your Gists.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
 <span>total methods:&nbsp;<b>20</b></span><br />
 </div>
 </div>
@@ -31,21 +31,23 @@ View, modify your gists.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>github.gists</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>GitHub v3 REST API - gists</td></tr>
-<tr><td><b>Description</b></td><td>View, modify your gists.</td></tr>
-<tr><td><b>Id</b></td><td><code>gists:v23.04.00136</code></td></tr>
+<tr><td><b>Title</b></td><td>GitHub V3 REST API - Gists</td></tr>
+<tr><td><b>Description</b></td><td>View, Modify Your Gists.</td></tr>
+<tr><td><b>Id</b></td><td><code>gists:v23.09.00171</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/github/gists/comments/">comments</a><br />
-<a href="/providers/github/gists/gist_commits/">gist_commits</a><br />
-<a href="/providers/github/gists/gist_forks/">gist_forks</a><br />
+<a href="/providers/github/gists/commits/">commits</a><br />
+<a href="/providers/github/gists/forks/">forks</a><br />
+<a href="/providers/github/gists/gists/">gists</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/gists/gist_public/">gist_public</a><br />
-<a href="/providers/github/gists/gist_stars/">gist_stars</a><br />
-<a href="/providers/github/gists/gists/">gists</a><br />
+<a href="/providers/github/gists/public/">public</a><br />
+<a href="/providers/github/gists/star/">star</a><br />
+<a href="/providers/github/gists/starred/">starred</a><br />
+<a href="/providers/github/gists/users/">users</a><br />
 </div>
 </div>

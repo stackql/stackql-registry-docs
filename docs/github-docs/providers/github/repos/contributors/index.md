@@ -25,30 +25,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `id` | `integer` |
-| `name` | `string` |
-| `repos_url` | `string` |
-| `url` | `string` |
-| `contributions` | `integer` |
-| `node_id` | `string` |
-| `site_admin` | `boolean` |
-| `gists_url` | `string` |
-| `subscriptions_url` | `string` |
-| `followers_url` | `string` |
-| `starred_url` | `string` |
-| `html_url` | `string` |
-| `login` | `string` |
-| `events_url` | `string` |
-| `email` | `string` |
-| `organizations_url` | `string` |
-| `received_events_url` | `string` |
-| `following_url` | `string` |
-| `gravatar_id` | `string` |
-| `avatar_url` | `string` |
-| `type` | `string` |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `list_contributors` | `SELECT` | `owner, repo` |
+| `list_contributors` | `EXEC` | `owner, repo` |

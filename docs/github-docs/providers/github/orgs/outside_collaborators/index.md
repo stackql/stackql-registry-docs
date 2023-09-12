@@ -29,28 +29,28 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `integer` |
 | `name` | `string` |
-| `starred_url` | `string` |
-| `avatar_url` | `string` |
-| `organizations_url` | `string` |
-| `login` | `string` |
-| `type` | `string` |
-| `received_events_url` | `string` |
 | `url` | `string` |
-| `gists_url` | `string` |
-| `node_id` | `string` |
-| `html_url` | `string` |
-| `followers_url` | `string` |
-| `events_url` | `string` |
 | `starred_at` | `string` |
-| `subscriptions_url` | `string` |
-| `repos_url` | `string` |
-| `gravatar_id` | `string` |
-| `following_url` | `string` |
+| `html_url` | `string` |
+| `events_url` | `string` |
+| `starred_url` | `string` |
+| `followers_url` | `string` |
+| `received_events_url` | `string` |
 | `site_admin` | `boolean` |
 | `email` | `string` |
+| `login` | `string` |
+| `following_url` | `string` |
+| `repos_url` | `string` |
+| `type` | `string` |
+| `subscriptions_url` | `string` |
+| `node_id` | `string` |
+| `gravatar_id` | `string` |
+| `avatar_url` | `string` |
+| `organizations_url` | `string` |
+| `gists_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `list_outside_collaborators` | `SELECT` | `org` | List all users who are outside collaborators of an organization. |
 | `remove_outside_collaborator` | `DELETE` | `org, username` | Removing a user from this list will remove them from all the organization's repositories. |
-| `convert_member_to_outside_collaborator` | `EXEC` | `org, username` | When an organization member is converted to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see "[Converting an organization member to an outside collaborator](https://docs.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)". |
+| `convert_member_to_outside_collaborator` | `EXEC` | `org, username` | When an organization member is converted to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see "[Converting an organization member to an outside collaborator](https://docs.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)". Converting an organization member to an outside collaborator may be restricted by enterprise administrators. For more information, see "[Enforcing repository management policies in your enterprise](https://docs.github.com/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)." |

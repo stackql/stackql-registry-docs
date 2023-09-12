@@ -28,12 +28,14 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `id` | `integer` |
-| `verified` | `boolean` |
+| `added_by` | `string` |
 | `created_at` | `string` |
 | `key` | `string` |
+| `verified` | `boolean` |
+| `last_used` | `string` |
+| `url` | `string` |
 | `read_only` | `boolean` |
 | `title` | `string` |
-| `url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

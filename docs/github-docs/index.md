@@ -17,16 +17,16 @@ slug: /providers/github
 ---
 Web-based version-control and collaboration.  
     
-:::info Provider Summary (v23.04.00136)
+:::info Provider Summary (v23.09.00171)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>32</b></span><br />
-<span>total methods:&nbsp;<b>836</b></span><br />
+<span>total methods:&nbsp;<b>885</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>247</b></span><br />
-<span>total selectable resources:&nbsp;<b>238</b></span><br />
+<span>total resources:&nbsp;<b>389</b></span><br />
+<span>total selectable resources:&nbsp;<b>329</b></span><br />
 </div>
 </div>
 
@@ -87,20 +87,20 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/github/code_scanning/">code_scanning</a><br />
 <a href="/providers/github/codes_of_conduct/">codes_of_conduct</a><br />
 <a href="/providers/github/codespaces/">codespaces</a><br />
+<a href="/providers/github/copilot/">copilot</a><br />
 <a href="/providers/github/dependabot/">dependabot</a><br />
-<a href="/providers/github/enterprise_admin/">enterprise_admin</a><br />
+<a href="/providers/github/dependency_graph/">dependency_graph</a><br />
 <a href="/providers/github/gists/">gists</a><br />
 <a href="/providers/github/git/">git</a><br />
 <a href="/providers/github/gitignore/">gitignore</a><br />
 <a href="/providers/github/interactions/">interactions</a><br />
 <a href="/providers/github/issues/">issues</a><br />
-<a href="/providers/github/licenses/">licenses</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/github/licenses/">licenses</a><br />
 <a href="/providers/github/markdown/">markdown</a><br />
-<a href="/providers/github/meta/">meta</a><br />
 <a href="/providers/github/migrations/">migrations</a><br />
-<a href="/providers/github/oauth_authorizations/">oauth_authorizations</a><br />
+<a href="/providers/github/oidc/">oidc</a><br />
 <a href="/providers/github/orgs/">orgs</a><br />
 <a href="/providers/github/packages/">packages</a><br />
 <a href="/providers/github/projects/">projects</a><br />
@@ -108,9 +108,9 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/github/rate_limit/">rate_limit</a><br />
 <a href="/providers/github/reactions/">reactions</a><br />
 <a href="/providers/github/repos/">repos</a><br />
-<a href="/providers/github/scim/">scim</a><br />
 <a href="/providers/github/search/">search</a><br />
 <a href="/providers/github/secret_scanning/">secret_scanning</a><br />
+<a href="/providers/github/security_advisories/">security_advisories</a><br />
 <a href="/providers/github/teams/">teams</a><br />
 <a href="/providers/github/users/">users</a><br />
 </div>

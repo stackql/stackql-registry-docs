@@ -1,0 +1,39 @@
+---
+title: user_emails
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - user_emails
+  - users
+  - github    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage GitHub resources using SQL
+custom_edit_url: null
+image: /img/providers/github/stackql-github-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>user_emails</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>github.users.user_emails</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype |
+|:-----|:---------|
+| `visibility` | `string` |
+| `email` | `string` |
+| `primary` | `boolean` |
+| `verified` | `boolean` |
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `list_emails_for_authenticated_user` | `SELECT` |  | Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the `user:email` scope. |
+| `add_email_for_authenticated_user` | `INSERT` |  | This endpoint is accessible with the `user` scope. |
+| `delete_email_for_authenticated_user` | `DELETE` |  | This endpoint is accessible with the `user` scope. |

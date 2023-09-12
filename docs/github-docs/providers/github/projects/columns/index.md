@@ -29,18 +29,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The unique identifier of the project column |
 | `name` | `string` | Name of the project column |
+| `project_url` | `string` |  |
+| `updated_at` | `string` |  |
 | `url` | `string` |  |
 | `cards_url` | `string` |  |
 | `created_at` | `string` |  |
 | `node_id` | `string` |  |
-| `project_url` | `string` |  |
-| `updated_at` | `string` |  |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `get_column` | `SELECT` | `column_id` |
-| `list_columns` | `SELECT` | `project_id` |
-| `create_column` | `INSERT` | `project_id, data__name` |
-| `delete_column` | `DELETE` | `column_id` |
-| `move_column` | `EXEC` | `column_id, data__position` |
-| `update_column` | `EXEC` | `column_id, data__name` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `get_column` | `SELECT` | `column_id` | Gets information about a project column. |
+| `list_columns` | `SELECT` | `project_id` | Lists the project columns in a project. |
+| `create_column` | `INSERT` | `project_id, data__name` | Creates a new project column. |
+| `delete_column` | `DELETE` | `column_id` | Deletes a project column. |
+| `move_column` | `EXEC` | `column_id, data__position` |  |
+| `update_column` | `EXEC` | `column_id, data__name` |  |
