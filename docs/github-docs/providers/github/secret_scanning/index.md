@@ -19,8 +19,8 @@ Secret Scanning
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
 <span>total methods:&nbsp;<b>6</b></span><br />
 </div>
 </div>
@@ -33,17 +33,15 @@ Secret Scanning
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Secret Scanning</td></tr>
 <tr><td><b>Description</b></td><td>Secret Scanning</td></tr>
-<tr><td><b>Id</b></td><td><code>secret_scanning:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>secret_scanning:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/secret_scanning/enterprises_alerts/">enterprises_alerts</a><br />
-<a href="/providers/github/secret_scanning/orgs_alerts/">orgs_alerts</a><br />
+<a href="/providers/github/secret_scanning/alerts/">alerts</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/secret_scanning/repos_alerts/">repos_alerts</a><br />
-<a href="/providers/github/secret_scanning/repos_alerts_locations/">repos_alerts_locations</a><br />
+<a href="/providers/github/secret_scanning/locations/">locations</a><br />
 </div>
 </div>

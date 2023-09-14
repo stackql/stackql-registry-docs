@@ -17,7 +17,7 @@ slug: /providers/github
 ---
 Web-based version-control and collaboration.  
     
-:::info Provider Summary (v23.09.00171)
+:::info Provider Summary (v23.09.00173)
 
 <div class="row">
 <div class="providerDocColumn">
@@ -25,8 +25,8 @@ Web-based version-control and collaboration.
 <span>total methods:&nbsp;<b>885</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>389</b></span><br />
-<span>total selectable resources:&nbsp;<b>329</b></span><br />
+<span>total resources:&nbsp;<b>285</b></span><br />
+<span>total selectable resources:&nbsp;<b>258</b></span><br />
 </div>
 </div>
 

@@ -29,31 +29,33 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `description` | `string` |  |
-| `url` | `string` |  |
-| `history` | `array` |  |
-| `owner` | `object` | A GitHub user. |
-| `public` | `boolean` |  |
-| `truncated` | `boolean` |  |
-| `created_at` | `string` |  |
-| `html_url` | `string` |  |
+| `forks_url` | `string` |  |
 | `comments_url` | `string` |  |
+| `forks` | `array` |  |
+| `history` | `array` |  |
+| `url` | `string` |  |
+| `created_at` | `string` |  |
 | `node_id` | `string` |  |
 | `git_push_url` | `string` |  |
 | `comments` | `integer` |  |
-| `forks_url` | `string` |  |
-| `user` | `string` |  |
+| `user` | `object` | A GitHub user. |
+| `html_url` | `string` |  |
 | `commits_url` | `string` |  |
+| `truncated` | `boolean` |  |
 | `files` | `object` |  |
-| `fork_of` | `object` | Gist |
+| `public` | `boolean` |  |
 | `git_pull_url` | `string` |  |
-| `forks` | `array` |  |
 | `updated_at` | `string` |  |
+| `owner` | `object` | A GitHub user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `get` | `SELECT` | `gist_id` |  |
-| `get_revision` | `SELECT` | `gist_id, sha` |  |
 | `list` | `SELECT` |  | Lists the authenticated user's gists or if called anonymously, this endpoint returns all public gists: |
+| `list_for_user` | `SELECT` | `username` | Lists public gists for the specified user: |
 | `create` | `INSERT` | `data__files` | Allows you to add a new gist with one or more files.<br /><br />**Note:** Don't name your files "gistfile" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally. |
 | `delete` | `DELETE` | `gist_id` |  |
+| `check_is_starred` | `EXEC` | `gist_id` |  |
+| `fork` | `EXEC` | `gist_id` |  |
+| `star` | `EXEC` | `gist_id` | Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/rest/overview/resources-in-the-rest-api#http-verbs)." |
+| `unstar` | `EXEC` | `gist_id` |  |
 | `update` | `EXEC` | `gist_id` | Allows you to update a gist's description and to update, delete, or rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.<br />At least one of `description` or `files` is required. |

@@ -20,7 +20,7 @@ View, Modify Your Gists.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
 <span>total methods:&nbsp;<b>20</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ View, Modify Your Gists.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Gists</td></tr>
 <tr><td><b>Description</b></td><td>View, Modify Your Gists.</td></tr>
-<tr><td><b>Id</b></td><td><code>gists:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gists:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,12 +42,12 @@ View, Modify Your Gists.
 <a href="/providers/github/gists/comments/">comments</a><br />
 <a href="/providers/github/gists/commits/">commits</a><br />
 <a href="/providers/github/gists/forks/">forks</a><br />
-<a href="/providers/github/gists/gists/">gists</a><br />
+<a href="/providers/github/gists/gist/">gist</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/gists/public/">public</a><br />
-<a href="/providers/github/gists/star/">star</a><br />
-<a href="/providers/github/gists/starred/">starred</a><br />
-<a href="/providers/github/gists/users/">users</a><br />
+<a href="/providers/github/gists/gists/">gists</a><br />
+<a href="/providers/github/gists/public_gists/">public_gists</a><br />
+<a href="/providers/github/gists/revisions/">revisions</a><br />
+<a href="/providers/github/gists/starred_gists/">starred_gists</a><br />
 </div>
 </div>

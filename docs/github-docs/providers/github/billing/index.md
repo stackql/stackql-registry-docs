@@ -19,8 +19,8 @@ Monitor Charges And Usage From Actions And Packages.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
 <span>total methods:&nbsp;<b>6</b></span><br />
 </div>
 </div>
@@ -33,19 +33,16 @@ Monitor Charges And Usage From Actions And Packages.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Billing</td></tr>
 <tr><td><b>Description</b></td><td>Monitor Charges And Usage From Actions And Packages.</td></tr>
-<tr><td><b>Id</b></td><td><code>billing:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>billing:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/billing/orgs_settings_actions/">orgs_settings_actions</a><br />
-<a href="/providers/github/billing/orgs_settings_packages/">orgs_settings_packages</a><br />
-<a href="/providers/github/billing/orgs_settings_shared_storage/">orgs_settings_shared_storage</a><br />
+<a href="/providers/github/billing/actions_billing_usage/">actions_billing_usage</a><br />
+<a href="/providers/github/billing/combined_billing_usage/">combined_billing_usage</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/billing/users_settings_actions/">users_settings_actions</a><br />
-<a href="/providers/github/billing/users_settings_packages/">users_settings_packages</a><br />
-<a href="/providers/github/billing/users_settings_shared_storage/">users_settings_shared_storage</a><br />
+<a href="/providers/github/billing/packages_billing_usage/">packages_billing_usage</a><br />
 </div>
 </div>

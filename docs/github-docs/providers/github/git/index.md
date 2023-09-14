@@ -19,7 +19,7 @@ Raw Git Functionality.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
 <span>total methods:&nbsp;<b>13</b></span><br />
 </div>
@@ -33,20 +33,19 @@ Raw Git Functionality.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Git</td></tr>
 <tr><td><b>Description</b></td><td>Raw Git Functionality.</td></tr>
-<tr><td><b>Id</b></td><td><code>git:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>git:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/git/repos_blobs/">repos_blobs</a><br />
-<a href="/providers/github/git/repos_commits/">repos_commits</a><br />
-<a href="/providers/github/git/repos_matching_refs/">repos_matching_refs</a><br />
-<a href="/providers/github/git/repos_ref/">repos_ref</a><br />
+<a href="/providers/github/git/blobs/">blobs</a><br />
+<a href="/providers/github/git/commits/">commits</a><br />
+<a href="/providers/github/git/ref/">ref</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/git/repos_refs/">repos_refs</a><br />
-<a href="/providers/github/git/repos_tags/">repos_tags</a><br />
-<a href="/providers/github/git/repos_trees/">repos_trees</a><br />
+<a href="/providers/github/git/refs/">refs</a><br />
+<a href="/providers/github/git/tags/">tags</a><br />
+<a href="/providers/github/git/trees/">trees</a><br />
 </div>
 </div>

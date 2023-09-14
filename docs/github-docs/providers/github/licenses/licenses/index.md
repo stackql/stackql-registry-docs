@@ -25,23 +25,24 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `name` | `string` |
-| `description` | `string` |
-| `key` | `string` |
-| `conditions` | `array` |
-| `url` | `string` |
-| `body` | `string` |
-| `node_id` | `string` |
-| `html_url` | `string` |
-| `permissions` | `array` |
-| `featured` | `boolean` |
-| `limitations` | `array` |
-| `implementation` | `string` |
-| `spdx_id` | `string` |
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` |  |
+| `license` | `object` | License Simple |
+| `download_url` | `string` |  |
+| `url` | `string` |  |
+| `content` | `string` |  |
+| `size` | `integer` |  |
+| `path` | `string` |  |
+| `html_url` | `string` |  |
+| `sha` | `string` |  |
+| `_links` | `object` |  |
+| `encoding` | `string` |  |
+| `git_url` | `string` |  |
+| `type` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `license` | Gets information about a specific license. For more information, see "[Licensing a repository ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)." |
 | `get_all_commonly_used` | `SELECT` |  | Lists the most commonly used licenses on GitHub. For more information, see "[Licensing a repository ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)." |
+| `get_for_repo` | `SELECT` | `owner, repo` | This method returns the contents of the repository's license file, if one is detected.<br /><br />Similar to [Get repository content](https://docs.github.com/rest/repos/contents#get-repository-content), this method also supports [custom media types](https://docs.github.com/rest/overview/media-types) for retrieving the raw license content or rendered license HTML. |

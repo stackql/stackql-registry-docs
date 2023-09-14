@@ -19,8 +19,8 @@ Information For Integrations And Installations.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>25</b></span><br />
-<span>total selectable resources:&nbsp;<b>20</b></span><br />
+<span>total resources:&nbsp;<b>15</b></span><br />
+<span>total selectable resources:&nbsp;<b>14</b></span><br />
 <span>total methods:&nbsp;<b>37</b></span><br />
 </div>
 </div>
@@ -33,38 +33,28 @@ Information For Integrations And Installations.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Apps</td></tr>
 <tr><td><b>Description</b></td><td>Information For Integrations And Installations.</td></tr>
-<tr><td><b>Id</b></td><td><code>apps:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apps:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/apps/app/">app</a><br />
-<a href="/providers/github/apps/app_hook_config/">app_hook_config</a><br />
-<a href="/providers/github/apps/app_hook_deliveries/">app_hook_deliveries</a><br />
-<a href="/providers/github/apps/app_installation_requests/">app_installation_requests</a><br />
-<a href="/providers/github/apps/app_installations/">app_installations</a><br />
-<a href="/providers/github/apps/app_installations_access_tokens/">app_installations_access_tokens</a><br />
-<a href="/providers/github/apps/app_manifests_conversions/">app_manifests_conversions</a><br />
-<a href="/providers/github/apps/applications_grant/">applications_grant</a><br />
-<a href="/providers/github/apps/applications_token/">applications_token</a><br />
 <a href="/providers/github/apps/apps/">apps</a><br />
-<a href="/providers/github/apps/installation_repositories/">installation_repositories</a><br />
-<a href="/providers/github/apps/installation_token/">installation_token</a><br />
-<a href="/providers/github/apps/marketplace_listing_accounts/">marketplace_listing_accounts</a><br />
+<a href="/providers/github/apps/installation_repos/">installation_repos</a><br />
+<a href="/providers/github/apps/installations/">installations</a><br />
+<a href="/providers/github/apps/integration_installation_requests/">integration_installation_requests</a><br />
+<a href="/providers/github/apps/integrations/">integrations</a><br />
+<a href="/providers/github/apps/marketplace_listings/">marketplace_listings</a><br />
+<a href="/providers/github/apps/marketplace_listings_stubbed/">marketplace_listings_stubbed</a><br />
+<a href="/providers/github/apps/marketplace_subs/">marketplace_subs</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/apps/marketplace_listing_plans/">marketplace_listing_plans</a><br />
-<a href="/providers/github/apps/marketplace_listing_plans_accounts/">marketplace_listing_plans_accounts</a><br />
-<a href="/providers/github/apps/marketplace_listing_stubbed_accounts/">marketplace_listing_stubbed_accounts</a><br />
-<a href="/providers/github/apps/marketplace_listing_stubbed_plans/">marketplace_listing_stubbed_plans</a><br />
-<a href="/providers/github/apps/marketplace_listing_stubbed_plans_accounts/">marketplace_listing_stubbed_plans_accounts</a><br />
-<a href="/providers/github/apps/orgs_installation/">orgs_installation</a><br />
-<a href="/providers/github/apps/repos_installation/">repos_installation</a><br />
-<a href="/providers/github/apps/user_installations/">user_installations</a><br />
-<a href="/providers/github/apps/user_installations_repositories/">user_installations_repositories</a><br />
-<a href="/providers/github/apps/user_marketplace_purchases/">user_marketplace_purchases</a><br />
-<a href="/providers/github/apps/user_marketplace_purchases_stubbed/">user_marketplace_purchases_stubbed</a><br />
-<a href="/providers/github/apps/users_installation/">users_installation</a><br />
+<a href="/providers/github/apps/marketplace_subs_stubbed/">marketplace_subs_stubbed</a><br />
+<a href="/providers/github/apps/marketplace_users_subs/">marketplace_users_subs</a><br />
+<a href="/providers/github/apps/marketplace_users_subs_stubbed/">marketplace_users_subs_stubbed</a><br />
+<a href="/providers/github/apps/oauth_applications/">oauth_applications</a><br />
+<a href="/providers/github/apps/webhook_config/">webhook_config</a><br />
+<a href="/providers/github/apps/webhook_deliveries/">webhook_deliveries</a><br />
+<a href="/providers/github/apps/webhook_delivery/">webhook_delivery</a><br />
 </div>
 </div>

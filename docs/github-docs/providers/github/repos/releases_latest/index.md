@@ -29,27 +29,27 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` |  |
-| `tag_name` | `string` | The name of the tag. |
-| `node_id` | `string` |  |
-| `body` | `string` |  |
-| `assets` | `array` |  |
-| `target_commitish` | `string` | Specifies the commitish value that determines where the Git tag is created from. |
-| `created_at` | `string` |  |
-| `published_at` | `string` |  |
-| `mentions_count` | `integer` |  |
-| `body_html` | `string` |  |
-| `zipball_url` | `string` |  |
 | `url` | `string` |  |
-| `body_text` | `string` |  |
-| `prerelease` | `boolean` | Whether to identify the release as a prerelease or a full release. |
-| `author` | `object` | A GitHub user. |
+| `zipball_url` | `string` |  |
 | `tarball_url` | `string` |  |
-| `upload_url` | `string` |  |
-| `html_url` | `string` |  |
-| `draft` | `boolean` | true to create a draft (unpublished) release, false to create a published one. |
+| `body` | `string` |  |
+| `published_at` | `string` |  |
+| `target_commitish` | `string` | Specifies the commitish value that determines where the Git tag is created from. |
 | `reactions` | `object` |  |
+| `body_html` | `string` |  |
+| `prerelease` | `boolean` | Whether to identify the release as a prerelease or a full release. |
+| `tag_name` | `string` | The name of the tag. |
+| `created_at` | `string` |  |
 | `discussion_url` | `string` | The URL of the release discussion. |
+| `draft` | `boolean` | true to create a draft (unpublished) release, false to create a published one. |
+| `assets` | `array` |  |
 | `assets_url` | `string` |  |
+| `node_id` | `string` |  |
+| `body_text` | `string` |  |
+| `html_url` | `string` |  |
+| `mentions_count` | `integer` |  |
+| `author` | `object` | A GitHub user. |
+| `upload_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

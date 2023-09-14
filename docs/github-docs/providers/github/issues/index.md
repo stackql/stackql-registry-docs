@@ -19,8 +19,8 @@ Interact With GitHub Issues.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>11</b></span><br />
-<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
 <span>total methods:&nbsp;<b>40</b></span><br />
 </div>
 </div>
@@ -33,24 +33,21 @@ Interact With GitHub Issues.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Issues</td></tr>
 <tr><td><b>Description</b></td><td>Interact With GitHub Issues.</td></tr>
-<tr><td><b>Id</b></td><td><code>issues:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>issues:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/github/issues/assignees/">assignees</a><br />
+<a href="/providers/github/issues/comments/">comments</a><br />
+<a href="/providers/github/issues/events/">events</a><br />
 <a href="/providers/github/issues/issues/">issues</a><br />
-<a href="/providers/github/issues/orgs/">orgs</a><br />
-<a href="/providers/github/issues/repos/">repos</a><br />
-<a href="/providers/github/issues/repos_assignees/">repos_assignees</a><br />
-<a href="/providers/github/issues/repos_comments/">repos_comments</a><br />
-<a href="/providers/github/issues/repos_events/">repos_events</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/issues/repos_labels/">repos_labels</a><br />
-<a href="/providers/github/issues/repos_milestones/">repos_milestones</a><br />
-<a href="/providers/github/issues/repos_milestones_labels/">repos_milestones_labels</a><br />
-<a href="/providers/github/issues/repos_timeline/">repos_timeline</a><br />
-<a href="/providers/github/issues/user/">user</a><br />
+<a href="/providers/github/issues/labels/">labels</a><br />
+<a href="/providers/github/issues/milestones/">milestones</a><br />
+<a href="/providers/github/issues/timeline/">timeline</a><br />
+<a href="/providers/github/issues/user_issues/">user_issues</a><br />
 </div>
 </div>

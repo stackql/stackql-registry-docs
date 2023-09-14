@@ -28,18 +28,21 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the repository invitation. |
-| `repository` | `object` | Minimal Repository |
-| `invitee` | `object` | A GitHub user. |
-| `inviter` | `object` | A GitHub user. |
 | `expired` | `boolean` | Whether or not the invitation has expired |
-| `node_id` | `string` |  |
 | `permissions` | `string` | The permission associated with the invitation. |
-| `url` | `string` | URL for the repository invitation |
 | `created_at` | `string` |  |
+| `node_id` | `string` |  |
 | `html_url` | `string` |  |
+| `inviter` | `object` | A GitHub user. |
+| `repository` | `object` | Minimal Repository |
+| `url` | `string` | URL for the repository invitation |
+| `invitee` | `object` | A GitHub user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `list_invitations` | `SELECT` | `owner, repo` | When authenticating as a user with admin rights to a repository, this endpoint will list all currently open repository invitations. |
+| `list_invitations_for_authenticated_user` | `SELECT` |  | When authenticating as a user, this endpoint will list all currently open repository invitations for that user. |
 | `delete_invitation` | `DELETE` | `invitation_id, owner, repo` |  |
+| `accept_invitation_for_authenticated_user` | `EXEC` | `invitation_id` |  |
+| `decline_invitation_for_authenticated_user` | `EXEC` | `invitation_id` |  |
 | `update_invitation` | `EXEC` | `invitation_id, owner, repo` |  |

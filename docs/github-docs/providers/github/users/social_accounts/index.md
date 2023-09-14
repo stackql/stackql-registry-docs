@@ -27,9 +27,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `url` | `string` |
 | `provider` | `string` |
+| `url` | `string` |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `list_social_accounts_for_user` | `SELECT` | `username` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `list_social_accounts_for_authenticated_user` | `SELECT` |  | Lists all of your social accounts. |
+| `list_social_accounts_for_user` | `SELECT` | `username` | Lists social media accounts for a user. This endpoint is accessible by anyone. |
+| `add_social_account_for_authenticated_user` | `INSERT` | `data__account_urls` | Add one or more social accounts to the authenticated user's profile. This endpoint is accessible with the `user` scope. |
+| `delete_social_account_for_authenticated_user` | `DELETE` | `data__account_urls` | Deletes one or more social accounts from the authenticated user's profile. This endpoint is accessible with the `user` scope. |

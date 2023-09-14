@@ -19,8 +19,8 @@ View Various OSS Licenses.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
 <span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ View Various OSS Licenses.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Licenses</td></tr>
 <tr><td><b>Description</b></td><td>View Various OSS Licenses.</td></tr>
-<tr><td><b>Id</b></td><td><code>licenses:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>licenses:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,6 +42,5 @@ View Various OSS Licenses.
 <a href="/providers/github/licenses/licenses/">licenses</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/licenses/repos_license/">repos_license</a><br />
 </div>
 </div>

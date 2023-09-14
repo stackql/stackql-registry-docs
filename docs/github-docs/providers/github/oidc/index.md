@@ -33,13 +33,13 @@ Endpoints To Manage GitHub OIDC Configuration Using The REST API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Oidc</td></tr>
 <tr><td><b>Description</b></td><td>Endpoints To Manage GitHub OIDC Configuration Using The REST API.</td></tr>
-<tr><td><b>Id</b></td><td><code>oidc:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>oidc:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/oidc/orgs_actions_customization_sub/">orgs_actions_customization_sub</a><br />
+<a href="/providers/github/oidc/oidc/">oidc</a><br />
 </div>
 <div class="providerDocColumn">
 </div>

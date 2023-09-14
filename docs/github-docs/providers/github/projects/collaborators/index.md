@@ -25,32 +25,14 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| `id` | `integer` |
-| `name` | `string` |
-| `node_id` | `string` |
-| `site_admin` | `boolean` |
-| `events_url` | `string` |
-| `starred_url` | `string` |
-| `avatar_url` | `string` |
-| `following_url` | `string` |
-| `received_events_url` | `string` |
-| `gravatar_id` | `string` |
-| `organizations_url` | `string` |
-| `gists_url` | `string` |
-| `type` | `string` |
-| `subscriptions_url` | `string` |
-| `followers_url` | `string` |
-| `repos_url` | `string` |
-| `email` | `string` |
-| `url` | `string` |
-| `html_url` | `string` |
-| `login` | `string` |
-| `starred_at` | `string` |
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `permission` | `string` |  |
+| `user` | `object` | A GitHub user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `get_permission_for_user` | `SELECT` | `project_id, username` | Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level. |
 | `list_collaborators` | `SELECT` | `project_id` | Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators. |
 | `remove_collaborator` | `DELETE` | `project_id, username` | Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator. |
 | `add_collaborator` | `EXEC` | `project_id, username` | Adds a collaborator to an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator. |

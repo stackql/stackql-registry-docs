@@ -19,8 +19,8 @@ Interact With Reactions To Various GitHub Entities.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>9</b></span><br />
-<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
 <span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
@@ -33,22 +33,18 @@ Interact With Reactions To Various GitHub Entities.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Reactions</td></tr>
 <tr><td><b>Description</b></td><td>Interact With Reactions To Various GitHub Entities.</td></tr>
-<tr><td><b>Id</b></td><td><code>reactions:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>reactions:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/reactions/orgs_teams_discussions/">orgs_teams_discussions</a><br />
-<a href="/providers/github/reactions/orgs_teams_discussions_comments/">orgs_teams_discussions_comments</a><br />
-<a href="/providers/github/reactions/repos_comments/">repos_comments</a><br />
-<a href="/providers/github/reactions/repos_issues/">repos_issues</a><br />
-<a href="/providers/github/reactions/repos_issues_comments/">repos_issues_comments</a><br />
+<a href="/providers/github/reactions/commit_comments/">commit_comments</a><br />
+<a href="/providers/github/reactions/issue_comments/">issue_comments</a><br />
+<a href="/providers/github/reactions/pr_comments/">pr_comments</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/reactions/repos_pulls_comments/">repos_pulls_comments</a><br />
-<a href="/providers/github/reactions/repos_releases/">repos_releases</a><br />
-<a href="/providers/github/reactions/teams_discussions/">teams_discussions</a><br />
-<a href="/providers/github/reactions/teams_discussions_comments/">teams_discussions_comments</a><br />
+<a href="/providers/github/reactions/release_comments/">release_comments</a><br />
+<a href="/providers/github/reactions/team_discussions/">team_discussions</a><br />
 </div>
 </div>

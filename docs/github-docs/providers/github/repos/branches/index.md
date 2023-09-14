@@ -28,16 +28,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `commit` | `object` | Commit |
-| `pattern` | `string` |  |
 | `protected` | `boolean` |  |
 | `protection` | `object` | Branch Protection |
 | `protection_url` | `string` |  |
-| `required_approving_review_count` | `integer` |  |
-| `_links` | `object` |  |
+| `commit` | `object` |  |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `get_branch` | `SELECT` | `branch, owner, repo` |  |
-| `list_branches` | `SELECT` | `owner, repo` |  |
-| `rename_branch` | `EXEC` | `branch, owner, repo, data__new_name` | Renames a branch in a repository.<br /><br />**Note:** Although the API responds immediately, the branch rename process might take some extra time to complete in the background. You won't be able to push to the old branch name while the rename process is in progress. For more information, see "[Renaming a branch](https://docs.github.com/github/administering-a-repository/renaming-a-branch)".<br /><br />The permissions required to use this endpoint depends on whether you are renaming the default branch.<br /><br />To rename a non-default branch:<br /><br />* Users must have push access.<br />* GitHub Apps must have the `contents:write` repository permission.<br /><br />To rename the default branch:<br /><br />* Users must have admin or owner permissions.<br />* GitHub Apps must have the `administration:write` repository permission. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list_branches` | `SELECT` | `owner, repo` |

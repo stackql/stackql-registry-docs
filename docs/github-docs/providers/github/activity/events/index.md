@@ -28,14 +28,16 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` |  |
-| `created_at` | `string` |  |
-| `org` | `object` | Actor |
-| `payload` | `object` |  |
 | `public` | `boolean` |  |
 | `repo` | `object` |  |
 | `type` | `string` |  |
 | `actor` | `object` | Actor |
+| `created_at` | `string` |  |
+| `org` | `object` | Actor |
+| `payload` | `object` |  |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `list_public_events` | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `list_events_for_authenticated_user` | `SELECT` | `username` | If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events. |
+| `list_org_events_for_authenticated_user` | `SELECT` | `org, username` | This is the user's organization dashboard. You must be authenticated as the user to view this. |
+| `list_repo_events` | `SELECT` | `owner, repo` | **Note**: This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.<br /> |

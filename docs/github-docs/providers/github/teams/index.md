@@ -19,8 +19,8 @@ Interact With GitHub Teams.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>17</b></span><br />
-<span>total selectable resources:&nbsp;<b>17</b></span><br />
+<span>total resources:&nbsp;<b>12</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
 <span>total methods:&nbsp;<b>60</b></span><br />
 </div>
 </div>
@@ -33,30 +33,25 @@ Interact With GitHub Teams.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Teams</td></tr>
 <tr><td><b>Description</b></td><td>Interact With GitHub Teams.</td></tr>
-<tr><td><b>Id</b></td><td><code>teams:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>teams:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/github/teams/details/">details</a><br />
+<a href="/providers/github/teams/discussion_comments/">discussion_comments</a><br />
 <a href="/providers/github/teams/discussions/">discussions</a><br />
-<a href="/providers/github/teams/discussions_comments/">discussions_comments</a><br />
 <a href="/providers/github/teams/invitations/">invitations</a><br />
 <a href="/providers/github/teams/members/">members</a><br />
-<a href="/providers/github/teams/memberships/">memberships</a><br />
-<a href="/providers/github/teams/orgs/">orgs</a><br />
-<a href="/providers/github/teams/orgs_discussions/">orgs_discussions</a><br />
-<a href="/providers/github/teams/orgs_discussions_comments/">orgs_discussions_comments</a><br />
-<a href="/providers/github/teams/orgs_invitations/">orgs_invitations</a><br />
+<a href="/providers/github/teams/membership/">membership</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/teams/orgs_members/">orgs_members</a><br />
-<a href="/providers/github/teams/orgs_memberships/">orgs_memberships</a><br />
-<a href="/providers/github/teams/orgs_projects/">orgs_projects</a><br />
-<a href="/providers/github/teams/orgs_repos/">orgs_repos</a><br />
+<a href="/providers/github/teams/project_permissions/">project_permissions</a><br />
 <a href="/providers/github/teams/projects/">projects</a><br />
+<a href="/providers/github/teams/repo_permissions/">repo_permissions</a><br />
 <a href="/providers/github/teams/repos/">repos</a><br />
 <a href="/providers/github/teams/teams/">teams</a><br />
-<a href="/providers/github/teams/user/">user</a><br />
+<a href="/providers/github/teams/teams_for_auth_user/">teams_for_auth_user</a><br />
 </div>
 </div>
