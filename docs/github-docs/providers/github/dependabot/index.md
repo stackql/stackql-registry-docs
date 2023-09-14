@@ -19,8 +19,8 @@ Endpoints To Manage Dependabot.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
 <span>total methods:&nbsp;<b>19</b></span><br />
 </div>
 </div>
@@ -33,21 +33,20 @@ Endpoints To Manage Dependabot.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Dependabot</td></tr>
 <tr><td><b>Description</b></td><td>Endpoints To Manage Dependabot.</td></tr>
-<tr><td><b>Id</b></td><td><code>dependabot:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dependabot:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/dependabot/enterprises_alerts/">enterprises_alerts</a><br />
-<a href="/providers/github/dependabot/orgs_alerts/">orgs_alerts</a><br />
-<a href="/providers/github/dependabot/orgs_secrets/">orgs_secrets</a><br />
-<a href="/providers/github/dependabot/orgs_secrets_public_key/">orgs_secrets_public_key</a><br />
+<a href="/providers/github/dependabot/alerts/">alerts</a><br />
+<a href="/providers/github/dependabot/enterprise_alerts/">enterprise_alerts</a><br />
+<a href="/providers/github/dependabot/org_alerts/">org_alerts</a><br />
+<a href="/providers/github/dependabot/org_secrets/">org_secrets</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/dependabot/orgs_secrets_repositories/">orgs_secrets_repositories</a><br />
-<a href="/providers/github/dependabot/repos_alerts/">repos_alerts</a><br />
-<a href="/providers/github/dependabot/repos_secrets/">repos_secrets</a><br />
-<a href="/providers/github/dependabot/repos_secrets_public_key/">repos_secrets_public_key</a><br />
+<a href="/providers/github/dependabot/public_keys/">public_keys</a><br />
+<a href="/providers/github/dependabot/repos_for_secret/">repos_for_secret</a><br />
+<a href="/providers/github/dependabot/secrets/">secrets</a><br />
 </div>
 </div>

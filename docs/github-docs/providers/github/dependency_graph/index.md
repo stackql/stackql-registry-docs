@@ -33,16 +33,16 @@ Dependency Graph
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Dependency Graph</td></tr>
 <tr><td><b>Description</b></td><td>Dependency Graph</td></tr>
-<tr><td><b>Id</b></td><td><code>dependency_graph:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dependency_graph:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/dependency_graph/repos_compare/">repos_compare</a><br />
-<a href="/providers/github/dependency_graph/repos_sbom/">repos_sbom</a><br />
+<a href="/providers/github/dependency_graph/dependency_review/">dependency_review</a><br />
+<a href="/providers/github/dependency_graph/dependency_submission/">dependency_submission</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/dependency_graph/repos_snapshots/">repos_snapshots</a><br />
+<a href="/providers/github/dependency_graph/sboms/">sboms</a><br />
 </div>
 </div>

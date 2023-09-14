@@ -19,7 +19,7 @@ Render GitHub Flavored Markdown
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>1</b></span><br />
 <span>total selectable resources:&nbsp;<b>0</b></span><br />
 <span>total methods:&nbsp;<b>2</b></span><br />
 </div>
@@ -33,7 +33,7 @@ Render GitHub Flavored Markdown
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Markdown</td></tr>
 <tr><td><b>Description</b></td><td>Render GitHub Flavored Markdown</td></tr>
-<tr><td><b>Id</b></td><td><code>markdown:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>markdown:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,6 +42,5 @@ Render GitHub Flavored Markdown
 <a href="/providers/github/markdown/markdown/">markdown</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/markdown/raw/">raw</a><br />
 </div>
 </div>

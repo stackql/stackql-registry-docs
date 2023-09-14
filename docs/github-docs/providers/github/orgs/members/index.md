@@ -29,28 +29,27 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `integer` |
 | `name` | `string` |
-| `subscriptions_url` | `string` |
-| `organizations_url` | `string` |
-| `gravatar_id` | `string` |
-| `html_url` | `string` |
-| `node_id` | `string` |
-| `followers_url` | `string` |
-| `repos_url` | `string` |
-| `login` | `string` |
-| `starred_url` | `string` |
-| `site_admin` | `boolean` |
-| `avatar_url` | `string` |
 | `events_url` | `string` |
-| `type` | `string` |
-| `received_events_url` | `string` |
+| `html_url` | `string` |
 | `url` | `string` |
-| `gists_url` | `string` |
+| `starred_url` | `string` |
 | `following_url` | `string` |
+| `type` | `string` |
 | `email` | `string` |
+| `avatar_url` | `string` |
+| `gists_url` | `string` |
+| `login` | `string` |
 | `starred_at` | `string` |
+| `repos_url` | `string` |
+| `organizations_url` | `string` |
+| `node_id` | `string` |
+| `subscriptions_url` | `string` |
+| `received_events_url` | `string` |
+| `gravatar_id` | `string` |
+| `site_admin` | `boolean` |
+| `followers_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `list_members` | `SELECT` | `org` | List all users who are members of an organization. If the authenticated user is also a member of this organization then both concealed and public members will be returned. |
 | `remove_member` | `DELETE` | `org, username` | Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories. |
-| `check_membership_for_user` | `EXEC` | `org, username` | Check if a user is, publicly or privately, a member of the organization. |

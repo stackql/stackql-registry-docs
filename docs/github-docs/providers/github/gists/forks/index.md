@@ -29,27 +29,26 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `description` | `string` |  |
-| `git_push_url` | `string` |  |
+| `files` | `object` |  |
+| `forks` | `array` |  |
 | `commits_url` | `string` |  |
+| `node_id` | `string` |  |
+| `updated_at` | `string` |  |
+| `created_at` | `string` |  |
+| `history` | `array` |  |
+| `user` | `string` |  |
+| `forks_url` | `string` |  |
+| `git_pull_url` | `string` |  |
+| `truncated` | `boolean` |  |
+| `git_push_url` | `string` |  |
+| `comments_url` | `string` |  |
+| `owner` | `object` | A GitHub user. |
 | `url` | `string` |  |
 | `comments` | `integer` |  |
 | `public` | `boolean` |  |
-| `forks` | `array` |  |
-| `fork_of` | `object` | Gist |
-| `node_id` | `string` |  |
-| `created_at` | `string` |  |
-| `user` | `string` |  |
-| `truncated` | `boolean` |  |
-| `files` | `object` |  |
-| `history` | `array` |  |
-| `comments_url` | `string` |  |
-| `owner` | `object` | A GitHub user. |
 | `html_url` | `string` |  |
-| `git_pull_url` | `string` |  |
-| `forks_url` | `string` |  |
-| `updated_at` | `string` |  |
+| `fork_of` | `object` | Gist |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | `list_forks` | `SELECT` | `gist_id` |
-| `fork` | `EXEC` | `gist_id` |

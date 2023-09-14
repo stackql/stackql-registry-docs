@@ -19,8 +19,8 @@ Interact With GitHub Pull Requests.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
 <span>total methods:&nbsp;<b>27</b></span><br />
 </div>
 </div>
@@ -33,21 +33,22 @@ Interact With GitHub Pull Requests.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Pulls</td></tr>
 <tr><td><b>Description</b></td><td>Interact With GitHub Pull Requests.</td></tr>
-<tr><td><b>Id</b></td><td><code>pulls:v23.09.00171</code></td></tr>
+<tr><td><b>Id</b></td><td><code>pulls:v23.09.00173</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/github/pulls/repos/">repos</a><br />
-<a href="/providers/github/pulls/repos_comments/">repos_comments</a><br />
-<a href="/providers/github/pulls/repos_comments_replies/">repos_comments_replies</a><br />
-<a href="/providers/github/pulls/repos_commits/">repos_commits</a><br />
+<a href="/providers/github/pulls/comments/">comments</a><br />
+<a href="/providers/github/pulls/comments_for_review/">comments_for_review</a><br />
+<a href="/providers/github/pulls/commits/">commits</a><br />
+<a href="/providers/github/pulls/files/">files</a><br />
+<a href="/providers/github/pulls/pull_request/">pull_request</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/pulls/repos_files/">repos_files</a><br />
-<a href="/providers/github/pulls/repos_requested_reviewers/">repos_requested_reviewers</a><br />
-<a href="/providers/github/pulls/repos_reviews/">repos_reviews</a><br />
-<a href="/providers/github/pulls/repos_reviews_comments/">repos_reviews_comments</a><br />
+<a href="/providers/github/pulls/pull_requests/">pull_requests</a><br />
+<a href="/providers/github/pulls/replies/">replies</a><br />
+<a href="/providers/github/pulls/review_requests/">review_requests</a><br />
+<a href="/providers/github/pulls/reviews/">reviews</a><br />
 </div>
 </div>

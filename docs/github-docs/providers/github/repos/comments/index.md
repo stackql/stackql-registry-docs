@@ -28,23 +28,25 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `line` | `integer` |  |
-| `created_at` | `string` |  |
-| `updated_at` | `string` |  |
 | `path` | `string` |  |
-| `user` | `object` | A GitHub user. |
-| `commit_id` | `string` |  |
-| `html_url` | `string` |  |
-| `reactions` | `object` |  |
+| `updated_at` | `string` |  |
 | `url` | `string` |  |
+| `reactions` | `object` |  |
 | `author_association` | `string` | How the author is associated with the repository. |
+| `node_id` | `string` |  |
+| `user` | `object` | A GitHub user. |
+| `html_url` | `string` |  |
+| `commit_id` | `string` |  |
 | `body` | `string` |  |
 | `position` | `integer` |  |
-| `node_id` | `string` |  |
+| `line` | `integer` |  |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get_commit_comment` | `SELECT` | `comment_id, owner, repo` |  |
+| `list_comments_for_commit` | `SELECT` | `commit_sha, owner, repo` | Use the `:commit_sha` to specify the commit that will have its comments listed. |
 | `list_commit_comments_for_repo` | `SELECT` | `owner, repo` | Commit Comments use [these custom media types](https://docs.github.com/rest/overview/media-types). You can read more about the use of media types in the API [here](https://docs.github.com/rest/overview/media-types/).<br /><br />Comments are ordered by ascending ID. |
+| `create_commit_comment` | `INSERT` | `commit_sha, owner, repo, data__body` | Create a comment for a commit using its `:commit_sha`.<br /><br />This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. See "[Secondary rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#secondary-rate-limits)" and "[Dealing with secondary rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-secondary-rate-limits)" for details. |
 | `delete_commit_comment` | `DELETE` | `comment_id, owner, repo` |  |
 | `update_commit_comment` | `EXEC` | `comment_id, owner, repo, data__body` |  |

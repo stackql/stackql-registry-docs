@@ -1,0 +1,51 @@
+---
+title: self_hosted_runners
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - self_hosted_runners
+  - actions
+  - github    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage GitHub resources using SQL
+custom_edit_url: null
+image: /img/providers/github/stackql-github-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>self_hosted_runners</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>github.actions.self_hosted_runners</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `integer` | The id of the runner. |
+| `name` | `string` | The name of the runner. |
+| `runner_group_id` | `integer` | The id of the runner group. |
+| `status` | `string` | The status of the runner. |
+| `busy` | `boolean` |  |
+| `labels` | `array` |  |
+| `os` | `string` | The Operating System of the runner. |
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `get_self_hosted_runner_for_org` | `SELECT` | `org, runner_id` | Gets a specific self-hosted runner configured in an organization.<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints. |
+| `get_self_hosted_runner_for_repo` | `SELECT` | `owner, repo, runner_id` | Gets a specific self-hosted runner configured in a repository.<br /><br />You must authenticate using an access token with the `repo` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints. |
+| `list_self_hosted_runners_for_org` | `SELECT` | `org` | Lists all self-hosted runners configured in an organization.<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints. |
+| `list_self_hosted_runners_for_repo` | `SELECT` | `owner, repo` | Lists all self-hosted runners configured in a repository.<br /><br />You must authenticate using an access token with the `repo` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints. |
+| `delete_self_hosted_runner_from_org` | `DELETE` | `org, runner_id` | Forces the removal of a self-hosted runner from an organization. You can use this endpoint to completely remove the runner when the machine you were using no longer exists.<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints. |
+| `delete_self_hosted_runner_from_repo` | `DELETE` | `owner, repo, runner_id` | Forces the removal of a self-hosted runner from a repository. You can use this endpoint to completely remove the runner when the machine you were using no longer exists.<br /><br />You must authenticate using an access token with the `repo` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints. |
+| `create_registration_token_for_org` | `EXEC` | `org` | Returns a token that you can pass to the `config` script. The token expires after one hour.<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.<br /><br />Example using registration token: <br /><br />Configure your self-hosted runner, replacing `TOKEN` with the registration token provided by this endpoint.<br /><br />```<br />./config.sh --url https://github.com/octo-org --token TOKEN<br />``` |
+| `create_registration_token_for_repo` | `EXEC` | `owner, repo` | Returns a token that you can pass to the `config` script. The token<br />expires after one hour.<br /><br />You must authenticate using an access token with the `repo` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.<br /><br />Example using registration token: <br /><br />Configure your self-hosted runner, replacing `TOKEN` with the registration token provided<br />by this endpoint.<br /><br />```config.sh --url https://github.com/octo-org/octo-repo-artifacts --token TOKEN``` |
+| `create_remove_token_for_org` | `EXEC` | `org` | Returns a token that you can pass to the `config` script to remove a self-hosted runner from an organization. The token expires after one hour.<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.<br /><br />Example using remove token:<br /><br />To remove your self-hosted runner from an organization, replace `TOKEN` with the remove token provided by this<br />endpoint.<br /><br />```<br />./config.sh remove --token TOKEN<br />``` |
+| `create_remove_token_for_repo` | `EXEC` | `owner, repo` | Returns a token that you can pass to remove a self-hosted runner from<br />a repository. The token expires after one hour.<br /><br />You must authenticate using an access token with the `repo` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints.<br /><br />Example using remove token:<br /><br />To remove your self-hosted runner from a repository, replace TOKEN with<br />the remove token provided by this endpoint.<br /><br />```config.sh remove --token TOKEN``` |
+| `generate_runner_jitconfig_for_org` | `EXEC` | `org, data__labels, data__name, data__runner_group_id` | Generates a configuration that can be passed to the runner application at startup.<br /><br />You must authenticate using an access token with the `admin:org` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints. |
+| `generate_runner_jitconfig_for_repo` | `EXEC` | `owner, repo, data__labels, data__name, data__runner_group_id` | Generates a configuration that can be passed to the runner application at startup.<br /><br />You must authenticate using an access token with the `repo` scope to use this endpoint.<br />If the repository is private, you must use an access token with the `repo` scope.<br />GitHub Apps must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations.<br />Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises, to use these endpoints. |
