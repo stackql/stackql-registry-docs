@@ -28,10 +28,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the secret |
-| `visibility` | `string` | The type of repositories in the organization that the secret is visible to |
-| `created_at` | `string` | The date and time at which the secret was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. |
 | `selected_repositories_url` | `string` | The API URL at which the list of repositories this secret is visible to can be retrieved |
 | `updated_at` | `string` | The date and time at which the secret was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. |
+| `visibility` | `string` | The type of repositories in the organization that the secret is visible to |
+| `created_at` | `string` | The date and time at which the secret was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

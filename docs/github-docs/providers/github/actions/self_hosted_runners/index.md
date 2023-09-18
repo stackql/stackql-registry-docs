@@ -29,11 +29,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The id of the runner. |
 | `name` | `string` | The name of the runner. |
-| `runner_group_id` | `integer` | The id of the runner group. |
 | `status` | `string` | The status of the runner. |
 | `busy` | `boolean` |  |
 | `labels` | `array` |  |
 | `os` | `string` | The Operating System of the runner. |
+| `runner_group_id` | `integer` | The id of the runner group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

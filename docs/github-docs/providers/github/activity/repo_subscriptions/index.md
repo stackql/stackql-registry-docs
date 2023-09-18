@@ -27,12 +27,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `subscribed` | `boolean` | Determines if notifications should be received from this repository. |
-| `url` | `string` |  |
-| `created_at` | `string` |  |
 | `ignored` | `boolean` | Determines if all notifications should be blocked from this repository. |
 | `reason` | `string` |  |
 | `repository_url` | `string` |  |
+| `subscribed` | `boolean` | Determines if notifications should be received from this repository. |
+| `url` | `string` |  |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

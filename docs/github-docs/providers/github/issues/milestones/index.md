@@ -29,20 +29,20 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `description` | `string` |  |
-| `open_issues` | `integer` |  |
+| `closed_at` | `string` |  |
 | `created_at` | `string` |  |
-| `due_on` | `string` |  |
 | `title` | `string` | The title of the milestone. |
 | `creator` | `object` | A GitHub user. |
-| `updated_at` | `string` |  |
-| `node_id` | `string` |  |
-| `state` | `string` | The state of the milestone. |
-| `closed_issues` | `integer` |  |
 | `html_url` | `string` |  |
-| `closed_at` | `string` |  |
 | `number` | `integer` | The number of the milestone. |
-| `labels_url` | `string` |  |
 | `url` | `string` |  |
+| `state` | `string` | The state of the milestone. |
+| `labels_url` | `string` |  |
+| `open_issues` | `integer` |  |
+| `closed_issues` | `integer` |  |
+| `due_on` | `string` |  |
+| `node_id` | `string` |  |
+| `updated_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,18 +29,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the ruleset |
 | `name` | `string` | The name of the ruleset |
-| `created_at` | `string` |  |
 | `node_id` | `string` |  |
-| `rules` | `array` |  |
-| `target` | `string` | The target of the ruleset |
+| `created_at` | `string` |  |
 | `_links` | `object` |  |
-| `conditions` | `object` | Parameters for a repository ruleset ref name condition |
 | `source` | `string` | The name of the source |
-| `current_user_can_bypass` | `string` | The bypass type of the user making the API request for this ruleset. This field is only returned when<br />querying the repository-level endpoint. |
-| `updated_at` | `string` |  |
+| `conditions` | `object` | Parameters for a repository ruleset ref name condition |
+| `rules` | `array` |  |
 | `bypass_actors` | `array` | The actors that can bypass the rules in this ruleset |
 | `enforcement` | `string` | The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (`evaluate` is only available with GitHub Enterprise). |
+| `updated_at` | `string` |  |
+| `target` | `string` | The target of the ruleset |
 | `source_type` | `string` | The type of the source of the ruleset |
+| `current_user_can_bypass` | `string` | The bypass type of the user making the API request for this ruleset. This field is only returned when<br />querying the repository-level endpoint. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

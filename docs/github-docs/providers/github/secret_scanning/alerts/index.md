@@ -27,23 +27,23 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `push_protection_bypassed_at` | `string` | The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `secret` | `string` | The secret that was detected. |
 | `locations_url` | `string` | The REST API URL of the code locations for this alert. |
+| `number` | `integer` | The security alert number. |
+| `url` | `string` | The REST API URL of the alert resource. |
+| `state` | `string` | Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`. |
 | `html_url` | `string` | The GitHub URL of the alert resource. |
-| `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `resolution` | `string` | **Required when the `state` is `resolved`.** The reason for resolving the alert. |
 | `updated_at` | `string` | The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `secret` | `string` | The secret that was detected. |
+| `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `push_protection_bypassed` | `boolean` | Whether push protection was bypassed for the detected secret. |
+| `push_protection_bypassed_at` | `string` | The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
 | `secret_type` | `string` | The type of secret that secret scanning detected. |
 | `resolved_by` | `object` | A GitHub user. |
-| `number` | `integer` | The security alert number. |
-| `resolution_comment` | `string` | An optional comment to resolve an alert. |
-| `state` | `string` | Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`. |
 | `resolved_at` | `string` | The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `resolution` | `string` | **Required when the `state` is `resolved`.** The reason for resolving the alert. |
-| `secret_type_display_name` | `string` | User-friendly name for the detected secret, matching the `secret_type`.<br />For a list of built-in patterns, see "[Secret scanning patterns](https://docs.github.com/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security)." |
-| `push_protection_bypassed` | `boolean` | Whether push protection was bypassed for the detected secret. |
 | `push_protection_bypassed_by` | `object` | A GitHub user. |
-| `url` | `string` | The REST API URL of the alert resource. |
+| `resolution_comment` | `string` | An optional comment to resolve an alert. |
+| `secret_type_display_name` | `string` | User-friendly name for the detected secret, matching the `secret_type`.<br />For a list of built-in patterns, see "[Secret scanning patterns](https://docs.github.com/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security)." |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

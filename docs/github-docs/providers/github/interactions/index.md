@@ -20,7 +20,7 @@ Owner Or Admin Management Of Users Interactions.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
 <span>total methods:&nbsp;<b>9</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ Owner Or Admin Management Of Users Interactions.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Interactions</td></tr>
 <tr><td><b>Description</b></td><td>Owner Or Admin Management Of Users Interactions.</td></tr>
-<tr><td><b>Id</b></td><td><code>interactions:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>interactions:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -27,13 +27,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `last_activity_at` | `string` | Timestamp of user's last GitHub Copilot activity, in ISO 8601 format. |
+| `last_activity_editor` | `string` | Last editor that was used by the user for a GitHub Copilot completion. |
 | `pending_cancellation_date` | `string` | The pending cancellation date for the seat, in `YYYY-MM-DD` format. This will be null unless the assignee's Copilot access has been canceled during the current billing cycle. If the seat has been cancelled, this corresponds to the start of the organization's next billing cycle. |
 | `updated_at` | `string` | Timestamp of when the assignee's GitHub Copilot access was last updated, in ISO 8601 format. |
 | `assignee` | `object` | The assignee that has been granted access to GitHub Copilot. |
 | `assigning_team` | `object` | The team that granted access to GitHub Copilot to the assignee. This will be null if the user was assigned a seat individually. |
 | `created_at` | `string` | Timestamp of when the assignee was last granted access to GitHub Copilot, in ISO 8601 format. |
-| `last_activity_at` | `string` | Timestamp of user's last GitHub Copilot activity, in ISO 8601 format. |
-| `last_activity_editor` | `string` | Last editor that was used by the user for a GitHub Copilot completion. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

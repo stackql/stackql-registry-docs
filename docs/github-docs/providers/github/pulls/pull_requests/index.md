@@ -28,41 +28,41 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `head` | `object` |  |
-| `milestone` | `object` | A collection of related issues and pull requests. |
-| `diff_url` | `string` |  |
-| `merge_commit_sha` | `string` |  |
-| `locked` | `boolean` |  |
-| `title` | `string` |  |
-| `number` | `integer` |  |
-| `comments_url` | `string` |  |
-| `body` | `string` |  |
-| `created_at` | `string` |  |
 | `_links` | `object` |  |
-| `user` | `object` | A GitHub user. |
-| `statuses_url` | `string` |  |
-| `commits_url` | `string` |  |
-| `merged_at` | `string` |  |
-| `assignees` | `array` |  |
-| `closed_at` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `auto_merge` | `object` | The status of auto merging a pull request. |
-| `review_comment_url` | `string` |  |
-| `node_id` | `string` |  |
-| `assignee` | `object` | A GitHub user. |
 | `html_url` | `string` |  |
-| `issue_url` | `string` |  |
-| `patch_url` | `string` |  |
-| `state` | `string` |  |
-| `base` | `object` |  |
-| `labels` | `array` |  |
-| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
+| `number` | `integer` |  |
+| `head` | `object` |  |
+| `locked` | `boolean` |  |
 | `requested_reviewers` | `array` |  |
-| `requested_teams` | `array` |  |
-| `updated_at` | `string` |  |
-| `review_comments_url` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
+| `merge_commit_sha` | `string` |  |
 | `url` | `string` |  |
+| `statuses_url` | `string` |  |
+| `assignees` | `array` |  |
+| `commits_url` | `string` |  |
+| `assignee` | `object` | A GitHub user. |
+| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
+| `updated_at` | `string` |  |
+| `milestone` | `object` | A collection of related issues and pull requests. |
+| `closed_at` | `string` |  |
+| `review_comment_url` | `string` |  |
+| `created_at` | `string` |  |
+| `issue_url` | `string` |  |
+| `merged_at` | `string` |  |
+| `state` | `string` |  |
+| `labels` | `array` |  |
+| `comments_url` | `string` |  |
+| `auto_merge` | `object` | The status of auto merging a pull request. |
+| `base` | `object` |  |
+| `body` | `string` |  |
+| `node_id` | `string` |  |
+| `requested_teams` | `array` |  |
+| `user` | `object` | A GitHub user. |
+| `active_lock_reason` | `string` |  |
+| `patch_url` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `diff_url` | `string` |  |
+| `review_comments_url` | `string` |  |
+| `title` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

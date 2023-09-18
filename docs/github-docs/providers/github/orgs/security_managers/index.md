@@ -30,16 +30,16 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` | Unique identifier of the team |
 | `name` | `string` | Name of the team |
 | `description` | `string` | Description of the team |
-| `node_id` | `string` |  |
-| `repositories_url` | `string` |  |
-| `url` | `string` | URL for the team |
-| `privacy` | `string` | The level of privacy this team should have |
+| `members_url` | `string` |  |
+| `ldap_dn` | `string` | Distinguished Name (DN) that team maps to within LDAP environment |
+| `notification_setting` | `string` | The notification setting the team has set |
 | `slug` | `string` |  |
 | `html_url` | `string` |  |
 | `permission` | `string` | Permission that the team will have for its repositories |
-| `members_url` | `string` |  |
-| `notification_setting` | `string` | The notification setting the team has set |
-| `ldap_dn` | `string` | Distinguished Name (DN) that team maps to within LDAP environment |
+| `url` | `string` | URL for the team |
+| `privacy` | `string` | The level of privacy this team should have |
+| `node_id` | `string` |  |
+| `repositories_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

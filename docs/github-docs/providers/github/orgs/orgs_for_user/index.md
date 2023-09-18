@@ -29,15 +29,15 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|
 | `id` | `integer` |
 | `description` | `string` |
-| `issues_url` | `string` |
-| `node_id` | `string` |
-| `hooks_url` | `string` |
 | `login` | `string` |
-| `members_url` | `string` |
+| `node_id` | `string` |
+| `issues_url` | `string` |
+| `public_members_url` | `string` |
 | `repos_url` | `string` |
 | `url` | `string` |
-| `public_members_url` | `string` |
 | `events_url` | `string` |
+| `hooks_url` | `string` |
+| `members_url` | `string` |
 | `avatar_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |

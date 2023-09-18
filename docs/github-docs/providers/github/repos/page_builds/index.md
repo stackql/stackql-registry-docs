@@ -27,17 +27,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `created_at` | `string` |  |
-| `duration` | `integer` |  |
 | `error` | `object` |  |
 | `pusher` | `object` | A GitHub user. |
 | `status` | `string` |  |
 | `updated_at` | `string` |  |
 | `url` | `string` |  |
 | `commit` | `string` |  |
+| `created_at` | `string` |  |
+| `duration` | `integer` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get_pages_build` | `SELECT` | `build_id, owner, repo` | Gets information about a GitHub Pages build.<br /><br />A token with the `repo` scope is required. GitHub Apps must have the `pages:read` permission. |
 | `list_pages_builds` | `SELECT` | `owner, repo` | Lists builts of a GitHub Pages site.<br /><br />A token with the `repo` scope is required. GitHub Apps must have the `pages:read` permission. |
+| `create_pages_deployment` | `EXEC` | `owner, repo, data__artifact_url, data__oidc_token, data__pages_build_version` | Create a GitHub Pages deployment for a repository.<br /><br />Users must have write permissions. GitHub Apps must have the `pages:write` permission to use this endpoint. |
 | `request_pages_build` | `EXEC` | `owner, repo` | You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.<br /><br />Build requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes. |

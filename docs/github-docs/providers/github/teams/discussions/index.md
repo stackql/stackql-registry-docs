@@ -27,24 +27,24 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `created_at` | `string` |  |
-| `private` | `boolean` | Whether or not this discussion should be restricted to team members and organization administrators. |
-| `html_url` | `string` |  |
-| `node_id` | `string` |  |
-| `number` | `integer` | The unique sequence number of a team discussion. |
-| `url` | `string` |  |
-| `pinned` | `boolean` | Whether or not this discussion should be pinned for easy retrieval. |
-| `updated_at` | `string` |  |
-| `title` | `string` | The title of the discussion. |
-| `author` | `object` | A GitHub user. |
-| `body_html` | `string` |  |
-| `body_version` | `string` | The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server. |
-| `comments_url` | `string` |  |
-| `comments_count` | `integer` |  |
-| `last_edited_at` | `string` |  |
 | `reactions` | `object` |  |
+| `author` | `object` | A GitHub user. |
+| `created_at` | `string` |  |
+| `pinned` | `boolean` | Whether or not this discussion should be pinned for easy retrieval. |
+| `comments_count` | `integer` |  |
+| `comments_url` | `string` |  |
+| `html_url` | `string` |  |
+| `body_html` | `string` |  |
 | `team_url` | `string` |  |
+| `updated_at` | `string` |  |
+| `body_version` | `string` | The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server. |
+| `url` | `string` |  |
+| `last_edited_at` | `string` |  |
+| `private` | `boolean` | Whether or not this discussion should be restricted to team members and organization administrators. |
+| `number` | `integer` | The unique sequence number of a team discussion. |
+| `node_id` | `string` |  |
 | `body` | `string` | The main text of the discussion. |
+| `title` | `string` | The title of the discussion. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

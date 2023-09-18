@@ -28,19 +28,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `path` | `string` |  |
-| `updated_at` | `string` |  |
-| `url` | `string` |  |
-| `reactions` | `object` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `node_id` | `string` |  |
-| `user` | `object` | A GitHub user. |
-| `html_url` | `string` |  |
-| `commit_id` | `string` |  |
 | `body` | `string` |  |
+| `html_url` | `string` |  |
 | `position` | `integer` |  |
+| `reactions` | `object` |  |
+| `user` | `object` | A GitHub user. |
+| `author_association` | `string` | How the author is associated with the repository. |
 | `line` | `integer` |  |
+| `updated_at` | `string` |  |
+| `path` | `string` |  |
+| `node_id` | `string` |  |
+| `commit_id` | `string` |  |
 | `created_at` | `string` |  |
+| `url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

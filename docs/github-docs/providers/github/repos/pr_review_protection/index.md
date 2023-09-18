@@ -27,13 +27,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `url` | `string` |  |
-| `bypass_pull_request_allowances` | `object` | Allow specific users, teams, or apps to bypass pull request requirements. |
-| `dismiss_stale_reviews` | `boolean` |  |
 | `dismissal_restrictions` | `object` |  |
 | `require_code_owner_reviews` | `boolean` |  |
 | `require_last_push_approval` | `boolean` | Whether the most recent push must be approved by someone other than the person who pushed it. |
 | `required_approving_review_count` | `integer` |  |
+| `url` | `string` |  |
+| `bypass_pull_request_allowances` | `object` | Allow specific users, teams, or apps to bypass pull request requirements. |
+| `dismiss_stale_reviews` | `boolean` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

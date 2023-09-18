@@ -29,18 +29,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the delivery. |
 | `repository_id` | `integer` | The id of the repository associated with this event. |
-| `guid` | `string` | Unique identifier for the event (shared with all deliveries for all webhooks that subscribe to this event). |
-| `event` | `string` | The event that triggered the delivery. |
-| `status` | `string` | Description of the status of the attempted delivery |
 | `url` | `string` | The URL target of the delivery. |
+| `duration` | `number` | Time spent delivering. |
+| `installation_id` | `integer` | The id of the GitHub App installation associated with this event. |
+| `request` | `object` |  |
+| `event` | `string` | The event that triggered the delivery. |
 | `redelivery` | `boolean` | Whether the delivery is a redelivery. |
+| `delivered_at` | `string` | Time when the delivery was delivered. |
+| `status_code` | `integer` | Status code received when delivery was made. |
+| `guid` | `string` | Unique identifier for the event (shared with all deliveries for all webhooks that subscribe to this event). |
 | `response` | `object` |  |
 | `action` | `string` | The type of activity for the event that triggered the delivery. |
-| `duration` | `number` | Time spent delivering. |
-| `request` | `object` |  |
-| `status_code` | `integer` | Status code received when delivery was made. |
-| `installation_id` | `integer` | The id of the GitHub App installation associated with this event. |
-| `delivered_at` | `string` | Time when the delivery was delivered. |
+| `status` | `string` | Description of the status of the attempted delivery |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

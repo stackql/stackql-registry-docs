@@ -25,9 +25,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| `machines` | `array` |
+| `total_count` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `codespace_machines_for_authenticated_user` | `EXEC` | `codespace_name` | List the machine types a codespace can transition to use.<br /><br />You must authenticate using an access token with the `codespace` scope to use this endpoint.<br /><br />GitHub Apps must have read access to the `codespaces_metadata` repository permission to use this endpoint. |
-| `repo_machines_for_authenticated_user` | `EXEC` | `owner, repo` | List the machine types available for a given repository based on its configuration.<br /><br />You must authenticate using an access token with the `codespace` scope to use this endpoint.<br /><br />GitHub Apps must have write access to the `codespaces_metadata` repository permission to use this endpoint. |
+| `codespace_machines_for_authenticated_user` | `SELECT` | `codespace_name` | List the machine types a codespace can transition to use.<br /><br />You must authenticate using an access token with the `codespace` scope to use this endpoint.<br /><br />GitHub Apps must have read access to the `codespaces_metadata` repository permission to use this endpoint. |
+| `repo_machines_for_authenticated_user` | `SELECT` | `owner, repo` | List the machine types available for a given repository based on its configuration.<br /><br />You must authenticate using an access token with the `codespace` scope to use this endpoint.<br /><br />GitHub Apps must have write access to the `codespaces_metadata` repository permission to use this endpoint. |

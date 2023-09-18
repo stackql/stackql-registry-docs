@@ -28,13 +28,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` |  |
+| `payload` | `object` |  |
 | `public` | `boolean` |  |
 | `repo` | `object` |  |
 | `type` | `string` |  |
 | `actor` | `object` | Actor |
 | `created_at` | `string` |  |
 | `org` | `object` | Actor |
-| `payload` | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

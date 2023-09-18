@@ -27,10 +27,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `visibility` | `string` |
-| `email` | `string` |
 | `primary` | `boolean` |
 | `verified` | `boolean` |
+| `visibility` | `string` |
+| `email` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

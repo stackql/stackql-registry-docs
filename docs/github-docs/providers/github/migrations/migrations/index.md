@@ -28,23 +28,23 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `archive_url` | `string` |  |
 | `node_id` | `string` |  |
-| `guid` | `string` |  |
-| `exclude_owner_projects` | `boolean` |  |
+| `archive_url` | `string` |  |
 | `updated_at` | `string` |  |
-| `repositories` | `array` | The repositories included in the migration. Only returned for export migrations. |
-| `exclude_releases` | `boolean` |  |
-| `exclude_git_data` | `boolean` |  |
-| `state` | `string` |  |
-| `url` | `string` |  |
-| `lock_repositories` | `boolean` |  |
-| `org_metadata_only` | `boolean` |  |
 | `exclude_attachments` | `boolean` |  |
-| `owner` | `object` | A GitHub user. |
-| `created_at` | `string` |  |
+| `exclude_git_data` | `boolean` |  |
 | `exclude` | `array` | Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `"repositories"`. |
+| `owner` | `object` | A GitHub user. |
+| `state` | `string` |  |
 | `exclude_metadata` | `boolean` |  |
+| `guid` | `string` |  |
+| `org_metadata_only` | `boolean` |  |
+| `url` | `string` |  |
+| `exclude_releases` | `boolean` |  |
+| `exclude_owner_projects` | `boolean` |  |
+| `repositories` | `array` | The repositories included in the migration. Only returned for export migrations. |
+| `lock_repositories` | `boolean` |  |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

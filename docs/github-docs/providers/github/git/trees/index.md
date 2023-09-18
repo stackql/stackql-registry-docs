@@ -27,10 +27,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sha` | `string` |  |
-| `tree` | `array` | Objects specifying a tree structure |
 | `truncated` | `boolean` |  |
 | `url` | `string` |  |
+| `sha` | `string` |  |
+| `tree` | `array` | Objects specifying a tree structure |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

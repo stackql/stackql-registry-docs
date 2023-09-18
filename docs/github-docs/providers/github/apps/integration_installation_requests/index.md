@@ -28,10 +28,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the request installation. |
-| `created_at` | `string` |  |
 | `node_id` | `string` |  |
 | `requester` | `object` | A GitHub user. |
 | `account` | `object` | A GitHub user. |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

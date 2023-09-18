@@ -28,9 +28,9 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | The unique identifier for the deployment protection rule. |
+| `enabled` | `boolean` | Whether the deployment protection rule is enabled for the environment. |
 | `node_id` | `string` | The node ID for the deployment protection rule. |
 | `app` | `object` | A GitHub App that is providing a custom deployment protection rule. |
-| `enabled` | `boolean` | Whether the deployment protection rule is enabled for the environment. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

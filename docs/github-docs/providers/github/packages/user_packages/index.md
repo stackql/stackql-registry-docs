@@ -32,12 +32,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `created_at` | `string` |  |
 | `html_url` | `string` |  |
 | `owner` | `object` | A GitHub user. |
-| `repository` | `object` | Minimal Repository |
-| `package_type` | `string` |  |
-| `url` | `string` |  |
-| `visibility` | `string` |  |
-| `version_count` | `integer` | The number of versions of the package. |
 | `updated_at` | `string` |  |
+| `url` | `string` |  |
+| `version_count` | `integer` | The number of versions of the package. |
+| `visibility` | `string` |  |
+| `package_type` | `string` |  |
+| `repository` | `object` | Minimal Repository |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

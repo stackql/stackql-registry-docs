@@ -28,26 +28,26 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `description` | `string` | A detailed description of what the advisory entails. |
-| `cvss` | `object` |  |
-| `identifiers` | `array` |  |
-| `nvd_published_at` | `string` | The date and time when the advisory was published in the National Vulnerability Database, in ISO 8601 format.<br />This field is only populated when the advisory is imported from the National Vulnerability Database. |
-| `summary` | `string` | A short summary of the advisory. |
-| `withdrawn_at` | `string` | The date and time of when the advisory was withdrawn, in ISO 8601 format. |
-| `repository_advisory_url` | `string` | The API URL for the repository advisory. |
-| `ghsa_id` | `string` | The GitHub Security Advisory ID. |
-| `type` | `string` | The type of advisory. |
 | `updated_at` | `string` | The date and time of when the advisory was last updated, in ISO 8601 format. |
-| `html_url` | `string` | The URL for the advisory. |
-| `credits` | `array` | The users who contributed to the advisory. |
-| `cwes` | `array` |  |
-| `severity` | `string` | The severity of the advisory. |
-| `cve_id` | `string` | The Common Vulnerabilities and Exposures (CVE) ID. |
-| `source_code_location` | `string` | The URL of the advisory's source code. |
-| `published_at` | `string` | The date and time of when the advisory was published, in ISO 8601 format. |
-| `github_reviewed_at` | `string` | The date and time of when the advisory was reviewed by GitHub, in ISO 8601 format. |
 | `vulnerabilities` | `array` | The products and respective version ranges affected by the advisory. |
-| `url` | `string` | The API URL for the advisory. |
+| `source_code_location` | `string` | The URL of the advisory's source code. |
+| `identifiers` | `array` |  |
+| `html_url` | `string` | The URL for the advisory. |
 | `references` | `array` |  |
+| `nvd_published_at` | `string` | The date and time when the advisory was published in the National Vulnerability Database, in ISO 8601 format.<br />This field is only populated when the advisory is imported from the National Vulnerability Database. |
+| `type` | `string` | The type of advisory. |
+| `github_reviewed_at` | `string` | The date and time of when the advisory was reviewed by GitHub, in ISO 8601 format. |
+| `url` | `string` | The API URL for the advisory. |
+| `repository_advisory_url` | `string` | The API URL for the repository advisory. |
+| `severity` | `string` | The severity of the advisory. |
+| `withdrawn_at` | `string` | The date and time of when the advisory was withdrawn, in ISO 8601 format. |
+| `summary` | `string` | A short summary of the advisory. |
+| `cvss` | `object` |  |
+| `ghsa_id` | `string` | The GitHub Security Advisory ID. |
+| `cwes` | `array` |  |
+| `credits` | `array` | The users who contributed to the advisory. |
+| `cve_id` | `string` | The Common Vulnerabilities and Exposures (CVE) ID. |
+| `published_at` | `string` | The date and time of when the advisory was published, in ISO 8601 format. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

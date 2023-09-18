@@ -28,15 +28,15 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the repository invitation. |
-| `expired` | `boolean` | Whether or not the invitation has expired |
-| `permissions` | `string` | The permission associated with the invitation. |
-| `created_at` | `string` |  |
-| `node_id` | `string` |  |
 | `html_url` | `string` |  |
-| `inviter` | `object` | A GitHub user. |
-| `repository` | `object` | Minimal Repository |
-| `url` | `string` | URL for the repository invitation |
 | `invitee` | `object` | A GitHub user. |
+| `url` | `string` | URL for the repository invitation |
+| `node_id` | `string` |  |
+| `inviter` | `object` | A GitHub user. |
+| `permissions` | `string` | The permission associated with the invitation. |
+| `repository` | `object` | Minimal Repository |
+| `expired` | `boolean` | Whether or not the invitation has expired |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

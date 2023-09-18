@@ -25,8 +25,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `name` | `string` |  |
+| `package_url` | `string` |  |
+| `scope` | `string` | Where the dependency is utilized. `development` means that the dependency is only utilized in the development environment. `runtime` means that the dependency is utilized at runtime and in the development environment. |
+| `license` | `string` |  |
+| `manifest` | `string` |  |
+| `vulnerabilities` | `array` |  |
+| `source_repository_url` | `string` |  |
+| `change_type` | `string` |  |
+| `ecosystem` | `string` |  |
+| `version` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `diff_range` | `EXEC` | `basehead, owner, repo` |
+| `diff_range` | `SELECT` | `basehead, owner, repo` |

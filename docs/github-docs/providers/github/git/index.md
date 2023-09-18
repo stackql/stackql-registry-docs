@@ -33,7 +33,7 @@ Raw Git Functionality.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Git</td></tr>
 <tr><td><b>Description</b></td><td>Raw Git Functionality.</td></tr>
-<tr><td><b>Id</b></td><td><code>git:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>git:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources

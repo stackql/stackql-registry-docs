@@ -19,8 +19,8 @@ Interact With GitHub Repos.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>70</b></span><br />
-<span>total selectable resources:&nbsp;<b>60</b></span><br />
+<span>total resources:&nbsp;<b>65</b></span><br />
+<span>total selectable resources:&nbsp;<b>65</b></span><br />
 <span>total methods:&nbsp;<b>188</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ Interact With GitHub Repos.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Repos</td></tr>
 <tr><td><b>Description</b></td><td>Interact With GitHub Repos.</td></tr>
-<tr><td><b>Id</b></td><td><code>repos:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>repos:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -65,7 +65,6 @@ Interact With GitHub Repos.
 <a href="/providers/github/repos/deployment_rule_integrations/">deployment_rule_integrations</a><br />
 <a href="/providers/github/repos/deployments/">deployments</a><br />
 <a href="/providers/github/repos/details/">details</a><br />
-<a href="/providers/github/repos/dispatch_event/">dispatch_event</a><br />
 <a href="/providers/github/repos/environments/">environments</a><br />
 <a href="/providers/github/repos/forks/">forks</a><br />
 <a href="/providers/github/repos/head_commit_branches/">head_commit_branches</a><br />
@@ -73,10 +72,9 @@ Interact With GitHub Repos.
 <a href="/providers/github/repos/org_rules/">org_rules</a><br />
 <a href="/providers/github/repos/page_build_latest/">page_build_latest</a><br />
 <a href="/providers/github/repos/page_builds/">page_builds</a><br />
-<a href="/providers/github/repos/pages/">pages</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/github/repos/pages_deployment/">pages_deployment</a><br />
+<a href="/providers/github/repos/pages/">pages</a><br />
 <a href="/providers/github/repos/pages_health_check/">pages_health_check</a><br />
 <a href="/providers/github/repos/pr_review_protection/">pr_review_protection</a><br />
 <a href="/providers/github/repos/protection_rules/">protection_rules</a><br />
@@ -101,12 +99,9 @@ Interact With GitHub Repos.
 <a href="/providers/github/repos/tags/">tags</a><br />
 <a href="/providers/github/repos/team_access_restrictions/">team_access_restrictions</a><br />
 <a href="/providers/github/repos/teams/">teams</a><br />
-<a href="/providers/github/repos/templates/">templates</a><br />
 <a href="/providers/github/repos/topics/">topics</a><br />
 <a href="/providers/github/repos/user_access_restrictions/">user_access_restrictions</a><br />
 <a href="/providers/github/repos/view_traffic/">view_traffic</a><br />
-<a href="/providers/github/repos/vulnerability_alerts/">vulnerability_alerts</a><br />
-<a href="/providers/github/repos/vulnerability_reporting/">vulnerability_reporting</a><br />
 <a href="/providers/github/repos/webhook_config/">webhook_config</a><br />
 <a href="/providers/github/repos/webhook_deliveries/">webhook_deliveries</a><br />
 <a href="/providers/github/repos/webhook_delivery/">webhook_delivery</a><br />

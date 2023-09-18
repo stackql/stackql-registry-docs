@@ -29,27 +29,27 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` |  |
-| `url` | `string` |  |
-| `zipball_url` | `string` |  |
-| `tarball_url` | `string` |  |
-| `body` | `string` |  |
-| `published_at` | `string` |  |
-| `target_commitish` | `string` | Specifies the commitish value that determines where the Git tag is created from. |
-| `reactions` | `object` |  |
-| `body_html` | `string` |  |
-| `prerelease` | `boolean` | Whether to identify the release as a prerelease or a full release. |
-| `tag_name` | `string` | The name of the tag. |
-| `created_at` | `string` |  |
-| `discussion_url` | `string` | The URL of the release discussion. |
-| `draft` | `boolean` | true to create a draft (unpublished) release, false to create a published one. |
-| `assets` | `array` |  |
-| `assets_url` | `string` |  |
+| `upload_url` | `string` |  |
 | `node_id` | `string` |  |
+| `mentions_count` | `integer` |  |
+| `tag_name` | `string` | The name of the tag. |
+| `published_at` | `string` |  |
+| `url` | `string` |  |
+| `assets_url` | `string` |  |
+| `body_html` | `string` |  |
+| `tarball_url` | `string` |  |
+| `target_commitish` | `string` | Specifies the commitish value that determines where the Git tag is created from. |
+| `author` | `object` | A GitHub user. |
+| `reactions` | `object` |  |
+| `draft` | `boolean` | true to create a draft (unpublished) release, false to create a published one. |
+| `prerelease` | `boolean` | Whether to identify the release as a prerelease or a full release. |
+| `body` | `string` |  |
+| `discussion_url` | `string` | The URL of the release discussion. |
+| `zipball_url` | `string` |  |
+| `assets` | `array` |  |
+| `created_at` | `string` |  |
 | `body_text` | `string` |  |
 | `html_url` | `string` |  |
-| `mentions_count` | `integer` |  |
-| `author` | `object` | A GitHub user. |
-| `upload_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

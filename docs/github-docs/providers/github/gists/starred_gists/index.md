@@ -29,24 +29,24 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `description` | `string` |  |
-| `forks` | `array` |  |
-| `git_pull_url` | `string` |  |
-| `owner` | `object` | A GitHub user. |
-| `user` | `object` | A GitHub user. |
-| `commits_url` | `string` |  |
-| `forks_url` | `string` |  |
-| `comments` | `integer` |  |
-| `node_id` | `string` |  |
-| `truncated` | `boolean` |  |
-| `history` | `array` |  |
-| `comments_url` | `string` |  |
-| `public` | `boolean` |  |
-| `git_push_url` | `string` |  |
-| `files` | `object` |  |
-| `created_at` | `string` |  |
-| `url` | `string` |  |
-| `html_url` | `string` |  |
 | `updated_at` | `string` |  |
+| `commits_url` | `string` |  |
+| `public` | `boolean` |  |
+| `forks` | `array` |  |
+| `url` | `string` |  |
+| `comments_url` | `string` |  |
+| `git_push_url` | `string` |  |
+| `truncated` | `boolean` |  |
+| `node_id` | `string` |  |
+| `owner` | `object` | A GitHub user. |
+| `comments` | `integer` |  |
+| `files` | `object` |  |
+| `forks_url` | `string` |  |
+| `created_at` | `string` |  |
+| `html_url` | `string` |  |
+| `git_pull_url` | `string` |  |
+| `user` | `object` | A GitHub user. |
+| `history` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -28,13 +28,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
+| `node_id` | `string` |  |
+| `ref` | `string` | The full Git reference, formatted as `refs/heads/&lt;branch name&gt;`. |
 | `timestamp` | `string` | The time when the activity occurred. |
 | `activity_type` | `string` | The type of the activity that was performed. |
 | `actor` | `object` | A GitHub user. |
 | `after` | `string` | The SHA of the commit after the activity. |
 | `before` | `string` | The SHA of the commit before the activity. |
-| `node_id` | `string` |  |
-| `ref` | `string` | The full Git reference, formatted as `refs/heads/&lt;branch name&gt;`. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

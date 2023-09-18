@@ -33,7 +33,7 @@ Manage Packages For Authenticated Users And Organizations.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Packages</td></tr>
 <tr><td><b>Description</b></td><td>Manage Packages For Authenticated Users And Organizations.</td></tr>
-<tr><td><b>Id</b></td><td><code>packages:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>packages:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources

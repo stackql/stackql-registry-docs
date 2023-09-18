@@ -29,12 +29,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the CodeQL database. |
 | `name` | `string` | The name of the CodeQL database. |
-| `uploader` | `object` | A GitHub user. |
+| `content_type` | `string` | The MIME type of the CodeQL database file. |
+| `updated_at` | `string` | The date and time at which the CodeQL database was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. |
 | `created_at` | `string` | The date and time at which the CodeQL database was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. |
 | `language` | `string` | The language of the CodeQL database. |
 | `size` | `integer` | The size of the CodeQL database file in bytes. |
-| `content_type` | `string` | The MIME type of the CodeQL database file. |
-| `updated_at` | `string` | The date and time at which the CodeQL database was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. |
+| `uploader` | `object` | A GitHub user. |
 | `url` | `string` | The URL at which to download the CodeQL database. The `Accept` header must be set to the value of the `content_type` property. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

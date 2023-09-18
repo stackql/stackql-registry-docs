@@ -29,12 +29,12 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The unique identifier of the project column |
 | `name` | `string` | Name of the project column |
-| `created_at` | `string` |  |
-| `node_id` | `string` |  |
 | `project_url` | `string` |  |
 | `updated_at` | `string` |  |
 | `url` | `string` |  |
 | `cards_url` | `string` |  |
+| `created_at` | `string` |  |
+| `node_id` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

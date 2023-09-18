@@ -29,22 +29,22 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the deployment |
 | `description` | `string` |  |
-| `task` | `string` | Parameter to specify a task to execute |
-| `sha` | `string` |  |
-| `created_at` | `string` |  |
-| `production_environment` | `boolean` | Specifies if the given environment is one that end-users directly interact with. Default: false. |
 | `node_id` | `string` |  |
-| `payload` | `` |  |
-| `creator` | `object` | A GitHub user. |
+| `task` | `string` | Parameter to specify a task to execute |
+| `created_at` | `string` |  |
 | `environment` | `string` | Name for the target deployment environment. |
-| `transient_environment` | `boolean` | Specifies if the given environment is will no longer exist at some point in the future. Default: false. |
-| `repository_url` | `string` |  |
-| `updated_at` | `string` |  |
 | `statuses_url` | `string` |  |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `original_environment` | `string` |  |
+| `sha` | `string` |  |
+| `creator` | `object` | A GitHub user. |
+| `payload` | `` |  |
 | `ref` | `string` | The ref to deploy. This can be a branch, tag, or sha. |
+| `repository_url` | `string` |  |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `updated_at` | `string` |  |
 | `url` | `string` |  |
+| `production_environment` | `boolean` | Specifies if the given environment is one that end-users directly interact with. Default: false. |
+| `original_environment` | `string` |  |
+| `transient_environment` | `boolean` | Specifies if the given environment is will no longer exist at some point in the future. Default: false. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

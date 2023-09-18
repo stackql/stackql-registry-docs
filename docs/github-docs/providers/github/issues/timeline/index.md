@@ -28,15 +28,15 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `label` | `object` |  |
-| `url` | `string` |  |
+| `commit_id` | `string` |  |
 | `commit_url` | `string` |  |
-| `event` | `string` |  |
-| `node_id` | `string` |  |
 | `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `created_at` | `string` |  |
+| `url` | `string` |  |
+| `label` | `object` |  |
+| `event` | `string` |  |
+| `node_id` | `string` |  |
 | `actor` | `object` | A GitHub user. |
-| `commit_id` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

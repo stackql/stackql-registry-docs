@@ -29,40 +29,40 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The ID of the workflow run. |
 | `name` | `string` | The name of the workflow run. |
-| `repository` | `object` | Minimal Repository |
-| `conclusion` | `string` |  |
-| `updated_at` | `string` |  |
-| `jobs_url` | `string` | The URL to the jobs for the workflow run. |
-| `logs_url` | `string` | The URL to download the logs for the workflow run. |
-| `run_attempt` | `integer` | Attempt number of the run, 1 for first attempt and higher if the workflow was re-run. |
-| `html_url` | `string` |  |
 | `head_sha` | `string` | The SHA of the head commit that points to the version of the workflow being run. |
-| `actor` | `object` | A GitHub user. |
-| `cancel_url` | `string` | The URL to cancel the workflow run. |
-| `status` | `string` |  |
-| `rerun_url` | `string` | The URL to rerun the workflow run. |
-| `head_repository_id` | `integer` |  |
-| `node_id` | `string` |  |
-| `display_title` | `string` | The event-specific title associated with the run or the run-name if set, or the value of `run-name` if it is set in the workflow. |
-| `run_started_at` | `string` | The start time of the latest run. Resets on re-run. |
-| `url` | `string` | The URL to the workflow run. |
-| `check_suite_id` | `integer` | The ID of the associated check suite. |
-| `path` | `string` | The full path of the workflow |
-| `check_suite_node_id` | `string` | The node ID of the associated check suite. |
-| `head_repository` | `object` | Minimal Repository |
-| `previous_attempt_url` | `string` | The URL to the previous attempted run of this workflow, if one exists. |
-| `head_commit` | `object` | A commit. |
 | `event` | `string` |  |
+| `triggering_actor` | `object` | A GitHub user. |
+| `rerun_url` | `string` | The URL to rerun the workflow run. |
+| `check_suite_id` | `integer` | The ID of the associated check suite. |
+| `artifacts_url` | `string` | The URL to the artifacts for the workflow run. |
+| `check_suite_url` | `string` | The URL to the associated check suite. |
+| `updated_at` | `string` |  |
+| `run_number` | `integer` | The auto incrementing run number for the workflow run. |
+| `run_started_at` | `string` | The start time of the latest run. Resets on re-run. |
+| `head_repository` | `object` | Minimal Repository |
+| `jobs_url` | `string` | The URL to the jobs for the workflow run. |
+| `head_branch` | `string` |  |
+| `head_repository_id` | `integer` |  |
+| `status` | `string` |  |
+| `logs_url` | `string` | The URL to download the logs for the workflow run. |
 | `referenced_workflows` | `array` |  |
+| `previous_attempt_url` | `string` | The URL to the previous attempted run of this workflow, if one exists. |
+| `created_at` | `string` |  |
+| `repository` | `object` | Minimal Repository |
+| `pull_requests` | `array` | Pull requests that are open with a `head_sha` or `head_branch` that matches the workflow run. The returned pull requests do not necessarily indicate pull requests that triggered the run. |
+| `check_suite_node_id` | `string` | The node ID of the associated check suite. |
+| `cancel_url` | `string` | The URL to cancel the workflow run. |
+| `head_commit` | `object` | A commit. |
+| `url` | `string` | The URL to the workflow run. |
 | `workflow_url` | `string` | The URL to the workflow. |
 | `workflow_id` | `integer` | The ID of the parent workflow. |
-| `run_number` | `integer` | The auto incrementing run number for the workflow run. |
-| `created_at` | `string` |  |
-| `check_suite_url` | `string` | The URL to the associated check suite. |
-| `pull_requests` | `array` | Pull requests that are open with a `head_sha` or `head_branch` that matches the workflow run. The returned pull requests do not necessarily indicate pull requests that triggered the run. |
-| `triggering_actor` | `object` | A GitHub user. |
-| `head_branch` | `string` |  |
-| `artifacts_url` | `string` | The URL to the artifacts for the workflow run. |
+| `html_url` | `string` |  |
+| `display_title` | `string` | The event-specific title associated with the run or the run-name if set, or the value of `run-name` if it is set in the workflow. |
+| `run_attempt` | `integer` | Attempt number of the run, 1 for first attempt and higher if the workflow was re-run. |
+| `node_id` | `string` |  |
+| `actor` | `object` | A GitHub user. |
+| `conclusion` | `string` |  |
+| `path` | `string` | The full path of the workflow |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

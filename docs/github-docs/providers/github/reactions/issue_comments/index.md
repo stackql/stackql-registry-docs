@@ -28,10 +28,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `content` | `string` | The reaction to use |
-| `created_at` | `string` |  |
 | `node_id` | `string` |  |
 | `user` | `object` | A GitHub user. |
+| `content` | `string` | The reaction to use |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

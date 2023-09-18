@@ -27,17 +27,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `files` | `array` |  |
-| `commit` | `object` |  |
-| `node_id` | `string` |  |
-| `parents` | `array` |  |
 | `comments_url` | `string` |  |
+| `committer` | `object` | A GitHub user. |
+| `node_id` | `string` |  |
 | `html_url` | `string` |  |
 | `sha` | `string` |  |
-| `stats` | `object` |  |
 | `url` | `string` |  |
+| `files` | `array` |  |
+| `stats` | `object` |  |
+| `commit` | `object` |  |
+| `parents` | `array` |  |
 | `author` | `object` | A GitHub user. |
-| `committer` | `object` | A GitHub user. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

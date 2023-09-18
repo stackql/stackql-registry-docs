@@ -29,15 +29,15 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `description` | `string` |  |
-| `avatar_url` | `string` |  |
-| `context` | `string` |  |
-| `url` | `string` |  |
-| `target_url` | `string` |  |
-| `state` | `string` |  |
-| `creator` | `object` | A GitHub user. |
+| `created_at` | `string` |  |
 | `node_id` | `string` |  |
 | `updated_at` | `string` |  |
-| `created_at` | `string` |  |
+| `avatar_url` | `string` |  |
+| `target_url` | `string` |  |
+| `state` | `string` |  |
+| `url` | `string` |  |
+| `context` | `string` |  |
+| `creator` | `object` | A GitHub user. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

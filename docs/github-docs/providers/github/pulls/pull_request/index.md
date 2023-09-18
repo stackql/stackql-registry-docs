@@ -28,53 +28,53 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `user` | `object` | A GitHub user. |
-| `patch_url` | `string` |  |
-| `created_at` | `string` |  |
-| `commits` | `integer` |  |
-| `state` | `string` | State of this Pull Request. Either `open` or `closed`. |
-| `review_comments` | `integer` |  |
-| `assignee` | `object` | A GitHub user. |
-| `review_comment_url` | `string` |  |
-| `updated_at` | `string` |  |
 | `auto_merge` | `object` | The status of auto merging a pull request. |
-| `base` | `object` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `comments_url` | `string` |  |
-| `merge_commit_sha` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `head` | `object` |  |
-| `html_url` | `string` |  |
-| `maintainer_can_modify` | `boolean` | Indicates whether maintainers can modify the pull request. |
-| `requested_teams` | `array` |  |
-| `mergeable_state` | `string` |  |
-| `review_comments_url` | `string` |  |
-| `commits_url` | `string` |  |
-| `merged_by` | `object` | A GitHub user. |
-| `_links` | `object` |  |
-| `title` | `string` | The title of the pull request. |
-| `rebaseable` | `boolean` |  |
-| `number` | `integer` | Number uniquely identifying the pull request within its repository. |
-| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
 | `additions` | `integer` |  |
-| `merged_at` | `string` |  |
-| `assignees` | `array` |  |
-| `body` | `string` |  |
-| `node_id` | `string` |  |
-| `requested_reviewers` | `array` |  |
-| `issue_url` | `string` |  |
-| `milestone` | `object` | A collection of related issues and pull requests. |
-| `locked` | `boolean` |  |
-| `statuses_url` | `string` |  |
-| `deletions` | `integer` |  |
-| `diff_url` | `string` |  |
-| `changed_files` | `integer` |  |
-| `comments` | `integer` |  |
-| `labels` | `array` |  |
-| `mergeable` | `boolean` |  |
-| `merged` | `boolean` |  |
-| `url` | `string` |  |
 | `closed_at` | `string` |  |
+| `changed_files` | `integer` |  |
+| `diff_url` | `string` |  |
+| `html_url` | `string` |  |
+| `mergeable` | `boolean` |  |
+| `statuses_url` | `string` |  |
+| `requested_teams` | `array` |  |
+| `review_comments` | `integer` |  |
+| `merged` | `boolean` |  |
+| `title` | `string` | The title of the pull request. |
+| `updated_at` | `string` |  |
+| `labels` | `array` |  |
+| `state` | `string` | State of this Pull Request. Either `open` or `closed`. |
+| `mergeable_state` | `string` |  |
+| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
+| `merged_by` | `object` | A GitHub user. |
+| `head` | `object` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `user` | `object` | A GitHub user. |
+| `node_id` | `string` |  |
+| `issue_url` | `string` |  |
+| `comments` | `integer` |  |
+| `created_at` | `string` |  |
+| `commits_url` | `string` |  |
+| `review_comment_url` | `string` |  |
+| `number` | `integer` | Number uniquely identifying the pull request within its repository. |
+| `active_lock_reason` | `string` |  |
+| `comments_url` | `string` |  |
+| `requested_reviewers` | `array` |  |
+| `commits` | `integer` |  |
+| `review_comments_url` | `string` |  |
+| `_links` | `object` |  |
+| `deletions` | `integer` |  |
+| `assignees` | `array` |  |
+| `merged_at` | `string` |  |
+| `patch_url` | `string` |  |
+| `milestone` | `object` | A collection of related issues and pull requests. |
+| `url` | `string` |  |
+| `assignee` | `object` | A GitHub user. |
+| `merge_commit_sha` | `string` |  |
+| `rebaseable` | `boolean` |  |
+| `base` | `object` |  |
+| `locked` | `boolean` |  |
+| `maintainer_can_modify` | `boolean` | Indicates whether maintainers can modify the pull request. |
+| `body` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

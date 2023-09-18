@@ -27,11 +27,11 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `updated_at` | `string` | Timestamp of latest configuration update. |
+| `languages` | `array` | Languages to be analysed. |
 | `query_suite` | `string` | CodeQL query suite to be used. |
 | `schedule` | `string` | The frequency of the periodic analysis. |
 | `state` | `string` | Code scanning default setup has been configured or not. |
-| `updated_at` | `string` | Timestamp of latest configuration update. |
-| `languages` | `array` | Languages to be analysed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
