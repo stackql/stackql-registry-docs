@@ -27,13 +27,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `url` | `string` |
-| `users` | `array` |
-| `users_url` | `string` |
 | `apps` | `array` |
 | `apps_url` | `string` |
 | `teams` | `array` |
 | `teams_url` | `string` |
+| `url` | `string` |
+| `users` | `array` |
+| `users_url` | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

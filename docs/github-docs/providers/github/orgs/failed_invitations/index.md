@@ -28,17 +28,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `invitation_source` | `string` |  |
-| `invitation_teams_url` | `string` |  |
-| `team_count` | `integer` |  |
-| `failed_at` | `string` |  |
-| `login` | `string` |  |
-| `email` | `string` |  |
-| `failed_reason` | `string` |  |
-| `inviter` | `object` | A GitHub user. |
-| `role` | `string` |  |
 | `created_at` | `string` |  |
+| `inviter` | `object` | A GitHub user. |
+| `failed_reason` | `string` |  |
+| `team_count` | `integer` |  |
+| `email` | `string` |  |
+| `invitation_source` | `string` |  |
+| `login` | `string` |  |
 | `node_id` | `string` |  |
+| `invitation_teams_url` | `string` |  |
+| `failed_at` | `string` |  |
+| `role` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

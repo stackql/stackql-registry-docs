@@ -27,9 +27,9 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `public_code_suggestions` | `string` | The organization policy for allowing or disallowing Copilot to make suggestions that match public code. |
 | `seat_breakdown` | `object` | The breakdown of Copilot for Business seats for the organization. |
 | `seat_management_setting` | `string` | The mode of assigning new seats. |
+| `public_code_suggestions` | `string` | The organization policy for allowing or disallowing Copilot to make suggestions that match public code. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

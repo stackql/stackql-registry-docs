@@ -27,9 +27,9 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `full_name` | `string` | The repository owner and name for the cache usage being shown. |
 | `active_caches_count` | `integer` | The number of active caches in the repository. |
 | `active_caches_size_in_bytes` | `integer` | The sum of the size in bytes of all the active cache items in the repository. |
+| `full_name` | `string` | The repository owner and name for the cache usage being shown. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

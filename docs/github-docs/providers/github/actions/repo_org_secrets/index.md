@@ -27,8 +27,8 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `secrets` | `array` |
 | `total_count` | `integer` |
+| `secrets` | `array` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -33,7 +33,7 @@ Interact With And View Information About Users And Also Current User.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Users</td></tr>
 <tr><td><b>Description</b></td><td>Interact With And View Information About Users And Also Current User.</td></tr>
-<tr><td><b>Id</b></td><td><code>users:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>users:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -30,17 +30,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | `id` | `integer` |
 | `name` | `string` |
 | `public_key` | `string` |
-| `can_sign` | `boolean` |
-| `revoked` | `boolean` |
-| `expires_at` | `string` |
-| `subkeys` | `array` |
 | `can_certify` | `boolean` |
-| `emails` | `array` |
-| `created_at` | `string` |
-| `can_encrypt_comms` | `boolean` |
-| `primary_key_id` | `integer` |
+| `subkeys` | `array` |
+| `revoked` | `boolean` |
 | `raw_key` | `string` |
 | `key_id` | `string` |
+| `primary_key_id` | `integer` |
+| `can_encrypt_comms` | `boolean` |
+| `expires_at` | `string` |
+| `can_sign` | `boolean` |
+| `created_at` | `string` |
+| `emails` | `array` |
 | `can_encrypt_storage` | `boolean` |
 ## Methods
 | Name | Accessible by | Required Params | Description |

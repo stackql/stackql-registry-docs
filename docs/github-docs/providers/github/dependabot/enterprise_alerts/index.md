@@ -27,22 +27,22 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `dismissed_at` | `string` | The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `dismissed_reason` | `string` | The reason that the alert was dismissed. |
-| `state` | `string` | The state of the Dependabot alert. |
 | `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `number` | `integer` | The security alert number. |
 | `dependency` | `object` | Details for the vulnerable dependency. |
+| `dismissed_reason` | `string` | The reason that the alert was dismissed. |
 | `fixed_at` | `string` | The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `security_advisory` | `object` | Details for the GitHub Security Advisory. |
-| `html_url` | `string` | The GitHub URL of the alert resource. |
-| `repository` | `object` | A GitHub repository. |
-| `auto_dismissed_at` | `string` | The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
 | `updated_at` | `string` | The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `security_vulnerability` | `object` | Details pertaining to one vulnerable version range for the advisory. |
+| `repository` | `object` | A GitHub repository. |
 | `dismissed_by` | `object` | A GitHub user. |
-| `dismissed_comment` | `string` | An optional comment associated with the alert's dismissal. |
+| `dismissed_at` | `string` | The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `number` | `integer` | The security alert number. |
 | `url` | `string` | The REST API URL of the alert resource. |
+| `state` | `string` | The state of the Dependabot alert. |
+| `security_vulnerability` | `object` | Details pertaining to one vulnerable version range for the advisory. |
+| `security_advisory` | `object` | Details for the GitHub Security Advisory. |
+| `auto_dismissed_at` | `string` | The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `dismissed_comment` | `string` | An optional comment associated with the alert's dismissal. |
+| `html_url` | `string` | The GitHub URL of the alert resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

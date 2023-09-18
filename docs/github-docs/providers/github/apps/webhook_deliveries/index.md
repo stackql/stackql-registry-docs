@@ -28,16 +28,16 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the webhook delivery. |
-| `event` | `string` | The event that triggered the delivery. |
-| `guid` | `string` | Unique identifier for the event (shared with all deliveries for all webhooks that subscribe to this event). |
+| `delivered_at` | `string` | Time when the webhook delivery occurred. |
 | `redelivery` | `boolean` | Whether the webhook delivery is a redelivery. |
+| `status_code` | `integer` | Status code received when delivery was made. |
 | `duration` | `number` | Time spent delivering. |
 | `repository_id` | `integer` | The id of the repository associated with this event. |
-| `installation_id` | `integer` | The id of the GitHub App installation associated with this event. |
 | `status` | `string` | Describes the response returned after attempting the delivery. |
-| `delivered_at` | `string` | Time when the webhook delivery occurred. |
-| `status_code` | `integer` | Status code received when delivery was made. |
 | `action` | `string` | The type of activity for the event that triggered the delivery. |
+| `guid` | `string` | Unique identifier for the event (shared with all deliveries for all webhooks that subscribe to this event). |
+| `event` | `string` | The event that triggered the delivery. |
+| `installation_id` | `integer` | The id of the GitHub App installation associated with this event. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

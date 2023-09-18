@@ -33,7 +33,7 @@ Endpoints To Manage Copilot Using The REST API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Copilot</td></tr>
 <tr><td><b>Description</b></td><td>Endpoints To Manage Copilot Using The REST API.</td></tr>
-<tr><td><b>Id</b></td><td><code>copilot:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>copilot:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources

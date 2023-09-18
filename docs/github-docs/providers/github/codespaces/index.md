@@ -20,7 +20,7 @@ Endpoints To Manage Codespaces Using The REST API.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>11</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
 <span>total methods:&nbsp;<b>47</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ Endpoints To Manage Codespaces Using The REST API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Codespaces</td></tr>
 <tr><td><b>Description</b></td><td>Endpoints To Manage Codespaces Using The REST API.</td></tr>
-<tr><td><b>Id</b></td><td><code>codespaces:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>codespaces:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -25,10 +25,14 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `expires_at` | `string` |  |
+| `limit` | `string` | The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect. |
+| `origin` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| `get_restrictions_for_authenticated_user` | `SELECT` |  | Shows which type of GitHub user can interact with your public repositories and when the restriction expires. |
 | `remove_restrictions_for_authenticated_user` | `DELETE` |  | Removes any interaction restrictions from your public repositories. |
-| `get_restrictions_for_authenticated_user` | `EXEC` |  | Shows which type of GitHub user can interact with your public repositories and when the restriction expires. |
 | `set_restrictions_for_authenticated_user` | `EXEC` | `data__limit` | Temporarily restricts which type of GitHub user can interact with your public repositories. Setting the interaction limit at the user level will overwrite any interaction limits that are set for individual repositories owned by the user. |

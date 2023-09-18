@@ -27,9 +27,9 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
+| `total_count` | `integer` |
 | `repositories` | `array` |
 | `repository_selection` | `string` |
-| `total_count` | `integer` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

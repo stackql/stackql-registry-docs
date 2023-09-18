@@ -29,20 +29,20 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` |  |
-| `node_id` | `string` |  |
 | `created_at` | `string` |  |
-| `creator` | `object` | A GitHub user. |
-| `permissions` | `object` |  |
+| `node_id` | `string` |  |
+| `updated_at` | `string` |  |
 | `number` | `integer` |  |
-| `owner_url` | `string` |  |
+| `permissions` | `object` |  |
+| `state` | `string` |  |
 | `html_url` | `string` |  |
+| `creator` | `object` | A GitHub user. |
 | `body` | `string` |  |
 | `organization_permission` | `string` | The organization permission for this project. Only present when owner is an organization. |
+| `owner_url` | `string` |  |
 | `url` | `string` |  |
-| `updated_at` | `string` |  |
-| `private` | `boolean` | Whether the project is private or not. Only present when owner is an organization. |
-| `state` | `string` |  |
 | `columns_url` | `string` |  |
+| `private` | `boolean` | Whether the project is private or not. Only present when owner is an organization. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

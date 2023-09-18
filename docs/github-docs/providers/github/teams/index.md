@@ -20,7 +20,7 @@ Interact With GitHub Teams.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>12</b></span><br />
 <span>total methods:&nbsp;<b>60</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ Interact With GitHub Teams.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Teams</td></tr>
 <tr><td><b>Description</b></td><td>Interact With GitHub Teams.</td></tr>
-<tr><td><b>Id</b></td><td><code>teams:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>teams:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources

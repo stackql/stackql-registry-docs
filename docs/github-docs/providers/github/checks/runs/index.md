@@ -29,21 +29,21 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` | The id of the check. |
 | `name` | `string` | The name of the check. |
-| `output` | `object` |  |
-| `conclusion` | `string` |  |
 | `html_url` | `string` |  |
 | `head_sha` | `string` | The SHA of the commit that is being checked. |
-| `deployment` | `object` | A deployment created as the result of an Actions check run from a workflow that references an environment |
-| `external_id` | `string` |  |
-| `pull_requests` | `array` | Pull requests that are open with a `head_sha` or `head_branch` that matches the check. The returned pull requests do not necessarily indicate pull requests that triggered the check. |
-| `completed_at` | `string` |  |
-| `url` | `string` |  |
-| `node_id` | `string` |  |
-| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
-| `status` | `string` | The phase of the lifecycle that the check is currently in. |
-| `started_at` | `string` |  |
-| `check_suite` | `object` |  |
+| `conclusion` | `string` |  |
 | `details_url` | `string` |  |
+| `check_suite` | `object` |  |
+| `started_at` | `string` |  |
+| `app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `external_id` | `string` |  |
+| `url` | `string` |  |
+| `pull_requests` | `array` | Pull requests that are open with a `head_sha` or `head_branch` that matches the check. The returned pull requests do not necessarily indicate pull requests that triggered the check. |
+| `output` | `object` |  |
+| `status` | `string` | The phase of the lifecycle that the check is currently in. |
+| `completed_at` | `string` |  |
+| `deployment` | `object` | A deployment created as the result of an Actions check run from a workflow that references an environment |
+| `node_id` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

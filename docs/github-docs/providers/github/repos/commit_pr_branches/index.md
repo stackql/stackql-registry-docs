@@ -28,41 +28,41 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
-| `closed_at` | `string` |  |
-| `merged_at` | `string` |  |
-| `auto_merge` | `object` | The status of auto merging a pull request. |
-| `statuses_url` | `string` |  |
-| `node_id` | `string` |  |
-| `user` | `object` | A GitHub user. |
-| `locked` | `boolean` |  |
-| `requested_reviewers` | `array` |  |
-| `merge_commit_sha` | `string` |  |
-| `patch_url` | `string` |  |
-| `review_comment_url` | `string` |  |
-| `review_comments_url` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `comments_url` | `string` |  |
-| `_links` | `object` |  |
-| `milestone` | `object` | A collection of related issues and pull requests. |
-| `created_at` | `string` |  |
-| `active_lock_reason` | `string` |  |
-| `updated_at` | `string` |  |
-| `title` | `string` |  |
-| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
 | `state` | `string` |  |
-| `issue_url` | `string` |  |
-| `number` | `integer` |  |
-| `body` | `string` |  |
-| `base` | `object` |  |
-| `diff_url` | `string` |  |
-| `assignees` | `array` |  |
-| `commits_url` | `string` |  |
-| `url` | `string` |  |
+| `node_id` | `string` |  |
+| `comments_url` | `string` |  |
+| `closed_at` | `string` |  |
+| `patch_url` | `string` |  |
 | `labels` | `array` |  |
-| `requested_teams` | `array` |  |
+| `merged_at` | `string` |  |
+| `issue_url` | `string` |  |
+| `review_comment_url` | `string` |  |
+| `title` | `string` |  |
+| `user` | `object` | A GitHub user. |
+| `milestone` | `object` | A collection of related issues and pull requests. |
+| `commits_url` | `string` |  |
+| `_links` | `object` |  |
+| `url` | `string` |  |
+| `html_url` | `string` |  |
+| `created_at` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `active_lock_reason` | `string` |  |
+| `base` | `object` |  |
+| `statuses_url` | `string` |  |
 | `assignee` | `object` | A GitHub user. |
 | `head` | `object` |  |
-| `html_url` | `string` |  |
+| `updated_at` | `string` |  |
+| `auto_merge` | `object` | The status of auto merging a pull request. |
+| `requested_teams` | `array` |  |
+| `requested_reviewers` | `array` |  |
+| `review_comments_url` | `string` |  |
+| `locked` | `boolean` |  |
+| `diff_url` | `string` |  |
+| `merge_commit_sha` | `string` |  |
+| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
+| `body` | `string` |  |
+| `number` | `integer` |  |
+| `assignees` | `array` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

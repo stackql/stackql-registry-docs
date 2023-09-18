@@ -17,16 +17,16 @@ slug: /providers/github
 ---
 Web-based version-control and collaboration.  
     
-:::info Provider Summary (v23.09.00173)
+:::info Provider Summary (v23.09.00175)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>32</b></span><br />
-<span>total methods:&nbsp;<b>885</b></span><br />
+<span>total services:&nbsp;<b>31</b></span><br />
+<span>total methods:&nbsp;<b>883</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>285</b></span><br />
-<span>total selectable resources:&nbsp;<b>258</b></span><br />
+<span>total resources:&nbsp;<b>278</b></span><br />
+<span>total selectable resources:&nbsp;<b>273</b></span><br />
 </div>
 </div>
 
@@ -98,7 +98,6 @@ stackql.exe shell --auth=$Auth
 </div>
 <div class="providerDocColumn">
 <a href="/providers/github/licenses/">licenses</a><br />
-<a href="/providers/github/markdown/">markdown</a><br />
 <a href="/providers/github/migrations/">migrations</a><br />
 <a href="/providers/github/oidc/">oidc</a><br />
 <a href="/providers/github/orgs/">orgs</a><br />

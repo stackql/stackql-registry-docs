@@ -27,9 +27,9 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `total_paid_gigabytes_bandwidth_used` | `integer` | Total paid storage space (GB) for GitHuub Packages. |
 | `included_gigabytes_bandwidth` | `integer` | Free storage space (GB) for GitHub Packages. |
 | `total_gigabytes_bandwidth_used` | `integer` | Sum of the free and paid storage space (GB) for GitHuub Packages. |
-| `total_paid_gigabytes_bandwidth_used` | `integer` | Total paid storage space (GB) for GitHuub Packages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

@@ -29,17 +29,17 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `name` | `string` | The file name of the asset. |
-| `browser_download_url` | `string` |  |
 | `download_count` | `integer` |  |
-| `uploader` | `object` | A GitHub user. |
-| `label` | `string` |  |
 | `size` | `integer` |  |
-| `content_type` | `string` |  |
-| `url` | `string` |  |
-| `created_at` | `string` |  |
 | `state` | `string` | State of the release asset. |
+| `label` | `string` |  |
 | `node_id` | `string` |  |
 | `updated_at` | `string` |  |
+| `url` | `string` |  |
+| `browser_download_url` | `string` |  |
+| `uploader` | `object` | A GitHub user. |
+| `content_type` | `string` |  |
+| `created_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

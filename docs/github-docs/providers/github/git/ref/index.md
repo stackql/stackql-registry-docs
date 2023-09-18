@@ -27,10 +27,10 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `object` | `object` |
-| `ref` | `string` |
 | `url` | `string` |
 | `node_id` | `string` |
+| `object` | `object` |
+| `ref` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

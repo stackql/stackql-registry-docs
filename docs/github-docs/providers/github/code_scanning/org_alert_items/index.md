@@ -27,22 +27,22 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `updated_at` | `string` | The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `dismissed_reason` | `string` | **Required when the state is dismissed.** The reason for dismissing or closing the alert. |
+| `number` | `integer` | The security alert number. |
 | `dismissed_at` | `string` | The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `dismissed_comment` | `string` | The dismissal comment associated with the dismissal of the alert. |
-| `rule` | `object` |  |
+| `tool` | `object` |  |
 | `instances_url` | `string` | The REST API URL for fetching the list of instances for an alert. |
+| `rule` | `object` |  |
+| `state` | `string` | State of a code scanning alert. |
+| `most_recent_instance` | `object` |  |
+| `fixed_at` | `string` | The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
+| `repository` | `object` | A GitHub repository. |
+| `dismissed_comment` | `string` | The dismissal comment associated with the dismissal of the alert. |
 | `created_at` | `string` | The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
 | `html_url` | `string` | The GitHub URL of the alert resource. |
-| `dismissed_reason` | `string` | **Required when the state is dismissed.** The reason for dismissing or closing the alert. |
-| `repository` | `object` | A GitHub repository. |
-| `updated_at` | `string` | The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `fixed_at` | `string` | The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |
-| `number` | `integer` | The security alert number. |
-| `dismissed_by` | `object` | A GitHub user. |
 | `url` | `string` | The REST API URL of the alert resource. |
-| `most_recent_instance` | `object` |  |
-| `state` | `string` | State of a code scanning alert. |
-| `tool` | `object` |  |
+| `dismissed_by` | `object` | A GitHub user. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

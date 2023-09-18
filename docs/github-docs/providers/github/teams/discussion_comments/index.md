@@ -27,19 +27,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `body` | `string` | The main text of the comment. |
-| `created_at` | `string` |  |
-| `discussion_url` | `string` |  |
-| `number` | `integer` | The unique sequence number of a team discussion comment. |
-| `last_edited_at` | `string` |  |
-| `author` | `object` | A GitHub user. |
-| `body_version` | `string` | The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server. |
 | `body_html` | `string` |  |
 | `html_url` | `string` |  |
-| `updated_at` | `string` |  |
-| `url` | `string` |  |
-| `node_id` | `string` |  |
 | `reactions` | `object` |  |
+| `updated_at` | `string` |  |
+| `number` | `integer` | The unique sequence number of a team discussion comment. |
+| `body` | `string` | The main text of the comment. |
+| `created_at` | `string` |  |
+| `last_edited_at` | `string` |  |
+| `author` | `object` | A GitHub user. |
+| `node_id` | `string` |  |
+| `url` | `string` |  |
+| `body_version` | `string` | The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server. |
+| `discussion_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

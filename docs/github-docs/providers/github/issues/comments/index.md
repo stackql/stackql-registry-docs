@@ -28,19 +28,19 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the issue comment |
-| `html_url` | `string` |  |
-| `node_id` | `string` |  |
 | `body` | `string` | Contents of the issue comment |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `user` | `object` | A GitHub user. |
-| `created_at` | `string` |  |
-| `updated_at` | `string` |  |
-| `issue_url` | `string` |  |
-| `url` | `string` | URL for the issue comment |
-| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `reactions` | `object` |  |
-| `body_html` | `string` |  |
+| `url` | `string` | URL for the issue comment |
+| `created_at` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `node_id` | `string` |  |
 | `body_text` | `string` |  |
+| `body_html` | `string` |  |
+| `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
+| `html_url` | `string` |  |
+| `user` | `object` | A GitHub user. |
+| `issue_url` | `string` |  |
+| `updated_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

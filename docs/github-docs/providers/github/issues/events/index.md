@@ -29,26 +29,26 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `integer` |  |
 | `project_card` | `object` | Issue Event Project Card |
-| `label` | `object` | Issue Event Label |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `commit_url` | `string` |  |
-| `milestone` | `object` | Issue Event Milestone |
-| `node_id` | `string` |  |
-| `actor` | `object` | A GitHub user. |
-| `event` | `string` |  |
-| `assignee` | `object` | A GitHub user. |
-| `rename` | `object` | Issue Event Rename |
-| `created_at` | `string` |  |
-| `requested_team` | `object` | Groups of organization members that gives permissions on specified repositories. |
-| `commit_id` | `string` |  |
-| `lock_reason` | `string` |  |
-| `assigner` | `object` | A GitHub user. |
-| `review_requester` | `object` | A GitHub user. |
 | `url` | `string` |  |
+| `assignee` | `object` | A GitHub user. |
+| `requested_team` | `object` | Groups of organization members that gives permissions on specified repositories. |
+| `rename` | `object` | Issue Event Rename |
+| `node_id` | `string` |  |
 | `dismissed_review` | `object` |  |
-| `issue` | `object` | Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. |
+| `label` | `object` | Issue Event Label |
+| `assigner` | `object` | A GitHub user. |
+| `commit_id` | `string` |  |
+| `event` | `string` |  |
 | `performed_via_github_app` | `object` | GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub. |
 | `requested_reviewer` | `object` | A GitHub user. |
+| `milestone` | `object` | Issue Event Milestone |
+| `commit_url` | `string` |  |
+| `review_requester` | `object` | A GitHub user. |
+| `created_at` | `string` |  |
+| `issue` | `object` | Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. |
+| `actor` | `object` | A GitHub user. |
+| `lock_reason` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

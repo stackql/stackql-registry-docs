@@ -33,7 +33,7 @@ Interact With GitHub Issues.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Issues</td></tr>
 <tr><td><b>Description</b></td><td>Interact With GitHub Issues.</td></tr>
-<tr><td><b>Id</b></td><td><code>issues:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>issues:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources

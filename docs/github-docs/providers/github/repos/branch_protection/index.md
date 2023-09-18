@@ -28,21 +28,21 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` |  |
-| `allow_force_pushes` | `object` |  |
-| `allow_fork_syncing` | `object` | Whether users can pull changes from upstream when the branch is locked. Set to `true` to allow fork syncing. Set to `false` to prevent fork syncing. |
-| `enforce_admins` | `object` | Protected Branch Admin Enforced |
-| `allow_deletions` | `object` |  |
-| `required_status_checks` | `object` | Protected Branch Required Status Check |
-| `url` | `string` |  |
-| `required_pull_request_reviews` | `object` | Protected Branch Pull Request Review |
-| `required_linear_history` | `object` |  |
-| `protection_url` | `string` |  |
 | `block_creations` | `object` |  |
-| `enabled` | `boolean` |  |
-| `required_signatures` | `object` |  |
-| `restrictions` | `object` | Branch Restriction Policy |
-| `required_conversation_resolution` | `object` |  |
 | `lock_branch` | `object` | Whether to set the branch as read-only. If this is true, users will not be able to push to the branch. |
+| `allow_fork_syncing` | `object` | Whether users can pull changes from upstream when the branch is locked. Set to `true` to allow fork syncing. Set to `false` to prevent fork syncing. |
+| `restrictions` | `object` | Branch Restriction Policy |
+| `url` | `string` |  |
+| `required_signatures` | `object` |  |
+| `allow_force_pushes` | `object` |  |
+| `required_pull_request_reviews` | `object` | Protected Branch Pull Request Review |
+| `allow_deletions` | `object` |  |
+| `enabled` | `boolean` |  |
+| `enforce_admins` | `object` | Protected Branch Admin Enforced |
+| `required_linear_history` | `object` |  |
+| `required_conversation_resolution` | `object` |  |
+| `required_status_checks` | `object` | Protected Branch Required Status Check |
+| `protection_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

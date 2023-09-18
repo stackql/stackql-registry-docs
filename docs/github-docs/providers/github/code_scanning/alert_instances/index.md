@@ -27,16 +27,16 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `html_url` | `string` |  |
-| `category` | `string` | Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. |
-| `commit_sha` | `string` |  |
-| `classifications` | `array` | Classifications that have been applied to the file that triggered the alert.<br />For example identifying it as documentation, or a generated file. |
-| `location` | `object` | Describe a region within a file for the alert. |
-| `message` | `object` |  |
-| `ref` | `string` | The full Git reference, formatted as `refs/heads/&lt;branch name&gt;`,<br />`refs/pull/&lt;number&gt;/merge`, or `refs/pull/&lt;number&gt;/head`. |
 | `environment` | `string` | Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed. |
-| `analysis_key` | `string` | Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name. |
+| `location` | `object` | Describe a region within a file for the alert. |
 | `state` | `string` | State of a code scanning alert. |
+| `classifications` | `array` | Classifications that have been applied to the file that triggered the alert.<br />For example identifying it as documentation, or a generated file. |
+| `message` | `object` |  |
+| `analysis_key` | `string` | Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name. |
+| `category` | `string` | Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. |
+| `html_url` | `string` |  |
+| `ref` | `string` | The full Git reference, formatted as `refs/heads/&lt;branch name&gt;`,<br />`refs/pull/&lt;number&gt;/merge`, or `refs/pull/&lt;number&gt;/head`. |
+| `commit_sha` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

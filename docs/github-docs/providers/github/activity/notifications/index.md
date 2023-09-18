@@ -29,13 +29,13 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `subject` | `object` |  |
-| `last_read_at` | `string` |  |
-| `subscription_url` | `string` |  |
 | `url` | `string` |  |
-| `unread` | `boolean` |  |
 | `repository` | `object` | Minimal Repository |
-| `reason` | `string` |  |
+| `subscription_url` | `string` |  |
+| `unread` | `boolean` |  |
 | `updated_at` | `string` |  |
+| `reason` | `string` |  |
+| `last_read_at` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

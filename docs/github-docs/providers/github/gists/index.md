@@ -33,7 +33,7 @@ View, Modify Your Gists.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>GitHub V3 REST API - Gists</td></tr>
 <tr><td><b>Description</b></td><td>View, Modify Your Gists.</td></tr>
-<tr><td><b>Id</b></td><td><code>gists:v23.09.00173</code></td></tr>
+<tr><td><b>Id</b></td><td><code>gists:v23.09.00175</code></td></tr>
 </tbody></table>
 
 ## Resources

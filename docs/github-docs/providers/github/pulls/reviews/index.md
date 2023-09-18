@@ -28,18 +28,18 @@ image: /img/providers/github/stackql-github-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `integer` | Unique identifier of the review |
-| `pull_request_url` | `string` |  |
-| `author_association` | `string` | How the author is associated with the repository. |
-| `body_html` | `string` |  |
-| `state` | `string` |  |
-| `node_id` | `string` |  |
-| `body_text` | `string` |  |
-| `commit_id` | `string` | A commit SHA for the review. If the commit object was garbage collected or forcibly deleted, then it no longer exists in Git and this value will be `null`. |
 | `body` | `string` | The text of the review. |
-| `html_url` | `string` |  |
-| `submitted_at` | `string` |  |
+| `body_text` | `string` |  |
 | `user` | `object` | A GitHub user. |
+| `body_html` | `string` |  |
+| `submitted_at` | `string` |  |
+| `commit_id` | `string` | A commit SHA for the review. If the commit object was garbage collected or forcibly deleted, then it no longer exists in Git and this value will be `null`. |
+| `html_url` | `string` |  |
+| `state` | `string` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
 | `_links` | `object` |  |
+| `node_id` | `string` |  |
+| `pull_request_url` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
