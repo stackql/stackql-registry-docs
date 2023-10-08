@@ -180,7 +180,8 @@ function Footer(): JSX.Element | null {
             target="_blank"
             rel="noopener"
             >
-              <Icon icon="akar-icons:twitter-fill" width="24" color={colorMode === 'dark' ? 'white' : ''} />
+              {/* <Icon icon="akar-icons:twitter-fill" width="24" color={colorMode === 'dark' ? 'white' : ''} /> */}
+              <Icon icon="simple-icons:x" width="24" color={colorMode === 'dark' ? 'white' : ''} />
           </IconButton>
           <IconButton
             className="footerSocialIconButton"
