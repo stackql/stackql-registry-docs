@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.nimblestudio.streaming_image
-WHERE region = 'us-east-1' AND data__Identifier = '<StudioId>' AND data__Identifier = '<StreamingImageId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{StudioId}' AND data__Identifier = '{StreamingImageId}'
 </pre>

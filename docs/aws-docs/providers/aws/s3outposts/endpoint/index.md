@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.s3outposts.endpoint
-WHERE region = 'us-east-1' AND data__Identifier = '<Arn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
 </pre>

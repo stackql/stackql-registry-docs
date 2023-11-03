@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.lambda.code_signing_config
-WHERE region = 'us-east-1' AND data__Identifier = '<CodeSigningConfigArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{CodeSigningConfigArn}'
 </pre>

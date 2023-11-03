@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.budgets.budgets_action
-WHERE region = 'us-east-1' AND data__Identifier = '<ActionId>' AND data__Identifier = '<BudgetName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ActionId}' AND data__Identifier = '{BudgetName}'
 </pre>

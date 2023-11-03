@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.lex.bot_alias
-WHERE region = 'us-east-1' AND data__Identifier = '<BotAliasId>' AND data__Identifier = '<BotId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{BotAliasId}' AND data__Identifier = '{BotId}'
 </pre>

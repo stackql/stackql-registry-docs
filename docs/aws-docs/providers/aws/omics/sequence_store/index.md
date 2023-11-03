@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.omics.sequence_store
-WHERE region = 'us-east-1' AND data__Identifier = '<SequenceStoreId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{SequenceStoreId}'
 </pre>

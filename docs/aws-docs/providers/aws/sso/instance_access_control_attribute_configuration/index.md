@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.sso.instance_access_control_attribute_configuration
-WHERE region = 'us-east-1' AND data__Identifier = '<InstanceArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{InstanceArn}'
 </pre>

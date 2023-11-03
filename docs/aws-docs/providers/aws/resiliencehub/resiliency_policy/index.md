@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.resiliencehub.resiliency_policy
-WHERE region = 'us-east-1' AND data__Identifier = '<PolicyArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{PolicyArn}'
 </pre>

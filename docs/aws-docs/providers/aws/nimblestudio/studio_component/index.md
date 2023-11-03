@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.nimblestudio.studio_component
-WHERE region = 'us-east-1' AND data__Identifier = '<StudioComponentId>' AND data__Identifier = '<StudioId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{StudioComponentId}' AND data__Identifier = '{StudioId}'
 </pre>

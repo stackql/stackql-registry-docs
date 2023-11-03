@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.kms.replica_key
-WHERE region = 'us-east-1' AND data__Identifier = '<KeyId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{KeyId}'
 </pre>

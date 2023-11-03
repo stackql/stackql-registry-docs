@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.iot1click.device
-WHERE region = 'us-east-1' AND data__Identifier = '<DeviceId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{DeviceId}'
 </pre>

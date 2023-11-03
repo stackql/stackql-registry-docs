@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.xray.sampling_rule
-WHERE region = 'us-east-1' AND data__Identifier = '<RuleARN>'
+WHERE region = 'us-east-1' AND data__Identifier = '{RuleARN}'
 </pre>

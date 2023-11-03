@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.kms.alias
-WHERE region = 'us-east-1' AND data__Identifier = '<AliasName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{AliasName}'
 </pre>

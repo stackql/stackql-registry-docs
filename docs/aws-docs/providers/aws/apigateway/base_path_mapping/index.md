@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.apigateway.base_path_mapping
-WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>' AND data__Identifier = '<BasePath>'
+WHERE region = 'us-east-1' AND data__Identifier = '{DomainName}' AND data__Identifier = '{BasePath}'
 </pre>

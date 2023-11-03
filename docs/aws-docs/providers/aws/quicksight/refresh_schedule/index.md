@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.quicksight.refresh_schedule
-WHERE region = 'us-east-1' AND data__Identifier = '<AwsAccountId>' AND data__Identifier = '<DataSetId>' AND data__Identifier = '<Schedule/ScheduleId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{AwsAccountId}' AND data__Identifier = '{DataSetId}' AND data__Identifier = '{Schedule/ScheduleId}'
 </pre>

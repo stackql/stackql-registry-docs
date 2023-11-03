@@ -39,5 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.route53recoveryreadiness.resource_set
-WHERE region = 'us-east-1' AND data__Identifier = '<ResourceSetName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ResourceSetName}'
 </pre>

@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.amplifyuibuilder.component
-WHERE region = 'us-east-1' AND data__Identifier = '<AppId>' AND data__Identifier = '<EnvironmentName>' AND data__Identifier = '<Id>'
+WHERE region = 'us-east-1' AND data__Identifier = '{AppId}' AND data__Identifier = '{EnvironmentName}' AND data__Identifier = '{Id}'
 </pre>

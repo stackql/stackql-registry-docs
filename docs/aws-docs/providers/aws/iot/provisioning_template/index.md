@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.iot.provisioning_template
-WHERE region = 'us-east-1' AND data__Identifier = '<TemplateName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{TemplateName}'
 </pre>

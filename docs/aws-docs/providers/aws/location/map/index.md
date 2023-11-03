@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.location.map
-WHERE region = 'us-east-1' AND data__Identifier = '<MapName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{MapName}'
 </pre>

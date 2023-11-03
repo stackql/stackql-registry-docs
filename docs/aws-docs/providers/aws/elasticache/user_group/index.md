@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.elasticache.user_group
-WHERE region = 'us-east-1' AND data__Identifier = '<UserGroupId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{UserGroupId}'
 </pre>

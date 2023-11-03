@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.gamelift.build
-WHERE region = 'us-east-1' AND data__Identifier = '<BuildId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{BuildId}'
 </pre>

@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.efs.file_system
-WHERE region = 'us-east-1' AND data__Identifier = '<FileSystemId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{FileSystemId}'
 </pre>

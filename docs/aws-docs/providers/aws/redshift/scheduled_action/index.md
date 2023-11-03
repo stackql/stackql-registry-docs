@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.redshift.scheduled_action
-WHERE region = 'us-east-1' AND data__Identifier = '<ScheduledActionName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ScheduledActionName}'
 </pre>

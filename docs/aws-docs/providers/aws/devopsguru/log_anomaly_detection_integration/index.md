@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.devopsguru.log_anomaly_detection_integration
-WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{AccountId}'
 </pre>

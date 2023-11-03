@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.ecs.service
-WHERE region = 'us-east-1' AND data__Identifier = '<ServiceArn>' AND data__Identifier = '<Cluster>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ServiceArn}' AND data__Identifier = '{Cluster}'
 </pre>

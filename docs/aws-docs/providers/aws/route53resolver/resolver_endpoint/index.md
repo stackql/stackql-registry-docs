@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.route53resolver.resolver_endpoint
-WHERE region = 'us-east-1' AND data__Identifier = '<ResolverEndpointId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ResolverEndpointId}'
 </pre>

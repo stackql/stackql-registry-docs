@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.iot.mitigation_action
-WHERE region = 'us-east-1' AND data__Identifier = '<ActionName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ActionName}'
 </pre>

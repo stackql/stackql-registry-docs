@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.lightsail.static_ip
-WHERE region = 'us-east-1' AND data__Identifier = '<StaticIpName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{StaticIpName}'
 </pre>

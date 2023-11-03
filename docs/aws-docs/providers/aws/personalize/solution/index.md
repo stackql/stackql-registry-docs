@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.personalize.solution
-WHERE region = 'us-east-1' AND data__Identifier = '<SolutionArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{SolutionArn}'
 </pre>

@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.transfer.connector
-WHERE region = 'us-east-1' AND data__Identifier = '<ConnectorId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ConnectorId}'
 </pre>

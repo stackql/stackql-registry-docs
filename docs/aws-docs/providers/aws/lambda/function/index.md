@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.lambda.function
-WHERE region = 'us-east-1' AND data__Identifier = '<FunctionName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{FunctionName}'
 </pre>

@@ -44,5 +44,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.rds.db_cluster
-WHERE region = 'us-east-1' AND data__Identifier = '<DBClusterIdentifier>'
+WHERE region = 'us-east-1' AND data__Identifier = '{DBClusterIdentifier}'
 </pre>

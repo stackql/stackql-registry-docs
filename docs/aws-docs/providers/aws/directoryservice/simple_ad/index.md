@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.directoryservice.simple_ad
-WHERE region = 'us-east-1' AND data__Identifier = '<DirectoryId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{DirectoryId}'
 </pre>

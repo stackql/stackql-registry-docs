@@ -39,5 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.cloudformation.public_type_version
-WHERE region = 'us-east-1' AND data__Identifier = '<PublicTypeArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{PublicTypeArn}'
 </pre>

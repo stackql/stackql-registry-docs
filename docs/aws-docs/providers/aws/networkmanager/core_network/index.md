@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.networkmanager.core_network
-WHERE region = 'us-east-1' AND data__Identifier = '<CoreNetworkId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{CoreNetworkId}'
 </pre>

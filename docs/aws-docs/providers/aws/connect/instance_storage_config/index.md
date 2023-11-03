@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.connect.instance_storage_config
-WHERE region = 'us-east-1' AND data__Identifier = '<InstanceArn>' AND data__Identifier = '<AssociationId>' AND data__Identifier = '<ResourceType>'
+WHERE region = 'us-east-1' AND data__Identifier = '{InstanceArn}' AND data__Identifier = '{AssociationId}' AND data__Identifier = '{ResourceType}'
 </pre>
