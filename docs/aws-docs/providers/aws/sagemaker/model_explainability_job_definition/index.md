@@ -20,7 +20,6 @@ Gets an individual <code>model_explainability_job_definition</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>model_explainability_job_definition</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.model_explainability_job_definition</code></td></tr>
 </tbody></table>
 

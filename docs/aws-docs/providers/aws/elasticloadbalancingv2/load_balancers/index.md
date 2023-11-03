@@ -20,7 +20,6 @@ Retrieves a list of <code>load_balancers</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>load_balancers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.elasticloadbalancingv2.load_balancers</code></td></tr>
 </tbody></table>
 

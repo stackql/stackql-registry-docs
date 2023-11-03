@@ -20,7 +20,6 @@ Retrieves a list of <code>rate_based_rules</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>rate_based_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.wafregional.rate_based_rules</code></td></tr>
 </tbody></table>
 

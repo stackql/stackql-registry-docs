@@ -20,7 +20,6 @@ Gets an individual <code>public_repository</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>public_repository</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.ecr.public_repository</code></td></tr>
 </tbody></table>
 

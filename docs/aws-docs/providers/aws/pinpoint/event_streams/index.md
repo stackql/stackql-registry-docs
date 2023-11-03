@@ -20,7 +20,6 @@ Retrieves a list of <code>event_streams</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>event_streams</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.pinpoint.event_streams</code></td></tr>
 </tbody></table>
 

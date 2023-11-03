@@ -20,7 +20,6 @@ Retrieves a list of <code>accepted_portfolio_shares</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>accepted_portfolio_shares</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.servicecatalog.accepted_portfolio_shares</code></td></tr>
 </tbody></table>
 

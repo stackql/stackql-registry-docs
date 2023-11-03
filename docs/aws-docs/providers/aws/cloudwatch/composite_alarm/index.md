@@ -20,7 +20,6 @@ Gets an individual <code>composite_alarm</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>composite_alarm</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.cloudwatch.composite_alarm</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>app_block</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>app_block</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.appstream.app_block</code></td></tr>
 </tbody></table>
 

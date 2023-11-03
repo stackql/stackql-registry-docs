@@ -20,7 +20,6 @@ Gets an individual <code>notebook_instance_lifecycle_config</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>notebook_instance_lifecycle_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.notebook_instance_lifecycle_config</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Retrieves a list of <code>link_associations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>link_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.networkmanager.link_associations</code></td></tr>
 </tbody></table>
 

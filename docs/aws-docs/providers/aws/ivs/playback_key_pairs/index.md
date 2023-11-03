@@ -20,7 +20,6 @@ Retrieves a list of <code>playback_key_pairs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>playback_key_pairs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.ivs.playback_key_pairs</code></td></tr>
 </tbody></table>
 

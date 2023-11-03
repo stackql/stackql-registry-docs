@@ -20,7 +20,6 @@ Retrieves a list of <code>event_buses</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>event_buses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.events.event_buses</code></td></tr>
 </tbody></table>
 

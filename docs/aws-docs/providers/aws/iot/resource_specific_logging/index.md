@@ -20,7 +20,6 @@ Gets an individual <code>resource_specific_logging</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_specific_logging</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.iot.resource_specific_logging</code></td></tr>
 </tbody></table>
 

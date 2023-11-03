@@ -20,7 +20,6 @@ Retrieves a list of <code>application_fleet_associations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_fleet_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.appstream.application_fleet_associations</code></td></tr>
 </tbody></table>
 

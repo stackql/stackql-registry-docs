@@ -20,7 +20,6 @@ Gets an individual <code>web_acl</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>web_acl</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.waf.web_acl</code></td></tr>
 </tbody></table>
 

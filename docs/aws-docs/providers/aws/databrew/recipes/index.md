@@ -20,7 +20,6 @@ Retrieves a list of <code>recipes</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>recipes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.databrew.recipes</code></td></tr>
 </tbody></table>
 

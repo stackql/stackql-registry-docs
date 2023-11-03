@@ -20,7 +20,6 @@ Retrieves a list of <code>environments</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.elasticbeanstalk.environments</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>global_replication_group</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_replication_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.elasticache.global_replication_group</code></td></tr>
 </tbody></table>
 

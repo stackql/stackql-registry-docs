@@ -20,7 +20,6 @@ Gets an individual <code>profiling_group</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>profiling_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.codeguruprofiler.profiling_group</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>account_alias</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>account_alias</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.supportapp.account_alias</code></td></tr>
 </tbody></table>
 

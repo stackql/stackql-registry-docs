@@ -20,7 +20,6 @@ Retrieves a list of <code>fleet_metrics</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>fleet_metrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.iot.fleet_metrics</code></td></tr>
 </tbody></table>
 

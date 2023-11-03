@@ -20,7 +20,6 @@ Retrieves a list of <code>ip_sets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ip_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.guardduty.ip_sets</code></td></tr>
 </tbody></table>
 

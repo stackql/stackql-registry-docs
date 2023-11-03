@@ -20,7 +20,6 @@ Gets an individual <code>database</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>database</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.glue.database</code></td></tr>
 </tbody></table>
 

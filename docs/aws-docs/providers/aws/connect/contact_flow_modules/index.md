@@ -20,7 +20,6 @@ Retrieves a list of <code>contact_flow_modules</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>contact_flow_modules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.connect.contact_flow_modules</code></td></tr>
 </tbody></table>
 

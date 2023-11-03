@@ -20,7 +20,6 @@ Gets an individual <code>portal</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>portal</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.iotsitewise.portal</code></td></tr>
 </tbody></table>
 

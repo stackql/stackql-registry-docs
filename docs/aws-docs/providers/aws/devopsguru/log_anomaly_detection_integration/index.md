@@ -20,7 +20,6 @@ Gets an individual <code>log_anomaly_detection_integration</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>log_anomaly_detection_integration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.devopsguru.log_anomaly_detection_integration</code></td></tr>
 </tbody></table>
 

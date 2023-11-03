@@ -20,7 +20,6 @@ Gets an individual <code>segment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>segment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.evidently.segment</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Retrieves a list of <code>configuration_set_event_destinations</code> in a regio
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>configuration_set_event_destinations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.ses.configuration_set_event_destinations</code></td></tr>
 </tbody></table>
 

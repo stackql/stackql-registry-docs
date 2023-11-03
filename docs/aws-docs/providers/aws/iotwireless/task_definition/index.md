@@ -20,7 +20,6 @@ Gets an individual <code>task_definition</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>task_definition</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.iotwireless.task_definition</code></td></tr>
 </tbody></table>
 

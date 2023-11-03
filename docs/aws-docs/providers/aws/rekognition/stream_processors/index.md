@@ -20,7 +20,6 @@ Retrieves a list of <code>stream_processors</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stream_processors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.rekognition.stream_processors</code></td></tr>
 </tbody></table>
 

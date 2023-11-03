@@ -20,7 +20,6 @@ Gets an individual <code>firewall_domain_list</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewall_domain_list</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.route53resolver.firewall_domain_list</code></td></tr>
 </tbody></table>
 

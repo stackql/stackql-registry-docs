@@ -20,7 +20,6 @@ Gets an individual <code>mission_profile</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mission_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.groundstation.mission_profile</code></td></tr>
 </tbody></table>
 

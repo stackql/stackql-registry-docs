@@ -20,7 +20,6 @@ Retrieves a list of <code>access_points</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_points</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.s3objectlambda.access_points</code></td></tr>
 </tbody></table>
 

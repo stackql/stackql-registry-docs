@@ -20,7 +20,6 @@ Retrieves a list of <code>cost_categories</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cost_categories</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.ce.cost_categories</code></td></tr>
 </tbody></table>
 

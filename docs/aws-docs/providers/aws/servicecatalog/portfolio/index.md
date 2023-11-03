@@ -20,7 +20,6 @@ Gets an individual <code>portfolio</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>portfolio</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.servicecatalog.portfolio</code></td></tr>
 </tbody></table>
 

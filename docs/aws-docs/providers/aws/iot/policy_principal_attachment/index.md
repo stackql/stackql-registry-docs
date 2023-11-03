@@ -20,7 +20,6 @@ Gets an individual <code>policy_principal_attachment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policy_principal_attachment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.iot.policy_principal_attachment</code></td></tr>
 </tbody></table>
 

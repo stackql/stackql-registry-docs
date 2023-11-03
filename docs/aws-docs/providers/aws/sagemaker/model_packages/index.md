@@ -20,7 +20,6 @@ Retrieves a list of <code>model_packages</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>model_packages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.model_packages</code></td></tr>
 </tbody></table>
 

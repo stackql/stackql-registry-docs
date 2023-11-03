@@ -20,7 +20,6 @@ Retrieves a list of <code>db_security_group_ingresses</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>db_security_group_ingresses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.rds.db_security_group_ingresses</code></td></tr>
 </tbody></table>
 

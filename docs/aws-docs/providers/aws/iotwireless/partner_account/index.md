@@ -20,7 +20,6 @@ Gets an individual <code>partner_account</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>partner_account</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.iotwireless.partner_account</code></td></tr>
 </tbody></table>
 

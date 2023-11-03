@@ -20,7 +20,6 @@ Gets an individual <code>sink</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sink</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.oam.sink</code></td></tr>
 </tbody></table>
 

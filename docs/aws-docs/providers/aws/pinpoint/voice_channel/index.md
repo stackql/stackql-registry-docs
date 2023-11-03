@@ -20,7 +20,6 @@ Gets an individual <code>voice_channel</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>voice_channel</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.pinpoint.voice_channel</code></td></tr>
 </tbody></table>
 

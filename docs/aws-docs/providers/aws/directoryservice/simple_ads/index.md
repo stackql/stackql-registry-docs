@@ -20,7 +20,6 @@ Retrieves a list of <code>simple_ads</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>simple_ads</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.directoryservice.simple_ads</code></td></tr>
 </tbody></table>
 

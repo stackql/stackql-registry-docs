@@ -20,7 +20,6 @@ Gets an individual <code>load_balancer_tls_certificate</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>load_balancer_tls_certificate</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.lightsail.load_balancer_tls_certificate</code></td></tr>
 </tbody></table>
 

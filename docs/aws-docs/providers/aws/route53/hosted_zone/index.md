@@ -20,7 +20,6 @@ Gets an individual <code>hosted_zone</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hosted_zone</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.route53.hosted_zone</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Retrieves a list of <code>resource_groups</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.inspector.resource_groups</code></td></tr>
 </tbody></table>
 

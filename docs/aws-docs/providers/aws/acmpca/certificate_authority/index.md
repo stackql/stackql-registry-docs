@@ -20,7 +20,6 @@ Gets an individual <code>certificate_authority</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_authority</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.acmpca.certificate_authority</code></td></tr>
 </tbody></table>
 

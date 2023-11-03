@@ -20,7 +20,6 @@ Gets an individual <code>maintenance_window_target</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>maintenance_window_target</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.ssm.maintenance_window_target</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Retrieves a list of <code>public_keys</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>public_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.public_keys</code></td></tr>
 </tbody></table>
 

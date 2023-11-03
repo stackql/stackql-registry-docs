@@ -20,7 +20,6 @@ Retrieves a list of <code>graphql_schemas</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>graphql_schemas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.appsync.graphql_schemas</code></td></tr>
 </tbody></table>
 

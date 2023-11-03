@@ -20,7 +20,6 @@ Gets an individual <code>matchmaking_configuration</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>matchmaking_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.gamelift.matchmaking_configuration</code></td></tr>
 </tbody></table>
 

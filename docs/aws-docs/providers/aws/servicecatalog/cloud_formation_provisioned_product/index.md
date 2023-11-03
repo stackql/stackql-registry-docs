@@ -20,7 +20,6 @@ Gets an individual <code>cloud_formation_provisioned_product</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cloud_formation_provisioned_product</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.servicecatalog.cloud_formation_provisioned_product</code></td></tr>
 </tbody></table>
 
