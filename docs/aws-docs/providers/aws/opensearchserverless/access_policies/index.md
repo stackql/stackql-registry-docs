@@ -33,8 +33,8 @@ Retrieves a list of <code>access_policies</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.opensearchserverless.access_policies
 WHERE region = 'us-east-1'
-</pre>
+```

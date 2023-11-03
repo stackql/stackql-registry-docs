@@ -33,8 +33,8 @@ Retrieves a list of <code>quick_connects</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.connect.quick_connects
 WHERE region = 'us-east-1'
-</pre>
+```

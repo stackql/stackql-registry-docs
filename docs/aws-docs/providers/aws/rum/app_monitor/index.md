@@ -33,8 +33,8 @@ Gets an individual <code>app_monitor</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.rum.app_monitor
 WHERE region = 'us-east-1' AND data__Identifier = '{Name}'
-</pre>
+```

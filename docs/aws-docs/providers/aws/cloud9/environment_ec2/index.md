@@ -33,8 +33,8 @@ Gets an individual <code>environment_ec2</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloud9.environment_ec2
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

@@ -33,8 +33,8 @@ Retrieves a list of <code>file_systems</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.fsx.file_systems
 WHERE region = 'us-east-1'
-</pre>
+```

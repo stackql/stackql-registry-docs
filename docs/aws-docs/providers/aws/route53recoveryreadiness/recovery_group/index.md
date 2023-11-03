@@ -33,8 +33,8 @@ Gets an individual <code>recovery_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53recoveryreadiness.recovery_group
 WHERE region = 'us-east-1' AND data__Identifier = '{RecoveryGroupName}'
-</pre>
+```

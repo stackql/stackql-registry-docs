@@ -33,8 +33,8 @@ Retrieves a list of <code>application_cloud_watch_logging_options</code> in a re
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.kinesisanalyticsv2.application_cloud_watch_logging_options
 WHERE region = 'us-east-1'
-</pre>
+```

@@ -35,8 +35,8 @@ For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/la
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.iotevents.inputs
 WHERE region = 'us-east-1'
-</pre>
+```

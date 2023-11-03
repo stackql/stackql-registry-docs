@@ -36,8 +36,8 @@ Gets an individual <code>launch_profile</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.nimblestudio.launch_profile
 WHERE region = 'us-east-1' AND data__Identifier = '{LaunchProfileId}' AND data__Identifier = '{StudioId}'
-</pre>
+```

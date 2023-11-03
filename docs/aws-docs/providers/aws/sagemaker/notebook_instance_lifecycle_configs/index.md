@@ -33,8 +33,8 @@ Retrieves a list of <code>notebook_instance_lifecycle_configs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.sagemaker.notebook_instance_lifecycle_configs
 WHERE region = 'us-east-1'
-</pre>
+```

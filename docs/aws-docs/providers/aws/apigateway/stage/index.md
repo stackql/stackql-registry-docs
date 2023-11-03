@@ -33,8 +33,8 @@ Gets an individual <code>stage</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.apigateway.stage
 WHERE region = 'us-east-1' AND data__Identifier = '{RestApiId}' AND data__Identifier = '{StageName}'
-</pre>
+```

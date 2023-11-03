@@ -33,8 +33,8 @@ Gets an individual <code>trail</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudtrail.trail
 WHERE region = 'us-east-1' AND data__Identifier = '{TrailName}'
-</pre>
+```

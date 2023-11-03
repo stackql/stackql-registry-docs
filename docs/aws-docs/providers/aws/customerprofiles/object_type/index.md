@@ -33,8 +33,8 @@ Gets an individual <code>object_type</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.customerprofiles.object_type
 WHERE region = 'us-east-1' AND data__Identifier = '{DomainName}' AND data__Identifier = '{ObjectTypeName}'
-</pre>
+```

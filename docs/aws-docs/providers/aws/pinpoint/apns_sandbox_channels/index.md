@@ -33,8 +33,8 @@ Retrieves a list of <code>apns_sandbox_channels</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.pinpoint.apns_sandbox_channels
 WHERE region = 'us-east-1'
-</pre>
+```

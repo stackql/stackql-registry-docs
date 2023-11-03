@@ -33,8 +33,8 @@ Gets an individual <code>playback_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.mediatailor.playback_configuration
 WHERE region = 'us-east-1' AND data__Identifier = '{Name}'
-</pre>
+```

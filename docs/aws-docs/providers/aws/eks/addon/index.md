@@ -33,8 +33,8 @@ Gets an individual <code>addon</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.eks.addon
 WHERE region = 'us-east-1' AND data__Identifier = '{ClusterName}' AND data__Identifier = '{AddonName}'
-</pre>
+```

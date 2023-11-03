@@ -33,8 +33,8 @@ Retrieves a list of <code>app_blocks</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.appstream.app_blocks
 WHERE region = 'us-east-1'
-</pre>
+```

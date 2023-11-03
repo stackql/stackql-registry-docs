@@ -33,8 +33,8 @@ Retrieves a list of <code>transit_gateway_route_table_attachments</code> in a re
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.networkmanager.transit_gateway_route_table_attachments
 WHERE region = 'us-east-1'
-</pre>
+```

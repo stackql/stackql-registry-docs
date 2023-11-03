@@ -33,8 +33,8 @@ Gets an individual <code>run_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.omics.run_group
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

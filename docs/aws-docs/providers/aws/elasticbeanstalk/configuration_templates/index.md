@@ -43,8 +43,8 @@ Constraint: If both solution stack name and source configuration are specified, 
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.elasticbeanstalk.configuration_templates
 WHERE region = 'us-east-1'
-</pre>
+```

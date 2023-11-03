@@ -33,8 +33,8 @@ Retrieves a list of <code>resolver_query_logging_config_associations</code> in a
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53resolver.resolver_query_logging_config_associations
 WHERE region = 'us-east-1'
-</pre>
+```

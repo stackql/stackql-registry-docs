@@ -35,8 +35,8 @@ AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :Cust
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53recoveryreadiness.resource_set
 WHERE region = 'us-east-1' AND data__Identifier = '{ResourceSetName}'
-</pre>
+```

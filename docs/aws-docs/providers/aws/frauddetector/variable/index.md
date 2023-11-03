@@ -33,8 +33,8 @@ Gets an individual <code>variable</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.frauddetector.variable
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

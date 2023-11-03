@@ -33,8 +33,8 @@ Gets an individual <code>assignment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.sso.assignment
 WHERE region = 'us-east-1' AND data__Identifier = '{InstanceArn}' AND data__Identifier = '{TargetId}' AND data__Identifier = '{TargetType}' AND data__Identifier = '{PermissionSetArn}' AND data__Identifier = '{PrincipalType}' AND data__Identifier = '{PrincipalId}'
-</pre>
+```

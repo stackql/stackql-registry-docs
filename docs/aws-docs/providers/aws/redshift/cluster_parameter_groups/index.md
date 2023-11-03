@@ -33,8 +33,8 @@ Retrieves a list of <code>cluster_parameter_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.redshift.cluster_parameter_groups
 WHERE region = 'us-east-1'
-</pre>
+```

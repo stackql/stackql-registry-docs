@@ -33,8 +33,8 @@ Retrieves a list of <code>input_security_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.medialive.input_security_groups
 WHERE region = 'us-east-1'
-</pre>
+```

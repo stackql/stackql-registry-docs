@@ -33,8 +33,8 @@ Gets an individual <code>game_session_queue</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.gamelift.game_session_queue
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

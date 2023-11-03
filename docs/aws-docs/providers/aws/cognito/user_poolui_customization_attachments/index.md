@@ -33,8 +33,8 @@ Retrieves a list of <code>user_poolui_customization_attachments</code> in a regi
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cognito.user_poolui_customization_attachments
 WHERE region = 'us-east-1'
-</pre>
+```

@@ -33,8 +33,8 @@ Gets an individual <code>pull_through_cache_rule</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ecr.pull_through_cache_rule
 WHERE region = 'us-east-1' AND data__Identifier = '{EcrRepositoryPrefix}'
-</pre>
+```

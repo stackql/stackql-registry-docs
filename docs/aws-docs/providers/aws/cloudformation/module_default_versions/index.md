@@ -33,8 +33,8 @@ Retrieves a list of <code>module_default_versions</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudformation.module_default_versions
 WHERE region = 'us-east-1'
-</pre>
+```

@@ -33,8 +33,8 @@ Gets an individual <code>db_proxy_endpoint</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.rds.db_proxy_endpoint
 WHERE region = 'us-east-1' AND data__Identifier = '{DBProxyEndpointName}'
-</pre>
+```

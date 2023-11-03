@@ -33,8 +33,8 @@ Gets an individual <code>cloud_front_origin_access_identity</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudfront.cloud_front_origin_access_identity
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

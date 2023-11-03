@@ -33,8 +33,8 @@ Retrieves a list of <code>user_pool_risk_configuration_attachments</code> in a r
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cognito.user_pool_risk_configuration_attachments
 WHERE region = 'us-east-1'
-</pre>
+```

@@ -33,8 +33,8 @@ Gets an individual <code>accelerator</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.globalaccelerator.accelerator
 WHERE region = 'us-east-1' AND data__Identifier = '{AcceleratorArn}'
-</pre>
+```

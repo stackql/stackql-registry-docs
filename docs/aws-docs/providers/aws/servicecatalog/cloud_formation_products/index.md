@@ -33,8 +33,8 @@ Retrieves a list of <code>cloud_formation_products</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.servicecatalog.cloud_formation_products
 WHERE region = 'us-east-1'
-</pre>
+```

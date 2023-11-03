@@ -40,8 +40,8 @@ If you specify the DBClusterIdentifier, SnapshotIdentifier, or SourceDBInstanceI
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.rds.db_clusters
 WHERE region = 'us-east-1'
-</pre>
+```

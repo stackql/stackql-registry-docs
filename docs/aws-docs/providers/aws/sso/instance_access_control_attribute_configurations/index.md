@@ -33,8 +33,8 @@ Retrieves a list of <code>instance_access_control_attribute_configurations</code
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.sso.instance_access_control_attribute_configurations
 WHERE region = 'us-east-1'
-</pre>
+```

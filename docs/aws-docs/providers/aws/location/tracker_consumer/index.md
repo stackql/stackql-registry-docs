@@ -33,8 +33,8 @@ Gets an individual <code>tracker_consumer</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.location.tracker_consumer
 WHERE region = 'us-east-1' AND data__Identifier = '{TrackerName}' AND data__Identifier = '{ConsumerArn}'
-</pre>
+```

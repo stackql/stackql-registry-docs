@@ -33,8 +33,8 @@ Gets an individual <code>event_bus_policy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.events.event_bus_policy
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

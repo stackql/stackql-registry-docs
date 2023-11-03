@@ -33,8 +33,8 @@ Retrieves a list of <code>account_aliases</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.supportapp.account_aliases
 WHERE region = 'us-east-1'
-</pre>
+```

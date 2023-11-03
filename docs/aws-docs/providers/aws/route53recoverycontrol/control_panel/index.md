@@ -33,8 +33,8 @@ Gets an individual <code>control_panel</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53recoverycontrol.control_panel
 WHERE region = 'us-east-1' AND data__Identifier = '{ControlPanelArn}'
-</pre>
+```

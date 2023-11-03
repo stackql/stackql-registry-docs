@@ -33,8 +33,8 @@ Retrieves a list of <code>request_validators</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.apigateway.request_validators
 WHERE region = 'us-east-1'
-</pre>
+```

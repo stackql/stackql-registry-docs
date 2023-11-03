@@ -49,8 +49,8 @@ If you don't specify a name, AWS CloudFormation generates a unique physical ID a
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.sns.topics
 WHERE region = 'us-east-1'
-</pre>
+```

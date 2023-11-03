@@ -33,8 +33,8 @@ Retrieves a list of <code>event_bus_policies</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.events.event_bus_policies
 WHERE region = 'us-east-1'
-</pre>
+```

@@ -33,8 +33,8 @@ Retrieves a list of <code>receipt_rule_sets</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ses.receipt_rule_sets
 WHERE region = 'us-east-1'
-</pre>
+```

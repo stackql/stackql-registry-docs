@@ -33,8 +33,8 @@ Gets an individual <code>application_entitlement_association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.appstream.application_entitlement_association
 WHERE region = 'us-east-1' AND data__Identifier = '{StackName}' AND data__Identifier = '{EntitlementName}' AND data__Identifier = '{ApplicationIdentifier}'
-</pre>
+```

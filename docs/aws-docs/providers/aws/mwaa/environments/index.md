@@ -41,8 +41,8 @@ Retrieves a list of <code>environments</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.mwaa.environments
 WHERE region = 'us-east-1'
-</pre>
+```

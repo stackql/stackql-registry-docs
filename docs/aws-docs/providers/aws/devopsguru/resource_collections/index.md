@@ -33,8 +33,8 @@ Retrieves a list of <code>resource_collections</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.devopsguru.resource_collections
 WHERE region = 'us-east-1'
-</pre>
+```

@@ -33,8 +33,8 @@ Retrieves a list of <code>application_entitlement_associations</code> in a regio
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.appstream.application_entitlement_associations
 WHERE region = 'us-east-1'
-</pre>
+```

@@ -33,8 +33,8 @@ Gets an individual <code>resource_data_sync</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ssm.resource_data_sync
 WHERE region = 'us-east-1' AND data__Identifier = '{SyncName}'
-</pre>
+```

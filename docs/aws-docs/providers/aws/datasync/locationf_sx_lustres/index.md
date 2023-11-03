@@ -33,8 +33,8 @@ Retrieves a list of <code>locationf_sx_lustres</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.datasync.locationf_sx_lustres
 WHERE region = 'us-east-1'
-</pre>
+```

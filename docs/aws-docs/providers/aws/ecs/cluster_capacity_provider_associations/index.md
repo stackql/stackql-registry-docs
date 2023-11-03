@@ -33,8 +33,8 @@ Gets an individual <code>cluster_capacity_provider_associations</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ecs.cluster_capacity_provider_associations
 WHERE region = 'us-east-1' AND data__Identifier = '{Cluster}'
-</pre>
+```

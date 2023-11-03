@@ -33,8 +33,8 @@ Gets an individual <code>maintenance_window_target</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ssm.maintenance_window_target
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

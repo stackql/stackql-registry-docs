@@ -48,8 +48,8 @@ Default: false</td></tr><tr><td><code>MaintenanceTrackName</code></td><td><code>
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.redshift.cluster
 WHERE region = 'us-east-1' AND data__Identifier = '{ClusterIdentifier}'
-</pre>
+```

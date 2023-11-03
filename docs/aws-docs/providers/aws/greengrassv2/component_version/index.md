@@ -33,8 +33,8 @@ Gets an individual <code>component_version</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.greengrassv2.component_version
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

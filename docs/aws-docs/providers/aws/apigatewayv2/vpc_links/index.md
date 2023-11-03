@@ -33,8 +33,8 @@ Retrieves a list of <code>vpc_links</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.apigatewayv2.vpc_links
 WHERE region = 'us-east-1'
-</pre>
+```

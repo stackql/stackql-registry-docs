@@ -33,8 +33,8 @@ Gets an individual <code>documentation_part</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.apigateway.documentation_part
 WHERE region = 'us-east-1' AND data__Identifier = '{DocumentationPartId}' AND data__Identifier = '{RestApiId}'
-</pre>
+```

@@ -33,8 +33,8 @@ Gets an individual <code>cloud_formation_product</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.servicecatalog.cloud_formation_product
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

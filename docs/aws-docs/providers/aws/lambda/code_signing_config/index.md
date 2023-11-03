@@ -33,8 +33,8 @@ Gets an individual <code>code_signing_config</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.lambda.code_signing_config
 WHERE region = 'us-east-1' AND data__Identifier = '{CodeSigningConfigArn}'
-</pre>
+```

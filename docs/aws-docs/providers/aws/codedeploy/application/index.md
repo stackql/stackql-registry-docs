@@ -33,8 +33,8 @@ Gets an individual <code>application</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.codedeploy.application
 WHERE region = 'us-east-1' AND data__Identifier = '{ApplicationName}'
-</pre>
+```

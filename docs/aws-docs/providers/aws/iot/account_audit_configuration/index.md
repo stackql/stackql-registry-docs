@@ -33,8 +33,8 @@ Gets an individual <code>account_audit_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.iot.account_audit_configuration
 WHERE region = 'us-east-1' AND data__Identifier = '{AccountId}'
-</pre>
+```

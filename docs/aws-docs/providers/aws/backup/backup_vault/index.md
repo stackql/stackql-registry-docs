@@ -33,8 +33,8 @@ Gets an individual <code>backup_vault</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.backup.backup_vault
 WHERE region = 'us-east-1' AND data__Identifier = '{BackupVaultName}'
-</pre>
+```

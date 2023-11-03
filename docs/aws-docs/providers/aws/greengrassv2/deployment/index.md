@@ -33,8 +33,8 @@ Gets an individual <code>deployment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.greengrassv2.deployment
 WHERE region = 'us-east-1' AND data__Identifier = '{DeploymentId}'
-</pre>
+```

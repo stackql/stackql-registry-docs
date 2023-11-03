@@ -33,8 +33,8 @@ Retrieves a list of <code>trackers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.location.trackers
 WHERE region = 'us-east-1'
-</pre>
+```

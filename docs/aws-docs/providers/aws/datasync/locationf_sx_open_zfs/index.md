@@ -33,8 +33,8 @@ Gets an individual <code>locationf_sx_open_zfs</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.datasync.locationf_sx_open_zfs
 WHERE region = 'us-east-1' AND data__Identifier = '{LocationArn}'
-</pre>
+```

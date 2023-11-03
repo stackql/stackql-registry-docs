@@ -33,8 +33,8 @@ Gets an individual <code>simulation_application_version</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.robomaker.simulation_application_version
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

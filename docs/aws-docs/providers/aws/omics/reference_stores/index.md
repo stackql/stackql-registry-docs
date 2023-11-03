@@ -33,8 +33,8 @@ Retrieves a list of <code>reference_stores</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.omics.reference_stores
 WHERE region = 'us-east-1'
-</pre>
+```

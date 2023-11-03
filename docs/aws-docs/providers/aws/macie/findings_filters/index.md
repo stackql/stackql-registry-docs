@@ -33,8 +33,8 @@ Retrieves a list of <code>findings_filters</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.macie.findings_filters
 WHERE region = 'us-east-1'
-</pre>
+```

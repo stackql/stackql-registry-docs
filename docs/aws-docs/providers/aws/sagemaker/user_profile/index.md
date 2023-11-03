@@ -33,8 +33,8 @@ Gets an individual <code>user_profile</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.sagemaker.user_profile
 WHERE region = 'us-east-1' AND data__Identifier = '{UserProfileName}' AND data__Identifier = '{DomainId}'
-</pre>
+```

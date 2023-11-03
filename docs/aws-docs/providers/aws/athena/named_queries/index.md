@@ -33,8 +33,8 @@ Retrieves a list of <code>named_queries</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.athena.named_queries
 WHERE region = 'us-east-1'
-</pre>
+```

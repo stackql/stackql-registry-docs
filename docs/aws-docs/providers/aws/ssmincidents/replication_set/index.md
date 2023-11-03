@@ -33,8 +33,8 @@ Gets an individual <code>replication_set</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ssmincidents.replication_set
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

@@ -39,8 +39,8 @@ PRIVATE: The type is only visible and usable within the account in which it is r
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudformation.module_versions
 WHERE region = 'us-east-1'
-</pre>
+```

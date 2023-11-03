@@ -33,8 +33,8 @@ Gets an individual <code>cidr_collection</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53.cidr_collection
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

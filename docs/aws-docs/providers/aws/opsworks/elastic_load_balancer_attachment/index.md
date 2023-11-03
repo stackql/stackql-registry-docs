@@ -33,8 +33,8 @@ Gets an individual <code>elastic_load_balancer_attachment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.opsworks.elastic_load_balancer_attachment
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

@@ -33,8 +33,8 @@ Retrieves a list of <code>base_path_mappings</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.apigateway.base_path_mappings
 WHERE region = 'us-east-1'
-</pre>
+```

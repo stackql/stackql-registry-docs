@@ -33,8 +33,8 @@ Retrieves a list of <code>member_invitations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.detective.member_invitations
 WHERE region = 'us-east-1'
-</pre>
+```

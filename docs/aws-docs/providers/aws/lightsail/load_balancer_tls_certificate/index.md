@@ -33,8 +33,8 @@ Gets an individual <code>load_balancer_tls_certificate</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.lightsail.load_balancer_tls_certificate
 WHERE region = 'us-east-1' AND data__Identifier = '{CertificateName}' AND data__Identifier = '{LoadBalancerName}'
-</pre>
+```

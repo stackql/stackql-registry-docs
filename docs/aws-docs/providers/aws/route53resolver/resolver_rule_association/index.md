@@ -33,8 +33,8 @@ Gets an individual <code>resolver_rule_association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53resolver.resolver_rule_association
 WHERE region = 'us-east-1' AND data__Identifier = '{ResolverRuleAssociationId}'
-</pre>
+```

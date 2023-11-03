@@ -33,8 +33,8 @@ Retrieves a list of <code>batch_scram_secrets</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.msk.batch_scram_secrets
 WHERE region = 'us-east-1'
-</pre>
+```

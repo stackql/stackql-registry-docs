@@ -33,8 +33,8 @@ Gets an individual <code>scheduled_action</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.autoscaling.scheduled_action
 WHERE region = 'us-east-1' AND data__Identifier = '{ScheduledActionName}' AND data__Identifier = '{AutoScalingGroupName}'
-</pre>
+```

@@ -33,8 +33,8 @@ Retrieves a list of <code>anomaly_monitors</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ce.anomaly_monitors
 WHERE region = 'us-east-1'
-</pre>
+```

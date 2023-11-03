@@ -33,8 +33,8 @@ Gets an individual <code>security_group_ingress</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.elasticache.security_group_ingress
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```
