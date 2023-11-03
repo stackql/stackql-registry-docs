@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.route53.health_check
-WHERE region = 'us-east-1' AND data__Identifier = '<HealthCheckId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{HealthCheckId}'
 </pre>

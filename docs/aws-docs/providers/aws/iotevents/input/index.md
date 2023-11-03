@@ -39,5 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.iotevents.input
-WHERE region = 'us-east-1' AND data__Identifier = '<InputName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{InputName}'
 </pre>

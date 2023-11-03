@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.datasync.task
-WHERE region = 'us-east-1' AND data__Identifier = '<TaskArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{TaskArn}'
 </pre>

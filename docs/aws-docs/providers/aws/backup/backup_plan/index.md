@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.backup.backup_plan
-WHERE region = 'us-east-1' AND data__Identifier = '<BackupPlanId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{BackupPlanId}'
 </pre>

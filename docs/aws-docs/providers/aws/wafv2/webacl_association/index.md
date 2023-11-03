@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.wafv2.webacl_association
-WHERE region = 'us-east-1' AND data__Identifier = '<ResourceArn>' AND data__Identifier = '<WebACLArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ResourceArn}' AND data__Identifier = '{WebACLArn}'
 </pre>

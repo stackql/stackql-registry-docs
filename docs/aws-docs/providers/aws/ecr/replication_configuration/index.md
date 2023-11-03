@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.ecr.replication_configuration
-WHERE region = 'us-east-1' AND data__Identifier = '<RegistryId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{RegistryId}'
 </pre>

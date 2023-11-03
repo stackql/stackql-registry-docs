@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.vpclattice.auth_policy
-WHERE region = 'us-east-1' AND data__Identifier = '<ResourceIdentifier>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ResourceIdentifier}'
 </pre>

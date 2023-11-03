@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.connect.contact_flow
-WHERE region = 'us-east-1' AND data__Identifier = '<ContactFlowArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ContactFlowArn}'
 </pre>

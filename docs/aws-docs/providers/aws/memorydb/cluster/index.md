@@ -41,5 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.memorydb.cluster
-WHERE region = 'us-east-1' AND data__Identifier = '<ClusterName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ClusterName}'
 </pre>

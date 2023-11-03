@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.iottwinmaker.scene
-WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>' AND data__Identifier = '<SceneId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{WorkspaceId}' AND data__Identifier = '{SceneId}'
 </pre>

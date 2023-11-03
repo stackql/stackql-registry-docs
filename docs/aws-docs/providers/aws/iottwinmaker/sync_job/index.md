@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.iottwinmaker.sync_job
-WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>' AND data__Identifier = '<SyncSource>'
+WHERE region = 'us-east-1' AND data__Identifier = '{WorkspaceId}' AND data__Identifier = '{SyncSource}'
 </pre>

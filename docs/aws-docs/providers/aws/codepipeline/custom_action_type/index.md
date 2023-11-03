@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.codepipeline.custom_action_type
-WHERE region = 'us-east-1' AND data__Identifier = '<Category>' AND data__Identifier = '<Provider>' AND data__Identifier = '<Version>'
+WHERE region = 'us-east-1' AND data__Identifier = '{Category}' AND data__Identifier = '{Provider}' AND data__Identifier = '{Version}'
 </pre>

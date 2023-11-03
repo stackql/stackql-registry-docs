@@ -47,5 +47,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.elasticbeanstalk.configuration_template
-WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationName>' AND data__Identifier = '<TemplateName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ApplicationName}' AND data__Identifier = '{TemplateName}'
 </pre>

@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.kinesisfirehose.delivery_stream
-WHERE region = 'us-east-1' AND data__Identifier = '<DeliveryStreamName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{DeliveryStreamName}'
 </pre>

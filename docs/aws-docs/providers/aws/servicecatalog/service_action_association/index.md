@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.servicecatalog.service_action_association
-WHERE region = 'us-east-1' AND data__Identifier = '<ProductId>' AND data__Identifier = '<ProvisioningArtifactId>' AND data__Identifier = '<ServiceActionId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ProductId}' AND data__Identifier = '{ProvisioningArtifactId}' AND data__Identifier = '{ServiceActionId}'
 </pre>

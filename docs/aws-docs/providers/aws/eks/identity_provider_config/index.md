@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.eks.identity_provider_config
-WHERE region = 'us-east-1' AND data__Identifier = '<IdentityProviderConfigName>' AND data__Identifier = '<ClusterName>' AND data__Identifier = '<Type>'
+WHERE region = 'us-east-1' AND data__Identifier = '{IdentityProviderConfigName}' AND data__Identifier = '{ClusterName}' AND data__Identifier = '{Type}'
 </pre>

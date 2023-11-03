@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.appsync.domain_name_api_association
-WHERE region = 'us-east-1' AND data__Identifier = '<ApiAssociationIdentifier>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ApiAssociationIdentifier}'
 </pre>

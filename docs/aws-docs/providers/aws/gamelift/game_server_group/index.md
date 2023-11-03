@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.gamelift.game_server_group
-WHERE region = 'us-east-1' AND data__Identifier = '<GameServerGroupArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{GameServerGroupArn}'
 </pre>

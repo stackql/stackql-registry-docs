@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.apigateway.deployment
-WHERE region = 'us-east-1' AND data__Identifier = '<DeploymentId>' AND data__Identifier = '<RestApiId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{DeploymentId}' AND data__Identifier = '{RestApiId}'
 </pre>

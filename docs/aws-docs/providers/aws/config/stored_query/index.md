@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.config.stored_query
-WHERE region = 'us-east-1' AND data__Identifier = '<QueryName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{QueryName}'
 </pre>

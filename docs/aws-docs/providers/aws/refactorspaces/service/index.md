@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.refactorspaces.service
-WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentIdentifier>' AND data__Identifier = '<ApplicationIdentifier>' AND data__Identifier = '<ServiceIdentifier>'
+WHERE region = 'us-east-1' AND data__Identifier = '{EnvironmentIdentifier}' AND data__Identifier = '{ApplicationIdentifier}' AND data__Identifier = '{ServiceIdentifier}'
 </pre>

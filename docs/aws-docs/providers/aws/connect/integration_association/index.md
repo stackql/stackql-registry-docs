@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.connect.integration_association
-WHERE region = 'us-east-1' AND data__Identifier = '<InstanceId>' AND data__Identifier = '<IntegrationType>' AND data__Identifier = '<IntegrationArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{InstanceId}' AND data__Identifier = '{IntegrationType}' AND data__Identifier = '{IntegrationArn}'
 </pre>

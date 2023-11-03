@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.signer.profile_permission
-WHERE region = 'us-east-1' AND data__Identifier = '<StatementId>' AND data__Identifier = '<ProfileName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{StatementId}' AND data__Identifier = '{ProfileName}'
 </pre>

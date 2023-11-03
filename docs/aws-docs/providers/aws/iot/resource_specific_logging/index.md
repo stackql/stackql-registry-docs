@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.iot.resource_specific_logging
-WHERE region = 'us-east-1' AND data__Identifier = '<TargetId>'
+WHERE region = 'us-east-1' AND data__Identifier = '{TargetId}'
 </pre>

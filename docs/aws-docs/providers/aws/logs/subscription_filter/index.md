@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.logs.subscription_filter
-WHERE region = 'us-east-1' AND data__Identifier = '<FilterName>' AND data__Identifier = '<LogGroupName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{FilterName}' AND data__Identifier = '{LogGroupName}'
 </pre>

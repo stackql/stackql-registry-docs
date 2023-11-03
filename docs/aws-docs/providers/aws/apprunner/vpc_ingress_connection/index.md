@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.apprunner.vpc_ingress_connection
-WHERE region = 'us-east-1' AND data__Identifier = '<VpcIngressConnectionArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{VpcIngressConnectionArn}'
 </pre>

@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.batch.compute_environment
-WHERE region = 'us-east-1' AND data__Identifier = '<ComputeEnvironmentArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{ComputeEnvironmentArn}'
 </pre>

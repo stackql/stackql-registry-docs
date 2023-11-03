@@ -43,5 +43,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.iotevents.alarm_model
-WHERE region = 'us-east-1' AND data__Identifier = '<AlarmModelName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{AlarmModelName}'
 </pre>

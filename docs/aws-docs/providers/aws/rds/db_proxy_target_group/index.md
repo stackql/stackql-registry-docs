@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.rds.db_proxy_target_group
-WHERE region = 'us-east-1' AND data__Identifier = '<TargetGroupArn>'
+WHERE region = 'us-east-1' AND data__Identifier = '{TargetGroupArn}'
 </pre>

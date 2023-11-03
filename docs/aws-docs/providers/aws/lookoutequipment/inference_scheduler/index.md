@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.lookoutequipment.inference_scheduler
-WHERE region = 'us-east-1' AND data__Identifier = '<InferenceSchedulerName>'
+WHERE region = 'us-east-1' AND data__Identifier = '{InferenceSchedulerName}'
 </pre>

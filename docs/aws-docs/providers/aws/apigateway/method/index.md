@@ -37,5 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 <pre>
 SELECT * 
 FROM aws.apigateway.method
-WHERE region = 'us-east-1' AND data__Identifier = '<RestApiId>' AND data__Identifier = '<ResourceId>' AND data__Identifier = '<HttpMethod>'
+WHERE region = 'us-east-1' AND data__Identifier = '{RestApiId}' AND data__Identifier = '{ResourceId}' AND data__Identifier = '{HttpMethod}'
 </pre>
