@@ -20,7 +20,6 @@ Gets an individual <code>domain_configuration</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>domain_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.iot.domain_configuration</code></td></tr>
 </tbody></table>
 

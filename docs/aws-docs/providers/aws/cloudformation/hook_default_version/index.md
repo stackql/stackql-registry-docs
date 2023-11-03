@@ -20,7 +20,6 @@ Gets an individual <code>hook_default_version</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hook_default_version</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.cloudformation.hook_default_version</code></td></tr>
 </tbody></table>
 

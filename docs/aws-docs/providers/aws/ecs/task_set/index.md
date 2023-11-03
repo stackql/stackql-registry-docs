@@ -20,7 +20,6 @@ Gets an individual <code>task_set</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>task_set</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.ecs.task_set</code></td></tr>
 </tbody></table>
 

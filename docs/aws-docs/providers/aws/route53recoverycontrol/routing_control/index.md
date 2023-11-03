@@ -20,7 +20,6 @@ Gets an individual <code>routing_control</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routing_control</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.route53recoverycontrol.routing_control</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>db_security_group_ingress</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>db_security_group_ingress</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.rds.db_security_group_ingress</code></td></tr>
 </tbody></table>
 

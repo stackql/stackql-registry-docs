@@ -20,7 +20,6 @@ Retrieves a list of <code>microsoft_teams_channel_configurations</code> in a reg
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>microsoft_teams_channel_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.chatbot.microsoft_teams_channel_configurations</code></td></tr>
 </tbody></table>
 

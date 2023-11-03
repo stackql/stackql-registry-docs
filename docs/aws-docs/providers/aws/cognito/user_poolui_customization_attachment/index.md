@@ -20,7 +20,6 @@ Gets an individual <code>user_poolui_customization_attachment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user_poolui_customization_attachment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.cognito.user_poolui_customization_attachment</code></td></tr>
 </tbody></table>
 

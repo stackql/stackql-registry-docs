@@ -20,7 +20,6 @@ Gets an individual <code>origin_endpoint</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>origin_endpoint</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.mediapackage.origin_endpoint</code></td></tr>
 </tbody></table>
 

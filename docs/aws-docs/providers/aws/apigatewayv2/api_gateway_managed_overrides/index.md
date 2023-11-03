@@ -20,7 +20,6 @@ Gets an individual <code>api_gateway_managed_overrides</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>api_gateway_managed_overrides</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.apigatewayv2.api_gateway_managed_overrides</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Retrieves a list of <code>recording_configurations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>recording_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.ivs.recording_configurations</code></td></tr>
 </tbody></table>
 

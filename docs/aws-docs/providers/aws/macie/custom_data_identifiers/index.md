@@ -20,7 +20,6 @@ Retrieves a list of <code>custom_data_identifiers</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>custom_data_identifiers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.macie.custom_data_identifiers</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Retrieves a list of <code>regex_pattern_sets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>regex_pattern_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.wafregional.regex_pattern_sets</code></td></tr>
 </tbody></table>
 

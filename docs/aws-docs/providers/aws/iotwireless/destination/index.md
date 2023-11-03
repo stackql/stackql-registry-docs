@@ -20,7 +20,6 @@ Gets an individual <code>destination</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>destination</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.iotwireless.destination</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>allow_list</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>allow_list</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.macie.allow_list</code></td></tr>
 </tbody></table>
 

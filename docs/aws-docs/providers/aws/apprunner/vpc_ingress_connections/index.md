@@ -20,7 +20,6 @@ Retrieves a list of <code>vpc_ingress_connections</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_ingress_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.apprunner.vpc_ingress_connections</code></td></tr>
 </tbody></table>
 

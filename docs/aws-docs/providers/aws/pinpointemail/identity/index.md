@@ -20,7 +20,6 @@ Gets an individual <code>identity</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>identity</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.pinpointemail.identity</code></td></tr>
 </tbody></table>
 

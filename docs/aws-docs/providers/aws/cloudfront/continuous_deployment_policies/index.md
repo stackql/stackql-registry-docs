@@ -20,7 +20,6 @@ Retrieves a list of <code>continuous_deployment_policies</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>continuous_deployment_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.continuous_deployment_policies</code></td></tr>
 </tbody></table>
 

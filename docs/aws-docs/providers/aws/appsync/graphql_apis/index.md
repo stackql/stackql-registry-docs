@@ -20,7 +20,6 @@ Retrieves a list of <code>graphql_apis</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>graphql_apis</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.appsync.graphql_apis</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>code_repository</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>code_repository</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.code_repository</code></td></tr>
 </tbody></table>
 

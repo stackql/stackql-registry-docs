@@ -20,7 +20,6 @@ Gets an individual <code>experiment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>experiment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.evidently.experiment</code></td></tr>
 </tbody></table>
 

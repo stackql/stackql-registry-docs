@@ -20,7 +20,6 @@ Gets an individual <code>application_reference_data_source</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_reference_data_source</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.kinesisanalytics.application_reference_data_source</code></td></tr>
 </tbody></table>
 

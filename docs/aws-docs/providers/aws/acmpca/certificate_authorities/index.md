@@ -20,7 +20,6 @@ Retrieves a list of <code>certificate_authorities</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_authorities</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.acmpca.certificate_authorities</code></td></tr>
 </tbody></table>
 

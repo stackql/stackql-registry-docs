@@ -20,7 +20,6 @@ Retrieves a list of <code>global_clusters</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.rds.global_clusters</code></td></tr>
 </tbody></table>
 

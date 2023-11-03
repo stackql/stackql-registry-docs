@@ -20,7 +20,6 @@ Gets an individual <code>hours_of_operation</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hours_of_operation</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.connect.hours_of_operation</code></td></tr>
 </tbody></table>
 

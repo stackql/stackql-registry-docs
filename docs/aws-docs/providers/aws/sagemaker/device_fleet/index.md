@@ -20,7 +20,6 @@ Gets an individual <code>device_fleet</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>device_fleet</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.device_fleet</code></td></tr>
 </tbody></table>
 

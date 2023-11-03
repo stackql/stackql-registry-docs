@@ -20,7 +20,6 @@ Retrieves a list of <code>voice_channels</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>voice_channels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.pinpoint.voice_channels</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Retrieves a list of <code>segments</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>segments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.pinpoint.segments</code></td></tr>
 </tbody></table>
 

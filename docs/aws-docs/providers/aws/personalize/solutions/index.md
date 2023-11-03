@@ -20,7 +20,6 @@ Retrieves a list of <code>solutions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>solutions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.personalize.solutions</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>configuration_aggregator</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>configuration_aggregator</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.config.configuration_aggregator</code></td></tr>
 </tbody></table>
 

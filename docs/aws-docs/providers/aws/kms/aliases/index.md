@@ -20,7 +20,6 @@ Retrieves a list of <code>aliases</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>aliases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.kms.aliases</code></td></tr>
 </tbody></table>
 

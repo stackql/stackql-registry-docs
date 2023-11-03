@@ -20,7 +20,6 @@ Retrieves a list of <code>state_machines</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>state_machines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.stepfunctions.state_machines</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>aggregation_authorization</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>aggregation_authorization</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.config.aggregation_authorization</code></td></tr>
 </tbody></table>
 

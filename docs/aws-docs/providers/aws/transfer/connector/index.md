@@ -20,7 +20,6 @@ Gets an individual <code>connector</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connector</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.transfer.connector</code></td></tr>
 </tbody></table>
 

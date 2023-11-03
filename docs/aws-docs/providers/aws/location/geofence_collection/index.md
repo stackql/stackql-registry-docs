@@ -20,7 +20,6 @@ Gets an individual <code>geofence_collection</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>geofence_collection</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.location.geofence_collection</code></td></tr>
 </tbody></table>
 

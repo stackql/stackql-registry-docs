@@ -20,7 +20,6 @@ Gets an individual <code>baidu_channel</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>baidu_channel</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.pinpoint.baidu_channel</code></td></tr>
 </tbody></table>
 

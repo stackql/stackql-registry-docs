@@ -20,7 +20,6 @@ Gets an individual <code>report_plan</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>report_plan</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.backup.report_plan</code></td></tr>
 </tbody></table>
 

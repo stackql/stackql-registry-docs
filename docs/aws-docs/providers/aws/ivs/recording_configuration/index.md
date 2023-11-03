@@ -20,7 +20,6 @@ Gets an individual <code>recording_configuration</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>recording_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.ivs.recording_configuration</code></td></tr>
 </tbody></table>
 

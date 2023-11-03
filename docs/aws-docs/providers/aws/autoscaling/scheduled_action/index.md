@@ -20,7 +20,6 @@ Gets an individual <code>scheduled_action</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scheduled_action</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.autoscaling.scheduled_action</code></td></tr>
 </tbody></table>
 

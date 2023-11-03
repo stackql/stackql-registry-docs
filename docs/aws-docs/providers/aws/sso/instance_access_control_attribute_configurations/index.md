@@ -20,7 +20,6 @@ Retrieves a list of <code>instance_access_control_attribute_configurations</code
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_access_control_attribute_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.sso.instance_access_control_attribute_configurations</code></td></tr>
 </tbody></table>
 

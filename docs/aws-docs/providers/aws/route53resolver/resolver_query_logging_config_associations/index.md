@@ -20,7 +20,6 @@ Retrieves a list of <code>resolver_query_logging_config_associations</code> in a
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resolver_query_logging_config_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.route53resolver.resolver_query_logging_config_associations</code></td></tr>
 </tbody></table>
 

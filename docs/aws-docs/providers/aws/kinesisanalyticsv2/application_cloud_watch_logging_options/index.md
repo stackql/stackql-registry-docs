@@ -20,7 +20,6 @@ Retrieves a list of <code>application_cloud_watch_logging_options</code> in a re
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_cloud_watch_logging_options</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.kinesisanalyticsv2.application_cloud_watch_logging_options</code></td></tr>
 </tbody></table>
 

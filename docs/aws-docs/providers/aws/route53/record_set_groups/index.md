@@ -20,7 +20,6 @@ Retrieves a list of <code>record_set_groups</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>record_set_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.route53.record_set_groups</code></td></tr>
 </tbody></table>
 

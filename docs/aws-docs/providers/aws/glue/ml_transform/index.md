@@ -20,7 +20,6 @@ Gets an individual <code>ml_transform</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ml_transform</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.glue.ml_transform</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Retrieves a list of <code>budgets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>budgets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.budgets.budgets</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>locationf_sx_windows</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locationf_sx_windows</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.datasync.locationf_sx_windows</code></td></tr>
 </tbody></table>
 

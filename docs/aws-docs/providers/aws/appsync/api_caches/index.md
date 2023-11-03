@@ -20,7 +20,6 @@ Retrieves a list of <code>api_caches</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>api_caches</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.appsync.api_caches</code></td></tr>
 </tbody></table>
 

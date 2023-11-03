@@ -20,7 +20,6 @@ Gets an individual <code>dashboard</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dashboard</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.quicksight.dashboard</code></td></tr>
 </tbody></table>
 

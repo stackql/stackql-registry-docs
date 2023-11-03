@@ -20,7 +20,6 @@ Retrieves a list of <code>account_aliases</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>account_aliases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.supportapp.account_aliases</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,6 @@ Gets an individual <code>virtual_service</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_service</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.appmesh.virtual_service</code></td></tr>
 </tbody></table>
 

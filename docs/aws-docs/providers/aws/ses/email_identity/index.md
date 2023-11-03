@@ -20,7 +20,6 @@ Gets an individual <code>email_identity</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>email_identity</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.ses.email_identity</code></td></tr>
 </tbody></table>
 

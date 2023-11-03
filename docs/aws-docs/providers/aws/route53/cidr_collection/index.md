@@ -20,7 +20,6 @@ Gets an individual <code>cidr_collection</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cidr_collection</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
 <tr><td><b>Id</b></td><td><code>aws.route53.cidr_collection</code></td></tr>
 </tbody></table>
 
