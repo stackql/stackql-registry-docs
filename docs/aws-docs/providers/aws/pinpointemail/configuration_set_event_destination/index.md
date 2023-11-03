@@ -33,8 +33,8 @@ Gets an individual <code>configuration_set_event_destination</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.pinpointemail.configuration_set_event_destination
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

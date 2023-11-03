@@ -33,8 +33,8 @@ Gets an individual <code>transit_gateway_peering</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.networkmanager.transit_gateway_peering
 WHERE region = 'us-east-1' AND data__Identifier = '{PeeringId}'
-</pre>
+```

@@ -33,8 +33,8 @@ Retrieves a list of <code>robot_application_versions</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.robomaker.robot_application_versions
 WHERE region = 'us-east-1'
-</pre>
+```

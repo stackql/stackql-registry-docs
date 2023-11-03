@@ -33,8 +33,8 @@ Retrieves a list of <code>key_signing_keys</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53.key_signing_keys
 WHERE region = 'us-east-1'
-</pre>
+```

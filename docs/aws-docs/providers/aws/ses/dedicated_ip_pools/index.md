@@ -33,8 +33,8 @@ Retrieves a list of <code>dedicated_ip_pools</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ses.dedicated_ip_pools
 WHERE region = 'us-east-1'
-</pre>
+```

@@ -33,8 +33,8 @@ Gets an individual <code>build</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.gamelift.build
 WHERE region = 'us-east-1' AND data__Identifier = '{BuildId}'
-</pre>
+```

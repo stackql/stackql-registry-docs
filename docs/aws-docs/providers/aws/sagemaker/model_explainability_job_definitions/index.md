@@ -33,8 +33,8 @@ Retrieves a list of <code>model_explainability_job_definitions</code> in a regio
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.sagemaker.model_explainability_job_definitions
 WHERE region = 'us-east-1'
-</pre>
+```

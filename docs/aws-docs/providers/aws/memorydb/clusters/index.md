@@ -37,8 +37,8 @@ You cannot modify the value of AutoMinorVersionUpgrade after the cluster is crea
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.memorydb.clusters
 WHERE region = 'us-east-1'
-</pre>
+```

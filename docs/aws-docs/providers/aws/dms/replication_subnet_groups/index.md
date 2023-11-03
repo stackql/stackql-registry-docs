@@ -33,8 +33,8 @@ Retrieves a list of <code>replication_subnet_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.dms.replication_subnet_groups
 WHERE region = 'us-east-1'
-</pre>
+```

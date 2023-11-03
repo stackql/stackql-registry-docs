@@ -33,8 +33,8 @@ Gets an individual <code>push_template</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.pinpoint.push_template
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

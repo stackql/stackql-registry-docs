@@ -33,8 +33,8 @@ Retrieves a list of <code>organizational_units</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.organizations.organizational_units
 WHERE region = 'us-east-1'
-</pre>
+```

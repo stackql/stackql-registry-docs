@@ -33,8 +33,8 @@ Retrieves a list of <code>resource_data_syncs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ssm.resource_data_syncs
 WHERE region = 'us-east-1'
-</pre>
+```

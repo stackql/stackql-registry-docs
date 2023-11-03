@@ -33,8 +33,8 @@ Gets an individual <code>inference_scheduler</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.lookoutequipment.inference_scheduler
 WHERE region = 'us-east-1' AND data__Identifier = '{InferenceSchedulerName}'
-</pre>
+```

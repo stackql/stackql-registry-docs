@@ -33,8 +33,8 @@ Gets an individual <code>knowledge_base</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.wisdom.knowledge_base
 WHERE region = 'us-east-1' AND data__Identifier = '{KnowledgeBaseId}'
-</pre>
+```

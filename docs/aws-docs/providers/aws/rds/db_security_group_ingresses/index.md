@@ -33,8 +33,8 @@ Retrieves a list of <code>db_security_group_ingresses</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.rds.db_security_group_ingresses
 WHERE region = 'us-east-1'
-</pre>
+```

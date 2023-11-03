@@ -33,8 +33,8 @@ Gets an individual <code>listener_certificate</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.elasticloadbalancingv2.listener_certificate
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

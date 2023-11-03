@@ -33,8 +33,8 @@ Gets an individual <code>member_invitation</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.detective.member_invitation
 WHERE region = 'us-east-1' AND data__Identifier = '{GraphArn}' AND data__Identifier = '{MemberId}'
-</pre>
+```

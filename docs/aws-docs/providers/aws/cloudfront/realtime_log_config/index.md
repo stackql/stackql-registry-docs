@@ -33,8 +33,8 @@ Gets an individual <code>realtime_log_config</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudfront.realtime_log_config
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

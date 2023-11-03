@@ -33,8 +33,8 @@ Gets an individual <code>in_app_template</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.pinpoint.in_app_template
 WHERE region = 'us-east-1' AND data__Identifier = '{TemplateName}'
-</pre>
+```

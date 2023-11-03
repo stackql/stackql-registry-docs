@@ -33,8 +33,8 @@ Gets an individual <code>ip_set</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.wafv2.ip_set
 WHERE region = 'us-east-1' AND data__Identifier = '{Name}' AND data__Identifier = '{Id}' AND data__Identifier = '{Scope}'
-</pre>
+```

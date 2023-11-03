@@ -33,8 +33,8 @@ Gets an individual <code>site_to_site_vpn_attachment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.networkmanager.site_to_site_vpn_attachment
 WHERE region = 'us-east-1' AND data__Identifier = '{AttachmentId}'
-</pre>
+```

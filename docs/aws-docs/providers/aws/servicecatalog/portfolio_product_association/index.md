@@ -33,8 +33,8 @@ Gets an individual <code>portfolio_product_association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.servicecatalog.portfolio_product_association
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

@@ -33,8 +33,8 @@ Gets an individual <code>function</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudfront.function
 WHERE region = 'us-east-1' AND data__Identifier = '{FunctionARN}'
-</pre>
+```

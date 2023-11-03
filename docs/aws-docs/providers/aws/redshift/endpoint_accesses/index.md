@@ -33,8 +33,8 @@ Retrieves a list of <code>endpoint_accesses</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.redshift.endpoint_accesses
 WHERE region = 'us-east-1'
-</pre>
+```

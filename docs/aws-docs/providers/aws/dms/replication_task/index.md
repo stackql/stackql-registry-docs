@@ -33,8 +33,8 @@ Gets an individual <code>replication_task</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.dms.replication_task
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

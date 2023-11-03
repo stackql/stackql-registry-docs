@@ -37,8 +37,8 @@ This parameter is required unless the parameters ServerLaunchPath and ServerLaun
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.gamelift.fleet
 WHERE region = 'us-east-1' AND data__Identifier = '{FleetId}'
-</pre>
+```

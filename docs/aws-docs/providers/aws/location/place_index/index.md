@@ -33,8 +33,8 @@ Gets an individual <code>place_index</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.location.place_index
 WHERE region = 'us-east-1' AND data__Identifier = '{IndexName}'
-</pre>
+```

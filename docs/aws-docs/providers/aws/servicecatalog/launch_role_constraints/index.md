@@ -33,8 +33,8 @@ Retrieves a list of <code>launch_role_constraints</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.servicecatalog.launch_role_constraints
 WHERE region = 'us-east-1'
-</pre>
+```

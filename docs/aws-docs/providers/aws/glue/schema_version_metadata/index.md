@@ -33,8 +33,8 @@ Gets an individual <code>schema_version_metadata</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.glue.schema_version_metadata
 WHERE region = 'us-east-1' AND data__Identifier = '{SchemaVersionId}' AND data__Identifier = '{Key}' AND data__Identifier = '{Value}'
-</pre>
+```

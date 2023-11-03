@@ -33,8 +33,8 @@ Retrieves a list of <code>directory_configs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.appstream.directory_configs
 WHERE region = 'us-east-1'
-</pre>
+```

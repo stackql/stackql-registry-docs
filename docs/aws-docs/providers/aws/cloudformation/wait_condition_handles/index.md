@@ -33,8 +33,8 @@ Retrieves a list of <code>wait_condition_handles</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudformation.wait_condition_handles
 WHERE region = 'us-east-1'
-</pre>
+```

@@ -33,8 +33,8 @@ Gets an individual <code>cost_category</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ce.cost_category
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

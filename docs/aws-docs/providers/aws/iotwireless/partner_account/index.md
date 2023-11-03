@@ -33,8 +33,8 @@ Gets an individual <code>partner_account</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.iotwireless.partner_account
 WHERE region = 'us-east-1' AND data__Identifier = '{PartnerAccountId}'
-</pre>
+```

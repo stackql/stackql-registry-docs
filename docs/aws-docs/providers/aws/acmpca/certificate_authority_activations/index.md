@@ -33,8 +33,8 @@ Retrieves a list of <code>certificate_authority_activations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.acmpca.certificate_authority_activations
 WHERE region = 'us-east-1'
-</pre>
+```

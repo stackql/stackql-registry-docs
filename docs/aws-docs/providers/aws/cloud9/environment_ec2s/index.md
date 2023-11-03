@@ -33,8 +33,8 @@ Retrieves a list of <code>environment_ec2s</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloud9.environment_ec2s
 WHERE region = 'us-east-1'
-</pre>
+```

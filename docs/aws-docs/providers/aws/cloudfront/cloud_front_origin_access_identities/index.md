@@ -33,8 +33,8 @@ Retrieves a list of <code>cloud_front_origin_access_identities</code> in a regio
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudfront.cloud_front_origin_access_identities
 WHERE region = 'us-east-1'
-</pre>
+```

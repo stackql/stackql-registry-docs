@@ -50,8 +50,8 @@ Constraints:
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.rds.db_instance
 WHERE region = 'us-east-1' AND data__Identifier = '{DBInstanceIdentifier}'
-</pre>
+```

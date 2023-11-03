@@ -33,8 +33,8 @@ Retrieves a list of <code>firewall_rule_group_associations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53resolver.firewall_rule_group_associations
 WHERE region = 'us-east-1'
-</pre>
+```

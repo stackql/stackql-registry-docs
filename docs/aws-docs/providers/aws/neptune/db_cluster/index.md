@@ -57,8 +57,8 @@ If a DB cluster snapshot is specified, the target DB cluster is created from the
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.neptune.db_cluster
 WHERE region = 'us-east-1' AND data__Identifier = '{DBClusterIdentifier}'
-</pre>
+```

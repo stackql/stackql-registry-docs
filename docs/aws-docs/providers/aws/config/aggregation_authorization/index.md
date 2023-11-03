@@ -33,8 +33,8 @@ Gets an individual <code>aggregation_authorization</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.config.aggregation_authorization
 WHERE region = 'us-east-1' AND data__Identifier = '{AuthorizedAccountId}' AND data__Identifier = '{AuthorizedAwsRegion}'
-</pre>
+```

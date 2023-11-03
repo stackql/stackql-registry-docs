@@ -33,8 +33,8 @@ Gets an individual <code>application_version</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.elasticbeanstalk.application_version
 WHERE region = 'us-east-1' AND data__Identifier = '{ApplicationName}' AND data__Identifier = '{Id}'
-</pre>
+```

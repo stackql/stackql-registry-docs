@@ -33,8 +33,8 @@ Retrieves a list of <code>organization_conformance_packs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.config.organization_conformance_packs
 WHERE region = 'us-east-1'
-</pre>
+```

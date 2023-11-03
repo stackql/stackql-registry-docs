@@ -33,8 +33,8 @@ Gets an individual <code>fhir_datastore</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.healthlake.fhir_datastore
 WHERE region = 'us-east-1' AND data__Identifier = '{DatastoreId}'
-</pre>
+```

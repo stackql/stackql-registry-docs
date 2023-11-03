@@ -33,8 +33,8 @@ Gets an individual <code>studio_session_mapping</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.emr.studio_session_mapping
 WHERE region = 'us-east-1' AND data__Identifier = '{StudioId}' AND data__Identifier = '{IdentityType}' AND data__Identifier = '{IdentityName}'
-</pre>
+```

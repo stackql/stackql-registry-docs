@@ -33,8 +33,8 @@ Retrieves a list of <code>layer_version_permissions</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.lambda.layer_version_permissions
 WHERE region = 'us-east-1'
-</pre>
+```

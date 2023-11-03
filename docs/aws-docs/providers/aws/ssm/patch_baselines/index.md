@@ -33,8 +33,8 @@ Retrieves a list of <code>patch_baselines</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.ssm.patch_baselines
 WHERE region = 'us-east-1'
-</pre>
+```

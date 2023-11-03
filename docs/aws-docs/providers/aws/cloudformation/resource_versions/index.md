@@ -43,8 +43,8 @@ PUBLIC: The type is publically visible and usable within any Amazon account.</td
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudformation.resource_versions
 WHERE region = 'us-east-1'
-</pre>
+```

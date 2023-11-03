@@ -33,8 +33,8 @@ Gets an individual <code>location_object_storage</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.datasync.location_object_storage
 WHERE region = 'us-east-1' AND data__Identifier = '{LocationArn}'
-</pre>
+```

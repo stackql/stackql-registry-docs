@@ -33,8 +33,8 @@ Gets an individual <code>wireless_gateway</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.iotwireless.wireless_gateway
 WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-</pre>
+```

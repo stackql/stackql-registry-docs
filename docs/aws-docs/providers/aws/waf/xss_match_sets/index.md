@@ -33,8 +33,8 @@ Retrieves a list of <code>xss_match_sets</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.waf.xss_match_sets
 WHERE region = 'us-east-1'
-</pre>
+```

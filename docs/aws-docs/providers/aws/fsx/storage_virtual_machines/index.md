@@ -33,8 +33,8 @@ Retrieves a list of <code>storage_virtual_machines</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.fsx.storage_virtual_machines
 WHERE region = 'us-east-1'
-</pre>
+```

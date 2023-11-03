@@ -33,8 +33,8 @@ Gets an individual <code>view</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.resourceexplorer2.view
 WHERE region = 'us-east-1' AND data__Identifier = '{ViewArn}'
-</pre>
+```

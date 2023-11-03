@@ -33,8 +33,8 @@ Retrieves a list of <code>knowledge_bases</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.wisdom.knowledge_bases
 WHERE region = 'us-east-1'
-</pre>
+```

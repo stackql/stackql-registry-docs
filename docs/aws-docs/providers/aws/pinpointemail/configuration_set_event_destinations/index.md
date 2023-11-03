@@ -33,8 +33,8 @@ Retrieves a list of <code>configuration_set_event_destinations</code> in a regio
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.pinpointemail.configuration_set_event_destinations
 WHERE region = 'us-east-1'
-</pre>
+```

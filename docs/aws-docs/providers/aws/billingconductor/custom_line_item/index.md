@@ -33,8 +33,8 @@ Gets an individual <code>custom_line_item</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.billingconductor.custom_line_item
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

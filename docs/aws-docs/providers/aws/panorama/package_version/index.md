@@ -33,8 +33,8 @@ Gets an individual <code>package_version</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.panorama.package_version
 WHERE region = 'us-east-1' AND data__Identifier = '{PackageId}' AND data__Identifier = '{PackageVersion}' AND data__Identifier = '{PatchVersion}'
-</pre>
+```

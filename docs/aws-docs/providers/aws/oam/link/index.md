@@ -33,8 +33,8 @@ Gets an individual <code>link</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.oam.link
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

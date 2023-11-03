@@ -33,8 +33,8 @@ Retrieves a list of <code>stream_processors</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.rekognition.stream_processors
 WHERE region = 'us-east-1'
-</pre>
+```

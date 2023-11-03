@@ -35,8 +35,8 @@ We recommend that type names adhere to the following pattern: company_or_organiz
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudformation.hook_default_version
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

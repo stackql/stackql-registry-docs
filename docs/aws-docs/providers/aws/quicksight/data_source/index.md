@@ -41,8 +41,8 @@ Gets an individual <code>data_source</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.quicksight.data_source
 WHERE region = 'us-east-1' AND data__Identifier = '{AwsAccountId}' AND data__Identifier = '{DataSourceId}'
-</pre>
+```

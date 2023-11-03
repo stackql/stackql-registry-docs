@@ -37,8 +37,8 @@ If you're creating a public hosted zone, this is the name you have registered wi
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53.hosted_zones
 WHERE region = 'us-east-1'
-</pre>
+```

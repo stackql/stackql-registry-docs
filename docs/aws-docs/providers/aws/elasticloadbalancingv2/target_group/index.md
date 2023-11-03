@@ -33,8 +33,8 @@ Gets an individual <code>target_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.elasticloadbalancingv2.target_group
 WHERE region = 'us-east-1' AND data__Identifier = '{TargetGroupArn}'
-</pre>
+```

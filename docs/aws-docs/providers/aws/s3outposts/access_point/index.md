@@ -33,8 +33,8 @@ Gets an individual <code>access_point</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.s3outposts.access_point
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

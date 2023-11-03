@@ -33,8 +33,8 @@ Retrieves a list of <code>continuous_deployment_policies</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.cloudfront.continuous_deployment_policies
 WHERE region = 'us-east-1'
-</pre>
+```

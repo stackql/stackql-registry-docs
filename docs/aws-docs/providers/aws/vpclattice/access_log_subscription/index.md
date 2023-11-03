@@ -33,8 +33,8 @@ Gets an individual <code>access_log_subscription</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.vpclattice.access_log_subscription
 WHERE region = 'us-east-1' AND data__Identifier = '{Arn}'
-</pre>
+```

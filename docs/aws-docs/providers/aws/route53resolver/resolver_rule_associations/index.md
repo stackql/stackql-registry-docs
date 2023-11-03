@@ -33,8 +33,8 @@ Retrieves a list of <code>resolver_rule_associations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.route53resolver.resolver_rule_associations
 WHERE region = 'us-east-1'
-</pre>
+```

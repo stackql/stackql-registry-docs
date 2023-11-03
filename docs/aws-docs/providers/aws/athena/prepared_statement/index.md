@@ -33,8 +33,8 @@ Gets an individual <code>prepared_statement</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
+```sql
 SELECT * 
 FROM aws.athena.prepared_statement
 WHERE region = 'us-east-1' AND data__Identifier = '{StatementName}' AND data__Identifier = '{WorkGroup}'
-</pre>
+```
