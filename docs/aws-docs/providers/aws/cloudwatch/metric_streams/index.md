@@ -20,7 +20,7 @@ Retrieves a list of <code>metric_streams</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>metric_streams</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>metric_streams</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudwatch.metric_streams</code></td></tr>
 </tbody></table>
 

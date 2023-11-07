@@ -20,7 +20,7 @@ Gets an individual <code>label</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>label</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>label</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.frauddetector.label</code></td></tr>
 </tbody></table>
 

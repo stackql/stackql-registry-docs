@@ -20,7 +20,7 @@ Retrieves a list of <code>cache_policies</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cache_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>cache_policies</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.cache_policies</code></td></tr>
 </tbody></table>
 

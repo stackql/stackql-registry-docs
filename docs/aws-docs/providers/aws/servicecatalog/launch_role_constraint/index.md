@@ -20,7 +20,7 @@ Gets an individual <code>launch_role_constraint</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>launch_role_constraint</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>launch_role_constraint</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.servicecatalog.launch_role_constraint</code></td></tr>
 </tbody></table>
 

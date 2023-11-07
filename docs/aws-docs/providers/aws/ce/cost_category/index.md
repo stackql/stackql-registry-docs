@@ -20,7 +20,7 @@ Gets an individual <code>cost_category</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cost_category</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>cost_category</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ce.cost_category</code></td></tr>
 </tbody></table>
 

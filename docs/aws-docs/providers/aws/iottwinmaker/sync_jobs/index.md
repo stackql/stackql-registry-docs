@@ -20,7 +20,7 @@ Retrieves a list of <code>sync_jobs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sync_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>sync_jobs</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iottwinmaker.sync_jobs</code></td></tr>
 </tbody></table>
 

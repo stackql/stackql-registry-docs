@@ -20,7 +20,7 @@ Retrieves a list of <code>identity_pools</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>identity_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>identity_pools</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cognito.identity_pools</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>package</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>package</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>package</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.panorama.package</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>domain_names</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>domain_names</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>domain_names</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appsync.domain_names</code></td></tr>
 </tbody></table>
 

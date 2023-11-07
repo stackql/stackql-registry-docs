@@ -20,7 +20,7 @@ Gets an individual <code>analysis</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>analysis</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>analysis</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.quicksight.analysis</code></td></tr>
 </tbody></table>
 

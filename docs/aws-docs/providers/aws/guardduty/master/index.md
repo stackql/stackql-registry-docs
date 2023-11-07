@@ -20,7 +20,7 @@ Gets an individual <code>master</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>master</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>master</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.guardduty.master</code></td></tr>
 </tbody></table>
 

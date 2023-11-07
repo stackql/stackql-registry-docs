@@ -20,7 +20,7 @@ Retrieves a list of <code>destinations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>destinations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>destinations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.logs.destinations</code></td></tr>
 </tbody></table>
 

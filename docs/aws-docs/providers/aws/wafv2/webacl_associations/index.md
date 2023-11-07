@@ -20,7 +20,7 @@ Retrieves a list of <code>webacl_associations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>webacl_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>webacl_associations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.wafv2.webacl_associations</code></td></tr>
 </tbody></table>
 

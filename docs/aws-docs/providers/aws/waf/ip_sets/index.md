@@ -20,7 +20,7 @@ Retrieves a list of <code>ip_sets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ip_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>ip_sets</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.waf.ip_sets</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>storage_virtual_machines</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>storage_virtual_machines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>storage_virtual_machines</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.fsx.storage_virtual_machines</code></td></tr>
 </tbody></table>
 

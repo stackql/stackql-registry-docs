@@ -20,7 +20,7 @@ Retrieves a list of <code>ca_certificates</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ca_certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>ca_certificates</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.ca_certificates</code></td></tr>
 </tbody></table>
 

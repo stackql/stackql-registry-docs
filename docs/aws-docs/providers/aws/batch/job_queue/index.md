@@ -20,7 +20,7 @@ Gets an individual <code>job_queue</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>job_queue</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>job_queue</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.batch.job_queue</code></td></tr>
 </tbody></table>
 

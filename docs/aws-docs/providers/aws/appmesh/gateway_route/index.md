@@ -20,7 +20,7 @@ Gets an individual <code>gateway_route</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>gateway_route</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>gateway_route</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appmesh.gateway_route</code></td></tr>
 </tbody></table>
 

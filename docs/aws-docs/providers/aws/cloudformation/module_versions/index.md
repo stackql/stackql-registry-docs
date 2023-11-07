@@ -20,7 +20,7 @@ Retrieves a list of <code>module_versions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>module_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>module_versions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudformation.module_versions</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>playback_configurations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>playback_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>playback_configurations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.mediatailor.playback_configurations</code></td></tr>
 </tbody></table>
 

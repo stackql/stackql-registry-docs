@@ -20,7 +20,7 @@ Gets an individual <code>source_credential</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>source_credential</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>source_credential</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.codebuild.source_credential</code></td></tr>
 </tbody></table>
 

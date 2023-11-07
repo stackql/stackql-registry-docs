@@ -20,7 +20,7 @@ Gets an individual <code>inference_experiment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inference_experiment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>inference_experiment</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.inference_experiment</code></td></tr>
 </tbody></table>
 

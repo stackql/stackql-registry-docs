@@ -20,7 +20,7 @@ Retrieves a list of <code>projects</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>projects</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot1click.projects</code></td></tr>
 </tbody></table>
 

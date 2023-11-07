@@ -20,7 +20,7 @@ Retrieves a list of <code>apns_voip_sandbox_channels</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apns_voip_sandbox_channels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>apns_voip_sandbox_channels</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.pinpoint.apns_voip_sandbox_channels</code></td></tr>
 </tbody></table>
 

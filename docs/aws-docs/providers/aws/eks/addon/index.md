@@ -20,7 +20,7 @@ Gets an individual <code>addon</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>addon</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>addon</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.eks.addon</code></td></tr>
 </tbody></table>
 

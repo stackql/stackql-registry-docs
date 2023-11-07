@@ -20,7 +20,7 @@ Gets an individual <code>variant_store</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>variant_store</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>variant_store</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.omics.variant_store</code></td></tr>
 </tbody></table>
 

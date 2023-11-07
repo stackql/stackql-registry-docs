@@ -20,7 +20,7 @@ Retrieves a list of <code>steps</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>steps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>steps</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.emr.steps</code></td></tr>
 </tbody></table>
 

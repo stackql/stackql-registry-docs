@@ -20,7 +20,7 @@ Retrieves a list of <code>streaming_distributions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>streaming_distributions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>streaming_distributions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.streaming_distributions</code></td></tr>
 </tbody></table>
 

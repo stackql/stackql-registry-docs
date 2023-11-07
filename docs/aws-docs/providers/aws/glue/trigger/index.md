@@ -20,7 +20,7 @@ Gets an individual <code>trigger</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>trigger</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>trigger</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.glue.trigger</code></td></tr>
 </tbody></table>
 

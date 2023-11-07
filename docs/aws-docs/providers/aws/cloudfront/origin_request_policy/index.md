@@ -20,7 +20,7 @@ Gets an individual <code>origin_request_policy</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>origin_request_policy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>origin_request_policy</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.origin_request_policy</code></td></tr>
 </tbody></table>
 

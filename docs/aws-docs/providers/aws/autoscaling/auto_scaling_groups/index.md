@@ -20,7 +20,7 @@ Retrieves a list of <code>auto_scaling_groups</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>auto_scaling_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>auto_scaling_groups</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.autoscaling.auto_scaling_groups</code></td></tr>
 </tbody></table>
 

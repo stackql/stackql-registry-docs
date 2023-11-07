@@ -20,7 +20,7 @@ Retrieves a list of <code>db_clusters</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>db_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>db_clusters</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.docdb.db_clusters</code></td></tr>
 </tbody></table>
 

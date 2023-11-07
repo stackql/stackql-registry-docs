@@ -20,7 +20,7 @@ Retrieves a list of <code>registry_policies</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>registry_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>registry_policies</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.eventschemas.registry_policies</code></td></tr>
 </tbody></table>
 

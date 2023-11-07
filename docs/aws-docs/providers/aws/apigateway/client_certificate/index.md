@@ -20,7 +20,7 @@ Gets an individual <code>client_certificate</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>client_certificate</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>client_certificate</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.apigateway.client_certificate</code></td></tr>
 </tbody></table>
 

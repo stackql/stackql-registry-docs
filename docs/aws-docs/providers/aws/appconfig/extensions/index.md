@@ -20,7 +20,7 @@ Retrieves a list of <code>extensions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>extensions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>extensions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appconfig.extensions</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>patch_baselines</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>patch_baselines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>patch_baselines</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ssm.patch_baselines</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>listener_rules</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>listener_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>listener_rules</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.elasticloadbalancingv2.listener_rules</code></td></tr>
 </tbody></table>
 

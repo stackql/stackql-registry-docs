@@ -20,7 +20,7 @@ Gets an individual <code>anomaly_monitor</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>anomaly_monitor</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>anomaly_monitor</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ce.anomaly_monitor</code></td></tr>
 </tbody></table>
 

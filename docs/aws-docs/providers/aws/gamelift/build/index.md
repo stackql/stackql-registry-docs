@@ -20,7 +20,7 @@ Gets an individual <code>build</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>build</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>build</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.gamelift.build</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>request_validator</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>request_validator</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>request_validator</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.apigateway.request_validator</code></td></tr>
 </tbody></table>
 

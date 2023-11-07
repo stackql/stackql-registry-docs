@@ -20,7 +20,7 @@ Gets an individual <code>function_definition</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>function_definition</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>function_definition</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.greengrass.function_definition</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>reference_stores</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reference_stores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>reference_stores</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.omics.reference_stores</code></td></tr>
 </tbody></table>
 

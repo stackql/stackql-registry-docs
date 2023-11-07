@@ -20,7 +20,7 @@ Gets an individual <code>usage_plan_key</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usage_plan_key</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>usage_plan_key</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.apigateway.usage_plan_key</code></td></tr>
 </tbody></table>
 

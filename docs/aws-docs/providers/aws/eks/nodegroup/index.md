@@ -20,7 +20,7 @@ Gets an individual <code>nodegroup</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>nodegroup</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>nodegroup</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.eks.nodegroup</code></td></tr>
 </tbody></table>
 

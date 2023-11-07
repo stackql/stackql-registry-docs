@@ -20,7 +20,7 @@ Gets an individual <code>security_key</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_key</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>security_key</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.connect.security_key</code></td></tr>
 </tbody></table>
 

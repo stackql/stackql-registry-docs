@@ -20,7 +20,7 @@ Retrieves a list of <code>service_network_service_associations</code> in a regio
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_network_service_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>service_network_service_associations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.vpclattice.service_network_service_associations</code></td></tr>
 </tbody></table>
 

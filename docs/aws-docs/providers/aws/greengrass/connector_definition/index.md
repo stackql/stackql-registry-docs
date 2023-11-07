@@ -20,7 +20,7 @@ Gets an individual <code>connector_definition</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connector_definition</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>connector_definition</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.greengrass.connector_definition</code></td></tr>
 </tbody></table>
 

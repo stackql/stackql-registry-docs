@@ -20,7 +20,7 @@ Retrieves a list of <code>queues</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>queues</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>queues</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.mediaconvert.queues</code></td></tr>
 </tbody></table>
 

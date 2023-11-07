@@ -20,7 +20,7 @@ Gets an individual <code>cluster_capacity_provider_associations</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cluster_capacity_provider_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>cluster_capacity_provider_associations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ecs.cluster_capacity_provider_associations</code></td></tr>
 </tbody></table>
 

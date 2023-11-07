@@ -20,7 +20,7 @@ Gets an individual <code>grant</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>grant</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>grant</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.licensemanager.grant</code></td></tr>
 </tbody></table>
 

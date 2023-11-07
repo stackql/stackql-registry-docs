@@ -20,7 +20,7 @@ Gets an individual <code>simple_ad</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>simple_ad</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>simple_ad</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.directoryservice.simple_ad</code></td></tr>
 </tbody></table>
 

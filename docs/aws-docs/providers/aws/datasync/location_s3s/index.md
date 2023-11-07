@@ -20,7 +20,7 @@ Retrieves a list of <code>location_s3s</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>location_s3s</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>location_s3s</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.datasync.location_s3s</code></td></tr>
 </tbody></table>
 

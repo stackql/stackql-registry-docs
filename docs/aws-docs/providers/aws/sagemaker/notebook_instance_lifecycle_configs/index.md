@@ -20,7 +20,7 @@ Retrieves a list of <code>notebook_instance_lifecycle_configs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>notebook_instance_lifecycle_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>notebook_instance_lifecycle_configs</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.notebook_instance_lifecycle_configs</code></td></tr>
 </tbody></table>
 

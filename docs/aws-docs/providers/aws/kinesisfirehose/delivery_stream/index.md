@@ -20,7 +20,7 @@ Gets an individual <code>delivery_stream</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>delivery_stream</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>delivery_stream</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.kinesisfirehose.delivery_stream</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>model_quality_job_definition</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>model_quality_job_definition</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>model_quality_job_definition</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.model_quality_job_definition</code></td></tr>
 </tbody></table>
 

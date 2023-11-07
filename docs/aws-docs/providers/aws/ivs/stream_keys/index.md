@@ -20,7 +20,7 @@ Retrieves a list of <code>stream_keys</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stream_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>stream_keys</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ivs.stream_keys</code></td></tr>
 </tbody></table>
 

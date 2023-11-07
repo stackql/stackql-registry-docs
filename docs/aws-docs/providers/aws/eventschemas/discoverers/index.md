@@ -20,7 +20,7 @@ Retrieves a list of <code>discoverers</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>discoverers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>discoverers</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.eventschemas.discoverers</code></td></tr>
 </tbody></table>
 

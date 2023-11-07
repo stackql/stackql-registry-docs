@@ -20,7 +20,7 @@ Retrieves a list of <code>endpoint_authorizations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>endpoint_authorizations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>endpoint_authorizations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.redshift.endpoint_authorizations</code></td></tr>
 </tbody></table>
 

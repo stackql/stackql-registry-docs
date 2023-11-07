@@ -20,7 +20,7 @@ Gets an individual <code>sync_job</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sync_job</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>sync_job</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iottwinmaker.sync_job</code></td></tr>
 </tbody></table>
 

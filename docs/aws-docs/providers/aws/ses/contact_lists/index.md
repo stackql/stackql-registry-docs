@@ -20,7 +20,7 @@ Retrieves a list of <code>contact_lists</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>contact_lists</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>contact_lists</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ses.contact_lists</code></td></tr>
 </tbody></table>
 

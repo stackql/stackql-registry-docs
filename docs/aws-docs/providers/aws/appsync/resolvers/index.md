@@ -20,7 +20,7 @@ Retrieves a list of <code>resolvers</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resolvers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>resolvers</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appsync.resolvers</code></td></tr>
 </tbody></table>
 

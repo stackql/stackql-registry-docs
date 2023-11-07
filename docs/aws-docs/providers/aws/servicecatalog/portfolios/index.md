@@ -20,7 +20,7 @@ Retrieves a list of <code>portfolios</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>portfolios</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>portfolios</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.servicecatalog.portfolios</code></td></tr>
 </tbody></table>
 

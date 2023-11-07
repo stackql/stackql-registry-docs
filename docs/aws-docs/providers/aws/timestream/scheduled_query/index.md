@@ -20,7 +20,7 @@ Gets an individual <code>scheduled_query</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scheduled_query</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>scheduled_query</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.timestream.scheduled_query</code></td></tr>
 </tbody></table>
 

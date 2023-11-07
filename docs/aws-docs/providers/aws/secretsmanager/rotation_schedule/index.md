@@ -20,7 +20,7 @@ Gets an individual <code>rotation_schedule</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>rotation_schedule</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>rotation_schedule</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.secretsmanager.rotation_schedule</code></td></tr>
 </tbody></table>
 

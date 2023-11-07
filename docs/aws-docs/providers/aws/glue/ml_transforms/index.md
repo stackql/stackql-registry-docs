@@ -20,7 +20,7 @@ Retrieves a list of <code>ml_transforms</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ml_transforms</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>ml_transforms</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.glue.ml_transforms</code></td></tr>
 </tbody></table>
 

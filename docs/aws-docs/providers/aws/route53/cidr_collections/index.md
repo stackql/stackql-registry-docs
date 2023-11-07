@@ -20,7 +20,7 @@ Retrieves a list of <code>cidr_collections</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cidr_collections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>cidr_collections</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.route53.cidr_collections</code></td></tr>
 </tbody></table>
 

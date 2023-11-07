@@ -20,7 +20,7 @@ Gets an individual <code>feature</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>feature</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>feature</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.evidently.feature</code></td></tr>
 </tbody></table>
 

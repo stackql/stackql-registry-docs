@@ -20,7 +20,7 @@ Gets an individual <code>game_session_queue</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>game_session_queue</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>game_session_queue</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.gamelift.game_session_queue</code></td></tr>
 </tbody></table>
 

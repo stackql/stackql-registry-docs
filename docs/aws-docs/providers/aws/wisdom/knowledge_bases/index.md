@@ -20,7 +20,7 @@ Retrieves a list of <code>knowledge_bases</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>knowledge_bases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>knowledge_bases</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.wisdom.knowledge_bases</code></td></tr>
 </tbody></table>
 

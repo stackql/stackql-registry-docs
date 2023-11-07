@@ -20,7 +20,7 @@ Gets an individual <code>input_security_group</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>input_security_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>input_security_group</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.medialive.input_security_group</code></td></tr>
 </tbody></table>
 

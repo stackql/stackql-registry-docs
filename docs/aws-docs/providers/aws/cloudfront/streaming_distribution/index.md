@@ -20,7 +20,7 @@ Gets an individual <code>streaming_distribution</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>streaming_distribution</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>streaming_distribution</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.streaming_distribution</code></td></tr>
 </tbody></table>
 

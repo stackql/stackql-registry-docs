@@ -20,7 +20,7 @@ Gets an individual <code>url</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>url</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>url</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lambda.url</code></td></tr>
 </tbody></table>
 

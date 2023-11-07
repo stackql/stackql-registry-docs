@@ -20,7 +20,7 @@ Retrieves a list of <code>user_pool_clients</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user_pool_clients</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>user_pool_clients</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cognito.user_pool_clients</code></td></tr>
 </tbody></table>
 

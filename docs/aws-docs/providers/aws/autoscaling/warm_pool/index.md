@@ -20,7 +20,7 @@ Gets an individual <code>warm_pool</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>warm_pool</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>warm_pool</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.autoscaling.warm_pool</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>custom_line_items</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>custom_line_items</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>custom_line_items</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.billingconductor.custom_line_items</code></td></tr>
 </tbody></table>
 

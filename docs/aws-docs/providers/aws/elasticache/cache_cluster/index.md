@@ -20,7 +20,7 @@ Gets an individual <code>cache_cluster</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cache_cluster</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>cache_cluster</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.elasticache.cache_cluster</code></td></tr>
 </tbody></table>
 

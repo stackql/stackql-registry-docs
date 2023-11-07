@@ -20,7 +20,7 @@ Gets an individual <code>sms_channel</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sms_channel</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>sms_channel</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.pinpoint.sms_channel</code></td></tr>
 </tbody></table>
 

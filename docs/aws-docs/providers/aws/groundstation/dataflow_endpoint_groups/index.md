@@ -20,7 +20,7 @@ Retrieves a list of <code>dataflow_endpoint_groups</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dataflow_endpoint_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>dataflow_endpoint_groups</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.groundstation.dataflow_endpoint_groups</code></td></tr>
 </tbody></table>
 

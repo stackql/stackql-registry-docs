@@ -20,7 +20,7 @@ Retrieves a list of <code>tag_option_associations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tag_option_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>tag_option_associations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.servicecatalog.tag_option_associations</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>pipeline</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pipeline</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>pipeline</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.datapipeline.pipeline</code></td></tr>
 </tbody></table>
 

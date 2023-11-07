@@ -20,7 +20,7 @@ Retrieves a list of <code>response_plans</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>response_plans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>response_plans</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ssmincidents.response_plans</code></td></tr>
 </tbody></table>
 

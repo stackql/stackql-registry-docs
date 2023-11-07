@@ -20,7 +20,7 @@ Gets an individual <code>layer_version</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>layer_version</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>layer_version</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lambda.layer_version</code></td></tr>
 </tbody></table>
 

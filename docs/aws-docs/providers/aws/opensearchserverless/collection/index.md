@@ -20,7 +20,7 @@ Gets an individual <code>collection</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>collection</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>collection</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.opensearchserverless.collection</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>batch_scram_secrets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>batch_scram_secrets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>batch_scram_secrets</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.msk.batch_scram_secrets</code></td></tr>
 </tbody></table>
 

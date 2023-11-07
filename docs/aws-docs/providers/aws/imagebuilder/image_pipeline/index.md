@@ -20,7 +20,7 @@ Gets an individual <code>image_pipeline</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>image_pipeline</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>image_pipeline</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.imagebuilder.image_pipeline</code></td></tr>
 </tbody></table>
 

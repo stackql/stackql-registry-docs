@@ -20,7 +20,7 @@ Gets an individual <code>db_proxy</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>db_proxy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>db_proxy</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.rds.db_proxy</code></td></tr>
 </tbody></table>
 

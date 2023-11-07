@@ -20,7 +20,7 @@ Retrieves a list of <code>sessions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sessions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>sessions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.macie.sessions</code></td></tr>
 </tbody></table>
 

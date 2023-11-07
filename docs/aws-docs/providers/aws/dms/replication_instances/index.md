@@ -20,7 +20,7 @@ Retrieves a list of <code>replication_instances</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>replication_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>replication_instances</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.dms.replication_instances</code></td></tr>
 </tbody></table>
 

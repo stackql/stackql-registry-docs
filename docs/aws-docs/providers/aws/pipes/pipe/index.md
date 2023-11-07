@@ -20,7 +20,7 @@ Gets an individual <code>pipe</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pipe</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>pipe</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.pipes.pipe</code></td></tr>
 </tbody></table>
 

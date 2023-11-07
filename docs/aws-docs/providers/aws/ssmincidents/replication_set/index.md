@@ -20,7 +20,7 @@ Gets an individual <code>replication_set</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>replication_set</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>replication_set</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ssmincidents.replication_set</code></td></tr>
 </tbody></table>
 

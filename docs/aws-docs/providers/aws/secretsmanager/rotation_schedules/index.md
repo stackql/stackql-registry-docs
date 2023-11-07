@@ -20,7 +20,7 @@ Retrieves a list of <code>rotation_schedules</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>rotation_schedules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>rotation_schedules</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.secretsmanager.rotation_schedules</code></td></tr>
 </tbody></table>
 

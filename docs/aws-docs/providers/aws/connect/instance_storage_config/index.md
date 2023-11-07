@@ -20,7 +20,7 @@ Gets an individual <code>instance_storage_config</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_storage_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>instance_storage_config</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.connect.instance_storage_config</code></td></tr>
 </tbody></table>
 

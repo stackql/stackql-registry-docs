@@ -20,7 +20,7 @@ Gets an individual <code>http_namespace</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>http_namespace</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>http_namespace</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.servicediscovery.http_namespace</code></td></tr>
 </tbody></table>
 

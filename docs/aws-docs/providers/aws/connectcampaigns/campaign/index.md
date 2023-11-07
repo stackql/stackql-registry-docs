@@ -20,7 +20,7 @@ Gets an individual <code>campaign</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>campaign</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>campaign</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.connectcampaigns.campaign</code></td></tr>
 </tbody></table>
 

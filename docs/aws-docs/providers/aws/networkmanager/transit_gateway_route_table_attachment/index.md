@@ -20,7 +20,7 @@ Gets an individual <code>transit_gateway_route_table_attachment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transit_gateway_route_table_attachment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>transit_gateway_route_table_attachment</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.networkmanager.transit_gateway_route_table_attachment</code></td></tr>
 </tbody></table>
 

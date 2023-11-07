@@ -20,7 +20,7 @@ Retrieves a list of <code>instance_storage_configs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_storage_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>instance_storage_configs</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.connect.instance_storage_configs</code></td></tr>
 </tbody></table>
 

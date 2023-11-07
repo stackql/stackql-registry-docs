@@ -20,7 +20,7 @@ Retrieves a list of <code>robot_applications</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>robot_applications</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>robot_applications</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.robomaker.robot_applications</code></td></tr>
 </tbody></table>
 

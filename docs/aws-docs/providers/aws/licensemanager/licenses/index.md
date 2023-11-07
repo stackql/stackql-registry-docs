@@ -20,7 +20,7 @@ Retrieves a list of <code>licenses</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>licenses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>licenses</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.licensemanager.licenses</code></td></tr>
 </tbody></table>
 

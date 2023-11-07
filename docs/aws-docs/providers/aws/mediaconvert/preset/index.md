@@ -20,7 +20,7 @@ Gets an individual <code>preset</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>preset</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>preset</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.mediaconvert.preset</code></td></tr>
 </tbody></table>
 

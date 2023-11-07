@@ -20,7 +20,7 @@ Retrieves a list of <code>tags</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>tags</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lakeformation.tags</code></td></tr>
 </tbody></table>
 

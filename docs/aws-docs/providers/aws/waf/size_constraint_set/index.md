@@ -20,7 +20,7 @@ Gets an individual <code>size_constraint_set</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>size_constraint_set</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>size_constraint_set</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.waf.size_constraint_set</code></td></tr>
 </tbody></table>
 

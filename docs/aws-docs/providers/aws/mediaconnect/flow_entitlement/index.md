@@ -20,7 +20,7 @@ Gets an individual <code>flow_entitlement</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>flow_entitlement</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>flow_entitlement</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.mediaconnect.flow_entitlement</code></td></tr>
 </tbody></table>
 

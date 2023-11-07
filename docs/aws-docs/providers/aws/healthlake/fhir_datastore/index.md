@@ -20,7 +20,7 @@ Gets an individual <code>fhir_datastore</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>fhir_datastore</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>fhir_datastore</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.healthlake.fhir_datastore</code></td></tr>
 </tbody></table>
 

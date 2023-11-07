@@ -20,7 +20,7 @@ Gets an individual <code>task</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>task</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>task</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.datasync.task</code></td></tr>
 </tbody></table>
 

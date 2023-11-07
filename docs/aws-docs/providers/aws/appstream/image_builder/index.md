@@ -20,7 +20,7 @@ Gets an individual <code>image_builder</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>image_builder</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>image_builder</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appstream.image_builder</code></td></tr>
 </tbody></table>
 

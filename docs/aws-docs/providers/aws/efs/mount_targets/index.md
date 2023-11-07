@@ -20,7 +20,7 @@ Retrieves a list of <code>mount_targets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mount_targets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>mount_targets</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.efs.mount_targets</code></td></tr>
 </tbody></table>
 

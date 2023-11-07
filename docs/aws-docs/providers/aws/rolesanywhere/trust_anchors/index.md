@@ -20,7 +20,7 @@ Retrieves a list of <code>trust_anchors</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>trust_anchors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>trust_anchors</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.rolesanywhere.trust_anchors</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>packaging_configuration</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>packaging_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>packaging_configuration</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.mediapackage.packaging_configuration</code></td></tr>
 </tbody></table>
 

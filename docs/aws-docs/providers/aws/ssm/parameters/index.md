@@ -20,7 +20,7 @@ Retrieves a list of <code>parameters</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>parameters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>parameters</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ssm.parameters</code></td></tr>
 </tbody></table>
 

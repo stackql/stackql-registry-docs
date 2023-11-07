@@ -20,7 +20,7 @@ Gets an individual <code>tag</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tag</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>tag</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lakeformation.tag</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>virtual_nodes</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_nodes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>virtual_nodes</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appmesh.virtual_nodes</code></td></tr>
 </tbody></table>
 

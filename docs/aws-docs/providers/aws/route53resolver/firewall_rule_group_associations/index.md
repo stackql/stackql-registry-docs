@@ -20,7 +20,7 @@ Retrieves a list of <code>firewall_rule_group_associations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewall_rule_group_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>firewall_rule_group_associations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.route53resolver.firewall_rule_group_associations</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>databases</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>databases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>databases</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.glue.databases</code></td></tr>
 </tbody></table>
 

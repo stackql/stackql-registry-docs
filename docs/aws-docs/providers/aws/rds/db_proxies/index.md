@@ -20,7 +20,7 @@ Retrieves a list of <code>db_proxies</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>db_proxies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>db_proxies</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.rds.db_proxies</code></td></tr>
 </tbody></table>
 

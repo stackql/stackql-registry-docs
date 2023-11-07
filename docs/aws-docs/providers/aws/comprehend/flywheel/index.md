@@ -20,7 +20,7 @@ Gets an individual <code>flywheel</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>flywheel</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>flywheel</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.comprehend.flywheel</code></td></tr>
 </tbody></table>
 

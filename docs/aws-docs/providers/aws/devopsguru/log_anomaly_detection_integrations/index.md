@@ -20,7 +20,7 @@ Retrieves a list of <code>log_anomaly_detection_integrations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>log_anomaly_detection_integrations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>log_anomaly_detection_integrations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.devopsguru.log_anomaly_detection_integrations</code></td></tr>
 </tbody></table>
 

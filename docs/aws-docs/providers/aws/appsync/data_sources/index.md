@@ -20,7 +20,7 @@ Retrieves a list of <code>data_sources</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_sources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>data_sources</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appsync.data_sources</code></td></tr>
 </tbody></table>
 

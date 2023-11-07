@@ -20,7 +20,7 @@ Retrieves a list of <code>triggers</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>triggers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>triggers</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.glue.triggers</code></td></tr>
 </tbody></table>
 

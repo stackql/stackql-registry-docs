@@ -20,7 +20,7 @@ Gets an individual <code>stream_consumer</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stream_consumer</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>stream_consumer</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.kinesis.stream_consumer</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>device_profile</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>device_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>device_profile</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iotwireless.device_profile</code></td></tr>
 </tbody></table>
 

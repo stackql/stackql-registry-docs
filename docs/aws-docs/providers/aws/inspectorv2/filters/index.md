@@ -20,7 +20,7 @@ Retrieves a list of <code>filters</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>filters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>filters</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.inspectorv2.filters</code></td></tr>
 </tbody></table>
 

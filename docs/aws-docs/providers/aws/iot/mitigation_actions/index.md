@@ -20,7 +20,7 @@ Retrieves a list of <code>mitigation_actions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mitigation_actions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>mitigation_actions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.mitigation_actions</code></td></tr>
 </tbody></table>
 

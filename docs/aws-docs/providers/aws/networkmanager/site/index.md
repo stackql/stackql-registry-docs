@@ -20,7 +20,7 @@ Gets an individual <code>site</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>site</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>site</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.networkmanager.site</code></td></tr>
 </tbody></table>
 

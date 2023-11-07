@@ -20,7 +20,7 @@ Retrieves a list of <code>inference_experiments</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inference_experiments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>inference_experiments</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.inference_experiments</code></td></tr>
 </tbody></table>
 

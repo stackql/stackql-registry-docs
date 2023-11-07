@@ -20,7 +20,7 @@ Gets an individual <code>config_rule</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>config_rule</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>config_rule</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.config.config_rule</code></td></tr>
 </tbody></table>
 

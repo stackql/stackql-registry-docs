@@ -20,7 +20,7 @@ Gets an individual <code>resolver_query_logging_config</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resolver_query_logging_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>resolver_query_logging_config</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.route53resolver.resolver_query_logging_config</code></td></tr>
 </tbody></table>
 
