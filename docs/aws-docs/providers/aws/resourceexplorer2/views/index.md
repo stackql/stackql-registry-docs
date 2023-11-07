@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.resourceexplorer2.views
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.resourceexplorer2.views<br/>WHERE region = 'us-east-1'
 </pre>

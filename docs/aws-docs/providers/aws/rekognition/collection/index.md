@@ -38,7 +38,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.rekognition.collection
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;CollectionId&gt;'
+SELECT *<br/>FROM aws.rekognition.collection<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;CollectionId&gt;'
 </pre>

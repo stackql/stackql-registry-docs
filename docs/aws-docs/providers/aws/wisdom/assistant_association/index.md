@@ -42,7 +42,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.wisdom.assistant_association
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;AssistantAssociationId&gt;' AND data__Identifier = '&lt;AssistantId&gt;'
+SELECT *<br/>FROM aws.wisdom.assistant_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AssistantAssociationId&gt;'<br/>AND data__Identifier = '&lt;AssistantId&gt;'
 </pre>

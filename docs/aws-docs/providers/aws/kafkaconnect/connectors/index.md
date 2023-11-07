@@ -48,7 +48,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.kafkaconnect.connectors
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.kafkaconnect.connectors<br/>WHERE region = 'us-east-1'
 </pre>

@@ -37,7 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.location.tracker_consumer
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;TrackerName&gt;' AND data__Identifier = '&lt;ConsumerArn&gt;'
+SELECT *<br/>FROM aws.location.tracker_consumer<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;TrackerName&gt;'<br/>AND data__Identifier = '&lt;ConsumerArn&gt;'
 </pre>

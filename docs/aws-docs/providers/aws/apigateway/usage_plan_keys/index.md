@@ -39,7 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.apigateway.usage_plan_keys
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.apigateway.usage_plan_keys<br/>WHERE region = 'us-east-1'
 </pre>

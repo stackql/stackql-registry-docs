@@ -39,7 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.route53recoveryreadiness.recovery_group
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;RecoveryGroupName&gt;'
+SELECT *<br/>FROM aws.route53recoveryreadiness.recovery_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RecoveryGroupName&gt;'
 </pre>

@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.cognito.user_pool_resource_server
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;Id&gt;'
+SELECT *<br/>FROM aws.cognito.user_pool_resource_server<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
 </pre>

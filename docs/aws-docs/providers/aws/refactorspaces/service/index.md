@@ -46,7 +46,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.refactorspaces.service
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;EnvironmentIdentifier&gt;' AND data__Identifier = '&lt;ApplicationIdentifier&gt;' AND data__Identifier = '&lt;ServiceIdentifier&gt;'
+SELECT *<br/>FROM aws.refactorspaces.service<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;EnvironmentIdentifier&gt;'<br/>AND data__Identifier = '&lt;ApplicationIdentifier&gt;'<br/>AND data__Identifier = '&lt;ServiceIdentifier&gt;'
 </pre>

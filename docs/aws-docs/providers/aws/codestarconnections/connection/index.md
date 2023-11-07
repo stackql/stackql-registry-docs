@@ -42,7 +42,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.codestarconnections.connection
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ConnectionArn&gt;'
+SELECT *<br/>FROM aws.codestarconnections.connection<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ConnectionArn&gt;'
 </pre>

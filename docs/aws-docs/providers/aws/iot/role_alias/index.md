@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.iot.role_alias
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;RoleAlias&gt;'
+SELECT *<br/>FROM aws.iot.role_alias<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RoleAlias&gt;'
 </pre>

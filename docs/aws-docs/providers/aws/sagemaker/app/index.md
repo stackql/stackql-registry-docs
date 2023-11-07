@@ -42,7 +42,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.sagemaker.app
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;AppName&gt;' AND data__Identifier = '&lt;AppType&gt;' AND data__Identifier = '&lt;DomainId&gt;' AND data__Identifier = '&lt;UserProfileName&gt;'
+SELECT *<br/>FROM aws.sagemaker.app<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AppName&gt;'<br/>AND data__Identifier = '&lt;AppType&gt;'<br/>AND data__Identifier = '&lt;DomainId&gt;'<br/>AND data__Identifier = '&lt;UserProfileName&gt;'
 </pre>

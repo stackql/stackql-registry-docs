@@ -41,7 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.events.event_buses
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.events.event_buses<br/>WHERE region = 'us-east-1'
 </pre>

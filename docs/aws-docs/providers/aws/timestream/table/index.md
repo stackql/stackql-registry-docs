@@ -42,7 +42,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.timestream.table
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;DatabaseName&gt;' AND data__Identifier = '&lt;TableName&gt;'
+SELECT *<br/>FROM aws.timestream.table<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DatabaseName&gt;'<br/>AND data__Identifier = '&lt;TableName&gt;'
 </pre>

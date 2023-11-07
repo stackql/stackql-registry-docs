@@ -42,7 +42,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.backup.backup_vault
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;BackupVaultName&gt;'
+SELECT *<br/>FROM aws.backup.backup_vault<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;BackupVaultName&gt;'
 </pre>

@@ -41,7 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.lookoutmetrics.anomaly_detector
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;Arn&gt;'
+SELECT *<br/>FROM aws.lookoutmetrics.anomaly_detector<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
 </pre>

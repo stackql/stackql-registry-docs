@@ -38,7 +38,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.glue.schema_version_metadata
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;SchemaVersionId&gt;' AND data__Identifier = '&lt;Key&gt;' AND data__Identifier = '&lt;Value&gt;'
+SELECT *<br/>FROM aws.glue.schema_version_metadata<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;SchemaVersionId&gt;'<br/>AND data__Identifier = '&lt;Key&gt;'<br/>AND data__Identifier = '&lt;Value&gt;'
 </pre>

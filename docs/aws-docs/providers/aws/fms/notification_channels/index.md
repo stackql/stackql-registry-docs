@@ -37,7 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.fms.notification_channels
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.fms.notification_channels<br/>WHERE region = 'us-east-1'
 </pre>

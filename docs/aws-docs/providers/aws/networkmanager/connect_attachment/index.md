@@ -51,7 +51,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.networkmanager.connect_attachment
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;AttachmentId&gt;'
+SELECT *<br/>FROM aws.networkmanager.connect_attachment<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AttachmentId&gt;'
 </pre>

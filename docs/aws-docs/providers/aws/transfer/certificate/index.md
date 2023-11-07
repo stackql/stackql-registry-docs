@@ -50,7 +50,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.transfer.certificate
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;CertificateId&gt;'
+SELECT *<br/>FROM aws.transfer.certificate<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;CertificateId&gt;'
 </pre>

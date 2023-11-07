@@ -42,7 +42,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.route53recoverycontrol.control_panels
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.route53recoverycontrol.control_panels<br/>WHERE region = 'us-east-1'
 </pre>

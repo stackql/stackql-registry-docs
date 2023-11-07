@@ -38,7 +38,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.appstream.application_entitlement_association
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;StackName&gt;' AND data__Identifier = '&lt;EntitlementName&gt;' AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
+SELECT *<br/>FROM aws.appstream.application_entitlement_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;StackName&gt;'<br/>AND data__Identifier = '&lt;EntitlementName&gt;'<br/>AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
 </pre>

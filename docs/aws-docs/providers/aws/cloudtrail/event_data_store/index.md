@@ -47,7 +47,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.cloudtrail.event_data_store
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;EventDataStoreArn&gt;'
+SELECT *<br/>FROM aws.cloudtrail.event_data_store<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;EventDataStoreArn&gt;'
 </pre>

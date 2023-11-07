@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.managedblockchain.node
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;NodeId&gt;'
+SELECT *<br/>FROM aws.managedblockchain.node<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;NodeId&gt;'
 </pre>

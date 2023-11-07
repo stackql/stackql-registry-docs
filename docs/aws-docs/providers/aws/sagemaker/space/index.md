@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.sagemaker.space
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;DomainId&gt;' AND data__Identifier = '&lt;SpaceName&gt;'
+SELECT *<br/>FROM aws.sagemaker.space<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DomainId&gt;'<br/>AND data__Identifier = '&lt;SpaceName&gt;'
 </pre>

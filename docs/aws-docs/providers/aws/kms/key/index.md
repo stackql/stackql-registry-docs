@@ -46,7 +46,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.kms.key
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;KeyId&gt;'
+SELECT *<br/>FROM aws.kms.key<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;KeyId&gt;'
 </pre>

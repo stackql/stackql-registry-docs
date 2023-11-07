@@ -51,7 +51,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.quicksight.analysis
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;AnalysisId&gt;' AND data__Identifier = '&lt;AwsAccountId&gt;'
+SELECT *<br/>FROM aws.quicksight.analysis<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AnalysisId&gt;'<br/>AND data__Identifier = '&lt;AwsAccountId&gt;'
 </pre>

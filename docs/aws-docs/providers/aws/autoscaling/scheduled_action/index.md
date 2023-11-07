@@ -44,7 +44,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.autoscaling.scheduled_action
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ScheduledActionName&gt;' AND data__Identifier = '&lt;AutoScalingGroupName&gt;'
+SELECT *<br/>FROM aws.autoscaling.scheduled_action<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ScheduledActionName&gt;'<br/>AND data__Identifier = '&lt;AutoScalingGroupName&gt;'
 </pre>

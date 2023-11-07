@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.memorydb.subnet_group
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;SubnetGroupName&gt;'
+SELECT *<br/>FROM aws.memorydb.subnet_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;SubnetGroupName&gt;'
 </pre>

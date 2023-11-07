@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.config.configuration_aggregator
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ConfigurationAggregatorName&gt;'
+SELECT *<br/>FROM aws.config.configuration_aggregator<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ConfigurationAggregatorName&gt;'
 </pre>

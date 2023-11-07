@@ -39,7 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.timestream.databases
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.timestream.databases<br/>WHERE region = 'us-east-1'
 </pre>

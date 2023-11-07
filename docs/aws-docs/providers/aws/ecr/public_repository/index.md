@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.ecr.public_repository
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;RepositoryName&gt;'
+SELECT *<br/>FROM aws.ecr.public_repository<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RepositoryName&gt;'
 </pre>

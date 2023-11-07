@@ -43,7 +43,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.iot.security_profile
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;SecurityProfileName&gt;'
+SELECT *<br/>FROM aws.iot.security_profile<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;SecurityProfileName&gt;'
 </pre>

@@ -46,7 +46,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.codestarnotifications.notification_rules
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.codestarnotifications.notification_rules<br/>WHERE region = 'us-east-1'
 </pre>

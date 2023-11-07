@@ -43,7 +43,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.customerprofiles.integration
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;DomainName&gt;' AND data__Identifier = '&lt;Uri&gt;'
+SELECT *<br/>FROM aws.customerprofiles.integration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DomainName&gt;'<br/>AND data__Identifier = '&lt;Uri&gt;'
 </pre>

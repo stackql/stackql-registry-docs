@@ -38,7 +38,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.waf.byte_match_sets
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.waf.byte_match_sets<br/>WHERE region = 'us-east-1'
 </pre>

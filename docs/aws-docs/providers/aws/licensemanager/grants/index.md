@@ -43,7 +43,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.licensemanager.grants
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.licensemanager.grants<br/>WHERE region = 'us-east-1'
 </pre>

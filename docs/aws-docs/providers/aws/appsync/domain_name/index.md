@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.appsync.domain_name
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;DomainName&gt;'
+SELECT *<br/>FROM aws.appsync.domain_name<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DomainName&gt;'
 </pre>

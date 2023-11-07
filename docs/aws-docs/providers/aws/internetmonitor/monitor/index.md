@@ -48,7 +48,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.internetmonitor.monitor
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;MonitorName&gt;'
+SELECT *<br/>FROM aws.internetmonitor.monitor<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;MonitorName&gt;'
 </pre>

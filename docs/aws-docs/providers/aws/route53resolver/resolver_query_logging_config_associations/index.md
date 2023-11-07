@@ -42,7 +42,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.route53resolver.resolver_query_logging_config_associations
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.route53resolver.resolver_query_logging_config_associations<br/>WHERE region = 'us-east-1'
 </pre>

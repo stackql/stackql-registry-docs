@@ -44,7 +44,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.appconfig.deployment_strategies
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.appconfig.deployment_strategies<br/>WHERE region = 'us-east-1'
 </pre>

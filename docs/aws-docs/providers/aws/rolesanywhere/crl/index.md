@@ -41,7 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.rolesanywhere.crl
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;CrlId&gt;'
+SELECT *<br/>FROM aws.rolesanywhere.crl<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;CrlId&gt;'
 </pre>

@@ -41,7 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.apprunner.vpc_connectors
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.apprunner.vpc_connectors<br/>WHERE region = 'us-east-1'
 </pre>

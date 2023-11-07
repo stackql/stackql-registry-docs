@@ -41,7 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.personalize.datasets
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.personalize.datasets<br/>WHERE region = 'us-east-1'
 </pre>

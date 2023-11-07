@@ -38,7 +38,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.servicecatalog.service_action_association
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ProductId&gt;' AND data__Identifier = '&lt;ProvisioningArtifactId&gt;' AND data__Identifier = '&lt;ServiceActionId&gt;'
+SELECT *<br/>FROM aws.servicecatalog.service_action_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ProductId&gt;'<br/>AND data__Identifier = '&lt;ProvisioningArtifactId&gt;'<br/>AND data__Identifier = '&lt;ServiceActionId&gt;'
 </pre>
