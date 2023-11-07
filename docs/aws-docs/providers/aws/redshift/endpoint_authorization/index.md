@@ -47,7 +47,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.redshift.endpoint_authorization
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ClusterIdentifier&gt;' AND data__Identifier = '&lt;Account&gt;'
+SELECT *<br/>FROM aws.redshift.endpoint_authorization<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ClusterIdentifier&gt;'<br/>AND data__Identifier = '&lt;Account&gt;'
 </pre>

@@ -41,7 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.greengrass.core_definition
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;Id&gt;'
+SELECT *<br/>FROM aws.greengrass.core_definition<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
 </pre>

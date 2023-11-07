@@ -44,7 +44,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.qldb.stream
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;LedgerName&gt;' AND data__Identifier = '&lt;Id&gt;'
+SELECT *<br/>FROM aws.qldb.stream<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LedgerName&gt;'<br/>AND data__Identifier = '&lt;Id&gt;'
 </pre>

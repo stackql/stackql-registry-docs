@@ -37,7 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.msk.batch_scram_secret
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ClusterArn&gt;'
+SELECT *<br/>FROM aws.msk.batch_scram_secret<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ClusterArn&gt;'
 </pre>

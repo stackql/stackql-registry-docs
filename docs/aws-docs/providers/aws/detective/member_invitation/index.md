@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.detective.member_invitation
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;GraphArn&gt;' AND data__Identifier = '&lt;MemberId&gt;'
+SELECT *<br/>FROM aws.detective.member_invitation<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;GraphArn&gt;'<br/>AND data__Identifier = '&lt;MemberId&gt;'
 </pre>

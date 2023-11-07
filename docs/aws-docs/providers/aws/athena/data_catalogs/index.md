@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.athena.data_catalogs
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.athena.data_catalogs<br/>WHERE region = 'us-east-1'
 </pre>

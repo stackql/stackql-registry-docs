@@ -41,7 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.eks.identity_provider_configs
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.eks.identity_provider_configs<br/>WHERE region = 'us-east-1'
 </pre>

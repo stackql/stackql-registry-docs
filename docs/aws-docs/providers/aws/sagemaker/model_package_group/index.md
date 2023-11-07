@@ -42,7 +42,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.sagemaker.model_package_group
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ModelPackageGroupArn&gt;'
+SELECT *<br/>FROM aws.sagemaker.model_package_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ModelPackageGroupArn&gt;'
 </pre>

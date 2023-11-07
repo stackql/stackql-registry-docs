@@ -39,7 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.route53.key_signing_key
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;HostedZoneId&gt;' AND data__Identifier = '&lt;Name&gt;'
+SELECT *<br/>FROM aws.route53.key_signing_key<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;HostedZoneId&gt;'<br/>AND data__Identifier = '&lt;Name&gt;'
 </pre>

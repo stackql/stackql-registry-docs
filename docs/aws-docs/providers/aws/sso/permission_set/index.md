@@ -46,7 +46,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.sso.permission_set
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;InstanceArn&gt;' AND data__Identifier = '&lt;PermissionSetArn&gt;'
+SELECT *<br/>FROM aws.sso.permission_set<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;InstanceArn&gt;'<br/>AND data__Identifier = '&lt;PermissionSetArn&gt;'
 </pre>

@@ -45,7 +45,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.transfer.agreement
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;AgreementId&gt;' AND data__Identifier = '&lt;ServerId&gt;'
+SELECT *<br/>FROM aws.transfer.agreement<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AgreementId&gt;'<br/>AND data__Identifier = '&lt;ServerId&gt;'
 </pre>

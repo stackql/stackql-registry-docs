@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.iotwireless.service_profiles
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.iotwireless.service_profiles<br/>WHERE region = 'us-east-1'
 </pre>

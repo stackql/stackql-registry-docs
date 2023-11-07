@@ -43,7 +43,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.wafv2.ip_set
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;Name&gt;' AND data__Identifier = '&lt;Id&gt;' AND data__Identifier = '&lt;Scope&gt;'
+SELECT *<br/>FROM aws.wafv2.ip_set<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'<br/>AND data__Identifier = '&lt;Id&gt;'<br/>AND data__Identifier = '&lt;Scope&gt;'
 </pre>

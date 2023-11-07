@@ -41,7 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.mediaconnect.flow_vpc_interface
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;FlowArn&gt;' AND data__Identifier = '&lt;Name&gt;'
+SELECT *<br/>FROM aws.mediaconnect.flow_vpc_interface<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;FlowArn&gt;'<br/>AND data__Identifier = '&lt;Name&gt;'
 </pre>

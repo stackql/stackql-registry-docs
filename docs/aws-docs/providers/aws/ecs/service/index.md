@@ -59,7 +59,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.ecs.service
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ServiceArn&gt;' AND data__Identifier = '&lt;Cluster&gt;'
+SELECT *<br/>FROM aws.ecs.service<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ServiceArn&gt;'<br/>AND data__Identifier = '&lt;Cluster&gt;'
 </pre>

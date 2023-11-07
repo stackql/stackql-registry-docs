@@ -51,7 +51,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.lightsail.database
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;RelationalDatabaseName&gt;'
+SELECT *<br/>FROM aws.lightsail.database<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RelationalDatabaseName&gt;'
 </pre>

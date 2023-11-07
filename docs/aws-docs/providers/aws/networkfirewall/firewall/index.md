@@ -47,7 +47,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.networkfirewall.firewall
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;FirewallArn&gt;'
+SELECT *<br/>FROM aws.networkfirewall.firewall<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;FirewallArn&gt;'
 </pre>

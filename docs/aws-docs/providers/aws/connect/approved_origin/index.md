@@ -37,7 +37,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.connect.approved_origin
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;InstanceId&gt;' AND data__Identifier = '&lt;Origin&gt;'
+SELECT *<br/>FROM aws.connect.approved_origin<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;InstanceId&gt;'<br/>AND data__Identifier = '&lt;Origin&gt;'
 </pre>

@@ -41,7 +41,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.sagemaker.image
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ImageArn&gt;'
+SELECT *<br/>FROM aws.sagemaker.image<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ImageArn&gt;'
 </pre>

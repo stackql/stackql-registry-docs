@@ -38,7 +38,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.gamelift.location
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;LocationName&gt;'
+SELECT *<br/>FROM aws.gamelift.location<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LocationName&gt;'
 </pre>

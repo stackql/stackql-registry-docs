@@ -38,7 +38,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.ecs.primary_task_set
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;Cluster&gt;' AND data__Identifier = '&lt;Service&gt;'
+SELECT *<br/>FROM aws.ecs.primary_task_set<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Cluster&gt;'<br/>AND data__Identifier = '&lt;Service&gt;'
 </pre>

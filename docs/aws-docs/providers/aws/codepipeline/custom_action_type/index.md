@@ -44,7 +44,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.codepipeline.custom_action_type
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;Category&gt;' AND data__Identifier = '&lt;Provider&gt;' AND data__Identifier = '&lt;Version&gt;'
+SELECT *<br/>FROM aws.codepipeline.custom_action_type<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Category&gt;'<br/>AND data__Identifier = '&lt;Provider&gt;'<br/>AND data__Identifier = '&lt;Version&gt;'
 </pre>

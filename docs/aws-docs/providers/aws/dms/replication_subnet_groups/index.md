@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.dms.replication_subnet_groups
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.dms.replication_subnet_groups<br/>WHERE region = 'us-east-1'
 </pre>

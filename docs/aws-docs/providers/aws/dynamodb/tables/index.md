@@ -54,7 +54,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.dynamodb.tables
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.dynamodb.tables<br/>WHERE region = 'us-east-1'
 </pre>

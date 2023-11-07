@@ -39,7 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.config.aggregation_authorization
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;AuthorizedAccountId&gt;' AND data__Identifier = '&lt;AuthorizedAwsRegion&gt;'
+SELECT *<br/>FROM aws.config.aggregation_authorization<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AuthorizedAccountId&gt;'<br/>AND data__Identifier = '&lt;AuthorizedAwsRegion&gt;'
 </pre>

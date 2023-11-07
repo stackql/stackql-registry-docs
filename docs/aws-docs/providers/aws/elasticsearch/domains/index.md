@@ -54,7 +54,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.elasticsearch.domains
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.elasticsearch.domains<br/>WHERE region = 'us-east-1'
 </pre>

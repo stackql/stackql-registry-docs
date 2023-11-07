@@ -39,7 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.medialive.input_security_groups
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.medialive.input_security_groups<br/>WHERE region = 'us-east-1'
 </pre>

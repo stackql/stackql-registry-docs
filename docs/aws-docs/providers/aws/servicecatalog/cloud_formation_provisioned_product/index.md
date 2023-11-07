@@ -51,7 +51,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.servicecatalog.cloud_formation_provisioned_product
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ProvisionedProductId&gt;'
+SELECT *<br/>FROM aws.servicecatalog.cloud_formation_provisioned_product<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ProvisionedProductId&gt;'
 </pre>

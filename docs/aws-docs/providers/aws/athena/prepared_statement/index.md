@@ -39,7 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.athena.prepared_statement
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;StatementName&gt;' AND data__Identifier = '&lt;WorkGroup&gt;'
+SELECT *<br/>FROM aws.athena.prepared_statement<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;StatementName&gt;'<br/>AND data__Identifier = '&lt;WorkGroup&gt;'
 </pre>

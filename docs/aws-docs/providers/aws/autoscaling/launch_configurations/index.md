@@ -54,7 +54,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.autoscaling.launch_configurations
-WHERE region = 'us-east-1'
+SELECT *<br/>FROM aws.autoscaling.launch_configurations<br/>WHERE region = 'us-east-1'
 </pre>

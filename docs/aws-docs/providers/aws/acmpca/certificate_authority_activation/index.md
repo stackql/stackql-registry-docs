@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.acmpca.certificate_authority_activation
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;CertificateAuthorityArn&gt;'
+SELECT *<br/>FROM aws.acmpca.certificate_authority_activation<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;CertificateAuthorityArn&gt;'
 </pre>

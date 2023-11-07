@@ -47,7 +47,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.panorama.package_version
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;PackageId&gt;' AND data__Identifier = '&lt;PackageVersion&gt;' AND data__Identifier = '&lt;PatchVersion&gt;'
+SELECT *<br/>FROM aws.panorama.package_version<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;PackageId&gt;'<br/>AND data__Identifier = '&lt;PackageVersion&gt;'<br/>AND data__Identifier = '&lt;PatchVersion&gt;'
 </pre>

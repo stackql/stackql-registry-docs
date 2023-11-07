@@ -43,7 +43,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.iotsitewise.asset
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;AssetId&gt;'
+SELECT *<br/>FROM aws.iotsitewise.asset<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AssetId&gt;'
 </pre>

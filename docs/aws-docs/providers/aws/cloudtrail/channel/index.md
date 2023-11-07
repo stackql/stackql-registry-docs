@@ -40,7 +40,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.cloudtrail.channel
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ChannelArn&gt;'
+SELECT *<br/>FROM aws.cloudtrail.channel<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ChannelArn&gt;'
 </pre>

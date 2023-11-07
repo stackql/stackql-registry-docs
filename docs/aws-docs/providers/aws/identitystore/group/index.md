@@ -39,7 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.identitystore.group
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;GroupId&gt;' AND data__Identifier = '&lt;IdentityStoreId&gt;'
+SELECT *<br/>FROM aws.identitystore.group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;GroupId&gt;'<br/>AND data__Identifier = '&lt;IdentityStoreId&gt;'
 </pre>

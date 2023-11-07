@@ -42,7 +42,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.eks.fargate_profile
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;ClusterName&gt;' AND data__Identifier = '&lt;FargateProfileName&gt;'
+SELECT *<br/>FROM aws.eks.fargate_profile<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ClusterName&gt;'<br/>AND data__Identifier = '&lt;FargateProfileName&gt;'
 </pre>

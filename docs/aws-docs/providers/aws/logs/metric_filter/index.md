@@ -39,7 +39,5 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
 <pre>
-SELECT * 
-FROM aws.logs.metric_filter
-WHERE region = 'us-east-1' AND data__Identifier = '&lt;LogGroupName&gt;' AND data__Identifier = '&lt;FilterName&gt;'
+SELECT *<br/>FROM aws.logs.metric_filter<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LogGroupName&gt;'<br/>AND data__Identifier = '&lt;FilterName&gt;'
 </pre>
