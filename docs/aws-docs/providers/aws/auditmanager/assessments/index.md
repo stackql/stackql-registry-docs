@@ -27,19 +27,19 @@ Retrieves a list of <code>assessments</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FrameworkId</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AssessmentId</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AwsAccount</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>FrameworkId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>AssessmentId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>AwsAccount</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags associated with the assessment.</td></tr>
 <tr><td><code>Delegations</code></td><td><code>array</code></td><td>The list of delegations.</td></tr>
 <tr><td><code>Roles</code></td><td><code>array</code></td><td>The list of roles for the specified assessment.</td></tr>
-<tr><td><code>Scope</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AssessmentReportsDestination</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>CreationTime</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Scope</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>AssessmentReportsDestination</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>CreationTime</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

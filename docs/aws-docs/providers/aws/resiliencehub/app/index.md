@@ -31,7 +31,7 @@ Gets an individual <code>app</code> resource
 <tr><td><code>Description</code></td><td><code>string</code></td><td>App description.</td></tr>
 <tr><td><code>AppArn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the App.</td></tr>
 <tr><td><code>ResiliencyPolicyArn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>AppTemplateBody</code></td><td><code>string</code></td><td>A string containing full ResilienceHub app template body.</td></tr>
 <tr><td><code>ResourceMappings</code></td><td><code>array</code></td><td>An array of ResourceMapping objects.</td></tr>
 <tr><td><code>AppAssessmentSchedule</code></td><td><code>string</code></td><td>Assessment execution schedule.</td></tr>

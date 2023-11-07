@@ -31,7 +31,7 @@ Gets an individual <code>event_integration</code> resource
 <tr><td><code>EventIntegrationArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the event integration.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the event integration.</td></tr>
 <tr><td><code>EventBridgeBus</code></td><td><code>string</code></td><td>The Amazon Eventbridge bus for the event integration.</td></tr>
-<tr><td><code>EventFilter</code></td><td><code>undefined</code></td><td>The EventFilter (source) associated with the event integration.</td></tr>
+<tr><td><code>EventFilter</code></td><td><code>object</code></td><td>The EventFilter (source) associated with the event integration.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags (keys and values) associated with the event integration.</td></tr>
 
 </tbody></table>

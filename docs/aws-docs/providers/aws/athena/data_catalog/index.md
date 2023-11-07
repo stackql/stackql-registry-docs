@@ -30,7 +30,7 @@ Gets an individual <code>data_catalog</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. </td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the data catalog to be created. </td></tr>
 <tr><td><code>Parameters</code></td><td><code>object</code></td><td>Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. </td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td>A list of comma separated tags to add to the data catalog that is created. </td></tr>
+<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of comma separated tags to add to the data catalog that is created. </td></tr>
 <tr><td><code>Type</code></td><td><code>string</code></td><td>The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. </td></tr>
 
 </tbody></table>

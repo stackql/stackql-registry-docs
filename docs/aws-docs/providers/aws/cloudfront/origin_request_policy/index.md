@@ -29,7 +29,7 @@ Gets an individual <code>origin_request_policy</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>LastModifiedTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OriginRequestPolicyConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>OriginRequestPolicyConfig</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

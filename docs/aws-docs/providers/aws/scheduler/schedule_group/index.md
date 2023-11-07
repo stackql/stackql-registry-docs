@@ -31,7 +31,7 @@ Gets an individual <code>schedule_group</code> resource
 <tr><td><code>CreationDate</code></td><td><code>string</code></td><td>The time at which the schedule group was created.</td></tr>
 <tr><td><code>LastModificationDate</code></td><td><code>string</code></td><td>The time at which the schedule group was last modified.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>State</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>State</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The list of tags to associate with the schedule group.</td></tr>
 
 </tbody></table>

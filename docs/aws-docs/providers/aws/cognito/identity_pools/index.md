@@ -27,10 +27,10 @@ Retrieves a list of <code>identity_pools</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PushSync</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PushSync</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CognitoIdentityProviders</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>DeveloperProviderName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CognitoStreams</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CognitoStreams</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>SupportedLoginProviders</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CognitoEvents</code></td><td><code>object</code></td><td></td></tr>

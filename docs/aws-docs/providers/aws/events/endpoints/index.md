@@ -31,9 +31,9 @@ Retrieves a list of <code>endpoints</code> in a region
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoutingConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ReplicationConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>EventBuses</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>RoutingConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>ReplicationConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>EventBuses</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>EndpointId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>EndpointUrl</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>State</code></td><td><code>string</code></td><td></td></tr>

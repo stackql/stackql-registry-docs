@@ -32,12 +32,12 @@ Gets an individual <code>infrastructure_configuration</code> resource
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the infrastructure configuration.</td></tr>
 <tr><td><code>InstanceTypes</code></td><td><code>array</code></td><td>The instance types of the infrastructure configuration.</td></tr>
 <tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td>The security group IDs of the infrastructure configuration.</td></tr>
-<tr><td><code>Logging</code></td><td><code>undefined</code></td><td>The logging configuration of the infrastructure configuration.</td></tr>
+<tr><td><code>Logging</code></td><td><code>object</code></td><td>The logging configuration of the infrastructure configuration.</td></tr>
 <tr><td><code>SubnetId</code></td><td><code>string</code></td><td>The subnet ID of the infrastructure configuration.</td></tr>
 <tr><td><code>KeyPair</code></td><td><code>string</code></td><td>The EC2 key pair of the infrastructure configuration..</td></tr>
 <tr><td><code>TerminateInstanceOnFailure</code></td><td><code>boolean</code></td><td>The terminate instance on failure configuration of the infrastructure configuration.</td></tr>
 <tr><td><code>InstanceProfileName</code></td><td><code>string</code></td><td>The instance profile of the infrastructure configuration.</td></tr>
-<tr><td><code>InstanceMetadataOptions</code></td><td><code>undefined</code></td><td>The instance metadata option settings for the infrastructure configuration.</td></tr>
+<tr><td><code>InstanceMetadataOptions</code></td><td><code>object</code></td><td>The instance metadata option settings for the infrastructure configuration.</td></tr>
 <tr><td><code>SnsTopicArn</code></td><td><code>string</code></td><td>The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
 <tr><td><code>ResourceTags</code></td><td><code>object</code></td><td>The tags attached to the resource created by Image Builder.</td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td>The tags associated with the component.</td></tr>

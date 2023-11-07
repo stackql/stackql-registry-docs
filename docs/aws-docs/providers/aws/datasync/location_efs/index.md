@@ -27,7 +27,7 @@ Gets an individual <code>location_efs</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Ec2Config</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Ec2Config</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>EfsFilesystemArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the Amazon EFS file system.</td></tr>
 <tr><td><code>AccessPointArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.</td></tr>
 <tr><td><code>FileSystemAccessRoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.</td></tr>

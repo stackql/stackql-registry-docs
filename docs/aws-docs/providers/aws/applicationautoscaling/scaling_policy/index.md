@@ -34,8 +34,8 @@ Gets an individual <code>scaling_policy</code> resource
 <tr><td><code>ScalableDimension</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ScalingTargetId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ServiceNamespace</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StepScalingPolicyConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>TargetTrackingScalingPolicyConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>StepScalingPolicyConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>TargetTrackingScalingPolicyConfiguration</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

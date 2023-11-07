@@ -32,9 +32,9 @@ Gets an individual <code>rest_api</code> resource
 <tr><td><code>ApiKeySourceType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>BinaryMediaTypes</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Body</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BodyS3Location</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>BodyS3Location</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CloneFrom</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>EndpointConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DisableExecuteApiEndpoint</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>FailOnWarnings</code></td><td><code>boolean</code></td><td></td></tr>

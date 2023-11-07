@@ -30,7 +30,7 @@ Gets an individual <code>application_version</code> resource
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ApplicationName</code></td><td><code>string</code></td><td>The name of the Elastic Beanstalk application that is associated with this application version. </td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description of this application version.</td></tr>
-<tr><td><code>SourceBundle</code></td><td><code>undefined</code></td><td>The Amazon S3 bucket and key that identify the location of the source bundle for this version. </td></tr>
+<tr><td><code>SourceBundle</code></td><td><code>object</code></td><td>The Amazon S3 bucket and key that identify the location of the source bundle for this version. </td></tr>
 
 </tbody></table>
 

@@ -30,7 +30,7 @@ Gets an individual <code>wireless_gateway</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td>Name of Wireless Gateway.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>Description of Wireless Gateway.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the gateway.</td></tr>
-<tr><td><code>LoRaWAN</code></td><td><code>undefined</code></td><td>The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.</td></tr>
+<tr><td><code>LoRaWAN</code></td><td><code>object</code></td><td>The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.</td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>Arn for Wireless Gateway. Returned upon successful create.</td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td>Id for Wireless Gateway. Returned upon successful create.</td></tr>
 <tr><td><code>ThingArn</code></td><td><code>string</code></td><td>Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.</td></tr>

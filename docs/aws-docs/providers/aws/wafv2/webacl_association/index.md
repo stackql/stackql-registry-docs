@@ -27,8 +27,8 @@ Gets an individual <code>webacl_association</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceArn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>WebACLArn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ResourceArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>WebACLArn</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

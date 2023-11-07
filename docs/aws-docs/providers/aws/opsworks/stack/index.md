@@ -30,11 +30,11 @@ Gets an individual <code>stack</code> resource
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AgentVersion</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Attributes</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ChefConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ChefConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CloneAppIds</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>ClonePermissions</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ConfigurationManager</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>CustomCookbooksSource</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ConfigurationManager</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>CustomCookbooksSource</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CustomJson</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>DefaultAvailabilityZone</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DefaultInstanceProfileArn</code></td><td><code>string</code></td><td></td></tr>

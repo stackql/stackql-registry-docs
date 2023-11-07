@@ -27,7 +27,7 @@ Retrieves a list of <code>location_s3s</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>S3Config</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>S3Config</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>S3BucketArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Amazon S3 bucket.</td></tr>
 <tr><td><code>Subdirectory</code></td><td><code>string</code></td><td>A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.</td></tr>
 <tr><td><code>S3StorageClass</code></td><td><code>string</code></td><td>The Amazon S3 storage class you want to store your files in when this location is used as a task destination.</td></tr>

@@ -28,11 +28,11 @@ Gets an individual <code>signing_profile</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>ProfileName</code></td><td><code>string</code></td><td>A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. </td></tr>
-<tr><td><code>ProfileVersion</code></td><td><code>undefined</code></td><td>A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.</td></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td>The Amazon Resource Name (ARN) of the specified signing profile.</td></tr>
-<tr><td><code>ProfileVersionArn</code></td><td><code>undefined</code></td><td>The Amazon Resource Name (ARN) of the specified signing profile version.</td></tr>
-<tr><td><code>SignatureValidityPeriod</code></td><td><code>undefined</code></td><td>Signature validity period of the profile.</td></tr>
-<tr><td><code>PlatformId</code></td><td><code>undefined</code></td><td>The ID of the target signing platform.</td></tr>
+<tr><td><code>ProfileVersion</code></td><td><code>string</code></td><td>A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.</td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified signing profile.</td></tr>
+<tr><td><code>ProfileVersionArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified signing profile version.</td></tr>
+<tr><td><code>SignatureValidityPeriod</code></td><td><code>object</code></td><td>Signature validity period of the profile.</td></tr>
+<tr><td><code>PlatformId</code></td><td><code>string</code></td><td>The ID of the target signing platform.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags associated with the signing profile.</td></tr>
 
 </tbody></table>

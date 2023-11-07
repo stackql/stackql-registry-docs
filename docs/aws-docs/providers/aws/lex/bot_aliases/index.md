@@ -27,15 +27,15 @@ Retrieves a list of <code>bot_aliases</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>BotAliasId</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>BotId</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>BotAliasStatus</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>BotAliasLocaleSettings</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>BotAliasName</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>BotVersion</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ConversationLogSettings</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>BotAliasId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>BotId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>BotAliasStatus</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>BotAliasLocaleSettings</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>BotAliasName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>BotVersion</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>ConversationLogSettings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SentimentAnalysisSettings</code></td><td><code>object</code></td><td>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.</td></tr>
 <tr><td><code>BotAliasTags</code></td><td><code>array</code></td><td>A list of tags to add to the bot alias.</td></tr>
 

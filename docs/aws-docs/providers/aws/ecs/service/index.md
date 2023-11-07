@@ -30,8 +30,8 @@ Gets an individual <code>service</code> resource
 <tr><td><code>ServiceArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CapacityProviderStrategy</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Cluster</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DeploymentController</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DeploymentConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>DeploymentController</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>DesiredCount</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>EnableECSManagedTags</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>EnableExecuteCommand</code></td><td><code>boolean</code></td><td></td></tr>
@@ -39,14 +39,14 @@ Gets an individual <code>service</code> resource
 <tr><td><code>LaunchType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>LoadBalancers</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NetworkConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>NetworkConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>PlacementConstraints</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>PlacementStrategies</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>PlatformVersion</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>PropagateTags</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Role</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SchedulingStrategy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServiceConnectConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ServiceConnectConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ServiceName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ServiceRegistries</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>

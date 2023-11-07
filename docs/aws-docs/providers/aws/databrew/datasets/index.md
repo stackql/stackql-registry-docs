@@ -29,9 +29,9 @@ Retrieves a list of <code>datasets</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>Dataset name</td></tr>
 <tr><td><code>Format</code></td><td><code>string</code></td><td>Dataset format</td></tr>
-<tr><td><code>FormatOptions</code></td><td><code>undefined</code></td><td>Format options for dataset</td></tr>
-<tr><td><code>Input</code></td><td><code>undefined</code></td><td>Input</td></tr>
-<tr><td><code>PathOptions</code></td><td><code>undefined</code></td><td>PathOptions</td></tr>
+<tr><td><code>FormatOptions</code></td><td><code>object</code></td><td>Format options for dataset</td></tr>
+<tr><td><code>Input</code></td><td><code>object</code></td><td>Input</td></tr>
+<tr><td><code>PathOptions</code></td><td><code>object</code></td><td>PathOptions</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

@@ -30,11 +30,11 @@ Retrieves a list of <code>flywheels</code> in a region
 <tr><td><code>ActiveModelArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DataAccessRoleArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DataLakeS3Uri</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DataSecurityConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DataSecurityConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>FlywheelName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ModelType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>TaskConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>TaskConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>

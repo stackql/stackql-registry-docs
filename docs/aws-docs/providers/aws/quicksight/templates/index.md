@@ -30,14 +30,14 @@ Retrieves a list of <code>templates</code> in a region
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AwsAccountId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreatedTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Definition</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Definition</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>LastUpdatedTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Permissions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SourceEntity</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SourceEntity</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>TemplateId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Version</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Version</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>VersionDescription</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>

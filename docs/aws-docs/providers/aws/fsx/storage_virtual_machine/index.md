@@ -30,7 +30,7 @@ Gets an individual <code>storage_virtual_machine</code> resource
 <tr><td><code>ResourceARN</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SvmAdminPassword</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StorageVirtualMachineId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ActiveDirectoryConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ActiveDirectoryConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>RootVolumeSecurityStyle</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>FileSystemId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>UUID</code></td><td><code>string</code></td><td></td></tr>

@@ -29,8 +29,8 @@ Gets an individual <code>member</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>MemberId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>NetworkId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MemberConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>NetworkConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>MemberConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>NetworkConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>InvitationId</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>

@@ -30,7 +30,7 @@ Retrieves a list of <code>configuration_set_event_destinations</code> in a regio
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>EventDestinationName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ConfigurationSetName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EventDestination</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>EventDestination</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

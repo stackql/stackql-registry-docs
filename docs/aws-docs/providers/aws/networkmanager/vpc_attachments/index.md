@@ -38,12 +38,12 @@ Retrieves a list of <code>vpc_attachments</code> in a region
 <tr><td><code>ResourceArn</code></td><td><code>string</code></td><td>The ARN of the Resource.</td></tr>
 <tr><td><code>AttachmentPolicyRuleNumber</code></td><td><code>integer</code></td><td>The policy rule number associated with the attachment.</td></tr>
 <tr><td><code>SegmentName</code></td><td><code>string</code></td><td>The name of the segment attachment..</td></tr>
-<tr><td><code>ProposedSegmentChange</code></td><td><code>undefined</code></td><td>The attachment to move from one segment to another.</td></tr>
+<tr><td><code>ProposedSegmentChange</code></td><td><code>object</code></td><td>The attachment to move from one segment to another.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>Tags for the attachment.</td></tr>
 <tr><td><code>CreatedAt</code></td><td><code>string</code></td><td>Creation time of the attachment.</td></tr>
 <tr><td><code>UpdatedAt</code></td><td><code>string</code></td><td>Last update time of the attachment.</td></tr>
 <tr><td><code>SubnetArns</code></td><td><code>array</code></td><td>Subnet Arn list</td></tr>
-<tr><td><code>Options</code></td><td><code>undefined</code></td><td>Vpc options of the attachment.</td></tr>
+<tr><td><code>Options</code></td><td><code>object</code></td><td>Vpc options of the attachment.</td></tr>
 
 </tbody></table>
 

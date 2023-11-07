@@ -32,7 +32,7 @@ Retrieves a list of <code>connections</code> in a region
 <tr><td><code>SecretArn</code></td><td><code>string</code></td><td>The arn of the secrets manager secret created in the customer account.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>Description of the connection.</td></tr>
 <tr><td><code>AuthorizationType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthParameters</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AuthParameters</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

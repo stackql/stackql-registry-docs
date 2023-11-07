@@ -29,7 +29,7 @@ Gets an individual <code>integration</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>DomainName</code></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
 <tr><td><code>Uri</code></td><td><code>string</code></td><td>The URI of the S3 bucket or any other type of data source.</td></tr>
-<tr><td><code>FlowDefinition</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>FlowDefinition</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ObjectTypeName</code></td><td><code>string</code></td><td>The name of the ObjectType defined for the 3rd party data in Profile Service</td></tr>
 <tr><td><code>CreatedAt</code></td><td><code>string</code></td><td>The time of this integration got created</td></tr>
 <tr><td><code>LastUpdatedAt</code></td><td><code>string</code></td><td>The time of this integration got last updated at</td></tr>

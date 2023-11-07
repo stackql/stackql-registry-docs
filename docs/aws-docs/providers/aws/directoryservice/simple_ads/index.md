@@ -37,7 +37,7 @@ Retrieves a list of <code>simple_ads</code> in a region
 <tr><td><code>Password</code></td><td><code>string</code></td><td>The password for the default administrative user named Admin.</td></tr>
 <tr><td><code>ShortName</code></td><td><code>string</code></td><td>The NetBIOS name for your domain.</td></tr>
 <tr><td><code>Size</code></td><td><code>string</code></td><td>The size of the directory.</td></tr>
-<tr><td><code>VpcSettings</code></td><td><code>undefined</code></td><td>VPC settings of the Simple AD directory server in AWS.</td></tr>
+<tr><td><code>VpcSettings</code></td><td><code>object</code></td><td>VPC settings of the Simple AD directory server in AWS.</td></tr>
 
 </tbody></table>
 

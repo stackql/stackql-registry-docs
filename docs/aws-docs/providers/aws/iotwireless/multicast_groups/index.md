@@ -29,7 +29,7 @@ Retrieves a list of <code>multicast_groups</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>Name of Multicast group</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>Multicast group description</td></tr>
-<tr><td><code>LoRaWAN</code></td><td><code>undefined</code></td><td>Multicast group LoRaWAN</td></tr>
+<tr><td><code>LoRaWAN</code></td><td><code>object</code></td><td>Multicast group LoRaWAN</td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>Multicast group arn. Returned after successful create.</td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td>Multicast group id. Returned after successful create.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the Multicast group.</td></tr>

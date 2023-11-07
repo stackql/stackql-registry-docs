@@ -31,8 +31,8 @@ Gets an individual <code>flow</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the flow.</td></tr>
 <tr><td><code>AvailabilityZone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.</td></tr>
 <tr><td><code>FlowAvailabilityZone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)</td></tr>
-<tr><td><code>Source</code></td><td><code>undefined</code></td><td>The source of the flow.</td></tr>
-<tr><td><code>SourceFailoverConfig</code></td><td><code>undefined</code></td><td>The source failover config of the flow.</td></tr>
+<tr><td><code>Source</code></td><td><code>object</code></td><td>The source of the flow.</td></tr>
+<tr><td><code>SourceFailoverConfig</code></td><td><code>object</code></td><td>The source failover config of the flow.</td></tr>
 
 </tbody></table>
 

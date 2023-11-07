@@ -27,11 +27,11 @@ Retrieves a list of <code>rules</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Action</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Action</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ListenerIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Match</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Match</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Priority</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>ServiceIdentifier</code></td><td><code>string</code></td><td></td></tr>

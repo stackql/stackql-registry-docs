@@ -30,7 +30,7 @@ Gets an individual <code>quick_connect</code> resource
 <tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the quick connect.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the quick connect.</td></tr>
-<tr><td><code>QuickConnectConfig</code></td><td><code>undefined</code></td><td>Configuration settings for the quick connect.</td></tr>
+<tr><td><code>QuickConnectConfig</code></td><td><code>object</code></td><td>Configuration settings for the quick connect.</td></tr>
 <tr><td><code>QuickConnectArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the quick connect.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>One or more tags.</td></tr>
 

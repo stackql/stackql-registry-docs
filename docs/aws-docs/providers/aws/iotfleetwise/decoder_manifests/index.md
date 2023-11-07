@@ -35,7 +35,7 @@ Retrieves a list of <code>decoder_manifests</code> in a region
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>NetworkInterfaces</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>SignalDecoders</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

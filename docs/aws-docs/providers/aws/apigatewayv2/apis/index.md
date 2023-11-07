@@ -28,7 +28,7 @@ Retrieves a list of <code>apis</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>RouteSelectionExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BodyS3Location</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>BodyS3Location</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ApiEndpoint</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>BasePath</code></td><td><code>string</code></td><td></td></tr>
@@ -38,7 +38,7 @@ Retrieves a list of <code>apis</code> in a region
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Target</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CredentialsArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CorsConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CorsConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Version</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ProtocolType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RouteKey</code></td><td><code>string</code></td><td></td></tr>

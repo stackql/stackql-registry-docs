@@ -30,8 +30,8 @@ Gets an individual <code>security_config</code> resource
 <tr><td><code>Description</code></td><td><code>string</code></td><td>Security config description</td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td>The identifier of the security config</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The friendly name of the security config</td></tr>
-<tr><td><code>SamlOptions</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SamlOptions</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

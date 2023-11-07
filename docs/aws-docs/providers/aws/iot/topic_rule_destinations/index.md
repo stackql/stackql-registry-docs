@@ -28,10 +28,10 @@ Retrieves a list of <code>topic_rule_destinations</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN).</td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td>The status of the TopicRuleDestination.</td></tr>
-<tr><td><code>HttpUrlProperties</code></td><td><code>undefined</code></td><td>HTTP URL destination properties.</td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td>The status of the TopicRuleDestination.</td></tr>
+<tr><td><code>HttpUrlProperties</code></td><td><code>object</code></td><td>HTTP URL destination properties.</td></tr>
 <tr><td><code>StatusReason</code></td><td><code>string</code></td><td>The reasoning for the current status of the TopicRuleDestination.</td></tr>
-<tr><td><code>VpcProperties</code></td><td><code>undefined</code></td><td>VPC destination properties.</td></tr>
+<tr><td><code>VpcProperties</code></td><td><code>object</code></td><td>VPC destination properties.</td></tr>
 
 </tbody></table>
 

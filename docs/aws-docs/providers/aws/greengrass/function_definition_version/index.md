@@ -28,7 +28,7 @@ Gets an individual <code>function_definition_version</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DefaultConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Functions</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>FunctionDefinitionId</code></td><td><code>string</code></td><td></td></tr>
 

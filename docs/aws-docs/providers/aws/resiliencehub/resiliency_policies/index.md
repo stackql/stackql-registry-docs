@@ -31,9 +31,9 @@ Retrieves a list of <code>resiliency_policies</code> in a region
 <tr><td><code>PolicyDescription</code></td><td><code>string</code></td><td>Description of Resiliency Policy.</td></tr>
 <tr><td><code>DataLocationConstraint</code></td><td><code>string</code></td><td>Data Location Constraint of the Policy.</td></tr>
 <tr><td><code>Tier</code></td><td><code>string</code></td><td>Resiliency Policy Tier.</td></tr>
-<tr><td><code>Policy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Policy</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>PolicyArn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

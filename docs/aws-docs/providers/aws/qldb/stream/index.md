@@ -29,12 +29,12 @@ Gets an individual <code>stream</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>LedgerName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StreamName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>InclusiveStartTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ExclusiveEndTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KinesisConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>KinesisConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>

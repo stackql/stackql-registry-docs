@@ -35,7 +35,7 @@ Gets an individual <code>workspace</code> resource
 <tr><td><code>UserName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>UserVolumeEncryptionEnabled</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>VolumeEncryptionKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WorkspaceProperties</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>WorkspaceProperties</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

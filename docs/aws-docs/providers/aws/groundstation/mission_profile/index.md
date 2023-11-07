@@ -31,7 +31,7 @@ Gets an individual <code>mission_profile</code> resource
 <tr><td><code>ContactPrePassDurationSeconds</code></td><td><code>integer</code></td><td>Pre-pass time needed before the contact.</td></tr>
 <tr><td><code>ContactPostPassDurationSeconds</code></td><td><code>integer</code></td><td>Post-pass time needed after the contact.</td></tr>
 <tr><td><code>MinimumViableContactDurationSeconds</code></td><td><code>integer</code></td><td>Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.</td></tr>
-<tr><td><code>StreamsKmsKey</code></td><td><code>undefined</code></td><td>The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.</td></tr>
+<tr><td><code>StreamsKmsKey</code></td><td><code>object</code></td><td>The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.</td></tr>
 <tr><td><code>StreamsKmsRole</code></td><td><code>string</code></td><td>The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.</td></tr>
 <tr><td><code>DataflowEdges</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>TrackingConfigArn</code></td><td><code>string</code></td><td></td></tr>

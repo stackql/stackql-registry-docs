@@ -34,7 +34,7 @@ Gets an individual <code>git_hub_repository</code> resource
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RepositoryOwner</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>IsPrivate</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Code</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Code</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>RepositoryDescription</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>

@@ -28,11 +28,11 @@ Gets an individual <code>job_queue</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>JobQueueName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>JobQueueArn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>JobQueueArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ComputeEnvironmentOrder</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Priority</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>State</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SchedulingPolicyArn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SchedulingPolicyArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
 
 </tbody></table>

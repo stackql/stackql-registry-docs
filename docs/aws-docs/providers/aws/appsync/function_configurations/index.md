@@ -33,11 +33,11 @@ Retrieves a list of <code>function_configurations</code> in a region
 <tr><td><code>RequestMappingTemplate</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ResponseMappingTemplate</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MaxBatchSize</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>SyncConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SyncConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Code</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ResponseMappingTemplateS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Runtime</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Runtime</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CodeS3Location</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DataSourceName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>FunctionVersion</code></td><td><code>string</code></td><td></td></tr>

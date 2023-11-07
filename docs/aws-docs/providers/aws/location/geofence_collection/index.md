@@ -30,12 +30,12 @@ Gets an individual <code>geofence_collection</code> resource
 <tr><td><code>CollectionArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CollectionName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreateTime</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CreateTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PricingPlan</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PricingPlan</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>PricingPlanDataSource</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UpdateTime</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>UpdateTime</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

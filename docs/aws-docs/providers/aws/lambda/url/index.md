@@ -33,7 +33,7 @@ Gets an individual <code>url</code> resource
 <tr><td><code>InvokeMode</code></td><td><code>string</code></td><td>The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.</td></tr>
 <tr><td><code>FunctionArn</code></td><td><code>string</code></td><td>The full Amazon Resource Name (ARN) of the function associated with the Function URL.</td></tr>
 <tr><td><code>FunctionUrl</code></td><td><code>string</code></td><td>The generated url for this resource.</td></tr>
-<tr><td><code>Cors</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Cors</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

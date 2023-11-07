@@ -29,7 +29,7 @@ Gets an individual <code>application_cloud_watch_logging_option</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ApplicationName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CloudWatchLoggingOption</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CloudWatchLoggingOption</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

@@ -35,7 +35,7 @@ Gets an individual <code>image_recipe</code> resource
 <tr><td><code>BlockDeviceMappings</code></td><td><code>array</code></td><td>The block device mappings to apply when creating images from this recipe.</td></tr>
 <tr><td><code>ParentImage</code></td><td><code>string</code></td><td>The parent image of the image recipe.</td></tr>
 <tr><td><code>WorkingDirectory</code></td><td><code>string</code></td><td>The working directory to be used during build and test workflows.</td></tr>
-<tr><td><code>AdditionalInstanceConfiguration</code></td><td><code>undefined</code></td><td>Specify additional settings and launch scripts for your build instances.</td></tr>
+<tr><td><code>AdditionalInstanceConfiguration</code></td><td><code>object</code></td><td>Specify additional settings and launch scripts for your build instances.</td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td>The tags of the image recipe.</td></tr>
 
 </tbody></table>

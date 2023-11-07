@@ -35,7 +35,7 @@ Retrieves a list of <code>associations</code> in a region
 <tr><td><code>Parameters</code></td><td><code>object</code></td><td>Parameter values that the SSM document uses at runtime.</td></tr>
 <tr><td><code>ScheduleExpression</code></td><td><code>string</code></td><td>A Cron or Rate expression that specifies when the association is applied to the target.</td></tr>
 <tr><td><code>Targets</code></td><td><code>array</code></td><td>The targets that the SSM document sends commands to.</td></tr>
-<tr><td><code>OutputLocation</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>OutputLocation</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>AutomationTargetParameterName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MaxErrors</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MaxConcurrency</code></td><td><code>string</code></td><td></td></tr>

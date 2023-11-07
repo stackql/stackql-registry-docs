@@ -28,8 +28,8 @@ Retrieves a list of <code>logging_configurations</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>FirewallName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FirewallArn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>LoggingConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>FirewallArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>LoggingConfiguration</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

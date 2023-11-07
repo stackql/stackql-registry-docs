@@ -40,7 +40,7 @@ Retrieves a list of <code>launch_configurations</code> in a region
 <tr><td><code>KernelId</code></td><td><code>string</code></td><td>Provides the ID of the kernel associated with the EC2 AMI.</td></tr>
 <tr><td><code>KeyName</code></td><td><code>string</code></td><td>Provides the name of the EC2 key pair.</td></tr>
 <tr><td><code>LaunchConfigurationName</code></td><td><code>string</code></td><td>The name of the launch configuration. This name must be unique per Region per account.</td></tr>
-<tr><td><code>MetadataOptions</code></td><td><code>undefined</code></td><td>The metadata options for the instances.</td></tr>
+<tr><td><code>MetadataOptions</code></td><td><code>object</code></td><td>The metadata options for the instances.</td></tr>
 <tr><td><code>PlacementTenancy</code></td><td><code>string</code></td><td>The tenancy of the instance, either default or dedicated.</td></tr>
 <tr><td><code>RamDiskId</code></td><td><code>string</code></td><td>The ID of the RAM disk to select.</td></tr>
 <tr><td><code>SecurityGroups</code></td><td><code>array</code></td><td>A list that contains the security groups to assign to the instances in the Auto Scaling group.</td></tr>

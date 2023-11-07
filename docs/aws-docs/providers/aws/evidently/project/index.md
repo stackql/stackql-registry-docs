@@ -30,8 +30,8 @@ Gets an individual <code>project</code> resource
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DataDelivery</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AppConfigResource</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DataDelivery</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>AppConfigResource</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 
 </tbody></table>

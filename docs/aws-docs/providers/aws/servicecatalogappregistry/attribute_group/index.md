@@ -32,7 +32,7 @@ Gets an individual <code>attribute_group</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the attribute group. </td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the attribute group. </td></tr>
 <tr><td><code>Attributes</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

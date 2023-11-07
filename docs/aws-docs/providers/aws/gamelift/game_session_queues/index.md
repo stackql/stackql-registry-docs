@@ -31,13 +31,13 @@ Retrieves a list of <code>game_session_queues</code> in a region
 <tr><td><code>PlayerLatencyPolicies</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Destinations</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>NotificationTarget</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FilterConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>FilterConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CustomEventData</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PriorityConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PriorityConfiguration</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

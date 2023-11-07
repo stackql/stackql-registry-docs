@@ -30,7 +30,7 @@ Retrieves a list of <code>flow_outputs</code> in a region
 <tr><td><code>FlowArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
 <tr><td><code>OutputArn</code></td><td><code>string</code></td><td>The ARN of the output.</td></tr>
 <tr><td><code>CidrAllowList</code></td><td><code>array</code></td><td>The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0&#x2F;16.</td></tr>
-<tr><td><code>Encryption</code></td><td><code>undefined</code></td><td>The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</td></tr>
+<tr><td><code>Encryption</code></td><td><code>object</code></td><td>The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the output.</td></tr>
 <tr><td><code>Destination</code></td><td><code>string</code></td><td>The address where you want to send the output.</td></tr>
 <tr><td><code>MaxLatency</code></td><td><code>integer</code></td><td>The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</td></tr>
@@ -41,7 +41,7 @@ Retrieves a list of <code>flow_outputs</code> in a region
 <tr><td><code>RemoteId</code></td><td><code>string</code></td><td>The remote ID for the Zixi-pull stream.</td></tr>
 <tr><td><code>SmoothingLatency</code></td><td><code>integer</code></td><td>The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</td></tr>
 <tr><td><code>StreamId</code></td><td><code>string</code></td><td>The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.</td></tr>
-<tr><td><code>VpcInterfaceAttachment</code></td><td><code>undefined</code></td><td>The name of the VPC interface attachment to use for this output.</td></tr>
+<tr><td><code>VpcInterfaceAttachment</code></td><td><code>object</code></td><td>The name of the VPC interface attachment to use for this output.</td></tr>
 
 </tbody></table>
 

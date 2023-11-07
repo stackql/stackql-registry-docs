@@ -35,13 +35,13 @@ Gets an individual <code>maintenance_window_task</code> resource
 <tr><td><code>Targets</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>TaskArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TaskInvocationParameters</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>TaskInvocationParameters</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>WindowId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>TaskParameters</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>TaskType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CutoffBehavior</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LoggingInfo</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LoggingInfo</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

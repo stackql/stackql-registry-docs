@@ -28,11 +28,11 @@ Gets an individual <code>backup_vault</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>AccessPolicy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BackupVaultName</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>BackupVaultName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>BackupVaultTags</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>EncryptionKeyArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Notifications</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>LockConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Notifications</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>LockConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>BackupVaultArn</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>

@@ -28,8 +28,8 @@ Gets an individual <code>vdm_attributes</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>VdmAttributesResourceId</code></td><td><code>string</code></td><td>Unique identifier for this resource</td></tr>
-<tr><td><code>DashboardAttributes</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>GuardianAttributes</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DashboardAttributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>GuardianAttributes</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

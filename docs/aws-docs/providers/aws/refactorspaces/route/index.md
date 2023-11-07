@@ -32,10 +32,10 @@ Gets an individual <code>route</code> resource
 <tr><td><code>ApplicationIdentifier</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>EnvironmentIdentifier</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RouteIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RouteType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>RouteType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ServiceIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultRoute</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>UriPathRoute</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DefaultRoute</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>UriPathRoute</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.</td></tr>
 
 </tbody></table>

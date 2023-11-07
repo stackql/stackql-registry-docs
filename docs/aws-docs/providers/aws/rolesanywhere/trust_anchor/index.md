@@ -29,7 +29,7 @@ Gets an individual <code>trust_anchor</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Enabled</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Source</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Source</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>TrustAnchorId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>TrustAnchorArn</code></td><td><code>string</code></td><td></td></tr>

@@ -30,9 +30,9 @@ Gets an individual <code>usage_plan</code> resource
 <tr><td><code>Id</code></td><td><code>string</code></td><td>The provider-assigned unique ID for this managed resource.</td></tr>
 <tr><td><code>ApiStages</code></td><td><code>array</code></td><td>The API stages to associate with this usage plan.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the usage plan.</td></tr>
-<tr><td><code>Quota</code></td><td><code>undefined</code></td><td>Configures the number of requests that users can make within a given interval.</td></tr>
+<tr><td><code>Quota</code></td><td><code>object</code></td><td>Configures the number of requests that users can make within a given interval.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of arbitrary tags (key-value pairs) to associate with the usage plan.</td></tr>
-<tr><td><code>Throttle</code></td><td><code>undefined</code></td><td>Configures the overall request rate (average requests per second) and burst capacity.</td></tr>
+<tr><td><code>Throttle</code></td><td><code>object</code></td><td>Configures the overall request rate (average requests per second) and burst capacity.</td></tr>
 <tr><td><code>UsagePlanName</code></td><td><code>string</code></td><td>A name for the usage plan.</td></tr>
 
 </tbody></table>

@@ -34,7 +34,7 @@ Retrieves a list of <code>namespaces</code> in a region
 <tr><td><code>IamRoles</code></td><td><code>array</code></td><td>A list of AWS Identity and Access Management (IAM) roles that can be used by the namespace to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. The Default role limit for each request is 10.</td></tr>
 <tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td>The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the namespace.</td></tr>
 <tr><td><code>LogExports</code></td><td><code>array</code></td><td>The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog</td></tr>
-<tr><td><code>Namespace</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Namespace</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>NamespaceName</code></td><td><code>string</code></td><td>A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The list of tags for the namespace.</td></tr>
 <tr><td><code>FinalSnapshotName</code></td><td><code>string</code></td><td>The name of the namespace the source snapshot was created from. Please specify the name if needed before deleting namespace</td></tr>

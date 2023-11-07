@@ -33,7 +33,7 @@ Gets an individual <code>ca_certificate</code> resource
 <tr><td><code>CertificateMode</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AutoRegistrationStatus</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RemoveAutoRegistration</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>RegistrationConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>RegistrationConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>

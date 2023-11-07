@@ -32,9 +32,9 @@ Retrieves a list of <code>distributions</code> in a region
 <tr><td><code>BundleId</code></td><td><code>string</code></td><td>The bundle ID to use for the distribution.</td></tr>
 <tr><td><code>IpAddressType</code></td><td><code>string</code></td><td>The IP address type for the distribution.</td></tr>
 <tr><td><code>CacheBehaviors</code></td><td><code>array</code></td><td>An array of objects that describe the per-path cache behavior for the distribution.</td></tr>
-<tr><td><code>CacheBehaviorSettings</code></td><td><code>undefined</code></td><td>An object that describes the cache behavior settings for the distribution.</td></tr>
-<tr><td><code>DefaultCacheBehavior</code></td><td><code>undefined</code></td><td>An object that describes the default cache behavior for the distribution.</td></tr>
-<tr><td><code>Origin</code></td><td><code>undefined</code></td><td>An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.</td></tr>
+<tr><td><code>CacheBehaviorSettings</code></td><td><code>object</code></td><td>An object that describes the cache behavior settings for the distribution.</td></tr>
+<tr><td><code>DefaultCacheBehavior</code></td><td><code>object</code></td><td>An object that describes the default cache behavior for the distribution.</td></tr>
+<tr><td><code>Origin</code></td><td><code>object</code></td><td>An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.</td></tr>
 <tr><td><code>Status</code></td><td><code>string</code></td><td>The status of the distribution.</td></tr>
 <tr><td><code>AbleToUpdateBundle</code></td><td><code>boolean</code></td><td>Indicates whether the bundle that is currently applied to your distribution, specified using the distributionName parameter, can be changed to another bundle.</td></tr>
 <tr><td><code>IsEnabled</code></td><td><code>boolean</code></td><td>Indicates whether the distribution is enabled.</td></tr>

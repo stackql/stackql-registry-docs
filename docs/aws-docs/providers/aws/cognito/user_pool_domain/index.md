@@ -31,7 +31,7 @@ Gets an individual <code>user_pool_domain</code> resource
 <tr><td><code>UserPoolId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Domain</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomDomainConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CustomDomainConfig</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

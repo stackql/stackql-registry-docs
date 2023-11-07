@@ -28,7 +28,7 @@ Retrieves a list of <code>workteams</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NotificationConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>NotificationConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>WorkteamName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MemberDefinitions</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>

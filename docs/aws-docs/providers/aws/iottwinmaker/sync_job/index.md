@@ -30,8 +30,8 @@ Gets an individual <code>sync_job</code> resource
 <tr><td><code>WorkspaceId</code></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
 <tr><td><code>SyncSource</code></td><td><code>string</code></td><td>The source of the SyncJob.</td></tr>
 <tr><td><code>SyncRole</code></td><td><code>string</code></td><td>The IAM Role that execute SyncJob.</td></tr>
-<tr><td><code>CreationDateTime</code></td><td><code>undefined</code></td><td>The date and time when the sync job was created.</td></tr>
-<tr><td><code>UpdateDateTime</code></td><td><code>undefined</code></td><td>The date and time when the sync job was updated.</td></tr>
+<tr><td><code>CreationDateTime</code></td><td><code>string</code></td><td>The date and time when the sync job was created.</td></tr>
+<tr><td><code>UpdateDateTime</code></td><td><code>string</code></td><td>The date and time when the sync job was updated.</td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the SyncJob.</td></tr>
 <tr><td><code>State</code></td><td><code>string</code></td><td>The state of SyncJob.</td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>

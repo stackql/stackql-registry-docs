@@ -36,9 +36,9 @@ Gets an individual <code>component_type</code> resource
 <tr><td><code>PropertyDefinitions</code></td><td><code>object</code></td><td>An map of the property definitions in the component type. Each property definition's key must be unique to this map.</td></tr>
 <tr><td><code>PropertyGroups</code></td><td><code>object</code></td><td>An map of the property groups in the component type. Each property group's key must be unique to this map.</td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the component type.</td></tr>
-<tr><td><code>CreationDateTime</code></td><td><code>undefined</code></td><td>The date and time when the component type was created.</td></tr>
-<tr><td><code>UpdateDateTime</code></td><td><code>undefined</code></td><td>The last date and time when the component type was updated.</td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td>The current status of the component type.</td></tr>
+<tr><td><code>CreationDateTime</code></td><td><code>string</code></td><td>The date and time when the component type was created.</td></tr>
+<tr><td><code>UpdateDateTime</code></td><td><code>string</code></td><td>The last date and time when the component type was updated.</td></tr>
+<tr><td><code>Status</code></td><td><code>object</code></td><td>The current status of the component type.</td></tr>
 <tr><td><code>IsAbstract</code></td><td><code>boolean</code></td><td>A Boolean value that specifies whether the component type is abstract.</td></tr>
 <tr><td><code>IsSchemaInitialized</code></td><td><code>boolean</code></td><td>A Boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run.</td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td>A map of key-value pairs to associate with a resource.</td></tr>

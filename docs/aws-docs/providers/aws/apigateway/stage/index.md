@@ -27,10 +27,10 @@ Gets an individual <code>stage</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AccessLogSetting</code></td><td><code>undefined</code></td><td>Specifies settings for logging access in this stage.</td></tr>
+<tr><td><code>AccessLogSetting</code></td><td><code>object</code></td><td>Specifies settings for logging access in this stage.</td></tr>
 <tr><td><code>CacheClusterEnabled</code></td><td><code>boolean</code></td><td>Indicates whether cache clustering is enabled for the stage.</td></tr>
 <tr><td><code>CacheClusterSize</code></td><td><code>string</code></td><td>The stage's cache cluster size.</td></tr>
-<tr><td><code>CanarySetting</code></td><td><code>undefined</code></td><td>Specifies settings for the canary deployment in this stage.</td></tr>
+<tr><td><code>CanarySetting</code></td><td><code>object</code></td><td>Specifies settings for the canary deployment in this stage.</td></tr>
 <tr><td><code>ClientCertificateId</code></td><td><code>string</code></td><td>The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. </td></tr>
 <tr><td><code>DeploymentId</code></td><td><code>string</code></td><td>The ID of the deployment that the stage is associated with. This parameter is required to create a stage. </td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the stage.</td></tr>

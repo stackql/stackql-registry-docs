@@ -32,15 +32,15 @@ Gets an individual <code>analysis</code> resource
 <tr><td><code>AwsAccountId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreatedTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DataSetArns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Definition</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Definition</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Errors</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>LastUpdatedTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Parameters</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Parameters</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Permissions</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Sheets</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SourceEntity</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SourceEntity</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>ThemeArn</code></td><td><code>string</code></td><td></td></tr>
 

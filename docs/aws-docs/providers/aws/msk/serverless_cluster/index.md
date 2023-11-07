@@ -30,7 +30,7 @@ Gets an individual <code>serverless_cluster</code> resource
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ClusterName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>VpcConfigs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ClientAuthentication</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ClientAuthentication</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
 
 </tbody></table>

@@ -27,18 +27,18 @@ Gets an individual <code>index</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>undefined</code></td><td>A description for the index</td></tr>
-<tr><td><code>ServerSideEncryptionConfiguration</code></td><td><code>undefined</code></td><td>Server side encryption configuration</td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td>Tags for labeling the index</td></tr>
-<tr><td><code>Name</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Edition</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DocumentMetadataConfigurations</code></td><td><code>undefined</code></td><td>Document metadata configurations</td></tr>
-<tr><td><code>CapacityUnits</code></td><td><code>undefined</code></td><td>Capacity units</td></tr>
-<tr><td><code>UserContextPolicy</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>UserTokenConfigurations</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Description</code></td><td><code>string</code></td><td>A description for the index</td></tr>
+<tr><td><code>ServerSideEncryptionConfiguration</code></td><td><code>object</code></td><td>Server side encryption configuration</td></tr>
+<tr><td><code>Tags</code></td><td><code>array</code></td><td>Tags for labeling the index</td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Edition</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>DocumentMetadataConfigurations</code></td><td><code>array</code></td><td>Document metadata configurations</td></tr>
+<tr><td><code>CapacityUnits</code></td><td><code>object</code></td><td>Capacity units</td></tr>
+<tr><td><code>UserContextPolicy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>UserTokenConfigurations</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>
 

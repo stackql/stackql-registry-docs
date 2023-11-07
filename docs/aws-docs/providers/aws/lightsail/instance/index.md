@@ -32,10 +32,10 @@ Gets an individual <code>instance</code> resource
 <tr><td><code>IsStaticIp</code></td><td><code>boolean</code></td><td>Is the IP Address of the Instance is the static IP</td></tr>
 <tr><td><code>PrivateIpAddress</code></td><td><code>string</code></td><td>Private IP Address of the Instance</td></tr>
 <tr><td><code>PublicIpAddress</code></td><td><code>string</code></td><td>Public IP Address of the Instance</td></tr>
-<tr><td><code>Location</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Hardware</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>State</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Networking</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Location</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Hardware</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>State</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Networking</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>UserName</code></td><td><code>string</code></td><td>Username of the  Lightsail instance.</td></tr>
 <tr><td><code>SshKeyName</code></td><td><code>string</code></td><td>SSH Key Name of the  Lightsail instance.</td></tr>
 <tr><td><code>InstanceName</code></td><td><code>string</code></td><td>The names to use for your new Lightsail instance.</td></tr>

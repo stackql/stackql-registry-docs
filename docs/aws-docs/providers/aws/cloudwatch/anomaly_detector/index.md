@@ -29,12 +29,12 @@ Gets an individual <code>anomaly_detector</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>MetricName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Stat</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Configuration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>MetricMathAnomalyDetector</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>MetricMathAnomalyDetector</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Dimensions</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Namespace</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SingleMetricAnomalyDetector</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SingleMetricAnomalyDetector</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

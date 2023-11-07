@@ -32,7 +32,7 @@ Gets an individual <code>endpoint</code> resource
 <tr><td><code>ExcludeRetainedVariantProperties</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>EndpointConfigName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DeploymentConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>RetainDeploymentConfig</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 

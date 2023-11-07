@@ -27,19 +27,19 @@ Retrieves a list of <code>monitors</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CreatedAt</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ModifiedAt</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CreatedAt</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ModifiedAt</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MonitorArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MonitorName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProcessingStatus</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ProcessingStatus</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ProcessingStatusInfo</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Resources</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>ResourcesToAdd</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>ResourcesToRemove</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>MaxCityNetworksToMonitor</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>InternetMeasurementsLogDelivery</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>InternetMeasurementsLogDelivery</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

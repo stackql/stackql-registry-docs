@@ -35,7 +35,7 @@ Gets an individual <code>decoder_manifest</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>NetworkInterfaces</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>SignalDecoders</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

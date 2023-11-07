@@ -31,7 +31,7 @@ Gets an individual <code>app</code> resource
 <tr><td><code>AppName</code></td><td><code>string</code></td><td>The name of the app.</td></tr>
 <tr><td><code>AppType</code></td><td><code>string</code></td><td>The type of app.</td></tr>
 <tr><td><code>DomainId</code></td><td><code>string</code></td><td>The domain ID.</td></tr>
-<tr><td><code>ResourceSpec</code></td><td><code>undefined</code></td><td>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</td></tr>
+<tr><td><code>ResourceSpec</code></td><td><code>object</code></td><td>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the app.</td></tr>
 <tr><td><code>UserProfileName</code></td><td><code>string</code></td><td>The user profile name.</td></tr>
 

@@ -31,7 +31,7 @@ Gets an individual <code>project</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td>Project name</td></tr>
 <tr><td><code>RecipeName</code></td><td><code>string</code></td><td>Recipe name</td></tr>
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td>Role arn</td></tr>
-<tr><td><code>Sample</code></td><td><code>undefined</code></td><td>Sample</td></tr>
+<tr><td><code>Sample</code></td><td><code>object</code></td><td>Sample</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

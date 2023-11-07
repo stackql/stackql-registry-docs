@@ -38,8 +38,8 @@ Gets an individual <code>environment</code> resource
 <tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td>KMS key used to encrypt customer data within FinSpace Environment infrastructure</td></tr>
 <tr><td><code>DedicatedServiceAccountId</code></td><td><code>string</code></td><td>ID for FinSpace created account used to store Environment artifacts</td></tr>
 <tr><td><code>FederationMode</code></td><td><code>string</code></td><td>Federation mode used with the Environment</td></tr>
-<tr><td><code>FederationParameters</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>SuperuserParameters</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>FederationParameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>SuperuserParameters</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>DataBundles</code></td><td><code>array</code></td><td>ARNs of FinSpace Data Bundles to install</td></tr>
 
 </tbody></table>

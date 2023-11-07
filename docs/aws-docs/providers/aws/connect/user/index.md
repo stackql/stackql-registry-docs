@@ -33,8 +33,8 @@ Gets an individual <code>user</code> resource
 <tr><td><code>Username</code></td><td><code>string</code></td><td>The user name for the account.</td></tr>
 <tr><td><code>Password</code></td><td><code>string</code></td><td>The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.</td></tr>
 <tr><td><code>RoutingProfileArn</code></td><td><code>string</code></td><td>The identifier of the routing profile for the user.</td></tr>
-<tr><td><code>IdentityInfo</code></td><td><code>undefined</code></td><td>The information about the identity of the user.</td></tr>
-<tr><td><code>PhoneConfig</code></td><td><code>undefined</code></td><td>The phone settings for the user.</td></tr>
+<tr><td><code>IdentityInfo</code></td><td><code>object</code></td><td>The information about the identity of the user.</td></tr>
+<tr><td><code>PhoneConfig</code></td><td><code>object</code></td><td>The phone settings for the user.</td></tr>
 <tr><td><code>SecurityProfileArns</code></td><td><code>array</code></td><td>One or more security profile arns for the user</td></tr>
 <tr><td><code>UserArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the user.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>One or more tags.</td></tr>

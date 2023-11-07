@@ -28,8 +28,8 @@ Gets an individual <code>account_audit_configuration</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>AccountId</code></td><td><code>string</code></td><td>Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).</td></tr>
-<tr><td><code>AuditCheckConfigurations</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AuditNotificationTargetConfigurations</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AuditCheckConfigurations</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>AuditNotificationTargetConfigurations</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.</td></tr>
 
 </tbody></table>

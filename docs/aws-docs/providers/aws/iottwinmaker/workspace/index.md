@@ -32,8 +32,8 @@ Gets an individual <code>workspace</code> resource
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the workspace.</td></tr>
 <tr><td><code>Role</code></td><td><code>string</code></td><td>The ARN of the execution role associated with the workspace.</td></tr>
 <tr><td><code>S3Location</code></td><td><code>string</code></td><td>The ARN of the S3 bucket where resources associated with the workspace are stored.</td></tr>
-<tr><td><code>CreationDateTime</code></td><td><code>undefined</code></td><td>The date and time when the workspace was created.</td></tr>
-<tr><td><code>UpdateDateTime</code></td><td><code>undefined</code></td><td>The date and time of the current update.</td></tr>
+<tr><td><code>CreationDateTime</code></td><td><code>string</code></td><td>The date and time when the workspace was created.</td></tr>
+<tr><td><code>UpdateDateTime</code></td><td><code>string</code></td><td>The date and time of the current update.</td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td>A map of key-value pairs to associate with a resource.</td></tr>
 
 </tbody></table>

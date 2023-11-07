@@ -32,13 +32,13 @@ Retrieves a list of <code>inference_experiments</code> in a region
 <tr><td><code>Type</code></td><td><code>string</code></td><td>The type of the inference experiment that you want to run.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the inference experiment.</td></tr>
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.</td></tr>
-<tr><td><code>EndpointName</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>EndpointMetadata</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Schedule</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>EndpointName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>EndpointMetadata</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Schedule</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>KmsKey</code></td><td><code>string</code></td><td>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.</td></tr>
-<tr><td><code>DataStorageConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DataStorageConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ModelVariants</code></td><td><code>array</code></td><td>An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.</td></tr>
-<tr><td><code>ShadowModeConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ShadowModeConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><code>CreationTime</code></td><td><code>string</code></td><td>The timestamp at which you created the inference experiment.</td></tr>
 <tr><td><code>LastModifiedTime</code></td><td><code>string</code></td><td>The timestamp at which you last modified the inference experiment.</td></tr>

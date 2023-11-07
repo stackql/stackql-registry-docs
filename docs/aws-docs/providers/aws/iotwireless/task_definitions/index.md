@@ -29,8 +29,8 @@ Retrieves a list of <code>task_definitions</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the new resource.</td></tr>
 <tr><td><code>AutoCreateTasks</code></td><td><code>boolean</code></td><td>Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.</td></tr>
-<tr><td><code>Update</code></td><td><code>undefined</code></td><td>Information about the gateways to update.</td></tr>
-<tr><td><code>LoRaWANUpdateGatewayTaskEntry</code></td><td><code>undefined</code></td><td>The list of task definitions.</td></tr>
+<tr><td><code>Update</code></td><td><code>object</code></td><td>Information about the gateways to update.</td></tr>
+<tr><td><code>LoRaWANUpdateGatewayTaskEntry</code></td><td><code>object</code></td><td>The list of task definitions.</td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td>The ID of the new wireless gateway task definition</td></tr>
 <tr><td><code>TaskDefinitionType</code></td><td><code>string</code></td><td>A filter to list only the wireless gateway task definitions that use this task definition type</td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>TaskDefinition arn. Returned after successful create.</td></tr>

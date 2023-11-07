@@ -31,11 +31,11 @@ Retrieves a list of <code>budgets_actions</code> in a region
 <tr><td><code>BudgetName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>NotificationType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ActionType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ActionThreshold</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ActionThreshold</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ExecutionRoleArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ApprovalModel</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Subscribers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Definition</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Definition</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

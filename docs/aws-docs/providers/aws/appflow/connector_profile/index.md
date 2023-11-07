@@ -31,9 +31,9 @@ Gets an individual <code>connector_profile</code> resource
 <tr><td><code>ConnectorLabel</code></td><td><code>string</code></td><td>The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type&#x2F;.</td></tr>
 <tr><td><code>ConnectorProfileName</code></td><td><code>string</code></td><td>The maximum number of items to retrieve in a single batch.</td></tr>
 <tr><td><code>KMSArn</code></td><td><code>string</code></td><td>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</td></tr>
-<tr><td><code>ConnectorType</code></td><td><code>undefined</code></td><td>List of Saas providers that need connector profile to be created</td></tr>
+<tr><td><code>ConnectorType</code></td><td><code>string</code></td><td>List of Saas providers that need connector profile to be created</td></tr>
 <tr><td><code>ConnectionMode</code></td><td><code>string</code></td><td>Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular</td></tr>
-<tr><td><code>ConnectorProfileConfig</code></td><td><code>undefined</code></td><td>Connector specific configurations needed to create connector profile</td></tr>
+<tr><td><code>ConnectorProfileConfig</code></td><td><code>object</code></td><td>Connector specific configurations needed to create connector profile</td></tr>
 <tr><td><code>CredentialsArn</code></td><td><code>string</code></td><td>A unique Arn for Connector-Profile resource</td></tr>
 
 </tbody></table>

@@ -31,18 +31,18 @@ Retrieves a list of <code>data_sources</code> in a region
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>&lt;p&gt;The Amazon Resource Name (ARN) of the data source.&lt;&#x2F;p&gt;</td></tr>
 <tr><td><code>AwsAccountId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreatedTime</code></td><td><code>string</code></td><td>&lt;p&gt;The time that this data source was created.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Credentials</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Credentials</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>DataSourceId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DataSourceParameters</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ErrorInfo</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DataSourceParameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>ErrorInfo</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>LastUpdatedTime</code></td><td><code>string</code></td><td>&lt;p&gt;The last time that this data source was updated.&lt;&#x2F;p&gt;</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>&lt;p&gt;A display name for the data source.&lt;&#x2F;p&gt;</td></tr>
 <tr><td><code>Permissions</code></td><td><code>array</code></td><td>&lt;p&gt;A list of resource permissions on the data source.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>SslProperties</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SslProperties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>&lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>VpcConnectionProperties</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>VpcConnectionProperties</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

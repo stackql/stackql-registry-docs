@@ -28,7 +28,7 @@ Gets an individual <code>table</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>DatabaseName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TableInput</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>TableInput</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CatalogId</code></td><td><code>string</code></td><td></td></tr>
 

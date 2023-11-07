@@ -31,9 +31,9 @@ Gets an individual <code>recording_configuration</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td>Recording Configuration Name.</td></tr>
 <tr><td><code>State</code></td><td><code>string</code></td><td>Recording Configuration State.</td></tr>
 <tr><td><code>RecordingReconnectWindowSeconds</code></td><td><code>integer</code></td><td>Recording Reconnect Window Seconds. (0 means disabled)</td></tr>
-<tr><td><code>DestinationConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DestinationConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the asset model.</td></tr>
-<tr><td><code>ThumbnailConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ThumbnailConfiguration</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

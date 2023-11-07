@@ -38,7 +38,7 @@ Gets an individual <code>file_system</code> resource
 <tr><td><code>ThroughputMode</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>FileSystemPolicy</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>BypassPolicyLockoutSafetyCheck</code></td><td><code>boolean</code></td><td>Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false</td></tr>
-<tr><td><code>BackupPolicy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>BackupPolicy</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>AvailabilityZoneName</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>

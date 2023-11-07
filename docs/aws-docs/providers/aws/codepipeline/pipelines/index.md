@@ -29,7 +29,7 @@ Retrieves a list of <code>pipelines</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>ArtifactStores</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Version</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ArtifactStore</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ArtifactStore</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>DisableInboundStageTransitions</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Stages</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>RestartExecutionOnUpdate</code></td><td><code>boolean</code></td><td></td></tr>

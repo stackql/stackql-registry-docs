@@ -28,10 +28,10 @@ Gets an individual <code>deployment</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>DeploymentId</code></td><td><code>string</code></td><td>Primary Id for this resource</td></tr>
-<tr><td><code>DeploymentCanarySettings</code></td><td><code>undefined</code></td><td>Specifies settings for the canary deployment.</td></tr>
+<tr><td><code>DeploymentCanarySettings</code></td><td><code>object</code></td><td>Specifies settings for the canary deployment.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the purpose of the API Gateway deployment.</td></tr>
 <tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The ID of the RestApi resource to deploy. </td></tr>
-<tr><td><code>StageDescription</code></td><td><code>undefined</code></td><td>Configures the stage that API Gateway creates with this deployment.</td></tr>
+<tr><td><code>StageDescription</code></td><td><code>object</code></td><td>Configures the stage that API Gateway creates with this deployment.</td></tr>
 <tr><td><code>StageName</code></td><td><code>string</code></td><td>A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.</td></tr>
 
 </tbody></table>

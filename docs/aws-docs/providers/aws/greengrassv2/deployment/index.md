@@ -32,8 +32,8 @@ Gets an individual <code>deployment</code> resource
 <tr><td><code>DeploymentId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DeploymentName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Components</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>IotJobConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DeploymentPolicies</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>IotJobConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>DeploymentPolicies</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>

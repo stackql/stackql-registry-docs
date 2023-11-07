@@ -30,12 +30,12 @@ Retrieves a list of <code>services</code> in a region
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ApplicationIdentifier</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>EndpointType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>EnvironmentIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LambdaEndpoint</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LambdaEndpoint</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ServiceIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UrlEndpoint</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>UrlEndpoint</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>VpcId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.</td></tr>
 

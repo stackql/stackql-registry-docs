@@ -31,7 +31,7 @@ Gets an individual <code>wireless_device</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td>Wireless device name</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>Wireless device description</td></tr>
 <tr><td><code>DestinationName</code></td><td><code>string</code></td><td>Wireless device destination name</td></tr>
-<tr><td><code>LoRaWAN</code></td><td><code>undefined</code></td><td>The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.</td></tr>
+<tr><td><code>LoRaWAN</code></td><td><code>object</code></td><td>The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.</td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>Wireless device arn. Returned after successful create.</td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td>Wireless device Id. Returned after successful create.</td></tr>

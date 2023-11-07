@@ -32,7 +32,7 @@ Gets an individual <code>device</code> resource
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the device.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the device.</td></tr>
 <tr><td><code>GlobalNetworkId</code></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
-<tr><td><code>Location</code></td><td><code>undefined</code></td><td>The site location.</td></tr>
+<tr><td><code>Location</code></td><td><code>object</code></td><td>The site location.</td></tr>
 <tr><td><code>Model</code></td><td><code>string</code></td><td>The device model</td></tr>
 <tr><td><code>SerialNumber</code></td><td><code>string</code></td><td>The device serial number.</td></tr>
 <tr><td><code>SiteId</code></td><td><code>string</code></td><td>The site ID.</td></tr>

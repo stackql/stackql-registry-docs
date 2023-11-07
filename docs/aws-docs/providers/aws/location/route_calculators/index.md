@@ -30,11 +30,11 @@ Retrieves a list of <code>route_calculators</code> in a region
 <tr><td><code>CalculatorArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CalculatorName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreateTime</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CreateTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DataSource</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PricingPlan</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>UpdateTime</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PricingPlan</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>UpdateTime</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

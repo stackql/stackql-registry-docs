@@ -27,10 +27,10 @@ Gets an individual <code>campaign</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Action</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Action</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreationTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Compression</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Compression</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Priority</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>SignalsToCollect</code></td><td><code>array</code></td><td></td></tr>
@@ -38,11 +38,11 @@ Gets an individual <code>campaign</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ExpiryTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>LastModificationTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SpoolingMode</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SpoolingMode</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SignalCatalogArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>PostTriggerCollectionDuration</code></td><td><code>number</code></td><td></td></tr>
 <tr><td><code>DataExtraDimensions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DiagnosticsMode</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DiagnosticsMode</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>TargetArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CollectionScheme</code></td><td><code>undefined</code></td><td></td></tr>

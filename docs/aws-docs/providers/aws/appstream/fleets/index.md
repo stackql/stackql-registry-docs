@@ -28,13 +28,13 @@ Retrieves a list of <code>fleets</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComputeCapacity</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ComputeCapacity</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Platform</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VpcConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>VpcConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>FleetType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>EnableDefaultInternetAccess</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>DomainJoinInfo</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>SessionScriptS3Location</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DomainJoinInfo</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>SessionScriptS3Location</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ImageName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MaxUserDurationInSeconds</code></td><td><code>integer</code></td><td></td></tr>

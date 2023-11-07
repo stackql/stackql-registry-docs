@@ -28,9 +28,9 @@ Retrieves a list of <code>directory_configs</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>OrganizationalUnitDistinguishedNames</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ServiceAccountCredentials</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ServiceAccountCredentials</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>DirectoryName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateBasedAuthProperties</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CertificateBasedAuthProperties</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

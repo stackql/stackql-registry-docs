@@ -29,7 +29,7 @@ Retrieves a list of <code>connect_peers</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>PeerAddress</code></td><td><code>string</code></td><td>The IP address of the Connect peer.</td></tr>
 <tr><td><code>CoreNetworkAddress</code></td><td><code>string</code></td><td>The IP address of a core network.</td></tr>
-<tr><td><code>BgpOptions</code></td><td><code>undefined</code></td><td>Bgp options for connect peer.</td></tr>
+<tr><td><code>BgpOptions</code></td><td><code>object</code></td><td>Bgp options for connect peer.</td></tr>
 <tr><td><code>InsideCidrBlocks</code></td><td><code>array</code></td><td>The inside IP addresses used for a Connect peer configuration.</td></tr>
 <tr><td><code>CoreNetworkId</code></td><td><code>string</code></td><td>The ID of the core network.</td></tr>
 <tr><td><code>ConnectAttachmentId</code></td><td><code>string</code></td><td>The ID of the attachment to connect.</td></tr>
@@ -37,7 +37,7 @@ Retrieves a list of <code>connect_peers</code> in a region
 <tr><td><code>EdgeLocation</code></td><td><code>string</code></td><td>The Connect peer Regions where edges are located.</td></tr>
 <tr><td><code>State</code></td><td><code>string</code></td><td>State of the connect peer.</td></tr>
 <tr><td><code>CreatedAt</code></td><td><code>string</code></td><td>Connect peer creation time.</td></tr>
-<tr><td><code>Configuration</code></td><td><code>undefined</code></td><td>Configuration of the connect peer.</td></tr>
+<tr><td><code>Configuration</code></td><td><code>object</code></td><td>Configuration of the connect peer.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 
 </tbody></table>

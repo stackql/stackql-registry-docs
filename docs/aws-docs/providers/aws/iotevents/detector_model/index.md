@@ -27,7 +27,7 @@ Gets an individual <code>detector_model</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DetectorModelDefinition</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DetectorModelDefinition</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>DetectorModelDescription</code></td><td><code>string</code></td><td>A brief description of the detector model.</td></tr>
 <tr><td><code>DetectorModelName</code></td><td><code>string</code></td><td>The name of the detector model.</td></tr>
 <tr><td><code>EvaluationMethod</code></td><td><code>string</code></td><td>Information about the order in which events are evaluated and how actions are executed.</td></tr>

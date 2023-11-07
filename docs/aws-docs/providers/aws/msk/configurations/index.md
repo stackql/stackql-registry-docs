@@ -30,7 +30,7 @@ Retrieves a list of <code>configurations</code> in a region
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ServerProperties</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KafkaVersionsList</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>KafkaVersionsList</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>

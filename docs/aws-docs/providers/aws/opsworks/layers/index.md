@@ -33,12 +33,12 @@ Retrieves a list of <code>layers</code> in a region
 <tr><td><code>AutoAssignPublicIps</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>CustomInstanceProfileArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CustomJson</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CustomRecipes</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CustomRecipes</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CustomSecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>EnableAutoHealing</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>InstallUpdatesOnBoot</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>LifecycleEventConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>LoadBasedAutoScaling</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LifecycleEventConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>LoadBasedAutoScaling</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Packages</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Shortname</code></td><td><code>string</code></td><td></td></tr>

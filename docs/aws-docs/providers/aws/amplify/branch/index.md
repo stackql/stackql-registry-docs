@@ -29,7 +29,7 @@ Gets an individual <code>branch</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>AppId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BasicAuthConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>BasicAuthConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>BranchName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>BuildSpec</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>

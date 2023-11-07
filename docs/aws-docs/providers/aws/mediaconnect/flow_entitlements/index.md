@@ -31,7 +31,7 @@ Retrieves a list of <code>flow_entitlements</code> in a region
 <tr><td><code>EntitlementArn</code></td><td><code>string</code></td><td>The ARN of the entitlement.</td></tr>
 <tr><td><code>DataTransferSubscriberFeePercent</code></td><td><code>integer</code></td><td>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the entitlement.</td></tr>
-<tr><td><code>Encryption</code></td><td><code>undefined</code></td><td>The type of encryption that will be used on the output that is associated with this entitlement.</td></tr>
+<tr><td><code>Encryption</code></td><td><code>object</code></td><td>The type of encryption that will be used on the output that is associated with this entitlement.</td></tr>
 <tr><td><code>EntitlementStatus</code></td><td><code>string</code></td><td> An indication of whether the entitlement is enabled.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the entitlement.</td></tr>
 <tr><td><code>Subscribers</code></td><td><code>array</code></td><td>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</td></tr>

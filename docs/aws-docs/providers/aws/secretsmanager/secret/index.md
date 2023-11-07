@@ -30,7 +30,7 @@ Gets an individual <code>secret</code> resource
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SecretString</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>GenerateSecretString</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>GenerateSecretString</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ReplicaRegions</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>

@@ -32,9 +32,9 @@ Gets an individual <code>dataset</code> resource
 <tr><td><code>DatasetName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ContentDeliveryRules</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Triggers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>VersioningConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>VersioningConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RetentionPeriod</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>RetentionPeriod</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>
