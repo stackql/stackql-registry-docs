@@ -20,7 +20,7 @@ Gets an individual <code>dimension</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dimension</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>dimension</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.dimension</code></td></tr>
 </tbody></table>
 

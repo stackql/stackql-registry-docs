@@ -20,7 +20,7 @@ Gets an individual <code>fuota_task</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>fuota_task</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>fuota_task</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iotwireless.fuota_task</code></td></tr>
 </tbody></table>
 

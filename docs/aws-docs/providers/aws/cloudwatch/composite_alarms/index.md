@@ -20,7 +20,7 @@ Retrieves a list of <code>composite_alarms</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>composite_alarms</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>composite_alarms</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudwatch.composite_alarms</code></td></tr>
 </tbody></table>
 

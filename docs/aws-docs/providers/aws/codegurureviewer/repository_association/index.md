@@ -20,7 +20,7 @@ Gets an individual <code>repository_association</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repository_association</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>repository_association</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.codegurureviewer.repository_association</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>placement</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>placement</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>placement</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot1click.placement</code></td></tr>
 </tbody></table>
 

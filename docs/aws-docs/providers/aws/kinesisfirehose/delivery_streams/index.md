@@ -20,7 +20,7 @@ Retrieves a list of <code>delivery_streams</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>delivery_streams</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>delivery_streams</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.kinesisfirehose.delivery_streams</code></td></tr>
 </tbody></table>
 

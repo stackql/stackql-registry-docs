@@ -20,7 +20,7 @@ Retrieves a list of <code>health_checks</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>health_checks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>health_checks</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.route53.health_checks</code></td></tr>
 </tbody></table>
 

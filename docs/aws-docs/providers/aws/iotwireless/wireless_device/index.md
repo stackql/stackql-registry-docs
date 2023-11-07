@@ -20,7 +20,7 @@ Gets an individual <code>wireless_device</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>wireless_device</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>wireless_device</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iotwireless.wireless_device</code></td></tr>
 </tbody></table>
 

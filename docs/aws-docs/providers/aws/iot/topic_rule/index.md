@@ -20,7 +20,7 @@ Gets an individual <code>topic_rule</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>topic_rule</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>topic_rule</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.topic_rule</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>wait_condition_handles</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>wait_condition_handles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>wait_condition_handles</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudformation.wait_condition_handles</code></td></tr>
 </tbody></table>
 

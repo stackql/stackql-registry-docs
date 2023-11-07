@@ -20,7 +20,7 @@ Gets an individual <code>config</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>config</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.groundstation.config</code></td></tr>
 </tbody></table>
 

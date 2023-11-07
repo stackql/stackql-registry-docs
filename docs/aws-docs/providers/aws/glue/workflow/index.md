@@ -20,7 +20,7 @@ Gets an individual <code>workflow</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workflow</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>workflow</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.glue.workflow</code></td></tr>
 </tbody></table>
 

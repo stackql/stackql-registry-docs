@@ -20,7 +20,7 @@ Retrieves a list of <code>bot_versions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bot_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>bot_versions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lex.bot_versions</code></td></tr>
 </tbody></table>
 

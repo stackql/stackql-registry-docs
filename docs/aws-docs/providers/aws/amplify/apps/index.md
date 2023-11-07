@@ -20,7 +20,7 @@ Retrieves a list of <code>apps</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>apps</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.amplify.apps</code></td></tr>
 </tbody></table>
 

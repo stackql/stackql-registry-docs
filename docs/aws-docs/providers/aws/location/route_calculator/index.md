@@ -20,7 +20,7 @@ Gets an individual <code>route_calculator</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>route_calculator</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>route_calculator</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.location.route_calculator</code></td></tr>
 </tbody></table>
 

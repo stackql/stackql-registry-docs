@@ -20,7 +20,7 @@ Retrieves a list of <code>directory_configs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>directory_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>directory_configs</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appstream.directory_configs</code></td></tr>
 </tbody></table>
 

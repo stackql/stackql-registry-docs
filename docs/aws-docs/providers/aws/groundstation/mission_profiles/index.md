@@ -20,7 +20,7 @@ Retrieves a list of <code>mission_profiles</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mission_profiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>mission_profiles</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.groundstation.mission_profiles</code></td></tr>
 </tbody></table>
 

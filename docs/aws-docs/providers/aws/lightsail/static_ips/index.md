@@ -20,7 +20,7 @@ Retrieves a list of <code>static_ips</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>static_ips</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>static_ips</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lightsail.static_ips</code></td></tr>
 </tbody></table>
 

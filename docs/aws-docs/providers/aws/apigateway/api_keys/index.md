@@ -20,7 +20,7 @@ Retrieves a list of <code>api_keys</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>api_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>api_keys</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.apigateway.api_keys</code></td></tr>
 </tbody></table>
 

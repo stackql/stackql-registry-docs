@@ -20,7 +20,7 @@ Gets an individual <code>stage</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stage</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>stage</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.apigateway.stage</code></td></tr>
 </tbody></table>
 

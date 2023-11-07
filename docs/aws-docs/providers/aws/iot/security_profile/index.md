@@ -20,7 +20,7 @@ Gets an individual <code>security_profile</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_profile</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>security_profile</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.security_profile</code></td></tr>
 </tbody></table>
 

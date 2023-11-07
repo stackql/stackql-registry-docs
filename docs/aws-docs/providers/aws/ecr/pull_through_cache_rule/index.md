@@ -20,7 +20,7 @@ Gets an individual <code>pull_through_cache_rule</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pull_through_cache_rule</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>pull_through_cache_rule</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ecr.pull_through_cache_rule</code></td></tr>
 </tbody></table>
 

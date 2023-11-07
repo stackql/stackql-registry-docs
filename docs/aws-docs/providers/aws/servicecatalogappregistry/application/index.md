@@ -20,7 +20,7 @@ Gets an individual <code>application</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>application</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.servicecatalogappregistry.application</code></td></tr>
 </tbody></table>
 

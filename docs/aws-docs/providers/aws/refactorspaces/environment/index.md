@@ -20,7 +20,7 @@ Gets an individual <code>environment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>environment</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.refactorspaces.environment</code></td></tr>
 </tbody></table>
 

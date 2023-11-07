@@ -20,7 +20,7 @@ Gets an individual <code>lifecycle_hook</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>lifecycle_hook</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>lifecycle_hook</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.autoscaling.lifecycle_hook</code></td></tr>
 </tbody></table>
 

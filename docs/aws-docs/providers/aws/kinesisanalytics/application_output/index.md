@@ -20,7 +20,7 @@ Gets an individual <code>application_output</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_output</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>application_output</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.kinesisanalytics.application_output</code></td></tr>
 </tbody></table>
 

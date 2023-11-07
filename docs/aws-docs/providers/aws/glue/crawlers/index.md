@@ -20,7 +20,7 @@ Retrieves a list of <code>crawlers</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>crawlers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>crawlers</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.glue.crawlers</code></td></tr>
 </tbody></table>
 

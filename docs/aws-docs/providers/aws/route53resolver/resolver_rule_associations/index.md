@@ -20,7 +20,7 @@ Retrieves a list of <code>resolver_rule_associations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resolver_rule_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>resolver_rule_associations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.route53resolver.resolver_rule_associations</code></td></tr>
 </tbody></table>
 

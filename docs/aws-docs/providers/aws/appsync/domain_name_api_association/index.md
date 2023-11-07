@@ -20,7 +20,7 @@ Gets an individual <code>domain_name_api_association</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>domain_name_api_association</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>domain_name_api_association</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appsync.domain_name_api_association</code></td></tr>
 </tbody></table>
 

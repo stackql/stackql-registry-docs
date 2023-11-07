@@ -20,7 +20,7 @@ Gets an individual <code>contact</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>contact</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>contact</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ssmcontacts.contact</code></td></tr>
 </tbody></table>
 

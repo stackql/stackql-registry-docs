@@ -20,7 +20,7 @@ Retrieves a list of <code>vpc_links</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_links</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>vpc_links</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.apigatewayv2.vpc_links</code></td></tr>
 </tbody></table>
 

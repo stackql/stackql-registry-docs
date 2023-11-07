@@ -20,7 +20,7 @@ Gets an individual <code>mitigation_action</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mitigation_action</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>mitigation_action</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.mitigation_action</code></td></tr>
 </tbody></table>
 

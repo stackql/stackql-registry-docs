@@ -20,7 +20,7 @@ Gets an individual <code>macro</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>macro</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>macro</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudformation.macro</code></td></tr>
 </tbody></table>
 

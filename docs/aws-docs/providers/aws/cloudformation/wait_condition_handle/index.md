@@ -20,7 +20,7 @@ Gets an individual <code>wait_condition_handle</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>wait_condition_handle</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>wait_condition_handle</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudformation.wait_condition_handle</code></td></tr>
 </tbody></table>
 

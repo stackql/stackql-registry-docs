@@ -20,7 +20,7 @@ Retrieves a list of <code>resource_data_syncs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_data_syncs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>resource_data_syncs</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ssm.resource_data_syncs</code></td></tr>
 </tbody></table>
 

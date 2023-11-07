@@ -20,7 +20,7 @@ Gets an individual <code>canary</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>canary</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>canary</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.synthetics.canary</code></td></tr>
 </tbody></table>
 

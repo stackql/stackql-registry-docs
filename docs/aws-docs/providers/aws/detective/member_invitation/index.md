@@ -20,7 +20,7 @@ Gets an individual <code>member_invitation</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>member_invitation</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>member_invitation</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.detective.member_invitation</code></td></tr>
 </tbody></table>
 

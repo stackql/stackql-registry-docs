@@ -20,7 +20,7 @@ Retrieves a list of <code>streaming_images</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>streaming_images</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>streaming_images</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.nimblestudio.streaming_images</code></td></tr>
 </tbody></table>
 

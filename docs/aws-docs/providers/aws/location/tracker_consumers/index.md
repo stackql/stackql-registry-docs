@@ -20,7 +20,7 @@ Retrieves a list of <code>tracker_consumers</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tracker_consumers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>tracker_consumers</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.location.tracker_consumers</code></td></tr>
 </tbody></table>
 

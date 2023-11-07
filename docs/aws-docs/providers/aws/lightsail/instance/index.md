@@ -20,7 +20,7 @@ Gets an individual <code>instance</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>instance</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lightsail.instance</code></td></tr>
 </tbody></table>
 

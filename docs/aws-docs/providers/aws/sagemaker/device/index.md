@@ -20,7 +20,7 @@ Gets an individual <code>device</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>device</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>device</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.device</code></td></tr>
 </tbody></table>
 

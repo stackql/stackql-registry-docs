@@ -20,7 +20,7 @@ Retrieves a list of <code>nodegroups</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>nodegroups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>nodegroups</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.eks.nodegroups</code></td></tr>
 </tbody></table>
 

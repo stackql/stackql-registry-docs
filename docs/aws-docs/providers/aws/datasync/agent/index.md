@@ -20,7 +20,7 @@ Gets an individual <code>agent</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>agent</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>agent</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.datasync.agent</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>namespaces</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>namespaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>namespaces</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.redshiftserverless.namespaces</code></td></tr>
 </tbody></table>
 

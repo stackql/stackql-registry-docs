@@ -20,7 +20,7 @@ Retrieves a list of <code>geofence_collections</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>geofence_collections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>geofence_collections</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.location.geofence_collections</code></td></tr>
 </tbody></table>
 

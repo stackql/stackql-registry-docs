@@ -20,7 +20,7 @@ Retrieves a list of <code>route_responses</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>route_responses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>route_responses</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.apigatewayv2.route_responses</code></td></tr>
 </tbody></table>
 

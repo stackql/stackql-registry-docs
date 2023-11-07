@@ -20,7 +20,7 @@ Retrieves a list of <code>urls</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>urls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>urls</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lambda.urls</code></td></tr>
 </tbody></table>
 

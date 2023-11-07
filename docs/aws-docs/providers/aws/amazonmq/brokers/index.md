@@ -20,7 +20,7 @@ Retrieves a list of <code>brokers</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>brokers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>brokers</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.amazonmq.brokers</code></td></tr>
 </tbody></table>
 

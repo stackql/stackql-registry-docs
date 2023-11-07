@@ -20,7 +20,7 @@ Retrieves a list of <code>device_definition_versions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>device_definition_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>device_definition_versions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.greengrass.device_definition_versions</code></td></tr>
 </tbody></table>
 

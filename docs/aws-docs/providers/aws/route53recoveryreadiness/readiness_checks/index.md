@@ -20,7 +20,7 @@ Retrieves a list of <code>readiness_checks</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>readiness_checks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>readiness_checks</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.route53recoveryreadiness.readiness_checks</code></td></tr>
 </tbody></table>
 

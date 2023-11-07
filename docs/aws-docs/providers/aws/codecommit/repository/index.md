@@ -20,7 +20,7 @@ Gets an individual <code>repository</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repository</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>repository</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.codecommit.repository</code></td></tr>
 </tbody></table>
 

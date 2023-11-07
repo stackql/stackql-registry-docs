@@ -20,7 +20,7 @@ Retrieves a list of <code>documents</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>documents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>documents</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ssm.documents</code></td></tr>
 </tbody></table>
 

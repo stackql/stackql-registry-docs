@@ -20,7 +20,7 @@ Gets an individual <code>method</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>method</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>method</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.apigateway.method</code></td></tr>
 </tbody></table>
 

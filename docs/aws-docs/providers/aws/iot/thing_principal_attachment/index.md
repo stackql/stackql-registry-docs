@@ -20,7 +20,7 @@ Gets an individual <code>thing_principal_attachment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>thing_principal_attachment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>thing_principal_attachment</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.thing_principal_attachment</code></td></tr>
 </tbody></table>
 

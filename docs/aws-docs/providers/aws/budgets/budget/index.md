@@ -20,7 +20,7 @@ Gets an individual <code>budget</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>budget</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>budget</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.budgets.budget</code></td></tr>
 </tbody></table>
 

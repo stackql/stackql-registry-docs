@@ -20,7 +20,7 @@ Retrieves a list of <code>tasks</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tasks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>tasks</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.datasync.tasks</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>fhir_datastores</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>fhir_datastores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>fhir_datastores</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.healthlake.fhir_datastores</code></td></tr>
 </tbody></table>
 

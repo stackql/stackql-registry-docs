@@ -20,7 +20,7 @@ Gets an individual <code>channel</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>channel</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>channel</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudtrail.channel</code></td></tr>
 </tbody></table>
 

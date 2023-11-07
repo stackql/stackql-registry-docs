@@ -20,7 +20,7 @@ Retrieves a list of <code>canaries</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>canaries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>canaries</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.synthetics.canaries</code></td></tr>
 </tbody></table>
 

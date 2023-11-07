@@ -20,7 +20,7 @@ Retrieves a list of <code>activities</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>activities</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>activities</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.stepfunctions.activities</code></td></tr>
 </tbody></table>
 

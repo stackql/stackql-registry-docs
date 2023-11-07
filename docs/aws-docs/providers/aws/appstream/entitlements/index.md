@@ -20,7 +20,7 @@ Retrieves a list of <code>entitlements</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entitlements</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>entitlements</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appstream.entitlements</code></td></tr>
 </tbody></table>
 

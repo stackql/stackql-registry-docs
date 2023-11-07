@@ -20,7 +20,7 @@ Gets an individual <code>subscription_definition_version</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>subscription_definition_version</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>subscription_definition_version</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.greengrass.subscription_definition_version</code></td></tr>
 </tbody></table>
 

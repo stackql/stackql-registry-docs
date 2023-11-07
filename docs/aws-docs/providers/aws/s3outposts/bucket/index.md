@@ -20,7 +20,7 @@ Gets an individual <code>bucket</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bucket</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>bucket</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.s3outposts.bucket</code></td></tr>
 </tbody></table>
 

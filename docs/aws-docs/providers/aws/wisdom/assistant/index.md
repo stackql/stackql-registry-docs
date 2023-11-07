@@ -20,7 +20,7 @@ Gets an individual <code>assistant</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>assistant</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>assistant</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.wisdom.assistant</code></td></tr>
 </tbody></table>
 

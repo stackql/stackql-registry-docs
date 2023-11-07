@@ -20,7 +20,7 @@ Retrieves a list of <code>resource_specific_loggings</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_specific_loggings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>resource_specific_loggings</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.resource_specific_loggings</code></td></tr>
 </tbody></table>
 

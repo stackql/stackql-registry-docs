@@ -20,7 +20,7 @@ Gets an individual <code>account_audit_configuration</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>account_audit_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>account_audit_configuration</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.account_audit_configuration</code></td></tr>
 </tbody></table>
 

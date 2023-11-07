@@ -20,7 +20,7 @@ Gets an individual <code>simulation_application</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>simulation_application</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>simulation_application</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.robomaker.simulation_application</code></td></tr>
 </tbody></table>
 

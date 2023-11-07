@@ -20,7 +20,7 @@ Gets an individual <code>publisher</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>publisher</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>publisher</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudformation.publisher</code></td></tr>
 </tbody></table>
 

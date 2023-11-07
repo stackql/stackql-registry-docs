@@ -20,7 +20,7 @@ Gets an individual <code>control_panel</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>control_panel</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>control_panel</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.route53recoverycontrol.control_panel</code></td></tr>
 </tbody></table>
 

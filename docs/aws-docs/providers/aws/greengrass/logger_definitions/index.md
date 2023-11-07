@@ -20,7 +20,7 @@ Retrieves a list of <code>logger_definitions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>logger_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>logger_definitions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.greengrass.logger_definitions</code></td></tr>
 </tbody></table>
 

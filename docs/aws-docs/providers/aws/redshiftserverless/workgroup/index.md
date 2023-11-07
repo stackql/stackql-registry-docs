@@ -20,7 +20,7 @@ Gets an individual <code>workgroup</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workgroup</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>workgroup</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.redshiftserverless.workgroup</code></td></tr>
 </tbody></table>
 

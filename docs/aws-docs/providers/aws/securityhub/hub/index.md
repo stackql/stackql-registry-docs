@@ -20,7 +20,7 @@ Gets an individual <code>hub</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hub</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>hub</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.securityhub.hub</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>permissions</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>permissions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>permissions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lakeformation.permissions</code></td></tr>
 </tbody></table>
 

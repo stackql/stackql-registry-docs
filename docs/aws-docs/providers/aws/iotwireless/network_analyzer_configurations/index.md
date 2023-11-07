@@ -20,7 +20,7 @@ Retrieves a list of <code>network_analyzer_configurations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_analyzer_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>network_analyzer_configurations</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iotwireless.network_analyzer_configurations</code></td></tr>
 </tbody></table>
 

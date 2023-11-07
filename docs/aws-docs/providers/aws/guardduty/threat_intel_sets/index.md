@@ -20,7 +20,7 @@ Retrieves a list of <code>threat_intel_sets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>threat_intel_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>threat_intel_sets</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.guardduty.threat_intel_sets</code></td></tr>
 </tbody></table>
 

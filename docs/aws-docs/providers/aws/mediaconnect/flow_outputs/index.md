@@ -20,7 +20,7 @@ Retrieves a list of <code>flow_outputs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>flow_outputs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>flow_outputs</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.mediaconnect.flow_outputs</code></td></tr>
 </tbody></table>
 

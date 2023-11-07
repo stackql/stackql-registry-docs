@@ -20,7 +20,7 @@ Gets an individual <code>event_source_mapping</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>event_source_mapping</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>event_source_mapping</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lambda.event_source_mapping</code></td></tr>
 </tbody></table>
 

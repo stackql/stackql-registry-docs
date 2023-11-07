@@ -20,7 +20,7 @@ Gets an individual <code>continuous_deployment_policy</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>continuous_deployment_policy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>continuous_deployment_policy</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.continuous_deployment_policy</code></td></tr>
 </tbody></table>
 

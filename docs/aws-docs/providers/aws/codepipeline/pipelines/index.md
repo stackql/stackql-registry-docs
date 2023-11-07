@@ -20,7 +20,7 @@ Retrieves a list of <code>pipelines</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pipelines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>pipelines</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.codepipeline.pipelines</code></td></tr>
 </tbody></table>
 

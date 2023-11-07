@@ -20,7 +20,7 @@ Retrieves a list of <code>deployment_strategies</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployment_strategies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>deployment_strategies</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appconfig.deployment_strategies</code></td></tr>
 </tbody></table>
 

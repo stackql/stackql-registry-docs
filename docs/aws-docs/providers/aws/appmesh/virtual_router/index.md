@@ -20,7 +20,7 @@ Gets an individual <code>virtual_router</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>virtual_router</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>virtual_router</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appmesh.virtual_router</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>notification_channel</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>notification_channel</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>notification_channel</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.devopsguru.notification_channel</code></td></tr>
 </tbody></table>
 

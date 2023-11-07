@@ -20,7 +20,7 @@ Gets an individual <code>environment_ec2</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environment_ec2</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>environment_ec2</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloud9.environment_ec2</code></td></tr>
 </tbody></table>
 

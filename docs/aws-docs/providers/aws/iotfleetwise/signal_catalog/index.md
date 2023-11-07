@@ -20,7 +20,7 @@ Gets an individual <code>signal_catalog</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>signal_catalog</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>signal_catalog</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iotfleetwise.signal_catalog</code></td></tr>
 </tbody></table>
 

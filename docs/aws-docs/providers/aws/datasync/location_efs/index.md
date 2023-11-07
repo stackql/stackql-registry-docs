@@ -20,7 +20,7 @@ Gets an individual <code>location_efs</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>location_efs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>location_efs</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.datasync.location_efs</code></td></tr>
 </tbody></table>
 

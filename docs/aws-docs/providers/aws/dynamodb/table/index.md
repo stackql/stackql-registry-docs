@@ -20,7 +20,7 @@ Gets an individual <code>table</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>table</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>table</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.dynamodb.table</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Retrieves a list of <code>component_types</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>component_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>component_types</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iottwinmaker.component_types</code></td></tr>
 </tbody></table>
 

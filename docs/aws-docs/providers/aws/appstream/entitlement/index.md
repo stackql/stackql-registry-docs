@@ -20,7 +20,7 @@ Gets an individual <code>entitlement</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entitlement</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>entitlement</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appstream.entitlement</code></td></tr>
 </tbody></table>
 

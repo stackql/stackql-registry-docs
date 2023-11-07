@@ -20,7 +20,7 @@ Gets an individual <code>identity_pool_role_attachment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>identity_pool_role_attachment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>identity_pool_role_attachment</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cognito.identity_pool_role_attachment</code></td></tr>
 </tbody></table>
 

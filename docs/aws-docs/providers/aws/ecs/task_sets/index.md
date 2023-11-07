@@ -20,7 +20,7 @@ Retrieves a list of <code>task_sets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>task_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>task_sets</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ecs.task_sets</code></td></tr>
 </tbody></table>
 

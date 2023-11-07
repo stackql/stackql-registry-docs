@@ -20,7 +20,7 @@ Retrieves a list of <code>global_tables</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_tables</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>global_tables</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.dynamodb.global_tables</code></td></tr>
 </tbody></table>
 

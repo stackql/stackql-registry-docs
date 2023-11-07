@@ -20,7 +20,7 @@ Retrieves a list of <code>vpc_attachments</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_attachments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>vpc_attachments</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.networkmanager.vpc_attachments</code></td></tr>
 </tbody></table>
 

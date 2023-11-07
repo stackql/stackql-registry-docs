@@ -20,7 +20,7 @@ Gets an individual <code>vdm_attributes</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vdm_attributes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>vdm_attributes</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ses.vdm_attributes</code></td></tr>
 </tbody></table>
 

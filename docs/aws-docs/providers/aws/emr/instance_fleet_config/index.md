@@ -20,7 +20,7 @@ Gets an individual <code>instance_fleet_config</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_fleet_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>instance_fleet_config</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.emr.instance_fleet_config</code></td></tr>
 </tbody></table>
 

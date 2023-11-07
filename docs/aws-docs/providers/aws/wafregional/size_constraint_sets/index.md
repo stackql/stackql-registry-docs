@@ -20,7 +20,7 @@ Retrieves a list of <code>size_constraint_sets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>size_constraint_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>size_constraint_sets</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.wafregional.size_constraint_sets</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>configuration_set_event_destination</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>configuration_set_event_destination</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>configuration_set_event_destination</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.pinpointemail.configuration_set_event_destination</code></td></tr>
 </tbody></table>
 

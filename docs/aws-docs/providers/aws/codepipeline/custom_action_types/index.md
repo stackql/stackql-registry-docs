@@ -20,7 +20,7 @@ Retrieves a list of <code>custom_action_types</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>custom_action_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>custom_action_types</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.codepipeline.custom_action_types</code></td></tr>
 </tbody></table>
 

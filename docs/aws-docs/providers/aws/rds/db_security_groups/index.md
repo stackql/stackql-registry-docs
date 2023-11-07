@@ -20,7 +20,7 @@ Retrieves a list of <code>db_security_groups</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>db_security_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>db_security_groups</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.rds.db_security_groups</code></td></tr>
 </tbody></table>
 

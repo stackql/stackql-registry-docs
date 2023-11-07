@@ -20,7 +20,7 @@ Retrieves a list of <code>flywheels</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>flywheels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>flywheels</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.comprehend.flywheels</code></td></tr>
 </tbody></table>
 

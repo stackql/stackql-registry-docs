@@ -20,7 +20,7 @@ Retrieves a list of <code>distributions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>distributions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>distributions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.distributions</code></td></tr>
 </tbody></table>
 

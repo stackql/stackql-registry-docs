@@ -20,7 +20,7 @@ Gets an individual <code>permission_set</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>permission_set</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>permission_set</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.sso.permission_set</code></td></tr>
 </tbody></table>
 

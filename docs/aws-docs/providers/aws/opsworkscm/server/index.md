@@ -20,7 +20,7 @@ Gets an individual <code>server</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>server</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>server</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.opsworkscm.server</code></td></tr>
 </tbody></table>
 

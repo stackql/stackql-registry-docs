@@ -20,7 +20,7 @@ Gets an individual <code>billing_group</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>billing_group</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>billing_group</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.billingconductor.billing_group</code></td></tr>
 </tbody></table>
 

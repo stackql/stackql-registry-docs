@@ -20,7 +20,7 @@ Retrieves a list of <code>firewall_domain_lists</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewall_domain_lists</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>firewall_domain_lists</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.route53resolver.firewall_domain_lists</code></td></tr>
 </tbody></table>
 

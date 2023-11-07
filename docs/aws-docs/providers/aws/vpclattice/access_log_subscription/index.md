@@ -20,7 +20,7 @@ Gets an individual <code>access_log_subscription</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_log_subscription</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>access_log_subscription</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.vpclattice.access_log_subscription</code></td></tr>
 </tbody></table>
 

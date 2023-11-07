@@ -20,7 +20,7 @@ Gets an individual <code>cluster_security_group_ingress</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cluster_security_group_ingress</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>cluster_security_group_ingress</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.redshift.cluster_security_group_ingress</code></td></tr>
 </tbody></table>
 

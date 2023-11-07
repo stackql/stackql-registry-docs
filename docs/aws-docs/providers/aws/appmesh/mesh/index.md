@@ -20,7 +20,7 @@ Gets an individual <code>mesh</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mesh</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>mesh</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appmesh.mesh</code></td></tr>
 </tbody></table>
 

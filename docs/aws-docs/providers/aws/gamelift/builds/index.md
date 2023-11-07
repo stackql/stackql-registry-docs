@@ -20,7 +20,7 @@ Retrieves a list of <code>builds</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>builds</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>builds</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.gamelift.builds</code></td></tr>
 </tbody></table>
 

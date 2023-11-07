@@ -20,7 +20,7 @@ Gets an individual <code>document</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>document</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>document</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.ssm.document</code></td></tr>
 </tbody></table>
 

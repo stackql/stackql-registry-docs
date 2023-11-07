@@ -20,7 +20,7 @@ Retrieves a list of <code>gateways</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>gateways</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iotsitewise.gateways</code></td></tr>
 </tbody></table>
 

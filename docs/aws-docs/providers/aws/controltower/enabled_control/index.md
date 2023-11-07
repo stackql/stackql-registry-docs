@@ -20,7 +20,7 @@ Gets an individual <code>enabled_control</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>enabled_control</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>enabled_control</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.controltower.enabled_control</code></td></tr>
 </tbody></table>
 

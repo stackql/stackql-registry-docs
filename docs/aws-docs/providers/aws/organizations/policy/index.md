@@ -20,7 +20,7 @@ Gets an individual <code>policy</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policy</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>policy</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.organizations.policy</code></td></tr>
 </tbody></table>
 

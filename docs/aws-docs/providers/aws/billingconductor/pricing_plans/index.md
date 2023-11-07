@@ -20,7 +20,7 @@ Retrieves a list of <code>pricing_plans</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pricing_plans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>pricing_plans</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.billingconductor.pricing_plans</code></td></tr>
 </tbody></table>
 

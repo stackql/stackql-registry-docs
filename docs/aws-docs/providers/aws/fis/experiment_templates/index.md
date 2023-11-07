@@ -20,7 +20,7 @@ Retrieves a list of <code>experiment_templates</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>experiment_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>experiment_templates</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.fis.experiment_templates</code></td></tr>
 </tbody></table>
 

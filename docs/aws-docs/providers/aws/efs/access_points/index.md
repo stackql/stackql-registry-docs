@@ -20,7 +20,7 @@ Retrieves a list of <code>access_points</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_points</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>access_points</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.efs.access_points</code></td></tr>
 </tbody></table>
 

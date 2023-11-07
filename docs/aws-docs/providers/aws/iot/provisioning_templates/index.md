@@ -20,7 +20,7 @@ Retrieves a list of <code>provisioning_templates</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>provisioning_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>provisioning_templates</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.iot.provisioning_templates</code></td></tr>
 </tbody></table>
 

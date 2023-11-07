@@ -20,7 +20,7 @@ Retrieves a list of <code>security_configs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>security_configs</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.opensearchserverless.security_configs</code></td></tr>
 </tbody></table>
 

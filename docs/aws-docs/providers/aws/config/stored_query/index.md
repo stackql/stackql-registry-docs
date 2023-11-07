@@ -20,7 +20,7 @@ Gets an individual <code>stored_query</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stored_query</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>stored_query</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.config.stored_query</code></td></tr>
 </tbody></table>
 

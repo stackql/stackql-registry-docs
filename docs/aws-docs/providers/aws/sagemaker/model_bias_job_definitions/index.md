@@ -20,7 +20,7 @@ Retrieves a list of <code>model_bias_job_definitions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>model_bias_job_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>model_bias_job_definitions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.model_bias_job_definitions</code></td></tr>
 </tbody></table>
 

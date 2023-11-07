@@ -20,7 +20,7 @@ Retrieves a list of <code>firewalls</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewalls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>firewalls</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.networkfirewall.firewalls</code></td></tr>
 </tbody></table>
 

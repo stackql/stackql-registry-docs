@@ -20,7 +20,7 @@ Retrieves a list of <code>grants</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>grants</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>grants</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.licensemanager.grants</code></td></tr>
 </tbody></table>
 

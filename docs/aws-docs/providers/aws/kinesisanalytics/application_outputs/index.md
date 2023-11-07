@@ -20,7 +20,7 @@ Retrieves a list of <code>application_outputs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_outputs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>application_outputs</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.kinesisanalytics.application_outputs</code></td></tr>
 </tbody></table>
 

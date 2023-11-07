@@ -20,7 +20,7 @@ Gets an individual <code>analyzer</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>analyzer</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>analyzer</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.accessanalyzer.analyzer</code></td></tr>
 </tbody></table>
 

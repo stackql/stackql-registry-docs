@@ -20,7 +20,7 @@ Retrieves a list of <code>usage_plans</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>usage_plans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>usage_plans</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.apigateway.usage_plans</code></td></tr>
 </tbody></table>
 

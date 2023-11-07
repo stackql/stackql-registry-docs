@@ -20,7 +20,7 @@ Gets an individual <code>byte_match_set</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>byte_match_set</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>byte_match_set</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.wafregional.byte_match_set</code></td></tr>
 </tbody></table>
 

@@ -20,7 +20,7 @@ Gets an individual <code>cloud_front_origin_access_identity</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cloud_front_origin_access_identity</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>cloud_front_origin_access_identity</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.cloud_front_origin_access_identity</code></td></tr>
 </tbody></table>
 

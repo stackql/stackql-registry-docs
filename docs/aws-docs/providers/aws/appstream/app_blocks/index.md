@@ -20,7 +20,7 @@ Retrieves a list of <code>app_blocks</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>app_blocks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>app_blocks</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.appstream.app_blocks</code></td></tr>
 </tbody></table>
 

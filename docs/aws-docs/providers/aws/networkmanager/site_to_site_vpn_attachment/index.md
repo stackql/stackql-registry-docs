@@ -20,7 +20,7 @@ Gets an individual <code>site_to_site_vpn_attachment</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>site_to_site_vpn_attachment</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>site_to_site_vpn_attachment</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.networkmanager.site_to_site_vpn_attachment</code></td></tr>
 </tbody></table>
 

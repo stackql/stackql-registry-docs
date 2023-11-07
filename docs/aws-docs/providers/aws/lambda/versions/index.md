@@ -20,7 +20,7 @@ Retrieves a list of <code>versions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>versions</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.lambda.versions</code></td></tr>
 </tbody></table>
 

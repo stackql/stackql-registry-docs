@@ -20,7 +20,7 @@ Gets an individual <code>security_configuration</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>security_configuration</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.emr.security_configuration</code></td></tr>
 </tbody></table>
 

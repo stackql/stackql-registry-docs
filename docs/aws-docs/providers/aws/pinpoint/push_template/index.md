@@ -20,7 +20,7 @@ Gets an individual <code>push_template</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>push_template</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-null
+<tr><td><b>Description</b></td><td>push_template</td></tr>
 <tr><td><b>Id</b></td><td><code>aws.pinpoint.push_template</code></td></tr>
 </tbody></table>
 
