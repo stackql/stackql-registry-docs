@@ -20,21 +20,26 @@ Retrieves a list of <code>replication_sets</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>replication_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.ssmincidents.replication_sets</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td>The ARN of the ReplicationSet.</td></tr><tr><td><code>Regions</code></td><td><code>undefined</code></td><td>The ReplicationSet configuration.</td></tr><tr><td><code>DeletionProtected</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags to apply to the replication set.</td></tr>
+<tr><td><code>Arn</code></td><td><code>undefined</code></td><td>The ARN of the ReplicationSet.</td></tr>
+<tr><td><code>Regions</code></td><td><code>undefined</code></td><td>The ReplicationSet configuration.</td></tr>
+<tr><td><code>DeletionProtected</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags to apply to the replication set.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.ssmincidents.replication_sets
 WHERE region = 'us-east-1'
-```
+</pre>

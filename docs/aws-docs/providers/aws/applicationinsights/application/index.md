@@ -20,21 +20,33 @@ Gets an individual <code>application</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.applicationinsights.application</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceGroupName</code></td><td><code>string</code></td><td>The name of the resource group.</td></tr><tr><td><code>ApplicationARN</code></td><td><code>string</code></td><td>The ARN of the ApplicationInsights application.</td></tr><tr><td><code>CWEMonitorEnabled</code></td><td><code>boolean</code></td><td>Indicates whether Application Insights can listen to CloudWatch events for the application resources.</td></tr><tr><td><code>OpsCenterEnabled</code></td><td><code>boolean</code></td><td>When set to true, creates opsItems for any problems detected on an application.</td></tr><tr><td><code>OpsItemSNSTopicArn</code></td><td><code>string</code></td><td>The SNS topic provided to Application Insights that is associated to the created opsItem.</td></tr><tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags of Application Insights application.</td></tr><tr><td><code>CustomComponents</code></td><td><code>array</code></td><td>The custom grouped components.</td></tr><tr><td><code>LogPatternSets</code></td><td><code>array</code></td><td>The log pattern sets.</td></tr><tr><td><code>AutoConfigurationEnabled</code></td><td><code>boolean</code></td><td>If set to true, application will be configured with recommended monitoring configuration.</td></tr><tr><td><code>ComponentMonitoringSettings</code></td><td><code>array</code></td><td>The monitoring settings of the components.</td></tr><tr><td><code>GroupingType</code></td><td><code>string</code></td><td>The grouping type of the application</td></tr>
+<tr><td><code>ResourceGroupName</code></td><td><code>string</code></td><td>The name of the resource group.</td></tr>
+<tr><td><code>ApplicationARN</code></td><td><code>string</code></td><td>The ARN of the ApplicationInsights application.</td></tr>
+<tr><td><code>CWEMonitorEnabled</code></td><td><code>boolean</code></td><td>Indicates whether Application Insights can listen to CloudWatch events for the application resources.</td></tr>
+<tr><td><code>OpsCenterEnabled</code></td><td><code>boolean</code></td><td>When set to true, creates opsItems for any problems detected on an application.</td></tr>
+<tr><td><code>OpsItemSNSTopicArn</code></td><td><code>string</code></td><td>The SNS topic provided to Application Insights that is associated to the created opsItem.</td></tr>
+<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags of Application Insights application.</td></tr>
+<tr><td><code>CustomComponents</code></td><td><code>array</code></td><td>The custom grouped components.</td></tr>
+<tr><td><code>LogPatternSets</code></td><td><code>array</code></td><td>The log pattern sets.</td></tr>
+<tr><td><code>AutoConfigurationEnabled</code></td><td><code>boolean</code></td><td>If set to true, application will be configured with recommended monitoring configuration.</td></tr>
+<tr><td><code>ComponentMonitoringSettings</code></td><td><code>array</code></td><td>The monitoring settings of the components.</td></tr>
+<tr><td><code>GroupingType</code></td><td><code>string</code></td><td>The grouping type of the application</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.applicationinsights.application
-WHERE region = 'us-east-1' AND data__Identifier = '{ApplicationARN}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;ApplicationARN&gt;'
+</pre>

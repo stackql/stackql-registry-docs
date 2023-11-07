@@ -20,21 +20,30 @@ Gets an individual <code>resolver_rule</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resolver_rule</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.route53resolver.resolver_rule</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResolverEndpointId</code></td><td><code>string</code></td><td>The ID of the endpoint that the rule is associated with.</td></tr><tr><td><code>DomainName</code></td><td><code>string</code></td><td>DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps</td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td>The name for the Resolver rule</td></tr><tr><td><code>RuleType</code></td><td><code>string</code></td><td>When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.</td></tr><tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr><tr><td><code>TargetIps</code></td><td><code>array</code></td><td>An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.</td></tr><tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the resolver rule.</td></tr><tr><td><code>ResolverRuleId</code></td><td><code>string</code></td><td>The ID of the endpoint that the rule is associated with.</td></tr>
+<tr><td><code>ResolverEndpointId</code></td><td><code>string</code></td><td>The ID of the endpoint that the rule is associated with.</td></tr>
+<tr><td><code>DomainName</code></td><td><code>string</code></td><td>DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps</td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td>The name for the Resolver rule</td></tr>
+<tr><td><code>RuleType</code></td><td><code>string</code></td><td>When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.</td></tr>
+<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>TargetIps</code></td><td><code>array</code></td><td>An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.</td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the resolver rule.</td></tr>
+<tr><td><code>ResolverRuleId</code></td><td><code>string</code></td><td>The ID of the endpoint that the rule is associated with.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.route53resolver.resolver_rule
-WHERE region = 'us-east-1' AND data__Identifier = '{ResolverRuleId}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;ResolverRuleId&gt;'
+</pre>

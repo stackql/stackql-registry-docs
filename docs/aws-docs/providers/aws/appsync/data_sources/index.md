@@ -20,21 +20,36 @@ Retrieves a list of <code>data_sources</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_sources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.appsync.data_sources</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OpenSearchServiceConfig</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr><tr><td><code>ServiceRoleArn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr><tr><td><code>DataSourceArn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr><tr><td><code>EventBridgeConfig</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>HttpConfig</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>RelationalDatabaseConfig</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>LambdaConfig</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr><tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>DynamoDBConfig</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>ElasticsearchConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>OpenSearchServiceConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ServiceRoleArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>DataSourceArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>EventBridgeConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>HttpConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>RelationalDatabaseConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LambdaConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>DynamoDBConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ElasticsearchConfig</code></td><td><code>undefined</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.appsync.data_sources
 WHERE region = 'us-east-1'
-```
+</pre>

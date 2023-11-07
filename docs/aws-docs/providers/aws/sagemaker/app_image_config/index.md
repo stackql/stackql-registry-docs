@@ -20,21 +20,26 @@ Gets an individual <code>app_image_config</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>app_image_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.app_image_config</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AppImageConfigArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppImageConfig.</td></tr><tr><td><code>AppImageConfigName</code></td><td><code>string</code></td><td>The Name of the AppImageConfig.</td></tr><tr><td><code>KernelGatewayImageConfig</code></td><td><code>undefined</code></td><td>The KernelGatewayImageConfig.</td></tr><tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the AppImageConfig.</td></tr>
+<tr><td><code>AppImageConfigArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppImageConfig.</td></tr>
+<tr><td><code>AppImageConfigName</code></td><td><code>string</code></td><td>The Name of the AppImageConfig.</td></tr>
+<tr><td><code>KernelGatewayImageConfig</code></td><td><code>undefined</code></td><td>The KernelGatewayImageConfig.</td></tr>
+<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the AppImageConfig.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.sagemaker.app_image_config
-WHERE region = 'us-east-1' AND data__Identifier = '{AppImageConfigName}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;AppImageConfigName&gt;'
+</pre>

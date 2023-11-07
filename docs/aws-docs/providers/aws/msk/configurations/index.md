@@ -20,21 +20,27 @@ Retrieves a list of <code>configurations</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.msk.configurations</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr><tr><td><code>ServerProperties</code></td><td><code>string</code></td><td></td></tr><tr><td><code>KafkaVersionsList</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ServerProperties</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>KafkaVersionsList</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.msk.configurations
 WHERE region = 'us-east-1'
-```
+</pre>

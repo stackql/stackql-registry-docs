@@ -20,21 +20,24 @@ Gets an individual <code>monitoring_subscription</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>monitoring_subscription</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.cloudfront.monitoring_subscription</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DistributionId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>MonitoringSubscription</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DistributionId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>MonitoringSubscription</code></td><td><code>undefined</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.cloudfront.monitoring_subscription
-WHERE region = 'us-east-1' AND data__Identifier = '{DistributionId}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;DistributionId&gt;'
+</pre>

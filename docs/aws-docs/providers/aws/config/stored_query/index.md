@@ -20,21 +20,28 @@ Gets an individual <code>stored_query</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stored_query</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.config.stored_query</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>QueryArn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>QueryId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>QueryName</code></td><td><code>string</code></td><td></td></tr><tr><td><code>QueryDescription</code></td><td><code>string</code></td><td></td></tr><tr><td><code>QueryExpression</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the stored query.</td></tr>
+<tr><td><code>QueryArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>QueryId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>QueryName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>QueryDescription</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>QueryExpression</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the stored query.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.config.stored_query
-WHERE region = 'us-east-1' AND data__Identifier = '{QueryName}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;QueryName&gt;'
+</pre>

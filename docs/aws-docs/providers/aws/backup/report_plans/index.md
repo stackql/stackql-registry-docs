@@ -20,21 +20,28 @@ Retrieves a list of <code>report_plans</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>report_plans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.backup.report_plans</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ReportPlanName</code></td><td><code>string</code></td><td>The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</td></tr><tr><td><code>ReportPlanArn</code></td><td><code>string</code></td><td>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.</td></tr><tr><td><code>ReportPlanDescription</code></td><td><code>string</code></td><td>An optional description of the report plan with a maximum of 1,024 characters.</td></tr><tr><td><code>ReportPlanTags</code></td><td><code>array</code></td><td>Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.</td></tr><tr><td><code>ReportDeliveryChannel</code></td><td><code>object</code></td><td>A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</td></tr><tr><td><code>ReportSetting</code></td><td><code>object</code></td><td>Identifies the report template for the report. Reports are built using a report template.</td></tr>
+<tr><td><code>ReportPlanName</code></td><td><code>string</code></td><td>The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</td></tr>
+<tr><td><code>ReportPlanArn</code></td><td><code>string</code></td><td>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.</td></tr>
+<tr><td><code>ReportPlanDescription</code></td><td><code>string</code></td><td>An optional description of the report plan with a maximum of 1,024 characters.</td></tr>
+<tr><td><code>ReportPlanTags</code></td><td><code>array</code></td><td>Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.</td></tr>
+<tr><td><code>ReportDeliveryChannel</code></td><td><code>object</code></td><td>A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</td></tr>
+<tr><td><code>ReportSetting</code></td><td><code>object</code></td><td>Identifies the report template for the report. Reports are built using a report template.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.backup.report_plans
 WHERE region = 'us-east-1'
-```
+</pre>

@@ -20,21 +20,31 @@ Retrieves a list of <code>policies</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.organizations.policies</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of the Policy</td></tr><tr><td><code>Type</code></td><td><code>string</code></td><td>The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY</td></tr><tr><td><code>Content</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Description</code></td><td><code>string</code></td><td>Human readable description of the policy</td></tr><tr><td><code>TargetIds</code></td><td><code>array</code></td><td>List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to</td></tr><tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.</td></tr><tr><td><code>Id</code></td><td><code>string</code></td><td>Id of the Policy</td></tr><tr><td><code>Arn</code></td><td><code>string</code></td><td>ARN of the Policy</td></tr><tr><td><code>AwsManaged</code></td><td><code>boolean</code></td><td>A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.</td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of the Policy</td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td>The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY</td></tr>
+<tr><td><code>Content</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Description</code></td><td><code>string</code></td><td>Human readable description of the policy</td></tr>
+<tr><td><code>TargetIds</code></td><td><code>array</code></td><td>List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to</td></tr>
+<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.</td></tr>
+<tr><td><code>Id</code></td><td><code>string</code></td><td>Id of the Policy</td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td>ARN of the Policy</td></tr>
+<tr><td><code>AwsManaged</code></td><td><code>boolean</code></td><td>A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.organizations.policies
 WHERE region = 'us-east-1'
-```
+</pre>

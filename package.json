@@ -55,7 +55,6 @@
     "@mui/styles": "^5.2.3",
     "@svgr/webpack": "^5.5.0",
     "aos": "^2.3.4",
-    "caniuse-lite": "^1.0.30001385",
     "clsx": "^1.1.1",
     "docusaurus-plugin-hubspot": "^1.0.0",
     "docusaurus-plugin-smartlook": "^1.0.1",
