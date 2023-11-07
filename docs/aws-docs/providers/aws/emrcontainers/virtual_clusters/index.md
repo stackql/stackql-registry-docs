@@ -28,7 +28,7 @@ Retrieves a list of <code>virtual_clusters</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ContainerProvider</code></td><td><code>undefined</code></td><td>Container provider of the virtual cluster.</td></tr>
+<tr><td><code>ContainerProvider</code></td><td><code>object</code></td><td>Container provider of the virtual cluster.</td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td>Id of the virtual cluster.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>Name of the virtual cluster.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this virtual cluster.</td></tr>

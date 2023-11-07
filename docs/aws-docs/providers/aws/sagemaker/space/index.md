@@ -30,7 +30,7 @@ Gets an individual <code>space</code> resource
 <tr><td><code>SpaceArn</code></td><td><code>string</code></td><td>The space Amazon Resource Name (ARN).</td></tr>
 <tr><td><code>DomainId</code></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
 <tr><td><code>SpaceName</code></td><td><code>string</code></td><td>A name for the Space.</td></tr>
-<tr><td><code>SpaceSettings</code></td><td><code>undefined</code></td><td>A collection of settings.</td></tr>
+<tr><td><code>SpaceSettings</code></td><td><code>object</code></td><td>A collection of settings.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the space.</td></tr>
 
 </tbody></table>

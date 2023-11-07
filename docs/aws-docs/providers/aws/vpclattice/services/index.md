@@ -30,7 +30,7 @@ Retrieves a list of <code>services</code> in a region
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AuthType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreatedAt</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DnsEntry</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DnsEntry</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>LastUpdatedAt</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>

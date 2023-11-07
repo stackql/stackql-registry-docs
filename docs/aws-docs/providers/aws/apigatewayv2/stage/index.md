@@ -35,10 +35,10 @@ Gets an individual <code>stage</code> resource
 <tr><td><code>StageVariables</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>AccessPolicyId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ClientCertificateId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccessLogSettings</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AccessLogSettings</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultRouteSettings</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DefaultRouteSettings</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>

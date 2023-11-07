@@ -31,10 +31,10 @@ Gets an individual <code>application</code> resource
 <tr><td><code>ApplicationId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Definition</code></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EngineType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>EngineType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td>The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

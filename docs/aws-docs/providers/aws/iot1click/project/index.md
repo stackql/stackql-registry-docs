@@ -31,7 +31,7 @@ Gets an individual <code>project</code> resource
 <tr><td><code>ProjectName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PlacementTemplate</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PlacementTemplate</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

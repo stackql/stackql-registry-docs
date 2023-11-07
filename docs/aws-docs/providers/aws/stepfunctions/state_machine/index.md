@@ -33,11 +33,11 @@ Gets an individual <code>state_machine</code> resource
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StateMachineName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StateMachineType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LoggingConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>TracingConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DefinitionS3Location</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DefinitionSubstitutions</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Definition</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LoggingConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>TracingConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>DefinitionS3Location</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>DefinitionSubstitutions</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Definition</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

@@ -30,7 +30,7 @@ Retrieves a list of <code>event_invoke_configs</code> in a region
 <tr><td><code>FunctionName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MaximumRetryAttempts</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>Qualifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DestinationConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DestinationConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MaximumEventAgeInSeconds</code></td><td><code>integer</code></td><td></td></tr>
 

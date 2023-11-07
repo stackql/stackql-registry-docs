@@ -31,7 +31,7 @@ Gets an individual <code>component_version</code> resource
 <tr><td><code>ComponentName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ComponentVersion</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>InlineRecipe</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LambdaFunction</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LambdaFunction</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>

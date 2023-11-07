@@ -30,7 +30,7 @@ Gets an individual <code>scaling_plan</code> resource
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ScalingPlanName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ScalingPlanVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationSource</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ApplicationSource</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ScalingInstructions</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

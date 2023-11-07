@@ -28,9 +28,9 @@ Retrieves a list of <code>model_package_groups</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>ModelPackageGroupArn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ModelPackageGroupName</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ModelPackageGroupDescription</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ModelPackageGroupArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ModelPackageGroupName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ModelPackageGroupDescription</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ModelPackageGroupPolicy</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreationTime</code></td><td><code>string</code></td><td>The time at which the model package group was created.</td></tr>
 <tr><td><code>ModelPackageGroupStatus</code></td><td><code>string</code></td><td>The status of a modelpackage group job.</td></tr>

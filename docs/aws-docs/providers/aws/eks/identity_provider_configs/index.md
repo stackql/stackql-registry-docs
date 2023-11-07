@@ -30,7 +30,7 @@ Retrieves a list of <code>identity_provider_configs</code> in a region
 <tr><td><code>ClusterName</code></td><td><code>string</code></td><td>The name of the identity provider configuration.</td></tr>
 <tr><td><code>Type</code></td><td><code>string</code></td><td>The type of the identity provider configuration.</td></tr>
 <tr><td><code>IdentityProviderConfigName</code></td><td><code>string</code></td><td>The name of the OIDC provider configuration.</td></tr>
-<tr><td><code>Oidc</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Oidc</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><code>IdentityProviderConfigArn</code></td><td><code>string</code></td><td>The ARN of the configuration.</td></tr>
 

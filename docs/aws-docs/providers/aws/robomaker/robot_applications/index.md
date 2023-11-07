@@ -30,10 +30,10 @@ Retrieves a list of <code>robot_applications</code> in a region
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the robot application.</td></tr>
 <tr><td><code>Sources</code></td><td><code>array</code></td><td>The sources of the robot application.</td></tr>
 <tr><td><code>Environment</code></td><td><code>string</code></td><td>The URI of the Docker image for the robot application.</td></tr>
-<tr><td><code>RobotSoftwareSuite</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>RobotSoftwareSuite</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CurrentRevisionId</code></td><td><code>string</code></td><td>The revision ID of robot application.</td></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

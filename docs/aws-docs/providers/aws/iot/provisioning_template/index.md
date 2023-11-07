@@ -34,7 +34,7 @@ Gets an individual <code>provisioning_template</code> resource
 <tr><td><code>ProvisioningRoleArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>TemplateBody</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>TemplateType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreProvisioningHook</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PreProvisioningHook</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

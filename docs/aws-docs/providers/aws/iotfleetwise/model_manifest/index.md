@@ -34,7 +34,7 @@ Gets an individual <code>model_manifest</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Nodes</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>SignalCatalogArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

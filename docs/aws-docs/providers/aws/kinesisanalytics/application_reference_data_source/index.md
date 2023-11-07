@@ -29,7 +29,7 @@ Gets an individual <code>application_reference_data_source</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ApplicationName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ReferenceDataSource</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ReferenceDataSource</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

@@ -27,11 +27,11 @@ Gets an individual <code>image</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ImageName</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ImageArn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ImageRoleArn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ImageDisplayName</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ImageDescription</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ImageName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ImageArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ImageRoleArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ImageDisplayName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ImageDescription</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 
 </tbody></table>

@@ -31,12 +31,12 @@ Gets an individual <code>experiment</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Project</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RunningStatus</code></td><td><code>undefined</code></td><td>Start Experiment. Default is False</td></tr>
+<tr><td><code>RunningStatus</code></td><td><code>object</code></td><td>Start Experiment. Default is False</td></tr>
 <tr><td><code>RandomizationSalt</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Treatments</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>MetricGoals</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>SamplingRate</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>OnlineAbConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>OnlineAbConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Segment</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RemoveSegment</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>

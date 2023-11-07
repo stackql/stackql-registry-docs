@@ -37,9 +37,9 @@ Retrieves a list of <code>studio_components</code> in a region
 <tr><td><code>SecureInitializationRoleArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StudioComponentId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StudioId</code></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Subtype</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Subtype</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

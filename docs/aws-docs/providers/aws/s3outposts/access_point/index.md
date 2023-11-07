@@ -30,7 +30,7 @@ Gets an individual <code>access_point</code> resource
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified AccessPoint.</td></tr>
 <tr><td><code>Bucket</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>A name for the AccessPoint.</td></tr>
-<tr><td><code>VpcConfiguration</code></td><td><code>undefined</code></td><td>Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.</td></tr>
+<tr><td><code>VpcConfiguration</code></td><td><code>object</code></td><td>Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.</td></tr>
 <tr><td><code>Policy</code></td><td><code>object</code></td><td>The access point policy associated with this access point.</td></tr>
 
 </tbody></table>

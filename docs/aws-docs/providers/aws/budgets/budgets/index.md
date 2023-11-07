@@ -28,7 +28,7 @@ Retrieves a list of <code>budgets</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>NotificationsWithSubscribers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Budget</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Budget</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>

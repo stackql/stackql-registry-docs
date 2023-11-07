@@ -29,19 +29,19 @@ Retrieves a list of <code>workspaces</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>AuthenticationProviders</code></td><td><code>array</code></td><td>List of authentication providers to enable.</td></tr>
 <tr><td><code>SsoClientId</code></td><td><code>string</code></td><td>The client ID of the AWS SSO Managed Application.</td></tr>
-<tr><td><code>SamlConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>NetworkAccessControl</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>VpcConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>SamlConfigurationStatus</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SamlConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>NetworkAccessControl</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>VpcConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>SamlConfigurationStatus</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ClientToken</code></td><td><code>string</code></td><td>A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.</td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreationTimestamp</code></td><td><code>string</code></td><td>Timestamp when the workspace was created.</td></tr>
 <tr><td><code>ModificationTimestamp</code></td><td><code>string</code></td><td>Timestamp when the workspace was last modified</td></tr>
 <tr><td><code>GrafanaVersion</code></td><td><code>string</code></td><td>Version of Grafana the workspace is currently using.</td></tr>
 <tr><td><code>Endpoint</code></td><td><code>string</code></td><td>Endpoint for the Grafana workspace.</td></tr>
-<tr><td><code>AccountAccessType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AccountAccessType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>OrganizationRoleName</code></td><td><code>string</code></td><td>The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.</td></tr>
-<tr><td><code>PermissionType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PermissionType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StackSetName</code></td><td><code>string</code></td><td>The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.</td></tr>
 <tr><td><code>DataSources</code></td><td><code>array</code></td><td>List of data sources on the service managed IAM role.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>Description of a workspace.</td></tr>

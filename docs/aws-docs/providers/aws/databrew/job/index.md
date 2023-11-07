@@ -38,14 +38,14 @@ Gets an individual <code>job</code> resource
 <tr><td><code>Outputs</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>DataCatalogOutputs</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>DatabaseOutputs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>OutputLocation</code></td><td><code>undefined</code></td><td>Output location</td></tr>
+<tr><td><code>OutputLocation</code></td><td><code>object</code></td><td>Output location</td></tr>
 <tr><td><code>ProjectName</code></td><td><code>string</code></td><td>Project name</td></tr>
-<tr><td><code>Recipe</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Recipe</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td>Role arn</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Timeout</code></td><td><code>integer</code></td><td>Timeout</td></tr>
-<tr><td><code>JobSample</code></td><td><code>undefined</code></td><td>Job Sample</td></tr>
-<tr><td><code>ProfileConfiguration</code></td><td><code>undefined</code></td><td>Profile Job configuration</td></tr>
+<tr><td><code>JobSample</code></td><td><code>object</code></td><td>Job Sample</td></tr>
+<tr><td><code>ProfileConfiguration</code></td><td><code>object</code></td><td>Profile Job configuration</td></tr>
 <tr><td><code>ValidationConfigurations</code></td><td><code>array</code></td><td>Data quality rules configuration</td></tr>
 
 </tbody></table>

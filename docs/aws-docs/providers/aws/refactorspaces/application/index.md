@@ -27,7 +27,7 @@ Gets an individual <code>application</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ApiGatewayProxy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ApiGatewayProxy</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ApiGatewayId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>VpcLinkId</code></td><td><code>string</code></td><td></td></tr>
@@ -36,7 +36,7 @@ Gets an individual <code>application</code> resource
 <tr><td><code>ApplicationIdentifier</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>EnvironmentIdentifier</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProxyType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ProxyType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>VpcId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StageName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ProxyUrl</code></td><td><code>string</code></td><td></td></tr>

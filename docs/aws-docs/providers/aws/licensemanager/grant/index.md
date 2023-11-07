@@ -27,9 +27,9 @@ Gets an individual <code>grant</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>GrantArn</code></td><td><code>undefined</code></td><td>Arn of the grant.</td></tr>
+<tr><td><code>GrantArn</code></td><td><code>string</code></td><td>Arn of the grant.</td></tr>
 <tr><td><code>GrantName</code></td><td><code>string</code></td><td>Name for the created Grant.</td></tr>
-<tr><td><code>LicenseArn</code></td><td><code>undefined</code></td><td>License Arn for the grant.</td></tr>
+<tr><td><code>LicenseArn</code></td><td><code>string</code></td><td>License Arn for the grant.</td></tr>
 <tr><td><code>HomeRegion</code></td><td><code>string</code></td><td>Home region for the created grant.</td></tr>
 <tr><td><code>Version</code></td><td><code>string</code></td><td>The version of the grant.</td></tr>
 <tr><td><code>AllowedOperations</code></td><td><code>array</code></td><td></td></tr>

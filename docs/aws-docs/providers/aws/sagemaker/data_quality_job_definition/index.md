@@ -28,16 +28,16 @@ Gets an individual <code>data_quality_job_definition</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>JobDefinitionArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of job definition.</td></tr>
-<tr><td><code>JobDefinitionName</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DataQualityBaselineConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DataQualityAppSpecification</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DataQualityJobInput</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DataQualityJobOutputConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>JobResources</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>NetworkConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>EndpointName</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>JobDefinitionName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>DataQualityBaselineConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>DataQualityAppSpecification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>DataQualityJobInput</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>DataQualityJobOutputConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>JobResources</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>NetworkConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>EndpointName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.</td></tr>
-<tr><td><code>StoppingCondition</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>StoppingCondition</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><code>CreationTime</code></td><td><code>string</code></td><td>The time at which the job definition was created.</td></tr>
 

@@ -27,8 +27,8 @@ Gets an individual <code>notification_channel</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SnsRoleName</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>SnsTopicArn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SnsRoleName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>SnsTopicArn</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

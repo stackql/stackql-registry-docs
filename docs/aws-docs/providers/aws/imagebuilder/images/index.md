@@ -29,7 +29,7 @@ Retrieves a list of <code>images</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the image.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the image.</td></tr>
-<tr><td><code>ImageTestsConfiguration</code></td><td><code>undefined</code></td><td>The image tests configuration used when creating this image.</td></tr>
+<tr><td><code>ImageTestsConfiguration</code></td><td><code>object</code></td><td>The image tests configuration used when creating this image.</td></tr>
 <tr><td><code>ImageRecipeArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.</td></tr>
 <tr><td><code>ContainerRecipeArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.</td></tr>
 <tr><td><code>DistributionConfigurationArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the distribution configuration.</td></tr>
@@ -37,7 +37,7 @@ Retrieves a list of <code>images</code> in a region
 <tr><td><code>ImageId</code></td><td><code>string</code></td><td>The AMI ID of the EC2 AMI in current region.</td></tr>
 <tr><td><code>ImageUri</code></td><td><code>string</code></td><td>URI for containers created in current Region with default ECR image tag</td></tr>
 <tr><td><code>EnhancedImageMetadataEnabled</code></td><td><code>boolean</code></td><td>Collects additional information about the image being created, including the operating system (OS) version and package list.</td></tr>
-<tr><td><code>ImageScanningConfiguration</code></td><td><code>undefined</code></td><td>Contains settings for vulnerability scans.</td></tr>
+<tr><td><code>ImageScanningConfiguration</code></td><td><code>object</code></td><td>Contains settings for vulnerability scans.</td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td>The tags associated with the image.</td></tr>
 
 </tbody></table>

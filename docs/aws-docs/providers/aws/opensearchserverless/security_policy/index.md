@@ -30,7 +30,7 @@ Gets an individual <code>security_policy</code> resource
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the policy</td></tr>
 <tr><td><code>Policy</code></td><td><code>string</code></td><td>The JSON policy document that is the content for the policy</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the policy</td></tr>
-<tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

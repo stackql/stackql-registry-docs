@@ -32,7 +32,7 @@ Gets an individual <code>workspace</code> resource
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>Workspace arn.</td></tr>
 <tr><td><code>AlertManagerDefinition</code></td><td><code>string</code></td><td>The AMP Workspace alert manager definition data</td></tr>
 <tr><td><code>PrometheusEndpoint</code></td><td><code>string</code></td><td>AMP Workspace prometheus endpoint</td></tr>
-<tr><td><code>LoggingConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LoggingConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 
 </tbody></table>

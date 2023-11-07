@@ -37,7 +37,7 @@ Retrieves a list of <code>notebook_instances</code> in a region
 <tr><td><code>SubnetId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceMetadataServiceConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>InstanceMetadataServiceConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>RootAccess</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>NotebookInstanceName</code></td><td><code>string</code></td><td></td></tr>

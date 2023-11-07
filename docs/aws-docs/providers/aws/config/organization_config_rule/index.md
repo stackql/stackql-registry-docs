@@ -27,12 +27,12 @@ Gets an individual <code>organization_config_rule</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OrganizationCustomRuleMetadata</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>OrganizationManagedRuleMetadata</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>OrganizationCustomRuleMetadata</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>OrganizationManagedRuleMetadata</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ExcludedAccounts</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>OrganizationConfigRuleName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OrganizationCustomPolicyRuleMetadata</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>OrganizationCustomPolicyRuleMetadata</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

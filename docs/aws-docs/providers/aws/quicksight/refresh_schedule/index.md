@@ -30,7 +30,7 @@ Gets an individual <code>refresh_schedule</code> resource
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>&lt;p&gt;The Amazon Resource Name (ARN) of the data source.&lt;&#x2F;p&gt;</td></tr>
 <tr><td><code>AwsAccountId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DataSetId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Schedule</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Schedule</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

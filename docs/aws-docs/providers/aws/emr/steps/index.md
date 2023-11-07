@@ -29,7 +29,7 @@ Retrieves a list of <code>steps</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ActionOnFailure</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HadoopJarStep</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>HadoopJarStep</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>JobFlowId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 

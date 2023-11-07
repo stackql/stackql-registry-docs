@@ -30,7 +30,7 @@ Gets an individual <code>connector</code> resource
 <tr><td><code>ConnectorLabel</code></td><td><code>string</code></td><td> The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.</td></tr>
 <tr><td><code>ConnectorArn</code></td><td><code>string</code></td><td> The arn of the connector. The arn is unique for each ConnectorRegistration in your AWS account.</td></tr>
 <tr><td><code>ConnectorProvisioningType</code></td><td><code>string</code></td><td>The provisioning type of the connector. Currently the only supported value is LAMBDA. </td></tr>
-<tr><td><code>ConnectorProvisioningConfig</code></td><td><code>undefined</code></td><td>Contains information about the configuration of the connector being registered.</td></tr>
+<tr><td><code>ConnectorProvisioningConfig</code></td><td><code>object</code></td><td>Contains information about the configuration of the connector being registered.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description about the connector that's being registered.</td></tr>
 
 </tbody></table>

@@ -28,16 +28,16 @@ Retrieves a list of <code>load_balancers</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>SecurityGroups</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ConnectionDrainingPolicy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ConnectionDrainingPolicy</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Policies</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Scheme</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AvailabilityZones</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>SourceSecurityGroupOwnerAlias</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HealthCheck</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>HealthCheck</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CanonicalHostedZoneNameID</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CanonicalHostedZoneName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DNSName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccessLoggingPolicy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AccessLoggingPolicy</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Instances</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>LoadBalancerName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Listeners</code></td><td><code>array</code></td><td></td></tr>
@@ -47,7 +47,7 @@ Retrieves a list of <code>load_balancers</code> in a region
 <tr><td><code>LBCookieStickinessPolicy</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SourceSecurityGroupGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConnectionSettings</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ConnectionSettings</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

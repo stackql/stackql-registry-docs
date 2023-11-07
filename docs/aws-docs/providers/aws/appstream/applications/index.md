@@ -34,9 +34,9 @@ Retrieves a list of <code>applications</code> in a region
 <tr><td><code>LaunchParameters</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>WorkingDirectory</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>InstanceFamilies</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>IconS3Location</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AppBlockArn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>IconS3Location</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>AppBlockArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Platforms</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>AttributesToDelete</code></td><td><code>array</code></td><td></td></tr>

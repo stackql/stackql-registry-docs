@@ -27,7 +27,7 @@ Gets an individual <code>cluster</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SSESpecification</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SSESpecification</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ClusterDiscoveryEndpointURL</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ReplicationFactor</code></td><td><code>integer</code></td><td></td></tr>

@@ -31,7 +31,7 @@ Retrieves a list of <code>warm_pools</code> in a region
 <tr><td><code>MaxGroupPreparedCapacity</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>MinSize</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>PoolState</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceReusePolicy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>InstanceReusePolicy</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

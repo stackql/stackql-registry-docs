@@ -31,12 +31,12 @@ Retrieves a list of <code>flows</code> in a region
 <tr><td><code>FlowName</code></td><td><code>string</code></td><td>Name of the flow.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>Description of the flow.</td></tr>
 <tr><td><code>KMSArn</code></td><td><code>string</code></td><td>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</td></tr>
-<tr><td><code>TriggerConfig</code></td><td><code>undefined</code></td><td>Trigger settings of the flow.</td></tr>
-<tr><td><code>SourceFlowConfig</code></td><td><code>undefined</code></td><td>Configurations of Source connector of the flow.</td></tr>
+<tr><td><code>TriggerConfig</code></td><td><code>object</code></td><td>Trigger settings of the flow.</td></tr>
+<tr><td><code>SourceFlowConfig</code></td><td><code>object</code></td><td>Configurations of Source connector of the flow.</td></tr>
 <tr><td><code>DestinationFlowConfigList</code></td><td><code>array</code></td><td>List of Destination connectors of the flow.</td></tr>
 <tr><td><code>Tasks</code></td><td><code>array</code></td><td>List of tasks for the flow.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>List of Tags.</td></tr>
-<tr><td><code>MetadataCatalogConfig</code></td><td><code>undefined</code></td><td>Configurations of metadata catalog of the flow.</td></tr>
+<tr><td><code>MetadataCatalogConfig</code></td><td><code>object</code></td><td>Configurations of metadata catalog of the flow.</td></tr>
 
 </tbody></table>
 

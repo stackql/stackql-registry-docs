@@ -29,20 +29,20 @@ Retrieves a list of <code>pipes</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreationTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CurrentState</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CurrentState</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DesiredState</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DesiredState</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Enrichment</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnrichmentParameters</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>EnrichmentParameters</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>LastModifiedTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Source</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceParameters</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SourceParameters</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>StateReason</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Target</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TargetParameters</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>TargetParameters</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

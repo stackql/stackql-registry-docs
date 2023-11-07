@@ -27,7 +27,7 @@ Gets an individual <code>schema_version</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Schema</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Schema</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>SchemaDefinition</code></td><td><code>string</code></td><td>Complete definition of the schema in plain-text.</td></tr>
 <tr><td><code>VersionId</code></td><td><code>string</code></td><td>Represents the version ID associated with the schema version.</td></tr>
 

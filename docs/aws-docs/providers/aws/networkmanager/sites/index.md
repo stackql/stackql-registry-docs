@@ -32,7 +32,7 @@ Retrieves a list of <code>sites</code> in a region
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the site.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the site.</td></tr>
 <tr><td><code>GlobalNetworkId</code></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
-<tr><td><code>Location</code></td><td><code>undefined</code></td><td>The location of the site.</td></tr>
+<tr><td><code>Location</code></td><td><code>object</code></td><td>The location of the site.</td></tr>
 
 </tbody></table>
 

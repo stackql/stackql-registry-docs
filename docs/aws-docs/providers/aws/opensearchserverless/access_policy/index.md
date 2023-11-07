@@ -28,7 +28,7 @@ Gets an individual <code>access_policy</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the policy</td></tr>
-<tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the policy</td></tr>
 <tr><td><code>Policy</code></td><td><code>string</code></td><td>The JSON policy document that is the content for the policy</td></tr>
 

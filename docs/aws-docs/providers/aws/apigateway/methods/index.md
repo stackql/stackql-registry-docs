@@ -32,7 +32,7 @@ Retrieves a list of <code>methods</code> in a region
 <tr><td><code>AuthorizationType</code></td><td><code>string</code></td><td>The method's authorization type.</td></tr>
 <tr><td><code>AuthorizerId</code></td><td><code>string</code></td><td>The identifier of the authorizer to use on this method.</td></tr>
 <tr><td><code>HttpMethod</code></td><td><code>string</code></td><td>The backend system that the method calls when it receives a request.</td></tr>
-<tr><td><code>Integration</code></td><td><code>undefined</code></td><td>The backend system that the method calls when it receives a request.</td></tr>
+<tr><td><code>Integration</code></td><td><code>object</code></td><td>The backend system that the method calls when it receives a request.</td></tr>
 <tr><td><code>MethodResponses</code></td><td><code>array</code></td><td>The responses that can be sent to the client who calls the method.</td></tr>
 <tr><td><code>OperationName</code></td><td><code>string</code></td><td>A friendly operation name for the method.</td></tr>
 <tr><td><code>RequestModels</code></td><td><code>object</code></td><td>The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.</td></tr>

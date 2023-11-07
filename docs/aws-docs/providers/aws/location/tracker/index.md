@@ -27,16 +27,16 @@ Gets an individual <code>tracker</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CreateTime</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CreateTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PricingPlan</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PricingPlan</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>PricingPlanDataSource</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PositionFiltering</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PositionFiltering</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>TrackerArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>TrackerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UpdateTime</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>UpdateTime</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

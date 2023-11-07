@@ -29,7 +29,7 @@ Retrieves a list of <code>endpoints</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the endpoint.</td></tr>
 <tr><td><code>CidrBlock</code></td><td><code>string</code></td><td>The VPC CIDR committed by this endpoint.</td></tr>
-<tr><td><code>CreationTime</code></td><td><code>undefined</code></td><td>The time the endpoint was created.</td></tr>
+<tr><td><code>CreationTime</code></td><td><code>string</code></td><td>The time the endpoint was created.</td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td>The ID of the endpoint.</td></tr>
 <tr><td><code>NetworkInterfaces</code></td><td><code>array</code></td><td>The network interfaces of the endpoint.</td></tr>
 <tr><td><code>OutpostId</code></td><td><code>string</code></td><td>The id of the customer outpost on which the bucket resides.</td></tr>

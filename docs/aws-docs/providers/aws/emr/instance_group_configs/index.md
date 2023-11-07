@@ -28,10 +28,10 @@ Retrieves a list of <code>instance_group_configs</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>JobFlowId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AutoScalingPolicy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AutoScalingPolicy</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>BidPrice</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>InstanceCount</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>EbsConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>EbsConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>InstanceRole</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CustomAmiId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>

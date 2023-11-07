@@ -31,8 +31,8 @@ Retrieves a list of <code>accessors</code> in a region
 <tr><td><code>BillingToken</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreationDate</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AccessorType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>AccessorType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 
 </tbody></table>

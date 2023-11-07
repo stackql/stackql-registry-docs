@@ -30,7 +30,7 @@ Gets an individual <code>db_proxy_target_group</code> resource
 <tr><td><code>DBProxyName</code></td><td><code>string</code></td><td>The identifier for the proxy.</td></tr>
 <tr><td><code>TargetGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) representing the target group.</td></tr>
 <tr><td><code>TargetGroupName</code></td><td><code>string</code></td><td>The identifier for the DBProxyTargetGroup</td></tr>
-<tr><td><code>ConnectionPoolConfigurationInfo</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ConnectionPoolConfigurationInfo</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>DBInstanceIdentifiers</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>DBClusterIdentifiers</code></td><td><code>array</code></td><td></td></tr>
 

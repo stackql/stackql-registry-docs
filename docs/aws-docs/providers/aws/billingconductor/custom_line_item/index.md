@@ -29,9 +29,9 @@ Gets an individual <code>custom_line_item</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomLineItemChargeDetails</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CustomLineItemChargeDetails</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>BillingGroupArn</code></td><td><code>string</code></td><td>Billing Group ARN</td></tr>
-<tr><td><code>BillingPeriodRange</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>BillingPeriodRange</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>ARN</td></tr>
 <tr><td><code>CreationTime</code></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
 <tr><td><code>LastModifiedTime</code></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>

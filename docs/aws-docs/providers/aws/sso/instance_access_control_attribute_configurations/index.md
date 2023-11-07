@@ -29,7 +29,7 @@ Retrieves a list of <code>instance_access_control_attribute_configurations</code
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The ARN of the AWS SSO instance under which the operation will be executed.</td></tr>
 <tr><td><code>InstanceAccessControlAttributeConfiguration</code></td><td><code>object</code></td><td>The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.</td></tr>
-<tr><td><code>AccessControlAttributes</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AccessControlAttributes</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>
 

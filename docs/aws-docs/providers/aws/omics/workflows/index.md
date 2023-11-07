@@ -31,15 +31,15 @@ Retrieves a list of <code>workflows</code> in a region
 <tr><td><code>CreationTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DefinitionUri</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Engine</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Engine</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Main</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ParameterTemplate</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ParameterTemplate</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StorageCapacity</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

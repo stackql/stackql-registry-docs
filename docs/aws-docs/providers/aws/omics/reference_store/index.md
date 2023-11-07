@@ -32,8 +32,8 @@ Gets an individual <code>reference_store</code> resource
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description for the store.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>A name for the store.</td></tr>
 <tr><td><code>ReferenceStoreId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SseConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SseConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

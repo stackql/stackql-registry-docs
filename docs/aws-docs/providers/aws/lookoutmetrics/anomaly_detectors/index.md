@@ -27,10 +27,10 @@ Retrieves a list of <code>anomaly_detectors</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AnomalyDetectorName</code></td><td><code>string</code></td><td>Name for the Amazon Lookout for Metrics Anomaly Detector</td></tr>
 <tr><td><code>AnomalyDetectorDescription</code></td><td><code>string</code></td><td>A description for the AnomalyDetector.</td></tr>
-<tr><td><code>AnomalyDetectorConfig</code></td><td><code>undefined</code></td><td>Configuration options for the AnomalyDetector</td></tr>
+<tr><td><code>AnomalyDetectorConfig</code></td><td><code>object</code></td><td>Configuration options for the AnomalyDetector</td></tr>
 <tr><td><code>MetricSetList</code></td><td><code>array</code></td><td>List of metric sets for anomaly detection</td></tr>
 <tr><td><code>KmsKeyArn</code></td><td><code>string</code></td><td>KMS key used to encrypt the AnomalyDetector data</td></tr>
 

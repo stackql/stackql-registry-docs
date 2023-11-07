@@ -35,7 +35,7 @@ Gets an individual <code>fleet_metric</code> resource
 <tr><td><code>QueryVersion</code></td><td><code>string</code></td><td>The version of a Fleet Indexing query used by a fleet metric</td></tr>
 <tr><td><code>IndexName</code></td><td><code>string</code></td><td>The index name of a fleet metric</td></tr>
 <tr><td><code>Unit</code></td><td><code>string</code></td><td>The unit of data points emitted by a fleet metric</td></tr>
-<tr><td><code>AggregationType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AggregationType</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>MetricArn</code></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of a fleet metric metric</td></tr>
 <tr><td><code>CreationDate</code></td><td><code>number</code></td><td>The creation date of a fleet metric</td></tr>
 <tr><td><code>LastModifiedDate</code></td><td><code>number</code></td><td>The last modified date of a fleet metric</td></tr>

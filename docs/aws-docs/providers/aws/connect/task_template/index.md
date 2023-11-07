@@ -35,8 +35,8 @@ Gets an individual <code>task_template</code> resource
 <tr><td><code>Constraints</code></td><td><code>object</code></td><td>The constraints for the task template</td></tr>
 <tr><td><code>Defaults</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Fields</code></td><td><code>array</code></td><td>The list of task template's fields</td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>ClientToken</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ClientToken</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>One or more tags.</td></tr>
 
 </tbody></table>

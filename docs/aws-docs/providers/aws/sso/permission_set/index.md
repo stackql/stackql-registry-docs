@@ -37,7 +37,7 @@ Gets an individual <code>permission_set</code> resource
 <tr><td><code>InlinePolicy</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>CustomerManagedPolicyReferences</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PermissionsBoundary</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PermissionsBoundary</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

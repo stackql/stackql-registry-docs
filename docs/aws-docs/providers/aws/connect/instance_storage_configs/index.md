@@ -28,13 +28,13 @@ Retrieves a list of <code>instance_storage_configs</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>Connect Instance ID with which the storage config will be associated</td></tr>
-<tr><td><code>ResourceType</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AssociationId</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>StorageType</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>S3Config</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>KinesisVideoStreamConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>KinesisStreamConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>KinesisFirehoseConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ResourceType</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>AssociationId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>StorageType</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>S3Config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>KinesisVideoStreamConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>KinesisStreamConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>KinesisFirehoseConfig</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

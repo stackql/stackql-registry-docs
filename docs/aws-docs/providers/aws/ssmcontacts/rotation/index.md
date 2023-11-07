@@ -31,7 +31,7 @@ Gets an individual <code>rotation</code> resource
 <tr><td><code>ContactIds</code></td><td><code>array</code></td><td>Members of the rotation</td></tr>
 <tr><td><code>StartTime</code></td><td><code>string</code></td><td>Start time of the first shift of Oncall Schedule</td></tr>
 <tr><td><code>TimeZoneId</code></td><td><code>string</code></td><td>TimeZone Identifier for the Oncall Schedule</td></tr>
-<tr><td><code>Recurrence</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Recurrence</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the rotation.</td></tr>
 

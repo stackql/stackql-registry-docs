@@ -29,7 +29,7 @@ Retrieves a list of <code>app_image_configs</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>AppImageConfigArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppImageConfig.</td></tr>
 <tr><td><code>AppImageConfigName</code></td><td><code>string</code></td><td>The Name of the AppImageConfig.</td></tr>
-<tr><td><code>KernelGatewayImageConfig</code></td><td><code>undefined</code></td><td>The KernelGatewayImageConfig.</td></tr>
+<tr><td><code>KernelGatewayImageConfig</code></td><td><code>object</code></td><td>The KernelGatewayImageConfig.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the AppImageConfig.</td></tr>
 
 </tbody></table>

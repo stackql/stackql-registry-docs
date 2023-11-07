@@ -29,7 +29,7 @@ Retrieves a list of <code>aliases</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A human-readable description of the alias.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>A descriptive label that is associated with an alias. Alias names do not need to be unique.</td></tr>
-<tr><td><code>RoutingStrategy</code></td><td><code>undefined</code></td><td>A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.</td></tr>
+<tr><td><code>RoutingStrategy</code></td><td><code>object</code></td><td>A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.</td></tr>
 <tr><td><code>AliasId</code></td><td><code>string</code></td><td>Unique alias ID</td></tr>
 
 </tbody></table>

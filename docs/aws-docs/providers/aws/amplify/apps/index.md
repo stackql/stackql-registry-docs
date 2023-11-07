@@ -31,8 +31,8 @@ Retrieves a list of <code>apps</code> in a region
 <tr><td><code>AppId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AppName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AutoBranchCreationConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>BasicAuthConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AutoBranchCreationConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>BasicAuthConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>BuildSpec</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CustomHeaders</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CustomRules</code></td><td><code>array</code></td><td></td></tr>

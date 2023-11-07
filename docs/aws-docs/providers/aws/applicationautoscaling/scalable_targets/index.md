@@ -31,7 +31,7 @@ Retrieves a list of <code>scalable_targets</code> in a region
 <tr><td><code>ResourceId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ServiceNamespace</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ScalableDimension</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SuspendedState</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SuspendedState</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MinCapacity</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>RoleARN</code></td><td><code>string</code></td><td></td></tr>

@@ -28,9 +28,9 @@ Retrieves a list of <code>indices</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>IndexState</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>IndexState</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

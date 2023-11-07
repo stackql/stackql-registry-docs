@@ -29,7 +29,7 @@ Gets an individual <code>detector</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>FindingPublishingFrequency</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Enable</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>DataSources</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DataSources</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Features</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>

@@ -30,7 +30,7 @@ Gets an individual <code>configuration_aggregator</code> resource
 <tr><td><code>AccountAggregationSources</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>ConfigurationAggregatorName</code></td><td><code>string</code></td><td>The name of the aggregator.</td></tr>
 <tr><td><code>ConfigurationAggregatorArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the aggregator.</td></tr>
-<tr><td><code>OrganizationAggregationSource</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>OrganizationAggregationSource</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the configuration aggregator.</td></tr>
 
 </tbody></table>

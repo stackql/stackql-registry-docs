@@ -34,7 +34,7 @@ Retrieves a list of <code>collections</code> in a region
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the collection.</td></tr>
 <tr><td><code>CollectionEndpoint</code></td><td><code>string</code></td><td>The endpoint for the collection.</td></tr>
 <tr><td><code>DashboardEndpoint</code></td><td><code>string</code></td><td>The OpenSearch Dashboards endpoint for the collection.</td></tr>
-<tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

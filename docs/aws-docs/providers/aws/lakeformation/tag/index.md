@@ -27,9 +27,9 @@ Gets an individual <code>tag</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CatalogId</code></td><td><code>undefined</code></td><td>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</td></tr>
-<tr><td><code>TagKey</code></td><td><code>undefined</code></td><td>The key-name for the LF-tag.</td></tr>
-<tr><td><code>TagValues</code></td><td><code>undefined</code></td><td>A list of possible values an attribute can take.</td></tr>
+<tr><td><code>CatalogId</code></td><td><code>string</code></td><td>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</td></tr>
+<tr><td><code>TagKey</code></td><td><code>string</code></td><td>The key-name for the LF-tag.</td></tr>
+<tr><td><code>TagValues</code></td><td><code>array</code></td><td>A list of possible values an attribute can take.</td></tr>
 
 </tbody></table>
 

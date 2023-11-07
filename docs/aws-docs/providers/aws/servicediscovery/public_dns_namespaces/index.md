@@ -31,7 +31,7 @@ Retrieves a list of <code>public_dns_namespaces</code> in a region
 <tr><td><code>HostedZoneId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Properties</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Properties</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 

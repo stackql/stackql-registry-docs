@@ -27,9 +27,9 @@ Gets an individual <code>resource_data_sync</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>S3Destination</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>S3Destination</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>KMSKeyArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SyncSource</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SyncSource</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>BucketName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>BucketRegion</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SyncFormat</code></td><td><code>string</code></td><td></td></tr>

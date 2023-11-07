@@ -30,8 +30,8 @@ Retrieves a list of <code>domain_names</code> in a region
 <tr><td><code>DomainName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DistributionDomainName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DistributionHostedZoneId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>MutualTlsAuthentication</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>EndpointConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>MutualTlsAuthentication</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>RegionalDomainName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RegionalHostedZoneId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CertificateArn</code></td><td><code>string</code></td><td></td></tr>

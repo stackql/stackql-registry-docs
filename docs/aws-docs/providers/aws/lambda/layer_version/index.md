@@ -31,7 +31,7 @@ Gets an individual <code>layer_version</code> resource
 <tr><td><code>LicenseInfo</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>LayerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Content</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Content</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CompatibleArchitectures</code></td><td><code>array</code></td><td></td></tr>
 

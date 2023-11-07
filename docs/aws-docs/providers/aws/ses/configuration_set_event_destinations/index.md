@@ -29,7 +29,7 @@ Retrieves a list of <code>configuration_set_event_destinations</code> in a regio
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ConfigurationSetName</code></td><td><code>string</code></td><td>The name of the configuration set that contains the event destination.</td></tr>
-<tr><td><code>EventDestination</code></td><td><code>undefined</code></td><td>The event destination object.</td></tr>
+<tr><td><code>EventDestination</code></td><td><code>object</code></td><td>The event destination object.</td></tr>
 
 </tbody></table>
 

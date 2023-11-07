@@ -34,13 +34,13 @@ Gets an individual <code>global_table</code> resource
 <tr><td><code>GlobalSecondaryIndexes</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>KeySchema</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>LocalSecondaryIndexes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>WriteProvisionedThroughputSettings</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>WriteProvisionedThroughputSettings</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Replicas</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SSESpecification</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>StreamSpecification</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SSESpecification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>StreamSpecification</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>TableName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>TableId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TimeToLiveSpecification</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>TimeToLiveSpecification</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

@@ -34,7 +34,7 @@ Retrieves a list of <code>db_instances</code> in a region
 <tr><td><code>AvailabilityZone</code></td><td><code>string</code></td><td>The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.</td></tr>
 <tr><td><code>BackupRetentionPeriod</code></td><td><code>integer</code></td><td>The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</td></tr>
 <tr><td><code>CACertificateIdentifier</code></td><td><code>string</code></td><td>The identifier of the CA certificate for this DB instance.</td></tr>
-<tr><td><code>CertificateDetails</code></td><td><code>undefined</code></td><td>Returns the details of the DB instance's server certificate.</td></tr>
+<tr><td><code>CertificateDetails</code></td><td><code>object</code></td><td>Returns the details of the DB instance's server certificate.</td></tr>
 <tr><td><code>CertificateRotationRestart</code></td><td><code>boolean</code></td><td>A value that indicates whether the DB instance is restarted when you rotate your SSL&#x2F;TLS certificate.&lt;br&#x2F;&gt;By default, the DB instance is restarted when you rotate your SSL&#x2F;TLS certificate. The certificate is not updated until the DB instance is restarted.&lt;br&#x2F;&gt;If you are using SSL&#x2F;TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL&#x2F;TLS certificate&lt;br&#x2F;&gt;This setting doesn't apply to RDS Custom.</td></tr>
 <tr><td><code>CharacterSetName</code></td><td><code>string</code></td><td>For supported engines, indicates that the DB instance should be associated with the specified character set.</td></tr>
 <tr><td><code>CopyTagsToSnapshot</code></td><td><code>boolean</code></td><td>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</td></tr>
@@ -58,7 +58,7 @@ Retrieves a list of <code>db_instances</code> in a region
 <tr><td><code>EnableCloudwatchLogsExports</code></td><td><code>array</code></td><td>The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.</td></tr>
 <tr><td><code>EnableIAMDatabaseAuthentication</code></td><td><code>boolean</code></td><td>A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</td></tr>
 <tr><td><code>EnablePerformanceInsights</code></td><td><code>boolean</code></td><td>A value that indicates whether to enable Performance Insights for the DB instance.</td></tr>
-<tr><td><code>Endpoint</code></td><td><code>undefined</code></td><td>Specifies the connection endpoint.</td></tr>
+<tr><td><code>Endpoint</code></td><td><code>object</code></td><td>Specifies the connection endpoint.</td></tr>
 <tr><td><code>Engine</code></td><td><code>string</code></td><td>The name of the database engine that you want to use for this DB instance.</td></tr>
 <tr><td><code>EngineVersion</code></td><td><code>string</code></td><td>The version number of the database engine to use.</td></tr>
 <tr><td><code>ManageMasterUserPassword</code></td><td><code>boolean</code></td><td>A value that indicates whether to manage the master user password with AWS Secrets Manager.</td></tr>
@@ -67,7 +67,7 @@ Retrieves a list of <code>db_instances</code> in a region
 <tr><td><code>LicenseModel</code></td><td><code>string</code></td><td>License model information for this DB instance.</td></tr>
 <tr><td><code>MasterUsername</code></td><td><code>string</code></td><td>The master user name for the DB instance.</td></tr>
 <tr><td><code>MasterUserPassword</code></td><td><code>string</code></td><td>The password for the master user.</td></tr>
-<tr><td><code>MasterUserSecret</code></td><td><code>undefined</code></td><td>Contains the secret managed by RDS in AWS Secrets Manager for the master user password.</td></tr>
+<tr><td><code>MasterUserSecret</code></td><td><code>object</code></td><td>Contains the secret managed by RDS in AWS Secrets Manager for the master user password.</td></tr>
 <tr><td><code>MaxAllocatedStorage</code></td><td><code>integer</code></td><td>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</td></tr>
 <tr><td><code>MonitoringInterval</code></td><td><code>integer</code></td><td>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.</td></tr>
 <tr><td><code>MonitoringRoleArn</code></td><td><code>string</code></td><td>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.</td></tr>

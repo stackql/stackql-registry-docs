@@ -27,10 +27,10 @@ Retrieves a list of <code>robot_application_versions</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Application</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Application</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CurrentRevisionId</code></td><td><code>string</code></td><td>The revision ID of robot application.</td></tr>
 <tr><td><code>ApplicationVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

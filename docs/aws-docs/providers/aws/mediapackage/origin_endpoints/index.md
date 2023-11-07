@@ -37,11 +37,11 @@ Retrieves a list of <code>origin_endpoints</code> in a region
 <tr><td><code>TimeDelaySeconds</code></td><td><code>integer</code></td><td>Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.</td></tr>
 <tr><td><code>ManifestName</code></td><td><code>string</code></td><td>A short string appended to the end of the OriginEndpoint URL.</td></tr>
 <tr><td><code>Origination</code></td><td><code>string</code></td><td>Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination</td></tr>
-<tr><td><code>Authorization</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>HlsPackage</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DashPackage</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>MssPackage</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>CmafPackage</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Authorization</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>HlsPackage</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>DashPackage</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>MssPackage</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>CmafPackage</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
 
 </tbody></table>

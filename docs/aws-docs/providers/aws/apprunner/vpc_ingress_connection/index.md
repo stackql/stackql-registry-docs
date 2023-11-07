@@ -32,7 +32,7 @@ Gets an individual <code>vpc_ingress_connection</code> resource
 <tr><td><code>ServiceArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the service.</td></tr>
 <tr><td><code>Status</code></td><td><code>string</code></td><td>The current status of the VpcIngressConnection.</td></tr>
 <tr><td><code>DomainName</code></td><td><code>string</code></td><td>The Domain name associated with the VPC Ingress Connection.</td></tr>
-<tr><td><code>IngressVpcConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>IngressVpcConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

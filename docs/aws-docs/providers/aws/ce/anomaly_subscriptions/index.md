@@ -27,7 +27,7 @@ Retrieves a list of <code>anomaly_subscriptions</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SubscriptionArn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SubscriptionArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SubscriptionName</code></td><td><code>string</code></td><td>The name of the subscription.</td></tr>
 <tr><td><code>AccountId</code></td><td><code>string</code></td><td>The accountId</td></tr>
 <tr><td><code>MonitorArnList</code></td><td><code>array</code></td><td>A list of cost anomaly monitors.</td></tr>

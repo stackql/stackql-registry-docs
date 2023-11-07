@@ -27,7 +27,7 @@ Gets an individual <code>resource_collection</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceCollectionFilter</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ResourceCollectionFilter</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ResourceCollectionType</code></td><td><code>string</code></td><td>The type of ResourceCollection</td></tr>
 
 </tbody></table>

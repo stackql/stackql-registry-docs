@@ -34,7 +34,7 @@ Gets an individual <code>user</code> resource
 <tr><td><code>ServerId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>UserName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>HomeDirectoryMappings</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PosixProfile</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PosixProfile</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>SshPublicKeys</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>

@@ -28,8 +28,8 @@ Retrieves a list of <code>vehicles</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssociationBehavior</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Attributes</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AssociationBehavior</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Attributes</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CreationTime</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DecoderManifestArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>

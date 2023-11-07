@@ -31,8 +31,8 @@ Retrieves a list of <code>assistant_associations</code> in a region
 <tr><td><code>AssistantArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AssistantAssociationId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AssistantId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Association</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AssociationType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Association</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>AssociationType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

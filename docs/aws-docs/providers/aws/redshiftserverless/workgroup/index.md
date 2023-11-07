@@ -37,7 +37,7 @@ Gets an individual <code>workgroup</code> resource
 <tr><td><code>PubliclyAccessible</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>Port</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Workgroup</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Workgroup</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

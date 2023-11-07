@@ -29,7 +29,7 @@ Gets an individual <code>flow_source</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>FlowArn</code></td><td><code>string</code></td><td>The ARN of the flow.</td></tr>
 <tr><td><code>SourceArn</code></td><td><code>string</code></td><td>The ARN of the source.</td></tr>
-<tr><td><code>Decryption</code></td><td><code>undefined</code></td><td>The type of encryption that is used on the content ingested from this source.</td></tr>
+<tr><td><code>Decryption</code></td><td><code>object</code></td><td>The type of encryption that is used on the content ingested from this source.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.</td></tr>
 <tr><td><code>EntitlementArn</code></td><td><code>string</code></td><td>The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.</td></tr>
 <tr><td><code>IngestIp</code></td><td><code>string</code></td><td>The IP address that the flow will be listening on for incoming content.</td></tr>

@@ -27,11 +27,11 @@ Gets an individual <code>user_pool_client</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AnalyticsConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AnalyticsConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>GenerateSecret</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>CallbackURLs</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>IdTokenValidity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>TokenValidityUnits</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>TokenValidityUnits</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ReadAttributes</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>AllowedOAuthFlowsUserPoolClient</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>DefaultRedirectURI</code></td><td><code>string</code></td><td></td></tr>

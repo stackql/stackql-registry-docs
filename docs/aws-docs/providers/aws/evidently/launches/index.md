@@ -36,7 +36,7 @@ Retrieves a list of <code>launches</code> in a region
 <tr><td><code>Groups</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>MetricMonitors</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>ExecutionStatus</code></td><td><code>undefined</code></td><td>Start or Stop Launch Launch. Default is not started.</td></tr>
+<tr><td><code>ExecutionStatus</code></td><td><code>object</code></td><td>Start or Stop Launch Launch. Default is not started.</td></tr>
 
 </tbody></table>
 

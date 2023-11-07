@@ -28,7 +28,7 @@ Gets an individual <code>application_fleet_association</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>FleetName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationArn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ApplicationArn</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 

@@ -31,7 +31,7 @@ Retrieves a list of <code>logger_definitions</code> in a region
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InitialVersion</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>InitialVersion</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>

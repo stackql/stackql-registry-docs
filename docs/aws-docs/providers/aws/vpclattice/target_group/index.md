@@ -28,7 +28,7 @@ Gets an individual <code>target_group</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Config</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Config</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>CreatedAt</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>LastUpdatedAt</code></td><td><code>string</code></td><td></td></tr>

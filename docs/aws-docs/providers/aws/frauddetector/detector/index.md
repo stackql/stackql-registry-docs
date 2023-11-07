@@ -34,7 +34,7 @@ Gets an individual <code>detector</code> resource
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>Tags associated with this detector.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the detector.</td></tr>
 <tr><td><code>Rules</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EventType</code></td><td><code>undefined</code></td><td>The event type to associate this detector with.</td></tr>
+<tr><td><code>EventType</code></td><td><code>object</code></td><td>The event type to associate this detector with.</td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the detector.</td></tr>
 <tr><td><code>CreatedTime</code></td><td><code>string</code></td><td>The time when the detector was created.</td></tr>
 <tr><td><code>LastUpdatedTime</code></td><td><code>string</code></td><td>The time when the detector was last updated.</td></tr>

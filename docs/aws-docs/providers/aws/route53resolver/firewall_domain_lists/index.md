@@ -37,7 +37,7 @@ Retrieves a list of <code>firewall_domain_lists</code> in a region
 <tr><td><code>CreatorRequestId</code></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
 <tr><td><code>CreationTime</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
 <tr><td><code>ModificationTime</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
-<tr><td><code>Domains</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Domains</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>DomainFileUrl</code></td><td><code>string</code></td><td>S3 URL to import domains from.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>Tags</td></tr>
 

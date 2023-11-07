@@ -32,7 +32,7 @@ Retrieves a list of <code>data_integrations</code> in a region
 <tr><td><code>DataIntegrationArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the data integration.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the data integration.</td></tr>
 <tr><td><code>KmsKey</code></td><td><code>string</code></td><td>The KMS key of the data integration.</td></tr>
-<tr><td><code>ScheduleConfig</code></td><td><code>undefined</code></td><td>The name of the data and how often it should be pulled from the source.</td></tr>
+<tr><td><code>ScheduleConfig</code></td><td><code>object</code></td><td>The name of the data and how often it should be pulled from the source.</td></tr>
 <tr><td><code>SourceURI</code></td><td><code>string</code></td><td>The URI of the data source.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags (keys and values) associated with the data integration.</td></tr>
 

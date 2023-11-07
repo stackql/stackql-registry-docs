@@ -35,7 +35,7 @@ Gets an individual <code>instance</code> resource
 <tr><td><code>ServiceRole</code></td><td><code>string</code></td><td>Service linked role created as part of instance creation.</td></tr>
 <tr><td><code>InstanceStatus</code></td><td><code>string</code></td><td>Specifies the creation status of new instance.</td></tr>
 <tr><td><code>DirectoryId</code></td><td><code>string</code></td><td>Existing directoryId user wants to map to the new Connect instance.</td></tr>
-<tr><td><code>Attributes</code></td><td><code>undefined</code></td><td>The attributes for the instance.</td></tr>
+<tr><td><code>Attributes</code></td><td><code>object</code></td><td>The attributes for the instance.</td></tr>
 
 </tbody></table>
 

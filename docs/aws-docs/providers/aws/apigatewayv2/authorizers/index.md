@@ -31,7 +31,7 @@ Retrieves a list of <code>authorizers</code> in a region
 <tr><td><code>AuthorizerUri</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AuthorizerCredentialsArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>AuthorizerType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>JwtConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>JwtConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>AuthorizerResultTtlInSeconds</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>IdentitySource</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>AuthorizerPayloadFormatVersion</code></td><td><code>string</code></td><td></td></tr>

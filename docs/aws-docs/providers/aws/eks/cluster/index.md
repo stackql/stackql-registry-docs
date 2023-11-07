@@ -28,12 +28,12 @@ Gets an individual <code>cluster</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>EncryptionConfig</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>KubernetesNetworkConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Logging</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>KubernetesNetworkConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Logging</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The unique name to give to your cluster.</td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td>The unique ID given to your cluster.</td></tr>
-<tr><td><code>ResourcesVpcConfig</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>OutpostConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ResourcesVpcConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>OutpostConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.</td></tr>
 <tr><td><code>Version</code></td><td><code>string</code></td><td>The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>

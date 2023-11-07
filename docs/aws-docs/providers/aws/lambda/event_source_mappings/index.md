@@ -30,10 +30,10 @@ Retrieves a list of <code>event_source_mappings</code> in a region
 <tr><td><code>Id</code></td><td><code>string</code></td><td>Event Source Mapping Identifier UUID.</td></tr>
 <tr><td><code>BatchSize</code></td><td><code>integer</code></td><td>The maximum number of items to retrieve in a single batch.</td></tr>
 <tr><td><code>BisectBatchOnFunctionError</code></td><td><code>boolean</code></td><td>(Streams) If the function returns an error, split the batch in two and retry.</td></tr>
-<tr><td><code>DestinationConfig</code></td><td><code>undefined</code></td><td>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</td></tr>
+<tr><td><code>DestinationConfig</code></td><td><code>object</code></td><td>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</td></tr>
 <tr><td><code>Enabled</code></td><td><code>boolean</code></td><td>Disables the event source mapping to pause polling and invocation.</td></tr>
 <tr><td><code>EventSourceArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the event source.</td></tr>
-<tr><td><code>FilterCriteria</code></td><td><code>undefined</code></td><td>The filter criteria to control event filtering.</td></tr>
+<tr><td><code>FilterCriteria</code></td><td><code>object</code></td><td>The filter criteria to control event filtering.</td></tr>
 <tr><td><code>FunctionName</code></td><td><code>string</code></td><td>The name of the Lambda function.</td></tr>
 <tr><td><code>MaximumBatchingWindowInSeconds</code></td><td><code>integer</code></td><td>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</td></tr>
 <tr><td><code>MaximumRecordAgeInSeconds</code></td><td><code>integer</code></td><td>(Streams) The maximum age of a record that Lambda sends to a function for processing.</td></tr>
@@ -46,11 +46,11 @@ Retrieves a list of <code>event_source_mappings</code> in a region
 <tr><td><code>SourceAccessConfigurations</code></td><td><code>array</code></td><td>A list of SourceAccessConfiguration.</td></tr>
 <tr><td><code>TumblingWindowInSeconds</code></td><td><code>integer</code></td><td>(Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.</td></tr>
 <tr><td><code>FunctionResponseTypes</code></td><td><code>array</code></td><td>(Streams) A list of response types supported by the function.</td></tr>
-<tr><td><code>SelfManagedEventSource</code></td><td><code>undefined</code></td><td>Self-managed event source endpoints.</td></tr>
-<tr><td><code>AmazonManagedKafkaEventSourceConfig</code></td><td><code>undefined</code></td><td>Specific configuration settings for an MSK event source.</td></tr>
-<tr><td><code>SelfManagedKafkaEventSourceConfig</code></td><td><code>undefined</code></td><td>Specific configuration settings for a Self-Managed Apache Kafka event source.</td></tr>
-<tr><td><code>ScalingConfig</code></td><td><code>undefined</code></td><td>The scaling configuration for the event source.</td></tr>
-<tr><td><code>DocumentDBEventSourceConfig</code></td><td><code>undefined</code></td><td>Document db event source config.</td></tr>
+<tr><td><code>SelfManagedEventSource</code></td><td><code>object</code></td><td>Self-managed event source endpoints.</td></tr>
+<tr><td><code>AmazonManagedKafkaEventSourceConfig</code></td><td><code>object</code></td><td>Specific configuration settings for an MSK event source.</td></tr>
+<tr><td><code>SelfManagedKafkaEventSourceConfig</code></td><td><code>object</code></td><td>Specific configuration settings for a Self-Managed Apache Kafka event source.</td></tr>
+<tr><td><code>ScalingConfig</code></td><td><code>object</code></td><td>The scaling configuration for the event source.</td></tr>
+<tr><td><code>DocumentDBEventSourceConfig</code></td><td><code>object</code></td><td>Document db event source config.</td></tr>
 
 </tbody></table>
 

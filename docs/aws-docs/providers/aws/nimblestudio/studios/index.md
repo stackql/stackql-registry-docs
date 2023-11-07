@@ -31,11 +31,11 @@ Retrieves a list of <code>studios</code> in a region
 <tr><td><code>DisplayName</code></td><td><code>string</code></td><td>&lt;p&gt;A friendly name for the studio.&lt;&#x2F;p&gt;</td></tr>
 <tr><td><code>HomeRegion</code></td><td><code>string</code></td><td>&lt;p&gt;The Amazon Web Services Region where the studio resource is located.&lt;&#x2F;p&gt;</td></tr>
 <tr><td><code>SsoClientId</code></td><td><code>string</code></td><td>&lt;p&gt;The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>StudioEncryptionConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>StudioEncryptionConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>StudioId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StudioName</code></td><td><code>string</code></td><td>&lt;p&gt;The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.&lt;&#x2F;p&gt;</td></tr>
 <tr><td><code>StudioUrl</code></td><td><code>string</code></td><td>&lt;p&gt;The address of the web page for the studio.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>UserRoleArn</code></td><td><code>string</code></td><td>&lt;p&gt;The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.&lt;&#x2F;p&gt;</td></tr>
 
 </tbody></table>

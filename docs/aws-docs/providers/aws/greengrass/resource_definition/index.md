@@ -32,7 +32,7 @@ Gets an individual <code>resource_definition</code> resource
 <tr><td><code>LatestVersionArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InitialVersion</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>InitialVersion</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

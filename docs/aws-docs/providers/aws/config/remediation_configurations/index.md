@@ -28,7 +28,7 @@ Retrieves a list of <code>remediation_configurations</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>TargetVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExecutionControls</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ExecutionControls</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Parameters</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>TargetType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ConfigRuleName</code></td><td><code>string</code></td><td></td></tr>

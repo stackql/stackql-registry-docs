@@ -27,7 +27,7 @@ Gets an individual <code>anomaly_monitor</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>MonitorArn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>MonitorArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MonitorType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MonitorName</code></td><td><code>string</code></td><td>The name of the monitor.</td></tr>
 <tr><td><code>CreationDate</code></td><td><code>string</code></td><td>The date when the monitor was created. </td></tr>

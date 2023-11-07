@@ -27,9 +27,9 @@ Gets an individual <code>cluster_capacity_provider_associations</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CapacityProviders</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Cluster</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>DefaultCapacityProviderStrategy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CapacityProviders</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>Cluster</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>DefaultCapacityProviderStrategy</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>
 

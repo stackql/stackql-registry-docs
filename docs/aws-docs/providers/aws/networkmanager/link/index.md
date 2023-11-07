@@ -31,7 +31,7 @@ Gets an individual <code>link</code> resource
 <tr><td><code>LinkId</code></td><td><code>string</code></td><td>The ID of the link.</td></tr>
 <tr><td><code>GlobalNetworkId</code></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
 <tr><td><code>SiteId</code></td><td><code>string</code></td><td>The ID of the site</td></tr>
-<tr><td><code>Bandwidth</code></td><td><code>undefined</code></td><td>The Bandwidth for the link.</td></tr>
+<tr><td><code>Bandwidth</code></td><td><code>object</code></td><td>The Bandwidth for the link.</td></tr>
 <tr><td><code>Provider</code></td><td><code>string</code></td><td>The provider of the link.</td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the link.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the link.</td></tr>

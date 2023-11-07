@@ -31,10 +31,10 @@ Gets an individual <code>billing_group</code> resource
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>PrimaryAccountId</code></td><td><code>string</code></td><td>This account will act as a virtual payer account of the billing group</td></tr>
-<tr><td><code>ComputationPreference</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>AccountGrouping</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ComputationPreference</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>AccountGrouping</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Size</code></td><td><code>integer</code></td><td>Number of accounts in the billing group</td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>StatusReason</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CreationTime</code></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
 <tr><td><code>LastModifiedTime</code></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>

@@ -32,7 +32,7 @@ Retrieves a list of <code>datasets</code> in a region
 <tr><td><code>DatasetType</code></td><td><code>string</code></td><td>The type of dataset</td></tr>
 <tr><td><code>DatasetGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group to add the dataset to</td></tr>
 <tr><td><code>SchemaArn</code></td><td><code>string</code></td><td>The ARN of the schema to associate with the dataset. The schema defines the dataset fields.</td></tr>
-<tr><td><code>DatasetImportJob</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>DatasetImportJob</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

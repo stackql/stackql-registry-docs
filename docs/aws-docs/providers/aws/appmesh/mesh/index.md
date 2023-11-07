@@ -33,7 +33,7 @@ Gets an individual <code>mesh</code> resource
 <tr><td><code>ResourceOwner</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Spec</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Spec</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

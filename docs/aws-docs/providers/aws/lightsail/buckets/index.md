@@ -31,7 +31,7 @@ Retrieves a list of <code>buckets</code> in a region
 <tr><td><code>BundleId</code></td><td><code>string</code></td><td>The ID of the bundle to use for the bucket.</td></tr>
 <tr><td><code>BucketArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ObjectVersioning</code></td><td><code>boolean</code></td><td>Specifies whether to enable or disable versioning of objects in the bucket.</td></tr>
-<tr><td><code>AccessRules</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>AccessRules</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ResourcesReceivingAccess</code></td><td><code>array</code></td><td>The names of the Lightsail resources for which to set bucket access.</td></tr>
 <tr><td><code>ReadOnlyAccessAccounts</code></td><td><code>array</code></td><td>An array of strings to specify the AWS account IDs that can access the bucket.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>

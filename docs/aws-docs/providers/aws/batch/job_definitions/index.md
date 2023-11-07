@@ -28,17 +28,17 @@ Retrieves a list of <code>job_definitions</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Parameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Timeout</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Timeout</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>JobDefinitionName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>PropagateTags</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>PlatformCapabilities</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EksProperties</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>EksProperties</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NodeProperties</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>NodeProperties</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>SchedulingPriority</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>ContainerProperties</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ContainerProperties</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RetryStrategy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>RetryStrategy</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>

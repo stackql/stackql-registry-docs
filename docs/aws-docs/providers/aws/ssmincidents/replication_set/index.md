@@ -27,9 +27,9 @@ Gets an individual <code>replication_set</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td>The ARN of the ReplicationSet.</td></tr>
-<tr><td><code>Regions</code></td><td><code>undefined</code></td><td>The ReplicationSet configuration.</td></tr>
-<tr><td><code>DeletionProtected</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the ReplicationSet.</td></tr>
+<tr><td><code>Regions</code></td><td><code>array</code></td><td>The ReplicationSet configuration.</td></tr>
+<tr><td><code>DeletionProtected</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags to apply to the replication set.</td></tr>
 
 </tbody></table>

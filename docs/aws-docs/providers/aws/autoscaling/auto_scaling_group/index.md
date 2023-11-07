@@ -38,8 +38,8 @@ Gets an individual <code>auto_scaling_group</code> resource
 <tr><td><code>HealthCheckGracePeriod</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>DefaultInstanceWarmup</code></td><td><code>integer</code></td><td></td></tr>
 <tr><td><code>NewInstancesProtectedFromScaleIn</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>LaunchTemplate</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>MixedInstancesPolicy</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LaunchTemplate</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>MixedInstancesPolicy</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>VPCZoneIdentifier</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Context</code></td><td><code>string</code></td><td></td></tr>

@@ -40,7 +40,7 @@ Retrieves a list of <code>integrations</code> in a region
 <tr><td><code>CredentialsArn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RequestTemplates</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>TimeoutInMillis</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>TlsConfig</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>TlsConfig</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ContentHandlingStrategy</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>IntegrationSubtype</code></td><td><code>string</code></td><td></td></tr>

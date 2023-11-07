@@ -29,7 +29,7 @@ Retrieves a list of <code>location_smbs</code> in a region
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>AgentArns</code></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.</td></tr>
 <tr><td><code>Domain</code></td><td><code>string</code></td><td>The name of the Windows domain that the SMB server belongs to.</td></tr>
-<tr><td><code>MountOptions</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>MountOptions</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Password</code></td><td><code>string</code></td><td>The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.</td></tr>
 <tr><td><code>ServerHostname</code></td><td><code>string</code></td><td>The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.</td></tr>
 <tr><td><code>Subdirectory</code></td><td><code>string</code></td><td>The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination</td></tr>

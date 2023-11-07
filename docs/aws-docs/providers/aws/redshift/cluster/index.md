@@ -56,8 +56,8 @@ Gets an individual <code>cluster</code> resource
 <tr><td><code>SnapshotIdentifier</code></td><td><code>string</code></td><td>The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.</td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>OwnerAccount</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LoggingProperties</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Endpoint</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LoggingProperties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Endpoint</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>DestinationRegion</code></td><td><code>string</code></td><td>The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services &#91;https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;general&#x2F;latest&#x2F;gr&#x2F;rande.html#redshift_region&#93; General Reference</td></tr>
 <tr><td><code>SnapshotCopyRetentionPeriod</code></td><td><code>integer</code></td><td>The number of days to retain automated snapshots in the destination region after they are copied from the source region. &lt;br&#x2F;&gt;&lt;br&#x2F;&gt; Default is 7. &lt;br&#x2F;&gt;&lt;br&#x2F;&gt; Constraints: Must be at least 1 and no more than 35.</td></tr>
 <tr><td><code>SnapshotCopyGrantName</code></td><td><code>string</code></td><td>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.</td></tr>

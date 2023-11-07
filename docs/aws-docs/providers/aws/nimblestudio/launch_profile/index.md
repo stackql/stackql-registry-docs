@@ -32,10 +32,10 @@ Gets an individual <code>launch_profile</code> resource
 <tr><td><code>LaunchProfileId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>LaunchProfileProtocolVersions</code></td><td><code>array</code></td><td>&lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid&lt;br&#x2F;&gt;            version is "2021-03-31".&lt;&#x2F;p&gt;</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>&lt;p&gt;The name for the launch profile.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>StreamConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>StreamConfiguration</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>StudioComponentIds</code></td><td><code>array</code></td><td>&lt;p&gt;Unique identifiers for a collection of studio components that can be used with this&lt;br&#x2F;&gt;            launch profile.&lt;&#x2F;p&gt;</td></tr>
 <tr><td><code>StudioId</code></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

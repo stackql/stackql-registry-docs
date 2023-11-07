@@ -30,12 +30,12 @@ Gets an individual <code>response_plan</code> resource
 <tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the response plan.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the response plan.</td></tr>
 <tr><td><code>DisplayName</code></td><td><code>string</code></td><td>The display name of the response plan.</td></tr>
-<tr><td><code>ChatChannel</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ChatChannel</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Engagements</code></td><td><code>array</code></td><td>The list of engagements to use.</td></tr>
 <tr><td><code>Actions</code></td><td><code>array</code></td><td>The list of actions.</td></tr>
 <tr><td><code>Integrations</code></td><td><code>array</code></td><td>The list of integrations.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags to apply to the response plan.</td></tr>
-<tr><td><code>IncidentTemplate</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>IncidentTemplate</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

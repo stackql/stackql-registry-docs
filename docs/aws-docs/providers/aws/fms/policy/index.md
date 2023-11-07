@@ -27,19 +27,19 @@ Gets an individual <code>policy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ExcludeMap</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ExcludeMap</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>ExcludeResourceTags</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>IncludeMap</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>IncludeMap</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>PolicyName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>PolicyDescription</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>RemediationEnabled</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>ResourceTags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ResourceType</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>ResourceType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>ResourceTypeList</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>ResourceSetIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SecurityServicePolicyData</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>SecurityServicePolicyData</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>DeleteAllPolicyResources</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>ResourcesCleanUp</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>

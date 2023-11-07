@@ -31,7 +31,7 @@ Retrieves a list of <code>partitions</code> in a region
 <tr><td><code>TableName</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>CatalogId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PartitionInput</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PartitionInput</code></td><td><code>object</code></td><td></td></tr>
 
 </tbody></table>
 

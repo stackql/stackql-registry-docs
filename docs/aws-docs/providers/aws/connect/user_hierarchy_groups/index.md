@@ -28,8 +28,8 @@ Retrieves a list of <code>user_hierarchy_groups</code> in a region
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance.</td></tr>
-<tr><td><code>UserHierarchyGroupArn</code></td><td><code>undefined</code></td><td>The Amazon Resource Name (ARN) for the user hierarchy group.</td></tr>
-<tr><td><code>ParentGroupArn</code></td><td><code>undefined</code></td><td>The Amazon Resource Name (ARN) for the parent user hierarchy group.</td></tr>
+<tr><td><code>UserHierarchyGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the user hierarchy group.</td></tr>
+<tr><td><code>ParentGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the parent user hierarchy group.</td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the user hierarchy group.</td></tr>
 
 </tbody></table>

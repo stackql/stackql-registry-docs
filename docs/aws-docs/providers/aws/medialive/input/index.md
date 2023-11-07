@@ -29,7 +29,7 @@ Gets an individual <code>input</code> resource
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Destinations</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Vpc</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Vpc</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>MediaConnectFlows</code></td><td><code>array</code></td><td></td></tr>
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>

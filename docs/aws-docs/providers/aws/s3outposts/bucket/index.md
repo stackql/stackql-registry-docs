@@ -31,7 +31,7 @@ Gets an individual <code>bucket</code> resource
 <tr><td><code>BucketName</code></td><td><code>string</code></td><td>A name for the bucket.</td></tr>
 <tr><td><code>OutpostId</code></td><td><code>string</code></td><td>The id of the customer outpost on which the bucket resides.</td></tr>
 <tr><td><code>Tags</code></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.</td></tr>
-<tr><td><code>LifecycleConfiguration</code></td><td><code>undefined</code></td><td>Rules that define how Amazon S3Outposts manages objects during their lifetime.</td></tr>
+<tr><td><code>LifecycleConfiguration</code></td><td><code>object</code></td><td>Rules that define how Amazon S3Outposts manages objects during their lifetime.</td></tr>
 
 </tbody></table>
 

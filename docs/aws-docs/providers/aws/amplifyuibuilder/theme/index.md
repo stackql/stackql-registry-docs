@@ -32,7 +32,7 @@ Gets an individual <code>theme</code> resource
 <tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Overrides</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>Values</code></td><td><code>array</code></td><td></td></tr>
 
 </tbody></table>

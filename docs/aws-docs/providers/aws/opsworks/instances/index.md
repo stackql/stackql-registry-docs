@@ -50,7 +50,7 @@ Retrieves a list of <code>instances</code> in a region
 <tr><td><code>StackId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>SubnetId</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Tenancy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TimeBasedAutoScaling</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>TimeBasedAutoScaling</code></td><td><code>object</code></td><td></td></tr>
 <tr><td><code>VirtualizationType</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>Volumes</code></td><td><code>array</code></td><td></td></tr>
 

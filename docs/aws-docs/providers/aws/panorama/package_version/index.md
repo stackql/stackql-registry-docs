@@ -27,18 +27,18 @@ Gets an individual <code>package_version</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OwnerAccount</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>PackageId</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>PackageArn</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>PackageVersion</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>PatchVersion</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>OwnerAccount</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>PackageId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>PackageArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>PackageVersion</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>PatchVersion</code></td><td><code>string</code></td><td></td></tr>
 <tr><td><code>MarkLatest</code></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><code>IsLatestPatch</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>PackageName</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>StatusDescription</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>RegisteredTime</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>UpdatedLatestPatchVersion</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>PackageName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>StatusDescription</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>RegisteredTime</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>UpdatedLatestPatchVersion</code></td><td><code>string</code></td><td></td></tr>
 
 </tbody></table>
 
