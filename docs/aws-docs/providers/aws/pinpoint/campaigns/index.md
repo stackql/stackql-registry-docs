@@ -20,21 +20,42 @@ Retrieves a list of <code>campaigns</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>campaigns</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.pinpoint.campaigns</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr><tr><td><code>SegmentId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Priority</code></td><td><code>integer</code></td><td></td></tr><tr><td><code>TemplateConfiguration</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>IsPaused</code></td><td><code>boolean</code></td><td></td></tr><tr><td><code>AdditionalTreatments</code></td><td><code>array</code></td><td></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr><tr><td><code>SegmentVersion</code></td><td><code>integer</code></td><td></td></tr><tr><td><code>TreatmentDescription</code></td><td><code>string</code></td><td></td></tr><tr><td><code>MessageConfiguration</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Limits</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>CampaignId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>HoldoutPercent</code></td><td><code>integer</code></td><td></td></tr><tr><td><code>Schedule</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>CustomDeliveryConfiguration</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>ApplicationId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>CampaignHook</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr><tr><td><code>TreatmentName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>SegmentId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Priority</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>TemplateConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>IsPaused</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>AdditionalTreatments</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>SegmentVersion</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>TreatmentDescription</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>MessageConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Limits</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CampaignId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>HoldoutPercent</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>Schedule</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CustomDeliveryConfiguration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ApplicationId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>CampaignHook</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>TreatmentName</code></td><td><code>string</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.pinpoint.campaigns
 WHERE region = 'us-east-1'
-```
+</pre>

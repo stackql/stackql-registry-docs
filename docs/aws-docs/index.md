@@ -15,18 +15,18 @@ id: aws-doc
 slug: /providers/aws
 
 ---
-Cloud services from AWS.  
-    
+Cloud services from AWS.
+
 :::info Provider Summary (v23.11.00181)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>212</b></span><br />
-<span>total methods:&nbsp;<b>1,683</b></span><br />
+<span>total services:&nbsp;<b>214</b></span><br />
+<span>total methods:&nbsp;<b>2,612</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1,253</b></span><br />
-<span>total selectable resources:&nbsp;<b>1,157</b></span><br />
+<span>total resources:&nbsp;<b>2,178</b></span><br />
+<span>total selectable resources:&nbsp;<b>2,082</b></span><br />
 </div>
 </div>
 
@@ -85,7 +85,7 @@ The following parameter is required for the `aws` provider:
 - `region` - AWS region (e.g. `us-east-1`)
 
 This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
-    
+
 ## Services
 <div class="row">
 <div class="providerDocColumn">
@@ -195,10 +195,11 @@ This parameter must be supplied to the `WHERE` clause of each `SELECT` statement
 <a href="/providers/aws/iot1click/">iot1click</a><br />
 <a href="/providers/aws/iotanalytics/">iotanalytics</a><br />
 <a href="/providers/aws/iotcoredeviceadvisor/">iotcoredeviceadvisor</a><br />
+<a href="/providers/aws/iotevents/">iotevents</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/iotevents/">iotevents</a><br />
 <a href="/providers/aws/iotfleethub/">iotfleethub</a><br />
+<a href="/providers/aws/iotfleetwise/">iotfleetwise</a><br />
 <a href="/providers/aws/iotsitewise/">iotsitewise</a><br />
 <a href="/providers/aws/iotthingsgraph/">iotthingsgraph</a><br />
 <a href="/providers/aws/iottwinmaker/">iottwinmaker</a><br />
@@ -214,6 +215,7 @@ This parameter must be supplied to the `WHERE` clause of each `SELECT` statement
 <a href="/providers/aws/kinesisfirehose/">kinesisfirehose</a><br />
 <a href="/providers/aws/kinesisvideo/">kinesisvideo</a><br />
 <a href="/providers/aws/kms/">kms</a><br />
+<a href="/providers/aws/lakeformation/">lakeformation</a><br />
 <a href="/providers/aws/lambda/">lambda</a><br />
 <a href="/providers/aws/lex/">lex</a><br />
 <a href="/providers/aws/licensemanager/">licensemanager</a><br />

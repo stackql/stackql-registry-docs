@@ -27,19 +27,18 @@ image: /img/providers/aws/stackql-aws-provider-featured-image.png
 ## Fields
 | Name | Datatype |
 |:-----|:---------|
-| `Operation` | `string` |
-| `RequestToken` | `string` |
-| `RetryAfter` | `number` |
 | `TypeName` | `string` |
-| `OperationStatus` | `string` |
-| `Identifier` | `string` |
-| `ResourceModel` | `string` |
-| `StatusMessage` | `string` |
 | `ErrorCode` | `string` |
 | `EventTime` | `number` |
+| `Operation` | `string` |
+| `OperationStatus` | `string` |
+| `ResourceModel` | `string` |
+| `RetryAfter` | `number` |
+| `StatusMessage` | `string` |
+| `Identifier` | `string` |
+| `RequestToken` | `string` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `get_resource_request` | `SELECT` | `data__RequestToken, region` |
 | `list_resource_requests` | `SELECT` | `data__ResourceRequestStatusFilter, region` |
 | `cancel_resource_request` | `DELETE` | `data__RequestToken, region` |

@@ -20,21 +20,25 @@ Gets an individual <code>service_action_association</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_action_association</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.servicecatalog.service_action_association</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ProductId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>ProvisioningArtifactId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>ServiceActionId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ProductId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ProvisioningArtifactId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ServiceActionId</code></td><td><code>string</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.servicecatalog.service_action_association
-WHERE region = 'us-east-1' AND data__Identifier = '{ProductId}' AND data__Identifier = '{ProvisioningArtifactId}' AND data__Identifier = '{ServiceActionId}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;ProductId&gt;' AND data__Identifier = '&lt;ProvisioningArtifactId&gt;' AND data__Identifier = '&lt;ServiceActionId&gt;'
+</pre>

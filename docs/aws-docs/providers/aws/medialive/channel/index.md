@@ -20,21 +20,36 @@ Gets an individual <code>channel</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>channel</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.medialive.channel</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>InputAttachments</code></td><td><code>array</code></td><td></td></tr><tr><td><code>InputSpecification</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Destinations</code></td><td><code>array</code></td><td></td></tr><tr><td><code>Vpc</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>LogLevel</code></td><td><code>string</code></td><td></td></tr><tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr><tr><td><code>ChannelClass</code></td><td><code>string</code></td><td></td></tr><tr><td><code>EncoderSettings</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>CdiInputSpecification</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Inputs</code></td><td><code>array</code></td><td></td></tr><tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>InputAttachments</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>InputSpecification</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Destinations</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>Vpc</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>LogLevel</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ChannelClass</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>EncoderSettings</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>CdiInputSpecification</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Inputs</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.medialive.channel
-WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;Id&gt;'
+</pre>

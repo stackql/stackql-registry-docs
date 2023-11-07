@@ -20,21 +20,25 @@ Retrieves a list of <code>documentation_versions</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>documentation_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.apigateway.documentation_versions</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the API documentation snapshot.</td></tr><tr><td><code>DocumentationVersion</code></td><td><code>string</code></td><td>The version identifier of the API documentation snapshot.</td></tr><tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The identifier of the API.</td></tr>
+<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the API documentation snapshot.</td></tr>
+<tr><td><code>DocumentationVersion</code></td><td><code>string</code></td><td>The version identifier of the API documentation snapshot.</td></tr>
+<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The identifier of the API.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.apigateway.documentation_versions
 WHERE region = 'us-east-1'
-```
+</pre>

@@ -20,21 +20,25 @@ Gets an individual <code>device</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>device</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.sagemaker.device</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DeviceFleetName</code></td><td><code>string</code></td><td>The name of the edge device fleet</td></tr><tr><td><code>Device</code></td><td><code>undefined</code></td><td>The Edge Device you want to register against a device fleet</td></tr><tr><td><code>Tags</code></td><td><code>array</code></td><td>Associate tags with the resource</td></tr>
+<tr><td><code>DeviceFleetName</code></td><td><code>string</code></td><td>The name of the edge device fleet</td></tr>
+<tr><td><code>Device</code></td><td><code>undefined</code></td><td>The Edge Device you want to register against a device fleet</td></tr>
+<tr><td><code>Tags</code></td><td><code>array</code></td><td>Associate tags with the resource</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.sagemaker.device
-WHERE region = 'us-east-1' AND data__Identifier = '{Device/DeviceName}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;Device/DeviceName&gt;'
+</pre>

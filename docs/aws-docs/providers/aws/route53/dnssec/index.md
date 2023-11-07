@@ -20,6 +20,7 @@ Gets an individual <code>dnssec</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dnssec</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.route53.dnssec</code></td></tr>
 </tbody></table>
 
@@ -27,14 +28,15 @@ Gets an individual <code>dnssec</code> resource
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
 <tr><td><code>HostedZoneId</code></td><td><code>string</code></td><td>The unique string (ID) used to identify a hosted zone.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.route53.dnssec
-WHERE region = 'us-east-1' AND data__Identifier = '{HostedZoneId}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;HostedZoneId&gt;'
+</pre>

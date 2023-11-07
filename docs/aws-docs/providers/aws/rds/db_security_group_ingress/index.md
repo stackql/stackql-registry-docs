@@ -20,21 +20,28 @@ Gets an individual <code>db_security_group_ingress</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>db_security_group_ingress</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.rds.db_security_group_ingress</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr><tr><td><code>CIDRIP</code></td><td><code>string</code></td><td></td></tr><tr><td><code>DBSecurityGroupName</code></td><td><code>string</code></td><td></td></tr><tr><td><code>EC2SecurityGroupId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>EC2SecurityGroupName</code></td><td><code>string</code></td><td></td></tr><tr><td><code>EC2SecurityGroupOwnerId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>CIDRIP</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>DBSecurityGroupName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>EC2SecurityGroupId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>EC2SecurityGroupName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>EC2SecurityGroupOwnerId</code></td><td><code>string</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.rds.db_security_group_ingress
-WHERE region = 'us-east-1' AND data__Identifier = '{Id}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;Id&gt;'
+</pre>

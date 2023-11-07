@@ -20,21 +20,32 @@ Retrieves a list of <code>domains</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>domains</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.amplify.domains</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AppId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>AutoSubDomainCreationPatterns</code></td><td><code>array</code></td><td></td></tr><tr><td><code>AutoSubDomainIAMRole</code></td><td><code>string</code></td><td></td></tr><tr><td><code>CertificateRecord</code></td><td><code>string</code></td><td></td></tr><tr><td><code>DomainName</code></td><td><code>string</code></td><td></td></tr><tr><td><code>DomainStatus</code></td><td><code>string</code></td><td></td></tr><tr><td><code>EnableAutoSubDomain</code></td><td><code>boolean</code></td><td></td></tr><tr><td><code>StatusReason</code></td><td><code>string</code></td><td></td></tr><tr><td><code>SubDomainSettings</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>AppId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>AutoSubDomainCreationPatterns</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>AutoSubDomainIAMRole</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>CertificateRecord</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>DomainName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>DomainStatus</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>EnableAutoSubDomain</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>StatusReason</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>SubDomainSettings</code></td><td><code>array</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.amplify.domains
 WHERE region = 'us-east-1'
-```
+</pre>

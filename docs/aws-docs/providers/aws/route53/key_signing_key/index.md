@@ -20,21 +20,26 @@ Gets an individual <code>key_signing_key</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>key_signing_key</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.route53.key_signing_key</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>HostedZoneId</code></td><td><code>string</code></td><td>The unique string (ID) used to identify a hosted zone.</td></tr><tr><td><code>Status</code></td><td><code>string</code></td><td>A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.</td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td>An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.</td></tr><tr><td><code>KeyManagementServiceArn</code></td><td><code>string</code></td><td>The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.</td></tr>
+<tr><td><code>HostedZoneId</code></td><td><code>string</code></td><td>The unique string (ID) used to identify a hosted zone.</td></tr>
+<tr><td><code>Status</code></td><td><code>string</code></td><td>A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.</td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td>An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.</td></tr>
+<tr><td><code>KeyManagementServiceArn</code></td><td><code>string</code></td><td>The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.route53.key_signing_key
-WHERE region = 'us-east-1' AND data__Identifier = '{HostedZoneId}' AND data__Identifier = '{Name}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;HostedZoneId&gt;' AND data__Identifier = '&lt;Name&gt;'
+</pre>

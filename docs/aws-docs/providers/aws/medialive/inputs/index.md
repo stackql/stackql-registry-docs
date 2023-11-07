@@ -20,21 +20,34 @@ Retrieves a list of <code>inputs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inputs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.medialive.inputs</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Destinations</code></td><td><code>array</code></td><td></td></tr><tr><td><code>Vpc</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>MediaConnectFlows</code></td><td><code>array</code></td><td></td></tr><tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>InputSecurityGroups</code></td><td><code>array</code></td><td></td></tr><tr><td><code>Sources</code></td><td><code>array</code></td><td></td></tr><tr><td><code>InputDevices</code></td><td><code>array</code></td><td></td></tr><tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Destinations</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>Vpc</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>MediaConnectFlows</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>InputSecurityGroups</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>Sources</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>InputDevices</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.medialive.inputs
 WHERE region = 'us-east-1'
-```
+</pre>

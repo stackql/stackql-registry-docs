@@ -20,21 +20,35 @@ Retrieves a list of <code>studio_components</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>studio_components</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.nimblestudio.studio_components</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Configuration</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Description</code></td><td><code>string</code></td><td><p>The description.</p></td></tr><tr><td><code>Ec2SecurityGroupIds</code></td><td><code>array</code></td><td><p>The EC2 security groups that control access to the studio component.</p></td></tr><tr><td><code>InitializationScripts</code></td><td><code>array</code></td><td><p>Initialization scripts for studio components.</p></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td><p>The name for the studio component.</p></td></tr><tr><td><code>RuntimeRoleArn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>ScriptParameters</code></td><td><code>array</code></td><td><p>Parameters for the studio component scripts.</p></td></tr><tr><td><code>SecureInitializationRoleArn</code></td><td><code>string</code></td><td></td></tr><tr><td><code>StudioComponentId</code></td><td><code>string</code></td><td></td></tr><tr><td><code>StudioId</code></td><td><code>string</code></td><td><p>The studio ID. </p></td></tr><tr><td><code>Subtype</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr><tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Configuration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Description</code></td><td><code>string</code></td><td>&lt;p&gt;The description.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>Ec2SecurityGroupIds</code></td><td><code>array</code></td><td>&lt;p&gt;The EC2 security groups that control access to the studio component.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>InitializationScripts</code></td><td><code>array</code></td><td>&lt;p&gt;Initialization scripts for studio components.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>Name</code></td><td><code>string</code></td><td>&lt;p&gt;The name for the studio component.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>RuntimeRoleArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ScriptParameters</code></td><td><code>array</code></td><td>&lt;p&gt;Parameters for the studio component scripts.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>SecureInitializationRoleArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>StudioComponentId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>StudioId</code></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>Subtype</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Tags</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>Type</code></td><td><code>undefined</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.nimblestudio.studio_components
 WHERE region = 'us-east-1'
-```
+</pre>

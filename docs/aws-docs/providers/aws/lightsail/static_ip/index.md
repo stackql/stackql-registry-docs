@@ -20,21 +20,27 @@ Gets an individual <code>static_ip</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>static_ip</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.lightsail.static_ip</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>StaticIpName</code></td><td><code>string</code></td><td>The name of the static IP address.</td></tr><tr><td><code>AttachedTo</code></td><td><code>string</code></td><td>The instance where the static IP is attached.</td></tr><tr><td><code>IsAttached</code></td><td><code>boolean</code></td><td>A Boolean value indicating whether the static IP is attached.</td></tr><tr><td><code>IpAddress</code></td><td><code>string</code></td><td>The static IP address.</td></tr><tr><td><code>StaticIpArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>StaticIpName</code></td><td><code>string</code></td><td>The name of the static IP address.</td></tr>
+<tr><td><code>AttachedTo</code></td><td><code>string</code></td><td>The instance where the static IP is attached.</td></tr>
+<tr><td><code>IsAttached</code></td><td><code>boolean</code></td><td>A Boolean value indicating whether the static IP is attached.</td></tr>
+<tr><td><code>IpAddress</code></td><td><code>string</code></td><td>The static IP address.</td></tr>
+<tr><td><code>StaticIpArn</code></td><td><code>string</code></td><td></td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.lightsail.static_ip
-WHERE region = 'us-east-1' AND data__Identifier = '{StaticIpName}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;StaticIpName&gt;'
+</pre>

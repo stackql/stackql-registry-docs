@@ -20,23 +20,28 @@ Gets an individual <code>global_cluster</code> resource
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_cluster</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
+null
 <tr><td><b>Id</b></td><td><code>aws.rds.global_cluster</code></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Engine</code></td><td><code>string</code></td><td>The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
-If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.</td></tr><tr><td><code>EngineVersion</code></td><td><code>string</code></td><td>The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.</td></tr><tr><td><code>DeletionProtection</code></td><td><code>boolean</code></td><td>The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.</td></tr><tr><td><code>GlobalClusterIdentifier</code></td><td><code>string</code></td><td>The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.</td></tr><tr><td><code>SourceDBClusterIdentifier</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.</td></tr><tr><td><code>StorageEncrypted</code></td><td><code>boolean</code></td><td> The storage encryption setting for the new global database cluster.
-If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.</td></tr>
+<tr><td><code>Engine</code></td><td><code>string</code></td><td>The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).&lt;br&#x2F;&gt;If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.</td></tr>
+<tr><td><code>EngineVersion</code></td><td><code>string</code></td><td>The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.</td></tr>
+<tr><td><code>DeletionProtection</code></td><td><code>boolean</code></td><td>The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.</td></tr>
+<tr><td><code>GlobalClusterIdentifier</code></td><td><code>string</code></td><td>The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.</td></tr>
+<tr><td><code>SourceDBClusterIdentifier</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.</td></tr>
+<tr><td><code>StorageEncrypted</code></td><td><code>boolean</code></td><td> The storage encryption setting for the new global database cluster.&lt;br&#x2F;&gt;If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.</td></tr>
+
 </tbody></table>
 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-```sql
+<pre>
 SELECT * 
 FROM aws.rds.global_cluster
-WHERE region = 'us-east-1' AND data__Identifier = '{GlobalClusterIdentifier}'
-```
+WHERE region = 'us-east-1' AND data__Identifier = '&lt;GlobalClusterIdentifier&gt;'
+</pre>
