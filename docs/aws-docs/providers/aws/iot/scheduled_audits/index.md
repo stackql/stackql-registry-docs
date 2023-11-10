@@ -27,13 +27,8 @@ Retrieves a list of <code>scheduled_audits</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ScheduledAuditName</code></td><td><code>string</code></td><td>The name you want to give to the scheduled audit.</td></tr>
-<tr><td><code>Frequency</code></td><td><code>string</code></td><td>How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.</td></tr>
-<tr><td><code>DayOfMonth</code></td><td><code>string</code></td><td>The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.</td></tr>
-<tr><td><code>DayOfWeek</code></td><td><code>string</code></td><td>The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.</td></tr>
-<tr><td><code>TargetCheckNames</code></td><td><code>array</code></td><td>Which checks are performed during the scheduled audit. Checks must be enabled for your account.</td></tr>
-<tr><td><code>ScheduledAuditArn</code></td><td><code>string</code></td><td>The ARN (Amazon resource name) of the scheduled audit.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>scheduled_audit_name</code></td><td><code>string</code></td><td>The name you want to give to the scheduled audit.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>scheduled_audits</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.scheduled_audits<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+scheduled_audit_name
+FROM aws.iot.scheduled_audits
+WHERE region = 'us-east-1'
+```

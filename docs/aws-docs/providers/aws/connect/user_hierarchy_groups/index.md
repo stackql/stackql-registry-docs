@@ -27,10 +27,8 @@ Retrieves a list of <code>user_hierarchy_groups</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance.</td></tr>
-<tr><td><code>UserHierarchyGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the user hierarchy group.</td></tr>
-<tr><td><code>ParentGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the parent user hierarchy group.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the user hierarchy group.</td></tr>
+<tr><td><code>user_hierarchy_group_arn</code></td><td><code>undefined</code></td><td>The Amazon Resource Name (ARN) for the user hierarchy group.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +36,10 @@ Retrieves a list of <code>user_hierarchy_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.connect.user_hierarchy_groups<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+user_hierarchy_group_arn
+FROM aws.connect.user_hierarchy_groups
+WHERE region = 'us-east-1'
+```

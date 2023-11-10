@@ -27,11 +27,12 @@ Gets an individual <code>role_alias</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RoleAlias</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleAliasArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CredentialDurationSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>role_alias</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role_alias_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>credential_duration_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>role_alias</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.role_alias<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RoleAlias&gt;'
-</pre>
+```sql
+SELECT
+region,
+role_alias,
+role_alias_arn,
+role_arn,
+credential_duration_seconds,
+tags
+FROM aws.iot.role_alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;RoleAlias&gt;'
+```

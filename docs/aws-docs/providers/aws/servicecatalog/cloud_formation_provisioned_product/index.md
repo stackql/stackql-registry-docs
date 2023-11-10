@@ -27,22 +27,23 @@ Gets an individual <code>cloud_formation_provisioned_product</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AcceptLanguage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NotificationArns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PathId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PathName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProductId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProductName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProvisionedProductName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProvisioningArtifactId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProvisioningArtifactName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProvisioningParameters</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ProvisioningPreferences</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ProvisionedProductId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RecordId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CloudformationStackArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Outputs</code></td><td><code>object</code></td><td>List of key-value pair outputs.</td></tr>
+<tr><td><code>accept_language</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>notification_arns</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>path_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>path_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>product_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>product_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>provisioned_product_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>provisioning_artifact_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>provisioning_artifact_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>provisioning_parameters</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>provisioning_preferences</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>provisioned_product_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>record_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cloudformation_stack_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>outputs</code></td><td><code>object</code></td><td>List of key-value pair outputs.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,6 +51,26 @@ Gets an individual <code>cloud_formation_provisioned_product</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.servicecatalog.cloud_formation_provisioned_product<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ProvisionedProductId&gt;'
-</pre>
+```sql
+SELECT
+region,
+accept_language,
+notification_arns,
+path_id,
+path_name,
+product_id,
+product_name,
+provisioned_product_name,
+provisioning_artifact_id,
+provisioning_artifact_name,
+provisioning_parameters,
+provisioning_preferences,
+tags,
+provisioned_product_id,
+record_id,
+cloudformation_stack_arn,
+outputs
+FROM aws.servicecatalog.cloud_formation_provisioned_product
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ProvisionedProductId&gt;'
+```

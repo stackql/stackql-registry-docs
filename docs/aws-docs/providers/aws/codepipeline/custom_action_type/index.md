@@ -27,15 +27,16 @@ Gets an individual <code>custom_action_type</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Category</code></td><td><code>string</code></td><td>The category of the custom action, such as a build action or a test action.</td></tr>
-<tr><td><code>ConfigurationProperties</code></td><td><code>array</code></td><td>The configuration properties for the custom action.</td></tr>
-<tr><td><code>InputArtifactDetails</code></td><td><code>object</code></td><td>The details of the input artifact for the action, such as its commit ID.</td></tr>
-<tr><td><code>OutputArtifactDetails</code></td><td><code>object</code></td><td>The details of the output artifact of the action, such as its commit ID.</td></tr>
-<tr><td><code>Provider</code></td><td><code>string</code></td><td>The provider of the service used in the custom action, such as AWS CodeDeploy.</td></tr>
-<tr><td><code>Settings</code></td><td><code>object</code></td><td>URLs that provide users information about this custom action.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Any tags assigned to the custom action.</td></tr>
-<tr><td><code>Version</code></td><td><code>string</code></td><td>The version identifier of the custom action.</td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>category</code></td><td><code>string</code></td><td>The category of the custom action, such as a build action or a test action.</td></tr>
+<tr><td><code>configuration_properties</code></td><td><code>array</code></td><td>The configuration properties for the custom action.</td></tr>
+<tr><td><code>input_artifact_details</code></td><td><code>object</code></td><td>The details of the input artifact for the action, such as its commit ID.</td></tr>
+<tr><td><code>output_artifact_details</code></td><td><code>object</code></td><td>The details of the output artifact of the action, such as its commit ID.</td></tr>
+<tr><td><code>provider</code></td><td><code>string</code></td><td>The provider of the service used in the custom action, such as AWS CodeDeploy.</td></tr>
+<tr><td><code>settings</code></td><td><code>object</code></td><td>URLs that provide users information about this custom action.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>Any tags assigned to the custom action.</td></tr>
+<tr><td><code>version</code></td><td><code>string</code></td><td>The version identifier of the custom action.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,21 @@ Gets an individual <code>custom_action_type</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.codepipeline.custom_action_type<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Category&gt;'<br/>AND data__Identifier = '&lt;Provider&gt;'<br/>AND data__Identifier = '&lt;Version&gt;'
-</pre>
+```sql
+SELECT
+region,
+category,
+configuration_properties,
+input_artifact_details,
+output_artifact_details,
+provider,
+settings,
+tags,
+version,
+id
+FROM aws.codepipeline.custom_action_type
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Category&gt;'
+AND data__Identifier = '&lt;Provider&gt;'
+AND data__Identifier = '&lt;Version&gt;'
+```

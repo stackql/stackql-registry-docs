@@ -27,9 +27,10 @@ Gets an individual <code>resource_policy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PolicyName</code></td><td><code>string</code></td><td>The name of the resource policy. Must be unique within a specific AWS account.</td></tr>
-<tr><td><code>PolicyDocument</code></td><td><code>string</code></td><td>The resource policy document, which can be up to 5kb in size.</td></tr>
-<tr><td><code>BypassPolicyLockoutCheck</code></td><td><code>boolean</code></td><td>A flag to indicate whether to bypass the resource policy lockout safety check</td></tr>
+<tr><td><code>policy_name</code></td><td><code>string</code></td><td>The name of the resource policy. Must be unique within a specific AWS account.</td></tr>
+<tr><td><code>policy_document</code></td><td><code>string</code></td><td>The resource policy document, which can be up to 5kb in size.</td></tr>
+<tr><td><code>bypass_policy_lockout_check</code></td><td><code>boolean</code></td><td>A flag to indicate whether to bypass the resource policy lockout safety check</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>resource_policy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.xray.resource_policy<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;PolicyName&gt;'
-</pre>
+```sql
+SELECT
+region,
+policy_name,
+policy_document,
+bypass_policy_lockout_check
+FROM aws.xray.resource_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;PolicyName&gt;'
+```

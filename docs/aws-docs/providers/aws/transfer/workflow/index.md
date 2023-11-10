@@ -27,12 +27,13 @@ Gets an individual <code>workflow</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OnExceptionSteps</code></td><td><code>array</code></td><td>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</td></tr>
-<tr><td><code>Steps</code></td><td><code>array</code></td><td>Specifies the details for the steps that are in the specified workflow.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A textual description for the workflow.</td></tr>
-<tr><td><code>WorkflowId</code></td><td><code>string</code></td><td>A unique identifier for the workflow.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the workflow.</td></tr>
+<tr><td><code>on_exception_steps</code></td><td><code>array</code></td><td>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</td></tr>
+<tr><td><code>steps</code></td><td><code>array</code></td><td>Specifies the details for the steps that are in the specified workflow.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>A textual description for the workflow.</td></tr>
+<tr><td><code>workflow_id</code></td><td><code>string</code></td><td>A unique identifier for the workflow.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the workflow.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>workflow</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.transfer.workflow<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;WorkflowId&gt;'
-</pre>
+```sql
+SELECT
+region,
+on_exception_steps,
+steps,
+tags,
+description,
+workflow_id,
+arn
+FROM aws.transfer.workflow
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;WorkflowId&gt;'
+```

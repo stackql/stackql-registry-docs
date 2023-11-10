@@ -27,15 +27,8 @@ Retrieves a list of <code>permissions</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FunctionName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Action</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EventSourceToken</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FunctionUrlAuthType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceAccount</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PrincipalOrgID</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Principal</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +36,10 @@ Retrieves a list of <code>permissions</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lambda.permissions<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.lambda.permissions
+WHERE region = 'us-east-1'
+```

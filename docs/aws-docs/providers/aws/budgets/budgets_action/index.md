@@ -27,15 +27,16 @@ Gets an individual <code>budgets_action</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ActionId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BudgetName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NotificationType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ActionType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ActionThreshold</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ExecutionRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApprovalModel</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Subscribers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Definition</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>action_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>budget_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>notification_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>action_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>action_threshold</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>execution_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>approval_model</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>subscribers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>definition</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,20 @@ Gets an individual <code>budgets_action</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.budgets.budgets_action<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ActionId&gt;'<br/>AND data__Identifier = '&lt;BudgetName&gt;'
-</pre>
+```sql
+SELECT
+region,
+action_id,
+budget_name,
+notification_type,
+action_type,
+action_threshold,
+execution_role_arn,
+approval_model,
+subscribers,
+definition
+FROM aws.budgets.budgets_action
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ActionId&gt;'
+AND data__Identifier = '&lt;BudgetName&gt;'
+```

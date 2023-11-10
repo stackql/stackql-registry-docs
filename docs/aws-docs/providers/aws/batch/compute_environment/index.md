@@ -27,17 +27,18 @@ Gets an individual <code>compute_environment</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ComputeEnvironmentArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComputeEnvironmentName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComputeResources</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ReplaceComputeEnvironment</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ServiceRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>State</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UpdatePolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>UnmanagedvCpus</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>EksConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>compute_environment_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>compute_environment_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>compute_resources</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>replace_compute_environment</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>service_role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>state</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<tr><td><code>type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>update_policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>unmanagedv_cpus</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>eks_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,21 @@ Gets an individual <code>compute_environment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.batch.compute_environment<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ComputeEnvironmentArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+compute_environment_arn,
+compute_environment_name,
+compute_resources,
+replace_compute_environment,
+service_role,
+state,
+tags,
+type,
+update_policy,
+unmanagedv_cpus,
+eks_configuration
+FROM aws.batch.compute_environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ComputeEnvironmentArn&gt;'
+```

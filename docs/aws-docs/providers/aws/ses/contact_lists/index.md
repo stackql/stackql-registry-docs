@@ -27,10 +27,8 @@ Retrieves a list of <code>contact_lists</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ContactListName</code></td><td><code>string</code></td><td>The name of the contact list.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the contact list.</td></tr>
-<tr><td><code>Topics</code></td><td><code>array</code></td><td>The topics associated with the contact list.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags (keys and values) associated with the contact list.</td></tr>
+<tr><td><code>contact_list_name</code></td><td><code>string</code></td><td>The name of the contact list.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +36,10 @@ Retrieves a list of <code>contact_lists</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ses.contact_lists<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+contact_list_name
+FROM aws.ses.contact_lists
+WHERE region = 'us-east-1'
+```

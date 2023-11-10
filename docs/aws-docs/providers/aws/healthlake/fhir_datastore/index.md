@@ -27,16 +27,17 @@ Gets an individual <code>fhir_datastore</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CreatedAt</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DatastoreArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DatastoreEndpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DatastoreId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DatastoreName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DatastoreStatus</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DatastoreTypeVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreloadDataConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SseConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>created_at</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>datastore_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>datastore_endpoint</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>datastore_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>datastore_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>datastore_status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>datastore_type_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>preload_data_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>sse_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>fhir_datastore</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.healthlake.fhir_datastore<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DatastoreId&gt;'
-</pre>
+```sql
+SELECT
+region,
+created_at,
+datastore_arn,
+datastore_endpoint,
+datastore_id,
+datastore_name,
+datastore_status,
+datastore_type_version,
+preload_data_config,
+sse_configuration,
+tags
+FROM aws.healthlake.fhir_datastore
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DatastoreId&gt;'
+```

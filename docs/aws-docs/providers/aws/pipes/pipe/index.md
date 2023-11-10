@@ -27,22 +27,23 @@ Gets an individual <code>pipe</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CurrentState</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DesiredState</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Enrichment</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnrichmentParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>LastModifiedTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Source</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>StateReason</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Target</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TargetParameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>creation_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>current_state</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>desired_state</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>enrichment</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>enrichment_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>last_modified_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>state_reason</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>target</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>target_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,6 +51,26 @@ Gets an individual <code>pipe</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.pipes.pipe<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+creation_time,
+current_state,
+description,
+desired_state,
+enrichment,
+enrichment_parameters,
+last_modified_time,
+name,
+role_arn,
+source,
+source_parameters,
+state_reason,
+tags,
+target,
+target_parameters
+FROM aws.pipes.pipe
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Name&gt;'
+```

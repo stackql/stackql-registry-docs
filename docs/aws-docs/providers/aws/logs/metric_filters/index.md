@@ -27,10 +27,9 @@ Retrieves a list of <code>metric_filters</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FilterName</code></td><td><code>string</code></td><td>A name for the metric filter.</td></tr>
-<tr><td><code>FilterPattern</code></td><td><code>string</code></td><td>Pattern that Logs follows to interpret each entry in a log.</td></tr>
-<tr><td><code>LogGroupName</code></td><td><code>string</code></td><td>Existing log group that you want to associate with this filter.</td></tr>
-<tr><td><code>MetricTransformations</code></td><td><code>array</code></td><td>A collection of information that defines how metric data gets emitted.</td></tr>
+<tr><td><code>log_group_name</code></td><td><code>string</code></td><td>Existing log group that you want to associate with this filter.</td></tr>
+<tr><td><code>filter_name</code></td><td><code>string</code></td><td>A name for the metric filter.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +37,11 @@ Retrieves a list of <code>metric_filters</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.logs.metric_filters<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+log_group_name,
+filter_name
+FROM aws.logs.metric_filters
+WHERE region = 'us-east-1'
+```

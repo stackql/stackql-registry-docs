@@ -27,18 +27,19 @@ Gets an individual <code>email_identity</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>EmailIdentity</code></td><td><code>string</code></td><td>The email address or domain to verify.</td></tr>
-<tr><td><code>ConfigurationSetAttributes</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DkimSigningAttributes</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DkimAttributes</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>MailFromAttributes</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>FeedbackAttributes</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DkimDNSTokenName1</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DkimDNSTokenName2</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DkimDNSTokenName3</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DkimDNSTokenValue1</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DkimDNSTokenValue2</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DkimDNSTokenValue3</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>email_identity</code></td><td><code>string</code></td><td>The email address or domain to verify.</td></tr>
+<tr><td><code>configuration_set_attributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>dkim_signing_attributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>dkim_attributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>mail_from_attributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>feedback_attributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>dkim_dn_stoken_name1</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>dkim_dn_stoken_name2</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>dkim_dn_stoken_name3</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>dkim_dn_stoken_value1</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>dkim_dn_stoken_value2</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>dkim_dn_stoken_value3</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>email_identity</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ses.email_identity<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;EmailIdentity&gt;'
-</pre>
+```sql
+SELECT
+region,
+email_identity,
+configuration_set_attributes,
+dkim_signing_attributes,
+dkim_attributes,
+mail_from_attributes,
+feedback_attributes,
+dkim_dn_stoken_name1,
+dkim_dn_stoken_name2,
+dkim_dn_stoken_name3,
+dkim_dn_stoken_value1,
+dkim_dn_stoken_value2,
+dkim_dn_stoken_value3
+FROM aws.ses.email_identity
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;EmailIdentity&gt;'
+```

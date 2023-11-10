@@ -27,11 +27,12 @@ Gets an individual <code>access_policy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AccessPolicyId</code></td><td><code>string</code></td><td>The ID of the access policy.</td></tr>
-<tr><td><code>AccessPolicyArn</code></td><td><code>string</code></td><td>The ARN of the access policy.</td></tr>
-<tr><td><code>AccessPolicyIdentity</code></td><td><code>object</code></td><td>The identity for this access policy. Choose either a user or a group but not both.</td></tr>
-<tr><td><code>AccessPolicyPermission</code></td><td><code>string</code></td><td>The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.</td></tr>
-<tr><td><code>AccessPolicyResource</code></td><td><code>object</code></td><td>The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.</td></tr>
+<tr><td><code>access_policy_id</code></td><td><code>string</code></td><td>The ID of the access policy.</td></tr>
+<tr><td><code>access_policy_arn</code></td><td><code>string</code></td><td>The ARN of the access policy.</td></tr>
+<tr><td><code>access_policy_identity</code></td><td><code>object</code></td><td>The identity for this access policy. Choose either a user or a group but not both.</td></tr>
+<tr><td><code>access_policy_permission</code></td><td><code>string</code></td><td>The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.</td></tr>
+<tr><td><code>access_policy_resource</code></td><td><code>object</code></td><td>The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>access_policy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iotsitewise.access_policy<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AccessPolicyId&gt;'
-</pre>
+```sql
+SELECT
+region,
+access_policy_id,
+access_policy_arn,
+access_policy_identity,
+access_policy_permission,
+access_policy_resource
+FROM aws.iotsitewise.access_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AccessPolicyId&gt;'
+```

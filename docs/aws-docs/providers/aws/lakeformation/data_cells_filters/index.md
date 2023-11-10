@@ -27,13 +27,11 @@ Retrieves a list of <code>data_cells_filters</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TableCatalogId</code></td><td><code>string</code></td><td>The Catalog Id of the Table on which to create a Data Cells Filter.</td></tr>
-<tr><td><code>DatabaseName</code></td><td><code>string</code></td><td>The name of the Database that the Table resides in.</td></tr>
-<tr><td><code>TableName</code></td><td><code>string</code></td><td>The name of the Table to create a Data Cells Filter for.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The desired name of the Data Cells Filter.</td></tr>
-<tr><td><code>RowFilter</code></td><td><code>object</code></td><td>An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required</td></tr>
-<tr><td><code>ColumnNames</code></td><td><code>array</code></td><td>A list of columns to be included in this Data Cells Filter.</td></tr>
-<tr><td><code>ColumnWildcard</code></td><td><code>object</code></td><td>An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required</td></tr>
+<tr><td><code>table_catalog_id</code></td><td><code>undefined</code></td><td>The Catalog Id of the Table on which to create a Data Cells Filter.</td></tr>
+<tr><td><code>database_name</code></td><td><code>undefined</code></td><td>The name of the Database that the Table resides in.</td></tr>
+<tr><td><code>table_name</code></td><td><code>undefined</code></td><td>The name of the Table to create a Data Cells Filter for.</td></tr>
+<tr><td><code>name</code></td><td><code>undefined</code></td><td>The desired name of the Data Cells Filter.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +39,13 @@ Retrieves a list of <code>data_cells_filters</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lakeformation.data_cells_filters<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+table_catalog_id,
+database_name,
+table_name,
+name
+FROM aws.lakeformation.data_cells_filters
+WHERE region = 'us-east-1'
+```

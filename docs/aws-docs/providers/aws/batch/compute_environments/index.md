@@ -27,17 +27,8 @@ Retrieves a list of <code>compute_environments</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ComputeEnvironmentArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComputeEnvironmentName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComputeResources</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ReplaceComputeEnvironment</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ServiceRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>State</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UpdatePolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>UnmanagedvCpus</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>EksConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>compute_environment_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +36,10 @@ Retrieves a list of <code>compute_environments</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.batch.compute_environments<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+compute_environment_arn
+FROM aws.batch.compute_environments
+WHERE region = 'us-east-1'
+```

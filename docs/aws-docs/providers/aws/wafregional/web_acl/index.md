@@ -27,11 +27,12 @@ Gets an individual <code>web_acl</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MetricName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultAction</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Rules</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>metric_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>default_action</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>rules</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>web_acl</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.wafregional.web_acl<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+metric_name,
+default_action,
+rules,
+name
+FROM aws.wafregional.web_acl
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

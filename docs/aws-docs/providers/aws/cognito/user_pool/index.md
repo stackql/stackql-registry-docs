@@ -27,34 +27,35 @@ Gets an individual <code>user_pool</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>UserPoolTags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Policies</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Schema</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AdminCreateUserConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>UsernameConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>UserPoolName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SmsVerificationMessage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UserAttributeUpdateSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EmailConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SmsConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EmailVerificationSubject</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccountRecoverySetting</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>VerificationMessageTemplate</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ProviderURL</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MfaConfiguration</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeletionProtection</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SmsAuthenticationMessage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProviderName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UserPoolAddOns</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AliasAttributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EnabledMfas</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LambdaConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UsernameAttributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AutoVerifiedAttributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DeviceConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EmailVerificationMessage</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>user_pool_tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>policies</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>schema</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>admin_create_user_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>username_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>user_pool_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>sms_verification_message</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>user_attribute_update_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>email_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>sms_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>email_verification_subject</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>account_recovery_setting</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>verification_message_template</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>provider_ur_l</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>mfa_configuration</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>deletion_protection</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>sms_authentication_message</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>provider_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>user_pool_add_ons</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>alias_attributes</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>enabled_mfas</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>lambda_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>username_attributes</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>auto_verified_attributes</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>device_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>email_verification_message</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -62,6 +63,38 @@ Gets an individual <code>user_pool</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cognito.user_pool<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+user_pool_tags,
+policies,
+schema,
+admin_create_user_config,
+username_configuration,
+user_pool_name,
+sms_verification_message,
+user_attribute_update_settings,
+email_configuration,
+sms_configuration,
+email_verification_subject,
+account_recovery_setting,
+verification_message_template,
+provider_ur_l,
+mfa_configuration,
+deletion_protection,
+sms_authentication_message,
+provider_name,
+user_pool_add_ons,
+alias_attributes,
+enabled_mfas,
+lambda_config,
+id,
+arn,
+username_attributes,
+auto_verified_attributes,
+device_configuration,
+email_verification_message
+FROM aws.cognito.user_pool
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

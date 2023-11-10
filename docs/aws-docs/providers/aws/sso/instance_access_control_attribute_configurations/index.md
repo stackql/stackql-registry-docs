@@ -27,9 +27,8 @@ Retrieves a list of <code>instance_access_control_attribute_configurations</code
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The ARN of the AWS SSO instance under which the operation will be executed.</td></tr>
-<tr><td><code>InstanceAccessControlAttributeConfiguration</code></td><td><code>object</code></td><td>The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.</td></tr>
-<tr><td><code>AccessControlAttributes</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>instance_arn</code></td><td><code>string</code></td><td>The ARN of the AWS SSO instance under which the operation will be executed.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +36,10 @@ Retrieves a list of <code>instance_access_control_attribute_configurations</code
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sso.instance_access_control_attribute_configurations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+instance_arn
+FROM aws.sso.instance_access_control_attribute_configurations
+WHERE region = 'us-east-1'
+```

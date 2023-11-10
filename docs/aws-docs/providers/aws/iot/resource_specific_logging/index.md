@@ -27,10 +27,11 @@ Gets an individual <code>resource_specific_logging</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TargetType</code></td><td><code>string</code></td><td>The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.</td></tr>
-<tr><td><code>TargetName</code></td><td><code>string</code></td><td>The target name.</td></tr>
-<tr><td><code>LogLevel</code></td><td><code>string</code></td><td>The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.</td></tr>
-<tr><td><code>TargetId</code></td><td><code>string</code></td><td>Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.</td></tr>
+<tr><td><code>target_type</code></td><td><code>string</code></td><td>The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.</td></tr>
+<tr><td><code>target_name</code></td><td><code>string</code></td><td>The target name.</td></tr>
+<tr><td><code>log_level</code></td><td><code>string</code></td><td>The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.</td></tr>
+<tr><td><code>target_id</code></td><td><code>string</code></td><td>Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>resource_specific_logging</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.resource_specific_logging<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;TargetId&gt;'
-</pre>
+```sql
+SELECT
+region,
+target_type,
+target_name,
+log_level,
+target_id
+FROM aws.iot.resource_specific_logging
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;TargetId&gt;'
+```

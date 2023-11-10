@@ -27,19 +27,9 @@ Retrieves a list of <code>routes</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RouteId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RouteResponseSelectionExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestModels</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>OperationName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizationScopes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ApiKeyRequired</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>RouteKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizationType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModelSelectionExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Target</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizerId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>api_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>route_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +37,11 @@ Retrieves a list of <code>routes</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigatewayv2.routes<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+api_id,
+route_id
+FROM aws.apigatewayv2.routes
+WHERE region = 'us-east-1'
+```

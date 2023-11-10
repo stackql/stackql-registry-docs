@@ -27,12 +27,8 @@ Retrieves a list of <code>datasets</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name for the dataset</td></tr>
-<tr><td><code>DatasetArn</code></td><td><code>string</code></td><td>The ARN of the dataset</td></tr>
-<tr><td><code>DatasetType</code></td><td><code>string</code></td><td>The type of dataset</td></tr>
-<tr><td><code>DatasetGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group to add the dataset to</td></tr>
-<tr><td><code>SchemaArn</code></td><td><code>string</code></td><td>The ARN of the schema to associate with the dataset. The schema defines the dataset fields.</td></tr>
-<tr><td><code>DatasetImportJob</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>dataset_arn</code></td><td><code>string</code></td><td>The ARN of the dataset</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>datasets</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.personalize.datasets<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+dataset_arn
+FROM aws.personalize.datasets
+WHERE region = 'us-east-1'
+```

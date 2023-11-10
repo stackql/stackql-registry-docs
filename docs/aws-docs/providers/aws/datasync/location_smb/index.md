@@ -27,16 +27,17 @@ Gets an individual <code>location_smb</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AgentArns</code></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.</td></tr>
-<tr><td><code>Domain</code></td><td><code>string</code></td><td>The name of the Windows domain that the SMB server belongs to.</td></tr>
-<tr><td><code>MountOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Password</code></td><td><code>string</code></td><td>The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.</td></tr>
-<tr><td><code>ServerHostname</code></td><td><code>string</code></td><td>The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.</td></tr>
-<tr><td><code>Subdirectory</code></td><td><code>string</code></td><td>The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination</td></tr>
-<tr><td><code>User</code></td><td><code>string</code></td><td>The user who can mount the share, has the permissions to access files and folders in the SMB share.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>LocationArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the SMB location that is created.</td></tr>
-<tr><td><code>LocationUri</code></td><td><code>string</code></td><td>The URL of the SMB location that was described.</td></tr>
+<tr><td><code>agent_arns</code></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.</td></tr>
+<tr><td><code>domain</code></td><td><code>string</code></td><td>The name of the Windows domain that the SMB server belongs to.</td></tr>
+<tr><td><code>mount_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>password</code></td><td><code>string</code></td><td>The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.</td></tr>
+<tr><td><code>server_hostname</code></td><td><code>string</code></td><td>The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.</td></tr>
+<tr><td><code>subdirectory</code></td><td><code>string</code></td><td>The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination</td></tr>
+<tr><td><code>user</code></td><td><code>string</code></td><td>The user who can mount the share, has the permissions to access files and folders in the SMB share.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>location_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the SMB location that is created.</td></tr>
+<tr><td><code>location_uri</code></td><td><code>string</code></td><td>The URL of the SMB location that was described.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>location_smb</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.datasync.location_smb<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LocationArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+agent_arns,
+domain,
+mount_options,
+password,
+server_hostname,
+subdirectory,
+user,
+tags,
+location_arn,
+location_uri
+FROM aws.datasync.location_smb
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;LocationArn&gt;'
+```

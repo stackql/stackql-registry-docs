@@ -27,10 +27,9 @@ Retrieves a list of <code>permissions</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Actions</code></td><td><code>array</code></td><td>The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided.</td></tr>
-<tr><td><code>CertificateAuthorityArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.</td></tr>
-<tr><td><code>Principal</code></td><td><code>string</code></td><td>The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.</td></tr>
-<tr><td><code>SourceAccount</code></td><td><code>string</code></td><td>The ID of the calling account.</td></tr>
+<tr><td><code>certificate_authority_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.</td></tr>
+<tr><td><code>principal</code></td><td><code>string</code></td><td>The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +37,11 @@ Retrieves a list of <code>permissions</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.acmpca.permissions<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+certificate_authority_arn,
+principal
+FROM aws.acmpca.permissions
+WHERE region = 'us-east-1'
+```

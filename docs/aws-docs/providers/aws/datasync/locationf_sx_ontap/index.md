@@ -27,14 +27,15 @@ Gets an individual <code>locationf_sx_ontap</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>StorageVirtualMachineArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the FSx ONTAP SVM.</td></tr>
-<tr><td><code>FsxFilesystemArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the FSx ONAP file system.</td></tr>
-<tr><td><code>SecurityGroupArns</code></td><td><code>array</code></td><td>The ARNs of the security groups that are to use to configure the FSx ONTAP file system.</td></tr>
-<tr><td><code>Protocol</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Subdirectory</code></td><td><code>string</code></td><td>A subdirectory in the location's path.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>LocationArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Amazon FSx ONTAP file system location that is created.</td></tr>
-<tr><td><code>LocationUri</code></td><td><code>string</code></td><td>The URL of the FSx ONTAP file system that was described.</td></tr>
+<tr><td><code>storage_virtual_machine_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the FSx ONTAP SVM.</td></tr>
+<tr><td><code>fsx_filesystem_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the FSx ONAP file system.</td></tr>
+<tr><td><code>security_group_arns</code></td><td><code>array</code></td><td>The ARNs of the security groups that are to use to configure the FSx ONTAP file system.</td></tr>
+<tr><td><code>protocol</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>subdirectory</code></td><td><code>string</code></td><td>A subdirectory in the location's path.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>location_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Amazon FSx ONTAP file system location that is created.</td></tr>
+<tr><td><code>location_uri</code></td><td><code>string</code></td><td>The URL of the FSx ONTAP file system that was described.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>locationf_sx_ontap</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.datasync.locationf_sx_ontap<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LocationArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+storage_virtual_machine_arn,
+fsx_filesystem_arn,
+security_group_arns,
+protocol,
+subdirectory,
+tags,
+location_arn,
+location_uri
+FROM aws.datasync.locationf_sx_ontap
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;LocationArn&gt;'
+```

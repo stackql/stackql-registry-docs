@@ -27,10 +27,11 @@ Gets an individual <code>replication_set</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the ReplicationSet.</td></tr>
-<tr><td><code>Regions</code></td><td><code>array</code></td><td>The ReplicationSet configuration.</td></tr>
-<tr><td><code>DeletionProtected</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags to apply to the replication set.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the ReplicationSet.</td></tr>
+<tr><td><code>regions</code></td><td><code>array</code></td><td>The ReplicationSet configuration.</td></tr>
+<tr><td><code>deletion_protected</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>The tags to apply to the replication set.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>replication_set</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ssmincidents.replication_set<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+regions,
+deletion_protected,
+tags
+FROM aws.ssmincidents.replication_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

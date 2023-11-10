@@ -27,29 +27,30 @@ Gets an individual <code>server</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>KeyPair</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EngineVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServiceRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DisableAutomatedBackup</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>BackupId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EngineModel</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredMaintenanceWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssociatePublicIpAddress</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>InstanceProfileArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomCertificate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredBackupWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SubnetIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CustomDomain</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomPrivateKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EngineAttributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>BackupRetentionCount</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Engine</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>key_pair</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>engine_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>service_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>disable_automated_backup</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>backup_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>engine_model</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>preferred_maintenance_window</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>associate_public_ip_address</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>instance_profile_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>custom_certificate</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>preferred_backup_window</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>subnet_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>custom_domain</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>endpoint</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>custom_private_key</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>server_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>engine_attributes</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>backup_retention_count</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>engine</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -57,6 +58,33 @@ Gets an individual <code>server</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.opsworkscm.server<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ServerName&gt;'
-</pre>
+```sql
+SELECT
+region,
+key_pair,
+engine_version,
+service_role_arn,
+disable_automated_backup,
+backup_id,
+engine_model,
+preferred_maintenance_window,
+associate_public_ip_address,
+instance_profile_arn,
+custom_certificate,
+preferred_backup_window,
+security_group_ids,
+subnet_ids,
+custom_domain,
+endpoint,
+custom_private_key,
+server_name,
+engine_attributes,
+backup_retention_count,
+arn,
+instance_type,
+tags,
+engine
+FROM aws.opsworkscm.server
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ServerName&gt;'
+```

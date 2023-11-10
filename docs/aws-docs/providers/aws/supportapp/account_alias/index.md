@@ -27,8 +27,9 @@ Gets an individual <code>account_alias</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AccountAlias</code></td><td><code>string</code></td><td>An account alias associated with a customer's account.</td></tr>
-<tr><td><code>AccountAliasResourceId</code></td><td><code>string</code></td><td>Unique identifier representing an alias tied to an account</td></tr>
+<tr><td><code>account_alias</code></td><td><code>string</code></td><td>An account alias associated with a customer's account.</td></tr>
+<tr><td><code>account_alias_resource_id</code></td><td><code>string</code></td><td>Unique identifier representing an alias tied to an account</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,12 @@ Gets an individual <code>account_alias</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.supportapp.account_alias<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AccountAliasResourceId&gt;'
-</pre>
+```sql
+SELECT
+region,
+account_alias,
+account_alias_resource_id
+FROM aws.supportapp.account_alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AccountAliasResourceId&gt;'
+```

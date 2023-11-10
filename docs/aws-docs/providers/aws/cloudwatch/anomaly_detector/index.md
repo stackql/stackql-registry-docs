@@ -27,14 +27,15 @@ Gets an individual <code>anomaly_detector</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>MetricName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Stat</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Configuration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>MetricMathAnomalyDetector</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Dimensions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Namespace</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SingleMetricAnomalyDetector</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>metric_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>stat</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>metric_math_anomaly_detector</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>dimensions</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>namespace</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>single_metric_anomaly_detector</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>anomaly_detector</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cloudwatch.anomaly_detector<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+metric_name,
+stat,
+configuration,
+metric_math_anomaly_detector,
+dimensions,
+id,
+namespace,
+single_metric_anomaly_detector
+FROM aws.cloudwatch.anomaly_detector
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

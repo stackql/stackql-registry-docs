@@ -27,24 +27,8 @@ Retrieves a list of <code>resolvers</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TypeName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PipelineConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RequestMappingTemplate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseMappingTemplate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxBatchSize</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>ResolverArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SyncConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Code</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseMappingTemplateS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Runtime</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CodeS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DataSourceName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Kind</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CachingConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestMappingTemplateS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FieldName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,6 +36,10 @@ Retrieves a list of <code>resolvers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appsync.resolvers<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.appsync.resolvers
+WHERE region = 'us-east-1'
+```

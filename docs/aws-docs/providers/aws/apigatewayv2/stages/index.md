@@ -27,19 +27,8 @@ Retrieves a list of <code>stages</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DeploymentId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AutoDeploy</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>RouteSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>StageName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StageVariables</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AccessPolicyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClientCertificateId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccessLogSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultRouteSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +36,10 @@ Retrieves a list of <code>stages</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigatewayv2.stages<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.apigatewayv2.stages
+WHERE region = 'us-east-1'
+```

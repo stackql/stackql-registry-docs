@@ -27,8 +27,9 @@ Retrieves a list of <code>approved_origins</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Origin</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_id</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>origin</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,11 @@ Retrieves a list of <code>approved_origins</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.connect.approved_origins<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+instance_id,
+origin
+FROM aws.connect.approved_origins
+WHERE region = 'us-east-1'
+```

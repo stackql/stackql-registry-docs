@@ -27,24 +27,8 @@ Retrieves a list of <code>associations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AssociationId</code></td><td><code>string</code></td><td>Unique identifier of the association.</td></tr>
-<tr><td><code>AssociationName</code></td><td><code>string</code></td><td>The name of the association.</td></tr>
-<tr><td><code>DocumentVersion</code></td><td><code>string</code></td><td>The version of the SSM document to associate with the target.</td></tr>
-<tr><td><code>InstanceId</code></td><td><code>string</code></td><td>The ID of the instance that the SSM document is associated with.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the SSM document.</td></tr>
-<tr><td><code>Parameters</code></td><td><code>object</code></td><td>Parameter values that the SSM document uses at runtime.</td></tr>
-<tr><td><code>ScheduleExpression</code></td><td><code>string</code></td><td>A Cron or Rate expression that specifies when the association is applied to the target.</td></tr>
-<tr><td><code>Targets</code></td><td><code>array</code></td><td>The targets that the SSM document sends commands to.</td></tr>
-<tr><td><code>OutputLocation</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AutomationTargetParameterName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxErrors</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxConcurrency</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComplianceSeverity</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SyncCompliance</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WaitForSuccessTimeoutSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>ApplyOnlyAtCronInterval</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>CalendarNames</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ScheduleOffset</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>association_id</code></td><td><code>string</code></td><td>Unique identifier of the association.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,6 +36,10 @@ Retrieves a list of <code>associations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ssm.associations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+association_id
+FROM aws.ssm.associations
+WHERE region = 'us-east-1'
+```

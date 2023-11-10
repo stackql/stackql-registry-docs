@@ -27,10 +27,9 @@ Retrieves a list of <code>base_path_mappings</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>BasePath</code></td><td><code>string</code></td><td>The base path name that callers of the API must provide in the URL after the domain name.</td></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td>The DomainName of an AWS::ApiGateway::DomainName resource.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The ID of the API.</td></tr>
-<tr><td><code>Stage</code></td><td><code>string</code></td><td>The name of the API's stage.</td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td>The DomainName of an AWS::ApiGateway::DomainName resource.</td></tr>
+<tr><td><code>base_path</code></td><td><code>string</code></td><td>The base path name that callers of the API must provide in the URL after the domain name.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +37,11 @@ Retrieves a list of <code>base_path_mappings</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.base_path_mappings<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+domain_name,
+base_path
+FROM aws.apigateway.base_path_mappings
+WHERE region = 'us-east-1'
+```

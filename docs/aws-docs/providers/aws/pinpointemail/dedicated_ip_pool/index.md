@@ -27,9 +27,10 @@ Gets an individual <code>dedicated_ip_pool</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PoolName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>pool_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>dedicated_ip_pool</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.pinpointemail.dedicated_ip_pool<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+pool_name,
+tags
+FROM aws.pinpointemail.dedicated_ip_pool
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

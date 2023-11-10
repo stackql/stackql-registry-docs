@@ -27,12 +27,13 @@ Gets an individual <code>member</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MemberId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Email</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Message</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DisableEmailNotification</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>DetectorId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>member_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>email</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>message</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>disable_email_notification</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>detector_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>member</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.guardduty.member<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;MemberId&gt;'
-</pre>
+```sql
+SELECT
+region,
+status,
+member_id,
+email,
+message,
+disable_email_notification,
+detector_id
+FROM aws.guardduty.member
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;MemberId&gt;'
+```

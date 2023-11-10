@@ -27,24 +27,8 @@ Retrieves a list of <code>file_systems</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>StorageType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StorageCapacity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>RootVolumeId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LustreConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>BackupId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OntapConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DNSName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SubnetIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>WindowsConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>FileSystemTypeVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OpenZFSConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ResourceARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FileSystemType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LustreMountName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,6 +36,10 @@ Retrieves a list of <code>file_systems</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.fsx.file_systems<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.fsx.file_systems
+WHERE region = 'us-east-1'
+```

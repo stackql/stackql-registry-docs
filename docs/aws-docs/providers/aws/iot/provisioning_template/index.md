@@ -27,15 +27,16 @@ Gets an individual <code>provisioning_template</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TemplateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TemplateName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Enabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ProvisioningRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TemplateBody</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TemplateType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreProvisioningHook</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>template_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>template_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>enabled</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>provisioning_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>template_body</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>template_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>pre_provisioning_hook</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>provisioning_template</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.provisioning_template<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;TemplateName&gt;'
-</pre>
+```sql
+SELECT
+region,
+template_arn,
+template_name,
+description,
+enabled,
+provisioning_role_arn,
+template_body,
+template_type,
+pre_provisioning_hook,
+tags
+FROM aws.iot.provisioning_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;TemplateName&gt;'
+```

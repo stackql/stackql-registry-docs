@@ -27,31 +27,8 @@ Retrieves a list of <code>user_pool_clients</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AnalyticsConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>GenerateSecret</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>CallbackURLs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>IdTokenValidity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>TokenValidityUnits</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ReadAttributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AllowedOAuthFlowsUserPoolClient</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>DefaultRedirectURI</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClientName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExplicitAuthFlows</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AccessTokenValidity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>EnableTokenRevocation</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>EnablePropagateAdditionalUserContextData</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>AuthSessionValidity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>AllowedOAuthScopes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SupportedIdentityProviders</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>UserPoolId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AllowedOAuthFlows</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ClientSecret</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LogoutURLs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>RefreshTokenValidity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WriteAttributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PreventUserExistenceErrors</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -59,6 +36,10 @@ Retrieves a list of <code>user_pool_clients</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cognito.user_pool_clients<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.cognito.user_pool_clients
+WHERE region = 'us-east-1'
+```

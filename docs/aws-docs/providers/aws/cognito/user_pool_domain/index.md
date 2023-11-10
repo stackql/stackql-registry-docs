@@ -27,11 +27,12 @@ Gets an individual <code>user_pool_domain</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CloudFrontDistribution</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UserPoolId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Domain</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomDomainConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>cloud_front_distribution</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>user_pool_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>domain</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>custom_domain_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>user_pool_domain</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cognito.user_pool_domain<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+cloud_front_distribution,
+user_pool_id,
+id,
+domain,
+custom_domain_config
+FROM aws.cognito.user_pool_domain
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

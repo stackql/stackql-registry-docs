@@ -27,9 +27,10 @@ Gets an individual <code>instance</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>InstanceAttributes</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>InstanceId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServiceId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_attributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>instance_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>service_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>instance</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.servicediscovery.instance<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;InstanceId&gt;'
-</pre>
+```sql
+SELECT
+region,
+instance_attributes,
+instance_id,
+service_id
+FROM aws.servicediscovery.instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;InstanceId&gt;'
+```

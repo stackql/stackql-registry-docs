@@ -27,18 +27,8 @@ Retrieves a list of <code>state_machines</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefinitionString</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StateMachineName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StateMachineType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LoggingConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>TracingConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DefinitionS3Location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DefinitionSubstitutions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Definition</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +36,10 @@ Retrieves a list of <code>state_machines</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.stepfunctions.state_machines<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.stepfunctions.state_machines
+WHERE region = 'us-east-1'
+```

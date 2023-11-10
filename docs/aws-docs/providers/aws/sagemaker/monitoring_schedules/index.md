@@ -27,16 +27,8 @@ Retrieves a list of <code>monitoring_schedules</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>MonitoringScheduleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the monitoring schedule.</td></tr>
-<tr><td><code>MonitoringScheduleName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MonitoringScheduleConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td>The time at which the schedule was created.</td></tr>
-<tr><td><code>EndpointName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FailureReason</code></td><td><code>string</code></td><td>Contains the reason a monitoring job failed, if it failed.</td></tr>
-<tr><td><code>LastModifiedTime</code></td><td><code>string</code></td><td>A timestamp that indicates the last time the monitoring job was modified.</td></tr>
-<tr><td><code>LastMonitoringExecutionSummary</code></td><td><code>object</code></td><td>Describes metadata on the last execution to run, if there was one.</td></tr>
-<tr><td><code>MonitoringScheduleStatus</code></td><td><code>string</code></td><td>The status of a schedule job.</td></tr>
+<tr><td><code>monitoring_schedule_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the monitoring schedule.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +36,10 @@ Retrieves a list of <code>monitoring_schedules</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.monitoring_schedules<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+monitoring_schedule_arn
+FROM aws.sagemaker.monitoring_schedules
+WHERE region = 'us-east-1'
+```

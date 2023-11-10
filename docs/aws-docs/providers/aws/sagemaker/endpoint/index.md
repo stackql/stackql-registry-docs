@@ -27,14 +27,15 @@ Gets an individual <code>endpoint</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RetainAllVariantProperties</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>EndpointName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExcludeRetainedVariantProperties</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EndpointConfigName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RetainDeploymentConfig</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>retain_all_variant_properties</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>endpoint_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>exclude_retained_variant_properties</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>endpoint_config_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>deployment_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>retain_deployment_config</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>endpoint</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.endpoint<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+retain_all_variant_properties,
+endpoint_name,
+exclude_retained_variant_properties,
+endpoint_config_name,
+id,
+deployment_config,
+retain_deployment_config,
+tags
+FROM aws.sagemaker.endpoint
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,12 +27,13 @@ Gets an individual <code>organization_config_rule</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OrganizationCustomRuleMetadata</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>OrganizationManagedRuleMetadata</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ExcludedAccounts</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>OrganizationConfigRuleName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OrganizationCustomPolicyRuleMetadata</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>organization_custom_rule_metadata</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>organization_managed_rule_metadata</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>excluded_accounts</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>organization_config_rule_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>organization_custom_policy_rule_metadata</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>organization_config_rule</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.config.organization_config_rule<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+organization_custom_rule_metadata,
+organization_managed_rule_metadata,
+excluded_accounts,
+organization_config_rule_name,
+id,
+organization_custom_policy_rule_metadata
+FROM aws.config.organization_config_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

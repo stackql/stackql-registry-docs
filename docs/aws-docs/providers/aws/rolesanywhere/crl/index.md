@@ -27,12 +27,13 @@ Gets an individual <code>crl</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CrlData</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CrlId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Enabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TrustAnchorArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>crl_data</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>crl_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>enabled</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>trust_anchor_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>crl</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.rolesanywhere.crl<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;CrlId&gt;'
-</pre>
+```sql
+SELECT
+region,
+crl_data,
+crl_id,
+enabled,
+name,
+trust_anchor_arn,
+tags
+FROM aws.rolesanywhere.crl
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;CrlId&gt;'
+```

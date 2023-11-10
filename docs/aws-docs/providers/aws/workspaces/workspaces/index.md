@@ -27,15 +27,8 @@ Retrieves a list of <code>workspaces</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BundleId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DirectoryId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RootVolumeEncryptionEnabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>UserName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UserVolumeEncryptionEnabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>VolumeEncryptionKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WorkspaceProperties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +36,10 @@ Retrieves a list of <code>workspaces</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.workspaces.workspaces<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.workspaces.workspaces
+WHERE region = 'us-east-1'
+```

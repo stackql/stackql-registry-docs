@@ -27,18 +27,8 @@ Retrieves a list of <code>firewalls</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FirewallName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FirewallArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FirewallId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FirewallPolicyArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VpcId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SubnetMappings</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DeleteProtection</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>SubnetChangeProtection</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>FirewallPolicyChangeProtection</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>firewall_arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +36,10 @@ Retrieves a list of <code>firewalls</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.networkfirewall.firewalls<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+firewall_arn
+FROM aws.networkfirewall.firewalls
+WHERE region = 'us-east-1'
+```

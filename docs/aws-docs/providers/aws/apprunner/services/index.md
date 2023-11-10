@@ -27,19 +27,8 @@ Retrieves a list of <code>services</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ServiceName</code></td><td><code>string</code></td><td>The AppRunner Service Name.</td></tr>
-<tr><td><code>ServiceId</code></td><td><code>string</code></td><td>The AppRunner Service Id</td></tr>
-<tr><td><code>ServiceArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppRunner Service.</td></tr>
-<tr><td><code>ServiceUrl</code></td><td><code>string</code></td><td>The Service Url of the AppRunner Service.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>AppRunner Service status.</td></tr>
-<tr><td><code>SourceConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>InstanceConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EncryptionConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>HealthCheckConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ObservabilityConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AutoScalingConfigurationArn</code></td><td><code>string</code></td><td>Autoscaling configuration ARN</td></tr>
-<tr><td><code>NetworkConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>service_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppRunner Service.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +36,10 @@ Retrieves a list of <code>services</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apprunner.services<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+service_arn
+FROM aws.apprunner.services
+WHERE region = 'us-east-1'
+```

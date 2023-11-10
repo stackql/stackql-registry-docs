@@ -27,15 +27,8 @@ Retrieves a list of <code>containers</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Policy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MetricPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ContainerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CorsPolicy</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LifecyclePolicy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccessLoggingEnabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +36,10 @@ Retrieves a list of <code>containers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.mediastore.containers<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.mediastore.containers
+WHERE region = 'us-east-1'
+```

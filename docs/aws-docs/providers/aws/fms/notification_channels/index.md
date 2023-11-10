@@ -27,8 +27,8 @@ Retrieves a list of <code>notification_channels</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SnsRoleName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SnsTopicArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>sns_topic_arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +36,10 @@ Retrieves a list of <code>notification_channels</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.fms.notification_channels<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+sns_topic_arn
+FROM aws.fms.notification_channels
+WHERE region = 'us-east-1'
+```

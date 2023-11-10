@@ -27,11 +27,12 @@ Gets an individual <code>application</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Inputs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ApplicationDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationCode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>application_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>inputs</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>application_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>application_code</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>application</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.kinesisanalytics.application<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+application_name,
+inputs,
+application_description,
+application_code
+FROM aws.kinesisanalytics.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

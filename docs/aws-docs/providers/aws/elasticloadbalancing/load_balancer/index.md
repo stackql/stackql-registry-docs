@@ -27,28 +27,29 @@ Gets an individual <code>load_balancer</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SecurityGroups</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ConnectionDrainingPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Policies</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Scheme</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AvailabilityZones</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SourceSecurityGroupOwnerAlias</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HealthCheck</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CanonicalHostedZoneNameID</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CanonicalHostedZoneName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DNSName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccessLoggingPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Instances</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LoadBalancerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Listeners</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Subnets</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CrossZone</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>AppCookieStickinessPolicy</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LBCookieStickinessPolicy</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceSecurityGroupGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConnectionSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>security_groups</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>connection_draining_policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>policies</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>scheme</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>availability_zones</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>source_security_group_owner_alias</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>health_check</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>canonical_hosted_zone_name_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>canonical_hosted_zone_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>d_ns_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>access_logging_policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>instances</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>load_balancer_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>listeners</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>subnets</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>cross_zone</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>app_cookie_stickiness_policy</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>l_bcookie_stickiness_policy</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source_security_group_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>connection_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -56,6 +57,32 @@ Gets an individual <code>load_balancer</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.elasticloadbalancing.load_balancer<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+security_groups,
+connection_draining_policy,
+policies,
+scheme,
+availability_zones,
+source_security_group_owner_alias,
+health_check,
+canonical_hosted_zone_name_id,
+canonical_hosted_zone_name,
+d_ns_name,
+access_logging_policy,
+instances,
+load_balancer_name,
+listeners,
+subnets,
+cross_zone,
+app_cookie_stickiness_policy,
+l_bcookie_stickiness_policy,
+id,
+source_security_group_group_name,
+connection_settings,
+tags
+FROM aws.elasticloadbalancing.load_balancer
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

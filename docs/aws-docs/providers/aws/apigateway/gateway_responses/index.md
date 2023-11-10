@@ -27,12 +27,8 @@ Retrieves a list of <code>gateway_responses</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>A Cloudformation auto generated ID.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The identifier of the API.</td></tr>
-<tr><td><code>ResponseType</code></td><td><code>string</code></td><td>The type of the Gateway Response.</td></tr>
-<tr><td><code>StatusCode</code></td><td><code>string</code></td><td>The HTTP status code for the response.</td></tr>
-<tr><td><code>ResponseParameters</code></td><td><code>object</code></td><td>The response parameters (paths, query strings, and headers) for the response.</td></tr>
-<tr><td><code>ResponseTemplates</code></td><td><code>object</code></td><td>The response templates for the response.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>A Cloudformation auto generated ID.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>gateway_responses</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.gateway_responses<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.apigateway.gateway_responses
+WHERE region = 'us-east-1'
+```

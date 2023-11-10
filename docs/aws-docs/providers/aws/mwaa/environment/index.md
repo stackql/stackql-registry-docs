@@ -27,30 +27,31 @@ Gets an individual <code>environment</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WebserverUrl</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExecutionRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KmsKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AirflowVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceBucketArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DagS3Path</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PluginsS3Path</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PluginsS3ObjectVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequirementsS3Path</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequirementsS3ObjectVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StartupScriptS3Path</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StartupScriptS3ObjectVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AirflowConfigurationOptions</code></td><td><code>object</code></td><td>Key&#x2F;value pairs representing Airflow configuration variables.&lt;br&#x2F;&gt;    Keys are prefixed by their section:&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;    &#91;core&#93;&lt;br&#x2F;&gt;    dags_folder=&#123;AIRFLOW_HOME&#125;&#x2F;dags&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;    Would be represented as&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;    "core.dags_folder": "&#123;AIRFLOW_HOME&#125;&#x2F;dags"</td></tr>
-<tr><td><code>EnvironmentClass</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxWorkers</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>MinWorkers</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Schedulers</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>NetworkConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>LoggingConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>WeeklyMaintenanceWindowStart</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>A map of tags for the environment.</td></tr>
-<tr><td><code>WebserverAccessMode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>webserver_url</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>execution_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>kms_key</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>airflow_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source_bucket_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>dag_s3_path</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>plugins_s3_path</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>plugins_s3_object_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>requirements_s3_path</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>requirements_s3_object_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>startup_script_s3_path</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>startup_script_s3_object_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>airflow_configuration_options</code></td><td><code>object</code></td><td>Key&#x2F;value pairs representing Airflow configuration variables.&lt;br&#x2F;&gt;    Keys are prefixed by their section:&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;    &#91;core&#93;&lt;br&#x2F;&gt;    dags_folder=&#123;AIRFLOW_HOME&#125;&#x2F;dags&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;    Would be represented as&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;    "core.dags_folder": "&#123;AIRFLOW_HOME&#125;&#x2F;dags"</td></tr>
+<tr><td><code>environment_class</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>max_workers</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>min_workers</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>schedulers</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>network_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>logging_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>weekly_maintenance_window_start</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td>A map of tags for the environment.</td></tr>
+<tr><td><code>webserver_access_mode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -58,6 +59,34 @@ Gets an individual <code>environment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.mwaa.environment<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+arn,
+webserver_url,
+execution_role_arn,
+kms_key,
+airflow_version,
+source_bucket_arn,
+dag_s3_path,
+plugins_s3_path,
+plugins_s3_object_version,
+requirements_s3_path,
+requirements_s3_object_version,
+startup_script_s3_path,
+startup_script_s3_object_version,
+airflow_configuration_options,
+environment_class,
+max_workers,
+min_workers,
+schedulers,
+network_configuration,
+logging_configuration,
+weekly_maintenance_window_start,
+tags,
+webserver_access_mode
+FROM aws.mwaa.environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Name&gt;'
+```

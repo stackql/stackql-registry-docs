@@ -27,13 +27,14 @@ Gets an individual <code>alias</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FunctionName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProvisionedConcurrencyConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FunctionVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoutingConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>provisioned_concurrency_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>routing_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>alias</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lambda.alias<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+function_name,
+provisioned_concurrency_config,
+description,
+function_version,
+id,
+routing_config,
+name
+FROM aws.lambda.alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

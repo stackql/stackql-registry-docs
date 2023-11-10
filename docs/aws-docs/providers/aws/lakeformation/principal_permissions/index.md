@@ -27,13 +27,14 @@ Gets an individual <code>principal_permissions</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Catalog</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Principal</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Resource</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Permissions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PermissionsWithGrantOption</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PrincipalIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResourceIdentifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>catalog</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>principal</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>resource</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>permissions</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>permissions_with_grant_option</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>principal_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,18 @@ Gets an individual <code>principal_permissions</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lakeformation.principal_permissions<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;PrincipalIdentifier&gt;'<br/>AND data__Identifier = '&lt;ResourceIdentifier&gt;'
-</pre>
+```sql
+SELECT
+region,
+catalog,
+principal,
+resource,
+permissions,
+permissions_with_grant_option,
+principal_identifier,
+resource_identifier
+FROM aws.lakeformation.principal_permissions
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;PrincipalIdentifier&gt;'
+AND data__Identifier = '&lt;ResourceIdentifier&gt;'
+```

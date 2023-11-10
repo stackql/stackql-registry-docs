@@ -27,13 +27,14 @@ Gets an individual <code>location_nfs</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>MountOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>OnPremConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ServerHostname</code></td><td><code>string</code></td><td>The name of the NFS server. This value is the IP address or DNS name of the NFS server.</td></tr>
-<tr><td><code>Subdirectory</code></td><td><code>string</code></td><td>The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>LocationArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the NFS location.</td></tr>
-<tr><td><code>LocationUri</code></td><td><code>string</code></td><td>The URL of the NFS location that was described.</td></tr>
+<tr><td><code>mount_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>on_prem_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>server_hostname</code></td><td><code>string</code></td><td>The name of the NFS server. This value is the IP address or DNS name of the NFS server.</td></tr>
+<tr><td><code>subdirectory</code></td><td><code>string</code></td><td>The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>location_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the NFS location.</td></tr>
+<tr><td><code>location_uri</code></td><td><code>string</code></td><td>The URL of the NFS location that was described.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>location_nfs</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.datasync.location_nfs<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LocationArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+mount_options,
+on_prem_config,
+server_hostname,
+subdirectory,
+tags,
+location_arn,
+location_uri
+FROM aws.datasync.location_nfs
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;LocationArn&gt;'
+```

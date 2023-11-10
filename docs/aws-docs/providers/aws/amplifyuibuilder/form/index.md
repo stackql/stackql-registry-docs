@@ -27,18 +27,19 @@ Gets an individual <code>form</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AppId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Cta</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DataType</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EnvironmentName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Fields</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>FormActionType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SchemaVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SectionalElements</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Style</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>app_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cta</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>data_type</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>environment_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>fields</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>form_action_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>schema_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>sectional_elements</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>style</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,24 @@ Gets an individual <code>form</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.amplifyuibuilder.form<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AppId&gt;'<br/>AND data__Identifier = '&lt;EnvironmentName&gt;'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+app_id,
+cta,
+data_type,
+environment_name,
+fields,
+form_action_type,
+id,
+name,
+schema_version,
+sectional_elements,
+style,
+tags
+FROM aws.amplifyuibuilder.form
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AppId&gt;'
+AND data__Identifier = '&lt;EnvironmentName&gt;'
+AND data__Identifier = '&lt;Id&gt;'
+```

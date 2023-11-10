@@ -27,15 +27,8 @@ Retrieves a list of <code>git_hub_repositories</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>EnableIssues</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ConnectionArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RepositoryName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RepositoryAccessToken</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RepositoryOwner</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IsPrivate</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Code</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RepositoryDescription</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +36,10 @@ Retrieves a list of <code>git_hub_repositories</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.codestar.git_hub_repositories<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.codestar.git_hub_repositories
+WHERE region = 'us-east-1'
+```

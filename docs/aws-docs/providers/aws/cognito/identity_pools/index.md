@@ -27,19 +27,8 @@ Retrieves a list of <code>identity_pools</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PushSync</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CognitoIdentityProviders</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DeveloperProviderName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CognitoStreams</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SupportedLoginProviders</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CognitoEvents</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IdentityPoolName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AllowUnauthenticatedIdentities</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>SamlProviderARNs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>OpenIdConnectProviderARNs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AllowClassicFlow</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +36,10 @@ Retrieves a list of <code>identity_pools</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cognito.identity_pools<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.cognito.identity_pools
+WHERE region = 'us-east-1'
+```

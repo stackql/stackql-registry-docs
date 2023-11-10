@@ -27,14 +27,15 @@ Gets an individual <code>flow_entitlement</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FlowArn</code></td><td><code>string</code></td><td>The ARN of the flow.</td></tr>
-<tr><td><code>EntitlementArn</code></td><td><code>string</code></td><td>The ARN of the entitlement.</td></tr>
-<tr><td><code>DataTransferSubscriberFeePercent</code></td><td><code>integer</code></td><td>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the entitlement.</td></tr>
-<tr><td><code>Encryption</code></td><td><code>object</code></td><td>The type of encryption that will be used on the output that is associated with this entitlement.</td></tr>
-<tr><td><code>EntitlementStatus</code></td><td><code>string</code></td><td> An indication of whether the entitlement is enabled.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the entitlement.</td></tr>
-<tr><td><code>Subscribers</code></td><td><code>array</code></td><td>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</td></tr>
+<tr><td><code>flow_arn</code></td><td><code>string</code></td><td>The ARN of the flow.</td></tr>
+<tr><td><code>entitlement_arn</code></td><td><code>string</code></td><td>The ARN of the entitlement.</td></tr>
+<tr><td><code>data_transfer_subscriber_fee_percent</code></td><td><code>integer</code></td><td>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>A description of the entitlement.</td></tr>
+<tr><td><code>encryption</code></td><td><code>object</code></td><td>The type of encryption that will be used on the output that is associated with this entitlement.</td></tr>
+<tr><td><code>entitlement_status</code></td><td><code>string</code></td><td> An indication of whether the entitlement is enabled.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the entitlement.</td></tr>
+<tr><td><code>subscribers</code></td><td><code>array</code></td><td>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>flow_entitlement</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.mediaconnect.flow_entitlement<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;EntitlementArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+flow_arn,
+entitlement_arn,
+data_transfer_subscriber_fee_percent,
+description,
+encryption,
+entitlement_status,
+name,
+subscribers
+FROM aws.mediaconnect.flow_entitlement
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;EntitlementArn&gt;'
+```

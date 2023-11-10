@@ -27,13 +27,8 @@ Retrieves a list of <code>configuration_sets</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the configuration set.</td></tr>
-<tr><td><code>TrackingOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DeliveryOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ReputationOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SendingOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SuppressionOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>VdmOptions</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the configuration set.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>configuration_sets</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ses.configuration_sets<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+name
+FROM aws.ses.configuration_sets
+WHERE region = 'us-east-1'
+```

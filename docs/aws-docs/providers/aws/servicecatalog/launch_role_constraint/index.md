@@ -27,13 +27,14 @@ Gets an individual <code>launch_role_constraint</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LocalRoleName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AcceptLanguage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PortfolioId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProductId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>local_role_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>accept_language</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>portfolio_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>product_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>launch_role_constraint</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.servicecatalog.launch_role_constraint<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+local_role_name,
+accept_language,
+portfolio_id,
+product_id,
+id,
+role_arn
+FROM aws.servicecatalog.launch_role_constraint
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

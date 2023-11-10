@@ -27,10 +27,11 @@ Gets an individual <code>resolverdnssec_config</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>Id</td></tr>
-<tr><td><code>OwnerId</code></td><td><code>string</code></td><td>AccountId</td></tr>
-<tr><td><code>ResourceId</code></td><td><code>string</code></td><td>ResourceId</td></tr>
-<tr><td><code>ValidationStatus</code></td><td><code>string</code></td><td>ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>Id</td></tr>
+<tr><td><code>owner_id</code></td><td><code>string</code></td><td>AccountId</td></tr>
+<tr><td><code>resource_id</code></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><code>validation_status</code></td><td><code>string</code></td><td>ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>resolverdnssec_config</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53resolver.resolverdnssec_config<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+owner_id,
+resource_id,
+validation_status
+FROM aws.route53resolver.resolverdnssec_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

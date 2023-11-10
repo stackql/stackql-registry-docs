@@ -27,11 +27,12 @@ Gets an individual <code>domain_name</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AppSyncDomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HostedZoneId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>app_sync_domain_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>hosted_zone_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>domain_name</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appsync.domain_name<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DomainName&gt;'
-</pre>
+```sql
+SELECT
+region,
+domain_name,
+description,
+certificate_arn,
+app_sync_domain_name,
+hosted_zone_id
+FROM aws.appsync.domain_name
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DomainName&gt;'
+```

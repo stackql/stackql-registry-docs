@@ -27,16 +27,17 @@ Gets an individual <code>apns_voip_sandbox_channel</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BundleId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PrivateKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Enabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>DefaultAuthenticationMethod</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TokenKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TeamId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Certificate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TokenKeyId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>bundle_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>private_key</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>enabled</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>default_authentication_method</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>token_key</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>application_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>team_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>token_key_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>apns_voip_sandbox_channel</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.pinpoint.apns_voip_sandbox_channel<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+bundle_id,
+private_key,
+enabled,
+default_authentication_method,
+token_key,
+application_id,
+team_id,
+certificate,
+token_key_id
+FROM aws.pinpoint.apns_voip_sandbox_channel
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,12 +27,8 @@ Retrieves a list of <code>labels</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the label.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Tags associated with this label.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The label description.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The label ARN.</td></tr>
-<tr><td><code>CreatedTime</code></td><td><code>string</code></td><td>The timestamp when the label was created.</td></tr>
-<tr><td><code>LastUpdatedTime</code></td><td><code>string</code></td><td>The timestamp when the label was last updated.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The label ARN.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>labels</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.frauddetector.labels<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.frauddetector.labels
+WHERE region = 'us-east-1'
+```

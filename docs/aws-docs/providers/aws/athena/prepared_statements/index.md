@@ -27,10 +27,9 @@ Retrieves a list of <code>prepared_statements</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>StatementName</code></td><td><code>string</code></td><td>The name of the prepared statement.</td></tr>
-<tr><td><code>WorkGroup</code></td><td><code>string</code></td><td>The name of the workgroup to which the prepared statement belongs.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the prepared statement.</td></tr>
-<tr><td><code>QueryStatement</code></td><td><code>string</code></td><td>The query string for the prepared statement.</td></tr>
+<tr><td><code>statement_name</code></td><td><code>string</code></td><td>The name of the prepared statement.</td></tr>
+<tr><td><code>work_group</code></td><td><code>string</code></td><td>The name of the workgroup to which the prepared statement belongs.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +37,11 @@ Retrieves a list of <code>prepared_statements</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.athena.prepared_statements<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+statement_name,
+work_group
+FROM aws.athena.prepared_statements
+WHERE region = 'us-east-1'
+```

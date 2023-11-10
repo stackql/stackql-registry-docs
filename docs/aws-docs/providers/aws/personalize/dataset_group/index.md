@@ -27,11 +27,12 @@ Gets an individual <code>dataset_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DatasetGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name for the new dataset group.</td></tr>
-<tr><td><code>KmsKeyArn</code></td><td><code>string</code></td><td>The Amazon Resource Name(ARN) of a AWS Key Management Service (KMS) key used to encrypt the datasets.</td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.</td></tr>
-<tr><td><code>Domain</code></td><td><code>string</code></td><td>The domain of a Domain dataset group.</td></tr>
+<tr><td><code>dataset_group_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name for the new dataset group.</td></tr>
+<tr><td><code>kms_key_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name(ARN) of a AWS Key Management Service (KMS) key used to encrypt the datasets.</td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.</td></tr>
+<tr><td><code>domain</code></td><td><code>string</code></td><td>The domain of a Domain dataset group.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>dataset_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.personalize.dataset_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DatasetGroupArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+dataset_group_arn,
+name,
+kms_key_arn,
+role_arn,
+domain
+FROM aws.personalize.dataset_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DatasetGroupArn&gt;'
+```

@@ -27,18 +27,8 @@ Retrieves a list of <code>domain_names</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DistributionDomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DistributionHostedZoneId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>MutualTlsAuthentication</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RegionalDomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RegionalHostedZoneId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RegionalCertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OwnershipVerificationCertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityPolicy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +36,10 @@ Retrieves a list of <code>domain_names</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.domain_names<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+domain_name
+FROM aws.apigateway.domain_names
+WHERE region = 'us-east-1'
+```

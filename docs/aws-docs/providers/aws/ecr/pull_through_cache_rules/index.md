@@ -27,8 +27,8 @@ Retrieves a list of <code>pull_through_cache_rules</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>EcrRepositoryPrefix</code></td><td><code>string</code></td><td>The ECRRepositoryPrefix is a custom alias for upstream registry url.</td></tr>
-<tr><td><code>UpstreamRegistryUrl</code></td><td><code>string</code></td><td>The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached</td></tr>
+<tr><td><code>ecr_repository_prefix</code></td><td><code>string</code></td><td>The ECRRepositoryPrefix is a custom alias for upstream registry url.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +36,10 @@ Retrieves a list of <code>pull_through_cache_rules</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ecr.pull_through_cache_rules<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+ecr_repository_prefix
+FROM aws.ecr.pull_through_cache_rules
+WHERE region = 'us-east-1'
+```

@@ -27,18 +27,19 @@ Gets an individual <code>firewall</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FirewallName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FirewallArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FirewallId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FirewallPolicyArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VpcId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SubnetMappings</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DeleteProtection</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>SubnetChangeProtection</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>FirewallPolicyChangeProtection</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>firewall_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>firewall_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>firewall_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>firewall_policy_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>vpc_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>subnet_mappings</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>delete_protection</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>subnet_change_protection</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>firewall_policy_change_protection</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>endpoint_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>firewall</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.networkfirewall.firewall<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;FirewallArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+firewall_name,
+firewall_arn,
+firewall_id,
+firewall_policy_arn,
+vpc_id,
+subnet_mappings,
+delete_protection,
+subnet_change_protection,
+firewall_policy_change_protection,
+description,
+endpoint_ids,
+tags
+FROM aws.networkfirewall.firewall
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;FirewallArn&gt;'
+```

@@ -27,10 +27,11 @@ Gets an individual <code>backup_selection</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BackupPlanId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BackupSelection</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SelectionId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>backup_plan_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>backup_selection</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>selection_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>backup_selection</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.backup.backup_selection<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+backup_plan_id,
+backup_selection,
+selection_id
+FROM aws.backup.backup_selection
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

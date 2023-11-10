@@ -27,22 +27,23 @@ Gets an individual <code>stream_processor</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.</td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td>The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.</td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.</td></tr>
-<tr><td><code>KinesisVideoStream</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>FaceSearchSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ConnectedHomeSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KinesisDataStream</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>S3Destination</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>NotificationChannel</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DataSharingPreference</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>PolygonRegionsOfInterest</code></td><td><code>array</code></td><td>The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point</td></tr>
-<tr><td><code>BoundingBoxRegionsOfInterest</code></td><td><code>array</code></td><td>The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>Current status of the stream processor.</td></tr>
-<tr><td><code>StatusMessage</code></td><td><code>string</code></td><td>Detailed status message about the stream processor.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.</td></tr>
+<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td>The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.</td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td>ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.</td></tr>
+<tr><td><code>kinesis_video_stream</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>face_search_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>connected_home_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>kinesis_data_stream</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>s3_destination</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>notification_channel</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>data_sharing_preference</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>polygon_regions_of_interest</code></td><td><code>array</code></td><td>The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point</td></tr>
+<tr><td><code>bounding_box_regions_of_interest</code></td><td><code>array</code></td><td>The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>Current status of the stream processor.</td></tr>
+<tr><td><code>status_message</code></td><td><code>string</code></td><td>Detailed status message about the stream processor.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,6 +51,26 @@ Gets an individual <code>stream_processor</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.rekognition.stream_processor<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+name,
+kms_key_id,
+role_arn,
+kinesis_video_stream,
+face_search_settings,
+connected_home_settings,
+kinesis_data_stream,
+s3_destination,
+notification_channel,
+data_sharing_preference,
+polygon_regions_of_interest,
+bounding_box_regions_of_interest,
+status,
+status_message,
+tags
+FROM aws.rekognition.stream_processor
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Name&gt;'
+```

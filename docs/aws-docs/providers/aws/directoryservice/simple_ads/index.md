@@ -27,17 +27,8 @@ Retrieves a list of <code>simple_ads</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DirectoryId</code></td><td><code>string</code></td><td>The unique identifier for a directory.</td></tr>
-<tr><td><code>Alias</code></td><td><code>string</code></td><td>The alias for a directory.</td></tr>
-<tr><td><code>DnsIpAddresses</code></td><td><code>array</code></td><td>The IP addresses of the DNS servers for the directory, such as &#91; "172.31.3.154", "172.31.63.203" &#93;.</td></tr>
-<tr><td><code>CreateAlias</code></td><td><code>boolean</code></td><td>The name of the configuration set.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>Description for the directory.</td></tr>
-<tr><td><code>EnableSso</code></td><td><code>boolean</code></td><td>Whether to enable single sign-on for a Simple Active Directory in AWS.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The fully qualified domain name for the AWS Managed Simple AD directory.</td></tr>
-<tr><td><code>Password</code></td><td><code>string</code></td><td>The password for the default administrative user named Admin.</td></tr>
-<tr><td><code>ShortName</code></td><td><code>string</code></td><td>The NetBIOS name for your domain.</td></tr>
-<tr><td><code>Size</code></td><td><code>string</code></td><td>The size of the directory.</td></tr>
-<tr><td><code>VpcSettings</code></td><td><code>object</code></td><td>VPC settings of the Simple AD directory server in AWS.</td></tr>
+<tr><td><code>directory_id</code></td><td><code>string</code></td><td>The unique identifier for a directory.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +36,10 @@ Retrieves a list of <code>simple_ads</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.directoryservice.simple_ads<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+directory_id
+FROM aws.directoryservice.simple_ads
+WHERE region = 'us-east-1'
+```

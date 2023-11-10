@@ -27,8 +27,8 @@ Retrieves a list of <code>replication_configurations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ReplicationConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RegistryId</code></td><td><code>string</code></td><td>The RegistryId associated with the aws account.</td></tr>
+<tr><td><code>registry_id</code></td><td><code>string</code></td><td>The RegistryId associated with the aws account.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +36,10 @@ Retrieves a list of <code>replication_configurations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ecr.replication_configurations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+registry_id
+FROM aws.ecr.replication_configurations
+WHERE region = 'us-east-1'
+```

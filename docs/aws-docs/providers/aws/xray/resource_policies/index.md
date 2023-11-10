@@ -27,9 +27,8 @@ Retrieves a list of <code>resource_policies</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PolicyName</code></td><td><code>string</code></td><td>The name of the resource policy. Must be unique within a specific AWS account.</td></tr>
-<tr><td><code>PolicyDocument</code></td><td><code>string</code></td><td>The resource policy document, which can be up to 5kb in size.</td></tr>
-<tr><td><code>BypassPolicyLockoutCheck</code></td><td><code>boolean</code></td><td>A flag to indicate whether to bypass the resource policy lockout safety check</td></tr>
+<tr><td><code>policy_name</code></td><td><code>string</code></td><td>The name of the resource policy. Must be unique within a specific AWS account.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +36,10 @@ Retrieves a list of <code>resource_policies</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.xray.resource_policies<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+policy_name
+FROM aws.xray.resource_policies
+WHERE region = 'us-east-1'
+```

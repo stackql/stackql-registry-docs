@@ -27,12 +27,13 @@ Gets an individual <code>archive</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ArchiveName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EventPattern</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RetentionDays</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>archive_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>event_pattern</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>retention_days</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>archive</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.events.archive<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ArchiveName&gt;'
-</pre>
+```sql
+SELECT
+region,
+archive_name,
+source_arn,
+description,
+event_pattern,
+arn,
+retention_days
+FROM aws.events.archive
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ArchiveName&gt;'
+```

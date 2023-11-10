@@ -27,14 +27,15 @@ Gets an individual <code>deployment</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TargetArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ParentTargetArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Components</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>IotJobConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DeploymentPolicies</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>target_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>parent_target_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>deployment_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>deployment_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>components</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>iot_job_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>deployment_policies</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>deployment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.greengrassv2.deployment<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DeploymentId&gt;'
-</pre>
+```sql
+SELECT
+region,
+target_arn,
+parent_target_arn,
+deployment_id,
+deployment_name,
+components,
+iot_job_configuration,
+deployment_policies,
+tags
+FROM aws.greengrassv2.deployment
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DeploymentId&gt;'
+```

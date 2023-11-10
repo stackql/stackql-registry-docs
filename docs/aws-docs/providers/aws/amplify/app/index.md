@@ -27,25 +27,26 @@ Gets an individual <code>app</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AccessToken</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AppId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AppName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AutoBranchCreationConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>BasicAuthConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>BuildSpec</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomHeaders</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomRules</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DefaultDomain</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnableBranchAutoDeletion</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>EnvironmentVariables</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>IAMServiceRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OauthToken</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Platform</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Repository</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>access_token</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>app_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>app_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>auto_branch_creation_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>basic_auth_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>build_spec</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>custom_headers</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>custom_rules</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>default_domain</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>enable_branch_auto_deletion</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>environment_variables</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>i_am_service_role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>oauth_token</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>platform</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>repository</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,6 +54,29 @@ Gets an individual <code>app</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.amplify.app<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+access_token,
+app_id,
+app_name,
+arn,
+auto_branch_creation_config,
+basic_auth_config,
+build_spec,
+custom_headers,
+custom_rules,
+default_domain,
+description,
+enable_branch_auto_deletion,
+environment_variables,
+i_am_service_role,
+name,
+oauth_token,
+platform,
+repository,
+tags
+FROM aws.amplify.app
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

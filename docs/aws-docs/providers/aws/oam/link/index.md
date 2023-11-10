@@ -27,12 +27,13 @@ Gets an individual <code>link</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Label</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LabelTemplate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResourceTypes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SinkIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>Tags to apply to the link</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>label</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>label_template</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_types</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>sink_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td>Tags to apply to the link</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>link</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.oam.link<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+label,
+label_template,
+resource_types,
+sink_identifier,
+tags
+FROM aws.oam.link
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

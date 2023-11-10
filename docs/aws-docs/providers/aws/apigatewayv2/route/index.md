@@ -27,19 +27,20 @@ Gets an individual <code>route</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RouteId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RouteResponseSelectionExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestModels</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>OperationName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizationScopes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ApiKeyRequired</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>RouteKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizationType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModelSelectionExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Target</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizerId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>route_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>route_response_selection_expression</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>request_models</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>operation_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>authorization_scopes</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>api_key_required</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>route_key</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>authorization_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>model_selection_expression</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>api_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>request_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>target</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>authorizer_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +48,24 @@ Gets an individual <code>route</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigatewayv2.route<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ApiId&gt;'<br/>AND data__Identifier = '&lt;RouteId&gt;'
-</pre>
+```sql
+SELECT
+region,
+route_id,
+route_response_selection_expression,
+request_models,
+operation_name,
+authorization_scopes,
+api_key_required,
+route_key,
+authorization_type,
+model_selection_expression,
+api_id,
+request_parameters,
+target,
+authorizer_id
+FROM aws.apigatewayv2.route
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ApiId&gt;'
+AND data__Identifier = '&lt;RouteId&gt;'
+```

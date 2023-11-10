@@ -27,11 +27,12 @@ Gets an individual <code>cluster</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of a Cluster. You can use any non-white space character in the name</td></tr>
-<tr><td><code>ClusterArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the cluster.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</td></tr>
-<tr><td><code>ClusterEndpoints</code></td><td><code>array</code></td><td>Endpoints for the cluster.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Name of a Cluster. You can use any non-white space character in the name</td></tr>
+<tr><td><code>cluster_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the cluster.</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</td></tr>
+<tr><td><code>cluster_endpoints</code></td><td><code>array</code></td><td>Endpoints for the cluster.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>cluster</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53recoverycontrol.cluster<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ClusterArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+cluster_arn,
+status,
+cluster_endpoints,
+tags
+FROM aws.route53recoverycontrol.cluster
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ClusterArn&gt;'
+```

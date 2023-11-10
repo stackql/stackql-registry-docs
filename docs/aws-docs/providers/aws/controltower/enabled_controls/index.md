@@ -27,8 +27,9 @@ Retrieves a list of <code>enabled_controls</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ControlIdentifier</code></td><td><code>string</code></td><td>Arn of the control.</td></tr>
-<tr><td><code>TargetIdentifier</code></td><td><code>string</code></td><td>Arn for Organizational unit to which the control needs to be applied</td></tr>
+<tr><td><code>target_identifier</code></td><td><code>string</code></td><td>Arn for Organizational unit to which the control needs to be applied</td></tr>
+<tr><td><code>control_identifier</code></td><td><code>string</code></td><td>Arn of the control.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,11 @@ Retrieves a list of <code>enabled_controls</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.controltower.enabled_controls<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+target_identifier,
+control_identifier
+FROM aws.controltower.enabled_controls
+WHERE region = 'us-east-1'
+```

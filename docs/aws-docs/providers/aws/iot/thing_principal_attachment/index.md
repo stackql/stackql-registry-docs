@@ -27,9 +27,10 @@ Gets an individual <code>thing_principal_attachment</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Principal</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ThingName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>principal</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>thing_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>thing_principal_attachment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.thing_principal_attachment<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+principal,
+thing_name
+FROM aws.iot.thing_principal_attachment
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

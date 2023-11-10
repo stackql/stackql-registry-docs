@@ -27,8 +27,9 @@ Gets an individual <code>account</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>Primary identifier which is manually generated.</td></tr>
-<tr><td><code>CloudWatchRoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>Primary identifier which is manually generated.</td></tr>
+<tr><td><code>cloud_watch_role_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,12 @@ Gets an individual <code>account</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.account<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+cloud_watch_role_arn
+FROM aws.apigateway.account
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,9 +27,10 @@ Gets an individual <code>cloud_front_origin_access_identity</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CloudFrontOriginAccessIdentityConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>S3CanonicalUserId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cloud_front_origin_access_identity_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>s3_canonical_user_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>cloud_front_origin_access_identity</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cloudfront.cloud_front_origin_access_identity<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+cloud_front_origin_access_identity_config,
+id,
+s3_canonical_user_id
+FROM aws.cloudfront.cloud_front_origin_access_identity
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

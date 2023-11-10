@@ -27,17 +27,18 @@ Gets an individual <code>task_set</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Cluster</code></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.</td></tr>
-<tr><td><code>ExternalId</code></td><td><code>string</code></td><td>An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. </td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>The ID of the task set.</td></tr>
-<tr><td><code>LaunchType</code></td><td><code>string</code></td><td>The launch type that new tasks in the task set will use. For more information, see https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonECS&#x2F;latest&#x2F;developerguide&#x2F;launch_types.html in the Amazon Elastic Container Service Developer Guide. </td></tr>
-<tr><td><code>LoadBalancers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>NetworkConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>PlatformVersion</code></td><td><code>string</code></td><td>The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.</td></tr>
-<tr><td><code>Scale</code></td><td><code>object</code></td><td>A floating-point percentage of the desired number of tasks to place and keep running in the task set.</td></tr>
-<tr><td><code>Service</code></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</td></tr>
-<tr><td><code>ServiceRegistries</code></td><td><code>array</code></td><td>The details of the service discovery registries to assign to this task set. For more information, see https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonECS&#x2F;latest&#x2F;developerguide&#x2F;service-discovery.html.</td></tr>
-<tr><td><code>TaskDefinition</code></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.</td></tr>
+<tr><td><code>cluster</code></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.</td></tr>
+<tr><td><code>external_id</code></td><td><code>string</code></td><td>An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. </td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>The ID of the task set.</td></tr>
+<tr><td><code>launch_type</code></td><td><code>string</code></td><td>The launch type that new tasks in the task set will use. For more information, see https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonECS&#x2F;latest&#x2F;developerguide&#x2F;launch_types.html in the Amazon Elastic Container Service Developer Guide. </td></tr>
+<tr><td><code>load_balancers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>network_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>platform_version</code></td><td><code>string</code></td><td>The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.</td></tr>
+<tr><td><code>scale</code></td><td><code>object</code></td><td>A floating-point percentage of the desired number of tasks to place and keep running in the task set.</td></tr>
+<tr><td><code>service</code></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</td></tr>
+<tr><td><code>service_registries</code></td><td><code>array</code></td><td>The details of the service discovery registries to assign to this task set. For more information, see https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonECS&#x2F;latest&#x2F;developerguide&#x2F;service-discovery.html.</td></tr>
+<tr><td><code>task_definition</code></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,23 @@ Gets an individual <code>task_set</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ecs.task_set<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Cluster&gt;'<br/>AND data__Identifier = '&lt;Service&gt;'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+cluster,
+external_id,
+id,
+launch_type,
+load_balancers,
+network_configuration,
+platform_version,
+scale,
+service,
+service_registries,
+task_definition
+FROM aws.ecs.task_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Cluster&gt;'
+AND data__Identifier = '&lt;Service&gt;'
+AND data__Identifier = '&lt;Id&gt;'
+```

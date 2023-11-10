@@ -27,12 +27,13 @@ Gets an individual <code>alert</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AlertName</code></td><td><code>string</code></td><td>The name of the alert. If not provided, a name is generated automatically.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>ARN assigned to the alert.</td></tr>
-<tr><td><code>AlertDescription</code></td><td><code>string</code></td><td>A description for the alert.</td></tr>
-<tr><td><code>AnomalyDetectorArn</code></td><td><code>string</code></td><td>The Amazon resource name (ARN) of the Anomaly Detector to alert.</td></tr>
-<tr><td><code>AlertSensitivityThreshold</code></td><td><code>integer</code></td><td>A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.</td></tr>
-<tr><td><code>Action</code></td><td><code>object</code></td><td>The action to be taken by the alert when an anomaly is detected.</td></tr>
+<tr><td><code>alert_name</code></td><td><code>string</code></td><td>The name of the alert. If not provided, a name is generated automatically.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>ARN assigned to the alert.</td></tr>
+<tr><td><code>alert_description</code></td><td><code>string</code></td><td>A description for the alert.</td></tr>
+<tr><td><code>anomaly_detector_arn</code></td><td><code>string</code></td><td>The Amazon resource name (ARN) of the Anomaly Detector to alert.</td></tr>
+<tr><td><code>alert_sensitivity_threshold</code></td><td><code>integer</code></td><td>A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.</td></tr>
+<tr><td><code>action</code></td><td><code>object</code></td><td>The action to be taken by the alert when an anomaly is detected.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>alert</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lookoutmetrics.alert<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+alert_name,
+arn,
+alert_description,
+anomaly_detector_arn,
+alert_sensitivity_threshold,
+action
+FROM aws.lookoutmetrics.alert
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

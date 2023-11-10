@@ -27,13 +27,14 @@ Gets an individual <code>sms_template</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TemplateName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TemplateDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultSubstitutions</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Body</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>template_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>template_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>default_substitutions</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>body</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>sms_template</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.pinpoint.sms_template<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+template_name,
+template_description,
+default_substitutions,
+id,
+arn,
+body,
+tags
+FROM aws.pinpoint.sms_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,18 +27,19 @@ Gets an individual <code>event_data_store</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AdvancedEventSelectors</code></td><td><code>array</code></td><td>The advanced event selectors that were used to select events for the data store.</td></tr>
-<tr><td><code>CreatedTimestamp</code></td><td><code>string</code></td><td>The timestamp of the event data store's creation.</td></tr>
-<tr><td><code>EventDataStoreArn</code></td><td><code>string</code></td><td>The ARN of the event data store.</td></tr>
-<tr><td><code>MultiRegionEnabled</code></td><td><code>boolean</code></td><td>Indicates whether the event data store includes events from all regions, or only from the region in which it was created.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the event data store.</td></tr>
-<tr><td><code>OrganizationEnabled</code></td><td><code>boolean</code></td><td>Indicates that an event data store is collecting logged events for an organization.</td></tr>
-<tr><td><code>RetentionPeriod</code></td><td><code>integer</code></td><td>The retention period, in days.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>The status of an event data store. Values are ENABLED and PENDING_DELETION.</td></tr>
-<tr><td><code>TerminationProtectionEnabled</code></td><td><code>boolean</code></td><td>Indicates whether the event data store is protected from termination.</td></tr>
-<tr><td><code>UpdatedTimestamp</code></td><td><code>string</code></td><td>The timestamp showing when an event data store was updated, if applicable. UpdatedTimestamp is always either the same or newer than the time shown in CreatedTimestamp.</td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td>Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias&#x2F;', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>advanced_event_selectors</code></td><td><code>array</code></td><td>The advanced event selectors that were used to select events for the data store.</td></tr>
+<tr><td><code>created_timestamp</code></td><td><code>string</code></td><td>The timestamp of the event data store's creation.</td></tr>
+<tr><td><code>event_data_store_arn</code></td><td><code>string</code></td><td>The ARN of the event data store.</td></tr>
+<tr><td><code>multi_region_enabled</code></td><td><code>boolean</code></td><td>Indicates whether the event data store includes events from all regions, or only from the region in which it was created.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the event data store.</td></tr>
+<tr><td><code>organization_enabled</code></td><td><code>boolean</code></td><td>Indicates that an event data store is collecting logged events for an organization.</td></tr>
+<tr><td><code>retention_period</code></td><td><code>integer</code></td><td>The retention period, in days.</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>The status of an event data store. Values are ENABLED and PENDING_DELETION.</td></tr>
+<tr><td><code>termination_protection_enabled</code></td><td><code>boolean</code></td><td>Indicates whether the event data store is protected from termination.</td></tr>
+<tr><td><code>updated_timestamp</code></td><td><code>string</code></td><td>The timestamp showing when an event data store was updated, if applicable. UpdatedTimestamp is always either the same or newer than the time shown in CreatedTimestamp.</td></tr>
+<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td>Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias&#x2F;', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>event_data_store</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cloudtrail.event_data_store<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;EventDataStoreArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+advanced_event_selectors,
+created_timestamp,
+event_data_store_arn,
+multi_region_enabled,
+name,
+organization_enabled,
+retention_period,
+status,
+termination_protection_enabled,
+updated_timestamp,
+kms_key_id,
+tags
+FROM aws.cloudtrail.event_data_store
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;EventDataStoreArn&gt;'
+```

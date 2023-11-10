@@ -27,19 +27,8 @@ Retrieves a list of <code>db_proxies</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Auth</code></td><td><code>array</code></td><td>The authorization mechanism that the proxy uses.</td></tr>
-<tr><td><code>DBProxyArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the proxy.</td></tr>
-<tr><td><code>DBProxyName</code></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
-<tr><td><code>DebugLogging</code></td><td><code>boolean</code></td><td>Whether the proxy includes detailed information about SQL statements in its logs.</td></tr>
-<tr><td><code>Endpoint</code></td><td><code>string</code></td><td>The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.</td></tr>
-<tr><td><code>EngineFamily</code></td><td><code>string</code></td><td>The kinds of databases that the proxy can connect to.</td></tr>
-<tr><td><code>IdleClientTimeout</code></td><td><code>integer</code></td><td>The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.</td></tr>
-<tr><td><code>RequireTLS</code></td><td><code>boolean</code></td><td>A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.</td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.</td></tr>
-<tr><td><code>VpcId</code></td><td><code>string</code></td><td>VPC ID to associate with the new DB proxy.</td></tr>
-<tr><td><code>VpcSecurityGroupIds</code></td><td><code>array</code></td><td>VPC security group IDs to associate with the new proxy.</td></tr>
-<tr><td><code>VpcSubnetIds</code></td><td><code>array</code></td><td>VPC subnet IDs to associate with the new proxy.</td></tr>
+<tr><td><code>d_bproxy_name</code></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +36,10 @@ Retrieves a list of <code>db_proxies</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.rds.db_proxies<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+d_bproxy_name
+FROM aws.rds.db_proxies
+WHERE region = 'us-east-1'
+```

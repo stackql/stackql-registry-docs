@@ -27,11 +27,8 @@ Retrieves a list of <code>mount_targets</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IpAddress</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FileSystemId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityGroups</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SubnetId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>mount_targets</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.efs.mount_targets<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.efs.mount_targets
+WHERE region = 'us-east-1'
+```

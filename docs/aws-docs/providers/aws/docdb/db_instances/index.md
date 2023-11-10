@@ -27,17 +27,8 @@ Retrieves a list of <code>db_instances</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DBInstanceClass</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Port</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DBClusterIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AvailabilityZone</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredMaintenanceWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnablePerformanceInsights</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>AutoMinorVersionUpgrade</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DBInstanceIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +36,10 @@ Retrieves a list of <code>db_instances</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.docdb.db_instances<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.docdb.db_instances
+WHERE region = 'us-east-1'
+```

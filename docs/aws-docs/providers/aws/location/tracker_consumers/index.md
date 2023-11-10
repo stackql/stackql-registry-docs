@@ -27,8 +27,9 @@ Retrieves a list of <code>tracker_consumers</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ConsumerArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TrackerName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tracker_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>consumer_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,11 @@ Retrieves a list of <code>tracker_consumers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.location.tracker_consumers<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+tracker_name,
+consumer_arn
+FROM aws.location.tracker_consumers
+WHERE region = 'us-east-1'
+```

@@ -27,20 +27,21 @@ Gets an individual <code>environment</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>EnvironmentId</code></td><td><code>string</code></td><td>Unique identifier for representing FinSpace Environment</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of the Environment</td></tr>
-<tr><td><code>AwsAccountId</code></td><td><code>string</code></td><td>AWS account ID associated with the Environment</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>Description of the Environment</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>State of the Environment</td></tr>
-<tr><td><code>EnvironmentUrl</code></td><td><code>string</code></td><td>URL used to login to the Environment</td></tr>
-<tr><td><code>EnvironmentArn</code></td><td><code>string</code></td><td>ARN of the Environment</td></tr>
-<tr><td><code>SageMakerStudioDomainUrl</code></td><td><code>string</code></td><td>SageMaker Studio Domain URL associated with the Environment</td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td>KMS key used to encrypt customer data within FinSpace Environment infrastructure</td></tr>
-<tr><td><code>DedicatedServiceAccountId</code></td><td><code>string</code></td><td>ID for FinSpace created account used to store Environment artifacts</td></tr>
-<tr><td><code>FederationMode</code></td><td><code>string</code></td><td>Federation mode used with the Environment</td></tr>
-<tr><td><code>FederationParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SuperuserParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DataBundles</code></td><td><code>array</code></td><td>ARNs of FinSpace Data Bundles to install</td></tr>
+<tr><td><code>environment_id</code></td><td><code>string</code></td><td>Unique identifier for representing FinSpace Environment</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Name of the Environment</td></tr>
+<tr><td><code>aws_account_id</code></td><td><code>string</code></td><td>AWS account ID associated with the Environment</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>Description of the Environment</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>State of the Environment</td></tr>
+<tr><td><code>environment_url</code></td><td><code>string</code></td><td>URL used to login to the Environment</td></tr>
+<tr><td><code>environment_arn</code></td><td><code>string</code></td><td>ARN of the Environment</td></tr>
+<tr><td><code>sage_maker_studio_domain_url</code></td><td><code>string</code></td><td>SageMaker Studio Domain URL associated with the Environment</td></tr>
+<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td>KMS key used to encrypt customer data within FinSpace Environment infrastructure</td></tr>
+<tr><td><code>dedicated_service_account_id</code></td><td><code>string</code></td><td>ID for FinSpace created account used to store Environment artifacts</td></tr>
+<tr><td><code>federation_mode</code></td><td><code>string</code></td><td>Federation mode used with the Environment</td></tr>
+<tr><td><code>federation_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>superuser_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>data_bundles</code></td><td><code>array</code></td><td>ARNs of FinSpace Data Bundles to install</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>environment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.finspace.environment<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;EnvironmentId&gt;'
-</pre>
+```sql
+SELECT
+region,
+environment_id,
+name,
+aws_account_id,
+description,
+status,
+environment_url,
+environment_arn,
+sage_maker_studio_domain_url,
+kms_key_id,
+dedicated_service_account_id,
+federation_mode,
+federation_parameters,
+superuser_parameters,
+data_bundles
+FROM aws.finspace.environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;EnvironmentId&gt;'
+```

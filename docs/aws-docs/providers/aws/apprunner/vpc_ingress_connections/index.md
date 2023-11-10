@@ -27,13 +27,8 @@ Retrieves a list of <code>vpc_ingress_connections</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>VpcIngressConnectionArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the VpcIngressConnection.</td></tr>
-<tr><td><code>VpcIngressConnectionName</code></td><td><code>string</code></td><td>The customer-provided Vpc Ingress Connection name.</td></tr>
-<tr><td><code>ServiceArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the service.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>The current status of the VpcIngressConnection.</td></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td>The Domain name associated with the VPC Ingress Connection.</td></tr>
-<tr><td><code>IngressVpcConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>vpc_ingress_connection_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the VpcIngressConnection.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>vpc_ingress_connections</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apprunner.vpc_ingress_connections<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+vpc_ingress_connection_arn
+FROM aws.apprunner.vpc_ingress_connections
+WHERE region = 'us-east-1'
+```

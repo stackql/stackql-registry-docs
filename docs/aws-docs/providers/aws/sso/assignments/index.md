@@ -27,12 +27,13 @@ Retrieves a list of <code>assignments</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The sso instance that the permission set is owned.</td></tr>
-<tr><td><code>TargetId</code></td><td><code>string</code></td><td>The account id to be provisioned.</td></tr>
-<tr><td><code>TargetType</code></td><td><code>string</code></td><td>The type of resource to be provsioned to, only aws account now</td></tr>
-<tr><td><code>PermissionSetArn</code></td><td><code>string</code></td><td>The permission set that the assignemt will be assigned</td></tr>
-<tr><td><code>PrincipalType</code></td><td><code>string</code></td><td>The assignee's type, user&#x2F;group</td></tr>
-<tr><td><code>PrincipalId</code></td><td><code>string</code></td><td>The assignee's identifier, user id&#x2F;group id</td></tr>
+<tr><td><code>instance_arn</code></td><td><code>string</code></td><td>The sso instance that the permission set is owned.</td></tr>
+<tr><td><code>target_id</code></td><td><code>string</code></td><td>The account id to be provisioned.</td></tr>
+<tr><td><code>target_type</code></td><td><code>string</code></td><td>The type of resource to be provsioned to, only aws account now</td></tr>
+<tr><td><code>permission_set_arn</code></td><td><code>string</code></td><td>The permission set that the assignemt will be assigned</td></tr>
+<tr><td><code>principal_type</code></td><td><code>string</code></td><td>The assignee's type, user&#x2F;group</td></tr>
+<tr><td><code>principal_id</code></td><td><code>string</code></td><td>The assignee's identifier, user id&#x2F;group id</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,15 @@ Retrieves a list of <code>assignments</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sso.assignments<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+instance_arn,
+target_id,
+target_type,
+permission_set_arn,
+principal_type,
+principal_id
+FROM aws.sso.assignments
+WHERE region = 'us-east-1'
+```

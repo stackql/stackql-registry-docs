@@ -27,12 +27,13 @@ Gets an individual <code>listener_rule</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ListenerArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RuleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Actions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Priority</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Conditions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>IsDefault</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>listener_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>rule_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>actions</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>priority</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>conditions</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>is_default</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>listener_rule</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.elasticloadbalancingv2.listener_rule<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RuleArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+listener_arn,
+rule_arn,
+actions,
+priority,
+conditions,
+is_default
+FROM aws.elasticloadbalancingv2.listener_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;RuleArn&gt;'
+```

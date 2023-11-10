@@ -27,10 +27,11 @@ Gets an individual <code>simulation</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the simulation.</td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>Role ARN.</td></tr>
-<tr><td><code>SchemaS3Location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DescribePayload</code></td><td><code>string</code></td><td>Json object with all simulation details</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the simulation.</td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td>Role ARN.</td></tr>
+<tr><td><code>schema_s3_location</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>describe_payload</code></td><td><code>string</code></td><td>Json object with all simulation details</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>simulation</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.simspaceweaver.simulation<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+role_arn,
+schema_s3_location,
+describe_payload
+FROM aws.simspaceweaver.simulation
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Name&gt;'
+```

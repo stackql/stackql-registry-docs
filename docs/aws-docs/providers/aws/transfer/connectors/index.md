@@ -27,13 +27,8 @@ Retrieves a list of <code>connectors</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AccessRole</code></td><td><code>string</code></td><td>Specifies the access role for the connector.</td></tr>
-<tr><td><code>As2Config</code></td><td><code>object</code></td><td>Configuration for an AS2 connector.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the workflow.</td></tr>
-<tr><td><code>ConnectorId</code></td><td><code>string</code></td><td>A unique identifier for the connector.</td></tr>
-<tr><td><code>LoggingRole</code></td><td><code>string</code></td><td>Specifies the logging role for the connector.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.</td></tr>
-<tr><td><code>Url</code></td><td><code>string</code></td><td>URL for Connector</td></tr>
+<tr><td><code>connector_id</code></td><td><code>string</code></td><td>A unique identifier for the connector.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>connectors</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.transfer.connectors<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+connector_id
+FROM aws.transfer.connectors
+WHERE region = 'us-east-1'
+```

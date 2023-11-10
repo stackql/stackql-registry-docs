@@ -27,22 +27,23 @@ Gets an individual <code>dev_endpoint</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ExtraJarsS3Path</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PublicKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NumberOfNodes</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Arguments</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SubnetId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PublicKeys</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WorkerType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>GlueVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExtraPythonLibsS3Path</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityConfiguration</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NumberOfWorkers</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>extra_jars_s3_path</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>public_key</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>number_of_nodes</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>arguments</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>subnet_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>public_keys</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>worker_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>endpoint_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>glue_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>extra_python_libs_s3_path</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>security_configuration</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>number_of_workers</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,6 +51,26 @@ Gets an individual <code>dev_endpoint</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.glue.dev_endpoint<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+extra_jars_s3_path,
+public_key,
+number_of_nodes,
+arguments,
+subnet_id,
+public_keys,
+security_group_ids,
+role_arn,
+worker_type,
+endpoint_name,
+glue_version,
+extra_python_libs_s3_path,
+security_configuration,
+id,
+number_of_workers,
+tags
+FROM aws.glue.dev_endpoint
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

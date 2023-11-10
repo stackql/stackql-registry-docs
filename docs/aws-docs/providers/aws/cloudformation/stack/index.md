@@ -27,12 +27,13 @@ Gets an individual <code>stack</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NotificationARNs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Parameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>TemplateURL</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TimeoutInMinutes</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>notification_ar_ns</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>template_ur_l</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>timeout_in_minutes</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>stack</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cloudformation.stack<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+notification_ar_ns,
+parameters,
+tags,
+template_ur_l,
+timeout_in_minutes
+FROM aws.cloudformation.stack
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

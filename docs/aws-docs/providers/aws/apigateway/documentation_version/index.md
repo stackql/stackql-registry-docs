@@ -27,9 +27,10 @@ Gets an individual <code>documentation_version</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the API documentation snapshot.</td></tr>
-<tr><td><code>DocumentationVersion</code></td><td><code>string</code></td><td>The version identifier of the API documentation snapshot.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The identifier of the API.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the API documentation snapshot.</td></tr>
+<tr><td><code>documentation_version</code></td><td><code>string</code></td><td>The version identifier of the API documentation snapshot.</td></tr>
+<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The identifier of the API.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,14 @@ Gets an individual <code>documentation_version</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.documentation_version<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DocumentationVersion&gt;'<br/>AND data__Identifier = '&lt;RestApiId&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+documentation_version,
+rest_api_id
+FROM aws.apigateway.documentation_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DocumentationVersion&gt;'
+AND data__Identifier = '&lt;RestApiId&gt;'
+```

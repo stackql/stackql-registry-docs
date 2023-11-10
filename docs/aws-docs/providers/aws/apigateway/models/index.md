@@ -27,11 +27,9 @@ Retrieves a list of <code>models</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ContentType</code></td><td><code>string</code></td><td>The content type for the model.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A description that identifies this model.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The ID of a REST API with which to associate this model.</td></tr>
-<tr><td><code>Schema</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The ID of a REST API with which to associate this model.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +37,11 @@ Retrieves a list of <code>models</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.models<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+rest_api_id,
+name
+FROM aws.apigateway.models
+WHERE region = 'us-east-1'
+```

@@ -27,15 +27,8 @@ Retrieves a list of <code>assets</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the Asset.</td></tr>
-<tr><td><code>CreatedAt</code></td><td><code>string</code></td><td>The time the Asset was initially submitted for Ingest.</td></tr>
-<tr><td><code>EgressEndpoints</code></td><td><code>array</code></td><td>The list of egress endpoints available for the Asset.</td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>The unique identifier for the Asset.</td></tr>
-<tr><td><code>PackagingGroupId</code></td><td><code>string</code></td><td>The ID of the PackagingGroup for the Asset.</td></tr>
-<tr><td><code>ResourceId</code></td><td><code>string</code></td><td>The resource ID to include in SPEKE key requests.</td></tr>
-<tr><td><code>SourceArn</code></td><td><code>string</code></td><td>ARN of the source object in S3.</td></tr>
-<tr><td><code>SourceRoleArn</code></td><td><code>string</code></td><td>The IAM role_arn used to access the source S3 bucket.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>The unique identifier for the Asset.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +36,10 @@ Retrieves a list of <code>assets</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.mediapackage.assets<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.mediapackage.assets
+WHERE region = 'us-east-1'
+```

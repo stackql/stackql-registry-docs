@@ -27,10 +27,11 @@ Gets an individual <code>cluster_subnet_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the parameter group.</td></tr>
-<tr><td><code>SubnetIds</code></td><td><code>array</code></td><td>The list of VPC subnet IDs</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The list of tags for the cluster parameter group.</td></tr>
-<tr><td><code>ClusterSubnetGroupName</code></td><td><code>string</code></td><td>This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". </td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the parameter group.</td></tr>
+<tr><td><code>subnet_ids</code></td><td><code>array</code></td><td>The list of VPC subnet IDs</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>The list of tags for the cluster parameter group.</td></tr>
+<tr><td><code>cluster_subnet_group_name</code></td><td><code>string</code></td><td>This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". </td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>cluster_subnet_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.redshift.cluster_subnet_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ClusterSubnetGroupName&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+subnet_ids,
+tags,
+cluster_subnet_group_name
+FROM aws.redshift.cluster_subnet_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ClusterSubnetGroupName&gt;'
+```

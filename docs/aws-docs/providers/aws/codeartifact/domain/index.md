@@ -27,13 +27,14 @@ Gets an individual <code>domain</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td>The name of the domain.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the domain. This field is used for GetAtt</td></tr>
-<tr><td><code>Owner</code></td><td><code>string</code></td><td>The 12-digit account ID of the AWS account that owns the domain. This field is used for GetAtt</td></tr>
-<tr><td><code>EncryptionKey</code></td><td><code>string</code></td><td>The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.</td></tr>
-<tr><td><code>PermissionsPolicyDocument</code></td><td><code>object</code></td><td>The access control resource policy on the provided domain.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the domain.</td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td>The name of the domain.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the domain. This field is used for GetAtt</td></tr>
+<tr><td><code>owner</code></td><td><code>string</code></td><td>The 12-digit account ID of the AWS account that owns the domain. This field is used for GetAtt</td></tr>
+<tr><td><code>encryption_key</code></td><td><code>string</code></td><td>The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.</td></tr>
+<tr><td><code>permissions_policy_document</code></td><td><code>object</code></td><td>The access control resource policy on the provided domain.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the domain.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>domain</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.codeartifact.domain<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+domain_name,
+name,
+owner,
+encryption_key,
+permissions_policy_document,
+tags,
+arn
+FROM aws.codeartifact.domain
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

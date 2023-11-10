@@ -27,26 +27,27 @@ Gets an individual <code>campaign</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SegmentId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Priority</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>TemplateConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>IsPaused</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>AdditionalTreatments</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SegmentVersion</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>TreatmentDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MessageConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Limits</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CampaignId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HoldoutPercent</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Schedule</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CustomDeliveryConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CampaignHook</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>TreatmentName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>segment_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>priority</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>template_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>is_paused</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>additional_treatments</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>segment_version</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>treatment_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>message_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>limits</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>campaign_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>holdout_percent</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>schedule</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>custom_delivery_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>application_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>campaign_hook</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>treatment_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,6 +55,30 @@ Gets an individual <code>campaign</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.pinpoint.campaign<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;CampaignId&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+segment_id,
+priority,
+template_configuration,
+is_paused,
+additional_treatments,
+name,
+segment_version,
+treatment_description,
+message_configuration,
+limits,
+campaign_id,
+holdout_percent,
+schedule,
+custom_delivery_configuration,
+arn,
+application_id,
+campaign_hook,
+tags,
+treatment_name
+FROM aws.pinpoint.campaign
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;CampaignId&gt;'
+```

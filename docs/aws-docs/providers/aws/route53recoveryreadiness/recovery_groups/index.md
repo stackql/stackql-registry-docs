@@ -27,10 +27,8 @@ Retrieves a list of <code>recovery_groups</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RecoveryGroupName</code></td><td><code>string</code></td><td>The name of the recovery group to create.</td></tr>
-<tr><td><code>Cells</code></td><td><code>array</code></td><td>A list of the cell Amazon Resource Names (ARNs) in the recovery group.</td></tr>
-<tr><td><code>RecoveryGroupArn</code></td><td><code>string</code></td><td>A collection of tags associated with a resource.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource.</td></tr>
+<tr><td><code>recovery_group_name</code></td><td><code>string</code></td><td>The name of the recovery group to create.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +36,10 @@ Retrieves a list of <code>recovery_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53recoveryreadiness.recovery_groups<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+recovery_group_name
+FROM aws.route53recoveryreadiness.recovery_groups
+WHERE region = 'us-east-1'
+```

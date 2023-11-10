@@ -27,14 +27,15 @@ Gets an individual <code>sync_job</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>WorkspaceId</code></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
-<tr><td><code>SyncSource</code></td><td><code>string</code></td><td>The source of the SyncJob.</td></tr>
-<tr><td><code>SyncRole</code></td><td><code>string</code></td><td>The IAM Role that execute SyncJob.</td></tr>
-<tr><td><code>CreationDateTime</code></td><td><code>string</code></td><td>The date and time when the sync job was created.</td></tr>
-<tr><td><code>UpdateDateTime</code></td><td><code>string</code></td><td>The date and time when the sync job was updated.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the SyncJob.</td></tr>
-<tr><td><code>State</code></td><td><code>string</code></td><td>The state of SyncJob.</td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<tr><td><code>workspace_id</code></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
+<tr><td><code>sync_source</code></td><td><code>string</code></td><td>The source of the SyncJob.</td></tr>
+<tr><td><code>sync_role</code></td><td><code>string</code></td><td>The IAM Role that execute SyncJob.</td></tr>
+<tr><td><code>creation_date_time</code></td><td><code>string</code></td><td>The date and time when the sync job was created.</td></tr>
+<tr><td><code>update_date_time</code></td><td><code>string</code></td><td>The date and time when the sync job was updated.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the SyncJob.</td></tr>
+<tr><td><code>state</code></td><td><code>string</code></td><td>The state of SyncJob.</td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,19 @@ Gets an individual <code>sync_job</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iottwinmaker.sync_job<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;WorkspaceId&gt;'<br/>AND data__Identifier = '&lt;SyncSource&gt;'
-</pre>
+```sql
+SELECT
+region,
+workspace_id,
+sync_source,
+sync_role,
+creation_date_time,
+update_date_time,
+arn,
+state,
+tags
+FROM aws.iottwinmaker.sync_job
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;WorkspaceId&gt;'
+AND data__Identifier = '&lt;SyncSource&gt;'
+```

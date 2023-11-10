@@ -27,10 +27,11 @@ Gets an individual <code>event_stream</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DestinationStreamArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>application_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>destination_stream_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>event_stream</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.pinpoint.event_stream<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+application_id,
+destination_stream_arn,
+role_arn
+FROM aws.pinpoint.event_stream
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

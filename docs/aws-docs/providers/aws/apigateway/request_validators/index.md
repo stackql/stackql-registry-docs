@@ -27,11 +27,9 @@ Retrieves a list of <code>request_validators</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RequestValidatorId</code></td><td><code>string</code></td><td>ID of the request validator.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of the request validator.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The identifier of the targeted API entity.</td></tr>
-<tr><td><code>ValidateRequestBody</code></td><td><code>boolean</code></td><td>Indicates whether to validate the request body according to the configured schema for the targeted API and method. </td></tr>
-<tr><td><code>ValidateRequestParameters</code></td><td><code>boolean</code></td><td>Indicates whether to validate request parameters.</td></tr>
+<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The identifier of the targeted API entity.</td></tr>
+<tr><td><code>request_validator_id</code></td><td><code>string</code></td><td>ID of the request validator.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +37,11 @@ Retrieves a list of <code>request_validators</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.request_validators<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+rest_api_id,
+request_validator_id
+FROM aws.apigateway.request_validators
+WHERE region = 'us-east-1'
+```

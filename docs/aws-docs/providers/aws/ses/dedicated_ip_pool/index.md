@@ -27,8 +27,9 @@ Gets an individual <code>dedicated_ip_pool</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PoolName</code></td><td><code>string</code></td><td>The name of the dedicated IP pool.</td></tr>
-<tr><td><code>ScalingMode</code></td><td><code>string</code></td><td>Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.</td></tr>
+<tr><td><code>pool_name</code></td><td><code>string</code></td><td>The name of the dedicated IP pool.</td></tr>
+<tr><td><code>scaling_mode</code></td><td><code>string</code></td><td>Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,12 @@ Gets an individual <code>dedicated_ip_pool</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ses.dedicated_ip_pool<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;PoolName&gt;'
-</pre>
+```sql
+SELECT
+region,
+pool_name,
+scaling_mode
+FROM aws.ses.dedicated_ip_pool
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;PoolName&gt;'
+```

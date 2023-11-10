@@ -27,13 +27,14 @@ Gets an individual <code>resiliency_policy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PolicyName</code></td><td><code>string</code></td><td>Name of Resiliency Policy.</td></tr>
-<tr><td><code>PolicyDescription</code></td><td><code>string</code></td><td>Description of Resiliency Policy.</td></tr>
-<tr><td><code>DataLocationConstraint</code></td><td><code>string</code></td><td>Data Location Constraint of the Policy.</td></tr>
-<tr><td><code>Tier</code></td><td><code>string</code></td><td>Resiliency Policy Tier.</td></tr>
-<tr><td><code>Policy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>PolicyArn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>policy_name</code></td><td><code>string</code></td><td>Name of Resiliency Policy.</td></tr>
+<tr><td><code>policy_description</code></td><td><code>string</code></td><td>Description of Resiliency Policy.</td></tr>
+<tr><td><code>data_location_constraint</code></td><td><code>string</code></td><td>Data Location Constraint of the Policy.</td></tr>
+<tr><td><code>tier</code></td><td><code>string</code></td><td>Resiliency Policy Tier.</td></tr>
+<tr><td><code>policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>policy_arn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>resiliency_policy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.resiliencehub.resiliency_policy<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;PolicyArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+policy_name,
+policy_description,
+data_location_constraint,
+tier,
+policy,
+policy_arn,
+tags
+FROM aws.resiliencehub.resiliency_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;PolicyArn&gt;'
+```

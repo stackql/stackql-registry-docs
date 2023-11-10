@@ -27,11 +27,8 @@ Retrieves a list of <code>user_profiles</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SshUsername</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AllowSelfManagement</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>IamUserArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SshPublicKey</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>user_profiles</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.opsworks.user_profiles<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.opsworks.user_profiles
+WHERE region = 'us-east-1'
+```

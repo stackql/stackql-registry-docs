@@ -27,28 +27,29 @@ Gets an individual <code>fleet</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComputeCapacity</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Platform</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VpcConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>FleetType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnableDefaultInternetAccess</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>DomainJoinInfo</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SessionScriptS3Location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ImageName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxUserDurationInSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>IdleDisconnectTimeoutInSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>UsbDeviceFilterStrings</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DisconnectTimeoutInSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>DisplayName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StreamView</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IamRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxConcurrentSessions</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ImageArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>compute_capacity</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>platform</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>vpc_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>fleet_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>enable_default_internet_access</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>domain_join_info</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>session_script_s3_location</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>image_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>max_user_duration_in_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>idle_disconnect_timeout_in_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>usb_device_filter_strings</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>disconnect_timeout_in_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>display_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>stream_view</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>iam_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>max_concurrent_sessions</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>image_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -56,6 +57,32 @@ Gets an individual <code>fleet</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appstream.fleet<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+compute_capacity,
+platform,
+vpc_config,
+fleet_type,
+enable_default_internet_access,
+domain_join_info,
+session_script_s3_location,
+name,
+image_name,
+max_user_duration_in_seconds,
+idle_disconnect_timeout_in_seconds,
+usb_device_filter_strings,
+disconnect_timeout_in_seconds,
+display_name,
+stream_view,
+iam_role_arn,
+id,
+instance_type,
+max_concurrent_sessions,
+tags,
+image_arn
+FROM aws.appstream.fleet
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

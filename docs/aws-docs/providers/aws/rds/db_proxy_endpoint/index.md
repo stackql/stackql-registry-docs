@@ -27,16 +27,17 @@ Gets an individual <code>db_proxy_endpoint</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DBProxyEndpointName</code></td><td><code>string</code></td><td>The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.</td></tr>
-<tr><td><code>DBProxyEndpointArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the DB proxy endpoint.</td></tr>
-<tr><td><code>DBProxyName</code></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
-<tr><td><code>VpcId</code></td><td><code>string</code></td><td>VPC ID to associate with the new DB proxy endpoint.</td></tr>
-<tr><td><code>VpcSecurityGroupIds</code></td><td><code>array</code></td><td>VPC security group IDs to associate with the new DB proxy endpoint.</td></tr>
-<tr><td><code>VpcSubnetIds</code></td><td><code>array</code></td><td>VPC subnet IDs to associate with the new DB proxy endpoint.</td></tr>
-<tr><td><code>Endpoint</code></td><td><code>string</code></td><td>The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.</td></tr>
-<tr><td><code>TargetRole</code></td><td><code>string</code></td><td>A value that indicates whether the DB proxy endpoint can be used for read&#x2F;write or read-only operations.</td></tr>
-<tr><td><code>IsDefault</code></td><td><code>boolean</code></td><td>A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read&#x2F;write capability. Other endpoints that you associate with the DB proxy can be either read&#x2F;write or read-only.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.</td></tr>
+<tr><td><code>d_bproxy_endpoint_name</code></td><td><code>string</code></td><td>The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.</td></tr>
+<tr><td><code>d_bproxy_endpoint_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the DB proxy endpoint.</td></tr>
+<tr><td><code>d_bproxy_name</code></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
+<tr><td><code>vpc_id</code></td><td><code>string</code></td><td>VPC ID to associate with the new DB proxy endpoint.</td></tr>
+<tr><td><code>vpc_security_group_ids</code></td><td><code>array</code></td><td>VPC security group IDs to associate with the new DB proxy endpoint.</td></tr>
+<tr><td><code>vpc_subnet_ids</code></td><td><code>array</code></td><td>VPC subnet IDs to associate with the new DB proxy endpoint.</td></tr>
+<tr><td><code>endpoint</code></td><td><code>string</code></td><td>The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.</td></tr>
+<tr><td><code>target_role</code></td><td><code>string</code></td><td>A value that indicates whether the DB proxy endpoint can be used for read&#x2F;write or read-only operations.</td></tr>
+<tr><td><code>is_default</code></td><td><code>boolean</code></td><td>A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read&#x2F;write capability. Other endpoints that you associate with the DB proxy can be either read&#x2F;write or read-only.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>db_proxy_endpoint</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.rds.db_proxy_endpoint<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DBProxyEndpointName&gt;'
-</pre>
+```sql
+SELECT
+region,
+d_bproxy_endpoint_name,
+d_bproxy_endpoint_arn,
+d_bproxy_name,
+vpc_id,
+vpc_security_group_ids,
+vpc_subnet_ids,
+endpoint,
+target_role,
+is_default,
+tags
+FROM aws.rds.db_proxy_endpoint
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DBProxyEndpointName&gt;'
+```

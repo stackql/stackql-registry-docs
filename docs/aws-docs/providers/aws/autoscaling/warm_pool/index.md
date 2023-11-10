@@ -27,11 +27,12 @@ Gets an individual <code>warm_pool</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AutoScalingGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxGroupPreparedCapacity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>MinSize</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>PoolState</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceReusePolicy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>auto_scaling_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>max_group_prepared_capacity</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>min_size</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>pool_state</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_reuse_policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>warm_pool</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.autoscaling.warm_pool<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AutoScalingGroupName&gt;'
-</pre>
+```sql
+SELECT
+region,
+auto_scaling_group_name,
+max_group_prepared_capacity,
+min_size,
+pool_state,
+instance_reuse_policy
+FROM aws.autoscaling.warm_pool
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AutoScalingGroupName&gt;'
+```

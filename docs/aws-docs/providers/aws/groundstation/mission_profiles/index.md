@@ -27,18 +27,9 @@ Retrieves a list of <code>mission_profiles</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>A name used to identify a mission profile.</td></tr>
-<tr><td><code>ContactPrePassDurationSeconds</code></td><td><code>integer</code></td><td>Pre-pass time needed before the contact.</td></tr>
-<tr><td><code>ContactPostPassDurationSeconds</code></td><td><code>integer</code></td><td>Post-pass time needed after the contact.</td></tr>
-<tr><td><code>MinimumViableContactDurationSeconds</code></td><td><code>integer</code></td><td>Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.</td></tr>
-<tr><td><code>StreamsKmsKey</code></td><td><code>object</code></td><td>The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.</td></tr>
-<tr><td><code>StreamsKmsRole</code></td><td><code>string</code></td><td>The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.</td></tr>
-<tr><td><code>DataflowEdges</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>TrackingConfigArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Region</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +37,11 @@ Retrieves a list of <code>mission_profiles</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.groundstation.mission_profiles<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id,
+arn
+FROM aws.groundstation.mission_profiles
+WHERE region = 'us-east-1'
+```

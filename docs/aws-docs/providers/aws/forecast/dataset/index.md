@@ -27,14 +27,15 @@ Gets an individual <code>dataset</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DatasetName</code></td><td><code>string</code></td><td>A name for the dataset</td></tr>
-<tr><td><code>DatasetType</code></td><td><code>string</code></td><td>The dataset type</td></tr>
-<tr><td><code>DataFrequency</code></td><td><code>string</code></td><td>Frequency of data collection. This parameter is required for RELATED_TIME_SERIES</td></tr>
-<tr><td><code>Domain</code></td><td><code>string</code></td><td>The domain associated with the dataset</td></tr>
-<tr><td><code>EncryptionConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Schema</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>dataset_name</code></td><td><code>string</code></td><td>A name for the dataset</td></tr>
+<tr><td><code>dataset_type</code></td><td><code>string</code></td><td>The dataset type</td></tr>
+<tr><td><code>data_frequency</code></td><td><code>string</code></td><td>Frequency of data collection. This parameter is required for RELATED_TIME_SERIES</td></tr>
+<tr><td><code>domain</code></td><td><code>string</code></td><td>The domain associated with the dataset</td></tr>
+<tr><td><code>encryption_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>schema</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>dataset</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.forecast.dataset<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+dataset_name,
+dataset_type,
+data_frequency,
+domain,
+encryption_config,
+schema,
+tags
+FROM aws.forecast.dataset
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

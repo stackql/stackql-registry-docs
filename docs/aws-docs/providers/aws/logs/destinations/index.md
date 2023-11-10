@@ -27,11 +27,8 @@ Retrieves a list of <code>destinations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DestinationName</code></td><td><code>string</code></td><td>The name of the destination resource</td></tr>
-<tr><td><code>DestinationPolicy</code></td><td><code>string</code></td><td>An IAM policy document that governs which AWS accounts can create subscription filters against this destination.</td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource</td></tr>
-<tr><td><code>TargetArn</code></td><td><code>string</code></td><td>The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)</td></tr>
+<tr><td><code>destination_name</code></td><td><code>string</code></td><td>The name of the destination resource</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>destinations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.logs.destinations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+destination_name
+FROM aws.logs.destinations
+WHERE region = 'us-east-1'
+```

@@ -27,15 +27,16 @@ Gets an individual <code>scaling_policy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PolicyName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PolicyType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResourceId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ScalableDimension</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ScalingTargetId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServiceNamespace</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StepScalingPolicyConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>TargetTrackingScalingPolicyConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>policy_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>policy_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>scalable_dimension</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>scaling_target_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>service_namespace</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>step_scaling_policy_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>target_tracking_scaling_policy_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>scaling_policy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.applicationautoscaling.scaling_policy<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+policy_name,
+policy_type,
+resource_id,
+scalable_dimension,
+scaling_target_id,
+service_namespace,
+step_scaling_policy_configuration,
+target_tracking_scaling_policy_configuration
+FROM aws.applicationautoscaling.scaling_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

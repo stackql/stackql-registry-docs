@@ -27,10 +27,11 @@ Gets an individual <code>directory_config</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OrganizationalUnitDistinguishedNames</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ServiceAccountCredentials</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DirectoryName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateBasedAuthProperties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>organizational_unit_distinguished_names</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>service_account_credentials</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>directory_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate_based_auth_properties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>directory_config</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appstream.directory_config<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DirectoryName&gt;'
-</pre>
+```sql
+SELECT
+region,
+organizational_unit_distinguished_names,
+service_account_credentials,
+directory_name,
+certificate_based_auth_properties
+FROM aws.appstream.directory_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DirectoryName&gt;'
+```

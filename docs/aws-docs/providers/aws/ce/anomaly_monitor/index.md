@@ -27,16 +27,17 @@ Gets an individual <code>anomaly_monitor</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>MonitorArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MonitorType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MonitorName</code></td><td><code>string</code></td><td>The name of the monitor.</td></tr>
-<tr><td><code>CreationDate</code></td><td><code>string</code></td><td>The date when the monitor was created. </td></tr>
-<tr><td><code>LastEvaluatedDate</code></td><td><code>string</code></td><td>The date when the monitor last evaluated for anomalies.</td></tr>
-<tr><td><code>LastUpdatedDate</code></td><td><code>string</code></td><td>The date when the monitor was last updated.</td></tr>
-<tr><td><code>MonitorDimension</code></td><td><code>string</code></td><td>The dimensions to evaluate</td></tr>
-<tr><td><code>MonitorSpecification</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DimensionalValueCount</code></td><td><code>integer</code></td><td>The value for evaluated dimensions.</td></tr>
-<tr><td><code>ResourceTags</code></td><td><code>array</code></td><td>Tags to assign to monitor.</td></tr>
+<tr><td><code>monitor_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>monitor_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>monitor_name</code></td><td><code>string</code></td><td>The name of the monitor.</td></tr>
+<tr><td><code>creation_date</code></td><td><code>string</code></td><td>The date when the monitor was created. </td></tr>
+<tr><td><code>last_evaluated_date</code></td><td><code>string</code></td><td>The date when the monitor last evaluated for anomalies.</td></tr>
+<tr><td><code>last_updated_date</code></td><td><code>string</code></td><td>The date when the monitor was last updated.</td></tr>
+<tr><td><code>monitor_dimension</code></td><td><code>string</code></td><td>The dimensions to evaluate</td></tr>
+<tr><td><code>monitor_specification</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>dimensional_value_count</code></td><td><code>integer</code></td><td>The value for evaluated dimensions.</td></tr>
+<tr><td><code>resource_tags</code></td><td><code>array</code></td><td>Tags to assign to monitor.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>anomaly_monitor</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ce.anomaly_monitor<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;MonitorArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+monitor_arn,
+monitor_type,
+monitor_name,
+creation_date,
+last_evaluated_date,
+last_updated_date,
+monitor_dimension,
+monitor_specification,
+dimensional_value_count,
+resource_tags
+FROM aws.ce.anomaly_monitor
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;MonitorArn&gt;'
+```

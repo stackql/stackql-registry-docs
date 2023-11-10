@@ -27,11 +27,12 @@ Gets an individual <code>device_profile</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of service profile</td></tr>
-<tr><td><code>LoRaWAN</code></td><td><code>object</code></td><td>LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the device profile.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Service profile Arn. Returned after successful create.</td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>Service profile Id. Returned after successful create.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Name of service profile</td></tr>
+<tr><td><code>lo_ra_wa_n</code></td><td><code>object</code></td><td>LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the device profile.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Service profile Arn. Returned after successful create.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>Service profile Id. Returned after successful create.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>device_profile</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iotwireless.device_profile<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+lo_ra_wa_n,
+tags,
+arn,
+id
+FROM aws.iotwireless.device_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

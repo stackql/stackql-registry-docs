@@ -27,24 +27,25 @@ Gets an individual <code>application_instance</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ManifestPayload</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ManifestOverridesPayload</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RuntimeRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultRuntimeContextDevice</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultRuntimeContextDeviceName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationInstanceId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationInstanceIdToReplace</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeviceId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StatusFilter</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HealthStatus</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StatusDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreatedTime</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>LastUpdatedTime</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>manifest_payload</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>manifest_overrides_payload</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>runtime_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>default_runtime_context_device</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>default_runtime_context_device_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>application_instance_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>application_instance_id_to_replace</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>device_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status_filter</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>health_status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>created_time</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>last_updated_time</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,6 +53,28 @@ Gets an individual <code>application_instance</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.panorama.application_instance<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ApplicationInstanceId&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+description,
+manifest_payload,
+manifest_overrides_payload,
+runtime_role_arn,
+default_runtime_context_device,
+default_runtime_context_device_name,
+application_instance_id,
+application_instance_id_to_replace,
+device_id,
+status_filter,
+status,
+health_status,
+status_description,
+created_time,
+last_updated_time,
+arn,
+tags
+FROM aws.panorama.application_instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ApplicationInstanceId&gt;'
+```

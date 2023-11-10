@@ -27,11 +27,12 @@ Gets an individual <code>record_set_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Comment</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HostedZoneName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RecordSets</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>HostedZoneId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>comment</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>hosted_zone_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>record_sets</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>hosted_zone_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>record_set_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53.record_set_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+comment,
+id,
+hosted_zone_name,
+record_sets,
+hosted_zone_id
+FROM aws.route53.record_set_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

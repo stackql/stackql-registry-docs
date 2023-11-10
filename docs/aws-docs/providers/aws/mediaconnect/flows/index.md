@@ -27,12 +27,8 @@ Retrieves a list of <code>flows</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FlowArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the flow.</td></tr>
-<tr><td><code>AvailabilityZone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.</td></tr>
-<tr><td><code>FlowAvailabilityZone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)</td></tr>
-<tr><td><code>Source</code></td><td><code>object</code></td><td>The source of the flow.</td></tr>
-<tr><td><code>SourceFailoverConfig</code></td><td><code>object</code></td><td>The source failover config of the flow.</td></tr>
+<tr><td><code>flow_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>flows</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.mediaconnect.flows<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+flow_arn
+FROM aws.mediaconnect.flows
+WHERE region = 'us-east-1'
+```

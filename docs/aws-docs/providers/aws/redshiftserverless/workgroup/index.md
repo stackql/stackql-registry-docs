@@ -27,17 +27,18 @@ Gets an individual <code>workgroup</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>WorkgroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NamespaceName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BaseCapacity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>EnhancedVpcRouting</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ConfigParameters</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SubnetIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PubliclyAccessible</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Port</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Workgroup</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>workgroup_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>namespace_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>base_capacity</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>enhanced_vpc_routing</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>config_parameters</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>subnet_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>publicly_accessible</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>port</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>workgroup</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,21 @@ Gets an individual <code>workgroup</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.redshiftserverless.workgroup<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;WorkgroupName&gt;'
-</pre>
+```sql
+SELECT
+region,
+workgroup_name,
+namespace_name,
+base_capacity,
+enhanced_vpc_routing,
+config_parameters,
+security_group_ids,
+subnet_ids,
+publicly_accessible,
+port,
+tags,
+workgroup
+FROM aws.redshiftserverless.workgroup
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;WorkgroupName&gt;'
+```

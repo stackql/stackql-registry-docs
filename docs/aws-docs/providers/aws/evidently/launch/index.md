@@ -27,16 +27,17 @@ Gets an individual <code>launch</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Project</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RandomizationSalt</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ScheduledSplitsConfig</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Groups</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>MetricMonitors</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>ExecutionStatus</code></td><td><code>object</code></td><td>Start or Stop Launch Launch. Default is not started.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>project</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>randomization_salt</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>scheduled_splits_config</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>groups</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>metric_monitors</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>execution_status</code></td><td><code>object</code></td><td>Start or Stop Launch Launch. Default is not started.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>launch</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.evidently.launch<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+name,
+project,
+description,
+randomization_salt,
+scheduled_splits_config,
+groups,
+metric_monitors,
+tags,
+execution_status
+FROM aws.evidently.launch
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

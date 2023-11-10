@@ -27,8 +27,9 @@ Retrieves a list of <code>application_fleet_associations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FleetName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>fleet_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>application_arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,11 @@ Retrieves a list of <code>application_fleet_associations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appstream.application_fleet_associations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+fleet_name,
+application_arn
+FROM aws.appstream.application_fleet_associations
+WHERE region = 'us-east-1'
+```

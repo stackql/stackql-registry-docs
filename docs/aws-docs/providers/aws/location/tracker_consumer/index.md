@@ -27,8 +27,9 @@ Gets an individual <code>tracker_consumer</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ConsumerArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TrackerName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>consumer_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tracker_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,13 @@ Gets an individual <code>tracker_consumer</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.location.tracker_consumer<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;TrackerName&gt;'<br/>AND data__Identifier = '&lt;ConsumerArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+consumer_arn,
+tracker_name
+FROM aws.location.tracker_consumer
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;TrackerName&gt;'
+AND data__Identifier = '&lt;ConsumerArn&gt;'
+```

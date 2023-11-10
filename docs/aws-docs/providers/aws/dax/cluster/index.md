@@ -27,24 +27,25 @@ Gets an individual <code>cluster</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SSESpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ClusterDiscoveryEndpointURL</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ReplicationFactor</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>ParameterGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AvailabilityZones</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>IAMRoleARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SubnetGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredMaintenanceWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterEndpointEncryptionType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NotificationTopicARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>NodeType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterDiscoveryEndpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>s_se_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>cluster_discovery_endpoint_ur_l</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>replication_factor</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>parameter_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>availability_zones</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>i_am_role_ar_n</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>subnet_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>preferred_maintenance_window</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cluster_endpoint_encryption_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>notification_topic_ar_n</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>node_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cluster_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cluster_discovery_endpoint</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,6 +53,28 @@ Gets an individual <code>cluster</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.dax.cluster<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+s_se_specification,
+cluster_discovery_endpoint_ur_l,
+description,
+replication_factor,
+parameter_group_name,
+availability_zones,
+i_am_role_ar_n,
+subnet_group_name,
+preferred_maintenance_window,
+cluster_endpoint_encryption_type,
+notification_topic_ar_n,
+security_group_ids,
+node_type,
+cluster_name,
+cluster_discovery_endpoint,
+id,
+arn,
+tags
+FROM aws.dax.cluster
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

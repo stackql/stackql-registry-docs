@@ -27,9 +27,10 @@ Gets an individual <code>schema_version_metadata</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SchemaVersionId</code></td><td><code>string</code></td><td>Represents the version ID associated with the schema version.</td></tr>
-<tr><td><code>Key</code></td><td><code>string</code></td><td>Metadata key</td></tr>
-<tr><td><code>Value</code></td><td><code>string</code></td><td>Metadata value</td></tr>
+<tr><td><code>schema_version_id</code></td><td><code>string</code></td><td>Represents the version ID associated with the schema version.</td></tr>
+<tr><td><code>key</code></td><td><code>string</code></td><td>Metadata key</td></tr>
+<tr><td><code>value</code></td><td><code>string</code></td><td>Metadata value</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,15 @@ Gets an individual <code>schema_version_metadata</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.glue.schema_version_metadata<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;SchemaVersionId&gt;'<br/>AND data__Identifier = '&lt;Key&gt;'<br/>AND data__Identifier = '&lt;Value&gt;'
-</pre>
+```sql
+SELECT
+region,
+schema_version_id,
+key,
+value
+FROM aws.glue.schema_version_metadata
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;SchemaVersionId&gt;'
+AND data__Identifier = '&lt;Key&gt;'
+AND data__Identifier = '&lt;Value&gt;'
+```

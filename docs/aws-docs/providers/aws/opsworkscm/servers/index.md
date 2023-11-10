@@ -27,29 +27,8 @@ Retrieves a list of <code>servers</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>KeyPair</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EngineVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServiceRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DisableAutomatedBackup</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>BackupId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EngineModel</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredMaintenanceWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssociatePublicIpAddress</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>InstanceProfileArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomCertificate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredBackupWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SubnetIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CustomDomain</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomPrivateKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EngineAttributes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>BackupRetentionCount</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Engine</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>server_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -57,6 +36,10 @@ Retrieves a list of <code>servers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.opsworkscm.servers<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+server_name
+FROM aws.opsworkscm.servers
+WHERE region = 'us-east-1'
+```

@@ -27,18 +27,19 @@ Gets an individual <code>domain_name</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DistributionDomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DistributionHostedZoneId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>MutualTlsAuthentication</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RegionalDomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RegionalHostedZoneId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RegionalCertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OwnershipVerificationCertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityPolicy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>distribution_domain_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>distribution_hosted_zone_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>endpoint_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>mutual_tls_authentication</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>regional_domain_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>regional_hosted_zone_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>regional_certificate_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ownership_verification_certificate_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>security_policy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>domain_name</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.domain_name<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DomainName&gt;'
-</pre>
+```sql
+SELECT
+region,
+domain_name,
+distribution_domain_name,
+distribution_hosted_zone_id,
+endpoint_configuration,
+mutual_tls_authentication,
+regional_domain_name,
+regional_hosted_zone_id,
+certificate_arn,
+regional_certificate_arn,
+ownership_verification_certificate_arn,
+security_policy,
+tags
+FROM aws.apigateway.domain_name
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DomainName&gt;'
+```

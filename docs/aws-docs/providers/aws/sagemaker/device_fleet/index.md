@@ -27,11 +27,12 @@ Gets an individual <code>device_fleet</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>Description for the edge device fleet</td></tr>
-<tr><td><code>DeviceFleetName</code></td><td><code>string</code></td><td>The name of the edge device fleet</td></tr>
-<tr><td><code>OutputConfig</code></td><td><code>object</code></td><td>S3 bucket and an ecryption key id (if available) to store outputs for the fleet</td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>Role associated with the device fleet</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Associate tags with the resource</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>Description for the edge device fleet</td></tr>
+<tr><td><code>device_fleet_name</code></td><td><code>string</code></td><td>The name of the edge device fleet</td></tr>
+<tr><td><code>output_config</code></td><td><code>object</code></td><td>S3 bucket and an ecryption key id (if available) to store outputs for the fleet</td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td>Role associated with the device fleet</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>Associate tags with the resource</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>device_fleet</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.device_fleet<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DeviceFleetName&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+device_fleet_name,
+output_config,
+role_arn,
+tags
+FROM aws.sagemaker.device_fleet
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DeviceFleetName&gt;'
+```

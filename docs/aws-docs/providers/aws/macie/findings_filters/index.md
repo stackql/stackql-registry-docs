@@ -27,13 +27,8 @@ Retrieves a list of <code>findings_filters</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Findings filter name</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>Findings filter description</td></tr>
-<tr><td><code>FindingCriteria</code></td><td><code>object</code></td><td>Findings filter criteria.</td></tr>
-<tr><td><code>Action</code></td><td><code>string</code></td><td>Findings filter action.</td></tr>
-<tr><td><code>Position</code></td><td><code>integer</code></td><td>Findings filter position.</td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>Findings filter ID.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Findings filter ARN.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>Findings filter ID.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>findings_filters</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.macie.findings_filters<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.macie.findings_filters
+WHERE region = 'us-east-1'
+```

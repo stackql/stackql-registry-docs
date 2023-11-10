@@ -27,14 +27,15 @@ Gets an individual <code>integration_response</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseTemplates</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>TemplateSelectionExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ContentHandlingStrategy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IntegrationId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IntegrationResponseKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>response_templates</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>template_selection_expression</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>response_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>content_handling_strategy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>integration_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>integration_response_key</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>api_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>integration_response</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigatewayv2.integration_response<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+response_templates,
+template_selection_expression,
+response_parameters,
+content_handling_strategy,
+integration_id,
+integration_response_key,
+api_id
+FROM aws.apigatewayv2.integration_response
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

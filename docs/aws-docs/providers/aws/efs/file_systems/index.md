@@ -27,19 +27,8 @@ Retrieves a list of <code>file_systems</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FileSystemId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Encrypted</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>FileSystemTags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LifecyclePolicies</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PerformanceMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProvisionedThroughputInMibps</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>ThroughputMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FileSystemPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>BypassPolicyLockoutSafetyCheck</code></td><td><code>boolean</code></td><td>Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false</td></tr>
-<tr><td><code>BackupPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AvailabilityZoneName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>file_system_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +36,10 @@ Retrieves a list of <code>file_systems</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.efs.file_systems<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+file_system_id
+FROM aws.efs.file_systems
+WHERE region = 'us-east-1'
+```

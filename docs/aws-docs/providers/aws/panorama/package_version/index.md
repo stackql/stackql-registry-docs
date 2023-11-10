@@ -27,18 +27,19 @@ Gets an individual <code>package_version</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OwnerAccount</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PackageId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PackageArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PackageVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PatchVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MarkLatest</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>IsLatestPatch</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>PackageName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StatusDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RegisteredTime</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>UpdatedLatestPatchVersion</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>owner_account</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>package_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>package_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>package_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>patch_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>mark_latest</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>is_latest_patch</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>package_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>registered_time</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>updated_latest_patch_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,24 @@ Gets an individual <code>package_version</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.panorama.package_version<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;PackageId&gt;'<br/>AND data__Identifier = '&lt;PackageVersion&gt;'<br/>AND data__Identifier = '&lt;PatchVersion&gt;'
-</pre>
+```sql
+SELECT
+region,
+owner_account,
+package_id,
+package_arn,
+package_version,
+patch_version,
+mark_latest,
+is_latest_patch,
+package_name,
+status,
+status_description,
+registered_time,
+updated_latest_patch_version
+FROM aws.panorama.package_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;PackageId&gt;'
+AND data__Identifier = '&lt;PackageVersion&gt;'
+AND data__Identifier = '&lt;PatchVersion&gt;'
+```

@@ -27,12 +27,8 @@ Retrieves a list of <code>trust_anchors</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Enabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Source</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>TrustAnchorId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TrustAnchorArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>trust_anchor_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>trust_anchors</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.rolesanywhere.trust_anchors<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+trust_anchor_id
+FROM aws.rolesanywhere.trust_anchors
+WHERE region = 'us-east-1'
+```

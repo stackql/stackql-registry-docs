@@ -27,10 +27,11 @@ Gets an individual <code>input</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>InputDefinition</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>InputDescription</code></td><td><code>string</code></td><td>A brief description of the input.</td></tr>
-<tr><td><code>InputName</code></td><td><code>string</code></td><td>The name of the input.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;For more information, see &#91;Tag&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-properties-resource-tags.html).</td></tr>
+<tr><td><code>input_definition</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>input_description</code></td><td><code>string</code></td><td>A brief description of the input.</td></tr>
+<tr><td><code>input_name</code></td><td><code>string</code></td><td>The name of the input.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;For more information, see &#91;Tag&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-properties-resource-tags.html).</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>input</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iotevents.input<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;InputName&gt;'
-</pre>
+```sql
+SELECT
+region,
+input_definition,
+input_description,
+input_name,
+tags
+FROM aws.iotevents.input
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;InputName&gt;'
+```

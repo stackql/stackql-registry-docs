@@ -27,11 +27,8 @@ Retrieves a list of <code>role_aliases</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RoleAlias</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleAliasArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CredentialDurationSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>role_alias</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>role_aliases</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.role_aliases<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+role_alias
+FROM aws.iot.role_aliases
+WHERE region = 'us-east-1'
+```

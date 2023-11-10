@@ -27,10 +27,8 @@ Retrieves a list of <code>cidr_collections</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>UUID of the CIDR collection.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>A unique name for the CIDR collection.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon resource name (ARN) to uniquely identify the AWS resource.</td></tr>
-<tr><td><code>Locations</code></td><td><code>array</code></td><td>A complex type that contains information about the list of CIDR locations.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>UUID of the CIDR collection.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +36,10 @@ Retrieves a list of <code>cidr_collections</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53.cidr_collections<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.route53.cidr_collections
+WHERE region = 'us-east-1'
+```

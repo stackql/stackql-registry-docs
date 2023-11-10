@@ -27,17 +27,18 @@ Gets an individual <code>bot_alias</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>BotAliasId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BotId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BotAliasStatus</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BotAliasLocaleSettings</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>BotAliasName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BotVersion</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ConversationLogSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SentimentAnalysisSettings</code></td><td><code>object</code></td><td>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.</td></tr>
-<tr><td><code>BotAliasTags</code></td><td><code>array</code></td><td>A list of tags to add to the bot alias.</td></tr>
+<tr><td><code>bot_alias_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>bot_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>bot_alias_status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>bot_alias_locale_settings</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>bot_alias_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>bot_version</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>conversation_log_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>sentiment_analysis_settings</code></td><td><code>object</code></td><td>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.</td></tr>
+<tr><td><code>bot_alias_tags</code></td><td><code>array</code></td><td>A list of tags to add to the bot alias.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,22 @@ Gets an individual <code>bot_alias</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lex.bot_alias<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;BotAliasId&gt;'<br/>AND data__Identifier = '&lt;BotId&gt;'
-</pre>
+```sql
+SELECT
+region,
+bot_alias_id,
+bot_id,
+arn,
+bot_alias_status,
+bot_alias_locale_settings,
+bot_alias_name,
+bot_version,
+conversation_log_settings,
+description,
+sentiment_analysis_settings,
+bot_alias_tags
+FROM aws.lex.bot_alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;BotAliasId&gt;'
+AND data__Identifier = '&lt;BotId&gt;'
+```

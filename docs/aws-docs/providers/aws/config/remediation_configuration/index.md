@@ -27,17 +27,18 @@ Gets an individual <code>remediation_configuration</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TargetVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExecutionControls</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Parameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>TargetType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConfigRuleName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResourceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RetryAttemptSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>MaximumAutomaticAttempts</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TargetId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Automatic</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>target_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>execution_controls</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>target_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>config_rule_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>retry_attempt_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>maximum_automatic_attempts</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>target_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>automatic</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,21 @@ Gets an individual <code>remediation_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.config.remediation_configuration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+target_version,
+execution_controls,
+parameters,
+target_type,
+config_rule_name,
+resource_type,
+retry_attempt_seconds,
+maximum_automatic_attempts,
+id,
+target_id,
+automatic
+FROM aws.config.remediation_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

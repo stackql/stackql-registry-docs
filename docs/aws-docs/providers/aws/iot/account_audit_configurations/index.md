@@ -27,10 +27,8 @@ Retrieves a list of <code>account_audit_configurations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AccountId</code></td><td><code>string</code></td><td>Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).</td></tr>
-<tr><td><code>AuditCheckConfigurations</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AuditNotificationTargetConfigurations</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.</td></tr>
+<tr><td><code>account_id</code></td><td><code>string</code></td><td>Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +36,10 @@ Retrieves a list of <code>account_audit_configurations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.account_audit_configurations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+account_id
+FROM aws.iot.account_audit_configurations
+WHERE region = 'us-east-1'
+```

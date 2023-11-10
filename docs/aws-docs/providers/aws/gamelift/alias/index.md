@@ -27,10 +27,11 @@ Gets an individual <code>alias</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A human-readable description of the alias.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>A descriptive label that is associated with an alias. Alias names do not need to be unique.</td></tr>
-<tr><td><code>RoutingStrategy</code></td><td><code>object</code></td><td>A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.</td></tr>
-<tr><td><code>AliasId</code></td><td><code>string</code></td><td>Unique alias ID</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>A human-readable description of the alias.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>A descriptive label that is associated with an alias. Alias names do not need to be unique.</td></tr>
+<tr><td><code>routing_strategy</code></td><td><code>object</code></td><td>A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.</td></tr>
+<tr><td><code>alias_id</code></td><td><code>string</code></td><td>Unique alias ID</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>alias</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.gamelift.alias<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AliasId&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+name,
+routing_strategy,
+alias_id
+FROM aws.gamelift.alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AliasId&gt;'
+```

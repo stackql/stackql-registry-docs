@@ -27,12 +27,13 @@ Gets an individual <code>certificate</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CertificateName</code></td><td><code>string</code></td><td>The name for the certificate.</td></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td>The domain name (e.g., example.com ) for the certificate.</td></tr>
-<tr><td><code>SubjectAlternativeNames</code></td><td><code>array</code></td><td>An array of strings that specify the alternate domains (e.g., example2.com) and subdomains (e.g., blog.example.com) for the certificate.</td></tr>
-<tr><td><code>CertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>The validation status of the certificate.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>certificate_name</code></td><td><code>string</code></td><td>The name for the certificate.</td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td>The domain name (e.g., example.com ) for the certificate.</td></tr>
+<tr><td><code>subject_alternative_names</code></td><td><code>array</code></td><td>An array of strings that specify the alternate domains (e.g., example2.com) and subdomains (e.g., blog.example.com) for the certificate.</td></tr>
+<tr><td><code>certificate_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>The validation status of the certificate.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>certificate</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lightsail.certificate<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;CertificateName&gt;'
-</pre>
+```sql
+SELECT
+region,
+certificate_name,
+domain_name,
+subject_alternative_names,
+certificate_arn,
+status,
+tags
+FROM aws.lightsail.certificate
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;CertificateName&gt;'
+```

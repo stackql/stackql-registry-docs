@@ -27,11 +27,8 @@ Retrieves a list of <code>configuration_aggregators</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AccountAggregationSources</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ConfigurationAggregatorName</code></td><td><code>string</code></td><td>The name of the aggregator.</td></tr>
-<tr><td><code>ConfigurationAggregatorArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the aggregator.</td></tr>
-<tr><td><code>OrganizationAggregationSource</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the configuration aggregator.</td></tr>
+<tr><td><code>configuration_aggregator_name</code></td><td><code>string</code></td><td>The name of the aggregator.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>configuration_aggregators</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.config.configuration_aggregators<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+configuration_aggregator_name
+FROM aws.config.configuration_aggregators
+WHERE region = 'us-east-1'
+```

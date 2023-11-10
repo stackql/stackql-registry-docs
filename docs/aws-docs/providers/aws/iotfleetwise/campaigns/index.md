@@ -27,26 +27,8 @@ Retrieves a list of <code>campaigns</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Action</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Compression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Priority</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>SignalsToCollect</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>StartTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExpiryTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LastModificationTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SpoolingMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SignalCatalogArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PostTriggerCollectionDuration</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>DataExtraDimensions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DiagnosticsMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TargetArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CollectionScheme</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,6 +36,10 @@ Retrieves a list of <code>campaigns</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iotfleetwise.campaigns<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+name
+FROM aws.iotfleetwise.campaigns
+WHERE region = 'us-east-1'
+```

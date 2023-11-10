@@ -27,15 +27,16 @@ Gets an individual <code>permission</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FunctionName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Action</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EventSourceToken</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FunctionUrlAuthType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceAccount</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PrincipalOrgID</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Principal</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>action</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>event_source_token</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_url_auth_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source_account</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>principal_org_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>principal</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>permission</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lambda.permission<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+function_name,
+action,
+event_source_token,
+function_url_auth_type,
+source_arn,
+source_account,
+principal_org_id,
+id,
+principal
+FROM aws.lambda.permission
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,29 +27,30 @@ Gets an individual <code>domain</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ClusterConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccessPolicies</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EngineVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AdvancedOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>LogPublishingOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SnapshotOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>VPCOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>NodeToNodeEncryptionOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DomainEndpointOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CognitoOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AdvancedSecurityOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DomainEndpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DomainEndpoints</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EBSOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DomainArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EncryptionAtRestOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this Domain.</td></tr>
-<tr><td><code>ServiceSoftwareOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>OffPeakWindowOptions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SoftwareUpdateOptions</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>cluster_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>access_policies</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>engine_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>advanced_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>log_publishing_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>snapshot_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>v_pc_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>node_to_node_encryption_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>domain_endpoint_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>cognito_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>advanced_security_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>domain_endpoint</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>domain_endpoints</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>e_bs_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>domain_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>encryption_at_rest_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this Domain.</td></tr>
+<tr><td><code>service_software_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>off_peak_window_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>software_update_options</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -57,6 +58,33 @@ Gets an individual <code>domain</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.opensearchservice.domain<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DomainName&gt;'
-</pre>
+```sql
+SELECT
+region,
+cluster_config,
+domain_name,
+access_policies,
+engine_version,
+advanced_options,
+log_publishing_options,
+snapshot_options,
+v_pc_options,
+node_to_node_encryption_options,
+domain_endpoint_options,
+cognito_options,
+advanced_security_options,
+domain_endpoint,
+domain_endpoints,
+e_bs_options,
+id,
+arn,
+domain_arn,
+encryption_at_rest_options,
+tags,
+service_software_options,
+off_peak_window_options,
+software_update_options
+FROM aws.opensearchservice.domain
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DomainName&gt;'
+```

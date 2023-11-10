@@ -27,18 +27,19 @@ Gets an individual <code>user</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Policy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Role</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HomeDirectory</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HomeDirectoryType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServerId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UserName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HomeDirectoryMappings</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PosixProfile</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SshPublicKeys</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>policy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>home_directory</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>home_directory_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>server_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>user_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>home_directory_mappings</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>posix_profile</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>ssh_public_keys</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>user</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.transfer.user<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+policy,
+role,
+home_directory,
+home_directory_type,
+server_id,
+user_name,
+home_directory_mappings,
+posix_profile,
+ssh_public_keys,
+id,
+arn,
+tags
+FROM aws.transfer.user
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

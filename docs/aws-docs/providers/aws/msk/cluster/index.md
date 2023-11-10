@@ -27,20 +27,21 @@ Gets an individual <code>cluster</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>BrokerNodeGroupInfo</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EnhancedMonitoring</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KafkaVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NumberOfBrokerNodes</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>EncryptionInfo</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>OpenMonitoring</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ClusterName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CurrentVersion</code></td><td><code>string</code></td><td>The current version of the MSK cluster</td></tr>
-<tr><td><code>ClientAuthentication</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>LoggingInfo</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
-<tr><td><code>ConfigurationInfo</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>StorageMode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>broker_node_group_info</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>enhanced_monitoring</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>kafka_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>number_of_broker_nodes</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>encryption_info</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>open_monitoring</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>cluster_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>current_version</code></td><td><code>string</code></td><td>The current version of the MSK cluster</td></tr>
+<tr><td><code>client_authentication</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>logging_info</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<tr><td><code>configuration_info</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>storage_mode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>cluster</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.msk.cluster<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+broker_node_group_info,
+enhanced_monitoring,
+kafka_version,
+number_of_broker_nodes,
+encryption_info,
+open_monitoring,
+cluster_name,
+arn,
+current_version,
+client_authentication,
+logging_info,
+tags,
+configuration_info,
+storage_mode
+FROM aws.msk.cluster
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

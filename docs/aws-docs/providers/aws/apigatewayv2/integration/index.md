@@ -27,25 +27,26 @@ Gets an individual <code>integration</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TemplateSelectionExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConnectionType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>IntegrationMethod</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PassthroughBehavior</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ConnectionId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IntegrationUri</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PayloadFormatVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CredentialsArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestTemplates</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>TimeoutInMillis</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>TlsConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ContentHandlingStrategy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IntegrationSubtype</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IntegrationType</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>template_selection_expression</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>connection_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>response_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>integration_method</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>passthrough_behavior</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>request_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>connection_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>integration_uri</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>payload_format_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>credentials_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>request_templates</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>timeout_in_millis</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>tls_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>content_handling_strategy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>integration_subtype</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>api_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>integration_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -53,6 +54,29 @@ Gets an individual <code>integration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigatewayv2.integration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+template_selection_expression,
+connection_type,
+response_parameters,
+integration_method,
+passthrough_behavior,
+request_parameters,
+connection_id,
+integration_uri,
+payload_format_version,
+credentials_arn,
+request_templates,
+timeout_in_millis,
+tls_config,
+content_handling_strategy,
+id,
+integration_subtype,
+api_id,
+integration_type
+FROM aws.apigatewayv2.integration
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

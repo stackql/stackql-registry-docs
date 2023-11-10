@@ -27,11 +27,12 @@ Gets an individual <code>routing_control</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RoutingControlArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the routing control.</td></tr>
-<tr><td><code>ControlPanelArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the control panel.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the routing control. You can use any non-white space character in the name.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</td></tr>
-<tr><td><code>ClusterArn</code></td><td><code>string</code></td><td>Arn associated with Control Panel</td></tr>
+<tr><td><code>routing_control_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the routing control.</td></tr>
+<tr><td><code>control_panel_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the control panel.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the routing control. You can use any non-white space character in the name.</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</td></tr>
+<tr><td><code>cluster_arn</code></td><td><code>string</code></td><td>Arn associated with Control Panel</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>routing_control</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53recoverycontrol.routing_control<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RoutingControlArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+routing_control_arn,
+control_panel_arn,
+name,
+status,
+cluster_arn
+FROM aws.route53recoverycontrol.routing_control
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;RoutingControlArn&gt;'
+```

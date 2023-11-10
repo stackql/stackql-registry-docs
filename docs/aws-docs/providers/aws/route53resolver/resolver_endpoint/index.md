@@ -27,18 +27,19 @@ Gets an individual <code>resolver_endpoint</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>IpAddresses</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ResolverEndpointId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IpAddressCount</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OutpostArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredInstanceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResolverEndpointType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Direction</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HostVPCId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ip_addresses</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>resolver_endpoint_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ip_address_count</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>outpost_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>preferred_instance_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resolver_endpoint_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>direction</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>host_vp_cid</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>resolver_endpoint</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53resolver.resolver_endpoint<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ResolverEndpointId&gt;'
-</pre>
+```sql
+SELECT
+region,
+ip_addresses,
+resolver_endpoint_id,
+ip_address_count,
+outpost_arn,
+preferred_instance_type,
+resolver_endpoint_type,
+arn,
+direction,
+host_vp_cid,
+security_group_ids,
+tags,
+name
+FROM aws.route53resolver.resolver_endpoint
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ResolverEndpointId&gt;'
+```

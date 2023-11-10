@@ -27,18 +27,19 @@ Gets an individual <code>template</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AwsAccountId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreatedTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Definition</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>LastUpdatedTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Permissions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SourceEntity</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>TemplateId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Version</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>VersionDescription</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>aws_account_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>created_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>definition</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>last_updated_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>permissions</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>source_entity</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>template_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>version</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>version_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,23 @@ Gets an individual <code>template</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.quicksight.template<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AwsAccountId&gt;'<br/>AND data__Identifier = '&lt;TemplateId&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+aws_account_id,
+created_time,
+definition,
+last_updated_time,
+name,
+permissions,
+source_entity,
+tags,
+template_id,
+version,
+version_description
+FROM aws.quicksight.template
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AwsAccountId&gt;'
+AND data__Identifier = '&lt;TemplateId&gt;'
+```

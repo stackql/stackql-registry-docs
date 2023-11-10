@@ -27,15 +27,16 @@ Gets an individual <code>launch_profile</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>&lt;p&gt;The description.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Ec2SubnetIds</code></td><td><code>array</code></td><td>&lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.&lt;br&#x2F;&gt;            These subnets must support the specified instance types. &lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>LaunchProfileId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LaunchProfileProtocolVersions</code></td><td><code>array</code></td><td>&lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid&lt;br&#x2F;&gt;            version is "2021-03-31".&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>&lt;p&gt;The name for the launch profile.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>StreamConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>StudioComponentIds</code></td><td><code>array</code></td><td>&lt;p&gt;Unique identifiers for a collection of studio components that can be used with this&lt;br&#x2F;&gt;            launch profile.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>StudioId</code></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>&lt;p&gt;The description.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>ec2_subnet_ids</code></td><td><code>array</code></td><td>&lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.&lt;br&#x2F;&gt;            These subnets must support the specified instance types. &lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>launch_profile_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>launch_profile_protocol_versions</code></td><td><code>array</code></td><td>&lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid&lt;br&#x2F;&gt;            version is "2021-03-31".&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>&lt;p&gt;The name for the launch profile.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>stream_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>studio_component_ids</code></td><td><code>array</code></td><td>&lt;p&gt;Unique identifiers for a collection of studio components that can be used with this&lt;br&#x2F;&gt;            launch profile.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>studio_id</code></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,20 @@ Gets an individual <code>launch_profile</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.nimblestudio.launch_profile<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LaunchProfileId&gt;'<br/>AND data__Identifier = '&lt;StudioId&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+ec2_subnet_ids,
+launch_profile_id,
+launch_profile_protocol_versions,
+name,
+stream_configuration,
+studio_component_ids,
+studio_id,
+tags
+FROM aws.nimblestudio.launch_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;LaunchProfileId&gt;'
+AND data__Identifier = '&lt;StudioId&gt;'
+```

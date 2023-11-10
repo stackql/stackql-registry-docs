@@ -27,16 +27,8 @@ Retrieves a list of <code>trackers</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CreateTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PricingPlan</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PricingPlanDataSource</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PositionFiltering</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TrackerArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TrackerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UpdateTime</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tracker_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +36,10 @@ Retrieves a list of <code>trackers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.location.trackers<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+tracker_name
+FROM aws.location.trackers
+WHERE region = 'us-east-1'
+```

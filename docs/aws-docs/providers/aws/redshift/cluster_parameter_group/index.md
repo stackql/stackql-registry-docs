@@ -27,11 +27,12 @@ Gets an individual <code>cluster_parameter_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ParameterGroupName</code></td><td><code>string</code></td><td>The name of the cluster parameter group.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the parameter group.</td></tr>
-<tr><td><code>ParameterGroupFamily</code></td><td><code>string</code></td><td>The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.</td></tr>
-<tr><td><code>Parameters</code></td><td><code>array</code></td><td>An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>parameter_group_name</code></td><td><code>string</code></td><td>The name of the cluster parameter group.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>A description of the parameter group.</td></tr>
+<tr><td><code>parameter_group_family</code></td><td><code>string</code></td><td>The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.</td></tr>
+<tr><td><code>parameters</code></td><td><code>array</code></td><td>An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>cluster_parameter_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.redshift.cluster_parameter_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ParameterGroupName&gt;'
-</pre>
+```sql
+SELECT
+region,
+parameter_group_name,
+description,
+parameter_group_family,
+parameters,
+tags
+FROM aws.redshift.cluster_parameter_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ParameterGroupName&gt;'
+```

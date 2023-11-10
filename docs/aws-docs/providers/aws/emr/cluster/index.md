@@ -27,32 +27,33 @@ Gets an individual <code>cluster</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Steps</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>StepConcurrencyLevel</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>EbsRootVolumeSize</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>OSReleaseLabel</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServiceRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LogUri</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BootstrapActions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>MasterPublicDNS</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Configurations</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ReleaseLabel</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ManagedScalingPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>LogEncryptionKmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AdditionalInfo</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AutoTerminationPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KerberosAttributes</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Applications</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AutoScalingRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomAmiId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Instances</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ScaleDownBehavior</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>JobFlowRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VisibleToAllUsers</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>SecurityConfiguration</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>steps</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>step_concurrency_level</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>ebs_root_volume_size</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>o_srelease_label</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>service_role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>log_uri</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>bootstrap_actions</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>master_public_dn_s</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>configurations</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>release_label</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>managed_scaling_policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>log_encryption_kms_key_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>additional_info</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>auto_termination_policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>kerberos_attributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>applications</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>auto_scaling_role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>custom_ami_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instances</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>scale_down_behavior</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>job_flow_role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>visible_to_all_users</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>security_configuration</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -60,6 +61,36 @@ Gets an individual <code>cluster</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.emr.cluster<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+steps,
+step_concurrency_level,
+ebs_root_volume_size,
+o_srelease_label,
+name,
+service_role,
+log_uri,
+bootstrap_actions,
+master_public_dn_s,
+configurations,
+release_label,
+tags,
+managed_scaling_policy,
+log_encryption_kms_key_id,
+additional_info,
+auto_termination_policy,
+kerberos_attributes,
+applications,
+auto_scaling_role,
+custom_ami_id,
+instances,
+scale_down_behavior,
+job_flow_role,
+visible_to_all_users,
+security_configuration,
+id
+FROM aws.emr.cluster
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

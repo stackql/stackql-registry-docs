@@ -27,14 +27,15 @@ Gets an individual <code>slack_channel_configuration</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TeamId</code></td><td><code>string</code></td><td>The team ID in Slack, which uniquely identifies a workspace.</td></tr>
-<tr><td><code>ChannelId</code></td><td><code>string</code></td><td>The channel ID in Slack, which identifies a channel within a workspace.</td></tr>
-<tr><td><code>ChannelName</code></td><td><code>string</code></td><td>The channel name in Slack.</td></tr>
-<tr><td><code>NotifyOnCreateOrReopenCase</code></td><td><code>boolean</code></td><td>Whether to notify when a case is created or reopened.</td></tr>
-<tr><td><code>NotifyOnAddCorrespondenceToCase</code></td><td><code>boolean</code></td><td>Whether to notify when a correspondence is added to a case.</td></tr>
-<tr><td><code>NotifyOnResolveCase</code></td><td><code>boolean</code></td><td>Whether to notify when a case is resolved.</td></tr>
-<tr><td><code>NotifyOnCaseSeverity</code></td><td><code>string</code></td><td>The severity level of a support case that a customer wants to get notified for.</td></tr>
-<tr><td><code>ChannelRoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that grants the AWS Support App access to perform operations for AWS services.</td></tr>
+<tr><td><code>team_id</code></td><td><code>string</code></td><td>The team ID in Slack, which uniquely identifies a workspace.</td></tr>
+<tr><td><code>channel_id</code></td><td><code>string</code></td><td>The channel ID in Slack, which identifies a channel within a workspace.</td></tr>
+<tr><td><code>channel_name</code></td><td><code>string</code></td><td>The channel name in Slack.</td></tr>
+<tr><td><code>notify_on_create_or_reopen_case</code></td><td><code>boolean</code></td><td>Whether to notify when a case is created or reopened.</td></tr>
+<tr><td><code>notify_on_add_correspondence_to_case</code></td><td><code>boolean</code></td><td>Whether to notify when a correspondence is added to a case.</td></tr>
+<tr><td><code>notify_on_resolve_case</code></td><td><code>boolean</code></td><td>Whether to notify when a case is resolved.</td></tr>
+<tr><td><code>notify_on_case_severity</code></td><td><code>string</code></td><td>The severity level of a support case that a customer wants to get notified for.</td></tr>
+<tr><td><code>channel_role_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that grants the AWS Support App access to perform operations for AWS services.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,19 @@ Gets an individual <code>slack_channel_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.supportapp.slack_channel_configuration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;TeamId&gt;'<br/>AND data__Identifier = '&lt;ChannelId&gt;'
-</pre>
+```sql
+SELECT
+region,
+team_id,
+channel_id,
+channel_name,
+notify_on_create_or_reopen_case,
+notify_on_add_correspondence_to_case,
+notify_on_resolve_case,
+notify_on_case_severity,
+channel_role_arn
+FROM aws.supportapp.slack_channel_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;TeamId&gt;'
+AND data__Identifier = '&lt;ChannelId&gt;'
+```

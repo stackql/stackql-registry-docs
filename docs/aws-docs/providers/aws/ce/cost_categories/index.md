@@ -27,13 +27,8 @@ Retrieves a list of <code>cost_categories</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Cost category ARN</td></tr>
-<tr><td><code>EffectiveStart</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RuleVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Rules</code></td><td><code>string</code></td><td>JSON array format of Expression in Billing and Cost Management API</td></tr>
-<tr><td><code>SplitChargeRules</code></td><td><code>string</code></td><td>Json array format of CostCategorySplitChargeRule in Billing and Cost Management API</td></tr>
-<tr><td><code>DefaultValue</code></td><td><code>string</code></td><td>The default value for the cost category</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Cost category ARN</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>cost_categories</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ce.cost_categories<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.ce.cost_categories
+WHERE region = 'us-east-1'
+```

@@ -27,11 +27,12 @@ Gets an individual <code>topic_rule_destination</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN).</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>The status of the TopicRuleDestination.</td></tr>
-<tr><td><code>HttpUrlProperties</code></td><td><code>object</code></td><td>HTTP URL destination properties.</td></tr>
-<tr><td><code>StatusReason</code></td><td><code>string</code></td><td>The reasoning for the current status of the TopicRuleDestination.</td></tr>
-<tr><td><code>VpcProperties</code></td><td><code>object</code></td><td>VPC destination properties.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN).</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>The status of the TopicRuleDestination.</td></tr>
+<tr><td><code>http_url_properties</code></td><td><code>object</code></td><td>HTTP URL destination properties.</td></tr>
+<tr><td><code>status_reason</code></td><td><code>string</code></td><td>The reasoning for the current status of the TopicRuleDestination.</td></tr>
+<tr><td><code>vpc_properties</code></td><td><code>object</code></td><td>VPC destination properties.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>topic_rule_destination</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.topic_rule_destination<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+status,
+http_url_properties,
+status_reason,
+vpc_properties
+FROM aws.iot.topic_rule_destination
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

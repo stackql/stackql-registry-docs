@@ -27,15 +27,16 @@ Gets an individual <code>place_index</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CreateTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DataSource</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DataSourceConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IndexArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IndexName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PricingPlan</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UpdateTime</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>create_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>data_source</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>data_source_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>index_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>index_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>pricing_plan</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>update_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>place_index</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.location.place_index<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;IndexName&gt;'
-</pre>
+```sql
+SELECT
+region,
+create_time,
+data_source,
+data_source_configuration,
+description,
+index_arn,
+arn,
+index_name,
+pricing_plan,
+update_time
+FROM aws.location.place_index
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;IndexName&gt;'
+```

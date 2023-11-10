@@ -27,10 +27,11 @@ Gets an individual <code>resource_default_version</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TypeVersionArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type version.</td></tr>
-<tr><td><code>TypeName</code></td><td><code>string</code></td><td>The name of the type being registered.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion</td></tr>
-<tr><td><code>VersionId</code></td><td><code>string</code></td><td>The ID of an existing version of the resource to set as the default.</td></tr>
+<tr><td><code>type_version_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type version.</td></tr>
+<tr><td><code>type_name</code></td><td><code>string</code></td><td>The name of the type being registered.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion</td></tr>
+<tr><td><code>version_id</code></td><td><code>string</code></td><td>The ID of an existing version of the resource to set as the default.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>resource_default_version</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cloudformation.resource_default_version<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+type_version_arn,
+type_name,
+arn,
+version_id
+FROM aws.cloudformation.resource_default_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

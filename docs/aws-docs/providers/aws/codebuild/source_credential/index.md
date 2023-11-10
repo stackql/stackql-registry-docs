@@ -27,11 +27,12 @@ Gets an individual <code>source_credential</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ServerType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Token</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Username</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>server_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>token</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>auth_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>username</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>source_credential</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.codebuild.source_credential<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+server_type,
+token,
+auth_type,
+id,
+username
+FROM aws.codebuild.source_credential
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,11 +27,8 @@ Retrieves a list of <code>certificate_authority_activations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CertificateAuthorityArn</code></td><td><code>string</code></td><td>Arn of the Certificate Authority.</td></tr>
-<tr><td><code>Certificate</code></td><td><code>string</code></td><td>Certificate Authority certificate that will be installed in the Certificate Authority.</td></tr>
-<tr><td><code>CertificateChain</code></td><td><code>string</code></td><td>Certificate chain for the Certificate Authority certificate.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>The status of the Certificate Authority.</td></tr>
-<tr><td><code>CompleteCertificateChain</code></td><td><code>string</code></td><td>The complete certificate chain, including the Certificate Authority certificate.</td></tr>
+<tr><td><code>certificate_authority_arn</code></td><td><code>string</code></td><td>Arn of the Certificate Authority.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>certificate_authority_activations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.acmpca.certificate_authority_activations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+certificate_authority_arn
+FROM aws.acmpca.certificate_authority_activations
+WHERE region = 'us-east-1'
+```

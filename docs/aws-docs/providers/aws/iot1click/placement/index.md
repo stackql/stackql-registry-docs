@@ -27,11 +27,12 @@ Gets an individual <code>placement</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PlacementName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProjectName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssociatedDevices</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Attributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>placement_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>project_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>associated_devices</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>attributes</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>placement</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot1click.placement<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+placement_name,
+project_name,
+associated_devices,
+attributes
+FROM aws.iot1click.placement
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

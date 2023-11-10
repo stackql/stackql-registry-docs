@@ -27,28 +27,8 @@ Retrieves a list of <code>load_balancers</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SecurityGroups</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ConnectionDrainingPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Policies</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Scheme</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AvailabilityZones</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SourceSecurityGroupOwnerAlias</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HealthCheck</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CanonicalHostedZoneNameID</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CanonicalHostedZoneName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DNSName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccessLoggingPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Instances</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LoadBalancerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Listeners</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Subnets</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CrossZone</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>AppCookieStickinessPolicy</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LBCookieStickinessPolicy</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceSecurityGroupGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConnectionSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -56,6 +36,10 @@ Retrieves a list of <code>load_balancers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.elasticloadbalancing.load_balancers<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.elasticloadbalancing.load_balancers
+WHERE region = 'us-east-1'
+```

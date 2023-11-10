@@ -27,13 +27,14 @@ Gets an individual <code>event_bus_policy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>EventBusName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Condition</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Action</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StatementId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Statement</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Principal</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>event_bus_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>condition</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>action</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>statement_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>statement</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>principal</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>event_bus_policy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.events.event_bus_policy<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+event_bus_name,
+condition,
+action,
+statement_id,
+statement,
+id,
+principal
+FROM aws.events.event_bus_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

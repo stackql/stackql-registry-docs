@@ -27,27 +27,28 @@ Gets an individual <code>job</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Connections</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>MaxRetries</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Timeout</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>AllocatedCapacity</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Role</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultArguments</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>NotificationProperty</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>WorkerType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExecutionClass</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LogUri</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Command</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>GlueVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExecutionProperty</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SecurityConfiguration</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NumberOfWorkers</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>MaxCapacity</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>NonOverridableArguments</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>connections</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>max_retries</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>timeout</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>allocated_capacity</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>default_arguments</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>notification_property</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>worker_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>execution_class</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>log_uri</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>command</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>glue_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>execution_property</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>security_configuration</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>number_of_workers</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>max_capacity</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>non_overridable_arguments</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -55,6 +56,31 @@ Gets an individual <code>job</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.glue.job<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+connections,
+max_retries,
+description,
+timeout,
+allocated_capacity,
+name,
+role,
+default_arguments,
+notification_property,
+worker_type,
+execution_class,
+log_uri,
+command,
+glue_version,
+execution_property,
+security_configuration,
+id,
+number_of_workers,
+tags,
+max_capacity,
+non_overridable_arguments
+FROM aws.glue.job
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

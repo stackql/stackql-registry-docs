@@ -54,6 +54,13 @@ Install packages:
 yarn
 ```
 
+To build a microsite locally, use `yarn build:{provider}`.  For example, to build the AWS microsite locally, run:
+
+```
+export NODE_OPTIONS=--max_old_space_size=4096
+yarn run build:aws
+```
+
 To run a microsite locally, use `yarn start:{provider}`.  For example, to run the AWS microsite locally, run:  
 
 ```bash

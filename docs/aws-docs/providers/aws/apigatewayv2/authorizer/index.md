@@ -27,18 +27,19 @@ Gets an individual <code>authorizer</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>IdentityValidationExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizerUri</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizerCredentialsArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizerType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>JwtConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AuthorizerResultTtlInSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>IdentitySource</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AuthorizerPayloadFormatVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnableSimpleResponses</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>AuthorizerId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>identity_validation_expression</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>authorizer_uri</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>authorizer_credentials_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>authorizer_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>jwt_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>authorizer_result_ttl_in_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>identity_source</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>authorizer_payload_format_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>api_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>enable_simple_responses</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>authorizer_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,23 @@ Gets an individual <code>authorizer</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigatewayv2.authorizer<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AuthorizerId&gt;'<br/>AND data__Identifier = '&lt;ApiId&gt;'
-</pre>
+```sql
+SELECT
+region,
+identity_validation_expression,
+authorizer_uri,
+authorizer_credentials_arn,
+authorizer_type,
+jwt_configuration,
+authorizer_result_ttl_in_seconds,
+identity_source,
+authorizer_payload_format_version,
+api_id,
+enable_simple_responses,
+authorizer_id,
+name
+FROM aws.apigatewayv2.authorizer
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AuthorizerId&gt;'
+AND data__Identifier = '&lt;ApiId&gt;'
+```

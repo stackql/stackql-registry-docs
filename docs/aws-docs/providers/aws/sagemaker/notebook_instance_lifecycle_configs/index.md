@@ -27,10 +27,8 @@ Retrieves a list of <code>notebook_instance_lifecycle_configs</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NotebookInstanceLifecycleConfigName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OnStart</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>OnCreate</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +36,10 @@ Retrieves a list of <code>notebook_instance_lifecycle_configs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.notebook_instance_lifecycle_configs<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.sagemaker.notebook_instance_lifecycle_configs
+WHERE region = 'us-east-1'
+```

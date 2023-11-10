@@ -27,11 +27,8 @@ Retrieves a list of <code>db_parameter_groups</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DBParameterGroupName</code></td><td><code>string</code></td><td>Specifies the name of the DB parameter group</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>Provides the customer-specified description for this DB parameter group.</td></tr>
-<tr><td><code>Family</code></td><td><code>string</code></td><td>The DB parameter group family name.</td></tr>
-<tr><td><code>Parameters</code></td><td><code>object</code></td><td>An array of parameter names and values for the parameter update.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>d_bparameter_group_name</code></td><td><code>string</code></td><td>Specifies the name of the DB parameter group</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>db_parameter_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.rds.db_parameter_groups<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+d_bparameter_group_name
+FROM aws.rds.db_parameter_groups
+WHERE region = 'us-east-1'
+```

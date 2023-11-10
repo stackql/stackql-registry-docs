@@ -27,10 +27,11 @@ Gets an individual <code>resolver_rule_association</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>VPCId</code></td><td><code>string</code></td><td>The ID of the VPC that you associated the Resolver rule with.</td></tr>
-<tr><td><code>ResolverRuleId</code></td><td><code>string</code></td><td>The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.</td></tr>
-<tr><td><code>ResolverRuleAssociationId</code></td><td><code>string</code></td><td>Primary Identifier for Resolver Rule Association</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of an association between a Resolver rule and a VPC.</td></tr>
+<tr><td><code>v_pc_id</code></td><td><code>string</code></td><td>The ID of the VPC that you associated the Resolver rule with.</td></tr>
+<tr><td><code>resolver_rule_id</code></td><td><code>string</code></td><td>The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.</td></tr>
+<tr><td><code>resolver_rule_association_id</code></td><td><code>string</code></td><td>Primary Identifier for Resolver Rule Association</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of an association between a Resolver rule and a VPC.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>resolver_rule_association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53resolver.resolver_rule_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ResolverRuleAssociationId&gt;'
-</pre>
+```sql
+SELECT
+region,
+v_pc_id,
+resolver_rule_id,
+resolver_rule_association_id,
+name
+FROM aws.route53resolver.resolver_rule_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ResolverRuleAssociationId&gt;'
+```

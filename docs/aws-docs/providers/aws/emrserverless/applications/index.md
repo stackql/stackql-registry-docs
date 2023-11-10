@@ -27,20 +27,8 @@ Retrieves a list of <code>applications</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Architecture</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>User friendly Application name.</td></tr>
-<tr><td><code>ReleaseLabel</code></td><td><code>string</code></td><td>EMR release label.</td></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td>The type of the application</td></tr>
-<tr><td><code>InitialCapacity</code></td><td><code>array</code></td><td>Initial capacity initialized when an Application is started.</td></tr>
-<tr><td><code>MaximumCapacity</code></td><td><code>object</code></td><td>Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Tag map with key and value</td></tr>
-<tr><td><code>AutoStartConfiguration</code></td><td><code>object</code></td><td>Configuration for Auto Start of Application.</td></tr>
-<tr><td><code>AutoStopConfiguration</code></td><td><code>object</code></td><td>Configuration for Auto Stop of Application.</td></tr>
-<tr><td><code>ImageConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>NetworkConfiguration</code></td><td><code>object</code></td><td>Network Configuration for customer VPC connectivity.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the EMR Serverless Application.</td></tr>
-<tr><td><code>ApplicationId</code></td><td><code>string</code></td><td>The ID of the EMR Serverless Application.</td></tr>
-<tr><td><code>WorkerTypeSpecifications</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>application_id</code></td><td><code>string</code></td><td>The ID of the EMR Serverless Application.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +36,10 @@ Retrieves a list of <code>applications</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.emrserverless.applications<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+application_id
+FROM aws.emrserverless.applications
+WHERE region = 'us-east-1'
+```

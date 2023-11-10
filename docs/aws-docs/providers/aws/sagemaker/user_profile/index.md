@@ -27,13 +27,14 @@ Gets an individual <code>user_profile</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>UserProfileArn</code></td><td><code>string</code></td><td>The user profile Amazon Resource Name (ARN).</td></tr>
-<tr><td><code>DomainId</code></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
-<tr><td><code>SingleSignOnUserIdentifier</code></td><td><code>string</code></td><td>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.</td></tr>
-<tr><td><code>SingleSignOnUserValue</code></td><td><code>string</code></td><td>The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.</td></tr>
-<tr><td><code>UserProfileName</code></td><td><code>string</code></td><td>A name for the UserProfile.</td></tr>
-<tr><td><code>UserSettings</code></td><td><code>object</code></td><td>A collection of settings.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the user profile.</td></tr>
+<tr><td><code>user_profile_arn</code></td><td><code>string</code></td><td>The user profile Amazon Resource Name (ARN).</td></tr>
+<tr><td><code>domain_id</code></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
+<tr><td><code>single_sign_on_user_identifier</code></td><td><code>string</code></td><td>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.</td></tr>
+<tr><td><code>single_sign_on_user_value</code></td><td><code>string</code></td><td>The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.</td></tr>
+<tr><td><code>user_profile_name</code></td><td><code>string</code></td><td>A name for the UserProfile.</td></tr>
+<tr><td><code>user_settings</code></td><td><code>object</code></td><td>A collection of settings.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>A list of tags to apply to the user profile.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,18 @@ Gets an individual <code>user_profile</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.user_profile<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;UserProfileName&gt;'<br/>AND data__Identifier = '&lt;DomainId&gt;'
-</pre>
+```sql
+SELECT
+region,
+user_profile_arn,
+domain_id,
+single_sign_on_user_identifier,
+single_sign_on_user_value,
+user_profile_name,
+user_settings,
+tags
+FROM aws.sagemaker.user_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;UserProfileName&gt;'
+AND data__Identifier = '&lt;DomainId&gt;'
+```

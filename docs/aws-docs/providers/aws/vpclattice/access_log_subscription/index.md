@@ -27,13 +27,14 @@ Gets an individual <code>access_log_subscription</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DestinationArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResourceArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResourceId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResourceIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>destination_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>access_log_subscription</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.vpclattice.access_log_subscription<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+destination_arn,
+id,
+resource_arn,
+resource_id,
+resource_identifier,
+tags
+FROM aws.vpclattice.access_log_subscription
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

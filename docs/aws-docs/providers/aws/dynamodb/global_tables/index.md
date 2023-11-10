@@ -27,20 +27,8 @@ Retrieves a list of <code>global_tables</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StreamArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AttributeDefinitions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>BillingMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>GlobalSecondaryIndexes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>KeySchema</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LocalSecondaryIndexes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>WriteProvisionedThroughputSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Replicas</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SSESpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>StreamSpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>TableName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TableId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TimeToLiveSpecification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>table_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +36,10 @@ Retrieves a list of <code>global_tables</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.dynamodb.global_tables<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+table_name
+FROM aws.dynamodb.global_tables
+WHERE region = 'us-east-1'
+```

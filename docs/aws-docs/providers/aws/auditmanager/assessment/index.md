@@ -27,19 +27,20 @@ Gets an individual <code>assessment</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FrameworkId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssessmentId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AwsAccount</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags associated with the assessment.</td></tr>
-<tr><td><code>Delegations</code></td><td><code>array</code></td><td>The list of delegations.</td></tr>
-<tr><td><code>Roles</code></td><td><code>array</code></td><td>The list of roles for the specified assessment.</td></tr>
-<tr><td><code>Scope</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AssessmentReportsDestination</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreationTime</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>framework_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>assessment_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>aws_account</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>The tags associated with the assessment.</td></tr>
+<tr><td><code>delegations</code></td><td><code>array</code></td><td>The list of delegations.</td></tr>
+<tr><td><code>roles</code></td><td><code>array</code></td><td>The list of roles for the specified assessment.</td></tr>
+<tr><td><code>scope</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>assessment_reports_destination</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>creation_time</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +48,23 @@ Gets an individual <code>assessment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.auditmanager.assessment<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AssessmentId&gt;'
-</pre>
+```sql
+SELECT
+region,
+framework_id,
+assessment_id,
+aws_account,
+arn,
+tags,
+delegations,
+roles,
+scope,
+assessment_reports_destination,
+status,
+creation_time,
+name,
+description
+FROM aws.auditmanager.assessment
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AssessmentId&gt;'
+```

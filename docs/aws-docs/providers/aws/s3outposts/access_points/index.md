@@ -27,11 +27,8 @@ Retrieves a list of <code>access_points</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified AccessPoint.</td></tr>
-<tr><td><code>Bucket</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>A name for the AccessPoint.</td></tr>
-<tr><td><code>VpcConfiguration</code></td><td><code>object</code></td><td>Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.</td></tr>
-<tr><td><code>Policy</code></td><td><code>object</code></td><td>The access point policy associated with this access point.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified AccessPoint.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>access_points</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.s3outposts.access_points<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.s3outposts.access_points
+WHERE region = 'us-east-1'
+```

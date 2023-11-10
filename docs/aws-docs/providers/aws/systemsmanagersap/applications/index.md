@@ -27,14 +27,8 @@ Retrieves a list of <code>applications</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ApplicationId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the Helix application</td></tr>
-<tr><td><code>Credentials</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Instances</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SapInstanceNumber</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Sid</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags of a SystemsManagerSAP application.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the Helix application</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +36,10 @@ Retrieves a list of <code>applications</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.systemsmanagersap.applications<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.systemsmanagersap.applications
+WHERE region = 'us-east-1'
+```

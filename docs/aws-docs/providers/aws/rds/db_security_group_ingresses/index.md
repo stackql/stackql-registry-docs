@@ -27,12 +27,8 @@ Retrieves a list of <code>db_security_group_ingresses</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CIDRIP</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DBSecurityGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EC2SecurityGroupId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EC2SecurityGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EC2SecurityGroupOwnerId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>db_security_group_ingresses</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.rds.db_security_group_ingresses<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.rds.db_security_group_ingresses
+WHERE region = 'us-east-1'
+```

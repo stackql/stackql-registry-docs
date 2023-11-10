@@ -27,8 +27,9 @@ Gets an individual <code>origin_access_control</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OriginAccessControlConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>origin_access_control_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,12 @@ Gets an individual <code>origin_access_control</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cloudfront.origin_access_control<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+origin_access_control_config,
+id
+FROM aws.cloudfront.origin_access_control
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```
