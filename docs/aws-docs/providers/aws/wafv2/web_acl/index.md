@@ -70,7 +70,7 @@ challenge_config,
 token_domains
 FROM aws.wafv2.web_acl
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;Scope&gt;'
+AND data__Identifier = '<Name>'
+AND data__Identifier = '<Id>'
+AND data__Identifier = '<Scope>'
 ```

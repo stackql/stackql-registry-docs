@@ -48,5 +48,5 @@ parent_group_arn,
 name
 FROM aws.connect.user_hierarchy_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserHierarchyGroupArn&gt;'
+AND data__Identifier = '<UserHierarchyGroupArn>'
 ```

@@ -52,5 +52,5 @@ source,
 source_failover_config
 FROM aws.mediaconnect.flow
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FlowArn&gt;'
+AND data__Identifier = '<FlowArn>'
 ```

@@ -56,6 +56,6 @@ tags,
 object_type_names
 FROM aws.customerprofiles.integration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-AND data__Identifier = '&lt;Uri&gt;'
+AND data__Identifier = '<DomainName>'
+AND data__Identifier = '<Uri>'
 ```

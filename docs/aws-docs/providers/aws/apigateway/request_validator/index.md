@@ -50,6 +50,6 @@ validate_request_body,
 validate_request_parameters
 FROM aws.apigateway.request_validator
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;RequestValidatorId&gt;'
+AND data__Identifier = '<RestApiId>'
+AND data__Identifier = '<RequestValidatorId>'
 ```

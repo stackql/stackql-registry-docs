@@ -50,5 +50,5 @@ data_lake_principal,
 permissions_with_grant_option
 FROM aws.lakeformation.permissions
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

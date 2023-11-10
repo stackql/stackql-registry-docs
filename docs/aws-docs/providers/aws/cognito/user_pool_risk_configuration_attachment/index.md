@@ -52,5 +52,5 @@ account_takeover_risk_configuration,
 risk_exception_configuration
 FROM aws.cognito.user_pool_risk_configuration_attachment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

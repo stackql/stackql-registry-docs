@@ -60,5 +60,5 @@ tracker_name,
 update_time
 FROM aws.location.tracker
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrackerName&gt;'
+AND data__Identifier = '<TrackerName>'
 ```

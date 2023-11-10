@@ -66,6 +66,6 @@ version,
 version_description
 FROM aws.quicksight.theme
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ThemeId&gt;'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
+AND data__Identifier = '<ThemeId>'
+AND data__Identifier = '<AwsAccountId>'
 ```

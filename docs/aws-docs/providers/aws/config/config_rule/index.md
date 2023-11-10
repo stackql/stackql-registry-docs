@@ -58,5 +58,5 @@ source,
 input_parameters
 FROM aws.config.config_rule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConfigRuleId&gt;'
+AND data__Identifier = '<ConfigRuleId>'
 ```

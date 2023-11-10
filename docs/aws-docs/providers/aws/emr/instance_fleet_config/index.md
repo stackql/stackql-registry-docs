@@ -56,5 +56,5 @@ instance_type_configs,
 name
 FROM aws.emr.instance_fleet_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

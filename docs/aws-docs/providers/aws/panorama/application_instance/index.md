@@ -76,5 +76,5 @@ arn,
 tags
 FROM aws.panorama.application_instance
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationInstanceId&gt;'
+AND data__Identifier = '<ApplicationInstanceId>'
 ```

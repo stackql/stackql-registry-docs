@@ -82,5 +82,5 @@ max_capacity,
 non_overridable_arguments
 FROM aws.glue.job
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

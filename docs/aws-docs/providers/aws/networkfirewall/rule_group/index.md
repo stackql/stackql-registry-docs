@@ -56,5 +56,5 @@ description,
 tags
 FROM aws.networkfirewall.rule_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleGroupArn&gt;'
+AND data__Identifier = '<RuleGroupArn>'
 ```

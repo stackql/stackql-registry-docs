@@ -60,5 +60,5 @@ target_pipeline_version,
 register_with_third_party
 FROM aws.codepipeline.webhook
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

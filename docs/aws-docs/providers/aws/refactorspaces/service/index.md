@@ -62,7 +62,7 @@ vpc_id,
 tags
 FROM aws.refactorspaces.service
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentIdentifier&gt;'
-AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
-AND data__Identifier = '&lt;ServiceIdentifier&gt;'
+AND data__Identifier = '<EnvironmentIdentifier>'
+AND data__Identifier = '<ApplicationIdentifier>'
+AND data__Identifier = '<ServiceIdentifier>'
 ```

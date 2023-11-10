@@ -52,5 +52,5 @@ source_arn,
 tags
 FROM aws.eventschemas.discoverer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DiscovererId&gt;'
+AND data__Identifier = '<DiscovererId>'
 ```

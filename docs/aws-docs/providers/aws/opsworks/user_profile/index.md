@@ -50,5 +50,5 @@ iam_user_arn,
 ssh_public_key
 FROM aws.opsworks.user_profile
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

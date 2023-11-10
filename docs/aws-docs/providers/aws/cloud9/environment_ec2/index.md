@@ -64,5 +64,5 @@ tags,
 name
 FROM aws.cloud9.environment_ec2
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

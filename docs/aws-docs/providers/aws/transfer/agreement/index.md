@@ -60,6 +60,6 @@ agreement_id,
 arn
 FROM aws.transfer.agreement
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AgreementId&gt;'
-AND data__Identifier = '&lt;ServerId&gt;'
+AND data__Identifier = '<AgreementId>'
+AND data__Identifier = '<ServerId>'
 ```

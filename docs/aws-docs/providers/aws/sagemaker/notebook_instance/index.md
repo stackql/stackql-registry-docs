@@ -74,5 +74,5 @@ lifecycle_config_name,
 tags
 FROM aws.sagemaker.notebook_instance
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

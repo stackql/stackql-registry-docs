@@ -52,5 +52,5 @@ metric_set_list,
 kms_key_arn
 FROM aws.lookoutmetrics.anomaly_detector
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

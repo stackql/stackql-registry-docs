@@ -46,5 +46,5 @@ policy,
 state
 FROM aws.vpclattice.auth_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceIdentifier&gt;'
+AND data__Identifier = '<ResourceIdentifier>'
 ```

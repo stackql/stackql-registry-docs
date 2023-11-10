@@ -46,5 +46,5 @@ tag_key,
 tag_values
 FROM aws.lakeformation.tag
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TagKey&gt;'
+AND data__Identifier = '<TagKey>'
 ```

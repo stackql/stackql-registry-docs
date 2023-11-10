@@ -50,5 +50,5 @@ metric_arn,
 tags
 FROM aws.iot.custom_metric
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MetricName&gt;'
+AND data__Identifier = '<MetricName>'
 ```

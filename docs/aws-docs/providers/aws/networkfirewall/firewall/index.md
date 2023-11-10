@@ -64,5 +64,5 @@ endpoint_ids,
 tags
 FROM aws.networkfirewall.firewall
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FirewallArn&gt;'
+AND data__Identifier = '<FirewallArn>'
 ```

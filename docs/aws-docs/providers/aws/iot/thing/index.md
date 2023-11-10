@@ -48,5 +48,5 @@ attribute_payload,
 thing_name
 FROM aws.iot.thing
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ThingName&gt;'
+AND data__Identifier = '<ThingName>'
 ```

@@ -48,5 +48,5 @@ role_ar_n,
 name
 FROM aws.config.configuration_recorder
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

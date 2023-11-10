@@ -64,5 +64,5 @@ name,
 mail_from_attributes
 FROM aws.pinpointemail.identity
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

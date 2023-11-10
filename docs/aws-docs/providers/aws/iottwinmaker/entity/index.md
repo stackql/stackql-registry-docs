@@ -64,6 +64,6 @@ workspace_id,
 components
 FROM aws.iottwinmaker.entity
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkspaceId&gt;'
-AND data__Identifier = '&lt;EntityId&gt;'
+AND data__Identifier = '<WorkspaceId>'
+AND data__Identifier = '<EntityId>'
 ```

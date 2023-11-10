@@ -56,5 +56,5 @@ pricing_plan,
 update_time
 FROM aws.location.route_calculator
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CalculatorName&gt;'
+AND data__Identifier = '<CalculatorName>'
 ```

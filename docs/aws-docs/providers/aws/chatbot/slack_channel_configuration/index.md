@@ -58,5 +58,5 @@ guardrail_policies,
 user_role_required
 FROM aws.chatbot.slack_channel_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

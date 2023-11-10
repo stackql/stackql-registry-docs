@@ -50,5 +50,5 @@ role_arn,
 tags
 FROM aws.sagemaker.device_fleet
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DeviceFleetName&gt;'
+AND data__Identifier = '<DeviceFleetName>'
 ```

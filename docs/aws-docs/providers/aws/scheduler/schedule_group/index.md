@@ -52,5 +52,5 @@ state,
 tags
 FROM aws.scheduler.schedule_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

@@ -58,5 +58,5 @@ alarm_capabilities,
 tags
 FROM aws.iotevents.alarm_model
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AlarmModelName&gt;'
+AND data__Identifier = '<AlarmModelName>'
 ```

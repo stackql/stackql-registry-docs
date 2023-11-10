@@ -50,6 +50,6 @@ disable_email_notification,
 message
 FROM aws.detective.member_invitation
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GraphArn&gt;'
-AND data__Identifier = '&lt;MemberId&gt;'
+AND data__Identifier = '<GraphArn>'
+AND data__Identifier = '<MemberId>'
 ```

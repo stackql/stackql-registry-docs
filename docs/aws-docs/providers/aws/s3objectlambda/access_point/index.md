@@ -54,5 +54,5 @@ policy_status,
 object_lambda_configuration
 FROM aws.s3objectlambda.access_point
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

@@ -54,6 +54,6 @@ user_settings,
 tags
 FROM aws.sagemaker.user_profile
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserProfileName&gt;'
-AND data__Identifier = '&lt;DomainId&gt;'
+AND data__Identifier = '<UserProfileName>'
+AND data__Identifier = '<DomainId>'
 ```

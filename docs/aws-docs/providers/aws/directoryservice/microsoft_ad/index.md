@@ -60,5 +60,5 @@ short_name,
 vpc_settings
 FROM aws.directoryservice.microsoft_ad
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

@@ -68,5 +68,5 @@ version,
 tags
 FROM aws.iot.fleet_metric
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MetricName&gt;'
+AND data__Identifier = '<MetricName>'
 ```

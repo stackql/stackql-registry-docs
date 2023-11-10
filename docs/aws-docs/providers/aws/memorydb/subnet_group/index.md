@@ -50,5 +50,5 @@ tags,
 a_rn
 FROM aws.memorydb.subnet_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SubnetGroupName&gt;'
+AND data__Identifier = '<SubnetGroupName>'
 ```

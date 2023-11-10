@@ -58,6 +58,6 @@ arn,
 tags
 FROM aws.eks.addon
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterName&gt;'
-AND data__Identifier = '&lt;AddonName&gt;'
+AND data__Identifier = '<ClusterName>'
+AND data__Identifier = '<AddonName>'
 ```

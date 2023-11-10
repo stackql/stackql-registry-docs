@@ -54,5 +54,5 @@ id,
 principal
 FROM aws.events.event_bus_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

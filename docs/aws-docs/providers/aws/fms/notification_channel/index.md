@@ -44,5 +44,5 @@ sns_role_name,
 sns_topic_arn
 FROM aws.fms.notification_channel
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SnsTopicArn&gt;'
+AND data__Identifier = '<SnsTopicArn>'
 ```

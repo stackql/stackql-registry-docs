@@ -46,5 +46,5 @@ instance_id,
 service_id
 FROM aws.servicediscovery.instance
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceId&gt;'
+AND data__Identifier = '<InstanceId>'
 ```

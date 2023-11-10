@@ -56,5 +56,5 @@ asset_hierarchies,
 tags
 FROM aws.iotsitewise.asset
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssetId&gt;'
+AND data__Identifier = '<AssetId>'
 ```

@@ -48,5 +48,5 @@ kernel_gateway_image_config,
 tags
 FROM aws.sagemaker.app_image_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppImageConfigName&gt;'
+AND data__Identifier = '<AppImageConfigName>'
 ```

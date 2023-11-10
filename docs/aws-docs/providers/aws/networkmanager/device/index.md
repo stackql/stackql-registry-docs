@@ -62,6 +62,6 @@ type,
 vendor
 FROM aws.networkmanager.device
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalNetworkId&gt;'
-AND data__Identifier = '&lt;DeviceId&gt;'
+AND data__Identifier = '<GlobalNetworkId>'
+AND data__Identifier = '<DeviceId>'
 ```

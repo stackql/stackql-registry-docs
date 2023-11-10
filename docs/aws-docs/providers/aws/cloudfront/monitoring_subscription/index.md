@@ -44,5 +44,5 @@ distribution_id,
 monitoring_subscription
 FROM aws.cloudfront.monitoring_subscription
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DistributionId&gt;'
+AND data__Identifier = '<DistributionId>'
 ```

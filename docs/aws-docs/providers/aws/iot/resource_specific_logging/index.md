@@ -48,5 +48,5 @@ log_level,
 target_id
 FROM aws.iot.resource_specific_logging
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TargetId&gt;'
+AND data__Identifier = '<TargetId>'
 ```

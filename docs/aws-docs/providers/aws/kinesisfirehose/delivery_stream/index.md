@@ -68,5 +68,5 @@ http_endpoint_destination_configuration,
 tags
 FROM aws.kinesisfirehose.delivery_stream
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DeliveryStreamName&gt;'
+AND data__Identifier = '<DeliveryStreamName>'
 ```

@@ -54,6 +54,6 @@ created_time,
 last_modified_time
 FROM aws.appstream.entitlement
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StackName&gt;'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<StackName>'
+AND data__Identifier = '<Name>'
 ```

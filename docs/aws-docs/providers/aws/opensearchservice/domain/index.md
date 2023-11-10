@@ -86,5 +86,5 @@ off_peak_window_options,
 software_update_options
 FROM aws.opensearchservice.domain
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
+AND data__Identifier = '<DomainName>'
 ```

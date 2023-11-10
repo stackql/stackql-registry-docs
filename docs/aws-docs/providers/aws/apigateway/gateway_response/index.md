@@ -52,5 +52,5 @@ response_parameters,
 response_templates
 FROM aws.apigateway.gateway_response
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

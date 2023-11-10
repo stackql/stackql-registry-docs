@@ -58,5 +58,5 @@ step_scaling_policy_configuration,
 target_tracking_scaling_policy_configuration
 FROM aws.applicationautoscaling.scaling_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

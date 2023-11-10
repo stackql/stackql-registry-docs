@@ -48,5 +48,5 @@ finding_publishing_frequency,
 service_role
 FROM aws.macie.session
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
+AND data__Identifier = '<AwsAccountId>'
 ```

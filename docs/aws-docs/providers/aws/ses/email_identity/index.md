@@ -64,5 +64,5 @@ dkim_dn_stoken_value2,
 dkim_dn_stoken_value3
 FROM aws.ses.email_identity
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EmailIdentity&gt;'
+AND data__Identifier = '<EmailIdentity>'
 ```

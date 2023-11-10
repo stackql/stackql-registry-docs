@@ -54,6 +54,6 @@ association_type,
 tags
 FROM aws.wisdom.assistant_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssistantAssociationId&gt;'
-AND data__Identifier = '&lt;AssistantId&gt;'
+AND data__Identifier = '<AssistantAssociationId>'
+AND data__Identifier = '<AssistantId>'
 ```

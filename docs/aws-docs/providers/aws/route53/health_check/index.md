@@ -46,5 +46,5 @@ health_check_config,
 health_check_tags
 FROM aws.route53.health_check
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;HealthCheckId&gt;'
+AND data__Identifier = '<HealthCheckId>'
 ```

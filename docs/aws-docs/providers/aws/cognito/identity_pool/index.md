@@ -66,5 +66,5 @@ open_id_connect_provider_ar_ns,
 allow_classic_flow
 FROM aws.cognito.identity_pool
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

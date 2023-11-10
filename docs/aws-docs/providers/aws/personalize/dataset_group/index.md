@@ -50,5 +50,5 @@ role_arn,
 domain
 FROM aws.personalize.dataset_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatasetGroupArn&gt;'
+AND data__Identifier = '<DatasetGroupArn>'
 ```

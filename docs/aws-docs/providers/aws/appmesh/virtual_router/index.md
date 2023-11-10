@@ -58,5 +58,5 @@ spec,
 tags
 FROM aws.appmesh.virtual_router
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

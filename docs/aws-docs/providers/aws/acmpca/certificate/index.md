@@ -58,6 +58,6 @@ certificate,
 arn
 FROM aws.acmpca.certificate
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-AND data__Identifier = '&lt;CertificateAuthorityArn&gt;'
+AND data__Identifier = '<Arn>'
+AND data__Identifier = '<CertificateAuthorityArn>'
 ```

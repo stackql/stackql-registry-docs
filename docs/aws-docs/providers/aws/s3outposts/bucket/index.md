@@ -50,5 +50,5 @@ tags,
 lifecycle_configuration
 FROM aws.s3outposts.bucket
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

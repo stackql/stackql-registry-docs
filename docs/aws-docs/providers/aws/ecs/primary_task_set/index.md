@@ -46,6 +46,6 @@ task_set_id,
 service
 FROM aws.ecs.primary_task_set
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Cluster&gt;'
-AND data__Identifier = '&lt;Service&gt;'
+AND data__Identifier = '<Cluster>'
+AND data__Identifier = '<Service>'
 ```

@@ -46,5 +46,5 @@ dashboard_attributes,
 guardian_attributes
 FROM aws.ses.vdm_attributes
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VdmAttributesResourceId&gt;'
+AND data__Identifier = '<VdmAttributesResourceId>'
 ```

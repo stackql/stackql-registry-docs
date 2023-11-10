@@ -54,5 +54,5 @@ hours_of_operation_arn,
 tags
 FROM aws.connect.hours_of_operation
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;HoursOfOperationArn&gt;'
+AND data__Identifier = '<HoursOfOperationArn>'
 ```

@@ -52,6 +52,6 @@ api_id,
 name
 FROM aws.apigatewayv2.model
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiId&gt;'
-AND data__Identifier = '&lt;ModelId&gt;'
+AND data__Identifier = '<ApiId>'
+AND data__Identifier = '<ModelId>'
 ```

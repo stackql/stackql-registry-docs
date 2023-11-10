@@ -50,5 +50,5 @@ handle,
 timeout
 FROM aws.cloudformation.wait_condition
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

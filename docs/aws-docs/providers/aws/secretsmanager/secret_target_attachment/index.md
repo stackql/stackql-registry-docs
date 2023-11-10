@@ -48,5 +48,5 @@ target_type,
 target_id
 FROM aws.secretsmanager.secret_target_attachment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

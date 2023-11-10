@@ -56,5 +56,5 @@ source_ur_i,
 tags
 FROM aws.appintegrations.data_integration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

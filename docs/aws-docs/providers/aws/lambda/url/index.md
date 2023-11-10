@@ -54,5 +54,5 @@ function_url,
 cors
 FROM aws.lambda.url
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FunctionArn&gt;'
+AND data__Identifier = '<FunctionArn>'
 ```

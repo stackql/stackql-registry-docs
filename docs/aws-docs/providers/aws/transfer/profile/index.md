@@ -52,5 +52,5 @@ arn,
 profile_id
 FROM aws.transfer.profile
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProfileId&gt;'
+AND data__Identifier = '<ProfileId>'
 ```

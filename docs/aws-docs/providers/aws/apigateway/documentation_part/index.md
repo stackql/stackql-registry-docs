@@ -48,6 +48,6 @@ properties,
 rest_api_id
 FROM aws.apigateway.documentation_part
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DocumentationPartId&gt;'
-AND data__Identifier = '&lt;RestApiId&gt;'
+AND data__Identifier = '<DocumentationPartId>'
+AND data__Identifier = '<RestApiId>'
 ```

@@ -52,5 +52,5 @@ parameters,
 a_rn
 FROM aws.memorydb.parameter_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ParameterGroupName&gt;'
+AND data__Identifier = '<ParameterGroupName>'
 ```

@@ -52,5 +52,5 @@ last_name,
 authentication_type
 FROM aws.appstream.user
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

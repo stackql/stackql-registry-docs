@@ -64,5 +64,5 @@ location_arn,
 location_uri
 FROM aws.datasync.location_object_storage
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationArn&gt;'
+AND data__Identifier = '<LocationArn>'
 ```

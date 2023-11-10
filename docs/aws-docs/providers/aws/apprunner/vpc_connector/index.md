@@ -52,5 +52,5 @@ security_groups,
 tags
 FROM aws.apprunner.vpc_connector
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VpcConnectorArn&gt;'
+AND data__Identifier = '<VpcConnectorArn>'
 ```

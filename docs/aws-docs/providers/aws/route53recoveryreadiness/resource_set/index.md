@@ -50,5 +50,5 @@ resource_set_type,
 tags
 FROM aws.route53recoveryreadiness.resource_set
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceSetName&gt;'
+AND data__Identifier = '<ResourceSetName>'
 ```

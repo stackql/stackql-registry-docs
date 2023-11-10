@@ -56,5 +56,5 @@ status,
 tags
 FROM aws.connect.contact_flow_module
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ContactFlowModuleArn&gt;'
+AND data__Identifier = '<ContactFlowModuleArn>'
 ```

@@ -48,6 +48,6 @@ member_id,
 membership_id
 FROM aws.identitystore.group_membership
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MembershipId&gt;'
-AND data__Identifier = '&lt;IdentityStoreId&gt;'
+AND data__Identifier = '<MembershipId>'
+AND data__Identifier = '<IdentityStoreId>'
 ```

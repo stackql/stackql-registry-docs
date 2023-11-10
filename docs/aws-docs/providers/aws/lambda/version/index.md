@@ -52,5 +52,5 @@ code_sha256,
 version
 FROM aws.lambda.version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

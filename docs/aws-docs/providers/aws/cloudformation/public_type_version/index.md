@@ -56,5 +56,5 @@ log_delivery_bucket,
 type
 FROM aws.cloudformation.public_type_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PublicTypeArn&gt;'
+AND data__Identifier = '<PublicTypeArn>'
 ```

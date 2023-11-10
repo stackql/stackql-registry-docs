@@ -58,5 +58,5 @@ retention_period,
 tags
 FROM aws.iotanalytics.dataset
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatasetName&gt;'
+AND data__Identifier = '<DatasetName>'
 ```

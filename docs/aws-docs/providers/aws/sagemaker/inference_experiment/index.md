@@ -76,5 +76,5 @@ status_reason,
 desired_state
 FROM aws.sagemaker.inference_experiment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

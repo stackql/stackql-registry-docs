@@ -52,5 +52,5 @@ secret_id,
 hosted_rotation_lambda
 FROM aws.secretsmanager.rotation_schedule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

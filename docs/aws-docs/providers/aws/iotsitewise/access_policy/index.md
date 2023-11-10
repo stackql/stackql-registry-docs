@@ -50,5 +50,5 @@ access_policy_permission,
 access_policy_resource
 FROM aws.iotsitewise.access_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccessPolicyId&gt;'
+AND data__Identifier = '<AccessPolicyId>'
 ```

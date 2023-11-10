@@ -64,5 +64,5 @@ error_message,
 tags
 FROM aws.iotfleethub.application
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationId&gt;'
+AND data__Identifier = '<ApplicationId>'
 ```

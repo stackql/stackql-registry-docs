@@ -52,5 +52,5 @@ publisher_profile,
 identity_provider
 FROM aws.cloudformation.publisher
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PublisherId&gt;'
+AND data__Identifier = '<PublisherId>'
 ```

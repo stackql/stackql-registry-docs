@@ -50,5 +50,5 @@ status,
 cluster_arn
 FROM aws.route53recoverycontrol.routing_control
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RoutingControlArn&gt;'
+AND data__Identifier = '<RoutingControlArn>'
 ```

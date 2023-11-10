@@ -46,5 +46,5 @@ master_id,
 invitation_id
 FROM aws.guardduty.master
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MasterId&gt;'
+AND data__Identifier = '<MasterId>'
 ```

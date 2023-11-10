@@ -54,5 +54,5 @@ tags,
 name
 FROM aws.wisdom.assistant
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssistantId&gt;'
+AND data__Identifier = '<AssistantId>'
 ```

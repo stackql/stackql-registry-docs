@@ -60,5 +60,5 @@ dimensional_value_count,
 resource_tags
 FROM aws.ce.anomaly_monitor
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MonitorArn&gt;'
+AND data__Identifier = '<MonitorArn>'
 ```

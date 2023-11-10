@@ -54,5 +54,5 @@ scheduling_policy_arn,
 tags
 FROM aws.batch.job_queue
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;JobQueueArn&gt;'
+AND data__Identifier = '<JobQueueArn>'
 ```

@@ -52,5 +52,5 @@ arn,
 api_id
 FROM aws.appsync.api_key
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiKeyId&gt;'
+AND data__Identifier = '<ApiKeyId>'
 ```

@@ -44,5 +44,5 @@ arn,
 project_name
 FROM aws.rekognition.project
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProjectName&gt;'
+AND data__Identifier = '<ProjectName>'
 ```

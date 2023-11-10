@@ -66,5 +66,5 @@ adjustment_type,
 arn
 FROM aws.autoscaling.scaling_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

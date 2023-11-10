@@ -48,5 +48,5 @@ usage_plan_id,
 id
 FROM aws.apigateway.usage_plan_key
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

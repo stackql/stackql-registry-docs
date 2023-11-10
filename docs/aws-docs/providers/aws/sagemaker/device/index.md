@@ -46,5 +46,5 @@ device,
 tags
 FROM aws.sagemaker.device
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Device/DeviceName&gt;'
+AND data__Identifier = '<Device/DeviceName>'
 ```

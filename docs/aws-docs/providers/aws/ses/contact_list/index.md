@@ -48,5 +48,5 @@ topics,
 tags
 FROM aws.ses.contact_list
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ContactListName&gt;'
+AND data__Identifier = '<ContactListName>'
 ```

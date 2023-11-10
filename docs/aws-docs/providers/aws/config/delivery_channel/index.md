@@ -54,5 +54,5 @@ s3_kms_key_arn,
 name
 FROM aws.config.delivery_channel
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

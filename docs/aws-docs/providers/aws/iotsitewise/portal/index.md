@@ -64,5 +64,5 @@ alarms,
 tags
 FROM aws.iotsitewise.portal
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PortalId&gt;'
+AND data__Identifier = '<PortalId>'
 ```

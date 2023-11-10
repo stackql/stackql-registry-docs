@@ -80,5 +80,5 @@ use_ebs_optimized_instances,
 volume_configurations
 FROM aws.opsworks.layer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

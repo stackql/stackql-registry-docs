@@ -62,5 +62,5 @@ user_arn,
 tags
 FROM aws.connect.user
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserArn&gt;'
+AND data__Identifier = '<UserArn>'
 ```

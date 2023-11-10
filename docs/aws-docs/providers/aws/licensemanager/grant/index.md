@@ -56,5 +56,5 @@ principals,
 status
 FROM aws.licensemanager.grant
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GrantArn&gt;'
+AND data__Identifier = '<GrantArn>'
 ```

@@ -52,5 +52,5 @@ conditions,
 is_default
 FROM aws.elasticloadbalancingv2.listener_rule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleArn&gt;'
+AND data__Identifier = '<RuleArn>'
 ```

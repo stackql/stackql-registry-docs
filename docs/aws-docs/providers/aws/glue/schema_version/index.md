@@ -46,5 +46,5 @@ schema_definition,
 version_id
 FROM aws.glue.schema_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VersionId&gt;'
+AND data__Identifier = '<VersionId>'
 ```

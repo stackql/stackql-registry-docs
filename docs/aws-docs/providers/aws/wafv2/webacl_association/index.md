@@ -44,6 +44,6 @@ resource_arn,
 web_ac_larn
 FROM aws.wafv2.webacl_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceArn&gt;'
-AND data__Identifier = '&lt;WebACLArn&gt;'
+AND data__Identifier = '<ResourceArn>'
+AND data__Identifier = '<WebACLArn>'
 ```

@@ -50,5 +50,5 @@ network_configuration,
 invitation_id
 FROM aws.managedblockchain.member
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MemberId&gt;'
+AND data__Identifier = '<MemberId>'
 ```

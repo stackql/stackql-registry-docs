@@ -52,5 +52,5 @@ arn,
 tags
 FROM aws.elasticache.user_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserGroupId&gt;'
+AND data__Identifier = '<UserGroupId>'
 ```

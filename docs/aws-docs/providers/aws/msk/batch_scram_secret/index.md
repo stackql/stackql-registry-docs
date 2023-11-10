@@ -44,5 +44,5 @@ cluster_arn,
 secret_arn_list
 FROM aws.msk.batch_scram_secret
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterArn&gt;'
+AND data__Identifier = '<ClusterArn>'
 ```

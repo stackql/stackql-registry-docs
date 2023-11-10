@@ -52,5 +52,5 @@ report_delivery_channel,
 report_setting
 FROM aws.backup.report_plan
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ReportPlanArn&gt;'
+AND data__Identifier = '<ReportPlanArn>'
 ```

@@ -72,6 +72,6 @@ tags,
 theme_arn
 FROM aws.quicksight.analysis
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AnalysisId&gt;'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
+AND data__Identifier = '<AnalysisId>'
+AND data__Identifier = '<AwsAccountId>'
 ```

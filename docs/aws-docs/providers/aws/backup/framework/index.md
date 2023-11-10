@@ -56,5 +56,5 @@ framework_status,
 framework_tags
 FROM aws.backup.framework
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FrameworkArn&gt;'
+AND data__Identifier = '<FrameworkArn>'
 ```

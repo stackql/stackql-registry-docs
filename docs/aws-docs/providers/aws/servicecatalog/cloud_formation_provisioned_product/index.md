@@ -72,5 +72,5 @@ cloudformation_stack_arn,
 outputs
 FROM aws.servicecatalog.cloud_formation_provisioned_product
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProvisionedProductId&gt;'
+AND data__Identifier = '<ProvisionedProductId>'
 ```

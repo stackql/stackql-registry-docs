@@ -50,5 +50,5 @@ parameters,
 tags
 FROM aws.redshift.cluster_parameter_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ParameterGroupName&gt;'
+AND data__Identifier = '<ParameterGroupName>'
 ```

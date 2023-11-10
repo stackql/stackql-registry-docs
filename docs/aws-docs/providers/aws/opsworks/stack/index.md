@@ -92,5 +92,5 @@ use_opsworks_security_groups,
 vpc_id
 FROM aws.opsworks.stack
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

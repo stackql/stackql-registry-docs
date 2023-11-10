@@ -52,6 +52,6 @@ global_network_id,
 location
 FROM aws.networkmanager.site
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalNetworkId&gt;'
-AND data__Identifier = '&lt;SiteId&gt;'
+AND data__Identifier = '<GlobalNetworkId>'
+AND data__Identifier = '<SiteId>'
 ```

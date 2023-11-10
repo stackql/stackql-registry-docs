@@ -74,5 +74,5 @@ tags,
 provisioning_artifact_parameters
 FROM aws.servicecatalog.cloud_formation_product
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

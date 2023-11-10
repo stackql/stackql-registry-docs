@@ -48,7 +48,7 @@ session_policy_arn,
 studio_id
 FROM aws.emr.studio_session_mapping
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StudioId&gt;'
-AND data__Identifier = '&lt;IdentityType&gt;'
-AND data__Identifier = '&lt;IdentityName&gt;'
+AND data__Identifier = '<StudioId>'
+AND data__Identifier = '<IdentityType>'
+AND data__Identifier = '<IdentityName>'
 ```

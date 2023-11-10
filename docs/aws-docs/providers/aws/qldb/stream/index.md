@@ -58,6 +58,6 @@ arn,
 id
 FROM aws.qldb.stream
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LedgerName&gt;'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<LedgerName>'
+AND data__Identifier = '<Id>'
 ```

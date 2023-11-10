@@ -48,6 +48,6 @@ log_group_name,
 metric_transformations
 FROM aws.logs.metric_filter
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LogGroupName&gt;'
-AND data__Identifier = '&lt;FilterName&gt;'
+AND data__Identifier = '<LogGroupName>'
+AND data__Identifier = '<FilterName>'
 ```

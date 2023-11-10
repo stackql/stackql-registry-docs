@@ -48,5 +48,5 @@ input_name,
 tags
 FROM aws.iotevents.input
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InputName&gt;'
+AND data__Identifier = '<InputName>'
 ```

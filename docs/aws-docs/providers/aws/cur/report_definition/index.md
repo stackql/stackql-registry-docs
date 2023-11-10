@@ -64,5 +64,5 @@ report_versioning,
 billing_view_arn
 FROM aws.cur.report_definition
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ReportName&gt;'
+AND data__Identifier = '<ReportName>'
 ```

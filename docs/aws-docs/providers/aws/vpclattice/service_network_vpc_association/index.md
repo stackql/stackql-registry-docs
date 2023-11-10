@@ -64,5 +64,5 @@ vpc_identifier,
 tags
 FROM aws.vpclattice.service_network_vpc_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

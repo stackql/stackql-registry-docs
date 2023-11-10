@@ -66,5 +66,5 @@ status,
 version
 FROM aws.licensemanager.license
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LicenseArn&gt;'
+AND data__Identifier = '<LicenseArn>'
 ```

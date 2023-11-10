@@ -54,5 +54,5 @@ dashboard_arn,
 tags
 FROM aws.iotsitewise.dashboard
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DashboardId&gt;'
+AND data__Identifier = '<DashboardId>'
 ```

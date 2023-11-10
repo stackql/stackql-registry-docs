@@ -68,5 +68,5 @@ superuser_parameters,
 data_bundles
 FROM aws.finspace.environment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentId&gt;'
+AND data__Identifier = '<EnvironmentId>'
 ```

@@ -54,6 +54,6 @@ principal_identifier,
 resource_identifier
 FROM aws.lakeformation.principal_permissions
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PrincipalIdentifier&gt;'
-AND data__Identifier = '&lt;ResourceIdentifier&gt;'
+AND data__Identifier = '<PrincipalIdentifier>'
+AND data__Identifier = '<ResourceIdentifier>'
 ```

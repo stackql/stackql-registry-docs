@@ -44,6 +44,6 @@ origin,
 instance_id
 FROM aws.connect.approved_origin
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceId&gt;'
-AND data__Identifier = '&lt;Origin&gt;'
+AND data__Identifier = '<InstanceId>'
+AND data__Identifier = '<Origin>'
 ```

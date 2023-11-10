@@ -66,5 +66,5 @@ treat_missing_data,
 state
 FROM aws.lightsail.alarm
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AlarmName&gt;'
+AND data__Identifier = '<AlarmName>'
 ```

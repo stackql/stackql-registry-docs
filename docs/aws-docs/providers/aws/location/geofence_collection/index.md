@@ -58,5 +58,5 @@ pricing_plan_data_source,
 update_time
 FROM aws.location.geofence_collection
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CollectionName&gt;'
+AND data__Identifier = '<CollectionName>'
 ```

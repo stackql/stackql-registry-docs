@@ -64,5 +64,5 @@ model_card_processing_status,
 tags
 FROM aws.sagemaker.model_card
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ModelCardName&gt;'
+AND data__Identifier = '<ModelCardName>'
 ```

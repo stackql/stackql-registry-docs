@@ -66,5 +66,5 @@ max_city_networks_to_monitor,
 internet_measurements_log_delivery
 FROM aws.internetmonitor.monitor
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MonitorName&gt;'
+AND data__Identifier = '<MonitorName>'
 ```

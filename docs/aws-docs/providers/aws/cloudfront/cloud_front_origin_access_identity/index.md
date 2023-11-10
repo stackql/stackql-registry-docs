@@ -46,5 +46,5 @@ id,
 s3_canonical_user_id
 FROM aws.cloudfront.cloud_front_origin_access_identity
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

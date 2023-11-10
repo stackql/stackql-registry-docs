@@ -60,5 +60,5 @@ authentication_mode,
 tags
 FROM aws.elasticache.user
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserId&gt;'
+AND data__Identifier = '<UserId>'
 ```

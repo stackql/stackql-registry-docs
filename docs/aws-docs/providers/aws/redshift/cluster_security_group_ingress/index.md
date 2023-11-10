@@ -50,5 +50,5 @@ e_c2_security_group_name,
 e_c2_security_group_owner_id
 FROM aws.redshift.cluster_security_group_ingress
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

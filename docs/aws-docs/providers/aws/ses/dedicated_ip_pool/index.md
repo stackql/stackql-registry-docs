@@ -44,5 +44,5 @@ pool_name,
 scaling_mode
 FROM aws.ses.dedicated_ip_pool
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PoolName&gt;'
+AND data__Identifier = '<PoolName>'
 ```

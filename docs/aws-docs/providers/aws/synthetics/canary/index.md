@@ -74,5 +74,5 @@ visual_reference,
 delete_lambda_resources_on_canary_deletion
 FROM aws.synthetics.canary
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

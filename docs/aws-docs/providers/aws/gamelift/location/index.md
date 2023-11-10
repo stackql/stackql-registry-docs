@@ -46,5 +46,5 @@ location_arn,
 tags
 FROM aws.gamelift.location
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationName&gt;'
+AND data__Identifier = '<LocationName>'
 ```

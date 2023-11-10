@@ -52,6 +52,6 @@ role_arn,
 distribution
 FROM aws.logs.subscription_filter
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FilterName&gt;'
-AND data__Identifier = '&lt;LogGroupName&gt;'
+AND data__Identifier = '<FilterName>'
+AND data__Identifier = '<LogGroupName>'
 ```

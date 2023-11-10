@@ -100,5 +100,5 @@ health_check_type,
 max_instance_lifetime
 FROM aws.autoscaling.auto_scaling_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

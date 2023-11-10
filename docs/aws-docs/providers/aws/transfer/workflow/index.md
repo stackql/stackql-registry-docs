@@ -52,5 +52,5 @@ workflow_id,
 arn
 FROM aws.transfer.workflow
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkflowId&gt;'
+AND data__Identifier = '<WorkflowId>'
 ```

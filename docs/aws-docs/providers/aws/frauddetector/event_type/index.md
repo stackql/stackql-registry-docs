@@ -58,5 +58,5 @@ created_time,
 last_updated_time
 FROM aws.frauddetector.event_type
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

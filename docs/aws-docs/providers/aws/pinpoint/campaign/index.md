@@ -80,5 +80,5 @@ tags,
 treatment_name
 FROM aws.pinpoint.campaign
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CampaignId&gt;'
+AND data__Identifier = '<CampaignId>'
 ```

@@ -56,5 +56,5 @@ namespace,
 single_metric_anomaly_detector
 FROM aws.cloudwatch.anomaly_detector
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

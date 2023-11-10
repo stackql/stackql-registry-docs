@@ -54,5 +54,5 @@ tags,
 parallelism_configuration
 FROM aws.sagemaker.pipeline
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PipelineName&gt;'
+AND data__Identifier = '<PipelineName>'
 ```

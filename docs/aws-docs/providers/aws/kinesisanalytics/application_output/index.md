@@ -46,5 +46,5 @@ application_name,
 output
 FROM aws.kinesisanalytics.application_output
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

@@ -58,5 +58,5 @@ s3,
 tags
 FROM aws.fsx.data_repository_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssociationId&gt;'
+AND data__Identifier = '<AssociationId>'
 ```

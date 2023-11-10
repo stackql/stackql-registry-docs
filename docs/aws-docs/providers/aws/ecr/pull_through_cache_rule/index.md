@@ -44,5 +44,5 @@ ecr_repository_prefix,
 upstream_registry_url
 FROM aws.ecr.pull_through_cache_rule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EcrRepositoryPrefix&gt;'
+AND data__Identifier = '<EcrRepositoryPrefix>'
 ```

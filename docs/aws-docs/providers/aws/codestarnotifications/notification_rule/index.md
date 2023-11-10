@@ -62,5 +62,5 @@ name,
 arn
 FROM aws.codestarnotifications.notification_rule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

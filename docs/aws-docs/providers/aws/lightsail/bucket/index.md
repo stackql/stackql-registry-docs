@@ -60,5 +60,5 @@ url,
 able_to_update_bundle
 FROM aws.lightsail.bucket
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BucketName&gt;'
+AND data__Identifier = '<BucketName>'
 ```

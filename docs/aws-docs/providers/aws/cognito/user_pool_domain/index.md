@@ -50,5 +50,5 @@ domain,
 custom_domain_config
 FROM aws.cognito.user_pool_domain
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

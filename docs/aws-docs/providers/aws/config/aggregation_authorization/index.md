@@ -48,6 +48,6 @@ aggregation_authorization_arn,
 tags
 FROM aws.config.aggregation_authorization
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AuthorizedAccountId&gt;'
-AND data__Identifier = '&lt;AuthorizedAwsRegion&gt;'
+AND data__Identifier = '<AuthorizedAccountId>'
+AND data__Identifier = '<AuthorizedAwsRegion>'
 ```

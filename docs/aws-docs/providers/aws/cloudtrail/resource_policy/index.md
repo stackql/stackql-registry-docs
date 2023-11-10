@@ -44,5 +44,5 @@ resource_arn,
 resource_policy
 FROM aws.cloudtrail.resource_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceArn&gt;'
+AND data__Identifier = '<ResourceArn>'
 ```

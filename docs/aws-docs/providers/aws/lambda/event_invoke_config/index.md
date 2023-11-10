@@ -52,5 +52,5 @@ id,
 maximum_event_age_in_seconds
 FROM aws.lambda.event_invoke_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

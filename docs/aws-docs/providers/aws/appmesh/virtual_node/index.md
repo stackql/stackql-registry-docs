@@ -58,5 +58,5 @@ virtual_node_name,
 tags
 FROM aws.appmesh.virtual_node
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

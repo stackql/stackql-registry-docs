@@ -62,5 +62,5 @@ arn,
 key_id
 FROM aws.kms.key
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;KeyId&gt;'
+AND data__Identifier = '<KeyId>'
 ```

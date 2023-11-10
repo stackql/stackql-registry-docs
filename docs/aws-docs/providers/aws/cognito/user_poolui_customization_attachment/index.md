@@ -48,5 +48,5 @@ user_pool_id,
 client_id
 FROM aws.cognito.user_poolui_customization_attachment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

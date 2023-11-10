@@ -50,5 +50,5 @@ ip_address,
 static_ip_arn
 FROM aws.lightsail.static_ip
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StaticIpName&gt;'
+AND data__Identifier = '<StaticIpName>'
 ```

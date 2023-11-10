@@ -50,5 +50,5 @@ organization_aggregation_source,
 tags
 FROM aws.config.configuration_aggregator
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConfigurationAggregatorName&gt;'
+AND data__Identifier = '<ConfigurationAggregatorName>'
 ```

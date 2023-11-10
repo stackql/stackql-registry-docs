@@ -86,5 +86,5 @@ target_group_name,
 tags
 FROM aws.elasticloadbalancingv2.target_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TargetGroupArn&gt;'
+AND data__Identifier = '<TargetGroupArn>'
 ```

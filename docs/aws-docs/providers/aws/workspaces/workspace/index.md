@@ -58,5 +58,5 @@ volume_encryption_key,
 workspace_properties
 FROM aws.workspaces.workspace
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

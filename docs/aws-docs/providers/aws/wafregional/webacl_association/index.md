@@ -46,5 +46,5 @@ resource_arn,
 web_ac_lid
 FROM aws.wafregional.webacl_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

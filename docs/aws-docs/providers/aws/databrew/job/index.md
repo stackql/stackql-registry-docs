@@ -80,5 +80,5 @@ profile_configuration,
 validation_configurations
 FROM aws.databrew.job
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

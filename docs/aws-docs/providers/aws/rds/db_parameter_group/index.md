@@ -50,5 +50,5 @@ parameters,
 tags
 FROM aws.rds.db_parameter_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBParameterGroupName&gt;'
+AND data__Identifier = '<DBParameterGroupName>'
 ```

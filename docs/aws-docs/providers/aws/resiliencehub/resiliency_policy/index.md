@@ -54,5 +54,5 @@ policy_arn,
 tags
 FROM aws.resiliencehub.resiliency_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PolicyArn&gt;'
+AND data__Identifier = '<PolicyArn>'
 ```

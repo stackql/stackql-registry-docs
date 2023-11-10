@@ -46,6 +46,6 @@ instance_id,
 association_id
 FROM aws.connect.security_key
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceId&gt;'
-AND data__Identifier = '&lt;AssociationId&gt;'
+AND data__Identifier = '<InstanceId>'
+AND data__Identifier = '<AssociationId>'
 ```

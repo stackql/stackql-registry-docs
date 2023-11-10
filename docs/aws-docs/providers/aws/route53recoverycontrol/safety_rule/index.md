@@ -56,5 +56,5 @@ rule_config,
 tags
 FROM aws.route53recoverycontrol.safety_rule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SafetyRuleArn&gt;'
+AND data__Identifier = '<SafetyRuleArn>'
 ```

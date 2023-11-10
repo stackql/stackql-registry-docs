@@ -60,5 +60,5 @@ certificate,
 token_key_id
 FROM aws.pinpoint.apns_voip_channel
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

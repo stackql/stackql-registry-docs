@@ -50,5 +50,5 @@ catalog_id,
 partition_input
 FROM aws.glue.partition
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

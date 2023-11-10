@@ -66,7 +66,7 @@ resource_id,
 rest_api_id
 FROM aws.apigateway.method
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;ResourceId&gt;'
-AND data__Identifier = '&lt;HttpMethod&gt;'
+AND data__Identifier = '<RestApiId>'
+AND data__Identifier = '<ResourceId>'
+AND data__Identifier = '<HttpMethod>'
 ```

@@ -60,5 +60,5 @@ sse_configuration,
 tags
 FROM aws.healthlake.fhir_datastore
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatastoreId&gt;'
+AND data__Identifier = '<DatastoreId>'
 ```

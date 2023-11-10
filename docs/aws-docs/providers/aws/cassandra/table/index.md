@@ -62,6 +62,6 @@ default_time_to_live,
 encryption_specification
 FROM aws.cassandra.table
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;KeyspaceName&gt;'
-AND data__Identifier = '&lt;TableName&gt;'
+AND data__Identifier = '<KeyspaceName>'
+AND data__Identifier = '<TableName>'
 ```

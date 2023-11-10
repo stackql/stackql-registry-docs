@@ -58,5 +58,5 @@ enable_caching_for_http,
 tags
 FROM aws.iot.authorizer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AuthorizerName&gt;'
+AND data__Identifier = '<AuthorizerName>'
 ```

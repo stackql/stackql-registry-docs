@@ -72,5 +72,5 @@ resources_clean_up,
 tags
 FROM aws.fms.policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

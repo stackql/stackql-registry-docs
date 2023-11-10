@@ -62,5 +62,5 @@ size,
 vpc_settings
 FROM aws.directoryservice.simple_ad
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DirectoryId&gt;'
+AND data__Identifier = '<DirectoryId>'
 ```

@@ -52,5 +52,5 @@ schema_arn,
 dataset_import_job
 FROM aws.personalize.dataset
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatasetArn&gt;'
+AND data__Identifier = '<DatasetArn>'
 ```

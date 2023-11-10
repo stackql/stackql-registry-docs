@@ -66,5 +66,5 @@ backup_policy,
 availability_zone_name
 FROM aws.efs.file_system
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FileSystemId&gt;'
+AND data__Identifier = '<FileSystemId>'
 ```

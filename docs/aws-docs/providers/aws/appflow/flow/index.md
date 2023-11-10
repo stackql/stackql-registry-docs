@@ -60,5 +60,5 @@ tags,
 metadata_catalog_config
 FROM aws.appflow.flow
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FlowName&gt;'
+AND data__Identifier = '<FlowName>'
 ```

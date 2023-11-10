@@ -52,5 +52,5 @@ quick_connect_arn,
 tags
 FROM aws.connect.quick_connect
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;QuickConnectArn&gt;'
+AND data__Identifier = '<QuickConnectArn>'
 ```

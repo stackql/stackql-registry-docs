@@ -74,5 +74,5 @@ sns_topic_arn,
 insight_selectors
 FROM aws.cloudtrail.trail
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrailName&gt;'
+AND data__Identifier = '<TrailName>'
 ```

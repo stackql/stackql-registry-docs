@@ -52,5 +52,5 @@ status,
 tags
 FROM aws.lightsail.certificate
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateName&gt;'
+AND data__Identifier = '<CertificateName>'
 ```

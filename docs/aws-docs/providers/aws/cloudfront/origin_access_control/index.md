@@ -44,5 +44,5 @@ origin_access_control_config,
 id
 FROM aws.cloudfront.origin_access_control
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

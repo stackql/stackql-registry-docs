@@ -62,5 +62,5 @@ unmanagedv_cpus,
 eks_configuration
 FROM aws.batch.compute_environment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ComputeEnvironmentArn&gt;'
+AND data__Identifier = '<ComputeEnvironmentArn>'
 ```

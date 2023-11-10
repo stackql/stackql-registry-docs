@@ -44,5 +44,5 @@ resource_arn,
 policy
 FROM aws.vpclattice.resource_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceArn&gt;'
+AND data__Identifier = '<ResourceArn>'
 ```

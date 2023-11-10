@@ -50,5 +50,5 @@ d_bcluster_parameter_group_name,
 tags
 FROM aws.rds.db_cluster_parameter_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBClusterParameterGroupName&gt;'
+AND data__Identifier = '<DBClusterParameterGroupName>'
 ```

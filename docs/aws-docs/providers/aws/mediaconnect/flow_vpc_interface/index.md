@@ -52,6 +52,6 @@ subnet_id,
 network_interface_ids
 FROM aws.mediaconnect.flow_vpc_interface
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FlowArn&gt;'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<FlowArn>'
+AND data__Identifier = '<Name>'
 ```

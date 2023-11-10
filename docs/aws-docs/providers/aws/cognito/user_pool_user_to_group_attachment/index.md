@@ -48,5 +48,5 @@ user_pool_id,
 username
 FROM aws.cognito.user_pool_user_to_group_attachment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

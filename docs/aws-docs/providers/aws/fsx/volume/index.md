@@ -58,5 +58,5 @@ tags,
 name
 FROM aws.fsx.volume
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VolumeId&gt;'
+AND data__Identifier = '<VolumeId>'
 ```

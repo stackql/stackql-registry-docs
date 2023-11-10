@@ -54,5 +54,5 @@ creation_time,
 model_package_group_status
 FROM aws.sagemaker.model_package_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ModelPackageGroupArn&gt;'
+AND data__Identifier = '<ModelPackageGroupArn>'
 ```

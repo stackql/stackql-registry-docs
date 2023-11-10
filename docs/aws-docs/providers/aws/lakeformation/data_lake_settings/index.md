@@ -58,5 +58,5 @@ authorized_session_tag_value_list,
 trusted_resource_owners
 FROM aws.lakeformation.data_lake_settings
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

@@ -50,5 +50,5 @@ parent_readiness_scopes,
 tags
 FROM aws.route53recoveryreadiness.cell
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CellName&gt;'
+AND data__Identifier = '<CellName>'
 ```

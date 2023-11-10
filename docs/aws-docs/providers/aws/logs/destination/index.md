@@ -50,5 +50,5 @@ role_arn,
 target_arn
 FROM aws.logs.destination
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DestinationName&gt;'
+AND data__Identifier = '<DestinationName>'
 ```

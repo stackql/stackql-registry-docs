@@ -48,5 +48,5 @@ id,
 role_mappings
 FROM aws.cognito.identity_pool_role_attachment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

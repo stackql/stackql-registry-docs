@@ -54,5 +54,5 @@ name,
 stage
 FROM aws.cloudfront.function
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FunctionARN&gt;'
+AND data__Identifier = '<FunctionARN>'
 ```

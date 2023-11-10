@@ -48,6 +48,6 @@ description,
 source_bundle
 FROM aws.elasticbeanstalk.application_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationName&gt;'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<ApplicationName>'
+AND data__Identifier = '<Id>'
 ```

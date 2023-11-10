@@ -66,7 +66,7 @@ available_labels,
 consumed_labels
 FROM aws.wafv2.rule_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;Scope&gt;'
+AND data__Identifier = '<Name>'
+AND data__Identifier = '<Id>'
+AND data__Identifier = '<Scope>'
 ```

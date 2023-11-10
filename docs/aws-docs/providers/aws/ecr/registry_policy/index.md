@@ -44,5 +44,5 @@ registry_id,
 policy_text
 FROM aws.ecr.registry_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RegistryId&gt;'
+AND data__Identifier = '<RegistryId>'
 ```

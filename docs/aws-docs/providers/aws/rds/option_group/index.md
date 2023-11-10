@@ -52,5 +52,5 @@ option_configurations,
 tags
 FROM aws.rds.option_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;OptionGroupName&gt;'
+AND data__Identifier = '<OptionGroupName>'
 ```

@@ -50,5 +50,5 @@ api_id,
 route
 FROM aws.apigatewayv2.api_gateway_managed_overrides
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

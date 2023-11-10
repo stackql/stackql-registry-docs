@@ -48,5 +48,5 @@ readiness_check_arn,
 tags
 FROM aws.route53recoveryreadiness.readiness_check
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ReadinessCheckName&gt;'
+AND data__Identifier = '<ReadinessCheckName>'
 ```

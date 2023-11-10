@@ -52,5 +52,5 @@ trace_configuration,
 tags
 FROM aws.apprunner.observability_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ObservabilityConfigurationArn&gt;'
+AND data__Identifier = '<ObservabilityConfigurationArn>'
 ```

@@ -52,5 +52,5 @@ arn,
 tags
 FROM aws.codeguruprofiler.profiling_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProfilingGroupName&gt;'
+AND data__Identifier = '<ProfilingGroupName>'
 ```

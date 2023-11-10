@@ -50,5 +50,5 @@ connection_alias_state,
 tags
 FROM aws.workspaces.connection_alias
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AliasId&gt;'
+AND data__Identifier = '<AliasId>'
 ```

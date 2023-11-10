@@ -54,5 +54,5 @@ api_id,
 response_models
 FROM aws.apigatewayv2.route_response
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

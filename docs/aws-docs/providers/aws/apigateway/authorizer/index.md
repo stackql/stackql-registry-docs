@@ -62,6 +62,6 @@ provider_ar_ns,
 type
 FROM aws.apigateway.authorizer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;AuthorizerId&gt;'
+AND data__Identifier = '<RestApiId>'
+AND data__Identifier = '<AuthorizerId>'
 ```

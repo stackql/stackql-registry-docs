@@ -50,5 +50,5 @@ status,
 complete_certificate_chain
 FROM aws.acmpca.certificate_authority_activation
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateAuthorityArn&gt;'
+AND data__Identifier = '<CertificateAuthorityArn>'
 ```

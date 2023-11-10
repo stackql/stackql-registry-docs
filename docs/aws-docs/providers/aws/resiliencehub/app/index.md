@@ -56,5 +56,5 @@ resource_mappings,
 app_assessment_schedule
 FROM aws.resiliencehub.app
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppArn&gt;'
+AND data__Identifier = '<AppArn>'
 ```

@@ -60,7 +60,7 @@ uri_path_route,
 tags
 FROM aws.refactorspaces.route
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentIdentifier&gt;'
-AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
-AND data__Identifier = '&lt;RouteIdentifier&gt;'
+AND data__Identifier = '<EnvironmentIdentifier>'
+AND data__Identifier = '<ApplicationIdentifier>'
+AND data__Identifier = '<RouteIdentifier>'
 ```

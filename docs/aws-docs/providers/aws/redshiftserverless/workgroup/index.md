@@ -62,5 +62,5 @@ tags,
 workgroup
 FROM aws.redshiftserverless.workgroup
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkgroupName&gt;'
+AND data__Identifier = '<WorkgroupName>'
 ```

@@ -52,5 +52,5 @@ id,
 organization_custom_policy_rule_metadata
 FROM aws.config.organization_config_rule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

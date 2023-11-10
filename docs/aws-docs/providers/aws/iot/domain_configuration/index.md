@@ -62,5 +62,5 @@ server_certificates,
 tags
 FROM aws.iot.domain_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainConfigurationName&gt;'
+AND data__Identifier = '<DomainConfigurationName>'
 ```

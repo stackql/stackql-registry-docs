@@ -76,5 +76,5 @@ replication_instance_public_ip_addresses,
 tags
 FROM aws.dms.replication_instance
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

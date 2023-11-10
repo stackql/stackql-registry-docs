@@ -48,6 +48,6 @@ name,
 key_management_service_arn
 FROM aws.route53.key_signing_key
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;HostedZoneId&gt;'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<HostedZoneId>'
+AND data__Identifier = '<Name>'
 ```

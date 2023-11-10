@@ -64,6 +64,6 @@ vpc_ids,
 force
 FROM aws.redshift.endpoint_authorization
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterIdentifier&gt;'
-AND data__Identifier = '&lt;Account&gt;'
+AND data__Identifier = '<ClusterIdentifier>'
+AND data__Identifier = '<Account>'
 ```

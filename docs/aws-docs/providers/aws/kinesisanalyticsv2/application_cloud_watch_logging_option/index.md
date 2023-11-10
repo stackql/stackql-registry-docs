@@ -46,5 +46,5 @@ application_name,
 cloud_watch_logging_option
 FROM aws.kinesisanalyticsv2.application_cloud_watch_logging_option
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

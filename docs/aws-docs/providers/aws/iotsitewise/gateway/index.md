@@ -50,5 +50,5 @@ gateway_id,
 gateway_capability_summaries
 FROM aws.iotsitewise.gateway
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GatewayId&gt;'
+AND data__Identifier = '<GatewayId>'
 ```

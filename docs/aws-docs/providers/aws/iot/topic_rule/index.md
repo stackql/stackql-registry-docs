@@ -48,5 +48,5 @@ topic_rule_payload,
 tags
 FROM aws.iot.topic_rule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleName&gt;'
+AND data__Identifier = '<RuleName>'
 ```

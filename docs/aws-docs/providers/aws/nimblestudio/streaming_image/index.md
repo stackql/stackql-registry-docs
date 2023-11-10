@@ -60,6 +60,6 @@ studio_id,
 tags
 FROM aws.nimblestudio.streaming_image
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StudioId&gt;'
-AND data__Identifier = '&lt;StreamingImageId&gt;'
+AND data__Identifier = '<StudioId>'
+AND data__Identifier = '<StreamingImageId>'
 ```

@@ -54,5 +54,5 @@ id,
 idp_identifiers
 FROM aws.cognito.user_pool_identity_provider
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

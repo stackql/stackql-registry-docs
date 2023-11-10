@@ -52,5 +52,5 @@ image_description,
 tags
 FROM aws.sagemaker.image
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ImageArn&gt;'
+AND data__Identifier = '<ImageArn>'
 ```

@@ -62,5 +62,5 @@ owner_account,
 tags
 FROM aws.networkmanager.core_network
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CoreNetworkId&gt;'
+AND data__Identifier = '<CoreNetworkId>'
 ```

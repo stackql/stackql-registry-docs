@@ -68,5 +68,5 @@ source_ids_list,
 event_categories_list
 FROM aws.redshift.event_subscription
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SubscriptionName&gt;'
+AND data__Identifier = '<SubscriptionName>'
 ```

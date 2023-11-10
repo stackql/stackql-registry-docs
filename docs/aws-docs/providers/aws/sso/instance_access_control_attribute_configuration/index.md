@@ -46,5 +46,5 @@ instance_access_control_attribute_configuration,
 access_control_attributes
 FROM aws.sso.instance_access_control_attribute_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceArn&gt;'
+AND data__Identifier = '<InstanceArn>'
 ```

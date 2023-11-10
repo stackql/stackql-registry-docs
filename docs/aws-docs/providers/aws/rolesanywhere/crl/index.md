@@ -52,5 +52,5 @@ trust_anchor_arn,
 tags
 FROM aws.rolesanywhere.crl
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CrlId&gt;'
+AND data__Identifier = '<CrlId>'
 ```

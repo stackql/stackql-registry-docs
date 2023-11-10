@@ -52,5 +52,5 @@ created_time,
 tags
 FROM aws.panorama.package
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PackageId&gt;'
+AND data__Identifier = '<PackageId>'
 ```

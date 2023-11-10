@@ -64,5 +64,5 @@ configuration,
 tags
 FROM aws.networkmanager.connect_peer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectPeerId&gt;'
+AND data__Identifier = '<ConnectPeerId>'
 ```

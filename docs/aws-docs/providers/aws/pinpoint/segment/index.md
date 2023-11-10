@@ -54,5 +54,5 @@ tags,
 name
 FROM aws.pinpoint.segment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SegmentId&gt;'
+AND data__Identifier = '<SegmentId>'
 ```

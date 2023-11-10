@@ -48,6 +48,6 @@ description,
 policy
 FROM aws.opensearchserverless.access_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Type&gt;'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Type>'
+AND data__Identifier = '<Name>'
 ```

@@ -50,5 +50,5 @@ arn,
 tags
 FROM aws.memorydb.acl
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ACLName&gt;'
+AND data__Identifier = '<ACLName>'
 ```

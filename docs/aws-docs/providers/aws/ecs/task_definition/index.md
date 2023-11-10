@@ -76,5 +76,5 @@ ipc_mode,
 tags
 FROM aws.ecs.task_definition
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TaskDefinitionArn&gt;'
+AND data__Identifier = '<TaskDefinitionArn>'
 ```

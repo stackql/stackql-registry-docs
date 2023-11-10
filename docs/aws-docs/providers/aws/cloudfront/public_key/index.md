@@ -46,5 +46,5 @@ id,
 public_key_config
 FROM aws.cloudfront.public_key
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

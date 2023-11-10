@@ -46,5 +46,5 @@ log_group_name,
 log_stream_name
 FROM aws.logs.log_stream
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

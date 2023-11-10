@@ -48,6 +48,6 @@ description,
 query_statement
 FROM aws.athena.prepared_statement
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StatementName&gt;'
-AND data__Identifier = '&lt;WorkGroup&gt;'
+AND data__Identifier = '<StatementName>'
+AND data__Identifier = '<WorkGroup>'
 ```

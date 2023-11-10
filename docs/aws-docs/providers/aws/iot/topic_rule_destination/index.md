@@ -50,5 +50,5 @@ status_reason,
 vpc_properties
 FROM aws.iot.topic_rule_destination
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

@@ -56,5 +56,5 @@ name,
 tags
 FROM aws.m2.application
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationArn&gt;'
+AND data__Identifier = '<ApplicationArn>'
 ```

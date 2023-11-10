@@ -50,5 +50,5 @@ scopes,
 name
 FROM aws.cognito.user_pool_resource_server
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

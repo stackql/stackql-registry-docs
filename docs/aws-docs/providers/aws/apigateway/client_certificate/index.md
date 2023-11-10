@@ -46,5 +46,5 @@ description,
 tags
 FROM aws.apigateway.client_certificate
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClientCertificateId&gt;'
+AND data__Identifier = '<ClientCertificateId>'
 ```

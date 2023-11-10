@@ -50,5 +50,5 @@ network_id,
 node_configuration
 FROM aws.managedblockchain.node
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;NodeId&gt;'
+AND data__Identifier = '<NodeId>'
 ```

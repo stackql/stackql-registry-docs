@@ -66,5 +66,5 @@ tags,
 creation_time
 FROM aws.sagemaker.model_explainability_job_definition
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;JobDefinitionArn&gt;'
+AND data__Identifier = '<JobDefinitionArn>'
 ```

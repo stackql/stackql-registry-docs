@@ -62,5 +62,5 @@ key_storage_security_standard,
 usage_mode
 FROM aws.acmpca.certificate_authority
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```
