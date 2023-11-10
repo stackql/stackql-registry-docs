@@ -27,39 +27,40 @@ Gets an individual <code>endpoint</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SybaseSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RedisSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>OracleSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KafkaSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Port</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>MySqlSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>S3Settings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ResourceIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KinesisSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SslMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RedshiftSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EndpointType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Password</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MongoDbSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>IbmDb2Settings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExternalId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DatabaseName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NeptuneSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ElasticsearchSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EngineName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DocDbSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DynamoDbSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Username</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MicrosoftSqlServerSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>GcpMySQLSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ServerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExtraConnectionAttributes</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PostgreSqlSettings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>sybase_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>redis_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>oracle_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>kafka_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>port</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>my_sql_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>s3_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>resource_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>kinesis_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>ssl_mode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>redshift_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>endpoint_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>password</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>mongo_db_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>ibm_db2_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>external_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>database_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>neptune_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>elasticsearch_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>engine_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>doc_db_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>dynamo_db_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>username</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>microsoft_sql_server_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>gcp_my_sq_lsettings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>server_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>extra_connection_attributes</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>endpoint_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>postgre_sql_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -67,6 +68,43 @@ Gets an individual <code>endpoint</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.dms.endpoint<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+sybase_settings,
+redis_settings,
+oracle_settings,
+kafka_settings,
+port,
+my_sql_settings,
+s3_settings,
+resource_identifier,
+kinesis_settings,
+ssl_mode,
+redshift_settings,
+endpoint_type,
+tags,
+password,
+mongo_db_settings,
+ibm_db2_settings,
+kms_key_id,
+external_id,
+database_name,
+neptune_settings,
+elasticsearch_settings,
+engine_name,
+doc_db_settings,
+dynamo_db_settings,
+username,
+microsoft_sql_server_settings,
+gcp_my_sq_lsettings,
+server_name,
+extra_connection_attributes,
+id,
+endpoint_identifier,
+certificate_arn,
+postgre_sql_settings
+FROM aws.dms.endpoint
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

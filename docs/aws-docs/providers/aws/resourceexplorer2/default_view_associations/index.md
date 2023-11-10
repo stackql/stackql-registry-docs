@@ -27,8 +27,8 @@ Retrieves a list of <code>default_view_associations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ViewArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssociatedAwsPrincipal</code></td><td><code>string</code></td><td>The AWS principal that the default view is associated with, used as the unique identifier for this resource.</td></tr>
+<tr><td><code>associated_aws_principal</code></td><td><code>string</code></td><td>The AWS principal that the default view is associated with, used as the unique identifier for this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +36,10 @@ Retrieves a list of <code>default_view_associations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.resourceexplorer2.default_view_associations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+associated_aws_principal
+FROM aws.resourceexplorer2.default_view_associations
+WHERE region = 'us-east-1'
+```

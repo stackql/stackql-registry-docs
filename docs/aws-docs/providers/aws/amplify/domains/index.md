@@ -27,16 +27,8 @@ Retrieves a list of <code>domains</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AppId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AutoSubDomainCreationPatterns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AutoSubDomainIAMRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateRecord</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DomainStatus</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnableAutoSubDomain</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>StatusReason</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SubDomainSettings</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +36,10 @@ Retrieves a list of <code>domains</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.amplify.domains<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.amplify.domains
+WHERE region = 'us-east-1'
+```

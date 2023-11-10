@@ -27,9 +27,9 @@ Retrieves a list of <code>documentation_versions</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the API documentation snapshot.</td></tr>
-<tr><td><code>DocumentationVersion</code></td><td><code>string</code></td><td>The version identifier of the API documentation snapshot.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The identifier of the API.</td></tr>
+<tr><td><code>documentation_version</code></td><td><code>string</code></td><td>The version identifier of the API documentation snapshot.</td></tr>
+<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The identifier of the API.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +37,11 @@ Retrieves a list of <code>documentation_versions</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.documentation_versions<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+documentation_version,
+rest_api_id
+FROM aws.apigateway.documentation_versions
+WHERE region = 'us-east-1'
+```

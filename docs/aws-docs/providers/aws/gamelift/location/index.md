@@ -27,9 +27,10 @@ Gets an individual <code>location</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>LocationName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LocationArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>location_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>location_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>location</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.gamelift.location<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LocationName&gt;'
-</pre>
+```sql
+SELECT
+region,
+location_name,
+location_arn,
+tags
+FROM aws.gamelift.location
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;LocationName&gt;'
+```

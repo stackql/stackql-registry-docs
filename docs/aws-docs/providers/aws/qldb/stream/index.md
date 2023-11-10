@@ -27,15 +27,16 @@ Gets an individual <code>stream</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>LedgerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StreamName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InclusiveStartTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExclusiveEndTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KinesisConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ledger_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>stream_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>inclusive_start_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>exclusive_end_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>kinesis_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,20 @@ Gets an individual <code>stream</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.qldb.stream<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LedgerName&gt;'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+ledger_name,
+stream_name,
+role_arn,
+inclusive_start_time,
+exclusive_end_time,
+kinesis_configuration,
+tags,
+arn,
+id
+FROM aws.qldb.stream
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;LedgerName&gt;'
+AND data__Identifier = '&lt;Id&gt;'
+```

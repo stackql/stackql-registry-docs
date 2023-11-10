@@ -27,22 +27,8 @@ Retrieves a list of <code>dev_endpoints</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ExtraJarsS3Path</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PublicKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NumberOfNodes</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Arguments</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SubnetId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PublicKeys</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WorkerType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>GlueVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ExtraPythonLibsS3Path</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityConfiguration</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NumberOfWorkers</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,6 +36,10 @@ Retrieves a list of <code>dev_endpoints</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.glue.dev_endpoints<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.glue.dev_endpoints
+WHERE region = 'us-east-1'
+```

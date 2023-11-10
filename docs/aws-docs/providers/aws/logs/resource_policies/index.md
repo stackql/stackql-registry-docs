@@ -27,8 +27,8 @@ Retrieves a list of <code>resource_policies</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PolicyName</code></td><td><code>string</code></td><td>A name for resource policy</td></tr>
-<tr><td><code>PolicyDocument</code></td><td><code>string</code></td><td>The policy document</td></tr>
+<tr><td><code>policy_name</code></td><td><code>string</code></td><td>A name for resource policy</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +36,10 @@ Retrieves a list of <code>resource_policies</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.logs.resource_policies<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+policy_name
+FROM aws.logs.resource_policies
+WHERE region = 'us-east-1'
+```

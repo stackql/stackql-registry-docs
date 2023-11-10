@@ -27,20 +27,21 @@ Gets an individual <code>crawler</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Classifiers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SchemaChangePolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Configuration</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RecrawlPolicy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DatabaseName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Targets</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CrawlerSecurityConfiguration</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Role</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Schedule</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TablePrefix</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>classifiers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>schema_change_policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>configuration</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>recrawl_policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>database_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>targets</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>crawler_security_configuration</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>schedule</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>table_prefix</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>crawler</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.glue.crawler<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+classifiers,
+description,
+schema_change_policy,
+configuration,
+recrawl_policy,
+database_name,
+targets,
+crawler_security_configuration,
+name,
+role,
+schedule,
+id,
+table_prefix,
+tags
+FROM aws.glue.crawler
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,18 +27,19 @@ Gets an individual <code>input</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Destinations</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Vpc</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>MediaConnectFlows</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InputSecurityGroups</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Sources</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>InputDevices</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>destinations</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>vpc</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>media_connect_flows</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>input_security_groups</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>sources</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>input_devices</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>input</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.medialive.input<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+type,
+destinations,
+vpc,
+media_connect_flows,
+id,
+arn,
+input_security_groups,
+sources,
+input_devices,
+role_arn,
+tags,
+name
+FROM aws.medialive.input
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

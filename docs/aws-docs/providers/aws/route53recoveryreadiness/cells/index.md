@@ -27,11 +27,8 @@ Retrieves a list of <code>cells</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CellName</code></td><td><code>string</code></td><td>The name of the cell to create.</td></tr>
-<tr><td><code>CellArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the cell.</td></tr>
-<tr><td><code>Cells</code></td><td><code>array</code></td><td>A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.</td></tr>
-<tr><td><code>ParentReadinessScopes</code></td><td><code>array</code></td><td>The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<tr><td><code>cell_name</code></td><td><code>string</code></td><td>The name of the cell to create.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>cells</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53recoveryreadiness.cells<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+cell_name
+FROM aws.route53recoveryreadiness.cells
+WHERE region = 'us-east-1'
+```

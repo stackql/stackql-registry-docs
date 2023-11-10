@@ -27,8 +27,8 @@ Retrieves a list of <code>slack_workspace_configurations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TeamId</code></td><td><code>string</code></td><td>The team ID in Slack, which uniquely identifies a workspace.</td></tr>
-<tr><td><code>VersionId</code></td><td><code>string</code></td><td>An identifier used to update an existing Slack workspace configuration in AWS CloudFormation.</td></tr>
+<tr><td><code>team_id</code></td><td><code>string</code></td><td>The team ID in Slack, which uniquely identifies a workspace.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +36,10 @@ Retrieves a list of <code>slack_workspace_configurations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.supportapp.slack_workspace_configurations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+team_id
+FROM aws.supportapp.slack_workspace_configurations
+WHERE region = 'us-east-1'
+```

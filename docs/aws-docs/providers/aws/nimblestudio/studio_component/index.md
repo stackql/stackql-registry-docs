@@ -27,19 +27,20 @@ Gets an individual <code>studio_component</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Configuration</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>&lt;p&gt;The description.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Ec2SecurityGroupIds</code></td><td><code>array</code></td><td>&lt;p&gt;The EC2 security groups that control access to the studio component.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>InitializationScripts</code></td><td><code>array</code></td><td>&lt;p&gt;Initialization scripts for studio components.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>&lt;p&gt;The name for the studio component.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>RuntimeRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ScriptParameters</code></td><td><code>array</code></td><td>&lt;p&gt;Parameters for the studio component scripts.&lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>SecureInitializationRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StudioComponentId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StudioId</code></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
-<tr><td><code>Subtype</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>configuration</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>&lt;p&gt;The description.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>ec2_security_group_ids</code></td><td><code>array</code></td><td>&lt;p&gt;The EC2 security groups that control access to the studio component.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>initialization_scripts</code></td><td><code>array</code></td><td>&lt;p&gt;Initialization scripts for studio components.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>&lt;p&gt;The name for the studio component.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>runtime_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>script_parameters</code></td><td><code>array</code></td><td>&lt;p&gt;Parameters for the studio component scripts.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>secure_initialization_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>studio_component_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>studio_id</code></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
+<tr><td><code>subtype</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +48,24 @@ Gets an individual <code>studio_component</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.nimblestudio.studio_component<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;StudioComponentId&gt;'<br/>AND data__Identifier = '&lt;StudioId&gt;'
-</pre>
+```sql
+SELECT
+region,
+configuration,
+description,
+ec2_security_group_ids,
+initialization_scripts,
+name,
+runtime_role_arn,
+script_parameters,
+secure_initialization_role_arn,
+studio_component_id,
+studio_id,
+subtype,
+tags,
+type
+FROM aws.nimblestudio.studio_component
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;StudioComponentId&gt;'
+AND data__Identifier = '&lt;StudioId&gt;'
+```

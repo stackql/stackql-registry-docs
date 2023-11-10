@@ -27,11 +27,8 @@ Retrieves a list of <code>backup_plans</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>BackupPlan</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>BackupPlanTags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>BackupPlanArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BackupPlanId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VersionId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>backup_plan_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>backup_plans</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.backup.backup_plans<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+backup_plan_id
+FROM aws.backup.backup_plans
+WHERE region = 'us-east-1'
+```

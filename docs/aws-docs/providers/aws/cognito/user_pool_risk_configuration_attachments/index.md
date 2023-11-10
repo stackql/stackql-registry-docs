@@ -27,12 +27,8 @@ Retrieves a list of <code>user_pool_risk_configuration_attachments</code> in a r
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CompromisedCredentialsRiskConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>UserPoolId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClientId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccountTakeoverRiskConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RiskExceptionConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>user_pool_risk_configuration_attachments</code> in a r
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cognito.user_pool_risk_configuration_attachments<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.cognito.user_pool_risk_configuration_attachments
+WHERE region = 'us-east-1'
+```

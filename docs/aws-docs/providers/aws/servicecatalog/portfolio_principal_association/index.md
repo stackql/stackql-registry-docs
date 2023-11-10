@@ -27,11 +27,12 @@ Gets an individual <code>portfolio_principal_association</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PrincipalARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AcceptLanguage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PortfolioId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PrincipalType</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>principal_ar_n</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>accept_language</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>portfolio_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>principal_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>portfolio_principal_association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.servicecatalog.portfolio_principal_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+principal_ar_n,
+accept_language,
+portfolio_id,
+principal_type
+FROM aws.servicecatalog.portfolio_principal_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

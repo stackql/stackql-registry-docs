@@ -27,12 +27,13 @@ Gets an individual <code>flow</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FlowArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the flow.</td></tr>
-<tr><td><code>AvailabilityZone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.</td></tr>
-<tr><td><code>FlowAvailabilityZone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)</td></tr>
-<tr><td><code>Source</code></td><td><code>object</code></td><td>The source of the flow.</td></tr>
-<tr><td><code>SourceFailoverConfig</code></td><td><code>object</code></td><td>The source failover config of the flow.</td></tr>
+<tr><td><code>flow_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the flow.</td></tr>
+<tr><td><code>availability_zone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.</td></tr>
+<tr><td><code>flow_availability_zone</code></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)</td></tr>
+<tr><td><code>source</code></td><td><code>object</code></td><td>The source of the flow.</td></tr>
+<tr><td><code>source_failover_config</code></td><td><code>object</code></td><td>The source failover config of the flow.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>flow</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.mediaconnect.flow<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;FlowArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+flow_arn,
+name,
+availability_zone,
+flow_availability_zone,
+source,
+source_failover_config
+FROM aws.mediaconnect.flow
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;FlowArn&gt;'
+```

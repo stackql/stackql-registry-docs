@@ -27,10 +27,11 @@ Gets an individual <code>permission</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Actions</code></td><td><code>array</code></td><td>The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided.</td></tr>
-<tr><td><code>CertificateAuthorityArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.</td></tr>
-<tr><td><code>Principal</code></td><td><code>string</code></td><td>The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.</td></tr>
-<tr><td><code>SourceAccount</code></td><td><code>string</code></td><td>The ID of the calling account.</td></tr>
+<tr><td><code>actions</code></td><td><code>array</code></td><td>The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided.</td></tr>
+<tr><td><code>certificate_authority_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.</td></tr>
+<tr><td><code>principal</code></td><td><code>string</code></td><td>The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.</td></tr>
+<tr><td><code>source_account</code></td><td><code>string</code></td><td>The ID of the calling account.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,15 @@ Gets an individual <code>permission</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.acmpca.permission<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;CertificateAuthorityArn&gt;'<br/>AND data__Identifier = '&lt;Principal&gt;'
-</pre>
+```sql
+SELECT
+region,
+actions,
+certificate_authority_arn,
+principal,
+source_account
+FROM aws.acmpca.permission
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;CertificateAuthorityArn&gt;'
+AND data__Identifier = '&lt;Principal&gt;'
+```

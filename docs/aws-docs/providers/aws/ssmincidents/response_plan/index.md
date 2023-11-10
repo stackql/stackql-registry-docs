@@ -27,15 +27,16 @@ Gets an individual <code>response_plan</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the response plan.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the response plan.</td></tr>
-<tr><td><code>DisplayName</code></td><td><code>string</code></td><td>The display name of the response plan.</td></tr>
-<tr><td><code>ChatChannel</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Engagements</code></td><td><code>array</code></td><td>The list of engagements to use.</td></tr>
-<tr><td><code>Actions</code></td><td><code>array</code></td><td>The list of actions.</td></tr>
-<tr><td><code>Integrations</code></td><td><code>array</code></td><td>The list of integrations.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags to apply to the response plan.</td></tr>
-<tr><td><code>IncidentTemplate</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the response plan.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the response plan.</td></tr>
+<tr><td><code>display_name</code></td><td><code>string</code></td><td>The display name of the response plan.</td></tr>
+<tr><td><code>chat_channel</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>engagements</code></td><td><code>array</code></td><td>The list of engagements to use.</td></tr>
+<tr><td><code>actions</code></td><td><code>array</code></td><td>The list of actions.</td></tr>
+<tr><td><code>integrations</code></td><td><code>array</code></td><td>The list of integrations.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>The tags to apply to the response plan.</td></tr>
+<tr><td><code>incident_template</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>response_plan</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ssmincidents.response_plan<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+name,
+display_name,
+chat_channel,
+engagements,
+actions,
+integrations,
+tags,
+incident_template
+FROM aws.ssmincidents.response_plan
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

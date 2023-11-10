@@ -27,15 +27,16 @@ Gets an individual <code>authorizer</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AuthorizerFunctionArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SigningDisabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TokenKeyName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TokenSigningPublicKeys</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EnableCachingForHttp</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>authorizer_function_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>authorizer_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>signing_disabled</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>token_key_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>token_signing_public_keys</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>enable_caching_for_http</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>authorizer</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.authorizer<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AuthorizerName&gt;'
-</pre>
+```sql
+SELECT
+region,
+authorizer_function_arn,
+arn,
+authorizer_name,
+signing_disabled,
+status,
+token_key_name,
+token_signing_public_keys,
+enable_caching_for_http,
+tags
+FROM aws.iot.authorizer
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AuthorizerName&gt;'
+```

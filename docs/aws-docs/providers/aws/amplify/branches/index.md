@@ -27,20 +27,8 @@ Retrieves a list of <code>branches</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AppId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BasicAuthConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>BranchName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BuildSpec</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnableAutoBuild</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>EnablePerformanceMode</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>EnablePullRequestPreview</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>EnvironmentVariables</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Framework</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PullRequestEnvironmentName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Stage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +36,10 @@ Retrieves a list of <code>branches</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.amplify.branches<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.amplify.branches
+WHERE region = 'us-east-1'
+```

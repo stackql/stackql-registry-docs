@@ -27,11 +27,12 @@ Gets an individual <code>cluster_security_group_ingress</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CIDRIP</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterSecurityGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EC2SecurityGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EC2SecurityGroupOwnerId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>c_id_ri_p</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cluster_security_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>e_c2_security_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>e_c2_security_group_owner_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>cluster_security_group_ingress</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.redshift.cluster_security_group_ingress<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+c_id_ri_p,
+cluster_security_group_name,
+e_c2_security_group_name,
+e_c2_security_group_owner_id
+FROM aws.redshift.cluster_security_group_ingress
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

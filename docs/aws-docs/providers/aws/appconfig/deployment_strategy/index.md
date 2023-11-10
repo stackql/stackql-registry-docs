@@ -27,15 +27,16 @@ Gets an individual <code>deployment_strategy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ReplicateTo</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>GrowthType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentDurationInMinutes</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>GrowthFactor</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FinalBakeTimeInMinutes</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>replicate_to</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>growth_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>deployment_duration_in_minutes</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>growth_factor</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>final_bake_time_in_minutes</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>deployment_strategy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appconfig.deployment_strategy<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+replicate_to,
+growth_type,
+description,
+deployment_duration_in_minutes,
+growth_factor,
+id,
+final_bake_time_in_minutes,
+tags,
+name
+FROM aws.appconfig.deployment_strategy
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

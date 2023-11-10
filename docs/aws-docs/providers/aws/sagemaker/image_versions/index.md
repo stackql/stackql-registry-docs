@@ -27,12 +27,8 @@ Retrieves a list of <code>image_versions</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ImageName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ImageArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ImageVersionArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BaseImage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ContainerImage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Version</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>image_version_arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>image_versions</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.image_versions<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+image_version_arn
+FROM aws.sagemaker.image_versions
+WHERE region = 'us-east-1'
+```

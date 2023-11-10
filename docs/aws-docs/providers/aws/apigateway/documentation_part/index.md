@@ -27,10 +27,11 @@ Gets an individual <code>documentation_part</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DocumentationPartId</code></td><td><code>string</code></td><td>The identifier of the documentation Part.</td></tr>
-<tr><td><code>Location</code></td><td><code>object</code></td><td>The location of the API entity that the documentation applies to.</td></tr>
-<tr><td><code>Properties</code></td><td><code>string</code></td><td>The documentation content map of the targeted API entity.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>Identifier of the targeted API entity</td></tr>
+<tr><td><code>documentation_part_id</code></td><td><code>string</code></td><td>The identifier of the documentation Part.</td></tr>
+<tr><td><code>location</code></td><td><code>object</code></td><td>The location of the API entity that the documentation applies to.</td></tr>
+<tr><td><code>properties</code></td><td><code>string</code></td><td>The documentation content map of the targeted API entity.</td></tr>
+<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>Identifier of the targeted API entity</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,15 @@ Gets an individual <code>documentation_part</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.documentation_part<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DocumentationPartId&gt;'<br/>AND data__Identifier = '&lt;RestApiId&gt;'
-</pre>
+```sql
+SELECT
+region,
+documentation_part_id,
+location,
+properties,
+rest_api_id
+FROM aws.apigateway.documentation_part
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DocumentationPartId&gt;'
+AND data__Identifier = '&lt;RestApiId&gt;'
+```

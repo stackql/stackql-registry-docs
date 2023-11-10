@@ -27,19 +27,20 @@ Gets an individual <code>cluster</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ClusterName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterEndpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AdminUserName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AdminUserPassword</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ShardCapacity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>ShardCount</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>VpcSecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SubnetIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PreferredMaintenanceWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AuthType</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cluster_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cluster_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>cluster_endpoint</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>admin_user_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>admin_user_password</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>shard_capacity</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>shard_count</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>vpc_security_group_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>subnet_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>preferred_maintenance_window</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>auth_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +48,23 @@ Gets an individual <code>cluster</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.docdbelastic.cluster<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ClusterArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+cluster_name,
+cluster_arn,
+cluster_endpoint,
+admin_user_name,
+admin_user_password,
+shard_capacity,
+shard_count,
+vpc_security_group_ids,
+subnet_ids,
+preferred_maintenance_window,
+kms_key_id,
+tags,
+auth_type
+FROM aws.docdbelastic.cluster
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ClusterArn&gt;'
+```

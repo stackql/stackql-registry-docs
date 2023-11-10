@@ -27,12 +27,13 @@ Gets an individual <code>deployment</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DeploymentId</code></td><td><code>string</code></td><td>Primary Id for this resource</td></tr>
-<tr><td><code>DeploymentCanarySettings</code></td><td><code>object</code></td><td>Specifies settings for the canary deployment.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the purpose of the API Gateway deployment.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The ID of the RestApi resource to deploy. </td></tr>
-<tr><td><code>StageDescription</code></td><td><code>object</code></td><td>Configures the stage that API Gateway creates with this deployment.</td></tr>
-<tr><td><code>StageName</code></td><td><code>string</code></td><td>A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.</td></tr>
+<tr><td><code>deployment_id</code></td><td><code>string</code></td><td>Primary Id for this resource</td></tr>
+<tr><td><code>deployment_canary_settings</code></td><td><code>object</code></td><td>Specifies settings for the canary deployment.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>A description of the purpose of the API Gateway deployment.</td></tr>
+<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The ID of the RestApi resource to deploy. </td></tr>
+<tr><td><code>stage_description</code></td><td><code>object</code></td><td>Configures the stage that API Gateway creates with this deployment.</td></tr>
+<tr><td><code>stage_name</code></td><td><code>string</code></td><td>A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,17 @@ Gets an individual <code>deployment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.deployment<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DeploymentId&gt;'<br/>AND data__Identifier = '&lt;RestApiId&gt;'
-</pre>
+```sql
+SELECT
+region,
+deployment_id,
+deployment_canary_settings,
+description,
+rest_api_id,
+stage_description,
+stage_name
+FROM aws.apigateway.deployment
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DeploymentId&gt;'
+AND data__Identifier = '&lt;RestApiId&gt;'
+```

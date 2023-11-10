@@ -27,23 +27,24 @@ Gets an individual <code>cloud_formation_product</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Owner</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProductName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SupportEmail</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProductType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProvisioningArtifactNames</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ReplaceProvisioningArtifacts</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>SupportDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Distributor</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProvisioningArtifactIds</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AcceptLanguage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SupportUrl</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceConnection</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ProvisioningArtifactParameters</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>owner</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>product_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>support_email</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>product_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>provisioning_artifact_names</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>replace_provisioning_artifacts</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>support_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>distributor</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>provisioning_artifact_ids</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>accept_language</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>support_url</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source_connection</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>provisioning_artifact_parameters</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -51,6 +52,27 @@ Gets an individual <code>cloud_formation_product</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.servicecatalog.cloud_formation_product<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+owner,
+description,
+product_name,
+support_email,
+product_type,
+provisioning_artifact_names,
+name,
+replace_provisioning_artifacts,
+support_description,
+distributor,
+provisioning_artifact_ids,
+accept_language,
+support_url,
+id,
+source_connection,
+tags,
+provisioning_artifact_parameters
+FROM aws.servicecatalog.cloud_formation_product
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

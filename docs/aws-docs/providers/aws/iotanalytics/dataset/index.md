@@ -27,15 +27,16 @@ Gets an individual <code>dataset</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Actions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LateDataRules</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DatasetName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ContentDeliveryRules</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Triggers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>VersioningConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RetentionPeriod</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>actions</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>late_data_rules</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>dataset_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>content_delivery_rules</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>triggers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>versioning_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>retention_period</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>dataset</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iotanalytics.dataset<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DatasetName&gt;'
-</pre>
+```sql
+SELECT
+region,
+actions,
+late_data_rules,
+dataset_name,
+content_delivery_rules,
+triggers,
+versioning_configuration,
+id,
+retention_period,
+tags
+FROM aws.iotanalytics.dataset
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DatasetName&gt;'
+```

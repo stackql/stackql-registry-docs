@@ -27,26 +27,27 @@ Gets an individual <code>job</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DatasetName</code></td><td><code>string</code></td><td>Dataset name</td></tr>
-<tr><td><code>EncryptionKeyArn</code></td><td><code>string</code></td><td>Encryption Key Arn</td></tr>
-<tr><td><code>EncryptionMode</code></td><td><code>string</code></td><td>Encryption mode</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Job name</td></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td>Job type</td></tr>
-<tr><td><code>LogSubscription</code></td><td><code>string</code></td><td>Log subscription</td></tr>
-<tr><td><code>MaxCapacity</code></td><td><code>integer</code></td><td>Max capacity</td></tr>
-<tr><td><code>MaxRetries</code></td><td><code>integer</code></td><td>Max retries</td></tr>
-<tr><td><code>Outputs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DataCatalogOutputs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DatabaseOutputs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>OutputLocation</code></td><td><code>object</code></td><td>Output location</td></tr>
-<tr><td><code>ProjectName</code></td><td><code>string</code></td><td>Project name</td></tr>
-<tr><td><code>Recipe</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>Role arn</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Timeout</code></td><td><code>integer</code></td><td>Timeout</td></tr>
-<tr><td><code>JobSample</code></td><td><code>object</code></td><td>Job Sample</td></tr>
-<tr><td><code>ProfileConfiguration</code></td><td><code>object</code></td><td>Profile Job configuration</td></tr>
-<tr><td><code>ValidationConfigurations</code></td><td><code>array</code></td><td>Data quality rules configuration</td></tr>
+<tr><td><code>dataset_name</code></td><td><code>string</code></td><td>Dataset name</td></tr>
+<tr><td><code>encryption_key_arn</code></td><td><code>string</code></td><td>Encryption Key Arn</td></tr>
+<tr><td><code>encryption_mode</code></td><td><code>string</code></td><td>Encryption mode</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Job name</td></tr>
+<tr><td><code>type</code></td><td><code>string</code></td><td>Job type</td></tr>
+<tr><td><code>log_subscription</code></td><td><code>string</code></td><td>Log subscription</td></tr>
+<tr><td><code>max_capacity</code></td><td><code>integer</code></td><td>Max capacity</td></tr>
+<tr><td><code>max_retries</code></td><td><code>integer</code></td><td>Max retries</td></tr>
+<tr><td><code>outputs</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>data_catalog_outputs</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>database_outputs</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>output_location</code></td><td><code>object</code></td><td>Output location</td></tr>
+<tr><td><code>project_name</code></td><td><code>string</code></td><td>Project name</td></tr>
+<tr><td><code>recipe</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td>Role arn</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>timeout</code></td><td><code>integer</code></td><td>Timeout</td></tr>
+<tr><td><code>job_sample</code></td><td><code>object</code></td><td>Job Sample</td></tr>
+<tr><td><code>profile_configuration</code></td><td><code>object</code></td><td>Profile Job configuration</td></tr>
+<tr><td><code>validation_configurations</code></td><td><code>array</code></td><td>Data quality rules configuration</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,6 +55,30 @@ Gets an individual <code>job</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.databrew.job<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'
-</pre>
+```sql
+SELECT
+region,
+dataset_name,
+encryption_key_arn,
+encryption_mode,
+name,
+type,
+log_subscription,
+max_capacity,
+max_retries,
+outputs,
+data_catalog_outputs,
+database_outputs,
+output_location,
+project_name,
+recipe,
+role_arn,
+tags,
+timeout,
+job_sample,
+profile_configuration,
+validation_configurations
+FROM aws.databrew.job
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Name&gt;'
+```

@@ -27,13 +27,14 @@ Gets an individual <code>assistant_association</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AssistantAssociationArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssistantArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssistantAssociationId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssistantId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Association</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AssociationType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>assistant_association_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>assistant_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>assistant_association_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>assistant_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>association</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>association_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,18 @@ Gets an individual <code>assistant_association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.wisdom.assistant_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AssistantAssociationId&gt;'<br/>AND data__Identifier = '&lt;AssistantId&gt;'
-</pre>
+```sql
+SELECT
+region,
+assistant_association_arn,
+assistant_arn,
+assistant_association_id,
+assistant_id,
+association,
+association_type,
+tags
+FROM aws.wisdom.assistant_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AssistantAssociationId&gt;'
+AND data__Identifier = '&lt;AssistantId&gt;'
+```

@@ -27,20 +27,8 @@ Retrieves a list of <code>replication_tasks</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ReplicationTaskSettings</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CdcStartPosition</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CdcStopPosition</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MigrationType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TargetEndpointArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ReplicationInstanceArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TaskData</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CdcStartTime</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>ResourceIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TableMappings</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ReplicationTaskIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceEndpointArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +36,10 @@ Retrieves a list of <code>replication_tasks</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.dms.replication_tasks<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.dms.replication_tasks
+WHERE region = 'us-east-1'
+```

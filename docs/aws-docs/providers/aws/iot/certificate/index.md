@@ -27,13 +27,14 @@ Gets an individual <code>certificate</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CACertificatePem</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificatePem</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateSigningRequest</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>c_acertificate_pem</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate_pem</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate_signing_request</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate_mode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>certificate</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.certificate<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+c_acertificate_pem,
+certificate_pem,
+certificate_signing_request,
+certificate_mode,
+status,
+id,
+arn
+FROM aws.iot.certificate
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

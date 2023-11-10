@@ -27,12 +27,8 @@ Retrieves a list of <code>archives</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ArchiveName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EventPattern</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RetentionDays</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>archive_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>archives</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.events.archives<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+archive_name
+FROM aws.events.archives
+WHERE region = 'us-east-1'
+```

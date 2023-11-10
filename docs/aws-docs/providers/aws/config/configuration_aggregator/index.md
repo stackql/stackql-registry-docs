@@ -27,11 +27,12 @@ Gets an individual <code>configuration_aggregator</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AccountAggregationSources</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ConfigurationAggregatorName</code></td><td><code>string</code></td><td>The name of the aggregator.</td></tr>
-<tr><td><code>ConfigurationAggregatorArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the aggregator.</td></tr>
-<tr><td><code>OrganizationAggregationSource</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the configuration aggregator.</td></tr>
+<tr><td><code>account_aggregation_sources</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>configuration_aggregator_name</code></td><td><code>string</code></td><td>The name of the aggregator.</td></tr>
+<tr><td><code>configuration_aggregator_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the aggregator.</td></tr>
+<tr><td><code>organization_aggregation_source</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>The tags for the configuration aggregator.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>configuration_aggregator</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.config.configuration_aggregator<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ConfigurationAggregatorName&gt;'
-</pre>
+```sql
+SELECT
+region,
+account_aggregation_sources,
+configuration_aggregator_name,
+configuration_aggregator_arn,
+organization_aggregation_source,
+tags
+FROM aws.config.configuration_aggregator
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ConfigurationAggregatorName&gt;'
+```

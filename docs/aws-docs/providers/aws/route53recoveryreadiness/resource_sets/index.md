@@ -27,11 +27,8 @@ Retrieves a list of <code>resource_sets</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceSetName</code></td><td><code>string</code></td><td>The name of the resource set to create.</td></tr>
-<tr><td><code>Resources</code></td><td><code>array</code></td><td>A list of resource objects in the resource set.</td></tr>
-<tr><td><code>ResourceSetArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the resource set.</td></tr>
-<tr><td><code>ResourceSetType</code></td><td><code>string</code></td><td>The resource type of the resources in the resource set. Enter one of the following values for resource type: &lt;br&#x2F;&gt;&lt;br&#x2F;&gt;AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A tag to associate with the parameters for a resource set.</td></tr>
+<tr><td><code>resource_set_name</code></td><td><code>string</code></td><td>The name of the resource set to create.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>resource_sets</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53recoveryreadiness.resource_sets<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+resource_set_name
+FROM aws.route53recoveryreadiness.resource_sets
+WHERE region = 'us-east-1'
+```

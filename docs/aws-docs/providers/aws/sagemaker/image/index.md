@@ -27,12 +27,13 @@ Gets an individual <code>image</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ImageName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ImageArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ImageRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ImageDisplayName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ImageDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>image_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>image_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>image_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>image_display_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>image_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>image</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.image<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ImageArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+image_name,
+image_arn,
+image_role_arn,
+image_display_name,
+image_description,
+tags
+FROM aws.sagemaker.image
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ImageArn&gt;'
+```

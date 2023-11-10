@@ -27,13 +27,14 @@ Gets an individual <code>vpc_ingress_connection</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>VpcIngressConnectionArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the VpcIngressConnection.</td></tr>
-<tr><td><code>VpcIngressConnectionName</code></td><td><code>string</code></td><td>The customer-provided Vpc Ingress Connection name.</td></tr>
-<tr><td><code>ServiceArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the service.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>The current status of the VpcIngressConnection.</td></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td>The Domain name associated with the VPC Ingress Connection.</td></tr>
-<tr><td><code>IngressVpcConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>vpc_ingress_connection_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the VpcIngressConnection.</td></tr>
+<tr><td><code>vpc_ingress_connection_name</code></td><td><code>string</code></td><td>The customer-provided Vpc Ingress Connection name.</td></tr>
+<tr><td><code>service_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the service.</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>The current status of the VpcIngressConnection.</td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td>The Domain name associated with the VPC Ingress Connection.</td></tr>
+<tr><td><code>ingress_vpc_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>vpc_ingress_connection</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apprunner.vpc_ingress_connection<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;VpcIngressConnectionArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+vpc_ingress_connection_arn,
+vpc_ingress_connection_name,
+service_arn,
+status,
+domain_name,
+ingress_vpc_configuration,
+tags
+FROM aws.apprunner.vpc_ingress_connection
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;VpcIngressConnectionArn&gt;'
+```

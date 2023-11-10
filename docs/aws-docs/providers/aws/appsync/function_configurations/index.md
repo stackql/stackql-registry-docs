@@ -27,23 +27,8 @@ Retrieves a list of <code>function_configurations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FunctionId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FunctionArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestMappingTemplate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseMappingTemplate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxBatchSize</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>SyncConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Code</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseMappingTemplateS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Runtime</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CodeS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DataSourceName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FunctionVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestMappingTemplateS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -51,6 +36,10 @@ Retrieves a list of <code>function_configurations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appsync.function_configurations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.appsync.function_configurations
+WHERE region = 'us-east-1'
+```

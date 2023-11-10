@@ -27,12 +27,13 @@ Gets an individual <code>anomaly_detector</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AnomalyDetectorName</code></td><td><code>string</code></td><td>Name for the Amazon Lookout for Metrics Anomaly Detector</td></tr>
-<tr><td><code>AnomalyDetectorDescription</code></td><td><code>string</code></td><td>A description for the AnomalyDetector.</td></tr>
-<tr><td><code>AnomalyDetectorConfig</code></td><td><code>object</code></td><td>Configuration options for the AnomalyDetector</td></tr>
-<tr><td><code>MetricSetList</code></td><td><code>array</code></td><td>List of metric sets for anomaly detection</td></tr>
-<tr><td><code>KmsKeyArn</code></td><td><code>string</code></td><td>KMS key used to encrypt the AnomalyDetector data</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>anomaly_detector_name</code></td><td><code>string</code></td><td>Name for the Amazon Lookout for Metrics Anomaly Detector</td></tr>
+<tr><td><code>anomaly_detector_description</code></td><td><code>string</code></td><td>A description for the AnomalyDetector.</td></tr>
+<tr><td><code>anomaly_detector_config</code></td><td><code>object</code></td><td>Configuration options for the AnomalyDetector</td></tr>
+<tr><td><code>metric_set_list</code></td><td><code>array</code></td><td>List of metric sets for anomaly detection</td></tr>
+<tr><td><code>kms_key_arn</code></td><td><code>string</code></td><td>KMS key used to encrypt the AnomalyDetector data</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>anomaly_detector</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lookoutmetrics.anomaly_detector<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+anomaly_detector_name,
+anomaly_detector_description,
+anomaly_detector_config,
+metric_set_list,
+kms_key_arn
+FROM aws.lookoutmetrics.anomaly_detector
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

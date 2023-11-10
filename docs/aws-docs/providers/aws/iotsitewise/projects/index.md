@@ -27,13 +27,8 @@ Retrieves a list of <code>projects</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PortalId</code></td><td><code>string</code></td><td>The ID of the portal in which to create the project.</td></tr>
-<tr><td><code>ProjectId</code></td><td><code>string</code></td><td>The ID of the project.</td></tr>
-<tr><td><code>ProjectName</code></td><td><code>string</code></td><td>A friendly name for the project.</td></tr>
-<tr><td><code>ProjectDescription</code></td><td><code>string</code></td><td>A description for the project.</td></tr>
-<tr><td><code>ProjectArn</code></td><td><code>string</code></td><td>The ARN of the project.</td></tr>
-<tr><td><code>AssetIds</code></td><td><code>array</code></td><td>The IDs of the assets to be associated to the project.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the project.</td></tr>
+<tr><td><code>project_id</code></td><td><code>string</code></td><td>The ID of the project.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>projects</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iotsitewise.projects<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+project_id
+FROM aws.iotsitewise.projects
+WHERE region = 'us-east-1'
+```

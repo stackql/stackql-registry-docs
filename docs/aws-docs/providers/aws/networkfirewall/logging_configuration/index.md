@@ -27,9 +27,10 @@ Gets an individual <code>logging_configuration</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FirewallName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FirewallArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LoggingConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>firewall_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>firewall_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>logging_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>logging_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.networkfirewall.logging_configuration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;FirewallArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+firewall_name,
+firewall_arn,
+logging_configuration
+FROM aws.networkfirewall.logging_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;FirewallArn&gt;'
+```

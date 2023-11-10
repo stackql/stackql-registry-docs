@@ -27,32 +27,8 @@ Retrieves a list of <code>instances</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AvailabilityZone</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PrivateDnsName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PrivateIp</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PublicDnsName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PublicIp</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AgentVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AmiId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Architecture</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AutoScalingType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BlockDeviceMappings</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EbsOptimized</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ElasticIps</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Hostname</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstallUpdatesOnBoot</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>InstanceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LayerIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Os</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RootDeviceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SshKeyName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StackId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SubnetId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tenancy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TimeBasedAutoScaling</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>VirtualizationType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Volumes</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -60,6 +36,10 @@ Retrieves a list of <code>instances</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.opsworks.instances<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.opsworks.instances
+WHERE region = 'us-east-1'
+```

@@ -27,12 +27,13 @@ Gets an individual <code>db_proxy_target_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DBProxyName</code></td><td><code>string</code></td><td>The identifier for the proxy.</td></tr>
-<tr><td><code>TargetGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) representing the target group.</td></tr>
-<tr><td><code>TargetGroupName</code></td><td><code>string</code></td><td>The identifier for the DBProxyTargetGroup</td></tr>
-<tr><td><code>ConnectionPoolConfigurationInfo</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DBInstanceIdentifiers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DBClusterIdentifiers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>d_bproxy_name</code></td><td><code>string</code></td><td>The identifier for the proxy.</td></tr>
+<tr><td><code>target_group_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) representing the target group.</td></tr>
+<tr><td><code>target_group_name</code></td><td><code>string</code></td><td>The identifier for the DBProxyTargetGroup</td></tr>
+<tr><td><code>connection_pool_configuration_info</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>d_binstance_identifiers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>d_bcluster_identifiers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>db_proxy_target_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.rds.db_proxy_target_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;TargetGroupArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+d_bproxy_name,
+target_group_arn,
+target_group_name,
+connection_pool_configuration_info,
+d_binstance_identifiers,
+d_bcluster_identifiers
+FROM aws.rds.db_proxy_target_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;TargetGroupArn&gt;'
+```

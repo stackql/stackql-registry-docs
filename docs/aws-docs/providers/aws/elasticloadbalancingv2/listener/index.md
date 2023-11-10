@@ -27,14 +27,15 @@ Gets an individual <code>listener</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SslPolicy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LoadBalancerArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultActions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Port</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Certificates</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Protocol</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ListenerArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AlpnPolicy</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>ssl_policy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>load_balancer_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>default_actions</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>port</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>certificates</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>protocol</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>listener_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>alpn_policy</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>listener</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.elasticloadbalancingv2.listener<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ListenerArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+ssl_policy,
+load_balancer_arn,
+default_actions,
+port,
+certificates,
+protocol,
+listener_arn,
+alpn_policy
+FROM aws.elasticloadbalancingv2.listener
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ListenerArn&gt;'
+```

@@ -27,15 +27,16 @@ Gets an individual <code>data_lake_settings</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AllowExternalDataFiltering</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ExternalDataFilteringAllowList</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CreateTableDefaultPermissions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Parameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Admins</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CreateDatabaseDefaultPermissions</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthorizedSessionTagValueList</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>TrustedResourceOwners</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>allow_external_data_filtering</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>external_data_filtering_allow_list</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>create_table_default_permissions</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>admins</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>create_database_default_permissions</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>authorized_session_tag_value_list</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>trusted_resource_owners</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>data_lake_settings</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lakeformation.data_lake_settings<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+allow_external_data_filtering,
+external_data_filtering_allow_list,
+create_table_default_permissions,
+parameters,
+admins,
+create_database_default_permissions,
+id,
+authorized_session_tag_value_list,
+trusted_resource_owners
+FROM aws.lakeformation.data_lake_settings
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

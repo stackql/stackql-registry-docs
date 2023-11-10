@@ -27,12 +27,8 @@ Retrieves a list of <code>packaging_groups</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>The ID of the PackagingGroup.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the PackagingGroup.</td></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td>The fully qualified domain name for Assets in the PackagingGroup.</td></tr>
-<tr><td><code>Authorization</code></td><td><code>object</code></td><td>CDN Authorization</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
-<tr><td><code>EgressAccessLogs</code></td><td><code>object</code></td><td>The configuration parameters for egress access logging.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>The ID of the PackagingGroup.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>packaging_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.mediapackage.packaging_groups<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.mediapackage.packaging_groups
+WHERE region = 'us-east-1'
+```

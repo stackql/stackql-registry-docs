@@ -27,18 +27,8 @@ Retrieves a list of <code>wireless_device_import_tasks</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>Id for Wireless Device Import Task, Returned upon successful start.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Arn for Wireless Device Import Task, Returned upon successful start.</td></tr>
-<tr><td><code>DestinationName</code></td><td><code>string</code></td><td>Destination Name for import task</td></tr>
-<tr><td><code>CreationDate</code></td><td><code>string</code></td><td>CreationDate for import task</td></tr>
-<tr><td><code>Sidewalk</code></td><td><code>object</code></td><td>sidewalk contain file for created device and role</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>Status for import task</td></tr>
-<tr><td><code>StatusReason</code></td><td><code>string</code></td><td>StatusReason for import task</td></tr>
-<tr><td><code>InitializedImportedDevicesCount</code></td><td><code>integer</code></td><td>Initialized Imported Devices Count</td></tr>
-<tr><td><code>PendingImportedDevicesCount</code></td><td><code>integer</code></td><td>Pending Imported Devices Count</td></tr>
-<tr><td><code>OnboardedImportedDevicesCount</code></td><td><code>integer</code></td><td>Onboarded Imported Devices Count</td></tr>
-<tr><td><code>FailedImportedDevicesCount</code></td><td><code>integer</code></td><td>Failed Imported Devices Count</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>Id for Wireless Device Import Task, Returned upon successful start.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +36,10 @@ Retrieves a list of <code>wireless_device_import_tasks</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iotwireless.wireless_device_import_tasks<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.iotwireless.wireless_device_import_tasks
+WHERE region = 'us-east-1'
+```

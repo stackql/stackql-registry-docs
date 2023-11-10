@@ -27,12 +27,13 @@ Gets an individual <code>stored_query</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>QueryArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>QueryId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>QueryName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>QueryDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>QueryExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the stored query.</td></tr>
+<tr><td><code>query_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>query_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>query_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>query_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>query_expression</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>The tags for the stored query.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>stored_query</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.config.stored_query<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;QueryName&gt;'
-</pre>
+```sql
+SELECT
+region,
+query_arn,
+query_id,
+query_name,
+query_description,
+query_expression,
+tags
+FROM aws.config.stored_query
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;QueryName&gt;'
+```

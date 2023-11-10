@@ -27,17 +27,18 @@ Gets an individual <code>permission_set</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name you want to assign to this permission set.</td></tr>
-<tr><td><code>PermissionSetArn</code></td><td><code>string</code></td><td>The permission set that the policy will be attached to</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The permission set description.</td></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The sso instance arn that the permission set is owned.</td></tr>
-<tr><td><code>SessionDuration</code></td><td><code>string</code></td><td>The length of time that a user can be signed in to an AWS account.</td></tr>
-<tr><td><code>RelayStateType</code></td><td><code>string</code></td><td>The relay state URL that redirect links to any service in the AWS Management Console.</td></tr>
-<tr><td><code>ManagedPolicies</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>InlinePolicy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CustomerManagedPolicyReferences</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PermissionsBoundary</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name you want to assign to this permission set.</td></tr>
+<tr><td><code>permission_set_arn</code></td><td><code>string</code></td><td>The permission set that the policy will be attached to</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>The permission set description.</td></tr>
+<tr><td><code>instance_arn</code></td><td><code>string</code></td><td>The sso instance arn that the permission set is owned.</td></tr>
+<tr><td><code>session_duration</code></td><td><code>string</code></td><td>The length of time that a user can be signed in to an AWS account.</td></tr>
+<tr><td><code>relay_state_type</code></td><td><code>string</code></td><td>The relay state URL that redirect links to any service in the AWS Management Console.</td></tr>
+<tr><td><code>managed_policies</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>inline_policy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>customer_managed_policy_references</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>permissions_boundary</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,22 @@ Gets an individual <code>permission_set</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sso.permission_set<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;InstanceArn&gt;'<br/>AND data__Identifier = '&lt;PermissionSetArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+permission_set_arn,
+description,
+instance_arn,
+session_duration,
+relay_state_type,
+managed_policies,
+inline_policy,
+tags,
+customer_managed_policy_references,
+permissions_boundary
+FROM aws.sso.permission_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;InstanceArn&gt;'
+AND data__Identifier = '&lt;PermissionSetArn&gt;'
+```

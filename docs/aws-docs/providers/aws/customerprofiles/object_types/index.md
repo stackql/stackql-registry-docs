@@ -27,18 +27,9 @@ Retrieves a list of <code>object_types</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
-<tr><td><code>ObjectTypeName</code></td><td><code>string</code></td><td>The name of the profile object type.</td></tr>
-<tr><td><code>AllowProfileCreation</code></td><td><code>boolean</code></td><td>Indicates whether a profile should be created when data is received.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>Description of the profile object type.</td></tr>
-<tr><td><code>EncryptionKey</code></td><td><code>string</code></td><td>The default encryption key</td></tr>
-<tr><td><code>ExpirationDays</code></td><td><code>integer</code></td><td>The default number of days until the data within the domain expires.</td></tr>
-<tr><td><code>Fields</code></td><td><code>array</code></td><td>A list of the name and ObjectType field.</td></tr>
-<tr><td><code>Keys</code></td><td><code>array</code></td><td>A list of unique keys that can be used to map data to the profile.</td></tr>
-<tr><td><code>CreatedAt</code></td><td><code>string</code></td><td>The time of this integration got created.</td></tr>
-<tr><td><code>LastUpdatedAt</code></td><td><code>string</code></td><td>The time of this integration got last updated at.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags (keys and values) associated with the integration.</td></tr>
-<tr><td><code>TemplateId</code></td><td><code>string</code></td><td>A unique identifier for the object template.</td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
+<tr><td><code>object_type_name</code></td><td><code>string</code></td><td>The name of the profile object type.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +37,11 @@ Retrieves a list of <code>object_types</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.customerprofiles.object_types<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+domain_name,
+object_type_name
+FROM aws.customerprofiles.object_types
+WHERE region = 'us-east-1'
+```

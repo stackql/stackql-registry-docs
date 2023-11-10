@@ -27,16 +27,17 @@ Gets an individual <code>repository</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CloneUrlHttp</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CloneUrlSsh</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RepositoryName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Triggers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Code</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RepositoryDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>clone_url_http</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>clone_url_ssh</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>repository_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>triggers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>code</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>repository_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>repository</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.codecommit.repository<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+clone_url_http,
+clone_url_ssh,
+repository_name,
+triggers,
+id,
+arn,
+code,
+repository_description,
+tags,
+name
+FROM aws.codecommit.repository
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,12 +27,13 @@ Gets an individual <code>event_invoke_config</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FunctionName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaximumRetryAttempts</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Qualifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DestinationConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaximumEventAgeInSeconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>function_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>maximum_retry_attempts</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>qualifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>destination_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>maximum_event_age_in_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>event_invoke_config</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lambda.event_invoke_config<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+function_name,
+maximum_retry_attempts,
+qualifier,
+destination_config,
+id,
+maximum_event_age_in_seconds
+FROM aws.lambda.event_invoke_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

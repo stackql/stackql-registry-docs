@@ -27,20 +27,21 @@ Gets an individual <code>application</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DisplayName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LaunchPath</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LaunchParameters</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WorkingDirectory</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceFamilies</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>IconS3Location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AppBlockArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Platforms</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AttributesToDelete</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CreatedTime</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>display_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>launch_path</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>launch_parameters</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>working_directory</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_families</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>icon_s3_location</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>app_block_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>platforms</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>attributes_to_delete</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>created_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>application</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appstream.application<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+display_name,
+description,
+launch_path,
+launch_parameters,
+working_directory,
+instance_families,
+icon_s3_location,
+arn,
+app_block_arn,
+platforms,
+tags,
+attributes_to_delete,
+created_time
+FROM aws.appstream.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

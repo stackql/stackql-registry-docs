@@ -27,19 +27,20 @@ Gets an individual <code>connector</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Capacity</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ConnectorArn</code></td><td><code>string</code></td><td>Amazon Resource Name for the created Connector.</td></tr>
-<tr><td><code>ConnectorConfiguration</code></td><td><code>object</code></td><td>The configuration for the connector.</td></tr>
-<tr><td><code>ConnectorDescription</code></td><td><code>string</code></td><td>A summary description of the connector.</td></tr>
-<tr><td><code>ConnectorName</code></td><td><code>string</code></td><td>The name of the connector.</td></tr>
-<tr><td><code>KafkaCluster</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KafkaClusterClientAuthentication</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KafkaClusterEncryptionInTransit</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KafkaConnectVersion</code></td><td><code>string</code></td><td>The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.</td></tr>
-<tr><td><code>LogDelivery</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Plugins</code></td><td><code>array</code></td><td>List of plugins to use with the connector.</td></tr>
-<tr><td><code>ServiceExecutionRoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.</td></tr>
-<tr><td><code>WorkerConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>capacity</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>connector_arn</code></td><td><code>string</code></td><td>Amazon Resource Name for the created Connector.</td></tr>
+<tr><td><code>connector_configuration</code></td><td><code>object</code></td><td>The configuration for the connector.</td></tr>
+<tr><td><code>connector_description</code></td><td><code>string</code></td><td>A summary description of the connector.</td></tr>
+<tr><td><code>connector_name</code></td><td><code>string</code></td><td>The name of the connector.</td></tr>
+<tr><td><code>kafka_cluster</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>kafka_cluster_client_authentication</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>kafka_cluster_encryption_in_transit</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>kafka_connect_version</code></td><td><code>string</code></td><td>The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.</td></tr>
+<tr><td><code>log_delivery</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>plugins</code></td><td><code>array</code></td><td>List of plugins to use with the connector.</td></tr>
+<tr><td><code>service_execution_role_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.</td></tr>
+<tr><td><code>worker_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +48,23 @@ Gets an individual <code>connector</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.kafkaconnect.connector<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ConnectorArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+capacity,
+connector_arn,
+connector_configuration,
+connector_description,
+connector_name,
+kafka_cluster,
+kafka_cluster_client_authentication,
+kafka_cluster_encryption_in_transit,
+kafka_connect_version,
+log_delivery,
+plugins,
+service_execution_role_arn,
+worker_configuration
+FROM aws.kafkaconnect.connector
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ConnectorArn&gt;'
+```

@@ -27,16 +27,17 @@ Gets an individual <code>stack_set_constraint</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StackInstanceControl</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AcceptLanguage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PortfolioId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProductId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RegionList</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AdminRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AccountList</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ExecutionRole</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>stack_instance_control</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>accept_language</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>portfolio_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>product_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region_list</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>admin_role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>account_list</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>execution_role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>stack_set_constraint</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.servicecatalog.stack_set_constraint<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+description,
+stack_instance_control,
+accept_language,
+portfolio_id,
+product_id,
+region_list,
+admin_role,
+account_list,
+execution_role
+FROM aws.servicecatalog.stack_set_constraint
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

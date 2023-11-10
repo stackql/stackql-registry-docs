@@ -27,13 +27,8 @@ Retrieves a list of <code>urls</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TargetFunctionArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the function associated with the Function URL.</td></tr>
-<tr><td><code>Qualifier</code></td><td><code>string</code></td><td>The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.</td></tr>
-<tr><td><code>AuthType</code></td><td><code>string</code></td><td>Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.</td></tr>
-<tr><td><code>InvokeMode</code></td><td><code>string</code></td><td>The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.</td></tr>
-<tr><td><code>FunctionArn</code></td><td><code>string</code></td><td>The full Amazon Resource Name (ARN) of the function associated with the Function URL.</td></tr>
-<tr><td><code>FunctionUrl</code></td><td><code>string</code></td><td>The generated url for this resource.</td></tr>
-<tr><td><code>Cors</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>function_arn</code></td><td><code>string</code></td><td>The full Amazon Resource Name (ARN) of the function associated with the Function URL.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>urls</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lambda.urls<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+function_arn
+FROM aws.lambda.urls
+WHERE region = 'us-east-1'
+```

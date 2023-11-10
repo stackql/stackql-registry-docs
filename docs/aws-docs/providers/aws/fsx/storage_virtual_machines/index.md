@@ -27,15 +27,8 @@ Retrieves a list of <code>storage_virtual_machines</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SvmAdminPassword</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StorageVirtualMachineId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ActiveDirectoryConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RootVolumeSecurityStyle</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FileSystemId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UUID</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>storage_virtual_machine_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +36,10 @@ Retrieves a list of <code>storage_virtual_machines</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.fsx.storage_virtual_machines<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+storage_virtual_machine_id
+FROM aws.fsx.storage_virtual_machines
+WHERE region = 'us-east-1'
+```

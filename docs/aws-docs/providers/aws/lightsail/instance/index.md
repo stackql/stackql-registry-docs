@@ -27,26 +27,27 @@ Gets an individual <code>instance</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SupportCode</code></td><td><code>string</code></td><td>Support code to help identify any issues</td></tr>
-<tr><td><code>ResourceType</code></td><td><code>string</code></td><td>Resource type of Lightsail instance.</td></tr>
-<tr><td><code>IsStaticIp</code></td><td><code>boolean</code></td><td>Is the IP Address of the Instance is the static IP</td></tr>
-<tr><td><code>PrivateIpAddress</code></td><td><code>string</code></td><td>Private IP Address of the Instance</td></tr>
-<tr><td><code>PublicIpAddress</code></td><td><code>string</code></td><td>Public IP Address of the Instance</td></tr>
-<tr><td><code>Location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Hardware</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>State</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Networking</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>UserName</code></td><td><code>string</code></td><td>Username of the  Lightsail instance.</td></tr>
-<tr><td><code>SshKeyName</code></td><td><code>string</code></td><td>SSH Key Name of the  Lightsail instance.</td></tr>
-<tr><td><code>InstanceName</code></td><td><code>string</code></td><td>The names to use for your new Lightsail instance.</td></tr>
-<tr><td><code>AvailabilityZone</code></td><td><code>string</code></td><td>The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.</td></tr>
-<tr><td><code>BundleId</code></td><td><code>string</code></td><td>The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).</td></tr>
-<tr><td><code>BlueprintId</code></td><td><code>string</code></td><td>The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).</td></tr>
-<tr><td><code>AddOns</code></td><td><code>array</code></td><td>An array of objects representing the add-ons to enable for the new instance.</td></tr>
-<tr><td><code>UserData</code></td><td><code>string</code></td><td>A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.</td></tr>
-<tr><td><code>KeyPairName</code></td><td><code>string</code></td><td>The name of your key pair.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>support_code</code></td><td><code>string</code></td><td>Support code to help identify any issues</td></tr>
+<tr><td><code>resource_type</code></td><td><code>string</code></td><td>Resource type of Lightsail instance.</td></tr>
+<tr><td><code>is_static_ip</code></td><td><code>boolean</code></td><td>Is the IP Address of the Instance is the static IP</td></tr>
+<tr><td><code>private_ip_address</code></td><td><code>string</code></td><td>Private IP Address of the Instance</td></tr>
+<tr><td><code>public_ip_address</code></td><td><code>string</code></td><td>Public IP Address of the Instance</td></tr>
+<tr><td><code>location</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>hardware</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>state</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>networking</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>user_name</code></td><td><code>string</code></td><td>Username of the  Lightsail instance.</td></tr>
+<tr><td><code>ssh_key_name</code></td><td><code>string</code></td><td>SSH Key Name of the  Lightsail instance.</td></tr>
+<tr><td><code>instance_name</code></td><td><code>string</code></td><td>The names to use for your new Lightsail instance.</td></tr>
+<tr><td><code>availability_zone</code></td><td><code>string</code></td><td>The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.</td></tr>
+<tr><td><code>bundle_id</code></td><td><code>string</code></td><td>The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).</td></tr>
+<tr><td><code>blueprint_id</code></td><td><code>string</code></td><td>The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).</td></tr>
+<tr><td><code>add_ons</code></td><td><code>array</code></td><td>An array of objects representing the add-ons to enable for the new instance.</td></tr>
+<tr><td><code>user_data</code></td><td><code>string</code></td><td>A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.</td></tr>
+<tr><td><code>key_pair_name</code></td><td><code>string</code></td><td>The name of your key pair.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>instance_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,6 +55,30 @@ Gets an individual <code>instance</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lightsail.instance<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;InstanceName&gt;'
-</pre>
+```sql
+SELECT
+region,
+support_code,
+resource_type,
+is_static_ip,
+private_ip_address,
+public_ip_address,
+location,
+hardware,
+state,
+networking,
+user_name,
+ssh_key_name,
+instance_name,
+availability_zone,
+bundle_id,
+blueprint_id,
+add_ons,
+user_data,
+key_pair_name,
+tags,
+instance_arn
+FROM aws.lightsail.instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;InstanceName&gt;'
+```

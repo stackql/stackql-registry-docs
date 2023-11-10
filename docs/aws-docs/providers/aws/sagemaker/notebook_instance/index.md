@@ -27,23 +27,24 @@ Gets an individual <code>notebook_instance</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VolumeSizeInGB</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>AdditionalCodeRepositories</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>DefaultCodeRepository</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DirectInternetAccess</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PlatformIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AcceleratorTypes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SubnetId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceMetadataServiceConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RootAccess</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NotebookInstanceName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LifecycleConfigName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>volume_size_in_gb</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>additional_code_repositories</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>default_code_repository</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>direct_internet_access</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>platform_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>accelerator_types</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>subnet_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_metadata_service_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>root_access</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>notebook_instance_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>lifecycle_config_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -51,6 +52,27 @@ Gets an individual <code>notebook_instance</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.notebook_instance<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+kms_key_id,
+volume_size_in_gb,
+additional_code_repositories,
+default_code_repository,
+direct_internet_access,
+platform_identifier,
+accelerator_types,
+subnet_id,
+security_group_ids,
+role_arn,
+instance_metadata_service_configuration,
+root_access,
+id,
+notebook_instance_name,
+instance_type,
+lifecycle_config_name,
+tags
+FROM aws.sagemaker.notebook_instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

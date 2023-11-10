@@ -27,10 +27,11 @@ Gets an individual <code>prepared_statement</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>StatementName</code></td><td><code>string</code></td><td>The name of the prepared statement.</td></tr>
-<tr><td><code>WorkGroup</code></td><td><code>string</code></td><td>The name of the workgroup to which the prepared statement belongs.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the prepared statement.</td></tr>
-<tr><td><code>QueryStatement</code></td><td><code>string</code></td><td>The query string for the prepared statement.</td></tr>
+<tr><td><code>statement_name</code></td><td><code>string</code></td><td>The name of the prepared statement.</td></tr>
+<tr><td><code>work_group</code></td><td><code>string</code></td><td>The name of the workgroup to which the prepared statement belongs.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the prepared statement.</td></tr>
+<tr><td><code>query_statement</code></td><td><code>string</code></td><td>The query string for the prepared statement.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,15 @@ Gets an individual <code>prepared_statement</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.athena.prepared_statement<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;StatementName&gt;'<br/>AND data__Identifier = '&lt;WorkGroup&gt;'
-</pre>
+```sql
+SELECT
+region,
+statement_name,
+work_group,
+description,
+query_statement
+FROM aws.athena.prepared_statement
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;StatementName&gt;'
+AND data__Identifier = '&lt;WorkGroup&gt;'
+```

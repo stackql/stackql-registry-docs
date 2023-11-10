@@ -27,13 +27,14 @@ Gets an individual <code>assistant</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssistantArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssistantId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServerSideEncryptionConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>assistant_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>assistant_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>server_side_encryption_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>assistant</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.wisdom.assistant<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AssistantId&gt;'
-</pre>
+```sql
+SELECT
+region,
+type,
+description,
+assistant_arn,
+assistant_id,
+server_side_encryption_configuration,
+tags,
+name
+FROM aws.wisdom.assistant
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AssistantId&gt;'
+```

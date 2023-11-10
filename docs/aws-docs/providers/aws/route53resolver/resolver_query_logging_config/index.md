@@ -27,16 +27,17 @@ Gets an individual <code>resolver_query_logging_config</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>ResourceId</td></tr>
-<tr><td><code>OwnerId</code></td><td><code>string</code></td><td>AccountId</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.</td></tr>
-<tr><td><code>ShareStatus</code></td><td><code>string</code></td><td>ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.</td></tr>
-<tr><td><code>AssociationCount</code></td><td><code>integer</code></td><td>Count</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Arn</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>ResolverQueryLogConfigName</td></tr>
-<tr><td><code>CreatorRequestId</code></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
-<tr><td><code>DestinationArn</code></td><td><code>string</code></td><td>destination arn</td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><code>owner_id</code></td><td><code>string</code></td><td>AccountId</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.</td></tr>
+<tr><td><code>share_status</code></td><td><code>string</code></td><td>ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.</td></tr>
+<tr><td><code>association_count</code></td><td><code>integer</code></td><td>Count</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Arn</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>ResolverQueryLogConfigName</td></tr>
+<tr><td><code>creator_request_id</code></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
+<tr><td><code>destination_arn</code></td><td><code>string</code></td><td>destination arn</td></tr>
+<tr><td><code>creation_time</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>resolver_query_logging_config</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53resolver.resolver_query_logging_config<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+owner_id,
+status,
+share_status,
+association_count,
+arn,
+name,
+creator_request_id,
+destination_arn,
+creation_time
+FROM aws.route53resolver.resolver_query_logging_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

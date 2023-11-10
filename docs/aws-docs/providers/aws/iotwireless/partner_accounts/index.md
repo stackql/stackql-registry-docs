@@ -27,15 +27,8 @@ Retrieves a list of <code>partner_accounts</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Sidewalk</code></td><td><code>object</code></td><td>The Sidewalk account credentials.</td></tr>
-<tr><td><code>PartnerAccountId</code></td><td><code>string</code></td><td>The partner account ID to disassociate from the AWS account</td></tr>
-<tr><td><code>PartnerType</code></td><td><code>string</code></td><td>The partner type</td></tr>
-<tr><td><code>SidewalkResponse</code></td><td><code>object</code></td><td>The Sidewalk account credentials.</td></tr>
-<tr><td><code>AccountLinked</code></td><td><code>boolean</code></td><td>Whether the partner account is linked to the AWS account.</td></tr>
-<tr><td><code>SidewalkUpdate</code></td><td><code>object</code></td><td>The Sidewalk account credentials.</td></tr>
-<tr><td><code>Fingerprint</code></td><td><code>string</code></td><td>The fingerprint of the Sidewalk application server private key.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>PartnerAccount arn. Returned after successful create.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the destination.</td></tr>
+<tr><td><code>partner_account_id</code></td><td><code>string</code></td><td>The partner account ID to disassociate from the AWS account</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +36,10 @@ Retrieves a list of <code>partner_accounts</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iotwireless.partner_accounts<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+partner_account_id
+FROM aws.iotwireless.partner_accounts
+WHERE region = 'us-east-1'
+```

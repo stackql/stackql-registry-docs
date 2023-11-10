@@ -27,20 +27,21 @@ Gets an individual <code>firewall_rule_group_association</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>Id</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Arn</td></tr>
-<tr><td><code>FirewallRuleGroupId</code></td><td><code>string</code></td><td>FirewallRuleGroupId</td></tr>
-<tr><td><code>VpcId</code></td><td><code>string</code></td><td>VpcId</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>FirewallRuleGroupAssociationName</td></tr>
-<tr><td><code>Priority</code></td><td><code>integer</code></td><td>Priority</td></tr>
-<tr><td><code>MutationProtection</code></td><td><code>string</code></td><td>MutationProtectionStatus</td></tr>
-<tr><td><code>ManagedOwnerName</code></td><td><code>string</code></td><td>ServicePrincipal</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.</td></tr>
-<tr><td><code>StatusMessage</code></td><td><code>string</code></td><td>FirewallDomainListAssociationStatus</td></tr>
-<tr><td><code>CreatorRequestId</code></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
-<tr><td><code>ModificationTime</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Tags</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>Id</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Arn</td></tr>
+<tr><td><code>firewall_rule_group_id</code></td><td><code>string</code></td><td>FirewallRuleGroupId</td></tr>
+<tr><td><code>vpc_id</code></td><td><code>string</code></td><td>VpcId</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>FirewallRuleGroupAssociationName</td></tr>
+<tr><td><code>priority</code></td><td><code>integer</code></td><td>Priority</td></tr>
+<tr><td><code>mutation_protection</code></td><td><code>string</code></td><td>MutationProtectionStatus</td></tr>
+<tr><td><code>managed_owner_name</code></td><td><code>string</code></td><td>ServicePrincipal</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.</td></tr>
+<tr><td><code>status_message</code></td><td><code>string</code></td><td>FirewallDomainListAssociationStatus</td></tr>
+<tr><td><code>creator_request_id</code></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
+<tr><td><code>creation_time</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
+<tr><td><code>modification_time</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>Tags</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>firewall_rule_group_association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53resolver.firewall_rule_group_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+arn,
+firewall_rule_group_id,
+vpc_id,
+name,
+priority,
+mutation_protection,
+managed_owner_name,
+status,
+status_message,
+creator_request_id,
+creation_time,
+modification_time,
+tags
+FROM aws.route53resolver.firewall_rule_group_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

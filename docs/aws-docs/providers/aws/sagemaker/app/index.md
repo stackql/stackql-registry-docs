@@ -27,13 +27,14 @@ Gets an individual <code>app</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AppArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the app.</td></tr>
-<tr><td><code>AppName</code></td><td><code>string</code></td><td>The name of the app.</td></tr>
-<tr><td><code>AppType</code></td><td><code>string</code></td><td>The type of app.</td></tr>
-<tr><td><code>DomainId</code></td><td><code>string</code></td><td>The domain ID.</td></tr>
-<tr><td><code>ResourceSpec</code></td><td><code>object</code></td><td>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the app.</td></tr>
-<tr><td><code>UserProfileName</code></td><td><code>string</code></td><td>The user profile name.</td></tr>
+<tr><td><code>app_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the app.</td></tr>
+<tr><td><code>app_name</code></td><td><code>string</code></td><td>The name of the app.</td></tr>
+<tr><td><code>app_type</code></td><td><code>string</code></td><td>The type of app.</td></tr>
+<tr><td><code>domain_id</code></td><td><code>string</code></td><td>The domain ID.</td></tr>
+<tr><td><code>resource_spec</code></td><td><code>object</code></td><td>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>A list of tags to apply to the app.</td></tr>
+<tr><td><code>user_profile_name</code></td><td><code>string</code></td><td>The user profile name.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,20 @@ Gets an individual <code>app</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.app<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AppName&gt;'<br/>AND data__Identifier = '&lt;AppType&gt;'<br/>AND data__Identifier = '&lt;DomainId&gt;'<br/>AND data__Identifier = '&lt;UserProfileName&gt;'
-</pre>
+```sql
+SELECT
+region,
+app_arn,
+app_name,
+app_type,
+domain_id,
+resource_spec,
+tags,
+user_profile_name
+FROM aws.sagemaker.app
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AppName&gt;'
+AND data__Identifier = '&lt;AppType&gt;'
+AND data__Identifier = '&lt;DomainId&gt;'
+AND data__Identifier = '&lt;UserProfileName&gt;'
+```

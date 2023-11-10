@@ -27,20 +27,21 @@ Gets an individual <code>infrastructure_configuration</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the infrastructure configuration.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the infrastructure configuration.</td></tr>
-<tr><td><code>InstanceTypes</code></td><td><code>array</code></td><td>The instance types of the infrastructure configuration.</td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td>The security group IDs of the infrastructure configuration.</td></tr>
-<tr><td><code>Logging</code></td><td><code>object</code></td><td>The logging configuration of the infrastructure configuration.</td></tr>
-<tr><td><code>SubnetId</code></td><td><code>string</code></td><td>The subnet ID of the infrastructure configuration.</td></tr>
-<tr><td><code>KeyPair</code></td><td><code>string</code></td><td>The EC2 key pair of the infrastructure configuration..</td></tr>
-<tr><td><code>TerminateInstanceOnFailure</code></td><td><code>boolean</code></td><td>The terminate instance on failure configuration of the infrastructure configuration.</td></tr>
-<tr><td><code>InstanceProfileName</code></td><td><code>string</code></td><td>The instance profile of the infrastructure configuration.</td></tr>
-<tr><td><code>InstanceMetadataOptions</code></td><td><code>object</code></td><td>The instance metadata option settings for the infrastructure configuration.</td></tr>
-<tr><td><code>SnsTopicArn</code></td><td><code>string</code></td><td>The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
-<tr><td><code>ResourceTags</code></td><td><code>object</code></td><td>The tags attached to the resource created by Image Builder.</td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>The tags associated with the component.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the infrastructure configuration.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the infrastructure configuration.</td></tr>
+<tr><td><code>instance_types</code></td><td><code>array</code></td><td>The instance types of the infrastructure configuration.</td></tr>
+<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td>The security group IDs of the infrastructure configuration.</td></tr>
+<tr><td><code>logging</code></td><td><code>object</code></td><td>The logging configuration of the infrastructure configuration.</td></tr>
+<tr><td><code>subnet_id</code></td><td><code>string</code></td><td>The subnet ID of the infrastructure configuration.</td></tr>
+<tr><td><code>key_pair</code></td><td><code>string</code></td><td>The EC2 key pair of the infrastructure configuration..</td></tr>
+<tr><td><code>terminate_instance_on_failure</code></td><td><code>boolean</code></td><td>The terminate instance on failure configuration of the infrastructure configuration.</td></tr>
+<tr><td><code>instance_profile_name</code></td><td><code>string</code></td><td>The instance profile of the infrastructure configuration.</td></tr>
+<tr><td><code>instance_metadata_options</code></td><td><code>object</code></td><td>The instance metadata option settings for the infrastructure configuration.</td></tr>
+<tr><td><code>sns_topic_arn</code></td><td><code>string</code></td><td>The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
+<tr><td><code>resource_tags</code></td><td><code>object</code></td><td>The tags attached to the resource created by Image Builder.</td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td>The tags associated with the component.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>infrastructure_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.imagebuilder.infrastructure_configuration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+instance_types,
+security_group_ids,
+logging,
+subnet_id,
+key_pair,
+terminate_instance_on_failure,
+instance_profile_name,
+instance_metadata_options,
+sns_topic_arn,
+resource_tags,
+tags
+FROM aws.imagebuilder.infrastructure_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

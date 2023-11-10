@@ -27,18 +27,19 @@ Gets an individual <code>environment_ec2</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Repositories</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>OwnerArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConnectionType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AutomaticStopTimeMinutes</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>ImageId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SubnetId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>repositories</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>owner_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>connection_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>automatic_stop_time_minutes</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>image_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>subnet_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>environment_ec2</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cloud9.environment_ec2<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+repositories,
+owner_arn,
+description,
+connection_type,
+automatic_stop_time_minutes,
+image_id,
+subnet_id,
+id,
+arn,
+instance_type,
+tags,
+name
+FROM aws.cloud9.environment_ec2
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

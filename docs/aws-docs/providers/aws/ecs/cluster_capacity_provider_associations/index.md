@@ -27,9 +27,10 @@ Gets an individual <code>cluster_capacity_provider_associations</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CapacityProviders</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Cluster</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DefaultCapacityProviderStrategy</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>capacity_providers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>cluster</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>default_capacity_provider_strategy</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>cluster_capacity_provider_associations</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ecs.cluster_capacity_provider_associations<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Cluster&gt;'
-</pre>
+```sql
+SELECT
+region,
+capacity_providers,
+cluster,
+default_capacity_provider_strategy
+FROM aws.ecs.cluster_capacity_provider_associations
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Cluster&gt;'
+```

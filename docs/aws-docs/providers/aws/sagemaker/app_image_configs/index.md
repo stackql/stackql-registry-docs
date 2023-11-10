@@ -27,10 +27,8 @@ Retrieves a list of <code>app_image_configs</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AppImageConfigArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppImageConfig.</td></tr>
-<tr><td><code>AppImageConfigName</code></td><td><code>string</code></td><td>The Name of the AppImageConfig.</td></tr>
-<tr><td><code>KernelGatewayImageConfig</code></td><td><code>object</code></td><td>The KernelGatewayImageConfig.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the AppImageConfig.</td></tr>
+<tr><td><code>app_image_config_name</code></td><td><code>string</code></td><td>The Name of the AppImageConfig.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +36,10 @@ Retrieves a list of <code>app_image_configs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.app_image_configs<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+app_image_config_name
+FROM aws.sagemaker.app_image_configs
+WHERE region = 'us-east-1'
+```

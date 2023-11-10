@@ -27,19 +27,8 @@ Retrieves a list of <code>experiments</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Project</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RunningStatus</code></td><td><code>object</code></td><td>Start Experiment. Default is False</td></tr>
-<tr><td><code>RandomizationSalt</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Treatments</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>MetricGoals</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SamplingRate</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>OnlineAbConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Segment</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RemoveSegment</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +36,10 @@ Retrieves a list of <code>experiments</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.evidently.experiments<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.evidently.experiments
+WHERE region = 'us-east-1'
+```

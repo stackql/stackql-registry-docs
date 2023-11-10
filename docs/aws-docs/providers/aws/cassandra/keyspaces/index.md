@@ -27,8 +27,8 @@ Retrieves a list of <code>keyspaces</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>KeyspaceName</code></td><td><code>string</code></td><td>Name for Cassandra keyspace</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>keyspace_name</code></td><td><code>string</code></td><td>Name for Cassandra keyspace</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +36,10 @@ Retrieves a list of <code>keyspaces</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cassandra.keyspaces<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+keyspace_name
+FROM aws.cassandra.keyspaces
+WHERE region = 'us-east-1'
+```

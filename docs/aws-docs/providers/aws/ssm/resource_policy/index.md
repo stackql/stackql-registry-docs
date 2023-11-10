@@ -27,10 +27,11 @@ Gets an individual <code>resource_policy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceArn</code></td><td><code>string</code></td><td>Arn of OpsItemGroup etc.</td></tr>
-<tr><td><code>Policy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PolicyId</code></td><td><code>string</code></td><td>An unique identifier within the policies of a resource. </td></tr>
-<tr><td><code>PolicyHash</code></td><td><code>string</code></td><td>A snapshot identifier for the policy over time.</td></tr>
+<tr><td><code>resource_arn</code></td><td><code>string</code></td><td>Arn of OpsItemGroup etc.</td></tr>
+<tr><td><code>policy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>policy_id</code></td><td><code>string</code></td><td>An unique identifier within the policies of a resource. </td></tr>
+<tr><td><code>policy_hash</code></td><td><code>string</code></td><td>A snapshot identifier for the policy over time.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,15 @@ Gets an individual <code>resource_policy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ssm.resource_policy<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;PolicyId&gt;'<br/>AND data__Identifier = '&lt;ResourceArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+resource_arn,
+policy,
+policy_id,
+policy_hash
+FROM aws.ssm.resource_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;PolicyId&gt;'
+AND data__Identifier = '&lt;ResourceArn&gt;'
+```

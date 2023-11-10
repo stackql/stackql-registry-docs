@@ -27,11 +27,8 @@ Retrieves a list of <code>connectors</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ConnectorLabel</code></td><td><code>string</code></td><td> The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.</td></tr>
-<tr><td><code>ConnectorArn</code></td><td><code>string</code></td><td> The arn of the connector. The arn is unique for each ConnectorRegistration in your AWS account.</td></tr>
-<tr><td><code>ConnectorProvisioningType</code></td><td><code>string</code></td><td>The provisioning type of the connector. Currently the only supported value is LAMBDA. </td></tr>
-<tr><td><code>ConnectorProvisioningConfig</code></td><td><code>object</code></td><td>Contains information about the configuration of the connector being registered.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A description about the connector that's being registered.</td></tr>
+<tr><td><code>connector_label</code></td><td><code>string</code></td><td> The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>connectors</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appflow.connectors<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+connector_label
+FROM aws.appflow.connectors
+WHERE region = 'us-east-1'
+```

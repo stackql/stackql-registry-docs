@@ -27,10 +27,11 @@ Gets an individual <code>deployment_config</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ComputePlatform</code></td><td><code>string</code></td><td>The destination platform type for the deployment (Lambda, Server, or ECS).</td></tr>
-<tr><td><code>DeploymentConfigName</code></td><td><code>string</code></td><td>A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.</td></tr>
-<tr><td><code>MinimumHealthyHosts</code></td><td><code>object</code></td><td>The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.</td></tr>
-<tr><td><code>TrafficRoutingConfig</code></td><td><code>object</code></td><td>The configuration that specifies how the deployment traffic is routed.</td></tr>
+<tr><td><code>compute_platform</code></td><td><code>string</code></td><td>The destination platform type for the deployment (Lambda, Server, or ECS).</td></tr>
+<tr><td><code>deployment_config_name</code></td><td><code>string</code></td><td>A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.</td></tr>
+<tr><td><code>minimum_healthy_hosts</code></td><td><code>object</code></td><td>The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.</td></tr>
+<tr><td><code>traffic_routing_config</code></td><td><code>object</code></td><td>The configuration that specifies how the deployment traffic is routed.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>deployment_config</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.codedeploy.deployment_config<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;DeploymentConfigName&gt;'
-</pre>
+```sql
+SELECT
+region,
+compute_platform,
+deployment_config_name,
+minimum_healthy_hosts,
+traffic_routing_config
+FROM aws.codedeploy.deployment_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;DeploymentConfigName&gt;'
+```

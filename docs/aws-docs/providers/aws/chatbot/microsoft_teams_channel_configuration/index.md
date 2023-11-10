@@ -27,16 +27,17 @@ Gets an individual <code>microsoft_teams_channel_configuration</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TeamId</code></td><td><code>string</code></td><td>The id of the Microsoft Teams team</td></tr>
-<tr><td><code>TeamsChannelId</code></td><td><code>string</code></td><td>The id of the Microsoft Teams channel</td></tr>
-<tr><td><code>TeamsTenantId</code></td><td><code>string</code></td><td>The id of the Microsoft Teams tenant</td></tr>
-<tr><td><code>ConfigurationName</code></td><td><code>string</code></td><td>The name of the configuration</td></tr>
-<tr><td><code>IamRoleArn</code></td><td><code>string</code></td><td>The ARN of the IAM role that defines the permissions for AWS Chatbot</td></tr>
-<tr><td><code>SnsTopicArns</code></td><td><code>array</code></td><td>ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.</td></tr>
-<tr><td><code>LoggingLevel</code></td><td><code>string</code></td><td>Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the configuration</td></tr>
-<tr><td><code>GuardrailPolicies</code></td><td><code>array</code></td><td>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.</td></tr>
-<tr><td><code>UserRoleRequired</code></td><td><code>boolean</code></td><td>Enables use of a user role requirement in your chat configuration</td></tr>
+<tr><td><code>team_id</code></td><td><code>string</code></td><td>The id of the Microsoft Teams team</td></tr>
+<tr><td><code>teams_channel_id</code></td><td><code>string</code></td><td>The id of the Microsoft Teams channel</td></tr>
+<tr><td><code>teams_tenant_id</code></td><td><code>string</code></td><td>The id of the Microsoft Teams tenant</td></tr>
+<tr><td><code>configuration_name</code></td><td><code>string</code></td><td>The name of the configuration</td></tr>
+<tr><td><code>iam_role_arn</code></td><td><code>string</code></td><td>The ARN of the IAM role that defines the permissions for AWS Chatbot</td></tr>
+<tr><td><code>sns_topic_arns</code></td><td><code>array</code></td><td>ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.</td></tr>
+<tr><td><code>logging_level</code></td><td><code>string</code></td><td>Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the configuration</td></tr>
+<tr><td><code>guardrail_policies</code></td><td><code>array</code></td><td>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.</td></tr>
+<tr><td><code>user_role_required</code></td><td><code>boolean</code></td><td>Enables use of a user role requirement in your chat configuration</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>microsoft_teams_channel_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.chatbot.microsoft_teams_channel_configuration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+team_id,
+teams_channel_id,
+teams_tenant_id,
+configuration_name,
+iam_role_arn,
+sns_topic_arns,
+logging_level,
+arn,
+guardrail_policies,
+user_role_required
+FROM aws.chatbot.microsoft_teams_channel_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

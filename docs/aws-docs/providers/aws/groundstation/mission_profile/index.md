@@ -27,18 +27,19 @@ Gets an individual <code>mission_profile</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>A name used to identify a mission profile.</td></tr>
-<tr><td><code>ContactPrePassDurationSeconds</code></td><td><code>integer</code></td><td>Pre-pass time needed before the contact.</td></tr>
-<tr><td><code>ContactPostPassDurationSeconds</code></td><td><code>integer</code></td><td>Post-pass time needed after the contact.</td></tr>
-<tr><td><code>MinimumViableContactDurationSeconds</code></td><td><code>integer</code></td><td>Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.</td></tr>
-<tr><td><code>StreamsKmsKey</code></td><td><code>object</code></td><td>The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.</td></tr>
-<tr><td><code>StreamsKmsRole</code></td><td><code>string</code></td><td>The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.</td></tr>
-<tr><td><code>DataflowEdges</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>TrackingConfigArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Region</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>A name used to identify a mission profile.</td></tr>
+<tr><td><code>contact_pre_pass_duration_seconds</code></td><td><code>integer</code></td><td>Pre-pass time needed before the contact.</td></tr>
+<tr><td><code>contact_post_pass_duration_seconds</code></td><td><code>integer</code></td><td>Post-pass time needed after the contact.</td></tr>
+<tr><td><code>minimum_viable_contact_duration_seconds</code></td><td><code>integer</code></td><td>Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.</td></tr>
+<tr><td><code>streams_kms_key</code></td><td><code>object</code></td><td>The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.</td></tr>
+<tr><td><code>streams_kms_role</code></td><td><code>string</code></td><td>The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.</td></tr>
+<tr><td><code>dataflow_edges</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>tracking_config_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,23 @@ Gets an individual <code>mission_profile</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.groundstation.mission_profile<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+contact_pre_pass_duration_seconds,
+contact_post_pass_duration_seconds,
+minimum_viable_contact_duration_seconds,
+streams_kms_key,
+streams_kms_role,
+dataflow_edges,
+tracking_config_arn,
+tags,
+id,
+arn,
+region
+FROM aws.groundstation.mission_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '&lt;Arn&gt;'
+```

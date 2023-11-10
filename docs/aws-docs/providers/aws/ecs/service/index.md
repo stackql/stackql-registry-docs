@@ -27,30 +27,31 @@ Gets an individual <code>service</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ServiceArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CapacityProviderStrategy</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Cluster</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DeploymentController</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DesiredCount</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>EnableECSManagedTags</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>EnableExecuteCommand</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>HealthCheckGracePeriodSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>LaunchType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LoadBalancers</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NetworkConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>PlacementConstraints</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PlacementStrategies</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PlatformVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PropagateTags</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Role</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SchedulingStrategy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServiceConnectConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ServiceName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServiceRegistries</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>TaskDefinition</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>service_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>capacity_provider_strategy</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>cluster</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>deployment_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>deployment_controller</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>desired_count</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>enable_ec_smanaged_tags</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>enable_execute_command</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>health_check_grace_period_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>launch_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>load_balancers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>network_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>placement_constraints</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>placement_strategies</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>platform_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>propagate_tags</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>scheduling_strategy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>service_connect_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>service_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>service_registries</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>task_definition</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -58,6 +59,35 @@ Gets an individual <code>service</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ecs.service<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ServiceArn&gt;'<br/>AND data__Identifier = '&lt;Cluster&gt;'
-</pre>
+```sql
+SELECT
+region,
+service_arn,
+capacity_provider_strategy,
+cluster,
+deployment_configuration,
+deployment_controller,
+desired_count,
+enable_ec_smanaged_tags,
+enable_execute_command,
+health_check_grace_period_seconds,
+launch_type,
+load_balancers,
+name,
+network_configuration,
+placement_constraints,
+placement_strategies,
+platform_version,
+propagate_tags,
+role,
+scheduling_strategy,
+service_connect_configuration,
+service_name,
+service_registries,
+tags,
+task_definition
+FROM aws.ecs.service
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ServiceArn&gt;'
+AND data__Identifier = '&lt;Cluster&gt;'
+```

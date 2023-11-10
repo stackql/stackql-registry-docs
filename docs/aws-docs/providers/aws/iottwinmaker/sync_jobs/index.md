@@ -27,14 +27,9 @@ Retrieves a list of <code>sync_jobs</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>WorkspaceId</code></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
-<tr><td><code>SyncSource</code></td><td><code>string</code></td><td>The source of the SyncJob.</td></tr>
-<tr><td><code>SyncRole</code></td><td><code>string</code></td><td>The IAM Role that execute SyncJob.</td></tr>
-<tr><td><code>CreationDateTime</code></td><td><code>string</code></td><td>The date and time when the sync job was created.</td></tr>
-<tr><td><code>UpdateDateTime</code></td><td><code>string</code></td><td>The date and time when the sync job was updated.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the SyncJob.</td></tr>
-<tr><td><code>State</code></td><td><code>string</code></td><td>The state of SyncJob.</td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<tr><td><code>workspace_id</code></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
+<tr><td><code>sync_source</code></td><td><code>string</code></td><td>The source of the SyncJob.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +37,11 @@ Retrieves a list of <code>sync_jobs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iottwinmaker.sync_jobs<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+workspace_id,
+sync_source
+FROM aws.iottwinmaker.sync_jobs
+WHERE region = 'us-east-1'
+```

@@ -27,17 +27,18 @@ Gets an individual <code>task_template</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The identifier (arn) of the task template.</td></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The identifier (arn) of the instance.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the task template.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the task template.</td></tr>
-<tr><td><code>ContactFlowArn</code></td><td><code>string</code></td><td>The identifier of the contact flow.</td></tr>
-<tr><td><code>Constraints</code></td><td><code>object</code></td><td>The constraints for the task template</td></tr>
-<tr><td><code>Defaults</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Fields</code></td><td><code>array</code></td><td>The list of task template's fields</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClientToken</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>One or more tags.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The identifier (arn) of the task template.</td></tr>
+<tr><td><code>instance_arn</code></td><td><code>string</code></td><td>The identifier (arn) of the instance.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the task template.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the task template.</td></tr>
+<tr><td><code>contact_flow_arn</code></td><td><code>string</code></td><td>The identifier of the contact flow.</td></tr>
+<tr><td><code>constraints</code></td><td><code>object</code></td><td>The constraints for the task template</td></tr>
+<tr><td><code>defaults</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>fields</code></td><td><code>array</code></td><td>The list of task template's fields</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>client_token</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>One or more tags.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,21 @@ Gets an individual <code>task_template</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.connect.task_template<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+instance_arn,
+name,
+description,
+contact_flow_arn,
+constraints,
+defaults,
+fields,
+status,
+client_token,
+tags
+FROM aws.connect.task_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

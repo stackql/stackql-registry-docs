@@ -27,18 +27,19 @@ Gets an individual <code>billing_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Billing Group ARN</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PrimaryAccountId</code></td><td><code>string</code></td><td>This account will act as a virtual payer account of the billing group</td></tr>
-<tr><td><code>ComputationPreference</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AccountGrouping</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Size</code></td><td><code>integer</code></td><td>Number of accounts in the billing group</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StatusReason</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreationTime</code></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
-<tr><td><code>LastModifiedTime</code></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Billing Group ARN</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>primary_account_id</code></td><td><code>string</code></td><td>This account will act as a virtual payer account of the billing group</td></tr>
+<tr><td><code>computation_preference</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>account_grouping</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>size</code></td><td><code>integer</code></td><td>Number of accounts in the billing group</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status_reason</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>creation_time</code></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
+<tr><td><code>last_modified_time</code></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>billing_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.billingconductor.billing_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+primary_account_id,
+computation_preference,
+account_grouping,
+size,
+status,
+status_reason,
+creation_time,
+last_modified_time,
+tags
+FROM aws.billingconductor.billing_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

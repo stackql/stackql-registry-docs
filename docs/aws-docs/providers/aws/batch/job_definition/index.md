@@ -27,19 +27,20 @@ Gets an individual <code>job_definition</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Parameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Timeout</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>JobDefinitionName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PropagateTags</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>PlatformCapabilities</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EksProperties</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NodeProperties</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SchedulingPriority</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>ContainerProperties</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RetryStrategy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>timeout</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>job_definition_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>propagate_tags</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>platform_capabilities</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>eks_properties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>node_properties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>scheduling_priority</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>container_properties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>retry_strategy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +48,23 @@ Gets an individual <code>job_definition</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.batch.job_definition<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+parameters,
+timeout,
+job_definition_name,
+propagate_tags,
+platform_capabilities,
+eks_properties,
+type,
+node_properties,
+scheduling_priority,
+container_properties,
+id,
+retry_strategy,
+tags
+FROM aws.batch.job_definition
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

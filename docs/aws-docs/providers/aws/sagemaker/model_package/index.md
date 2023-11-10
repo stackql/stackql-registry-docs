@@ -27,37 +27,38 @@ Gets an individual <code>model_package</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>AdditionalInferenceSpecifications</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AdditionalInferenceSpecificationDefinition</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CertifyForMarketplace</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ClientToken</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomerMetadataProperties</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Domain</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DriftCheckBaselines</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>InferenceSpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>MetadataProperties</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ModelApprovalStatus</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModelMetrics</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ModelPackageDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModelPackageGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModelPackageName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SamplePayloadUrl</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceAlgorithmSpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Task</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ValidationSpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ModelPackageArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApprovalDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LastModifiedBy</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>LastModifiedTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModelPackageStatus</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModelPackageVersion</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>AdditionalInferenceSpecificationsToAdd</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ModelPackageStatusDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ModelPackageStatusItem</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CreatedBy</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>Environment</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>additional_inference_specifications</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>additional_inference_specification_definition</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>certify_for_marketplace</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>client_token</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>customer_metadata_properties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>domain</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>drift_check_baselines</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>inference_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>metadata_properties</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>model_approval_status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>model_metrics</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>model_package_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>model_package_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>model_package_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>sample_payload_url</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source_algorithm_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>task</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>validation_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>model_package_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>approval_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>creation_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>last_modified_by</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>last_modified_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>model_package_status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>model_package_version</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>additional_inference_specifications_to_add</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>model_package_status_details</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>model_package_status_item</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>created_by</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>environment</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -65,6 +66,41 @@ Gets an individual <code>model_package</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.model_package<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ModelPackageArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+tags,
+additional_inference_specifications,
+additional_inference_specification_definition,
+certify_for_marketplace,
+client_token,
+customer_metadata_properties,
+domain,
+drift_check_baselines,
+inference_specification,
+metadata_properties,
+model_approval_status,
+model_metrics,
+model_package_description,
+model_package_group_name,
+model_package_name,
+sample_payload_url,
+source_algorithm_specification,
+task,
+validation_specification,
+model_package_arn,
+approval_description,
+creation_time,
+last_modified_by,
+last_modified_time,
+model_package_status,
+model_package_version,
+additional_inference_specifications_to_add,
+model_package_status_details,
+model_package_status_item,
+created_by,
+environment
+FROM aws.sagemaker.model_package
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ModelPackageArn&gt;'
+```

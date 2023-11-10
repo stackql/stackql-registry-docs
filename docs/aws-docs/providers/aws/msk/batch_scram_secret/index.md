@@ -27,8 +27,9 @@ Gets an individual <code>batch_scram_secret</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ClusterArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecretArnList</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>cluster_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>secret_arn_list</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,12 @@ Gets an individual <code>batch_scram_secret</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.msk.batch_scram_secret<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ClusterArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+cluster_arn,
+secret_arn_list
+FROM aws.msk.batch_scram_secret
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ClusterArn&gt;'
+```

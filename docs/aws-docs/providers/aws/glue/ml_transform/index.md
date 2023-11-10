@@ -27,20 +27,21 @@ Gets an individual <code>ml_transform</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>MaxRetries</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TransformEncryption</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Timeout</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Role</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WorkerType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>GlueVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TransformParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InputRecordTables</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>NumberOfWorkers</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>MaxCapacity</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>max_retries</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>transform_encryption</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>timeout</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>worker_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>glue_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>transform_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>input_record_tables</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>number_of_workers</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>max_capacity</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>ml_transform</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.glue.ml_transform<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+max_retries,
+description,
+transform_encryption,
+timeout,
+name,
+role,
+worker_type,
+glue_version,
+transform_parameters,
+id,
+input_record_tables,
+number_of_workers,
+tags,
+max_capacity
+FROM aws.glue.ml_transform
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

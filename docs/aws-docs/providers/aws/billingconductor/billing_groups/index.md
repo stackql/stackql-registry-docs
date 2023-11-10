@@ -27,18 +27,8 @@ Retrieves a list of <code>billing_groups</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Billing Group ARN</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PrimaryAccountId</code></td><td><code>string</code></td><td>This account will act as a virtual payer account of the billing group</td></tr>
-<tr><td><code>ComputationPreference</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AccountGrouping</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Size</code></td><td><code>integer</code></td><td>Number of accounts in the billing group</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StatusReason</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreationTime</code></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
-<tr><td><code>LastModifiedTime</code></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Billing Group ARN</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +36,10 @@ Retrieves a list of <code>billing_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.billingconductor.billing_groups<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.billingconductor.billing_groups
+WHERE region = 'us-east-1'
+```

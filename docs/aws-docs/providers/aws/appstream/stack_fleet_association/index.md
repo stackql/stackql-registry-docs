@@ -27,9 +27,10 @@ Gets an individual <code>stack_fleet_association</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FleetName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StackName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>fleet_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>stack_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>stack_fleet_association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appstream.stack_fleet_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+fleet_name,
+stack_name
+FROM aws.appstream.stack_fleet_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

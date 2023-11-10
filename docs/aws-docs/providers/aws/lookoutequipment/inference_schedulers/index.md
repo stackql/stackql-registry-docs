@@ -27,16 +27,8 @@ Retrieves a list of <code>inference_schedulers</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DataDelayOffsetInMinutes</code></td><td><code>integer</code></td><td>A period of time (in minutes) by which inference on the data is delayed after the data starts.</td></tr>
-<tr><td><code>DataInputConfiguration</code></td><td><code>object</code></td><td>Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.</td></tr>
-<tr><td><code>DataOutputConfiguration</code></td><td><code>object</code></td><td>Specifies configuration information for the output results for the inference scheduler, including the S3 location for the output.</td></tr>
-<tr><td><code>DataUploadFrequency</code></td><td><code>string</code></td><td>How often data is uploaded to the source S3 bucket for the input data.</td></tr>
-<tr><td><code>InferenceSchedulerName</code></td><td><code>string</code></td><td>The name of the inference scheduler being created.</td></tr>
-<tr><td><code>ModelName</code></td><td><code>string</code></td><td>The name of the previously trained ML model being used to create the inference scheduler.</td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of a role with permission to access the data source being used for the inference.</td></tr>
-<tr><td><code>ServerSideKmsKeyId</code></td><td><code>string</code></td><td>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Any tags associated with the inference scheduler.</td></tr>
-<tr><td><code>InferenceSchedulerArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the inference scheduler being created.</td></tr>
+<tr><td><code>inference_scheduler_name</code></td><td><code>string</code></td><td>The name of the inference scheduler being created.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +36,10 @@ Retrieves a list of <code>inference_schedulers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lookoutequipment.inference_schedulers<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+inference_scheduler_name
+FROM aws.lookoutequipment.inference_schedulers
+WHERE region = 'us-east-1'
+```

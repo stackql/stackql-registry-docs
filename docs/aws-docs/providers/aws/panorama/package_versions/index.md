@@ -27,18 +27,10 @@ Retrieves a list of <code>package_versions</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OwnerAccount</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PackageId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PackageArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PackageVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PatchVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MarkLatest</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>IsLatestPatch</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>PackageName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StatusDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RegisteredTime</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>UpdatedLatestPatchVersion</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>package_id</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>package_version</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>patch_version</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +38,12 @@ Retrieves a list of <code>package_versions</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.panorama.package_versions<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+package_id,
+package_version,
+patch_version
+FROM aws.panorama.package_versions
+WHERE region = 'us-east-1'
+```

@@ -27,17 +27,18 @@ Gets an individual <code>service</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CreatedAt</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DnsEntry</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LastUpdatedAt</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomDomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>auth_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>created_at</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>dns_entry</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>last_updated_at</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>custom_domain_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,21 @@ Gets an individual <code>service</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.vpclattice.service<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+auth_type,
+created_at,
+dns_entry,
+id,
+last_updated_at,
+name,
+status,
+certificate_arn,
+custom_domain_name,
+tags
+FROM aws.vpclattice.service
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

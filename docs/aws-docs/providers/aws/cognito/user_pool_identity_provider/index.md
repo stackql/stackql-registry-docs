@@ -27,13 +27,14 @@ Gets an individual <code>user_pool_identity_provider</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ProviderName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UserPoolId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AttributeMapping</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ProviderDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ProviderType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IdpIdentifiers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>provider_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>user_pool_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>attribute_mapping</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>provider_details</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>provider_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>idp_identifiers</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>user_pool_identity_provider</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cognito.user_pool_identity_provider<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+provider_name,
+user_pool_id,
+attribute_mapping,
+provider_details,
+provider_type,
+id,
+idp_identifiers
+FROM aws.cognito.user_pool_identity_provider
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,11 +27,9 @@ Retrieves a list of <code>spaces</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SpaceArn</code></td><td><code>string</code></td><td>The space Amazon Resource Name (ARN).</td></tr>
-<tr><td><code>DomainId</code></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
-<tr><td><code>SpaceName</code></td><td><code>string</code></td><td>A name for the Space.</td></tr>
-<tr><td><code>SpaceSettings</code></td><td><code>object</code></td><td>A collection of settings.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the space.</td></tr>
+<tr><td><code>domain_id</code></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
+<tr><td><code>space_name</code></td><td><code>string</code></td><td>A name for the Space.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +37,11 @@ Retrieves a list of <code>spaces</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.spaces<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+domain_id,
+space_name
+FROM aws.sagemaker.spaces
+WHERE region = 'us-east-1'
+```

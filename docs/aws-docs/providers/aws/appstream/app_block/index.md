@@ -27,14 +27,15 @@ Gets an individual <code>app_block</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DisplayName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceS3Location</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SetupScriptDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CreatedTime</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>display_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>source_s3_location</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>setup_script_details</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>created_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>app_block</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appstream.app_block<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+arn,
+description,
+display_name,
+source_s3_location,
+setup_script_details,
+tags,
+created_time
+FROM aws.appstream.app_block
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

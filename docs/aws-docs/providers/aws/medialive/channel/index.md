@@ -27,20 +27,21 @@ Gets an individual <code>channel</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>InputAttachments</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>InputSpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Destinations</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Vpc</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>LogLevel</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ChannelClass</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EncoderSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CdiInputSpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Inputs</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>input_attachments</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>input_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>destinations</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>vpc</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>log_level</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>channel_class</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>encoder_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>cdi_input_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>inputs</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>channel</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.medialive.channel<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+input_attachments,
+input_specification,
+destinations,
+vpc,
+log_level,
+role_arn,
+name,
+channel_class,
+encoder_settings,
+cdi_input_specification,
+id,
+arn,
+inputs,
+tags
+FROM aws.medialive.channel
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,18 +27,19 @@ Gets an individual <code>model_card</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ModelCardArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the successfully created model card.</td></tr>
-<tr><td><code>ModelCardVersion</code></td><td><code>integer</code></td><td>A version of the model card.</td></tr>
-<tr><td><code>ModelCardName</code></td><td><code>string</code></td><td>The unique name of the model card.</td></tr>
-<tr><td><code>SecurityConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ModelCardStatus</code></td><td><code>string</code></td><td>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</td></tr>
-<tr><td><code>Content</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td>The date and time the model card was created.</td></tr>
-<tr><td><code>CreatedBy</code></td><td><code>object</code></td><td>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</td></tr>
-<tr><td><code>LastModifiedTime</code></td><td><code>string</code></td><td>The date and time the model card was last modified.</td></tr>
-<tr><td><code>LastModifiedBy</code></td><td><code>object</code></td><td>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</td></tr>
-<tr><td><code>ModelCardProcessingStatus</code></td><td><code>string</code></td><td>The processing status of model card deletion. The ModelCardProcessingStatus updates throughout the different deletion steps.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Key-value pairs used to manage metadata for model cards.</td></tr>
+<tr><td><code>model_card_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the successfully created model card.</td></tr>
+<tr><td><code>model_card_version</code></td><td><code>integer</code></td><td>A version of the model card.</td></tr>
+<tr><td><code>model_card_name</code></td><td><code>string</code></td><td>The unique name of the model card.</td></tr>
+<tr><td><code>security_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>model_card_status</code></td><td><code>string</code></td><td>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</td></tr>
+<tr><td><code>content</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>creation_time</code></td><td><code>string</code></td><td>The date and time the model card was created.</td></tr>
+<tr><td><code>created_by</code></td><td><code>object</code></td><td>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</td></tr>
+<tr><td><code>last_modified_time</code></td><td><code>string</code></td><td>The date and time the model card was last modified.</td></tr>
+<tr><td><code>last_modified_by</code></td><td><code>object</code></td><td>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</td></tr>
+<tr><td><code>model_card_processing_status</code></td><td><code>string</code></td><td>The processing status of model card deletion. The ModelCardProcessingStatus updates throughout the different deletion steps.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>Key-value pairs used to manage metadata for model cards.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>model_card</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.model_card<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ModelCardName&gt;'
-</pre>
+```sql
+SELECT
+region,
+model_card_arn,
+model_card_version,
+model_card_name,
+security_config,
+model_card_status,
+content,
+creation_time,
+created_by,
+last_modified_time,
+last_modified_by,
+model_card_processing_status,
+tags
+FROM aws.sagemaker.model_card
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ModelCardName&gt;'
+```

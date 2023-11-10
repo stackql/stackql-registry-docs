@@ -27,11 +27,12 @@ Gets an individual <code>request_validator</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RequestValidatorId</code></td><td><code>string</code></td><td>ID of the request validator.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of the request validator.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The identifier of the targeted API entity.</td></tr>
-<tr><td><code>ValidateRequestBody</code></td><td><code>boolean</code></td><td>Indicates whether to validate the request body according to the configured schema for the targeted API and method. </td></tr>
-<tr><td><code>ValidateRequestParameters</code></td><td><code>boolean</code></td><td>Indicates whether to validate request parameters.</td></tr>
+<tr><td><code>request_validator_id</code></td><td><code>string</code></td><td>ID of the request validator.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Name of the request validator.</td></tr>
+<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The identifier of the targeted API entity.</td></tr>
+<tr><td><code>validate_request_body</code></td><td><code>boolean</code></td><td>Indicates whether to validate the request body according to the configured schema for the targeted API and method. </td></tr>
+<tr><td><code>validate_request_parameters</code></td><td><code>boolean</code></td><td>Indicates whether to validate request parameters.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,16 @@ Gets an individual <code>request_validator</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.request_validator<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RestApiId&gt;'<br/>AND data__Identifier = '&lt;RequestValidatorId&gt;'
-</pre>
+```sql
+SELECT
+region,
+request_validator_id,
+name,
+rest_api_id,
+validate_request_body,
+validate_request_parameters
+FROM aws.apigateway.request_validator
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;RestApiId&gt;'
+AND data__Identifier = '&lt;RequestValidatorId&gt;'
+```

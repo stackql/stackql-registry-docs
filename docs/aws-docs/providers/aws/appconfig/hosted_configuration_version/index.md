@@ -27,14 +27,15 @@ Gets an individual <code>hosted_configuration_version</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ConfigurationProfileId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ContentType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LatestVersionNumber</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>Content</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VersionLabel</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApplicationId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>configuration_profile_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>content_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>latest_version_number</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>content</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>version_label</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>application_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>hosted_configuration_version</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appconfig.hosted_configuration_version<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+configuration_profile_id,
+description,
+content_type,
+latest_version_number,
+content,
+version_label,
+id,
+application_id
+FROM aws.appconfig.hosted_configuration_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

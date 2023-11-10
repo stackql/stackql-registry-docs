@@ -27,15 +27,16 @@ Gets an individual <code>event_type</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name for the event type</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Tags associated with this event type.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the event type.</td></tr>
-<tr><td><code>EventVariables</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Labels</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EntityTypes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the event type.</td></tr>
-<tr><td><code>CreatedTime</code></td><td><code>string</code></td><td>The time when the event type was created.</td></tr>
-<tr><td><code>LastUpdatedTime</code></td><td><code>string</code></td><td>The time when the event type was last updated.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name for the event type</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>Tags associated with this event type.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the event type.</td></tr>
+<tr><td><code>event_variables</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>labels</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>entity_types</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The ARN of the event type.</td></tr>
+<tr><td><code>created_time</code></td><td><code>string</code></td><td>The time when the event type was created.</td></tr>
+<tr><td><code>last_updated_time</code></td><td><code>string</code></td><td>The time when the event type was last updated.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>event_type</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.frauddetector.event_type<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+tags,
+description,
+event_variables,
+labels,
+entity_types,
+arn,
+created_time,
+last_updated_time
+FROM aws.frauddetector.event_type
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

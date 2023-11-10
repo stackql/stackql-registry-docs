@@ -27,13 +27,8 @@ Retrieves a list of <code>delivery_channels</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>S3KeyPrefix</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConfigSnapshotDeliveryProperties</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>S3BucketName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SnsTopicARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>S3KmsKeyArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>delivery_channels</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.config.delivery_channels<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.config.delivery_channels
+WHERE region = 'us-east-1'
+```

@@ -27,13 +27,14 @@ Gets an individual <code>route_response</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>RouteResponseKey</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseParameters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RouteId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModelSelectionExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseModels</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>route_response_key</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>response_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>route_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>model_selection_expression</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>api_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>response_models</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>route_response</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigatewayv2.route_response<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+route_response_key,
+response_parameters,
+route_id,
+id,
+model_selection_expression,
+api_id,
+response_models
+FROM aws.apigatewayv2.route_response
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

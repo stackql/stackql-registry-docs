@@ -27,11 +27,8 @@ Retrieves a list of <code>resolver_configs</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>Id</td></tr>
-<tr><td><code>OwnerId</code></td><td><code>string</code></td><td>AccountId</td></tr>
-<tr><td><code>ResourceId</code></td><td><code>string</code></td><td>ResourceId</td></tr>
-<tr><td><code>AutodefinedReverse</code></td><td><code>string</code></td><td>ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.</td></tr>
-<tr><td><code>AutodefinedReverseFlag</code></td><td><code>string</code></td><td>Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>Id</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>resolver_configs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53resolver.resolver_configs<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.route53resolver.resolver_configs
+WHERE region = 'us-east-1'
+```

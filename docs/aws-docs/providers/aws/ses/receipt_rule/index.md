@@ -27,10 +27,11 @@ Gets an individual <code>receipt_rule</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>After</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Rule</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RuleSetName</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>after</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>rule</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>rule_set_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>receipt_rule</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ses.receipt_rule<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+after,
+rule,
+rule_set_name
+FROM aws.ses.receipt_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

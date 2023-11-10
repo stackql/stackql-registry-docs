@@ -27,20 +27,21 @@ Gets an individual <code>stage</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AccessLogSetting</code></td><td><code>object</code></td><td>Specifies settings for logging access in this stage.</td></tr>
-<tr><td><code>CacheClusterEnabled</code></td><td><code>boolean</code></td><td>Indicates whether cache clustering is enabled for the stage.</td></tr>
-<tr><td><code>CacheClusterSize</code></td><td><code>string</code></td><td>The stage's cache cluster size.</td></tr>
-<tr><td><code>CanarySetting</code></td><td><code>object</code></td><td>Specifies settings for the canary deployment in this stage.</td></tr>
-<tr><td><code>ClientCertificateId</code></td><td><code>string</code></td><td>The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. </td></tr>
-<tr><td><code>DeploymentId</code></td><td><code>string</code></td><td>The ID of the deployment that the stage is associated with. This parameter is required to create a stage. </td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the stage.</td></tr>
-<tr><td><code>DocumentationVersion</code></td><td><code>string</code></td><td>The version ID of the API documentation snapshot.</td></tr>
-<tr><td><code>MethodSettings</code></td><td><code>array</code></td><td>Settings for all methods in the stage.</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The ID of the RestApi resource that you're deploying with this stage.</td></tr>
-<tr><td><code>StageName</code></td><td><code>string</code></td><td>The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of arbitrary tags (key-value pairs) to associate with the stage.</td></tr>
-<tr><td><code>TracingEnabled</code></td><td><code>boolean</code></td><td>Specifies whether active X-Ray tracing is enabled for this stage.</td></tr>
-<tr><td><code>Variables</code></td><td><code>object</code></td><td>A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.</td></tr>
+<tr><td><code>access_log_setting</code></td><td><code>object</code></td><td>Specifies settings for logging access in this stage.</td></tr>
+<tr><td><code>cache_cluster_enabled</code></td><td><code>boolean</code></td><td>Indicates whether cache clustering is enabled for the stage.</td></tr>
+<tr><td><code>cache_cluster_size</code></td><td><code>string</code></td><td>The stage's cache cluster size.</td></tr>
+<tr><td><code>canary_setting</code></td><td><code>object</code></td><td>Specifies settings for the canary deployment in this stage.</td></tr>
+<tr><td><code>client_certificate_id</code></td><td><code>string</code></td><td>The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. </td></tr>
+<tr><td><code>deployment_id</code></td><td><code>string</code></td><td>The ID of the deployment that the stage is associated with. This parameter is required to create a stage. </td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>A description of the stage.</td></tr>
+<tr><td><code>documentation_version</code></td><td><code>string</code></td><td>The version ID of the API documentation snapshot.</td></tr>
+<tr><td><code>method_settings</code></td><td><code>array</code></td><td>Settings for all methods in the stage.</td></tr>
+<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The ID of the RestApi resource that you're deploying with this stage.</td></tr>
+<tr><td><code>stage_name</code></td><td><code>string</code></td><td>The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of arbitrary tags (key-value pairs) to associate with the stage.</td></tr>
+<tr><td><code>tracing_enabled</code></td><td><code>boolean</code></td><td>Specifies whether active X-Ray tracing is enabled for this stage.</td></tr>
+<tr><td><code>variables</code></td><td><code>object</code></td><td>A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,25 @@ Gets an individual <code>stage</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.stage<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RestApiId&gt;'<br/>AND data__Identifier = '&lt;StageName&gt;'
-</pre>
+```sql
+SELECT
+region,
+access_log_setting,
+cache_cluster_enabled,
+cache_cluster_size,
+canary_setting,
+client_certificate_id,
+deployment_id,
+description,
+documentation_version,
+method_settings,
+rest_api_id,
+stage_name,
+tags,
+tracing_enabled,
+variables
+FROM aws.apigateway.stage
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;RestApiId&gt;'
+AND data__Identifier = '&lt;StageName&gt;'
+```

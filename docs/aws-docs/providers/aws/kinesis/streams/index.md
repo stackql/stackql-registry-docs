@@ -27,13 +27,8 @@ Retrieves a list of <code>streams</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>StreamModeDetails</code></td><td><code>object</code></td><td>The mode in which the stream is running.</td></tr>
-<tr><td><code>StreamEncryption</code></td><td><code>object</code></td><td>When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon resource name (ARN) of the Kinesis stream</td></tr>
-<tr><td><code>RetentionPeriodHours</code></td><td><code>integer</code></td><td>The number of hours for the data records that are stored in shards to remain accessible.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the Kinesis stream.</td></tr>
-<tr><td><code>ShardCount</code></td><td><code>integer</code></td><td>The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the Kinesis stream.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>streams</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.kinesis.streams<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+name
+FROM aws.kinesis.streams
+WHERE region = 'us-east-1'
+```

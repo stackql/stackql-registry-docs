@@ -27,12 +27,13 @@ Gets an individual <code>stream_consumer</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConsumerCreationTimestamp</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConsumerName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConsumerARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConsumerStatus</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StreamARN</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>consumer_creation_timestamp</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>consumer_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>consumer_ar_n</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>consumer_status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>stream_ar_n</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>stream_consumer</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.kinesis.stream_consumer<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+consumer_creation_timestamp,
+consumer_name,
+consumer_ar_n,
+consumer_status,
+stream_ar_n
+FROM aws.kinesis.stream_consumer
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

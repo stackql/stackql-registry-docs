@@ -27,10 +27,11 @@ Gets an individual <code>user_hierarchy_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance.</td></tr>
-<tr><td><code>UserHierarchyGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the user hierarchy group.</td></tr>
-<tr><td><code>ParentGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the parent user hierarchy group.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the user hierarchy group.</td></tr>
+<tr><td><code>instance_arn</code></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance.</td></tr>
+<tr><td><code>user_hierarchy_group_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the user hierarchy group.</td></tr>
+<tr><td><code>parent_group_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the parent user hierarchy group.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the user hierarchy group.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>user_hierarchy_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.connect.user_hierarchy_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;UserHierarchyGroupArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+instance_arn,
+user_hierarchy_group_arn,
+parent_group_arn,
+name
+FROM aws.connect.user_hierarchy_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;UserHierarchyGroupArn&gt;'
+```

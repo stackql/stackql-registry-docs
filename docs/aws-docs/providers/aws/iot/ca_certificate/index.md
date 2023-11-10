@@ -27,16 +27,17 @@ Gets an individual <code>ca_certificate</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CACertificatePem</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VerificationCertificatePem</code></td><td><code>string</code></td><td>The private key verification certificate.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CertificateMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AutoRegistrationStatus</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RemoveAutoRegistration</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>RegistrationConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>c_acertificate_pem</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>verification_certificate_pem</code></td><td><code>string</code></td><td>The private key verification certificate.</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>certificate_mode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>auto_registration_status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>remove_auto_registration</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>registration_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>ca_certificate</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iot.ca_certificate<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+c_acertificate_pem,
+verification_certificate_pem,
+status,
+certificate_mode,
+auto_registration_status,
+remove_auto_registration,
+registration_config,
+id,
+arn,
+tags
+FROM aws.iot.ca_certificate
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

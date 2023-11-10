@@ -27,15 +27,16 @@ Gets an individual <code>storage_virtual_machine</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SvmAdminPassword</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StorageVirtualMachineId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ActiveDirectoryConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RootVolumeSecurityStyle</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FileSystemId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>UUID</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_ar_n</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>svm_admin_password</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>storage_virtual_machine_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>active_directory_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>root_volume_security_style</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>file_system_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>u_ui_d</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>storage_virtual_machine</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.fsx.storage_virtual_machine<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;StorageVirtualMachineId&gt;'
-</pre>
+```sql
+SELECT
+region,
+resource_ar_n,
+svm_admin_password,
+storage_virtual_machine_id,
+active_directory_configuration,
+root_volume_security_style,
+file_system_id,
+u_ui_d,
+tags,
+name
+FROM aws.fsx.storage_virtual_machine
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;StorageVirtualMachineId&gt;'
+```

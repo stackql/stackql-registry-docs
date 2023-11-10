@@ -27,11 +27,12 @@ Gets an individual <code>group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FilterExpression</code></td><td><code>string</code></td><td>The filter expression defining criteria by which to group traces.</td></tr>
-<tr><td><code>GroupName</code></td><td><code>string</code></td><td>The case-sensitive name of the new group. Names must be unique.</td></tr>
-<tr><td><code>GroupARN</code></td><td><code>string</code></td><td>The ARN of the group that was generated on creation.</td></tr>
-<tr><td><code>InsightsConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>filter_expression</code></td><td><code>string</code></td><td>The filter expression defining criteria by which to group traces.</td></tr>
+<tr><td><code>group_name</code></td><td><code>string</code></td><td>The case-sensitive name of the new group. Names must be unique.</td></tr>
+<tr><td><code>group_ar_n</code></td><td><code>string</code></td><td>The ARN of the group that was generated on creation.</td></tr>
+<tr><td><code>insights_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.xray.group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;GroupARN&gt;'
-</pre>
+```sql
+SELECT
+region,
+filter_expression,
+group_name,
+group_ar_n,
+insights_configuration,
+tags
+FROM aws.xray.group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;GroupARN&gt;'
+```

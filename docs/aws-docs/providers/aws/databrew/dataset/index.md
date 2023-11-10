@@ -27,12 +27,13 @@ Gets an individual <code>dataset</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Dataset name</td></tr>
-<tr><td><code>Format</code></td><td><code>string</code></td><td>Dataset format</td></tr>
-<tr><td><code>FormatOptions</code></td><td><code>object</code></td><td>Format options for dataset</td></tr>
-<tr><td><code>Input</code></td><td><code>object</code></td><td>Input</td></tr>
-<tr><td><code>PathOptions</code></td><td><code>object</code></td><td>PathOptions</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Dataset name</td></tr>
+<tr><td><code>format</code></td><td><code>string</code></td><td>Dataset format</td></tr>
+<tr><td><code>format_options</code></td><td><code>object</code></td><td>Format options for dataset</td></tr>
+<tr><td><code>input</code></td><td><code>object</code></td><td>Input</td></tr>
+<tr><td><code>path_options</code></td><td><code>object</code></td><td>PathOptions</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>dataset</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.databrew.dataset<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+format,
+format_options,
+input,
+path_options,
+tags
+FROM aws.databrew.dataset
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Name&gt;'
+```

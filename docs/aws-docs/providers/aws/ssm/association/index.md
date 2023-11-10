@@ -27,24 +27,25 @@ Gets an individual <code>association</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AssociationId</code></td><td><code>string</code></td><td>Unique identifier of the association.</td></tr>
-<tr><td><code>AssociationName</code></td><td><code>string</code></td><td>The name of the association.</td></tr>
-<tr><td><code>DocumentVersion</code></td><td><code>string</code></td><td>The version of the SSM document to associate with the target.</td></tr>
-<tr><td><code>InstanceId</code></td><td><code>string</code></td><td>The ID of the instance that the SSM document is associated with.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the SSM document.</td></tr>
-<tr><td><code>Parameters</code></td><td><code>object</code></td><td>Parameter values that the SSM document uses at runtime.</td></tr>
-<tr><td><code>ScheduleExpression</code></td><td><code>string</code></td><td>A Cron or Rate expression that specifies when the association is applied to the target.</td></tr>
-<tr><td><code>Targets</code></td><td><code>array</code></td><td>The targets that the SSM document sends commands to.</td></tr>
-<tr><td><code>OutputLocation</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AutomationTargetParameterName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxErrors</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxConcurrency</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComplianceSeverity</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SyncCompliance</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>WaitForSuccessTimeoutSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>ApplyOnlyAtCronInterval</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>CalendarNames</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ScheduleOffset</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>association_id</code></td><td><code>string</code></td><td>Unique identifier of the association.</td></tr>
+<tr><td><code>association_name</code></td><td><code>string</code></td><td>The name of the association.</td></tr>
+<tr><td><code>document_version</code></td><td><code>string</code></td><td>The version of the SSM document to associate with the target.</td></tr>
+<tr><td><code>instance_id</code></td><td><code>string</code></td><td>The ID of the instance that the SSM document is associated with.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the SSM document.</td></tr>
+<tr><td><code>parameters</code></td><td><code>object</code></td><td>Parameter values that the SSM document uses at runtime.</td></tr>
+<tr><td><code>schedule_expression</code></td><td><code>string</code></td><td>A Cron or Rate expression that specifies when the association is applied to the target.</td></tr>
+<tr><td><code>targets</code></td><td><code>array</code></td><td>The targets that the SSM document sends commands to.</td></tr>
+<tr><td><code>output_location</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>automation_target_parameter_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>max_errors</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>max_concurrency</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>compliance_severity</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>sync_compliance</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>wait_for_success_timeout_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>apply_only_at_cron_interval</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>calendar_names</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>schedule_offset</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,6 +53,28 @@ Gets an individual <code>association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ssm.association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AssociationId&gt;'
-</pre>
+```sql
+SELECT
+region,
+association_id,
+association_name,
+document_version,
+instance_id,
+name,
+parameters,
+schedule_expression,
+targets,
+output_location,
+automation_target_parameter_name,
+max_errors,
+max_concurrency,
+compliance_severity,
+sync_compliance,
+wait_for_success_timeout_seconds,
+apply_only_at_cron_interval,
+calendar_names,
+schedule_offset
+FROM aws.ssm.association
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AssociationId&gt;'
+```

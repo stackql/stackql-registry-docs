@@ -27,12 +27,13 @@ Gets an individual <code>rotation_schedule</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RotationLambdaARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RotationRules</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RotateImmediatelyOnUpdate</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>SecretId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>HostedRotationLambda</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>rotation_lambda_ar_n</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>rotation_rules</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>rotate_immediately_on_update</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>secret_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>hosted_rotation_lambda</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>rotation_schedule</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.secretsmanager.rotation_schedule<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+rotation_lambda_ar_n,
+rotation_rules,
+rotate_immediately_on_update,
+secret_id,
+hosted_rotation_lambda
+FROM aws.secretsmanager.rotation_schedule
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

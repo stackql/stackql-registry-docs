@@ -27,16 +27,17 @@ Gets an individual <code>load_balancer</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>LoadBalancerName</code></td><td><code>string</code></td><td>The name of your load balancer.</td></tr>
-<tr><td><code>LoadBalancerArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstancePort</code></td><td><code>integer</code></td><td>The instance port where you're creating your load balancer.</td></tr>
-<tr><td><code>IpAddressType</code></td><td><code>string</code></td><td>The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack.</td></tr>
-<tr><td><code>AttachedInstances</code></td><td><code>array</code></td><td>The names of the instances attached to the load balancer.</td></tr>
-<tr><td><code>HealthCheckPath</code></td><td><code>string</code></td><td>The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "&#x2F;").</td></tr>
-<tr><td><code>SessionStickinessEnabled</code></td><td><code>boolean</code></td><td>Configuration option to enable session stickiness.</td></tr>
-<tr><td><code>SessionStickinessLBCookieDurationSeconds</code></td><td><code>string</code></td><td>Configuration option to adjust session stickiness cookie duration parameter.</td></tr>
-<tr><td><code>TlsPolicyName</code></td><td><code>string</code></td><td>The name of the TLS policy to apply to the load balancer.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>load_balancer_name</code></td><td><code>string</code></td><td>The name of your load balancer.</td></tr>
+<tr><td><code>load_balancer_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_port</code></td><td><code>integer</code></td><td>The instance port where you're creating your load balancer.</td></tr>
+<tr><td><code>ip_address_type</code></td><td><code>string</code></td><td>The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack.</td></tr>
+<tr><td><code>attached_instances</code></td><td><code>array</code></td><td>The names of the instances attached to the load balancer.</td></tr>
+<tr><td><code>health_check_path</code></td><td><code>string</code></td><td>The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "&#x2F;").</td></tr>
+<tr><td><code>session_stickiness_enabled</code></td><td><code>boolean</code></td><td>Configuration option to enable session stickiness.</td></tr>
+<tr><td><code>session_stickiness_lb_cookie_duration_seconds</code></td><td><code>string</code></td><td>Configuration option to adjust session stickiness cookie duration parameter.</td></tr>
+<tr><td><code>tls_policy_name</code></td><td><code>string</code></td><td>The name of the TLS policy to apply to the load balancer.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>load_balancer</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lightsail.load_balancer<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;LoadBalancerName&gt;'
-</pre>
+```sql
+SELECT
+region,
+load_balancer_name,
+load_balancer_arn,
+instance_port,
+ip_address_type,
+attached_instances,
+health_check_path,
+session_stickiness_enabled,
+session_stickiness_lb_cookie_duration_seconds,
+tls_policy_name,
+tags
+FROM aws.lightsail.load_balancer
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;LoadBalancerName&gt;'
+```

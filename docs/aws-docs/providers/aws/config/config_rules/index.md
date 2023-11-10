@@ -27,15 +27,8 @@ Retrieves a list of <code>config_rules</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ConfigRuleId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Scope</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ComplianceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConfigRuleName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaximumExecutionFrequency</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Source</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>InputParameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>config_rule_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +36,10 @@ Retrieves a list of <code>config_rules</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.config.config_rules<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+config_rule_id
+FROM aws.config.config_rules
+WHERE region = 'us-east-1'
+```

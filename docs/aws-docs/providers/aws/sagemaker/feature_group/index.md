@@ -27,15 +27,16 @@ Gets an individual <code>feature_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FeatureGroupName</code></td><td><code>string</code></td><td>The Name of the FeatureGroup.</td></tr>
-<tr><td><code>RecordIdentifierFeatureName</code></td><td><code>string</code></td><td>The Record Identifier Feature Name.</td></tr>
-<tr><td><code>EventTimeFeatureName</code></td><td><code>string</code></td><td>The Event Time Feature Name.</td></tr>
-<tr><td><code>FeatureDefinitions</code></td><td><code>array</code></td><td>An Array of Feature Definition</td></tr>
-<tr><td><code>OnlineStoreConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>OfflineStoreConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>Role Arn</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>Description about the FeatureGroup.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pair to apply to this resource.</td></tr>
+<tr><td><code>feature_group_name</code></td><td><code>string</code></td><td>The Name of the FeatureGroup.</td></tr>
+<tr><td><code>record_identifier_feature_name</code></td><td><code>string</code></td><td>The Record Identifier Feature Name.</td></tr>
+<tr><td><code>event_time_feature_name</code></td><td><code>string</code></td><td>The Event Time Feature Name.</td></tr>
+<tr><td><code>feature_definitions</code></td><td><code>array</code></td><td>An Array of Feature Definition</td></tr>
+<tr><td><code>online_store_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>offline_store_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td>Role Arn</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>Description about the FeatureGroup.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pair to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>feature_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.feature_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;FeatureGroupName&gt;'
-</pre>
+```sql
+SELECT
+region,
+feature_group_name,
+record_identifier_feature_name,
+event_time_feature_name,
+feature_definitions,
+online_store_config,
+offline_store_config,
+role_arn,
+description,
+tags
+FROM aws.sagemaker.feature_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;FeatureGroupName&gt;'
+```

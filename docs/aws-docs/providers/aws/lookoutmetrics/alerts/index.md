@@ -27,12 +27,8 @@ Retrieves a list of <code>alerts</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AlertName</code></td><td><code>string</code></td><td>The name of the alert. If not provided, a name is generated automatically.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>ARN assigned to the alert.</td></tr>
-<tr><td><code>AlertDescription</code></td><td><code>string</code></td><td>A description for the alert.</td></tr>
-<tr><td><code>AnomalyDetectorArn</code></td><td><code>string</code></td><td>The Amazon resource name (ARN) of the Anomaly Detector to alert.</td></tr>
-<tr><td><code>AlertSensitivityThreshold</code></td><td><code>integer</code></td><td>A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.</td></tr>
-<tr><td><code>Action</code></td><td><code>object</code></td><td>The action to be taken by the alert when an anomaly is detected.</td></tr>
+<tr><td><code>arn</code></td><td><code>undefined</code></td><td>ARN assigned to the alert.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>alerts</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.lookoutmetrics.alerts<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.lookoutmetrics.alerts
+WHERE region = 'us-east-1'
+```

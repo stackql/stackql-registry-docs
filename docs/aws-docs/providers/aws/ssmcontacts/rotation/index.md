@@ -27,13 +27,14 @@ Gets an individual <code>rotation</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of the Rotation</td></tr>
-<tr><td><code>ContactIds</code></td><td><code>array</code></td><td>Members of the rotation</td></tr>
-<tr><td><code>StartTime</code></td><td><code>string</code></td><td>Start time of the first shift of Oncall Schedule</td></tr>
-<tr><td><code>TimeZoneId</code></td><td><code>string</code></td><td>TimeZone Identifier for the Oncall Schedule</td></tr>
-<tr><td><code>Recurrence</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the rotation.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Name of the Rotation</td></tr>
+<tr><td><code>contact_ids</code></td><td><code>array</code></td><td>Members of the rotation</td></tr>
+<tr><td><code>start_time</code></td><td><code>string</code></td><td>Start time of the first shift of Oncall Schedule</td></tr>
+<tr><td><code>time_zone_id</code></td><td><code>string</code></td><td>TimeZone Identifier for the Oncall Schedule</td></tr>
+<tr><td><code>recurrence</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the rotation.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>rotation</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ssmcontacts.rotation<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+contact_ids,
+start_time,
+time_zone_id,
+recurrence,
+tags,
+arn
+FROM aws.ssmcontacts.rotation
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

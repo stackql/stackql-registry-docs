@@ -27,18 +27,9 @@ Retrieves a list of <code>entities</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>EntityId</code></td><td><code>string</code></td><td>The ID of the entity.</td></tr>
-<tr><td><code>EntityName</code></td><td><code>string</code></td><td>The name of the entity.</td></tr>
-<tr><td><code>Status</code></td><td><code>object</code></td><td>The current status of the entity.</td></tr>
-<tr><td><code>HasChildEntities</code></td><td><code>boolean</code></td><td>A Boolean value that specifies whether the entity has child entities or not.</td></tr>
-<tr><td><code>ParentEntityId</code></td><td><code>string</code></td><td>The ID of the parent entity.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The ARN of the entity.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the entity.</td></tr>
-<tr><td><code>CreationDateTime</code></td><td><code>string</code></td><td>The date and time when the entity was created.</td></tr>
-<tr><td><code>UpdateDateTime</code></td><td><code>string</code></td><td>The last date and time when the entity was updated.</td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
-<tr><td><code>WorkspaceId</code></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
-<tr><td><code>Components</code></td><td><code>object</code></td><td>A map that sets information about a component type.</td></tr>
+<tr><td><code>workspace_id</code></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
+<tr><td><code>entity_id</code></td><td><code>string</code></td><td>The ID of the entity.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +37,11 @@ Retrieves a list of <code>entities</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iottwinmaker.entities<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+workspace_id,
+entity_id
+FROM aws.iottwinmaker.entities
+WHERE region = 'us-east-1'
+```

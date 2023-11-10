@@ -27,20 +27,21 @@ Gets an individual <code>global_table</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StreamArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AttributeDefinitions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>BillingMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>GlobalSecondaryIndexes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>KeySchema</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LocalSecondaryIndexes</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>WriteProvisionedThroughputSettings</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Replicas</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SSESpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>StreamSpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>TableName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TableId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TimeToLiveSpecification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>stream_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>attribute_definitions</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>billing_mode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>global_secondary_indexes</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>key_schema</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>local_secondary_indexes</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>write_provisioned_throughput_settings</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>replicas</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>s_se_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>stream_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>table_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>table_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>time_to_live_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>global_table</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.dynamodb.global_table<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;TableName&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+stream_arn,
+attribute_definitions,
+billing_mode,
+global_secondary_indexes,
+key_schema,
+local_secondary_indexes,
+write_provisioned_throughput_settings,
+replicas,
+s_se_specification,
+stream_specification,
+table_name,
+table_id,
+time_to_live_specification
+FROM aws.dynamodb.global_table
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;TableName&gt;'
+```

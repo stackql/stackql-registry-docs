@@ -27,8 +27,9 @@ Gets an individual <code>resource_collection</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceCollectionFilter</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ResourceCollectionType</code></td><td><code>string</code></td><td>The type of ResourceCollection</td></tr>
+<tr><td><code>resource_collection_filter</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>resource_collection_type</code></td><td><code>string</code></td><td>The type of ResourceCollection</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,12 @@ Gets an individual <code>resource_collection</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.devopsguru.resource_collection<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ResourceCollectionType&gt;'
-</pre>
+```sql
+SELECT
+region,
+resource_collection_filter,
+resource_collection_type
+FROM aws.devopsguru.resource_collection
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ResourceCollectionType&gt;'
+```

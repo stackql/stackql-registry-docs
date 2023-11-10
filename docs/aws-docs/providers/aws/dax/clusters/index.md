@@ -27,24 +27,8 @@ Retrieves a list of <code>clusters</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SSESpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ClusterDiscoveryEndpointURL</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ReplicationFactor</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>ParameterGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AvailabilityZones</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>IAMRoleARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SubnetGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredMaintenanceWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterEndpointEncryptionType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NotificationTopicARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>NodeType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterDiscoveryEndpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -52,6 +36,10 @@ Retrieves a list of <code>clusters</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.dax.clusters<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.dax.clusters
+WHERE region = 'us-east-1'
+```

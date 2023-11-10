@@ -27,12 +27,8 @@ Retrieves a list of <code>stored_queries</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>QueryArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>QueryId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>QueryName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>QueryDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>QueryExpression</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags for the stored query.</td></tr>
+<tr><td><code>query_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>stored_queries</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.config.stored_queries<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+query_name
+FROM aws.config.stored_queries
+WHERE region = 'us-east-1'
+```

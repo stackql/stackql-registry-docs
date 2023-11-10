@@ -27,20 +27,21 @@ Gets an individual <code>patch_baseline</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OperatingSystem</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApprovalRules</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Sources</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RejectedPatches</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ApprovedPatches</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>RejectedPatchesAction</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PatchGroups</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ApprovedPatchesComplianceLevel</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApprovedPatchesEnableNonSecurity</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>GlobalFilters</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>operating_system</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>approval_rules</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>sources</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>rejected_patches</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>approved_patches</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>rejected_patches_action</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>patch_groups</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>approved_patches_compliance_level</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>approved_patches_enable_non_security</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>global_filters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>patch_baseline</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ssm.patch_baseline<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+operating_system,
+description,
+approval_rules,
+sources,
+name,
+rejected_patches,
+approved_patches,
+rejected_patches_action,
+patch_groups,
+approved_patches_compliance_level,
+approved_patches_enable_non_security,
+id,
+global_filters,
+tags
+FROM aws.ssm.patch_baseline
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

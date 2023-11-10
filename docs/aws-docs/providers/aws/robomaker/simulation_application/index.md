@@ -27,15 +27,16 @@ Gets an individual <code>simulation_application</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the simulation application.</td></tr>
-<tr><td><code>CurrentRevisionId</code></td><td><code>string</code></td><td>The current revision id.</td></tr>
-<tr><td><code>RenderingEngine</code></td><td><code>object</code></td><td>The rendering engine for the simulation application.</td></tr>
-<tr><td><code>RobotSoftwareSuite</code></td><td><code>object</code></td><td>The robot software suite used by the simulation application.</td></tr>
-<tr><td><code>SimulationSoftwareSuite</code></td><td><code>object</code></td><td>The simulation software suite used by the simulation application.</td></tr>
-<tr><td><code>Sources</code></td><td><code>array</code></td><td>The sources of the simulation application.</td></tr>
-<tr><td><code>Environment</code></td><td><code>string</code></td><td>The URI of the Docker image for the robot application.</td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the simulation application.</td></tr>
+<tr><td><code>current_revision_id</code></td><td><code>string</code></td><td>The current revision id.</td></tr>
+<tr><td><code>rendering_engine</code></td><td><code>object</code></td><td>The rendering engine for the simulation application.</td></tr>
+<tr><td><code>robot_software_suite</code></td><td><code>object</code></td><td>The robot software suite used by the simulation application.</td></tr>
+<tr><td><code>simulation_software_suite</code></td><td><code>object</code></td><td>The simulation software suite used by the simulation application.</td></tr>
+<tr><td><code>sources</code></td><td><code>array</code></td><td>The sources of the simulation application.</td></tr>
+<tr><td><code>environment</code></td><td><code>string</code></td><td>The URI of the Docker image for the robot application.</td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>simulation_application</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.robomaker.simulation_application<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+name,
+current_revision_id,
+rendering_engine,
+robot_software_suite,
+simulation_software_suite,
+sources,
+environment,
+tags
+FROM aws.robomaker.simulation_application
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

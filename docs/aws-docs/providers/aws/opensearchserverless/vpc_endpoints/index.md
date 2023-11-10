@@ -27,11 +27,8 @@ Retrieves a list of <code>vpc_endpoints</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>The identifier of the VPC Endpoint</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the VPC Endpoint</td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td>The ID of one or more security groups to associate with the endpoint network interface</td></tr>
-<tr><td><code>SubnetIds</code></td><td><code>array</code></td><td>The ID of one or more subnets in which to create an endpoint network interface</td></tr>
-<tr><td><code>VpcId</code></td><td><code>string</code></td><td>The ID of the VPC in which the endpoint will be used.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>The identifier of the VPC Endpoint</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>vpc_endpoints</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.opensearchserverless.vpc_endpoints<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.opensearchserverless.vpc_endpoints
+WHERE region = 'us-east-1'
+```

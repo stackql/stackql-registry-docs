@@ -27,13 +27,14 @@ Gets an individual <code>function</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AutoPublish</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>FunctionARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FunctionCode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FunctionConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>FunctionMetadata</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Stage</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>auto_publish</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>function_ar_n</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_code</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>function_metadata</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>stage</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>function</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cloudfront.function<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;FunctionARN&gt;'
-</pre>
+```sql
+SELECT
+region,
+auto_publish,
+function_ar_n,
+function_code,
+function_config,
+function_metadata,
+name,
+stage
+FROM aws.cloudfront.function
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;FunctionARN&gt;'
+```

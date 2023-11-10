@@ -27,12 +27,13 @@ Gets an individual <code>profiling_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ProfilingGroupName</code></td><td><code>string</code></td><td>The name of the profiling group.</td></tr>
-<tr><td><code>ComputePlatform</code></td><td><code>string</code></td><td>The compute platform of the profiling group.</td></tr>
-<tr><td><code>AgentPermissions</code></td><td><code>object</code></td><td>The agent permissions attached to this profiling group.</td></tr>
-<tr><td><code>AnomalyDetectionNotificationConfiguration</code></td><td><code>array</code></td><td>Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified profiling group.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags associated with a profiling group.</td></tr>
+<tr><td><code>profiling_group_name</code></td><td><code>string</code></td><td>The name of the profiling group.</td></tr>
+<tr><td><code>compute_platform</code></td><td><code>string</code></td><td>The compute platform of the profiling group.</td></tr>
+<tr><td><code>agent_permissions</code></td><td><code>object</code></td><td>The agent permissions attached to this profiling group.</td></tr>
+<tr><td><code>anomaly_detection_notification_configuration</code></td><td><code>array</code></td><td>Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified profiling group.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>The tags associated with a profiling group.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>profiling_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.codeguruprofiler.profiling_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ProfilingGroupName&gt;'
-</pre>
+```sql
+SELECT
+region,
+profiling_group_name,
+compute_platform,
+agent_permissions,
+anomaly_detection_notification_configuration,
+arn,
+tags
+FROM aws.codeguruprofiler.profiling_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ProfilingGroupName&gt;'
+```

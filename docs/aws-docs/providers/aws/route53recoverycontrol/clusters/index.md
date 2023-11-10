@@ -27,11 +27,8 @@ Retrieves a list of <code>clusters</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of a Cluster. You can use any non-white space character in the name</td></tr>
-<tr><td><code>ClusterArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the cluster.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</td></tr>
-<tr><td><code>ClusterEndpoints</code></td><td><code>array</code></td><td>Endpoints for the cluster.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<tr><td><code>cluster_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the cluster.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>clusters</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53recoverycontrol.clusters<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+cluster_arn
+FROM aws.route53recoverycontrol.clusters
+WHERE region = 'us-east-1'
+```

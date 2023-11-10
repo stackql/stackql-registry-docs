@@ -27,19 +27,20 @@ Gets an individual <code>model_explainability_job_definition</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>JobDefinitionArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of job definition.</td></tr>
-<tr><td><code>JobDefinitionName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModelExplainabilityBaselineConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ModelExplainabilityAppSpecification</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ModelExplainabilityJobInput</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ModelExplainabilityJobOutputConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>JobResources</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>NetworkConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EndpointName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RoleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.</td></tr>
-<tr><td><code>StoppingCondition</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td>The time at which the job definition was created.</td></tr>
+<tr><td><code>job_definition_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of job definition.</td></tr>
+<tr><td><code>job_definition_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>model_explainability_baseline_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>model_explainability_app_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>model_explainability_job_input</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>model_explainability_job_output_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>job_resources</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>network_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>endpoint_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>role_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.</td></tr>
+<tr><td><code>stopping_condition</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>creation_time</code></td><td><code>string</code></td><td>The time at which the job definition was created.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +48,23 @@ Gets an individual <code>model_explainability_job_definition</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.model_explainability_job_definition<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;JobDefinitionArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+job_definition_arn,
+job_definition_name,
+model_explainability_baseline_config,
+model_explainability_app_specification,
+model_explainability_job_input,
+model_explainability_job_output_config,
+job_resources,
+network_config,
+endpoint_name,
+role_arn,
+stopping_condition,
+tags,
+creation_time
+FROM aws.sagemaker.model_explainability_job_definition
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;JobDefinitionArn&gt;'
+```

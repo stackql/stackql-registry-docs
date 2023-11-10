@@ -27,12 +27,13 @@ Gets an individual <code>connection</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>Name of the connection.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The arn of the connection resource.</td></tr>
-<tr><td><code>SecretArn</code></td><td><code>string</code></td><td>The arn of the secrets manager secret created in the customer account.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>Description of the connection.</td></tr>
-<tr><td><code>AuthorizationType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AuthParameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Name of the connection.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The arn of the connection resource.</td></tr>
+<tr><td><code>secret_arn</code></td><td><code>string</code></td><td>The arn of the secrets manager secret created in the customer account.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>Description of the connection.</td></tr>
+<tr><td><code>authorization_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>auth_parameters</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>connection</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.events.connection<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'
-</pre>
+```sql
+SELECT
+region,
+name,
+arn,
+secret_arn,
+description,
+authorization_type,
+auth_parameters
+FROM aws.events.connection
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Name&gt;'
+```

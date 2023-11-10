@@ -27,10 +27,11 @@ Gets an individual <code>integration_association</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>IntegrationAssociationId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IntegrationArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IntegrationType</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>integration_association_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>instance_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>integration_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>integration_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,16 @@ Gets an individual <code>integration_association</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.connect.integration_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;InstanceId&gt;'<br/>AND data__Identifier = '&lt;IntegrationType&gt;'<br/>AND data__Identifier = '&lt;IntegrationArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+integration_association_id,
+instance_id,
+integration_arn,
+integration_type
+FROM aws.connect.integration_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;InstanceId&gt;'
+AND data__Identifier = '&lt;IntegrationType&gt;'
+AND data__Identifier = '&lt;IntegrationArn&gt;'
+```

@@ -27,17 +27,9 @@ Retrieves a list of <code>permission_sets</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name you want to assign to this permission set.</td></tr>
-<tr><td><code>PermissionSetArn</code></td><td><code>string</code></td><td>The permission set that the policy will be attached to</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The permission set description.</td></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The sso instance arn that the permission set is owned.</td></tr>
-<tr><td><code>SessionDuration</code></td><td><code>string</code></td><td>The length of time that a user can be signed in to an AWS account.</td></tr>
-<tr><td><code>RelayStateType</code></td><td><code>string</code></td><td>The relay state URL that redirect links to any service in the AWS Management Console.</td></tr>
-<tr><td><code>ManagedPolicies</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>InlinePolicy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CustomerManagedPolicyReferences</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PermissionsBoundary</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>instance_arn</code></td><td><code>string</code></td><td>The sso instance arn that the permission set is owned.</td></tr>
+<tr><td><code>permission_set_arn</code></td><td><code>string</code></td><td>The permission set that the policy will be attached to</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +37,11 @@ Retrieves a list of <code>permission_sets</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sso.permission_sets<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+instance_arn,
+permission_set_arn
+FROM aws.sso.permission_sets
+WHERE region = 'us-east-1'
+```

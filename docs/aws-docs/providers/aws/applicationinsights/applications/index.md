@@ -27,17 +27,8 @@ Retrieves a list of <code>applications</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceGroupName</code></td><td><code>string</code></td><td>The name of the resource group.</td></tr>
-<tr><td><code>ApplicationARN</code></td><td><code>string</code></td><td>The ARN of the ApplicationInsights application.</td></tr>
-<tr><td><code>CWEMonitorEnabled</code></td><td><code>boolean</code></td><td>Indicates whether Application Insights can listen to CloudWatch events for the application resources.</td></tr>
-<tr><td><code>OpsCenterEnabled</code></td><td><code>boolean</code></td><td>When set to true, creates opsItems for any problems detected on an application.</td></tr>
-<tr><td><code>OpsItemSNSTopicArn</code></td><td><code>string</code></td><td>The SNS topic provided to Application Insights that is associated to the created opsItem.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags of Application Insights application.</td></tr>
-<tr><td><code>CustomComponents</code></td><td><code>array</code></td><td>The custom grouped components.</td></tr>
-<tr><td><code>LogPatternSets</code></td><td><code>array</code></td><td>The log pattern sets.</td></tr>
-<tr><td><code>AutoConfigurationEnabled</code></td><td><code>boolean</code></td><td>If set to true, application will be configured with recommended monitoring configuration.</td></tr>
-<tr><td><code>ComponentMonitoringSettings</code></td><td><code>array</code></td><td>The monitoring settings of the components.</td></tr>
-<tr><td><code>GroupingType</code></td><td><code>string</code></td><td>The grouping type of the application</td></tr>
+<tr><td><code>application_ar_n</code></td><td><code>string</code></td><td>The ARN of the ApplicationInsights application.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +36,10 @@ Retrieves a list of <code>applications</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.applicationinsights.applications<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+application_ar_n
+FROM aws.applicationinsights.applications
+WHERE region = 'us-east-1'
+```

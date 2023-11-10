@@ -27,17 +27,8 @@ Retrieves a list of <code>task_templates</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The identifier (arn) of the task template.</td></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>The identifier (arn) of the instance.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the task template.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the task template.</td></tr>
-<tr><td><code>ContactFlowArn</code></td><td><code>string</code></td><td>The identifier of the contact flow.</td></tr>
-<tr><td><code>Constraints</code></td><td><code>object</code></td><td>The constraints for the task template</td></tr>
-<tr><td><code>Defaults</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Fields</code></td><td><code>array</code></td><td>The list of task template's fields</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClientToken</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>One or more tags.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The identifier (arn) of the task template.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +36,10 @@ Retrieves a list of <code>task_templates</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.connect.task_templates<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.connect.task_templates
+WHERE region = 'us-east-1'
+```

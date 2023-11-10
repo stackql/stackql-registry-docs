@@ -27,12 +27,10 @@ Retrieves a list of <code>identity_provider_configs</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ClusterName</code></td><td><code>string</code></td><td>The name of the identity provider configuration.</td></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td>The type of the identity provider configuration.</td></tr>
-<tr><td><code>IdentityProviderConfigName</code></td><td><code>string</code></td><td>The name of the OIDC provider configuration.</td></tr>
-<tr><td><code>Oidc</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>IdentityProviderConfigArn</code></td><td><code>string</code></td><td>The ARN of the configuration.</td></tr>
+<tr><td><code>identity_provider_config_name</code></td><td><code>string</code></td><td>The name of the OIDC provider configuration.</td></tr>
+<tr><td><code>cluster_name</code></td><td><code>string</code></td><td>The name of the identity provider configuration.</td></tr>
+<tr><td><code>type</code></td><td><code>string</code></td><td>The type of the identity provider configuration.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +38,12 @@ Retrieves a list of <code>identity_provider_configs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.eks.identity_provider_configs<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+identity_provider_config_name,
+cluster_name,
+type
+FROM aws.eks.identity_provider_configs
+WHERE region = 'us-east-1'
+```

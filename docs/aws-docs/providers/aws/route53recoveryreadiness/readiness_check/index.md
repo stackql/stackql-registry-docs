@@ -27,10 +27,11 @@ Gets an individual <code>readiness_check</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceSetName</code></td><td><code>string</code></td><td>The name of the resource set to check.</td></tr>
-<tr><td><code>ReadinessCheckName</code></td><td><code>string</code></td><td>Name of the ReadinessCheck to create.</td></tr>
-<tr><td><code>ReadinessCheckArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the readiness check.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource.</td></tr>
+<tr><td><code>resource_set_name</code></td><td><code>string</code></td><td>The name of the resource set to check.</td></tr>
+<tr><td><code>readiness_check_name</code></td><td><code>string</code></td><td>Name of the ReadinessCheck to create.</td></tr>
+<tr><td><code>readiness_check_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the readiness check.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>A collection of tags associated with a resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,14 @@ Gets an individual <code>readiness_check</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53recoveryreadiness.readiness_check<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ReadinessCheckName&gt;'
-</pre>
+```sql
+SELECT
+region,
+resource_set_name,
+readiness_check_name,
+readiness_check_arn,
+tags
+FROM aws.route53recoveryreadiness.readiness_check
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ReadinessCheckName&gt;'
+```

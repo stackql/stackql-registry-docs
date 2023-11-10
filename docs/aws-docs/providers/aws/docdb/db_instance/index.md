@@ -27,17 +27,18 @@ Gets an individual <code>db_instance</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DBInstanceClass</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Port</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DBClusterIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AvailabilityZone</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredMaintenanceWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnablePerformanceInsights</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>AutoMinorVersionUpgrade</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DBInstanceIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>endpoint</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>d_binstance_class</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>port</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>d_bcluster_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>availability_zone</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>preferred_maintenance_window</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>enable_performance_insights</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>auto_minor_version_upgrade</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>d_binstance_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,21 @@ Gets an individual <code>db_instance</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.docdb.db_instance<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+endpoint,
+d_binstance_class,
+port,
+d_bcluster_identifier,
+availability_zone,
+preferred_maintenance_window,
+enable_performance_insights,
+auto_minor_version_upgrade,
+id,
+d_binstance_identifier,
+tags
+FROM aws.docdb.db_instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

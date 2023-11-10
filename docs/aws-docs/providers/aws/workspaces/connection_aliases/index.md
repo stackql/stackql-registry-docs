@@ -27,11 +27,8 @@ Retrieves a list of <code>connection_aliases</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Associations</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AliasId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConnectionString</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConnectionAliasState</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>alias_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>connection_aliases</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.workspaces.connection_aliases<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+alias_id
+FROM aws.workspaces.connection_aliases
+WHERE region = 'us-east-1'
+```

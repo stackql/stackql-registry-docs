@@ -27,12 +27,13 @@ Gets an individual <code>assessment_template</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssessmentTargetArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DurationInSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>AssessmentTemplateName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RulesPackageArns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>UserAttributesForFindings</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>assessment_target_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>duration_in_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>assessment_template_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>rules_package_arns</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>user_attributes_for_findings</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>assessment_template</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.inspector.assessment_template<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+assessment_target_arn,
+duration_in_seconds,
+assessment_template_name,
+rules_package_arns,
+user_attributes_for_findings
+FROM aws.inspector.assessment_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

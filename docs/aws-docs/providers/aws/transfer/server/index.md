@@ -27,22 +27,23 @@ Gets an individual <code>server</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>LoggingRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Protocols</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>IdentityProviderDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EndpointDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>PreAuthenticationLoginBanner</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServerId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PostAuthenticationLoginBanner</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityPolicyName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProtocolDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>WorkflowDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Domain</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IdentityProviderType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Certificate</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>logging_role</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>protocols</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>identity_provider_details</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>endpoint_details</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>pre_authentication_login_banner</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>server_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>post_authentication_login_banner</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>endpoint_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>security_policy_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>protocol_details</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>workflow_details</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>domain</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>identity_provider_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>certificate</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,6 +51,26 @@ Gets an individual <code>server</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.transfer.server<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ServerId&gt;'
-</pre>
+```sql
+SELECT
+region,
+logging_role,
+protocols,
+identity_provider_details,
+endpoint_details,
+pre_authentication_login_banner,
+server_id,
+post_authentication_login_banner,
+endpoint_type,
+security_policy_name,
+protocol_details,
+workflow_details,
+arn,
+domain,
+identity_provider_type,
+tags,
+certificate
+FROM aws.transfer.server
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ServerId&gt;'
+```

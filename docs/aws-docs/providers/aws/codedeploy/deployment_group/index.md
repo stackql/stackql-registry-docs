@@ -27,26 +27,27 @@ Gets an individual <code>deployment_group</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OnPremisesTagSet</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ApplicationName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentStyle</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ServiceRoleArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BlueGreenDeploymentConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AutoScalingGroups</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Ec2TagSet</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>OutdatedInstancesStrategy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>TriggerConfigurations</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Deployment</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DeploymentConfigName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AlarmConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Ec2TagFilters</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ECSServices</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AutoRollbackConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>LoadBalancerInfo</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>OnPremisesInstanceTagFilters</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>on_premises_tag_set</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>application_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>deployment_style</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>service_role_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>blue_green_deployment_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>auto_scaling_groups</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>ec2_tag_set</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>outdated_instances_strategy</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>trigger_configurations</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>deployment</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>deployment_config_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>alarm_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>ec2_tag_filters</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>e_cs_services</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>auto_rollback_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>load_balancer_info</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>deployment_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>on_premises_instance_tag_filters</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -54,6 +55,30 @@ Gets an individual <code>deployment_group</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.codedeploy.deployment_group<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+on_premises_tag_set,
+application_name,
+deployment_style,
+service_role_arn,
+blue_green_deployment_configuration,
+auto_scaling_groups,
+ec2_tag_set,
+outdated_instances_strategy,
+trigger_configurations,
+deployment,
+deployment_config_name,
+alarm_configuration,
+ec2_tag_filters,
+e_cs_services,
+auto_rollback_configuration,
+load_balancer_info,
+id,
+deployment_group_name,
+tags,
+on_premises_instance_tag_filters
+FROM aws.codedeploy.deployment_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

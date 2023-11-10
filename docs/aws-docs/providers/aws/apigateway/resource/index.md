@@ -27,10 +27,11 @@ Gets an individual <code>resource</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceId</code></td><td><code>string</code></td><td>A unique primary identifier for a Resource</td></tr>
-<tr><td><code>RestApiId</code></td><td><code>string</code></td><td>The ID of the RestApi resource in which you want to create this resource..</td></tr>
-<tr><td><code>ParentId</code></td><td><code>string</code></td><td>The parent resource's identifier.</td></tr>
-<tr><td><code>PathPart</code></td><td><code>string</code></td><td>The last path segment for this resource.</td></tr>
+<tr><td><code>resource_id</code></td><td><code>string</code></td><td>A unique primary identifier for a Resource</td></tr>
+<tr><td><code>rest_api_id</code></td><td><code>string</code></td><td>The ID of the RestApi resource in which you want to create this resource..</td></tr>
+<tr><td><code>parent_id</code></td><td><code>string</code></td><td>The parent resource's identifier.</td></tr>
+<tr><td><code>path_part</code></td><td><code>string</code></td><td>The last path segment for this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +39,15 @@ Gets an individual <code>resource</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.resource<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RestApiId&gt;'<br/>AND data__Identifier = '&lt;ResourceId&gt;'
-</pre>
+```sql
+SELECT
+region,
+resource_id,
+rest_api_id,
+parent_id,
+path_part
+FROM aws.apigateway.resource
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;RestApiId&gt;'
+AND data__Identifier = '&lt;ResourceId&gt;'
+```

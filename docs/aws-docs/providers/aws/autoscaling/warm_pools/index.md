@@ -27,11 +27,8 @@ Retrieves a list of <code>warm_pools</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>AutoScalingGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxGroupPreparedCapacity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>MinSize</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>PoolState</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InstanceReusePolicy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>auto_scaling_group_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>warm_pools</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.autoscaling.warm_pools<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+auto_scaling_group_name
+FROM aws.autoscaling.warm_pools
+WHERE region = 'us-east-1'
+```

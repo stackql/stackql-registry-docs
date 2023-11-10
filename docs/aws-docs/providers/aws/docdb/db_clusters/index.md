@@ -27,33 +27,8 @@ Retrieves a list of <code>db_clusters</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>StorageEncrypted</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>RestoreToTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SnapshotIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Port</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>DBClusterIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PreferredBackupWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ClusterResourceId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Endpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VpcSecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CopyTagsToSnapshot</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>RestoreType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EngineVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AvailabilityZones</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PreferredMaintenanceWindow</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DBSubnetGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeletionProtection</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>UseLatestRestorableTime</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>MasterUserPassword</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SourceDBClusterIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MasterUsername</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ReadEndpoint</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DBClusterParameterGroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BackupRetentionPeriod</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EnableCloudwatchLogsExports</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -61,6 +36,10 @@ Retrieves a list of <code>db_clusters</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.docdb.db_clusters<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.docdb.db_clusters
+WHERE region = 'us-east-1'
+```

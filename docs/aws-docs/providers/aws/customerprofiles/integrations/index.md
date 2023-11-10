@@ -27,14 +27,9 @@ Retrieves a list of <code>integrations</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
-<tr><td><code>Uri</code></td><td><code>string</code></td><td>The URI of the S3 bucket or any other type of data source.</td></tr>
-<tr><td><code>FlowDefinition</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ObjectTypeName</code></td><td><code>string</code></td><td>The name of the ObjectType defined for the 3rd party data in Profile Service</td></tr>
-<tr><td><code>CreatedAt</code></td><td><code>string</code></td><td>The time of this integration got created</td></tr>
-<tr><td><code>LastUpdatedAt</code></td><td><code>string</code></td><td>The time of this integration got last updated at</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags (keys and values) associated with the integration</td></tr>
-<tr><td><code>ObjectTypeNames</code></td><td><code>array</code></td><td>The mapping between 3rd party event types and ObjectType names</td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
+<tr><td><code>uri</code></td><td><code>string</code></td><td>The URI of the S3 bucket or any other type of data source.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +37,11 @@ Retrieves a list of <code>integrations</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.customerprofiles.integrations<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+domain_name,
+uri
+FROM aws.customerprofiles.integrations
+WHERE region = 'us-east-1'
+```

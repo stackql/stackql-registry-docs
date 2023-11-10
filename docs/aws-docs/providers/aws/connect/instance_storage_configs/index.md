@@ -27,14 +27,10 @@ Retrieves a list of <code>instance_storage_configs</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>InstanceArn</code></td><td><code>string</code></td><td>Connect Instance ID with which the storage config will be associated</td></tr>
-<tr><td><code>ResourceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AssociationId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StorageType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>S3Config</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KinesisVideoStreamConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KinesisStreamConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>KinesisFirehoseConfig</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>instance_arn</code></td><td><code>string</code></td><td>Connect Instance ID with which the storage config will be associated</td></tr>
+<tr><td><code>association_id</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>resource_type</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +38,12 @@ Retrieves a list of <code>instance_storage_configs</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.connect.instance_storage_configs<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+instance_arn,
+association_id,
+resource_type
+FROM aws.connect.instance_storage_configs
+WHERE region = 'us-east-1'
+```

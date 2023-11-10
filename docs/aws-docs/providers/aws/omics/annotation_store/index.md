@@ -27,20 +27,21 @@ Gets an individual <code>annotation_store</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Reference</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SseConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StatusMessage</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StoreArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StoreFormat</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StoreOptions</code></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><code>StoreSizeBytes</code></td><td><code>number</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>UpdateTime</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>creation_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>reference</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>sse_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>status_message</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>store_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>store_format</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>store_options</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>store_size_bytes</code></td><td><code>number</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>update_time</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -48,6 +49,24 @@ Gets an individual <code>annotation_store</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.omics.annotation_store<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'
-</pre>
+```sql
+SELECT
+region,
+creation_time,
+description,
+id,
+name,
+reference,
+sse_config,
+status,
+status_message,
+store_arn,
+store_format,
+store_options,
+store_size_bytes,
+tags,
+update_time
+FROM aws.omics.annotation_store
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Name&gt;'
+```

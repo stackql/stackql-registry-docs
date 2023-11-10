@@ -27,17 +27,8 @@ Retrieves a list of <code>workgroups</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>WorkgroupName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NamespaceName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BaseCapacity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>EnhancedVpcRouting</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ConfigParameters</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SubnetIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>PubliclyAccessible</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Port</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Workgroup</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>workgroup_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +36,10 @@ Retrieves a list of <code>workgroups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.redshiftserverless.workgroups<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+workgroup_name
+FROM aws.redshiftserverless.workgroups
+WHERE region = 'us-east-1'
+```

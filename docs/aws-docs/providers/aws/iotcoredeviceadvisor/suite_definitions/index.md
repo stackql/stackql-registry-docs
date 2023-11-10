@@ -27,11 +27,8 @@ Retrieves a list of <code>suite_definitions</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>SuiteDefinitionConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>SuiteDefinitionId</code></td><td><code>string</code></td><td>The unique identifier for the suite definition.</td></tr>
-<tr><td><code>SuiteDefinitionArn</code></td><td><code>string</code></td><td>The Amazon Resource name for the suite definition.</td></tr>
-<tr><td><code>SuiteDefinitionVersion</code></td><td><code>string</code></td><td>The suite definition version of a test suite.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>suite_definition_id</code></td><td><code>string</code></td><td>The unique identifier for the suite definition.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>suite_definitions</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.iotcoredeviceadvisor.suite_definitions<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+suite_definition_id
+FROM aws.iotcoredeviceadvisor.suite_definitions
+WHERE region = 'us-east-1'
+```

@@ -27,14 +27,15 @@ Gets an individual <code>certificate</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CertificateAuthorityArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DomainValidationOptions</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>CertificateTransparencyLoggingPreference</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ValidationMethod</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SubjectAlternativeNames</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>certificate_authority_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>domain_validation_options</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>certificate_transparency_logging_preference</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>validation_method</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>subject_alternative_names</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +43,18 @@ Gets an individual <code>certificate</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.certificatemanager.certificate<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+certificate_authority_arn,
+domain_validation_options,
+certificate_transparency_logging_preference,
+domain_name,
+validation_method,
+subject_alternative_names,
+id,
+tags
+FROM aws.certificatemanager.certificate
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

@@ -27,13 +27,14 @@ Gets an individual <code>resolver_query_logging_config_association</code> resour
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>Id</td></tr>
-<tr><td><code>ResolverQueryLogConfigId</code></td><td><code>string</code></td><td>ResolverQueryLogConfigId</td></tr>
-<tr><td><code>ResourceId</code></td><td><code>string</code></td><td>ResourceId</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationStatus</td></tr>
-<tr><td><code>Error</code></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationError</td></tr>
-<tr><td><code>ErrorMessage</code></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationErrorMessage</td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>Id</td></tr>
+<tr><td><code>resolver_query_log_config_id</code></td><td><code>string</code></td><td>ResolverQueryLogConfigId</td></tr>
+<tr><td><code>resource_id</code></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationStatus</td></tr>
+<tr><td><code>error</code></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationError</td></tr>
+<tr><td><code>error_message</code></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationErrorMessage</td></tr>
+<tr><td><code>creation_time</code></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>resolver_query_logging_config_association</code> resour
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.route53resolver.resolver_query_logging_config_association<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+resolver_query_log_config_id,
+resource_id,
+status,
+error,
+error_message,
+creation_time
+FROM aws.route53resolver.resolver_query_logging_config_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

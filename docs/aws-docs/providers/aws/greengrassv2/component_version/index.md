@@ -27,12 +27,13 @@ Gets an individual <code>component_version</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComponentName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ComponentVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>InlineRecipe</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>LambdaFunction</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>component_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>component_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>inline_recipe</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>lambda_function</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>component_version</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.greengrassv2.component_version<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+component_name,
+component_version,
+inline_recipe,
+lambda_function,
+tags
+FROM aws.greengrassv2.component_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

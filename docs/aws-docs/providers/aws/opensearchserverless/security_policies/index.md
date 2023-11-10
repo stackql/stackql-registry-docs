@@ -27,10 +27,9 @@ Retrieves a list of <code>security_policies</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the policy</td></tr>
-<tr><td><code>Policy</code></td><td><code>string</code></td><td>The JSON policy document that is the content for the policy</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the policy</td></tr>
-<tr><td><code>Type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>type</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the policy</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +37,11 @@ Retrieves a list of <code>security_policies</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.opensearchserverless.security_policies<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+type,
+name
+FROM aws.opensearchserverless.security_policies
+WHERE region = 'us-east-1'
+```

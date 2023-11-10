@@ -27,11 +27,12 @@ Gets an individual <code>connection_alias</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Associations</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>AliasId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConnectionString</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ConnectionAliasState</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>associations</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>alias_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>connection_string</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>connection_alias_state</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>connection_alias</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.workspaces.connection_alias<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AliasId&gt;'
-</pre>
+```sql
+SELECT
+region,
+associations,
+alias_id,
+connection_string,
+connection_alias_state,
+tags
+FROM aws.workspaces.connection_alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AliasId&gt;'
+```

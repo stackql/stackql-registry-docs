@@ -27,16 +27,17 @@ Gets an individual <code>agreement</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A textual description for the agreement.</td></tr>
-<tr><td><code>ServerId</code></td><td><code>string</code></td><td>A unique identifier for the server.</td></tr>
-<tr><td><code>LocalProfileId</code></td><td><code>string</code></td><td>A unique identifier for the local profile.</td></tr>
-<tr><td><code>PartnerProfileId</code></td><td><code>string</code></td><td>A unique identifier for the partner profile.</td></tr>
-<tr><td><code>BaseDirectory</code></td><td><code>string</code></td><td>Specifies the base directory for the agreement.</td></tr>
-<tr><td><code>AccessRole</code></td><td><code>string</code></td><td>Specifies the access role for the agreement.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>Specifies the status of the agreement.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.</td></tr>
-<tr><td><code>AgreementId</code></td><td><code>string</code></td><td>A unique identifier for the agreement.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the agreement.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>A textual description for the agreement.</td></tr>
+<tr><td><code>server_id</code></td><td><code>string</code></td><td>A unique identifier for the server.</td></tr>
+<tr><td><code>local_profile_id</code></td><td><code>string</code></td><td>A unique identifier for the local profile.</td></tr>
+<tr><td><code>partner_profile_id</code></td><td><code>string</code></td><td>A unique identifier for the partner profile.</td></tr>
+<tr><td><code>base_directory</code></td><td><code>string</code></td><td>Specifies the base directory for the agreement.</td></tr>
+<tr><td><code>access_role</code></td><td><code>string</code></td><td>Specifies the access role for the agreement.</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>Specifies the status of the agreement.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.</td></tr>
+<tr><td><code>agreement_id</code></td><td><code>string</code></td><td>A unique identifier for the agreement.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the agreement.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,21 @@ Gets an individual <code>agreement</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.transfer.agreement<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;AgreementId&gt;'<br/>AND data__Identifier = '&lt;ServerId&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+server_id,
+local_profile_id,
+partner_profile_id,
+base_directory,
+access_role,
+status,
+tags,
+agreement_id,
+arn
+FROM aws.transfer.agreement
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;AgreementId&gt;'
+AND data__Identifier = '&lt;ServerId&gt;'
+```

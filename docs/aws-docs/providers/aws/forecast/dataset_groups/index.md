@@ -27,11 +27,8 @@ Retrieves a list of <code>dataset_groups</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DatasetArns</code></td><td><code>array</code></td><td>An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.</td></tr>
-<tr><td><code>DatasetGroupName</code></td><td><code>string</code></td><td>A name for the dataset group.</td></tr>
-<tr><td><code>Domain</code></td><td><code>string</code></td><td>The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags of Application Insights application.</td></tr>
-<tr><td><code>DatasetGroupArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group to delete.</td></tr>
+<tr><td><code>dataset_group_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group to delete.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +36,10 @@ Retrieves a list of <code>dataset_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.forecast.dataset_groups<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+dataset_group_arn
+FROM aws.forecast.dataset_groups
+WHERE region = 'us-east-1'
+```

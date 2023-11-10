@@ -27,15 +27,8 @@ Retrieves a list of <code>volumes</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>OpenZFSConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ResourceARN</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VolumeId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>VolumeType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>BackupId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>OntapConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>UUID</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>volume_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +36,10 @@ Retrieves a list of <code>volumes</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.fsx.volumes<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+volume_id
+FROM aws.fsx.volumes
+WHERE region = 'us-east-1'
+```

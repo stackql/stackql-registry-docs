@@ -27,11 +27,12 @@ Gets an individual <code>node</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>NodeId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MemberId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NetworkId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>NodeConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>node_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>member_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>network_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>node_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>node</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.managedblockchain.node<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;NodeId&gt;'
-</pre>
+```sql
+SELECT
+region,
+node_id,
+member_id,
+arn,
+network_id,
+node_configuration
+FROM aws.managedblockchain.node
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;NodeId&gt;'
+```

@@ -27,21 +27,22 @@ Gets an individual <code>web_acl</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Capacity</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>DefaultAction</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Scope</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Rules</code></td><td><code>array</code></td><td>Collection of Rules.</td></tr>
-<tr><td><code>VisibilityConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>LabelNamespace</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomResponseBodies</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CaptchaConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ChallengeConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>TokenDomains</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>capacity</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>default_action</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>scope</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>rules</code></td><td><code>array</code></td><td>Collection of Rules.</td></tr>
+<tr><td><code>visibility_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>label_namespace</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>custom_response_bodies</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>captcha_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>challenge_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>token_domains</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,6 +50,27 @@ Gets an individual <code>web_acl</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.wafv2.web_acl<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Name&gt;'<br/>AND data__Identifier = '&lt;Id&gt;'<br/>AND data__Identifier = '&lt;Scope&gt;'
-</pre>
+```sql
+SELECT
+region,
+arn,
+capacity,
+default_action,
+description,
+name,
+id,
+scope,
+rules,
+visibility_config,
+tags,
+label_namespace,
+custom_response_bodies,
+captcha_config,
+challenge_config,
+token_domains
+FROM aws.wafv2.web_acl
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '&lt;Scope&gt;'
+```

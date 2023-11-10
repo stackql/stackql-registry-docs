@@ -27,13 +27,8 @@ Retrieves a list of <code>streams</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Kinesis Video stream.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the Kinesis Video stream.</td></tr>
-<tr><td><code>DataRetentionInHours</code></td><td><code>integer</code></td><td>The number of hours till which Kinesis Video will retain the data in the stream</td></tr>
-<tr><td><code>DeviceName</code></td><td><code>string</code></td><td>The name of the device that is writing to the stream.</td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td>AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.</td></tr>
-<tr><td><code>MediaType</code></td><td><code>string</code></td><td>The media type of the stream. Consumers of the stream can use this information when processing the stream.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs associated with the Kinesis Video Stream.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the Kinesis Video stream.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>streams</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.kinesisvideo.streams<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+name
+FROM aws.kinesisvideo.streams
+WHERE region = 'us-east-1'
+```

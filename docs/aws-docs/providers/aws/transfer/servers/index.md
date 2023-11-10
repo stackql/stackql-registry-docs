@@ -27,22 +27,8 @@ Retrieves a list of <code>servers</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>LoggingRole</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Protocols</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>IdentityProviderDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>EndpointDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>PreAuthenticationLoginBanner</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ServerId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PostAuthenticationLoginBanner</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EndpointType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SecurityPolicyName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProtocolDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>WorkflowDetails</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Domain</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>IdentityProviderType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Certificate</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>server_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,6 +36,10 @@ Retrieves a list of <code>servers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.transfer.servers<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+server_id
+FROM aws.transfer.servers
+WHERE region = 'us-east-1'
+```

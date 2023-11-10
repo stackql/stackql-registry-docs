@@ -27,14 +27,8 @@ Retrieves a list of <code>deployments</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>TargetArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ParentTargetArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeploymentName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Components</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>IotJobConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>DeploymentPolicies</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>deployment_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -42,6 +36,10 @@ Retrieves a list of <code>deployments</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.greengrassv2.deployments<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+deployment_id
+FROM aws.greengrassv2.deployments
+WHERE region = 'us-east-1'
+```

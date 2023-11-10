@@ -27,11 +27,12 @@ Gets an individual <code>profile_permission</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ProfileName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProfileVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Action</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Principal</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>StatementId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>profile_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>profile_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>action</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>principal</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>statement_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,16 @@ Gets an individual <code>profile_permission</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.signer.profile_permission<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;StatementId&gt;'<br/>AND data__Identifier = '&lt;ProfileName&gt;'
-</pre>
+```sql
+SELECT
+region,
+profile_name,
+profile_version,
+action,
+principal,
+statement_id
+FROM aws.signer.profile_permission
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;StatementId&gt;'
+AND data__Identifier = '&lt;ProfileName&gt;'
+```

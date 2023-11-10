@@ -27,10 +27,9 @@ Retrieves a list of <code>resource_policies</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceArn</code></td><td><code>string</code></td><td>Arn of OpsItemGroup etc.</td></tr>
-<tr><td><code>Policy</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PolicyId</code></td><td><code>string</code></td><td>An unique identifier within the policies of a resource. </td></tr>
-<tr><td><code>PolicyHash</code></td><td><code>string</code></td><td>A snapshot identifier for the policy over time.</td></tr>
+<tr><td><code>policy_id</code></td><td><code>string</code></td><td>An unique identifier within the policies of a resource. </td></tr>
+<tr><td><code>resource_arn</code></td><td><code>string</code></td><td>Arn of OpsItemGroup etc.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -38,6 +37,11 @@ Retrieves a list of <code>resource_policies</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ssm.resource_policies<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+policy_id,
+resource_arn
+FROM aws.ssm.resource_policies
+WHERE region = 'us-east-1'
+```

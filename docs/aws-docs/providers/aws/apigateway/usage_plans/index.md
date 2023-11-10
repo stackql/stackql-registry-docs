@@ -27,13 +27,8 @@ Retrieves a list of <code>usage_plans</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>The provider-assigned unique ID for this managed resource.</td></tr>
-<tr><td><code>ApiStages</code></td><td><code>array</code></td><td>The API stages to associate with this usage plan.</td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>A description of the usage plan.</td></tr>
-<tr><td><code>Quota</code></td><td><code>object</code></td><td>Configures the number of requests that users can make within a given interval.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of arbitrary tags (key-value pairs) to associate with the usage plan.</td></tr>
-<tr><td><code>Throttle</code></td><td><code>object</code></td><td>Configures the overall request rate (average requests per second) and burst capacity.</td></tr>
-<tr><td><code>UsagePlanName</code></td><td><code>string</code></td><td>A name for the usage plan.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>The provider-assigned unique ID for this managed resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>usage_plans</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apigateway.usage_plans<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+id
+FROM aws.apigateway.usage_plans
+WHERE region = 'us-east-1'
+```

@@ -27,8 +27,9 @@ Gets an individual <code>replication_configuration</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ReplicationConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>RegistryId</code></td><td><code>string</code></td><td>The RegistryId associated with the aws account.</td></tr>
+<tr><td><code>replication_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>registry_id</code></td><td><code>string</code></td><td>The RegistryId associated with the aws account.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +37,12 @@ Gets an individual <code>replication_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ecr.replication_configuration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;RegistryId&gt;'
-</pre>
+```sql
+SELECT
+region,
+replication_configuration,
+registry_id
+FROM aws.ecr.replication_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;RegistryId&gt;'
+```

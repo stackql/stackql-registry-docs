@@ -27,19 +27,20 @@ Gets an individual <code>monitor</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>CreatedAt</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ModifiedAt</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MonitorArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MonitorName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProcessingStatus</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ProcessingStatusInfo</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Resources</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ResourcesToAdd</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ResourcesToRemove</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>MaxCityNetworksToMonitor</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>InternetMeasurementsLogDelivery</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>created_at</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>modified_at</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>monitor_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>monitor_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>processing_status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>processing_status_info</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resources</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>resources_to_add</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>resources_to_remove</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>max_city_networks_to_monitor</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>internet_measurements_log_delivery</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +48,23 @@ Gets an individual <code>monitor</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.internetmonitor.monitor<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;MonitorName&gt;'
-</pre>
+```sql
+SELECT
+region,
+created_at,
+modified_at,
+monitor_arn,
+monitor_name,
+processing_status,
+processing_status_info,
+resources,
+resources_to_add,
+resources_to_remove,
+status,
+tags,
+max_city_networks_to_monitor,
+internet_measurements_log_delivery
+FROM aws.internetmonitor.monitor
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;MonitorName&gt;'
+```

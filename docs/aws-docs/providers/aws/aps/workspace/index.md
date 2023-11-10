@@ -27,13 +27,14 @@ Gets an individual <code>workspace</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>WorkspaceId</code></td><td><code>string</code></td><td>Required to identify a specific APS Workspace.</td></tr>
-<tr><td><code>Alias</code></td><td><code>string</code></td><td>AMP Workspace alias.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>Workspace arn.</td></tr>
-<tr><td><code>AlertManagerDefinition</code></td><td><code>string</code></td><td>The AMP Workspace alert manager definition data</td></tr>
-<tr><td><code>PrometheusEndpoint</code></td><td><code>string</code></td><td>AMP Workspace prometheus endpoint</td></tr>
-<tr><td><code>LoggingConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>workspace_id</code></td><td><code>string</code></td><td>Required to identify a specific APS Workspace.</td></tr>
+<tr><td><code>alias</code></td><td><code>string</code></td><td>AMP Workspace alias.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>Workspace arn.</td></tr>
+<tr><td><code>alert_manager_definition</code></td><td><code>string</code></td><td>The AMP Workspace alert manager definition data</td></tr>
+<tr><td><code>prometheus_endpoint</code></td><td><code>string</code></td><td>AMP Workspace prometheus endpoint</td></tr>
+<tr><td><code>logging_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +42,17 @@ Gets an individual <code>workspace</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.aps.workspace<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+workspace_id,
+alias,
+arn,
+alert_manager_definition,
+prometheus_endpoint,
+logging_configuration,
+tags
+FROM aws.aps.workspace
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

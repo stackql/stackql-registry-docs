@@ -27,15 +27,16 @@ Gets an individual <code>instance</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td>An instanceId is automatically generated on creation and assigned as the unique identifier.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>An instanceArn is automatically generated on creation based on instanceId.</td></tr>
-<tr><td><code>IdentityManagementType</code></td><td><code>string</code></td><td>Specifies the type of directory integration for new instance.</td></tr>
-<tr><td><code>InstanceAlias</code></td><td><code>string</code></td><td>Alias of the new directory created as part of new instance creation.</td></tr>
-<tr><td><code>CreatedTime</code></td><td><code>string</code></td><td>Timestamp of instance creation logged as part of instance creation.</td></tr>
-<tr><td><code>ServiceRole</code></td><td><code>string</code></td><td>Service linked role created as part of instance creation.</td></tr>
-<tr><td><code>InstanceStatus</code></td><td><code>string</code></td><td>Specifies the creation status of new instance.</td></tr>
-<tr><td><code>DirectoryId</code></td><td><code>string</code></td><td>Existing directoryId user wants to map to the new Connect instance.</td></tr>
-<tr><td><code>Attributes</code></td><td><code>object</code></td><td>The attributes for the instance.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>An instanceId is automatically generated on creation and assigned as the unique identifier.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>An instanceArn is automatically generated on creation based on instanceId.</td></tr>
+<tr><td><code>identity_management_type</code></td><td><code>string</code></td><td>Specifies the type of directory integration for new instance.</td></tr>
+<tr><td><code>instance_alias</code></td><td><code>string</code></td><td>Alias of the new directory created as part of new instance creation.</td></tr>
+<tr><td><code>created_time</code></td><td><code>string</code></td><td>Timestamp of instance creation logged as part of instance creation.</td></tr>
+<tr><td><code>service_role</code></td><td><code>string</code></td><td>Service linked role created as part of instance creation.</td></tr>
+<tr><td><code>instance_status</code></td><td><code>string</code></td><td>Specifies the creation status of new instance.</td></tr>
+<tr><td><code>directory_id</code></td><td><code>string</code></td><td>Existing directoryId user wants to map to the new Connect instance.</td></tr>
+<tr><td><code>attributes</code></td><td><code>object</code></td><td>The attributes for the instance.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -43,6 +44,19 @@ Gets an individual <code>instance</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.connect.instance<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+arn,
+identity_management_type,
+instance_alias,
+created_time,
+service_role,
+instance_status,
+directory_id,
+attributes
+FROM aws.connect.instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

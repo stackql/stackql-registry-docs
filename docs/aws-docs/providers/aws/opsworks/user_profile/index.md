@@ -27,11 +27,12 @@ Gets an individual <code>user_profile</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SshUsername</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AllowSelfManagement</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>IamUserArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>SshPublicKey</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ssh_username</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>allow_self_management</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>iam_user_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>ssh_public_key</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>user_profile</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.opsworks.user_profile<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+ssh_username,
+allow_self_management,
+iam_user_arn,
+ssh_public_key
+FROM aws.opsworks.user_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

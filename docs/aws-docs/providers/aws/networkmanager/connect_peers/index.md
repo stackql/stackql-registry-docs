@@ -27,18 +27,8 @@ Retrieves a list of <code>connect_peers</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PeerAddress</code></td><td><code>string</code></td><td>The IP address of the Connect peer.</td></tr>
-<tr><td><code>CoreNetworkAddress</code></td><td><code>string</code></td><td>The IP address of a core network.</td></tr>
-<tr><td><code>BgpOptions</code></td><td><code>object</code></td><td>Bgp options for connect peer.</td></tr>
-<tr><td><code>InsideCidrBlocks</code></td><td><code>array</code></td><td>The inside IP addresses used for a Connect peer configuration.</td></tr>
-<tr><td><code>CoreNetworkId</code></td><td><code>string</code></td><td>The ID of the core network.</td></tr>
-<tr><td><code>ConnectAttachmentId</code></td><td><code>string</code></td><td>The ID of the attachment to connect.</td></tr>
-<tr><td><code>ConnectPeerId</code></td><td><code>string</code></td><td>The ID of the Connect peer.</td></tr>
-<tr><td><code>EdgeLocation</code></td><td><code>string</code></td><td>The Connect peer Regions where edges are located.</td></tr>
-<tr><td><code>State</code></td><td><code>string</code></td><td>State of the connect peer.</td></tr>
-<tr><td><code>CreatedAt</code></td><td><code>string</code></td><td>Connect peer creation time.</td></tr>
-<tr><td><code>Configuration</code></td><td><code>object</code></td><td>Configuration of the connect peer.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>connect_peer_id</code></td><td><code>string</code></td><td>The ID of the Connect peer.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +36,10 @@ Retrieves a list of <code>connect_peers</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.networkmanager.connect_peers<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+connect_peer_id
+FROM aws.networkmanager.connect_peers
+WHERE region = 'us-east-1'
+```

@@ -27,22 +27,23 @@ Gets an individual <code>policy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ExcludeMap</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ExcludeResourceTags</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>IncludeMap</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PolicyName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>PolicyDescription</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RemediationEnabled</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ResourceTags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ResourceType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResourceTypeList</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>ResourceSetIds</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>SecurityServicePolicyData</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DeleteAllPolicyResources</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>ResourcesCleanUp</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>exclude_map</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>exclude_resource_tags</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>include_map</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>policy_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>policy_description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>remediation_enabled</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>resource_tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>resource_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_type_list</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>resource_set_ids</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>security_service_policy_data</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>delete_all_policy_resources</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>resources_clean_up</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -50,6 +51,26 @@ Gets an individual <code>policy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.fms.policy<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+exclude_map,
+exclude_resource_tags,
+include_map,
+id,
+policy_name,
+policy_description,
+remediation_enabled,
+resource_tags,
+resource_type,
+resource_type_list,
+resource_set_ids,
+security_service_policy_data,
+arn,
+delete_all_policy_resources,
+resources_clean_up,
+tags
+FROM aws.fms.policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

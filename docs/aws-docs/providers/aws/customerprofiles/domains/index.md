@@ -27,13 +27,8 @@ Retrieves a list of <code>domains</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>DomainName</code></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
-<tr><td><code>DeadLetterQueueUrl</code></td><td><code>string</code></td><td>The URL of the SQS dead letter queue</td></tr>
-<tr><td><code>DefaultEncryptionKey</code></td><td><code>string</code></td><td>The default encryption key</td></tr>
-<tr><td><code>DefaultExpirationDays</code></td><td><code>integer</code></td><td>The default number of days until the data within the domain expires.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The tags (keys and values) associated with the domain</td></tr>
-<tr><td><code>CreatedAt</code></td><td><code>string</code></td><td>The time of this integration got created</td></tr>
-<tr><td><code>LastUpdatedAt</code></td><td><code>string</code></td><td>The time of this integration got last updated at</td></tr>
+<tr><td><code>domain_name</code></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +36,10 @@ Retrieves a list of <code>domains</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.customerprofiles.domains<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+domain_name
+FROM aws.customerprofiles.domains
+WHERE region = 'us-east-1'
+```

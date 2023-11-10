@@ -27,19 +27,20 @@ Gets an individual <code>service</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ServiceName</code></td><td><code>string</code></td><td>The AppRunner Service Name.</td></tr>
-<tr><td><code>ServiceId</code></td><td><code>string</code></td><td>The AppRunner Service Id</td></tr>
-<tr><td><code>ServiceArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppRunner Service.</td></tr>
-<tr><td><code>ServiceUrl</code></td><td><code>string</code></td><td>The Service Url of the AppRunner Service.</td></tr>
-<tr><td><code>Status</code></td><td><code>string</code></td><td>AppRunner Service status.</td></tr>
-<tr><td><code>SourceConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>InstanceConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>EncryptionConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>HealthCheckConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ObservabilityConfiguration</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>AutoScalingConfigurationArn</code></td><td><code>string</code></td><td>Autoscaling configuration ARN</td></tr>
-<tr><td><code>NetworkConfiguration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>service_name</code></td><td><code>string</code></td><td>The AppRunner Service Name.</td></tr>
+<tr><td><code>service_id</code></td><td><code>string</code></td><td>The AppRunner Service Id</td></tr>
+<tr><td><code>service_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppRunner Service.</td></tr>
+<tr><td><code>service_url</code></td><td><code>string</code></td><td>The Service Url of the AppRunner Service.</td></tr>
+<tr><td><code>status</code></td><td><code>string</code></td><td>AppRunner Service status.</td></tr>
+<tr><td><code>source_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>instance_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>encryption_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>health_check_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>observability_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>auto_scaling_configuration_arn</code></td><td><code>string</code></td><td>Autoscaling configuration ARN</td></tr>
+<tr><td><code>network_configuration</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -47,6 +48,23 @@ Gets an individual <code>service</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.apprunner.service<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ServiceArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+service_name,
+service_id,
+service_arn,
+service_url,
+status,
+source_configuration,
+instance_configuration,
+tags,
+encryption_configuration,
+health_check_configuration,
+observability_configuration,
+auto_scaling_configuration_arn,
+network_configuration
+FROM aws.apprunner.service
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ServiceArn&gt;'
+```

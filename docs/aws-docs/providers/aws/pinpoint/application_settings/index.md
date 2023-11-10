@@ -27,12 +27,13 @@ Gets an individual <code>application_settings</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>QuietTime</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Limits</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>ApplicationId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CampaignHook</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CloudWatchMetricsEnabled</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>quiet_time</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>limits</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>application_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>campaign_hook</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>cloud_watch_metrics_enabled</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +41,16 @@ Gets an individual <code>application_settings</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.pinpoint.application_settings<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+id,
+quiet_time,
+limits,
+application_id,
+campaign_hook,
+cloud_watch_metrics_enabled
+FROM aws.pinpoint.application_settings
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

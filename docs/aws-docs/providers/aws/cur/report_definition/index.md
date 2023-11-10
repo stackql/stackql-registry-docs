@@ -27,18 +27,19 @@ Gets an individual <code>report_definition</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ReportName</code></td><td><code>string</code></td><td>The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.</td></tr>
-<tr><td><code>TimeUnit</code></td><td><code>string</code></td><td>The granularity of the line items in the report.</td></tr>
-<tr><td><code>Format</code></td><td><code>string</code></td><td>The format that AWS saves the report in.</td></tr>
-<tr><td><code>Compression</code></td><td><code>string</code></td><td>The compression format that AWS uses for the report.</td></tr>
-<tr><td><code>AdditionalSchemaElements</code></td><td><code>array</code></td><td>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.</td></tr>
-<tr><td><code>S3Bucket</code></td><td><code>string</code></td><td>The S3 bucket where AWS delivers the report.</td></tr>
-<tr><td><code>S3Prefix</code></td><td><code>string</code></td><td>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix can't include spaces.</td></tr>
-<tr><td><code>S3Region</code></td><td><code>string</code></td><td>The region of the S3 bucket that AWS delivers the report into.</td></tr>
-<tr><td><code>AdditionalArtifacts</code></td><td><code>array</code></td><td>A list of manifests that you want Amazon Web Services to create for this report.</td></tr>
-<tr><td><code>RefreshClosedReports</code></td><td><code>boolean</code></td><td>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.</td></tr>
-<tr><td><code>ReportVersioning</code></td><td><code>string</code></td><td>Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.</td></tr>
-<tr><td><code>BillingViewArn</code></td><td><code>string</code></td><td>The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs.</td></tr>
+<tr><td><code>report_name</code></td><td><code>string</code></td><td>The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.</td></tr>
+<tr><td><code>time_unit</code></td><td><code>string</code></td><td>The granularity of the line items in the report.</td></tr>
+<tr><td><code>format</code></td><td><code>string</code></td><td>The format that AWS saves the report in.</td></tr>
+<tr><td><code>compression</code></td><td><code>string</code></td><td>The compression format that AWS uses for the report.</td></tr>
+<tr><td><code>additional_schema_elements</code></td><td><code>array</code></td><td>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.</td></tr>
+<tr><td><code>s3_bucket</code></td><td><code>string</code></td><td>The S3 bucket where AWS delivers the report.</td></tr>
+<tr><td><code>s3_prefix</code></td><td><code>string</code></td><td>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix can't include spaces.</td></tr>
+<tr><td><code>s3_region</code></td><td><code>string</code></td><td>The region of the S3 bucket that AWS delivers the report into.</td></tr>
+<tr><td><code>additional_artifacts</code></td><td><code>array</code></td><td>A list of manifests that you want Amazon Web Services to create for this report.</td></tr>
+<tr><td><code>refresh_closed_reports</code></td><td><code>boolean</code></td><td>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.</td></tr>
+<tr><td><code>report_versioning</code></td><td><code>string</code></td><td>Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.</td></tr>
+<tr><td><code>billing_view_arn</code></td><td><code>string</code></td><td>The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -46,6 +47,22 @@ Gets an individual <code>report_definition</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cur.report_definition<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ReportName&gt;'
-</pre>
+```sql
+SELECT
+region,
+report_name,
+time_unit,
+format,
+compression,
+additional_schema_elements,
+s3_bucket,
+s3_prefix,
+s3_region,
+additional_artifacts,
+refresh_closed_reports,
+report_versioning,
+billing_view_arn
+FROM aws.cur.report_definition
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ReportName&gt;'
+```

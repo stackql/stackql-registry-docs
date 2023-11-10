@@ -27,23 +27,24 @@ Gets an individual <code>matchmaking_configuration</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>GameProperties</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>GameSessionData</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AcceptanceTimeoutSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>NotificationTarget</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>CustomEventData</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>AdditionalPlayerCount</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>BackfillMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestTimeoutSeconds</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>AcceptanceRequired</code></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><code>FlexMatchMode</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RuleSetName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>GameSessionQueueArns</code></td><td><code>array</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>game_properties</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>game_session_data</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>acceptance_timeout_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>notification_target</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>custom_event_data</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>additional_player_count</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>backfill_mode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>request_timeout_seconds</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>acceptance_required</code></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><code>flex_match_mode</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>rule_set_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>game_session_queue_arns</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -51,6 +52,27 @@ Gets an individual <code>matchmaking_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.gamelift.matchmaking_configuration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+game_properties,
+game_session_data,
+description,
+acceptance_timeout_seconds,
+notification_target,
+custom_event_data,
+name,
+additional_player_count,
+backfill_mode,
+request_timeout_seconds,
+acceptance_required,
+flex_match_mode,
+id,
+arn,
+rule_set_name,
+game_session_queue_arns,
+tags
+FROM aws.gamelift.matchmaking_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```

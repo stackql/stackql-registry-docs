@@ -27,16 +27,17 @@ Gets an individual <code>monitoring_schedule</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>MonitoringScheduleArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the monitoring schedule.</td></tr>
-<tr><td><code>MonitoringScheduleName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MonitoringScheduleConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><code>CreationTime</code></td><td><code>string</code></td><td>The time at which the schedule was created.</td></tr>
-<tr><td><code>EndpointName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FailureReason</code></td><td><code>string</code></td><td>Contains the reason a monitoring job failed, if it failed.</td></tr>
-<tr><td><code>LastModifiedTime</code></td><td><code>string</code></td><td>A timestamp that indicates the last time the monitoring job was modified.</td></tr>
-<tr><td><code>LastMonitoringExecutionSummary</code></td><td><code>object</code></td><td>Describes metadata on the last execution to run, if there was one.</td></tr>
-<tr><td><code>MonitoringScheduleStatus</code></td><td><code>string</code></td><td>The status of a schedule job.</td></tr>
+<tr><td><code>monitoring_schedule_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the monitoring schedule.</td></tr>
+<tr><td><code>monitoring_schedule_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>monitoring_schedule_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>creation_time</code></td><td><code>string</code></td><td>The time at which the schedule was created.</td></tr>
+<tr><td><code>endpoint_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>failure_reason</code></td><td><code>string</code></td><td>Contains the reason a monitoring job failed, if it failed.</td></tr>
+<tr><td><code>last_modified_time</code></td><td><code>string</code></td><td>A timestamp that indicates the last time the monitoring job was modified.</td></tr>
+<tr><td><code>last_monitoring_execution_summary</code></td><td><code>object</code></td><td>Describes metadata on the last execution to run, if there was one.</td></tr>
+<tr><td><code>monitoring_schedule_status</code></td><td><code>string</code></td><td>The status of a schedule job.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -44,6 +45,20 @@ Gets an individual <code>monitoring_schedule</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.monitoring_schedule<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;MonitoringScheduleArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+monitoring_schedule_arn,
+monitoring_schedule_name,
+monitoring_schedule_config,
+tags,
+creation_time,
+endpoint_name,
+failure_reason,
+last_modified_time,
+last_monitoring_execution_summary,
+monitoring_schedule_status
+FROM aws.sagemaker.monitoring_schedule
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;MonitoringScheduleArn&gt;'
+```

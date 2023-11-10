@@ -27,21 +27,22 @@ Gets an individual <code>environment</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td>The description of the environment.</td></tr>
-<tr><td><code>EngineType</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>EngineVersion</code></td><td><code>string</code></td><td>The version of the runtime engine for the environment.</td></tr>
-<tr><td><code>EnvironmentArn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the runtime environment.</td></tr>
-<tr><td><code>EnvironmentId</code></td><td><code>string</code></td><td>The unique identifier of the environment.</td></tr>
-<tr><td><code>HighAvailabilityConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>InstanceType</code></td><td><code>string</code></td><td>The type of instance underlying the environment.</td></tr>
-<tr><td><code>KmsKeyId</code></td><td><code>string</code></td><td>The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name of the environment.</td></tr>
-<tr><td><code>PreferredMaintenanceWindow</code></td><td><code>string</code></td><td>Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.</td></tr>
-<tr><td><code>PubliclyAccessible</code></td><td><code>boolean</code></td><td>Specifies whether the environment is publicly accessible.</td></tr>
-<tr><td><code>SecurityGroupIds</code></td><td><code>array</code></td><td>The list of security groups for the VPC associated with this environment.</td></tr>
-<tr><td><code>StorageConfigurations</code></td><td><code>array</code></td><td>The storage configurations defined for the runtime environment.</td></tr>
-<tr><td><code>SubnetIds</code></td><td><code>array</code></td><td>The unique identifiers of the subnets assigned to this runtime environment.</td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td>Tags associated to this environment.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td>The description of the environment.</td></tr>
+<tr><td><code>engine_type</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>engine_version</code></td><td><code>string</code></td><td>The version of the runtime engine for the environment.</td></tr>
+<tr><td><code>environment_arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the runtime environment.</td></tr>
+<tr><td><code>environment_id</code></td><td><code>string</code></td><td>The unique identifier of the environment.</td></tr>
+<tr><td><code>high_availability_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>instance_type</code></td><td><code>string</code></td><td>The type of instance underlying the environment.</td></tr>
+<tr><td><code>kms_key_id</code></td><td><code>string</code></td><td>The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the environment.</td></tr>
+<tr><td><code>preferred_maintenance_window</code></td><td><code>string</code></td><td>Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.</td></tr>
+<tr><td><code>publicly_accessible</code></td><td><code>boolean</code></td><td>Specifies whether the environment is publicly accessible.</td></tr>
+<tr><td><code>security_group_ids</code></td><td><code>array</code></td><td>The list of security groups for the VPC associated with this environment.</td></tr>
+<tr><td><code>storage_configurations</code></td><td><code>array</code></td><td>The storage configurations defined for the runtime environment.</td></tr>
+<tr><td><code>subnet_ids</code></td><td><code>array</code></td><td>The unique identifiers of the subnets assigned to this runtime environment.</td></tr>
+<tr><td><code>tags</code></td><td><code>object</code></td><td>Tags associated to this environment.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -49,6 +50,25 @@ Gets an individual <code>environment</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.m2.environment<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;EnvironmentArn&gt;'
-</pre>
+```sql
+SELECT
+region,
+description,
+engine_type,
+engine_version,
+environment_arn,
+environment_id,
+high_availability_config,
+instance_type,
+kms_key_id,
+name,
+preferred_maintenance_window,
+publicly_accessible,
+security_group_ids,
+storage_configurations,
+subnet_ids,
+tags
+FROM aws.m2.environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;EnvironmentArn&gt;'
+```

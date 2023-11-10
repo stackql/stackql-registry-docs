@@ -27,17 +27,18 @@ Gets an individual <code>table</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>KeyspaceName</code></td><td><code>string</code></td><td>Name for Cassandra keyspace</td></tr>
-<tr><td><code>TableName</code></td><td><code>string</code></td><td>Name for Cassandra table</td></tr>
-<tr><td><code>RegularColumns</code></td><td><code>array</code></td><td>Non-key columns of the table</td></tr>
-<tr><td><code>PartitionKeyColumns</code></td><td><code>array</code></td><td>Partition key columns of the table</td></tr>
-<tr><td><code>ClusteringKeyColumns</code></td><td><code>array</code></td><td>Clustering key columns of the table</td></tr>
-<tr><td><code>BillingMode</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>PointInTimeRecoveryEnabled</code></td><td><code>boolean</code></td><td>Indicates whether point in time recovery is enabled (true) or disabled (false) on the table</td></tr>
-<tr><td><code>ClientSideTimestampsEnabled</code></td><td><code>boolean</code></td><td>Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource</td></tr>
-<tr><td><code>DefaultTimeToLive</code></td><td><code>integer</code></td><td>Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.</td></tr>
-<tr><td><code>EncryptionSpecification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>keyspace_name</code></td><td><code>string</code></td><td>Name for Cassandra keyspace</td></tr>
+<tr><td><code>table_name</code></td><td><code>string</code></td><td>Name for Cassandra table</td></tr>
+<tr><td><code>regular_columns</code></td><td><code>array</code></td><td>Non-key columns of the table</td></tr>
+<tr><td><code>partition_key_columns</code></td><td><code>array</code></td><td>Partition key columns of the table</td></tr>
+<tr><td><code>clustering_key_columns</code></td><td><code>array</code></td><td>Clustering key columns of the table</td></tr>
+<tr><td><code>billing_mode</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>point_in_time_recovery_enabled</code></td><td><code>boolean</code></td><td>Indicates whether point in time recovery is enabled (true) or disabled (false) on the table</td></tr>
+<tr><td><code>client_side_timestamps_enabled</code></td><td><code>boolean</code></td><td>Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource</td></tr>
+<tr><td><code>default_time_to_live</code></td><td><code>integer</code></td><td>Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.</td></tr>
+<tr><td><code>encryption_specification</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -45,6 +46,22 @@ Gets an individual <code>table</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.cassandra.table<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;KeyspaceName&gt;'<br/>AND data__Identifier = '&lt;TableName&gt;'
-</pre>
+```sql
+SELECT
+region,
+keyspace_name,
+table_name,
+regular_columns,
+partition_key_columns,
+clustering_key_columns,
+billing_mode,
+point_in_time_recovery_enabled,
+client_side_timestamps_enabled,
+tags,
+default_time_to_live,
+encryption_specification
+FROM aws.cassandra.table
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;KeyspaceName&gt;'
+AND data__Identifier = '&lt;TableName&gt;'
+```

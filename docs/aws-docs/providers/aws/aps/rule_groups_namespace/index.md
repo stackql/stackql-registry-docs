@@ -27,11 +27,12 @@ Gets an individual <code>rule_groups_namespace</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Workspace</code></td><td><code>string</code></td><td>Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The RuleGroupsNamespace name.</td></tr>
-<tr><td><code>Data</code></td><td><code>string</code></td><td>The RuleGroupsNamespace data.</td></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The RuleGroupsNamespace ARN.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>workspace</code></td><td><code>string</code></td><td>Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The RuleGroupsNamespace name.</td></tr>
+<tr><td><code>data</code></td><td><code>string</code></td><td>The RuleGroupsNamespace data.</td></tr>
+<tr><td><code>arn</code></td><td><code>string</code></td><td>The RuleGroupsNamespace ARN.</td></tr>
+<tr><td><code>tags</code></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -39,6 +40,15 @@ Gets an individual <code>rule_groups_namespace</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.aps.rule_groups_namespace<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Arn&gt;'
-</pre>
+```sql
+SELECT
+region,
+workspace,
+name,
+data,
+arn,
+tags
+FROM aws.aps.rule_groups_namespace
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Arn&gt;'
+```

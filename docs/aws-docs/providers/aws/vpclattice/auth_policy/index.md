@@ -27,9 +27,10 @@ Gets an individual <code>auth_policy</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>ResourceIdentifier</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Policy</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>State</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>resource_identifier</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>policy</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>state</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -37,6 +38,13 @@ Gets an individual <code>auth_policy</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.vpclattice.auth_policy<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;ResourceIdentifier&gt;'
-</pre>
+```sql
+SELECT
+region,
+resource_identifier,
+policy,
+state
+FROM aws.vpclattice.auth_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;ResourceIdentifier&gt;'
+```

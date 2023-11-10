@@ -27,13 +27,9 @@ Retrieves a list of <code>user_profiles</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>UserProfileArn</code></td><td><code>string</code></td><td>The user profile Amazon Resource Name (ARN).</td></tr>
-<tr><td><code>DomainId</code></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
-<tr><td><code>SingleSignOnUserIdentifier</code></td><td><code>string</code></td><td>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.</td></tr>
-<tr><td><code>SingleSignOnUserValue</code></td><td><code>string</code></td><td>The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.</td></tr>
-<tr><td><code>UserProfileName</code></td><td><code>string</code></td><td>A name for the UserProfile.</td></tr>
-<tr><td><code>UserSettings</code></td><td><code>object</code></td><td>A collection of settings.</td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>A list of tags to apply to the user profile.</td></tr>
+<tr><td><code>user_profile_name</code></td><td><code>string</code></td><td>A name for the UserProfile.</td></tr>
+<tr><td><code>domain_id</code></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -41,6 +37,11 @@ Retrieves a list of <code>user_profiles</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.sagemaker.user_profiles<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+user_profile_name,
+domain_id
+FROM aws.sagemaker.user_profiles
+WHERE region = 'us-east-1'
+```

@@ -27,12 +27,8 @@ Retrieves a list of <code>robots</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Fleet</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the fleet.</td></tr>
-<tr><td><code>Architecture</code></td><td><code>string</code></td><td>The target architecture of the robot.</td></tr>
-<tr><td><code>GreengrassGroupId</code></td><td><code>string</code></td><td>The Greengrass group id.</td></tr>
-<tr><td><code>Tags</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td>The name for the robot.</td></tr>
+<tr><td><code>arn</code></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>robots</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.robomaker.robots<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+arn
+FROM aws.robomaker.robots
+WHERE region = 'us-east-1'
+```

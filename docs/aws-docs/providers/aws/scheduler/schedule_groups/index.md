@@ -27,12 +27,8 @@ Retrieves a list of <code>schedule_groups</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>Arn</code></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the schedule group.</td></tr>
-<tr><td><code>CreationDate</code></td><td><code>string</code></td><td>The time at which the schedule group was created.</td></tr>
-<tr><td><code>LastModificationDate</code></td><td><code>string</code></td><td>The time at which the schedule group was last modified.</td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>State</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Tags</code></td><td><code>array</code></td><td>The list of tags to associate with the schedule group.</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -40,6 +36,10 @@ Retrieves a list of <code>schedule_groups</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.scheduler.schedule_groups<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+name
+FROM aws.scheduler.schedule_groups
+WHERE region = 'us-east-1'
+```

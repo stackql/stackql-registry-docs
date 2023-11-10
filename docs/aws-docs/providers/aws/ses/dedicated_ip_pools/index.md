@@ -27,8 +27,8 @@ Retrieves a list of <code>dedicated_ip_pools</code> in a region
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>PoolName</code></td><td><code>string</code></td><td>The name of the dedicated IP pool.</td></tr>
-<tr><td><code>ScalingMode</code></td><td><code>string</code></td><td>Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.</td></tr>
+<tr><td><code>pool_name</code></td><td><code>string</code></td><td>The name of the dedicated IP pool.</td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -36,6 +36,10 @@ Retrieves a list of <code>dedicated_ip_pools</code> in a region
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.ses.dedicated_ip_pools<br/>WHERE region = 'us-east-1'
-</pre>
+```sql
+SELECT
+region,
+pool_name
+FROM aws.ses.dedicated_ip_pools
+WHERE region = 'us-east-1'
+```

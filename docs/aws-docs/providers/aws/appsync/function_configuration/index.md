@@ -27,23 +27,24 @@ Gets an individual <code>function_configuration</code> resource
 ## Fields
 <table><tbody>
 <tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><code>FunctionId</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FunctionArn</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Description</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestMappingTemplate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseMappingTemplate</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>MaxBatchSize</code></td><td><code>integer</code></td><td></td></tr>
-<tr><td><code>SyncConfig</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>Code</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Name</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ResponseMappingTemplateS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Runtime</code></td><td><code>object</code></td><td></td></tr>
-<tr><td><code>CodeS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>DataSourceName</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>FunctionVersion</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>Id</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>RequestMappingTemplateS3Location</code></td><td><code>string</code></td><td></td></tr>
-<tr><td><code>ApiId</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_arn</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>request_mapping_template</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>response_mapping_template</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>max_batch_size</code></td><td><code>integer</code></td><td></td></tr>
+<tr><td><code>sync_config</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>code</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>response_mapping_template_s3_location</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>runtime</code></td><td><code>object</code></td><td></td></tr>
+<tr><td><code>code_s3_location</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>data_source_name</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>function_version</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>request_mapping_template_s3_location</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>api_id</code></td><td><code>string</code></td><td></td></tr>
+<tr><td><code>region</code></td><td><code>string</code></td><td>AWS region.</td></tr>
 
 </tbody></table>
 
@@ -51,6 +52,27 @@ Gets an individual <code>function_configuration</code> resource
 Currently only <code>SELECT</code> is supported for this resource resource.
 
 ## Example
-<pre>
-SELECT *<br/>FROM aws.appsync.function_configuration<br/>WHERE region = 'us-east-1'<br/>AND data__Identifier = '&lt;Id&gt;'
-</pre>
+```sql
+SELECT
+region,
+function_id,
+function_arn,
+description,
+request_mapping_template,
+response_mapping_template,
+max_batch_size,
+sync_config,
+code,
+name,
+response_mapping_template_s3_location,
+runtime,
+code_s3_location,
+data_source_name,
+function_version,
+id,
+request_mapping_template_s3_location,
+api_id
+FROM aws.appsync.function_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '&lt;Id&gt;'
+```
