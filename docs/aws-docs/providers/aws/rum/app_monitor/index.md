@@ -54,5 +54,5 @@ app_monitor_configuration,
 custom_events
 FROM aws.rum.app_monitor
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

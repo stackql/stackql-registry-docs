@@ -58,5 +58,5 @@ subscription_definition_version_arn,
 group_id
 FROM aws.greengrass.group_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

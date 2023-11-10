@@ -46,5 +46,5 @@ firewall_arn,
 logging_configuration
 FROM aws.networkfirewall.logging_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FirewallArn&gt;'
+AND data__Identifier = '<FirewallArn>'
 ```

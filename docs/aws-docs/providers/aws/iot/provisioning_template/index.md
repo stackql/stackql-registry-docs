@@ -58,5 +58,5 @@ pre_provisioning_hook,
 tags
 FROM aws.iot.provisioning_template
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TemplateName&gt;'
+AND data__Identifier = '<TemplateName>'
 ```

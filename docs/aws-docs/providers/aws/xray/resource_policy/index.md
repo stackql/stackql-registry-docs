@@ -46,5 +46,5 @@ policy_document,
 bypass_policy_lockout_check
 FROM aws.xray.resource_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PolicyName&gt;'
+AND data__Identifier = '<PolicyName>'
 ```

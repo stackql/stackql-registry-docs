@@ -74,5 +74,5 @@ request_mapping_template_s3_location,
 api_id
 FROM aws.appsync.function_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

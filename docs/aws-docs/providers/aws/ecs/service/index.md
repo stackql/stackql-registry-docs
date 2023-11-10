@@ -88,6 +88,6 @@ tags,
 task_definition
 FROM aws.ecs.service
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ServiceArn&gt;'
-AND data__Identifier = '&lt;Cluster&gt;'
+AND data__Identifier = '<ServiceArn>'
+AND data__Identifier = '<Cluster>'
 ```

@@ -68,6 +68,6 @@ tracing_enabled,
 variables
 FROM aws.apigateway.stage
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;StageName&gt;'
+AND data__Identifier = '<RestApiId>'
+AND data__Identifier = '<StageName>'
 ```

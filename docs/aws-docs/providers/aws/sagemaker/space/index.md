@@ -50,6 +50,6 @@ space_settings,
 tags
 FROM aws.sagemaker.space
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainId&gt;'
-AND data__Identifier = '&lt;SpaceName&gt;'
+AND data__Identifier = '<DomainId>'
+AND data__Identifier = '<SpaceName>'
 ```

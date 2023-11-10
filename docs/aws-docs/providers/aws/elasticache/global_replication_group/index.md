@@ -62,5 +62,5 @@ status,
 regional_configurations
 FROM aws.elasticache.global_replication_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalReplicationGroupId&gt;'
+AND data__Identifier = '<GlobalReplicationGroupId>'
 ```

@@ -66,5 +66,5 @@ certificate_name,
 tags
 FROM aws.lightsail.distribution
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DistributionName&gt;'
+AND data__Identifier = '<DistributionName>'
 ```

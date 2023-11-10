@@ -66,5 +66,5 @@ c_na_me_prefix,
 tags
 FROM aws.elasticbeanstalk.environment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentName&gt;'
+AND data__Identifier = '<EnvironmentName>'
 ```

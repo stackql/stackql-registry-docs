@@ -56,5 +56,5 @@ id,
 arn
 FROM aws.macie.custom_data_identifier
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

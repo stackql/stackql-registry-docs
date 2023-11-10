@@ -52,5 +52,5 @@ tags,
 name
 FROM aws.neptune.db_cluster_parameter_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

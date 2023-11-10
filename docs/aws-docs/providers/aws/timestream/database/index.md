@@ -48,5 +48,5 @@ kms_key_id,
 tags
 FROM aws.timestream.database
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatabaseName&gt;'
+AND data__Identifier = '<DatabaseName>'
 ```

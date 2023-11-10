@@ -46,5 +46,5 @@ size_constraints,
 name
 FROM aws.wafregional.size_constraint_set
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

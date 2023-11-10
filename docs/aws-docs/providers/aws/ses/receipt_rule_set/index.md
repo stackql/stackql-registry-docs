@@ -44,5 +44,5 @@ id,
 rule_set_name
 FROM aws.ses.receipt_rule_set
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

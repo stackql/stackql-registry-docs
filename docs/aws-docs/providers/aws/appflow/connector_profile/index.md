@@ -56,5 +56,5 @@ connector_profile_config,
 credentials_arn
 FROM aws.appflow.connector_profile
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectorProfileName&gt;'
+AND data__Identifier = '<ConnectorProfileName>'
 ```

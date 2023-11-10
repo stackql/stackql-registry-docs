@@ -54,5 +54,5 @@ ingress_vpc_configuration,
 tags
 FROM aws.apprunner.vpc_ingress_connection
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VpcIngressConnectionArn&gt;'
+AND data__Identifier = '<VpcIngressConnectionArn>'
 ```

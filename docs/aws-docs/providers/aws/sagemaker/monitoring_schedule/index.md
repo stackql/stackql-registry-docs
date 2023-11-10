@@ -60,5 +60,5 @@ last_monitoring_execution_summary,
 monitoring_schedule_status
 FROM aws.sagemaker.monitoring_schedule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MonitoringScheduleArn&gt;'
+AND data__Identifier = '<MonitoringScheduleArn>'
 ```

@@ -60,5 +60,5 @@ arn,
 tags
 FROM aws.iot.ca_certificate
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

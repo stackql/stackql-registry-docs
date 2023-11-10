@@ -52,5 +52,5 @@ trust_anchor_id,
 trust_anchor_arn
 FROM aws.rolesanywhere.trust_anchor
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrustAnchorId&gt;'
+AND data__Identifier = '<TrustAnchorId>'
 ```

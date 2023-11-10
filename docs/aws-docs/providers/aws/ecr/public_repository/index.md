@@ -50,5 +50,5 @@ repository_catalog_data,
 tags
 FROM aws.ecr.public_repository
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RepositoryName&gt;'
+AND data__Identifier = '<RepositoryName>'
 ```

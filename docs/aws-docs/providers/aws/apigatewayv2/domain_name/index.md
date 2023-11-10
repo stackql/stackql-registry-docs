@@ -54,5 +54,5 @@ id,
 tags
 FROM aws.apigatewayv2.domain_name
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

@@ -48,5 +48,5 @@ value,
 key
 FROM aws.servicecatalog.tag_option
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

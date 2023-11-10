@@ -54,5 +54,5 @@ lock_configuration,
 backup_vault_arn
 FROM aws.backup.backup_vault
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BackupVaultName&gt;'
+AND data__Identifier = '<BackupVaultName>'
 ```

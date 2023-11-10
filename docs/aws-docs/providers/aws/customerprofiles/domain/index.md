@@ -54,5 +54,5 @@ created_at,
 last_updated_at
 FROM aws.customerprofiles.domain
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
+AND data__Identifier = '<DomainName>'
 ```

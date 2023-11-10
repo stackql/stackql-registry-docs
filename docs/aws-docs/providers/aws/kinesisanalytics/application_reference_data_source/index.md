@@ -46,5 +46,5 @@ application_name,
 reference_data_source
 FROM aws.kinesisanalytics.application_reference_data_source
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

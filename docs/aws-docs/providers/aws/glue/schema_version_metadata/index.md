@@ -46,7 +46,7 @@ key,
 value
 FROM aws.glue.schema_version_metadata
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SchemaVersionId&gt;'
-AND data__Identifier = '&lt;Key&gt;'
-AND data__Identifier = '&lt;Value&gt;'
+AND data__Identifier = '<SchemaVersionId>'
+AND data__Identifier = '<Key>'
+AND data__Identifier = '<Value>'
 ```

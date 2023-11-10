@@ -56,5 +56,5 @@ listener_arn,
 alpn_policy
 FROM aws.elasticloadbalancingv2.listener
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ListenerArn&gt;'
+AND data__Identifier = '<ListenerArn>'
 ```

@@ -52,5 +52,5 @@ source_db_cluster_identifier,
 storage_encrypted
 FROM aws.rds.global_cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalClusterIdentifier&gt;'
+AND data__Identifier = '<GlobalClusterIdentifier>'
 ```

@@ -44,5 +44,5 @@ alias_name,
 target_key_id
 FROM aws.kms.alias
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AliasName&gt;'
+AND data__Identifier = '<AliasName>'
 ```

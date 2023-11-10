@@ -66,5 +66,5 @@ default_route_settings,
 tags
 FROM aws.apigatewayv2.stage
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

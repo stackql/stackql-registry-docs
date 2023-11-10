@@ -44,5 +44,5 @@ bucket,
 policy_document
 FROM aws.s3outposts.bucket_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Bucket&gt;'
+AND data__Identifier = '<Bucket>'
 ```

@@ -66,5 +66,5 @@ tags,
 auth_type
 FROM aws.docdbelastic.cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterArn&gt;'
+AND data__Identifier = '<ClusterArn>'
 ```

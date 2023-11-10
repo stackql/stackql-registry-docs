@@ -50,5 +50,5 @@ application_id,
 sender_id
 FROM aws.pinpoint.sms_channel
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

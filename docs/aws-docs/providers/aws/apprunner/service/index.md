@@ -66,5 +66,5 @@ auto_scaling_configuration_arn,
 network_configuration
 FROM aws.apprunner.service
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ServiceArn&gt;'
+AND data__Identifier = '<ServiceArn>'
 ```

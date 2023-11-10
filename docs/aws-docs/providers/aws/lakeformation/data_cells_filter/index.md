@@ -54,8 +54,8 @@ column_names,
 column_wildcard
 FROM aws.lakeformation.data_cells_filter
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TableCatalogId&gt;'
-AND data__Identifier = '&lt;DatabaseName&gt;'
-AND data__Identifier = '&lt;TableName&gt;'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<TableCatalogId>'
+AND data__Identifier = '<DatabaseName>'
+AND data__Identifier = '<TableName>'
+AND data__Identifier = '<Name>'
 ```

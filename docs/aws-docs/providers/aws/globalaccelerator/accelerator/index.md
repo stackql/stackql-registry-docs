@@ -60,5 +60,5 @@ accelerator_arn,
 tags
 FROM aws.globalaccelerator.accelerator
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AcceleratorArn&gt;'
+AND data__Identifier = '<AcceleratorArn>'
 ```

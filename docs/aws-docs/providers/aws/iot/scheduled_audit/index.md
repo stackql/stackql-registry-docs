@@ -54,5 +54,5 @@ scheduled_audit_arn,
 tags
 FROM aws.iot.scheduled_audit
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ScheduledAuditName&gt;'
+AND data__Identifier = '<ScheduledAuditName>'
 ```

@@ -48,6 +48,6 @@ group_id,
 identity_store_id
 FROM aws.identitystore.group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GroupId&gt;'
-AND data__Identifier = '&lt;IdentityStoreId&gt;'
+AND data__Identifier = '<GroupId>'
+AND data__Identifier = '<IdentityStoreId>'
 ```

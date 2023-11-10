@@ -46,5 +46,5 @@ last_modified_time,
 id
 FROM aws.cloudfront.continuous_deployment_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

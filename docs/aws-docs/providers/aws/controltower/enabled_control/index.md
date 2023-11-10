@@ -44,6 +44,6 @@ control_identifier,
 target_identifier
 FROM aws.controltower.enabled_control
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TargetIdentifier&gt;'
-AND data__Identifier = '&lt;ControlIdentifier&gt;'
+AND data__Identifier = '<TargetIdentifier>'
+AND data__Identifier = '<ControlIdentifier>'
 ```

@@ -56,6 +56,6 @@ source_configuration,
 template_name
 FROM aws.elasticbeanstalk.configuration_template
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationName&gt;'
-AND data__Identifier = '&lt;TemplateName&gt;'
+AND data__Identifier = '<ApplicationName>'
+AND data__Identifier = '<TemplateName>'
 ```

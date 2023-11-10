@@ -54,5 +54,5 @@ egress_access_logs,
 ingress_access_logs
 FROM aws.mediapackage.channel
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

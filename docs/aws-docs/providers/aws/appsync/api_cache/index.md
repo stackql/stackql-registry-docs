@@ -54,5 +54,5 @@ api_caching_behavior,
 ttl
 FROM aws.appsync.api_cache
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

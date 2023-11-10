@@ -56,5 +56,5 @@ publish_status,
 tags
 FROM aws.connect.rule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleArn&gt;'
+AND data__Identifier = '<RuleArn>'
 ```

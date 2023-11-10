@@ -48,5 +48,5 @@ tags,
 cluster_subnet_group_name
 FROM aws.redshift.cluster_subnet_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterSubnetGroupName&gt;'
+AND data__Identifier = '<ClusterSubnetGroupName>'
 ```

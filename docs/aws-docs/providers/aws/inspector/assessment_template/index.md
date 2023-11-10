@@ -52,5 +52,5 @@ rules_package_arns,
 user_attributes_for_findings
 FROM aws.inspector.assessment_template
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

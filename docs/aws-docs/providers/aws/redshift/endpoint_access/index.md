@@ -62,5 +62,5 @@ vpc_security_group_ids,
 vpc_endpoint
 FROM aws.redshift.endpoint_access
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EndpointName&gt;'
+AND data__Identifier = '<EndpointName>'
 ```

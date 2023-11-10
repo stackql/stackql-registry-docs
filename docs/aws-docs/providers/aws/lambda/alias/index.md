@@ -54,5 +54,5 @@ routing_config,
 name
 FROM aws.lambda.alias
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

@@ -76,5 +76,5 @@ calendar_names,
 schedule_offset
 FROM aws.ssm.association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssociationId&gt;'
+AND data__Identifier = '<AssociationId>'
 ```

@@ -48,7 +48,7 @@ integration_arn,
 integration_type
 FROM aws.connect.integration_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceId&gt;'
-AND data__Identifier = '&lt;IntegrationType&gt;'
-AND data__Identifier = '&lt;IntegrationArn&gt;'
+AND data__Identifier = '<InstanceId>'
+AND data__Identifier = '<IntegrationType>'
+AND data__Identifier = '<IntegrationArn>'
 ```

@@ -58,5 +58,5 @@ tags,
 name
 FROM aws.fsx.storage_virtual_machine
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StorageVirtualMachineId&gt;'
+AND data__Identifier = '<StorageVirtualMachineId>'
 ```

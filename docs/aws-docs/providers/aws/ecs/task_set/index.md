@@ -62,7 +62,7 @@ service_registries,
 task_definition
 FROM aws.ecs.task_set
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Cluster&gt;'
-AND data__Identifier = '&lt;Service&gt;'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Cluster>'
+AND data__Identifier = '<Service>'
+AND data__Identifier = '<Id>'
 ```

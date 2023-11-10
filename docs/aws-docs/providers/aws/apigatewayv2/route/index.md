@@ -66,6 +66,6 @@ target,
 authorizer_id
 FROM aws.apigatewayv2.route
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiId&gt;'
-AND data__Identifier = '&lt;RouteId&gt;'
+AND data__Identifier = '<ApiId>'
+AND data__Identifier = '<RouteId>'
 ```

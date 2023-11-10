@@ -48,5 +48,5 @@ directory_name,
 certificate_based_auth_properties
 FROM aws.appstream.directory_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DirectoryName&gt;'
+AND data__Identifier = '<DirectoryName>'
 ```

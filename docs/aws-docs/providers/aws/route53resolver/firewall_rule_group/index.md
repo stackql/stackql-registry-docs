@@ -66,5 +66,5 @@ firewall_rules,
 tags
 FROM aws.route53resolver.firewall_rule_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

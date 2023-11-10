@@ -50,5 +50,5 @@ tags,
 name
 FROM aws.apigatewayv2.vpc_link
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VpcLinkId&gt;'
+AND data__Identifier = '<VpcLinkId>'
 ```

@@ -58,7 +58,7 @@ version,
 id
 FROM aws.codepipeline.custom_action_type
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Category&gt;'
-AND data__Identifier = '&lt;Provider&gt;'
-AND data__Identifier = '&lt;Version&gt;'
+AND data__Identifier = '<Category>'
+AND data__Identifier = '<Provider>'
+AND data__Identifier = '<Version>'
 ```

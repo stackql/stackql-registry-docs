@@ -46,6 +46,6 @@ documentation_version,
 rest_api_id
 FROM aws.apigateway.documentation_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DocumentationVersion&gt;'
-AND data__Identifier = '&lt;RestApiId&gt;'
+AND data__Identifier = '<DocumentationVersion>'
+AND data__Identifier = '<RestApiId>'
 ```

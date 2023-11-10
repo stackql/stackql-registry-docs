@@ -50,5 +50,5 @@ connector_provisioning_config,
 description
 FROM aws.appflow.connector
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectorLabel&gt;'
+AND data__Identifier = '<ConnectorLabel>'
 ```

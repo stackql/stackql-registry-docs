@@ -72,5 +72,5 @@ status_message,
 tags
 FROM aws.rekognition.stream_processor
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

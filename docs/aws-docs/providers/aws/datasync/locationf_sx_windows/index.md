@@ -58,5 +58,5 @@ location_arn,
 location_uri
 FROM aws.datasync.locationf_sx_windows
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationArn&gt;'
+AND data__Identifier = '<LocationArn>'
 ```

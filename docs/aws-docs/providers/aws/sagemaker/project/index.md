@@ -58,5 +58,5 @@ service_catalog_provisioned_product_details,
 project_status
 FROM aws.sagemaker.project
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProjectArn&gt;'
+AND data__Identifier = '<ProjectArn>'
 ```

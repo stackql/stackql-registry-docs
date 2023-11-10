@@ -50,5 +50,5 @@ managed_by_firewall_manager,
 logging_filter
 FROM aws.wafv2.logging_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceArn&gt;'
+AND data__Identifier = '<ResourceArn>'
 ```

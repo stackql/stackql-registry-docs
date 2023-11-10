@@ -44,5 +44,5 @@ object_lambda_access_point,
 policy_document
 FROM aws.s3objectlambda.access_point_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ObjectLambdaAccessPoint&gt;'
+AND data__Identifier = '<ObjectLambdaAccessPoint>'
 ```

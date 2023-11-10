@@ -68,5 +68,5 @@ configuration_info,
 storage_mode
 FROM aws.msk.cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

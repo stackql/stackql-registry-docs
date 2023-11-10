@@ -78,5 +78,5 @@ api_id,
 integration_type
 FROM aws.apigatewayv2.integration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

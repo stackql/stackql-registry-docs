@@ -64,6 +64,6 @@ tags,
 template_id
 FROM aws.customerprofiles.object_type
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-AND data__Identifier = '&lt;ObjectTypeName&gt;'
+AND data__Identifier = '<DomainName>'
+AND data__Identifier = '<ObjectTypeName>'
 ```

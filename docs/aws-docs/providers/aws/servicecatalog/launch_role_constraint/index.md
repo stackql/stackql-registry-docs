@@ -54,5 +54,5 @@ id,
 role_arn
 FROM aws.servicecatalog.launch_role_constraint
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

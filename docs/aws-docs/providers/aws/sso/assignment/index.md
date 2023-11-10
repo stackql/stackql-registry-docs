@@ -52,10 +52,10 @@ principal_type,
 principal_id
 FROM aws.sso.assignment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceArn&gt;'
-AND data__Identifier = '&lt;TargetId&gt;'
-AND data__Identifier = '&lt;TargetType&gt;'
-AND data__Identifier = '&lt;PermissionSetArn&gt;'
-AND data__Identifier = '&lt;PrincipalType&gt;'
-AND data__Identifier = '&lt;PrincipalId&gt;'
+AND data__Identifier = '<InstanceArn>'
+AND data__Identifier = '<TargetId>'
+AND data__Identifier = '<TargetType>'
+AND data__Identifier = '<PermissionSetArn>'
+AND data__Identifier = '<PrincipalType>'
+AND data__Identifier = '<PrincipalId>'
 ```

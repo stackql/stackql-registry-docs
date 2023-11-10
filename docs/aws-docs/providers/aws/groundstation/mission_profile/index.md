@@ -64,6 +64,6 @@ arn,
 region
 FROM aws.groundstation.mission_profile
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Id>'
+AND data__Identifier = '<Arn>'
 ```

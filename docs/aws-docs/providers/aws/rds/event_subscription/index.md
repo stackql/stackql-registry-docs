@@ -54,5 +54,5 @@ source_ids,
 source_type
 FROM aws.rds.event_subscription
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SubscriptionName&gt;'
+AND data__Identifier = '<SubscriptionName>'
 ```

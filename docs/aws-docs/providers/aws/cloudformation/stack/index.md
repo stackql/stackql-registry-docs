@@ -52,5 +52,5 @@ template_ur_l,
 timeout_in_minutes
 FROM aws.cloudformation.stack
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

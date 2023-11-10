@@ -52,5 +52,5 @@ rule_name,
 tags
 FROM aws.xray.sampling_rule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleARN&gt;'
+AND data__Identifier = '<RuleARN>'
 ```

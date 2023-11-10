@@ -46,5 +46,5 @@ cluster,
 default_capacity_provider_strategy
 FROM aws.ecs.cluster_capacity_provider_associations
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Cluster&gt;'
+AND data__Identifier = '<Cluster>'
 ```

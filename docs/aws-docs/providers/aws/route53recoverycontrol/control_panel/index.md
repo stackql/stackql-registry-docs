@@ -54,5 +54,5 @@ routing_control_count,
 tags
 FROM aws.route53recoverycontrol.control_panel
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ControlPanelArn&gt;'
+AND data__Identifier = '<ControlPanelArn>'
 ```

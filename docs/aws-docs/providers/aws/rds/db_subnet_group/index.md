@@ -48,5 +48,5 @@ subnet_ids,
 tags
 FROM aws.rds.db_subnet_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBSubnetGroupName&gt;'
+AND data__Identifier = '<DBSubnetGroupName>'
 ```

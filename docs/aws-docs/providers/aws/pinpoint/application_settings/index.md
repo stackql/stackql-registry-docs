@@ -52,5 +52,5 @@ campaign_hook,
 cloud_watch_metrics_enabled
 FROM aws.pinpoint.application_settings
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

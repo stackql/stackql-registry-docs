@@ -90,5 +90,5 @@ server_launch_parameters,
 server_launch_path
 FROM aws.gamelift.fleet
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FleetId&gt;'
+AND data__Identifier = '<FleetId>'
 ```

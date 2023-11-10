@@ -52,5 +52,5 @@ outbound_call_config,
 tags
 FROM aws.connectcampaigns.campaign
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

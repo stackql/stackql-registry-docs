@@ -66,5 +66,5 @@ tags,
 include_linked_accounts_metrics
 FROM aws.cloudwatch.metric_stream
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

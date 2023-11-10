@@ -50,5 +50,5 @@ suite_definition_version,
 tags
 FROM aws.iotcoredeviceadvisor.suite_definition
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SuiteDefinitionId&gt;'
+AND data__Identifier = '<SuiteDefinitionId>'
 ```

@@ -58,6 +58,6 @@ studio_id,
 tags
 FROM aws.nimblestudio.launch_profile
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LaunchProfileId&gt;'
-AND data__Identifier = '&lt;StudioId&gt;'
+AND data__Identifier = '<LaunchProfileId>'
+AND data__Identifier = '<StudioId>'
 ```

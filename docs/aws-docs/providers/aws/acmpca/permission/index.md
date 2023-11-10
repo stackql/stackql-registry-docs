@@ -48,6 +48,6 @@ principal,
 source_account
 FROM aws.acmpca.permission
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateAuthorityArn&gt;'
-AND data__Identifier = '&lt;Principal&gt;'
+AND data__Identifier = '<CertificateAuthorityArn>'
+AND data__Identifier = '<Principal>'
 ```

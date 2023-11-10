@@ -140,5 +140,5 @@ resource_action,
 rotate_encryption_key
 FROM aws.redshift.cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterIdentifier&gt;'
+AND data__Identifier = '<ClusterIdentifier>'
 ```

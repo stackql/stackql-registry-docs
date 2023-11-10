@@ -58,5 +58,5 @@ image_scanning_configuration,
 encryption_configuration
 FROM aws.ecr.repository
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RepositoryName&gt;'
+AND data__Identifier = '<RepositoryName>'
 ```

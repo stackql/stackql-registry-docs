@@ -58,5 +58,5 @@ tags,
 value
 FROM aws.apigateway.api_key
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;APIKeyId&gt;'
+AND data__Identifier = '<APIKeyId>'
 ```

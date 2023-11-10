@@ -42,5 +42,5 @@ region,
 hosted_zone_id
 FROM aws.route53.dnssec
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;HostedZoneId&gt;'
+AND data__Identifier = '<HostedZoneId>'
 ```

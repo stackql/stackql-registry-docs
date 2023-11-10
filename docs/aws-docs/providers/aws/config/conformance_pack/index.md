@@ -54,5 +54,5 @@ template_ss_mdocument_details,
 conformance_pack_input_parameters
 FROM aws.config.conformance_pack
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConformancePackName&gt;'
+AND data__Identifier = '<ConformancePackName>'
 ```

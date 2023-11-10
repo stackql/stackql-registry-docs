@@ -52,5 +52,5 @@ arn,
 tags
 FROM aws.memorydb.user
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserName&gt;'
+AND data__Identifier = '<UserName>'
 ```

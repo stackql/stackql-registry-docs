@@ -66,5 +66,5 @@ uri,
 supported_os_versions
 FROM aws.imagebuilder.component
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

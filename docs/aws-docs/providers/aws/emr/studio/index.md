@@ -72,5 +72,5 @@ idp_auth_url,
 idp_relay_state_parameter_name
 FROM aws.emr.studio
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StudioId&gt;'
+AND data__Identifier = '<StudioId>'
 ```

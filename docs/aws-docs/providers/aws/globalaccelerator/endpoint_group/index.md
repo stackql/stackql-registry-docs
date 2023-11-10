@@ -62,5 +62,5 @@ endpoint_group_arn,
 port_overrides
 FROM aws.globalaccelerator.endpoint_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EndpointGroupArn&gt;'
+AND data__Identifier = '<EndpointGroupArn>'
 ```

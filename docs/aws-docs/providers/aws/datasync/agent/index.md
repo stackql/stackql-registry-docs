@@ -56,5 +56,5 @@ tags,
 agent_arn
 FROM aws.datasync.agent
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AgentArn&gt;'
+AND data__Identifier = '<AgentArn>'
 ```

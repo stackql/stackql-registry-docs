@@ -50,5 +50,5 @@ vpc_configuration,
 policy
 FROM aws.s3outposts.access_point
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

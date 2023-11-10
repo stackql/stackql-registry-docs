@@ -44,5 +44,5 @@ resource_collection_filter,
 resource_collection_type
 FROM aws.devopsguru.resource_collection
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceCollectionType&gt;'
+AND data__Identifier = '<ResourceCollectionType>'
 ```

@@ -52,5 +52,5 @@ work_group,
 named_query_id
 FROM aws.athena.named_query
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;NamedQueryId&gt;'
+AND data__Identifier = '<NamedQueryId>'
 ```

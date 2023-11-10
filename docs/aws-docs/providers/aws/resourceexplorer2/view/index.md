@@ -50,5 +50,5 @@ view_arn,
 view_name
 FROM aws.resourceexplorer2.view
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ViewArn&gt;'
+AND data__Identifier = '<ViewArn>'
 ```

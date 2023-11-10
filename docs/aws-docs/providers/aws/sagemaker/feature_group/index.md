@@ -58,5 +58,5 @@ description,
 tags
 FROM aws.sagemaker.feature_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FeatureGroupName&gt;'
+AND data__Identifier = '<FeatureGroupName>'
 ```

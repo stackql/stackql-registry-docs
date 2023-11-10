@@ -62,5 +62,5 @@ access_type,
 customer_owned_ipv4_pool
 FROM aws.s3outposts.endpoint
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

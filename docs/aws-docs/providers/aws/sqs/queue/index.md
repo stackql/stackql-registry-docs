@@ -76,5 +76,5 @@ tags,
 visibility_timeout
 FROM aws.sqs.queue
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;QueueUrl&gt;'
+AND data__Identifier = '<QueueUrl>'
 ```

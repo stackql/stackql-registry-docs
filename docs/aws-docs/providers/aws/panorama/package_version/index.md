@@ -64,7 +64,7 @@ registered_time,
 updated_latest_patch_version
 FROM aws.panorama.package_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PackageId&gt;'
-AND data__Identifier = '&lt;PackageVersion&gt;'
-AND data__Identifier = '&lt;PatchVersion&gt;'
+AND data__Identifier = '<PackageId>'
+AND data__Identifier = '<PackageVersion>'
+AND data__Identifier = '<PatchVersion>'
 ```

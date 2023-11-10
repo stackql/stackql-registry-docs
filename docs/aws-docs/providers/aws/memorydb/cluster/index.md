@@ -96,5 +96,5 @@ auto_minor_version_upgrade,
 tags
 FROM aws.memorydb.cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterName&gt;'
+AND data__Identifier = '<ClusterName>'
 ```

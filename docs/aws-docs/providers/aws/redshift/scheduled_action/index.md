@@ -60,5 +60,5 @@ state,
 next_invocations
 FROM aws.redshift.scheduled_action
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ScheduledActionName&gt;'
+AND data__Identifier = '<ScheduledActionName>'
 ```

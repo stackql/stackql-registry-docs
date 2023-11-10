@@ -90,5 +90,5 @@ write_attributes,
 prevent_user_existence_errors
 FROM aws.cognito.user_pool_client
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

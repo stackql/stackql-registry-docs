@@ -46,5 +46,5 @@ collection_id,
 tags
 FROM aws.rekognition.collection
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CollectionId&gt;'
+AND data__Identifier = '<CollectionId>'
 ```

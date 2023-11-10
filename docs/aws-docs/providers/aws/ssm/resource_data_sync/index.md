@@ -58,5 +58,5 @@ sync_type,
 bucket_prefix
 FROM aws.ssm.resource_data_sync
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SyncName&gt;'
+AND data__Identifier = '<SyncName>'
 ```

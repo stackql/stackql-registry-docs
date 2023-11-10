@@ -52,7 +52,7 @@ tags,
 identity_provider_config_arn
 FROM aws.eks.identity_provider_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;IdentityProviderConfigName&gt;'
-AND data__Identifier = '&lt;ClusterName&gt;'
-AND data__Identifier = '&lt;Type&gt;'
+AND data__Identifier = '<IdentityProviderConfigName>'
+AND data__Identifier = '<ClusterName>'
+AND data__Identifier = '<Type>'
 ```

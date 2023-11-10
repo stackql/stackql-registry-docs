@@ -50,5 +50,5 @@ subnet_ids,
 vpc_id
 FROM aws.opensearchserverless.vpc_endpoint
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

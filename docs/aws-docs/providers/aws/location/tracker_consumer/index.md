@@ -44,6 +44,6 @@ consumer_arn,
 tracker_name
 FROM aws.location.tracker_consumer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrackerName&gt;'
-AND data__Identifier = '&lt;ConsumerArn&gt;'
+AND data__Identifier = '<TrackerName>'
+AND data__Identifier = '<ConsumerArn>'
 ```

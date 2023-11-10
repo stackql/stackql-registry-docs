@@ -58,5 +58,5 @@ source_configuration,
 tags
 FROM aws.wisdom.knowledge_base
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;KnowledgeBaseId&gt;'
+AND data__Identifier = '<KnowledgeBaseId>'
 ```

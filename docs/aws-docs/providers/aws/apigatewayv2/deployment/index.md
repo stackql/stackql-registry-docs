@@ -48,6 +48,6 @@ stage_name,
 api_id
 FROM aws.apigatewayv2.deployment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiId&gt;'
-AND data__Identifier = '&lt;DeploymentId&gt;'
+AND data__Identifier = '<ApiId>'
+AND data__Identifier = '<DeploymentId>'
 ```

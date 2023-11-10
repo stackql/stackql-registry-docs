@@ -56,6 +56,6 @@ https_redirection_enabled,
 status
 FROM aws.lightsail.load_balancer_tls_certificate
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateName&gt;'
-AND data__Identifier = '&lt;LoadBalancerName&gt;'
+AND data__Identifier = '<CertificateName>'
+AND data__Identifier = '<LoadBalancerName>'
 ```

@@ -154,5 +154,5 @@ use_latest_restorable_time,
 vpc_security_group_ids
 FROM aws.rds.db_cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBClusterIdentifier&gt;'
+AND data__Identifier = '<DBClusterIdentifier>'
 ```

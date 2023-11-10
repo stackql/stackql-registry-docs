@@ -56,5 +56,5 @@ target_arns,
 security_profile_arn
 FROM aws.iot.security_profile
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SecurityProfileName&gt;'
+AND data__Identifier = '<SecurityProfileName>'
 ```

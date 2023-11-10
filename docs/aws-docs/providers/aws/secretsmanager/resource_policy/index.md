@@ -48,5 +48,5 @@ block_public_policy,
 secret_id
 FROM aws.secretsmanager.resource_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

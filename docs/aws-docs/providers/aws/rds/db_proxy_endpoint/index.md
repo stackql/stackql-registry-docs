@@ -60,5 +60,5 @@ is_default,
 tags
 FROM aws.rds.db_proxy_endpoint
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBProxyEndpointName&gt;'
+AND data__Identifier = '<DBProxyEndpointName>'
 ```

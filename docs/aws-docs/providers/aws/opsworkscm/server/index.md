@@ -86,5 +86,5 @@ tags,
 engine
 FROM aws.opsworkscm.server
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ServerName&gt;'
+AND data__Identifier = '<ServerName>'
 ```

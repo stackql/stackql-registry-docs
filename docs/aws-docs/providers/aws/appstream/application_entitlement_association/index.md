@@ -46,7 +46,7 @@ entitlement_name,
 application_identifier
 FROM aws.appstream.application_entitlement_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StackName&gt;'
-AND data__Identifier = '&lt;EntitlementName&gt;'
-AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
+AND data__Identifier = '<StackName>'
+AND data__Identifier = '<EntitlementName>'
+AND data__Identifier = '<ApplicationIdentifier>'
 ```

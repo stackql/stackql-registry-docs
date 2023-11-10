@@ -54,5 +54,5 @@ tags,
 url
 FROM aws.transfer.connector
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectorId&gt;'
+AND data__Identifier = '<ConnectorId>'
 ```

@@ -50,5 +50,5 @@ backup_plan_id,
 version_id
 FROM aws.backup.backup_plan
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BackupPlanId&gt;'
+AND data__Identifier = '<BackupPlanId>'
 ```

@@ -54,5 +54,5 @@ host_arn,
 tags
 FROM aws.codestarconnections.connection
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectionArn&gt;'
+AND data__Identifier = '<ConnectionArn>'
 ```

@@ -46,5 +46,5 @@ connectors,
 connector_definition_id
 FROM aws.greengrass.connector_definition_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

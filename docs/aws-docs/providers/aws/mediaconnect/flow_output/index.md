@@ -70,5 +70,5 @@ stream_id,
 vpc_interface_attachment
 FROM aws.mediaconnect.flow_output
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;OutputArn&gt;'
+AND data__Identifier = '<OutputArn>'
 ```

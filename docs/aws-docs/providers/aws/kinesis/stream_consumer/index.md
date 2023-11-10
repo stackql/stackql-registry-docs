@@ -52,5 +52,5 @@ consumer_status,
 stream_ar_n
 FROM aws.kinesis.stream_consumer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

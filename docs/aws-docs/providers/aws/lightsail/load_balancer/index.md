@@ -60,5 +60,5 @@ tls_policy_name,
 tags
 FROM aws.lightsail.load_balancer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LoadBalancerName&gt;'
+AND data__Identifier = '<LoadBalancerName>'
 ```

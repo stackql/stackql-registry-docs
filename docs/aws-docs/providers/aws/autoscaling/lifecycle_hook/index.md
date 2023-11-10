@@ -56,6 +56,6 @@ notification_target_ar_n,
 role_ar_n
 FROM aws.autoscaling.lifecycle_hook
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AutoScalingGroupName&gt;'
-AND data__Identifier = '&lt;LifecycleHookName&gt;'
+AND data__Identifier = '<AutoScalingGroupName>'
+AND data__Identifier = '<LifecycleHookName>'
 ```

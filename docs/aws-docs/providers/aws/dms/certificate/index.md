@@ -48,5 +48,5 @@ certificate_pem,
 certificate_wallet
 FROM aws.dms.certificate
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

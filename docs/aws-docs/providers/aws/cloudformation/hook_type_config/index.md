@@ -50,5 +50,5 @@ configuration,
 configuration_alias
 FROM aws.cloudformation.hook_type_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConfigurationArn&gt;'
+AND data__Identifier = '<ConfigurationArn>'
 ```

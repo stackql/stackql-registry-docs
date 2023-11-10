@@ -56,5 +56,5 @@ name,
 subscribers
 FROM aws.mediaconnect.flow_entitlement
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EntitlementArn&gt;'
+AND data__Identifier = '<EntitlementArn>'
 ```

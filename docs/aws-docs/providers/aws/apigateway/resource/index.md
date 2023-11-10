@@ -48,6 +48,6 @@ parent_id,
 path_part
 FROM aws.apigateway.resource
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;ResourceId&gt;'
+AND data__Identifier = '<RestApiId>'
+AND data__Identifier = '<ResourceId>'
 ```

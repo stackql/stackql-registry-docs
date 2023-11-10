@@ -68,6 +68,6 @@ proxy_url,
 tags
 FROM aws.refactorspaces.application
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentIdentifier&gt;'
-AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
+AND data__Identifier = '<EnvironmentIdentifier>'
+AND data__Identifier = '<ApplicationIdentifier>'
 ```

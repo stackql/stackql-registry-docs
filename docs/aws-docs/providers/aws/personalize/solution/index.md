@@ -56,5 +56,5 @@ recipe_arn,
 solution_config
 FROM aws.personalize.solution
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SolutionArn&gt;'
+AND data__Identifier = '<SolutionArn>'
 ```

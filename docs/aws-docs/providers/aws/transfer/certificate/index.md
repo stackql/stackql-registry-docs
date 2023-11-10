@@ -70,5 +70,5 @@ not_before_date,
 not_after_date
 FROM aws.transfer.certificate
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateId&gt;'
+AND data__Identifier = '<CertificateId>'
 ```

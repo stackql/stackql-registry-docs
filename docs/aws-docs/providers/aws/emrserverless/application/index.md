@@ -68,5 +68,5 @@ application_id,
 worker_type_specifications
 FROM aws.emrserverless.application
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationId&gt;'
+AND data__Identifier = '<ApplicationId>'
 ```

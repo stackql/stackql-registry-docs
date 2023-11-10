@@ -44,5 +44,5 @@ account_alias,
 account_alias_resource_id
 FROM aws.supportapp.account_alias
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountAliasResourceId&gt;'
+AND data__Identifier = '<AccountAliasResourceId>'
 ```

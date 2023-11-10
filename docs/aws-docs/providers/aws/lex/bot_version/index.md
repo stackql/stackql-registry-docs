@@ -48,6 +48,6 @@ description,
 bot_version_locale_specification
 FROM aws.lex.bot_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BotId&gt;'
-AND data__Identifier = '&lt;BotVersion&gt;'
+AND data__Identifier = '<BotId>'
+AND data__Identifier = '<BotVersion>'
 ```

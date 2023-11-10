@@ -54,5 +54,5 @@ template_description,
 template_name
 FROM aws.pinpoint.in_app_template
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TemplateName&gt;'
+AND data__Identifier = '<TemplateName>'
 ```

@@ -56,5 +56,5 @@ deployment_policies,
 tags
 FROM aws.greengrassv2.deployment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DeploymentId&gt;'
+AND data__Identifier = '<DeploymentId>'
 ```

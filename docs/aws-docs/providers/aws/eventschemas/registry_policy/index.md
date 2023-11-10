@@ -48,5 +48,5 @@ registry_name,
 revision_id
 FROM aws.eventschemas.registry_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

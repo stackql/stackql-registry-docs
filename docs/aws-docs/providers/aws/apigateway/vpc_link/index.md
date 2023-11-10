@@ -50,5 +50,5 @@ target_arns,
 vpc_link_id
 FROM aws.apigateway.vpc_link
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VpcLinkId&gt;'
+AND data__Identifier = '<VpcLinkId>'
 ```

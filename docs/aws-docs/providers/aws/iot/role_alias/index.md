@@ -50,5 +50,5 @@ credential_duration_seconds,
 tags
 FROM aws.iot.role_alias
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RoleAlias&gt;'
+AND data__Identifier = '<RoleAlias>'
 ```

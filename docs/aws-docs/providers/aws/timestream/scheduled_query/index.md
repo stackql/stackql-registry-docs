@@ -78,5 +78,5 @@ s_qkms_key_id,
 tags
 FROM aws.timestream.scheduled_query
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

@@ -50,5 +50,5 @@ cluster_endpoints,
 tags
 FROM aws.route53recoverycontrol.cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterArn&gt;'
+AND data__Identifier = '<ClusterArn>'
 ```

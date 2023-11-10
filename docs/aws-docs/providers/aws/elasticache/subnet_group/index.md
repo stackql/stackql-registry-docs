@@ -48,5 +48,5 @@ cache_subnet_group_name,
 tags
 FROM aws.elasticache.subnet_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CacheSubnetGroupName&gt;'
+AND data__Identifier = '<CacheSubnetGroupName>'
 ```

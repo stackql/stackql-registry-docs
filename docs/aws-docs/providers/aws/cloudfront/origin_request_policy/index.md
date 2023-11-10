@@ -46,5 +46,5 @@ last_modified_time,
 origin_request_policy_config
 FROM aws.cloudfront.origin_request_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

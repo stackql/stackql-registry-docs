@@ -46,7 +46,7 @@ provisioning_artifact_id,
 service_action_id
 FROM aws.servicecatalog.service_action_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProductId&gt;'
-AND data__Identifier = '&lt;ProvisioningArtifactId&gt;'
-AND data__Identifier = '&lt;ServiceActionId&gt;'
+AND data__Identifier = '<ProductId>'
+AND data__Identifier = '<ProvisioningArtifactId>'
+AND data__Identifier = '<ServiceActionId>'
 ```

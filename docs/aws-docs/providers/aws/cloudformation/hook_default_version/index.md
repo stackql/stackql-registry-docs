@@ -48,5 +48,5 @@ arn,
 version_id
 FROM aws.cloudformation.hook_default_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

@@ -58,6 +58,6 @@ subscribers,
 definition
 FROM aws.budgets.budgets_action
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ActionId&gt;'
-AND data__Identifier = '&lt;BudgetName&gt;'
+AND data__Identifier = '<ActionId>'
+AND data__Identifier = '<BudgetName>'
 ```

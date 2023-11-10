@@ -60,5 +60,5 @@ requires,
 update_method
 FROM aws.ssm.document
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

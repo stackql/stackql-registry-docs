@@ -66,5 +66,5 @@ vpc_security_group_ids,
 vpc_subnet_ids
 FROM aws.rds.db_proxy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBProxyName&gt;'
+AND data__Identifier = '<DBProxyName>'
 ```

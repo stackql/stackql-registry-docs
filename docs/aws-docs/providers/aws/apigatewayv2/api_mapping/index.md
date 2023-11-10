@@ -50,5 +50,5 @@ domain_name,
 api_id
 FROM aws.apigatewayv2.api_mapping
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

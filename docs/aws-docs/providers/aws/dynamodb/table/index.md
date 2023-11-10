@@ -78,5 +78,5 @@ kinesis_stream_specification,
 import_source_specification
 FROM aws.dynamodb.table
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TableName&gt;'
+AND data__Identifier = '<TableName>'
 ```

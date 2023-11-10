@@ -56,7 +56,7 @@ kinesis_stream_config,
 kinesis_firehose_config
 FROM aws.connect.instance_storage_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceArn&gt;'
-AND data__Identifier = '&lt;AssociationId&gt;'
-AND data__Identifier = '&lt;ResourceType&gt;'
+AND data__Identifier = '<InstanceArn>'
+AND data__Identifier = '<AssociationId>'
+AND data__Identifier = '<ResourceType>'
 ```

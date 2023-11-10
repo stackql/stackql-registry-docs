@@ -68,5 +68,5 @@ tags,
 max_capacity
 FROM aws.glue.ml_transform
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

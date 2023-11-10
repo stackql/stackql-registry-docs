@@ -46,5 +46,5 @@ data_catalog_encryption_settings,
 catalog_id
 FROM aws.glue.data_catalog_encryption_settings
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

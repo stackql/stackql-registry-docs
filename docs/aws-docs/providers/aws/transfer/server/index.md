@@ -72,5 +72,5 @@ tags,
 certificate
 FROM aws.transfer.server
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ServerId&gt;'
+AND data__Identifier = '<ServerId>'
 ```

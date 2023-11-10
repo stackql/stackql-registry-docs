@@ -48,6 +48,6 @@ resource_identifier,
 tags_identifier
 FROM aws.lakeformation.tag_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceIdentifier&gt;'
-AND data__Identifier = '&lt;TagsIdentifier&gt;'
+AND data__Identifier = '<ResourceIdentifier>'
+AND data__Identifier = '<TagsIdentifier>'
 ```

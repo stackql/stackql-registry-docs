@@ -50,5 +50,5 @@ application_description,
 application_code
 FROM aws.kinesisanalytics.application
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

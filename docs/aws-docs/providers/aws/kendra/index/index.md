@@ -64,5 +64,5 @@ user_context_policy,
 user_token_configurations
 FROM aws.kendra.index
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

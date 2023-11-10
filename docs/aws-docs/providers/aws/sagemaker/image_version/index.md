@@ -52,5 +52,5 @@ container_image,
 version
 FROM aws.sagemaker.image_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ImageVersionArn&gt;'
+AND data__Identifier = '<ImageVersionArn>'
 ```

@@ -92,5 +92,5 @@ ephemeral_storage,
 architectures
 FROM aws.lambda.function
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FunctionName&gt;'
+AND data__Identifier = '<FunctionName>'
 ```

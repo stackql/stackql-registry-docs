@@ -50,5 +50,5 @@ pool_state,
 instance_reuse_policy
 FROM aws.autoscaling.warm_pool
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AutoScalingGroupName&gt;'
+AND data__Identifier = '<AutoScalingGroupName>'
 ```

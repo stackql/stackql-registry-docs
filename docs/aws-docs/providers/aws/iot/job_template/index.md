@@ -66,5 +66,5 @@ maintenance_windows,
 tags
 FROM aws.iot.job_template
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;JobTemplateId&gt;'
+AND data__Identifier = '<JobTemplateId>'
 ```

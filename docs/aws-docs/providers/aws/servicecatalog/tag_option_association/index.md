@@ -46,5 +46,5 @@ tag_option_id,
 resource_id
 FROM aws.servicecatalog.tag_option_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

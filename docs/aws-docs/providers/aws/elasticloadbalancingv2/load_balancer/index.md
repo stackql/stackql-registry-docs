@@ -68,5 +68,5 @@ load_balancer_full_name,
 subnet_mappings
 FROM aws.elasticloadbalancingv2.load_balancer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

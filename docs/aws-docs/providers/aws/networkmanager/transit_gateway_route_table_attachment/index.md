@@ -72,5 +72,5 @@ updated_at,
 tags
 FROM aws.networkmanager.transit_gateway_route_table_attachment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AttachmentId&gt;'
+AND data__Identifier = '<AttachmentId>'
 ```

@@ -50,5 +50,5 @@ share_tag_options,
 id
 FROM aws.servicecatalog.portfolio_share
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

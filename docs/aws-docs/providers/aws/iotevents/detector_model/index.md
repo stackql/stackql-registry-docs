@@ -54,5 +54,5 @@ role_arn,
 tags
 FROM aws.iotevents.detector_model
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DetectorModelName&gt;'
+AND data__Identifier = '<DetectorModelName>'
 ```

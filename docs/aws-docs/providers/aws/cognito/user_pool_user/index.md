@@ -58,5 +58,5 @@ force_alias_creation,
 user_attributes
 FROM aws.cognito.user_pool_user
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

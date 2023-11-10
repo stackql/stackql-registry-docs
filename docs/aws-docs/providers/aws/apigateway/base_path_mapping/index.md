@@ -48,6 +48,6 @@ rest_api_id,
 stage
 FROM aws.apigateway.base_path_mapping
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-AND data__Identifier = '&lt;BasePath&gt;'
+AND data__Identifier = '<DomainName>'
+AND data__Identifier = '<BasePath>'
 ```

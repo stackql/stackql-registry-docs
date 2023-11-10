@@ -48,5 +48,5 @@ schema,
 domain
 FROM aws.personalize.schema
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SchemaArn&gt;'
+AND data__Identifier = '<SchemaArn>'
 ```

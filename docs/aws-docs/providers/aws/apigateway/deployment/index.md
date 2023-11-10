@@ -52,6 +52,6 @@ stage_description,
 stage_name
 FROM aws.apigateway.deployment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DeploymentId&gt;'
-AND data__Identifier = '&lt;RestApiId&gt;'
+AND data__Identifier = '<DeploymentId>'
+AND data__Identifier = '<RestApiId>'
 ```

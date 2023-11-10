@@ -68,5 +68,5 @@ table_id,
 time_to_live_specification
 FROM aws.dynamodb.global_table
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TableName&gt;'
+AND data__Identifier = '<TableName>'
 ```

@@ -50,5 +50,5 @@ protocol,
 client_affinity
 FROM aws.globalaccelerator.listener
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ListenerArn&gt;'
+AND data__Identifier = '<ListenerArn>'
 ```

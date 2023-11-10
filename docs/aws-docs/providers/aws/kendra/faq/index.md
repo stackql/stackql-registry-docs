@@ -58,6 +58,6 @@ tags,
 arn
 FROM aws.kendra.faq
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;IndexId&gt;'
+AND data__Identifier = '<Id>'
+AND data__Identifier = '<IndexId>'
 ```

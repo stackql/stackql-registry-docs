@@ -64,7 +64,7 @@ style,
 tags
 FROM aws.amplifyuibuilder.form
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppId&gt;'
-AND data__Identifier = '&lt;EnvironmentName&gt;'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<AppId>'
+AND data__Identifier = '<EnvironmentName>'
+AND data__Identifier = '<Id>'
 ```

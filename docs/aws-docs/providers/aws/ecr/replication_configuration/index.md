@@ -44,5 +44,5 @@ replication_configuration,
 registry_id
 FROM aws.ecr.replication_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RegistryId&gt;'
+AND data__Identifier = '<RegistryId>'
 ```

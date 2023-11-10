@@ -56,6 +56,6 @@ state,
 tags
 FROM aws.iottwinmaker.sync_job
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkspaceId&gt;'
-AND data__Identifier = '&lt;SyncSource&gt;'
+AND data__Identifier = '<WorkspaceId>'
+AND data__Identifier = '<SyncSource>'
 ```

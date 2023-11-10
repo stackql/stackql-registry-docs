@@ -66,5 +66,5 @@ auto_build_bot_locales,
 test_bot_alias_settings
 FROM aws.lex.bot
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

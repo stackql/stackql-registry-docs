@@ -50,5 +50,5 @@ app_sync_domain_name,
 hosted_zone_id
 FROM aws.appsync.domain_name
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
+AND data__Identifier = '<DomainName>'
 ```

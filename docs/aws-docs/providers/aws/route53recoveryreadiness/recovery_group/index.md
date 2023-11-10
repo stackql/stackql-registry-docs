@@ -48,5 +48,5 @@ recovery_group_arn,
 tags
 FROM aws.route53recoveryreadiness.recovery_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RecoveryGroupName&gt;'
+AND data__Identifier = '<RecoveryGroupName>'
 ```

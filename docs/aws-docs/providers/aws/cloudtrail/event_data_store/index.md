@@ -64,5 +64,5 @@ kms_key_id,
 tags
 FROM aws.cloudtrail.event_data_store
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EventDataStoreArn&gt;'
+AND data__Identifier = '<EventDataStoreArn>'
 ```

@@ -64,5 +64,5 @@ failed_imported_devices_count,
 tags
 FROM aws.iotwireless.wireless_device_import_task
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

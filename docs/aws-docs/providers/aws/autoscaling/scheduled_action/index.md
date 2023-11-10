@@ -58,6 +58,6 @@ desired_capacity,
 max_size
 FROM aws.autoscaling.scheduled_action
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ScheduledActionName&gt;'
-AND data__Identifier = '&lt;AutoScalingGroupName&gt;'
+AND data__Identifier = '<ScheduledActionName>'
+AND data__Identifier = '<AutoScalingGroupName>'
 ```

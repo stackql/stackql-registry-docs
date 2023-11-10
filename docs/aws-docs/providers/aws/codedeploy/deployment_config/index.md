@@ -48,5 +48,5 @@ minimum_healthy_hosts,
 traffic_routing_config
 FROM aws.codedeploy.deployment_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DeploymentConfigName&gt;'
+AND data__Identifier = '<DeploymentConfigName>'
 ```

@@ -64,5 +64,5 @@ last_updated_time,
 associated_models
 FROM aws.frauddetector.detector
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

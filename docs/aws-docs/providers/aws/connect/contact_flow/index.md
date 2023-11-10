@@ -56,5 +56,5 @@ type,
 tags
 FROM aws.connect.contact_flow
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ContactFlowArn&gt;'
+AND data__Identifier = '<ContactFlowArn>'
 ```

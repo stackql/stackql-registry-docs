@@ -54,5 +54,5 @@ association_arn,
 tags
 FROM aws.codegurureviewer.repository_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssociationArn&gt;'
+AND data__Identifier = '<AssociationArn>'
 ```

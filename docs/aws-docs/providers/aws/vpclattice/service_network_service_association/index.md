@@ -68,5 +68,5 @@ status,
 tags
 FROM aws.vpclattice.service_network_service_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

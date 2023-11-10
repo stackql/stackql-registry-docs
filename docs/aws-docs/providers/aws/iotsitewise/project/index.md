@@ -54,5 +54,5 @@ asset_ids,
 tags
 FROM aws.iotsitewise.project
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProjectId&gt;'
+AND data__Identifier = '<ProjectId>'
 ```

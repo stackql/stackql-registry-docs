@@ -76,5 +76,5 @@ transcode_profile_name,
 video_content_source_url
 FROM aws.mediatailor.playback_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

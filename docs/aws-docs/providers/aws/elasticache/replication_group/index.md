@@ -136,5 +136,5 @@ log_delivery_configurations,
 read_end_point_addresses
 FROM aws.elasticache.replication_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ReplicationGroupId&gt;'
+AND data__Identifier = '<ReplicationGroupId>'
 ```

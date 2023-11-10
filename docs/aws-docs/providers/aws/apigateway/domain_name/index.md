@@ -64,5 +64,5 @@ security_policy,
 tags
 FROM aws.apigateway.domain_name
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
+AND data__Identifier = '<DomainName>'
 ```

@@ -56,5 +56,5 @@ pipeline_tags,
 pipeline_id
 FROM aws.datapipeline.pipeline
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PipelineId&gt;'
+AND data__Identifier = '<PipelineId>'
 ```

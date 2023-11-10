@@ -60,5 +60,5 @@ tags,
 inference_scheduler_arn
 FROM aws.lookoutequipment.inference_scheduler
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InferenceSchedulerName&gt;'
+AND data__Identifier = '<InferenceSchedulerName>'
 ```

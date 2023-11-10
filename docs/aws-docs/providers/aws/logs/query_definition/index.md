@@ -48,5 +48,5 @@ log_group_names,
 query_definition_id
 FROM aws.logs.query_definition
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;QueryDefinitionId&gt;'
+AND data__Identifier = '<QueryDefinitionId>'
 ```

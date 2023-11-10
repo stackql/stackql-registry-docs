@@ -48,5 +48,5 @@ resolver_rule_association_id,
 name
 FROM aws.route53resolver.resolver_rule_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResolverRuleAssociationId&gt;'
+AND data__Identifier = '<ResolverRuleAssociationId>'
 ```

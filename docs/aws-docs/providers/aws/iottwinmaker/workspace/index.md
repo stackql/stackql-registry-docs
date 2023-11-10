@@ -56,5 +56,5 @@ update_date_time,
 tags
 FROM aws.iottwinmaker.workspace
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkspaceId&gt;'
+AND data__Identifier = '<WorkspaceId>'
 ```

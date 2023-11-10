@@ -58,6 +58,6 @@ workspace_id,
 capabilities
 FROM aws.iottwinmaker.scene
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkspaceId&gt;'
-AND data__Identifier = '&lt;SceneId&gt;'
+AND data__Identifier = '<WorkspaceId>'
+AND data__Identifier = '<SceneId>'
 ```

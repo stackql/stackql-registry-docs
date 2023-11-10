@@ -50,5 +50,5 @@ attribute_group_arn,
 id
 FROM aws.servicecatalogappregistry.attribute_group_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

@@ -50,6 +50,6 @@ rest_api_id,
 schema
 FROM aws.apigateway.model
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<RestApiId>'
+AND data__Identifier = '<Name>'
 ```

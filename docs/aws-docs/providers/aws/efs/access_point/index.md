@@ -54,5 +54,5 @@ posix_user,
 root_directory
 FROM aws.efs.access_point
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccessPointId&gt;'
+AND data__Identifier = '<AccessPointId>'
 ```

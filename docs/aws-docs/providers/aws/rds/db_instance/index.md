@@ -186,5 +186,5 @@ use_latest_restorable_time,
 v_pc_security_groups
 FROM aws.rds.db_instance
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBInstanceIdentifier&gt;'
+AND data__Identifier = '<DBInstanceIdentifier>'
 ```

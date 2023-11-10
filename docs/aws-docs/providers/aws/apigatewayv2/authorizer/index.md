@@ -64,6 +64,6 @@ authorizer_id,
 name
 FROM aws.apigatewayv2.authorizer
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AuthorizerId&gt;'
-AND data__Identifier = '&lt;ApiId&gt;'
+AND data__Identifier = '<AuthorizerId>'
+AND data__Identifier = '<ApiId>'
 ```

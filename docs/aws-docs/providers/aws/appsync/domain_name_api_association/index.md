@@ -46,5 +46,5 @@ api_id,
 api_association_identifier
 FROM aws.appsync.domain_name_api_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiAssociationIdentifier&gt;'
+AND data__Identifier = '<ApiAssociationIdentifier>'
 ```

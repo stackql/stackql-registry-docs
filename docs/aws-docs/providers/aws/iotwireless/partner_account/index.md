@@ -58,5 +58,5 @@ arn,
 tags
 FROM aws.iotwireless.partner_account
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PartnerAccountId&gt;'
+AND data__Identifier = '<PartnerAccountId>'
 ```

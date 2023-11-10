@@ -44,6 +44,6 @@ global_network_id,
 transit_gateway_arn
 FROM aws.networkmanager.transit_gateway_registration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalNetworkId&gt;'
-AND data__Identifier = '&lt;TransitGatewayArn&gt;'
+AND data__Identifier = '<GlobalNetworkId>'
+AND data__Identifier = '<TransitGatewayArn>'
 ```

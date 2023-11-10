@@ -70,5 +70,5 @@ subnet_ids,
 tags
 FROM aws.m2.environment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentArn&gt;'
+AND data__Identifier = '<EnvironmentArn>'
 ```

@@ -50,5 +50,5 @@ insights_configuration,
 tags
 FROM aws.xray.group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GroupARN&gt;'
+AND data__Identifier = '<GroupARN>'
 ```

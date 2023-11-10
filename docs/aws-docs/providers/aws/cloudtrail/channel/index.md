@@ -50,5 +50,5 @@ channel_arn,
 tags
 FROM aws.cloudtrail.channel
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ChannelArn&gt;'
+AND data__Identifier = '<ChannelArn>'
 ```

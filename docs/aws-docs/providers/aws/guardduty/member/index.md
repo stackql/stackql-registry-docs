@@ -52,5 +52,5 @@ disable_email_notification,
 detector_id
 FROM aws.guardduty.member
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MemberId&gt;'
+AND data__Identifier = '<MemberId>'
 ```

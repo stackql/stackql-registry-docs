@@ -62,5 +62,5 @@ state,
 state_reason
 FROM aws.events.endpoint
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

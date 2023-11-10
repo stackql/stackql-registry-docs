@@ -70,5 +70,5 @@ updated_at,
 vpn_connection_arn
 FROM aws.networkmanager.site_to_site_vpn_attachment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AttachmentId&gt;'
+AND data__Identifier = '<AttachmentId>'
 ```

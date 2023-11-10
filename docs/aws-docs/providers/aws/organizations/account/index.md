@@ -60,5 +60,5 @@ joined_timestamp,
 status
 FROM aws.organizations.account
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountId&gt;'
+AND data__Identifier = '<AccountId>'
 ```

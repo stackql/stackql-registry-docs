@@ -66,5 +66,5 @@ source_network_interface_arns,
 destination_network_interface_arns
 FROM aws.datasync.task
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TaskArn&gt;'
+AND data__Identifier = '<TaskArn>'
 ```

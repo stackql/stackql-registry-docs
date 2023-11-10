@@ -50,5 +50,5 @@ storage_location,
 version
 FROM aws.gamelift.build
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BuildId&gt;'
+AND data__Identifier = '<BuildId>'
 ```

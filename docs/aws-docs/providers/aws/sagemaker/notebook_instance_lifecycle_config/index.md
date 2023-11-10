@@ -48,5 +48,5 @@ on_start,
 on_create
 FROM aws.sagemaker.notebook_instance_lifecycle_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

@@ -46,5 +46,5 @@ key_group_config,
 last_modified_time
 FROM aws.cloudfront.key_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

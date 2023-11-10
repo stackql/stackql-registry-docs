@@ -62,5 +62,5 @@ actions_suppressor_wait_period,
 actions_suppressor_extension_period
 FROM aws.cloudwatch.composite_alarm
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AlarmName&gt;'
+AND data__Identifier = '<AlarmName>'
 ```

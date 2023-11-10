@@ -46,5 +46,5 @@ role_arn,
 default_log_level
 FROM aws.iot.logging
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountId&gt;'
+AND data__Identifier = '<AccountId>'
 ```

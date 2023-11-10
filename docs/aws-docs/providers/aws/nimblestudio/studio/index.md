@@ -60,5 +60,5 @@ tags,
 user_role_arn
 FROM aws.nimblestudio.studio
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StudioId&gt;'
+AND data__Identifier = '<StudioId>'
 ```

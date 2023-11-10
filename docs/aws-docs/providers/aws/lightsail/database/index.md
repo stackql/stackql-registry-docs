@@ -72,5 +72,5 @@ relational_database_parameters,
 tags
 FROM aws.lightsail.database
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RelationalDatabaseName&gt;'
+AND data__Identifier = '<RelationalDatabaseName>'
 ```

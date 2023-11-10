@@ -80,5 +80,5 @@ tags,
 instance_arn
 FROM aws.lightsail.instance
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceName&gt;'
+AND data__Identifier = '<InstanceName>'
 ```

@@ -50,5 +50,5 @@ stack_name,
 authentication_type
 FROM aws.appstream.stack_user_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

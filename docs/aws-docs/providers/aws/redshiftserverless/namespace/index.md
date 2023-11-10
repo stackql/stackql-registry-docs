@@ -64,5 +64,5 @@ final_snapshot_name,
 final_snapshot_retention_period
 FROM aws.redshiftserverless.namespace
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;NamespaceName&gt;'
+AND data__Identifier = '<NamespaceName>'
 ```

@@ -102,5 +102,5 @@ created_by,
 environment
 FROM aws.sagemaker.model_package
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ModelPackageArn&gt;'
+AND data__Identifier = '<ModelPackageArn>'
 ```

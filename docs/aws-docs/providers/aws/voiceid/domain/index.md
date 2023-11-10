@@ -50,5 +50,5 @@ server_side_encryption_configuration,
 tags
 FROM aws.voiceid.domain
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainId&gt;'
+AND data__Identifier = '<DomainId>'
 ```

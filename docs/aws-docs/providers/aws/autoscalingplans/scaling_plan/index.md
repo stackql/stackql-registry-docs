@@ -50,5 +50,5 @@ application_source,
 scaling_instructions
 FROM aws.autoscalingplans.scaling_plan
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

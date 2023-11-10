@@ -62,6 +62,6 @@ sentiment_analysis_settings,
 bot_alias_tags
 FROM aws.lex.bot_alias
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BotAliasId&gt;'
-AND data__Identifier = '&lt;BotId&gt;'
+AND data__Identifier = '<BotAliasId>'
+AND data__Identifier = '<BotId>'
 ```

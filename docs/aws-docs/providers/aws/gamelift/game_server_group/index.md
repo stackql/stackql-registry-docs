@@ -68,5 +68,5 @@ tags,
 vpc_subnets
 FROM aws.gamelift.game_server_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GameServerGroupArn&gt;'
+AND data__Identifier = '<GameServerGroupArn>'
 ```

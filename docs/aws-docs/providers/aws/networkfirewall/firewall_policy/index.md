@@ -52,5 +52,5 @@ description,
 tags
 FROM aws.networkfirewall.firewall_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FirewallPolicyArn&gt;'
+AND data__Identifier = '<FirewallPolicyArn>'
 ```

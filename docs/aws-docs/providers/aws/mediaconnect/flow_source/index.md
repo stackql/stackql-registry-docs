@@ -70,5 +70,5 @@ vpc_interface_name,
 whitelist_cidr
 FROM aws.mediaconnect.flow_source
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SourceArn&gt;'
+AND data__Identifier = '<SourceArn>'
 ```

@@ -52,5 +52,5 @@ query_expression,
 tags
 FROM aws.config.stored_query
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;QueryName&gt;'
+AND data__Identifier = '<QueryName>'
 ```

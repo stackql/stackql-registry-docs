@@ -62,5 +62,5 @@ thing_name,
 last_uplink_received_at
 FROM aws.iotwireless.wireless_device
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

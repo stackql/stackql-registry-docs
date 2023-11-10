@@ -72,6 +72,6 @@ version,
 version_description
 FROM aws.quicksight.dashboard
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-AND data__Identifier = '&lt;DashboardId&gt;'
+AND data__Identifier = '<AwsAccountId>'
+AND data__Identifier = '<DashboardId>'
 ```

@@ -44,5 +44,5 @@ policy_name,
 policy_document
 FROM aws.logs.resource_policy
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PolicyName&gt;'
+AND data__Identifier = '<PolicyName>'
 ```

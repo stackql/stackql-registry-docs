@@ -68,5 +68,5 @@ modification_time,
 tags
 FROM aws.route53resolver.firewall_rule_group_association
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

@@ -78,5 +78,5 @@ tags,
 api_key_selection_expression
 FROM aws.apigatewayv2.api
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiId&gt;'
+AND data__Identifier = '<ApiId>'
 ```

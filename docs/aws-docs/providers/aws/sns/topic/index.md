@@ -62,5 +62,5 @@ signature_version,
 tracing_config
 FROM aws.sns.topic
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TopicArn&gt;'
+AND data__Identifier = '<TopicArn>'
 ```

@@ -46,5 +46,5 @@ tags,
 name
 FROM aws.robomaker.fleet
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

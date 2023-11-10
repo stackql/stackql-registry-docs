@@ -60,5 +60,5 @@ tags,
 execution_status
 FROM aws.evidently.launch
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '<Arn>'
 ```

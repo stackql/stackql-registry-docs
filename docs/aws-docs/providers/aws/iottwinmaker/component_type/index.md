@@ -70,6 +70,6 @@ is_schema_initialized,
 tags
 FROM aws.iottwinmaker.component_type
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkspaceId&gt;'
-AND data__Identifier = '&lt;ComponentTypeId&gt;'
+AND data__Identifier = '<WorkspaceId>'
+AND data__Identifier = '<ComponentTypeId>'
 ```

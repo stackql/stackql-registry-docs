@@ -72,5 +72,5 @@ encryption_config_key_arn,
 open_id_connect_issuer_url
 FROM aws.eks.cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '<Name>'
 ```

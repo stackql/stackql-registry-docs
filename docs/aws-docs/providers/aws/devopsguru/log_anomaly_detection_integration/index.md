@@ -42,5 +42,5 @@ region,
 account_id
 FROM aws.devopsguru.log_anomaly_detection_integration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountId&gt;'
+AND data__Identifier = '<AccountId>'
 ```

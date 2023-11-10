@@ -62,5 +62,5 @@ component_monitoring_settings,
 grouping_type
 FROM aws.applicationinsights.application
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationARN&gt;'
+AND data__Identifier = '<ApplicationARN>'
 ```

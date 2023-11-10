@@ -52,5 +52,5 @@ d_binstance_identifiers,
 d_bcluster_identifiers
 FROM aws.rds.db_proxy_target_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TargetGroupArn&gt;'
+AND data__Identifier = '<TargetGroupArn>'
 ```

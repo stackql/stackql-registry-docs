@@ -58,5 +58,5 @@ pricing_plan,
 update_time
 FROM aws.location.place_index
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;IndexName&gt;'
+AND data__Identifier = '<IndexName>'
 ```

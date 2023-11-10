@@ -66,5 +66,5 @@ service_execution_role_arn,
 worker_configuration
 FROM aws.kafkaconnect.connector
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectorArn&gt;'
+AND data__Identifier = '<ConnectorArn>'
 ```

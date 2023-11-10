@@ -48,5 +48,5 @@ routing_strategy,
 alias_id
 FROM aws.gamelift.alias
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AliasId&gt;'
+AND data__Identifier = '<AliasId>'
 ```

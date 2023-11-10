@@ -46,5 +46,5 @@ enabled,
 arn
 FROM aws.iot1click.device
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DeviceId&gt;'
+AND data__Identifier = '<DeviceId>'
 ```

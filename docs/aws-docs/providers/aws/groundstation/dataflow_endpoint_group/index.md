@@ -52,5 +52,5 @@ contact_post_pass_duration_seconds,
 tags
 FROM aws.groundstation.dataflow_endpoint_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

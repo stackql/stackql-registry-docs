@@ -48,7 +48,7 @@ data_set_id,
 schedule
 FROM aws.quicksight.refresh_schedule
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-AND data__Identifier = '&lt;DataSetId&gt;'
-AND data__Identifier = '&lt;Schedule/ScheduleId&gt;'
+AND data__Identifier = '<AwsAccountId>'
+AND data__Identifier = '<DataSetId>'
+AND data__Identifier = '<Schedule/ScheduleId>'
 ```

@@ -50,5 +50,5 @@ code_signing_config_id,
 code_signing_config_arn
 FROM aws.lambda.code_signing_config
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CodeSigningConfigArn&gt;'
+AND data__Identifier = '<CodeSigningConfigArn>'
 ```

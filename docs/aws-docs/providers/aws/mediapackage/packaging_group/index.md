@@ -52,5 +52,5 @@ tags,
 egress_access_logs
 FROM aws.mediapackage.packaging_group
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '<Id>'
 ```

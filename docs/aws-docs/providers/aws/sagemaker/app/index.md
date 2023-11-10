@@ -54,8 +54,8 @@ tags,
 user_profile_name
 FROM aws.sagemaker.app
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppName&gt;'
-AND data__Identifier = '&lt;AppType&gt;'
-AND data__Identifier = '&lt;DomainId&gt;'
-AND data__Identifier = '&lt;UserProfileName&gt;'
+AND data__Identifier = '<AppName>'
+AND data__Identifier = '<AppType>'
+AND data__Identifier = '<DomainId>'
+AND data__Identifier = '<UserProfileName>'
 ```

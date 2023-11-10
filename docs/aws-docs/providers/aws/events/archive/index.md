@@ -52,5 +52,5 @@ arn,
 retention_days
 FROM aws.events.archive
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ArchiveName&gt;'
+AND data__Identifier = '<ArchiveName>'
 ```

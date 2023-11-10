@@ -54,5 +54,5 @@ conformance_pack_input_parameters,
 excluded_accounts
 FROM aws.config.organization_conformance_pack
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;OrganizationConformancePackName&gt;'
+AND data__Identifier = '<OrganizationConformancePackName>'
 ```

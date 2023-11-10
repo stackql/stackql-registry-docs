@@ -54,5 +54,5 @@ sse_config,
 tags
 FROM aws.omics.sequence_store
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SequenceStoreId&gt;'
+AND data__Identifier = '<SequenceStoreId>'
 ```
