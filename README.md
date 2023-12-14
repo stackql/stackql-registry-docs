@@ -20,14 +20,16 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Sumologic | [![Netlify Status](https://api.netlify.com/api/v1/badges/6c864774-8494-41be-8e2c-441b6d1e368c/deploy-status)](https://app.netlify.com/sites/stackql-sumologic-docs/deploys) | [sumologic-docs.stackql.io](https://sumologic-docs.stackql.io)<br/>[sumologic.stackql.io](https://sumologic.stackql.io) |
 | Netlify Deploy Digital Ocean | [![Netlify Status](https://api.netlify.com/api/v1/badges/ebcab4ef-d610-4888-a42f-314942d68c32/deploy-status)](https://app.netlify.com/sites/stackql-digitalocean-docs/deploys) | [digitalocean-docs.stackql.io](https://digitalocean-docs.stackql.io)<br/>[digitalocean.stackql.io](https://digitalocean.stackql.io) |
 | Netlify Deploy Linode | [![Netlify Status](https://api.netlify.com/api/v1/badges/d0b573be-3dfb-495c-a0ce-478ec7acecd8/deploy-status)](https://app.netlify.com/sites/stackql-linode-docs/deploys) | [linode-docs.stackql.io](https://linode-docs.stackql.io)<br/>[linode.stackql.io](https://linode.stackql.io) |
+| Netlify Vercel Linode | [![Netlify Status](https://api.netlify.com/api/v1/badges/91cc31b7-0c25-443f-bb2f-71921ef7084e/deploy-status)](https://app.netlify.com/sites/stackql-vercel-docs/deploys) | [vercel-docs.stackql.io](https://vercel-docs.stackql.io)<br/>[vercel.stackql.io](https://vercel.stackql.io) |
+
 
 ## Adding Docs for a New Provider
 
 Adding docs for a new provider requires creating a new web property (subdomain) and will force an update to the root/base site and all other providers.  The steps are:  
 
 - [ ] update `scripts/docgen/provider_data.py` with metadata for new provider
-- [ ] generate docs for provider using `sh scripts/docgen.sh {provider}`
-- [ ] publish docs for provider using `sh scripts/publish.sh {provider}`
+- [ ] generate docs for provider using `cd scripts; sh docgen.sh {provider}`
+- [ ] publish docs for provider using `cd scripts; sh publish.sh {provider}`
 - [x] add the new provider docs to `docs/{provider}-docs` (following directory structure of existing providers) (done automatically by `scripts/publish.sh`)
 - [x] update frontmatter in the `index.md` at the root of the new providers docs, set `slug` to `/providers/{provider}` and `id` to `{provider}-doc` (done automatically by `scripts/docgen.sh`)
 - [x] update `stackql-provider-registry.mdx` in the root of the new provider to add the `currentProvider` prop, e.g. `<RegistryPage currentProvider="okta" />` (done automatically by `scripts/docgen.sh`)

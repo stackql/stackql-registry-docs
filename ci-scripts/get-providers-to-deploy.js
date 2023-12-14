@@ -20,6 +20,7 @@ const allProviders = [
     'netlify', 
     'okta', 
     'sumologic', 
+    'vercel', 
     rootName];
        
 const appendToOutput = (providers) => {
@@ -45,7 +46,7 @@ module.exports = async ({ github, context, core, pathOutput }) => {
         
         // if(!(diff.startsWith('.github')) || !(diff.startsWith('scripts'))) globalChange = true;
 
-        // globalChange = true;
+        globalChange = true;
 
     }).filter(Boolean)
 

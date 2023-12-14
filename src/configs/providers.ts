@@ -15,6 +15,7 @@ export const providers = [
     {name: 'azure_extras', description: 'Additional Azure cloud computing services by Microsoft.', title: 'Azure Extras'},
     {name: 'firebase', description: 'Mobile and web application development platform.', title: 'Firebase'},
     {name: 'k8s', description: 'Open source container management platform.', title: 'Kubernetes'},
+    {name: 'vercel', description: 'Cloud platform for serverless deployment and hosting of web applications.', title: 'Vercel'},
 ]
 
 export const getProviderSiteUrl = (name: string) =>{

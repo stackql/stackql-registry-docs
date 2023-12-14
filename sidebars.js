@@ -26,7 +26,8 @@ const providers = [
   {name: 'sumologic'},
   {name: 'azure_extras'},
   {name: 'firebase'}, 
-  {name: 'k8s'}, 
+  {name: 'k8s'},
+  {name: 'vercel'},   
 ]
 
 const getProviderSiteUrl = (name) =>{

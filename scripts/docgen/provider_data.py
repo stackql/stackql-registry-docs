@@ -195,7 +195,12 @@ provider_data = {
       'meta_description': 'Query, deploy and manage Linode resources using SQL',
       'description': ' Cloud Computing Services by Akamai.',
       'image': '/img/providers/linode/stackql-linode-provider-featured-image.png' 
-  },  
+  },
+  'vercel': {
+      'meta_description': 'Query, deploy, and manage Vercel resources using SQL',
+      'description': 'Cloud platform for serverless deployment and hosting of web applications.',
+      'image': '/img/providers/vercel/stackql-vercel-provider-featured-image.png'
+  },
 }
 
 auth_blocks = {
@@ -321,6 +326,23 @@ $Auth = "{ 'okta': { 'type': 'api_key',  'valuePrefix': 'SSWS ', 'credentialsenv
 stackql.exe shell --auth=$Auth
 """,
   },
+# 
+# Vercel
+#
+  'vercel': {
+    'custom': False,
+    'variables': """
+- `VERCEL_API_TOKEN` - Vercel API Token (see [Creating a Vercel API Token](https://vercel.com/account/tokens))
+  """,
+    'linux': """
+AUTH='{ "okta": { "type": "bearer", "credentialsenvvar": "YOUR_VERCEL_API_TOKEN_VAR" }}'
+stackql shell --auth="${AUTH}"
+""",
+    'windows': """
+$Auth = "{ 'okta': { 'type': 'bearer', 'credentialsenvvar': 'YOUR_VERCEL_API_TOKEN_VAR' }}"
+stackql.exe shell --auth=$Auth
+""",
+  },  
 # 
 # Google
 # 
