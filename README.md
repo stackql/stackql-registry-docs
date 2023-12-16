@@ -20,8 +20,8 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Sumologic | [![Netlify Status](https://api.netlify.com/api/v1/badges/6c864774-8494-41be-8e2c-441b6d1e368c/deploy-status)](https://app.netlify.com/sites/stackql-sumologic-docs/deploys) | [sumologic-docs.stackql.io](https://sumologic-docs.stackql.io)<br/>[sumologic.stackql.io](https://sumologic.stackql.io) |
 | Netlify Deploy Digital Ocean | [![Netlify Status](https://api.netlify.com/api/v1/badges/ebcab4ef-d610-4888-a42f-314942d68c32/deploy-status)](https://app.netlify.com/sites/stackql-digitalocean-docs/deploys) | [digitalocean-docs.stackql.io](https://digitalocean-docs.stackql.io)<br/>[digitalocean.stackql.io](https://digitalocean.stackql.io) |
 | Netlify Deploy Linode | [![Netlify Status](https://api.netlify.com/api/v1/badges/d0b573be-3dfb-495c-a0ce-478ec7acecd8/deploy-status)](https://app.netlify.com/sites/stackql-linode-docs/deploys) | [linode-docs.stackql.io](https://linode-docs.stackql.io)<br/>[linode.stackql.io](https://linode.stackql.io) |
-| Netlify Vercel Linode | [![Netlify Status](https://api.netlify.com/api/v1/badges/91cc31b7-0c25-443f-bb2f-71921ef7084e/deploy-status)](https://app.netlify.com/sites/stackql-vercel-docs/deploys) | [vercel-docs.stackql.io](https://vercel-docs.stackql.io)<br/>[vercel.stackql.io](https://vercel.stackql.io) |
-
+| Netlify Deploy Vercel | [![Netlify Status](https://api.netlify.com/api/v1/badges/91cc31b7-0c25-443f-bb2f-71921ef7084e/deploy-status)](https://app.netlify.com/sites/stackql-vercel-docs/deploys) | [vercel-docs.stackql.io](https://vercel-docs.stackql.io)<br/>[vercel.stackql.io](https://vercel.stackql.io) |
+| Netlify Deploy Godaddy | [![Netlify Status](https://api.netlify.com/api/v1/badges/8232458e-8e4f-47f2-81bf-bd4aad8b25d6/deploy-status)](https://app.netlify.com/sites/stackql-godaddy-docs/deploys) | [godaddy-docs.stackql.io](https://godaddy-docs.stackql.io)<br/>[godaddy.stackql.io](https://godaddy.stackql.io) |
 
 ## Adding Docs for a New Provider
 

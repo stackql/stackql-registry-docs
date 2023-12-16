@@ -28,6 +28,7 @@ const providers = [
   {name: 'firebase'}, 
   {name: 'k8s'},
   {name: 'vercel'},   
+  {name: 'godaddy'},   
 ]
 
 const getProviderSiteUrl = (name) =>{

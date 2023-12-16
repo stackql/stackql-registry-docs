@@ -16,6 +16,7 @@ export const providers = [
     {name: 'firebase', description: 'Mobile and web application development platform.', title: 'Firebase'},
     {name: 'k8s', description: 'Open source container management platform.', title: 'Kubernetes'},
     {name: 'vercel', description: 'Cloud platform for serverless deployment and hosting of web applications.', title: 'Vercel'},
+    {name: 'godaddy', description: 'Domain name registrations and hosting services.', title: 'Godaddy'},
 ]
 
 export const getProviderSiteUrl = (name: string) =>{

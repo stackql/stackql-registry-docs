@@ -21,6 +21,7 @@ node_modules/
 __pycache__/
 .stackql/
 stackql
+stackql-zip
 pystackql/
 /pystackql
 
