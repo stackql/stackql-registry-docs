@@ -201,6 +201,11 @@ provider_data = {
       'description': 'Cloud platform for serverless deployment and hosting of web applications.',
       'image': '/img/providers/vercel/stackql-vercel-provider-featured-image.png'
   },
+  'godaddy': {
+      'meta_description': 'Query, deploy and manage GoDaddy resources using SQL',
+      'description': 'Domain registration and web hosting services.',
+      'image': '/img/providers/godaddy/stackql-godaddy-provider-featured-image.png'
+  },
 }
 
 auth_blocks = {
@@ -342,7 +347,24 @@ stackql shell --auth="${AUTH}"
 $Auth = "{ 'okta': { 'type': 'bearer', 'credentialsenvvar': 'YOUR_VERCEL_API_TOKEN_VAR' }}"
 stackql.exe shell --auth=$Auth
 """,
-  },  
+  },
+# 
+# Godaddy
+#
+  'godaddy': {
+    'custom': False,
+    'variables': """
+- `GODADDY_API_KEY` - Godaddy API key (see [Creating a Godaddy API Key](https://developer.godaddy.com/keys))
+  """,
+    'linux': """
+AUTH='{ "okta": { "type": "bearer", "credentialsenvvar": "YOUR_GODADDY_API_KEY_VAR" }}'
+stackql shell --auth="${AUTH}"
+""",
+    'windows': """
+$Auth = "{ 'okta': { 'type': 'bearer', 'credentialsenvvar': 'YOUR_GODADDY_API_KEY_VAR' }}"
+stackql.exe shell --auth=$Auth
+""",
+  },
 # 
 # Google
 # 

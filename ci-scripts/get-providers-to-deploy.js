@@ -21,6 +21,7 @@ const allProviders = [
     'okta', 
     'sumologic', 
     'vercel', 
+    'godaddy',
     rootName];
        
 const appendToOutput = (providers) => {
