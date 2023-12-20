@@ -33,7 +33,7 @@ image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Api.Godaddy.Com</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>countries:v23.12.00185</code></td></tr>
+<tr><td><b>Id</b></td><td><code>countries:v23.12.00190</code></td></tr>
 </tbody></table>
 
 ## Resources

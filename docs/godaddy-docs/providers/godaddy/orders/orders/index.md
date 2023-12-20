@@ -40,3 +40,4 @@ image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 |:-----|:--------------|:----------------|
 | `get` | `SELECT` | `order_id` |
 | `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

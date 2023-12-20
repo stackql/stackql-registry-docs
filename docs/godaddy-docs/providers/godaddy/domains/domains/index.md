@@ -54,4 +54,13 @@ image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 | `get` | `SELECT` | `domain` | Retrieve details for the specified Domain |
 | `list` | `SELECT` |  | Retrieve a list of Domains for the specified Shopper |
 | `cancel` | `EXEC` | `domain` | Cancel a purchased domain |
+| `cancel_privacy` | `EXEC` | `domain` | Submit a privacy cancellation request for the given domain |
+| `contacts_validate` | `EXEC` | `data__domains` | All contacts specified in request will be validated against all domains specifed in "domains". As an alternative, you can also pass in tlds, with the exception of `uk`, which requires full domain names |
+| `purchase` | `EXEC` | `data__consent, data__domain` | Purchase and register the specified Domain |
+| `purchase_privacy` | `EXEC` | `domain, data__consent` | Purchase privacy for a specified domain |
+| `renew` | `EXEC` | `domain` | Renew the specified Domain |
+| `transfer_in` | `EXEC` | `domain, data__authCode, data__consent` | Purchase and start or restart transfer process |
 | `update` | `EXEC` | `domain` | Update details for the specified Domain |
+| `update_contacts` | `EXEC` | `domain, data__contactRegistrant` | Update domain |
+| `validate` | `EXEC` | `data__consent, data__domain` | Validate the request body using the Domain Purchase Schema for the specified TLD |
+| `verify_email` | `EXEC` | `domain` | Re-send Contact E-mail Verification for specified Domain |

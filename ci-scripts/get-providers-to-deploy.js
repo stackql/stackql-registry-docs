@@ -22,6 +22,7 @@ const allProviders = [
     'sumologic', 
     'vercel', 
     'godaddy',
+    'pagerduty',
     rootName];
        
 const appendToOutput = (providers) => {

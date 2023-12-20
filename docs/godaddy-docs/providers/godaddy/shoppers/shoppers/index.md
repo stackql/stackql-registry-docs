@@ -37,4 +37,5 @@ image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | `get` | `SELECT` | `shopper_id` | Get details for the specified Shopper |
+| `create_subaccount` | `INSERT` | `data__email, data__nameFirst, data__nameLast, data__password` | Create a Subaccount owned by the authenticated Reseller |
 | `update` | `EXEC` | `shopper_id` | Update details for the specified Shopper |

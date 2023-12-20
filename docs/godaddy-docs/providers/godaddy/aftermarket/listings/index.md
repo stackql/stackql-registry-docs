@@ -27,6 +27,7 @@ image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `delete_listings` | `DELETE` | `domains` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `delete_listings` | `DELETE` | `domains` | Remove listings from GoDaddy Auction |
+| `add_expiry_listings` | `EXEC` |  | Add expiry listings into GoDaddy Auction |

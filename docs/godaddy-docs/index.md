@@ -17,15 +17,15 @@ slug: /providers/godaddy
 ---
 Domain registration and web hosting services.  
     
-:::info Provider Summary (v23.12.00185)
+:::info Provider Summary (v23.12.00190)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>9</b></span><br />
-<span>total methods:&nbsp;<b>60</b></span><br />
+<span>total methods:&nbsp;<b>63</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>39</b></span><br />
+<span>total resources:&nbsp;<b>20</b></span><br />
 <span>total selectable resources:&nbsp;<b>19</b></span><br />
 </div>
 </div>
