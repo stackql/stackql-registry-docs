@@ -22,6 +22,8 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Linode | [![Netlify Status](https://api.netlify.com/api/v1/badges/d0b573be-3dfb-495c-a0ce-478ec7acecd8/deploy-status)](https://app.netlify.com/sites/stackql-linode-docs/deploys) | [linode-docs.stackql.io](https://linode-docs.stackql.io)<br/>[linode.stackql.io](https://linode.stackql.io) |
 | Netlify Deploy Vercel | [![Netlify Status](https://api.netlify.com/api/v1/badges/91cc31b7-0c25-443f-bb2f-71921ef7084e/deploy-status)](https://app.netlify.com/sites/stackql-vercel-docs/deploys) | [vercel-docs.stackql.io](https://vercel-docs.stackql.io)<br/>[vercel.stackql.io](https://vercel.stackql.io) |
 | Netlify Deploy Godaddy | [![Netlify Status](https://api.netlify.com/api/v1/badges/8232458e-8e4f-47f2-81bf-bd4aad8b25d6/deploy-status)](https://app.netlify.com/sites/stackql-godaddy-docs/deploys) | [godaddy-docs.stackql.io](https://godaddy-docs.stackql.io)<br/>[godaddy.stackql.io](https://godaddy.stackql.io) |
+| Netlify Deploy PagerDuty | [![Netlify Status](https://api.netlify.com/api/v1/badges/76c8752a-32d8-48e2-81ad-29b9e8f53edd/deploy-status)](https://app.netlify.com/sites/stackql-pagerduty-docs/deploys) | [pagerduty-docs.stackql.io](https://pagerduty-docs.stackql.io)<br/>[pagerduty.stackql.io](https://pagerduty.stackql.io) |
+
 
 ## Adding Docs for a New Provider
 

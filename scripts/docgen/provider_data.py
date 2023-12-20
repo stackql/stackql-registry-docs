@@ -206,6 +206,11 @@ provider_data = {
       'description': 'Domain registration and web hosting services.',
       'image': '/img/providers/godaddy/stackql-godaddy-provider-featured-image.png'
   },
+  'pagerduty': {
+      'meta_description': 'Query, manage, and integrate PagerDuty resources using SQL',
+      'description': 'Incident management platform for real-time operations and response workflows.',
+      'image': '/img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png'
+  },
 }
 
 auth_blocks = {
@@ -365,6 +370,23 @@ $Auth = "{ 'okta': { 'type': 'bearer', 'credentialsenvvar': 'YOUR_GODADDY_API_KE
 stackql.exe shell --auth=$Auth
 """,
   },
+# 
+# PagerDuty
+#
+'pagerduty': {
+  'custom': False,
+  'variables': """
+- `PAGERDUTY_API_TOKEN` - PagerDuty API token (see [Creating a PagerDuty API Token](https://support.pagerduty.com/docs/api-access-keys#section-generating-a-general-access-rest-api-key))
+  """,
+  'linux': """
+AUTH='{ "pagerduty": { "type": "bearer", "credentialsenvvar": "YOUR_PAGERDUTY_API_TOKEN_VAR" }}'
+stackql shell --auth="${AUTH}"
+""",
+  'windows': """
+$Auth = "{ 'pagerduty': { 'type': 'bearer', 'credentialsenvvar': 'YOUR_PAGERDUTY_API_TOKEN_VAR' }}"
+stackql.exe shell --auth=$Auth
+""",
+},
 # 
 # Google
 # 

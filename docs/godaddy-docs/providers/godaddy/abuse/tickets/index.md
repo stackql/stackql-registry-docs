@@ -42,3 +42,4 @@ image: /img/providers/godaddy/stackql-godaddy-provider-featured-image.png
 | `get_ticket_info` | `SELECT` | `ticket_id` | Return the abuse ticket data for a given ticket id |
 | `get_tickets` | `SELECT` |  | List all abuse tickets ids that match user provided filters |
 | `create_ticket` | `INSERT` |  | Create a new abuse ticket |
+| `_get_tickets` | `EXEC` |  | List all abuse tickets ids that match user provided filters |

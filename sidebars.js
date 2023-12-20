@@ -27,7 +27,8 @@ const providers = [
   {name: 'azure_extras'},
   {name: 'firebase'}, 
   {name: 'k8s'},
-  {name: 'vercel'},   
+  {name: 'vercel'}, 
+  {name: 'pagerduty'}, 
   {name: 'godaddy'},   
 ]
 
