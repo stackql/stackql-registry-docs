@@ -29,8 +29,8 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `conflicts_with` | `` |
-| `conflicts_with_reasons` | `` |
+| `conflicts_with` ||
+| `conflicts_with_reasons` ||
 | `formula_name` | `text` |
 ## Methods
 No methods available for the resource

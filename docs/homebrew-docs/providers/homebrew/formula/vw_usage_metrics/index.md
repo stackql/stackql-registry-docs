@@ -30,11 +30,11 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `formula_name` | `text` |
-| `install_on_requests_30d` | `` |
-| `install_on_requests_365d` | `` |
-| `install_on_requests_90d` | `` |
-| `installs_30d` | `` |
-| `installs_365d` | `` |
-| `installs_90d` | `` |
+| `install_on_requests_30d` ||
+| `install_on_requests_365d` ||
+| `install_on_requests_90d` ||
+| `installs_30d` ||
+| `installs_365d` ||
+| `installs_90d` ||
 ## Methods
 No methods available for the resource

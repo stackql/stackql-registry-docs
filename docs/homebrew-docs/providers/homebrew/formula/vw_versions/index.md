@@ -29,9 +29,9 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `bottle_available` | `` |
+| `bottle_available` ||
 | `formula_name` | `text` |
-| `head_version` | `` |
-| `stable_version` | `` |
+| `head_version` ||
+| `stable_version` ||
 ## Methods
 No methods available for the resource

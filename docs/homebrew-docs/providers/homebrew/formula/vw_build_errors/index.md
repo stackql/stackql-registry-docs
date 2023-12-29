@@ -29,7 +29,7 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `build_errors_30d` | `` |
+| `build_errors_30d` ||
 | `formula_name` | `text` |
 ## Methods
 No methods available for the resource
