@@ -249,7 +249,10 @@ def generate_fields_table(provider, serviceName, resourceName, fields, is_view=F
             output = output + "| Name | Datatype |\n"
             output = output + "|:-----|:---------|\n"
             for fieldIx, fieldRow in fields.iterrows():
-                output = output + "| `%s` | `%s` |\n" % (fieldRow["name"], fieldRow["type"])
+                if len(fieldRow["type"]) == 0:
+                    output = output + "| `%s` ||\n" % (fieldRow["name"])
+                else:
+                    output = output + "| `%s` | `%s` |\n" % (fieldRow["name"], fieldRow["type"])
         else:
             output = output + "| Name | Datatype | Description |\n"
             output = output + "|:-----|:---------|:------------|\n"

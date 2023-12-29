@@ -29,12 +29,12 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 | Name | Datatype |
 |:-----|:---------|
-| `build_dependencies` | `` |
-| `dependencies` | `` |
+| `build_dependencies` ||
+| `dependencies` ||
 | `formula_name` | `text` |
-| `head_dependencies` | `` |
-| `optional_dependencies` | `` |
-| `recommended_dependencies` | `` |
-| `test_dependencies` | `` |
+| `head_dependencies` ||
+| `optional_dependencies` ||
+| `recommended_dependencies` ||
+| `test_dependencies` ||
 ## Methods
 No methods available for the resource

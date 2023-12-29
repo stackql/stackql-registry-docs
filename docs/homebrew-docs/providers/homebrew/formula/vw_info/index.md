@@ -35,7 +35,7 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 | `full_name` | `text` |
 | `generated_date` | `text` |
 | `homepage` | `text` |
-| `latest_version` | `` |
+| `latest_version` ||
 | `license` | `text` |
 ## Methods
 No methods available for the resource

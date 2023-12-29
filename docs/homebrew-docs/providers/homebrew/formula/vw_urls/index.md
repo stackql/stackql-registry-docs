@@ -30,14 +30,14 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 | Name | Datatype |
 |:-----|:---------|
 | `formula_name` | `text` |
-| `head_branch` | `` |
-| `head_url` | `` |
-| `head_using` | `` |
+| `head_branch` ||
+| `head_url` ||
+| `head_using` ||
 | `homepage` | `text` |
-| `stable_checksum` | `` |
-| `stable_revision` | `` |
-| `stable_tag` | `` |
-| `stable_url` | `` |
-| `stable_using` | `` |
+| `stable_checksum` ||
+| `stable_revision` ||
+| `stable_tag` ||
+| `stable_url` ||
+| `stable_using` ||
 ## Methods
 No methods available for the resource
