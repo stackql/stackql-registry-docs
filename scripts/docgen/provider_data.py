@@ -211,6 +211,11 @@ provider_data = {
       'description': 'Incident management platform for real-time operations and response workflows.',
       'image': '/img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png'
   },
+  'datadog': {
+      'meta_description': 'Query, monitor, and manage Datadog resources using SQL',
+      'description': 'Monitoring, alerting and reporting platform for cloud platforms and applications.',
+      'image': '/img/providers/datadog/stackql-datadog-provider-featured-image.png'
+  },
   'homebrew': {
       'meta_description': 'Query and report on Homebrew packages using SQL',
       'description': 'Open-source package manager for macOS and Linux.',
@@ -389,6 +394,24 @@ stackql shell --auth="${AUTH}"
 """,
   'windows': """
 $Auth = "{ 'pagerduty': { 'type': 'bearer', 'credentialsenvvar': 'YOUR_PAGERDUTY_API_TOKEN_VAR' }}"
+stackql.exe shell --auth=$Auth
+""",
+},
+# 
+# Datadog
+#
+'datadog': {
+  'custom': False,
+  'variables': """
+- `DD_API_KEY` - Datadog API key (see [Datadog API Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys))
+- `DD_APP_KEY` - Datadog Application Key (see [Datadog Application Key Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#application-keys))
+  """,
+  'linux': """
+AUTH='{ "datadog": { "type": "custom", "location": "header", "name": "DD-API-KEY", "credentialsenvvar": "YOUR_DD_API_KEY_VAR", "successor": { "type": "custom", "location": "header", "name": "DD-APPLICATION-KEY", "credentialsenvvar": "YOUR_DD_APP_KEY_VAR" }}}'
+stackql shell --auth="${AUTH}"
+""",
+  'windows': """
+$Auth = "{ 'datadog': { 'type': 'custom', 'location': 'header', 'name': 'DD-API-KEY', 'credentialsenvvar': 'YOUR_DD_API_KEY_VAR', 'successor': { 'type': 'custom', 'location': 'header', 'name': 'DD-APPLICATION-KEY', 'credentialsenvvar': 'YOUR_DD_APP_KEY_VAR' }}}"
 stackql.exe shell --auth=$Auth
 """,
 },
