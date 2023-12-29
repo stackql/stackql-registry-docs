@@ -16,9 +16,9 @@ export const providers = [
     {name: 'firebase', description: 'Mobile and web application development platform.', title: 'Firebase'},
     {name: 'k8s', description: 'Open source container management platform.', title: 'Kubernetes'},
     {name: 'vercel', description: 'Cloud platform for serverless deployment and hosting of web applications.', title: 'Vercel'},
-    {name: 'godaddy', description: 'Domain name registrations and hosting services.', title: 'Godaddy'},
     {name: 'pagerduty', description: 'Incident management platform for real-time operations and response workflows.', title: 'PagerDuty'},  
     {name: 'datadog', description: 'Monitoring, alerting and reporting platform for cloud platforms and applications.', title: 'Datadog'},  
+    {name: 'godaddy', description: 'Domain name registrations and hosting services.', title: 'Godaddy'},
     {name: 'homebrew', description: 'Open-source package manager for macOS and Linux.', title: 'Homebrew'},    
 ]
 

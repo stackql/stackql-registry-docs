@@ -23,6 +23,7 @@ const allProviders = [
     'vercel', 
     'godaddy',
     'pagerduty',
+    'datadog',
     'homebrew',
     rootName];
        

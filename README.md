@@ -24,6 +24,7 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Godaddy | [![Netlify Status](https://api.netlify.com/api/v1/badges/8232458e-8e4f-47f2-81bf-bd4aad8b25d6/deploy-status)](https://app.netlify.com/sites/stackql-godaddy-docs/deploys) | [godaddy-docs.stackql.io](https://godaddy-docs.stackql.io)<br/>[godaddy.stackql.io](https://godaddy.stackql.io) |
 | Netlify Deploy PagerDuty | [![Netlify Status](https://api.netlify.com/api/v1/badges/76c8752a-32d8-48e2-81ad-29b9e8f53edd/deploy-status)](https://app.netlify.com/sites/stackql-pagerduty-docs/deploys) | [pagerduty-docs.stackql.io](https://pagerduty-docs.stackql.io)<br/>[pagerduty.stackql.io](https://pagerduty.stackql.io) |
 | Netlify Deploy Homebrew | [![Netlify Status](https://api.netlify.com/api/v1/badges/2343d34d-5061-4d83-98e6-475fb2150c94/deploy-status)](https://app.netlify.com/sites/stackql-homebrew-docs/deploys) | [homebrew-docs.stackql.io](https://homebrew-docs.stackql.io)<br/>[homebrew.stackql.io](https://homebrew.stackql.io) |
+| Netlify Deploy Datadog | [![Netlify Status](https://api.netlify.com/api/v1/badges/9e76122d-09bd-4938-a50f-3b4196e94f0c/deploy-status)](https://app.netlify.com/sites/stackql-datadog-docs/deploys) | [datadog-docs.stackql.io](https://datadog-docs.stackql.io)<br/>[datadog.stackql.io](https://datadog.stackql.io) |
 
 
 ## Adding Docs for a New Provider
