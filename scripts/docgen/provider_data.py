@@ -398,8 +398,8 @@ stackql.exe shell --auth=$Auth
 'homebrew': {
   'custom': True,
   'custom_markdown': """
-> The `homebrew` provider for StackQL supports `SELECT` methods only and does not require any environment variables to be set for authentication.
-  """
+> The `homebrew` provider for StackQL supports `SELECT` methods only and does not require any environment variables to be set for authentication.  
+"""
 },
 # 
 # Google

@@ -134,62 +134,62 @@ for serviceIx, serviceRow in services.iterrows():
             except:
                   break
 
-      print("resourceName: %s" % resourceName)
+            print("resourceName: %s" % resourceName)
         
-      # create resource dir
-      this_resource_dir = "%s/%s" % (this_service_dir, resourceName)
-      create_dir(this_resource_dir)
+            # create resource dir
+            this_resource_dir = "%s/%s" % (this_service_dir, resourceName)
+            create_dir(this_resource_dir)
 
-      # create resource doc
-      resource_doc = generate_front_matter(resourceName, 
-                              provider_data[provider]['meta_description'],
-                              resourceRow["description"],
-                              provider_data[provider]['image'],
-                              serviceName,
-                              provider
-                              )
-      resource_doc = resource_doc + generate_resource_overview(provider, serviceName, resourceRow)
+            # create resource doc
+            resource_doc = generate_front_matter(resourceName, 
+                                    provider_data[provider]['meta_description'],
+                                    resourceRow["description"],
+                                    provider_data[provider]['image'],
+                                    serviceName,
+                                    provider
+                                    )
+            resource_doc = resource_doc + generate_resource_overview(provider, serviceName, resourceRow)
 
-      # get methods
-      iql_query = "SHOW EXTENDED METHODS IN %s.%s.%s" % (provider, serviceName, resourceName)
-      methods = run_query(iql_query)
-      if methods is None:
-            # methods can be None if the resource is a view
-            iql_query = "DESCRIBE EXTENDED %s.%s.%s" % (provider, serviceName, resourceName)
-            fields = run_query(iql_query)
-            if fields is not None:
-                  resource_doc = resource_doc + generate_fields_table(fields, True)
-                  total_service_methods = total_service_methods + 1
-                  total_provider_methods = total_provider_methods + 1
-                  total_service_selectable_resources = total_service_selectable_resources + 1
-                  total_provider_selectable_resources = total_provider_selectable_resources + 1
-            else:
-                  print("ERROR [no methods found for %s.%s.%s] and not a view" % (provider, serviceName, resourceName))
-                  sys.exit(1)
-      else:
-            # there are methods, accumulate and inspect
-            total_service_methods = total_service_methods + len(methods)
-            total_provider_methods = total_provider_methods + len(methods)
-
-            if len(methods.query("SQLVerb == 'SELECT'")) > 0:
-                  # get fields for SELECT methods
+            # get methods
+            iql_query = "SHOW EXTENDED METHODS IN %s.%s.%s" % (provider, serviceName, resourceName)
+            methods = run_query(iql_query)
+            if methods is None:
+                  # methods can be None if the resource is a view
                   iql_query = "DESCRIBE EXTENDED %s.%s.%s" % (provider, serviceName, resourceName)
                   fields = run_query(iql_query)
                   if fields is not None:
-                        resource_doc = resource_doc + generate_fields_table(fields)
+                        resource_doc = resource_doc + generate_fields_table(fields, True)
+                        total_service_methods = total_service_methods + 1
+                        total_provider_methods = total_provider_methods + 1
                         total_service_selectable_resources = total_service_selectable_resources + 1
                         total_provider_selectable_resources = total_provider_selectable_resources + 1
                   else:
-                        print("ERROR [no fields found for %s.%s.%s]" % (provider, serviceName, resourceName))
+                        print("ERROR [no methods found for %s.%s.%s] and not a view" % (provider, serviceName, resourceName))
                         sys.exit(1)
             else:
-                  # resource with no selectable methods
-                  resource_doc = resource_doc + generate_select_not_supported()
+                  # there are methods, accumulate and inspect
+                  total_service_methods = total_service_methods + len(methods)
+                  total_provider_methods = total_provider_methods + len(methods)
+
+                  if len(methods.query("SQLVerb == 'SELECT'")) > 0:
+                        # get fields for SELECT methods
+                        iql_query = "DESCRIBE EXTENDED %s.%s.%s" % (provider, serviceName, resourceName)
+                        fields = run_query(iql_query)
+                        if fields is not None:
+                              resource_doc = resource_doc + generate_fields_table(fields)
+                              total_service_selectable_resources = total_service_selectable_resources + 1
+                              total_provider_selectable_resources = total_provider_selectable_resources + 1
+                        else:
+                              print("ERROR [no fields found for %s.%s.%s]" % (provider, serviceName, resourceName))
+                              sys.exit(1)
+                  else:
+                        # resource with no selectable methods
+                        resource_doc = resource_doc + generate_select_not_supported()
 
             resource_doc = resource_doc + generate_methods_table(methods)
 
-      # write resource doc
-      write_file("%s/index.md" % (this_resource_dir), resource_doc)
+            # write resource doc
+            write_file("%s/index.md" % (this_resource_dir), resource_doc)
 
       # create service doc
       service_doc = generate_front_matter(serviceName, 

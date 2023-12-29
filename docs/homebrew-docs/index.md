@@ -22,11 +22,11 @@ Open-source package manager for macOS and Linux.
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>1</b></span><br />
-<span>total methods:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>9</b></span><br />
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>9</b></span><br />
-<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
@@ -48,8 +48,8 @@ REGISTRY PULL homebrew;
 ## Authentication
 
 
-> The `homebrew` provider for StackQL supports `SELECT` methods only and does not require any environment variables to be set for authentication.
-  
+> The `homebrew` provider for StackQL supports `SELECT` methods only and does not require any environment variables to be set for authentication.  
+
 ## Services
 <div class="row">
 <div class="providerDocColumn">
