@@ -1,9 +1,9 @@
 ---
-title: vw_versions
+title: vw_info
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - vw_versions
+  - vw_info
   - formula
   - homebrew    
   - stackql
@@ -19,18 +19,22 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>vw_versions</code></td></tr>
+<tr><td><b>Name</b></td><td><code>vw_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>homebrew.formula.vw_versions</code></td></tr>
+<tr><td><b>Id</b></td><td><code>homebrew.formula.vw_info</code></td></tr>
 </tbody></table>
 
 ## Fields
 > This resource is a view, see the provider spec in the [stackql-provider-registry](https://github.com/stackql/stackql-provider-registry) for the view definition  
 | Name | Datatype |
 |:-----|:---------|
-| `bottle_available` | `` |
+| `deprecated` | `boolean` |
+| `disabled` | `boolean` |
 | `formula_name` | `text` |
-| `head_version` | `` |
-| `stable_version` | `` |
+| `full_name` | `text` |
+| `generated_date` | `text` |
+| `homepage` | `text` |
+| `latest_version` | `` |
+| `license` | `text` |
 ## Methods
 No methods available for the resource

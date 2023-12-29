@@ -20,8 +20,8 @@ API For Accessing Homebrew Formulae Information.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>9</b></span><br />
-<span>total selectable resources:&nbsp;<b>1</b></span><br />
-<span>total methods:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
