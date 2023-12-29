@@ -28,7 +28,8 @@ const providers = [
   {name: 'firebase'}, 
   {name: 'k8s'},
   {name: 'vercel'}, 
-  {name: 'pagerduty'}, 
+  {name: 'pagerduty'},
+  {name: 'datadog'},
   {name: 'godaddy'},
   {name: 'homebrew'},     
 ]
