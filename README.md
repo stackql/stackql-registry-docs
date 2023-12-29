@@ -23,6 +23,7 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Vercel | [![Netlify Status](https://api.netlify.com/api/v1/badges/91cc31b7-0c25-443f-bb2f-71921ef7084e/deploy-status)](https://app.netlify.com/sites/stackql-vercel-docs/deploys) | [vercel-docs.stackql.io](https://vercel-docs.stackql.io)<br/>[vercel.stackql.io](https://vercel.stackql.io) |
 | Netlify Deploy Godaddy | [![Netlify Status](https://api.netlify.com/api/v1/badges/8232458e-8e4f-47f2-81bf-bd4aad8b25d6/deploy-status)](https://app.netlify.com/sites/stackql-godaddy-docs/deploys) | [godaddy-docs.stackql.io](https://godaddy-docs.stackql.io)<br/>[godaddy.stackql.io](https://godaddy.stackql.io) |
 | Netlify Deploy PagerDuty | [![Netlify Status](https://api.netlify.com/api/v1/badges/76c8752a-32d8-48e2-81ad-29b9e8f53edd/deploy-status)](https://app.netlify.com/sites/stackql-pagerduty-docs/deploys) | [pagerduty-docs.stackql.io](https://pagerduty-docs.stackql.io)<br/>[pagerduty.stackql.io](https://pagerduty.stackql.io) |
+| Netlify Deploy Homebrew | [![Netlify Status](https://api.netlify.com/api/v1/badges/2343d34d-5061-4d83-98e6-475fb2150c94/deploy-status)](https://app.netlify.com/sites/stackql-homebrew-docs/deploys) | [homebrew-docs.stackql.io](https://homebrew-docs.stackql.io)<br/>[homebrew.stackql.io](https://homebrew.stackql.io) |
 
 
 ## Adding Docs for a New Provider

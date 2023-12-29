@@ -23,6 +23,7 @@ const allProviders = [
     'vercel', 
     'godaddy',
     'pagerduty',
+    'homebrew',
     rootName];
        
 const appendToOutput = (providers) => {
