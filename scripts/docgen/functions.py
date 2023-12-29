@@ -237,10 +237,13 @@ def generate_select_not_supported():
     output = output + "`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  \n"
     return output
 
-def generate_fields_table(fields, is_view=False):
+def generate_fields_table(provider, serviceName, resourceName, fields, is_view=False):
+
+    view_source_url = "https://github.com/stackql/stackql-provider-registry/blob/dev/providers/src/%s/v00.00.00000/services/%s.yaml" % (provider, serviceName)
+
     output = "## Fields\n"
     if is_view:
-        output = output + "> This resource is a view, see the provider spec in the [stackql-provider-registry](https://github.com/stackql/stackql-provider-registry) for the view definition  \n"
+        output = output + "> This resource is a view. For the view definition, please refer to the provider spec in the [stackql-provider-registry](%s), located under `components -> x-stackQL-resources -> %s`.\n\n" % (view_source_url, resourceName)
     if fields.shape[0] > 1:
         if (fields["description"] == fields["description"][0]).all():
             output = output + "| Name | Datatype |\n"

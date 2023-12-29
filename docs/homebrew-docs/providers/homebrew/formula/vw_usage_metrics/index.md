@@ -25,7 +25,8 @@ image: /img/providers/homebrew/stackql-homebrew-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-> This resource is a view, see the provider spec in the [stackql-provider-registry](https://github.com/stackql/stackql-provider-registry) for the view definition  
+> This resource is a view. For the view definition, please refer to the provider spec in the [stackql-provider-registry](https://github.com/stackql/stackql-provider-registry/blob/dev/providers/src/homebrew/v00.00.00000/services/formula.yaml), located under `components -> x-stackQL-resources -> vw_usage_metrics`.
+
 | Name | Datatype |
 |:-----|:---------|
 | `formula_name` | `text` |
