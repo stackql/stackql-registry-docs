@@ -18,6 +18,7 @@ export const providers = [
     {name: 'vercel', description: 'Cloud platform for serverless deployment and hosting of web applications.', title: 'Vercel'},
     {name: 'godaddy', description: 'Domain name registrations and hosting services.', title: 'Godaddy'},
     {name: 'pagerduty', description: 'Incident management platform for real-time operations and response workflows.', title: 'PagerDuty'},    
+    {name: 'homebrew', description: 'Open-source package manager for macOS and Linux.', title: 'Homebrew'},    
 ]
 
 export const getProviderSiteUrl = (name: string) =>{

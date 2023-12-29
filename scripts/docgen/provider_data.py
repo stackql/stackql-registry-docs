@@ -211,6 +211,11 @@ provider_data = {
       'description': 'Incident management platform for real-time operations and response workflows.',
       'image': '/img/providers/pagerduty/stackql-pagerduty-provider-featured-image.png'
   },
+  'homebrew': {
+      'meta_description': 'Query and report on Homebrew packages using SQL',
+      'description': 'Open-source package manager for macOS and Linux.',
+      'image': '/img/providers/homebrew/stackql-homebrew-provider-featured-image.png'
+  },
 }
 
 auth_blocks = {
@@ -386,6 +391,15 @@ stackql shell --auth="${AUTH}"
 $Auth = "{ 'pagerduty': { 'type': 'bearer', 'credentialsenvvar': 'YOUR_PAGERDUTY_API_TOKEN_VAR' }}"
 stackql.exe shell --auth=$Auth
 """,
+},
+# 
+# Homebrew
+#
+'homebrew': {
+  'custom': True,
+  'custom_markdown': """
+> The `homebrew` provider for StackQL supports `SELECT` methods only and does not require any environment variables to be set for authentication.
+  """
 },
 # 
 # Google

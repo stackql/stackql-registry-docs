@@ -29,7 +29,8 @@ const providers = [
   {name: 'k8s'},
   {name: 'vercel'}, 
   {name: 'pagerduty'}, 
-  {name: 'godaddy'},   
+  {name: 'godaddy'},
+  {name: 'homebrew'},     
 ]
 
 const getProviderSiteUrl = (name) =>{
