@@ -158,7 +158,7 @@ for serviceIx, serviceRow in services.iterrows():
                   iql_query = "DESCRIBE EXTENDED %s.%s.%s" % (provider, serviceName, resourceName)
                   fields = run_query(iql_query)
                   if fields is not None:
-                        resource_doc = resource_doc + generate_fields_table(fields, True)
+                        resource_doc = resource_doc + generate_fields_table(provider, serviceName, resourceName, fields, True)
                         total_service_methods = total_service_methods + 1
                         total_provider_methods = total_provider_methods + 1
                         total_service_selectable_resources = total_service_selectable_resources + 1
@@ -176,7 +176,7 @@ for serviceIx, serviceRow in services.iterrows():
                         iql_query = "DESCRIBE EXTENDED %s.%s.%s" % (provider, serviceName, resourceName)
                         fields = run_query(iql_query)
                         if fields is not None:
-                              resource_doc = resource_doc + generate_fields_table(fields)
+                              resource_doc = resource_doc + generate_fields_table(provider, serviceName, resourceName, fields)
                               total_service_selectable_resources = total_service_selectable_resources + 1
                               total_provider_selectable_resources = total_provider_selectable_resources + 1
                         else:
