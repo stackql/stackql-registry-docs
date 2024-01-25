@@ -29,17 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Parameters for VpnSite. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VpnSites_Get` | `SELECT` | `resourceGroupName, subscriptionId, vpnSiteName` | Retrieves the details of a VPN site. |
-| `VpnSites_List` | `SELECT` | `subscriptionId` | Lists all the VpnSites in a subscription. |
-| `VpnSites_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the vpnSites in a resource group. |
-| `VpnSites_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, vpnSiteName, data__location` | Creates a VpnSite resource if it doesn't exist else updates the existing VpnSite. |
-| `VpnSites_Delete` | `DELETE` | `resourceGroupName, subscriptionId, vpnSiteName` | Deletes a VpnSite. |
-| `VpnSites_UpdateTags` | `EXEC` | `resourceGroupName, subscriptionId, vpnSiteName` | Updates VpnSite tags. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, vpnSiteName` | Retrieves the details of a VPN site. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the VpnSites in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the vpnSites in a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, vpnSiteName, data__location` | Creates a VpnSite resource if it doesn't exist else updates the existing VpnSite. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, vpnSiteName` | Deletes a VpnSite. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the VpnSites in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the vpnSites in a resource group. |

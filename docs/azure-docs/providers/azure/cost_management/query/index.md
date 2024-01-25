@@ -29,5 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Query_Usage` | `EXEC` | `scope, data__dataset, data__timeframe, data__type` | Query the usage data for scope defined. |
-| `Query_UsageByExternalCloudProviderType` | `EXEC` | `externalCloudProviderId, externalCloudProviderType, data__dataset, data__timeframe, data__type` | Query the usage data for external cloud provider type defined. |
+| `usage` | `EXEC` | `scope, data__dataset, data__timeframe, data__type` | Query the usage data for scope defined. |
+| `usage_by_external_cloud_provider_type` | `EXEC` | `externalCloudProviderId, externalCloudProviderType, data__dataset, data__timeframe, data__type` | Query the usage data for external cloud provider type defined. |

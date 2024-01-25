@@ -27,14 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
 | `location` | `string` | API Management Service Master Location. |
 | `properties` | `object` |  |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DeletedServices_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all soft-deleted services available for undelete for the given subscription. |
-| `DeletedServices_GetByName` | `EXEC` | `location, serviceName, subscriptionId` | Get soft-deleted Api Management Service by name. |
-| `DeletedServices_Purge` | `EXEC` | `location, serviceName, subscriptionId` | Purges Api Management Service (deletes it with no option to undelete). |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all soft-deleted services available for undelete for the given subscription. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all soft-deleted services available for undelete for the given subscription. |
+| `get_by_name` | `EXEC` | `location, serviceName, subscriptionId` | Get soft-deleted Api Management Service by name. |
+| `purge` | `EXEC` | `location, serviceName, subscriptionId` | Purges Api Management Service (deletes it with no option to undelete). |

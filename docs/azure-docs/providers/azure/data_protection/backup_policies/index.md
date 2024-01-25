@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BackupPolicies_Get` | `SELECT` | `api-version, backupPolicyName, resourceGroupName, subscriptionId, vaultName` | Gets a backup policy belonging to a backup vault |
-| `BackupPolicies_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` | Returns list of backup policies belonging to a backup vault |
-| `BackupPolicies_CreateOrUpdate` | `INSERT` | `api-version, backupPolicyName, resourceGroupName, subscriptionId, vaultName` |  |
-| `BackupPolicies_Delete` | `DELETE` | `api-version, backupPolicyName, resourceGroupName, subscriptionId, vaultName` |  |
+| `get` | `SELECT` | `backupPolicyName, resourceGroupName, subscriptionId, vaultName` | Gets a backup policy belonging to a backup vault |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` | Returns list of backup policies belonging to a backup vault |
+| `create_or_update` | `INSERT` | `backupPolicyName, resourceGroupName, subscriptionId, vaultName` |  |
+| `delete` | `DELETE` | `backupPolicyName, resourceGroupName, subscriptionId, vaultName` |  |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` | Returns list of backup policies belonging to a backup vault |

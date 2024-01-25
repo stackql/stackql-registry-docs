@@ -29,11 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The access review instance id. |
 | `name` | `string` | The access review instance name. |
-| `type` | `string` | The resource type. |
 | `properties` | `object` | Access Review Instance properties. |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AccessReviewInstances_List` | `SELECT` | `scheduleDefinitionId, subscriptionId` | Get access review instances |
-| `AccessReviewInstances_Create` | `INSERT` | `id, scheduleDefinitionId, subscriptionId` | Update access review instance. |
-| `AccessReviewInstances_GetById` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | Get access review instances |
+| `list` | `SELECT` | `scheduleDefinitionId, subscriptionId` | Get access review instances |
+| `create` | `INSERT` | `id, scheduleDefinitionId, subscriptionId` | Update access review instance. |
+| `_list` | `EXEC` | `scheduleDefinitionId, subscriptionId` | Get access review instances |
+| `get_by_id` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | Get access review instances |

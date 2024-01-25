@@ -34,5 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AvailableServiceAliases_List` | `SELECT` | `location, subscriptionId` | Gets all available service aliases for this subscription in this region. |
-| `AvailableServiceAliases_ListByResourceGroup` | `SELECT` | `location, resourceGroupName, subscriptionId` | Gets all available service aliases for this resource group in this region. |
+| `list` | `SELECT` | `location, subscriptionId` | Gets all available service aliases for this subscription in this region. |
+| `list_by_resource_group` | `SELECT` | `location, resourceGroupName, subscriptionId` | Gets all available service aliases for this resource group in this region. |
+| `_list` | `EXEC` | `location, subscriptionId` | Gets all available service aliases for this subscription in this region. |
+| `_list_by_resource_group` | `EXEC` | `location, resourceGroupName, subscriptionId` | Gets all available service aliases for this resource group in this region. |

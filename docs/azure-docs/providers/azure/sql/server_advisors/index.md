@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties for a Database, Server or Elastic Pool Advisor. |
 | `kind` | `string` | Resource kind. |
 | `location` | `string` | Resource location. |
+| `properties` | `object` | Properties for a Database, Server or Elastic Pool Advisor. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerAdvisors_Get` | `SELECT` | `advisorName, resourceGroupName, serverName, subscriptionId` | Gets a server advisor. |
-| `ServerAdvisors_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server advisors. |
-| `ServerAdvisors_Update` | `EXEC` | `advisorName, resourceGroupName, serverName, subscriptionId` | Updates a server advisor. |
+| `get` | `SELECT` | `advisorName, resourceGroupName, serverName, subscriptionId` | Gets a server advisor. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server advisors. |
+| `update` | `EXEC` | `advisorName, resourceGroupName, serverName, subscriptionId` | Updates a server advisor. |

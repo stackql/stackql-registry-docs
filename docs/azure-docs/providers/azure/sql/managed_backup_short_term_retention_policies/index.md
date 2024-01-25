@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedBackupShortTermRetentionPolicies_Get` | `SELECT` | `databaseName, managedInstanceName, policyName, resourceGroupName, subscriptionId` | Gets a managed database's short term retention policy. |
-| `ManagedBackupShortTermRetentionPolicies_ListByDatabase` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed database's short term retention policy list. |
-| `ManagedBackupShortTermRetentionPolicies_CreateOrUpdate` | `INSERT` | `databaseName, managedInstanceName, policyName, resourceGroupName, subscriptionId` | Updates a managed database's short term retention policy. |
-| `ManagedBackupShortTermRetentionPolicies_Update` | `EXEC` | `databaseName, managedInstanceName, policyName, resourceGroupName, subscriptionId` | Updates a managed database's short term retention policy. |
+| `get` | `SELECT` | `databaseName, managedInstanceName, policyName, resourceGroupName, subscriptionId` | Gets a managed database's short term retention policy. |
+| `list_by_database` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed database's short term retention policy list. |
+| `create_or_update` | `INSERT` | `databaseName, managedInstanceName, policyName, resourceGroupName, subscriptionId` | Updates a managed database's short term retention policy. |
+| `_list_by_database` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed database's short term retention policy list. |
+| `update` | `EXEC` | `databaseName, managedInstanceName, policyName, resourceGroupName, subscriptionId` | Updates a managed database's short term retention policy. |

@@ -34,6 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagementPolicies_Get` | `SELECT` | `accountName, managementPolicyName, resourceGroupName, subscriptionId` | Gets the managementpolicy associated with the specified storage account. |
-| `ManagementPolicies_CreateOrUpdate` | `INSERT` | `accountName, managementPolicyName, resourceGroupName, subscriptionId` | Sets the managementpolicy to the specified storage account. |
-| `ManagementPolicies_Delete` | `DELETE` | `accountName, managementPolicyName, resourceGroupName, subscriptionId` | Deletes the managementpolicy associated with the specified storage account. |
+| `get` | `SELECT` | `accountName, managementPolicyName, resourceGroupName, subscriptionId` | Gets the managementpolicy associated with the specified storage account. |
+| `create_or_update` | `INSERT` | `accountName, managementPolicyName, resourceGroupName, subscriptionId` | Sets the managementpolicy to the specified storage account. |
+| `delete` | `DELETE` | `accountName, managementPolicyName, resourceGroupName, subscriptionId` | Deletes the managementpolicy associated with the specified storage account. |

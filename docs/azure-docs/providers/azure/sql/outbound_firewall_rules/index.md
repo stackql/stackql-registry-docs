@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `OutboundFirewallRules_Get` | `SELECT` | `outboundRuleFqdn, resourceGroupName, serverName, subscriptionId` | Gets an outbound firewall rule. |
-| `OutboundFirewallRules_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets all outbound firewall rules on a server. |
-| `OutboundFirewallRules_CreateOrUpdate` | `INSERT` | `outboundRuleFqdn, resourceGroupName, serverName, subscriptionId` | Create a outbound firewall rule with a given name. |
-| `OutboundFirewallRules_Delete` | `DELETE` | `outboundRuleFqdn, resourceGroupName, serverName, subscriptionId` | Deletes a outbound firewall rule with a given name. |
+| `get` | `SELECT` | `outboundRuleFqdn, resourceGroupName, serverName, subscriptionId` | Gets an outbound firewall rule. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets all outbound firewall rules on a server. |
+| `create_or_update` | `INSERT` | `outboundRuleFqdn, resourceGroupName, serverName, subscriptionId` | Create a outbound firewall rule with a given name. |
+| `delete` | `DELETE` | `outboundRuleFqdn, resourceGroupName, serverName, subscriptionId` | Deletes a outbound firewall rule with a given name. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets all outbound firewall rules on a server. |

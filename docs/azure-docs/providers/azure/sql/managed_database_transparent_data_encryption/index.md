@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedDatabaseTransparentDataEncryption_Get` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, tdeName` | Gets a managed database's transparent data encryption. |
-| `ManagedDatabaseTransparentDataEncryption_ListByDatabase` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed database's transparent data encryptions. |
-| `ManagedDatabaseTransparentDataEncryption_CreateOrUpdate` | `INSERT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, tdeName` | Updates a database's transparent data encryption configuration. |
+| `get` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, tdeName` | Gets a managed database's transparent data encryption. |
+| `list_by_database` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed database's transparent data encryptions. |
+| `create_or_update` | `INSERT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, tdeName` | Updates a database's transparent data encryption configuration. |
+| `_list_by_database` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed database's transparent data encryptions. |

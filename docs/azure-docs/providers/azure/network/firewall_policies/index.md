@@ -29,18 +29,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `identity` | `object` | Identity for the resource. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Firewall Policy definition. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FirewallPolicies_Get` | `SELECT` | `firewallPolicyName, resourceGroupName, subscriptionId` | Gets the specified Firewall Policy. |
-| `FirewallPolicies_List` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Firewall Policies in a resource group. |
-| `FirewallPolicies_ListAll` | `SELECT` | `subscriptionId` | Gets all the Firewall Policies in a subscription. |
-| `FirewallPolicies_CreateOrUpdate` | `INSERT` | `firewallPolicyName, resourceGroupName, subscriptionId` | Creates or updates the specified Firewall Policy. |
-| `FirewallPolicies_Delete` | `DELETE` | `firewallPolicyName, resourceGroupName, subscriptionId` | Deletes the specified Firewall Policy. |
-| `FirewallPolicies_UpdateTags` | `EXEC` | `firewallPolicyName, resourceGroupName, subscriptionId` | Updates tags of a Azure Firewall Policy resource. |
+| `get` | `SELECT` | `firewallPolicyName, resourceGroupName, subscriptionId` | Gets the specified Firewall Policy. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Firewall Policies in a resource group. |
+| `create_or_update` | `INSERT` | `firewallPolicyName, resourceGroupName, subscriptionId` | Creates or updates the specified Firewall Policy. |
+| `delete` | `DELETE` | `firewallPolicyName, resourceGroupName, subscriptionId` | Deletes the specified Firewall Policy. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all Firewall Policies in a resource group. |

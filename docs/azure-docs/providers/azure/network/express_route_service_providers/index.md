@@ -36,4 +36,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ExpressRouteServiceProviders_List` | `SELECT` | `subscriptionId` |
+| `list` | `SELECT` | `subscriptionId` |
+| `_list` | `EXEC` | `subscriptionId` |

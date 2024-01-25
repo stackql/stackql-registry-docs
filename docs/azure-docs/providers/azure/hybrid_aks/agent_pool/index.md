@@ -27,19 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource Name |
-| `properties` | `object` |  |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `extendedLocation` | `object` | Extended location pointing to the underlying infrastructure |
+| `properties` | `object` | Properties of the agent pool resource |
 | `tags` | `object` | Resource tags |
-| `type` | `string` | Resource Type |
-| `extendedLocation` | `object` |  |
-| `location` | `string` | The resource location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `agentPool_Get` | `SELECT` | `agentPoolName, provisionedClustersName, resourceGroupName, subscriptionId` | Gets the agent pool in the Hybrid AKS provisioned cluster |
-| `agentPool_ListByProvisionedCluster` | `SELECT` | `provisionedClustersName, resourceGroupName, subscriptionId` | Gets the agent pools in the Hybrid AKS provisioned cluster |
-| `agentPool_CreateOrUpdate` | `INSERT` | `agentPoolName, provisionedClustersName, resourceGroupName, subscriptionId` | Creates the agent pool in the Hybrid AKS provisioned cluster |
-| `agentPool_Delete` | `DELETE` | `agentPoolName, provisionedClustersName, resourceGroupName, subscriptionId` | Deletes the agent pool in the Hybrid AKS provisioned cluster |
-| `agentPool_Update` | `EXEC` | `agentPoolName, provisionedClustersName, resourceGroupName, subscriptionId` | Updates the agent pool in the Hybrid AKS provisioned cluster |
+| `get` | `SELECT` | `agentPoolName, connectedClusterResourceUri` | Gets the specified agent pool in the provisioned cluster |
+| `list_by_provisioned_cluster` | `SELECT` | `connectedClusterResourceUri` | Gets the list of agent pools in the specified provisioned cluster |
+| `create_or_update` | `INSERT` | `agentPoolName, connectedClusterResourceUri` | Creates or updates the agent pool in the provisioned cluster |
+| `delete` | `DELETE` | `agentPoolName, connectedClusterResourceUri` | Deletes the specified agent pool in the provisioned cluster |
+| `_list_by_provisioned_cluster` | `EXEC` | `connectedClusterResourceUri` | Gets the list of agent pools in the specified provisioned cluster |

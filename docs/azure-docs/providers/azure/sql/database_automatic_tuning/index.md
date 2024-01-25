@@ -28,5 +28,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DatabaseAutomaticTuning_Get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's automatic tuning. |
-| `DatabaseAutomaticTuning_Update` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Update automatic tuning properties for target database. |
+| `get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's automatic tuning. |
+| `update` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Update automatic tuning properties for target database. |

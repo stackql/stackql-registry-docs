@@ -32,7 +32,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SourceControlConfigurations_Get` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, sourceControlConfigurationName, subscriptionId` | Gets details of the Source Control Configuration. |
-| `SourceControlConfigurations_List` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List all Source Control Configurations. |
-| `SourceControlConfigurations_CreateOrUpdate` | `INSERT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, sourceControlConfigurationName, subscriptionId` | Create a new Kubernetes Source Control Configuration. |
-| `SourceControlConfigurations_Delete` | `DELETE` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, sourceControlConfigurationName, subscriptionId` | This will delete the YAML file used to set up the Source control configuration, thus stopping future sync from the source repo. |
+| `get` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, sourceControlConfigurationName, subscriptionId` | Gets details of the Source Control Configuration. |
+| `list` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List all Source Control Configurations. |
+| `create_or_update` | `INSERT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, sourceControlConfigurationName, subscriptionId` | Create a new Kubernetes Source Control Configuration. |
+| `delete` | `DELETE` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, sourceControlConfigurationName, subscriptionId` | This will delete the YAML file used to set up the Source control configuration, thus stopping future sync from the source repo. |
+| `_list` | `EXEC` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List all Source Control Configurations. |

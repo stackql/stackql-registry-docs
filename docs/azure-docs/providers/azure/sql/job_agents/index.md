@@ -27,15 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sku` | `object` | An ARM Resource SKU. |
-| `tags` | `object` | Resource tags. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties of a job agent. |
+| `sku` | `object` | An ARM Resource SKU. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `JobAgents_Get` | `SELECT` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a job agent. |
-| `JobAgents_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of job agents in a server. |
-| `JobAgents_CreateOrUpdate` | `INSERT` | `jobAgentName, resourceGroupName, serverName, subscriptionId, data__location` | Creates or updates a job agent. |
-| `JobAgents_Delete` | `DELETE` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Deletes a job agent. |
-| `JobAgents_Update` | `EXEC` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Updates a job agent. |
+| `get` | `SELECT` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a job agent. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of job agents in a server. |
+| `create_or_update` | `INSERT` | `jobAgentName, resourceGroupName, serverName, subscriptionId, data__location` | Creates or updates a job agent. |
+| `delete` | `DELETE` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Deletes a job agent. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of job agents in a server. |
+| `update` | `EXEC` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Updates a job agent. |

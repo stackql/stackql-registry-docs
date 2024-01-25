@@ -29,11 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified ID for the async operation. |
 | `name` | `string` | Name of the async operation. |
+| `endTime` | `string` | The end time of the operation. |
 | `error` | `object` | The error detail. |
-| `properties` | `object` | Additional information, if available. |
+| `operations` | `array` | The operations list. |
+| `percentComplete` | `number` | Percent of the operation that is complete. |
+| `startTime` | `string` | The start time of the operation. |
 | `status` | `string` | Operation status. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `OperationStatus_Get` | `SELECT` | `clusterName, clusterResourceName, clusterRp, extensionName, operationId, resourceGroupName, subscriptionId` | Get Async Operation status |
-| `OperationStatus_List` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List Async Operations, currently in progress, in a cluster |
+| `get` | `SELECT` | `clusterName, clusterResourceName, clusterRp, extensionName, operationId, resourceGroupName, subscriptionId` | Get Async Operation status |
+| `list` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List Async Operations, currently in progress, in a cluster |
+| `_list` | `EXEC` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List Async Operations, currently in progress, in a cluster |

@@ -29,5 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ScopeAccessReviewHistoryDefinition_Create` | `INSERT` | `historyDefinitionId, scope` | Create a scheduled or one-time Access Review History Definition |
-| `ScopeAccessReviewHistoryDefinition_DeleteById` | `DELETE` | `historyDefinitionId, scope` | Delete an access review history definition |
+| `create` | `INSERT` | `historyDefinitionId, scope` | Create a scheduled or one-time Access Review History Definition |
+| `delete_by_id` | `DELETE` | `historyDefinitionId, scope` | Delete an access review history definition |

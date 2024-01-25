@@ -33,8 +33,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ForwardingRules_Get` | `SELECT` | `dnsForwardingRulesetName, forwardingRuleName, resourceGroupName, subscriptionId` | Gets properties of a forwarding rule in a DNS forwarding ruleset. |
-| `ForwardingRules_List` | `SELECT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId` | Lists forwarding rules in a DNS forwarding ruleset. |
-| `ForwardingRules_CreateOrUpdate` | `INSERT` | `dnsForwardingRulesetName, forwardingRuleName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a forwarding rule in a DNS forwarding ruleset. |
-| `ForwardingRules_Delete` | `DELETE` | `dnsForwardingRulesetName, forwardingRuleName, resourceGroupName, subscriptionId` | Deletes a forwarding rule in a DNS forwarding ruleset. WARNING: This operation cannot be undone. |
-| `ForwardingRules_Update` | `EXEC` | `dnsForwardingRulesetName, forwardingRuleName, resourceGroupName, subscriptionId` | Updates a forwarding rule in a DNS forwarding ruleset. |
+| `get` | `SELECT` | `dnsForwardingRulesetName, forwardingRuleName, resourceGroupName, subscriptionId` | Gets properties of a forwarding rule in a DNS forwarding ruleset. |
+| `list` | `SELECT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId` | Lists forwarding rules in a DNS forwarding ruleset. |
+| `create_or_update` | `INSERT` | `dnsForwardingRulesetName, forwardingRuleName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a forwarding rule in a DNS forwarding ruleset. |
+| `delete` | `DELETE` | `dnsForwardingRulesetName, forwardingRuleName, resourceGroupName, subscriptionId` | Deletes a forwarding rule in a DNS forwarding ruleset. WARNING: This operation cannot be undone. |
+| `_list` | `EXEC` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId` | Lists forwarding rules in a DNS forwarding ruleset. |
+| `update` | `EXEC` | `dnsForwardingRulesetName, forwardingRuleName, resourceGroupName, subscriptionId` | Updates a forwarding rule in a DNS forwarding ruleset. |

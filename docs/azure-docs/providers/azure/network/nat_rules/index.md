@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Parameters for VpnGatewayNatRule. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `NatRules_Get` | `SELECT` | `gatewayName, natRuleName, resourceGroupName, subscriptionId` | Retrieves the details of a nat ruleGet. |
-| `NatRules_ListByVpnGateway` | `SELECT` | `gatewayName, resourceGroupName, subscriptionId` | Retrieves all nat rules for a particular virtual wan vpn gateway. |
-| `NatRules_CreateOrUpdate` | `INSERT` | `gatewayName, natRuleName, resourceGroupName, subscriptionId` | Creates a nat rule to a scalable vpn gateway if it doesn't exist else updates the existing nat rules. |
-| `NatRules_Delete` | `DELETE` | `gatewayName, natRuleName, resourceGroupName, subscriptionId` | Deletes a nat rule. |
+| `get` | `SELECT` | `gatewayName, natRuleName, resourceGroupName, subscriptionId` | Retrieves the details of a nat ruleGet. |
+| `list_by_vpn_gateway` | `SELECT` | `gatewayName, resourceGroupName, subscriptionId` | Retrieves all nat rules for a particular virtual wan vpn gateway. |
+| `create_or_update` | `INSERT` | `gatewayName, natRuleName, resourceGroupName, subscriptionId` | Creates a nat rule to a scalable vpn gateway if it doesn't exist else updates the existing nat rules. |
+| `delete` | `DELETE` | `gatewayName, natRuleName, resourceGroupName, subscriptionId` | Deletes a nat rule. |
+| `_list_by_vpn_gateway` | `EXEC` | `gatewayName, resourceGroupName, subscriptionId` | Retrieves all nat rules for a particular virtual wan vpn gateway. |

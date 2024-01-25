@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ScopeAccessReviewHistoryDefinitionInstance_GenerateDownloadUri` | `EXEC` | `historyDefinitionId, instanceId, scope` |
+| `generate_download_uri` | `EXEC` | `historyDefinitionId, instanceId, scope` |

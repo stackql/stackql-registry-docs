@@ -33,8 +33,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReferenceDataSets_Get` | `SELECT` | `environmentName, referenceDataSetName, resourceGroupName, subscriptionId` | Gets the reference data set with the specified name in the specified environment. |
-| `ReferenceDataSets_ListByEnvironment` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Lists all the available reference data sets associated with the subscription and within the specified resource group and environment. |
-| `ReferenceDataSets_CreateOrUpdate` | `INSERT` | `environmentName, referenceDataSetName, resourceGroupName, subscriptionId, data__properties` | Create or update a reference data set in the specified environment. |
-| `ReferenceDataSets_Delete` | `DELETE` | `environmentName, referenceDataSetName, resourceGroupName, subscriptionId` | Deletes the reference data set with the specified name in the specified subscription, resource group, and environment |
-| `ReferenceDataSets_Update` | `EXEC` | `environmentName, referenceDataSetName, resourceGroupName, subscriptionId` | Updates the reference data set with the specified name in the specified subscription, resource group, and environment. |
+| `get` | `SELECT` | `environmentName, referenceDataSetName, resourceGroupName, subscriptionId` | Gets the reference data set with the specified name in the specified environment. |
+| `list_by_environment` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Lists all the available reference data sets associated with the subscription and within the specified resource group and environment. |
+| `create_or_update` | `INSERT` | `environmentName, referenceDataSetName, resourceGroupName, subscriptionId, data__properties` | Create or update a reference data set in the specified environment. |
+| `delete` | `DELETE` | `environmentName, referenceDataSetName, resourceGroupName, subscriptionId` | Deletes the reference data set with the specified name in the specified subscription, resource group, and environment |
+| `_list_by_environment` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` | Lists all the available reference data sets associated with the subscription and within the specified resource group and environment. |
+| `update` | `EXEC` | `environmentName, referenceDataSetName, resourceGroupName, subscriptionId` | Updates the reference data set with the specified name in the specified subscription, resource group, and environment. |

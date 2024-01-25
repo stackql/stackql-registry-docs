@@ -36,8 +36,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualMachineScaleSetVMRunCommands_Get` | `SELECT` | `instanceId, resourceGroupName, runCommandName, subscriptionId, vmScaleSetName` | The operation to get the VMSS VM run command. |
-| `VirtualMachineScaleSetVMRunCommands_List` | `SELECT` | `instanceId, resourceGroupName, subscriptionId, vmScaleSetName` | The operation to get all run commands of an instance in Virtual Machine Scaleset. |
-| `VirtualMachineScaleSetVMRunCommands_CreateOrUpdate` | `INSERT` | `instanceId, resourceGroupName, runCommandName, subscriptionId, vmScaleSetName` | The operation to create or update the VMSS VM run command. |
-| `VirtualMachineScaleSetVMRunCommands_Delete` | `DELETE` | `instanceId, resourceGroupName, runCommandName, subscriptionId, vmScaleSetName` | The operation to delete the VMSS VM run command. |
-| `VirtualMachineScaleSetVMRunCommands_Update` | `EXEC` | `instanceId, resourceGroupName, runCommandName, subscriptionId, vmScaleSetName` | The operation to update the VMSS VM run command. |
+| `get` | `SELECT` | `instanceId, resourceGroupName, runCommandName, subscriptionId, vmScaleSetName` | The operation to get the VMSS VM run command. |
+| `list` | `SELECT` | `instanceId, resourceGroupName, subscriptionId, vmScaleSetName` | The operation to get all run commands of an instance in Virtual Machine Scaleset. |
+| `create_or_update` | `INSERT` | `instanceId, resourceGroupName, runCommandName, subscriptionId, vmScaleSetName` | The operation to create or update the VMSS VM run command. |
+| `delete` | `DELETE` | `instanceId, resourceGroupName, runCommandName, subscriptionId, vmScaleSetName` | The operation to delete the VMSS VM run command. |
+| `_list` | `EXEC` | `instanceId, resourceGroupName, subscriptionId, vmScaleSetName` | The operation to get all run commands of an instance in Virtual Machine Scaleset. |
+| `update` | `EXEC` | `instanceId, resourceGroupName, runCommandName, subscriptionId, vmScaleSetName` | The operation to update the VMSS VM run command. |

@@ -27,14 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The full qualified ARM ID of an event. |
-| `name` | `string` | The ID that uniquely identifies an event.  |
-| `type` | `string` | Resource type. |
-| `etag` | `string` | The etag for the resource. |
+| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `name` | `string` | The name of the resource |
 | `properties` | `object` | price sheet result. It contains the pricesheet associated with billing period |
-| `tags` | `object` | Resource tags. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PriceSheet_Get` | `SELECT` | `subscriptionId` | Gets the price sheet for a subscription. Price sheet is available via this API only for May 1, 2014 or later. |
-| `PriceSheet_GetByBillingPeriod` | `EXEC` | `billingPeriodName, subscriptionId` | Get the price sheet for a scope by subscriptionId and billing period. Price sheet is available via this API only for May 1, 2014 or later. |
+| `get` | `SELECT` | `subscriptionId` | Gets the price sheet for a subscription. Price sheet is available via this API only for May 1, 2014 or later. |
+| `download_by_billing_account_period` | `EXEC` | `billingAccountId, billingPeriodName` | Generates the pricesheet for the provided billing period asynchronously based on the enrollment id |
+| `get_by_billing_period` | `EXEC` | `billingPeriodName, subscriptionId` | Get the price sheet for a scope by subscriptionId and billing period. Price sheet is available via this API only for May 1, 2014 or later. |

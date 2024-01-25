@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ProblemClassifications_Get` | `SELECT` | `problemClassificationName, serviceName` | Get problem classification details for a specific Azure service. |
-| `ProblemClassifications_List` | `SELECT` | `serviceName` | Lists all the problem classifications (categories) available for a specific Azure service. Always use the service and problem classifications obtained programmatically. This practice ensures that you always have the most recent set of service and problem classification Ids. |
+| `get` | `SELECT` | `problemClassificationName, serviceName` | Get problem classification details for a specific Azure service. |
+| `list` | `SELECT` | `serviceName` | Lists all the problem classifications (categories) available for a specific Azure service. Always use the service and problem classifications obtained programmatically. This practice ensures that you always have the most recent set of service and problem classification Ids. |
+| `_list` | `EXEC` | `serviceName` | Lists all the problem classifications (categories) available for a specific Azure service. Always use the service and problem classifications obtained programmatically. This practice ensures that you always have the most recent set of service and problem classification Ids. |

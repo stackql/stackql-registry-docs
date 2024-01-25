@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GovernanceAssignments_Get` | `SELECT` | `api-version, assessmentName, assignmentKey, scope` | Get a specific governanceAssignment for the requested scope by AssignmentKey |
-| `GovernanceAssignments_List` | `SELECT` | `api-version, assessmentName, scope` | Get security governanceAssignments on all your resources inside a scope |
-| `GovernanceAssignments_CreateOrUpdate` | `INSERT` | `api-version, assessmentName, assignmentKey, scope` | Creates or update a security GovernanceAssignment on the given subscription. |
-| `GovernanceAssignments_Delete` | `DELETE` | `api-version, assessmentName, assignmentKey, scope` | Delete a GovernanceAssignment over a given scope |
+| `get` | `SELECT` | `api-version, assessmentName, assignmentKey, scope` | Get a specific governanceAssignment for the requested scope by AssignmentKey |
+| `list` | `SELECT` | `api-version, assessmentName, scope` | Get governance assignments on all of your resources inside a scope |
+| `create_or_update` | `INSERT` | `api-version, assessmentName, assignmentKey, scope` | Creates or updates a governance assignment on the given subscription. |
+| `delete` | `DELETE` | `api-version, assessmentName, assignmentKey, scope` | Delete a GovernanceAssignment over a given scope |
+| `_list` | `EXEC` | `api-version, assessmentName, scope` | Get governance assignments on all of your resources inside a scope |

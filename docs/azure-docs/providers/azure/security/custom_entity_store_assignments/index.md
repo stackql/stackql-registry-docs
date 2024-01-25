@@ -35,8 +35,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CustomEntityStoreAssignments_Get` | `SELECT` | `api-version, customEntityStoreAssignmentName, resourceGroupName, subscriptionId` | Gets a single custom entity store assignment by name for the provided subscription and resource group. |
-| `CustomEntityStoreAssignments_ListByResourceGroup` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | List custom entity store assignments by a provided subscription and resource group |
-| `CustomEntityStoreAssignments_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | List custom entity store assignments by provided subscription |
-| `CustomEntityStoreAssignments_Create` | `INSERT` | `api-version, customEntityStoreAssignmentName, resourceGroupName, subscriptionId` | Creates a custom entity store assignment for the provided subscription, if not already exists. |
-| `CustomEntityStoreAssignments_Delete` | `DELETE` | `api-version, customEntityStoreAssignmentName, resourceGroupName, subscriptionId` | Delete a custom entity store assignment by name for a provided subscription |
+| `get` | `SELECT` | `api-version, customEntityStoreAssignmentName, resourceGroupName, subscriptionId` | Gets a single custom entity store assignment by name for the provided subscription and resource group. |
+| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | List custom entity store assignments by a provided subscription and resource group |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | List custom entity store assignments by provided subscription |
+| `create` | `INSERT` | `api-version, customEntityStoreAssignmentName, resourceGroupName, subscriptionId` | Creates a custom entity store assignment for the provided subscription, if not already exists. |
+| `delete` | `DELETE` | `api-version, customEntityStoreAssignmentName, resourceGroupName, subscriptionId` | Delete a custom entity store assignment by name for a provided subscription |
+| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | List custom entity store assignments by a provided subscription and resource group |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | List custom entity store assignments by provided subscription |

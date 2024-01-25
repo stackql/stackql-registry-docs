@@ -27,26 +27,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource name |
-| `properties` | `object` | Namespace properties. |
-| `sku` | `object` | The Sku description for a namespace |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
-| `location` | `string` | Resource location |
+| `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | Represents namespace properties. |
+| `sku` | `object` | The resource model definition representing SKU |
+| `tags` | `object` | Resource tags. |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `Namespaces_Get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Returns the description for the specified namespace. |
-| `Namespaces_List` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the available namespaces within a resourceGroup. |
-| `Namespaces_ListAll` | `SELECT` | `subscriptionId` | Lists all the available namespaces within the subscription irrespective of the resourceGroups. |
-| `Namespaces_CreateOrUpdate` | `INSERT` | `namespaceName, resourceGroupName, subscriptionId, data__location` | Creates/Updates a service namespace. Once created, this namespace's resource manifest is immutable. This operation is idempotent. |
-| `Namespaces_Delete` | `DELETE` | `namespaceName, resourceGroupName, subscriptionId` | Deletes an existing namespace. This operation also removes all associated notificationHubs under the namespace. |
-| `Namespaces_CheckAvailability` | `EXEC` | `subscriptionId, data__name` | Checks the availability of the given service namespace across all Azure subscriptions. This is useful because the domain name is created based on the service namespace name. |
-| `Namespaces_CreateOrUpdateAuthorizationRule` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, data__properties` | Creates an authorization rule for a namespace |
-| `Namespaces_DeleteAuthorizationRule` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId` | Deletes a namespace authorization rule |
-| `Namespaces_GetAuthorizationRule` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId` | Gets an authorization rule for a namespace by name. |
-| `Namespaces_ListAuthorizationRules` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Gets the authorization rules for a namespace. |
-| `Namespaces_ListKeys` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId` | Gets the Primary and Secondary ConnectionStrings to the namespace  |
-| `Namespaces_Patch` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Patches the existing namespace |
-| `Namespaces_RegenerateKeys` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId` | Regenerates the Primary/Secondary Keys to the Namespace Authorization Rule |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` |
+| `create_or_update` | `INSERT` | `namespaceName, resourceGroupName, subscriptionId, data__location, data__sku` |
+| `delete` | `DELETE` | `namespaceName, resourceGroupName, subscriptionId` |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` |
+| `check_availability` | `EXEC` | `subscriptionId, data__name` |
+| `regenerate_keys` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, data__policyKey` |
+| `update` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` |

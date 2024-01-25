@@ -27,12 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Defines the resource properties. |
+| `properties` | `object` | Defines the resource properties for the hybrid identity metadata. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `HybridIdentityMetadata_Get` | `SELECT` | `hybridIdentityMetadataResourceName, provisionedClustersName, resourceGroupName, subscriptionId` | Get the hybrid identity metadata proxy resource. |
-| `HybridIdentityMetadata_ListByCluster` | `SELECT` | `provisionedClustersName, resourceGroupName, subscriptionId` | Lists the hybrid identity metadata proxy resource in a cluster. |
-| `HybridIdentityMetadata_Delete` | `DELETE` | `hybridIdentityMetadataResourceName, provisionedClustersName, resourceGroupName, subscriptionId` | Deletes the hybrid identity metadata proxy resource. |
-| `HybridIdentityMetadata_Put` | `EXEC` | `hybridIdentityMetadataResourceName, provisionedClustersName, resourceGroupName, subscriptionId, data__properties` | Creates the hybrid identity metadata proxy resource that facilitates the managed identity provisioning. |
+| `get` | `SELECT` | `connectedClusterResourceUri` | Get the hybrid identity metadata proxy resource. |
+| `delete` | `DELETE` | `connectedClusterResourceUri` | Deletes the hybrid identity metadata proxy resource. |
+| `put` | `EXEC` | `connectedClusterResourceUri, data__properties` | Creates the hybrid identity metadata proxy resource that facilitates the managed identity provisioning. |

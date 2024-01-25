@@ -28,10 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the operation being performed on this particular object. |
+| `display` | `` | Contains the localized display information for this particular operation / action. |
 | `origin` | `string` |  |
 | `properties` | `object` | Properties of operation, include metric specifications. |
-| `display` | `` | Contains the localized display information for this particular operation / action. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Operations_List` | `SELECT` |  |
+| `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

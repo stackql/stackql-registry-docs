@@ -27,15 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Represents the properties of the Private DNS zone. |
-| `tags` | `object` | Resource tags. |
 | `etag` | `string` | The ETag of the virtual network link. |
 | `location` | `string` | The Azure Region where the resource lives |
+| `properties` | `object` | Represents the properties of the Private DNS zone. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualNetworkLinks_Get` | `SELECT` | `privateZoneName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Gets a virtual network link to the specified Private DNS zone. |
-| `VirtualNetworkLinks_List` | `SELECT` | `privateZoneName, resourceGroupName, subscriptionId` | Lists the virtual network links to the specified Private DNS zone. |
-| `VirtualNetworkLinks_CreateOrUpdate` | `INSERT` | `privateZoneName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Creates or updates a virtual network link to the specified Private DNS zone. |
-| `VirtualNetworkLinks_Delete` | `DELETE` | `privateZoneName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Deletes a virtual network link to the specified Private DNS zone. WARNING: In case of a registration virtual network, all auto-registered DNS records in the zone for the virtual network will also be deleted. This operation cannot be undone. |
-| `VirtualNetworkLinks_Update` | `EXEC` | `privateZoneName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Updates a virtual network link to the specified Private DNS zone. |
+| `get` | `SELECT` | `privateZoneName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Gets a virtual network link to the specified Private DNS zone. |
+| `list` | `SELECT` | `privateZoneName, resourceGroupName, subscriptionId` | Lists the virtual network links to the specified Private DNS zone. |
+| `create_or_update` | `INSERT` | `privateZoneName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Creates or updates a virtual network link to the specified Private DNS zone. |
+| `delete` | `DELETE` | `privateZoneName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Deletes a virtual network link to the specified Private DNS zone. WARNING: In case of a registration virtual network, all auto-registered DNS records in the zone for the virtual network will also be deleted. This operation cannot be undone. |
+| `_list` | `EXEC` | `privateZoneName, resourceGroupName, subscriptionId` | Lists the virtual network links to the specified Private DNS zone. |
+| `update` | `EXEC` | `privateZoneName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Updates a virtual network link to the specified Private DNS zone. |

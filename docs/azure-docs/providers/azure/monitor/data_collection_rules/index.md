@@ -29,19 +29,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified ID of the resource. |
 | `name` | `string` | The name of the resource. |
-| `kind` | `string` | The kind of the resource. |
-| `type` | `string` | The type of the resource. |
 | `etag` | `string` | Resource entity tag (ETag). |
+| `identity` | `object` | Managed service identity of the resource. |
+| `kind` | `string` | The kind of the resource. |
 | `location` | `string` | The geo-location where the resource lives. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Resource properties. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `DataCollectionRules_Get` | `SELECT` | `dataCollectionRuleName, resourceGroupName, subscriptionId` |
-| `DataCollectionRules_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` |
-| `DataCollectionRules_ListBySubscription` | `SELECT` | `subscriptionId` |
-| `DataCollectionRules_Create` | `INSERT` | `dataCollectionRuleName, resourceGroupName, subscriptionId, data__location` |
-| `DataCollectionRules_Delete` | `DELETE` | `dataCollectionRuleName, resourceGroupName, subscriptionId` |
-| `DataCollectionRules_Update` | `EXEC` | `dataCollectionRuleName, resourceGroupName, subscriptionId` |
+| `get` | `SELECT` | `dataCollectionRuleName, resourceGroupName, subscriptionId` |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` |
+| `list_by_subscription` | `SELECT` | `subscriptionId` |
+| `create` | `INSERT` | `dataCollectionRuleName, resourceGroupName, subscriptionId, data__location` |
+| `delete` | `DELETE` | `dataCollectionRuleName, resourceGroupName, subscriptionId` |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` |
+| `update` | `EXEC` | `dataCollectionRuleName, resourceGroupName, subscriptionId` |

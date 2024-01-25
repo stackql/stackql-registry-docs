@@ -28,4 +28,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `BMSPrepareDataMoveOperationResult_Get` | `SELECT` | `api-version, operationId, resourceGroupName, subscriptionId, vaultName` |
+| `get` | `SELECT` | `api-version, operationId, resourceGroupName, subscriptionId, vaultName` |

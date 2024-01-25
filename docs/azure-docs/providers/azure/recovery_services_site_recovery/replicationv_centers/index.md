@@ -35,9 +35,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationvCenters_Get` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId, vcenterName` | Gets the details of a registered vCenter server(Add vCenter server). |
-| `ReplicationvCenters_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the vCenter servers registered in the vault. |
-| `ReplicationvCenters_ListByReplicationFabrics` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists the vCenter servers registered in a fabric. |
-| `ReplicationvCenters_Create` | `INSERT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId, vcenterName` | The operation to create a vCenter object.. |
-| `ReplicationvCenters_Delete` | `DELETE` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId, vcenterName` | The operation to remove(unregister) a registered vCenter server from the vault. |
-| `ReplicationvCenters_Update` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId, vcenterName` | The operation to update a registered vCenter. |
+| `get` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId, vcenterName` | Gets the details of a registered vCenter server(Add vCenter server). |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the vCenter servers registered in the vault. |
+| `list_by_replication_fabrics` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists the vCenter servers registered in a fabric. |
+| `create` | `INSERT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId, vcenterName` | The operation to create a vCenter object.. |
+| `delete` | `DELETE` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId, vcenterName` | The operation to remove(unregister) a registered vCenter server from the vault. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the vCenter servers registered in the vault. |
+| `_list_by_replication_fabrics` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists the vCenter servers registered in a fabric. |
+| `update` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId, vcenterName` | The operation to update a registered vCenter. |

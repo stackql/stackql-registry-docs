@@ -34,6 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Customers_Get` | `SELECT` | `billingAccountName, customerName` | Gets a customer by its ID. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
-| `Customers_ListByBillingAccount` | `SELECT` | `billingAccountName` | Lists the customers that are billed to a billing account. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
-| `Customers_ListByBillingProfile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the customers that are billed to a billing profile. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
+| `get` | `SELECT` | `billingAccountName, customerName` | Gets a customer by its ID. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
+| `list_by_billing_account` | `SELECT` | `billingAccountName` | Lists the customers that are billed to a billing account. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
+| `list_by_billing_profile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the customers that are billed to a billing profile. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
+| `_list_by_billing_account` | `EXEC` | `billingAccountName` | Lists the customers that are billed to a billing account. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
+| `_list_by_billing_profile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the customers that are billed to a billing profile. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |

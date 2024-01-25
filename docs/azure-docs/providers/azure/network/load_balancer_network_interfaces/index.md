@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `extendedLocation` | `object` | ExtendedLocation complex type. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | NetworkInterface properties. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `LoadBalancerNetworkInterfaces_List` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` |
+| `list` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` |
+| `_list` | `EXEC` | `loadBalancerName, resourceGroupName, subscriptionId` |

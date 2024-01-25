@@ -28,7 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Endpoints_Get` | `SELECT` | `endpointName, endpointType, profileName, resourceGroupName, subscriptionId` | Gets a Traffic Manager endpoint. |
-| `Endpoints_CreateOrUpdate` | `INSERT` | `endpointName, endpointType, profileName, resourceGroupName, subscriptionId` | Create or update a Traffic Manager endpoint. |
-| `Endpoints_Delete` | `DELETE` | `endpointName, endpointType, profileName, resourceGroupName, subscriptionId` | Deletes a Traffic Manager endpoint. |
-| `Endpoints_Update` | `EXEC` | `endpointName, endpointType, profileName, resourceGroupName, subscriptionId` | Update a Traffic Manager endpoint. |
+| `get` | `SELECT` | `endpointName, endpointType, profileName, resourceGroupName, subscriptionId` | Gets a Traffic Manager endpoint. |
+| `create_or_update` | `INSERT` | `endpointName, endpointType, profileName, resourceGroupName, subscriptionId` | Create or update a Traffic Manager endpoint. |
+| `delete` | `DELETE` | `endpointName, endpointType, profileName, resourceGroupName, subscriptionId` | Deletes a Traffic Manager endpoint. |
+| `update` | `EXEC` | `endpointName, endpointType, profileName, resourceGroupName, subscriptionId` | Update a Traffic Manager endpoint. |

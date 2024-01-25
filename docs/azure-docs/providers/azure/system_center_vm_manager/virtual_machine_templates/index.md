@@ -27,20 +27,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource Name |
-| `location` | `string` | Gets or sets the location. |
-| `properties` | `object` | Defines the resource properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource Type |
 | `extendedLocation` | `object` | The extended location. |
+| `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | Defines the resource properties. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualMachineTemplates_Get` | `SELECT` | `resourceGroupName, subscriptionId, virtualMachineTemplateName` | Implements VirtualMachineTemplate GET method. |
-| `VirtualMachineTemplates_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List of VirtualMachineTemplates in a resource group. |
-| `VirtualMachineTemplates_ListBySubscription` | `SELECT` | `subscriptionId` | List of VirtualMachineTemplates in a subscription. |
-| `VirtualMachineTemplates_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, virtualMachineTemplateName, data__extendedLocation, data__location, data__properties` | Onboards the ScVmm VM Template as an Azure VM Template resource. |
-| `VirtualMachineTemplates_Delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualMachineTemplateName` | Deregisters the ScVmm VM Template from Azure. |
-| `VirtualMachineTemplates_Update` | `EXEC` | `resourceGroupName, subscriptionId, virtualMachineTemplateName` | Updates the VirtualMachineTemplate resource. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, virtualMachineTemplateName` | Implements VirtualMachineTemplate GET method. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List of VirtualMachineTemplates in a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | List of VirtualMachineTemplates in a subscription. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, virtualMachineTemplateName, data__extendedLocation, data__properties` | Onboards the ScVmm VM Template as an Azure VM Template resource. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualMachineTemplateName` | Deregisters the ScVmm VM Template from Azure. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List of VirtualMachineTemplates in a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | List of VirtualMachineTemplates in a subscription. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, virtualMachineTemplateName` | Updates the VirtualMachineTemplate resource. |

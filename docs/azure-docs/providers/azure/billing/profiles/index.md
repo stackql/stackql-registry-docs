@@ -34,6 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BillingProfiles_Get` | `SELECT` | `billingAccountName, billingProfileName` | Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |
-| `BillingProfiles_ListByBillingAccount` | `SELECT` | `billingAccountName` | Lists the billing profiles that a user has access to. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |
-| `BillingProfiles_CreateOrUpdate` | `INSERT` | `billingAccountName, billingProfileName` | Creates or updates a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |
+| `get` | `SELECT` | `billingAccountName, billingProfileName` | Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |
+| `list_by_billing_account` | `SELECT` | `billingAccountName` | Lists the billing profiles that a user has access to. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |
+| `create_or_update` | `INSERT` | `billingAccountName, billingProfileName` | Creates or updates a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |
+| `_list_by_billing_account` | `EXEC` | `billingAccountName` | Lists the billing profiles that a user has access to. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |

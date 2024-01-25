@@ -27,11 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | The restorable dropped managed database's properties. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RestorableDroppedManagedDatabases_Get` | `SELECT` | `managedInstanceName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Gets a restorable dropped managed database. |
-| `RestorableDroppedManagedDatabases_ListByInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of restorable dropped managed databases. |
+| `get` | `SELECT` | `managedInstanceName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Gets a restorable dropped managed database. |
+| `list_by_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of restorable dropped managed databases. |
+| `_list_by_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of restorable dropped managed databases. |

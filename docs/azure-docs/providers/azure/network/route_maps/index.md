@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RouteMaps_Get` | `SELECT` | `resourceGroupName, routeMapName, subscriptionId, virtualHubName` | Retrieves the details of a RouteMap. |
-| `RouteMaps_List` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all RouteMaps. |
-| `RouteMaps_CreateOrUpdate` | `INSERT` | `resourceGroupName, routeMapName, subscriptionId, virtualHubName` | Creates a RouteMap if it doesn't exist else updates the existing one. |
-| `RouteMaps_Delete` | `DELETE` | `resourceGroupName, routeMapName, subscriptionId, virtualHubName` | Deletes a RouteMap. |
+| `get` | `SELECT` | `resourceGroupName, routeMapName, subscriptionId, virtualHubName` | Retrieves the details of a RouteMap. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all RouteMaps. |
+| `create_or_update` | `INSERT` | `resourceGroupName, routeMapName, subscriptionId, virtualHubName` | Creates a RouteMap if it doesn't exist else updates the existing one. |
+| `delete` | `DELETE` | `resourceGroupName, routeMapName, subscriptionId, virtualHubName` | Deletes a RouteMap. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all RouteMaps. |

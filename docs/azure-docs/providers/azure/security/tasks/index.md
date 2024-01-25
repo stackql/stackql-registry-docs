@@ -34,10 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Tasks_List` | `SELECT` | `api-version, subscriptionId` |
-| `Tasks_ListByHomeRegion` | `SELECT` | `api-version, ascLocation, subscriptionId` |
-| `Tasks_ListByResourceGroup` | `SELECT` | `api-version, ascLocation, resourceGroupName, subscriptionId` |
-| `Tasks_GetResourceGroupLevelTask` | `EXEC` | `api-version, ascLocation, resourceGroupName, subscriptionId, taskName` |
-| `Tasks_GetSubscriptionLevelTask` | `EXEC` | `api-version, ascLocation, subscriptionId, taskName` |
-| `Tasks_UpdateResourceGroupLevelTaskState` | `EXEC` | `api-version, ascLocation, resourceGroupName, subscriptionId, taskName, taskUpdateActionType` |
-| `Tasks_UpdateSubscriptionLevelTaskState` | `EXEC` | `api-version, ascLocation, subscriptionId, taskName, taskUpdateActionType` |
+| `list` | `SELECT` | `api-version, subscriptionId` |
+| `list_by_home_region` | `SELECT` | `api-version, ascLocation, subscriptionId` |
+| `list_by_resource_group` | `SELECT` | `api-version, ascLocation, resourceGroupName, subscriptionId` |
+| `_list` | `EXEC` | `api-version, subscriptionId` |
+| `_list_by_home_region` | `EXEC` | `api-version, ascLocation, subscriptionId` |
+| `_list_by_resource_group` | `EXEC` | `api-version, ascLocation, resourceGroupName, subscriptionId` |

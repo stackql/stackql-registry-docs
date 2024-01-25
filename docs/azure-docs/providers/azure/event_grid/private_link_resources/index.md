@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResources_Get` | `SELECT` | `parentName, parentType, privateLinkResourceName, resourceGroupName, subscriptionId` | Get properties of a private link resource. |
-| `PrivateLinkResources_ListByResource` | `SELECT` | `parentName, parentType, resourceGroupName, subscriptionId` | List all the private link resources under a topic, domain, or partner namespace. |
+| `get` | `SELECT` | `parentName, parentType, privateLinkResourceName, resourceGroupName, subscriptionId` | Get properties of a private link resource. |
+| `list_by_resource` | `SELECT` | `parentName, parentType, resourceGroupName, subscriptionId` | List all the private link resources under a topic, domain, or partner namespace or namespace. |
+| `_list_by_resource` | `EXEC` | `parentName, parentType, resourceGroupName, subscriptionId` | List all the private link resources under a topic, domain, or partner namespace or namespace. |

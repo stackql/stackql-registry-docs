@@ -25,13 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | Represents order details. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Orders_Get` | `SELECT` | `location, orderName, resourceGroupName, subscriptionId` | Get an order. |
-| `Orders_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List orders at resource group level. |
-| `Orders_ListBySubscription` | `SELECT` | `subscriptionId` | List orders at subscription level. |
+| `get` | `SELECT` | `location, orderName, resourceGroupName, subscriptionId` | Get an order. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List orders at resource group level. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | List orders at subscription level. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List orders at resource group level. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | List orders at subscription level. |

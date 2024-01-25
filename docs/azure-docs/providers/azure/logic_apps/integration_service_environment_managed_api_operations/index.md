@@ -36,4 +36,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `IntegrationServiceEnvironmentManagedApiOperations_List` | `SELECT` | `api-version, apiName, integrationServiceEnvironmentName, resourceGroup, subscriptionId` |
+| `list` | `SELECT` | `api-version, apiName, integrationServiceEnvironmentName, resourceGroup, subscriptionId` |
+| `_list` | `EXEC` | `api-version, apiName, integrationServiceEnvironmentName, resourceGroup, subscriptionId` |

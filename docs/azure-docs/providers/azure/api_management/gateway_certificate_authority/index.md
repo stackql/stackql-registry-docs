@@ -25,17 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `properties` | `object` | Gateway certificate authority details. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GatewayCertificateAuthority_Get` | `SELECT` | `certificateId, gatewayId, resourceGroupName, serviceName, subscriptionId` | Get assigned Gateway Certificate Authority details. |
-| `GatewayCertificateAuthority_ListByService` | `SELECT` | `gatewayId, resourceGroupName, serviceName, subscriptionId` | Lists the collection of Certificate Authorities for the specified Gateway entity. |
-| `GatewayCertificateAuthority_CreateOrUpdate` | `INSERT` | `certificateId, gatewayId, resourceGroupName, serviceName, subscriptionId` | Assign Certificate entity to Gateway entity as Certificate Authority. |
-| `GatewayCertificateAuthority_Delete` | `DELETE` | `If-Match, certificateId, gatewayId, resourceGroupName, serviceName, subscriptionId` | Remove relationship between Certificate Authority and Gateway entity. |
-| `GatewayCertificateAuthority_GetEntityTag` | `EXEC` | `certificateId, gatewayId, resourceGroupName, serviceName, subscriptionId` | Checks if Certificate entity is assigned to Gateway entity as Certificate Authority. |
+| `get` | `SELECT` | `certificateId, gatewayId, resourceGroupName, serviceName, subscriptionId` | Get assigned Gateway Certificate Authority details. |
+| `list_by_service` | `SELECT` | `gatewayId, resourceGroupName, serviceName, subscriptionId` | Lists the collection of Certificate Authorities for the specified Gateway entity. |
+| `create_or_update` | `INSERT` | `certificateId, gatewayId, resourceGroupName, serviceName, subscriptionId` | Assign Certificate entity to Gateway entity as Certificate Authority. |
+| `delete` | `DELETE` | `If-Match, certificateId, gatewayId, resourceGroupName, serviceName, subscriptionId` | Remove relationship between Certificate Authority and Gateway entity. |
+| `_list_by_service` | `EXEC` | `gatewayId, resourceGroupName, serviceName, subscriptionId` | Lists the collection of Certificate Authorities for the specified Gateway entity. |

@@ -38,10 +38,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExpressRoutePorts_Get` | `SELECT` | `expressRoutePortName, resourceGroupName, subscriptionId` | Retrieves the requested ExpressRoutePort resource. |
-| `ExpressRoutePorts_List` | `SELECT` | `subscriptionId` | List all the ExpressRoutePort resources in the specified subscription. |
-| `ExpressRoutePorts_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List all the ExpressRoutePort resources in the specified resource group. |
-| `ExpressRoutePorts_CreateOrUpdate` | `INSERT` | `expressRoutePortName, resourceGroupName, subscriptionId` | Creates or updates the specified ExpressRoutePort resource. |
-| `ExpressRoutePorts_Delete` | `DELETE` | `expressRoutePortName, resourceGroupName, subscriptionId` | Deletes the specified ExpressRoutePort resource. |
-| `ExpressRoutePorts_GenerateLOA` | `EXEC` | `expressRoutePortName, resourceGroupName, subscriptionId, data__customerName` | Generate a letter of authorization for the requested ExpressRoutePort resource. |
-| `ExpressRoutePorts_UpdateTags` | `EXEC` | `expressRoutePortName, resourceGroupName, subscriptionId` | Update ExpressRoutePort tags. |
+| `get` | `SELECT` | `expressRoutePortName, resourceGroupName, subscriptionId` | Retrieves the requested ExpressRoutePort resource. |
+| `list` | `SELECT` | `subscriptionId` | List all the ExpressRoutePort resources in the specified subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all the ExpressRoutePort resources in the specified resource group. |
+| `create_or_update` | `INSERT` | `expressRoutePortName, resourceGroupName, subscriptionId` | Creates or updates the specified ExpressRoutePort resource. |
+| `delete` | `DELETE` | `expressRoutePortName, resourceGroupName, subscriptionId` | Deletes the specified ExpressRoutePort resource. |
+| `_list` | `EXEC` | `subscriptionId` | List all the ExpressRoutePort resources in the specified subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all the ExpressRoutePort resources in the specified resource group. |
+| `generate_loa` | `EXEC` | `expressRoutePortName, resourceGroupName, subscriptionId, data__customerName` | Generate a letter of authorization for the requested ExpressRoutePort resource. |

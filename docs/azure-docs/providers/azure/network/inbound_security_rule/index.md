@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `InboundSecurityRule_CreateOrUpdate` | `INSERT` | `networkVirtualApplianceName, resourceGroupName, ruleCollectionName, subscriptionId` |
+| `create_or_update` | `INSERT` | `networkVirtualApplianceName, resourceGroupName, ruleCollectionName, subscriptionId` |

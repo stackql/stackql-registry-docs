@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SubscriptionUsages_Get` | `SELECT` | `locationName, subscriptionId, usageName` | Gets a subscription usage metric. |
-| `SubscriptionUsages_ListByLocation` | `SELECT` | `locationName, subscriptionId` | Gets all subscription usage metrics in a given location. |
+| `get` | `SELECT` | `locationName, subscriptionId, usageName` | Gets a subscription usage metric. |
+| `list_by_location` | `SELECT` | `locationName, subscriptionId` | Gets all subscription usage metrics in a given location. |
+| `_list_by_location` | `EXEC` | `locationName, subscriptionId` | Gets all subscription usage metrics in a given location. |

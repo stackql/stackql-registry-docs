@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | The name of the extension. |
-| `type` | `string` | Resource type |
 | `properties` | `object` | Describes the properties of a Virtual Machine Scale Set Extension. |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualMachineScaleSetExtensions_Get` | `SELECT` | `resourceGroupName, subscriptionId, vmScaleSetName, vmssExtensionName` | The operation to get the extension. |
-| `VirtualMachineScaleSetExtensions_List` | `SELECT` | `resourceGroupName, subscriptionId, vmScaleSetName` | Gets a list of all extensions in a VM scale set. |
-| `VirtualMachineScaleSetExtensions_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, vmScaleSetName, vmssExtensionName` | The operation to create or update an extension. |
-| `VirtualMachineScaleSetExtensions_Delete` | `DELETE` | `resourceGroupName, subscriptionId, vmScaleSetName, vmssExtensionName` | The operation to delete the extension. |
-| `VirtualMachineScaleSetExtensions_Update` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName, vmssExtensionName` | The operation to update an extension. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, vmScaleSetName, vmssExtensionName` | The operation to get the extension. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, vmScaleSetName` | Gets a list of all extensions in a VM scale set. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, vmScaleSetName, vmssExtensionName` | The operation to create or update an extension. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, vmScaleSetName, vmssExtensionName` | The operation to delete the extension. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName` | Gets a list of all extensions in a VM scale set. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName, vmssExtensionName` | The operation to update an extension. |

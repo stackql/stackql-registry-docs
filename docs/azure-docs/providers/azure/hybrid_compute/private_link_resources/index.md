@@ -32,5 +32,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `PrivateLinkResources_Get` | `SELECT` | `groupName, resourceGroupName, scopeName, subscriptionId` |
-| `PrivateLinkResources_ListByPrivateLinkScope` | `SELECT` | `resourceGroupName, scopeName, subscriptionId` |
+| `get` | `SELECT` | `groupName, resourceGroupName, scopeName, subscriptionId` |
+| `list_by_private_link_scope` | `SELECT` | `resourceGroupName, scopeName, subscriptionId` |
+| `_list_by_private_link_scope` | `EXEC` | `resourceGroupName, scopeName, subscriptionId` |

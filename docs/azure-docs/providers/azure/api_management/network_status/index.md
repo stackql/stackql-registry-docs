@@ -32,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `NetworkStatus_ListByLocation` | `SELECT` | `locationName, resourceGroupName, serviceName, subscriptionId` |
-| `NetworkStatus_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` |
+| `list_by_location` | `SELECT` | `locationName, resourceGroupName, serviceName, subscriptionId` |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` |

@@ -27,17 +27,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `location` | `string` | Location of the resource. |
+| `identity` | `object` | The identity information for the resource. |
+| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Properties of the System Topic. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Tags of the resource. |
-| `identity` | `object` | The identity information for the resource. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SystemTopics_Get` | `SELECT` | `resourceGroupName, subscriptionId, systemTopicName` | Get properties of a system topic. |
-| `SystemTopics_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List all the system topics under a resource group. |
-| `SystemTopics_ListBySubscription` | `SELECT` | `subscriptionId` | List all the system topics under an Azure subscription. |
-| `SystemTopics_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, systemTopicName` | Asynchronously creates a new system topic with the specified parameters. |
-| `SystemTopics_Delete` | `DELETE` | `resourceGroupName, subscriptionId, systemTopicName` | Delete existing system topic. |
-| `SystemTopics_Update` | `EXEC` | `resourceGroupName, subscriptionId, systemTopicName` | Asynchronously updates a system topic with the specified parameters. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, systemTopicName` | Get properties of a system topic. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all the system topics under a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | List all the system topics under an Azure subscription. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, systemTopicName` | Asynchronously creates a new system topic with the specified parameters. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, systemTopicName` | Delete existing system topic. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all the system topics under a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | List all the system topics under an Azure subscription. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, systemTopicName` | Asynchronously updates a system topic with the specified parameters. |

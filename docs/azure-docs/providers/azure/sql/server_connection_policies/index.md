@@ -33,6 +33,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerConnectionPolicies_Get` | `SELECT` | `connectionPolicyName, resourceGroupName, serverName, subscriptionId` | Gets a server connection policy |
-| `ServerConnectionPolicies_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists connection policy |
-| `ServerConnectionPolicies_CreateOrUpdate` | `INSERT` | `connectionPolicyName, resourceGroupName, serverName, subscriptionId` | Updates a server connection policy |
+| `get` | `SELECT` | `connectionPolicyName, resourceGroupName, serverName, subscriptionId` | Gets a server connection policy |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists connection policy |
+| `create_or_update` | `INSERT` | `connectionPolicyName, resourceGroupName, serverName, subscriptionId` | Updates a server connection policy |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Lists connection policy |

@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Kpi_Get` | `SELECT` | `hubName, kpiName, resourceGroupName, subscriptionId` | Gets a KPI in the hub. |
-| `Kpi_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the KPIs in the specified hub. |
-| `Kpi_CreateOrUpdate` | `INSERT` | `hubName, kpiName, resourceGroupName, subscriptionId` | Creates a KPI or updates an existing KPI in the hub. |
-| `Kpi_Delete` | `DELETE` | `hubName, kpiName, resourceGroupName, subscriptionId` | Deletes a KPI in the hub. |
-| `Kpi_Reprocess` | `EXEC` | `hubName, kpiName, resourceGroupName, subscriptionId` | Reprocesses the Kpi values of the specified KPI. |
+| `get` | `SELECT` | `hubName, kpiName, resourceGroupName, subscriptionId` | Gets a KPI in the hub. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the KPIs in the specified hub. |
+| `create_or_update` | `INSERT` | `hubName, kpiName, resourceGroupName, subscriptionId` | Creates a KPI or updates an existing KPI in the hub. |
+| `delete` | `DELETE` | `hubName, kpiName, resourceGroupName, subscriptionId` | Deletes a KPI in the hub. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all the KPIs in the specified hub. |
+| `reprocess` | `EXEC` | `hubName, kpiName, resourceGroupName, subscriptionId` | Reprocesses the Kpi values of the specified KPI. |

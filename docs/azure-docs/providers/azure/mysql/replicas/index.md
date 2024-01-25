@@ -27,12 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
-| `identity` | `object` | Azure Active Directory identity configuration for a resource. |
+| `identity` | `object` | Properties to configure Identity for Bring your Own Keys |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties of a server. |
-| `sku` | `object` | The resource model definition representing SKU |
+| `sku` | `object` | Billing information related properties of a server. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Replicas_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` |

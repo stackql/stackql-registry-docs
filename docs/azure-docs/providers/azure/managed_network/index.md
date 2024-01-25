@@ -21,7 +21,7 @@ Managed Network
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>19</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -33,14 +33,14 @@ Managed Network
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Managed Network (Microsoft.ManagedNetwork)</td></tr>
 <tr><td><b>Description</b></td><td>Managed Network</td></tr>
-<tr><td><b>Id</b></td><td><code>managed_network:v23.03.00121</code></td></tr>
+<tr><td><b>Id</b></td><td><code>managed_network:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/managed_network/groups/">groups</a><br />
-<a href="/providers/azure/managed_network/managed_network/">managed_network</a><br />
+<a href="/providers/azure/managed_network/managed_networks/">managed_networks</a><br />
 <a href="/providers/azure/managed_network/operations/">operations</a><br />
 </div>
 <div class="providerDocColumn">

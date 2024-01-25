@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Peering  
+Azure Peering Service Is A Networking Service That Enhances The Connectivity To Microsoft Cloud Services Such As Microsoft 365, Dynamics 365, Software As A Service (SaaS) Services, Azure, Or Any Microsoft Services Accessible Via The Public Internet. Microsoft Has Partnered With Internet Service Providers (ISPs), Internet Exchange Partners (IXPs), And Software-Defined Cloud Interconnect (SDCI) Providers Worldwide To Provide Reliable And High-Performing Public Connectivity With Optimal Routing From The Customer To The Microsoft Network.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>17</b></span><br />
-<span>total selectable resources:&nbsp;<b>15</b></span><br />
-<span>total methods:&nbsp;<b>44</b></span><br />
+<span>total resources:&nbsp;<b>18</b></span><br />
+<span>total selectable resources:&nbsp;<b>16</b></span><br />
+<span>total methods:&nbsp;<b>63</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Peering
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.peering</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Peering (Microsoft.Peering)</td></tr>
-<tr><td><b>Description</b></td><td>Peering</td></tr>
-<tr><td><b>Id</b></td><td><code>peering:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Peering Service</td></tr>
+<tr><td><b>Description</b></td><td>Azure Peering Service Is A Networking Service That Enhances The Connectivity To Microsoft Cloud Services Such As Microsoft 365, Dynamics 365, Software As A Service (SaaS) Services, Azure, Or Any Microsoft Services Accessible Via The Public Internet. Microsoft Has Partnered With Internet Service Providers (ISPs), Internet Exchange Partners (IXPs), And Software-Defined Cloud Interconnect (SDCI) Providers Worldwide To Provide Reliable And High-Performing Public Connectivity With Optimal Routing From The Customer To The Microsoft Network.</td></tr>
+<tr><td><b>Id</b></td><td><code>peering:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -47,13 +47,14 @@ Peering
 <a href="/providers/azure/peering/looking_glass/">looking_glass</a><br />
 <a href="/providers/azure/peering/operations/">operations</a><br />
 <a href="/providers/azure/peering/peer_asns/">peer_asns</a><br />
-<a href="/providers/azure/peering/peering/">peering</a><br />
+<a href="/providers/azure/peering/peerings/">peerings</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/peering/prefixes/">prefixes</a><br />
 <a href="/providers/azure/peering/received_routes/">received_routes</a><br />
 <a href="/providers/azure/peering/registered_asns/">registered_asns</a><br />
 <a href="/providers/azure/peering/registered_prefixes/">registered_prefixes</a><br />
+<a href="/providers/azure/peering/rp_unbilled_prefixes/">rp_unbilled_prefixes</a><br />
 <a href="/providers/azure/peering/service_countries/">service_countries</a><br />
 <a href="/providers/azure/peering/service_locations/">service_locations</a><br />
 <a href="/providers/azure/peering/service_providers/">service_providers</a><br />

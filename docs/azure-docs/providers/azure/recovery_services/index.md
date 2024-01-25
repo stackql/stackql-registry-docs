@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Recovery Services  
+A Recovery Services Vault Is An Azure Entity That Stores, Manages, And Orchestrates Data And Information For The Azure Backup Service, And The Azure Site Recovery Service. These Services Contribute To Your Business Continuity And Disaster Recovery (BCDR) Strategy. Backup Backs Up Data To Azure From On-Premises And Azure VMs. Site Recovery Replicates, Fails Over, And Fails Back Workloads Running On On-Premises Machines And Azure VMs.  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Recovery Services
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>9</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>19</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Recovery Services
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.recovery_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Recovery Services (Microsoft.RecoveryServices)</td></tr>
-<tr><td><b>Description</b></td><td>Recovery Services</td></tr>
-<tr><td><b>Id</b></td><td><code>recovery_services:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Recovery Services</td></tr>
+<tr><td><b>Description</b></td><td>A Recovery Services Vault Is An Azure Entity That Stores, Manages, And Orchestrates Data And Information For The Azure Backup Service, And The Azure Site Recovery Service. These Services Contribute To Your Business Continuity And Disaster Recovery (BCDR) Strategy. Backup Backs Up Data To Azure From On-Premises And Azure VMs. Site Recovery Replicates, Fails Over, And Fails Back Workloads Running On On-Premises Machines And Azure VMs.</td></tr>
+<tr><td><b>Id</b></td><td><code>recovery_services:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

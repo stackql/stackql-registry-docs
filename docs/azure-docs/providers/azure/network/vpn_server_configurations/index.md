@@ -29,17 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Parameters for VpnServerConfiguration. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VpnServerConfigurations_Get` | `SELECT` | `resourceGroupName, subscriptionId, vpnServerConfigurationName` | Retrieves the details of a VpnServerConfiguration. |
-| `VpnServerConfigurations_List` | `SELECT` | `subscriptionId` | Lists all the VpnServerConfigurations in a subscription. |
-| `VpnServerConfigurations_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the vpnServerConfigurations in a resource group. |
-| `VpnServerConfigurations_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, vpnServerConfigurationName` | Creates a VpnServerConfiguration resource if it doesn't exist else updates the existing VpnServerConfiguration. |
-| `VpnServerConfigurations_Delete` | `DELETE` | `resourceGroupName, subscriptionId, vpnServerConfigurationName` | Deletes a VpnServerConfiguration. |
-| `VpnServerConfigurations_UpdateTags` | `EXEC` | `resourceGroupName, subscriptionId, vpnServerConfigurationName` | Updates VpnServerConfiguration tags. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, vpnServerConfigurationName` | Retrieves the details of a VpnServerConfiguration. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the VpnServerConfigurations in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the vpnServerConfigurations in a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, vpnServerConfigurationName` | Creates a VpnServerConfiguration resource if it doesn't exist else updates the existing VpnServerConfiguration. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, vpnServerConfigurationName` | Deletes a VpnServerConfiguration. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the VpnServerConfigurations in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the vpnServerConfigurations in a resource group. |

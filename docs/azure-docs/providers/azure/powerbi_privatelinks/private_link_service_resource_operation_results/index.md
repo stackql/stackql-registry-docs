@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The operation id. |
 | `name` | `string` | The operation name. |
-| `status` | `string` | The operation status. |
 | `endTime` | `string` | The operation end time. |
 | `error` | `object` | The error detail. |
 | `startTime` | `string` | The operation start time. |
+| `status` | `string` | The operation status. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `PrivateLinkServiceResourceOperationResults_Get` | `SELECT` | `operationId, subscriptionId` |
+| `get` | `SELECT` | `operationId, subscriptionId` |

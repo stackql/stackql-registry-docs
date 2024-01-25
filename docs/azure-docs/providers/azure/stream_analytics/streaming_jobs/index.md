@@ -34,12 +34,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `StreamingJobs_Get` | `SELECT` | `jobName, resourceGroupName, subscriptionId` | Gets details about the specified streaming job. |
-| `StreamingJobs_List` | `SELECT` | `subscriptionId` | Lists all of the streaming jobs in the given subscription. |
-| `StreamingJobs_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the streaming jobs in the specified resource group. |
-| `StreamingJobs_CreateOrReplace` | `INSERT` | `jobName, resourceGroupName, subscriptionId` | Creates a streaming job or replaces an already existing streaming job. |
-| `StreamingJobs_Delete` | `DELETE` | `jobName, resourceGroupName, subscriptionId` | Deletes a streaming job. |
-| `StreamingJobs_Scale` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Scales a streaming job when the job is running. |
-| `StreamingJobs_Start` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Starts a streaming job. Once a job is started it will start processing input events and produce output. |
-| `StreamingJobs_Stop` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Stops a running streaming job. This will cause a running streaming job to stop processing input events and producing output. |
-| `StreamingJobs_Update` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Updates an existing streaming job. This can be used to partially update (ie. update one or two properties) a streaming job without affecting the rest the job definition. |
+| `get` | `SELECT` | `jobName, resourceGroupName, subscriptionId` | Gets details about the specified streaming job. |
+| `list` | `SELECT` | `subscriptionId` | Lists all of the streaming jobs in the given subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the streaming jobs in the specified resource group. |
+| `create_or_replace` | `INSERT` | `jobName, resourceGroupName, subscriptionId` | Creates a streaming job or replaces an already existing streaming job. |
+| `delete` | `DELETE` | `jobName, resourceGroupName, subscriptionId` | Deletes a streaming job. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all of the streaming jobs in the given subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all of the streaming jobs in the specified resource group. |
+| `scale` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Scales a streaming job when the job is running. |
+| `start` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Starts a streaming job. Once a job is started it will start processing input events and produce output. |
+| `stop` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Stops a running streaming job. This will cause a running streaming job to stop processing input events and producing output. |
+| `update` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Updates an existing streaming job. This can be used to partially update (ie. update one or two properties) a streaming job without affecting the rest the job definition. |

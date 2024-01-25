@@ -34,9 +34,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AssessmentsMetadata_Get` | `SELECT` | `api-version, assessmentMetadataName` | Get metadata information on an assessment type |
-| `AssessmentsMetadata_List` | `SELECT` | `api-version` | Get metadata information on all assessment types |
-| `AssessmentsMetadata_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | Get metadata information on all assessment types in a specific subscription |
-| `AssessmentsMetadata_CreateInSubscription` | `EXEC` | `api-version, assessmentMetadataName, subscriptionId` | Create metadata information on an assessment type in a specific subscription |
-| `AssessmentsMetadata_DeleteInSubscription` | `EXEC` | `api-version, assessmentMetadataName, subscriptionId` | Delete metadata information on an assessment type in a specific subscription, will cause the deletion of all the assessments of that type in that subscription |
-| `AssessmentsMetadata_GetInSubscription` | `EXEC` | `api-version, assessmentMetadataName, subscriptionId` | Get metadata information on an assessment type in a specific subscription |
+| `get` | `SELECT` | `api-version, assessmentMetadataName` | Get metadata information on an assessment type |
+| `list` | `SELECT` | `api-version` | Get metadata information on all assessment types |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | Get metadata information on all assessment types in a specific subscription |
+| `_list` | `EXEC` | `api-version` | Get metadata information on all assessment types |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | Get metadata information on all assessment types in a specific subscription |
+| `create_in_subscription` | `EXEC` | `api-version, assessmentMetadataName, subscriptionId` | Create metadata information on an assessment type in a specific subscription |
+| `delete_in_subscription` | `EXEC` | `api-version, assessmentMetadataName, subscriptionId` | Delete metadata information on an assessment type in a specific subscription, will cause the deletion of all the assessments of that type in that subscription |
+| `get_in_subscription` | `EXEC` | `api-version, assessmentMetadataName, subscriptionId` | Get metadata information on an assessment type in a specific subscription |

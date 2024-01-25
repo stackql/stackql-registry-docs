@@ -35,9 +35,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationJobs_Get` | `SELECT` | `api-version, jobName, resourceGroupName, resourceName, subscriptionId` | Get the details of an Azure Site Recovery job. |
-| `ReplicationJobs_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of Azure Site Recovery Jobs for the vault. |
-| `ReplicationJobs_Cancel` | `EXEC` | `api-version, jobName, resourceGroupName, resourceName, subscriptionId` | The operation to cancel an Azure Site Recovery job. |
-| `ReplicationJobs_Export` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | The operation to export the details of the Azure Site Recovery jobs of the vault. |
-| `ReplicationJobs_Restart` | `EXEC` | `api-version, jobName, resourceGroupName, resourceName, subscriptionId` | The operation to restart an Azure Site Recovery job. |
-| `ReplicationJobs_Resume` | `EXEC` | `api-version, jobName, resourceGroupName, resourceName, subscriptionId` | The operation to resume an Azure Site Recovery job. |
+| `get` | `SELECT` | `api-version, jobName, resourceGroupName, resourceName, subscriptionId` | Get the details of an Azure Site Recovery job. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of Azure Site Recovery Jobs for the vault. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of Azure Site Recovery Jobs for the vault. |
+| `cancel` | `EXEC` | `api-version, jobName, resourceGroupName, resourceName, subscriptionId` | The operation to cancel an Azure Site Recovery job. |
+| `export` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | The operation to export the details of the Azure Site Recovery jobs of the vault. |
+| `restart` | `EXEC` | `api-version, jobName, resourceGroupName, resourceName, subscriptionId` | The operation to restart an Azure Site Recovery job. |
+| `resume` | `EXEC` | `api-version, jobName, resourceGroupName, resourceName, subscriptionId` | The operation to resume an Azure Site Recovery job. |

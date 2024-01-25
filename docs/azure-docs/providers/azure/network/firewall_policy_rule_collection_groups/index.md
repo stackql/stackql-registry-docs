@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Properties of the rule collection group. |
 | `type` | `string` | Rule Group type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FirewallPolicyRuleCollectionGroups_Get` | `SELECT` | `firewallPolicyName, resourceGroupName, ruleCollectionGroupName, subscriptionId` | Gets the specified FirewallPolicyRuleCollectionGroup. |
-| `FirewallPolicyRuleCollectionGroups_List` | `SELECT` | `firewallPolicyName, resourceGroupName, subscriptionId` | Lists all FirewallPolicyRuleCollectionGroups in a FirewallPolicy resource. |
-| `FirewallPolicyRuleCollectionGroups_CreateOrUpdate` | `INSERT` | `firewallPolicyName, resourceGroupName, ruleCollectionGroupName, subscriptionId` | Creates or updates the specified FirewallPolicyRuleCollectionGroup. |
-| `FirewallPolicyRuleCollectionGroups_Delete` | `DELETE` | `firewallPolicyName, resourceGroupName, ruleCollectionGroupName, subscriptionId` | Deletes the specified FirewallPolicyRuleCollectionGroup. |
+| `get` | `SELECT` | `firewallPolicyName, resourceGroupName, ruleCollectionGroupName, subscriptionId` | Gets the specified FirewallPolicyRuleCollectionGroup. |
+| `list` | `SELECT` | `firewallPolicyName, resourceGroupName, subscriptionId` | Lists all FirewallPolicyRuleCollectionGroups in a FirewallPolicy resource. |
+| `create_or_update` | `INSERT` | `firewallPolicyName, resourceGroupName, ruleCollectionGroupName, subscriptionId` | Creates or updates the specified FirewallPolicyRuleCollectionGroup. |
+| `delete` | `DELETE` | `firewallPolicyName, resourceGroupName, ruleCollectionGroupName, subscriptionId` | Deletes the specified FirewallPolicyRuleCollectionGroup. |
+| `_list` | `EXEC` | `firewallPolicyName, resourceGroupName, subscriptionId` | Lists all FirewallPolicyRuleCollectionGroups in a FirewallPolicy resource. |

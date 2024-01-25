@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `NetworkInterfaceTapConfigurations_Get` | `SELECT` | `networkInterfaceName, resourceGroupName, subscriptionId, tapConfigurationName` | Get the specified tap configuration on a network interface. |
-| `NetworkInterfaceTapConfigurations_List` | `SELECT` | `networkInterfaceName, resourceGroupName, subscriptionId` | Get all Tap configurations in a network interface. |
-| `NetworkInterfaceTapConfigurations_CreateOrUpdate` | `INSERT` | `networkInterfaceName, resourceGroupName, subscriptionId, tapConfigurationName` | Creates or updates a Tap configuration in the specified NetworkInterface. |
-| `NetworkInterfaceTapConfigurations_Delete` | `DELETE` | `networkInterfaceName, resourceGroupName, subscriptionId, tapConfigurationName` | Deletes the specified tap configuration from the NetworkInterface. |
+| `get` | `SELECT` | `networkInterfaceName, resourceGroupName, subscriptionId, tapConfigurationName` | Get the specified tap configuration on a network interface. |
+| `list` | `SELECT` | `networkInterfaceName, resourceGroupName, subscriptionId` | Get all Tap configurations in a network interface. |
+| `create_or_update` | `INSERT` | `networkInterfaceName, resourceGroupName, subscriptionId, tapConfigurationName` | Creates or updates a Tap configuration in the specified NetworkInterface. |
+| `delete` | `DELETE` | `networkInterfaceName, resourceGroupName, subscriptionId, tapConfigurationName` | Deletes the specified tap configuration from the NetworkInterface. |
+| `_list` | `EXEC` | `networkInterfaceName, resourceGroupName, subscriptionId` | Get all Tap configurations in a network interface. |

@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Name of the private endpoint connection on an application gateway. |
-| `type` | `string` | Type of the resource. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Properties of Private Link Resource of an application gateway. |
+| `type` | `string` | Type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ApplicationGatewayPrivateEndpointConnections_Get` | `SELECT` | `applicationGatewayName, connectionName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection on application gateway. |
-| `ApplicationGatewayPrivateEndpointConnections_List` | `SELECT` | `applicationGatewayName, resourceGroupName, subscriptionId` | Lists all private endpoint connections on an application gateway. |
-| `ApplicationGatewayPrivateEndpointConnections_Delete` | `DELETE` | `applicationGatewayName, connectionName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection on application gateway. |
-| `ApplicationGatewayPrivateEndpointConnections_Update` | `EXEC` | `applicationGatewayName, connectionName, resourceGroupName, subscriptionId` | Updates the specified private endpoint connection on application gateway. |
+| `get` | `SELECT` | `applicationGatewayName, connectionName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection on application gateway. |
+| `list` | `SELECT` | `applicationGatewayName, resourceGroupName, subscriptionId` | Lists all private endpoint connections on an application gateway. |
+| `delete` | `DELETE` | `applicationGatewayName, connectionName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection on application gateway. |
+| `_list` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Lists all private endpoint connections on an application gateway. |
+| `update` | `EXEC` | `applicationGatewayName, connectionName, resourceGroupName, subscriptionId` | Updates the specified private endpoint connection on application gateway. |

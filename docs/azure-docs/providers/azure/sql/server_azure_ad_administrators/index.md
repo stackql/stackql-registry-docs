@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerAzureADAdministrators_Get` | `SELECT` | `administratorName, resourceGroupName, serverName, subscriptionId` | Gets a Azure Active Directory administrator. |
-| `ServerAzureADAdministrators_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of Azure Active Directory administrators in a server. |
-| `ServerAzureADAdministrators_CreateOrUpdate` | `INSERT` | `administratorName, resourceGroupName, serverName, subscriptionId` | Creates or updates an existing Azure Active Directory administrator. |
-| `ServerAzureADAdministrators_Delete` | `DELETE` | `administratorName, resourceGroupName, serverName, subscriptionId` | Deletes the Azure Active Directory administrator with the given name. |
+| `get` | `SELECT` | `administratorName, resourceGroupName, serverName, subscriptionId` | Gets a Azure Active Directory administrator. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of Azure Active Directory administrators in a server. |
+| `create_or_update` | `INSERT` | `administratorName, resourceGroupName, serverName, subscriptionId` | Creates or updates an existing Azure Active Directory administrator. |
+| `delete` | `DELETE` | `administratorName, resourceGroupName, serverName, subscriptionId` | Deletes the Azure Active Directory administrator with the given name. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of Azure Active Directory administrators in a server. |

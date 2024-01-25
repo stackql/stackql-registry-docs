@@ -36,11 +36,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `JobCollections_Get` | `SELECT` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Gets a job collection. |
-| `JobCollections_ListByResourceGroup` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Gets all job collections under specified resource group. |
-| `JobCollections_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | Gets all job collections under specified subscription. |
-| `JobCollections_CreateOrUpdate` | `INSERT` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Provisions a new job collection or updates an existing job collection. |
-| `JobCollections_Delete` | `DELETE` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Deletes a job collection. |
-| `JobCollections_Disable` | `EXEC` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Disables all of the jobs in the job collection. |
-| `JobCollections_Enable` | `EXEC` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Enables all of the jobs in the job collection. |
-| `JobCollections_Patch` | `EXEC` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Patches an existing job collection. |
+| `get` | `SELECT` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Gets a job collection. |
+| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Gets all job collections under specified resource group. |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | Gets all job collections under specified subscription. |
+| `create_or_update` | `INSERT` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Provisions a new job collection or updates an existing job collection. |
+| `delete` | `DELETE` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Deletes a job collection. |
+| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | Gets all job collections under specified resource group. |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | Gets all job collections under specified subscription. |
+| `disable` | `EXEC` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Disables all of the jobs in the job collection. |
+| `enable` | `EXEC` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Enables all of the jobs in the job collection. |
+| `patch` | `EXEC` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Patches an existing job collection. |

@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Marketplace  
+Microsoft Azure Marketplace Catalog Provides REST APIs To Browse, View And Search Azure Marketplace And AppSource Offerings.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>40</b></span><br />
+<span>total resources:&nbsp;<b>13</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>48</b></span><br />
 </div>
 </div>
 
@@ -31,19 +31,28 @@ Marketplace
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_extras.marketplace</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Marketplace (Microsoft.Marketplace)</td></tr>
-<tr><td><b>Description</b></td><td>Marketplace</td></tr>
-<tr><td><b>Id</b></td><td><code>marketplace:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Marketplace</td></tr>
+<tr><td><b>Description</b></td><td>Microsoft Azure Marketplace Catalog Provides REST APIs To Browse, View And Search Azure Marketplace And AppSource Offerings.</td></tr>
+<tr><td><b>Id</b></td><td><code>marketplace:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/azure_extras/marketplace/collection_offers_by_context/">collection_offers_by_context</a><br />
 <a href="/providers/azure_extras/marketplace/operations/">operations</a><br />
 <a href="/providers/azure_extras/marketplace/private_store/">private_store</a><br />
+<a href="/providers/azure_extras/marketplace/private_store_admin_request_approval/">private_store_admin_request_approval</a><br />
+<a href="/providers/azure_extras/marketplace/private_store_approval_request/">private_store_approval_request</a><br />
+<a href="/providers/azure_extras/marketplace/private_store_approval_requests_list/">private_store_approval_requests_list</a><br />
+<a href="/providers/azure_extras/marketplace/private_store_collection/">private_store_collection</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/azure_extras/marketplace/private_store_collection/">private_store_collection</a><br />
 <a href="/providers/azure_extras/marketplace/private_store_collection_offer/">private_store_collection_offer</a><br />
+<a href="/providers/azure_extras/marketplace/private_store_new_plans_notifications/">private_store_new_plans_notifications</a><br />
+<a href="/providers/azure_extras/marketplace/private_store_request_approval/">private_store_request_approval</a><br />
+<a href="/providers/azure_extras/marketplace/private_store_stop_sell_offers_plans_notifications/">private_store_stop_sell_offers_plans_notifications</a><br />
+<a href="/providers/azure_extras/marketplace/private_store_subscriptions_context/">private_store_subscriptions_context</a><br />
+<a href="/providers/azure_extras/marketplace/private_stores/">private_stores</a><br />
 </div>
 </div>

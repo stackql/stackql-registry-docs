@@ -25,12 +25,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | Properties of a Test Summary. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TestSummaries_Get` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName, testSummaryName` | Gets a Test Summary with specific name from all the Test Summaries of all the packages under a Test Base Account. |
-| `TestSummaries_List` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists the Test Summaries of all the packages under a Test Base Account. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName, testSummaryName` | Gets a Test Summary with specific name from all the Test Summaries of all the packages under a Test Base Account. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists the Test Summaries of all the packages under a Test Base Account. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists the Test Summaries of all the packages under a Test Base Account. |

@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Hybrid Data Manager  
+Microsoft Azure Hybrid Data Management Client  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Hybrid Data Manager
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>29</b></span><br />
+<span>total methods:&nbsp;<b>41</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Hybrid Data Manager
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.hybrid_data_manager</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Hybrid Data Manager (Microsoft.HybridData)</td></tr>
-<tr><td><b>Description</b></td><td>Hybrid Data Manager</td></tr>
-<tr><td><b>Id</b></td><td><code>hybrid_data_manager:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Hybrid Data Manager</td></tr>
+<tr><td><b>Description</b></td><td>Microsoft Azure Hybrid Data Management Client</td></tr>
+<tr><td><b>Id</b></td><td><code>hybrid_data_manager:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

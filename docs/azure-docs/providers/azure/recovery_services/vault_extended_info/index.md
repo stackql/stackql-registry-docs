@@ -27,14 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id represents the complete path to the resource. |
-| `name` | `string` | Resource name associated with the resource. |
-| `etag` | `string` | Optional ETag. |
+| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `name` | `string` | The name of the resource |
 | `properties` | `object` | Vault extended information. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VaultExtendedInfo_Get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` | Get the vault extended info. |
-| `VaultExtendedInfo_CreateOrUpdate` | `INSERT` | `api-version, resourceGroupName, subscriptionId, vaultName` | Create vault extended info. |
-| `VaultExtendedInfo_Update` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName` | Update vault extended info. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` | Get the vault extended info. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, vaultName` | Create vault extended info. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` | Update vault extended info. |

@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `RestorableTimeRanges_Find` | `EXEC` | `api-version, backupInstanceName, resourceGroupName, subscriptionId, vaultName, data__sourceDataStoreType` |
+| `find` | `EXEC` | `backupInstanceName, resourceGroupName, subscriptionId, vaultName, data__sourceDataStoreType` |

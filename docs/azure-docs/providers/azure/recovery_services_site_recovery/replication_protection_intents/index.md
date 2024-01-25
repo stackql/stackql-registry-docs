@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
+| `location` | `string` | Resource Location |
 | `properties` | `object` | Replication protection intent custom data details. |
 | `type` | `string` | Resource Type |
-| `location` | `string` | Resource Location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationProtectionIntents_Get` | `SELECT` | `api-version, intentObjectName, resourceGroupName, resourceName, subscriptionId` | Gets the details of an ASR replication protection intent. |
-| `ReplicationProtectionIntents_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of ASR replication protection intent objects in the vault. |
-| `ReplicationProtectionIntents_Create` | `INSERT` | `api-version, intentObjectName, resourceGroupName, resourceName, subscriptionId` | The operation to create an ASR replication protection intent item. |
+| `get` | `SELECT` | `api-version, intentObjectName, resourceGroupName, resourceName, subscriptionId` | Gets the details of an ASR replication protection intent. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of ASR replication protection intent objects in the vault. |
+| `create` | `INSERT` | `api-version, intentObjectName, resourceGroupName, resourceName, subscriptionId` | The operation to create an ASR replication protection intent item. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of ASR replication protection intent objects in the vault. |

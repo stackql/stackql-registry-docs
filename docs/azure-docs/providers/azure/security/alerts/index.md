@@ -34,18 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Alerts_List` | `SELECT` | `api-version, subscriptionId` | List all the alerts that are associated with the subscription |
-| `Alerts_ListByResourceGroup` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | List all the alerts that are associated with the resource group |
-| `Alerts_GetResourceGroupLevel` | `EXEC` | `alertName, api-version, ascLocation, resourceGroupName, subscriptionId` | Get an alert that is associated a resource group or a resource in a resource group |
-| `Alerts_GetSubscriptionLevel` | `EXEC` | `alertName, api-version, ascLocation, subscriptionId` | Get an alert that is associated with a subscription |
-| `Alerts_ListResourceGroupLevelByRegion` | `EXEC` | `api-version, ascLocation, resourceGroupName, subscriptionId` | List all the alerts that are associated with the resource group that are stored in a specific location |
-| `Alerts_ListSubscriptionLevelByRegion` | `EXEC` | `api-version, ascLocation, subscriptionId` | List all the alerts that are associated with the subscription that are stored in a specific location |
-| `Alerts_Simulate` | `EXEC` | `api-version, ascLocation, subscriptionId` | Simulate security alerts |
-| `Alerts_UpdateResourceGroupLevelStateToActivate` | `EXEC` | `alertName, api-version, ascLocation, resourceGroupName, subscriptionId` | Update the alert's state |
-| `Alerts_UpdateResourceGroupLevelStateToDismiss` | `EXEC` | `alertName, api-version, ascLocation, resourceGroupName, subscriptionId` | Update the alert's state |
-| `Alerts_UpdateResourceGroupLevelStateToInProgress` | `EXEC` | `alertName, api-version, ascLocation, resourceGroupName, subscriptionId` | Update the alert's state |
-| `Alerts_UpdateResourceGroupLevelStateToResolve` | `EXEC` | `alertName, api-version, ascLocation, resourceGroupName, subscriptionId` | Update the alert's state |
-| `Alerts_UpdateSubscriptionLevelStateToActivate` | `EXEC` | `alertName, api-version, ascLocation, subscriptionId` | Update the alert's state |
-| `Alerts_UpdateSubscriptionLevelStateToDismiss` | `EXEC` | `alertName, api-version, ascLocation, subscriptionId` | Update the alert's state |
-| `Alerts_UpdateSubscriptionLevelStateToInProgress` | `EXEC` | `alertName, api-version, ascLocation, subscriptionId` | Update the alert's state |
-| `Alerts_UpdateSubscriptionLevelStateToResolve` | `EXEC` | `alertName, api-version, ascLocation, subscriptionId` | Update the alert's state |
+| `list` | `SELECT` | `api-version, subscriptionId` | List all the alerts that are associated with the subscription |
+| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | List all the alerts that are associated with the resource group |
+| `_list` | `EXEC` | `api-version, subscriptionId` | List all the alerts that are associated with the subscription |
+| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | List all the alerts that are associated with the resource group |
+| `simulate` | `EXEC` | `api-version, ascLocation, subscriptionId` | Simulate security alerts |

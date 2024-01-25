@@ -28,19 +28,20 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the script action. |
-| `scriptExecutionId` | `integer` | The execution id of the script action. |
-| `status` | `string` | The current execution status of the script action. |
 | `applicationName` | `string` | The application name of the script action, if any. |
-| `endTime` | `string` | The end time of script action execution. |
-| `startTime` | `string` | The start time of script action execution. |
-| `parameters` | `string` | The parameters for the script |
-| `uri` | `string` | The URI to the script. |
 | `debugInformation` | `string` | The script action execution debug information. |
-| `operation` | `string` | The reason why the script action was executed. |
+| `endTime` | `string` | The end time of script action execution. |
 | `executionSummary` | `array` | The summary of script action execution result. |
+| `operation` | `string` | The reason why the script action was executed. |
+| `parameters` | `string` | The parameters for the script |
 | `roles` | `array` | The list of roles where script will be executed. |
+| `scriptExecutionId` | `integer` | The execution id of the script action. |
+| `startTime` | `string` | The start time of script action execution. |
+| `status` | `string` | The current execution status of the script action. |
+| `uri` | `string` | The URI to the script. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ScriptExecutionHistory_ListByCluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Lists all scripts' execution history for the specified cluster. |
-| `ScriptExecutionHistory_Promote` | `EXEC` | `clusterName, resourceGroupName, scriptExecutionId, subscriptionId` | Promotes the specified ad-hoc script execution to a persisted script. |
+| `list_by_cluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Lists all scripts' execution history for the specified cluster. |
+| `_list_by_cluster` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Lists all scripts' execution history for the specified cluster. |
+| `promote` | `EXEC` | `clusterName, resourceGroupName, scriptExecutionId, subscriptionId` | Promotes the specified ad-hoc script execution to a persisted script. |

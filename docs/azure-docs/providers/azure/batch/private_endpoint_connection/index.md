@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnection_Get` | `SELECT` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets information about the specified private endpoint connection. |
-| `PrivateEndpointConnection_ListByBatchAccount` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all of the private endpoint connections in the specified account. |
-| `PrivateEndpointConnection_Delete` | `DELETE` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection. |
-| `PrivateEndpointConnection_Update` | `EXEC` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Updates the properties of an existing private endpoint connection. |
+| `get` | `SELECT` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets information about the specified private endpoint connection. |
+| `list_by_batch_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all of the private endpoint connections in the specified account. |
+| `delete` | `DELETE` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection. |
+| `_list_by_batch_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Lists all of the private endpoint connections in the specified account. |
+| `update` | `EXEC` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Updates the properties of an existing private endpoint connection. |

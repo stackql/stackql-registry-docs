@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Queue_Get` | `SELECT` | `accountName, queueName, resourceGroupName, subscriptionId` | Gets the queue with the specified queue name, under the specified account if it exists. |
-| `Queue_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets a list of all the queues under the specified storage account |
-| `Queue_Create` | `INSERT` | `accountName, queueName, resourceGroupName, subscriptionId` | Creates a new queue with the specified queue name, under the specified account. |
-| `Queue_Delete` | `DELETE` | `accountName, queueName, resourceGroupName, subscriptionId` | Deletes the queue with the specified queue name, under the specified account if it exists. |
-| `Queue_Update` | `EXEC` | `accountName, queueName, resourceGroupName, subscriptionId` | Creates a new queue with the specified queue name, under the specified account. |
+| `get` | `SELECT` | `accountName, queueName, resourceGroupName, subscriptionId` | Gets the queue with the specified queue name, under the specified account if it exists. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets a list of all the queues under the specified storage account |
+| `create` | `INSERT` | `accountName, queueName, resourceGroupName, subscriptionId` | Creates a new queue with the specified queue name, under the specified account. |
+| `delete` | `DELETE` | `accountName, queueName, resourceGroupName, subscriptionId` | Deletes the queue with the specified queue name, under the specified account if it exists. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Gets a list of all the queues under the specified storage account |
+| `update` | `EXEC` | `accountName, queueName, resourceGroupName, subscriptionId` | Creates a new queue with the specified queue name, under the specified account. |

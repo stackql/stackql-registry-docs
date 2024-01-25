@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Parameters for VirtualNetworkGatewayNatRule. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualNetworkGatewayNatRules_Get` | `SELECT` | `natRuleName, resourceGroupName, subscriptionId, virtualNetworkGatewayName` | Retrieves the details of a nat rule. |
-| `VirtualNetworkGatewayNatRules_ListByVirtualNetworkGateway` | `SELECT` | `resourceGroupName, subscriptionId, virtualNetworkGatewayName` | Retrieves all nat rules for a particular virtual network gateway. |
-| `VirtualNetworkGatewayNatRules_CreateOrUpdate` | `INSERT` | `natRuleName, resourceGroupName, subscriptionId, virtualNetworkGatewayName` | Creates a nat rule to a scalable virtual network gateway if it doesn't exist else updates the existing nat rules. |
-| `VirtualNetworkGatewayNatRules_Delete` | `DELETE` | `natRuleName, resourceGroupName, subscriptionId, virtualNetworkGatewayName` | Deletes a nat rule. |
+| `get` | `SELECT` | `natRuleName, resourceGroupName, subscriptionId, virtualNetworkGatewayName` | Retrieves the details of a nat rule. |
+| `list_by_virtual_network_gateway` | `SELECT` | `resourceGroupName, subscriptionId, virtualNetworkGatewayName` | Retrieves all nat rules for a particular virtual network gateway. |
+| `create_or_update` | `INSERT` | `natRuleName, resourceGroupName, subscriptionId, virtualNetworkGatewayName` | Creates a nat rule to a scalable virtual network gateway if it doesn't exist else updates the existing nat rules. |
+| `delete` | `DELETE` | `natRuleName, resourceGroupName, subscriptionId, virtualNetworkGatewayName` | Deletes a nat rule. |
+| `_list_by_virtual_network_gateway` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayName` | Retrieves all nat rules for a particular virtual network gateway. |

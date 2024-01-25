@@ -27,13 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `jobsSummary` | `object` | Summary of the replication job data for this vault. |
+| `monitoringSummary` | `object` | Summary of the replication monitoring data for this vault. |
 | `protectedItemCount` | `integer` | Number of replication protected items for this vault. |
 | `recoveryPlanCount` | `integer` | Number of replication recovery plans for this vault. |
 | `recoveryServicesProviderAuthType` | `integer` | The authentication type of recovery service providers in the vault. |
 | `registeredServersCount` | `integer` | Number of servers registered to this vault. |
-| `jobsSummary` | `object` | Summary of the replication job data for this vault. |
-| `monitoringSummary` | `object` | Summary of the replication monitoring data for this vault. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ReplicationUsages_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` |

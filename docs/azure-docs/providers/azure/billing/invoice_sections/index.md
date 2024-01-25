@@ -29,11 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `properties` | `object` | The properties of an invoice section. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `InvoiceSections_Get` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
-| `InvoiceSections_ListByBillingProfile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the invoice sections that a user has access to. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
-| `InvoiceSections_CreateOrUpdate` | `INSERT` | `billingAccountName, billingProfileName, invoiceSectionName` | Creates or updates an invoice section. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+| `get` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+| `list_by_billing_profile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the invoice sections that a user has access to. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+| `create_or_update` | `INSERT` | `billingAccountName, billingProfileName, invoiceSectionName` | Creates or updates an invoice section. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+| `_list_by_billing_profile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the invoice sections that a user has access to. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |

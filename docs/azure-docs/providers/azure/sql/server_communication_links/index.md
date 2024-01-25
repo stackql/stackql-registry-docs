@@ -33,7 +33,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerCommunicationLinks_Get` | `SELECT` | `communicationLinkName, resourceGroupName, serverName, subscriptionId` | Returns a server communication link. |
-| `ServerCommunicationLinks_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server communication links. |
-| `ServerCommunicationLinks_CreateOrUpdate` | `INSERT` | `communicationLinkName, resourceGroupName, serverName, subscriptionId` | Creates a server communication link. |
-| `ServerCommunicationLinks_Delete` | `DELETE` | `communicationLinkName, resourceGroupName, serverName, subscriptionId` | Deletes a server communication link. |
+| `get` | `SELECT` | `communicationLinkName, resourceGroupName, serverName, subscriptionId` | Returns a server communication link. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server communication links. |
+| `create_or_update` | `INSERT` | `communicationLinkName, resourceGroupName, serverName, subscriptionId` | Creates a server communication link. |
+| `delete` | `DELETE` | `communicationLinkName, resourceGroupName, serverName, subscriptionId` | Deletes a server communication link. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server communication links. |

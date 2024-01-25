@@ -29,14 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id represents the complete path to the resource. |
 | `name` | `string` | Resource name associated with the resource. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 | `eTag` | `string` | Optional ETag. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Backup resource vault config details. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BackupResourceVaultConfigs_Get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` | Fetches resource vault config. |
-| `BackupResourceVaultConfigs_Put` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName` | Updates vault security config.  |
-| `BackupResourceVaultConfigs_Update` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName` | Updates vault security config. |
+| `get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` | Fetches resource vault config. |
+| `put` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName` | Updates vault security config.  |
+| `update` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName` | Updates vault security config. |

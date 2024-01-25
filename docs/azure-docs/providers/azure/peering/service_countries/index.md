@@ -27,9 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The link to fetch the next page of peering service countries. |
-| `value` | `array` | The list of peering service countries. |
+| `id` | `string` | The ID of the resource. |
+| `name` | `string` | The name of the resource. |
+| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `PeeringServiceCountries_List` | `SELECT` | `subscriptionId` |
+| `list` | `SELECT` | `subscriptionId` |
+| `_list` | `EXEC` | `subscriptionId` |

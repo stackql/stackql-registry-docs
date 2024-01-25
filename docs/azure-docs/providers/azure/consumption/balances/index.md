@@ -27,7 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `Balances_GetByBillingAccount` | `EXEC` | `billingAccountId` | Gets the balances for a scope by billingAccountId. Balances are available via this API only for May 1, 2014 or later. |
-| `Balances_GetForBillingPeriodByBillingAccount` | `EXEC` | `billingAccountId, billingPeriodName` | Gets the balances for a scope by billing period and billingAccountId. Balances are available via this API only for May 1, 2014 or later. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `get_by_billing_account` | `EXEC` | `billingAccountId` |

@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LoadBalancerOutboundRules_Get` | `SELECT` | `loadBalancerName, outboundRuleName, resourceGroupName, subscriptionId` | Gets the specified load balancer outbound rule. |
-| `LoadBalancerOutboundRules_List` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the outbound rules in a load balancer. |
+| `get` | `SELECT` | `loadBalancerName, outboundRuleName, resourceGroupName, subscriptionId` | Gets the specified load balancer outbound rule. |
+| `list` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the outbound rules in a load balancer. |
+| `_list` | `EXEC` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the outbound rules in a load balancer. |

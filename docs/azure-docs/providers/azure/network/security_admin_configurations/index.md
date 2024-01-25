@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Defines the security admin configuration properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SecurityAdminConfigurations_Get` | `SELECT` |  | Retrieves a network manager security admin configuration. |
-| `SecurityAdminConfigurations_List` | `SELECT` | `networkManagerName, resourceGroupName, subscriptionId` | Lists all the network manager security admin configurations in a network manager, in a paginated format. |
-| `SecurityAdminConfigurations_CreateOrUpdate` | `INSERT` |  | Creates or updates a network manager security admin configuration. |
-| `SecurityAdminConfigurations_Delete` | `DELETE` |  | Deletes a network manager security admin configuration. |
+| `get` | `SELECT` |  | Retrieves a network manager security admin configuration. |
+| `list` | `SELECT` | `networkManagerName, resourceGroupName, subscriptionId` | Lists all the network manager security admin configurations in a network manager, in a paginated format. |
+| `create_or_update` | `INSERT` |  | Creates or updates a network manager security admin configuration. |
+| `delete` | `DELETE` |  | Deletes a network manager security admin configuration. |
+| `_list` | `EXEC` | `networkManagerName, resourceGroupName, subscriptionId` | Lists all the network manager security admin configurations in a network manager, in a paginated format. |

@@ -32,14 +32,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SyncGroups_Get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Gets a sync group. |
-| `SyncGroups_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Lists sync groups under a hub database. |
-| `SyncGroups_CreateOrUpdate` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Creates or updates a sync group. |
-| `SyncGroups_Delete` | `DELETE` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Deletes a sync group. |
-| `SyncGroups_CancelSync` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Cancels a sync group synchronization. |
-| `SyncGroups_ListHubSchemas` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Gets a collection of hub database schemas. |
-| `SyncGroups_ListLogs` | `EXEC` | `databaseName, endTime, resourceGroupName, serverName, startTime, subscriptionId, syncGroupName, type` | Gets a collection of sync group logs. |
-| `SyncGroups_ListSyncDatabaseIds` | `EXEC` | `locationName, subscriptionId` | Gets a collection of sync database ids. |
-| `SyncGroups_RefreshHubSchema` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Refreshes a hub database schema. |
-| `SyncGroups_TriggerSync` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Triggers a sync group synchronization. |
-| `SyncGroups_Update` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Updates a sync group. |
+| `get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Gets a sync group. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Lists sync groups under a hub database. |
+| `create_or_update` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Creates or updates a sync group. |
+| `delete` | `DELETE` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Deletes a sync group. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Lists sync groups under a hub database. |
+| `cancel_sync` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Cancels a sync group synchronization. |
+| `refresh_hub_schema` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Refreshes a hub database schema. |
+| `trigger_sync` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Triggers a sync group synchronization. |
+| `update` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId, syncGroupName` | Updates a sync group. |

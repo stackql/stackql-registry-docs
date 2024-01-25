@@ -32,5 +32,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RestorableDroppedSqlPools_Get` | `SELECT` | `resourceGroupName, restorableDroppedSqlPoolId, subscriptionId, workspaceName` | Gets a deleted sql pool that can be restored |
-| `RestorableDroppedSqlPools_ListByWorkspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Gets a list of deleted Sql pools that can be restored |
+| `get` | `SELECT` | `resourceGroupName, restorableDroppedSqlPoolId, subscriptionId, workspaceName` | Gets a deleted sql pool that can be restored |
+| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Gets a list of deleted Sql pools that can be restored |
+| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Gets a list of deleted Sql pools that can be restored |

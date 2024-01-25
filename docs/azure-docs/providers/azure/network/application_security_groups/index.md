@@ -29,17 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Application security group properties. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ApplicationSecurityGroups_Get` | `SELECT` | `applicationSecurityGroupName, resourceGroupName, subscriptionId` | Gets information about the specified application security group. |
-| `ApplicationSecurityGroups_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the application security groups in a resource group. |
-| `ApplicationSecurityGroups_ListAll` | `SELECT` | `subscriptionId` | Gets all application security groups in a subscription. |
-| `ApplicationSecurityGroups_CreateOrUpdate` | `INSERT` | `applicationSecurityGroupName, resourceGroupName, subscriptionId` | Creates or updates an application security group. |
-| `ApplicationSecurityGroups_Delete` | `DELETE` | `applicationSecurityGroupName, resourceGroupName, subscriptionId` | Deletes the specified application security group. |
-| `ApplicationSecurityGroups_UpdateTags` | `EXEC` | `applicationSecurityGroupName, resourceGroupName, subscriptionId` | Updates an application security group's tags. |
+| `get` | `SELECT` | `applicationSecurityGroupName, resourceGroupName, subscriptionId` | Gets information about the specified application security group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the application security groups in a resource group. |
+| `create_or_update` | `INSERT` | `applicationSecurityGroupName, resourceGroupName, subscriptionId` | Creates or updates an application security group. |
+| `delete` | `DELETE` | `applicationSecurityGroupName, resourceGroupName, subscriptionId` | Deletes the specified application security group. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the application security groups in a resource group. |

@@ -34,6 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SoftwareInventories_Get` | `SELECT` | `api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, softwareName, subscriptionId` | Gets a single software data of the virtual machine. |
-| `SoftwareInventories_ListByExtendedResource` | `SELECT` | `api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId` | Gets the software inventory of the virtual machine. |
-| `SoftwareInventories_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | Gets the software inventory of all virtual machines in the subscriptions. |
+| `get` | `SELECT` | `api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, softwareName, subscriptionId` | Gets a single software data of the virtual machine. |
+| `list_by_extended_resource` | `SELECT` | `api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId` | Gets the software inventory of the virtual machine. |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | Gets the software inventory of all virtual machines in the subscriptions. |
+| `_list_by_extended_resource` | `EXEC` | `api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId` | Gets the software inventory of the virtual machine. |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | Gets the software inventory of all virtual machines in the subscriptions. |

@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DefaultSecurityRules_Get` | `SELECT` | `defaultSecurityRuleName, networkSecurityGroupName, resourceGroupName, subscriptionId` | Get the specified default network security rule. |
-| `DefaultSecurityRules_List` | `SELECT` | `networkSecurityGroupName, resourceGroupName, subscriptionId` | Gets all default security rules in a network security group. |
+| `get` | `SELECT` | `defaultSecurityRuleName, networkSecurityGroupName, resourceGroupName, subscriptionId` | Get the specified default network security rule. |
+| `list` | `SELECT` | `networkSecurityGroupName, resourceGroupName, subscriptionId` | Gets all default security rules in a network security group. |
+| `_list` | `EXEC` | `networkSecurityGroupName, resourceGroupName, subscriptionId` | Gets all default security rules in a network security group. |

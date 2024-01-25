@@ -25,8 +25,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `identifier` | `object` | The identifier information of shared gallery. |
+| `properties` | `object` | Specifies the properties of a shared gallery |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SharedGalleries_Get` | `SELECT` | `galleryUniqueName, location, subscriptionId` | Get a shared gallery by subscription id or tenant id. |
-| `SharedGalleries_List` | `SELECT` | `location, subscriptionId` | List shared galleries by subscription id or tenant id. |
+| `get` | `SELECT` | `galleryUniqueName, location, subscriptionId` | Get a shared gallery by subscription id or tenant id. |
+| `list` | `SELECT` | `location, subscriptionId` | List shared galleries by subscription id or tenant id. |
+| `_list` | `EXEC` | `location, subscriptionId` | List shared galleries by subscription id or tenant id. |

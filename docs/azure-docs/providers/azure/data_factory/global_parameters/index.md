@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
+| `etag` | `string` | Etag identifies change in the resource. |
 | `properties` | `object` | Global parameters associated with the Azure Data Factory |
 | `type` | `string` | The resource type. |
-| `etag` | `string` | Etag identifies change in the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GlobalParameters_Get` | `SELECT` | `api-version, factoryName, globalParameterName, resourceGroupName, subscriptionId` | Gets a Global parameter |
-| `GlobalParameters_ListByFactory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists Global parameters |
-| `GlobalParameters_CreateOrUpdate` | `INSERT` | `api-version, factoryName, globalParameterName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a Global parameter |
-| `GlobalParameters_Delete` | `DELETE` | `api-version, factoryName, globalParameterName, resourceGroupName, subscriptionId` | Deletes a Global parameter |
+| `get` | `SELECT` | `api-version, factoryName, globalParameterName, resourceGroupName, subscriptionId` | Gets a Global parameter |
+| `list_by_factory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists Global parameters |
+| `create_or_update` | `INSERT` | `api-version, factoryName, globalParameterName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a Global parameter |
+| `delete` | `DELETE` | `api-version, factoryName, globalParameterName, resourceGroupName, subscriptionId` | Deletes a Global parameter |
+| `_list_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists Global parameters |

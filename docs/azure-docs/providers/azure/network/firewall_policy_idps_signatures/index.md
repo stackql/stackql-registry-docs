@@ -32,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `FirewallPolicyIdpsSignatures_List` | `SELECT` | `firewallPolicyName, resourceGroupName, subscriptionId` |
+| `list` | `SELECT` | `firewallPolicyName, resourceGroupName, subscriptionId` |

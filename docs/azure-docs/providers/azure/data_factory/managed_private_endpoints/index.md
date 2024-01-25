@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `type` | `string` | The resource type. |
 | `etag` | `string` | Etag identifies change in the resource. |
 | `properties` | `object` | Properties of a managed private endpoint |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedPrivateEndpoints_Get` | `SELECT` | `api-version, factoryName, managedPrivateEndpointName, managedVirtualNetworkName, resourceGroupName, subscriptionId` | Gets a managed private endpoint. |
-| `ManagedPrivateEndpoints_ListByFactory` | `SELECT` | `api-version, factoryName, managedVirtualNetworkName, resourceGroupName, subscriptionId` | Lists managed private endpoints. |
-| `ManagedPrivateEndpoints_CreateOrUpdate` | `INSERT` | `api-version, factoryName, managedPrivateEndpointName, managedVirtualNetworkName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a managed private endpoint. |
-| `ManagedPrivateEndpoints_Delete` | `DELETE` | `api-version, factoryName, managedPrivateEndpointName, managedVirtualNetworkName, resourceGroupName, subscriptionId` | Deletes a managed private endpoint. |
+| `get` | `SELECT` | `api-version, factoryName, managedPrivateEndpointName, managedVirtualNetworkName, resourceGroupName, subscriptionId` | Gets a managed private endpoint. |
+| `list_by_factory` | `SELECT` | `api-version, factoryName, managedVirtualNetworkName, resourceGroupName, subscriptionId` | Lists managed private endpoints. |
+| `create_or_update` | `INSERT` | `api-version, factoryName, managedPrivateEndpointName, managedVirtualNetworkName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a managed private endpoint. |
+| `delete` | `DELETE` | `api-version, factoryName, managedPrivateEndpointName, managedVirtualNetworkName, resourceGroupName, subscriptionId` | Deletes a managed private endpoint. |
+| `_list_by_factory` | `EXEC` | `api-version, factoryName, managedVirtualNetworkName, resourceGroupName, subscriptionId` | Lists managed private endpoints. |

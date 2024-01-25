@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `RecommendedActions_Get` | `SELECT` | `advisorName, recommendedActionName, resourceGroupName, serverName, subscriptionId` |
-| `RecommendedActions_ListByServer` | `SELECT` | `advisorName, resourceGroupName, serverName, subscriptionId` |
+| `get` | `SELECT` | `advisorName, recommendedActionName, resourceGroupName, serverName, subscriptionId` |
+| `list_by_server` | `SELECT` | `advisorName, resourceGroupName, serverName, subscriptionId` |
+| `_list_by_server` | `EXEC` | `advisorName, resourceGroupName, serverName, subscriptionId` |

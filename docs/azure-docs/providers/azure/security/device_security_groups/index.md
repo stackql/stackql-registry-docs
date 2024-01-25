@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DeviceSecurityGroups_Get` | `SELECT` | `api-version, deviceSecurityGroupName, resourceId` | Use this method to get the device security group for the specified IoT Hub resource. |
-| `DeviceSecurityGroups_List` | `SELECT` | `api-version, resourceId` | Use this method get the list of device security groups for the specified IoT Hub resource. |
-| `DeviceSecurityGroups_CreateOrUpdate` | `INSERT` | `api-version, deviceSecurityGroupName, resourceId` | Use this method to creates or updates the device security group on a specified IoT Hub resource. |
-| `DeviceSecurityGroups_Delete` | `DELETE` | `api-version, deviceSecurityGroupName, resourceId` | User this method to deletes the device security group. |
+| `get` | `SELECT` | `api-version, deviceSecurityGroupName, resourceId` | Use this method to get the device security group for the specified IoT Hub resource. |
+| `list` | `SELECT` | `api-version, resourceId` | Use this method get the list of device security groups for the specified IoT Hub resource. |
+| `create_or_update` | `INSERT` | `api-version, deviceSecurityGroupName, resourceId` | Use this method to creates or updates the device security group on a specified IoT Hub resource. |
+| `delete` | `DELETE` | `api-version, deviceSecurityGroupName, resourceId` | User this method to deletes the device security group. |
+| `_list` | `EXEC` | `api-version, resourceId` | Use this method get the list of device security groups for the specified IoT Hub resource. |

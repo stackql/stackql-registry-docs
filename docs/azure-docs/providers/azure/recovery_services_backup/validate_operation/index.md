@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ValidateOperation_Trigger` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName, data__objectType` |
+| `trigger` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName, data__id, data__properties` |

@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties specific to NetworkVirtualApplianceSkus. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualApplianceSkus_Get` | `SELECT` | `skuName, subscriptionId` | Retrieves a single available sku for network virtual appliance. |
-| `VirtualApplianceSkus_List` | `SELECT` | `subscriptionId` | List all SKUs available for a virtual appliance. |
+| `get` | `SELECT` | `skuName, subscriptionId` | Retrieves a single available sku for network virtual appliance. |
+| `list` | `SELECT` | `subscriptionId` | List all SKUs available for a virtual appliance. |
+| `_list` | `EXEC` | `subscriptionId` | List all SKUs available for a virtual appliance. |

@@ -32,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `IntegrationRuntimeStatus_Get` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` |
+| `get` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` |

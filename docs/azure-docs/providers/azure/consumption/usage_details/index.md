@@ -29,4 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `UsageDetails_List` | `EXEC` | `scope` |
+| `_exec_list` | `EXEC` | `scope` |
+| `exec_list` | `EXEC` | `scope` |

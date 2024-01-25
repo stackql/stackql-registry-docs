@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DataLakeStoreAccounts_Get` | `SELECT` | `accountName, dataLakeStoreAccountName, resourceGroupName, subscriptionId` | Gets the specified Data Lake Store account details in the specified Data Lake Analytics account. |
-| `DataLakeStoreAccounts_ListByAccount` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the first page of Data Lake Store accounts linked to the specified Data Lake Analytics account. The response includes a link to the next page, if any. |
-| `DataLakeStoreAccounts_Add` | `INSERT` | `accountName, dataLakeStoreAccountName, resourceGroupName, subscriptionId` | Updates the specified Data Lake Analytics account to include the additional Data Lake Store account. |
-| `DataLakeStoreAccounts_Delete` | `DELETE` | `accountName, dataLakeStoreAccountName, resourceGroupName, subscriptionId` | Updates the Data Lake Analytics account specified to remove the specified Data Lake Store account. |
+| `get` | `SELECT` | `accountName, dataLakeStoreAccountName, resourceGroupName, subscriptionId` | Gets the specified Data Lake Store account details in the specified Data Lake Analytics account. |
+| `list_by_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the first page of Data Lake Store accounts linked to the specified Data Lake Analytics account. The response includes a link to the next page, if any. |
+| `add` | `INSERT` | `accountName, dataLakeStoreAccountName, resourceGroupName, subscriptionId` | Updates the specified Data Lake Analytics account to include the additional Data Lake Store account. |
+| `delete` | `DELETE` | `accountName, dataLakeStoreAccountName, resourceGroupName, subscriptionId` | Updates the Data Lake Analytics account specified to remove the specified Data Lake Store account. |
+| `_list_by_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Gets the first page of Data Lake Store accounts linked to the specified Data Lake Analytics account. The response includes a link to the next page, if any. |

@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Locations_Get` | `SELECT` | `api-version, locationName` | Returns the details about a location to which you can ship the disks associated with an import or export job. A location is an Azure region. |
-| `Locations_List` | `SELECT` | `api-version` | Returns a list of locations to which you can ship the disks associated with an import or export job. A location is a Microsoft data center region. |
+| `get` | `SELECT` | `api-version, locationName` | Returns the details about a location to which you can ship the disks associated with an import or export job. A location is an Azure region. |
+| `list` | `SELECT` | `api-version` | Returns a list of locations to which you can ship the disks associated with an import or export job. A location is a Microsoft data center region. |
+| `_list` | `EXEC` | `api-version` | Returns a list of locations to which you can ship the disks associated with an import or export job. A location is a Microsoft data center region. |

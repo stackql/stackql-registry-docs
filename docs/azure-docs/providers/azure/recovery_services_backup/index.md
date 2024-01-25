@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Recovery Services Backup  
+Azure Backup Contributes To Your Business Continuity And Disaster Recovery (BCDR) Strategy By Backing Up Data To The Azure Clouds. Use Backup To Back Up Data On Virtual Machines Running On-Premises, And On Azure VMs.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>50</b></span><br />
-<span>total selectable resources:&nbsp;<b>36</b></span><br />
-<span>total methods:&nbsp;<b>76</b></span><br />
+<span>total resources:&nbsp;<b>54</b></span><br />
+<span>total selectable resources:&nbsp;<b>40</b></span><br />
+<span>total methods:&nbsp;<b>92</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Recovery Services Backup
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.recovery_services_backup</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Recovery Services Backup (Microsoft.RecoveryServices)</td></tr>
-<tr><td><b>Description</b></td><td>Recovery Services Backup</td></tr>
-<tr><td><b>Id</b></td><td><code>recovery_services_backup:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Recovery Services (Azure Backup)</td></tr>
+<tr><td><b>Description</b></td><td>Azure Backup Contributes To Your Business Continuity And Disaster Recovery (BCDR) Strategy By Backing Up Data To The Azure Clouds. Use Backup To Back Up Data On Virtual Machines Running On-Premises, And On Azure VMs.</td></tr>
+<tr><td><b>Id</b></td><td><code>recovery_services_backup:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -57,19 +57,22 @@ Recovery Services Backup
 <a href="/providers/azure/recovery_services_backup/backups/">backups</a><br />
 <a href="/providers/azure/recovery_services_backup/bms_prepare_data_move_operation_result/">bms_prepare_data_move_operation_result</a><br />
 <a href="/providers/azure/recovery_services_backup/data_move/">data_move</a><br />
+<a href="/providers/azure/recovery_services_backup/deleted_protection_containers/">deleted_protection_containers</a><br />
 <a href="/providers/azure/recovery_services_backup/export_jobs_operation_results/">export_jobs_operation_results</a><br />
 <a href="/providers/azure/recovery_services_backup/feature_support/">feature_support</a><br />
+<a href="/providers/azure/recovery_services_backup/fetch_tiering_cost/">fetch_tiering_cost</a><br />
+<a href="/providers/azure/recovery_services_backup/get_tiering_cost_operation_result/">get_tiering_cost_operation_result</a><br />
 <a href="/providers/azure/recovery_services_backup/item_level_recovery_connections/">item_level_recovery_connections</a><br />
 <a href="/providers/azure/recovery_services_backup/job_cancellations/">job_cancellations</a><br />
 <a href="/providers/azure/recovery_services_backup/job_details/">job_details</a><br />
 <a href="/providers/azure/recovery_services_backup/job_operation_results/">job_operation_results</a><br />
-<a href="/providers/azure/recovery_services_backup/jobs/">jobs</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/azure/recovery_services_backup/jobs/">jobs</a><br />
 <a href="/providers/azure/recovery_services_backup/operation/">operation</a><br />
 <a href="/providers/azure/recovery_services_backup/operations/">operations</a><br />
-<a href="/providers/azure/recovery_services_backup/private_endpoint/">private_endpoint</a><br />
 <a href="/providers/azure/recovery_services_backup/private_endpoint_connection/">private_endpoint_connection</a><br />
+<a href="/providers/azure/recovery_services_backup/private_endpoint_operation_status/">private_endpoint_operation_status</a><br />
 <a href="/providers/azure/recovery_services_backup/protectable_containers/">protectable_containers</a><br />
 <a href="/providers/azure/recovery_services_backup/protected_item_operation_results/">protected_item_operation_results</a><br />
 <a href="/providers/azure/recovery_services_backup/protected_item_operation_statuses/">protected_item_operation_statuses</a><br />
@@ -88,6 +91,7 @@ Recovery Services Backup
 <a href="/providers/azure/recovery_services_backup/resource_guard_proxy/">resource_guard_proxy</a><br />
 <a href="/providers/azure/recovery_services_backup/restores/">restores</a><br />
 <a href="/providers/azure/recovery_services_backup/security_pi_ns/">security_pi_ns</a><br />
+<a href="/providers/azure/recovery_services_backup/tiering_cost_operation_status/">tiering_cost_operation_status</a><br />
 <a href="/providers/azure/recovery_services_backup/validate_operation/">validate_operation</a><br />
 <a href="/providers/azure/recovery_services_backup/validate_operation_results/">validate_operation_results</a><br />
 <a href="/providers/azure/recovery_services_backup/validate_operation_statuses/">validate_operation_statuses</a><br />

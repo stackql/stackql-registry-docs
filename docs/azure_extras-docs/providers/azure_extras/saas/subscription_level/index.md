@@ -35,13 +35,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SaasSubscriptionLevel_Get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets information about the specified Subscription Level SaaS. |
-| `SaasSubscriptionLevel_ListByAzureSubscription` | `SELECT` | `subscriptionId` | Gets information about all the Subscription Level SaaS in a certain Azure subscription. |
-| `SaasSubscriptionLevel_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets information about all the Subscription Level SaaS in a certain resource group. |
-| `SaasSubscriptionLevel_CreateOrUpdate` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Creates or updates a SaaS resource. |
-| `SaasSubscriptionLevel_Delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Deletes the specified SaaS. |
-| `SaasSubscriptionLevel_MoveResources` | `EXEC` | `resourceGroupName, subscriptionId` | Move a specified Subscription Level SaaS. |
-| `SaasSubscriptionLevel_Update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Updates a SaaS Subscription Level resource. |
-| `SaasSubscriptionLevel_UpdateToUnsubscribed` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Unsubscribe from a specified Subscription Level SaaS. |
-| `SaasSubscriptionLevel_ValidateMoveResources` | `EXEC` | `resourceGroupName, subscriptionId` | Validate whether a specified Subscription Level SaaS can be moved. |
-| `SaasSubscriptionLevel_listAccessToken` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Gets the ISV access token for a specified Subscription Level SaaS. |
+| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets information about the specified Subscription Level SaaS. |
+| `list_by_azure_subscription` | `SELECT` | `subscriptionId` | Gets information about all the Subscription Level SaaS in a certain Azure subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets information about all the Subscription Level SaaS in a certain resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Creates or updates a SaaS resource. |
+| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Deletes the specified SaaS. |
+| `_list_by_azure_subscription` | `EXEC` | `subscriptionId` | Gets information about all the Subscription Level SaaS in a certain Azure subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets information about all the Subscription Level SaaS in a certain resource group. |
+| `move_resources` | `EXEC` | `resourceGroupName, subscriptionId` | Move a specified Subscription Level SaaS. |
+| `update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Updates a SaaS Subscription Level resource. |
+| `validate_move_resources` | `EXEC` | `resourceGroupName, subscriptionId` | Validate whether a specified Subscription Level SaaS can be moved. |

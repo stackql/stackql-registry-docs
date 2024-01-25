@@ -34,6 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SubAssessments_Get` | `SELECT` | `api-version, assessmentName, scope, subAssessmentName` | Get a security sub-assessment on your scanned resource |
-| `SubAssessments_List` | `SELECT` | `api-version, assessmentName, scope` | Get security sub-assessments on all your scanned resources inside a scope |
-| `SubAssessments_ListAll` | `SELECT` | `api-version, scope` | Get security sub-assessments on all your scanned resources inside a subscription scope |
+| `get` | `SELECT` | `api-version, assessmentName, scope, subAssessmentName` | Get a security sub-assessment on your scanned resource |
+| `list` | `SELECT` | `api-version, assessmentName, scope` | Get security sub-assessments on all your scanned resources inside a scope |
+| `_list` | `EXEC` | `api-version, assessmentName, scope` | Get security sub-assessments on all your scanned resources inside a scope |

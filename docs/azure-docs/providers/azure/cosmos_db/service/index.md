@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Service_Get` | `SELECT` | `accountName, resourceGroupName, serviceName, subscriptionId` | Gets the status of service. |
-| `Service_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the status of service. |
-| `Service_Create` | `INSERT` | `accountName, resourceGroupName, serviceName, subscriptionId` | Creates a service. |
-| `Service_Delete` | `DELETE` | `accountName, resourceGroupName, serviceName, subscriptionId` | Deletes service with the given serviceName. |
+| `get` | `SELECT` | `accountName, resourceGroupName, serviceName, subscriptionId` | Gets the status of service. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the status of service. |
+| `create` | `INSERT` | `accountName, resourceGroupName, serviceName, subscriptionId` | Creates a service. |
+| `delete` | `DELETE` | `accountName, resourceGroupName, serviceName, subscriptionId` | Deletes service with the given serviceName. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Gets the status of service. |

@@ -29,27 +29,20 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `zones` | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
-| `tags` | `object` | Resource tags. |
-| `properties` | `object` | Public IP address properties. |
-| `sku` | `object` | SKU of a public IP address. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `type` | `string` | Resource type. |
 | `extendedLocation` | `object` | ExtendedLocation complex type. |
 | `location` | `string` | Resource location. |
+| `properties` | `object` | Public IP address properties. |
+| `sku` | `object` | SKU of a public IP address. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
+| `zones` | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PublicIPAddresses_Get` | `SELECT` | `publicIpAddressName, resourceGroupName, subscriptionId` | Gets the specified public IP address in a specified resource group. |
-| `PublicIPAddresses_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all public IP addresses in a resource group. |
-| `PublicIPAddresses_ListAll` | `SELECT` | `subscriptionId` | Gets all the public IP addresses in a subscription. |
-| `PublicIPAddresses_CreateOrUpdate` | `INSERT` | `publicIpAddressName, resourceGroupName, subscriptionId` | Creates or updates a static or dynamic public IP address. |
-| `PublicIPAddresses_Delete` | `DELETE` | `publicIpAddressName, resourceGroupName, subscriptionId` | Deletes the specified public IP address. |
-| `PublicIPAddresses_GetCloudServicePublicIPAddress` | `EXEC` | `api-version, cloudServiceName, ipConfigurationName, networkInterfaceName, publicIpAddressName, resourceGroupName, roleInstanceName, subscriptionId` | Get the specified public IP address in a cloud service. |
-| `PublicIPAddresses_GetVirtualMachineScaleSetPublicIPAddress` | `EXEC` | `api-version, ipConfigurationName, networkInterfaceName, publicIpAddressName, resourceGroupName, subscriptionId, virtualMachineScaleSetName, virtualmachineIndex` | Get the specified public IP address in a virtual machine scale set. |
-| `PublicIPAddresses_ListCloudServicePublicIPAddresses` | `EXEC` | `api-version, cloudServiceName, resourceGroupName, subscriptionId` | Gets information about all public IP addresses on a cloud service level. |
-| `PublicIPAddresses_ListCloudServiceRoleInstancePublicIPAddresses` | `EXEC` | `api-version, cloudServiceName, ipConfigurationName, networkInterfaceName, resourceGroupName, roleInstanceName, subscriptionId` | Gets information about all public IP addresses in a role instance IP configuration in a cloud service. |
-| `PublicIPAddresses_ListVirtualMachineScaleSetPublicIPAddresses` | `EXEC` | `api-version, resourceGroupName, subscriptionId, virtualMachineScaleSetName` | Gets information about all public IP addresses on a virtual machine scale set level. |
-| `PublicIPAddresses_ListVirtualMachineScaleSetVMPublicIPAddresses` | `EXEC` | `api-version, ipConfigurationName, networkInterfaceName, resourceGroupName, subscriptionId, virtualMachineScaleSetName, virtualmachineIndex` | Gets information about all public IP addresses in a virtual machine IP configuration in a virtual machine scale set. |
-| `PublicIPAddresses_UpdateTags` | `EXEC` | `publicIpAddressName, resourceGroupName, subscriptionId` | Updates public IP address tags. |
-| `PublicIpAddresses_DdosProtectionStatus` | `EXEC` | `publicIpAddressName, resourceGroupName, subscriptionId` | Gets the Ddos Protection Status of a Public IP Address |
+| `get` | `SELECT` | `publicIpAddressName, resourceGroupName, subscriptionId` | Gets the specified public IP address in a specified resource group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all public IP addresses in a resource group. |
+| `create_or_update` | `INSERT` | `publicIpAddressName, resourceGroupName, subscriptionId` | Creates or updates a static or dynamic public IP address. |
+| `delete` | `DELETE` | `publicIpAddressName, resourceGroupName, subscriptionId` | Deletes the specified public IP address. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all public IP addresses in a resource group. |
+| `ddos_protection_status` | `EXEC` | `publicIpAddressName, resourceGroupName, subscriptionId` | Gets the Ddos Protection Status of a Public IP Address |

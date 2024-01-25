@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ConnectorMappings_Get` | `SELECT` | `connectorName, hubName, mappingName, resourceGroupName, subscriptionId` | Gets a connector mapping in the connector. |
-| `ConnectorMappings_ListByConnector` | `SELECT` | `connectorName, hubName, resourceGroupName, subscriptionId` | Gets all the connector mappings in the specified connector. |
-| `ConnectorMappings_CreateOrUpdate` | `INSERT` | `connectorName, hubName, mappingName, resourceGroupName, subscriptionId` | Creates a connector mapping or updates an existing connector mapping in the connector. |
-| `ConnectorMappings_Delete` | `DELETE` | `connectorName, hubName, mappingName, resourceGroupName, subscriptionId` | Deletes a connector mapping in the connector. |
+| `get` | `SELECT` | `connectorName, hubName, mappingName, resourceGroupName, subscriptionId` | Gets a connector mapping in the connector. |
+| `list_by_connector` | `SELECT` | `connectorName, hubName, resourceGroupName, subscriptionId` | Gets all the connector mappings in the specified connector. |
+| `create_or_update` | `INSERT` | `connectorName, hubName, mappingName, resourceGroupName, subscriptionId` | Creates a connector mapping or updates an existing connector mapping in the connector. |
+| `delete` | `DELETE` | `connectorName, hubName, mappingName, resourceGroupName, subscriptionId` | Deletes a connector mapping in the connector. |
+| `_list_by_connector` | `EXEC` | `connectorName, hubName, resourceGroupName, subscriptionId` | Gets all the connector mappings in the specified connector. |

@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DeletedAccounts_Get` | `SELECT` | `deletedAccountName, location, subscriptionId` | Get properties of specified deleted account resource. |
-| `DeletedAccounts_List` | `SELECT` | `subscriptionId` | Lists deleted accounts under the subscription. |
+| `get` | `SELECT` | `deletedAccountName, location, subscriptionId` | Get properties of specified deleted account resource. |
+| `list` | `SELECT` | `subscriptionId` | Lists deleted accounts under the subscription. |
+| `_list` | `EXEC` | `subscriptionId` | Lists deleted accounts under the subscription. |

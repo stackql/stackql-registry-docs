@@ -27,16 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `identity` | `object` | Identity for the resource. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties that define a rollout. |
 | `tags` | `object` | Resource tags. |
-| `identity` | `object` | Identity for the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Rollouts_Get` | `SELECT` | `resourceGroupName, rolloutName, subscriptionId` |  |
-| `Rollouts_List` | `SELECT` | `resourceGroupName, subscriptionId` |  |
-| `Rollouts_CreateOrUpdate` | `INSERT` | `resourceGroupName, rolloutName, subscriptionId, data__identity, data__properties` | This is an asynchronous operation and can be polled to completion using the location header returned by this operation. |
-| `Rollouts_Delete` | `DELETE` | `resourceGroupName, rolloutName, subscriptionId` | Only rollouts in terminal state can be deleted. |
-| `Rollouts_Cancel` | `EXEC` | `resourceGroupName, rolloutName, subscriptionId` | Only running rollouts can be canceled. |
-| `Rollouts_Restart` | `EXEC` | `resourceGroupName, rolloutName, subscriptionId` | Only failed rollouts can be restarted. |
+| `get` | `SELECT` | `resourceGroupName, rolloutName, subscriptionId` |  |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` |  |
+| `create_or_update` | `INSERT` | `resourceGroupName, rolloutName, subscriptionId, data__identity, data__properties` | This is an asynchronous operation and can be polled to completion using the location header returned by this operation. |
+| `delete` | `DELETE` | `resourceGroupName, rolloutName, subscriptionId` | Only rollouts in terminal state can be deleted. |
+| `cancel` | `EXEC` | `resourceGroupName, rolloutName, subscriptionId` | Only running rollouts can be canceled. |
+| `restart` | `EXEC` | `resourceGroupName, rolloutName, subscriptionId` | Only failed rollouts can be restarted. |

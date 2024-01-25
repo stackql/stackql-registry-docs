@@ -29,11 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the resource. |
 | `name` | `string` | The name of the resource. |
+| `etag` | `string` | The ETag of the resource, used for concurrency statements. |
 | `properties` | `object` | Private link resource properties. |
 | `type` | `string` | The type of the resource. |
-| `etag` | `string` | The ETag of the resource, used for concurrency statements. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResource_Get` | `SELECT` | `accountName, privateLinkResourceName, resourceGroupName, subscriptionId` | Gets information about the specified private link resource. |
-| `PrivateLinkResource_ListByBatchAccount` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all of the private link resources in the specified account. |
+| `get` | `SELECT` | `accountName, privateLinkResourceName, resourceGroupName, subscriptionId` | Gets information about the specified private link resource. |
+| `list_by_batch_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all of the private link resources in the specified account. |
+| `_list_by_batch_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Lists all of the private link resources in the specified account. |

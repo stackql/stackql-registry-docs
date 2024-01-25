@@ -25,14 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | The properties of a database. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Databases_Get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets information about a database. |
-| `Databases_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List all the databases in a given server. |
-| `Databases_Create` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Creates a new database or updates an existing database. |
-| `Databases_Delete` | `DELETE` | `databaseName, resourceGroupName, serverName, subscriptionId` | Deletes a database. |
+| `get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets information about a database. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List all the databases in a given server. |
+| `create` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Creates a new database or updates an existing database. |
+| `delete` | `DELETE` | `databaseName, resourceGroupName, serverName, subscriptionId` | Deletes a database. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | List all the databases in a given server. |

@@ -25,19 +25,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
-| `type` | `string` | The type of the resource. |
-| `properties` | `object` | The properties of a connected registry. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ConnectedRegistries_Get` | `SELECT` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Gets the properties of the connected registry. |
-| `ConnectedRegistries_List` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all connected registries for the specified container registry. |
-| `ConnectedRegistries_Create` | `INSERT` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Creates a connected registry for a container registry with the specified parameters. |
-| `ConnectedRegistries_Delete` | `DELETE` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Deletes a connected registry from a container registry. |
-| `ConnectedRegistries_Deactivate` | `EXEC` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Deactivates the connected registry instance. |
-| `ConnectedRegistries_Update` | `EXEC` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Updates a connected registry with the specified parameters. |
+| `get` | `SELECT` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Gets the properties of the connected registry. |
+| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all connected registries for the specified container registry. |
+| `create` | `INSERT` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Creates a connected registry for a container registry with the specified parameters. |
+| `delete` | `DELETE` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Deletes a connected registry from a container registry. |
+| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` | Lists all connected registries for the specified container registry. |
+| `deactivate` | `EXEC` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Deactivates the connected registry instance. |
+| `update` | `EXEC` | `connectedRegistryName, registryName, resourceGroupName, subscriptionId` | Updates a connected registry with the specified parameters. |

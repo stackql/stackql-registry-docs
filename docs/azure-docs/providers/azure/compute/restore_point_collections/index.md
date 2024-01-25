@@ -29,16 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `type` | `string` | Resource type |
 | `location` | `string` | Resource location |
 | `properties` | `object` | The restore point collection properties. |
 | `tags` | `object` | Resource tags |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RestorePointCollections_Get` | `SELECT` | `resourceGroupName, restorePointCollectionName, subscriptionId` | The operation to get the restore point collection. |
-| `RestorePointCollections_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets the list of restore point collections in a resource group. |
-| `RestorePointCollections_ListAll` | `SELECT` | `subscriptionId` | Gets the list of restore point collections in the subscription. Use nextLink property in the response to get the next page of restore point collections. Do this till nextLink is not null to fetch all the restore point collections. |
-| `RestorePointCollections_CreateOrUpdate` | `INSERT` | `resourceGroupName, restorePointCollectionName, subscriptionId` | The operation to create or update the restore point collection. Please refer to https://aka.ms/RestorePoints for more details. When updating a restore point collection, only tags may be modified. |
-| `RestorePointCollections_Delete` | `DELETE` | `resourceGroupName, restorePointCollectionName, subscriptionId` | The operation to delete the restore point collection. This operation will also delete all the contained restore points. |
-| `RestorePointCollections_Update` | `EXEC` | `resourceGroupName, restorePointCollectionName, subscriptionId` | The operation to update the restore point collection. |
+| `get` | `SELECT` | `resourceGroupName, restorePointCollectionName, subscriptionId` | The operation to get the restore point collection. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets the list of restore point collections in a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, restorePointCollectionName, subscriptionId` | The operation to create or update the restore point collection. Please refer to https://aka.ms/RestorePoints for more details. When updating a restore point collection, only tags may be modified. |
+| `delete` | `DELETE` | `resourceGroupName, restorePointCollectionName, subscriptionId` | The operation to delete the restore point collection. This operation will also delete all the contained restore points. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets the list of restore point collections in a resource group. |
+| `update` | `EXEC` | `resourceGroupName, restorePointCollectionName, subscriptionId` | The operation to update the restore point collection. |

@@ -29,16 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | LocalNetworkGateway properties. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LocalNetworkGateways_Get` | `SELECT` | `localNetworkGatewayName, resourceGroupName, subscriptionId` | Gets the specified local network gateway in a resource group. |
-| `LocalNetworkGateways_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the local network gateways in a resource group. |
-| `LocalNetworkGateways_CreateOrUpdate` | `INSERT` | `localNetworkGatewayName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a local network gateway in the specified resource group. |
-| `LocalNetworkGateways_Delete` | `DELETE` | `localNetworkGatewayName, resourceGroupName, subscriptionId` | Deletes the specified local network gateway. |
-| `LocalNetworkGateways_UpdateTags` | `EXEC` | `localNetworkGatewayName, resourceGroupName, subscriptionId` | Updates a local network gateway tags. |
+| `get` | `SELECT` | `localNetworkGatewayName, resourceGroupName, subscriptionId` | Gets the specified local network gateway in a resource group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the local network gateways in a resource group. |
+| `create_or_update` | `INSERT` | `localNetworkGatewayName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a local network gateway in the specified resource group. |
+| `delete` | `DELETE` | `localNetworkGatewayName, resourceGroupName, subscriptionId` | Deletes the specified local network gateway. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the local network gateways in a resource group. |

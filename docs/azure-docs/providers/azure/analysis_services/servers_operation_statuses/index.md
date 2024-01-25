@@ -1,0 +1,39 @@
+---
+title: servers_operation_statuses
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - servers_operation_statuses
+  - analysis_services
+  - azure    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>servers_operation_statuses</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>azure.analysis_services.servers_operation_statuses</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `string` | The operation Id. |
+| `name` | `string` | The operation name. |
+| `endTime` | `string` | The end time of the operation. |
+| `error` | `object` | The error detail. |
+| `startTime` | `string` | The start time of the operation. |
+| `status` | `string` | The status of the operation. |
+## Methods
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list` | `SELECT` | `location, operationId, subscriptionId` |

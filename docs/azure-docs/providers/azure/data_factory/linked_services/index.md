@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
+| `etag` | `string` | Etag identifies change in the resource. |
 | `properties` | `object` | The nested object which contains the information and credential which can be used to connect with related store or compute resource. |
 | `type` | `string` | The resource type. |
-| `etag` | `string` | Etag identifies change in the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LinkedServices_Get` | `SELECT` | `api-version, factoryName, linkedServiceName, resourceGroupName, subscriptionId` | Gets a linked service. |
-| `LinkedServices_ListByFactory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists linked services. |
-| `LinkedServices_CreateOrUpdate` | `INSERT` | `api-version, factoryName, linkedServiceName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a linked service. |
-| `LinkedServices_Delete` | `DELETE` | `api-version, factoryName, linkedServiceName, resourceGroupName, subscriptionId` | Deletes a linked service. |
+| `get` | `SELECT` | `api-version, factoryName, linkedServiceName, resourceGroupName, subscriptionId` | Gets a linked service. |
+| `list_by_factory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists linked services. |
+| `create_or_update` | `INSERT` | `api-version, factoryName, linkedServiceName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a linked service. |
+| `delete` | `DELETE` | `api-version, factoryName, linkedServiceName, resourceGroupName, subscriptionId` | Deletes a linked service. |
+| `_list_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists linked services. |

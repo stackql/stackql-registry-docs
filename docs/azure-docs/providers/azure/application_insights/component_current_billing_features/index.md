@@ -32,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ComponentCurrentBillingFeatures_Get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Returns current billing features for an Application Insights component. |
-| `ComponentCurrentBillingFeatures_Update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Update current billing features for an Application Insights component. |
+| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Returns current billing features for an Application Insights component. |
+| `update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Update current billing features for an Application Insights component. |

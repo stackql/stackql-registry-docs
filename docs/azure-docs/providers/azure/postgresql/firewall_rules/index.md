@@ -25,14 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | The properties of a server firewall rule. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FirewallRules_Get` | `SELECT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | List all the firewall rules in a given server. |
-| `FirewallRules_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List all the firewall rules in a given PostgreSQL server. |
-| `FirewallRules_CreateOrUpdate` | `INSERT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId, data__properties` | Creates a new firewall rule or updates an existing firewall rule. |
-| `FirewallRules_Delete` | `DELETE` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Deletes a PostgreSQL server firewall rule. |
+| `get` | `SELECT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | List all the firewall rules in a given server. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List all the firewall rules in a given PostgreSQL server. |
+| `create_or_update` | `INSERT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId, data__properties` | Creates a new firewall rule or updates an existing firewall rule. |
+| `delete` | `DELETE` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Deletes a PostgreSQL server firewall rule. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | List all the firewall rules in a given PostgreSQL server. |

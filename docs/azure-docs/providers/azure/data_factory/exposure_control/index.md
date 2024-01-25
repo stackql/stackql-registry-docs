@@ -27,8 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `ExposureControl_GetFeatureValue` | `EXEC` | `api-version, locationId, subscriptionId` | Get exposure control feature for specific location. |
-| `ExposureControl_GetFeatureValueByFactory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Get exposure control feature for specific factory. |
-| `ExposureControl_QueryFeatureValuesByFactory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, data__exposureControlRequests` | Get list of exposure control features for specific factory. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `query_feature_values_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, data__exposureControlRequests` |

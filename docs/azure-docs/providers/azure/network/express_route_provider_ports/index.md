@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ExpressRouteProviderPort` | `EXEC` | `providerport, subscriptionId` |
+| `express_route_provider_ports` | `EXEC` | `providerport, subscriptionId` |

@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResourcesSec_Get` | `SELECT` | `groupName, resourceGroupName, resourceName, subscriptionId` | Gets a private link resource that need to be created for a service. |
-| `PrivateLinkResourcesSec_ListByService` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the private link resources that need to be created for a service. |
+| `get` | `SELECT` | `groupName, resourceGroupName, resourceName, subscriptionId` | Gets a private link resource that need to be created for a service. |
+| `list_by_service` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the private link resources that need to be created for a service. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Gets the private link resources that need to be created for a service. |

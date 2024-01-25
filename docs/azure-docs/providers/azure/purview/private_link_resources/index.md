@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResources_ListByAccount` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` | Gets a list of privately linkable resources for an account |
-| `PrivateLinkResources_GetByGroupId` | `EXEC` | `accountName, api-version, groupId, resourceGroupName, subscriptionId` | Gets a privately linkable resources for an account with given group identifier |
+| `list_by_account` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` | Gets a list of privately linkable resources for an account |
+| `_list_by_account` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` | Gets a list of privately linkable resources for an account |
+| `get_by_group_id` | `EXEC` | `accountName, api-version, groupId, resourceGroupName, subscriptionId` | Gets a privately linkable resources for an account with given group identifier |

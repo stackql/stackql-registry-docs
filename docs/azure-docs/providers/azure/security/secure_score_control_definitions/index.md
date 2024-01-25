@@ -34,5 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SecureScoreControlDefinitions_List` | `SELECT` | `api-version` | List the available security controls, their assessments, and the max score |
-| `SecureScoreControlDefinitions_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | For a specified subscription, list the available security controls, their assessments, and the max score |
+| `list` | `SELECT` | `api-version` | List the available security controls, their assessments, and the max score |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | For a specified subscription, list the available security controls, their assessments, and the max score |
+| `_list` | `EXEC` | `api-version` | List the available security controls, their assessments, and the max score |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | For a specified subscription, list the available security controls, their assessments, and the max score |

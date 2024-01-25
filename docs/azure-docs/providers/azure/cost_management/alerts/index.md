@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource name. |
+| `eTag` | `string` | eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not. |
 | `properties` | `object` | Alert properties. |
 | `type` | `string` | Resource type. |
-| `eTag` | `string` | eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Alerts_Get` | `SELECT` | `alertId, scope` | Gets the alert for the scope by alert ID. |
-| `Alerts_List` | `SELECT` | `scope` | Lists the alerts for scope defined. |
-| `Alerts_Dismiss` | `EXEC` | `alertId, scope` | Dismisses the specified alert |
-| `Alerts_ListExternal` | `EXEC` | `externalCloudProviderId, externalCloudProviderType` | Lists the Alerts for external cloud provider type defined. |
+| `get` | `SELECT` | `alertId, scope` | Gets the alert for the scope by alert ID. |
+| `list` | `SELECT` | `scope` | Lists the alerts for scope defined. |
+| `_list` | `EXEC` | `scope` | Lists the alerts for scope defined. |
+| `dismiss` | `EXEC` | `alertId, scope` | Dismisses the specified alert |

@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id represents the complete path to the resource. |
 | `name` | `string` | Resource name associated with the resource. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 | `eTag` | `string` | Optional ETag. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Base class for backup copies. Workload-specific backup copies are derived from this class. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RecoveryPoints_Get` | `SELECT` | `api-version, containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName` | Provides the information of the backed up data identified using RecoveryPointID. This is an asynchronous operation.<br />To know the status of the operation, call the GetProtectedItemOperationResult API. |
-| `RecoveryPoints_List` | `SELECT` | `api-version, containerName, fabricName, protectedItemName, resourceGroupName, subscriptionId, vaultName` | Lists the backup copies for the backed up item. |
+| `get` | `SELECT` | `api-version, containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName` | Provides the information of the backed up data identified using RecoveryPointID. This is an asynchronous operation.<br />To know the status of the operation, call the GetProtectedItemOperationResult API. |
+| `list` | `SELECT` | `api-version, containerName, fabricName, protectedItemName, resourceGroupName, subscriptionId, vaultName` | Lists the backup copies for the backed up item. |
+| `_list` | `EXEC` | `api-version, containerName, fabricName, protectedItemName, resourceGroupName, subscriptionId, vaultName` | Lists the backup copies for the backed up item. |

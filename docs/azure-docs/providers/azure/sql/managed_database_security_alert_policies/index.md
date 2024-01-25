@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedDatabaseSecurityAlertPolicies_Get` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, securityAlertPolicyName, subscriptionId` | Gets a managed database's security alert policy. |
-| `ManagedDatabaseSecurityAlertPolicies_ListByDatabase` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed database's security alert policies. |
-| `ManagedDatabaseSecurityAlertPolicies_CreateOrUpdate` | `INSERT` | `databaseName, managedInstanceName, resourceGroupName, securityAlertPolicyName, subscriptionId` | Creates or updates a database's security alert policy. |
+| `get` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, securityAlertPolicyName, subscriptionId` | Gets a managed database's security alert policy. |
+| `list_by_database` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed database's security alert policies. |
+| `create_or_update` | `INSERT` | `databaseName, managedInstanceName, resourceGroupName, securityAlertPolicyName, subscriptionId` | Creates or updates a database's security alert policy. |
+| `_list_by_database` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed database's security alert policies. |

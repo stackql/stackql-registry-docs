@@ -25,16 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `properties` | `object` | Recipient User Contract Properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `NotificationRecipientUser_ListByNotification` | `SELECT` | `notificationName, resourceGroupName, serviceName, subscriptionId` | Gets the list of the Notification Recipient User subscribed to the notification. |
-| `NotificationRecipientUser_CreateOrUpdate` | `INSERT` | `notificationName, resourceGroupName, serviceName, subscriptionId, userId` | Adds the API Management User to the list of Recipients for the Notification. |
-| `NotificationRecipientUser_Delete` | `DELETE` | `notificationName, resourceGroupName, serviceName, subscriptionId, userId` | Removes the API Management user from the list of Notification. |
-| `NotificationRecipientUser_CheckEntityExists` | `EXEC` | `notificationName, resourceGroupName, serviceName, subscriptionId, userId` | Determine if the Notification Recipient User is subscribed to the notification. |
+| `list_by_notification` | `SELECT` | `notificationName, resourceGroupName, serviceName, subscriptionId` | Gets the list of the Notification Recipient User subscribed to the notification. |
+| `create_or_update` | `INSERT` | `notificationName, resourceGroupName, serviceName, subscriptionId, userId` | Adds the API Management User to the list of Recipients for the Notification. |
+| `delete` | `DELETE` | `notificationName, resourceGroupName, serviceName, subscriptionId, userId` | Removes the API Management user from the list of Notification. |
+| `_list_by_notification` | `EXEC` | `notificationName, resourceGroupName, serviceName, subscriptionId` | Gets the list of the Notification Recipient User subscribed to the notification. |
+| `check_entity_exists` | `EXEC` | `notificationName, resourceGroupName, serviceName, subscriptionId, userId` | Determine if the Notification Recipient User is subscribed to the notification. |

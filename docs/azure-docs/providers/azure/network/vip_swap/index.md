@@ -34,6 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VipSwap_Get` | `SELECT` | `groupName, resourceName, singletonResource, subscriptionId` | Gets the SwapResource which identifies the slot type for the specified cloud service. The slot type on a cloud service can either be Staging or Production |
-| `VipSwap_List` | `SELECT` | `groupName, resourceName, subscriptionId` | Gets the list of SwapResource which identifies the slot type for the specified cloud service. The slot type on a cloud service can either be Staging or Production |
-| `VipSwap_Create` | `INSERT` | `groupName, resourceName, singletonResource, subscriptionId` | Performs vip swap operation on swappable cloud services. |
+| `get` | `SELECT` | `groupName, resourceName, singletonResource, subscriptionId` | Gets the SwapResource which identifies the slot type for the specified cloud service. The slot type on a cloud service can either be Staging or Production |
+| `list` | `SELECT` | `groupName, resourceName, subscriptionId` | Gets the list of SwapResource which identifies the slot type for the specified cloud service. The slot type on a cloud service can either be Staging or Production |
+| `create` | `INSERT` | `groupName, resourceName, singletonResource, subscriptionId` | Performs vip swap operation on swappable cloud services. |
+| `_list` | `EXEC` | `groupName, resourceName, subscriptionId` | Gets the list of SwapResource which identifies the slot type for the specified cloud service. The slot type on a cloud service can either be Staging or Production |

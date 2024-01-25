@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified ID for the alias resource. |
 | `name` | `string` | Alias ID. |
+| `properties` | `object` | Put subscription creation result properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Resource type, Microsoft.Subscription/aliases. |
-| `properties` | `object` | Put subscription creation result properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Alias_Get` | `SELECT` | `aliasName` | Get Alias Subscription. |
-| `Alias_List` | `SELECT` |  | List Alias Subscription. |
-| `Alias_Create` | `INSERT` | `aliasName` | Create Alias Subscription. |
-| `Alias_Delete` | `DELETE` | `aliasName` | Delete Alias. |
+| `get` | `SELECT` | `aliasName` | Get Alias Subscription. |
+| `list` | `SELECT` |  | List Alias Subscription. |
+| `create` | `INSERT` | `aliasName` | Create Alias Subscription. |
+| `delete` | `DELETE` | `aliasName` | Delete Alias. |
+| `_list` | `EXEC` |  | List Alias Subscription. |

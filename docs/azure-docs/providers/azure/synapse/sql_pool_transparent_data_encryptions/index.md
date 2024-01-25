@@ -32,6 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolTransparentDataEncryptions_Get` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, transparentDataEncryptionName, workspaceName` | Get a SQL pool's transparent data encryption configuration. |
-| `SqlPoolTransparentDataEncryptions_List` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get list of SQL pool's transparent data encryption configurations. |
-| `SqlPoolTransparentDataEncryptions_CreateOrUpdate` | `INSERT` | `resourceGroupName, sqlPoolName, subscriptionId, transparentDataEncryptionName, workspaceName` | Creates or updates a Sql pool's transparent data encryption configuration. |
+| `get` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, transparentDataEncryptionName, workspaceName` | Get a SQL pool's transparent data encryption configuration. |
+| `list` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get list of SQL pool's transparent data encryption configurations. |
+| `create_or_update` | `INSERT` | `resourceGroupName, sqlPoolName, subscriptionId, transparentDataEncryptionName, workspaceName` | Creates or updates a Sql pool's transparent data encryption configuration. |
+| `_list` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get list of SQL pool's transparent data encryption configurations. |

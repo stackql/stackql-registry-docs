@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Properties of the backend address pool. |
 | `type` | `string` | Type of the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LoadBalancerBackendAddressPools_Get` | `SELECT` | `backendAddressPoolName, loadBalancerName, resourceGroupName, subscriptionId` | Gets load balancer backend address pool. |
-| `LoadBalancerBackendAddressPools_List` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the load balancer backed address pools. |
-| `LoadBalancerBackendAddressPools_CreateOrUpdate` | `INSERT` | `backendAddressPoolName, loadBalancerName, resourceGroupName, subscriptionId` | Creates or updates a load balancer backend address pool. |
-| `LoadBalancerBackendAddressPools_Delete` | `DELETE` | `backendAddressPoolName, loadBalancerName, resourceGroupName, subscriptionId` | Deletes the specified load balancer backend address pool. |
+| `get` | `SELECT` | `backendAddressPoolName, loadBalancerName, resourceGroupName, subscriptionId` | Gets load balancer backend address pool. |
+| `list` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the load balancer backed address pools. |
+| `create_or_update` | `INSERT` | `backendAddressPoolName, loadBalancerName, resourceGroupName, subscriptionId` | Creates or updates a load balancer backend address pool. |
+| `delete` | `DELETE` | `backendAddressPoolName, loadBalancerName, resourceGroupName, subscriptionId` | Deletes the specified load balancer backend address pool. |
+| `_list` | `EXEC` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the load balancer backed address pools. |

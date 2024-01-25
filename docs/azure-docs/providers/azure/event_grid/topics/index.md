@@ -27,20 +27,23 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of the Topic. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Tags of the resource. |
+| `extendedLocation` | `object` | Definition of an Extended Location |
 | `identity` | `object` | The identity information for the resource. |
-| `location` | `string` | Location of the resource. |
+| `kind` | `string` | Kind of the resource. |
+| `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | Properties of the Topic. |
+| `sku` | `object` | Describes an EventGrid Resource Sku. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Topics_Get` | `SELECT` | `resourceGroupName, subscriptionId, topicName` | Get properties of a topic. |
-| `Topics_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List all the topics under a resource group. |
-| `Topics_ListBySubscription` | `SELECT` | `subscriptionId` | List all the topics under an Azure subscription. |
-| `Topics_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, topicName` | Asynchronously creates a new topic with the specified parameters. |
-| `Topics_Delete` | `DELETE` | `resourceGroupName, subscriptionId, topicName` | Delete existing topic. |
-| `Topics_ListEventTypes` | `EXEC` | `providerNamespace, resourceGroupName, resourceName, resourceTypeName, subscriptionId` | List event types for a topic. |
-| `Topics_ListSharedAccessKeys` | `EXEC` | `resourceGroupName, subscriptionId, topicName` | List the two keys used to publish to a topic. |
-| `Topics_RegenerateKey` | `EXEC` | `resourceGroupName, subscriptionId, topicName, data__keyName` | Regenerate a shared access key for a topic. |
-| `Topics_Update` | `EXEC` | `resourceGroupName, subscriptionId, topicName` | Asynchronously updates a topic with the specified parameters. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, topicName` | Get properties of a topic. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all the topics under a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | List all the topics under an Azure subscription. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, topicName` | Asynchronously creates a new topic with the specified parameters. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, topicName` | Delete existing topic. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all the topics under a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | List all the topics under an Azure subscription. |
+| `regenerate_key` | `EXEC` | `resourceGroupName, subscriptionId, topicName, data__keyName` | Regenerate a shared access key for a topic. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, topicName` | Asynchronously updates a topic with the specified parameters. |

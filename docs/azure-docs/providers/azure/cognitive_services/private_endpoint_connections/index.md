@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnections_Get` | `SELECT` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection associated with the Cognitive Services account. |
-| `PrivateEndpointConnections_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the private endpoint connections associated with the Cognitive Services account. |
-| `PrivateEndpointConnections_CreateOrUpdate` | `INSERT` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Update the state of specified private endpoint connection associated with the Cognitive Services account. |
-| `PrivateEndpointConnections_Delete` | `DELETE` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection associated with the Cognitive Services account. |
+| `get` | `SELECT` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection associated with the Cognitive Services account. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the private endpoint connections associated with the Cognitive Services account. |
+| `create_or_update` | `INSERT` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Update the state of specified private endpoint connection associated with the Cognitive Services account. |
+| `delete` | `DELETE` | `accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection associated with the Cognitive Services account. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Gets the private endpoint connections associated with the Cognitive Services account. |

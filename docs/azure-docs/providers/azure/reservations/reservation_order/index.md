@@ -29,15 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the reservation |
 | `name` | `string` | Name of the reservation |
-| `type` | `string` | Type of resource. "Microsoft.Capacity/reservations" |
 | `etag` | `integer` |  |
-| `properties` | `object` |  |
+| `properties` | `object` | Properties of a reservation order. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | Type of resource. "Microsoft.Capacity/reservations" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReservationOrder_Get` | `SELECT` | `reservationOrderId` | Get the details of the `ReservationOrder`. |
-| `ReservationOrder_List` | `SELECT` |  | List of all the `ReservationOrder`s that the user has access to in the current tenant. |
-| `ReservationOrder_Calculate` | `EXEC` |  | Calculate price for placing a `ReservationOrder`. |
-| `ReservationOrder_ChangeDirectory` | `EXEC` | `reservationOrderId` | Change directory (tenant) of `ReservationOrder` and all `Reservation` under it to specified tenant id |
-| `ReservationOrder_Purchase` | `EXEC` | `reservationOrderId` | Purchase `ReservationOrder` and create resource under the specified URI. |
+| `get` | `SELECT` | `reservationOrderId` | Get the details of the `ReservationOrder`. |
+| `list` | `SELECT` |  | List of all the `ReservationOrder`s that the user has access to in the current tenant. |
+| `_list` | `EXEC` |  | List of all the `ReservationOrder`s that the user has access to in the current tenant. |
+| `calculate` | `EXEC` |  | Calculate price for placing a `ReservationOrder`. |
+| `change_directory` | `EXEC` | `reservationOrderId` | Change directory (tenant) of `ReservationOrder` and all `Reservation` under it to specified tenant id |
+| `purchase` | `EXEC` | `reservationOrderId` | Purchase `ReservationOrder` and create resource under the specified URI. |

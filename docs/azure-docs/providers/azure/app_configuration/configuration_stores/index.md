@@ -30,20 +30,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `identity` | `object` | An identity that can be associated with a resource. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties of a configuration store. |
-| `sku` | `object` | Describes a configuration store SKU. |
+| `sku` | `object` | The resource model definition representing SKU |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ConfigurationStores_Get` | `SELECT` | `configStoreName, resourceGroupName, subscriptionId` | Gets the properties of the specified configuration store. |
-| `ConfigurationStores_List` | `SELECT` | `subscriptionId` | Lists the configuration stores for a given subscription. |
-| `ConfigurationStores_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the configuration stores for a given resource group. |
-| `ConfigurationStores_Create` | `INSERT` | `configStoreName, resourceGroupName, subscriptionId, data__location, data__sku` | Creates a configuration store with the specified parameters. |
-| `ConfigurationStores_Delete` | `DELETE` | `configStoreName, resourceGroupName, subscriptionId` | Deletes a configuration store. |
-| `ConfigurationStores_GetDeleted` | `EXEC` | `configStoreName, location, subscriptionId` | Gets a deleted Azure app configuration store. |
-| `ConfigurationStores_ListDeleted` | `EXEC` | `subscriptionId` | Gets information about the deleted configuration stores in a subscription. |
-| `ConfigurationStores_ListKeys` | `EXEC` | `configStoreName, resourceGroupName, subscriptionId` | Lists the access key for the specified configuration store. |
-| `ConfigurationStores_PurgeDeleted` | `EXEC` | `configStoreName, location, subscriptionId` | Permanently deletes the specified configuration store. |
-| `ConfigurationStores_RegenerateKey` | `EXEC` | `configStoreName, resourceGroupName, subscriptionId` | Regenerates an access key for the specified configuration store. |
-| `ConfigurationStores_Update` | `EXEC` | `configStoreName, resourceGroupName, subscriptionId` | Updates a configuration store with the specified parameters. |
+| `get` | `SELECT` | `configStoreName, resourceGroupName, subscriptionId` | Gets the properties of the specified configuration store. |
+| `list` | `SELECT` | `subscriptionId` | Lists the configuration stores for a given subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the configuration stores for a given resource group. |
+| `create` | `INSERT` | `configStoreName, resourceGroupName, subscriptionId, data__location, data__sku` | Creates a configuration store with the specified parameters. |
+| `delete` | `DELETE` | `configStoreName, resourceGroupName, subscriptionId` | Deletes a configuration store. |
+| `_list` | `EXEC` | `subscriptionId` | Lists the configuration stores for a given subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists the configuration stores for a given resource group. |
+| `purge_deleted` | `EXEC` | `configStoreName, location, subscriptionId` | Permanently deletes the specified configuration store. |
+| `regenerate_key` | `EXEC` | `configStoreName, resourceGroupName, subscriptionId` | Regenerates an access key for the specified configuration store. |
+| `update` | `EXEC` | `configStoreName, resourceGroupName, subscriptionId` | Updates a configuration store with the specified parameters. |

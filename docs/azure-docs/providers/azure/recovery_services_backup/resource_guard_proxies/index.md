@@ -27,9 +27,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The uri to fetch the next page of resources. Call ListNext() fetches next page of resources. |
-| `value` | `array` | List of resources. |
+| `id` | `string` | Resource Id represents the complete path to the resource. |
+| `name` | `string` | Resource name associated with the resource. |
+| `eTag` | `string` | Optional ETag. |
+| `location` | `string` | Resource location. |
+| `properties` | `object` |  |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ResourceGuardProxies_Get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` |
+| `get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` |
+| `_get` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName` |

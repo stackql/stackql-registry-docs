@@ -28,6 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Configurations_Get` | `SELECT` | `configurationName, resourceGroupName, serverName, subscriptionId` | Gets information about a configuration of server. |
-| `Configurations_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List all the configurations in a given server. |
-| `Configurations_CreateOrUpdate` | `INSERT` | `configurationName, resourceGroupName, serverName, subscriptionId` | Updates a configuration of a server. |
+| `get` | `SELECT` | `configurationName, resourceGroupName, serverName, subscriptionId` | Gets information about a configuration of server. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List all the configurations in a given server. |
+| `create_or_update` | `INSERT` | `configurationName, resourceGroupName, serverName, subscriptionId` | Updates a configuration of a server. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | List all the configurations in a given server. |
+| `batch_update` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Update a list of configurations in a given server. |
+| `update` | `EXEC` | `configurationName, resourceGroupName, serverName, subscriptionId` | Updates a configuration of a server. |

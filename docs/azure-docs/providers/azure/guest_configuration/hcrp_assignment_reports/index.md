@@ -33,5 +33,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GuestConfigurationHCRPAssignmentReports_Get` | `SELECT` | `guestConfigurationAssignmentName, machineName, reportId, resourceGroupName, subscriptionId` | Get a report for the guest configuration assignment, by reportId. |
-| `GuestConfigurationHCRPAssignmentReports_List` | `SELECT` | `guestConfigurationAssignmentName, machineName, resourceGroupName, subscriptionId` | List all reports for the guest configuration assignment, latest report first. |
+| `get` | `SELECT` | `guestConfigurationAssignmentName, machineName, reportId, resourceGroupName, subscriptionId` | Get a report for the guest configuration assignment, by reportId. |
+| `list` | `SELECT` | `guestConfigurationAssignmentName, machineName, resourceGroupName, subscriptionId` | List all reports for the guest configuration assignment, latest report first. |
+| `_list` | `EXEC` | `guestConfigurationAssignmentName, machineName, resourceGroupName, subscriptionId` | List all reports for the guest configuration assignment, latest report first. |

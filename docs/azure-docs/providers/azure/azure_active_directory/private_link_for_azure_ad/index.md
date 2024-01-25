@@ -29,20 +29,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | String Id used to locate any resource on Azure. |
 | `name` | `string` | Name of this resource. |
+| `allTenants` | `boolean` | Flag indicating whether all tenants are allowed |
+| `ownerTenantId` | `string` | Guid of the owner tenant |
+| `resourceGroup` | `string` | Name of the resource group |
+| `resourceName` | `string` | Name of the private link policy resource |
+| `subscriptionId` | `string` | Subscription Identifier |
 | `tags` | `object` | Resource tags. |
 | `tenants` | `array` | The list of tenantIds. |
 | `type` | `string` | Type of this resource. |
-| `resourceName` | `string` | Name of the private link policy resource |
-| `ownerTenantId` | `string` | Guid of the owner tenant |
-| `subscriptionId` | `string` | Subscription Identifier |
-| `resourceGroup` | `string` | Name of the resource group |
-| `allTenants` | `boolean` | Flag indicating whether all tenants are allowed |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `privateLinkForAzureAd_Get` | `SELECT` | `policyName, resourceGroupName, subscriptionId` | Gets a private link policy with a given name. |
-| `privateLinkForAzureAd_List` | `SELECT` | `resourceGroupName, subscriptionId` | Operation to return the list of Private Link Policies For AzureAD scoped to the resourceGroup. |
-| `privateLinkForAzureAd_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all  Private Link Policies For AzureAD in the given subscription. |
-| `privateLinkForAzureAd_Create` | `INSERT` | `policyName, resourceGroupName, subscriptionId` | Creates a private link policy. |
-| `privateLinkForAzureAd_Delete` | `DELETE` | `policyName, resourceGroupName, subscriptionId` | Deletes a private link policy. When operation completes, status code 200 returned without content. |
-| `privateLinkForAzureAd_Update` | `EXEC` | `policyName, resourceGroupName, subscriptionId` | Updates private link policy tags with specified values. |
+| `get` | `SELECT` | `policyName, resourceGroupName, subscriptionId` | Gets a private link policy with a given name. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Operation to return the list of Private Link Policies For AzureAD scoped to the resourceGroup. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all  Private Link Policies For AzureAD in the given subscription. |
+| `create` | `INSERT` | `policyName, resourceGroupName, subscriptionId` | Creates a private link policy. |
+| `delete` | `DELETE` | `policyName, resourceGroupName, subscriptionId` | Deletes a private link policy. When operation completes, status code 200 returned without content. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Operation to return the list of Private Link Policies For AzureAD scoped to the resourceGroup. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all  Private Link Policies For AzureAD in the given subscription. |
+| `update` | `EXEC` | `policyName, resourceGroupName, subscriptionId` | Updates private link policy tags with specified values. |

@@ -27,11 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Properties of an Advanced Threat Protection state. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedInstanceAdvancedThreatProtectionSettings_Get` | `SELECT` | `advancedThreatProtectionName, managedInstanceName, resourceGroupName, subscriptionId` | Get a managed instance's Advanced Threat Protection state. |
-| `ManagedInstanceAdvancedThreatProtectionSettings_ListByInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Get the managed instance's Advanced Threat Protection settings. |
-| `ManagedInstanceAdvancedThreatProtectionSettings_CreateOrUpdate` | `INSERT` | `advancedThreatProtectionName, managedInstanceName, resourceGroupName, subscriptionId` | Creates or updates Advanced Threat Protection settings. |
+| `get` | `SELECT` | `advancedThreatProtectionName, managedInstanceName, resourceGroupName, subscriptionId` | Get a managed instance's Advanced Threat Protection state. |
+| `list_by_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Get the managed instance's Advanced Threat Protection settings. |
+| `create_or_update` | `INSERT` | `advancedThreatProtectionName, managedInstanceName, resourceGroupName, subscriptionId` | Creates or updates Advanced Threat Protection settings. |
+| `_list_by_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Get the managed instance's Advanced Threat Protection settings. |

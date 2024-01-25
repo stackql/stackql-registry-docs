@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedRestorableDroppedDatabaseBackupShortTermRetentionPolicies_Get` | `SELECT` | `managedInstanceName, policyName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Gets a dropped database's short term retention policy. |
-| `ManagedRestorableDroppedDatabaseBackupShortTermRetentionPolicies_ListByRestorableDroppedDatabase` | `SELECT` | `managedInstanceName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Gets a dropped database's short term retention policy list. |
-| `ManagedRestorableDroppedDatabaseBackupShortTermRetentionPolicies_CreateOrUpdate` | `INSERT` | `managedInstanceName, policyName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Sets a database's short term retention policy. |
-| `ManagedRestorableDroppedDatabaseBackupShortTermRetentionPolicies_Update` | `EXEC` | `managedInstanceName, policyName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Sets a database's short term retention policy. |
+| `get` | `SELECT` | `managedInstanceName, policyName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Gets a dropped database's short term retention policy. |
+| `list_by_restorable_dropped_database` | `SELECT` | `managedInstanceName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Gets a dropped database's short term retention policy list. |
+| `create_or_update` | `INSERT` | `managedInstanceName, policyName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Sets a database's short term retention policy. |
+| `_list_by_restorable_dropped_database` | `EXEC` | `managedInstanceName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Gets a dropped database's short term retention policy list. |
+| `update` | `EXEC` | `managedInstanceName, policyName, resourceGroupName, restorableDroppedDatabaseId, subscriptionId` | Sets a database's short term retention policy. |

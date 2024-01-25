@@ -28,13 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name: &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125;. |
+| `display` | `` | Display metadata associated with the operation. |
 | `origin` | `string` | Origin of the operation. |
 | `properties` | `object` | Description of operation properties format. |
-| `display` | `` | Display metadata associated with the operation. |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `Operations_List` | `SELECT` |  | Lists all of the available Network Rest API operations. |
-| `CheckDnsNameAvailability` | `EXEC` | `domainNameLabel, location, subscriptionId` | Checks whether a domain name in the cloudapp.azure.com zone is available for use. |
-| `SupportedSecurityProviders` | `EXEC` | `resourceGroupName, subscriptionId, virtualWANName` | Gives the supported security providers for the virtual wan. |
-| `generatevirtualwanvpnserverconfigurationvpnprofile` | `EXEC` | `resourceGroupName, subscriptionId, virtualWANName` | Generates a unique VPN profile for P2S clients for VirtualWan and associated VpnServerConfiguration combination in the specified resource group. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

@@ -28,4 +28,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `IntegrationRuntimeNodeIpAddress_Get` | `SELECT` | `integrationRuntimeName, nodeName, resourceGroupName, subscriptionId, workspaceName` |
+| `get` | `SELECT` | `integrationRuntimeName, nodeName, resourceGroupName, subscriptionId, workspaceName` |

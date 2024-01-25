@@ -32,8 +32,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Endpoints_Get` | `SELECT` | `endpointName, resourceGroupName, storageMoverName, subscriptionId` | Gets an Endpoint resource. |
-| `Endpoints_List` | `SELECT` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Endpoints in a Storage Mover. |
-| `Endpoints_CreateOrUpdate` | `INSERT` | `endpointName, resourceGroupName, storageMoverName, subscriptionId, data__properties` | Creates or updates an Endpoint resource, which represents a data transfer source or destination. |
-| `Endpoints_Delete` | `DELETE` | `endpointName, resourceGroupName, storageMoverName, subscriptionId` | Deletes an Endpoint resource. |
-| `Endpoints_Update` | `EXEC` | `endpointName, resourceGroupName, storageMoverName, subscriptionId` | Updates properties for an Endpoint resource. Properties not specified in the request body will be unchanged. |
+| `get` | `SELECT` | `endpointName, resourceGroupName, storageMoverName, subscriptionId` | Gets an Endpoint resource. |
+| `list` | `SELECT` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Endpoints in a Storage Mover. |
+| `create_or_update` | `INSERT` | `endpointName, resourceGroupName, storageMoverName, subscriptionId, data__properties` | Creates or updates an Endpoint resource, which represents a data transfer source or destination. |
+| `delete` | `DELETE` | `endpointName, resourceGroupName, storageMoverName, subscriptionId` | Deletes an Endpoint resource. |
+| `_list` | `EXEC` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Endpoints in a Storage Mover. |
+| `update` | `EXEC` | `endpointName, resourceGroupName, storageMoverName, subscriptionId` | Updates properties for an Endpoint resource. Properties not specified in the request body will be unchanged. |

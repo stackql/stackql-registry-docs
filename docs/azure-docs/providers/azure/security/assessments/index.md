@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Assessments_Get` | `SELECT` | `api-version, assessmentName, resourceId` | Get a security assessment on your scanned resource |
-| `Assessments_List` | `SELECT` | `api-version, scope` | Get security assessments on all your scanned resources inside a scope |
-| `Assessments_CreateOrUpdate` | `INSERT` | `api-version, assessmentName, resourceId` | Create a security assessment on your resource. An assessment metadata that describes this assessment must be predefined with the same name before inserting the assessment result |
-| `Assessments_Delete` | `DELETE` | `api-version, assessmentName, resourceId` | Delete a security assessment on your resource. An assessment metadata that describes this assessment must be predefined with the same name before inserting the assessment result |
+| `get` | `SELECT` | `api-version, assessmentName, resourceId` | Get a security assessment on your scanned resource |
+| `list` | `SELECT` | `api-version, scope` | Get security assessments on all your scanned resources inside a scope |
+| `create_or_update` | `INSERT` | `api-version, assessmentName, resourceId` | Create a security assessment on your resource. An assessment metadata that describes this assessment must be predefined with the same name before inserting the assessment result |
+| `delete` | `DELETE` | `api-version, assessmentName, resourceId` | Delete a security assessment on your resource. An assessment metadata that describes this assessment must be predefined with the same name before inserting the assessment result |
+| `_list` | `EXEC` | `api-version, scope` | Get security assessments on all your scanned resources inside a scope |

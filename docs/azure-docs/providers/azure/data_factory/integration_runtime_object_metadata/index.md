@@ -32,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationRuntimeObjectMetadata_Get` | `SELECT` | `api-version, factoryName, integrationRuntimeName, resourceGroupName, subscriptionId` | Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list. |
-| `IntegrationRuntimeObjectMetadata_Refresh` | `EXEC` | `api-version, factoryName, integrationRuntimeName, resourceGroupName, subscriptionId` | Refresh a SSIS integration runtime object metadata. |
+| `get` | `SELECT` | `api-version, factoryName, integrationRuntimeName, resourceGroupName, subscriptionId` | Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list. |
+| `refresh` | `EXEC` | `api-version, factoryName, integrationRuntimeName, resourceGroupName, subscriptionId` | Refresh a SSIS integration runtime object metadata. |

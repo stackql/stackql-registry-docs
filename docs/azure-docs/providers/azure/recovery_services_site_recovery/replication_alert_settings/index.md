@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
+| `location` | `string` | Resource Location |
 | `properties` | `object` | The properties of an alert. |
 | `type` | `string` | Resource Type |
-| `location` | `string` | Resource Location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationAlertSettings_Get` | `SELECT` | `alertSettingName, api-version, resourceGroupName, resourceName, subscriptionId` | Gets the details of the specified email notification(alert) configuration. |
-| `ReplicationAlertSettings_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of email notification(alert) configurations for the vault. |
-| `ReplicationAlertSettings_Create` | `INSERT` | `alertSettingName, api-version, resourceGroupName, resourceName, subscriptionId` | Create or update an email notification(alert) configuration. |
+| `get` | `SELECT` | `alertSettingName, api-version, resourceGroupName, resourceName, subscriptionId` | Gets the details of the specified email notification(alert) configuration. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of email notification(alert) configurations for the vault. |
+| `create` | `INSERT` | `alertSettingName, api-version, resourceGroupName, resourceName, subscriptionId` | Create or update an email notification(alert) configuration. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of email notification(alert) configurations for the vault. |

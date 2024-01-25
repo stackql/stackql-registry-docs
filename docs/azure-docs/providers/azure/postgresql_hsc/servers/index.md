@@ -25,12 +25,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | The properties of a server in server group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Servers_Get` | `SELECT` | `resourceGroupName, serverGroupName, serverName, subscriptionId` | Gets information about a server in server group. |
-| `Servers_ListByServerGroup` | `SELECT` | `resourceGroupName, serverGroupName, subscriptionId` | Lists servers of a server group. |
+| `get` | `SELECT` | `clusterName, resourceGroupName, serverName, subscriptionId` | Gets information about a server in cluster. |
+| `list_by_cluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Lists servers of a cluster. |
+| `_list_by_cluster` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Lists servers of a cluster. |

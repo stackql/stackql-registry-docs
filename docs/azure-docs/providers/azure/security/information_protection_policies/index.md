@@ -34,6 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `InformationProtectionPolicies_Get` | `SELECT` | `api-version, informationProtectionPolicyName, scope` | Details of the information protection policy. |
-| `InformationProtectionPolicies_List` | `SELECT` | `api-version, scope` | Information protection policies of a specific management group. |
-| `InformationProtectionPolicies_CreateOrUpdate` | `INSERT` | `api-version, informationProtectionPolicyName, scope` | Details of the information protection policy. |
+| `get` | `SELECT` | `api-version, informationProtectionPolicyName, scope` | Details of the information protection policy. |
+| `list` | `SELECT` | `api-version, scope` | Information protection policies of a specific management group. |
+| `create_or_update` | `INSERT` | `api-version, informationProtectionPolicyName, scope` | Details of the information protection policy. |
+| `_list` | `EXEC` | `api-version, scope` | Information protection policies of a specific management group. |

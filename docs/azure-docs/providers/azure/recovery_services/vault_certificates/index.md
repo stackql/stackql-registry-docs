@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `VaultCertificates_Create` | `INSERT` | `api-version, certificateName, resourceGroupName, subscriptionId, vaultName` |
+| `create` | `INSERT` | `certificateName, resourceGroupName, subscriptionId, vaultName` |

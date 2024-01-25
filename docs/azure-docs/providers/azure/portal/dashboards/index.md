@@ -29,16 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
 | `location` | `string` | Resource location |
 | `properties` | `object` | The shared dashboard properties. |
+| `tags` | `object` | Resource tags |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Dashboards_Get` | `SELECT` | `dashboardName, resourceGroupName, subscriptionId` | Gets the Dashboard. |
-| `Dashboards_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the Dashboards within a resource group. |
-| `Dashboards_ListBySubscription` | `SELECT` | `subscriptionId` | Gets all the dashboards within a subscription. |
-| `Dashboards_CreateOrUpdate` | `INSERT` | `dashboardName, resourceGroupName, subscriptionId, data__location` | Creates or updates a Dashboard. |
-| `Dashboards_Delete` | `DELETE` | `dashboardName, resourceGroupName, subscriptionId` | Deletes the Dashboard. |
-| `Dashboards_Update` | `EXEC` | `dashboardName, resourceGroupName, subscriptionId` | Updates an existing Dashboard. |
+| `get` | `SELECT` | `dashboardName, resourceGroupName, subscriptionId` | Gets the Dashboard. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the Dashboards within a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Gets all the dashboards within a subscription. |
+| `create_or_update` | `INSERT` | `dashboardName, resourceGroupName, subscriptionId, data__location` | Creates or updates a Dashboard. |
+| `delete` | `DELETE` | `dashboardName, resourceGroupName, subscriptionId` | Deletes the Dashboard. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the Dashboards within a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Gets all the dashboards within a subscription. |
+| `update` | `EXEC` | `dashboardName, resourceGroupName, subscriptionId` | Updates an existing Dashboard. |

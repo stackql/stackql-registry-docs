@@ -27,15 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `quota` | `object` | Cognitive Services account commitment quota. |
-| `skuName` | `string` | The name of the SKU. Ex - P3. It is typically a letter+number code |
-| `tier` | `string` | Commitment period commitment tier. |
 | `cost` | `object` | Cognitive Services account commitment cost. |
 | `hostingModel` | `string` | Account hosting model. |
 | `kind` | `string` | The kind (type) of cognitive service account. |
 | `maxCount` | `integer` | Commitment period commitment max count. |
 | `planType` | `string` | Commitment plan type. |
+| `quota` | `object` | Cognitive Services account commitment quota. |
+| `skuName` | `string` | The name of the SKU. Ex - P3. It is typically a letter+number code |
+| `tier` | `string` | Commitment period commitment tier. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `CommitmentTiers_List` | `SELECT` | `location, subscriptionId` |
+| `list` | `SELECT` | `location, subscriptionId` |
+| `_list` | `EXEC` | `location, subscriptionId` |

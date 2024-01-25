@@ -29,19 +29,21 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
+| `identity` | `object` | The encryption identity properties. |
 | `location` | `string` | The resource location. |
 | `properties` | `object` | Data Lake Store account properties information. |
 | `tags` | `object` | The resource tags. |
 | `type` | `string` | The resource type. |
-| `identity` | `object` | The encryption identity properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Accounts_Get` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the specified Data Lake Store account. |
-| `Accounts_List` | `SELECT` | `subscriptionId` | Lists the Data Lake Store accounts within the subscription. The response includes a link to the next page of results, if any. |
-| `Accounts_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the Data Lake Store accounts within a specific resource group. The response includes a link to the next page of results, if any. |
-| `Accounts_Create` | `INSERT` | `accountName, resourceGroupName, subscriptionId, data__location` | Creates the specified Data Lake Store account. |
-| `Accounts_Delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId` | Deletes the specified Data Lake Store account. |
-| `Accounts_CheckNameAvailability` | `EXEC` | `location, subscriptionId, data__name, data__type` | Checks whether the specified account name is available or taken. |
-| `Accounts_EnableKeyVault` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Attempts to enable a user managed Key Vault for encryption of the specified Data Lake Store account. |
-| `Accounts_Update` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Updates the specified Data Lake Store account information. |
+| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the specified Data Lake Store account. |
+| `list` | `SELECT` | `subscriptionId` | Lists the Data Lake Store accounts within the subscription. The response includes a link to the next page of results, if any. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the Data Lake Store accounts within a specific resource group. The response includes a link to the next page of results, if any. |
+| `create` | `INSERT` | `accountName, resourceGroupName, subscriptionId, data__location` | Creates the specified Data Lake Store account. |
+| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId` | Deletes the specified Data Lake Store account. |
+| `_list` | `EXEC` | `subscriptionId` | Lists the Data Lake Store accounts within the subscription. The response includes a link to the next page of results, if any. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists the Data Lake Store accounts within a specific resource group. The response includes a link to the next page of results, if any. |
+| `check_name_availability` | `EXEC` | `location, subscriptionId, data__name, data__type` | Checks whether the specified account name is available or taken. |
+| `enable_key_vault` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Attempts to enable a user managed Key Vault for encryption of the specified Data Lake Store account. |
+| `update` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Updates the specified Data Lake Store account information. |

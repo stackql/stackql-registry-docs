@@ -29,6 +29,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The Azure Resource Manager resource ID for the managed HSM Pool. |
 | `name` | `string` | The name of the managed HSM Pool. |
+| `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
 | `location` | `string` | The supported Azure location where the managed HSM Pool should be created. |
 | `properties` | `object` | Properties of a private link resource. |
 | `sku` | `object` | SKU details |
@@ -38,4 +39,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `MHSMPrivateLinkResources_ListByMHSMResource` | `SELECT` | `name, resourceGroupName, subscriptionId` |
+| `list_by_mhsm_resource` | `SELECT` | `name, resourceGroupName, subscriptionId` |
+| `_list_by_mhsm_resource` | `EXEC` | `name, resourceGroupName, subscriptionId` |

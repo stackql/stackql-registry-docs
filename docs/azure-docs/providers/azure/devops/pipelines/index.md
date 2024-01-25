@@ -29,16 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
+| `location` | `string` | Resource Location |
 | `properties` | `object` | Custom properties of a Pipeline. |
 | `tags` | `object` | Resource Tags |
 | `type` | `string` | Resource Type |
-| `location` | `string` | Resource Location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Pipelines_Get` | `SELECT` | `pipelineName, resourceGroupName, subscriptionId` | Gets an existing Azure Pipeline. |
-| `Pipelines_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Azure Pipelines under the specified resource group. |
-| `Pipelines_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all Azure Pipelines under the specified subscription. |
-| `Pipelines_CreateOrUpdate` | `INSERT` | `pipelineName, resourceGroupName, subscriptionId, data__properties` | Creates or updates an Azure Pipeline. |
-| `Pipelines_Delete` | `DELETE` | `pipelineName, resourceGroupName, subscriptionId` | Deletes an Azure Pipeline. |
-| `Pipelines_Update` | `EXEC` | `pipelineName, resourceGroupName, subscriptionId` | Updates the properties of an Azure Pipeline. Currently, only tags can be updated. |
+| `get` | `SELECT` | `pipelineName, resourceGroupName, subscriptionId` | Gets an existing Azure Pipeline. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Azure Pipelines under the specified resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all Azure Pipelines under the specified subscription. |
+| `create_or_update` | `INSERT` | `pipelineName, resourceGroupName, subscriptionId, data__properties` | Creates or updates an Azure Pipeline. |
+| `delete` | `DELETE` | `pipelineName, resourceGroupName, subscriptionId` | Deletes an Azure Pipeline. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all Azure Pipelines under the specified resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all Azure Pipelines under the specified subscription. |
+| `update` | `EXEC` | `pipelineName, resourceGroupName, subscriptionId` | Updates the properties of an Azure Pipeline. Currently, only tags can be updated. |

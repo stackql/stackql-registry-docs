@@ -36,6 +36,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkflowRunActionRepetitions_Get` | `SELECT` | `actionName, api-version, repetitionName, resourceGroupName, runName, subscriptionId, workflowName` | Get a workflow run action repetition. |
-| `WorkflowRunActionRepetitions_List` | `SELECT` | `actionName, api-version, resourceGroupName, runName, subscriptionId, workflowName` | Get all of a workflow run action repetitions. |
-| `WorkflowRunActionRepetitions_ListExpressionTraces` | `EXEC` | `actionName, api-version, repetitionName, resourceGroupName, runName, subscriptionId, workflowName` | Lists a workflow run expression trace. |
+| `get` | `SELECT` | `actionName, api-version, repetitionName, resourceGroupName, runName, subscriptionId, workflowName` | Get a workflow run action repetition. |
+| `list` | `SELECT` | `actionName, api-version, resourceGroupName, runName, subscriptionId, workflowName` | Get all of a workflow run action repetitions. |
+| `_list` | `EXEC` | `actionName, api-version, resourceGroupName, runName, subscriptionId, workflowName` | Get all of a workflow run action repetitions. |

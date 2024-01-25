@@ -25,20 +25,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `properties` | `object` | Tenant access information contract of the API Management service. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TenantAccess_Get` | `SELECT` | `accessName, resourceGroupName, serviceName, subscriptionId` | Get tenant access information details without secrets. |
-| `TenantAccess_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Returns list of access infos - for Git and Management endpoints. |
-| `TenantAccess_Create` | `INSERT` | `If-Match, accessName, resourceGroupName, serviceName, subscriptionId` | Update tenant access information details. |
-| `TenantAccess_GetEntityTag` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Tenant access metadata |
-| `TenantAccess_ListSecrets` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Get tenant access information details. |
-| `TenantAccess_RegeneratePrimaryKey` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate primary access key |
-| `TenantAccess_RegenerateSecondaryKey` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate secondary access key |
-| `TenantAccess_Update` | `EXEC` | `If-Match, accessName, resourceGroupName, serviceName, subscriptionId` | Update tenant access information details. |
+| `get` | `SELECT` | `accessName, resourceGroupName, serviceName, subscriptionId` | Get tenant access information details without secrets. |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Returns list of access infos - for Git and Management endpoints. |
+| `create` | `INSERT` | `If-Match, accessName, resourceGroupName, serviceName, subscriptionId` | Update tenant access information details. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Returns list of access infos - for Git and Management endpoints. |
+| `regenerate_primary_key` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate primary access key |
+| `regenerate_secondary_key` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate secondary access key |
+| `update` | `EXEC` | `If-Match, accessName, resourceGroupName, serviceName, subscriptionId` | Update tenant access information details. |

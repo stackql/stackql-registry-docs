@@ -28,4 +28,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `LocationBasedRecommendedActionSessionsResult_List` | `SELECT` | `locationName, operationId, subscriptionId` |
+| `list` | `SELECT` | `locationName, operationId, subscriptionId` |
+| `_list` | `EXEC` | `locationName, operationId, subscriptionId` |

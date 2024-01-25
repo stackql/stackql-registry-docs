@@ -29,8 +29,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ContainerAppsRevisions_ActivateRevision` | `EXEC` | `containerAppName, resourceGroupName, revisionName, subscriptionId` |
-| `ContainerAppsRevisions_DeactivateRevision` | `EXEC` | `containerAppName, resourceGroupName, revisionName, subscriptionId` |
-| `ContainerAppsRevisions_GetRevision` | `EXEC` | `containerAppName, resourceGroupName, revisionName, subscriptionId` |
-| `ContainerAppsRevisions_ListRevisions` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` |
-| `ContainerAppsRevisions_RestartRevision` | `EXEC` | `containerAppName, resourceGroupName, revisionName, subscriptionId` |
+| `activate_revision` | `EXEC` | `containerAppName, resourceGroupName, revisionName, subscriptionId` |
+| `deactivate_revision` | `EXEC` | `containerAppName, resourceGroupName, revisionName, subscriptionId` |
+| `restart_revision` | `EXEC` | `containerAppName, resourceGroupName, revisionName, subscriptionId` |

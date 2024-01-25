@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Purview  
+Microsoft Purview Microsoft Purview Is A Unified Data Governance Service That Helps You Manage And Govern Your On-Premises, Multi-Cloud, And Software-As-A-Service (SaaS) Data. Easily Create A Holistic, Up-To-Date Map Of Your Data Landscape With Automated Data Discovery, Sensitive Data Classification, And End-To-End Data Lineage. Empower Data Consumers To Find Valuable, Trustworthy Data. Manage User Access To Data In Your Estate Securely And At Scale.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>5</b></span><br />
-<span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>19</b></span><br />
+<span>total resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>36</b></span><br />
 </div>
 </div>
 
@@ -31,20 +31,26 @@ Purview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.purview</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Purview (Microsoft.Purview)</td></tr>
-<tr><td><b>Description</b></td><td>Purview</td></tr>
-<tr><td><b>Id</b></td><td><code>purview:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Microsoft Purview Resource Provider</td></tr>
+<tr><td><b>Description</b></td><td>Microsoft Purview Microsoft Purview Is A Unified Data Governance Service That Helps You Manage And Govern Your On-Premises, Multi-Cloud, And Software-As-A-Service (SaaS) Data. Easily Create A Holistic, Up-To-Date Map Of Your Data Landscape With Automated Data Discovery, Sensitive Data Classification, And End-To-End Data Lineage. Empower Data Consumers To Find Valuable, Trustworthy Data. Manage User Access To Data In Your Estate Securely And At Scale.</td></tr>
+<tr><td><b>Id</b></td><td><code>purview:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/purview/accounts/">accounts</a><br />
+<a href="/providers/azure/purview/accounts_keys/">accounts_keys</a><br />
 <a href="/providers/azure/purview/default_accounts/">default_accounts</a><br />
-<a href="/providers/azure/purview/operations/">operations</a><br />
+<a href="/providers/azure/purview/features/">features</a><br />
+<a href="/providers/azure/purview/ingestion_private_endpoint_connections/">ingestion_private_endpoint_connections</a><br />
+<a href="/providers/azure/purview/ingestion_private_endpoint_connections_status/">ingestion_private_endpoint_connections_status</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/azure/purview/kafka_configurations/">kafka_configurations</a><br />
+<a href="/providers/azure/purview/operations/">operations</a><br />
 <a href="/providers/azure/purview/private_endpoint_connections/">private_endpoint_connections</a><br />
 <a href="/providers/azure/purview/private_link_resources/">private_link_resources</a><br />
+<a href="/providers/azure/purview/usages/">usages</a><br />
 </div>
 </div>

@@ -36,7 +36,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `APIKeys_Get` | `SELECT` | `keyId, resourceGroupName, resourceName, subscriptionId` | Get the API Key for this key id. |
-| `APIKeys_List` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets a list of API keys of an Application Insights component. |
-| `APIKeys_Create` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create an API Key of an Application Insights component. |
-| `APIKeys_Delete` | `DELETE` | `keyId, resourceGroupName, resourceName, subscriptionId` | Delete an API Key of an Application Insights component. |
+| `get` | `SELECT` | `keyId, resourceGroupName, resourceName, subscriptionId` | Get the API Key for this key id. |
+| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets a list of API keys of an Application Insights component. |
+| `create` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create an API Key of an Application Insights component. |
+| `delete` | `DELETE` | `keyId, resourceGroupName, resourceName, subscriptionId` | Delete an API Key of an Application Insights component. |
+| `_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Gets a list of API keys of an Application Insights component. |

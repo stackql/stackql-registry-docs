@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DatabaseExtensions_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database extension. This will return an empty list as it is not supported. |
-| `DatabaseExtensions_CreateOrUpdate` | `INSERT` | `databaseName, extensionName, resourceGroupName, serverName, subscriptionId` | Perform a database extension operation, like polybase import |
-| `DatabaseExtensions_Get` | `EXEC` | `databaseName, extensionName, resourceGroupName, serverName, subscriptionId` | Gets a database extension. This will return resource not found as it is not supported. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database extension. This will return an empty list as it is not supported. |
+| `create_or_update` | `INSERT` | `databaseName, extensionName, resourceGroupName, serverName, subscriptionId` | Perform a database extension operation, like polybase import |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database extension. This will return an empty list as it is not supported. |
+| `exec_get` | `EXEC` | `databaseName, extensionName, resourceGroupName, serverName, subscriptionId` | Gets a database extension. This will return resource not found as it is not supported. |

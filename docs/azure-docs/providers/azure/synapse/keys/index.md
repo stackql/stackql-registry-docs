@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Keys_Get` | `SELECT` | `keyName, resourceGroupName, subscriptionId, workspaceName` | Gets a workspace key |
-| `Keys_ListByWorkspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Returns a list of keys in a workspace |
-| `Keys_CreateOrUpdate` | `INSERT` | `keyName, resourceGroupName, subscriptionId, workspaceName` | Creates or updates a workspace key |
-| `Keys_Delete` | `DELETE` | `keyName, resourceGroupName, subscriptionId, workspaceName` | Deletes a workspace key |
+| `get` | `SELECT` | `keyName, resourceGroupName, subscriptionId, workspaceName` | Gets a workspace key |
+| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Returns a list of keys in a workspace |
+| `create_or_update` | `INSERT` | `keyName, resourceGroupName, subscriptionId, workspaceName` | Creates or updates a workspace key |
+| `delete` | `DELETE` | `keyName, resourceGroupName, subscriptionId, workspaceName` | Deletes a workspace key |
+| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Returns a list of keys in a workspace |

@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResources_Get` | `SELECT` | `api-version, groupId, resourceGroupName, resourceName, subscriptionId` | Get the specified private link resource for the given IotHub |
-| `PrivateLinkResources_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | List private link resources for the given IotHub |
+| `get` | `SELECT` | `api-version, groupId, resourceGroupName, resourceName, subscriptionId` | Get the specified private link resource for the given IotHub |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | List private link resources for the given IotHub |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | List private link resources for the given IotHub |

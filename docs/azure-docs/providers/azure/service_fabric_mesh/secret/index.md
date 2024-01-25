@@ -33,8 +33,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Secret_Get` | `SELECT` | `api-version, resourceGroupName, secretResourceName, subscriptionId` | Gets the information about the secret resource with the given name. The information include the description and other properties of the secret. |
-| `Secret_ListByResourceGroup` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Gets the information about all secret resources in a given resource group. The information include the description and other properties of the Secret. |
-| `Secret_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | Gets the information about all secret resources in a given resource group. The information include the description and other properties of the secret. |
-| `Secret_Create` | `INSERT` | `api-version, resourceGroupName, secretResourceName, subscriptionId, data__properties` | Creates a secret resource with the specified name, description and properties. If a secret resource with the same name exists, then it is updated with the specified description and properties. |
-| `Secret_Delete` | `DELETE` | `api-version, resourceGroupName, secretResourceName, subscriptionId` | Deletes the secret resource identified by the name. |
+| `get` | `SELECT` | `api-version, resourceGroupName, secretResourceName, subscriptionId` | Gets the information about the secret resource with the given name. The information include the description and other properties of the secret. |
+| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Gets the information about all secret resources in a given resource group. The information include the description and other properties of the Secret. |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | Gets the information about all secret resources in a given resource group. The information include the description and other properties of the secret. |
+| `create` | `INSERT` | `api-version, resourceGroupName, secretResourceName, subscriptionId, data__properties` | Creates a secret resource with the specified name, description and properties. If a secret resource with the same name exists, then it is updated with the specified description and properties. |
+| `delete` | `DELETE` | `api-version, resourceGroupName, secretResourceName, subscriptionId` | Deletes the secret resource identified by the name. |
+| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | Gets the information about all secret resources in a given resource group. The information include the description and other properties of the Secret. |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | Gets the information about all secret resources in a given resource group. The information include the description and other properties of the secret. |

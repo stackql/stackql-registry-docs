@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `UserConfirmationPassword_Send` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, userId` |
+| `send` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, userId` |

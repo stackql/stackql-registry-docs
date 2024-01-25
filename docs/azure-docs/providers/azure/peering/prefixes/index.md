@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Prefixes_Get` | `SELECT` | `peeringServiceName, prefixName, resourceGroupName, subscriptionId` | Gets an existing prefix with the specified name under the given subscription, resource group and peering service. |
-| `Prefixes_ListByPeeringService` | `SELECT` | `peeringServiceName, resourceGroupName, subscriptionId` | Lists all prefixes under the given subscription, resource group and peering service. |
-| `Prefixes_CreateOrUpdate` | `INSERT` | `peeringServiceName, prefixName, resourceGroupName, subscriptionId` | Creates a new prefix with the specified name under the given subscription, resource group and peering service. |
-| `Prefixes_Delete` | `DELETE` | `peeringServiceName, prefixName, resourceGroupName, subscriptionId` | Deletes an existing prefix with the specified name under the given subscription, resource group and peering service. |
+| `get` | `SELECT` | `peeringServiceName, prefixName, resourceGroupName, subscriptionId` | Gets an existing prefix with the specified name under the given subscription, resource group and peering service. |
+| `list_by_peering_service` | `SELECT` | `peeringServiceName, resourceGroupName, subscriptionId` | Lists all prefixes under the given subscription, resource group and peering service. |
+| `create_or_update` | `INSERT` | `peeringServiceName, prefixName, resourceGroupName, subscriptionId` | Creates a new prefix with the specified name under the given subscription, resource group and peering service. |
+| `delete` | `DELETE` | `peeringServiceName, prefixName, resourceGroupName, subscriptionId` | Deletes an existing prefix with the specified name under the given subscription, resource group and peering service. |
+| `_list_by_peering_service` | `EXEC` | `peeringServiceName, resourceGroupName, subscriptionId` | Lists all prefixes under the given subscription, resource group and peering service. |

@@ -29,17 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties of the Security Partner Provider. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SecurityPartnerProviders_Get` | `SELECT` | `resourceGroupName, securityPartnerProviderName, subscriptionId` | Gets the specified Security Partner Provider. |
-| `SecurityPartnerProviders_List` | `SELECT` | `subscriptionId` | Gets all the Security Partner Providers in a subscription. |
-| `SecurityPartnerProviders_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Security Partner Providers in a resource group. |
-| `SecurityPartnerProviders_CreateOrUpdate` | `INSERT` | `resourceGroupName, securityPartnerProviderName, subscriptionId` | Creates or updates the specified Security Partner Provider. |
-| `SecurityPartnerProviders_Delete` | `DELETE` | `resourceGroupName, securityPartnerProviderName, subscriptionId` | Deletes the specified Security Partner Provider. |
-| `SecurityPartnerProviders_UpdateTags` | `EXEC` | `resourceGroupName, securityPartnerProviderName, subscriptionId` | Updates tags of a Security Partner Provider resource. |
+| `get` | `SELECT` | `resourceGroupName, securityPartnerProviderName, subscriptionId` | Gets the specified Security Partner Provider. |
+| `list` | `SELECT` | `subscriptionId` | Gets all the Security Partner Providers in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Security Partner Providers in a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, securityPartnerProviderName, subscriptionId` | Creates or updates the specified Security Partner Provider. |
+| `delete` | `DELETE` | `resourceGroupName, securityPartnerProviderName, subscriptionId` | Deletes the specified Security Partner Provider. |
+| `_list` | `EXEC` | `subscriptionId` | Gets all the Security Partner Providers in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all Security Partner Providers in a resource group. |

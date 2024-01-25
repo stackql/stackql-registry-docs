@@ -27,17 +27,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
-| `extendedLocation` | `object` |  |
+| `extendedLocation` | `object` | Extended location pointing to the underlying infrastructure |
 | `location` | `string` | The geo-location where the resource lives |
-| `properties` | `object` | HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `properties` | `object` | Properties of the virtual network resource |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `virtualNetworks_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the Hybrid AKS virtual networks by resource group |
-| `virtualNetworks_ListBySubscription` | `SELECT` | `subscriptionId` | Lists the Hybrid AKS virtual networks by subscription |
-| `virtualNetworks_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, virtualNetworksName` | Puts the Hybrid AKS virtual network |
-| `virtualNetworks_Delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualNetworksName` | Deletes the Hybrid AKS virtual network |
-| `virtualNetworks_Retrieve` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworksName` | Gets the Hybrid AKS virtual network |
-| `virtualNetworks_Update` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworksName` | Patches the Hybrid AKS virtual network |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the virtual networks in the specified resource group |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists the virtual networks in the specified subscription |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, virtualNetworkName` | Creates or updates the virtual network resource |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualNetworkName` | Deletes the specified virtual network resource |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists the virtual networks in the specified resource group |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists the virtual networks in the specified subscription |
+| `retrieve` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkName` | Gets the specified virtual network resource |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkName` | Patches the virtual network resource |

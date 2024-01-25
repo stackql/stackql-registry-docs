@@ -25,17 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource name. |
-| `eTag` | `string` | eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not. |
-| `properties` | `object` | The properties of the budget. |
-| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Budgets_Get` | `SELECT` | `budgetName, scope` | Gets the budget for the scope by budget name. |
-| `Budgets_List` | `SELECT` | `scope` | Lists all budgets for the defined scope. |
-| `Budgets_CreateOrUpdate` | `INSERT` | `budgetName, scope` | The operation to create or update a budget. You can optionally provide an eTag if desired as a form of concurrency control. To obtain the latest eTag for a given budget, perform a get operation prior to your put operation. |
-| `Budgets_Delete` | `DELETE` | `budgetName, scope` | The operation to delete a budget. |
+| `get` | `SELECT` | `budgetName, scope` | Gets the budget for the scope by budget name. |
+| `list` | `SELECT` | `scope` | Lists all budgets for the defined scope. |
+| `create_or_update` | `INSERT` | `budgetName, scope` | The operation to create or update a budget. You can optionally provide an eTag if desired as a form of concurrency control. To obtain the latest eTag for a given budget, perform a get operation prior to your put operation. |
+| `delete` | `DELETE` | `budgetName, scope` | The operation to delete a budget. |
+| `_list` | `EXEC` | `scope` | Lists all budgets for the defined scope. |

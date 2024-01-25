@@ -25,15 +25,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | The properties of a Test Result. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TestResults_Get` | `SELECT` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName` | Get the Test Result by Id with specified OS Update type for a Test Base Package. |
-| `TestResults_List` | `SELECT` | `osUpdateType, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the Test Results with specified OS Update type for a Test Base Package. Can be filtered by osName, releaseName, flightingRing, buildVersion, buildRevision. |
-| `TestResults_GetConsoleLogDownloadURL` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName, data__logFileName` | Gets the download URL of the test execution console log file. |
-| `TestResults_GetDownloadURL` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName` | Gets the download URL of the test result. |
-| `TestResults_GetVideoDownloadURL` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName` | Gets the download URL of the test execution screen recording. |
+| `get` | `SELECT` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName` | Get the Test Result by Id with specified OS Update type for a Test Base Package. |
+| `list` | `SELECT` | `osUpdateType, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the Test Results with specified OS Update type for a Test Base Package. Can be filtered by osName, releaseName, flightingRing, buildVersion, buildRevision. |
+| `_list` | `EXEC` | `osUpdateType, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the Test Results with specified OS Update type for a Test Base Package. Can be filtered by osName, releaseName, flightingRing, buildVersion, buildRevision. |

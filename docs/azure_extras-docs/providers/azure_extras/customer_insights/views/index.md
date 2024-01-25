@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `properties` | `object` | The view in Customer 360 web application. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Views_Get` | `SELECT` | `hubName, resourceGroupName, subscriptionId, userId, viewName` | Gets a view in the hub. |
-| `Views_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId, userId` | Gets all available views for given user in the specified hub. |
-| `Views_CreateOrUpdate` | `INSERT` | `hubName, resourceGroupName, subscriptionId, viewName` | Creates a view or updates an existing view in the hub. |
-| `Views_Delete` | `DELETE` | `hubName, resourceGroupName, subscriptionId, userId, viewName` | Deletes a view in the specified hub. |
+| `get` | `SELECT` | `hubName, resourceGroupName, subscriptionId, userId, viewName` | Gets a view in the hub. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId, userId` | Gets all available views for given user in the specified hub. |
+| `create_or_update` | `INSERT` | `hubName, resourceGroupName, subscriptionId, viewName` | Creates a view or updates an existing view in the hub. |
+| `delete` | `DELETE` | `hubName, resourceGroupName, subscriptionId, userId, viewName` | Deletes a view in the specified hub. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId, userId` | Gets all available views for given user in the specified hub. |

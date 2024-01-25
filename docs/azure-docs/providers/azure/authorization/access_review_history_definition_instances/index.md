@@ -34,4 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `AccessReviewHistoryDefinitionInstances_List` | `SELECT` | `historyDefinitionId, subscriptionId` |
+| `list` | `SELECT` | `historyDefinitionId, subscriptionId` |
+| `_list` | `EXEC` | `historyDefinitionId, subscriptionId` |

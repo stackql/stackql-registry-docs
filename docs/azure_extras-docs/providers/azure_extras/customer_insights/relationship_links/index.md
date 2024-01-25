@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RelationshipLinks_Get` | `SELECT` | `hubName, relationshipLinkName, resourceGroupName, subscriptionId` | Gets information about the specified relationship Link. |
-| `RelationshipLinks_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all relationship links in the hub. |
-| `RelationshipLinks_CreateOrUpdate` | `INSERT` | `hubName, relationshipLinkName, resourceGroupName, subscriptionId` | Creates a relationship link or updates an existing relationship link within a hub. |
-| `RelationshipLinks_Delete` | `DELETE` | `hubName, relationshipLinkName, resourceGroupName, subscriptionId` | Deletes a relationship link within a hub. |
+| `get` | `SELECT` | `hubName, relationshipLinkName, resourceGroupName, subscriptionId` | Gets information about the specified relationship Link. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all relationship links in the hub. |
+| `create_or_update` | `INSERT` | `hubName, relationshipLinkName, resourceGroupName, subscriptionId` | Creates a relationship link or updates an existing relationship link within a hub. |
+| `delete` | `DELETE` | `hubName, relationshipLinkName, resourceGroupName, subscriptionId` | Deletes a relationship link within a hub. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all relationship links in the hub. |

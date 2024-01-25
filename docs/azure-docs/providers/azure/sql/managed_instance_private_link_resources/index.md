@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedInstancePrivateLinkResources_Get` | `SELECT` | `groupName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a private link resource for SQL server. |
-| `ManagedInstancePrivateLinkResources_ListByManagedInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets the private link resources for SQL server. |
+| `get` | `SELECT` | `groupName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a private link resource for SQL server. |
+| `list_by_managed_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets the private link resources for SQL server. |
+| `_list_by_managed_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets the private link resources for SQL server. |

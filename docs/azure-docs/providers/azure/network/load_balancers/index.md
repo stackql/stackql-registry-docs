@@ -29,21 +29,20 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `properties` | `object` | Properties of the load balancer. |
-| `sku` | `object` | SKU of a load balancer. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `extendedLocation` | `object` | ExtendedLocation complex type. |
 | `location` | `string` | Resource location. |
-| `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `properties` | `object` | Properties of the load balancer. |
+| `sku` | `object` | SKU of a load balancer. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LoadBalancers_Get` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets the specified load balancer. |
-| `LoadBalancers_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the load balancers in a resource group. |
-| `LoadBalancers_ListAll` | `SELECT` | `subscriptionId` | Gets all the load balancers in a subscription. |
-| `LoadBalancers_CreateOrUpdate` | `INSERT` | `loadBalancerName, resourceGroupName, subscriptionId` | Creates or updates a load balancer. |
-| `LoadBalancers_Delete` | `DELETE` | `loadBalancerName, resourceGroupName, subscriptionId` | Deletes the specified load balancer. |
-| `LoadBalancers_ListInboundNatRulePortMappings` | `EXEC` | `backendPoolName, groupName, loadBalancerName, subscriptionId` | List of inbound NAT rule port mappings. |
-| `LoadBalancers_SwapPublicIpAddresses` | `EXEC` | `location, subscriptionId` | Swaps VIPs between two load balancers. |
-| `LoadBalancers_UpdateTags` | `EXEC` | `loadBalancerName, resourceGroupName, subscriptionId` | Updates a load balancer tags. |
+| `get` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets the specified load balancer. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the load balancers in a resource group. |
+| `create_or_update` | `INSERT` | `loadBalancerName, resourceGroupName, subscriptionId` | Creates or updates a load balancer. |
+| `delete` | `DELETE` | `loadBalancerName, resourceGroupName, subscriptionId` | Deletes the specified load balancer. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the load balancers in a resource group. |
+| `migrate_to_ip_based` | `EXEC` | `groupName, loadBalancerName, subscriptionId` | Migrate load balancer to IP Based |
+| `swap_public_ip_addresses` | `EXEC` | `location, subscriptionId` | Swaps VIPs between two load balancers. |

@@ -28,5 +28,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlAgent_Get` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets current instance sql agent configuration. |
-| `SqlAgent_CreateOrUpdate` | `INSERT` | `managedInstanceName, resourceGroupName, subscriptionId` | Puts new sql agent configuration to instance. |
+| `get` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets current instance sql agent configuration. |
+| `create_or_update` | `INSERT` | `managedInstanceName, resourceGroupName, subscriptionId` | Puts new sql agent configuration to instance. |

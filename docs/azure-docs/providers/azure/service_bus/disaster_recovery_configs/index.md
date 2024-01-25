@@ -29,20 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `` | Properties required to the Create Or Update Alias(Disaster Recovery configurations) |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DisasterRecoveryConfigs_Get` | `SELECT` | `alias, namespaceName, resourceGroupName, subscriptionId` | Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace |
-| `DisasterRecoveryConfigs_List` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Gets all Alias(Disaster Recovery configurations) |
-| `DisasterRecoveryConfigs_CreateOrUpdate` | `INSERT` | `alias, namespaceName, resourceGroupName, subscriptionId` | Creates or updates a new Alias(Disaster Recovery configuration) |
-| `DisasterRecoveryConfigs_Delete` | `DELETE` | `alias, namespaceName, resourceGroupName, subscriptionId` | Deletes an Alias(Disaster Recovery configuration) |
-| `DisasterRecoveryConfigs_BreakPairing` | `EXEC` | `alias, namespaceName, resourceGroupName, subscriptionId` | This operation disables the Disaster Recovery and stops replicating changes from primary to secondary namespaces |
-| `DisasterRecoveryConfigs_CheckNameAvailability` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId, data__name` | Check the give namespace name availability. |
-| `DisasterRecoveryConfigs_FailOver` | `EXEC` | `alias, namespaceName, resourceGroupName, subscriptionId` | Invokes GEO DR failover and reconfigure the alias to point to the secondary namespace |
-| `DisasterRecoveryConfigs_GetAuthorizationRule` | `EXEC` | `alias, authorizationRuleName, namespaceName, resourceGroupName, subscriptionId` | Gets an authorization rule for a namespace by rule name. |
-| `DisasterRecoveryConfigs_ListAuthorizationRules` | `EXEC` | `alias, namespaceName, resourceGroupName, subscriptionId` | Gets the authorization rules for a namespace. |
-| `DisasterRecoveryConfigs_ListKeys` | `EXEC` | `alias, authorizationRuleName, namespaceName, resourceGroupName, subscriptionId` | Gets the primary and secondary connection strings for the namespace. |
+| `get` | `SELECT` | `alias, namespaceName, resourceGroupName, subscriptionId` | Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace |
+| `list` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Gets all Alias(Disaster Recovery configurations) |
+| `create_or_update` | `INSERT` | `alias, namespaceName, resourceGroupName, subscriptionId` | Creates or updates a new Alias(Disaster Recovery configuration) |
+| `delete` | `DELETE` | `alias, namespaceName, resourceGroupName, subscriptionId` | Deletes an Alias(Disaster Recovery configuration) |
+| `_list` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Gets all Alias(Disaster Recovery configurations) |
+| `break_pairing` | `EXEC` | `alias, namespaceName, resourceGroupName, subscriptionId` | This operation disables the Disaster Recovery and stops replicating changes from primary to secondary namespaces |
+| `check_name_availability` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId, data__name` | Check the give namespace name availability. |
+| `fail_over` | `EXEC` | `alias, namespaceName, resourceGroupName, subscriptionId` | Invokes GEO DR failover and reconfigure the alias to point to the secondary namespace |

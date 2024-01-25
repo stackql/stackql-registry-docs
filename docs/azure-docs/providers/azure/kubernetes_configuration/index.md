@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Use these APIs to create Source Control Configuration resources through ARM, for Kubernetes Clusters.  
+GitOps Is The Practice Of Declaring The Desired State Of Kubernetes Cluster Configuration (Deployments, Etc.) In A Git Repository. GitOps Configurations Enable You To Declare These For Kubernetes Clusters. Cluster Extensions Allow You To Add Management Services Like Azure Monitor, Azure Data Services To Your Kubernetes Clusters.  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Use these APIs to create Source Control Configuration resources through ARM, for
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total methods:&nbsp;<b>23</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Use these APIs to create Source Control Configuration resources through ARM, for
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.kubernetes_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Source Control Configuration Client (Microsoft.KubernetesConfiguration)</td></tr>
-<tr><td><b>Description</b></td><td>Use these APIs to create Source Control Configuration resources through ARM, for Kubernetes Clusters.</td></tr>
-<tr><td><b>Id</b></td><td><code>kubernetes_configuration:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Arc Kubernetes Configuration And Cluster Extensionsource Control Configuration Client (Microsoft.KubernetesConfiguration)</td></tr>
+<tr><td><b>Description</b></td><td>GitOps Is The Practice Of Declaring The Desired State Of Kubernetes Cluster Configuration (Deployments, Etc.) In A Git Repository. GitOps Configurations Enable You To Declare These For Kubernetes Clusters. Cluster Extensions Allow You To Add Management Services Like Azure Monitor, Azure Data Services To Your Kubernetes Clusters.</td></tr>
+<tr><td><b>Id</b></td><td><code>kubernetes_configuration:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

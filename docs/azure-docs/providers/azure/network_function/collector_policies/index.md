@@ -29,16 +29,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Collection policy properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CollectorPolicies_Get` | `SELECT` | `azureTrafficCollectorName, collectorPolicyName, resourceGroupName, subscriptionId` | Gets the collector policy in a specified Traffic Collector |
-| `CollectorPolicies_List` | `SELECT` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Return list of Collector policies in a Azure Traffic Collector |
-| `CollectorPolicies_CreateOrUpdate` | `INSERT` | `azureTrafficCollectorName, collectorPolicyName, resourceGroupName, subscriptionId` | Creates or updates a Collector Policy resource |
-| `CollectorPolicies_Delete` | `DELETE` | `azureTrafficCollectorName, collectorPolicyName, resourceGroupName, subscriptionId` | Deletes a specified Collector Policy resource. |
+| `get` | `SELECT` | `azureTrafficCollectorName, collectorPolicyName, resourceGroupName, subscriptionId` | Gets the collector policy in a specified Traffic Collector |
+| `list` | `SELECT` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Return list of Collector policies in a Azure Traffic Collector |
+| `create_or_update` | `INSERT` | `azureTrafficCollectorName, collectorPolicyName, resourceGroupName, subscriptionId` | Creates or updates a Collector Policy resource |
+| `delete` | `DELETE` | `azureTrafficCollectorName, collectorPolicyName, resourceGroupName, subscriptionId` | Deletes a specified Collector Policy resource. |
+| `_list` | `EXEC` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Return list of Collector policies in a Azure Traffic Collector |

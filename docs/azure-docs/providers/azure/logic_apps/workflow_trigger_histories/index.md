@@ -34,6 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkflowTriggerHistories_Get` | `SELECT` | `api-version, historyName, resourceGroupName, subscriptionId, triggerName, workflowName` | Gets a workflow trigger history. |
-| `WorkflowTriggerHistories_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Gets a list of workflow trigger histories. |
-| `WorkflowTriggerHistories_Resubmit` | `EXEC` | `api-version, historyName, resourceGroupName, subscriptionId, triggerName, workflowName` | Resubmits a workflow run based on the trigger history. |
+| `get` | `SELECT` | `api-version, historyName, resourceGroupName, subscriptionId, triggerName, workflowName` | Gets a workflow trigger history. |
+| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Gets a list of workflow trigger histories. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Gets a list of workflow trigger histories. |
+| `resubmit` | `EXEC` | `api-version, historyName, resourceGroupName, subscriptionId, triggerName, workflowName` | Resubmits a workflow run based on the trigger history. |

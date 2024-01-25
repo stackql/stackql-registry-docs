@@ -34,10 +34,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `NotebookWorkspaces_Get` | `SELECT` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Gets the notebook workspace for a Cosmos DB account. |
-| `NotebookWorkspaces_ListByDatabaseAccount` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the notebook workspace resources of an existing Cosmos DB account. |
-| `NotebookWorkspaces_CreateOrUpdate` | `INSERT` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Creates the notebook workspace for a Cosmos DB account. |
-| `NotebookWorkspaces_Delete` | `DELETE` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Deletes the notebook workspace for a Cosmos DB account. |
-| `NotebookWorkspaces_ListConnectionInfo` | `EXEC` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Retrieves the connection info for the notebook workspace |
-| `NotebookWorkspaces_RegenerateAuthToken` | `EXEC` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Regenerates the auth token for the notebook workspace |
-| `NotebookWorkspaces_Start` | `EXEC` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Starts the notebook workspace |
+| `get` | `SELECT` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Gets the notebook workspace for a Cosmos DB account. |
+| `list_by_database_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the notebook workspace resources of an existing Cosmos DB account. |
+| `create_or_update` | `INSERT` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Creates the notebook workspace for a Cosmos DB account. |
+| `delete` | `DELETE` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Deletes the notebook workspace for a Cosmos DB account. |
+| `_list_by_database_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Gets the notebook workspace resources of an existing Cosmos DB account. |
+| `regenerate_auth_token` | `EXEC` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Regenerates the auth token for the notebook workspace |
+| `start` | `EXEC` | `accountName, notebookWorkspaceName, resourceGroupName, subscriptionId` | Starts the notebook workspace |

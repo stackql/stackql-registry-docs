@@ -32,6 +32,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GuestConfigurationAssignmentsVMSS_Get` | `SELECT` | `name, resourceGroupName, subscriptionId, vmssName` | Get information about a guest configuration assignment for VMSS |
-| `GuestConfigurationAssignmentsVMSS_List` | `SELECT` | `resourceGroupName, subscriptionId, vmssName` | List all guest configuration assignments for VMSS. |
-| `GuestConfigurationAssignmentsVMSS_Delete` | `DELETE` | `name, resourceGroupName, subscriptionId, vmssName` | Delete a guest configuration assignment for VMSS |
+| `get` | `SELECT` | `name, resourceGroupName, subscriptionId, vmssName` | Get information about a guest configuration assignment for VMSS |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, vmssName` | List all guest configuration assignments for VMSS. |
+| `create_or_update` | `INSERT` | `name, resourceGroupName, subscriptionId, vmssName` | Creates an association between a VMSS and guest configuration |
+| `delete` | `DELETE` | `name, resourceGroupName, subscriptionId, vmssName` | Delete a guest configuration assignment for VMSS |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vmssName` | List all guest configuration assignments for VMSS. |

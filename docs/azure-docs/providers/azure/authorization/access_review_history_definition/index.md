@@ -29,5 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AccessReviewHistoryDefinition_Create` | `INSERT` | `historyDefinitionId, subscriptionId` | Create a scheduled or one-time Access Review History Definition |
-| `AccessReviewHistoryDefinition_DeleteById` | `DELETE` | `historyDefinitionId, subscriptionId` | Delete an access review history definition |
+| `create` | `INSERT` | `historyDefinitionId, subscriptionId` | Create a scheduled or one-time Access Review History Definition |
+| `delete_by_id` | `DELETE` | `historyDefinitionId, subscriptionId` | Delete an access review history definition |

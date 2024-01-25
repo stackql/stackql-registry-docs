@@ -29,9 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource Identifier of the ARM resource. |
 | `name` | `string` | The name of the ARM resource. |
-| `type` | `string` | The type of Azure resource. |
 | `properties` | `object` | The properties of an Azure Cosmos DB SQL database event |
+| `type` | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `RestorableSqlDatabases_List` | `SELECT` | `instanceId, location, subscriptionId` |
+| `list` | `SELECT` | `instanceId, location, subscriptionId` |
+| `_list` | `EXEC` | `instanceId, location, subscriptionId` |

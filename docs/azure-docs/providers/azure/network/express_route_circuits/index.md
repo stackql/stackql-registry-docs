@@ -29,23 +29,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties of ExpressRouteCircuit. |
 | `sku` | `object` | Contains SKU in an ExpressRouteCircuit. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExpressRouteCircuits_Get` | `SELECT` | `circuitName, resourceGroupName, subscriptionId` | Gets information about the specified express route circuit. |
-| `ExpressRouteCircuits_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the express route circuits in a resource group. |
-| `ExpressRouteCircuits_ListAll` | `SELECT` | `subscriptionId` | Gets all the express route circuits in a subscription. |
-| `ExpressRouteCircuits_CreateOrUpdate` | `INSERT` | `circuitName, resourceGroupName, subscriptionId` | Creates or updates an express route circuit. |
-| `ExpressRouteCircuits_Delete` | `DELETE` | `circuitName, resourceGroupName, subscriptionId` | Deletes the specified express route circuit. |
-| `ExpressRouteCircuits_GetPeeringStats` | `EXEC` | `circuitName, peeringName, resourceGroupName, subscriptionId` | Gets all stats from an express route circuit in a resource group. |
-| `ExpressRouteCircuits_GetStats` | `EXEC` | `circuitName, resourceGroupName, subscriptionId` | Gets all the stats from an express route circuit in a resource group. |
-| `ExpressRouteCircuits_ListArpTable` | `EXEC` | `circuitName, devicePath, peeringName, resourceGroupName, subscriptionId` | Gets the currently advertised ARP table associated with the express route circuit in a resource group. |
-| `ExpressRouteCircuits_ListRoutesTable` | `EXEC` | `circuitName, devicePath, peeringName, resourceGroupName, subscriptionId` | Gets the currently advertised routes table associated with the express route circuit in a resource group. |
-| `ExpressRouteCircuits_ListRoutesTableSummary` | `EXEC` | `circuitName, devicePath, peeringName, resourceGroupName, subscriptionId` | Gets the currently advertised routes table summary associated with the express route circuit in a resource group. |
-| `ExpressRouteCircuits_UpdateTags` | `EXEC` | `circuitName, resourceGroupName, subscriptionId` | Updates an express route circuit tags. |
+| `get` | `SELECT` | `circuitName, resourceGroupName, subscriptionId` | Gets information about the specified express route circuit. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the express route circuits in a resource group. |
+| `create_or_update` | `INSERT` | `circuitName, resourceGroupName, subscriptionId` | Creates or updates an express route circuit. |
+| `delete` | `DELETE` | `circuitName, resourceGroupName, subscriptionId` | Deletes the specified express route circuit. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the express route circuits in a resource group. |

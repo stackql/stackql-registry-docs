@@ -29,17 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource ID. |
 | `name` | `string` | The name of the resource. |
+| `properties` | `object` | The collection details |
 | `systemData` | `object` | Read only system data |
 | `type` | `string` | The type of the resource. |
-| `properties` | `object` | The collection details |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateStoreCollection_Get` | `SELECT` | `collectionId, privateStoreId` | Gets private store collection |
-| `PrivateStoreCollection_List` | `SELECT` | `privateStoreId` | Gets private store collections list |
-| `PrivateStoreCollection_CreateOrUpdate` | `INSERT` | `collectionId, privateStoreId` | Create or update private store collection |
-| `PrivateStoreCollection_Delete` | `DELETE` | `collectionId, privateStoreId` | Delete a collection from the given private store. |
-| `PrivateStoreCollection_ApproveAllItems` | `EXEC` | `collectionId, privateStoreId` | Delete all existing offers from the collection and enable approve all items. |
-| `PrivateStoreCollection_DisableApproveAllItems` | `EXEC` | `collectionId, privateStoreId` | Disable approve all items for the collection. |
-| `PrivateStoreCollection_Post` | `EXEC` | `collectionId, privateStoreId` | Delete Private store collection. This is a workaround. |
-| `PrivateStoreCollection_TransferOffers` | `EXEC` | `collectionId, privateStoreId` | transferring offers (copy or move) from source collection to target collection(s) |
+| `get` | `SELECT` | `collectionId, privateStoreId` | Gets private store collection |
+| `list` | `SELECT` | `privateStoreId` | Gets private store collections list |
+| `create_or_update` | `INSERT` | `collectionId, privateStoreId` | Create or update private store collection |
+| `delete` | `DELETE` | `collectionId, privateStoreId` | Delete a collection from the given private store. |
+| `_list` | `EXEC` | `privateStoreId` | Gets private store collections list |
+| `approve_all_items` | `EXEC` | `collectionId, privateStoreId` | Delete all existing offers from the collection and enable approve all items. |
+| `disable_approve_all_items` | `EXEC` | `collectionId, privateStoreId` | Disable approve all items for the collection. |
+| `post` | `EXEC` | `collectionId, privateStoreId` | Delete Private store collection. This is a workaround. |
+| `transfer_offers` | `EXEC` | `collectionId, privateStoreId` | transferring offers (copy or move) from source collection to target collection(s) |

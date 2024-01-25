@@ -29,15 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `type` | `string` | Resource type |
 | `location` | `string` | Resource location |
 | `properties` | `object` | Describes the properties of a gallery image version. |
 | `tags` | `object` | Resource tags |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GalleryApplicationVersions_Get` | `SELECT` | `galleryApplicationName, galleryApplicationVersionName, galleryName, resourceGroupName, subscriptionId` | Retrieves information about a gallery Application Version. |
-| `GalleryApplicationVersions_ListByGalleryApplication` | `SELECT` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | List gallery Application Versions in a gallery Application Definition. |
-| `GalleryApplicationVersions_CreateOrUpdate` | `INSERT` | `galleryApplicationName, galleryApplicationVersionName, galleryName, resourceGroupName, subscriptionId` | Create or update a gallery Application Version. |
-| `GalleryApplicationVersions_Delete` | `DELETE` | `galleryApplicationName, galleryApplicationVersionName, galleryName, resourceGroupName, subscriptionId` | Delete a gallery Application Version. |
-| `GalleryApplicationVersions_Update` | `EXEC` | `galleryApplicationName, galleryApplicationVersionName, galleryName, resourceGroupName, subscriptionId` | Update a gallery Application Version. |
+| `get` | `SELECT` | `galleryApplicationName, galleryApplicationVersionName, galleryName, resourceGroupName, subscriptionId` | Retrieves information about a gallery Application Version. |
+| `list_by_gallery_application` | `SELECT` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | List gallery Application Versions in a gallery Application Definition. |
+| `create_or_update` | `INSERT` | `galleryApplicationName, galleryApplicationVersionName, galleryName, resourceGroupName, subscriptionId` | Create or update a gallery Application Version. |
+| `delete` | `DELETE` | `galleryApplicationName, galleryApplicationVersionName, galleryName, resourceGroupName, subscriptionId` | Delete a gallery Application Version. |
+| `_list_by_gallery_application` | `EXEC` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | List gallery Application Versions in a gallery Application Definition. |
+| `update` | `EXEC` | `galleryApplicationName, galleryApplicationVersionName, galleryName, resourceGroupName, subscriptionId` | Update a gallery Application Version. |

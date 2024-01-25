@@ -32,9 +32,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GuestConfigurationAssignments_Get` | `SELECT` | `guestConfigurationAssignmentName, resourceGroupName, subscriptionId, vmName` | Get information about a guest configuration assignment |
-| `GuestConfigurationAssignments_List` | `SELECT` | `resourceGroupName, subscriptionId, vmName` | List all guest configuration assignments for a virtual machine. |
-| `GuestConfigurationAssignments_CreateOrUpdate` | `INSERT` | `guestConfigurationAssignmentName, resourceGroupName, subscriptionId, vmName` | Creates an association between a VM and guest configuration |
-| `GuestConfigurationAssignments_Delete` | `DELETE` | `guestConfigurationAssignmentName, resourceGroupName, subscriptionId, vmName` | Delete a guest configuration assignment |
-| `GuestConfigurationAssignments_RGList` | `EXEC` | `resourceGroupName, subscriptionId` | List all guest configuration assignments for a resource group. |
-| `GuestConfigurationAssignments_SubscriptionList` | `EXEC` | `subscriptionId` | List all guest configuration assignments for a subscription. |
+| `get` | `SELECT` | `guestConfigurationAssignmentName, resourceGroupName, subscriptionId, vmName` | Get information about a guest configuration assignment |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, vmName` | List all guest configuration assignments for a virtual machine. |
+| `create_or_update` | `INSERT` | `guestConfigurationAssignmentName, resourceGroupName, subscriptionId, vmName` | Creates an association between a VM and guest configuration |
+| `delete` | `DELETE` | `guestConfigurationAssignmentName, resourceGroupName, subscriptionId, vmName` | Delete a guest configuration assignment |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vmName` | List all guest configuration assignments for a virtual machine. |
+| `_rg_list` | `EXEC` | `resourceGroupName, subscriptionId` | List all guest configuration assignments for a resource group. |
+| `_subscription_list` | `EXEC` | `subscriptionId` | List all guest configuration assignments for a subscription. |
+| `rg_list` | `EXEC` | `resourceGroupName, subscriptionId` | List all guest configuration assignments for a resource group. |
+| `subscription_list` | `EXEC` | `subscriptionId` | List all guest configuration assignments for a subscription. |

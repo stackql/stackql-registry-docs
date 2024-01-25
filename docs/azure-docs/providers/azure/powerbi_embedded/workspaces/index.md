@@ -34,4 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Workspaces_List` | `SELECT` | `resourceGroupName, subscriptionId, workspaceCollectionName` |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceCollectionName` |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceCollectionName` |

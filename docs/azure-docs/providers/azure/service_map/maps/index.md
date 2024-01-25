@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Maps_Generate` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName, data__kind` |
+| `generate` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName, data__kind` |

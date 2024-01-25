@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Managed Services  
+Azure Managed Services Enables You To Delegate Resources For Access Through An Azure Active Directory Tenant.  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Managed Services
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>14</b></span><br />
+<span>total methods:&nbsp;<b>20</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Managed Services
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.managed_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Managed Services (Microsoft.ManagedServices)</td></tr>
-<tr><td><b>Description</b></td><td>Managed Services</td></tr>
-<tr><td><b>Id</b></td><td><code>managed_services:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Managed Services (Azure Delegated Resource Management)</td></tr>
+<tr><td><b>Description</b></td><td>Azure Managed Services Enables You To Delegate Resources For Access Through An Azure Active Directory Tenant.</td></tr>
+<tr><td><b>Id</b></td><td><code>managed_services:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

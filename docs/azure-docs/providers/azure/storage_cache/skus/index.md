@@ -28,12 +28,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of this SKU. |
+| `capabilities` | `array` | A list of capabilities of this SKU, such as throughput or ops/sec. |
+| `locationInfo` | `array` | The set of locations where the SKU is available. |
 | `locations` | `array` | The set of locations where the SKU is available. This is the supported and registered Azure Geo Regions (e.g., West US, East US, Southeast Asia, etc.). |
 | `resourceType` | `string` | The type of resource the SKU applies to. |
 | `restrictions` | `array` | The restrictions preventing this SKU from being used. This is empty if there are no restrictions. |
-| `capabilities` | `array` | A list of capabilities of this SKU, such as throughput or ops/sec. |
-| `locationInfo` | `array` | The set of locations where the SKU is available. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Skus_List` | `SELECT` | `subscriptionId` |
+| `list` | `SELECT` | `subscriptionId` |
+| `_list` | `EXEC` | `subscriptionId` |

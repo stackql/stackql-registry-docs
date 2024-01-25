@@ -32,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolTables_ListBySchema` | `SELECT` | `resourceGroupName, schemaName, sqlPoolName, subscriptionId, workspaceName` | Gets tables of a given schema in a SQL pool. |
-| `SqlPoolTables_Get` | `EXEC` | `resourceGroupName, schemaName, sqlPoolName, subscriptionId, tableName, workspaceName` | Get Sql pool table |
+| `list_by_schema` | `SELECT` | `resourceGroupName, schemaName, sqlPoolName, subscriptionId, workspaceName` | Gets tables of a given schema in a SQL pool. |
+| `exec_get` | `EXEC` | `resourceGroupName, schemaName, sqlPoolName, subscriptionId, tableName, workspaceName` | Get Sql pool table |

@@ -31,7 +31,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `display` | `object` | An operation available at the listed Azure resource provider. |
 | `nextLink` | `string` | The URL to use for getting the next set of results. |
 | `origin` | `string` | Origin result |
+| `properties` | `object` | Properties available for a Microsoft.Web resource provider operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Operations_List` | `SELECT` | `api-version` |
+| `list` | `SELECT` | `api-version` |
+| `_list` | `EXEC` | `api-version` |

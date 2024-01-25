@@ -29,16 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `` | Properties required to the Create Migration Configuration |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `MigrationConfigs_Get` | `SELECT` | `configName, namespaceName, resourceGroupName, subscriptionId` | Retrieves Migration Config |
-| `MigrationConfigs_List` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Gets all migrationConfigurations |
-| `MigrationConfigs_Delete` | `DELETE` | `configName, namespaceName, resourceGroupName, subscriptionId` | Deletes a MigrationConfiguration |
-| `MigrationConfigs_CompleteMigration` | `EXEC` | `configName, namespaceName, resourceGroupName, subscriptionId` | This operation Completes Migration of entities by pointing the connection strings to Premium namespace and any entities created after the operation will be under Premium Namespace. CompleteMigration operation will fail when entity migration is in-progress. |
-| `MigrationConfigs_CreateAndStartMigration` | `EXEC` | `configName, namespaceName, resourceGroupName, subscriptionId` | Creates Migration configuration and starts migration of entities from Standard to Premium namespace |
-| `MigrationConfigs_Revert` | `EXEC` | `configName, namespaceName, resourceGroupName, subscriptionId` | This operation reverts Migration |
+| `get` | `SELECT` | `configName, namespaceName, resourceGroupName, subscriptionId` | Retrieves Migration Config |
+| `list` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Gets all migrationConfigurations |
+| `delete` | `DELETE` | `configName, namespaceName, resourceGroupName, subscriptionId` | Deletes a MigrationConfiguration |
+| `_list` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Gets all migrationConfigurations |
+| `complete_migration` | `EXEC` | `configName, namespaceName, resourceGroupName, subscriptionId` | This operation Completes Migration of entities by pointing the connection strings to Premium namespace and any entities created after the operation will be under Premium Namespace. CompleteMigration operation will fail when entity migration is in-progress. |
+| `revert` | `EXEC` | `configName, namespaceName, resourceGroupName, subscriptionId` | This operation reverts Migration |

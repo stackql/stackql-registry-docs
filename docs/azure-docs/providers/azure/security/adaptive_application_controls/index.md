@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AdaptiveApplicationControls_Get` | `SELECT` | `api-version, ascLocation, groupName, subscriptionId` | Gets an application control VM/server group. |
-| `AdaptiveApplicationControls_List` | `SELECT` | `api-version, subscriptionId` | Gets a list of application control machine groups for the subscription. |
-| `AdaptiveApplicationControls_Delete` | `DELETE` | `api-version, ascLocation, groupName, subscriptionId` | Delete an application control machine group |
-| `AdaptiveApplicationControls_Put` | `EXEC` | `api-version, ascLocation, groupName, subscriptionId, data__properties` | Update an application control machine group |
+| `get` | `SELECT` | `api-version, ascLocation, groupName, subscriptionId` | Gets an application control VM/server group. |
+| `list` | `SELECT` | `api-version, subscriptionId` | Gets a list of application control machine groups for the subscription. |
+| `delete` | `DELETE` | `api-version, ascLocation, groupName, subscriptionId` | Delete an application control machine group |
+| `_list` | `EXEC` | `api-version, subscriptionId` | Gets a list of application control machine groups for the subscription. |
+| `put` | `EXEC` | `api-version, ascLocation, groupName, subscriptionId, data__properties` | Update an application control machine group |

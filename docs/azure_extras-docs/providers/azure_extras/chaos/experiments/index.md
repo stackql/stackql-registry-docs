@@ -27,22 +27,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `identity` | `object` | The identity of a resource. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Model that represents the Experiment properties model. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
-| `identity` | `object` | The managed identity of a resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Experiments_Get` | `SELECT` | `api-version, experimentName, resourceGroupName, subscriptionId` | Get a Experiment resource. |
-| `Experiments_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Get a list of Experiment resources in a resource group. |
-| `Experiments_ListAll` | `SELECT` | `api-version, subscriptionId` | Get a list of Experiment resources in a subscription. |
-| `Experiments_CreateOrUpdate` | `INSERT` | `api-version, experimentName, resourceGroupName, subscriptionId, data__properties` | Create or update a Experiment resource. |
-| `Experiments_Delete` | `DELETE` | `api-version, experimentName, resourceGroupName, subscriptionId` | Delete a Experiment resource. |
-| `Experiments_Cancel` | `EXEC` | `api-version, experimentName, resourceGroupName, subscriptionId` | Cancel a running Experiment resource. |
-| `Experiments_GetExecutionDetails` | `EXEC` | `api-version, executionDetailsId, experimentName, resourceGroupName, subscriptionId` | Get an execution detail of a Experiment resource. |
-| `Experiments_GetStatus` | `EXEC` | `api-version, experimentName, resourceGroupName, statusId, subscriptionId` | Get a status of a Experiment resource. |
-| `Experiments_ListAllStatuses` | `EXEC` | `api-version, experimentName, resourceGroupName, subscriptionId` | Get a list of statuses of a Experiment resource. |
-| `Experiments_ListExecutionDetails` | `EXEC` | `api-version, experimentName, resourceGroupName, subscriptionId` | Get a list of execution details of a Experiment resource. |
-| `Experiments_Start` | `EXEC` | `api-version, experimentName, resourceGroupName, subscriptionId` | Start a Experiment resource. |
+| `get` | `SELECT` | `api-version, experimentName, resourceGroupName, subscriptionId` | Get a Experiment resource. |
+| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Get a list of Experiment resources in a resource group. |
+| `create_or_update` | `INSERT` | `api-version, experimentName, resourceGroupName, subscriptionId, data__properties` | Create or update a Experiment resource. |
+| `delete` | `DELETE` | `api-version, experimentName, resourceGroupName, subscriptionId` | Delete a Experiment resource. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | Get a list of Experiment resources in a resource group. |
+| `cancel` | `EXEC` | `api-version, experimentName, resourceGroupName, subscriptionId` | Cancel a running Experiment resource. |
+| `start` | `EXEC` | `api-version, experimentName, resourceGroupName, subscriptionId` | Start a Experiment resource. |
+| `update` | `EXEC` | `api-version, experimentName, resourceGroupName, subscriptionId` | The operation to update an experiment. |

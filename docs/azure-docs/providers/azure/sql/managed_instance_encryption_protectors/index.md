@@ -27,12 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties for an encryption protector execution. |
 | `kind` | `string` | Kind of encryption protector. This is metadata used for the Azure portal experience. |
+| `properties` | `object` | Properties for an encryption protector execution. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedInstanceEncryptionProtectors_Get` | `SELECT` | `encryptionProtectorName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed instance encryption protector. |
-| `ManagedInstanceEncryptionProtectors_ListByInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance encryption protectors |
-| `ManagedInstanceEncryptionProtectors_CreateOrUpdate` | `INSERT` | `encryptionProtectorName, managedInstanceName, resourceGroupName, subscriptionId` | Updates an existing encryption protector. |
-| `ManagedInstanceEncryptionProtectors_Revalidate` | `EXEC` | `encryptionProtectorName, managedInstanceName, resourceGroupName, subscriptionId` | Revalidates an existing encryption protector. |
+| `get` | `SELECT` | `encryptionProtectorName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed instance encryption protector. |
+| `list_by_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance encryption protectors |
+| `create_or_update` | `INSERT` | `encryptionProtectorName, managedInstanceName, resourceGroupName, subscriptionId` | Updates an existing encryption protector. |
+| `_list_by_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance encryption protectors |
+| `revalidate` | `EXEC` | `encryptionProtectorName, managedInstanceName, resourceGroupName, subscriptionId` | Revalidates an existing encryption protector. |

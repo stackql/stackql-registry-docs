@@ -25,12 +25,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | The Test Type properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TestTypes_Get` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName, testTypeResourceName` | Gets a test type of a Test Base Account. |
-| `TestTypes_List` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the test types of a Test Base Account. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName, testTypeResourceName` | Gets a test type of a Test Base Account. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the test types of a Test Base Account. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the test types of a Test Base Account. |

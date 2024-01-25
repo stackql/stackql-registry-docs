@@ -36,7 +36,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationAccountSessions_Get` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, sessionName, subscriptionId` | Gets an integration account session. |
-| `IntegrationAccountSessions_List` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account sessions. |
-| `IntegrationAccountSessions_CreateOrUpdate` | `INSERT` | `api-version, integrationAccountName, resourceGroupName, sessionName, subscriptionId, data__properties` | Creates or updates an integration account session. |
-| `IntegrationAccountSessions_Delete` | `DELETE` | `api-version, integrationAccountName, resourceGroupName, sessionName, subscriptionId` | Deletes an integration account session. |
+| `get` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, sessionName, subscriptionId` | Gets an integration account session. |
+| `list` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account sessions. |
+| `create_or_update` | `INSERT` | `api-version, integrationAccountName, resourceGroupName, sessionName, subscriptionId, data__properties` | Creates or updates an integration account session. |
+| `delete` | `DELETE` | `api-version, integrationAccountName, resourceGroupName, sessionName, subscriptionId` | Deletes an integration account session. |
+| `_list` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account sessions. |

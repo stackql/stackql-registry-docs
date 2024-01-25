@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RoleAssignments_Get` | `SELECT` | `assignmentName, hubName, resourceGroupName, subscriptionId` | Gets the role assignment in the hub. |
-| `RoleAssignments_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the role assignments for the specified hub. |
-| `RoleAssignments_CreateOrUpdate` | `INSERT` | `assignmentName, hubName, resourceGroupName, subscriptionId` | Creates or updates a role assignment in the hub. |
-| `RoleAssignments_Delete` | `DELETE` | `assignmentName, hubName, resourceGroupName, subscriptionId` | Deletes the role assignment in the hub. |
+| `get` | `SELECT` | `assignmentName, hubName, resourceGroupName, subscriptionId` | Gets the role assignment in the hub. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the role assignments for the specified hub. |
+| `create_or_update` | `INSERT` | `assignmentName, hubName, resourceGroupName, subscriptionId` | Creates or updates a role assignment in the hub. |
+| `delete` | `DELETE` | `assignmentName, hubName, resourceGroupName, subscriptionId` | Deletes the role assignment in the hub. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all the role assignments for the specified hub. |

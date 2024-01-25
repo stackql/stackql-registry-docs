@@ -27,15 +27,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Describes the properties of a Machine Extension. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `MachineExtensions_Get` | `SELECT` | `extensionName, machineName, resourceGroupName, subscriptionId` | The operation to get the extension. |
-| `MachineExtensions_List` | `SELECT` | `machineName, resourceGroupName, subscriptionId` | The operation to get all extensions of a non-Azure machine |
-| `MachineExtensions_CreateOrUpdate` | `INSERT` | `extensionName, machineName, resourceGroupName, subscriptionId` | The operation to create or update the extension. |
-| `MachineExtensions_Delete` | `DELETE` | `extensionName, machineName, resourceGroupName, subscriptionId` | The operation to delete the extension. |
-| `MachineExtensions_Update` | `EXEC` | `extensionName, machineName, resourceGroupName, subscriptionId` | The operation to create or update the extension. |
+| `get` | `SELECT` | `extensionName, machineName, resourceGroupName, subscriptionId` | The operation to get the extension. |
+| `list` | `SELECT` | `machineName, resourceGroupName, subscriptionId` | The operation to get all extensions of a non-Azure machine |
+| `create_or_update` | `INSERT` | `extensionName, machineName, resourceGroupName, subscriptionId` | The operation to create or update the extension. |
+| `delete` | `DELETE` | `extensionName, machineName, resourceGroupName, subscriptionId` | The operation to delete the extension. |
+| `_list` | `EXEC` | `machineName, resourceGroupName, subscriptionId` | The operation to get all extensions of a non-Azure machine |
+| `update` | `EXEC` | `extensionName, machineName, resourceGroupName, subscriptionId` | The operation to create or update the extension. |

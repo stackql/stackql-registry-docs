@@ -35,6 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Topology_Get` | `SELECT` | `api-version, ascLocation, resourceGroupName, subscriptionId, topologyResourceName` | Gets a specific topology component. |
-| `Topology_List` | `SELECT` | `api-version, subscriptionId` | Gets a list that allows to build a topology view of a subscription. |
-| `Topology_ListByHomeRegion` | `SELECT` | `api-version, ascLocation, subscriptionId` | Gets a list that allows to build a topology view of a subscription and location. |
+| `get` | `SELECT` | `api-version, ascLocation, resourceGroupName, subscriptionId, topologyResourceName` | Gets a specific topology component. |
+| `list` | `SELECT` | `api-version, subscriptionId` | Gets a list that allows to build a topology view of a subscription. |
+| `list_by_home_region` | `SELECT` | `api-version, ascLocation, subscriptionId` | Gets a list that allows to build a topology view of a subscription and location. |
+| `_list` | `EXEC` | `api-version, subscriptionId` | Gets a list that allows to build a topology view of a subscription. |
+| `_list_by_home_region` | `EXEC` | `api-version, ascLocation, subscriptionId` | Gets a list that allows to build a topology view of a subscription and location. |

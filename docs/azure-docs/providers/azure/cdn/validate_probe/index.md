@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ValidateProbe` | `EXEC` | `subscriptionId, data__probeURL` |
+| `validate_probe` | `EXEC` | `subscriptionId, data__probeURL` |

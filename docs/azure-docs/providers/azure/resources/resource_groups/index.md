@@ -37,10 +37,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ResourceGroups_Get` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a resource group. |
-| `ResourceGroups_List` | `SELECT` | `subscriptionId` | Gets all the resource groups for a subscription. |
-| `ResourceGroups_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, data__location` | Creates or updates a resource group. |
-| `ResourceGroups_Delete` | `DELETE` | `resourceGroupName, subscriptionId` | When you delete a resource group, all of its resources are also deleted. Deleting a resource group deletes all of its template deployments and currently stored operations. |
-| `ResourceGroups_CheckExistence` | `EXEC` | `resourceGroupName, subscriptionId` | Checks whether a resource group exists. |
-| `ResourceGroups_ExportTemplate` | `EXEC` | `resourceGroupName, subscriptionId` | Captures the specified resource group as a template. |
-| `ResourceGroups_Update` | `EXEC` | `resourceGroupName, subscriptionId` | Resource groups can be updated through a simple PATCH operation to a group address. The format of the request is the same as that for creating a resource group. If a field is unspecified, the current value is retained. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a resource group. |
+| `list` | `SELECT` | `subscriptionId` | Gets all the resource groups for a subscription. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, data__location` | Creates or updates a resource group. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId` | When you delete a resource group, all of its resources are also deleted. Deleting a resource group deletes all of its template deployments and currently stored operations. |
+| `_list` | `EXEC` | `subscriptionId` | Gets all the resource groups for a subscription. |
+| `check_existence` | `EXEC` | `resourceGroupName, subscriptionId` | Checks whether a resource group exists. |
+| `export_template` | `EXEC` | `resourceGroupName, subscriptionId` | Captures the specified resource group as a template. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId` | Resource groups can be updated through a simple PATCH operation to a group address. The format of the request is the same as that for creating a resource group. If a field is unspecified, the current value is retained. |

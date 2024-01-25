@@ -33,5 +33,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolReplicationLinks_List` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Lists a Sql pool's replication links. |
-| `SqlPoolReplicationLinks_GetByName` | `EXEC` | `linkId, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get SQL pool replication link by name. |
+| `list` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Lists a Sql pool's replication links. |
+| `_list` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Lists a Sql pool's replication links. |
+| `get_by_name` | `EXEC` | `linkId, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get SQL pool replication link by name. |

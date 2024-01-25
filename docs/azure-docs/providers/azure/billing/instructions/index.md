@@ -34,6 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Instructions_Get` | `SELECT` | `billingAccountName, billingProfileName, instructionName` | Get the instruction by name. These are custom billing instructions and are only applicable for certain customers. |
-| `Instructions_ListByBillingProfile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the instructions by billing profile id. |
-| `Instructions_Put` | `EXEC` | `billingAccountName, billingProfileName, instructionName` | Creates or updates an instruction. These are custom billing instructions and are only applicable for certain customers. |
+| `get` | `SELECT` | `billingAccountName, billingProfileName, instructionName` | Get the instruction by name. These are custom billing instructions and are only applicable for certain customers. |
+| `list_by_billing_profile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the instructions by billing profile id. |
+| `_list_by_billing_profile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the instructions by billing profile id. |
+| `put` | `EXEC` | `billingAccountName, billingProfileName, instructionName` | Creates or updates an instruction. These are custom billing instructions and are only applicable for certain customers. |

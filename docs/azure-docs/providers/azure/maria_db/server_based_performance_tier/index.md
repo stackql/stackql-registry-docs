@@ -38,4 +38,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ServerBasedPerformanceTier_List` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `list` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `_list` | `EXEC` | `resourceGroupName, serverName, subscriptionId` |

@@ -30,13 +30,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `type` | `string` | Resource type. |
+| `extendedLocation` | `object` | ExtendedLocation complex type. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties of the load balancer. |
-| `extendedLocation` | `object` | ExtendedLocation complex type. |
-| `tags` | `object` | Resource tags. |
 | `sku` | `object` | SKU of a load balancer. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `NetworkInterfaceLoadBalancers_List` | `SELECT` | `networkInterfaceName, resourceGroupName, subscriptionId` |
+| `list` | `SELECT` | `networkInterfaceName, resourceGroupName, subscriptionId` |
+| `_list` | `EXEC` | `networkInterfaceName, resourceGroupName, subscriptionId` |

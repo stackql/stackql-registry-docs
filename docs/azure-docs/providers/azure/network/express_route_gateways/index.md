@@ -29,17 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `location` | `string` | Resource location. |
 | `properties` | `object` | ExpressRoute gateway resource properties. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExpressRouteGateways_Get` | `SELECT` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Fetches the details of a ExpressRoute gateway in a resource group. |
-| `ExpressRouteGateways_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists ExpressRoute gateways in a given resource group. |
-| `ExpressRouteGateways_ListBySubscription` | `SELECT` | `subscriptionId` | Lists ExpressRoute gateways under a given subscription. |
-| `ExpressRouteGateways_CreateOrUpdate` | `INSERT` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Creates or updates a ExpressRoute gateway in a specified resource group. |
-| `ExpressRouteGateways_Delete` | `DELETE` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Deletes the specified ExpressRoute gateway in a resource group. An ExpressRoute gateway resource can only be deleted when there are no connection subresources. |
-| `ExpressRouteGateways_UpdateTags` | `EXEC` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Updates express route gateway tags. |
+| `get` | `SELECT` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Fetches the details of a ExpressRoute gateway in a resource group. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists ExpressRoute gateways in a given resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists ExpressRoute gateways under a given subscription. |
+| `create_or_update` | `INSERT` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Creates or updates a ExpressRoute gateway in a specified resource group. |
+| `delete` | `DELETE` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Deletes the specified ExpressRoute gateway in a resource group. An ExpressRoute gateway resource can only be deleted when there are no connection subresources. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists ExpressRoute gateways in a given resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists ExpressRoute gateways under a given subscription. |

@@ -29,17 +29,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource name. |
+| `eTag` | `string` | eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not. |
 | `properties` | `object` | The properties of the view. |
 | `type` | `string` | Resource type. |
-| `eTag` | `string` | eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Views_Get` | `SELECT` | `viewName` | Gets the view by view name. |
-| `Views_List` | `SELECT` |  | Lists all views by tenant and object. |
-| `Views_ListByScope` | `SELECT` | `scope` | Lists all views at the given scope. |
-| `Views_CreateOrUpdate` | `INSERT` | `viewName` | The operation to create or update a view. Update operation requires latest eTag to be set in the request. You may obtain the latest eTag by performing a get operation. Create operation does not require eTag. |
-| `Views_Delete` | `DELETE` | `viewName` | The operation to delete a view. |
-| `Views_DeleteByScope` | `DELETE` | `scope, viewName` | The operation to delete a view. |
-| `Views_CreateOrUpdateByScope` | `EXEC` | `scope, viewName` | The operation to create or update a view. Update operation requires latest eTag to be set in the request. You may obtain the latest eTag by performing a get operation. Create operation does not require eTag. |
-| `Views_GetByScope` | `EXEC` | `scope, viewName` | Gets the view for the defined scope by view name. |
+| `get` | `SELECT` | `viewName` | Gets the view by view name. |
+| `list` | `SELECT` |  | Lists all views by tenant and object. |
+| `list_by_scope` | `SELECT` | `scope` | Lists all views at the given scope. |
+| `create_or_update` | `INSERT` | `viewName` | The operation to create or update a view. Update operation requires latest eTag to be set in the request. You may obtain the latest eTag by performing a get operation. Create operation does not require eTag. |
+| `delete` | `DELETE` | `viewName` | The operation to delete a view. |
+| `delete_by_scope` | `DELETE` | `scope, viewName` | The operation to delete a view. |
+| `_list` | `EXEC` |  | Lists all views by tenant and object. |
+| `_list_by_scope` | `EXEC` | `scope` | Lists all views at the given scope. |
+| `create_or_update_by_scope` | `EXEC` | `scope, viewName` | The operation to create or update a view. Update operation requires latest eTag to be set in the request. You may obtain the latest eTag by performing a get operation. Create operation does not require eTag. |
+| `get_by_scope` | `EXEC` | `scope, viewName` | Gets the view for the defined scope by view name. |

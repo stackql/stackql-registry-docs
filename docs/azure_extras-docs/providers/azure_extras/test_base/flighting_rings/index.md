@@ -25,12 +25,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | The Flighting Ring properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FlightingRings_Get` | `SELECT` | `flightingRingResourceName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a flighting ring of a Test Base Account. |
-| `FlightingRings_List` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the flighting rings of a Test Base Account. |
+| `get` | `SELECT` | `flightingRingResourceName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a flighting ring of a Test Base Account. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the flighting rings of a Test Base Account. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the flighting rings of a Test Base Account. |

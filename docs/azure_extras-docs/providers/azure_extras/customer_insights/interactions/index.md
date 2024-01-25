@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `properties` | `object` | The Interaction Type Definition |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Interactions_Get` | `SELECT` | `hubName, interactionName, resourceGroupName, subscriptionId` | Gets information about the specified interaction. |
-| `Interactions_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all interactions in the hub. |
-| `Interactions_CreateOrUpdate` | `INSERT` | `hubName, interactionName, resourceGroupName, subscriptionId` | Creates an interaction or updates an existing interaction within a hub. |
-| `Interactions_SuggestRelationshipLinks` | `EXEC` | `hubName, interactionName, resourceGroupName, subscriptionId` | Suggests relationships to create relationship links. |
+| `get` | `SELECT` | `hubName, interactionName, resourceGroupName, subscriptionId` | Gets information about the specified interaction. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all interactions in the hub. |
+| `create_or_update` | `INSERT` | `hubName, interactionName, resourceGroupName, subscriptionId` | Creates an interaction or updates an existing interaction within a hub. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all interactions in the hub. |
+| `suggest_relationship_links` | `EXEC` | `hubName, interactionName, resourceGroupName, subscriptionId` | Suggests relationships to create relationship links. |

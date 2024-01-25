@@ -33,7 +33,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `EncryptionProtectors_Get` | `SELECT` | `encryptionProtectorName, resourceGroupName, serverName, subscriptionId` | Gets a server encryption protector. |
-| `EncryptionProtectors_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server encryption protectors |
-| `EncryptionProtectors_CreateOrUpdate` | `INSERT` | `encryptionProtectorName, resourceGroupName, serverName, subscriptionId` | Updates an existing encryption protector. |
-| `EncryptionProtectors_Revalidate` | `EXEC` | `encryptionProtectorName, resourceGroupName, serverName, subscriptionId` | Revalidates an existing encryption protector. |
+| `get` | `SELECT` | `encryptionProtectorName, resourceGroupName, serverName, subscriptionId` | Gets a server encryption protector. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server encryption protectors |
+| `create_or_update` | `INSERT` | `encryptionProtectorName, resourceGroupName, serverName, subscriptionId` | Updates an existing encryption protector. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server encryption protectors |
+| `revalidate` | `EXEC` | `encryptionProtectorName, resourceGroupName, serverName, subscriptionId` | Revalidates an existing encryption protector. |

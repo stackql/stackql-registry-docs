@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
+| `location` | `string` | Location of the Capability Type resource. |
 | `properties` | `object` | Model that represents the Capability Type properties model. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `location` | `string` | Location of the Capability Type resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CapabilityTypes_Get` | `SELECT` | `api-version, capabilityTypeName, locationName, subscriptionId, targetTypeName` | Get a Capability Type resource for given Target Type and location. |
-| `CapabilityTypes_List` | `SELECT` | `api-version, locationName, subscriptionId, targetTypeName` | Get a list of Capability Type resources for given Target Type and location. |
+| `get` | `SELECT` | `api-version, capabilityTypeName, locationName, subscriptionId, targetTypeName` | Get a Capability Type resource for given Target Type and location. |
+| `list` | `SELECT` | `api-version, locationName, subscriptionId, targetTypeName` | Get a list of Capability Type resources for given Target Type and location. |
+| `_list` | `EXEC` | `api-version, locationName, subscriptionId, targetTypeName` | Get a list of Capability Type resources for given Target Type and location. |

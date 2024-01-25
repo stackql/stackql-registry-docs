@@ -29,15 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id represents the complete path to the resource. |
 | `name` | `string` | Resource name associated with the resource. |
+| `eTag` | `string` | Optional ETag. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` |  |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
-| `eTag` | `string` | Optional ETag. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ResourceGuardProxy_Get` | `SELECT` | `api-version, resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` | Returns ResourceGuardProxy under vault and with the name referenced in request |
-| `ResourceGuardProxy_Delete` | `DELETE` | `api-version, resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` | Delete ResourceGuardProxy under vault |
-| `ResourceGuardProxy_Put` | `EXEC` | `api-version, resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` | Add or Update ResourceGuardProxy under vault<br />Secures vault critical operations |
-| `ResourceGuardProxy_UnlockDelete` | `EXEC` | `api-version, resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` | Secures delete ResourceGuardProxy operations. |
+| `get` | `SELECT` | `api-version, resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` | Returns ResourceGuardProxy under vault and with the name referenced in request |
+| `delete` | `DELETE` | `api-version, resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` | Delete ResourceGuardProxy under vault |
+| `put` | `EXEC` | `api-version, resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` | Add or Update ResourceGuardProxy under vault<br />Secures vault critical operations |
+| `unlock_delete` | `EXEC` | `api-version, resourceGroupName, resourceGuardProxyName, subscriptionId, vaultName` | Secures delete ResourceGuardProxy operations. |

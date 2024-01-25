@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ContainerAppsAuthConfigs_Get` | `SELECT` | `authConfigName, containerAppName, resourceGroupName, subscriptionId` |  |
-| `ContainerAppsAuthConfigs_ListByContainerApp` | `SELECT` | `containerAppName, resourceGroupName, subscriptionId` |  |
-| `ContainerAppsAuthConfigs_CreateOrUpdate` | `INSERT` | `authConfigName, containerAppName, resourceGroupName, subscriptionId` | Create or update the AuthConfig for a Container App. |
-| `ContainerAppsAuthConfigs_Delete` | `DELETE` | `authConfigName, containerAppName, resourceGroupName, subscriptionId` | Delete a Container App AuthConfig. |
+| `get` | `SELECT` | `authConfigName, containerAppName, resourceGroupName, subscriptionId` |  |
+| `list_by_container_app` | `SELECT` | `containerAppName, resourceGroupName, subscriptionId` |  |
+| `create_or_update` | `INSERT` | `authConfigName, containerAppName, resourceGroupName, subscriptionId` | Create or update the AuthConfig for a Container App. |
+| `delete` | `DELETE` | `authConfigName, containerAppName, resourceGroupName, subscriptionId` | Delete a Container App AuthConfig. |
+| `_list_by_container_app` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` |  |

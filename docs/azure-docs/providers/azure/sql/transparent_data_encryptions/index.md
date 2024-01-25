@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TransparentDataEncryptions_Get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId, tdeName` | Gets a logical database's transparent data encryption. |
-| `TransparentDataEncryptions_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of the logical database's transparent data encryption. |
-| `TransparentDataEncryptions_CreateOrUpdate` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId, tdeName` | Updates a logical database's transparent data encryption configuration. |
+| `get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId, tdeName` | Gets a logical database's transparent data encryption. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of the logical database's transparent data encryption. |
+| `create_or_update` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId, tdeName` | Updates a logical database's transparent data encryption configuration. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of the logical database's transparent data encryption. |

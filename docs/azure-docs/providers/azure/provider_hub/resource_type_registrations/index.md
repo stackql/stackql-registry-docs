@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ResourceTypeRegistrations_Get` | `SELECT` | `providerNamespace, resourceType, subscriptionId` | Gets a resource type details in the given subscription and provider. |
-| `ResourceTypeRegistrations_ListByProviderRegistration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the list of the resource types for the given provider. |
-| `ResourceTypeRegistrations_CreateOrUpdate` | `INSERT` | `providerNamespace, resourceType, subscriptionId` | Creates or updates a resource type. |
-| `ResourceTypeRegistrations_Delete` | `DELETE` | `providerNamespace, resourceType, subscriptionId` | Deletes a resource type |
+| `get` | `SELECT` | `providerNamespace, resourceType, subscriptionId` | Gets a resource type details in the given subscription and provider. |
+| `list_by_provider_registration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the list of the resource types for the given provider. |
+| `create_or_update` | `INSERT` | `providerNamespace, resourceType, subscriptionId` | Creates or updates a resource type. |
+| `delete` | `DELETE` | `providerNamespace, resourceType, subscriptionId` | Deletes a resource type |
+| `_list_by_provider_registration` | `EXEC` | `providerNamespace, subscriptionId` | Gets the list of the resource types for the given provider. |

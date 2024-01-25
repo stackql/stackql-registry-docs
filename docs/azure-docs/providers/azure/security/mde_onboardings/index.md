@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `MdeOnboardings_List` | `SELECT` | `api-version, subscriptionId` | The configuration or data needed to onboard the machine to MDE |
-| `MdeOnboardings_Get` | `EXEC` | `api-version, subscriptionId` | The default configuration or data needed to onboard the machine to MDE |
+| `list` | `SELECT` | `api-version, subscriptionId` | The configuration or data needed to onboard the machine to MDE |
+| `_list` | `EXEC` | `api-version, subscriptionId` | The configuration or data needed to onboard the machine to MDE |
+| `exec_get` | `EXEC` | `api-version, subscriptionId` | The default configuration or data needed to onboard the machine to MDE |

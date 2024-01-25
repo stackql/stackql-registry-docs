@@ -34,4 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Transactions_ListByInvoice` | `SELECT` | `billingAccountName, invoiceName` |
+| `list_by_invoice` | `SELECT` | `billingAccountName, invoiceName` |
+| `_list_by_invoice` | `EXEC` | `billingAccountName, invoiceName` |

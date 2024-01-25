@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Management Partner  
+The Azure Ace Provisioning ManagementPartner Api Is A Service Used For Managing Azure Compute Environment (ACE) Provisioning, Enabling Efficient And Advanced Management Of Azure Cloud Resources.  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Management Partner
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>7</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Management Partner
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_extras.management_partner</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Management Partner (Microsoft.ManagementPartner)</td></tr>
-<tr><td><b>Description</b></td><td>Management Partner</td></tr>
-<tr><td><b>Id</b></td><td><code>management_partner:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Management Partner</td></tr>
+<tr><td><b>Description</b></td><td>The Azure Ace Provisioning ManagementPartner Api Is A Service Used For Managing Azure Compute Environment (ACE) Provisioning, Enabling Efficient And Advanced Management Of Azure Cloud Resources.</td></tr>
+<tr><td><b>Id</b></td><td><code>management_partner:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

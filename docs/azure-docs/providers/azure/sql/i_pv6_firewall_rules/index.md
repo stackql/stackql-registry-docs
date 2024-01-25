@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IPv6FirewallRules_Get` | `SELECT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Gets an IPv6 firewall rule. |
-| `IPv6FirewallRules_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of IPv6 firewall rules. |
-| `IPv6FirewallRules_CreateOrUpdate` | `INSERT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Creates or updates an IPv6 firewall rule. |
-| `IPv6FirewallRules_Delete` | `DELETE` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Deletes an IPv6 firewall rule. |
+| `get` | `SELECT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Gets an IPv6 firewall rule. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of IPv6 firewall rules. |
+| `create_or_update` | `INSERT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Creates or updates an IPv6 firewall rule. |
+| `delete` | `DELETE` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Deletes an IPv6 firewall rule. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of IPv6 firewall rules. |

@@ -35,8 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Pipelines_Get` | `SELECT` | `api-version, factoryName, pipelineName, resourceGroupName, subscriptionId` | Gets a pipeline. |
-| `Pipelines_ListByFactory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists pipelines. |
-| `Pipelines_CreateOrUpdate` | `INSERT` | `api-version, factoryName, pipelineName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a pipeline. |
-| `Pipelines_Delete` | `DELETE` | `api-version, factoryName, pipelineName, resourceGroupName, subscriptionId` | Deletes a pipeline. |
-| `Pipelines_CreateRun` | `EXEC` | `api-version, factoryName, pipelineName, resourceGroupName, subscriptionId` | Creates a run of a pipeline. |
+| `get` | `SELECT` | `api-version, factoryName, pipelineName, resourceGroupName, subscriptionId` | Gets a pipeline. |
+| `list_by_factory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists pipelines. |
+| `create_or_update` | `INSERT` | `api-version, factoryName, pipelineName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a pipeline. |
+| `delete` | `DELETE` | `api-version, factoryName, pipelineName, resourceGroupName, subscriptionId` | Deletes a pipeline. |
+| `_list_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists pipelines. |

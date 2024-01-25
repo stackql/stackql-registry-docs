@@ -29,16 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Defines web application firewall policy properties. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WebApplicationFirewallPolicies_Get` | `SELECT` | `policyName, resourceGroupName, subscriptionId` | Retrieve protection policy with specified name within a resource group. |
-| `WebApplicationFirewallPolicies_List` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the protection policies within a resource group. |
-| `WebApplicationFirewallPolicies_ListAll` | `SELECT` | `subscriptionId` | Gets all the WAF policies in a subscription. |
-| `WebApplicationFirewallPolicies_CreateOrUpdate` | `INSERT` | `policyName, resourceGroupName, subscriptionId` | Creates or update policy with specified rule set name within a resource group. |
-| `WebApplicationFirewallPolicies_Delete` | `DELETE` | `policyName, resourceGroupName, subscriptionId` | Deletes Policy. |
+| `get` | `SELECT` | `policyName, resourceGroupName, subscriptionId` | Retrieve protection policy with specified name within a resource group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the protection policies within a resource group. |
+| `create_or_update` | `INSERT` | `policyName, resourceGroupName, subscriptionId` | Creates or update policy with specified rule set name within a resource group. |
+| `delete` | `DELETE` | `policyName, resourceGroupName, subscriptionId` | Deletes Policy. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all of the protection policies within a resource group. |

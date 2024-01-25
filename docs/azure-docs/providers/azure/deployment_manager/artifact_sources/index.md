@@ -27,13 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties that define the artifact source. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ArtifactSources_Get` | `SELECT` | `artifactSourceName, resourceGroupName, subscriptionId` |  |
-| `ArtifactSources_List` | `SELECT` | `resourceGroupName, subscriptionId` |  |
-| `ArtifactSources_CreateOrUpdate` | `INSERT` | `artifactSourceName, resourceGroupName, subscriptionId` | Synchronously creates a new artifact source or updates an existing artifact source. |
-| `ArtifactSources_Delete` | `DELETE` | `artifactSourceName, resourceGroupName, subscriptionId` |  |
+| `get` | `SELECT` | `artifactSourceName, resourceGroupName, subscriptionId` |  |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` |  |
+| `create_or_update` | `INSERT` | `artifactSourceName, resourceGroupName, subscriptionId` | Synchronously creates a new artifact source or updates an existing artifact source. |
+| `delete` | `DELETE` | `artifactSourceName, resourceGroupName, subscriptionId` |  |

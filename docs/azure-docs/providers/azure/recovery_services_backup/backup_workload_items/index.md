@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id represents the complete path to the resource. |
 | `name` | `string` | Resource name associated with the resource. |
+| `eTag` | `string` | Optional ETag. |
+| `location` | `string` | Resource location. |
 | `properties` | `object` | Base class for backup item. Workload-specific backup items are derived from this class. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
-| `eTag` | `string` | Optional ETag. |
-| `location` | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `BackupWorkloadItems_List` | `SELECT` | `api-version, containerName, fabricName, resourceGroupName, subscriptionId, vaultName` |
+| `list` | `SELECT` | `api-version, containerName, fabricName, resourceGroupName, subscriptionId, vaultName` |
+| `_list` | `EXEC` | `api-version, containerName, fabricName, resourceGroupName, subscriptionId, vaultName` |

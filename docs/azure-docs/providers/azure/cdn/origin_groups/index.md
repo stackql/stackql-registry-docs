@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `OriginGroups_Get` | `SELECT` | `endpointName, originGroupName, profileName, resourceGroupName, subscriptionId` | Gets an existing origin group within an endpoint. |
-| `OriginGroups_ListByEndpoint` | `SELECT` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origin groups within an endpoint. |
-| `OriginGroups_Create` | `INSERT` | `endpointName, originGroupName, profileName, resourceGroupName, subscriptionId` | Creates a new origin group within the specified endpoint. |
-| `OriginGroups_Delete` | `DELETE` | `endpointName, originGroupName, profileName, resourceGroupName, subscriptionId` | Deletes an existing origin group within an endpoint. |
-| `OriginGroups_Update` | `EXEC` | `endpointName, originGroupName, profileName, resourceGroupName, subscriptionId` | Updates an existing origin group within an endpoint. |
+| `get` | `SELECT` | `endpointName, originGroupName, profileName, resourceGroupName, subscriptionId` | Gets an existing origin group within an endpoint. |
+| `list_by_endpoint` | `SELECT` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origin groups within an endpoint. |
+| `create` | `INSERT` | `endpointName, originGroupName, profileName, resourceGroupName, subscriptionId` | Creates a new origin group within the specified endpoint. |
+| `delete` | `DELETE` | `endpointName, originGroupName, profileName, resourceGroupName, subscriptionId` | Deletes an existing origin group within an endpoint. |
+| `_list_by_endpoint` | `EXEC` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origin groups within an endpoint. |
+| `update` | `EXEC` | `endpointName, originGroupName, profileName, resourceGroupName, subscriptionId` | Updates an existing origin group within an endpoint. |

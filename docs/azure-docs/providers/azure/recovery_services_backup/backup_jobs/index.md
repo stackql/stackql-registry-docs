@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id represents the complete path to the resource. |
 | `name` | `string` | Resource name associated with the resource. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 | `eTag` | `string` | Optional ETag. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Defines workload agnostic properties for a job. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `BackupJobs_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` |
+| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` |
+| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName` |

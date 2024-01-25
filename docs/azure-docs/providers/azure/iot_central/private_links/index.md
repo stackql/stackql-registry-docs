@@ -27,7 +27,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `id` | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
 | `name` | `string` | The name of the resource |
 | `properties` | `object` | Properties of a private link resource. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinks_Get` | `SELECT` | `api-version, groupId, resourceGroupName, resourceName, subscriptionId` | Get a private link resource of a IoT Central Application. |
-| `PrivateLinks_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Get all private link resources of a IoT Central Application. |
+| `get` | `SELECT` | `api-version, groupId, resourceGroupName, resourceName, subscriptionId` | Get a private link resource of a IoT Central Application. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Get all private link resources of a IoT Central Application. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Get all private link resources of a IoT Central Application. |

@@ -34,8 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Profiles_Get` | `SELECT` | `hubName, profileName, resourceGroupName, subscriptionId` | Gets information about the specified profile. |
-| `Profiles_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all profile in the hub. |
-| `Profiles_CreateOrUpdate` | `INSERT` | `hubName, profileName, resourceGroupName, subscriptionId` | Creates a profile within a Hub, or updates an existing profile. |
-| `Profiles_Delete` | `DELETE` | `hubName, profileName, resourceGroupName, subscriptionId` | Deletes a profile within a hub |
-| `Profiles_GetEnrichingKpis` | `EXEC` | `hubName, profileName, resourceGroupName, subscriptionId` | Gets the KPIs that enrich the profile Type identified by the supplied name. Enrichment happens through participants of the Interaction on an Interaction KPI and through Relationships for Profile KPIs. |
+| `get` | `SELECT` | `hubName, profileName, resourceGroupName, subscriptionId` | Gets information about the specified profile. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all profile in the hub. |
+| `create_or_update` | `INSERT` | `hubName, profileName, resourceGroupName, subscriptionId` | Creates a profile within a Hub, or updates an existing profile. |
+| `delete` | `DELETE` | `hubName, profileName, resourceGroupName, subscriptionId` | Deletes a profile within a hub |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all profile in the hub. |

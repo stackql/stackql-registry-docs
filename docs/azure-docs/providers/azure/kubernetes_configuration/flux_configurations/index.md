@@ -27,13 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Properties to create a Flux Configuration resource |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FluxConfigurations_Get` | `SELECT` | `clusterName, clusterResourceName, clusterRp, fluxConfigurationName, resourceGroupName, subscriptionId` | Gets details of the Flux Configuration. |
-| `FluxConfigurations_List` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List all Flux Configurations. |
-| `FluxConfigurations_CreateOrUpdate` | `INSERT` | `clusterName, clusterResourceName, clusterRp, fluxConfigurationName, resourceGroupName, subscriptionId` | Create a new Kubernetes Flux Configuration. |
-| `FluxConfigurations_Delete` | `DELETE` | `clusterName, clusterResourceName, clusterRp, fluxConfigurationName, resourceGroupName, subscriptionId` | This will delete the YAML file used to set up the Flux Configuration, thus stopping future sync from the source repo. |
-| `FluxConfigurations_Update` | `EXEC` | `clusterName, clusterResourceName, clusterRp, fluxConfigurationName, resourceGroupName, subscriptionId` | Update an existing Kubernetes Flux Configuration. |
+| `get` | `SELECT` | `clusterName, clusterResourceName, clusterRp, fluxConfigurationName, resourceGroupName, subscriptionId` | Gets details of the Flux Configuration. |
+| `list` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List all Flux Configurations. |
+| `create_or_update` | `INSERT` | `clusterName, clusterResourceName, clusterRp, fluxConfigurationName, resourceGroupName, subscriptionId` | Create a new Kubernetes Flux Configuration. |
+| `delete` | `DELETE` | `clusterName, clusterResourceName, clusterRp, fluxConfigurationName, resourceGroupName, subscriptionId` | This will delete the YAML file used to set up the Flux Configuration, thus stopping future sync from the source repo. |
+| `_list` | `EXEC` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List all Flux Configurations. |
+| `update` | `EXEC` | `clusterName, clusterResourceName, clusterRp, fluxConfigurationName, resourceGroupName, subscriptionId` | Update an existing Kubernetes Flux Configuration. |

@@ -19,9 +19,9 @@ PowerBI Dedicated
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>3</b></span><br />
-<span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ PowerBI Dedicated
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.powerbi_dedicated</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>PowerBI Dedicated (Microsoft.PowerBIDedicated)</td></tr>
+<tr><td><b>Title</b></td><td>PowerBI Dedicated</td></tr>
 <tr><td><b>Description</b></td><td>PowerBI Dedicated</td></tr>
-<tr><td><b>Id</b></td><td><code>powerbi_dedicated:v23.03.00121</code></td></tr>
+<tr><td><b>Id</b></td><td><code>powerbi_dedicated:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,8 +41,11 @@ PowerBI Dedicated
 <div class="providerDocColumn">
 <a href="/providers/azure/powerbi_dedicated/auto_scale_vcores/">auto_scale_vcores</a><br />
 <a href="/providers/azure/powerbi_dedicated/capacities/">capacities</a><br />
+<a href="/providers/azure/powerbi_dedicated/capacities_details/">capacities_details</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/azure/powerbi_dedicated/capacities_skus/">capacities_skus</a><br />
+<a href="/providers/azure/powerbi_dedicated/capacities_skus_for_capacity/">capacities_skus_for_capacity</a><br />
 <a href="/providers/azure/powerbi_dedicated/operations/">operations</a><br />
 </div>
 </div>

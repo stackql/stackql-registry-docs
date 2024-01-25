@@ -37,9 +37,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RouteFilters_Get` | `SELECT` | `resourceGroupName, routeFilterName, subscriptionId` | Gets the specified route filter. |
-| `RouteFilters_List` | `SELECT` | `subscriptionId` | Gets all route filters in a subscription. |
-| `RouteFilters_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all route filters in a resource group. |
-| `RouteFilters_CreateOrUpdate` | `INSERT` | `resourceGroupName, routeFilterName, subscriptionId, data__location` | Creates or updates a route filter in a specified resource group. |
-| `RouteFilters_Delete` | `DELETE` | `resourceGroupName, routeFilterName, subscriptionId` | Deletes the specified route filter. |
-| `RouteFilters_UpdateTags` | `EXEC` | `resourceGroupName, routeFilterName, subscriptionId` | Updates tags of a route filter. |
+| `get` | `SELECT` | `resourceGroupName, routeFilterName, subscriptionId` | Gets the specified route filter. |
+| `list` | `SELECT` | `subscriptionId` | Gets all route filters in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all route filters in a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, routeFilterName, subscriptionId, data__location` | Creates or updates a route filter in a specified resource group. |
+| `delete` | `DELETE` | `resourceGroupName, routeFilterName, subscriptionId` | Deletes the specified route filter. |
+| `_list` | `EXEC` | `subscriptionId` | Gets all route filters in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all route filters in a resource group. |

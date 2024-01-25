@@ -32,6 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedDatabaseAdvancedThreatProtectionSettings_Get` | `SELECT` | `advancedThreatProtectionName, databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed database's Advanced Threat Protection state. |
-| `ManagedDatabaseAdvancedThreatProtectionSettings_ListByDatabase` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed database's Advanced Threat Protection states. |
-| `ManagedDatabaseAdvancedThreatProtectionSettings_CreateOrUpdate` | `INSERT` | `advancedThreatProtectionName, databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Creates or updates a managed database's Advanced Threat Protection state. |
+| `get` | `SELECT` | `advancedThreatProtectionName, databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed database's Advanced Threat Protection state. |
+| `list_by_database` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed database's Advanced Threat Protection states. |
+| `create_or_update` | `INSERT` | `advancedThreatProtectionName, databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Creates or updates a managed database's Advanced Threat Protection state. |
+| `_list_by_database` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed database's Advanced Threat Protection states. |

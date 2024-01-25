@@ -28,18 +28,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The fully qualified ID for the subscription. For example, /subscriptions/00000000-0000-0000-0000-000000000000. |
-| `tags` | `object` | The tags attached to the subscription. |
+| `authorizationSource` | `string` | The authorization source of the request. Valid values are one or more combinations of Legacy, RoleBased, Bypassed, Direct and Management. For example, 'Legacy, RoleBased'. |
+| `displayName` | `string` | The subscription display name. |
+| `managedByTenants` | `array` | An array containing the tenants managing the subscription. |
+| `state` | `string` | The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted. |
 | `subscriptionId` | `string` | The subscription ID. |
 | `subscriptionPolicies` | `object` | Subscription policies. |
-| `authorizationSource` | `string` | The authorization source of the request. Valid values are one or more combinations of Legacy, RoleBased, Bypassed, Direct and Management. For example, 'Legacy, RoleBased'. |
-| `managedByTenants` | `array` | An array containing the tenants managing the subscription. |
+| `tags` | `object` | The tags attached to the subscription. |
 | `tenantId` | `string` | The subscription tenant ID. |
-| `displayName` | `string` | The subscription display name. |
-| `state` | `string` | The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Subscriptions_Get` | `SELECT` | `subscriptionId` | Gets details about a specified subscription. |
-| `Subscriptions_List` | `SELECT` |  | Gets all subscriptions for a tenant. |
-| `Subscriptions_CheckZonePeers` | `EXEC` | `subscriptionId` | Compares a subscriptions logical zone mapping |
-| `Subscriptions_ListLocations` | `EXEC` | `subscriptionId` | This operation provides all the locations that are available for resource providers; however, each resource provider may support a subset of this list. |
+| `get` | `SELECT` | `subscriptionId` | Gets details about a specified subscription. |
+| `list` | `SELECT` |  | Gets all subscriptions for a tenant. |
+| `_list` | `EXEC` |  | Gets all subscriptions for a tenant. |
+| `check_zone_peers` | `EXEC` | `subscriptionId` | Compares a subscriptions logical zone mapping |

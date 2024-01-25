@@ -36,7 +36,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SubscriptionNetworkManagerConnections_Get` | `SELECT` |  | Get a specified connection created by this subscription. |
-| `SubscriptionNetworkManagerConnections_List` | `SELECT` | `subscriptionId` | List all network manager connections created by this subscription. |
-| `SubscriptionNetworkManagerConnections_CreateOrUpdate` | `INSERT` |  | Create a network manager connection on this subscription. |
-| `SubscriptionNetworkManagerConnections_Delete` | `DELETE` |  | Delete specified connection created by this subscription. |
+| `get` | `SELECT` |  | Get a specified connection created by this subscription. |
+| `list` | `SELECT` | `subscriptionId` | List all network manager connections created by this subscription. |
+| `create_or_update` | `INSERT` |  | Create a network manager connection on this subscription. |
+| `delete` | `DELETE` |  | Delete specified connection created by this subscription. |
+| `_list` | `EXEC` | `subscriptionId` | List all network manager connections created by this subscription. |

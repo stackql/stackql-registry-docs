@@ -1,0 +1,38 @@
+---
+title: ticket_communications_no_subscription
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - ticket_communications_no_subscription
+  - support
+  - azure    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>ticket_communications_no_subscription</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>azure.support.ticket_communications_no_subscription</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `string` | Id of the resource. |
+| `name` | `string` | Name of the resource. |
+| `properties` | `object` | Describes the properties of a communication resource. |
+| `type` | `string` | Type of the resource 'Microsoft.Support/communications'. |
+## Methods
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list` | `SELECT` | `supportTicketName` |
+| `_list` | `EXEC` | `supportTicketName` |

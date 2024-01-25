@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WaitStatistics_Get` | `SELECT` | `resourceGroupName, serverName, subscriptionId, waitStatisticsId` | Retrieve wait statistics for specified identifier. |
-| `WaitStatistics_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId, data__properties` | Retrieve wait statistics for specified aggregation window. |
+| `get` | `SELECT` | `resourceGroupName, serverName, subscriptionId, waitStatisticsId` | Retrieve wait statistics for specified identifier. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId, data__properties` | Retrieve wait statistics for specified aggregation window. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId, data__properties` | Retrieve wait statistics for specified aggregation window. |

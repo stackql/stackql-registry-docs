@@ -28,15 +28,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `id` | `string` | The fully qualified ID of the tenant. For example, /tenants/00000000-0000-0000-0000-000000000000. |
-| `countryCode` | `string` | The Country/region abbreviation for the tenant. |
-| `tenantId` | `string` | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. |
-| `tenantCategory` | `string` | The category of the tenant. Possible values are TenantCategoryHome,TenantCategoryProjectedBy,TenantCategoryManagedBy |
 | `country` | `string` | The country/region name of the address for the tenant. |
-| `tenantType` | `string` | The tenant type. Only available for Home tenant category. |
-| `displayName` | `string` | The display name of the tenant. |
+| `countryCode` | `string` | The Country/region abbreviation for the tenant. |
 | `defaultDomain` | `string` | The default domain for the tenant. |
+| `displayName` | `string` | The display name of the tenant. |
 | `domains` | `string` | The list of domains for the tenant. |
+| `tenantCategory` | `string` | The category of the tenant. Possible values are TenantCategoryHome,TenantCategoryProjectedBy,TenantCategoryManagedBy |
+| `tenantId` | `string` | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. |
+| `tenantType` | `string` | The tenant type. Only available for Home tenant category. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Tenants_List` | `SELECT` |  |
+| `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

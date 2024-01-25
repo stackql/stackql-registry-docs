@@ -27,14 +27,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `etag` | `string` | ETag of the virtual network link. |
 | `properties` | `object` | Represents the properties of a virtual network link. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `etag` | `string` | ETag of the virtual network link. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualNetworkLinks_Get` | `SELECT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Gets properties of a virtual network link to a DNS forwarding ruleset. |
-| `VirtualNetworkLinks_List` | `SELECT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId` | Lists virtual network links to a DNS forwarding ruleset. |
-| `VirtualNetworkLinks_CreateOrUpdate` | `INSERT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName, data__properties` | Creates or updates a virtual network link to a DNS forwarding ruleset. |
-| `VirtualNetworkLinks_Delete` | `DELETE` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Deletes a virtual network link to a DNS forwarding ruleset. WARNING: This operation cannot be undone. |
-| `VirtualNetworkLinks_Update` | `EXEC` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Updates a virtual network link to a DNS forwarding ruleset. |
+| `get` | `SELECT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Gets properties of a virtual network link to a DNS forwarding ruleset. |
+| `list` | `SELECT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId` | Lists virtual network links to a DNS forwarding ruleset. |
+| `create_or_update` | `INSERT` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName, data__properties` | Creates or updates a virtual network link to a DNS forwarding ruleset. |
+| `delete` | `DELETE` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Deletes a virtual network link to a DNS forwarding ruleset. WARNING: This operation cannot be undone. |
+| `_list` | `EXEC` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId` | Lists virtual network links to a DNS forwarding ruleset. |
+| `update` | `EXEC` | `dnsForwardingRulesetName, resourceGroupName, subscriptionId, virtualNetworkLinkName` | Updates a virtual network link to a DNS forwarding ruleset. |

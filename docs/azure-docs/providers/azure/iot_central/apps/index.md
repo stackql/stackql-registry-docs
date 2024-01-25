@@ -35,12 +35,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Apps_Get` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Get the metadata of an IoT Central application. |
-| `Apps_ListByResourceGroup` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Get all the IoT Central Applications in a resource group. |
-| `Apps_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | Get all IoT Central Applications in a subscription. |
-| `Apps_CreateOrUpdate` | `INSERT` | `api-version, resourceGroupName, resourceName, subscriptionId, data__sku` | Create or update the metadata of an IoT Central application. The usual pattern to modify a property is to retrieve the IoT Central application metadata and security metadata, and then combine them with the modified values in a new body to update the IoT Central application. |
-| `Apps_Delete` | `DELETE` | `api-version, resourceGroupName, resourceName, subscriptionId` | Delete an IoT Central application. |
-| `Apps_CheckNameAvailability` | `EXEC` | `api-version, subscriptionId, data__name` | Check if an IoT Central application name is available. |
-| `Apps_CheckSubdomainAvailability` | `EXEC` | `api-version, subscriptionId, data__name` | Check if an IoT Central application subdomain is available. |
-| `Apps_ListTemplates` | `EXEC` | `api-version, subscriptionId` | Get all available application templates. |
-| `Apps_Update` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Update the metadata of an IoT Central application. |
+| `get` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Get the metadata of an IoT Central application. |
+| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Get all the IoT Central Applications in a resource group. |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | Get all IoT Central Applications in a subscription. |
+| `create_or_update` | `INSERT` | `api-version, resourceGroupName, resourceName, subscriptionId, data__sku` | Create or update the metadata of an IoT Central application. The usual pattern to modify a property is to retrieve the IoT Central application metadata and security metadata, and then combine them with the modified values in a new body to update the IoT Central application. |
+| `delete` | `DELETE` | `api-version, resourceGroupName, resourceName, subscriptionId` | Delete an IoT Central application. |
+| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | Get all the IoT Central Applications in a resource group. |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | Get all IoT Central Applications in a subscription. |
+| `check_name_availability` | `EXEC` | `api-version, subscriptionId, data__name` | Check if an IoT Central application name is available. |
+| `check_subdomain_availability` | `EXEC` | `api-version, subscriptionId, data__name` | Check if an IoT Central application subdomain is available. |
+| `update` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Update the metadata of an IoT Central application. |

@@ -29,6 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ManageInventoryMetadata` | `EXEC` | `familyIdentifier, location, serialNumber, subscriptionId, data__inventoryMetadata` |
-| `ManageLink` | `EXEC` | `familyIdentifier, location, serialNumber, subscriptionId, data__managementResourceArmId, data__operation, data__tenantId` |
-| `SearchInventories` | `EXEC` | `subscriptionId, data__familyIdentifier, data__serialNumber` |
+| `partner_inventory` | `EXEC` | `subscriptionId, data__familyIdentifier, data__serialNumber` |

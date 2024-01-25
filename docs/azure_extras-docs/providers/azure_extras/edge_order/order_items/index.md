@@ -27,18 +27,20 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
+| `identity` | `object` | Msi identity details of the resource |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Represents order item properties. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `OrderItems_Get` | `SELECT` | `orderItemName, resourceGroupName, subscriptionId` | Get an order item. |
-| `OrderItems_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List order items at resource group level. |
-| `OrderItems_ListBySubscription` | `SELECT` | `subscriptionId` | List order items at subscription level. |
-| `OrderItems_Create` | `INSERT` | `orderItemName, resourceGroupName, subscriptionId, data__properties` | Create an order item. Existing order item cannot be updated with this api and should instead be updated with the Update order item<br />API. |
-| `OrderItems_Delete` | `DELETE` | `orderItemName, resourceGroupName, subscriptionId` | Delete an order item. |
-| `OrderItems_Cancel` | `EXEC` | `orderItemName, resourceGroupName, subscriptionId, data__reason` | Cancel order item. |
-| `OrderItems_Return` | `EXEC` | `orderItemName, resourceGroupName, subscriptionId, data__returnReason` | Return order item. |
-| `OrderItems_Update` | `EXEC` | `orderItemName, resourceGroupName, subscriptionId` | Update the properties of an existing order item. |
+| `get` | `SELECT` | `orderItemName, resourceGroupName, subscriptionId` | Get an order item. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List order items at resource group level. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | List order items at subscription level. |
+| `create` | `INSERT` | `orderItemName, resourceGroupName, subscriptionId, data__properties` | Create an order item. Existing order item cannot be updated with this api and should instead be updated with the Update order item<br />API. |
+| `delete` | `DELETE` | `orderItemName, resourceGroupName, subscriptionId` | Delete an order item. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List order items at resource group level. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | List order items at subscription level. |
+| `cancel` | `EXEC` | `orderItemName, resourceGroupName, subscriptionId, data__reason` | Cancel order item. |
+| `return` | `EXEC` | `orderItemName, resourceGroupName, subscriptionId, data__returnReason` | Return order item. |
+| `update` | `EXEC` | `orderItemName, resourceGroupName, subscriptionId` | Update the properties of an existing order item. |

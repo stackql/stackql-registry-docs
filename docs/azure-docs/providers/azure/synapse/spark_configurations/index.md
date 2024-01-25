@@ -28,4 +28,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `SparkConfigurations_ListByWorkspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` |
+| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` |
+| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` |

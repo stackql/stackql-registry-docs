@@ -32,6 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedServerSecurityAlertPolicies_Get` | `SELECT` | `managedInstanceName, resourceGroupName, securityAlertPolicyName, subscriptionId` | Get a managed server's threat detection policy. |
-| `ManagedServerSecurityAlertPolicies_ListByInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Get the managed server's threat detection policies. |
-| `ManagedServerSecurityAlertPolicies_CreateOrUpdate` | `INSERT` | `managedInstanceName, resourceGroupName, securityAlertPolicyName, subscriptionId` | Creates or updates a threat detection policy. |
+| `get` | `SELECT` | `managedInstanceName, resourceGroupName, securityAlertPolicyName, subscriptionId` | Get a managed server's threat detection policy. |
+| `list_by_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Get the managed server's threat detection policies. |
+| `create_or_update` | `INSERT` | `managedInstanceName, resourceGroupName, securityAlertPolicyName, subscriptionId` | Creates or updates a threat detection policy. |
+| `_list_by_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Get the managed server's threat detection policies. |

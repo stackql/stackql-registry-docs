@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CustomRollouts_Get` | `SELECT` | `providerNamespace, rolloutName, subscriptionId` | Gets the custom rollout details. |
-| `CustomRollouts_ListByProviderRegistration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the list of the custom rollouts for the given provider. |
-| `CustomRollouts_CreateOrUpdate` | `INSERT` | `providerNamespace, rolloutName, subscriptionId, data__properties` | Creates or updates the rollout details. |
+| `get` | `SELECT` | `providerNamespace, rolloutName, subscriptionId` | Gets the custom rollout details. |
+| `list_by_provider_registration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the list of the custom rollouts for the given provider. |
+| `create_or_update` | `INSERT` | `providerNamespace, rolloutName, subscriptionId, data__properties` | Creates or updates the rollout details. |
+| `_list_by_provider_registration` | `EXEC` | `providerNamespace, subscriptionId` | Gets the list of the custom rollouts for the given provider. |

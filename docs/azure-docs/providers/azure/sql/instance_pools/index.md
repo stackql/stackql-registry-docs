@@ -34,9 +34,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `InstancePools_Get` | `SELECT` | `instancePoolName, resourceGroupName, subscriptionId` | Gets an instance pool. |
-| `InstancePools_List` | `SELECT` | `subscriptionId` | Gets a list of all instance pools in the subscription. |
-| `InstancePools_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of instance pools in the resource group |
-| `InstancePools_CreateOrUpdate` | `INSERT` | `instancePoolName, resourceGroupName, subscriptionId, data__location` | Creates or updates an instance pool. |
-| `InstancePools_Delete` | `DELETE` | `instancePoolName, resourceGroupName, subscriptionId` | Deletes an instance pool |
-| `InstancePools_Update` | `EXEC` | `instancePoolName, resourceGroupName, subscriptionId` | Updates an instance pool. |
+| `get` | `SELECT` | `instancePoolName, resourceGroupName, subscriptionId` | Gets an instance pool. |
+| `list` | `SELECT` | `subscriptionId` | Gets a list of all instance pools in the subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of instance pools in the resource group |
+| `create_or_update` | `INSERT` | `instancePoolName, resourceGroupName, subscriptionId, data__location` | Creates or updates an instance pool. |
+| `delete` | `DELETE` | `instancePoolName, resourceGroupName, subscriptionId` | Deletes an instance pool |
+| `_list` | `EXEC` | `subscriptionId` | Gets a list of all instance pools in the subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets a list of instance pools in the resource group |
+| `update` | `EXEC` | `instancePoolName, resourceGroupName, subscriptionId` | Updates an instance pool. |

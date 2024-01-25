@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Description of Rule Resource. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Rules_Get` | `SELECT` | `namespaceName, resourceGroupName, ruleName, subscriptionId, subscriptionName, topicName` | Retrieves the description for the specified rule. |
-| `Rules_ListBySubscriptions` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId, subscriptionName, topicName` | List all the rules within given topic-subscription |
-| `Rules_CreateOrUpdate` | `INSERT` | `namespaceName, resourceGroupName, ruleName, subscriptionId, subscriptionName, topicName` | Creates a new rule and updates an existing rule |
-| `Rules_Delete` | `DELETE` | `namespaceName, resourceGroupName, ruleName, subscriptionId, subscriptionName, topicName` | Deletes an existing rule. |
+| `get` | `SELECT` | `namespaceName, resourceGroupName, ruleName, subscriptionId, subscriptionName, topicName` | Retrieves the description for the specified rule. |
+| `list_by_subscriptions` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId, subscriptionName, topicName` | List all the rules within given topic-subscription |
+| `create_or_update` | `INSERT` | `namespaceName, resourceGroupName, ruleName, subscriptionId, subscriptionName, topicName` | Creates a new rule and updates an existing rule |
+| `delete` | `DELETE` | `namespaceName, resourceGroupName, ruleName, subscriptionId, subscriptionName, topicName` | Deletes an existing rule. |
+| `_list_by_subscriptions` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId, subscriptionName, topicName` | List all the rules within given topic-subscription |

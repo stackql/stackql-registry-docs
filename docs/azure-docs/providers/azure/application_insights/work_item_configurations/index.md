@@ -27,17 +27,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `Id` | `string` | Unique Id for work item |
-| `IsDefault` | `boolean` | Boolean value indicating whether configuration is default |
 | `ConfigDisplayName` | `string` | Configuration friendly name |
 | `ConfigProperties` | `string` | Serialized JSON object for detailed properties |
 | `ConnectorId` | `string` | Connector identifier where work item is created |
+| `Id` | `string` | Unique Id for work item |
+| `IsDefault` | `boolean` | Boolean value indicating whether configuration is default |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkItemConfigurations_List` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the list work item configurations that exist for the application |
-| `WorkItemConfigurations_Create` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create a work item configuration for an Application Insights component. |
-| `WorkItemConfigurations_Delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId, workItemConfigId` | Delete a work item configuration of an Application Insights component. |
-| `WorkItemConfigurations_GetDefault` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Gets default work item configurations that exist for the application |
-| `WorkItemConfigurations_GetItem` | `EXEC` | `resourceGroupName, resourceName, subscriptionId, workItemConfigId` | Gets specified work item configuration for an Application Insights component. |
-| `WorkItemConfigurations_UpdateItem` | `EXEC` | `resourceGroupName, resourceName, subscriptionId, workItemConfigId` | Update a work item configuration for an Application Insights component. |
+| `list` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the list work item configurations that exist for the application |
+| `create` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create a work item configuration for an Application Insights component. |
+| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId, workItemConfigId` | Delete a work item configuration of an Application Insights component. |
+| `_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Gets the list work item configurations that exist for the application |

@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ContainerAppsSourceControls_Get` | `SELECT` | `containerAppName, resourceGroupName, sourceControlName, subscriptionId` |  |
-| `ContainerAppsSourceControls_ListByContainerApp` | `SELECT` | `containerAppName, resourceGroupName, subscriptionId` |  |
-| `ContainerAppsSourceControls_CreateOrUpdate` | `INSERT` | `containerAppName, resourceGroupName, sourceControlName, subscriptionId` | Create or update the SourceControl for a Container App. |
-| `ContainerAppsSourceControls_Delete` | `DELETE` | `containerAppName, resourceGroupName, sourceControlName, subscriptionId` | Delete a Container App SourceControl. |
+| `get` | `SELECT` | `containerAppName, resourceGroupName, sourceControlName, subscriptionId` |  |
+| `list_by_container_app` | `SELECT` | `containerAppName, resourceGroupName, subscriptionId` |  |
+| `create_or_update` | `INSERT` | `containerAppName, resourceGroupName, sourceControlName, subscriptionId` | Create or update the SourceControl for a Container App. |
+| `delete` | `DELETE` | `containerAppName, resourceGroupName, sourceControlName, subscriptionId` | Delete a Container App SourceControl. |
+| `_list_by_container_app` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` |  |

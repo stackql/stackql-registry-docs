@@ -35,9 +35,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Labs_List` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name. |
-| `Labs_ListAll` | `SELECT` | `billingAccountName, billingProfileName` | Get a list of labs associated with the provided billing account name and billing profile name. |
-| `Labs_CreateOrUpdate` | `INSERT` | `billingAccountName, billingProfileName, invoiceSectionName` | Create a new lab or update a previously created lab. |
-| `Labs_Delete` | `DELETE` | `billingAccountName, billingProfileName, invoiceSectionName` | Delete a specific lab associated with the provided billing account name, billing profile name, and invoice section name. Note all students must be removed from the lab in order to delete the lab. |
-| `Labs_GenerateInviteCode` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName` | Generate invite code for a lab |
-| `Labs_Get` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName` | Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name. |
+| `list` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name. |
+| `create_or_update` | `INSERT` | `billingAccountName, billingProfileName, invoiceSectionName` | Create a new lab or update a previously created lab. |
+| `delete` | `DELETE` | `billingAccountName, billingProfileName, invoiceSectionName` | Delete a specific lab associated with the provided billing account name, billing profile name, and invoice section name. Note all students must be removed from the lab in order to delete the lab. |
+| `_list` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName` | Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name. |
+| `exec_get` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName` | Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name. |
+| `generate_invite_code` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName` | Generate invite code for a lab |

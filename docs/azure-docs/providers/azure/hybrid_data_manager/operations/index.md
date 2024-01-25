@@ -28,10 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Gets or Sets Name of the operations |
+| `display` | `object` | Contains the localized display information for this particular operation / action. <br />These value will be used by several clients for <br />(1) custom role definitions for RBAC; <br />(2) complex query filters for the event service; and (3) audit history / records for management operations. |
 | `origin` | `string` | Gets or sets Origin<br />The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX.<br />Default value is “user,system” |
 | `properties` | `object` | Class represents Properties in AvailableProviderOperations |
-| `display` | `object` | Contains the localized display information for this particular operation / action. <br />These value will be used by several clients for <br />(1) custom role definitions for RBAC; <br />(2) complex query filters for the event service; and (3) audit history / records for management operations. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Operations_List` | `SELECT` |  |
+| `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-REST APIs for orchestrating deployments using the Azure Deployment Manager (ADM). See https://docs.microsoft.com/en-us/azure-resource-manager/deployment-manager-overview for more information.  
+Deployment Manager Enables You To Use Safe Deployment Practices When Deploying Your Service Across Many Regions.  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ REST APIs for orchestrating deployments using the Azure Deployment Manager (ADM)
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>7</b></span><br />
 <span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>27</b></span><br />
+<span>total methods:&nbsp;<b>28</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ REST APIs for orchestrating deployments using the Azure Deployment Manager (ADM)
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.deployment_manager</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Deployment Manager (Microsoft.DeploymentManager)</td></tr>
-<tr><td><b>Description</b></td><td>REST APIs for orchestrating deployments using the Azure Deployment Manager (ADM). See https://docs.microsoft.com/en-us/azure-resource-manager/deployment-manager-overview for more information.</td></tr>
-<tr><td><b>Id</b></td><td><code>deployment_manager:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Deployment Manager</td></tr>
+<tr><td><b>Description</b></td><td>Deployment Manager Enables You To Use Safe Deployment Practices When Deploying Your Service Across Many Regions.</td></tr>
+<tr><td><b>Id</b></td><td><code>deployment_manager:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

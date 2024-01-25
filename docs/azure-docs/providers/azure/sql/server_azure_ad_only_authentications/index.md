@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerAzureADOnlyAuthentications_Get` | `SELECT` | `authenticationName, resourceGroupName, serverName, subscriptionId` | Gets a specific Azure Active Directory only authentication property. |
-| `ServerAzureADOnlyAuthentications_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server Azure Active Directory only authentications. |
-| `ServerAzureADOnlyAuthentications_CreateOrUpdate` | `INSERT` | `authenticationName, resourceGroupName, serverName, subscriptionId` | Sets Server Active Directory only authentication property or updates an existing server Active Directory only authentication property. |
-| `ServerAzureADOnlyAuthentications_Delete` | `DELETE` | `authenticationName, resourceGroupName, serverName, subscriptionId` | Deletes an existing server Active Directory only authentication property. |
+| `get` | `SELECT` | `authenticationName, resourceGroupName, serverName, subscriptionId` | Gets a specific Azure Active Directory only authentication property. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server Azure Active Directory only authentications. |
+| `create_or_update` | `INSERT` | `authenticationName, resourceGroupName, serverName, subscriptionId` | Sets Server Active Directory only authentication property or updates an existing server Active Directory only authentication property. |
+| `delete` | `DELETE` | `authenticationName, resourceGroupName, serverName, subscriptionId` | Deletes an existing server Active Directory only authentication property. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server Azure Active Directory only authentications. |

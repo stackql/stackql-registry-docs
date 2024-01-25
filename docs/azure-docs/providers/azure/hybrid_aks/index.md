@@ -19,9 +19,9 @@ Hybrid Container Services
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>30</b></span><br />
+<span>total resources:&nbsp;<b>18</b></span><br />
+<span>total selectable resources:&nbsp;<b>12</b></span><br />
+<span>total methods:&nbsp;<b>38</b></span><br />
 </div>
 </div>
 
@@ -31,22 +31,33 @@ Hybrid Container Services
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.hybrid_aks</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Hybrid Container Services (Microsoft.HybridContainerService)</td></tr>
+<tr><td><b>Title</b></td><td>Hybrid Azure Kubernetes Service (AKS)</td></tr>
 <tr><td><b>Description</b></td><td>Hybrid Container Services</td></tr>
-<tr><td><b>Id</b></td><td><code>hybrid_aks:v23.03.00121</code></td></tr>
+<tr><td><b>Id</b></td><td><code>hybrid_aks:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/hybrid_aks/agent_pool/">agent_pool</a><br />
-<a href="/providers/azure/hybrid_aks/hybrid_container_service/">hybrid_container_service</a><br />
+<a href="/providers/azure/hybrid_aks/delete_kubernetes_versions/">delete_kubernetes_versions</a><br />
+<a href="/providers/azure/hybrid_aks/delete_vm_skus/">delete_vm_skus</a><br />
+<a href="/providers/azure/hybrid_aks/get_kubernetes_versions/">get_kubernetes_versions</a><br />
+<a href="/providers/azure/hybrid_aks/get_vm_skus/">get_vm_skus</a><br />
 <a href="/providers/azure/hybrid_aks/hybrid_identity_metadata/">hybrid_identity_metadata</a><br />
+<a href="/providers/azure/hybrid_aks/hybrid_identity_metadata_list/">hybrid_identity_metadata_list</a><br />
+<a href="/providers/azure/hybrid_aks/kubernetes_versions/">kubernetes_versions</a><br />
 <a href="/providers/azure/hybrid_aks/operations/">operations</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/azure/hybrid_aks/provisioned_clusters/">provisioned_clusters</a><br />
-<a href="/providers/azure/hybrid_aks/storage_spaces/">storage_spaces</a><br />
+<a href="/providers/azure/hybrid_aks/provisioned_cluster_instances/">provisioned_cluster_instances</a><br />
+<a href="/providers/azure/hybrid_aks/provisioned_cluster_instances_admin_kubeconfig/">provisioned_cluster_instances_admin_kubeconfig</a><br />
+<a href="/providers/azure/hybrid_aks/provisioned_cluster_instances_list/">provisioned_cluster_instances_list</a><br />
+<a href="/providers/azure/hybrid_aks/provisioned_cluster_instances_upgrade_profile/">provisioned_cluster_instances_upgrade_profile</a><br />
+<a href="/providers/azure/hybrid_aks/provisioned_cluster_instances_user_kubeconfig/">provisioned_cluster_instances_user_kubeconfig</a><br />
+<a href="/providers/azure/hybrid_aks/put_kubernetes_versions/">put_kubernetes_versions</a><br />
+<a href="/providers/azure/hybrid_aks/put_vm_skus/">put_vm_skus</a><br />
 <a href="/providers/azure/hybrid_aks/virtual_networks/">virtual_networks</a><br />
+<a href="/providers/azure/hybrid_aks/vm_skus/">vm_skus</a><br />
 </div>
 </div>

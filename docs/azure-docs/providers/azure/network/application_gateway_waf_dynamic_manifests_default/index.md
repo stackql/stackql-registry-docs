@@ -29,9 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `properties` | `object` | Properties of ApplicationGatewayWafDynamicManifest. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ApplicationGatewayWafDynamicManifestsDefault_Get` | `SELECT` | `location, subscriptionId` |
+| `get` | `SELECT` | `location, subscriptionId` |

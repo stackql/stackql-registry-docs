@@ -27,23 +27,23 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `WorkItemIntegration` | `boolean` | Whether allow to use work item integration feature. |
-| `TrackingType` | `string` | The application insights component used tracking type. |
-| `DailyCapResetTime` | `number` | Daily data volume cap UTC reset hour. |
 | `AnalyticsIntegration` | `boolean` | Reserved, not used now. |
-| `MetadataClass` | `string` | Reserved, not used now. |
-| `ApplicationMap` | `boolean` | Reserved, not used now. |
-| `DailyCap` | `number` | Daily data volume cap in GB. |
-| `ThrottleRate` | `number` | Reserved, not used now. |
-| `ProactiveDetection` | `boolean` | Reserved, not used now. |
-| `LiveStreamMetrics` | `boolean` | Reserved, not used now. |
-| `BurstThrottlePolicy` | `string` | Reserved, not used now. |
-| `PowerBIIntegration` | `boolean` | Reserved, not used now. |
 | `ApiAccessLevel` | `string` | Reserved, not used now. |
-| `OpenSchema` | `boolean` | Reserved, not used now. |
+| `ApplicationMap` | `boolean` | Reserved, not used now. |
+| `BurstThrottlePolicy` | `string` | Reserved, not used now. |
+| `DailyCap` | `number` | Daily data volume cap in GB. |
+| `DailyCapResetTime` | `number` | Daily data volume cap UTC reset hour. |
+| `LiveStreamMetrics` | `boolean` | Reserved, not used now. |
+| `MetadataClass` | `string` | Reserved, not used now. |
 | `MultipleStepWebTest` | `boolean` | Whether allow to use multiple steps web test feature. |
+| `OpenSchema` | `boolean` | Reserved, not used now. |
+| `PowerBIIntegration` | `boolean` | Reserved, not used now. |
+| `ProactiveDetection` | `boolean` | Reserved, not used now. |
 | `SupportExportData` | `boolean` | Whether allow to use continuous export feature. |
+| `ThrottleRate` | `number` | Reserved, not used now. |
+| `TrackingType` | `string` | The application insights component used tracking type. |
+| `WorkItemIntegration` | `boolean` | Whether allow to use work item integration feature. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ComponentFeatureCapabilities_Get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` |
+| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` |

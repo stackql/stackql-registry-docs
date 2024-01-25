@@ -33,8 +33,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Certificates_Get` | `SELECT` | `certificateName, environmentName, resourceGroupName, subscriptionId` |  |
-| `Certificates_List` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` |  |
-| `Certificates_CreateOrUpdate` | `INSERT` | `certificateName, environmentName, resourceGroupName, subscriptionId` |  |
-| `Certificates_Delete` | `DELETE` | `certificateName, environmentName, resourceGroupName, subscriptionId` |  |
-| `Certificates_Update` | `EXEC` | `certificateName, environmentName, resourceGroupName, subscriptionId` | Patches a certificate. Currently only patching of tags is supported |
+| `get` | `SELECT` | `certificateName, environmentName, resourceGroupName, subscriptionId` |  |
+| `list` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` |  |
+| `create_or_update` | `INSERT` | `certificateName, environmentName, resourceGroupName, subscriptionId` |  |
+| `delete` | `DELETE` | `certificateName, environmentName, resourceGroupName, subscriptionId` |  |
+| `_list` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` |  |
+| `update` | `EXEC` | `certificateName, environmentName, resourceGroupName, subscriptionId` | Patches a certificate. Currently only patching of tags is supported |

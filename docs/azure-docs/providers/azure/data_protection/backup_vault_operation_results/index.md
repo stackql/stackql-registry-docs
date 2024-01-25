@@ -27,16 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id represents the complete path to the resource. |
-| `name` | `string` | Resource name associated with the resource. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
-| `location` | `string` | Resource location. |
 | `identity` | `object` | Identity details |
-| `eTag` | `string` | Optional ETag. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Backup Vault |
-| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `BackupVaultOperationResults_Get` | `SELECT` | `api-version, operationId, resourceGroupName, subscriptionId, vaultName` |
+| `get` | `SELECT` | `operationId, resourceGroupName, subscriptionId, vaultName` |

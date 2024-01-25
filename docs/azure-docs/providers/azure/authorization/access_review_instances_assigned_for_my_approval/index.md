@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AccessReviewInstancesAssignedForMyApproval_List` | `SELECT` | `scheduleDefinitionId` | Get access review instances assigned for my approval. |
-| `AccessReviewInstancesAssignedForMyApproval_GetById` | `EXEC` | `id, scheduleDefinitionId` | Get single access review instance assigned for my approval. |
+| `list` | `SELECT` | `scheduleDefinitionId` | Get access review instances assigned for my approval. |
+| `_list` | `EXEC` | `scheduleDefinitionId` | Get access review instances assigned for my approval. |
+| `get_by_id` | `EXEC` | `id, scheduleDefinitionId` | Get single access review instance assigned for my approval. |

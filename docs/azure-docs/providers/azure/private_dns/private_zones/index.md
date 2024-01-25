@@ -34,9 +34,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateZones_Get` | `SELECT` | `privateZoneName, resourceGroupName, subscriptionId` | Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone. |
-| `PrivateZones_List` | `SELECT` | `subscriptionId` | Lists the Private DNS zones in all resource groups in a subscription. |
-| `PrivateZones_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the Private DNS zones within a resource group. |
-| `PrivateZones_CreateOrUpdate` | `INSERT` | `privateZoneName, resourceGroupName, subscriptionId` | Creates or updates a Private DNS zone. Does not modify Links to virtual networks or DNS records within the zone. |
-| `PrivateZones_Delete` | `DELETE` | `privateZoneName, resourceGroupName, subscriptionId` | Deletes a Private DNS zone. WARNING: All DNS records in the zone will also be deleted. This operation cannot be undone. Private DNS zone cannot be deleted unless all virtual network links to it are removed. |
-| `PrivateZones_Update` | `EXEC` | `privateZoneName, resourceGroupName, subscriptionId` | Updates a Private DNS zone. Does not modify virtual network links or DNS records within the zone. |
+| `get` | `SELECT` | `privateZoneName, resourceGroupName, subscriptionId` | Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone. |
+| `list` | `SELECT` | `subscriptionId` | Lists the Private DNS zones in all resource groups in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the Private DNS zones within a resource group. |
+| `create_or_update` | `INSERT` | `privateZoneName, resourceGroupName, subscriptionId` | Creates or updates a Private DNS zone. Does not modify Links to virtual networks or DNS records within the zone. |
+| `delete` | `DELETE` | `privateZoneName, resourceGroupName, subscriptionId` | Deletes a Private DNS zone. WARNING: All DNS records in the zone will also be deleted. This operation cannot be undone. Private DNS zone cannot be deleted unless all virtual network links to it are removed. |
+| `_list` | `EXEC` | `subscriptionId` | Lists the Private DNS zones in all resource groups in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists the Private DNS zones within a resource group. |
+| `update` | `EXEC` | `privateZoneName, resourceGroupName, subscriptionId` | Updates a Private DNS zone. Does not modify virtual network links or DNS records within the zone. |

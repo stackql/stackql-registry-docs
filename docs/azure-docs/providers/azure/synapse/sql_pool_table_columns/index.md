@@ -28,4 +28,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `SqlPoolTableColumns_ListByTableName` | `SELECT` | `resourceGroupName, schemaName, sqlPoolName, subscriptionId, tableName, workspaceName` |
+| `list_by_table_name` | `SELECT` | `resourceGroupName, schemaName, sqlPoolName, subscriptionId, tableName, workspaceName` |
+| `_list_by_table_name` | `EXEC` | `resourceGroupName, schemaName, sqlPoolName, subscriptionId, tableName, workspaceName` |

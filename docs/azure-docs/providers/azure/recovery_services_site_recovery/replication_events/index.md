@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationEvents_Get` | `SELECT` | `api-version, eventName, resourceGroupName, resourceName, subscriptionId` | The operation to get the details of an Azure Site recovery event. |
-| `ReplicationEvents_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of Azure Site Recovery events for the vault. |
+| `get` | `SELECT` | `api-version, eventName, resourceGroupName, resourceName, subscriptionId` | The operation to get the details of an Azure Site recovery event. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of Azure Site Recovery events for the vault. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the list of Azure Site Recovery events for the vault. |

@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Synapse  
+Use The Azure Synapse Analytics REST APIs To Create And Manage Azure Synapse Resources Through Azure Resource Manager And Azure Synapse Endpoints. All Task Operations Conform To The HTTP/1.1 Protocol Specification And Most Operations Return An X-Ms-Request-Id Header That Can Be Used To Obtain Information About The Request.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>73</b></span><br />
-<span>total selectable resources:&nbsp;<b>69</b></span><br />
-<span>total methods:&nbsp;<b>224</b></span><br />
+<span>total resources:&nbsp;<b>85</b></span><br />
+<span>total selectable resources:&nbsp;<b>82</b></span><br />
+<span>total methods:&nbsp;<b>279</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Synapse
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.synapse</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Synapse (Microsoft.Synapse)</td></tr>
-<tr><td><b>Description</b></td><td>Synapse</td></tr>
-<tr><td><b>Id</b></td><td><code>synapse:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Synapse Analytics</td></tr>
+<tr><td><b>Description</b></td><td>Use The Azure Synapse Analytics REST APIs To Create And Manage Azure Synapse Resources Through Azure Resource Manager And Azure Synapse Endpoints. All Task Operations Conform To The HTTP/1.1 Protocol Specification And Most Operations Return An X-Ms-Request-Id Header That Can Be Used To Obtain Information About The Request.</td></tr>
+<tr><td><b>Id</b></td><td><code>synapse:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -47,12 +47,16 @@ Synapse
 <a href="/providers/azure/synapse/integration_runtime_auth_keys/">integration_runtime_auth_keys</a><br />
 <a href="/providers/azure/synapse/integration_runtime_connection_infos/">integration_runtime_connection_infos</a><br />
 <a href="/providers/azure/synapse/integration_runtime_credentials/">integration_runtime_credentials</a><br />
+<a href="/providers/azure/synapse/integration_runtime_enable_interactivequery/">integration_runtime_enable_interactivequery</a><br />
 <a href="/providers/azure/synapse/integration_runtime_monitoring_data/">integration_runtime_monitoring_data</a><br />
 <a href="/providers/azure/synapse/integration_runtime_node_ip_address/">integration_runtime_node_ip_address</a><br />
 <a href="/providers/azure/synapse/integration_runtime_nodes/">integration_runtime_nodes</a><br />
 <a href="/providers/azure/synapse/integration_runtime_object_metadata/">integration_runtime_object_metadata</a><br />
+<a href="/providers/azure/synapse/integration_runtime_start/">integration_runtime_start</a><br />
 <a href="/providers/azure/synapse/integration_runtime_status/">integration_runtime_status</a><br />
+<a href="/providers/azure/synapse/integration_runtime_stop/">integration_runtime_stop</a><br />
 <a href="/providers/azure/synapse/integration_runtimes/">integration_runtimes</a><br />
+<a href="/providers/azure/synapse/integration_runtimes_outbound_network_dependencies_endpoints/">integration_runtimes_outbound_network_dependencies_endpoints</a><br />
 <a href="/providers/azure/synapse/ip_firewall_rules/">ip_firewall_rules</a><br />
 <a href="/providers/azure/synapse/keys/">keys</a><br />
 <a href="/providers/azure/synapse/kusto_operations/">kusto_operations</a><br />
@@ -62,29 +66,35 @@ Synapse
 <a href="/providers/azure/synapse/kusto_pool_database_principal_assignments/">kusto_pool_database_principal_assignments</a><br />
 <a href="/providers/azure/synapse/kusto_pool_databases/">kusto_pool_databases</a><br />
 <a href="/providers/azure/synapse/kusto_pool_principal_assignments/">kusto_pool_principal_assignments</a><br />
+<a href="/providers/azure/synapse/kusto_pool_private_link_resources/">kusto_pool_private_link_resources</a><br />
 <a href="/providers/azure/synapse/kusto_pools/">kusto_pools</a><br />
+<a href="/providers/azure/synapse/kusto_pools_follower_databases/">kusto_pools_follower_databases</a><br />
+<a href="/providers/azure/synapse/kusto_pools_language_extensions/">kusto_pools_language_extensions</a><br />
+<a href="/providers/azure/synapse/kusto_pools_skus/">kusto_pools_skus</a><br />
+<a href="/providers/azure/synapse/kusto_pools_skus_by_resource/">kusto_pools_skus_by_resource</a><br />
 <a href="/providers/azure/synapse/libraries/">libraries</a><br />
 <a href="/providers/azure/synapse/library/">library</a><br />
 <a href="/providers/azure/synapse/operations/">operations</a><br />
+<a href="/providers/azure/synapse/operations_azure_async_header_result/">operations_azure_async_header_result</a><br />
 <a href="/providers/azure/synapse/private_endpoint_connections/">private_endpoint_connections</a><br />
 <a href="/providers/azure/synapse/private_endpoint_connections_private_link_hub/">private_endpoint_connections_private_link_hub</a><br />
 <a href="/providers/azure/synapse/private_link_hub_private_link_resources/">private_link_hub_private_link_resources</a><br />
 <a href="/providers/azure/synapse/private_link_hubs/">private_link_hubs</a><br />
 <a href="/providers/azure/synapse/private_link_resources/">private_link_resources</a><br />
 <a href="/providers/azure/synapse/restorable_dropped_sql_pools/">restorable_dropped_sql_pools</a><br />
+</div>
+<div class="providerDocColumn">
 <a href="/providers/azure/synapse/spark_configuration/">spark_configuration</a><br />
 <a href="/providers/azure/synapse/spark_configurations/">spark_configurations</a><br />
 <a href="/providers/azure/synapse/sql_pool_blob_auditing_policies/">sql_pool_blob_auditing_policies</a><br />
 <a href="/providers/azure/synapse/sql_pool_columns/">sql_pool_columns</a><br />
-</div>
-<div class="providerDocColumn">
 <a href="/providers/azure/synapse/sql_pool_connection_policies/">sql_pool_connection_policies</a><br />
 <a href="/providers/azure/synapse/sql_pool_data_warehouse_user_activities/">sql_pool_data_warehouse_user_activities</a><br />
 <a href="/providers/azure/synapse/sql_pool_geo_backup_policies/">sql_pool_geo_backup_policies</a><br />
 <a href="/providers/azure/synapse/sql_pool_maintenance_window_options/">sql_pool_maintenance_window_options</a><br />
 <a href="/providers/azure/synapse/sql_pool_maintenance_windows/">sql_pool_maintenance_windows</a><br />
 <a href="/providers/azure/synapse/sql_pool_metadata_sync_configs/">sql_pool_metadata_sync_configs</a><br />
-<a href="/providers/azure/synapse/sql_pool_operation_results/">sql_pool_operation_results</a><br />
+<a href="/providers/azure/synapse/sql_pool_operation_results_location_header_result/">sql_pool_operation_results_location_header_result</a><br />
 <a href="/providers/azure/synapse/sql_pool_operations/">sql_pool_operations</a><br />
 <a href="/providers/azure/synapse/sql_pool_recommended_sensitivity_labels/">sql_pool_recommended_sensitivity_labels</a><br />
 <a href="/providers/azure/synapse/sql_pool_replication_links/">sql_pool_replication_links</a><br />
@@ -92,6 +102,8 @@ Synapse
 <a href="/providers/azure/synapse/sql_pool_schemas/">sql_pool_schemas</a><br />
 <a href="/providers/azure/synapse/sql_pool_security_alert_policies/">sql_pool_security_alert_policies</a><br />
 <a href="/providers/azure/synapse/sql_pool_sensitivity_labels/">sql_pool_sensitivity_labels</a><br />
+<a href="/providers/azure/synapse/sql_pool_sensitivity_labels_current/">sql_pool_sensitivity_labels_current</a><br />
+<a href="/providers/azure/synapse/sql_pool_sensitivity_labels_recommended/">sql_pool_sensitivity_labels_recommended</a><br />
 <a href="/providers/azure/synapse/sql_pool_table_columns/">sql_pool_table_columns</a><br />
 <a href="/providers/azure/synapse/sql_pool_tables/">sql_pool_tables</a><br />
 <a href="/providers/azure/synapse/sql_pool_transparent_data_encryptions/">sql_pool_transparent_data_encryptions</a><br />

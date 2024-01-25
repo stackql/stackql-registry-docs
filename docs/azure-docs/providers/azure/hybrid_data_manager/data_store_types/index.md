@@ -29,10 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Id of the object. |
 | `name` | `string` | Name of the object. |
-| `type` | `string` | Type of the object. |
 | `properties` | `object` | Data Store Type properties. |
+| `type` | `string` | Type of the object. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DataStoreTypes_Get` | `SELECT` | `dataManagerName, dataStoreTypeName, resourceGroupName, subscriptionId` | Gets the data store/repository type given its name. |
-| `DataStoreTypes_ListByDataManager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | Gets all the data store/repository types that the resource supports. |
+| `get` | `SELECT` | `dataManagerName, dataStoreTypeName, resourceGroupName, subscriptionId` | Gets the data store/repository type given its name. |
+| `list_by_data_manager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | Gets all the data store/repository types that the resource supports. |
+| `_list_by_data_manager` | `EXEC` | `dataManagerName, resourceGroupName, subscriptionId` | Gets all the data store/repository types that the resource supports. |

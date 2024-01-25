@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BackupShortTermRetentionPolicies_Get` | `SELECT` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Gets a database's short term retention policy. |
-| `BackupShortTermRetentionPolicies_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's short term retention policy. |
-| `BackupShortTermRetentionPolicies_CreateOrUpdate` | `INSERT` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Updates a database's short term retention policy. |
-| `BackupShortTermRetentionPolicies_Update` | `EXEC` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Updates a database's short term retention policy. |
+| `get` | `SELECT` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Gets a database's short term retention policy. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's short term retention policy. |
+| `create_or_update` | `INSERT` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Updates a database's short term retention policy. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's short term retention policy. |
+| `update` | `EXEC` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Updates a database's short term retention policy. |

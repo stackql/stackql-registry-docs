@@ -34,11 +34,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPools_Get` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get SQL pool properties |
-| `SqlPools_ListByWorkspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | List all SQL pools |
-| `SqlPools_Create` | `INSERT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Create a SQL pool |
-| `SqlPools_Delete` | `DELETE` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Delete a SQL pool |
-| `SqlPools_Pause` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Pause a SQL pool |
-| `SqlPools_Rename` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName, data__id` | Rename a SQL pool. |
-| `SqlPools_Resume` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Resume a SQL pool |
-| `SqlPools_Update` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Apply a partial update to a SQL pool |
+| `get` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get SQL pool properties |
+| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | List all SQL pools |
+| `create` | `INSERT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Create a SQL pool |
+| `delete` | `DELETE` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Delete a SQL pool |
+| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | List all SQL pools |
+| `pause` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Pause a SQL pool |
+| `resume` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Resume a SQL pool |
+| `update` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Apply a partial update to a SQL pool |

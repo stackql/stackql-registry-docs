@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The access review schedule definition id. |
 | `name` | `string` | The access review schedule definition unique id. |
-| `type` | `string` | The resource type. |
 | `properties` | `object` | Access Review. |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ScopeAccessReviewScheduleDefinitions_List` | `SELECT` | `scope` | Get access review schedule definitions |
-| `ScopeAccessReviewScheduleDefinitions_DeleteById` | `DELETE` | `scheduleDefinitionId, scope` | Delete access review schedule definition |
-| `ScopeAccessReviewScheduleDefinitions_CreateOrUpdateById` | `EXEC` | `scheduleDefinitionId, scope` | Create or Update access review schedule definition. |
-| `ScopeAccessReviewScheduleDefinitions_GetById` | `EXEC` | `scheduleDefinitionId, scope` | Get single access review definition |
-| `ScopeAccessReviewScheduleDefinitions_Stop` | `EXEC` | `scheduleDefinitionId, scope` | Stop access review definition |
+| `list` | `SELECT` | `scope` | Get access review schedule definitions |
+| `delete_by_id` | `DELETE` | `scheduleDefinitionId, scope` | Delete access review schedule definition |
+| `_list` | `EXEC` | `scope` | Get access review schedule definitions |
+| `create_or_update_by_id` | `EXEC` | `scheduleDefinitionId, scope` | Create or Update access review schedule definition. |
+| `get_by_id` | `EXEC` | `scheduleDefinitionId, scope` | Get single access review definition |
+| `stop` | `EXEC` | `scheduleDefinitionId, scope` | Stop access review definition |

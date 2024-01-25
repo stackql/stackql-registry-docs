@@ -27,12 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | The restorable dropped database's properties. |
 | `sku` | `object` | An ARM Resource SKU. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RestorableDroppedDatabases_Get` | `SELECT` | `resourceGroupName, restorableDroppedDatabaseId, serverName, subscriptionId` | Gets a restorable dropped database. |
-| `RestorableDroppedDatabases_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of restorable dropped databases. |
+| `get` | `SELECT` | `resourceGroupName, restorableDroppedDatabaseId, serverName, subscriptionId` | Gets a restorable dropped database. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of restorable dropped databases. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of restorable dropped databases. |

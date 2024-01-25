@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Storage Import Export  
+Azure Import/Export Service Is Used To Securely Import Large Amounts Of Data To Azure Blob Storage And Azure Files By Shipping Disk Drives To An Azure Datacenter. This Service Can Also Be Used To Transfer Data From Azure Blob Storage To Disk Drives And Ship To Your On-Premises Sites. Data From One Or More Disk Drives Can Be Imported Either To Azure Blob Storage Or Azure Files.  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Storage Import Export
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>14</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Storage Import Export
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.storage_import_export</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Storage Import Export (Microsoft.ImportExport)</td></tr>
-<tr><td><b>Description</b></td><td>Storage Import Export</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_import_export:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Import/Export Service</td></tr>
+<tr><td><b>Description</b></td><td>Azure Import/Export Service Is Used To Securely Import Large Amounts Of Data To Azure Blob Storage And Azure Files By Shipping Disk Drives To An Azure Datacenter. This Service Can Also Be Used To Transfer Data From Azure Blob Storage To Disk Drives And Ship To Your On-Premises Sites. Data From One Or More Disk Drives Can Be Imported Either To Azure Blob Storage Or Azure Files.</td></tr>
+<tr><td><b>Id</b></td><td><code>storage_import_export:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

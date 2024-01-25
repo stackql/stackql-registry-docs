@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Service Fabric  
+Service Fabric Client APIs Allow Managing Microservices Applications In A Service Fabric Cluster Through Its Management Endpoint. For Example, Mycluster.Westus.Cloudapp.Azure.Com.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>30</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>41</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Service Fabric
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.service_fabric</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Service Fabric (Microsoft.ServiceFabric)</td></tr>
-<tr><td><b>Description</b></td><td>Service Fabric</td></tr>
-<tr><td><b>Id</b></td><td><code>service_fabric:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Service Fabric</td></tr>
+<tr><td><b>Description</b></td><td>Service Fabric Client APIs Allow Managing Microservices Applications In A Service Fabric Cluster Through Its Management Endpoint. For Example, Mycluster.Westus.Cloudapp.Azure.Com.</td></tr>
+<tr><td><b>Id</b></td><td><code>service_fabric:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -46,6 +46,7 @@ Service Fabric
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/service_fabric/clusters/">clusters</a><br />
+<a href="/providers/azure/service_fabric/clusters_upgradable_versions/">clusters_upgradable_versions</a><br />
 <a href="/providers/azure/service_fabric/operations/">operations</a><br />
 <a href="/providers/azure/service_fabric/services/">services</a><br />
 </div>

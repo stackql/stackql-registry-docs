@@ -25,18 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
-| `type` | `string` | The type of the resource. |
-| `properties` | `object` | The properties for a run. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Runs_Get` | `SELECT` | `registryName, resourceGroupName, runId, subscriptionId` | Gets the detailed information for a given run. |
-| `Runs_List` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Gets all the runs for a registry. |
-| `Runs_Cancel` | `EXEC` | `registryName, resourceGroupName, runId, subscriptionId` | Cancel an existing run. |
-| `Runs_GetLogSasUrl` | `EXEC` | `registryName, resourceGroupName, runId, subscriptionId` | Gets a link to download the run logs. |
-| `Runs_Update` | `EXEC` | `registryName, resourceGroupName, runId, subscriptionId` | Patch the run properties. |
+| `get` | `SELECT` | `registryName, resourceGroupName, runId, subscriptionId` | Gets the detailed information for a given run. |
+| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Gets all the runs for a registry. |
+| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` | Gets all the runs for a registry. |
+| `cancel` | `EXEC` | `registryName, resourceGroupName, runId, subscriptionId` | Cancel an existing run. |
+| `update` | `EXEC` | `registryName, resourceGroupName, runId, subscriptionId` | Patch the run properties. |

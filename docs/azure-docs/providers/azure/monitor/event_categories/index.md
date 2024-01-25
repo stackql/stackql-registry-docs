@@ -27,9 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `string` | the invariant value. |
-| `localizedValue` | `string` | the locale specific value. |
+| `localizedValue` | `string` | The display name. |
+| `value` | `string` | The invariant value. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `EventCategories_List` | `SELECT` |  |
+| `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

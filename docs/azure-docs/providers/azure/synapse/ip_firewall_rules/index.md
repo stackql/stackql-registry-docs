@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IpFirewallRules_Get` | `SELECT` | `resourceGroupName, ruleName, subscriptionId, workspaceName` | Get a firewall rule |
-| `IpFirewallRules_ListByWorkspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Returns a list of firewall rules |
-| `IpFirewallRules_CreateOrUpdate` | `INSERT` | `resourceGroupName, ruleName, subscriptionId, workspaceName` | Creates or updates a firewall rule |
-| `IpFirewallRules_Delete` | `DELETE` | `resourceGroupName, ruleName, subscriptionId, workspaceName` | Deletes a firewall rule |
-| `IpFirewallRules_ReplaceAll` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Replaces firewall rules |
+| `get` | `SELECT` | `resourceGroupName, ruleName, subscriptionId, workspaceName` | Get a firewall rule |
+| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Returns a list of firewall rules |
+| `create_or_update` | `INSERT` | `resourceGroupName, ruleName, subscriptionId, workspaceName` | Creates or updates a firewall rule |
+| `delete` | `DELETE` | `resourceGroupName, ruleName, subscriptionId, workspaceName` | Deletes a firewall rule |
+| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Returns a list of firewall rules |
+| `replace_all` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Replaces firewall rules |

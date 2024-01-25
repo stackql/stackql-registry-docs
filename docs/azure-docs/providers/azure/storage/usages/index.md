@@ -34,4 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Usages_ListByLocation` | `SELECT` | `location, subscriptionId` |
+| `list_by_location` | `SELECT` | `location, subscriptionId` |
+| `_list_by_location` | `EXEC` | `location, subscriptionId` |

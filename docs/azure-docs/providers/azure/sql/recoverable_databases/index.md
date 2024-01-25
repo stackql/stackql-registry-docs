@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RecoverableDatabases_Get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a recoverable database, which is a resource representing a database's geo backup |
-| `RecoverableDatabases_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of recoverable databases |
+| `get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a recoverable database. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of recoverable databases. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of recoverable databases. |

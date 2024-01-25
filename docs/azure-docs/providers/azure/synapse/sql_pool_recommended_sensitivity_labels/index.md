@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `SqlPoolRecommendedSensitivityLabels_Update` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` |
+| `update` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` |

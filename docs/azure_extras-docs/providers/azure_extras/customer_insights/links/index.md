@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Links_Get` | `SELECT` | `hubName, linkName, resourceGroupName, subscriptionId` | Gets a link in the hub. |
-| `Links_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the links in the specified hub. |
-| `Links_CreateOrUpdate` | `INSERT` | `hubName, linkName, resourceGroupName, subscriptionId` | Creates a link or updates an existing link in the hub. |
-| `Links_Delete` | `DELETE` | `hubName, linkName, resourceGroupName, subscriptionId` | Deletes a link in the hub. |
+| `get` | `SELECT` | `hubName, linkName, resourceGroupName, subscriptionId` | Gets a link in the hub. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the links in the specified hub. |
+| `create_or_update` | `INSERT` | `hubName, linkName, resourceGroupName, subscriptionId` | Creates a link or updates an existing link in the hub. |
+| `delete` | `DELETE` | `hubName, linkName, resourceGroupName, subscriptionId` | Deletes a link in the hub. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all the links in the specified hub. |

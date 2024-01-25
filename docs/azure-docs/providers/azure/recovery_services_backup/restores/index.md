@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Restores_Trigger` | `EXEC` | `api-version, containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName` |
+| `trigger` | `EXEC` | `api-version, containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName` |

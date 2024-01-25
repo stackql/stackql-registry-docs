@@ -27,11 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | The properties of a database data masking rule. |
 | `kind` | `string` | The kind of Data Masking Rule. Metadata, used for Azure portal. |
 | `location` | `string` | The location of the data masking rule. |
+| `properties` | `object` | The properties of a database data masking rule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DataMaskingRules_ListByDatabase` | `SELECT` | `dataMaskingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database data masking rules. |
-| `DataMaskingRules_CreateOrUpdate` | `INSERT` | `dataMaskingPolicyName, dataMaskingRuleName, databaseName, resourceGroupName, serverName, subscriptionId` | Creates or updates a database data masking rule. |
+| `list_by_database` | `SELECT` | `dataMaskingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database data masking rules. |
+| `create_or_update` | `INSERT` | `dataMaskingPolicyName, dataMaskingRuleName, databaseName, resourceGroupName, serverName, subscriptionId` | Creates or updates a database data masking rule. |
+| `_list_by_database` | `EXEC` | `dataMaskingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database data masking rules. |

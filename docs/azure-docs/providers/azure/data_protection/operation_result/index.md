@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `jobId` | `string` | Name or Arm Id of the job created for this operation. |
 | `objectType` | `string` | This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types. |
-| `jobId` | `string` | Arm Id of the job created for this operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `OperationResult_Get` | `SELECT` | `api-version, location, operationId, subscriptionId` |
+| `get` | `SELECT` | `location, operationId, subscriptionId` |

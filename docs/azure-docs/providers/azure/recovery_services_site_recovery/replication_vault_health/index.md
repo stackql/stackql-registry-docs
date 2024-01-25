@@ -35,5 +35,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationVaultHealth_Get` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the health details of the vault. |
-| `ReplicationVaultHealth_Refresh` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` |  |
+| `get` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets the health details of the vault. |
+| `refresh` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` |  |

@@ -36,4 +36,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Usages_ListByVaults` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` |
+| `list_by_vaults` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` |
+| `_list_by_vaults` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` |

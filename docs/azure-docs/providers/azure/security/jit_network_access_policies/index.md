@@ -36,11 +36,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `JitNetworkAccessPolicies_Get` | `SELECT` | `api-version, ascLocation, jitNetworkAccessPolicyName, resourceGroupName, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
-| `JitNetworkAccessPolicies_List` | `SELECT` | `api-version, subscriptionId` | Policies for protecting resources using Just-in-Time access control. |
-| `JitNetworkAccessPolicies_ListByRegion` | `SELECT` | `api-version, ascLocation, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
-| `JitNetworkAccessPolicies_ListByResourceGroup` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
-| `JitNetworkAccessPolicies_ListByResourceGroupAndRegion` | `SELECT` | `api-version, ascLocation, resourceGroupName, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
-| `JitNetworkAccessPolicies_CreateOrUpdate` | `INSERT` | `api-version, ascLocation, jitNetworkAccessPolicyName, resourceGroupName, subscriptionId, data__properties` | Create a policy for protecting resources using Just-in-Time access control |
-| `JitNetworkAccessPolicies_Delete` | `DELETE` | `api-version, ascLocation, jitNetworkAccessPolicyName, resourceGroupName, subscriptionId` | Delete a Just-in-Time access control policy. |
-| `JitNetworkAccessPolicies_Initiate` | `EXEC` | `api-version, ascLocation, jitNetworkAccessPolicyInitiateType, jitNetworkAccessPolicyName, resourceGroupName, subscriptionId, data__virtualMachines` | Initiate a JIT access from a specific Just-in-Time policy configuration. |
+| `get` | `SELECT` | `api-version, ascLocation, jitNetworkAccessPolicyName, resourceGroupName, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
+| `list` | `SELECT` | `api-version, subscriptionId` | Policies for protecting resources using Just-in-Time access control. |
+| `list_by_region` | `SELECT` | `api-version, ascLocation, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
+| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
+| `list_by_resource_group_and_region` | `SELECT` | `api-version, ascLocation, resourceGroupName, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
+| `create_or_update` | `INSERT` | `api-version, ascLocation, jitNetworkAccessPolicyName, resourceGroupName, subscriptionId, data__properties` | Create a policy for protecting resources using Just-in-Time access control |
+| `delete` | `DELETE` | `api-version, ascLocation, jitNetworkAccessPolicyName, resourceGroupName, subscriptionId` | Delete a Just-in-Time access control policy. |
+| `_list` | `EXEC` | `api-version, subscriptionId` | Policies for protecting resources using Just-in-Time access control. |
+| `_list_by_region` | `EXEC` | `api-version, ascLocation, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
+| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
+| `_list_by_resource_group_and_region` | `EXEC` | `api-version, ascLocation, resourceGroupName, subscriptionId` | Policies for protecting resources using Just-in-Time access control for the subscription, location |
+| `initiate` | `EXEC` | `api-version, ascLocation, jitNetworkAccessPolicyInitiateType, jitNetworkAccessPolicyName, resourceGroupName, subscriptionId, data__virtualMachines` | Initiate a JIT access from a specific Just-in-Time policy configuration. |

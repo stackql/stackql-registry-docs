@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedEnvironmentsStorages_Get` | `SELECT` | `environmentName, resourceGroupName, storageName, subscriptionId` | Get storage for a managedEnvironment. |
-| `ManagedEnvironmentsStorages_List` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Get all storages for a managedEnvironment. |
-| `ManagedEnvironmentsStorages_CreateOrUpdate` | `INSERT` | `environmentName, resourceGroupName, storageName, subscriptionId` | Create or update storage for a managedEnvironment. |
-| `ManagedEnvironmentsStorages_Delete` | `DELETE` | `environmentName, resourceGroupName, storageName, subscriptionId` | Delete storage for a managedEnvironment. |
+| `get` | `SELECT` | `environmentName, resourceGroupName, storageName, subscriptionId` | Get storage for a managedEnvironment. |
+| `list` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Get all storages for a managedEnvironment. |
+| `create_or_update` | `INSERT` | `environmentName, resourceGroupName, storageName, subscriptionId` | Create or update storage for a managedEnvironment. |
+| `delete` | `DELETE` | `environmentName, resourceGroupName, storageName, subscriptionId` | Delete storage for a managedEnvironment. |
+| `_list` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` | Get all storages for a managedEnvironment. |

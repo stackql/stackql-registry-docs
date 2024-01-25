@@ -29,11 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
-| `type` | `string` | Resource Type |
 | `location` | `string` | Resource Location |
 | `properties` | `object` | Recovery point properties. |
+| `type` | `string` | Resource Type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RecoveryPoints_Get` | `SELECT` | `api-version, fabricName, protectionContainerName, recoveryPointName, replicatedProtectedItemName, resourceGroupName, resourceName, subscriptionId` | Get the details of specified recovery point. |
-| `RecoveryPoints_ListByReplicationProtectedItems` | `SELECT` | `api-version, fabricName, protectionContainerName, replicatedProtectedItemName, resourceGroupName, resourceName, subscriptionId` | Lists the available recovery points for a replication protected item. |
+| `get` | `SELECT` | `api-version, fabricName, protectionContainerName, recoveryPointName, replicatedProtectedItemName, resourceGroupName, resourceName, subscriptionId` | Get the details of specified recovery point. |
+| `list_by_replication_protected_items` | `SELECT` | `api-version, fabricName, protectionContainerName, replicatedProtectedItemName, resourceGroupName, resourceName, subscriptionId` | Lists the available recovery points for a replication protected item. |
+| `_list_by_replication_protected_items` | `EXEC` | `api-version, fabricName, protectionContainerName, replicatedProtectedItemName, resourceGroupName, resourceName, subscriptionId` | Lists the available recovery points for a replication protected item. |

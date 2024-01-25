@@ -33,10 +33,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FailoverGroups_Get` | `SELECT` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Gets a failover group. |
-| `FailoverGroups_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists the failover groups in a server. |
-| `FailoverGroups_CreateOrUpdate` | `INSERT` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Creates or updates a failover group. |
-| `FailoverGroups_Delete` | `DELETE` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Deletes a failover group. |
-| `FailoverGroups_Failover` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. |
-| `FailoverGroups_ForceFailoverAllowDataLoss` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. This operation might result in data loss. |
-| `FailoverGroups_Update` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Updates a failover group. |
+| `get` | `SELECT` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Gets a failover group. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists the failover groups in a server. |
+| `create_or_update` | `INSERT` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Creates or updates a failover group. |
+| `delete` | `DELETE` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Deletes a failover group. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Lists the failover groups in a server. |
+| `failover` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. |
+| `force_failover_allow_data_loss` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. This operation might result in data loss. |
+| `try_planned_before_forced_failover` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. This operation tries planned before forced failover but might still result in data loss. |
+| `update` | `EXEC` | `failoverGroupName, resourceGroupName, serverName, subscriptionId` | Updates a failover group. |

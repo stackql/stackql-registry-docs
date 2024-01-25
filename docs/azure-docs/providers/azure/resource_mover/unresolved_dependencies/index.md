@@ -27,11 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | Gets or sets the list of unresolved dependencies. |
-| `nextLink` | `string` | Gets or sets the value of  next link. |
-| `summaryCollection` | `object` | Summary Collection. |
-| `totalCount` | `integer` | Gets the total count. |
+| `id` | `string` | Gets or sets the arm id of the dependency. |
+| `count` | `integer` | Gets or sets the count. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `UnresolvedDependencies_Get` | `SELECT` | `api-version, moveCollectionName, resourceGroupName, subscriptionId` |
+| `get` | `SELECT` | `api-version, moveCollectionName, resourceGroupName, subscriptionId` |
+| `_get` | `EXEC` | `api-version, moveCollectionName, resourceGroupName, subscriptionId` |

@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ProviderRegistrations_Get` | `SELECT` | `providerNamespace, subscriptionId` | Gets the provider registration details. |
-| `ProviderRegistrations_List` | `SELECT` | `subscriptionId` | Gets the list of the provider registrations in the subscription. |
-| `ProviderRegistrations_CreateOrUpdate` | `INSERT` | `providerNamespace, subscriptionId` | Creates or updates the provider registration. |
-| `ProviderRegistrations_Delete` | `DELETE` | `providerNamespace, subscriptionId` | Deletes a provider registration. |
-| `ProviderRegistrations_GenerateOperations` | `EXEC` | `providerNamespace, subscriptionId` | Generates the operations api for the given provider. |
+| `get` | `SELECT` | `providerNamespace, subscriptionId` | Gets the provider registration details. |
+| `list` | `SELECT` | `subscriptionId` | Gets the list of the provider registrations in the subscription. |
+| `create_or_update` | `INSERT` | `providerNamespace, subscriptionId` | Creates or updates the provider registration. |
+| `delete` | `DELETE` | `providerNamespace, subscriptionId` | Deletes a provider registration. |
+| `_list` | `EXEC` | `subscriptionId` | Gets the list of the provider registrations in the subscription. |
+| `generate_operations` | `EXEC` | `providerNamespace, subscriptionId` | Generates the operations api for the given provider. |

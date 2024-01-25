@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Search_PostArm` | `EXEC` | `x-ms-client-tenant-id, data__languages, data__stores` |
+| `post_arm` | `EXEC` | `x-ms-client-tenant-id, data__languages, data__stores` |

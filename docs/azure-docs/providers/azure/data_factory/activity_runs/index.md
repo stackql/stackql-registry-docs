@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ActivityRuns_QueryByPipelineRun` | `EXEC` | `api-version, factoryName, resourceGroupName, runId, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore` |
+| `query_by_pipeline_run` | `EXEC` | `api-version, factoryName, resourceGroupName, runId, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore` |

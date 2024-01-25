@@ -35,8 +35,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Application_Get` | `SELECT` | `accountName, applicationName, resourceGroupName, subscriptionId` | Gets information about the specified application. |
-| `Application_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all of the applications in the specified account. |
-| `Application_Create` | `INSERT` | `accountName, applicationName, resourceGroupName, subscriptionId` | Adds an application to the specified Batch account. |
-| `Application_Delete` | `DELETE` | `accountName, applicationName, resourceGroupName, subscriptionId` | Deletes an application. |
-| `Application_Update` | `EXEC` | `accountName, applicationName, resourceGroupName, subscriptionId` | Updates settings for the specified application. |
+| `get` | `SELECT` | `accountName, applicationName, resourceGroupName, subscriptionId` | Gets information about the specified application. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all of the applications in the specified account. |
+| `create` | `INSERT` | `accountName, applicationName, resourceGroupName, subscriptionId` | Adds an application to the specified Batch account. |
+| `delete` | `DELETE` | `accountName, applicationName, resourceGroupName, subscriptionId` | Deletes an application. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Lists all of the applications in the specified account. |
+| `update` | `EXEC` | `accountName, applicationName, resourceGroupName, subscriptionId` | Updates settings for the specified application. |

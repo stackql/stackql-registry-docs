@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `type` | `string` | Resource type |
 | `properties` | `object` | The properties that are associated with an input. |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Inputs_Get` | `SELECT` | `inputName, jobName, resourceGroupName, subscriptionId` | Gets details about the specified input. |
-| `Inputs_ListByStreamingJob` | `SELECT` | `jobName, resourceGroupName, subscriptionId` | Lists all of the inputs under the specified streaming job. |
-| `Inputs_CreateOrReplace` | `INSERT` | `inputName, jobName, resourceGroupName, subscriptionId` | Creates an input or replaces an already existing input under an existing streaming job. |
-| `Inputs_Delete` | `DELETE` | `inputName, jobName, resourceGroupName, subscriptionId` | Deletes an input from the streaming job. |
-| `Inputs_Test` | `EXEC` | `inputName, jobName, resourceGroupName, subscriptionId` | Tests whether an input’s datasource is reachable and usable by the Azure Stream Analytics service. |
-| `Inputs_Update` | `EXEC` | `inputName, jobName, resourceGroupName, subscriptionId` | Updates an existing input under an existing streaming job. This can be used to partially update (ie. update one or two properties) an input without affecting the rest the job or input definition. |
+| `get` | `SELECT` | `inputName, jobName, resourceGroupName, subscriptionId` | Gets details about the specified input. |
+| `list_by_streaming_job` | `SELECT` | `jobName, resourceGroupName, subscriptionId` | Lists all of the inputs under the specified streaming job. |
+| `create_or_replace` | `INSERT` | `inputName, jobName, resourceGroupName, subscriptionId` | Creates an input or replaces an already existing input under an existing streaming job. |
+| `delete` | `DELETE` | `inputName, jobName, resourceGroupName, subscriptionId` | Deletes an input from the streaming job. |
+| `_list_by_streaming_job` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Lists all of the inputs under the specified streaming job. |
+| `test` | `EXEC` | `inputName, jobName, resourceGroupName, subscriptionId` | Tests whether an input’s datasource is reachable and usable by the Azure Stream Analytics service. |
+| `update` | `EXEC` | `inputName, jobName, resourceGroupName, subscriptionId` | Updates an existing input under an existing streaming job. This can be used to partially update (ie. update one or two properties) an input without affecting the rest the job or input definition. |

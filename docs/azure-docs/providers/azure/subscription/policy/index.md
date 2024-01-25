@@ -27,8 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `SubscriptionPolicy_AddUpdatePolicyForTenant` | `EXEC` |  | Create or Update Subscription tenant policy for user's tenant. |
-| `SubscriptionPolicy_GetPolicyForTenant` | `EXEC` |  | Get the subscription tenant policy for the user's tenant. |
-| `SubscriptionPolicy_ListPolicyForTenant` | `EXEC` |  | Get the subscription tenant policy for the user's tenant. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `add_update_policy_for_tenant` | `EXEC` |  |

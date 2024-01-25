@@ -33,8 +33,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `Grants_List` | `SELECT` | `billingAccountName, billingProfileName` | Get details for a specific grant linked to the provided billing account and billing profile. |
-| `Grants_ListAll` | `SELECT` |  | Get a list of grants that Microsoft has provided. |
-| `Grants_Get` | `EXEC` | `billingAccountName, billingProfileName` | Get details for a specific grant linked to the provided billing account and billing profile. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list` | `SELECT` | `billingAccountName, billingProfileName` |
+| `_list` | `EXEC` | `billingAccountName, billingProfileName` |
+| `exec_get` | `EXEC` | `billingAccountName, billingProfileName` |

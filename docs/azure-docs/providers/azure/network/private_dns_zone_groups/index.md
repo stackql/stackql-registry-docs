@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `properties` | `object` | Properties of the private dns zone group. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `properties` | `object` | Properties of the private dns zone group. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateDnsZoneGroups_Get` | `SELECT` | `privateDnsZoneGroupName, privateEndpointName, resourceGroupName, subscriptionId` | Gets the private dns zone group resource by specified private dns zone group name. |
-| `PrivateDnsZoneGroups_List` | `SELECT` | `privateEndpointName, resourceGroupName, subscriptionId` | Gets all private dns zone groups in a private endpoint. |
-| `PrivateDnsZoneGroups_CreateOrUpdate` | `INSERT` | `privateDnsZoneGroupName, privateEndpointName, resourceGroupName, subscriptionId` | Creates or updates a private dns zone group in the specified private endpoint. |
-| `PrivateDnsZoneGroups_Delete` | `DELETE` | `privateDnsZoneGroupName, privateEndpointName, resourceGroupName, subscriptionId` | Deletes the specified private dns zone group. |
+| `get` | `SELECT` | `privateDnsZoneGroupName, privateEndpointName, resourceGroupName, subscriptionId` | Gets the private dns zone group resource by specified private dns zone group name. |
+| `list` | `SELECT` | `privateEndpointName, resourceGroupName, subscriptionId` | Gets all private dns zone groups in a private endpoint. |
+| `create_or_update` | `INSERT` | `privateDnsZoneGroupName, privateEndpointName, resourceGroupName, subscriptionId` | Creates or updates a private dns zone group in the specified private endpoint. |
+| `delete` | `DELETE` | `privateDnsZoneGroupName, privateEndpointName, resourceGroupName, subscriptionId` | Deletes the specified private dns zone group. |
+| `_list` | `EXEC` | `privateEndpointName, resourceGroupName, subscriptionId` | Gets all private dns zone groups in a private endpoint. |

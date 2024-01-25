@@ -36,8 +36,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationAccountSchemas_Get` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, schemaName, subscriptionId` | Gets an integration account schema. |
-| `IntegrationAccountSchemas_List` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account schemas. |
-| `IntegrationAccountSchemas_CreateOrUpdate` | `INSERT` | `api-version, integrationAccountName, resourceGroupName, schemaName, subscriptionId, data__properties` | Creates or updates an integration account schema. |
-| `IntegrationAccountSchemas_Delete` | `DELETE` | `api-version, integrationAccountName, resourceGroupName, schemaName, subscriptionId` | Deletes an integration account schema. |
-| `IntegrationAccountSchemas_ListContentCallbackUrl` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, schemaName, subscriptionId` | Get the content callback url. |
+| `get` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, schemaName, subscriptionId` | Gets an integration account schema. |
+| `list` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account schemas. |
+| `create_or_update` | `INSERT` | `api-version, integrationAccountName, resourceGroupName, schemaName, subscriptionId, data__properties` | Creates or updates an integration account schema. |
+| `delete` | `DELETE` | `api-version, integrationAccountName, resourceGroupName, schemaName, subscriptionId` | Deletes an integration account schema. |
+| `_list` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account schemas. |

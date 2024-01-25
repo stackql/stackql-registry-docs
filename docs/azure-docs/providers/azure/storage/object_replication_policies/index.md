@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 | `properties` | `object` | The Storage Account ObjectReplicationPolicy properties. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ObjectReplicationPolicies_Get` | `SELECT` | `accountName, objectReplicationPolicyId, resourceGroupName, subscriptionId` | Get the object replication policy of the storage account by policy ID. |
-| `ObjectReplicationPolicies_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | List the object replication policies associated with the storage account. |
-| `ObjectReplicationPolicies_CreateOrUpdate` | `INSERT` | `accountName, objectReplicationPolicyId, resourceGroupName, subscriptionId` | Create or update the object replication policy of the storage account. |
-| `ObjectReplicationPolicies_Delete` | `DELETE` | `accountName, objectReplicationPolicyId, resourceGroupName, subscriptionId` | Deletes the object replication policy associated with the specified storage account. |
+| `get` | `SELECT` | `accountName, objectReplicationPolicyId, resourceGroupName, subscriptionId` | Get the object replication policy of the storage account by policy ID. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | List the object replication policies associated with the storage account. |
+| `create_or_update` | `INSERT` | `accountName, objectReplicationPolicyId, resourceGroupName, subscriptionId` | Create or update the object replication policy of the storage account. |
+| `delete` | `DELETE` | `accountName, objectReplicationPolicyId, resourceGroupName, subscriptionId` | Deletes the object replication policy associated with the specified storage account. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | List the object replication policies associated with the storage account. |

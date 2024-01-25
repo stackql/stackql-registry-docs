@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualNetworkRules_Get` | `SELECT` | `resourceGroupName, serverName, subscriptionId, virtualNetworkRuleName` | Gets a virtual network rule. |
-| `VirtualNetworkRules_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of virtual network rules in a server. |
-| `VirtualNetworkRules_CreateOrUpdate` | `INSERT` | `resourceGroupName, serverName, subscriptionId, virtualNetworkRuleName` | Creates or updates an existing virtual network rule. |
-| `VirtualNetworkRules_Delete` | `DELETE` | `resourceGroupName, serverName, subscriptionId, virtualNetworkRuleName` | Deletes the virtual network rule with the given name. |
+| `get` | `SELECT` | `resourceGroupName, serverName, subscriptionId, virtualNetworkRuleName` | Gets a virtual network rule. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of virtual network rules in a server. |
+| `create_or_update` | `INSERT` | `resourceGroupName, serverName, subscriptionId, virtualNetworkRuleName` | Creates or updates an existing virtual network rule. |
+| `delete` | `DELETE` | `resourceGroupName, serverName, subscriptionId, virtualNetworkRuleName` | Deletes the virtual network rule with the given name. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of virtual network rules in a server. |

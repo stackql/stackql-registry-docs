@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SyncGroups_Get` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId, syncGroupName` | Get a given SyncGroup. |
-| `SyncGroups_ListByStorageSyncService` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a SyncGroup List. |
-| `SyncGroups_Create` | `INSERT` | `resourceGroupName, storageSyncServiceName, subscriptionId, syncGroupName` | Create a new SyncGroup. |
-| `SyncGroups_Delete` | `DELETE` | `resourceGroupName, storageSyncServiceName, subscriptionId, syncGroupName` | Delete a given SyncGroup. |
+| `get` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId, syncGroupName` | Get a given SyncGroup. |
+| `list_by_storage_sync_service` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a SyncGroup List. |
+| `create` | `INSERT` | `resourceGroupName, storageSyncServiceName, subscriptionId, syncGroupName` | Create a new SyncGroup. |
+| `delete` | `DELETE` | `resourceGroupName, storageSyncServiceName, subscriptionId, syncGroupName` | Delete a given SyncGroup. |
+| `_list_by_storage_sync_service` | `EXEC` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a SyncGroup List. |

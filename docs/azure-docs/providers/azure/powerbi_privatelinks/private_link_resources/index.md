@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResources_Get` | `SELECT` | `azureResourceName, privateLinkResourceName, resourceGroupName, subscriptionId` | Get properties of a private link resource. |
-| `PrivateLinkResources_ListByResource` | `SELECT` | `azureResourceName, resourceGroupName, subscriptionId` | List private link resources under a specific Power BI resource. |
+| `get` | `SELECT` | `azureResourceName, privateLinkResourceName, resourceGroupName, subscriptionId` | Get properties of a private link resource. |
+| `list_by_resource` | `SELECT` | `azureResourceName, resourceGroupName, subscriptionId` | List private link resources under a specific Power BI resource. |
+| `_list_by_resource` | `EXEC` | `azureResourceName, resourceGroupName, subscriptionId` | List private link resources under a specific Power BI resource. |

@@ -28,6 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedDatabaseColumns_Get` | `SELECT` | `columnName, databaseName, managedInstanceName, resourceGroupName, schemaName, subscriptionId, tableName` | Get managed database column |
-| `ManagedDatabaseColumns_ListByDatabase` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | List managed database columns |
-| `ManagedDatabaseColumns_ListByTable` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, schemaName, subscriptionId, tableName` | List managed database columns |
+| `get` | `SELECT` | `columnName, databaseName, managedInstanceName, resourceGroupName, schemaName, subscriptionId, tableName` | Get managed database column |
+| `list_by_database` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | List managed database columns |
+| `list_by_table` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, schemaName, subscriptionId, tableName` | List managed database columns |
+| `_list_by_database` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | List managed database columns |
+| `_list_by_table` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, schemaName, subscriptionId, tableName` | List managed database columns |

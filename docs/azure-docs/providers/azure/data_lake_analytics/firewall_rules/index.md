@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FirewallRules_Get` | `SELECT` | `accountName, firewallRuleName, resourceGroupName, subscriptionId` | Gets the specified Data Lake Analytics firewall rule. |
-| `FirewallRules_ListByAccount` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists the Data Lake Analytics firewall rules within the specified Data Lake Analytics account. |
-| `FirewallRules_CreateOrUpdate` | `INSERT` | `accountName, firewallRuleName, resourceGroupName, subscriptionId, data__properties` | Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule. |
-| `FirewallRules_Delete` | `DELETE` | `accountName, firewallRuleName, resourceGroupName, subscriptionId` | Deletes the specified firewall rule from the specified Data Lake Analytics account |
-| `FirewallRules_Update` | `EXEC` | `accountName, firewallRuleName, resourceGroupName, subscriptionId` | Updates the specified firewall rule. |
+| `get` | `SELECT` | `accountName, firewallRuleName, resourceGroupName, subscriptionId` | Gets the specified Data Lake Analytics firewall rule. |
+| `list_by_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists the Data Lake Analytics firewall rules within the specified Data Lake Analytics account. |
+| `create_or_update` | `INSERT` | `accountName, firewallRuleName, resourceGroupName, subscriptionId, data__properties` | Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule. |
+| `delete` | `DELETE` | `accountName, firewallRuleName, resourceGroupName, subscriptionId` | Deletes the specified firewall rule from the specified Data Lake Analytics account |
+| `_list_by_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Lists the Data Lake Analytics firewall rules within the specified Data Lake Analytics account. |
+| `update` | `EXEC` | `accountName, firewallRuleName, resourceGroupName, subscriptionId` | Updates the specified firewall rule. |

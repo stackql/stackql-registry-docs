@@ -27,17 +27,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sku` | `object` | The resource model definition representing SKU |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
 | `etag` | `string` | Resource Etag. |
 | `identity` | `object` | Identity for the resource. |
 | `kind` | `string` | The kind (type) of cognitive service account. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Properties of Cognitive Services account. |
+| `sku` | `object` | The resource model definition representing SKU |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DeletedAccounts_Get` | `SELECT` | `accountName, location, resourceGroupName, subscriptionId` | Returns a Cognitive Services account specified by the parameters. |
-| `DeletedAccounts_List` | `SELECT` | `subscriptionId` | Returns all the resources of a particular type belonging to a subscription. |
-| `DeletedAccounts_Purge` | `EXEC` | `accountName, location, resourceGroupName, subscriptionId` | Deletes a Cognitive Services account from the resource group.  |
+| `get` | `SELECT` | `accountName, location, resourceGroupName, subscriptionId` | Returns a Cognitive Services account specified by the parameters. |
+| `list` | `SELECT` | `subscriptionId` | Returns all the resources of a particular type belonging to a subscription. |
+| `_list` | `EXEC` | `subscriptionId` | Returns all the resources of a particular type belonging to a subscription. |
+| `purge` | `EXEC` | `accountName, location, resourceGroupName, subscriptionId` | Deletes a Cognitive Services account from the resource group.  |

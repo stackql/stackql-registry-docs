@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `type` | `string` | The resource type. |
 | `properties` | `object` | The virtual network rule properties. |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualNetworkRules_Get` | `SELECT` | `accountName, resourceGroupName, subscriptionId, virtualNetworkRuleName` | Gets the specified Data Lake Store virtual network rule. |
-| `VirtualNetworkRules_ListByAccount` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists the Data Lake Store virtual network rules within the specified Data Lake Store account. |
-| `VirtualNetworkRules_CreateOrUpdate` | `INSERT` | `accountName, resourceGroupName, subscriptionId, virtualNetworkRuleName, data__properties` | Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule. |
-| `VirtualNetworkRules_Delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId, virtualNetworkRuleName` | Deletes the specified virtual network rule from the specified Data Lake Store account. |
-| `VirtualNetworkRules_Update` | `EXEC` | `accountName, resourceGroupName, subscriptionId, virtualNetworkRuleName` | Updates the specified virtual network rule. |
+| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId, virtualNetworkRuleName` | Gets the specified Data Lake Store virtual network rule. |
+| `list_by_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists the Data Lake Store virtual network rules within the specified Data Lake Store account. |
+| `create_or_update` | `INSERT` | `accountName, resourceGroupName, subscriptionId, virtualNetworkRuleName, data__properties` | Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule. |
+| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId, virtualNetworkRuleName` | Deletes the specified virtual network rule from the specified Data Lake Store account. |
+| `_list_by_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Lists the Data Lake Store virtual network rules within the specified Data Lake Store account. |
+| `update` | `EXEC` | `accountName, resourceGroupName, subscriptionId, virtualNetworkRuleName` | Updates the specified virtual network rule. |

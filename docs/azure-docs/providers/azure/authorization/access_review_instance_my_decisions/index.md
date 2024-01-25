@@ -34,6 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AccessReviewInstanceMyDecisions_List` | `SELECT` | `id, scheduleDefinitionId` | Get my access review instance decisions. |
-| `AccessReviewInstanceMyDecisions_GetById` | `EXEC` | `decisionId, id, scheduleDefinitionId` | Get my single access review instance decision. |
-| `AccessReviewInstanceMyDecisions_Patch` | `EXEC` | `decisionId, id, scheduleDefinitionId` | Record a decision. |
+| `list` | `SELECT` | `id, scheduleDefinitionId` | Get my access review instance decisions. |
+| `_list` | `EXEC` | `id, scheduleDefinitionId` | Get my access review instance decisions. |
+| `get_by_id` | `EXEC` | `decisionId, id, scheduleDefinitionId` | Get my single access review instance decision. |
+| `patch` | `EXEC` | `decisionId, id, scheduleDefinitionId` | Record a decision. |

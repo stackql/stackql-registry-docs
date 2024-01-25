@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 | `properties` | `object` |  |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `NotificationRegistrations_Get` | `SELECT` | `notificationRegistrationName, providerNamespace, subscriptionId` | Gets the notification registration details. |
-| `NotificationRegistrations_ListByProviderRegistration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the list of the notification registrations for the given provider. |
-| `NotificationRegistrations_CreateOrUpdate` | `INSERT` | `notificationRegistrationName, providerNamespace, subscriptionId` | Creates or updates a notification registration. |
-| `NotificationRegistrations_Delete` | `DELETE` | `notificationRegistrationName, providerNamespace, subscriptionId` | Deletes a notification registration. |
+| `get` | `SELECT` | `notificationRegistrationName, providerNamespace, subscriptionId` | Gets the notification registration details. |
+| `list_by_provider_registration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the list of the notification registrations for the given provider. |
+| `create_or_update` | `INSERT` | `notificationRegistrationName, providerNamespace, subscriptionId` | Creates or updates a notification registration. |
+| `delete` | `DELETE` | `notificationRegistrationName, providerNamespace, subscriptionId` | Deletes a notification registration. |
+| `_list_by_provider_registration` | `EXEC` | `providerNamespace, subscriptionId` | Gets the list of the notification registrations for the given provider. |

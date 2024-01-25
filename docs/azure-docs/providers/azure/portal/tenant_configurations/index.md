@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TenantConfigurations_Get` | `SELECT` | `configurationName` | Gets the tenant configuration. |
-| `TenantConfigurations_List` | `SELECT` |  | Gets list of the tenant configurations. |
-| `TenantConfigurations_Create` | `INSERT` | `configurationName` | Create the tenant configuration. If configuration already exists - update it. User has to be a Tenant Admin for this operation. |
-| `TenantConfigurations_Delete` | `DELETE` | `configurationName` | Delete the tenant configuration. User has to be a Tenant Admin for this operation. |
+| `get` | `SELECT` | `configurationName` | Gets the tenant configuration. |
+| `list` | `SELECT` |  | Gets list of the tenant configurations. |
+| `create` | `INSERT` | `configurationName` | Create the tenant configuration. If configuration already exists - update it. User has to be a Tenant Admin for this operation. |
+| `delete` | `DELETE` | `configurationName` | Delete the tenant configuration. User has to be a Tenant Admin for this operation. |
+| `_list` | `EXEC` |  | Gets list of the tenant configurations. |

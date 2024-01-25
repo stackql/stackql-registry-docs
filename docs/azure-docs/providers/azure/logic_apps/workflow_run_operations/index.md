@@ -34,4 +34,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `WorkflowRunOperations_Get` | `SELECT` | `api-version, operationId, resourceGroupName, runName, subscriptionId, workflowName` |
+| `get` | `SELECT` | `api-version, operationId, resourceGroupName, runName, subscriptionId, workflowName` |

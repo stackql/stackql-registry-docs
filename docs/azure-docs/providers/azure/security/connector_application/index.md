@@ -34,6 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SecurityConnectorApplication_Get` | `SELECT` | `api-version, applicationId, resourceGroupName, securityConnectorName, subscriptionId` | Get a specific application for the requested scope by applicationId |
-| `SecurityConnectorApplication_CreateOrUpdate` | `INSERT` | `api-version, applicationId, resourceGroupName, securityConnectorName, subscriptionId` | Creates or update a security Application on the given security connector. |
-| `SecurityConnectorApplication_Delete` | `DELETE` | `api-version, applicationId, resourceGroupName, securityConnectorName, subscriptionId` | Delete an Application over a given scope |
+| `get` | `SELECT` | `api-version, applicationId, resourceGroupName, securityConnectorName, subscriptionId` | Get a specific application for the requested scope by applicationId |
+| `create_or_update` | `INSERT` | `api-version, applicationId, resourceGroupName, securityConnectorName, subscriptionId` | Creates or update a security Application on the given security connector. |
+| `delete` | `DELETE` | `api-version, applicationId, resourceGroupName, securityConnectorName, subscriptionId` | Delete an Application over a given scope |

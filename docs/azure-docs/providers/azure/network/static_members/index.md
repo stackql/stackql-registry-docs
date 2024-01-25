@@ -36,7 +36,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `StaticMembers_Get` | `SELECT` |  | Gets the specified static member. |
-| `StaticMembers_List` | `SELECT` | `networkGroupName, networkManagerName, resourceGroupName, subscriptionId` | Lists the specified static member. |
-| `StaticMembers_CreateOrUpdate` | `INSERT` |  | Creates or updates a static member. |
-| `StaticMembers_Delete` | `DELETE` |  | Deletes a static member. |
+| `get` | `SELECT` |  | Gets the specified static member. |
+| `list` | `SELECT` | `networkGroupName, networkManagerName, resourceGroupName, subscriptionId` | Lists the specified static member. |
+| `create_or_update` | `INSERT` |  | Creates or updates a static member. |
+| `delete` | `DELETE` |  | Deletes a static member. |
+| `_list` | `EXEC` | `networkGroupName, networkManagerName, resourceGroupName, subscriptionId` | Lists the specified static member. |

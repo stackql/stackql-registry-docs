@@ -32,6 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerAdvancedThreatProtectionSettings_Get` | `SELECT` | `advancedThreatProtectionName, resourceGroupName, serverName, subscriptionId` | Get a server's Advanced Threat Protection state. |
-| `ServerAdvancedThreatProtectionSettings_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Get a list of the server's Advanced Threat Protection states. |
-| `ServerAdvancedThreatProtectionSettings_CreateOrUpdate` | `INSERT` | `advancedThreatProtectionName, resourceGroupName, serverName, subscriptionId` | Creates or updates an Advanced Threat Protection state. |
+| `get` | `SELECT` | `advancedThreatProtectionName, resourceGroupName, serverName, subscriptionId` | Get a server's Advanced Threat Protection state. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Get a list of the server's Advanced Threat Protection states. |
+| `create_or_update` | `INSERT` | `advancedThreatProtectionName, resourceGroupName, serverName, subscriptionId` | Creates or updates an Advanced Threat Protection state. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Get a list of the server's Advanced Threat Protection states. |

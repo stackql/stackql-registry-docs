@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource. |
-| `zones` | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Properties of Frontend IP Configuration of the load balancer. |
 | `type` | `string` | Type of the resource. |
+| `zones` | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LoadBalancerFrontendIPConfigurations_Get` | `SELECT` | `frontendIPConfigurationName, loadBalancerName, resourceGroupName, subscriptionId` | Gets load balancer frontend IP configuration. |
-| `LoadBalancerFrontendIPConfigurations_List` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the load balancer frontend IP configurations. |
+| `get` | `SELECT` | `frontendIPConfigurationName, loadBalancerName, resourceGroupName, subscriptionId` | Gets load balancer frontend IP configuration. |
+| `list` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the load balancer frontend IP configurations. |
+| `_list` | `EXEC` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the load balancer frontend IP configurations. |

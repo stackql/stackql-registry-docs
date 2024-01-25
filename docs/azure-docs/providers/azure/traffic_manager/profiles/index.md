@@ -33,10 +33,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Profiles_Get` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Gets a Traffic Manager profile. |
-| `Profiles_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Traffic Manager profiles within a resource group. |
-| `Profiles_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all Traffic Manager profiles within a subscription. |
-| `Profiles_CreateOrUpdate` | `INSERT` | `profileName, resourceGroupName, subscriptionId` | Create or update a Traffic Manager profile. |
-| `Profiles_Delete` | `DELETE` | `profileName, resourceGroupName, subscriptionId` | Deletes a Traffic Manager profile. |
-| `Profiles_CheckTrafficManagerRelativeDnsNameAvailability` | `EXEC` |  | Checks the availability of a Traffic Manager Relative DNS name. |
-| `Profiles_Update` | `EXEC` | `profileName, resourceGroupName, subscriptionId` | Update a Traffic Manager profile. |
+| `get` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Gets a Traffic Manager profile. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Traffic Manager profiles within a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all Traffic Manager profiles within a subscription. |
+| `create_or_update` | `INSERT` | `profileName, resourceGroupName, subscriptionId` | Create or update a Traffic Manager profile. |
+| `delete` | `DELETE` | `profileName, resourceGroupName, subscriptionId` | Deletes a Traffic Manager profile. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all Traffic Manager profiles within a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all Traffic Manager profiles within a subscription. |
+| `check_traffic_manager_name_availability_v2` | `EXEC` | `subscriptionId` | Checks the availability of a Traffic Manager Relative DNS name. |
+| `check_traffic_manager_relative_dns_name_availability` | `EXEC` |  | Checks the availability of a Traffic Manager Relative DNS name. |
+| `update` | `EXEC` | `profileName, resourceGroupName, subscriptionId` | Update a Traffic Manager profile. |

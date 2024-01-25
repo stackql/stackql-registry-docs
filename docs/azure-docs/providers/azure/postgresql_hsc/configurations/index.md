@@ -25,14 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | The properties of a configuration. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Configurations_Get` | `SELECT` | `configurationName, resourceGroupName, serverGroupName, subscriptionId` | Gets information about single server group configuration. |
-| `Configurations_ListByServer` | `SELECT` | `resourceGroupName, serverGroupName, serverName, subscriptionId` | List all the configurations of a server in server group. |
-| `Configurations_ListByServerGroup` | `SELECT` | `resourceGroupName, serverGroupName, subscriptionId` | List all the configurations of a server group. |
-| `Configurations_Update` | `EXEC` | `configurationName, resourceGroupName, serverGroupName, subscriptionId` | Updates configuration of server role groups in a server group |
+| `get` | `SELECT` | `clusterName, configurationName, resourceGroupName, subscriptionId` | Gets information of a configuration for coordinator and nodes. |
+| `list_by_cluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | List all the configurations of a cluster. |
+| `list_by_server` | `SELECT` | `clusterName, resourceGroupName, serverName, subscriptionId` | List all the configurations of a server in cluster. |
+| `_list_by_cluster` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | List all the configurations of a cluster. |
+| `_list_by_server` | `EXEC` | `clusterName, resourceGroupName, serverName, subscriptionId` | List all the configurations of a server in cluster. |

@@ -28,4 +28,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `BitLockerKeys_List` | `SELECT` | `api-version, jobName, resourceGroupName, subscriptionId` |
+| `list` | `SELECT` | `api-version, jobName, resourceGroupName, subscriptionId` |

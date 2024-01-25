@@ -35,6 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationStorageClassifications_Get` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationName, subscriptionId` | Gets the details of the specified storage classification. |
-| `ReplicationStorageClassifications_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the storage classifications in the vault. |
-| `ReplicationStorageClassifications_ListByReplicationFabrics` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists the storage classifications available in the specified fabric. |
+| `get` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationName, subscriptionId` | Gets the details of the specified storage classification. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the storage classifications in the vault. |
+| `list_by_replication_fabrics` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists the storage classifications available in the specified fabric. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the storage classifications in the vault. |
+| `_list_by_replication_fabrics` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists the storage classifications available in the specified fabric. |

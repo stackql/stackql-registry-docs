@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Parameters for VpnConnection. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VpnLinkConnections_ListByVpnConnection` | `SELECT` | `connectionName, gatewayName, resourceGroupName, subscriptionId` | Retrieves all vpn site link connections for a particular virtual wan vpn gateway vpn connection. |
-| `VpnLinkConnections_GetIkeSas` | `EXEC` | `connectionName, gatewayName, linkConnectionName, resourceGroupName, subscriptionId` | Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group. |
-| `VpnLinkConnections_ResetConnection` | `EXEC` | `connectionName, gatewayName, linkConnectionName, resourceGroupName, subscriptionId` | Resets the VpnLink connection specified. |
+| `list_by_vpn_connection` | `SELECT` | `connectionName, gatewayName, resourceGroupName, subscriptionId` | Retrieves all vpn site link connections for a particular virtual wan vpn gateway vpn connection. |
+| `_list_by_vpn_connection` | `EXEC` | `connectionName, gatewayName, resourceGroupName, subscriptionId` | Retrieves all vpn site link connections for a particular virtual wan vpn gateway vpn connection. |
+| `reset_connection` | `EXEC` | `connectionName, gatewayName, linkConnectionName, resourceGroupName, subscriptionId` | Resets the VpnLink connection specified. |

@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Workflows_Get` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId, workflowId` | Get Workflows resource |
-| `Workflows_ListByStorageSyncService` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a Workflow List |
-| `Workflows_Abort` | `EXEC` | `resourceGroupName, storageSyncServiceName, subscriptionId, workflowId` | Abort the given workflow. |
+| `get` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId, workflowId` | Get Workflows resource |
+| `list_by_storage_sync_service` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a Workflow List |
+| `_list_by_storage_sync_service` | `EXEC` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a Workflow List |
+| `abort` | `EXEC` | `resourceGroupName, storageSyncServiceName, subscriptionId, workflowId` | Abort the given workflow. |

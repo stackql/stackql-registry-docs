@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SecurityPolicies_Get` | `SELECT` | `profileName, resourceGroupName, securityPolicyName, subscriptionId` | Gets an existing security policy within a profile. |
-| `SecurityPolicies_ListByProfile` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Lists security policies associated with the profile |
-| `SecurityPolicies_Create` | `INSERT` | `profileName, resourceGroupName, securityPolicyName, subscriptionId` | Creates a new security policy within the specified profile. |
-| `SecurityPolicies_Delete` | `DELETE` | `profileName, resourceGroupName, securityPolicyName, subscriptionId` | Deletes an existing security policy within profile. |
-| `SecurityPolicies_Patch` | `EXEC` | `profileName, resourceGroupName, securityPolicyName, subscriptionId` | Updates an existing security policy within a profile. |
+| `get` | `SELECT` | `profileName, resourceGroupName, securityPolicyName, subscriptionId` | Gets an existing security policy within a profile. |
+| `list_by_profile` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Lists security policies associated with the profile |
+| `create` | `INSERT` | `profileName, resourceGroupName, securityPolicyName, subscriptionId` | Creates a new security policy within the specified profile. |
+| `delete` | `DELETE` | `profileName, resourceGroupName, securityPolicyName, subscriptionId` | Deletes an existing security policy within profile. |
+| `_list_by_profile` | `EXEC` | `profileName, resourceGroupName, subscriptionId` | Lists security policies associated with the profile |
+| `patch` | `EXEC` | `profileName, resourceGroupName, securityPolicyName, subscriptionId` | Updates an existing security policy within a profile. |

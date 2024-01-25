@@ -29,20 +29,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `properties` | `object` | Public IP prefix properties. |
-| `extendedLocation` | `object` | ExtendedLocation complex type. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `extendedLocation` | `object` | ExtendedLocation complex type. |
+| `location` | `string` | Resource location. |
+| `properties` | `object` | Public IP prefix properties. |
 | `sku` | `object` | SKU of a public IP prefix. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 | `zones` | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
-| `location` | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PublicIPPrefixes_Get` | `SELECT` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Gets the specified public IP prefix in a specified resource group. |
-| `PublicIPPrefixes_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all public IP prefixes in a resource group. |
-| `PublicIPPrefixes_ListAll` | `SELECT` | `subscriptionId` | Gets all the public IP prefixes in a subscription. |
-| `PublicIPPrefixes_CreateOrUpdate` | `INSERT` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Creates or updates a static or dynamic public IP prefix. |
-| `PublicIPPrefixes_Delete` | `DELETE` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Deletes the specified public IP prefix. |
-| `PublicIPPrefixes_UpdateTags` | `EXEC` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Updates public IP prefix tags. |
+| `get` | `SELECT` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Gets the specified public IP prefix in a specified resource group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all public IP prefixes in a resource group. |
+| `create_or_update` | `INSERT` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Creates or updates a static or dynamic public IP prefix. |
+| `delete` | `DELETE` | `publicIpPrefixName, resourceGroupName, subscriptionId` | Deletes the specified public IP prefix. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all public IP prefixes in a resource group. |

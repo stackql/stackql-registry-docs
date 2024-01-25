@@ -29,15 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets the resource name. |
+| `location` | `string` | The resource location. |
 | `properties` | `object` | The integration account partner properties. |
 | `tags` | `object` | The resource tags. |
 | `type` | `string` | Gets the resource type. |
-| `location` | `string` | The resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationAccountPartners_Get` | `SELECT` | `api-version, integrationAccountName, partnerName, resourceGroupName, subscriptionId` | Gets an integration account partner. |
-| `IntegrationAccountPartners_List` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account partners. |
-| `IntegrationAccountPartners_CreateOrUpdate` | `INSERT` | `api-version, integrationAccountName, partnerName, resourceGroupName, subscriptionId, data__properties` | Creates or updates an integration account partner. |
-| `IntegrationAccountPartners_Delete` | `DELETE` | `api-version, integrationAccountName, partnerName, resourceGroupName, subscriptionId` | Deletes an integration account partner. |
-| `IntegrationAccountPartners_ListContentCallbackUrl` | `EXEC` | `api-version, integrationAccountName, partnerName, resourceGroupName, subscriptionId` | Get the content callback url. |
+| `get` | `SELECT` | `api-version, integrationAccountName, partnerName, resourceGroupName, subscriptionId` | Gets an integration account partner. |
+| `list` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account partners. |
+| `create_or_update` | `INSERT` | `api-version, integrationAccountName, partnerName, resourceGroupName, subscriptionId, data__properties` | Creates or updates an integration account partner. |
+| `delete` | `DELETE` | `api-version, integrationAccountName, partnerName, resourceGroupName, subscriptionId` | Deletes an integration account partner. |
+| `_list` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account partners. |

@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TimeZones_Get` | `SELECT` | `locationName, subscriptionId, timeZoneId` | Gets a managed instance time zone. |
-| `TimeZones_ListByLocation` | `SELECT` | `locationName, subscriptionId` | Gets a list of managed instance time zones by location. |
+| `get` | `SELECT` | `locationName, subscriptionId, timeZoneId` | Gets a managed instance time zone. |
+| `list_by_location` | `SELECT` | `locationName, subscriptionId` | Gets a list of managed instance time zones by location. |
+| `_list_by_location` | `EXEC` | `locationName, subscriptionId` | Gets a list of managed instance time zones by location. |

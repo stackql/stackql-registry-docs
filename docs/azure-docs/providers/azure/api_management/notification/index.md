@@ -25,15 +25,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `properties` | `object` | Notification Contract properties. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Notification_Get` | `SELECT` | `notificationName, resourceGroupName, serviceName, subscriptionId` | Gets the details of the Notification specified by its identifier. |
-| `Notification_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of properties defined within a service instance. |
-| `Notification_CreateOrUpdate` | `INSERT` | `notificationName, resourceGroupName, serviceName, subscriptionId` | Create or Update API Management publisher notification. |
+| `get` | `SELECT` | `notificationName, resourceGroupName, serviceName, subscriptionId` | Gets the details of the Notification specified by its identifier. |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of properties defined within a service instance. |
+| `create_or_update` | `INSERT` | `notificationName, resourceGroupName, serviceName, subscriptionId` | Create or Update API Management publisher notification. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of properties defined within a service instance. |

@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `properties` | `object` | Properties of express route cross connection peering. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `properties` | `object` | Properties of express route cross connection peering. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExpressRouteCrossConnectionPeerings_Get` | `SELECT` | `crossConnectionName, peeringName, resourceGroupName, subscriptionId` | Gets the specified peering for the ExpressRouteCrossConnection. |
-| `ExpressRouteCrossConnectionPeerings_List` | `SELECT` | `crossConnectionName, resourceGroupName, subscriptionId` | Gets all peerings in a specified ExpressRouteCrossConnection. |
-| `ExpressRouteCrossConnectionPeerings_CreateOrUpdate` | `INSERT` | `crossConnectionName, peeringName, resourceGroupName, subscriptionId` | Creates or updates a peering in the specified ExpressRouteCrossConnection. |
-| `ExpressRouteCrossConnectionPeerings_Delete` | `DELETE` | `crossConnectionName, peeringName, resourceGroupName, subscriptionId` | Deletes the specified peering from the ExpressRouteCrossConnection. |
+| `get` | `SELECT` | `crossConnectionName, peeringName, resourceGroupName, subscriptionId` | Gets the specified peering for the ExpressRouteCrossConnection. |
+| `list` | `SELECT` | `crossConnectionName, resourceGroupName, subscriptionId` | Gets all peerings in a specified ExpressRouteCrossConnection. |
+| `create_or_update` | `INSERT` | `crossConnectionName, peeringName, resourceGroupName, subscriptionId` | Creates or updates a peering in the specified ExpressRouteCrossConnection. |
+| `delete` | `DELETE` | `crossConnectionName, peeringName, resourceGroupName, subscriptionId` | Deletes the specified peering from the ExpressRouteCrossConnection. |
+| `_list` | `EXEC` | `crossConnectionName, resourceGroupName, subscriptionId` | Gets all peerings in a specified ExpressRouteCrossConnection. |

@@ -27,12 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `etag` | `string` | Resource ETAG. |
 | `kind` | `string` | Additional resource type qualifier. |
 | `properties` | `object` | Resource properties. |
-| `etag` | `string` | Resource ETAG. |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `ClientGroups_Get` | `SELECT` | `clientGroupName, resourceGroupName, subscriptionId, workspaceName` | Retrieves the specified client group |
-| `ClientGroups_GetMembersCount` | `EXEC` | `clientGroupName, resourceGroupName, subscriptionId, workspaceName` | Returns the approximate number of members in the client group. |
-| `ClientGroups_ListMembers` | `EXEC` | `clientGroupName, resourceGroupName, subscriptionId, workspaceName` | Returns the members of the client group during the specified time interval. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `get` | `SELECT` | `clientGroupName, resourceGroupName, subscriptionId, workspaceName` |

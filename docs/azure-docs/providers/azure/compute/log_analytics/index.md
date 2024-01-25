@@ -29,5 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LogAnalytics_ExportRequestRateByInterval` | `EXEC` | `location, subscriptionId, data__intervalLength` | Export logs that show Api requests made by this subscription in the given time window to show throttling activities. |
-| `LogAnalytics_ExportThrottledRequests` | `EXEC` | `location, subscriptionId` | Export logs that show total throttled Api requests for this subscription in the given time window. |
+| `export_request_rate_by_interval` | `EXEC` | `location, subscriptionId, data__intervalLength` | Export logs that show Api requests made by this subscription in the given time window to show throttling activities. |
+| `export_throttled_requests` | `EXEC` | `location, subscriptionId` | Export logs that show total throttled Api requests for this subscription in the given time window. |

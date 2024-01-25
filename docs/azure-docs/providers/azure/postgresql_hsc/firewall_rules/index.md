@@ -25,14 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | The properties of a server group firewall rule. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FirewallRules_Get` | `SELECT` | `firewallRuleName, resourceGroupName, serverGroupName, subscriptionId` | Gets information about a server group firewall rule. |
-| `FirewallRules_ListByServerGroup` | `SELECT` | `resourceGroupName, serverGroupName, subscriptionId` | List all the firewall rules in a given server group. |
-| `FirewallRules_CreateOrUpdate` | `INSERT` | `firewallRuleName, resourceGroupName, serverGroupName, subscriptionId, data__properties` | Creates a new firewall rule or updates an existing firewall rule. |
-| `FirewallRules_Delete` | `DELETE` | `firewallRuleName, resourceGroupName, serverGroupName, subscriptionId` | Deletes a server group firewall rule. |
+| `get` | `SELECT` | `clusterName, firewallRuleName, resourceGroupName, subscriptionId` | Gets information about a cluster firewall rule. |
+| `list_by_cluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Lists all the firewall rules on cluster. |
+| `create_or_update` | `INSERT` | `clusterName, firewallRuleName, resourceGroupName, subscriptionId, data__properties` | Creates a new cluster firewall rule or updates an existing cluster firewall rule. |
+| `delete` | `DELETE` | `clusterName, firewallRuleName, resourceGroupName, subscriptionId` | Deletes a cluster firewall rule. |
+| `_list_by_cluster` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Lists all the firewall rules on cluster. |

@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-DataLake Store Account Management Client  
+Use The Azure Data Lake Store REST APIs To Create And Manage Data Lake Store Resources Through Azure Resource Manager.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>26</b></span><br />
+<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>33</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ DataLake Store Account Management Client
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.data_lake_store</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>DataLake Store Account Management Client (Microsoft.DataLakeStore)</td></tr>
-<tr><td><b>Description</b></td><td>DataLake Store Account Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>data_lake_store:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Data Lake Storage Gen1</td></tr>
+<tr><td><b>Description</b></td><td>Use The Azure Data Lake Store REST APIs To Create And Manage Data Lake Store Resources Through Azure Resource Manager.</td></tr>
+<tr><td><b>Id</b></td><td><code>data_lake_store:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,7 +41,8 @@ DataLake Store Account Management Client
 <div class="providerDocColumn">
 <a href="/providers/azure/data_lake_store/accounts/">accounts</a><br />
 <a href="/providers/azure/data_lake_store/firewall_rules/">firewall_rules</a><br />
-<a href="/providers/azure/data_lake_store/locations/">locations</a><br />
+<a href="/providers/azure/data_lake_store/locations_capability/">locations_capability</a><br />
+<a href="/providers/azure/data_lake_store/locations_usage/">locations_usage</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/data_lake_store/operations/">operations</a><br />

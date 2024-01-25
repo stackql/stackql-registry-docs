@@ -30,11 +30,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `id` | `string` | Gets or sets the identifier. |
 | `name` | `string` | Gets or sets the name. |
 | `properties` | `object` | A private endpoint connection properties class. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Gets or sets the type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnections_Get` | `SELECT` | `accountName, api-version, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Get a private endpoint connection |
-| `PrivateEndpointConnections_ListByAccount` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` | Get private endpoint connections for account |
-| `PrivateEndpointConnections_CreateOrUpdate` | `INSERT` | `accountName, api-version, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Create or update a private endpoint connection |
-| `PrivateEndpointConnections_Delete` | `DELETE` | `accountName, api-version, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Delete a private endpoint connection |
+| `get` | `SELECT` | `accountName, api-version, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Get a private endpoint connection |
+| `list_by_account` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` | Get private endpoint connections for account |
+| `create_or_update` | `INSERT` | `accountName, api-version, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Create or update a private endpoint connection |
+| `delete` | `DELETE` | `accountName, api-version, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Delete a private endpoint connection |
+| `_list_by_account` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` | Get private endpoint connections for account |

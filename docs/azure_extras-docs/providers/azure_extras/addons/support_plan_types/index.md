@@ -34,7 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SupportPlanTypes_Get` | `SELECT` | `planTypeName, providerName, subscriptionId` | Returns whether or not the canonical support plan of type &#123;type&#125; is enabled for the subscription. |
-| `SupportPlanTypes_CreateOrUpdate` | `INSERT` | `planTypeName, providerName, subscriptionId` | Creates or updates the Canonical support plan of type &#123;type&#125; for the subscription. |
-| `SupportPlanTypes_Delete` | `DELETE` | `planTypeName, providerName, subscriptionId` | Cancels the Canonical support plan of type &#123;type&#125; for the subscription. |
-| `SupportPlanTypes_ListInfo` | `EXEC` | `subscriptionId` | Returns the canonical support plan information for all types for the subscription. |
+| `get` | `SELECT` | `planTypeName, providerName, subscriptionId` | Returns whether or not the canonical support plan of type &#123;type&#125; is enabled for the subscription. |
+| `create_or_update` | `INSERT` | `planTypeName, providerName, subscriptionId` | Creates or updates the Canonical support plan of type &#123;type&#125; for the subscription. |
+| `delete` | `DELETE` | `planTypeName, providerName, subscriptionId` | Cancels the Canonical support plan of type &#123;type&#125; for the subscription. |

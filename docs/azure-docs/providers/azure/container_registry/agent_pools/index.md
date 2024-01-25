@@ -27,19 +27,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
+| `id` | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
+| `name` | `string` | The name of the resource |
 | `properties` | `object` | The properties of agent pool. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | The tags of the resource. |
-| `type` | `string` | The type of the resource. |
-| `location` | `string` | The location of the resource. This cannot be changed after the resource is created. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AgentPools_Get` | `SELECT` | `agentPoolName, registryName, resourceGroupName, subscriptionId` | Gets the detailed information for a given agent pool. |
-| `AgentPools_List` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the agent pools for a specified container registry. |
-| `AgentPools_Create` | `INSERT` | `agentPoolName, registryName, resourceGroupName, subscriptionId` | Creates an agent pool for a container registry with the specified parameters. |
-| `AgentPools_Delete` | `DELETE` | `agentPoolName, registryName, resourceGroupName, subscriptionId` | Deletes a specified agent pool resource. |
-| `AgentPools_GetQueueStatus` | `EXEC` | `agentPoolName, registryName, resourceGroupName, subscriptionId` | Gets the count of queued runs for a given agent pool. |
-| `AgentPools_Update` | `EXEC` | `agentPoolName, registryName, resourceGroupName, subscriptionId` | Updates an agent pool with the specified parameters. |
+| `get` | `SELECT` | `agentPoolName, registryName, resourceGroupName, subscriptionId` | Gets the detailed information for a given agent pool. |
+| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the agent pools for a specified container registry. |
+| `create` | `INSERT` | `agentPoolName, registryName, resourceGroupName, subscriptionId` | Creates an agent pool for a container registry with the specified parameters. |
+| `delete` | `DELETE` | `agentPoolName, registryName, resourceGroupName, subscriptionId` | Deletes a specified agent pool resource. |
+| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` | Lists all the agent pools for a specified container registry. |
+| `update` | `EXEC` | `agentPoolName, registryName, resourceGroupName, subscriptionId` | Updates an agent pool with the specified parameters. |

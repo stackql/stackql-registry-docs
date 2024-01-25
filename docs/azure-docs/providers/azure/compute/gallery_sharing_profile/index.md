@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `GallerySharingProfile_Update` | `EXEC` | `galleryName, resourceGroupName, subscriptionId, data__operationType` |
+| `update` | `EXEC` | `galleryName, resourceGroupName, subscriptionId, data__operationType` |

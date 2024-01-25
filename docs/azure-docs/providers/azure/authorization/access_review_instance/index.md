@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AccessReviewInstance_AcceptRecommendations` | `EXEC` | `id, scheduleDefinitionId` | An action to accept recommendations for decision in an access review instance. |
-| `AccessReviewInstance_ApplyDecisions` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to apply all decisions for an access review instance. |
-| `AccessReviewInstance_ResetDecisions` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to reset all decisions for an access review instance. |
-| `AccessReviewInstance_SendReminders` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to send reminders for an access review instance. |
-| `AccessReviewInstance_Stop` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to stop an access review instance. |
+| `accept_recommendations` | `EXEC` | `id, scheduleDefinitionId` | An action to accept recommendations for decision in an access review instance. |
+| `apply_decisions` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to apply all decisions for an access review instance. |
+| `reset_decisions` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to reset all decisions for an access review instance. |
+| `send_reminders` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to send reminders for an access review instance. |
+| `stop` | `EXEC` | `id, scheduleDefinitionId, subscriptionId` | An action to stop an access review instance. |

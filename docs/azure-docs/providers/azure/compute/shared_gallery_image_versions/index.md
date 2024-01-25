@@ -32,5 +32,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SharedGalleryImageVersions_Get` | `SELECT` | `galleryImageName, galleryImageVersionName, galleryUniqueName, location, subscriptionId` | Get a shared gallery image version by subscription id or tenant id. |
-| `SharedGalleryImageVersions_List` | `SELECT` | `galleryImageName, galleryUniqueName, location, subscriptionId` | List shared gallery image versions by subscription id or tenant id. |
+| `get` | `SELECT` | `galleryImageName, galleryImageVersionName, galleryUniqueName, location, subscriptionId` | Get a shared gallery image version by subscription id or tenant id. |
+| `list` | `SELECT` | `galleryImageName, galleryUniqueName, location, subscriptionId` | List shared gallery image versions by subscription id or tenant id. |
+| `_list` | `EXEC` | `galleryImageName, galleryUniqueName, location, subscriptionId` | List shared gallery image versions by subscription id or tenant id. |

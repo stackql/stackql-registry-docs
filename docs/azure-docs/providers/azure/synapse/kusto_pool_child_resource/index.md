@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `KustoPoolChildResource_CheckNameAvailability` | `EXEC` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__name, data__type` |
+| `check_name_availability` | `EXEC` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__name, data__type` |

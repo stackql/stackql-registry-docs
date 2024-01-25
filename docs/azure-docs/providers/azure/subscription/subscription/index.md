@@ -25,24 +25,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | The fully qualified ID for the subscription. For example, /subscriptions/00000000-0000-0000-0000-000000000000. |
-| `displayName` | `string` | The subscription display name. |
-| `state` | `string` | The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted. |
-| `subscriptionId` | `string` | The subscription ID. |
-| `subscriptionPolicies` | `object` | Subscription policies. |
-| `tags` | `object` | Tags for the subscription |
-| `tenantId` | `string` | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. |
-| `authorizationSource` | `string` | The authorization source of the request. Valid values are one or more combinations of Legacy, RoleBased, Bypassed, Direct and Management. For example, 'Legacy, RoleBased'. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Subscriptions_Get` | `SELECT` | `subscriptionId` | Gets details about a specified subscription. |
-| `Subscriptions_List` | `SELECT` |  | Gets all subscriptions for a tenant. |
-| `Subscription_AcceptOwnership` | `EXEC` | `subscriptionId` | Accept subscription ownership. |
-| `Subscription_AcceptOwnershipStatus` | `EXEC` | `subscriptionId` | Accept subscription ownership status. |
-| `Subscription_Cancel` | `EXEC` | `subscriptionId` | The operation to cancel a subscription |
-| `Subscription_Enable` | `EXEC` | `subscriptionId` | The operation to enable a subscription |
-| `Subscription_Rename` | `EXEC` | `subscriptionId` | The operation to rename a subscription |
-| `Subscriptions_ListLocations` | `EXEC` | `subscriptionId` | This operation provides all the locations that are available for resource providers; however, each resource provider may support a subset of this list. |
+| `accept_ownership` | `EXEC` | `subscriptionId` | Accept subscription ownership. |
+| `accept_ownership_status` | `EXEC` | `subscriptionId` | Accept subscription ownership status. |
+| `cancel` | `EXEC` | `subscriptionId` | The operation to cancel a subscription |
+| `enable` | `EXEC` | `subscriptionId` | The operation to enable a subscription |
+| `rename` | `EXEC` | `subscriptionId` | The operation to rename a subscription |

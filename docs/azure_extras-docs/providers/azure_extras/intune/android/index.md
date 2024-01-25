@@ -29,14 +29,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Android_AddAppForMAMPolicy` | `EXEC` | `appName, hostName, policyName` | Add app to an AndroidMAMPolicy. |
-| `Android_AddGroupForMAMPolicy` | `EXEC` | `groupId, hostName, policyName` | Add group to an AndroidMAMPolicy. |
-| `Android_CreateOrUpdateMAMPolicy` | `EXEC` | `hostName, policyName` | Creates or updates AndroidMAMPolicy. |
-| `Android_DeleteAppForMAMPolicy` | `EXEC` | `appName, hostName, policyName` | Delete App for Android Policy |
-| `Android_DeleteGroupForMAMPolicy` | `EXEC` | `groupId, hostName, policyName` | Delete Group for Android Policy |
-| `Android_DeleteMAMPolicy` | `EXEC` | `hostName, policyName` | Delete Android Policy |
-| `Android_GetAppForMAMPolicy` | `EXEC` | `hostName, policyName` | Get apps for an AndroidMAMPolicy. |
-| `Android_GetGroupsForMAMPolicy` | `EXEC` | `hostName, policyName` | Returns groups for a given AndroidMAMPolicy. |
-| `Android_GetMAMPolicies` | `EXEC` | `hostName` | Returns Intune Android policies. |
-| `Android_GetMAMPolicyByName` | `EXEC` | `hostName, policyName` | Returns AndroidMAMPolicy with given name. |
-| `Android_PatchMAMPolicy` | `EXEC` | `hostName, policyName` | Patch AndroidMAMPolicy. |
+| `add_app_for_mam_policy` | `EXEC` | `appName, hostName, policyName` | Add app to an AndroidMAMPolicy. |
+| `add_group_for_mam_policy` | `EXEC` | `groupId, hostName, policyName` | Add group to an AndroidMAMPolicy. |
+| `patch_mam_policy` | `EXEC` | `hostName, policyName` | Patch AndroidMAMPolicy. |

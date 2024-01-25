@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `HierarchySettings_List` | `SELECT` | `groupId` | Gets all the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.<br /> |
-| `HierarchySettings_CreateOrUpdate` | `INSERT` | `groupId` | Creates or updates the hierarchy settings defined at the Management Group level.<br /> |
-| `HierarchySettings_Delete` | `DELETE` | `groupId` | Deletes the hierarchy settings defined at the Management Group level.<br /> |
-| `HierarchySettings_Get` | `EXEC` | `groupId` | Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.<br /> |
-| `HierarchySettings_Update` | `EXEC` | `groupId` | Updates the hierarchy settings defined at the Management Group level.<br /> |
+| `list` | `SELECT` | `groupId` | Gets all the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.<br /> |
+| `create_or_update` | `INSERT` | `groupId` | Creates or updates the hierarchy settings defined at the Management Group level.<br /> |
+| `delete` | `DELETE` | `groupId` | Deletes the hierarchy settings defined at the Management Group level.<br /> |
+| `_list` | `EXEC` | `groupId` | Gets all the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.<br /> |
+| `exec_get` | `EXEC` | `groupId` | Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.<br /> |
+| `update` | `EXEC` | `groupId` | Updates the hierarchy settings defined at the Management Group level.<br /> |

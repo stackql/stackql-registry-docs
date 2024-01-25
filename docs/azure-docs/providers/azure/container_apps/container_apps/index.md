@@ -27,18 +27,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `extendedLocation` | `object` | The complex type of the extended location. |
 | `identity` | `object` | Managed service identity (system assigned and/or user assigned identities) |
 | `location` | `string` | The geo-location where the resource lives |
+| `managedBy` | `string` | The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource. |
 | `properties` | `object` | ContainerApp resource specific properties |
 | `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ContainerApps_Get` | `SELECT` | `containerAppName, resourceGroupName, subscriptionId` |  |
-| `ContainerApps_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` |  |
-| `ContainerApps_ListBySubscription` | `SELECT` | `subscriptionId` |  |
-| `ContainerApps_CreateOrUpdate` | `INSERT` | `containerAppName, resourceGroupName, subscriptionId` | Create or update a Container App. |
-| `ContainerApps_Delete` | `DELETE` | `containerAppName, resourceGroupName, subscriptionId` | Delete a Container App. |
-| `ContainerApps_ListCustomHostNameAnalysis` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` |  |
-| `ContainerApps_ListSecrets` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` |  |
-| `ContainerApps_Update` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` | Patches a Container App using JSON Merge Patch |
+| `get` | `SELECT` | `containerAppName, resourceGroupName, subscriptionId` |  |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` |  |
+| `list_by_subscription` | `SELECT` | `subscriptionId` |  |
+| `create_or_update` | `INSERT` | `containerAppName, resourceGroupName, subscriptionId` | Create or update a Container App. |
+| `delete` | `DELETE` | `containerAppName, resourceGroupName, subscriptionId` | Delete a Container App. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` |  |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` |  |
+| `start` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` |  |
+| `stop` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` |  |
+| `update` | `EXEC` | `containerAppName, resourceGroupName, subscriptionId` | Patches a Container App using JSON Merge Patch |

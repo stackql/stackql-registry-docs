@@ -35,4 +35,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `OperationResults_Get` | `SELECT` | `locationName, operationResultId, subscriptionId` |
+| `get` | `SELECT` | `locationName, operationResultId, subscriptionId` |

@@ -27,12 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `kind` | `string` | Kind of geo backup policy.  This is metadata used for the Azure portal experience. |
 | `location` | `string` | Backup policy location. |
 | `properties` | `object` | The properties of the geo backup policy. |
-| `kind` | `string` | Kind of geo backup policy.  This is metadata used for the Azure portal experience. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GeoBackupPolicies_Get` | `SELECT` | `databaseName, geoBackupPolicyName, resourceGroupName, serverName, subscriptionId` | Gets a geo backup policy. |
-| `GeoBackupPolicies_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Returns a list of geo backup policies. |
-| `GeoBackupPolicies_CreateOrUpdate` | `INSERT` | `databaseName, geoBackupPolicyName, resourceGroupName, serverName, subscriptionId, data__properties` | Updates a database geo backup policy. |
+| `get` | `SELECT` | `databaseName, geoBackupPolicyName, resourceGroupName, serverName, subscriptionId` | Gets a geo backup policy. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Returns a list of geo backup policies. |
+| `create_or_update` | `INSERT` | `databaseName, geoBackupPolicyName, resourceGroupName, serverName, subscriptionId, data__properties` | Updates a database geo backup policy. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Returns a list of geo backup policies. |

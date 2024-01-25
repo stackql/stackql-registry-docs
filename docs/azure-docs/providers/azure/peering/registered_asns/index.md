@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RegisteredAsns_Get` | `SELECT` | `peeringName, registeredAsnName, resourceGroupName, subscriptionId` | Gets an existing registered ASN with the specified name under the given subscription, resource group and peering. |
-| `RegisteredAsns_ListByPeering` | `SELECT` | `peeringName, resourceGroupName, subscriptionId` | Lists all registered ASNs under the given subscription, resource group and peering. |
-| `RegisteredAsns_CreateOrUpdate` | `INSERT` | `peeringName, registeredAsnName, resourceGroupName, subscriptionId` | Creates a new registered ASN with the specified name under the given subscription, resource group and peering. |
-| `RegisteredAsns_Delete` | `DELETE` | `peeringName, registeredAsnName, resourceGroupName, subscriptionId` | Deletes an existing registered ASN with the specified name under the given subscription, resource group and peering. |
+| `get` | `SELECT` | `peeringName, registeredAsnName, resourceGroupName, subscriptionId` | Gets an existing registered ASN with the specified name under the given subscription, resource group and peering. |
+| `list_by_peering` | `SELECT` | `peeringName, resourceGroupName, subscriptionId` | Lists all registered ASNs under the given subscription, resource group and peering. |
+| `create_or_update` | `INSERT` | `peeringName, registeredAsnName, resourceGroupName, subscriptionId` | Creates a new registered ASN with the specified name under the given subscription, resource group and peering. |
+| `delete` | `DELETE` | `peeringName, registeredAsnName, resourceGroupName, subscriptionId` | Deletes an existing registered ASN with the specified name under the given subscription, resource group and peering. |
+| `_list_by_peering` | `EXEC` | `peeringName, resourceGroupName, subscriptionId` | Lists all registered ASNs under the given subscription, resource group and peering. |

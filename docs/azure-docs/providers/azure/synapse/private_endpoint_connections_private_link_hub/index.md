@@ -27,10 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | identifier |
+| `id` | `string` |  |
 | `properties` | `object` | Properties of a private endpoint connection. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnectionsPrivateLinkHub_Get` | `SELECT` |  | Get all PrivateEndpointConnection in the PrivateLinkHub by name |
-| `PrivateEndpointConnectionsPrivateLinkHub_List` | `SELECT` |  | Get all PrivateEndpointConnections in the PrivateLinkHub |
+| `get` | `SELECT` |  | Get all PrivateEndpointConnection in the PrivateLinkHub by name |
+| `list` | `SELECT` |  | Get all PrivateEndpointConnections in the PrivateLinkHub |
+| `_list` | `EXEC` |  | Get all PrivateEndpointConnections in the PrivateLinkHub |

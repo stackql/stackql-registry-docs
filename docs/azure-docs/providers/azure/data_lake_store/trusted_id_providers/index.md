@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TrustedIdProviders_Get` | `SELECT` | `accountName, resourceGroupName, subscriptionId, trustedIdProviderName` | Gets the specified Data Lake Store trusted identity provider. |
-| `TrustedIdProviders_ListByAccount` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists the Data Lake Store trusted identity providers within the specified Data Lake Store account. |
-| `TrustedIdProviders_CreateOrUpdate` | `INSERT` | `accountName, resourceGroupName, subscriptionId, trustedIdProviderName, data__properties` | Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider |
-| `TrustedIdProviders_Delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId, trustedIdProviderName` | Deletes the specified trusted identity provider from the specified Data Lake Store account |
-| `TrustedIdProviders_Update` | `EXEC` | `accountName, resourceGroupName, subscriptionId, trustedIdProviderName` | Updates the specified trusted identity provider. |
+| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId, trustedIdProviderName` | Gets the specified Data Lake Store trusted identity provider. |
+| `list_by_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists the Data Lake Store trusted identity providers within the specified Data Lake Store account. |
+| `create_or_update` | `INSERT` | `accountName, resourceGroupName, subscriptionId, trustedIdProviderName, data__properties` | Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider |
+| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId, trustedIdProviderName` | Deletes the specified trusted identity provider from the specified Data Lake Store account |
+| `_list_by_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Lists the Data Lake Store trusted identity providers within the specified Data Lake Store account. |
+| `update` | `EXEC` | `accountName, resourceGroupName, subscriptionId, trustedIdProviderName` | Updates the specified trusted identity provider. |

@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResources_Get` | `SELECT` | `configStoreName, groupName, resourceGroupName, subscriptionId` | Gets a private link resource that need to be created for a configuration store. |
-| `PrivateLinkResources_ListByConfigurationStore` | `SELECT` | `configStoreName, resourceGroupName, subscriptionId` | Gets the private link resources that need to be created for a configuration store. |
+| `get` | `SELECT` | `configStoreName, groupName, resourceGroupName, subscriptionId` | Gets a private link resource that need to be created for a configuration store. |
+| `list_by_configuration_store` | `SELECT` | `configStoreName, resourceGroupName, subscriptionId` | Gets the private link resources that need to be created for a configuration store. |
+| `_list_by_configuration_store` | `EXEC` | `configStoreName, resourceGroupName, subscriptionId` | Gets the private link resources that need to be created for a configuration store. |

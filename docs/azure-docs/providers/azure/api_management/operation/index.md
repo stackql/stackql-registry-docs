@@ -34,4 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Operation_ListByTags` | `SELECT` | `apiId, resourceGroupName, serviceName, subscriptionId` |
+| `list_by_tags` | `SELECT` | `apiId, resourceGroupName, serviceName, subscriptionId` |
+| `_list_by_tags` | `EXEC` | `apiId, resourceGroupName, serviceName, subscriptionId` |

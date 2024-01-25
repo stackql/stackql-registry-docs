@@ -38,9 +38,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `NetworkVirtualAppliances_Get` | `SELECT` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Gets the specified Network Virtual Appliance. |
-| `NetworkVirtualAppliances_List` | `SELECT` | `subscriptionId` | Gets all Network Virtual Appliances in a subscription. |
-| `NetworkVirtualAppliances_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Network Virtual Appliances in a resource group. |
-| `NetworkVirtualAppliances_CreateOrUpdate` | `INSERT` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Creates or updates the specified Network Virtual Appliance. |
-| `NetworkVirtualAppliances_Delete` | `DELETE` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Deletes the specified Network Virtual Appliance. |
-| `NetworkVirtualAppliances_UpdateTags` | `EXEC` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Updates a Network Virtual Appliance. |
+| `get` | `SELECT` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Gets the specified Network Virtual Appliance. |
+| `list` | `SELECT` | `subscriptionId` | Gets all Network Virtual Appliances in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Network Virtual Appliances in a resource group. |
+| `create_or_update` | `INSERT` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Creates or updates the specified Network Virtual Appliance. |
+| `delete` | `DELETE` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Deletes the specified Network Virtual Appliance. |
+| `_list` | `EXEC` | `subscriptionId` | Gets all Network Virtual Appliances in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all Network Virtual Appliances in a resource group. |

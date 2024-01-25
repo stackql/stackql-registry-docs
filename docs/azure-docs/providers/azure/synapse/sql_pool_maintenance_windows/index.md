@@ -28,5 +28,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolMaintenanceWindows_Get` | `SELECT` | `maintenanceWindowName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get a SQL pool's Maintenance Windows. |
-| `SqlPoolMaintenanceWindows_CreateOrUpdate` | `INSERT` | `maintenanceWindowName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Creates or updates a Sql pool's maintenance windows settings. |
+| `get` | `SELECT` | `maintenanceWindowName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get a SQL pool's Maintenance Windows. |
+| `create_or_update` | `INSERT` | `maintenanceWindowName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Creates or updates a Sql pool's maintenance windows settings. |

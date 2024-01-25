@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Storage Pool  
+Microsoft Azure Storage Pool Allows Your Applications And Workloads To Access A Group Of Managed Disks From A Single Endpoint.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>5</b></span><br />
-<span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Storage Pool
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.storage_pool</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Storage Pool (Microsoft.StoragePool)</td></tr>
-<tr><td><b>Description</b></td><td>Storage Pool</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_pool:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Storage Pool</td></tr>
+<tr><td><b>Description</b></td><td>Microsoft Azure Storage Pool Allows Your Applications And Workloads To Access A Group Of Managed Disks From A Single Endpoint.</td></tr>
+<tr><td><b>Id</b></td><td><code>storage_pool:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -41,9 +41,10 @@ Storage Pool
 <div class="providerDocColumn">
 <a href="/providers/azure/storage_pool/disk_pool_zones/">disk_pool_zones</a><br />
 <a href="/providers/azure/storage_pool/disk_pools/">disk_pools</a><br />
-<a href="/providers/azure/storage_pool/iscsi_targets/">iscsi_targets</a><br />
+<a href="/providers/azure/storage_pool/disk_pools_outbound_network_dependencies_endpoints/">disk_pools_outbound_network_dependencies_endpoints</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/azure/storage_pool/iscsi_targets/">iscsi_targets</a><br />
 <a href="/providers/azure/storage_pool/operations/">operations</a><br />
 <a href="/providers/azure/storage_pool/resource_skus/">resource_skus</a><br />
 </div>

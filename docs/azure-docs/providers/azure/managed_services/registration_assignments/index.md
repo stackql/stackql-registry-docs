@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RegistrationAssignments_Get` | `SELECT` | `registrationAssignmentId, scope` | Gets the details of the specified registration assignment. |
-| `RegistrationAssignments_List` | `SELECT` | `scope` | Gets a list of the registration assignments. |
-| `RegistrationAssignments_CreateOrUpdate` | `INSERT` | `registrationAssignmentId, scope` | Creates or updates a registration assignment. |
-| `RegistrationAssignments_Delete` | `DELETE` | `registrationAssignmentId, scope` | Deletes the specified registration assignment. |
+| `get` | `SELECT` | `registrationAssignmentId, scope` | Gets the details of the specified registration assignment. |
+| `list` | `SELECT` | `scope` | Gets a list of the registration assignments. |
+| `create_or_update` | `INSERT` | `registrationAssignmentId, scope` | Creates or updates a registration assignment. |
+| `delete` | `DELETE` | `registrationAssignmentId, scope` | Deletes the specified registration assignment. |
+| `_list` | `EXEC` | `scope` | Gets a list of the registration assignments. |

@@ -29,20 +29,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | The properties of a service instance. |
 | `etag` | `string` | An etag associated with the resource, used for optimistic concurrency when editing it. |
-| `kind` | `string` | The kind of the service. |
 | `identity` | `object` | Setting indicating whether the service has a managed identity associated with it. |
-| `type` | `string` | The resource type. |
+| `kind` | `string` | The kind of the service. |
 | `location` | `string` | The resource location. |
+| `properties` | `object` | The properties of a service instance. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | The resource tags. |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `privateLinkServicesForM365SecurityCenter_Get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Get the metadata of a privateLinkServicesForM365SecurityCenter resource. |
-| `privateLinkServicesForM365SecurityCenter_List` | `SELECT` | `subscriptionId` | Get all the privateLinkServicesForM365SecurityCenter instances in a subscription. |
-| `privateLinkServicesForM365SecurityCenter_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Get all the service instances in a resource group. |
-| `privateLinkServicesForM365SecurityCenter_CreateOrUpdate` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create or update the metadata of a privateLinkServicesForM365SecurityCenter instance. |
-| `privateLinkServicesForM365SecurityCenter_Delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Delete a service instance. |
-| `privateLinkServicesForM365SecurityCenter_Update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Update the metadata of a privateLinkServicesForM365SecurityCenter instance. |
+| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Get the metadata of a privateLinkServicesForM365SecurityCenter resource. |
+| `list` | `SELECT` | `subscriptionId` | Get all the privateLinkServicesForM365SecurityCenter instances in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Get all the service instances in a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create or update the metadata of a privateLinkServicesForM365SecurityCenter instance. |
+| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Delete a service instance. |
+| `_list` | `EXEC` | `subscriptionId` | Get all the privateLinkServicesForM365SecurityCenter instances in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Get all the service instances in a resource group. |
+| `update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Update the metadata of a privateLinkServicesForM365SecurityCenter instance. |

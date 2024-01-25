@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `PrivateLinkResources_Get` | `SELECT` | `accountName, groupName, resourceGroupName, subscriptionId` |
-| `PrivateLinkResources_ListByDatabaseAccount` | `SELECT` | `accountName, resourceGroupName, subscriptionId` |
+| `get` | `SELECT` | `accountName, groupName, resourceGroupName, subscriptionId` |
+| `list_by_database_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` |
+| `_list_by_database_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` |

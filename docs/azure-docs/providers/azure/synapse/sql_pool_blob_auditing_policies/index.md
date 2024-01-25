@@ -27,11 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of a Sql pool blob auditing policy. |
 | `kind` | `string` | Resource kind. |
+| `properties` | `object` | Properties of a Sql pool blob auditing policy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolBlobAuditingPolicies_Get` | `SELECT` | `blobAuditingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get a SQL pool's blob auditing policy. |
-| `SqlPoolBlobAuditingPolicies_ListBySqlPool` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Lists auditing settings of a Sql pool. |
-| `SqlPoolBlobAuditingPolicies_CreateOrUpdate` | `INSERT` | `blobAuditingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Creates or updates a SQL pool's blob auditing policy. |
+| `get` | `SELECT` | `blobAuditingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get a SQL pool's blob auditing policy. |
+| `list_by_sql_pool` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Lists auditing settings of a Sql pool. |
+| `create_or_update` | `INSERT` | `blobAuditingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Creates or updates a SQL pool's blob auditing policy. |
+| `_list_by_sql_pool` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Lists auditing settings of a Sql pool. |

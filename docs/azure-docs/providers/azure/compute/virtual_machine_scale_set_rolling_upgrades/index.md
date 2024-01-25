@@ -29,7 +29,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualMachineScaleSetRollingUpgrades_Cancel` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName` | Cancels the current virtual machine scale set rolling upgrade. |
-| `VirtualMachineScaleSetRollingUpgrades_GetLatest` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName` | Gets the status of the latest virtual machine scale set rolling upgrade. |
-| `VirtualMachineScaleSetRollingUpgrades_StartExtensionUpgrade` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName` | Starts a rolling upgrade to move all extensions for all virtual machine scale set instances to the latest available extension version. Instances which are already running the latest extension versions are not affected. |
-| `VirtualMachineScaleSetRollingUpgrades_StartOSUpgrade` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName` | Starts a rolling upgrade to move all virtual machine scale set instances to the latest available Platform Image OS version. Instances which are already running the latest available OS version are not affected. |
+| `cancel` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName` | Cancels the current virtual machine scale set rolling upgrade. |
+| `start_extension_upgrade` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName` | Starts a rolling upgrade to move all extensions for all virtual machine scale set instances to the latest available extension version. Instances which are already running the latest extension versions are not affected. |
+| `start_os_upgrade` | `EXEC` | `resourceGroupName, subscriptionId, vmScaleSetName` | Starts a rolling upgrade to move all virtual machine scale set instances to the latest available Platform Image OS version. Instances which are already running the latest available OS version are not affected. |

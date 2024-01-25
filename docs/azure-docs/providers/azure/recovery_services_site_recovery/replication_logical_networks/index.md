@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationLogicalNetworks_Get` | `SELECT` | `api-version, fabricName, logicalNetworkName, resourceGroupName, resourceName, subscriptionId` | Gets the details of a logical network. |
-| `ReplicationLogicalNetworks_ListByReplicationFabrics` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists all the logical networks of the Azure Site Recovery fabric. |
+| `get` | `SELECT` | `api-version, fabricName, logicalNetworkName, resourceGroupName, resourceName, subscriptionId` | Gets the details of a logical network. |
+| `list_by_replication_fabrics` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists all the logical networks of the Azure Site Recovery fabric. |
+| `_list_by_replication_fabrics` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists all the logical networks of the Azure Site Recovery fabric. |

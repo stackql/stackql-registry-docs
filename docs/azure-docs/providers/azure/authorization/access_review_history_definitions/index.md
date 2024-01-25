@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AccessReviewHistoryDefinitions_List` | `SELECT` | `subscriptionId` | Lists the accessReviewHistoryDefinitions available from this provider, definition instances are only available for 30 days after creation. |
-| `AccessReviewHistoryDefinitions_GetById` | `EXEC` | `historyDefinitionId, subscriptionId` | Get access review history definition by definition Id |
+| `list` | `SELECT` | `subscriptionId` | Lists the accessReviewHistoryDefinitions available from this provider, definition instances are only available for 30 days after creation. |
+| `_list` | `EXEC` | `subscriptionId` | Lists the accessReviewHistoryDefinitions available from this provider, definition instances are only available for 30 days after creation. |
+| `get_by_id` | `EXEC` | `historyDefinitionId, subscriptionId` | Get access review history definition by definition Id |

@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkspaceManagedSqlServerSecurityAlertPolicy_Get` | `SELECT` | `resourceGroupName, securityAlertPolicyName, subscriptionId, workspaceName` | Get a workspace managed sql server's security alert policy. |
-| `WorkspaceManagedSqlServerSecurityAlertPolicy_List` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Get workspace managed sql server's threat detection policies. |
-| `WorkspaceManagedSqlServerSecurityAlertPolicy_CreateOrUpdate` | `INSERT` | `resourceGroupName, securityAlertPolicyName, subscriptionId, workspaceName` | Create or Update a workspace managed sql server's threat detection policy. |
+| `get` | `SELECT` | `resourceGroupName, securityAlertPolicyName, subscriptionId, workspaceName` | Get a workspace managed sql server's security alert policy. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Get workspace managed sql server's threat detection policies. |
+| `create_or_update` | `INSERT` | `resourceGroupName, securityAlertPolicyName, subscriptionId, workspaceName` | Create or Update a workspace managed sql server's threat detection policy. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Get workspace managed sql server's threat detection policies. |

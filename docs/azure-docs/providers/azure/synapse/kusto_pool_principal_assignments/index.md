@@ -27,13 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | A class representing cluster principal property. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `KustoPoolPrincipalAssignments_Get` | `SELECT` | `kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Gets a Kusto pool principalAssignment. |
-| `KustoPoolPrincipalAssignments_List` | `SELECT` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Lists all Kusto pool principalAssignments. |
-| `KustoPoolPrincipalAssignments_CreateOrUpdate` | `INSERT` | `kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Create a Kusto pool principalAssignment. |
-| `KustoPoolPrincipalAssignments_Delete` | `DELETE` | `kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Deletes a Kusto pool principalAssignment. |
-| `KustoPoolPrincipalAssignments_CheckNameAvailability` | `EXEC` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__name, data__type` | Checks that the principal assignment name is valid and is not already in use. |
+| `get` | `SELECT` | `kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Gets a Kusto pool principalAssignment. |
+| `list` | `SELECT` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Lists all Kusto pool principalAssignments. |
+| `create_or_update` | `INSERT` | `kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Create a Kusto pool principalAssignment. |
+| `delete` | `DELETE` | `kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Deletes a Kusto pool principalAssignment. |
+| `_list` | `EXEC` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Lists all Kusto pool principalAssignments. |
+| `check_name_availability` | `EXEC` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__name, data__type` | Checks that the principal assignment name is valid and is not already in use. |

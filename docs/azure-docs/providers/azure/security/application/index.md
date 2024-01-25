@@ -34,6 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Application_Get` | `SELECT` | `api-version, applicationId, subscriptionId` | Get a specific application for the requested scope by applicationId |
-| `Application_CreateOrUpdate` | `INSERT` | `api-version, applicationId, subscriptionId` | Creates or update a security application on the given subscription. |
-| `Application_Delete` | `DELETE` | `api-version, applicationId, subscriptionId` | Delete an Application over a given scope |
+| `get` | `SELECT` | `api-version, applicationId, subscriptionId` | Get a specific application for the requested scope by applicationId |
+| `create_or_update` | `INSERT` | `api-version, applicationId, subscriptionId` | Creates or update a security application on the given subscription. |
+| `delete` | `DELETE` | `api-version, applicationId, subscriptionId` | Delete an Application over a given scope |

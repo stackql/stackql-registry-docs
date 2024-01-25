@@ -31,14 +31,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `country` | `string` | Country/region name of the address for the tenant. |
 | `countryCode` | `string` | Country/region abbreviation for the tenant. |
 | `defaultDomain` | `string` | The default domain for the tenant. |
-| `tenantId` | `string` | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. |
-| `tenantBrandingLogoUrl` | `string` | The tenant's branding logo URL. Only available for 'Home' tenant category. |
-| `domains` | `array` | The list of domains for the tenant. |
-| `tenantCategory` | `string` | Category of the tenant. |
 | `displayName` | `string` | The display name of the tenant. |
+| `domains` | `array` | The list of domains for the tenant. |
+| `tenantBrandingLogoUrl` | `string` | The tenant's branding logo URL. Only available for 'Home' tenant category. |
+| `tenantCategory` | `string` | Category of the tenant. |
+| `tenantId` | `string` | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. |
 | `tenantType` | `string` | The tenant type. Only available for 'Home' tenant category. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Tenants_List` | `SELECT` |  | Gets the tenants for your account. |
-| `checkResourceName` | `EXEC` | `data__name, data__type` | A resource name is valid if it is not a reserved word, does not contains a reserved word and does not start with a reserved word |
+| `list` | `SELECT` |  | Gets the tenants for your account. |
+| `_list` | `EXEC` |  | Gets the tenants for your account. |
+| `tenants` | `EXEC` | `data__name, data__type` | A resource name is valid if it is not a reserved word, does not contains a reserved word and does not start with a reserved word |

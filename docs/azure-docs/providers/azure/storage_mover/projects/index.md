@@ -32,8 +32,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Projects_Get` | `SELECT` | `projectName, resourceGroupName, storageMoverName, subscriptionId` | Gets a Project resource. |
-| `Projects_List` | `SELECT` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Projects in a Storage Mover. |
-| `Projects_CreateOrUpdate` | `INSERT` | `projectName, resourceGroupName, storageMoverName, subscriptionId` | Creates or updates a Project resource, which is a logical grouping of related jobs. |
-| `Projects_Delete` | `DELETE` | `projectName, resourceGroupName, storageMoverName, subscriptionId` | Deletes a Project resource. |
-| `Projects_Update` | `EXEC` | `projectName, resourceGroupName, storageMoverName, subscriptionId` | Updates properties for a Project resource. Properties not specified in the request body will be unchanged. |
+| `get` | `SELECT` | `projectName, resourceGroupName, storageMoverName, subscriptionId` | Gets a Project resource. |
+| `list` | `SELECT` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Projects in a Storage Mover. |
+| `create_or_update` | `INSERT` | `projectName, resourceGroupName, storageMoverName, subscriptionId` | Creates or updates a Project resource, which is a logical grouping of related jobs. |
+| `delete` | `DELETE` | `projectName, resourceGroupName, storageMoverName, subscriptionId` | Deletes a Project resource. |
+| `_list` | `EXEC` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Projects in a Storage Mover. |
+| `update` | `EXEC` | `projectName, resourceGroupName, storageMoverName, subscriptionId` | Updates properties for a Project resource. Properties not specified in the request body will be unchanged. |

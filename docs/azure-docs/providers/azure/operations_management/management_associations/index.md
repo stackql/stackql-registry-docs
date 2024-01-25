@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagementAssociations_Get` | `SELECT` | `managementAssociationName, providerName, resourceGroupName, resourceName, resourceType, subscriptionId` | Retrieves the user ManagementAssociation. |
-| `ManagementAssociations_ListBySubscription` | `SELECT` | `subscriptionId` | Retrieves the ManagementAssociations list. |
-| `ManagementAssociations_CreateOrUpdate` | `INSERT` | `managementAssociationName, providerName, resourceGroupName, resourceName, resourceType, subscriptionId` | Creates or updates the ManagementAssociation. |
-| `ManagementAssociations_Delete` | `DELETE` | `managementAssociationName, providerName, resourceGroupName, resourceName, resourceType, subscriptionId` | Deletes the ManagementAssociation in the subscription. |
+| `get` | `SELECT` | `managementAssociationName, providerName, resourceGroupName, resourceName, resourceType, subscriptionId` | Retrieves the user ManagementAssociation. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Retrieves the ManagementAssociations list. |
+| `create_or_update` | `INSERT` | `managementAssociationName, providerName, resourceGroupName, resourceName, resourceType, subscriptionId` | Creates or updates the ManagementAssociation. |
+| `delete` | `DELETE` | `managementAssociationName, providerName, resourceGroupName, resourceName, resourceType, subscriptionId` | Deletes the ManagementAssociation in the subscription. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Retrieves the ManagementAssociations list. |

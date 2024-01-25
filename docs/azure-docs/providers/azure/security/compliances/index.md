@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Compliances_Get` | `SELECT` | `api-version, complianceName, scope` | Details of a specific Compliance. |
-| `Compliances_List` | `SELECT` | `api-version, scope` | The Compliance scores of the specific management group. |
+| `get` | `SELECT` | `api-version, complianceName, scope` | Details of a specific Compliance. |
+| `list` | `SELECT` | `api-version, scope` | The Compliance scores of the specific management group. |
+| `_list` | `EXEC` | `api-version, scope` | The Compliance scores of the specific management group. |

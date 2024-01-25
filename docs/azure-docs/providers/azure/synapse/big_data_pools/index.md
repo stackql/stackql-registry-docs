@@ -33,8 +33,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BigDataPools_Get` | `SELECT` | `bigDataPoolName, resourceGroupName, subscriptionId, workspaceName` | Get a Big Data pool. |
-| `BigDataPools_ListByWorkspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | List Big Data pools in a workspace. |
-| `BigDataPools_CreateOrUpdate` | `INSERT` | `bigDataPoolName, resourceGroupName, subscriptionId, workspaceName` | Create a new Big Data pool. |
-| `BigDataPools_Delete` | `DELETE` | `bigDataPoolName, resourceGroupName, subscriptionId, workspaceName` | Delete a Big Data pool from the workspace. |
-| `BigDataPools_Update` | `EXEC` | `bigDataPoolName, resourceGroupName, subscriptionId, workspaceName` | Patch a Big Data pool. |
+| `get` | `SELECT` | `bigDataPoolName, resourceGroupName, subscriptionId, workspaceName` | Get a Big Data pool. |
+| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | List Big Data pools in a workspace. |
+| `create_or_update` | `INSERT` | `bigDataPoolName, resourceGroupName, subscriptionId, workspaceName` | Create a new Big Data pool. |
+| `delete` | `DELETE` | `bigDataPoolName, resourceGroupName, subscriptionId, workspaceName` | Delete a Big Data pool from the workspace. |
+| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | List Big Data pools in a workspace. |
+| `update` | `EXEC` | `bigDataPoolName, resourceGroupName, subscriptionId, workspaceName` | Patch a Big Data pool. |

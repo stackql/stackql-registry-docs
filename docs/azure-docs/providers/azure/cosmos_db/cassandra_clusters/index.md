@@ -29,23 +29,24 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource identifier of the ARM resource. |
 | `name` | `string` | The name of the ARM resource. |
+| `identity` | `object` | Identity for the resource. |
+| `location` | `string` | The location of the resource group to which the resource belongs. |
 | `properties` | `object` | Properties of a managed Cassandra cluster. |
 | `tags` | `object` | Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB". |
 | `type` | `string` | The type of Azure resource. |
-| `identity` | `object` | Identity for the resource. |
-| `location` | `string` | The location of the resource group to which the resource belongs. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CassandraClusters_Get` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Get the properties of a managed Cassandra cluster. |
-| `CassandraClusters_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List all managed Cassandra clusters in this resource group. |
-| `CassandraClusters_ListBySubscription` | `SELECT` | `subscriptionId` | List all managed Cassandra clusters in this subscription. |
-| `CassandraClusters_Delete` | `DELETE` | `clusterName, resourceGroupName, subscriptionId` | Deletes a managed Cassandra cluster. |
-| `CassandraClusters_CreateUpdate` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Create or update a managed Cassandra cluster. When updating, you must specify all writable properties. To update only some properties, use PATCH. |
-| `CassandraClusters_Deallocate` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Deallocate the Managed Cassandra Cluster and Associated Data Centers. Deallocation will deallocate the host virtual machine of this cluster, and reserved the data disk. This won't do anything on an already deallocated cluster. Use Start to restart the cluster. |
-| `CassandraClusters_GetBackup` | `EXEC` | `backupId, clusterName, resourceGroupName, subscriptionId` | Get the properties of an individual backup of this cluster that is available to restore. |
-| `CassandraClusters_InvokeCommand` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, data__command, data__host` | Invoke a command like nodetool for cassandra maintenance  |
-| `CassandraClusters_ListBackups` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | List the backups of this cluster that are available to restore. |
-| `CassandraClusters_Start` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Start the Managed Cassandra Cluster and Associated Data Centers. Start will start the host virtual machine of this cluster with reserved data disk. This won't do anything on an already running cluster. Use Deallocate to deallocate the cluster. |
-| `CassandraClusters_Status` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Gets the CPU, memory, and disk usage statistics for each Cassandra node in a cluster. |
-| `CassandraClusters_Update` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Updates some of the properties of a managed Cassandra cluster. |
+| `get` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Get the properties of a managed Cassandra cluster. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all managed Cassandra clusters in this resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | List all managed Cassandra clusters in this subscription. |
+| `delete` | `DELETE` | `clusterName, resourceGroupName, subscriptionId` | Deletes a managed Cassandra cluster. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all managed Cassandra clusters in this resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | List all managed Cassandra clusters in this subscription. |
+| `create_update` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Create or update a managed Cassandra cluster. When updating, you must specify all writable properties. To update only some properties, use PATCH. |
+| `deallocate` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Deallocate the Managed Cassandra Cluster and Associated Data Centers. Deallocation will deallocate the host virtual machine of this cluster, and reserved the data disk. This won't do anything on an already deallocated cluster. Use Start to restart the cluster. |
+| `invoke_command` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, data__command, data__host` | Invoke a command like nodetool for cassandra maintenance  |
+| `invoke_command_async` | `EXEC` | `clusterName, resourceGroupName, subscriptionId, data__command, data__host` | Invoke a command like nodetool for cassandra maintenance asynchronously |
+| `start` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Start the Managed Cassandra Cluster and Associated Data Centers. Start will start the host virtual machine of this cluster with reserved data disk. This won't do anything on an already running cluster. Use Deallocate to deallocate the cluster. |
+| `status` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Gets the CPU, memory, and disk usage statistics for each Cassandra node in a cluster. |
+| `update` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Updates some of the properties of a managed Cassandra cluster. |

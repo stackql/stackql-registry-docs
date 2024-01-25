@@ -29,17 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Virtual Network Tap properties. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualNetworkTaps_Get` | `SELECT` | `resourceGroupName, subscriptionId, tapName` | Gets information about the specified virtual network tap. |
-| `VirtualNetworkTaps_ListAll` | `SELECT` | `subscriptionId` | Gets all the VirtualNetworkTaps in a subscription. |
-| `VirtualNetworkTaps_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the VirtualNetworkTaps in a subscription. |
-| `VirtualNetworkTaps_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, tapName` | Creates or updates a Virtual Network Tap. |
-| `VirtualNetworkTaps_Delete` | `DELETE` | `resourceGroupName, subscriptionId, tapName` | Deletes the specified virtual network tap. |
-| `VirtualNetworkTaps_UpdateTags` | `EXEC` | `resourceGroupName, subscriptionId, tapName` | Updates an VirtualNetworkTap tags. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, tapName` | Gets information about the specified virtual network tap. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the VirtualNetworkTaps in a subscription. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, tapName` | Creates or updates a Virtual Network Tap. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, tapName` | Deletes the specified virtual network tap. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the VirtualNetworkTaps in a subscription. |
