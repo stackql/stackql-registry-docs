@@ -27,9 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `Location_CheckNameAvailability` | `EXEC` | `locationName, subscriptionId, data__name, data__type` | Checks whether the Batch account name is available in the specified region. |
-| `Location_GetQuotas` | `EXEC` | `locationName, subscriptionId` | Gets the Batch service quotas for the specified subscription at the given location. |
-| `Location_ListSupportedCloudServiceSkus` | `EXEC` | `locationName, subscriptionId` | Gets the list of Batch supported Cloud Service VM sizes available at the given location. |
-| `Location_ListSupportedVirtualMachineSkus` | `EXEC` | `locationName, subscriptionId` | Gets the list of Batch supported Virtual Machine VM sizes available at the given location. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `check_name_availability` | `EXEC` | `locationName, subscriptionId, data__name, data__type` |

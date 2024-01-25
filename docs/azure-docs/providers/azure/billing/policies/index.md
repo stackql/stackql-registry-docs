@@ -29,7 +29,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Policies_GetByBillingProfile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
-| `Policies_GetByCustomer` | `EXEC` | `billingAccountName, customerName` | Lists the policies for a customer. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
-| `Policies_Update` | `EXEC` | `billingAccountName, billingProfileName` | Updates the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
-| `Policies_UpdateCustomer` | `EXEC` | `billingAccountName, customerName` | Updates the policies for a customer. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
+| `get_by_billing_profile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+| `get_by_customer` | `EXEC` | `billingAccountName, customerName` | Lists the policies for a customer. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
+| `update` | `EXEC` | `billingAccountName, billingProfileName` | Updates the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |

@@ -25,18 +25,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
-| `properties` | `object` | The properties of a scope map. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ScopeMaps_Get` | `SELECT` | `registryName, resourceGroupName, scopeMapName, subscriptionId` | Gets the properties of the specified scope map. |
-| `ScopeMaps_List` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the scope maps for the specified container registry. |
-| `ScopeMaps_Create` | `INSERT` | `registryName, resourceGroupName, scopeMapName, subscriptionId` | Creates a scope map for a container registry with the specified parameters. |
-| `ScopeMaps_Delete` | `DELETE` | `registryName, resourceGroupName, scopeMapName, subscriptionId` | Deletes a scope map from a container registry. |
-| `ScopeMaps_Update` | `EXEC` | `registryName, resourceGroupName, scopeMapName, subscriptionId` | Updates a scope map with the specified parameters. |
+| `get` | `SELECT` | `registryName, resourceGroupName, scopeMapName, subscriptionId` | Gets the properties of the specified scope map. |
+| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the scope maps for the specified container registry. |
+| `create` | `INSERT` | `registryName, resourceGroupName, scopeMapName, subscriptionId` | Creates a scope map for a container registry with the specified parameters. |
+| `delete` | `DELETE` | `registryName, resourceGroupName, scopeMapName, subscriptionId` | Deletes a scope map from a container registry. |
+| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` | Lists all the scope maps for the specified container registry. |
+| `update` | `EXEC` | `registryName, resourceGroupName, scopeMapName, subscriptionId` | Updates a scope map with the specified parameters. |

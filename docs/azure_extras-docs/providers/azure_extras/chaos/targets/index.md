@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
+| `location` | `string` | Location of the target resource. |
 | `properties` | `object` | Model that represents the base Target properties model. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `location` | `string` | Location of the target resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Targets_Get` | `SELECT` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Get a Target resource that extends a tracked regional resource. |
-| `Targets_List` | `SELECT` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId` | Get a list of Target resources that extend a tracked regional resource. |
-| `Targets_CreateOrUpdate` | `INSERT` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName, data__properties` | Create or update a Target resource that extends a tracked regional resource. |
-| `Targets_Delete` | `DELETE` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Delete a Target resource that extends a tracked regional resource. |
+| `get` | `SELECT` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Get a Target resource that extends a tracked regional resource. |
+| `list` | `SELECT` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId` | Get a list of Target resources that extend a tracked regional resource. |
+| `create_or_update` | `INSERT` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName, data__properties` | Create or update a Target resource that extends a tracked regional resource. |
+| `delete` | `DELETE` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Delete a Target resource that extends a tracked regional resource. |
+| `_list` | `EXEC` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId` | Get a list of Target resources that extend a tracked regional resource. |

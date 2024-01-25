@@ -29,16 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
-| `type` | `string` | Resource Type |
 | `location` | `string` | Resource Location |
 | `properties` | `object` | Protection container mapping properties. |
+| `type` | `string` | Resource Type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationProtectionContainerMappings_Get` | `SELECT` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Gets the details of a protection container mapping. |
-| `ReplicationProtectionContainerMappings_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the protection container mappings in the vault. |
-| `ReplicationProtectionContainerMappings_ListByReplicationProtectionContainers` | `SELECT` | `api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Lists the protection container mappings for a protection container. |
-| `ReplicationProtectionContainerMappings_Create` | `INSERT` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to create a protection container mapping. |
-| `ReplicationProtectionContainerMappings_Delete` | `DELETE` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to delete or remove a protection container mapping. |
-| `ReplicationProtectionContainerMappings_Purge` | `EXEC` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to purge(force delete) a protection container mapping. |
-| `ReplicationProtectionContainerMappings_Update` | `EXEC` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to update protection container mapping. |
+| `get` | `SELECT` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Gets the details of a protection container mapping. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the protection container mappings in the vault. |
+| `list_by_replication_protection_containers` | `SELECT` | `api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Lists the protection container mappings for a protection container. |
+| `create` | `INSERT` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to create a protection container mapping. |
+| `delete` | `DELETE` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to delete or remove a protection container mapping. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the protection container mappings in the vault. |
+| `_list_by_replication_protection_containers` | `EXEC` | `api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Lists the protection container mappings for a protection container. |
+| `purge` | `EXEC` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to purge(force delete) a protection container mapping. |
+| `update` | `EXEC` | `api-version, fabricName, mappingName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to update protection container mapping. |

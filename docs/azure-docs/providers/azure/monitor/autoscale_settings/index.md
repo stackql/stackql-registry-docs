@@ -27,17 +27,21 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
+| `id` | `string` | Azure resource Id |
+| `name` | `string` | Azure resource name |
+| `location` | `string` | Resource location |
 | `properties` | `object` | A setting that contains all of the configuration for the automatic scaling of a resource. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| `tags` | `object` | Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters. |
+| `type` | `string` | Azure resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AutoscaleSettings_Get` | `SELECT` | `autoscaleSettingName, resourceGroupName, subscriptionId` | Gets an autoscale setting |
-| `AutoscaleSettings_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the autoscale settings for a resource group |
-| `AutoscaleSettings_ListBySubscription` | `SELECT` | `subscriptionId` | Lists the autoscale settings for a subscription |
-| `AutoscaleSettings_CreateOrUpdate` | `INSERT` | `autoscaleSettingName, resourceGroupName, subscriptionId, data__properties` | Creates or updates an autoscale setting. |
-| `AutoscaleSettings_Delete` | `DELETE` | `autoscaleSettingName, resourceGroupName, subscriptionId` | Deletes and autoscale setting |
-| `AutoscaleSettings_Update` | `EXEC` | `autoscaleSettingName, resourceGroupName, subscriptionId` | Updates an existing AutoscaleSettingsResource. To update other fields use the CreateOrUpdate method. |
+| `get` | `SELECT` | `autoscaleSettingName, resourceGroupName, subscriptionId` | Gets an autoscale setting |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the autoscale settings for a resource group |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists the autoscale settings for a subscription |
+| `create_or_update` | `INSERT` | `autoscaleSettingName, resourceGroupName, subscriptionId, data__properties` | Creates or updates an autoscale setting. |
+| `delete` | `DELETE` | `autoscaleSettingName, resourceGroupName, subscriptionId` | Deletes and autoscale setting |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists the autoscale settings for a resource group |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists the autoscale settings for a subscription |
+| `update` | `EXEC` | `autoscaleSettingName, resourceGroupName, subscriptionId` | Updates an existing AutoscaleSettingsResource. To update other fields use the CreateOrUpdate method. |

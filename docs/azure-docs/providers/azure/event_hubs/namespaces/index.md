@@ -1,0 +1,48 @@
+---
+title: namespaces
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - namespaces
+  - event_hubs
+  - azure    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>namespaces</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>azure.event_hubs.namespaces</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `identity` | `object` | Properties to configure Identity for Bring your Own Keys |
+| `location` | `string` | Resource location. |
+| `properties` | `` | Namespace properties supplied for create namespace operation. |
+| `sku` | `object` | SKU parameters supplied to the create namespace operation |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Resource tags. |
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Gets the description of the specified namespace. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the available Namespaces within a subscription, irrespective of the resource groups. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the available Namespaces within a resource group. |
+| `create_or_update` | `INSERT` | `namespaceName, resourceGroupName, subscriptionId` | Creates or updates a namespace. Once created, this namespace's resource manifest is immutable. This operation is idempotent. |
+| `delete` | `DELETE` | `namespaceName, resourceGroupName, subscriptionId` | Deletes an existing namespace. This operation also removes all associated resources under the namespace. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the available Namespaces within a subscription, irrespective of the resource groups. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists the available Namespaces within a resource group. |
+| `check_name_availability` | `EXEC` | `subscriptionId, data__name` | Check the give Namespace name availability. |
+| `regenerate_keys` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, data__keyType` | Regenerates the primary or secondary connection strings for the specified Namespace. |
+| `update` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Creates or updates a namespace. Once created, this namespace's resource manifest is immutable. This operation is idempotent. |

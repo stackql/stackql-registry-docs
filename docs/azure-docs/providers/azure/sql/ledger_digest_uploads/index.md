@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LedgerDigestUploads_Get` | `SELECT` | `databaseName, ledgerDigestUploads, resourceGroupName, serverName, subscriptionId` | Gets the current ledger digest upload configuration for a database. |
-| `LedgerDigestUploads_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets all ledger digest upload settings on a database. |
-| `LedgerDigestUploads_CreateOrUpdate` | `INSERT` | `databaseName, ledgerDigestUploads, resourceGroupName, serverName, subscriptionId` | Enables upload ledger digests to an Azure Storage account or an Azure Confidential Ledger instance. |
-| `LedgerDigestUploads_Disable` | `EXEC` | `databaseName, ledgerDigestUploads, resourceGroupName, serverName, subscriptionId` | Disables uploading ledger digests to an Azure Storage account or an Azure Confidential Ledger instance. |
+| `get` | `SELECT` | `databaseName, ledgerDigestUploads, resourceGroupName, serverName, subscriptionId` | Gets the current ledger digest upload configuration for a database. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets all ledger digest upload settings on a database. |
+| `create_or_update` | `INSERT` | `databaseName, ledgerDigestUploads, resourceGroupName, serverName, subscriptionId` | Enables upload ledger digests to an Azure Storage account or an Azure Confidential Ledger instance. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets all ledger digest upload settings on a database. |
+| `disable` | `EXEC` | `databaseName, ledgerDigestUploads, resourceGroupName, serverName, subscriptionId` | Disables uploading ledger digests to an Azure Storage account or an Azure Confidential Ledger instance. |

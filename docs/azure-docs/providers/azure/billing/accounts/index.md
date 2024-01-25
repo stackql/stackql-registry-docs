@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `properties` | `object` | The properties of the billing account. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BillingAccounts_Get` | `SELECT` | `billingAccountName` | Gets a billing account by its ID. |
-| `BillingAccounts_List` | `SELECT` |  | Lists the billing accounts that a user has access to. |
-| `BillingAccounts_ListInvoiceSectionsByCreateSubscriptionPermission` | `EXEC` | `billingAccountName` | Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
-| `BillingAccounts_Update` | `EXEC` | `billingAccountName` | Updates the properties of a billing account. Currently, displayName and address can be updated. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+| `get` | `SELECT` | `billingAccountName` | Gets a billing account by its ID. |
+| `list` | `SELECT` |  | Lists the billing accounts that a user has access to. |
+| `_list` | `EXEC` |  | Lists the billing accounts that a user has access to. |
+| `update` | `EXEC` | `billingAccountName` | Updates the properties of a billing account. Currently, displayName and address can be updated. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |

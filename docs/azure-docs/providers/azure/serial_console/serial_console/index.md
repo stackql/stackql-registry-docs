@@ -29,7 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DisableConsole` | `EXEC` | `default, subscriptionId` | Disables the Serial Console service for all VMs and VM scale sets in the provided subscription |
-| `EnableConsole` | `EXEC` | `default, subscriptionId` | Enables the Serial Console service for all VMs and VM scale sets in the provided subscription |
-| `GetConsoleStatus` | `EXEC` | `default, subscriptionId` | Gets whether or not Serial Console is disabled for a given subscription |
-| `ListOperations` | `EXEC` |  | Gets a list of Serial Console API operations. |
+| `_serial_console` | `EXEC` |  | Gets a list of Serial Console API operations. |
+| `serial_console` | `EXEC` | `default, subscriptionId` | Enables the Serial Console service for all VMs and VM scale sets in the provided subscription |

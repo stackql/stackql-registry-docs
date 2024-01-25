@@ -29,5 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Forecast_ExternalCloudProviderUsage` | `EXEC` | `externalCloudProviderId, externalCloudProviderType, data__dataset, data__timeframe, data__type` | Lists the forecast charges for external cloud provider type defined. |
-| `Forecast_Usage` | `EXEC` | `scope, data__dataset, data__timeframe, data__type` | Lists the forecast charges for scope defined. |
+| `external_cloud_provider_usage` | `EXEC` | `externalCloudProviderId, externalCloudProviderType, data__dataset, data__timeframe, data__type` | Lists the forecast charges for external cloud provider type defined. |
+| `usage` | `EXEC` | `scope, data__dataset, data__timeframe, data__type` | Lists the forecast charges for scope defined. |

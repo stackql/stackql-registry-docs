@@ -28,9 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CustomDomains_Get` | `SELECT` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId` | Gets an existing custom domain within an endpoint. |
-| `CustomDomains_ListByEndpoint` | `SELECT` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing custom domains within an endpoint. |
-| `CustomDomains_Create` | `INSERT` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId` | Creates a new custom domain within an endpoint. |
-| `CustomDomains_Delete` | `DELETE` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId` | Deletes an existing custom domain within an endpoint. |
-| `CustomDomains_DisableCustomHttps` | `EXEC` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId` | Disable https delivery of the custom domain. |
-| `CustomDomains_EnableCustomHttps` | `EXEC` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId, data__certificateSource, data__protocolType` | Enable https delivery of the custom domain. |
+| `get` | `SELECT` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId` | Gets an existing custom domain within an endpoint. |
+| `list_by_endpoint` | `SELECT` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing custom domains within an endpoint. |
+| `create` | `INSERT` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId` | Creates a new custom domain within an endpoint. |
+| `delete` | `DELETE` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId` | Deletes an existing custom domain within an endpoint. |
+| `_list_by_endpoint` | `EXEC` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing custom domains within an endpoint. |
+| `disable_custom_https` | `EXEC` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId` | Disable https delivery of the custom domain. |
+| `enable_custom_https` | `EXEC` | `customDomainName, endpointName, profileName, resourceGroupName, subscriptionId, data__certificateSource, data__protocolType` | Enable https delivery of the custom domain. |

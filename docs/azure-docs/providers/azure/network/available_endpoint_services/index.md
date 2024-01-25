@@ -33,4 +33,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `AvailableEndpointServices_List` | `SELECT` | `location, subscriptionId` |
+| `list` | `SELECT` | `location, subscriptionId` |
+| `_list` | `EXEC` | `location, subscriptionId` |

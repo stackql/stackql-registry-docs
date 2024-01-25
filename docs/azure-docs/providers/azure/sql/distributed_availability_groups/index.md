@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DistributedAvailabilityGroups_Get` | `SELECT` | `distributedAvailabilityGroupName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a distributed availability group info. |
-| `DistributedAvailabilityGroups_ListByInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of a distributed availability groups in instance. |
-| `DistributedAvailabilityGroups_CreateOrUpdate` | `INSERT` | `distributedAvailabilityGroupName, managedInstanceName, resourceGroupName, subscriptionId` | Creates a distributed availability group between Sql On-Prem and Sql Managed Instance. |
-| `DistributedAvailabilityGroups_Delete` | `DELETE` | `distributedAvailabilityGroupName, managedInstanceName, resourceGroupName, subscriptionId` | Drops a distributed availability group between Sql On-Prem and Sql Managed Instance. |
-| `DistributedAvailabilityGroups_Update` | `EXEC` | `distributedAvailabilityGroupName, managedInstanceName, resourceGroupName, subscriptionId` | Updates a distributed availability group replication mode. |
+| `get` | `SELECT` | `distributedAvailabilityGroupName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a distributed availability group info. |
+| `list_by_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of a distributed availability groups in instance. |
+| `create_or_update` | `INSERT` | `distributedAvailabilityGroupName, managedInstanceName, resourceGroupName, subscriptionId` | Creates a distributed availability group between Sql On-Prem and Sql Managed Instance. |
+| `delete` | `DELETE` | `distributedAvailabilityGroupName, managedInstanceName, resourceGroupName, subscriptionId` | Drops a distributed availability group between Sql On-Prem and Sql Managed Instance. |
+| `_list_by_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of a distributed availability groups in instance. |
+| `update` | `EXEC` | `distributedAvailabilityGroupName, managedInstanceName, resourceGroupName, subscriptionId` | Updates a distributed availability group replication mode. |

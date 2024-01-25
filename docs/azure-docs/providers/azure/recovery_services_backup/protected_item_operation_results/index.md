@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id represents the complete path to the resource. |
 | `name` | `string` | Resource name associated with the resource. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 | `eTag` | `string` | Optional ETag. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Base class for backup items. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ProtectedItemOperationResults_Get` | `SELECT` | `api-version, containerName, fabricName, operationId, protectedItemName, resourceGroupName, subscriptionId, vaultName` |
+| `get` | `SELECT` | `api-version, containerName, fabricName, operationId, protectedItemName, resourceGroupName, subscriptionId, vaultName` |

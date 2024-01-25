@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Namespaces_CheckNameAvailability` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` |
+| `check_name_availability` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` |

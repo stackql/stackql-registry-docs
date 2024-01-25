@@ -32,7 +32,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpoints_Get` | `SELECT` | `clusterName, privateEndpointName, resourceGroupName, subscriptionId` | Gets information about the specified Private Endpoint. |
-| `PrivateEndpoints_ListByCluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Lists the private endpoints in the cluster. |
-| `PrivateEndpoints_CreateOrUpdate` | `INSERT` | `clusterName, privateEndpointName, resourceGroupName, subscriptionId` | Creates a Stream Analytics Private Endpoint or replaces an already existing Private Endpoint. |
-| `PrivateEndpoints_Delete` | `DELETE` | `clusterName, privateEndpointName, resourceGroupName, subscriptionId` | Delete the specified private endpoint. |
+| `get` | `SELECT` | `clusterName, privateEndpointName, resourceGroupName, subscriptionId` | Gets information about the specified Private Endpoint. |
+| `list_by_cluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Lists the private endpoints in the cluster. |
+| `create_or_update` | `INSERT` | `clusterName, privateEndpointName, resourceGroupName, subscriptionId` | Creates a Stream Analytics Private Endpoint or replaces an already existing Private Endpoint. |
+| `delete` | `DELETE` | `clusterName, privateEndpointName, resourceGroupName, subscriptionId` | Delete the specified private endpoint. |
+| `_list_by_cluster` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Lists the private endpoints in the cluster. |

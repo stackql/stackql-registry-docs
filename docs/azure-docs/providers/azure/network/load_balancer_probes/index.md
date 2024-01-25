@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LoadBalancerProbes_Get` | `SELECT` | `loadBalancerName, probeName, resourceGroupName, subscriptionId` | Gets load balancer probe. |
-| `LoadBalancerProbes_List` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the load balancer probes. |
+| `get` | `SELECT` | `loadBalancerName, probeName, resourceGroupName, subscriptionId` | Gets load balancer probe. |
+| `list` | `SELECT` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the load balancer probes. |
+| `_list` | `EXEC` | `loadBalancerName, resourceGroupName, subscriptionId` | Gets all the load balancer probes. |

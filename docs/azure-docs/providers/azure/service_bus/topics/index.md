@@ -29,20 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
+| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The Topic Properties definition. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
-| `location` | `string` | The geo-location where the resource lives |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Topics_Get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId, topicName` | Returns a description for the specified topic. |
-| `Topics_ListByNamespace` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Gets all the topics in a namespace. |
-| `Topics_CreateOrUpdate` | `INSERT` | `namespaceName, resourceGroupName, subscriptionId, topicName` | Creates a topic in the specified namespace. |
-| `Topics_Delete` | `DELETE` | `namespaceName, resourceGroupName, subscriptionId, topicName` | Deletes a topic from the specified namespace and resource group. |
-| `Topics_CreateOrUpdateAuthorizationRule` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, topicName` | Creates an authorization rule for the specified topic. |
-| `Topics_DeleteAuthorizationRule` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, topicName` | Deletes a topic authorization rule. |
-| `Topics_GetAuthorizationRule` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, topicName` | Returns the specified authorization rule. |
-| `Topics_ListAuthorizationRules` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId, topicName` | Gets authorization rules for a topic. |
-| `Topics_ListKeys` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, topicName` | Gets the primary and secondary connection strings for the topic. |
-| `Topics_RegenerateKeys` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, topicName, data__keyType` | Regenerates primary or secondary connection strings for the topic. |
+| `get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId, topicName` | Returns a description for the specified topic. |
+| `list_by_namespace` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Gets all the topics in a namespace. |
+| `create_or_update` | `INSERT` | `namespaceName, resourceGroupName, subscriptionId, topicName` | Creates a topic in the specified namespace. |
+| `delete` | `DELETE` | `namespaceName, resourceGroupName, subscriptionId, topicName` | Deletes a topic from the specified namespace and resource group. |
+| `_list_by_namespace` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` | Gets all the topics in a namespace. |
+| `regenerate_keys` | `EXEC` | `authorizationRuleName, namespaceName, resourceGroupName, subscriptionId, topicName, data__keyType` | Regenerates primary or secondary connection strings for the topic. |

@@ -37,4 +37,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `privateLinkServicesForPowerBI_ListBySubscriptionId` | `SELECT` | `subscriptionId` |
+| `list_by_subscription_id` | `SELECT` | `subscriptionId` |

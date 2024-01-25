@@ -27,15 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Endpoint details |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Endpoints_Get` | `SELECT` | `endpointName, resourceUri` | Gets the endpoint to the resource. |
-| `Endpoints_List` | `SELECT` | `resourceUri` | List of endpoints to the target resource. |
-| `Endpoints_CreateOrUpdate` | `INSERT` | `endpointName, resourceUri` | Create or update the endpoint to the target resource. |
-| `Endpoints_Delete` | `DELETE` | `endpointName, resourceUri` | Deletes the endpoint access to the target resource. |
-| `Endpoints_ListCredentials` | `EXEC` | `endpointName, resourceUri` | Gets the endpoint access credentials to the resource. |
-| `Endpoints_ListManagedProxyDetails` | `EXEC` | `endpointName, resourceUri, data__service` | Fetches the managed proxy details  |
-| `Endpoints_Update` | `EXEC` | `endpointName, resourceUri` | Update the endpoint to the target resource. |
+| `get` | `SELECT` | `endpointName, resourceUri` | Gets the endpoint to the resource. |
+| `list` | `SELECT` | `resourceUri` | List of endpoints to the target resource. |
+| `create_or_update` | `INSERT` | `endpointName, resourceUri` | Create or update the endpoint to the target resource. |
+| `delete` | `DELETE` | `endpointName, resourceUri` | Deletes the endpoint access to the target resource. |
+| `_list` | `EXEC` | `resourceUri` | List of endpoints to the target resource. |
+| `update` | `EXEC` | `endpointName, resourceUri` | Update the endpoint to the target resource. |

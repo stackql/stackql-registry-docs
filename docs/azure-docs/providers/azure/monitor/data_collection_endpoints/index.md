@@ -29,19 +29,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified ID of the resource. |
 | `name` | `string` | The name of the resource. |
-| `kind` | `string` | The kind of the resource. |
 | `etag` | `string` | Resource entity tag (ETag). |
-| `type` | `string` | The type of the resource. |
+| `identity` | `object` | Managed service identity of the resource. |
+| `kind` | `string` | The kind of the resource. |
 | `location` | `string` | The geo-location where the resource lives. |
 | `properties` | `object` | Resource properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `DataCollectionEndpoints_Get` | `SELECT` | `dataCollectionEndpointName, resourceGroupName, subscriptionId` |
-| `DataCollectionEndpoints_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` |
-| `DataCollectionEndpoints_ListBySubscription` | `SELECT` | `subscriptionId` |
-| `DataCollectionEndpoints_Create` | `INSERT` | `dataCollectionEndpointName, resourceGroupName, subscriptionId, data__location` |
-| `DataCollectionEndpoints_Delete` | `DELETE` | `dataCollectionEndpointName, resourceGroupName, subscriptionId` |
-| `DataCollectionEndpoints_Update` | `EXEC` | `dataCollectionEndpointName, resourceGroupName, subscriptionId` |
+| `get` | `SELECT` | `dataCollectionEndpointName, resourceGroupName, subscriptionId` |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` |
+| `list_by_subscription` | `SELECT` | `subscriptionId` |
+| `create` | `INSERT` | `dataCollectionEndpointName, resourceGroupName, subscriptionId, data__location` |
+| `delete` | `DELETE` | `dataCollectionEndpointName, resourceGroupName, subscriptionId` |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` |
+| `update` | `EXEC` | `dataCollectionEndpointName, resourceGroupName, subscriptionId` |

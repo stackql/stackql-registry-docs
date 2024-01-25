@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedServerDnsAliases_Get` | `SELECT` | `dnsAliasName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a server DNS alias. |
-| `ManagedServerDnsAliases_ListByManagedInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed server DNS aliases for a managed server. |
-| `ManagedServerDnsAliases_CreateOrUpdate` | `INSERT` | `dnsAliasName, managedInstanceName, resourceGroupName, subscriptionId` | Creates a managed server DNS alias. |
-| `ManagedServerDnsAliases_Delete` | `DELETE` | `dnsAliasName, managedInstanceName, resourceGroupName, subscriptionId` | Deletes the managed server DNS alias with the given name. |
-| `ManagedServerDnsAliases_Acquire` | `EXEC` | `dnsAliasName, managedInstanceName, resourceGroupName, subscriptionId, data__oldManagedServerDnsAliasResourceId` | Acquires managed server DNS alias from another managed server. |
+| `get` | `SELECT` | `dnsAliasName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a server DNS alias. |
+| `list_by_managed_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed server DNS aliases for a managed server. |
+| `create_or_update` | `INSERT` | `dnsAliasName, managedInstanceName, resourceGroupName, subscriptionId` | Creates a managed server DNS alias. |
+| `delete` | `DELETE` | `dnsAliasName, managedInstanceName, resourceGroupName, subscriptionId` | Deletes the managed server DNS alias with the given name. |
+| `_list_by_managed_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed server DNS aliases for a managed server. |
+| `acquire` | `EXEC` | `dnsAliasName, managedInstanceName, resourceGroupName, subscriptionId, data__oldManagedServerDnsAliasResourceId` | Acquires managed server DNS alias from another managed server. |

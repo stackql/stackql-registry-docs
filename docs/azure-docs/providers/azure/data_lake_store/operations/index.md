@@ -28,9 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the operation. |
-| `origin` | `string` | The intended executor of the operation. |
 | `display` | `object` | The display information for a particular operation. |
+| `origin` | `string` | The intended executor of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Operations_List` | `SELECT` |  |
+| `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

@@ -37,9 +37,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Solutions_Get` | `SELECT` | `resourceGroupName, solutionName, subscriptionId` | Retrieves the user solution. |
-| `Solutions_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Retrieves the solution list. It will retrieve both first party and third party solutions |
-| `Solutions_ListBySubscription` | `SELECT` | `subscriptionId` | Retrieves the solution list. It will retrieve both first party and third party solutions |
-| `Solutions_CreateOrUpdate` | `INSERT` | `resourceGroupName, solutionName, subscriptionId` | Creates or updates the Solution. |
-| `Solutions_Delete` | `DELETE` | `resourceGroupName, solutionName, subscriptionId` | Deletes the solution in the subscription. |
-| `Solutions_Update` | `EXEC` | `resourceGroupName, solutionName, subscriptionId` | Patch a Solution. Only updating tags supported. |
+| `get` | `SELECT` | `resourceGroupName, solutionName, subscriptionId` | Retrieves the user solution. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Retrieves the solution list. It will retrieve both first party and third party solutions |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Retrieves the solution list. It will retrieve both first party and third party solutions |
+| `create_or_update` | `INSERT` | `resourceGroupName, solutionName, subscriptionId` | Creates or updates the Solution. |
+| `delete` | `DELETE` | `resourceGroupName, solutionName, subscriptionId` | Deletes the solution in the subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Retrieves the solution list. It will retrieve both first party and third party solutions |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Retrieves the solution list. It will retrieve both first party and third party solutions |
+| `update` | `EXEC` | `resourceGroupName, solutionName, subscriptionId` | Patch a Solution. Only updating tags supported. |

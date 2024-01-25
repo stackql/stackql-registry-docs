@@ -25,12 +25,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | The properties of Analysis Result resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AnalysisResults_Get` | `SELECT` | `analysisResultName, packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName` | Gets an Analysis Result of a Test Result by name. |
-| `AnalysisResults_List` | `SELECT` | `analysisResultType, packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName` | Lists the Analysis Results of a Test Result. The result collection will only contain one element as all the data will be nested in a singleton object. |
+| `get` | `SELECT` | `analysisResultName, packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName` | Gets an Analysis Result of a Test Result by name. |
+| `list` | `SELECT` | `analysisResultType, packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName` | Lists the Analysis Results of a Test Result. The result collection will only contain one element as all the data will be nested in a singleton object. |
+| `_list` | `EXEC` | `analysisResultType, packageName, resourceGroupName, subscriptionId, testBaseAccountName, testResultName` | Lists the Analysis Results of a Test Result. The result collection will only contain one element as all the data will be nested in a singleton object. |

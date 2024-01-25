@@ -33,6 +33,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `tags` | `object` | the resource tags. |
 | `type` | `string` | Resource type. |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `SaasResources_List` | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `list` | `SELECT` |  | Get All Resources |
+| `_list` | `EXEC` |  | Get All Resources |
+| `saas_resources` | `EXEC` | `resourceId` | Gets the ISV access token for a SaaS resource. |

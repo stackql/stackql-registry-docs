@@ -33,8 +33,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `KustoPoolDatabases_Get` | `SELECT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns a database. |
-| `KustoPoolDatabases_ListByKustoPool` | `SELECT` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of databases of the given Kusto pool. |
-| `KustoPoolDatabases_CreateOrUpdate` | `INSERT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Creates or updates a database. |
-| `KustoPoolDatabases_Delete` | `DELETE` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Deletes the database with the given name. |
-| `KustoPoolDatabases_Update` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Updates a database. |
+| `get` | `SELECT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns a database. |
+| `list_by_kusto_pool` | `SELECT` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of databases of the given Kusto pool. |
+| `create_or_update` | `INSERT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Creates or updates a database. |
+| `delete` | `DELETE` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Deletes the database with the given name. |
+| `_list_by_kusto_pool` | `EXEC` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of databases of the given Kusto pool. |
+| `update` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Updates a database. |

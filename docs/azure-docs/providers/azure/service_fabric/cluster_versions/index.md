@@ -27,12 +27,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` |  |
-| `nextLink` | `string` | The URL to use for getting the next set of results. |
+| `id` | `string` | The identification of the result |
+| `name` | `string` | The name of the result |
+| `properties` | `object` | The detail of the Service Fabric runtime version result |
+| `type` | `string` | The result resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ClusterVersions_Get` | `SELECT` | `api-version, clusterVersion, location, subscriptionId` | Gets information about an available Service Fabric cluster code version. |
-| `ClusterVersions_List` | `SELECT` | `api-version, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by location. |
-| `ClusterVersions_ListByEnvironment` | `SELECT` | `api-version, environment, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by environment. |
-| `ClusterVersions_GetByEnvironment` | `EXEC` | `api-version, clusterVersion, environment, location, subscriptionId` | Gets information about an available Service Fabric cluster code version by environment. |
+| `get` | `SELECT` | `api-version, clusterVersion, location, subscriptionId` | Gets information about an available Service Fabric cluster code version. |
+| `list` | `SELECT` | `api-version, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by location. |
+| `list_by_environment` | `SELECT` | `api-version, environment, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by environment. |
+| `_get` | `EXEC` | `api-version, clusterVersion, location, subscriptionId` | Gets information about an available Service Fabric cluster code version. |
+| `_get_by_environment` | `EXEC` | `api-version, clusterVersion, environment, location, subscriptionId` | Gets information about an available Service Fabric cluster code version by environment. |
+| `_list` | `EXEC` | `api-version, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by location. |
+| `_list_by_environment` | `EXEC` | `api-version, environment, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by environment. |
+| `get_by_environment` | `EXEC` | `api-version, clusterVersion, environment, location, subscriptionId` | Gets information about an available Service Fabric cluster code version by environment. |

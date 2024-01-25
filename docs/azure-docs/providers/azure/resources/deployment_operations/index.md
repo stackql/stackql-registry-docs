@@ -33,13 +33,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DeploymentOperations_Get` | `SELECT` | `deploymentName, operationId, resourceGroupName, subscriptionId` | Gets a deployments operation. |
-| `DeploymentOperations_List` | `SELECT` | `deploymentName, resourceGroupName, subscriptionId` | Gets all deployments operations for a deployment. |
-| `DeploymentOperations_GetAtManagementGroupScope` | `EXEC` | `deploymentName, groupId, operationId` | Gets a deployments operation. |
-| `DeploymentOperations_GetAtScope` | `EXEC` | `deploymentName, operationId, scope` | Gets a deployments operation. |
-| `DeploymentOperations_GetAtSubscriptionScope` | `EXEC` | `deploymentName, operationId, subscriptionId` | Gets a deployments operation. |
-| `DeploymentOperations_GetAtTenantScope` | `EXEC` | `deploymentName, operationId` | Gets a deployments operation. |
-| `DeploymentOperations_ListAtManagementGroupScope` | `EXEC` | `deploymentName, groupId` | Gets all deployments operations for a deployment. |
-| `DeploymentOperations_ListAtScope` | `EXEC` | `deploymentName, scope` | Gets all deployments operations for a deployment. |
-| `DeploymentOperations_ListAtSubscriptionScope` | `EXEC` | `deploymentName, subscriptionId` | Gets all deployments operations for a deployment. |
-| `DeploymentOperations_ListAtTenantScope` | `EXEC` | `deploymentName` | Gets all deployments operations for a deployment. |
+| `get` | `SELECT` | `deploymentName, operationId, resourceGroupName, subscriptionId` | Gets a deployments operation. |
+| `list` | `SELECT` | `deploymentName, resourceGroupName, subscriptionId` | Gets all deployments operations for a deployment. |
+| `_list` | `EXEC` | `deploymentName, resourceGroupName, subscriptionId` | Gets all deployments operations for a deployment. |

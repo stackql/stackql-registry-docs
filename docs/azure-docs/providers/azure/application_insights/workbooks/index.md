@@ -27,19 +27,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `etag` | `string` | Resource etag |
+| `identity` | `object` | Identity used for BYOS |
 | `kind` | `string` | The kind of workbook. Only valid value is shared. |
 | `properties` | `object` | Properties that contain a workbook. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `etag` | `string` | Resource etag |
-| `identity` | `object` | Identity used for BYOS |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Workbooks_Get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Get a single workbook by its resourceName. |
-| `Workbooks_ListByResourceGroup` | `SELECT` | `category, resourceGroupName, subscriptionId` | Get all Workbooks defined within a specified resource group and category. |
-| `Workbooks_ListBySubscription` | `SELECT` | `category, subscriptionId` | Get all Workbooks defined within a specified subscription and category. |
-| `Workbooks_CreateOrUpdate` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create a new workbook. |
-| `Workbooks_Delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Delete a workbook. |
-| `Workbooks_RevisionGet` | `EXEC` | `resourceGroupName, resourceName, revisionId, subscriptionId` | Get a single workbook revision defined by its revisionId. |
-| `Workbooks_RevisionsList` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Get the revisions for the workbook defined by its resourceName. |
-| `Workbooks_Update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Updates a workbook that has already been added. |
+| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Get a single workbook by its resourceName. |
+| `list_by_resource_group` | `SELECT` | `category, resourceGroupName, subscriptionId` | Get all Workbooks defined within a specified resource group and category. |
+| `list_by_subscription` | `SELECT` | `category, subscriptionId` | Get all Workbooks defined within a specified subscription and category. |
+| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Create a new workbook. |
+| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Delete a workbook. |
+| `_list_by_resource_group` | `EXEC` | `category, resourceGroupName, subscriptionId` | Get all Workbooks defined within a specified resource group and category. |
+| `_list_by_subscription` | `EXEC` | `category, subscriptionId` | Get all Workbooks defined within a specified subscription and category. |
+| `_revisions_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Get the revisions for the workbook defined by its resourceName. |
+| `revision_get` | `EXEC` | `resourceGroupName, resourceName, revisionId, subscriptionId` | Get a single workbook revision defined by its revisionId. |
+| `revisions_list` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Get the revisions for the workbook defined by its resourceName. |
+| `update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Updates a workbook that has already been added. |

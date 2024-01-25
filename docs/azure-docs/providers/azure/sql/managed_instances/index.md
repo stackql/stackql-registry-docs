@@ -27,20 +27,27 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `sku` | `object` | An ARM Resource SKU. |
-| `tags` | `object` | Resource tags. |
 | `identity` | `object` | Azure Active Directory identity configuration for a resource. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | The properties of a managed instance. |
+| `sku` | `object` | An ARM Resource SKU. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedInstances_List` | `SELECT` | `subscriptionId` | Gets a list of all managed instances in the subscription. |
-| `ManagedInstances_ListByInstancePool` | `SELECT` | `instancePoolName, resourceGroupName, subscriptionId` | Gets a list of all managed instances in an instance pool. |
-| `ManagedInstances_ListByManagedInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Get top resource consuming queries of a managed instance. |
-| `ManagedInstances_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of managed instances in a resource group. |
-| `ManagedInstances_CreateOrUpdate` | `INSERT` | `managedInstanceName, resourceGroupName, subscriptionId, data__location` | Creates or updates a managed instance. |
-| `ManagedInstances_Delete` | `DELETE` | `managedInstanceName, resourceGroupName, subscriptionId` | Deletes a managed instance. |
-| `ManagedInstances_Failover` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Failovers a managed instance. |
-| `ManagedInstances_Get` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed instance. |
-| `ManagedInstances_Update` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Updates a managed instance. |
+| `list` | `SELECT` | `subscriptionId` | Gets a list of all managed instances in the subscription. |
+| `list_by_instance_pool` | `SELECT` | `instancePoolName, resourceGroupName, subscriptionId` | Gets a list of all managed instances in an instance pool. |
+| `list_by_managed_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Get top resource consuming queries of a managed instance. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of managed instances in a resource group. |
+| `create_or_update` | `INSERT` | `managedInstanceName, resourceGroupName, subscriptionId, data__location` | Creates or updates a managed instance. |
+| `delete` | `DELETE` | `managedInstanceName, resourceGroupName, subscriptionId` | Deletes a managed instance. |
+| `_list` | `EXEC` | `subscriptionId` | Gets a list of all managed instances in the subscription. |
+| `_list_by_instance_pool` | `EXEC` | `instancePoolName, resourceGroupName, subscriptionId` | Gets a list of all managed instances in an instance pool. |
+| `_list_by_managed_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Get top resource consuming queries of a managed instance. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets a list of managed instances in a resource group. |
+| `exec_get` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed instance. |
+| `failover` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Failovers a managed instance. |
+| `refresh_status` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Refresh external governance enablement status. |
+| `start` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Starts the managed instance. |
+| `stop` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Stops the managed instance. |
+| `update` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Updates a managed instance. |

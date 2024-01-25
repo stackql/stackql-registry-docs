@@ -25,11 +25,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | Name of the operation. |
-| `display` | `object` | Display object with properties of the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Operations_List` | `SELECT` |  |
+| `list` | `SELECT` |  |

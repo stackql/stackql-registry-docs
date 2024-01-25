@@ -32,11 +32,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolSensitivityLabels_Get` | `SELECT` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Gets the sensitivity label of a given column |
-| `SqlPoolSensitivityLabels_CreateOrUpdate` | `INSERT` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Creates or updates the sensitivity label of a given column in a Sql pool |
-| `SqlPoolSensitivityLabels_Delete` | `DELETE` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Deletes the sensitivity label of a given column in a Sql pool |
-| `SqlPoolSensitivityLabels_DisableRecommendation` | `EXEC` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Disables sensitivity recommendations on a given column |
-| `SqlPoolSensitivityLabels_EnableRecommendation` | `EXEC` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Enables sensitivity recommendations on a given column (recommendations are enabled by default on all columns) |
-| `SqlPoolSensitivityLabels_ListCurrent` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Gets SQL pool sensitivity labels. |
-| `SqlPoolSensitivityLabels_ListRecommended` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Gets sensitivity labels of a given SQL pool. |
-| `SqlPoolSensitivityLabels_Update` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Update sensitivity labels of a given SQL Pool using an operations batch. |
+| `get` | `SELECT` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Gets the sensitivity label of a given column |
+| `create_or_update` | `INSERT` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Creates or updates the sensitivity label of a given column in a Sql pool |
+| `delete` | `DELETE` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Deletes the sensitivity label of a given column in a Sql pool |
+| `disable_recommendation` | `EXEC` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Disables sensitivity recommendations on a given column |
+| `enable_recommendation` | `EXEC` | `columnName, resourceGroupName, schemaName, sensitivityLabelSource, sqlPoolName, subscriptionId, tableName, workspaceName` | Enables sensitivity recommendations on a given column (recommendations are enabled by default on all columns) |
+| `update` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Update sensitivity labels of a given SQL Pool using an operations batch. |

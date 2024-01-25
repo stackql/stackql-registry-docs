@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BlobInventoryPolicies_Get` | `SELECT` | `accountName, blobInventoryPolicyName, resourceGroupName, subscriptionId` | Gets the blob inventory policy associated with the specified storage account. |
-| `BlobInventoryPolicies_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the blob inventory policy associated with the specified storage account. |
-| `BlobInventoryPolicies_CreateOrUpdate` | `INSERT` | `accountName, blobInventoryPolicyName, resourceGroupName, subscriptionId` | Sets the blob inventory policy to the specified storage account. |
-| `BlobInventoryPolicies_Delete` | `DELETE` | `accountName, blobInventoryPolicyName, resourceGroupName, subscriptionId` | Deletes the blob inventory policy associated with the specified storage account. |
+| `get` | `SELECT` | `accountName, blobInventoryPolicyName, resourceGroupName, subscriptionId` | Gets the blob inventory policy associated with the specified storage account. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the blob inventory policy associated with the specified storage account. |
+| `create_or_update` | `INSERT` | `accountName, blobInventoryPolicyName, resourceGroupName, subscriptionId` | Sets the blob inventory policy to the specified storage account. |
+| `delete` | `DELETE` | `accountName, blobInventoryPolicyName, resourceGroupName, subscriptionId` | Deletes the blob inventory policy associated with the specified storage account. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Gets the blob inventory policy associated with the specified storage account. |

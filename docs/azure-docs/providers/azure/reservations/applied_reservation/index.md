@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `GetAppliedReservationList` | `EXEC` | `subscriptionId` |
+| `applied_reservation` | `EXEC` | `subscriptionId` |

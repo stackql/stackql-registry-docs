@@ -29,15 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
 | `location` | `string` | Resource location |
 | `properties` | `object` | Describes the properties of a gallery Application Definition. |
+| `tags` | `object` | Resource tags |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GalleryApplications_Get` | `SELECT` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Retrieves information about a gallery Application Definition. |
-| `GalleryApplications_ListByGallery` | `SELECT` | `galleryName, resourceGroupName, subscriptionId` | List gallery Application Definitions in a gallery. |
-| `GalleryApplications_CreateOrUpdate` | `INSERT` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Create or update a gallery Application Definition. |
-| `GalleryApplications_Delete` | `DELETE` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Delete a gallery Application. |
-| `GalleryApplications_Update` | `EXEC` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Update a gallery Application Definition. |
+| `get` | `SELECT` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Retrieves information about a gallery Application Definition. |
+| `list_by_gallery` | `SELECT` | `galleryName, resourceGroupName, subscriptionId` | List gallery Application Definitions in a gallery. |
+| `create_or_update` | `INSERT` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Create or update a gallery Application Definition. |
+| `delete` | `DELETE` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Delete a gallery Application. |
+| `_list_by_gallery` | `EXEC` | `galleryName, resourceGroupName, subscriptionId` | List gallery Application Definitions in a gallery. |
+| `update` | `EXEC` | `galleryApplicationName, galleryName, resourceGroupName, subscriptionId` | Update a gallery Application Definition. |

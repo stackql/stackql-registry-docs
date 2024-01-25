@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The operation Id. |
 | `name` | `string` | The operation name. |
+| `endTime` | `string` | The end time of the operation. |
+| `error` | `object` | Describes the format of Error response. |
 | `properties` | `object` | Additional operation-specific output. |
 | `startTime` | `string` | The start time of the operation. |
 | `status` | `string` | The status of the operation. |
-| `endTime` | `string` | The end time of the operation. |
-| `error` | `object` | Describes the format of Error response. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `AscOperations_Get` | `SELECT` | `location, operationId, subscriptionId` |
+| `get` | `SELECT` | `location, operationId, subscriptionId` |

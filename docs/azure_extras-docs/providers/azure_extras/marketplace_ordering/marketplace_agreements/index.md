@@ -35,9 +35,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `MarketplaceAgreements_Get` | `SELECT` | `offerId, offerType, planId, publisherId, subscriptionId` | Get marketplace terms. |
-| `MarketplaceAgreements_List` | `SELECT` | `subscriptionId` | List marketplace agreements in the subscription. |
-| `MarketplaceAgreements_Create` | `INSERT` | `offerId, offerType, planId, publisherId, subscriptionId` | Save marketplace terms. |
-| `MarketplaceAgreements_Cancel` | `EXEC` | `offerId, planId, publisherId, subscriptionId` | Cancel marketplace terms. |
-| `MarketplaceAgreements_GetAgreement` | `EXEC` | `offerId, planId, publisherId, subscriptionId` | Get marketplace agreement. |
-| `MarketplaceAgreements_Sign` | `EXEC` | `offerId, planId, publisherId, subscriptionId` | Sign marketplace terms. |
+| `get` | `SELECT` | `offerId, offerType, planId, publisherId, subscriptionId` | Get marketplace terms. |
+| `list` | `SELECT` | `subscriptionId` | List marketplace agreements in the subscription. |
+| `create` | `INSERT` | `offerId, offerType, planId, publisherId, subscriptionId` | Save marketplace terms. |
+| `_list` | `EXEC` | `subscriptionId` | List marketplace agreements in the subscription. |
+| `cancel` | `EXEC` | `offerId, planId, publisherId, subscriptionId` | Cancel marketplace terms. |
+| `sign` | `EXEC` | `offerId, planId, publisherId, subscriptionId` | Sign marketplace terms. |

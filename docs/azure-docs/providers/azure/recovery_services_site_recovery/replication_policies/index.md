@@ -35,8 +35,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationPolicies_Get` | `SELECT` | `api-version, policyName, resourceGroupName, resourceName, subscriptionId` | Gets the details of a replication policy. |
-| `ReplicationPolicies_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the replication policies for a vault. |
-| `ReplicationPolicies_Create` | `INSERT` | `api-version, policyName, resourceGroupName, resourceName, subscriptionId` | The operation to create a replication policy. |
-| `ReplicationPolicies_Delete` | `DELETE` | `api-version, policyName, resourceGroupName, resourceName, subscriptionId` | The operation to delete a replication policy. |
-| `ReplicationPolicies_Update` | `EXEC` | `api-version, policyName, resourceGroupName, resourceName, subscriptionId` | The operation to update a replication policy. |
+| `get` | `SELECT` | `api-version, policyName, resourceGroupName, resourceName, subscriptionId` | Gets the details of a replication policy. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the replication policies for a vault. |
+| `create` | `INSERT` | `api-version, policyName, resourceGroupName, resourceName, subscriptionId` | The operation to create a replication policy. |
+| `delete` | `DELETE` | `api-version, policyName, resourceGroupName, resourceName, subscriptionId` | The operation to delete a replication policy. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the replication policies for a vault. |
+| `update` | `EXEC` | `api-version, policyName, resourceGroupName, resourceName, subscriptionId` | The operation to update a replication policy. |

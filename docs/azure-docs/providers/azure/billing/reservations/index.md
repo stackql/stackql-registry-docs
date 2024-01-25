@@ -29,12 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The id of the reservation. |
 | `name` | `string` | The name of the reservation. |
+| `location` | `string` | The location of the reservation. |
 | `properties` | `object` | The property of reservation object. |
 | `sku` | `object` | The property of reservation sku object. |
 | `type` | `string` | The type of the reservation. |
-| `location` | `string` | The location of the reservation. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Reservations_ListByBillingAccount` | `SELECT` | `billingAccountName` | Lists the reservations for a billing account and the roll up counts of reservations group by provisioning states. |
-| `Reservations_ListByBillingProfile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the reservations for a billing profile and the roll up counts of reservations group by provisioning state. |
+| `list_by_billing_account` | `SELECT` | `billingAccountName` | Lists the reservations for a billing account and the roll up counts of reservations group by provisioning states. |
+| `list_by_billing_profile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the reservations for a billing profile and the roll up counts of reservations group by provisioning state. |
+| `_list_by_billing_account` | `EXEC` | `billingAccountName` | Lists the reservations for a billing account and the roll up counts of reservations group by provisioning states. |
+| `_list_by_billing_profile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the reservations for a billing profile and the roll up counts of reservations group by provisioning state. |

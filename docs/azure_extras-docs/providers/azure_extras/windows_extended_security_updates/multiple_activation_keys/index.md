@@ -27,15 +27,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | MAK key specific properties. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `MultipleActivationKeys_Get` | `SELECT` | `multipleActivationKeyName, resourceGroupName, subscriptionId` | Get a MAK key. |
-| `MultipleActivationKeys_List` | `SELECT` | `subscriptionId` | List all Multiple Activation Keys (MAK) created for a subscription. |
-| `MultipleActivationKeys_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List all Multiple Activation Keys (MAK) in a resource group. |
-| `MultipleActivationKeys_Create` | `INSERT` | `multipleActivationKeyName, resourceGroupName, subscriptionId` | Create a MAK key. |
-| `MultipleActivationKeys_Delete` | `DELETE` | `multipleActivationKeyName, resourceGroupName, subscriptionId` | Delete a MAK key. |
-| `MultipleActivationKeys_Update` | `EXEC` | `multipleActivationKeyName, resourceGroupName, subscriptionId` | Update a MAK key. |
+| `get` | `SELECT` | `multipleActivationKeyName, resourceGroupName, subscriptionId` | Get a MAK key. |
+| `list` | `SELECT` | `subscriptionId` | List all Multiple Activation Keys (MAK) created for a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all Multiple Activation Keys (MAK) in a resource group. |
+| `create` | `INSERT` | `multipleActivationKeyName, resourceGroupName, subscriptionId` | Create a MAK key. |
+| `delete` | `DELETE` | `multipleActivationKeyName, resourceGroupName, subscriptionId` | Delete a MAK key. |
+| `_list` | `EXEC` | `subscriptionId` | List all Multiple Activation Keys (MAK) created for a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all Multiple Activation Keys (MAK) in a resource group. |
+| `update` | `EXEC` | `multipleActivationKeyName, resourceGroupName, subscriptionId` | Update a MAK key. |

@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `properties` | `object` | Properties of connector. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Connectors_Get` | `SELECT` | `connectorName, hubName, resourceGroupName, subscriptionId` | Gets a connector in the hub. |
-| `Connectors_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the connectors in the specified hub. |
-| `Connectors_CreateOrUpdate` | `INSERT` | `connectorName, hubName, resourceGroupName, subscriptionId` | Creates a connector or updates an existing connector in the hub. |
-| `Connectors_Delete` | `DELETE` | `connectorName, hubName, resourceGroupName, subscriptionId` | Deletes a connector in the hub. |
+| `get` | `SELECT` | `connectorName, hubName, resourceGroupName, subscriptionId` | Gets a connector in the hub. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the connectors in the specified hub. |
+| `create_or_update` | `INSERT` | `connectorName, hubName, resourceGroupName, subscriptionId` | Creates a connector or updates an existing connector in the hub. |
+| `delete` | `DELETE` | `connectorName, hubName, resourceGroupName, subscriptionId` | Deletes a connector in the hub. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all the connectors in the specified hub. |

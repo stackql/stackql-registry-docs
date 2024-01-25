@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-SaaS  
+Microsoft SaaS Management Client  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>19</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>24</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ SaaS
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_extras.saas</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>SaaS (Microsoft.SaaS)</td></tr>
-<tr><td><b>Description</b></td><td>SaaS</td></tr>
-<tr><td><b>Id</b></td><td><code>saas:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Microsoft SaaS</td></tr>
+<tr><td><b>Description</b></td><td>Microsoft SaaS Management Client</td></tr>
+<tr><td><b>Id</b></td><td><code>saas:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,11 +42,13 @@ SaaS
 <a href="/providers/azure_extras/saas/applications/">applications</a><br />
 <a href="/providers/azure_extras/saas/operation/">operation</a><br />
 <a href="/providers/azure_extras/saas/operations/">operations</a><br />
+<a href="/providers/azure_extras/saas/resource/">resource</a><br />
 <a href="/providers/azure_extras/saas/resources/">resources</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure_extras/saas/saas/">saas</a><br />
-<a href="/providers/azure_extras/saas/saas_resources/">saas_resources</a><br />
 <a href="/providers/azure_extras/saas/subscription_level/">subscription_level</a><br />
+<a href="/providers/azure_extras/saas/subscription_level_access_token/">subscription_level_access_token</a><br />
+<a href="/providers/azure_extras/saas/subscription_level_to_unsubscribed/">subscription_level_to_unsubscribed</a><br />
 </div>
 </div>

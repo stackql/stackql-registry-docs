@@ -28,7 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ComponentLinkedStorageAccounts_Get` | `SELECT` | `resourceGroupName, resourceName, storageType, subscriptionId` | Returns the current linked storage settings for an Application Insights component. |
-| `ComponentLinkedStorageAccounts_Delete` | `DELETE` | `resourceGroupName, resourceName, storageType, subscriptionId` | Delete linked storage accounts for an Application Insights component. |
-| `ComponentLinkedStorageAccounts_CreateAndUpdate` | `EXEC` | `resourceGroupName, resourceName, storageType, subscriptionId` | Replace current linked storage account for an Application Insights component. |
-| `ComponentLinkedStorageAccounts_Update` | `EXEC` | `resourceGroupName, resourceName, storageType, subscriptionId` | Update linked storage accounts for an Application Insights component. |
+| `get` | `SELECT` | `resourceGroupName, resourceName, storageType, subscriptionId` | Returns the current linked storage settings for an Application Insights component. |
+| `delete` | `DELETE` | `resourceGroupName, resourceName, storageType, subscriptionId` | Delete linked storage accounts for an Application Insights component. |
+| `create_and_update` | `EXEC` | `resourceGroupName, resourceName, storageType, subscriptionId` | Replace current linked storage account for an Application Insights component. |
+| `update` | `EXEC` | `resourceGroupName, resourceName, storageType, subscriptionId` | Update linked storage accounts for an Application Insights component. |

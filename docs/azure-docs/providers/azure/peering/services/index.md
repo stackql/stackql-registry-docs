@@ -29,18 +29,20 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the resource. |
 | `name` | `string` | The name of the resource. |
-| `tags` | `object` | The resource tags. |
-| `type` | `string` | The type of the resource. |
 | `location` | `string` | The location of the resource. |
 | `properties` | `object` | The properties that define connectivity to the Peering Service. |
 | `sku` | `object` | The SKU that defines the type of the peering service. |
+| `tags` | `object` | The resource tags. |
+| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PeeringServices_Get` | `SELECT` | `peeringServiceName, resourceGroupName, subscriptionId` | Gets an existing peering service with the specified name under the given subscription and resource group. |
-| `PeeringServices_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the peering services under the given subscription and resource group. |
-| `PeeringServices_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all of the peerings under the given subscription. |
-| `PeeringServices_CreateOrUpdate` | `INSERT` | `peeringServiceName, resourceGroupName, subscriptionId, data__location` | Creates a new peering service or updates an existing peering with the specified name under the given subscription and resource group. |
-| `PeeringServices_Delete` | `DELETE` | `peeringServiceName, resourceGroupName, subscriptionId` | Deletes an existing peering service with the specified name under the given subscription and resource group. |
-| `PeeringServices_InitializeConnectionMonitor` | `EXEC` | `subscriptionId` | Initialize Peering Service for Connection Monitor functionality |
-| `PeeringServices_Update` | `EXEC` | `peeringServiceName, resourceGroupName, subscriptionId` | Updates tags for a peering service with the specified name under the given subscription and resource group. |
+| `get` | `SELECT` | `peeringServiceName, resourceGroupName, subscriptionId` | Gets an existing peering service with the specified name under the given subscription and resource group. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the peering services under the given subscription and resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all of the peerings under the given subscription. |
+| `create_or_update` | `INSERT` | `peeringServiceName, resourceGroupName, subscriptionId, data__location` | Creates a new peering service or updates an existing peering with the specified name under the given subscription and resource group. |
+| `delete` | `DELETE` | `peeringServiceName, resourceGroupName, subscriptionId` | Deletes an existing peering service with the specified name under the given subscription and resource group. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all of the peering services under the given subscription and resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all of the peerings under the given subscription. |
+| `initialize_connection_monitor` | `EXEC` | `subscriptionId` | Initialize Peering Service for Connection Monitor functionality |
+| `update` | `EXEC` | `peeringServiceName, resourceGroupName, subscriptionId` | Updates tags for a peering service with the specified name under the given subscription and resource group. |

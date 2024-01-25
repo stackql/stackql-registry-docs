@@ -27,9 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | A link for the next page of private link resources. |
-| `value` | `array` | A collection of private link resources |
+| `id` | `string` | Fully qualified identifier of the resource. |
+| `name` | `string` | Name of the resource |
+| `properties` | `object` | Properties of PrivateLinkResource |
+| `type` | `string` | Type of the resource |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `PrivateLinkResources_Get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` |
+| `get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` |
+| `_get` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` |

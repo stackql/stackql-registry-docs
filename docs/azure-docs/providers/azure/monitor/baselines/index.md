@@ -34,4 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Baselines_List` | `SELECT` | `resourceUri` |
+| `list` | `SELECT` | `interval, metricName, resourceUri, timespan` |
+| `_list` | `EXEC` | `interval, metricName, resourceUri, timespan` |

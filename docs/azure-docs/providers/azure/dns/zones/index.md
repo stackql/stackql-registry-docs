@@ -27,19 +27,20 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource ID. |
-| `name` | `string` | Resource name. |
-| `properties` | `object` | Represents the properties of the zone. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
+| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `name` | `string` | The name of the resource |
 | `etag` | `string` | The etag of the zone. |
-| `location` | `string` | Resource location. |
+| `properties` | `object` | Represents the properties of the zone. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Zones_Get` | `SELECT` | `resourceGroupName, subscriptionId, zoneName` | Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone. |
-| `Zones_List` | `SELECT` | `subscriptionId` | Lists the DNS zones in all resource groups in a subscription. |
-| `Zones_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the DNS zones within a resource group. |
-| `Zones_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, zoneName` | Creates or updates a DNS zone. Does not modify DNS records within the zone. |
-| `Zones_Delete` | `DELETE` | `resourceGroupName, subscriptionId, zoneName` | Deletes a DNS zone. WARNING: All DNS records in the zone will also be deleted. This operation cannot be undone. |
-| `Zones_Update` | `EXEC` | `resourceGroupName, subscriptionId, zoneName` | Updates a DNS zone. Does not modify DNS records within the zone. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, zoneName` | Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone. |
+| `list` | `SELECT` | `subscriptionId` | Lists the DNS zones in all resource groups in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists the DNS zones within a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, zoneName` | Creates or updates a DNS zone. Does not modify DNS records within the zone. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, zoneName` | Deletes a DNS zone. WARNING: All DNS records in the zone will also be deleted. This operation cannot be undone. |
+| `_list` | `EXEC` | `subscriptionId` | Lists the DNS zones in all resource groups in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists the DNS zones within a resource group. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, zoneName` | Updates a DNS zone. Does not modify DNS records within the zone. |

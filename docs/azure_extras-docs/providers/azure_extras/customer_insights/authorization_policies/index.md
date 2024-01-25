@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AuthorizationPolicies_Get` | `SELECT` | `authorizationPolicyName, hubName, resourceGroupName, subscriptionId` | Gets an authorization policy in the hub. |
-| `AuthorizationPolicies_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the authorization policies in a specified hub. |
-| `AuthorizationPolicies_CreateOrUpdate` | `INSERT` | `authorizationPolicyName, hubName, resourceGroupName, subscriptionId` | Creates an authorization policy or updates an existing authorization policy. |
-| `AuthorizationPolicies_RegeneratePrimaryKey` | `EXEC` | `authorizationPolicyName, hubName, resourceGroupName, subscriptionId` | Regenerates the primary policy key of the specified authorization policy. |
-| `AuthorizationPolicies_RegenerateSecondaryKey` | `EXEC` | `authorizationPolicyName, hubName, resourceGroupName, subscriptionId` | Regenerates the secondary policy key of the specified authorization policy. |
+| `get` | `SELECT` | `authorizationPolicyName, hubName, resourceGroupName, subscriptionId` | Gets an authorization policy in the hub. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the authorization policies in a specified hub. |
+| `create_or_update` | `INSERT` | `authorizationPolicyName, hubName, resourceGroupName, subscriptionId` | Creates an authorization policy or updates an existing authorization policy. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all the authorization policies in a specified hub. |
+| `regenerate_primary_key` | `EXEC` | `authorizationPolicyName, hubName, resourceGroupName, subscriptionId` | Regenerates the primary policy key of the specified authorization policy. |
+| `regenerate_secondary_key` | `EXEC` | `authorizationPolicyName, hubName, resourceGroupName, subscriptionId` | Regenerates the secondary policy key of the specified authorization policy. |

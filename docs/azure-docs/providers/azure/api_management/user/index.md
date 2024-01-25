@@ -25,20 +25,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `properties` | `object` | User profile. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `User_Get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId, userId` | Gets the details of the user specified by its identifier. |
-| `User_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of registered users in the specified service instance. |
-| `User_CreateOrUpdate` | `INSERT` | `resourceGroupName, serviceName, subscriptionId, userId` | Creates or Updates a user. |
-| `User_Delete` | `DELETE` | `If-Match, resourceGroupName, serviceName, subscriptionId, userId` | Deletes specific user. |
-| `User_GenerateSsoUrl` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, userId` | Retrieves a redirection URL containing an authentication token for signing a given user into the developer portal. |
-| `User_GetEntityTag` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, userId` | Gets the entity state (Etag) version of the user specified by its identifier. |
-| `User_GetSharedAccessToken` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, userId` | Gets the Shared Access Authorization Token for the User. |
-| `User_Update` | `EXEC` | `If-Match, resourceGroupName, serviceName, subscriptionId, userId` | Updates the details of the user specified by its identifier. |
+| `get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId, userId` | Gets the details of the user specified by its identifier. |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of registered users in the specified service instance. |
+| `create_or_update` | `INSERT` | `resourceGroupName, serviceName, subscriptionId, userId` | Creates or Updates a user. |
+| `delete` | `DELETE` | `If-Match, resourceGroupName, serviceName, subscriptionId, userId` | Deletes specific user. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of registered users in the specified service instance. |
+| `generate_sso_url` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, userId` | Retrieves a redirection URL containing an authentication token for signing a given user into the developer portal. |
+| `update` | `EXEC` | `If-Match, resourceGroupName, serviceName, subscriptionId, userId` | Updates the details of the user specified by its identifier. |

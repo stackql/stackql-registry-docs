@@ -28,13 +28,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType. |
+| `capabilities` | `array` | The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc. |
 | `kind` | `string` | Indicates the type of storage account. |
 | `locations` | `array` | The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). |
 | `resourceType` | `string` | The type of the resource, usually it is 'storageAccounts'. |
 | `restrictions` | `array` | The restrictions because of which SKU cannot be used. This is empty if there are no restrictions. |
 | `tier` | `string` | The SKU tier. This is based on the SKU name. |
-| `capabilities` | `array` | The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Skus_List` | `SELECT` | `subscriptionId` |
+| `list` | `SELECT` | `subscriptionId` |
+| `_list` | `EXEC` | `subscriptionId` |

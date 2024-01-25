@@ -28,9 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `JobExecutions_Get` | `SELECT` | `jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId` | Gets a job execution. |
-| `JobExecutions_ListByAgent` | `SELECT` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Lists all executions in a job agent. |
-| `JobExecutions_ListByJob` | `SELECT` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Lists a job's executions. |
-| `JobExecutions_Create` | `INSERT` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Starts an elastic job execution. |
-| `JobExecutions_CreateOrUpdate` | `INSERT` | `jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId` | Creates or updates a job execution. |
-| `JobExecutions_Cancel` | `EXEC` | `jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId` | Requests cancellation of a job execution. |
+| `get` | `SELECT` | `jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId` | Gets a job execution. |
+| `list_by_agent` | `SELECT` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Lists all executions in a job agent. |
+| `list_by_job` | `SELECT` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Lists a job's executions. |
+| `create` | `INSERT` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Starts an elastic job execution. |
+| `create_or_update` | `INSERT` | `jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId` | Creates or updates a job execution. |
+| `_list_by_agent` | `EXEC` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Lists all executions in a job agent. |
+| `_list_by_job` | `EXEC` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Lists a job's executions. |
+| `cancel` | `EXEC` | `jobAgentName, jobExecutionId, jobName, resourceGroupName, serverName, subscriptionId` | Requests cancellation of a job execution. |

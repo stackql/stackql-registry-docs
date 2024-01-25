@@ -29,6 +29,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TriggerRuns_Cancel` | `EXEC` | `api-version, factoryName, resourceGroupName, runId, subscriptionId, triggerName` | Cancel a single trigger instance by runId. |
-| `TriggerRuns_QueryByFactory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore` | Query trigger runs. |
-| `TriggerRuns_Rerun` | `EXEC` | `api-version, factoryName, resourceGroupName, runId, subscriptionId, triggerName` | Rerun single trigger instance by runId. |
+| `cancel` | `EXEC` | `api-version, factoryName, resourceGroupName, runId, subscriptionId, triggerName` | Cancel a single trigger instance by runId. |
+| `query_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore` | Query trigger runs. |
+| `rerun` | `EXEC` | `api-version, factoryName, resourceGroupName, runId, subscriptionId, triggerName` | Rerun single trigger instance by runId. |

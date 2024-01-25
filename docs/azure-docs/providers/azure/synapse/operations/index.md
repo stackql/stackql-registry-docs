@@ -28,14 +28,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation name |
-| `origin` | `string` | Operation origin |
-| `properties` | `object` | What is this? |
 | `display` | `object` | Description of an available operation |
 | `isDataAction` | `string` | Whether this operation is a data action |
+| `origin` | `string` | Operation origin |
+| `properties` | `object` | What is this? |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Operations_List` | `SELECT` |  | Get all available operations |
-| `Operations_CheckNameAvailability` | `EXEC` | `subscriptionId` | Check whether a workspace name is available |
-| `Operations_GetAzureAsyncHeaderResult` | `EXEC` | `operationId, resourceGroupName, subscriptionId, workspaceName` | Get the status of an operation |
-| `Operations_GetLocationHeaderResult` | `EXEC` | `operationId, resourceGroupName, subscriptionId, workspaceName` | Get the result of an operation |
+| `list` | `SELECT` |  | Get all available operations |
+| `check_name_availability` | `EXEC` | `subscriptionId` | Check whether a workspace name is available |

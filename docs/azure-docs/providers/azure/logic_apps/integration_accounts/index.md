@@ -29,21 +29,21 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets the resource name. |
+| `location` | `string` | The resource location. |
 | `properties` | `object` | The integration account properties. |
 | `sku` | `object` | The integration account sku. |
 | `tags` | `object` | The resource tags. |
 | `type` | `string` | Gets the resource type. |
-| `location` | `string` | The resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationAccounts_Get` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets an integration account. |
-| `IntegrationAccounts_ListByResourceGroup` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Gets a list of integration accounts by resource group. |
-| `IntegrationAccounts_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | Gets a list of integration accounts by subscription. |
-| `IntegrationAccounts_CreateOrUpdate` | `INSERT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Creates or updates an integration account. |
-| `IntegrationAccounts_Delete` | `DELETE` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Deletes an integration account. |
-| `IntegrationAccounts_ListCallbackUrl` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets the integration account callback URL. |
-| `IntegrationAccounts_ListKeyVaultKeys` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId, data__keyVault` | Gets the integration account's Key Vault keys. |
-| `IntegrationAccounts_LogTrackingEvents` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId, data__events, data__sourceType` | Logs the integration account's tracking events. |
-| `IntegrationAccounts_RegenerateAccessKey` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Regenerates the integration account access key. |
-| `IntegrationAccounts_Update` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Updates an integration account. |
+| `get` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets an integration account. |
+| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Gets a list of integration accounts by resource group. |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | Gets a list of integration accounts by subscription. |
+| `create_or_update` | `INSERT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Creates or updates an integration account. |
+| `delete` | `DELETE` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Deletes an integration account. |
+| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | Gets a list of integration accounts by resource group. |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | Gets a list of integration accounts by subscription. |
+| `log_tracking_events` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId, data__events, data__sourceType` | Logs the integration account's tracking events. |
+| `regenerate_access_key` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Regenerates the integration account access key. |
+| `update` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Updates an integration account. |

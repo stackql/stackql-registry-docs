@@ -29,10 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The access review history definition id. |
 | `name` | `string` | The access review history definition unique id. |
-| `type` | `string` | The resource type. |
 | `properties` | `object` | Access Review History Instances. |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ScopeAccessReviewHistoryDefinitions_List` | `SELECT` | `scope` | Lists the accessReviewHistoryDefinitions available from this provider, definition instances are only available for 30 days after creation. |
-| `ScopeAccessReviewHistoryDefinitions_GetById` | `EXEC` | `historyDefinitionId, scope` | Get access review history definition by definition Id |
+| `list` | `SELECT` | `scope` | Lists the accessReviewHistoryDefinitions available from this provider, definition instances are only available for 30 days after creation. |
+| `_list` | `EXEC` | `scope` | Lists the accessReviewHistoryDefinitions available from this provider, definition instances are only available for 30 days after creation. |
+| `get_by_id` | `EXEC` | `historyDefinitionId, scope` | Get access review history definition by definition Id |

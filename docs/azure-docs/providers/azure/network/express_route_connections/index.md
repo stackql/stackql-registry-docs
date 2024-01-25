@@ -33,7 +33,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExpressRouteConnections_Get` | `SELECT` | `connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId` | Gets the specified ExpressRouteConnection. |
-| `ExpressRouteConnections_List` | `SELECT` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Lists ExpressRouteConnections. |
-| `ExpressRouteConnections_CreateOrUpdate` | `INSERT` | `connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId, data__name` | Creates a connection between an ExpressRoute gateway and an ExpressRoute circuit. |
-| `ExpressRouteConnections_Delete` | `DELETE` | `connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId` | Deletes a connection to a ExpressRoute circuit. |
+| `get` | `SELECT` | `connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId` | Gets the specified ExpressRouteConnection. |
+| `list` | `SELECT` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Lists ExpressRouteConnections. |
+| `create_or_update` | `INSERT` | `connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId, data__name` | Creates a connection between an ExpressRoute gateway and an ExpressRoute circuit. |
+| `delete` | `DELETE` | `connectionName, expressRouteGatewayName, resourceGroupName, subscriptionId` | Deletes a connection to a ExpressRoute circuit. |
+| `_list` | `EXEC` | `expressRouteGatewayName, resourceGroupName, subscriptionId` | Lists ExpressRouteConnections. |

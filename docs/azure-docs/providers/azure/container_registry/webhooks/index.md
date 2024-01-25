@@ -27,21 +27,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
-| `location` | `string` | The location of the resource. This cannot be changed after the resource is created. |
+| `id` | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
+| `name` | `string` | The name of the resource |
 | `properties` | `object` | The properties of a webhook. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | The tags of the resource. |
-| `type` | `string` | The type of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Webhooks_Get` | `SELECT` | `registryName, resourceGroupName, subscriptionId, webhookName` | Gets the properties of the specified webhook. |
-| `Webhooks_List` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the webhooks for the specified container registry. |
-| `Webhooks_Create` | `INSERT` | `registryName, resourceGroupName, subscriptionId, webhookName, data__location` | Creates a webhook for a container registry with the specified parameters. |
-| `Webhooks_Delete` | `DELETE` | `registryName, resourceGroupName, subscriptionId, webhookName` | Deletes a webhook from a container registry. |
-| `Webhooks_GetCallbackConfig` | `EXEC` | `registryName, resourceGroupName, subscriptionId, webhookName` | Gets the configuration of service URI and custom headers for the webhook. |
-| `Webhooks_ListEvents` | `EXEC` | `registryName, resourceGroupName, subscriptionId, webhookName` | Lists recent events for the specified webhook. |
-| `Webhooks_Ping` | `EXEC` | `registryName, resourceGroupName, subscriptionId, webhookName` | Triggers a ping event to be sent to the webhook. |
-| `Webhooks_Update` | `EXEC` | `registryName, resourceGroupName, subscriptionId, webhookName` | Updates a webhook with the specified parameters. |
+| `get` | `SELECT` | `registryName, resourceGroupName, subscriptionId, webhookName` | Gets the properties of the specified webhook. |
+| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the webhooks for the specified container registry. |
+| `create` | `INSERT` | `registryName, resourceGroupName, subscriptionId, webhookName, data__location` | Creates a webhook for a container registry with the specified parameters. |
+| `delete` | `DELETE` | `registryName, resourceGroupName, subscriptionId, webhookName` | Deletes a webhook from a container registry. |
+| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` | Lists all the webhooks for the specified container registry. |
+| `ping` | `EXEC` | `registryName, resourceGroupName, subscriptionId, webhookName` | Triggers a ping event to be sent to the webhook. |
+| `update` | `EXEC` | `registryName, resourceGroupName, subscriptionId, webhookName` | Updates a webhook with the specified parameters. |

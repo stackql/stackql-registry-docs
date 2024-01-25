@@ -32,7 +32,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkScopedResources_Get` | `SELECT` | `name, resourceGroupName, scopeName, subscriptionId` | Gets a scoped resource in a private link scope. |
-| `PrivateLinkScopedResources_ListByPrivateLinkScope` | `SELECT` | `resourceGroupName, scopeName, subscriptionId` | Gets all private endpoint connections on a private link scope. |
-| `PrivateLinkScopedResources_CreateOrUpdate` | `INSERT` | `name, resourceGroupName, scopeName, subscriptionId` | Approve or reject a private endpoint connection with a given name. |
-| `PrivateLinkScopedResources_Delete` | `DELETE` | `name, resourceGroupName, scopeName, subscriptionId` | Deletes a private endpoint connection with a given name. |
+| `get` | `SELECT` | `name, resourceGroupName, scopeName, subscriptionId` | Gets a scoped resource in a private link scope. |
+| `list_by_private_link_scope` | `SELECT` | `resourceGroupName, scopeName, subscriptionId` | Gets all private endpoint connections on a private link scope. |
+| `create_or_update` | `INSERT` | `name, resourceGroupName, scopeName, subscriptionId` | Approve or reject a private endpoint connection with a given name. |
+| `delete` | `DELETE` | `name, resourceGroupName, scopeName, subscriptionId` | Deletes a private endpoint connection with a given name. |
+| `_list_by_private_link_scope` | `EXEC` | `resourceGroupName, scopeName, subscriptionId` | Gets all private endpoint connections on a private link scope. |

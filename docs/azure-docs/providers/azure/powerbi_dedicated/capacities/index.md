@@ -29,23 +29,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | An identifier that represents the PowerBI Dedicated resource. |
 | `name` | `string` | The name of the PowerBI Dedicated resource. |
-| `type` | `string` | The type of the PowerBI Dedicated resource. |
 | `location` | `string` | Location of the PowerBI Dedicated resource. |
 | `properties` | `object` | Properties of Dedicated Capacity resource. |
 | `sku` | `object` | Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Key-value pairs of additional resource provisioning properties. |
+| `type` | `string` | The type of the PowerBI Dedicated resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Capacities_List` | `SELECT` | `subscriptionId` | Lists all the Dedicated capacities for the given subscription. |
-| `Capacities_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the Dedicated capacities for the given resource group. |
-| `Capacities_Create` | `INSERT` | `dedicatedCapacityName, resourceGroupName, subscriptionId, data__sku` | Provisions the specified Dedicated capacity based on the configuration specified in the request. |
-| `Capacities_Delete` | `DELETE` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Deletes the specified Dedicated capacity. |
-| `Capacities_CheckNameAvailability` | `EXEC` | `location, subscriptionId` | Check the name availability in the target location. |
-| `Capacities_GetDetails` | `EXEC` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Gets details about the specified dedicated capacity. |
-| `Capacities_ListSkus` | `EXEC` | `subscriptionId` | Lists eligible SKUs for PowerBI Dedicated resource provider. |
-| `Capacities_ListSkusForCapacity` | `EXEC` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Lists eligible SKUs for a PowerBI Dedicated resource. |
-| `Capacities_Resume` | `EXEC` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Resumes operation of the specified Dedicated capacity instance. |
-| `Capacities_Suspend` | `EXEC` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Suspends operation of the specified dedicated capacity instance. |
-| `Capacities_Update` | `EXEC` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Updates the current state of the specified Dedicated capacity. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the Dedicated capacities for the given subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the Dedicated capacities for the given resource group. |
+| `create` | `INSERT` | `dedicatedCapacityName, resourceGroupName, subscriptionId, data__sku` | Provisions the specified Dedicated capacity based on the configuration specified in the request. |
+| `delete` | `DELETE` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Deletes the specified Dedicated capacity. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the Dedicated capacities for the given subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the Dedicated capacities for the given resource group. |
+| `check_name_availability` | `EXEC` | `location, subscriptionId` | Check the name availability in the target location. |
+| `resume` | `EXEC` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Resumes operation of the specified Dedicated capacity instance. |
+| `suspend` | `EXEC` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Suspends operation of the specified dedicated capacity instance. |
+| `update` | `EXEC` | `dedicatedCapacityName, resourceGroupName, subscriptionId` | Updates the current state of the specified Dedicated capacity. |

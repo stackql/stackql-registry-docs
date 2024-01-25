@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CassandraDataCenters_Get` | `SELECT` | `clusterName, dataCenterName, resourceGroupName, subscriptionId` | Get the properties of a managed Cassandra data center. |
-| `CassandraDataCenters_List` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | List all data centers in a particular managed Cassandra cluster. |
-| `CassandraDataCenters_Delete` | `DELETE` | `clusterName, dataCenterName, resourceGroupName, subscriptionId` | Delete a managed Cassandra data center. |
-| `CassandraDataCenters_CreateUpdate` | `EXEC` | `clusterName, dataCenterName, resourceGroupName, subscriptionId` | Create or update a managed Cassandra data center. When updating, overwrite all properties. To update only some properties, use PATCH. |
-| `CassandraDataCenters_Update` | `EXEC` | `clusterName, dataCenterName, resourceGroupName, subscriptionId` | Update some of the properties of a managed Cassandra data center. |
+| `get` | `SELECT` | `clusterName, dataCenterName, resourceGroupName, subscriptionId` | Get the properties of a managed Cassandra data center. |
+| `list` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | List all data centers in a particular managed Cassandra cluster. |
+| `delete` | `DELETE` | `clusterName, dataCenterName, resourceGroupName, subscriptionId` | Delete a managed Cassandra data center. |
+| `_list` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | List all data centers in a particular managed Cassandra cluster. |
+| `create_update` | `EXEC` | `clusterName, dataCenterName, resourceGroupName, subscriptionId` | Create or update a managed Cassandra data center. When updating, overwrite all properties. To update only some properties, use PATCH. |
+| `update` | `EXEC` | `clusterName, dataCenterName, resourceGroupName, subscriptionId` | Update some of the properties of a managed Cassandra data center. |

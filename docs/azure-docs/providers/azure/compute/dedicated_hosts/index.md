@@ -29,17 +29,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `type` | `string` | Resource type |
 | `location` | `string` | Resource location |
 | `properties` | `object` | Properties of the dedicated host. |
 | `sku` | `object` | Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. |
 | `tags` | `object` | Resource tags |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DedicatedHosts_Get` | `SELECT` | `hostGroupName, hostName, resourceGroupName, subscriptionId` | Retrieves information about a dedicated host. |
-| `DedicatedHosts_ListByHostGroup` | `SELECT` | `hostGroupName, resourceGroupName, subscriptionId` | Lists all of the dedicated hosts in the specified dedicated host group. Use the nextLink property in the response to get the next page of dedicated hosts. |
-| `DedicatedHosts_CreateOrUpdate` | `INSERT` | `hostGroupName, hostName, resourceGroupName, subscriptionId, data__sku` | Create or update a dedicated host . |
-| `DedicatedHosts_Delete` | `DELETE` | `hostGroupName, hostName, resourceGroupName, subscriptionId` | Delete a dedicated host. |
-| `DedicatedHosts_Restart` | `EXEC` | `hostGroupName, hostName, resourceGroupName, subscriptionId` | Restart the dedicated host. The operation will complete successfully once the dedicated host has restarted and is running. To determine the health of VMs deployed on the dedicated host after the restart check the Resource Health Center in the Azure Portal. Please refer to https://docs.microsoft.com/azure/service-health/resource-health-overview for more details. |
-| `DedicatedHosts_Update` | `EXEC` | `hostGroupName, hostName, resourceGroupName, subscriptionId` | Update an dedicated host . |
+| `get` | `SELECT` | `hostGroupName, hostName, resourceGroupName, subscriptionId` | Retrieves information about a dedicated host. |
+| `list_by_host_group` | `SELECT` | `hostGroupName, resourceGroupName, subscriptionId` | Lists all of the dedicated hosts in the specified dedicated host group. Use the nextLink property in the response to get the next page of dedicated hosts. |
+| `create_or_update` | `INSERT` | `hostGroupName, hostName, resourceGroupName, subscriptionId, data__sku` | Create or update a dedicated host . |
+| `delete` | `DELETE` | `hostGroupName, hostName, resourceGroupName, subscriptionId` | Delete a dedicated host. |
+| `_list_by_host_group` | `EXEC` | `hostGroupName, resourceGroupName, subscriptionId` | Lists all of the dedicated hosts in the specified dedicated host group. Use the nextLink property in the response to get the next page of dedicated hosts. |
+| `redeploy` | `EXEC` | `hostGroupName, hostName, resourceGroupName, subscriptionId` | Redeploy the dedicated host. The operation will complete successfully once the dedicated host has migrated to a new node and is running. To determine the health of VMs deployed on the dedicated host after the redeploy check the Resource Health Center in the Azure Portal. Please refer to https://docs.microsoft.com/azure/service-health/resource-health-overview for more details. |
+| `restart` | `EXEC` | `hostGroupName, hostName, resourceGroupName, subscriptionId` | Restart the dedicated host. The operation will complete successfully once the dedicated host has restarted and is running. To determine the health of VMs deployed on the dedicated host after the restart check the Resource Health Center in the Azure Portal. Please refer to https://docs.microsoft.com/azure/service-health/resource-health-overview for more details. |
+| `update` | `EXEC` | `hostGroupName, hostName, resourceGroupName, subscriptionId` | Update a dedicated host . |

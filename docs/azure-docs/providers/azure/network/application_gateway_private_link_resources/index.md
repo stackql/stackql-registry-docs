@@ -29,10 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Name of the private link resource that is unique within an Application Gateway. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Properties of a private link resource. |
 | `type` | `string` | Type of the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ApplicationGatewayPrivateLinkResources_List` | `SELECT` | `applicationGatewayName, resourceGroupName, subscriptionId` |
+| `list` | `SELECT` | `applicationGatewayName, resourceGroupName, subscriptionId` |
+| `_list` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` |

@@ -28,18 +28,20 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `identity` | `object` | The identity information for the resource. |
-| `location` | `string` | Location of the resource. |
+| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Properties of the Partner Topic. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Tags of the resource. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PartnerTopics_Get` | `SELECT` | `partnerTopicName, resourceGroupName, subscriptionId` | Get properties of a partner topic. |
-| `PartnerTopics_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List all the partner topics under a resource group. |
-| `PartnerTopics_ListBySubscription` | `SELECT` | `subscriptionId` | List all the partner topics under an Azure subscription. |
-| `PartnerTopics_CreateOrUpdate` | `INSERT` | `partnerTopicName, resourceGroupName, subscriptionId` | Asynchronously creates a new partner topic with the specified parameters. |
-| `PartnerTopics_Delete` | `DELETE` | `partnerTopicName, resourceGroupName, subscriptionId` | Delete existing partner topic. |
-| `PartnerTopics_Activate` | `EXEC` | `partnerTopicName, resourceGroupName, subscriptionId` | Activate a newly created partner topic. |
-| `PartnerTopics_Deactivate` | `EXEC` | `partnerTopicName, resourceGroupName, subscriptionId` | Deactivate specific partner topic. |
-| `PartnerTopics_Update` | `EXEC` | `partnerTopicName, resourceGroupName, subscriptionId` | Asynchronously updates a partner topic with the specified parameters. |
+| `get` | `SELECT` | `partnerTopicName, resourceGroupName, subscriptionId` | Get properties of a partner topic. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all the partner topics under a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | List all the partner topics under an Azure subscription. |
+| `create_or_update` | `INSERT` | `partnerTopicName, resourceGroupName, subscriptionId` | Asynchronously creates a new partner topic with the specified parameters. |
+| `delete` | `DELETE` | `partnerTopicName, resourceGroupName, subscriptionId` | Delete existing partner topic. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all the partner topics under a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | List all the partner topics under an Azure subscription. |
+| `activate` | `EXEC` | `partnerTopicName, resourceGroupName, subscriptionId` | Activate a newly created partner topic. |
+| `deactivate` | `EXEC` | `partnerTopicName, resourceGroupName, subscriptionId` | Deactivate specific partner topic. |
+| `update` | `EXEC` | `partnerTopicName, resourceGroupName, subscriptionId` | Asynchronously updates a partner topic with the specified parameters. |

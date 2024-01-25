@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Scope connection. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ScopeConnections_Get` | `SELECT` |  | Get specified scope connection created by this Network Manager. |
-| `ScopeConnections_List` | `SELECT` | `networkManagerName, resourceGroupName, subscriptionId` | List all scope connections created by this network manager. |
-| `ScopeConnections_CreateOrUpdate` | `INSERT` |  | Creates or updates scope connection from Network Manager |
-| `ScopeConnections_Delete` | `DELETE` |  | Delete the pending scope connection created by this network manager. |
+| `get` | `SELECT` |  | Get specified scope connection created by this Network Manager. |
+| `list` | `SELECT` | `networkManagerName, resourceGroupName, subscriptionId` | List all scope connections created by this network manager. |
+| `create_or_update` | `INSERT` |  | Creates or updates scope connection from Network Manager |
+| `delete` | `DELETE` |  | Delete the pending scope connection created by this network manager. |
+| `_list` | `EXEC` | `networkManagerName, resourceGroupName, subscriptionId` | List all scope connections created by this network manager. |

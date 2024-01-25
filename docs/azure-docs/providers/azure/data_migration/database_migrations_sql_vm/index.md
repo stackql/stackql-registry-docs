@@ -35,7 +35,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DatabaseMigrationsSqlVm_Get` | `SELECT` | `resourceGroupName, sqlVirtualMachineName, subscriptionId, targetDbName` | Retrieve the specified database migration for a given SQL VM. |
-| `DatabaseMigrationsSqlVm_CreateOrUpdate` | `INSERT` | `resourceGroupName, sqlVirtualMachineName, subscriptionId, targetDbName` | Create a new database migration to a given SQL VM. |
-| `DatabaseMigrationsSqlVm_cancel` | `EXEC` | `resourceGroupName, sqlVirtualMachineName, subscriptionId, targetDbName` | Stop in-progress database migration to SQL VM. |
-| `DatabaseMigrationsSqlVm_cutover` | `EXEC` | `resourceGroupName, sqlVirtualMachineName, subscriptionId, targetDbName` | Initiate cutover for in-progress online database migration to SQL VM. |
+| `get` | `SELECT` | `resourceGroupName, sqlVirtualMachineName, subscriptionId, targetDbName` | Retrieve the specified database migration for a given SQL VM. |
+| `create_or_update` | `INSERT` | `resourceGroupName, sqlVirtualMachineName, subscriptionId, targetDbName` | Create a new database migration to a given SQL VM. |
+| `cancel` | `EXEC` | `resourceGroupName, sqlVirtualMachineName, subscriptionId, targetDbName` | Stop in-progress database migration to SQL VM. |
+| `cutover` | `EXEC` | `resourceGroupName, sqlVirtualMachineName, subscriptionId, targetDbName` | Initiate cutover for in-progress online database migration to SQL VM. |

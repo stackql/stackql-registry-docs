@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource uri |
 | `name` | `string` | The name of the resource |
+| `properties` | `object` | saas properties |
 | `tags` | `object` | the resource tags. |
 | `type` | `string` | Resource type. |
-| `properties` | `object` | saas properties |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `SaaSOperation_Get` | `SELECT` | `operationId` |
+| `get` | `SELECT` | `operationId` |

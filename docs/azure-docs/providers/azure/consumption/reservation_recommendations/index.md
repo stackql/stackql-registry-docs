@@ -29,4 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ReservationRecommendations_List` | `EXEC` | `resourceScope` |
+| `_exec_list` | `EXEC` | `resourceScope` |
+| `exec_list` | `EXEC` | `resourceScope` |

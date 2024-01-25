@@ -27,16 +27,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `kind` | `string` | Kind of the endpoint for the data connection |
 | `location` | `string` | Resource location. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `kind` | `string` | Kind of the endpoint for the data connection |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `KustoPoolDataConnections_Get` | `SELECT` | `dataConnectionName, databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns a data connection. |
-| `KustoPoolDataConnections_ListByDatabase` | `SELECT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of data connections of the given Kusto pool database. |
-| `KustoPoolDataConnections_CreateOrUpdate` | `INSERT` | `dataConnectionName, databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Creates or updates a data connection. |
-| `KustoPoolDataConnections_Delete` | `DELETE` | `dataConnectionName, databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Deletes the data connection with the given name. |
-| `KustoPoolDataConnections_CheckNameAvailability` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__name, data__type` | Checks that the data connection name is valid and is not already in use. |
-| `KustoPoolDataConnections_Update` | `EXEC` | `dataConnectionName, databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Updates a data connection. |
-| `KustoPoolDataConnections_dataConnectionValidation` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Checks that the data connection parameters are valid. |
+| `get` | `SELECT` | `dataConnectionName, databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns a data connection. |
+| `list_by_database` | `SELECT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of data connections of the given Kusto pool database. |
+| `create_or_update` | `INSERT` | `dataConnectionName, databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Creates or updates a data connection. |
+| `delete` | `DELETE` | `dataConnectionName, databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Deletes the data connection with the given name. |
+| `_list_by_database` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of data connections of the given Kusto pool database. |
+| `check_name_availability` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__name, data__type` | Checks that the data connection name is valid and is not already in use. |
+| `data_connection_validation` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Checks that the data connection parameters are valid. |
+| `update` | `EXEC` | `dataConnectionName, databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__kind` | Updates a data connection. |

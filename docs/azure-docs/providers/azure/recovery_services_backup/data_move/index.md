@@ -27,8 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `BMSPrepareDataMove` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName, data__dataMoveLevel, data__targetRegion, data__targetResourceId` | Prepares source vault for Data Move operation |
-| `BMSTriggerDataMove` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName, data__correlationId, data__dataMoveLevel, data__sourceRegion, data__sourceResourceId` | Triggers Data Move Operation on target vault |
-| `GetOperationStatus` | `EXEC` | `api-version, operationId, resourceGroupName, subscriptionId, vaultName` | Fetches operation status for data move operation on vault |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `data_move` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName, data__correlationId, data__dataMoveLevel, data__sourceRegion, data__sourceResourceId` |

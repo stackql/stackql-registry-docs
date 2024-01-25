@@ -29,22 +29,23 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Gets or sets the identifier. |
 | `name` | `string` | Gets or sets the name. |
-| `properties` | `object` | The account properties |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | Gets or sets the type. |
-| `sku` | `object` | Gets or sets the Sku. |
 | `identity` | `object` | The Managed Identity of the resource |
 | `location` | `string` | Gets or sets the location. |
+| `properties` | `object` | The account properties |
+| `sku` | `object` | Gets or sets the Sku. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Tags on the azure resource. |
+| `type` | `string` | Gets or sets the type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Accounts_Get` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` | Get an account |
-| `Accounts_ListByResourceGroup` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | List accounts in ResourceGroup |
-| `Accounts_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | List accounts in Subscription |
-| `Accounts_CreateOrUpdate` | `INSERT` | `accountName, api-version, resourceGroupName, subscriptionId` | Creates or updates an account |
-| `Accounts_Delete` | `DELETE` | `accountName, api-version, resourceGroupName, subscriptionId` | Deletes an account resource |
-| `Accounts_AddRootCollectionAdmin` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` | Add the administrator for root collection associated with this account. |
-| `Accounts_CheckNameAvailability` | `EXEC` | `api-version, subscriptionId` | Checks if account name is available. |
-| `Accounts_ListKeys` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` | List the authorization keys associated with this account. |
-| `Accounts_Update` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` | Updates an account |
+| `get` | `SELECT` | `accountName, api-version, resourceGroupName, subscriptionId` | Get an account |
+| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | List accounts in ResourceGroup |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | List accounts in Subscription |
+| `create_or_update` | `INSERT` | `accountName, api-version, resourceGroupName, subscriptionId` | Creates or updates an account |
+| `delete` | `DELETE` | `accountName, api-version, resourceGroupName, subscriptionId` | Deletes an account resource |
+| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | List accounts in ResourceGroup |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | List accounts in Subscription |
+| `add_root_collection_admin` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` | Add the administrator for root collection associated with this account. |
+| `check_name_availability` | `EXEC` | `api-version, subscriptionId` | Checks if account name is available. |
+| `update` | `EXEC` | `accountName, api-version, resourceGroupName, subscriptionId` | Updates an account |

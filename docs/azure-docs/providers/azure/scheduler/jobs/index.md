@@ -34,10 +34,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Jobs_Get` | `SELECT` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Gets a job. |
-| `Jobs_List` | `SELECT` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Lists all jobs under the specified job collection. |
-| `Jobs_CreateOrUpdate` | `INSERT` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Provisions a new job or updates an existing job. |
-| `Jobs_Delete` | `DELETE` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Deletes a job. |
-| `Jobs_ListJobHistory` | `EXEC` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Lists job history. |
-| `Jobs_Patch` | `EXEC` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Patches an existing job. |
-| `Jobs_Run` | `EXEC` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Runs a job. |
+| `get` | `SELECT` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Gets a job. |
+| `list` | `SELECT` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Lists all jobs under the specified job collection. |
+| `create_or_update` | `INSERT` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Provisions a new job or updates an existing job. |
+| `delete` | `DELETE` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Deletes a job. |
+| `_list` | `EXEC` | `api-version, jobCollectionName, resourceGroupName, subscriptionId` | Lists all jobs under the specified job collection. |
+| `patch` | `EXEC` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Patches an existing job. |
+| `run` | `EXEC` | `api-version, jobCollectionName, jobName, resourceGroupName, subscriptionId` | Runs a job. |

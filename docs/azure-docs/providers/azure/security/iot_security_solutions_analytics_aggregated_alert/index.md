@@ -35,6 +35,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IotSecuritySolutionsAnalyticsAggregatedAlert_Get` | `SELECT` | `aggregatedAlertName, api-version, resourceGroupName, solutionName, subscriptionId` | Use this method to get a single the aggregated alert of yours IoT Security solution. This aggregation is performed by alert name. |
-| `IotSecuritySolutionsAnalyticsAggregatedAlert_List` | `SELECT` | `api-version, resourceGroupName, solutionName, subscriptionId` | Use this method to get the aggregated alert list of yours IoT Security solution. |
-| `IotSecuritySolutionsAnalyticsAggregatedAlert_Dismiss` | `EXEC` | `aggregatedAlertName, api-version, resourceGroupName, solutionName, subscriptionId` | Use this method to dismiss an aggregated IoT Security Solution Alert. |
+| `get` | `SELECT` | `aggregatedAlertName, api-version, resourceGroupName, solutionName, subscriptionId` | Use this method to get a single the aggregated alert of yours IoT Security solution. This aggregation is performed by alert name. |
+| `list` | `SELECT` | `api-version, resourceGroupName, solutionName, subscriptionId` | Use this method to get the aggregated alert list of yours IoT Security solution. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, solutionName, subscriptionId` | Use this method to get the aggregated alert list of yours IoT Security solution. |
+| `dismiss` | `EXEC` | `aggregatedAlertName, api-version, resourceGroupName, solutionName, subscriptionId` | Use this method to dismiss an aggregated IoT Security Solution Alert. |

@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedDatabaseMoveOperations_Get` | `SELECT` | `locationName, operationId, resourceGroupName, subscriptionId` | Gets a managed database move operation. |
-| `ManagedDatabaseMoveOperations_ListByLocation` | `SELECT` | `locationName, resourceGroupName, subscriptionId` | Lists managed database move operations. |
+| `get` | `SELECT` | `locationName, operationId, resourceGroupName, subscriptionId` | Gets a managed database move operation. |
+| `list_by_location` | `SELECT` | `locationName, resourceGroupName, subscriptionId` | Lists managed database move operations. |
+| `_list_by_location` | `EXEC` | `locationName, resourceGroupName, subscriptionId` | Lists managed database move operations. |

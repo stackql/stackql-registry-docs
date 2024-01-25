@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets the resource name. |
-| `type` | `string` | Gets the resource type. |
 | `location` | `string` | The resource location. |
 | `properties` | `object` | The workflow version properties. |
 | `tags` | `object` | The resource tags. |
+| `type` | `string` | Gets the resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkflowVersions_Get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, versionId, workflowName` | Gets a workflow version. |
-| `WorkflowVersions_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow versions. |
+| `get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, versionId, workflowName` | Gets a workflow version. |
+| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow versions. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow versions. |

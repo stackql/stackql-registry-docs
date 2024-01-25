@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SyncAgents_Get` | `SELECT` | `resourceGroupName, serverName, subscriptionId, syncAgentName` | Gets a sync agent. |
-| `SyncAgents_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists sync agents in a server. |
-| `SyncAgents_CreateOrUpdate` | `INSERT` | `resourceGroupName, serverName, subscriptionId, syncAgentName` | Creates or updates a sync agent. |
-| `SyncAgents_Delete` | `DELETE` | `resourceGroupName, serverName, subscriptionId, syncAgentName` | Deletes a sync agent. |
-| `SyncAgents_GenerateKey` | `EXEC` | `resourceGroupName, serverName, subscriptionId, syncAgentName` | Generates a sync agent key. |
-| `SyncAgents_ListLinkedDatabases` | `EXEC` | `resourceGroupName, serverName, subscriptionId, syncAgentName` | Lists databases linked to a sync agent. |
+| `get` | `SELECT` | `resourceGroupName, serverName, subscriptionId, syncAgentName` | Gets a sync agent. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists sync agents in a server. |
+| `create_or_update` | `INSERT` | `resourceGroupName, serverName, subscriptionId, syncAgentName` | Creates or updates a sync agent. |
+| `delete` | `DELETE` | `resourceGroupName, serverName, subscriptionId, syncAgentName` | Deletes a sync agent. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Lists sync agents in a server. |
+| `generate_key` | `EXEC` | `resourceGroupName, serverName, subscriptionId, syncAgentName` | Generates a sync agent key. |

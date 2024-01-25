@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LongTermRetentionPolicies_Get` | `SELECT` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Gets a database's long term retention policy. |
-| `LongTermRetentionPolicies_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's long term retention policy. |
-| `LongTermRetentionPolicies_CreateOrUpdate` | `INSERT` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Sets a database's long term retention policy. |
+| `get` | `SELECT` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Gets a database's long term retention policy. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's long term retention policy. |
+| `create_or_update` | `INSERT` | `databaseName, policyName, resourceGroupName, serverName, subscriptionId` | Set or update a database's long term retention policy. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's long term retention policy. |

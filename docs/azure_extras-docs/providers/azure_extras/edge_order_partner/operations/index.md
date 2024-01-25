@@ -29,4 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ListOperationsPartner` | `EXEC` |  |
+| `_operations` | `EXEC` |  |
+| `operations` | `EXEC` |  |

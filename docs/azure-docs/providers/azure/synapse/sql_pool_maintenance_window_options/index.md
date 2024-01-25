@@ -28,4 +28,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `SqlPoolMaintenanceWindowOptions_Get` | `SELECT` | `maintenanceWindowOptionsName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` |
+| `get` | `SELECT` | `maintenanceWindowOptionsName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` |

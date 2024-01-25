@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolSecurityAlertPolicies_Get` | `SELECT` | `resourceGroupName, securityAlertPolicyName, sqlPoolName, subscriptionId, workspaceName` | Get a Sql pool's security alert policy. |
-| `SqlPoolSecurityAlertPolicies_List` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get a list of Sql pool's security alert policies. |
-| `SqlPoolSecurityAlertPolicies_CreateOrUpdate` | `INSERT` | `resourceGroupName, securityAlertPolicyName, sqlPoolName, subscriptionId, workspaceName` | Create or update a Sql pool's security alert policy. |
+| `get` | `SELECT` | `resourceGroupName, securityAlertPolicyName, sqlPoolName, subscriptionId, workspaceName` | Get a Sql pool's security alert policy. |
+| `list` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get a list of Sql pool's security alert policies. |
+| `create_or_update` | `INSERT` | `resourceGroupName, securityAlertPolicyName, sqlPoolName, subscriptionId, workspaceName` | Create or update a Sql pool's security alert policy. |
+| `_list` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get a list of Sql pool's security alert policies. |

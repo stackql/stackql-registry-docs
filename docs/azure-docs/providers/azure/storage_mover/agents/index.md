@@ -32,8 +32,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Agents_Get` | `SELECT` | `agentName, resourceGroupName, storageMoverName, subscriptionId` | Gets an Agent resource. |
-| `Agents_List` | `SELECT` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Agents in a Storage Mover. |
-| `Agents_CreateOrUpdate` | `INSERT` | `agentName, resourceGroupName, storageMoverName, subscriptionId, data__properties` | Creates or updates an Agent resource, which references a hybrid compute machine that can run jobs. |
-| `Agents_Delete` | `DELETE` | `agentName, resourceGroupName, storageMoverName, subscriptionId` | Deletes an Agent resource. |
-| `Agents_Update` | `EXEC` | `agentName, resourceGroupName, storageMoverName, subscriptionId` | Creates or updates an Agent resource. |
+| `get` | `SELECT` | `agentName, resourceGroupName, storageMoverName, subscriptionId` | Gets an Agent resource. |
+| `list` | `SELECT` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Agents in a Storage Mover. |
+| `create_or_update` | `INSERT` | `agentName, resourceGroupName, storageMoverName, subscriptionId, data__properties` | Creates or updates an Agent resource, which references a hybrid compute machine that can run jobs. |
+| `delete` | `DELETE` | `agentName, resourceGroupName, storageMoverName, subscriptionId` | Deletes an Agent resource. |
+| `_list` | `EXEC` | `resourceGroupName, storageMoverName, subscriptionId` | Lists all Agents in a Storage Mover. |
+| `update` | `EXEC` | `agentName, resourceGroupName, storageMoverName, subscriptionId` | Creates or updates an Agent resource. |

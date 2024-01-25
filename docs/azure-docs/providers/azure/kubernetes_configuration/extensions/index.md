@@ -27,14 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `identity` | `object` | Identity for the resource. |
+| `plan` | `object` | Plan for the resource. |
 | `properties` | `object` | Properties of an Extension resource |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `identity` | `object` | Identity for the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Extensions_Get` | `SELECT` | `clusterName, clusterResourceName, clusterRp, extensionName, resourceGroupName, subscriptionId` | Gets Kubernetes Cluster Extension. |
-| `Extensions_List` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List all Extensions in the cluster. |
-| `Extensions_Create` | `INSERT` | `clusterName, clusterResourceName, clusterRp, extensionName, resourceGroupName, subscriptionId` | Create a new Kubernetes Cluster Extension. |
-| `Extensions_Delete` | `DELETE` | `clusterName, clusterResourceName, clusterRp, extensionName, resourceGroupName, subscriptionId` | Delete a Kubernetes Cluster Extension. This will cause the Agent to Uninstall the extension from the cluster. |
-| `Extensions_Update` | `EXEC` | `clusterName, clusterResourceName, clusterRp, extensionName, resourceGroupName, subscriptionId` | Patch an existing Kubernetes Cluster Extension. |
+| `get` | `SELECT` | `clusterName, clusterResourceName, clusterRp, extensionName, resourceGroupName, subscriptionId` | Gets Kubernetes Cluster Extension. |
+| `list` | `SELECT` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List all Extensions in the cluster. |
+| `create` | `INSERT` | `clusterName, clusterResourceName, clusterRp, extensionName, resourceGroupName, subscriptionId` | Create a new Kubernetes Cluster Extension. |
+| `delete` | `DELETE` | `clusterName, clusterResourceName, clusterRp, extensionName, resourceGroupName, subscriptionId` | Delete a Kubernetes Cluster Extension. This will cause the Agent to Uninstall the extension from the cluster. |
+| `_list` | `EXEC` | `clusterName, clusterResourceName, clusterRp, resourceGroupName, subscriptionId` | List all Extensions in the cluster. |
+| `update` | `EXEC` | `clusterName, clusterResourceName, clusterRp, extensionName, resourceGroupName, subscriptionId` | Patch an existing Kubernetes Cluster Extension. |

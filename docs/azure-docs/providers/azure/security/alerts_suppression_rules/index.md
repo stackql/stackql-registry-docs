@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 | `properties` | `object` | describes AlertsSuppressionRule properties |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AlertsSuppressionRules_Get` | `SELECT` | `alertsSuppressionRuleName, api-version, subscriptionId` | Get dismiss rule, with name: &#123;alertsSuppressionRuleName&#125;, for the given subscription |
-| `AlertsSuppressionRules_List` | `SELECT` | `api-version, subscriptionId` | List of all the dismiss rules for the given subscription |
-| `AlertsSuppressionRules_Delete` | `DELETE` | `alertsSuppressionRuleName, api-version, subscriptionId` | Delete dismiss alert rule for this subscription. |
-| `AlertsSuppressionRules_Update` | `EXEC` | `alertsSuppressionRuleName, api-version, subscriptionId` | Update existing rule or create new rule if it doesn't exist |
+| `get` | `SELECT` | `alertsSuppressionRuleName, api-version, subscriptionId` | Get dismiss rule, with name: &#123;alertsSuppressionRuleName&#125;, for the given subscription |
+| `list` | `SELECT` | `api-version, subscriptionId` | List of all the dismiss rules for the given subscription |
+| `delete` | `DELETE` | `alertsSuppressionRuleName, api-version, subscriptionId` | Delete dismiss alert rule for this subscription. |
+| `_list` | `EXEC` | `api-version, subscriptionId` | List of all the dismiss rules for the given subscription |
+| `update` | `EXEC` | `alertsSuppressionRuleName, api-version, subscriptionId` | Update existing rule or create new rule if it doesn't exist |

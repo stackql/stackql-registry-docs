@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DataStores_Get` | `SELECT` | `dataManagerName, dataStoreName, resourceGroupName, subscriptionId` | This method gets the data store/repository by name. |
-| `DataStores_ListByDataManager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | Gets all the data stores/repositories in the given resource. |
-| `DataStores_CreateOrUpdate` | `INSERT` | `dataManagerName, dataStoreName, resourceGroupName, subscriptionId, data__properties` | Creates or updates the data store/repository in the data manager. |
-| `DataStores_Delete` | `DELETE` | `dataManagerName, dataStoreName, resourceGroupName, subscriptionId` | This method deletes the given data store/repository. |
+| `get` | `SELECT` | `dataManagerName, dataStoreName, resourceGroupName, subscriptionId` | This method gets the data store/repository by name. |
+| `list_by_data_manager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | Gets all the data stores/repositories in the given resource. |
+| `create_or_update` | `INSERT` | `dataManagerName, dataStoreName, resourceGroupName, subscriptionId, data__properties` | Creates or updates the data store/repository in the data manager. |
+| `delete` | `DELETE` | `dataManagerName, dataStoreName, resourceGroupName, subscriptionId` | This method deletes the given data store/repository. |
+| `_list_by_data_manager` | `EXEC` | `dataManagerName, resourceGroupName, subscriptionId` | Gets all the data stores/repositories in the given resource. |

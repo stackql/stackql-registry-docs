@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedInstancePrivateEndpointConnections_Get` | `SELECT` | `managedInstanceName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets a private endpoint connection. |
-| `ManagedInstancePrivateEndpointConnections_ListByManagedInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets all private endpoint connections on a server. |
-| `ManagedInstancePrivateEndpointConnections_CreateOrUpdate` | `INSERT` | `managedInstanceName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Approve or reject a private endpoint connection with a given name. |
-| `ManagedInstancePrivateEndpointConnections_Delete` | `DELETE` | `managedInstanceName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes a private endpoint connection with a given name. |
+| `get` | `SELECT` | `managedInstanceName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets a private endpoint connection. |
+| `list_by_managed_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets all private endpoint connections on a server. |
+| `create_or_update` | `INSERT` | `managedInstanceName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Approve or reject a private endpoint connection with a given name. |
+| `delete` | `DELETE` | `managedInstanceName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes a private endpoint connection with a given name. |
+| `_list_by_managed_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets all private endpoint connections on a server. |

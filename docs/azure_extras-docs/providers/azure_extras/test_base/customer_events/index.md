@@ -25,14 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | A notification events subscribed to be received by customer. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CustomerEvents_Get` | `SELECT` | `customerEventName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a Test Base CustomerEvent. |
-| `CustomerEvents_ListByTestBaseAccount` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all notification events subscribed under a Test Base Account. |
-| `CustomerEvents_Create` | `INSERT` | `customerEventName, resourceGroupName, subscriptionId, testBaseAccountName` | Create or replace a Test Base Customer Event. |
-| `CustomerEvents_Delete` | `DELETE` | `customerEventName, resourceGroupName, subscriptionId, testBaseAccountName` | Deletes a Test Base Customer Event. |
+| `get` | `SELECT` | `customerEventName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a Test Base CustomerEvent. |
+| `list_by_test_base_account` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all notification events subscribed under a Test Base Account. |
+| `create` | `INSERT` | `customerEventName, resourceGroupName, subscriptionId, testBaseAccountName` | Create or replace a Test Base Customer Event. |
+| `delete` | `DELETE` | `customerEventName, resourceGroupName, subscriptionId, testBaseAccountName` | Deletes a Test Base Customer Event. |
+| `_list_by_test_base_account` | `EXEC` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all notification events subscribed under a Test Base Account. |

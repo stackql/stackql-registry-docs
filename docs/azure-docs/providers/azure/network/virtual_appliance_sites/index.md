@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Name of the virtual appliance site. |
-| `type` | `string` | Site type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Properties of the rule group. |
+| `type` | `string` | Site type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualApplianceSites_Get` | `SELECT` | `networkVirtualApplianceName, resourceGroupName, siteName, subscriptionId` | Gets the specified Virtual Appliance Site. |
-| `VirtualApplianceSites_List` | `SELECT` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Lists all Network Virtual Appliance Sites in a Network Virtual Appliance resource. |
-| `VirtualApplianceSites_CreateOrUpdate` | `INSERT` | `networkVirtualApplianceName, resourceGroupName, siteName, subscriptionId` | Creates or updates the specified Network Virtual Appliance Site. |
-| `VirtualApplianceSites_Delete` | `DELETE` | `networkVirtualApplianceName, resourceGroupName, siteName, subscriptionId` | Deletes the specified site from a Virtual Appliance. |
+| `get` | `SELECT` | `networkVirtualApplianceName, resourceGroupName, siteName, subscriptionId` | Gets the specified Virtual Appliance Site. |
+| `list` | `SELECT` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Lists all Network Virtual Appliance Sites in a Network Virtual Appliance resource. |
+| `create_or_update` | `INSERT` | `networkVirtualApplianceName, resourceGroupName, siteName, subscriptionId` | Creates or updates the specified Network Virtual Appliance Site. |
+| `delete` | `DELETE` | `networkVirtualApplianceName, resourceGroupName, siteName, subscriptionId` | Deletes the specified site from a Virtual Appliance. |
+| `_list` | `EXEC` | `networkVirtualApplianceName, resourceGroupName, subscriptionId` | Lists all Network Virtual Appliance Sites in a Network Virtual Appliance resource. |

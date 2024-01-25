@@ -28,12 +28,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Operation Id |
-| `startTime` | `string` | Start time of the operation |
-| `status` | `string` | Operation status |
 | `endTime` | `string` | End time of the operation |
 | `error` | `object` | Error type |
+| `startTime` | `string` | Start time of the operation |
+| `status` | `string` | Operation status |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `OperationStatus_Get` | `SELECT` | `locationName, operationId, resourceGroupName, subscriptionId, workflowId` |
-| `LocationOperationStatus` | `EXEC` | `locationName, operationId, subscriptionId` |
+| `get` | `SELECT` | `locationName, operationId, resourceGroupName, subscriptionId, workflowId` |
+| `operation_status` | `EXEC` | `locationName, operationId, subscriptionId` |

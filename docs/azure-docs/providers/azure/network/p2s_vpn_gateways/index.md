@@ -29,22 +29,21 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Parameters for P2SVpnGateway. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `P2sVpnGateways_Get` | `SELECT` | `gatewayName, resourceGroupName, subscriptionId` | Retrieves the details of a virtual wan p2s vpn gateway. |
-| `P2sVpnGateways_List` | `SELECT` | `subscriptionId` | Lists all the P2SVpnGateways in a subscription. |
-| `P2sVpnGateways_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the P2SVpnGateways in a resource group. |
-| `P2sVpnGateways_CreateOrUpdate` | `INSERT` | `gatewayName, resourceGroupName, subscriptionId, data__location` | Creates a virtual wan p2s vpn gateway if it doesn't exist else updates the existing gateway. |
-| `P2sVpnGateways_Delete` | `DELETE` | `gatewayName, resourceGroupName, subscriptionId` | Deletes a virtual wan p2s vpn gateway. |
-| `P2SVpnGateways_Reset` | `EXEC` | `gatewayName, resourceGroupName, subscriptionId` | Resets the primary of the p2s vpn gateway in the specified resource group. |
-| `P2sVpnGateways_DisconnectP2sVpnConnections` | `EXEC` | `p2sVpnGatewayName, resourceGroupName, subscriptionId` | Disconnect P2S vpn connections of the virtual wan P2SVpnGateway in the specified resource group. |
-| `P2sVpnGateways_GenerateVpnProfile` | `EXEC` | `gatewayName, resourceGroupName, subscriptionId` | Generates VPN profile for P2S client of the P2SVpnGateway in the specified resource group. |
-| `P2sVpnGateways_GetP2sVpnConnectionHealth` | `EXEC` | `gatewayName, resourceGroupName, subscriptionId` | Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group. |
-| `P2sVpnGateways_GetP2sVpnConnectionHealthDetailed` | `EXEC` | `gatewayName, resourceGroupName, subscriptionId` | Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group. |
-| `P2sVpnGateways_UpdateTags` | `EXEC` | `gatewayName, resourceGroupName, subscriptionId` | Updates virtual wan p2s vpn gateway tags. |
+| `get` | `SELECT` | `gatewayName, resourceGroupName, subscriptionId` | Retrieves the details of a virtual wan p2s vpn gateway. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the P2SVpnGateways in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the P2SVpnGateways in a resource group. |
+| `create_or_update` | `INSERT` | `gatewayName, resourceGroupName, subscriptionId, data__location` | Creates a virtual wan p2s vpn gateway if it doesn't exist else updates the existing gateway. |
+| `delete` | `DELETE` | `gatewayName, resourceGroupName, subscriptionId` | Deletes a virtual wan p2s vpn gateway. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the P2SVpnGateways in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the P2SVpnGateways in a resource group. |
+| `disconnect_p2s_vpn_connections` | `EXEC` | `p2sVpnGatewayName, resourceGroupName, subscriptionId` | Disconnect P2S vpn connections of the virtual wan P2SVpnGateway in the specified resource group. |
+| `generate_vpn_profile` | `EXEC` | `gatewayName, resourceGroupName, subscriptionId` | Generates VPN profile for P2S client of the P2SVpnGateway in the specified resource group. |
+| `reset` | `EXEC` | `gatewayName, resourceGroupName, subscriptionId` | Resets the primary of the p2s vpn gateway in the specified resource group. |

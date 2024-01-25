@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Routes_Get` | `SELECT` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
-| `Routes_ListByEndpoint` | `SELECT` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origins within a profile. |
-| `Routes_Create` | `INSERT` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Creates a new route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
-| `Routes_Delete` | `DELETE` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Deletes an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
-| `Routes_Update` | `EXEC` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Updates an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
+| `get` | `SELECT` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
+| `list_by_endpoint` | `SELECT` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origins within a profile. |
+| `create` | `INSERT` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Creates a new route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
+| `delete` | `DELETE` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Deletes an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |
+| `_list_by_endpoint` | `EXEC` | `endpointName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origins within a profile. |
+| `update` | `EXEC` | `endpointName, profileName, resourceGroupName, routeName, subscriptionId` | Updates an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint. |

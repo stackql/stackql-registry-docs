@@ -27,20 +27,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
-| `tags` | `object` | The tags of the resource. |
-| `type` | `string` | The type of the resource. |
+| `id` | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
+| `name` | `string` | The name of the resource |
 | `identity` | `object` | Managed identity for the resource. |
-| `location` | `string` | The location of the resource. This cannot be changed after the resource is created. |
 | `properties` | `object` | The properties of a task. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Tasks_Get` | `SELECT` | `registryName, resourceGroupName, subscriptionId, taskName` | Get the properties of a specified task. |
-| `Tasks_List` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the tasks for a specified container registry. |
-| `Tasks_Create` | `INSERT` | `registryName, resourceGroupName, subscriptionId, taskName` | Creates a task for a container registry with the specified parameters. |
-| `Tasks_Delete` | `DELETE` | `registryName, resourceGroupName, subscriptionId, taskName` | Deletes a specified task. |
-| `Tasks_GetDetails` | `EXEC` | `registryName, resourceGroupName, subscriptionId, taskName` | Returns a task with extended information that includes all secrets. |
-| `Tasks_Update` | `EXEC` | `registryName, resourceGroupName, subscriptionId, taskName` | Updates a task with the specified parameters. |
+| `get` | `SELECT` | `registryName, resourceGroupName, subscriptionId, taskName` | Get the properties of a specified task. |
+| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the tasks for a specified container registry. |
+| `create` | `INSERT` | `registryName, resourceGroupName, subscriptionId, taskName` | Creates a task for a container registry with the specified parameters. |
+| `delete` | `DELETE` | `registryName, resourceGroupName, subscriptionId, taskName` | Deletes a specified task. |
+| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` | Lists all the tasks for a specified container registry. |
+| `update` | `EXEC` | `registryName, resourceGroupName, subscriptionId, taskName` | Updates a task with the specified parameters. |

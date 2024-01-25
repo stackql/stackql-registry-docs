@@ -34,9 +34,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Environments_Get` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Gets the environment with the specified name in the specified subscription and resource group. |
-| `Environments_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the available environments associated with the subscription and within the specified resource group. |
-| `Environments_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all the available environments within a subscription, irrespective of the resource groups. |
-| `Environments_CreateOrUpdate` | `INSERT` | `environmentName, resourceGroupName, subscriptionId, data__kind, data__sku` | Create or update an environment in the specified subscription and resource group. |
-| `Environments_Delete` | `DELETE` | `environmentName, resourceGroupName, subscriptionId` | Deletes the environment with the specified name in the specified subscription and resource group. |
-| `Environments_Update` | `EXEC` | `environmentName, resourceGroupName, subscriptionId, data__kind` | Updates the environment with the specified name in the specified subscription and resource group. |
+| `get` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Gets the environment with the specified name in the specified subscription and resource group. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the available environments associated with the subscription and within the specified resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all the available environments within a subscription, irrespective of the resource groups. |
+| `create_or_update` | `INSERT` | `environmentName, resourceGroupName, subscriptionId, data__kind, data__sku` | Create or update an environment in the specified subscription and resource group. |
+| `delete` | `DELETE` | `environmentName, resourceGroupName, subscriptionId` | Deletes the environment with the specified name in the specified subscription and resource group. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the available environments associated with the subscription and within the specified resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all the available environments within a subscription, irrespective of the resource groups. |
+| `update` | `EXEC` | `environmentName, resourceGroupName, subscriptionId, data__kind` | Updates the environment with the specified name in the specified subscription and resource group. |

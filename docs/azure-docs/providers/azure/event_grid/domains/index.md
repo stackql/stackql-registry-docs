@@ -28,18 +28,20 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `identity` | `object` | The identity information for the resource. |
-| `location` | `string` | Location of the resource. |
+| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Properties of the Event Grid Domain Resource. |
+| `sku` | `object` | Describes an EventGrid Resource Sku. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Tags of the resource. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Domains_Get` | `SELECT` | `domainName, resourceGroupName, subscriptionId` | Get properties of a domain. |
-| `Domains_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List all the domains under a resource group. |
-| `Domains_ListBySubscription` | `SELECT` | `subscriptionId` | List all the domains under an Azure subscription. |
-| `Domains_CreateOrUpdate` | `INSERT` | `domainName, resourceGroupName, subscriptionId` | Asynchronously creates or updates a new domain with the specified parameters. |
-| `Domains_Delete` | `DELETE` | `domainName, resourceGroupName, subscriptionId` | Delete existing domain. |
-| `Domains_ListSharedAccessKeys` | `EXEC` | `domainName, resourceGroupName, subscriptionId` | List the two keys used to publish to a domain. |
-| `Domains_RegenerateKey` | `EXEC` | `domainName, resourceGroupName, subscriptionId, data__keyName` | Regenerate a shared access key for a domain. |
-| `Domains_Update` | `EXEC` | `domainName, resourceGroupName, subscriptionId` | Asynchronously updates a domain with the specified parameters. |
+| `get` | `SELECT` | `domainName, resourceGroupName, subscriptionId` | Get properties of a domain. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all the domains under a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | List all the domains under an Azure subscription. |
+| `create_or_update` | `INSERT` | `domainName, resourceGroupName, subscriptionId` | Asynchronously creates or updates a new domain with the specified parameters. |
+| `delete` | `DELETE` | `domainName, resourceGroupName, subscriptionId` | Delete existing domain. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all the domains under a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | List all the domains under an Azure subscription. |
+| `regenerate_key` | `EXEC` | `domainName, resourceGroupName, subscriptionId, data__keyName` | Regenerate a shared access key for a domain. |
+| `update` | `EXEC` | `domainName, resourceGroupName, subscriptionId` | Asynchronously updates a domain with the specified parameters. |

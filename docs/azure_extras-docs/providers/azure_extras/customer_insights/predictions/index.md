@@ -34,10 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Predictions_Get` | `SELECT` | `hubName, predictionName, resourceGroupName, subscriptionId` | Gets a Prediction in the hub. |
-| `Predictions_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the predictions in the specified hub. |
-| `Predictions_CreateOrUpdate` | `INSERT` | `hubName, predictionName, resourceGroupName, subscriptionId` | Creates a Prediction or updates an existing Prediction in the hub. |
-| `Predictions_Delete` | `DELETE` | `hubName, predictionName, resourceGroupName, subscriptionId` | Deletes a Prediction in the hub. |
-| `Predictions_GetModelStatus` | `EXEC` | `hubName, predictionName, resourceGroupName, subscriptionId` | Gets model status of the prediction. |
-| `Predictions_GetTrainingResults` | `EXEC` | `hubName, predictionName, resourceGroupName, subscriptionId` | Gets training results. |
-| `Predictions_ModelStatus` | `EXEC` | `hubName, predictionName, resourceGroupName, subscriptionId, data__status` | Creates or updates the model status of prediction. |
+| `get` | `SELECT` | `hubName, predictionName, resourceGroupName, subscriptionId` | Gets a Prediction in the hub. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all the predictions in the specified hub. |
+| `create_or_update` | `INSERT` | `hubName, predictionName, resourceGroupName, subscriptionId` | Creates a Prediction or updates an existing Prediction in the hub. |
+| `delete` | `DELETE` | `hubName, predictionName, resourceGroupName, subscriptionId` | Deletes a Prediction in the hub. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all the predictions in the specified hub. |
+| `model_status` | `EXEC` | `hubName, predictionName, resourceGroupName, subscriptionId, data__status` | Creates or updates the model status of prediction. |

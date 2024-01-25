@@ -28,10 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `object` | The Usage Names. |
-| `unit` | `string` | An enum describing the unit of usage measurement. |
 | `currentValue` | `integer` | The current usage of the resource. |
 | `limit` | `integer` | The maximum permitted usage of the resource. |
+| `unit` | `string` | An enum describing the unit of usage measurement. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Usage_List` | `SELECT` | `location, subscriptionId` |
+| `list` | `SELECT` | `location, subscriptionId` |
+| `_list` | `EXEC` | `location, subscriptionId` |

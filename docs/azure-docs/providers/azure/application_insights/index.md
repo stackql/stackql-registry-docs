@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Azure Application Insights client for web tests.  
+Azure Monitor Application Insights, A Feature Of Azure Monitor, Excels In Application Performance Management (APM) For Live Web Applications.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>20</b></span><br />
-<span>total selectable resources:&nbsp;<b>20</b></span><br />
-<span>total methods:&nbsp;<b>77</b></span><br />
+<span>total resources:&nbsp;<b>24</b></span><br />
+<span>total selectable resources:&nbsp;<b>22</b></span><br />
+<span>total methods:&nbsp;<b>85</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Azure Application Insights client for web tests.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.application_insights</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Application Insights Management Client (Microsoft.Insights)</td></tr>
-<tr><td><b>Description</b></td><td>Azure Application Insights client for web tests.</td></tr>
-<tr><td><b>Id</b></td><td><code>application_insights:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Application Insights</td></tr>
+<tr><td><b>Description</b></td><td>Azure Monitor Application Insights, A Feature Of Azure Monitor, Excels In Application Performance Management (APM) For Live Web Applications.</td></tr>
+<tr><td><b>Id</b></td><td><code>application_insights:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -48,17 +48,21 @@ Azure Application Insights client for web tests.
 <a href="/providers/azure/application_insights/component_linked_storage_accounts/">component_linked_storage_accounts</a><br />
 <a href="/providers/azure/application_insights/component_quota_status/">component_quota_status</a><br />
 <a href="/providers/azure/application_insights/components/">components</a><br />
+<a href="/providers/azure/application_insights/components_purge_status/">components_purge_status</a><br />
+<a href="/providers/azure/application_insights/components_tags/">components_tags</a><br />
 <a href="/providers/azure/application_insights/export_configurations/">export_configurations</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/application_insights/favorites/">favorites</a><br />
 <a href="/providers/azure/application_insights/live_token/">live_token</a><br />
-<a href="/providers/azure/application_insights/my_workbooks/">my_workbooks</a><br />
 <a href="/providers/azure/application_insights/operations/">operations</a><br />
 <a href="/providers/azure/application_insights/proactive_detection_configurations/">proactive_detection_configurations</a><br />
 <a href="/providers/azure/application_insights/web_test_locations/">web_test_locations</a><br />
 <a href="/providers/azure/application_insights/web_tests/">web_tests</a><br />
+<a href="/providers/azure/application_insights/web_tests_tags/">web_tests_tags</a><br />
 <a href="/providers/azure/application_insights/work_item_configurations/">work_item_configurations</a><br />
+<a href="/providers/azure/application_insights/work_item_configurations_default/">work_item_configurations_default</a><br />
+<a href="/providers/azure/application_insights/work_item_configurations_item/">work_item_configurations_item</a><br />
 <a href="/providers/azure/application_insights/workbook_templates/">workbook_templates</a><br />
 <a href="/providers/azure/application_insights/workbooks/">workbooks</a><br />
 </div>

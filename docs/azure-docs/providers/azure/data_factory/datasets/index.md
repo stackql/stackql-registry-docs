@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Datasets_Get` | `SELECT` | `api-version, datasetName, factoryName, resourceGroupName, subscriptionId` | Gets a dataset. |
-| `Datasets_ListByFactory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists datasets. |
-| `Datasets_CreateOrUpdate` | `INSERT` | `api-version, datasetName, factoryName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a dataset. |
-| `Datasets_Delete` | `DELETE` | `api-version, datasetName, factoryName, resourceGroupName, subscriptionId` | Deletes a dataset. |
+| `get` | `SELECT` | `api-version, datasetName, factoryName, resourceGroupName, subscriptionId` | Gets a dataset. |
+| `list_by_factory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists datasets. |
+| `create_or_update` | `INSERT` | `api-version, datasetName, factoryName, resourceGroupName, subscriptionId, data__properties` | Creates or updates a dataset. |
+| `delete` | `DELETE` | `api-version, datasetName, factoryName, resourceGroupName, subscriptionId` | Deletes a dataset. |
+| `_list_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists datasets. |

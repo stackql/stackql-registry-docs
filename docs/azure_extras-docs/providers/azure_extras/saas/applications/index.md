@@ -29,11 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | the resource Id. |
 | `name` | `string` | the resource name. |
-| `tags` | `object` | the resource tags. |
-| `type` | `string` | the resource type. |
 | `location` | `string` | the resource location. |
 | `properties` | `object` | Saas resource properties. |
+| `tags` | `object` | the resource tags. |
+| `type` | `string` | the resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Applications_List` | `SELECT` | `resourceGroupName, subscriptionId` |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` |

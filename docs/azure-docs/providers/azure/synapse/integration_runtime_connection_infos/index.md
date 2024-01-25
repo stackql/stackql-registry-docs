@@ -27,13 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `serviceToken` | `string` | The token generated in service. Callers use this token to authenticate to integration runtime. |
-| `version` | `string` | The integration runtime version. |
 | `hostServiceUri` | `string` | The on-premises integration runtime host URL. |
 | `identityCertThumbprint` | `string` | The integration runtime SSL certificate thumbprint. Click-Once application uses it to do server validation. |
 | `isIdentityCertExprired` | `boolean` | Whether the identity certificate is expired. |
 | `publicKey` | `string` | The public key for encrypting a credential when transferring the credential to the integration runtime. |
+| `serviceToken` | `string` | The token generated in service. Callers use this token to authenticate to integration runtime. |
+| `version` | `string` | The integration runtime version. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `IntegrationRuntimeConnectionInfos_Get` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` |
+| `get` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` |

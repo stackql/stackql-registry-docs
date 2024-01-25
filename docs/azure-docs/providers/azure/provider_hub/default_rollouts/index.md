@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DefaultRollouts_Get` | `SELECT` | `providerNamespace, rolloutName, subscriptionId` | Gets the default rollout details. |
-| `DefaultRollouts_ListByProviderRegistration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the list of the rollouts for the given provider. |
-| `DefaultRollouts_CreateOrUpdate` | `INSERT` | `providerNamespace, rolloutName, subscriptionId` | Creates or updates the rollout details. |
-| `DefaultRollouts_Delete` | `DELETE` | `providerNamespace, rolloutName, subscriptionId` | Deletes the rollout resource. Rollout must be in terminal state. |
-| `DefaultRollouts_Stop` | `EXEC` | `providerNamespace, rolloutName, subscriptionId` | Stops or cancels the rollout, if in progress. |
+| `get` | `SELECT` | `providerNamespace, rolloutName, subscriptionId` | Gets the default rollout details. |
+| `list_by_provider_registration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the list of the rollouts for the given provider. |
+| `create_or_update` | `INSERT` | `providerNamespace, rolloutName, subscriptionId` | Creates or updates the rollout details. |
+| `delete` | `DELETE` | `providerNamespace, rolloutName, subscriptionId` | Deletes the rollout resource. Rollout must be in terminal state. |
+| `_list_by_provider_registration` | `EXEC` | `providerNamespace, subscriptionId` | Gets the list of the rollouts for the given provider. |
+| `stop` | `EXEC` | `providerNamespace, rolloutName, subscriptionId` | Stops or cancels the rollout, if in progress. |

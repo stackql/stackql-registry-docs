@@ -34,5 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `AccessReviewDefaultSettings_Get` | `SELECT` | `subscriptionId` |
-| `AccessReviewDefaultSettings_Put` | `EXEC` | `subscriptionId` |
+| `get` | `SELECT` | `subscriptionId` |
+| `put` | `EXEC` | `subscriptionId` |

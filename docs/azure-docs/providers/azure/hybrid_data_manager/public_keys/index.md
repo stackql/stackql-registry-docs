@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PublicKeys_Get` | `SELECT` | `dataManagerName, publicKeyName, resourceGroupName, subscriptionId` | This method gets the public keys. |
-| `PublicKeys_ListByDataManager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets the list view of public keys, however it will only have one element. |
+| `get` | `SELECT` | `dataManagerName, publicKeyName, resourceGroupName, subscriptionId` | This method gets the public keys. |
+| `list_by_data_manager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets the list view of public keys, however it will only have one element. |
+| `_list_by_data_manager` | `EXEC` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets the list view of public keys, however it will only have one element. |

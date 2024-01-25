@@ -29,19 +29,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
+| `etag` | `string` | Etag identifies change in the resource. |
 | `properties` | `object` | Azure data factory nested object which contains information about creating pipeline run |
 | `type` | `string` | The resource type. |
-| `etag` | `string` | Etag identifies change in the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Triggers_Get` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Gets a trigger. |
-| `Triggers_ListByFactory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists triggers. |
-| `Triggers_CreateOrUpdate` | `INSERT` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName, data__properties` | Creates or updates a trigger. |
-| `Triggers_Delete` | `DELETE` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Deletes a trigger. |
-| `Triggers_GetEventSubscriptionStatus` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Get a trigger's event subscription status. |
-| `Triggers_QueryByFactory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Query triggers. |
-| `Triggers_Start` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Starts a trigger. |
-| `Triggers_Stop` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Stops a trigger. |
-| `Triggers_SubscribeToEvents` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Subscribe event trigger to events. |
-| `Triggers_UnsubscribeFromEvents` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Unsubscribe event trigger from events. |
+| `get` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Gets a trigger. |
+| `list_by_factory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists triggers. |
+| `create_or_update` | `INSERT` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName, data__properties` | Creates or updates a trigger. |
+| `delete` | `DELETE` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Deletes a trigger. |
+| `_list_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Lists triggers. |
+| `query_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Query triggers. |
+| `start` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Starts a trigger. |
+| `stop` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Stops a trigger. |
+| `subscribe_to_events` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Subscribe event trigger to events. |
+| `unsubscribe_from_events` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId, triggerName` | Unsubscribe event trigger from events. |

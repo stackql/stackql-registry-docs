@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Jobs_Get` | `SELECT` | `api-version, jobId, resourceGroupName, subscriptionId, vaultName` | Gets a job with id in a backup vault |
-| `Jobs_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` | Returns list of jobs belonging to a backup vault |
+| `get` | `SELECT` | `jobId, resourceGroupName, subscriptionId, vaultName` | Gets a job with id in a backup vault |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` | Returns list of jobs belonging to a backup vault |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` | Returns list of jobs belonging to a backup vault |

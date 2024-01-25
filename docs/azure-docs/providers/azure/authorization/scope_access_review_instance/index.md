@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ScopeAccessReviewInstance_ApplyDecisions` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to apply all decisions for an access review instance. |
-| `ScopeAccessReviewInstance_RecordAllDecisions` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to approve/deny all decisions for a review with certain filters. |
-| `ScopeAccessReviewInstance_ResetDecisions` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to reset all decisions for an access review instance. |
-| `ScopeAccessReviewInstance_SendReminders` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to send reminders for an access review instance. |
-| `ScopeAccessReviewInstance_Stop` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to stop an access review instance. |
+| `apply_decisions` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to apply all decisions for an access review instance. |
+| `record_all_decisions` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to approve/deny all decisions for a review with certain filters. |
+| `reset_decisions` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to reset all decisions for an access review instance. |
+| `send_reminders` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to send reminders for an access review instance. |
+| `stop` | `EXEC` | `id, scheduleDefinitionId, scope` | An action to stop an access review instance. |

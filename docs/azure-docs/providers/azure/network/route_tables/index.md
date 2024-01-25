@@ -29,17 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Route Table resource. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RouteTables_Get` | `SELECT` | `resourceGroupName, routeTableName, subscriptionId` | Gets the specified route table. |
-| `RouteTables_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all route tables in a resource group. |
-| `RouteTables_ListAll` | `SELECT` | `subscriptionId` | Gets all route tables in a subscription. |
-| `RouteTables_CreateOrUpdate` | `INSERT` | `resourceGroupName, routeTableName, subscriptionId` | Create or updates a route table in a specified resource group. |
-| `RouteTables_Delete` | `DELETE` | `resourceGroupName, routeTableName, subscriptionId` | Deletes the specified route table. |
-| `RouteTables_UpdateTags` | `EXEC` | `resourceGroupName, routeTableName, subscriptionId` | Updates a route table tags. |
+| `get` | `SELECT` | `resourceGroupName, routeTableName, subscriptionId` | Gets the specified route table. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all route tables in a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, routeTableName, subscriptionId` | Create or updates a route table in a specified resource group. |
+| `delete` | `DELETE` | `resourceGroupName, routeTableName, subscriptionId` | Deletes the specified route table. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all route tables in a resource group. |

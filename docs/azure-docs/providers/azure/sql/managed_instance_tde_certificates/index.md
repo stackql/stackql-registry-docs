@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ManagedInstanceTdeCertificates_Create` | `INSERT` | `managedInstanceName, resourceGroupName, subscriptionId` |
+| `create` | `INSERT` | `managedInstanceName, resourceGroupName, subscriptionId` |

@@ -27,13 +27,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `etag` | `string` | Resource Etag. |
 | `properties` | `object` | Properties of Cognitive Services account deployment. |
+| `sku` | `object` | The resource model definition representing SKU |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Deployments_Get` | `SELECT` | `accountName, deploymentName, resourceGroupName, subscriptionId` | Gets the specified deployments associated with the Cognitive Services account. |
-| `Deployments_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the deployments associated with the Cognitive Services account. |
-| `Deployments_CreateOrUpdate` | `INSERT` | `accountName, deploymentName, resourceGroupName, subscriptionId` | Update the state of specified deployments associated with the Cognitive Services account. |
-| `Deployments_Delete` | `DELETE` | `accountName, deploymentName, resourceGroupName, subscriptionId` | Deletes the specified deployment associated with the Cognitive Services account. |
+| `get` | `SELECT` | `accountName, deploymentName, resourceGroupName, subscriptionId` | Gets the specified deployments associated with the Cognitive Services account. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the deployments associated with the Cognitive Services account. |
+| `create_or_update` | `INSERT` | `accountName, deploymentName, resourceGroupName, subscriptionId` | Update the state of specified deployments associated with the Cognitive Services account. |
+| `delete` | `DELETE` | `accountName, deploymentName, resourceGroupName, subscriptionId` | Deletes the specified deployment associated with the Cognitive Services account. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Gets the deployments associated with the Cognitive Services account. |
+| `update` | `EXEC` | `accountName, deploymentName, resourceGroupName, subscriptionId` | Update specified deployments associated with the Cognitive Services account. |

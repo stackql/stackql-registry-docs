@@ -29,9 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Locations_CheckNameAvailability` | `EXEC` | `location, subscriptionId` | Check the cluster name is available or not. |
-| `Locations_GetAzureAsyncOperationStatus` | `EXEC` | `location, operationId, subscriptionId` | Get the async operation status. |
-| `Locations_GetCapabilities` | `EXEC` | `location, subscriptionId` | Gets the capabilities for the specified location. |
-| `Locations_ListBillingSpecs` | `EXEC` | `location, subscriptionId` | Lists the billingSpecs for the specified subscription and location. |
-| `Locations_ListUsages` | `EXEC` | `location, subscriptionId` | Lists the usages for the specified location. |
-| `Locations_ValidateClusterCreateRequest` | `EXEC` | `location, subscriptionId` | Validate the cluster create request spec is valid or not. |
+| `check_name_availability` | `EXEC` | `location, subscriptionId` | Check the cluster name is available or not. |
+| `validate_cluster_create_request` | `EXEC` | `location, subscriptionId` | Validate the cluster create request spec is valid or not. |

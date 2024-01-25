@@ -29,19 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Azure resource Id |
 | `name` | `string` | Azure resource name |
+| `location` | `string` | Resource location |
 | `properties` | `object` | Properties that define a Azure Arc PrivateLinkScope resource. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Azure resource type |
-| `location` | `string` | Resource location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkScopes_Get` | `SELECT` | `resourceGroupName, scopeName, subscriptionId` | Returns a Azure Arc PrivateLinkScope. |
-| `PrivateLinkScopes_List` | `SELECT` | `subscriptionId` | Gets a list of all Azure Arc PrivateLinkScopes within a subscription. |
-| `PrivateLinkScopes_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of Azure Arc PrivateLinkScopes within a resource group. |
-| `PrivateLinkScopes_CreateOrUpdate` | `INSERT` | `resourceGroupName, scopeName, subscriptionId` | Creates (or updates) a Azure Arc PrivateLinkScope. Note: You cannot specify a different value for InstrumentationKey nor AppId in the Put operation. |
-| `PrivateLinkScopes_Delete` | `DELETE` | `resourceGroupName, scopeName, subscriptionId` | Deletes a Azure Arc PrivateLinkScope. |
-| `PrivateLinkScopes_GetValidationDetails` | `EXEC` | `location, privateLinkScopeId, subscriptionId` | Returns a Azure Arc PrivateLinkScope's validation details. |
-| `PrivateLinkScopes_GetValidationDetailsForMachine` | `EXEC` | `machineName, resourceGroupName, subscriptionId` | Returns a Azure Arc PrivateLinkScope's validation details for a given machine. |
-| `PrivateLinkScopes_UpdateTags` | `EXEC` | `resourceGroupName, scopeName, subscriptionId` | Updates an existing PrivateLinkScope's tags. To update other fields use the CreateOrUpdate method. |
+| `get` | `SELECT` | `resourceGroupName, scopeName, subscriptionId` | Returns a Azure Arc PrivateLinkScope. |
+| `list` | `SELECT` | `subscriptionId` | Gets a list of all Azure Arc PrivateLinkScopes within a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of Azure Arc PrivateLinkScopes within a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, scopeName, subscriptionId` | Creates (or updates) a Azure Arc PrivateLinkScope. Note: You cannot specify a different value for InstrumentationKey nor AppId in the Put operation. |
+| `delete` | `DELETE` | `resourceGroupName, scopeName, subscriptionId` | Deletes a Azure Arc PrivateLinkScope. |
+| `_list` | `EXEC` | `subscriptionId` | Gets a list of all Azure Arc PrivateLinkScopes within a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets a list of Azure Arc PrivateLinkScopes within a resource group. |

@@ -29,10 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Properties of ResourceNavigationLink. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ResourceNavigationLinks_List` | `SELECT` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` |
+| `list` | `SELECT` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` |
+| `_list` | `EXEC` | `resourceGroupName, subnetName, subscriptionId, virtualNetworkName` |

@@ -27,13 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties that define the service unit. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServiceUnits_Get` | `SELECT` | `resourceGroupName, serviceName, serviceTopologyName, serviceUnitName, subscriptionId` |  |
-| `ServiceUnits_List` | `SELECT` | `resourceGroupName, serviceName, serviceTopologyName, subscriptionId` |  |
-| `ServiceUnits_CreateOrUpdate` | `INSERT` | `resourceGroupName, serviceName, serviceTopologyName, serviceUnitName, subscriptionId, data__properties` | This is an asynchronous operation and can be polled to completion using the operation resource returned by this operation. |
-| `ServiceUnits_Delete` | `DELETE` | `resourceGroupName, serviceName, serviceTopologyName, serviceUnitName, subscriptionId` |  |
+| `get` | `SELECT` | `resourceGroupName, serviceName, serviceTopologyName, serviceUnitName, subscriptionId` |  |
+| `list` | `SELECT` | `resourceGroupName, serviceName, serviceTopologyName, subscriptionId` |  |
+| `create_or_update` | `INSERT` | `resourceGroupName, serviceName, serviceTopologyName, serviceUnitName, subscriptionId, data__properties` | This is an asynchronous operation and can be polled to completion using the operation resource returned by this operation. |
+| `delete` | `DELETE` | `resourceGroupName, serviceName, serviceTopologyName, serviceUnitName, subscriptionId` |  |

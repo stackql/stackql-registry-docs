@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnections_Get` | `SELECT` | `privateEndpointConnectionName, providerName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection associated with the attestation provider. |
-| `PrivateEndpointConnections_List` | `SELECT` | `providerName, resourceGroupName, subscriptionId` | List all the private endpoint connections associated with the attestation provider. |
-| `PrivateEndpointConnections_Create` | `INSERT` | `privateEndpointConnectionName, providerName, resourceGroupName, subscriptionId` | Update the state of specified private endpoint connection associated with the attestation provider. |
-| `PrivateEndpointConnections_Delete` | `DELETE` | `privateEndpointConnectionName, providerName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection associated with the attestation provider. |
+| `get` | `SELECT` | `privateEndpointConnectionName, providerName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection associated with the attestation provider. |
+| `list` | `SELECT` | `providerName, resourceGroupName, subscriptionId` | List all the private endpoint connections associated with the attestation provider. |
+| `create` | `INSERT` | `privateEndpointConnectionName, providerName, resourceGroupName, subscriptionId` | Update the state of specified private endpoint connection associated with the attestation provider. |
+| `delete` | `DELETE` | `privateEndpointConnectionName, providerName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection associated with the attestation provider. |
+| `_list` | `EXEC` | `providerName, resourceGroupName, subscriptionId` | List all the private endpoint connections associated with the attestation provider. |

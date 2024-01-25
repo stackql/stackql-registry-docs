@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource identifier of the database account. |
 | `name` | `string` | The name of the database account. |
-| `type` | `string` | The type of Azure resource. |
 | `properties` | `object` | The properties of a DataTransfer Job |
+| `type` | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DataTransferJobs_Get` | `SELECT` | `accountName, jobName, resourceGroupName, subscriptionId` | Get a Data Transfer Job. |
-| `DataTransferJobs_ListByDatabaseAccount` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Get a list of Data Transfer jobs. |
-| `DataTransferJobs_Create` | `INSERT` | `accountName, jobName, resourceGroupName, subscriptionId, data__properties` | Creates a Data Transfer Job. |
-| `DataTransferJobs_Cancel` | `EXEC` | `accountName, jobName, resourceGroupName, subscriptionId` | Cancels a Data Transfer Job. |
-| `DataTransferJobs_Pause` | `EXEC` | `accountName, jobName, resourceGroupName, subscriptionId` | Pause a Data Transfer Job. |
-| `DataTransferJobs_Resume` | `EXEC` | `accountName, jobName, resourceGroupName, subscriptionId` | Resumes a Data Transfer Job. |
+| `get` | `SELECT` | `accountName, jobName, resourceGroupName, subscriptionId` | Get a Data Transfer Job. |
+| `list_by_database_account` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Get a list of Data Transfer jobs. |
+| `create` | `INSERT` | `accountName, jobName, resourceGroupName, subscriptionId, data__properties` | Creates a Data Transfer Job. |
+| `_list_by_database_account` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Get a list of Data Transfer jobs. |
+| `cancel` | `EXEC` | `accountName, jobName, resourceGroupName, subscriptionId` | Cancels a Data Transfer Job. |
+| `pause` | `EXEC` | `accountName, jobName, resourceGroupName, subscriptionId` | Pause a Data Transfer Job. |
+| `resume` | `EXEC` | `accountName, jobName, resourceGroupName, subscriptionId` | Resumes a Data Transfer Job. |

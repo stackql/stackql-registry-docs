@@ -28,9 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AFDCustomDomains_Get` | `SELECT` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile. |
-| `AFDCustomDomains_ListByProfile` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Lists existing AzureFrontDoor domains. |
-| `AFDCustomDomains_Create` | `INSERT` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Creates a new domain within the specified profile. |
-| `AFDCustomDomains_Delete` | `DELETE` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Deletes an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile. |
-| `AFDCustomDomains_RefreshValidationToken` | `EXEC` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Updates the domain validation token. |
-| `AFDCustomDomains_Update` | `EXEC` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Updates an existing domain within a profile. |
+| `get` | `SELECT` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile. |
+| `list_by_profile` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Lists existing AzureFrontDoor domains. |
+| `create` | `INSERT` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Creates a new domain within the specified profile. |
+| `delete` | `DELETE` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Deletes an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile. |
+| `_list_by_profile` | `EXEC` | `profileName, resourceGroupName, subscriptionId` | Lists existing AzureFrontDoor domains. |
+| `refresh_validation_token` | `EXEC` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Updates the domain validation token. |
+| `update` | `EXEC` | `customDomainName, profileName, resourceGroupName, subscriptionId` | Updates an existing domain within a profile. |

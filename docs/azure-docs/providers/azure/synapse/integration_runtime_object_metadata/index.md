@@ -32,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationRuntimeObjectMetadata_List` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` | Get object metadata from an integration runtime |
-| `IntegrationRuntimeObjectMetadata_Refresh` | `EXEC` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` | Refresh the object metadata in an integration runtime |
+| `list` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` | Get object metadata from an integration runtime |
+| `refresh` | `EXEC` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` | Refresh the object metadata in an integration runtime |

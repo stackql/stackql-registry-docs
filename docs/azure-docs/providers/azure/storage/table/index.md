@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Table_Get` | `SELECT` | `accountName, resourceGroupName, subscriptionId, tableName` | Gets the table with the specified table name, under the specified account if it exists. |
-| `Table_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets a list of all the tables under the specified storage account |
-| `Table_Create` | `INSERT` | `accountName, resourceGroupName, subscriptionId, tableName` | Creates a new table with the specified table name, under the specified account. |
-| `Table_Delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId, tableName` | Deletes the table with the specified table name, under the specified account if it exists. |
-| `Table_Update` | `EXEC` | `accountName, resourceGroupName, subscriptionId, tableName` | Creates a new table with the specified table name, under the specified account. |
+| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId, tableName` | Gets the table with the specified table name, under the specified account if it exists. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets a list of all the tables under the specified storage account |
+| `create` | `INSERT` | `accountName, resourceGroupName, subscriptionId, tableName` | Creates a new table with the specified table name, under the specified account. |
+| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId, tableName` | Deletes the table with the specified table name, under the specified account if it exists. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Gets a list of all the tables under the specified storage account |
+| `update` | `EXEC` | `accountName, resourceGroupName, subscriptionId, tableName` | Creates a new table with the specified table name, under the specified account. |

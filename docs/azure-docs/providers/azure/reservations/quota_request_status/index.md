@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `QuotaRequestStatus_Get` | `SELECT` | `id, location, providerId, subscriptionId` | For the specified Azure region (location), get the details and status of the quota request by the quota request ID for the resources of the resource provider. The PUT request for the quota (service limit) returns a response with the requestId parameter. |
-| `QuotaRequestStatus_List` | `SELECT` | `location, providerId, subscriptionId` | For the specified Azure region (location), subscription, and resource provider, get the history of the quota requests for the past year. To select specific quota requests, use the oData filter. |
+| `get` | `SELECT` | `id, location, providerId, subscriptionId` | For the specified Azure region (location), get the details and status of the quota request by the quota request ID for the resources of the resource provider. The PUT request for the quota (service limit) returns a response with the requestId parameter. |
+| `list` | `SELECT` | `location, providerId, subscriptionId` | For the specified Azure region (location), subscription, and resource provider, get the history of the quota requests for the past year. To select specific quota requests, use the oData filter. |
+| `_list` | `EXEC` | `location, providerId, subscriptionId` | For the specified Azure region (location), subscription, and resource provider, get the history of the quota requests for the past year. To select specific quota requests, use the oData filter. |

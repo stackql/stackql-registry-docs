@@ -29,5 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TenantAccessGit_RegeneratePrimaryKey` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate primary access key for GIT. |
-| `TenantAccessGit_RegenerateSecondaryKey` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate secondary access key for GIT. |
+| `regenerate_primary_key` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate primary access key for GIT. |
+| `regenerate_secondary_key` | `EXEC` | `accessName, resourceGroupName, serviceName, subscriptionId` | Regenerate secondary access key for GIT. |

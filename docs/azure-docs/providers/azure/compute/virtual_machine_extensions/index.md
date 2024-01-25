@@ -36,8 +36,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualMachineExtensions_Get` | `SELECT` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to get the extension. |
-| `VirtualMachineExtensions_List` | `SELECT` | `resourceGroupName, subscriptionId, vmName` | The operation to get all extensions of a Virtual Machine. |
-| `VirtualMachineExtensions_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to create or update the extension. |
-| `VirtualMachineExtensions_Delete` | `DELETE` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to delete the extension. |
-| `VirtualMachineExtensions_Update` | `EXEC` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to update the extension. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to get the extension. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, vmName` | The operation to get all extensions of a Virtual Machine. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to create or update the extension. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to delete the extension. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, vmName` | The operation to get all extensions of a Virtual Machine. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, vmExtensionName, vmName` | The operation to update the extension. |

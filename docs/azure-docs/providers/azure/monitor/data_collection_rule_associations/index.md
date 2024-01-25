@@ -36,9 +36,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `DataCollectionRuleAssociations_Get` | `SELECT` | `associationName, resourceUri` |
-| `DataCollectionRuleAssociations_ListByDataCollectionEndpoint` | `SELECT` | `dataCollectionEndpointName, resourceGroupName, subscriptionId` |
-| `DataCollectionRuleAssociations_ListByResource` | `SELECT` | `resourceUri` |
-| `DataCollectionRuleAssociations_ListByRule` | `SELECT` | `dataCollectionRuleName, resourceGroupName, subscriptionId` |
-| `DataCollectionRuleAssociations_Create` | `INSERT` | `associationName, resourceUri` |
-| `DataCollectionRuleAssociations_Delete` | `DELETE` | `associationName, resourceUri` |
+| `get` | `SELECT` | `associationName, resourceUri` |
+| `list_by_data_collection_endpoint` | `SELECT` | `dataCollectionEndpointName, resourceGroupName, subscriptionId` |
+| `list_by_resource` | `SELECT` | `resourceUri` |
+| `list_by_rule` | `SELECT` | `dataCollectionRuleName, resourceGroupName, subscriptionId` |
+| `create` | `INSERT` | `associationName, resourceUri` |
+| `delete` | `DELETE` | `associationName, resourceUri` |
+| `_list_by_data_collection_endpoint` | `EXEC` | `dataCollectionEndpointName, resourceGroupName, subscriptionId` |
+| `_list_by_resource` | `EXEC` | `resourceUri` |
+| `_list_by_rule` | `EXEC` | `dataCollectionRuleName, resourceGroupName, subscriptionId` |

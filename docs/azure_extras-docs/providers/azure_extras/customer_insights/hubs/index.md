@@ -29,16 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties of hub. |
 | `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Hubs_Get` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets information about the specified hub. |
-| `Hubs_List` | `SELECT` | `subscriptionId` | Gets all hubs in the specified subscription. |
-| `Hubs_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the hubs in a resource group. |
-| `Hubs_CreateOrUpdate` | `INSERT` | `hubName, resourceGroupName, subscriptionId` | Creates a hub, or updates an existing hub. |
-| `Hubs_Delete` | `DELETE` | `hubName, resourceGroupName, subscriptionId` | Deletes the specified hub. |
-| `Hubs_Update` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Updates a Hub. |
+| `get` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets information about the specified hub. |
+| `list` | `SELECT` | `subscriptionId` | Gets all hubs in the specified subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the hubs in a resource group. |
+| `create_or_update` | `INSERT` | `hubName, resourceGroupName, subscriptionId` | Creates a hub, or updates an existing hub. |
+| `delete` | `DELETE` | `hubName, resourceGroupName, subscriptionId` | Deletes the specified hub. |
+| `_list` | `EXEC` | `subscriptionId` | Gets all hubs in the specified subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the hubs in a resource group. |
+| `update` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Updates a Hub. |

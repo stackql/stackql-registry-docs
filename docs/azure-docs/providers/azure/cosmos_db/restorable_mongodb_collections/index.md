@@ -34,4 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `RestorableMongodbCollections_List` | `SELECT` | `instanceId, location, subscriptionId` |
+| `list` | `SELECT` | `instanceId, location, subscriptionId` |
+| `_list` | `EXEC` | `instanceId, location, subscriptionId` |

@@ -27,14 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `status` | `string` | The status |
 | `impactDurationInSec` | `integer` | Duration of impact in seconds |
 | `impactType` | `string` | The impact type |
 | `maintenanceScope` | `string` | The impact area |
 | `notBefore` | `string` | Time when Azure will start force updates if not self-updated by customer before this time |
 | `properties` | `object` | Properties for update |
+| `status` | `string` | The status |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Updates_List` | `SELECT` | `providerName, resourceGroupName, resourceName, resourceType, subscriptionId` |
-| `Updates_ListParent` | `EXEC` | `providerName, resourceGroupName, resourceName, resourceParentName, resourceParentType, resourceType, subscriptionId` |
+| `list` | `SELECT` | `providerName, resourceGroupName, resourceName, resourceType, subscriptionId` |
+| `_list` | `EXEC` | `providerName, resourceGroupName, resourceName, resourceType, subscriptionId` |

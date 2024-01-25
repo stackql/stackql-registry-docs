@@ -34,5 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SecureScoreControls_List` | `SELECT` | `api-version, subscriptionId` | Get all security controls within a scope |
-| `SecureScoreControls_ListBySecureScore` | `SELECT` | `api-version, secureScoreName, subscriptionId` | Get all security controls for a specific initiative within a scope |
+| `list` | `SELECT` | `api-version, subscriptionId` | Get all security controls within a scope |
+| `list_by_secure_score` | `SELECT` | `api-version, secureScoreName, subscriptionId` | Get all security controls for a specific initiative within a scope |
+| `_list` | `EXEC` | `api-version, subscriptionId` | Get all security controls within a scope |
+| `_list_by_secure_score` | `EXEC` | `api-version, secureScoreName, subscriptionId` | Get all security controls for a specific initiative within a scope |

@@ -27,19 +27,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | The managed database's properties. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedDatabases_Get` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed database. |
-| `ManagedDatabases_ListByInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed databases. |
-| `ManagedDatabases_CreateOrUpdate` | `INSERT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__location` | Creates a new database or updates an existing database. |
-| `ManagedDatabases_Delete` | `DELETE` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Deletes a managed database. |
-| `ManagedDatabases_CancelMove` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__destinationManagedDatabaseId` | Cancels a managed database move operation. |
-| `ManagedDatabases_CompleteMove` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__destinationManagedDatabaseId` | Completes a managed database move operation. |
-| `ManagedDatabases_CompleteRestore` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__lastBackupName` | Completes the restore operation on a managed database. |
-| `ManagedDatabases_ListInaccessibleByInstance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of inaccessible managed databases in a managed instance |
-| `ManagedDatabases_StartMove` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__destinationManagedDatabaseId` | Starts a managed database move operation. |
-| `ManagedDatabases_Update` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Updates an existing database. |
+| `get` | `SELECT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Gets a managed database. |
+| `list_by_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed databases. |
+| `create_or_update` | `INSERT` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__location` | Creates a new database or updates an existing database. |
+| `delete` | `DELETE` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Deletes a managed database. |
+| `_list_by_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed databases. |
+| `cancel_move` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__destinationManagedDatabaseId` | Cancels a managed database move operation. |
+| `complete_move` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__destinationManagedDatabaseId` | Completes a managed database move operation. |
+| `complete_restore` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__lastBackupName` | Completes the restore operation on a managed database. |
+| `start_move` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId, data__destinationManagedDatabaseId` | Starts a managed database move operation. |
+| `update` | `EXEC` | `databaseName, managedInstanceName, resourceGroupName, subscriptionId` | Updates an existing database. |

@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ComplianceResults_Get` | `SELECT` | `api-version, complianceResultName, resourceId` | Security Compliance Result |
-| `ComplianceResults_List` | `SELECT` | `api-version, scope` | Security compliance results in the subscription |
+| `get` | `SELECT` | `api-version, complianceResultName, resourceId` | Security Compliance Result |
+| `list` | `SELECT` | `api-version, scope` | Security compliance results in the subscription |
+| `_list` | `EXEC` | `api-version, scope` | Security compliance results in the subscription |

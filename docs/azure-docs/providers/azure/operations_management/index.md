@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Azure Log Analytics - Operations Management  
+Operations Management Client  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Azure Log Analytics - Operations Management
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>15</b></span><br />
+<span>total methods:&nbsp;<b>20</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Azure Log Analytics - Operations Management
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.operations_management</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Log Analytics - Operations Management (Microsoft.OperationsManagement)</td></tr>
-<tr><td><b>Description</b></td><td>Azure Log Analytics - Operations Management</td></tr>
-<tr><td><b>Id</b></td><td><code>operations_management:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Operations Management</td></tr>
+<tr><td><b>Description</b></td><td>Operations Management Client</td></tr>
+<tr><td><b>Id</b></td><td><code>operations_management:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

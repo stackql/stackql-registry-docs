@@ -25,12 +25,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `properties` | `object` | The Email Event properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `EmailEvents_Get` | `SELECT` | `emailEventResourceName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a email event of a Test Base Account. |
-| `EmailEvents_List` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the email events of a Test Base Account. |
+| `get` | `SELECT` | `emailEventResourceName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a email event of a Test Base Account. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the email events of a Test Base Account. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the email events of a Test Base Account. |

@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExtendedSqlPoolBlobAuditingPolicies_Get` | `SELECT` | `blobAuditingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Gets an extended Sql pool's blob auditing policy. |
-| `ExtendedSqlPoolBlobAuditingPolicies_ListBySqlPool` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Lists extended auditing settings of a Sql pool. |
-| `ExtendedSqlPoolBlobAuditingPolicies_CreateOrUpdate` | `INSERT` | `blobAuditingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Creates or updates an extended Sql pool's blob auditing policy. |
+| `get` | `SELECT` | `blobAuditingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Gets an extended Sql pool's blob auditing policy. |
+| `list_by_sql_pool` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Lists extended auditing settings of a Sql pool. |
+| `create_or_update` | `INSERT` | `blobAuditingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Creates or updates an extended Sql pool's blob auditing policy. |
+| `_list_by_sql_pool` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Lists extended auditing settings of a Sql pool. |

@@ -21,7 +21,7 @@ Marketplace Catalog
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>2</b></span><br />
 <span>total selectable resources:&nbsp;<b>1</b></span><br />
-<span>total methods:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Marketplace Catalog
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_extras.marketplace_catalog</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Marketplace Catalog (Microsoft.Marketplace)</td></tr>
+<tr><td><b>Title</b></td><td>Azure Marketplace Catalog</td></tr>
 <tr><td><b>Description</b></td><td>Marketplace Catalog</td></tr>
-<tr><td><b>Id</b></td><td><code>marketplace_catalog:v23.03.00121</code></td></tr>
+<tr><td><b>Id</b></td><td><code>marketplace_catalog:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -27,6 +27,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| `Generate_AccessToken` | `EXEC` | `accountName, resourceGroupName, subscriptionId, data__permissionType, data__scope` |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| `access_token` | `EXEC` | `accountName, resourceGroupName, subscriptionId, data__permissionType, data__scope` | Generate an Azure Video Indexer access token. |
+| `restricted_viewer_access_token` | `EXEC` | `accountName, resourceGroupName, subscriptionId, data__scope` | Generate an Azure Video Indexer restricted viewer access token. |

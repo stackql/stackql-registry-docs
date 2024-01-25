@@ -21,7 +21,7 @@ Windows Extended Security Updates
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>2</b></span><br />
 <span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Windows Extended Security Updates
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_extras.windows_extended_security_updates</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Windows Extended Security Updates (Microsoft.WindowsESU)</td></tr>
+<tr><td><b>Title</b></td><td>Windows Extended Security Updates</td></tr>
 <tr><td><b>Description</b></td><td>Windows Extended Security Updates</td></tr>
-<tr><td><b>Id</b></td><td><code>windows_extended_security_updates:v23.03.00121</code></td></tr>
+<tr><td><b>Id</b></td><td><code>windows_extended_security_updates:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

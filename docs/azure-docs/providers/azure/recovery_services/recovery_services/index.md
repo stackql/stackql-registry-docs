@@ -29,4 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `RecoveryServices_CheckNameAvailability` | `EXEC` | `api-version, location, resourceGroupName, subscriptionId` |
+| `capabilities` | `EXEC` | `location, subscriptionId` |
+| `check_name_availability` | `EXEC` | `location, resourceGroupName, subscriptionId` |

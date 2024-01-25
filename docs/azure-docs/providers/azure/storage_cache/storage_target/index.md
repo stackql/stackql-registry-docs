@@ -29,7 +29,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `StorageTarget_Flush` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Tells the cache to write all dirty data to the Storage Target's backend storage. Client requests to this storage target's namespace will return errors until the flush operation completes. |
-| `StorageTarget_Invalidate` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Invalidate all cached data for a storage target. Cached files are discarded and fetched from the back end on the next request. |
-| `StorageTarget_Resume` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Resumes client access to a previously suspended storage target. |
-| `StorageTarget_Suspend` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Suspends client access to a storage target. |
+| `flush` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Tells the cache to write all dirty data to the Storage Target's backend storage. Client requests to this storage target's namespace will return errors until the flush operation completes. |
+| `invalidate` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Invalidate all cached data for a storage target. Cached files are discarded and fetched from the back end on the next request. |
+| `resume` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Resumes client access to a previously suspended storage target. |
+| `suspend` | `EXEC` | `cacheName, resourceGroupName, storageTargetName, subscriptionId` | Suspends client access to a storage target. |

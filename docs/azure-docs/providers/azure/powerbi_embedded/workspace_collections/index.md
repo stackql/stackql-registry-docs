@@ -29,13 +29,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkspaceCollections_create` | `INSERT` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Creates a new Power BI Workspace Collection with the specified properties. A Power BI Workspace Collection contains one or more workspaces, and can be used to provision keys that provide API access to those workspaces. |
-| `WorkspaceCollections_delete` | `DELETE` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Delete a Power BI Workspace Collection. |
-| `WorkspaceCollections_checkNameAvailability` | `EXEC` | `location, subscriptionId` | Verify the specified Power BI Workspace Collection name is valid and not already in use. |
-| `WorkspaceCollections_getAccessKeys` | `EXEC` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection. |
-| `WorkspaceCollections_getByName` | `EXEC` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Retrieves an existing Power BI Workspace Collection. |
-| `WorkspaceCollections_listByResourceGroup` | `EXEC` | `resourceGroupName, subscriptionId` | Retrieves all existing Power BI workspace collections in the specified resource group. |
-| `WorkspaceCollections_listBySubscription` | `EXEC` | `subscriptionId` | Retrieves all existing Power BI workspace collections in the specified subscription. |
-| `WorkspaceCollections_migrate` | `EXEC` | `resourceGroupName, subscriptionId` | Migrates an existing Power BI Workspace Collection to a different resource group and/or subscription. |
-| `WorkspaceCollections_regenerateKey` | `EXEC` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Regenerates the primary or secondary access key for the specified Power BI Workspace Collection. |
-| `WorkspaceCollections_update` | `EXEC` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Update an existing Power BI Workspace Collection with the specified properties. |
+| `create` | `INSERT` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Creates a new Power BI Workspace Collection with the specified properties. A Power BI Workspace Collection contains one or more workspaces, and can be used to provision keys that provide API access to those workspaces. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Delete a Power BI Workspace Collection. |
+| `check_name_availability` | `EXEC` | `location, subscriptionId` | Verify the specified Power BI Workspace Collection name is valid and not already in use. |
+| `migrate` | `EXEC` | `resourceGroupName, subscriptionId` | Migrates an existing Power BI Workspace Collection to a different resource group and/or subscription. |
+| `regenerate_key` | `EXEC` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Regenerates the primary or secondary access key for the specified Power BI Workspace Collection. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, workspaceCollectionName` | Update an existing Power BI Workspace Collection with the specified properties. |

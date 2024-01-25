@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `isClusterZoneResilient` | `boolean` | URL to get the next set of Managed VM Sizes if there are any. |
 | `baseResourceStatus` | `array` | List of Managed VM Sizes for Service Fabric Managed Clusters. |
+| `isClusterZoneResilient` | `boolean` | URL to get the next set of Managed VM Sizes if there are any. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `managedAzResiliencyStatus_get` | `SELECT` | `api-version, clusterName, resourceGroupName, subscriptionId` |
+| `get` | `SELECT` | `api-version, clusterName, resourceGroupName, subscriptionId` |

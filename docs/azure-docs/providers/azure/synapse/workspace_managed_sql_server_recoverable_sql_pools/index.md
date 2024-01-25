@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkspaceManagedSqlServerRecoverableSqlPools_Get` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get recoverable sql pools for workspace managed sql server. |
-| `WorkspaceManagedSqlServerRecoverableSqlPools_List` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Get list of recoverable sql pools for workspace managed sql server. |
+| `get` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get recoverable sql pools for workspace managed sql server. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Get list of recoverable sql pools for workspace managed sql server. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Get list of recoverable sql pools for workspace managed sql server. |

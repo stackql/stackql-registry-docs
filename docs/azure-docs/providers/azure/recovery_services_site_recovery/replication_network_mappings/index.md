@@ -29,15 +29,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
+| `location` | `string` | Resource Location |
 | `properties` | `object` | Network Mapping Properties. |
 | `type` | `string` | Resource Type |
-| `location` | `string` | Resource Location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationNetworkMappings_Get` | `SELECT` | `api-version, fabricName, networkMappingName, networkName, resourceGroupName, resourceName, subscriptionId` | Gets the details of an ASR network mapping. |
-| `ReplicationNetworkMappings_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists all ASR network mappings in the vault. |
-| `ReplicationNetworkMappings_ListByReplicationNetworks` | `SELECT` | `api-version, fabricName, networkName, resourceGroupName, resourceName, subscriptionId` | Lists all ASR network mappings for the specified network. |
-| `ReplicationNetworkMappings_Create` | `INSERT` | `api-version, fabricName, networkMappingName, networkName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to create an ASR network mapping. |
-| `ReplicationNetworkMappings_Delete` | `DELETE` | `api-version, fabricName, networkMappingName, networkName, resourceGroupName, resourceName, subscriptionId` | The operation to delete a network mapping. |
-| `ReplicationNetworkMappings_Update` | `EXEC` | `api-version, fabricName, networkMappingName, networkName, resourceGroupName, resourceName, subscriptionId` | The operation to update an ASR network mapping. |
+| `get` | `SELECT` | `api-version, fabricName, networkMappingName, networkName, resourceGroupName, resourceName, subscriptionId` | Gets the details of an ASR network mapping. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists all ASR network mappings in the vault. |
+| `list_by_replication_networks` | `SELECT` | `api-version, fabricName, networkName, resourceGroupName, resourceName, subscriptionId` | Lists all ASR network mappings for the specified network. |
+| `create` | `INSERT` | `api-version, fabricName, networkMappingName, networkName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to create an ASR network mapping. |
+| `delete` | `DELETE` | `api-version, fabricName, networkMappingName, networkName, resourceGroupName, resourceName, subscriptionId` | The operation to delete a network mapping. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists all ASR network mappings in the vault. |
+| `_list_by_replication_networks` | `EXEC` | `api-version, fabricName, networkName, resourceGroupName, resourceName, subscriptionId` | Lists all ASR network mappings for the specified network. |
+| `update` | `EXEC` | `api-version, fabricName, networkMappingName, networkName, resourceGroupName, resourceName, subscriptionId` | The operation to update an ASR network mapping. |

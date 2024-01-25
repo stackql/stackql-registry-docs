@@ -28,12 +28,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `etag` | `string` | Resource Etag. |
+| `kind` | `string` | The kind (type) of cognitive service account. |
+| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Properties of Cognitive Services account commitment plan. |
+| `sku` | `object` | The resource model definition representing SKU |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CommitmentPlans_Get` | `SELECT` | `accountName, commitmentPlanName, resourceGroupName, subscriptionId` | Gets the specified commitmentPlans associated with the Cognitive Services account. |
-| `CommitmentPlans_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the commitmentPlans associated with the Cognitive Services account. |
-| `CommitmentPlans_CreateOrUpdate` | `INSERT` | `accountName, commitmentPlanName, resourceGroupName, subscriptionId` | Update the state of specified commitmentPlans associated with the Cognitive Services account. |
-| `CommitmentPlans_Delete` | `DELETE` | `accountName, commitmentPlanName, resourceGroupName, subscriptionId` | Deletes the specified commitmentPlan associated with the Cognitive Services account. |
+| `get` | `SELECT` | `accountName, commitmentPlanName, resourceGroupName, subscriptionId` | Gets the specified commitmentPlans associated with the Cognitive Services account. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the commitmentPlans associated with the Cognitive Services account. |
+| `create_or_update` | `INSERT` | `accountName, commitmentPlanName, resourceGroupName, subscriptionId` | Update the state of specified commitmentPlans associated with the Cognitive Services account. |
+| `delete` | `DELETE` | `accountName, commitmentPlanName, resourceGroupName, subscriptionId` | Deletes the specified commitmentPlan associated with the Cognitive Services account. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Gets the commitmentPlans associated with the Cognitive Services account. |

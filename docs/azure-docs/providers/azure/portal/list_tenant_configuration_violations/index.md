@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | The array of violations. |
 | `nextLink` | `string` | The URL to use for getting the next set of results. |
+| `value` | `array` | The array of violations. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ListTenantConfigurationViolations_List` | `SELECT` |  |
+| `list` | `SELECT` |  |

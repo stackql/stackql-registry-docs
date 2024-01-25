@@ -34,8 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Resource type |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `VirtualMachineExtensionImages_Get` | `SELECT` | `location, publisherName, subscriptionId, type, version` | Gets a virtual machine extension image. |
-| `VirtualMachineExtensionImages_ListTypes` | `EXEC` | `location, publisherName, subscriptionId` | Gets a list of virtual machine extension image types. |
-| `VirtualMachineExtensionImages_ListVersions` | `EXEC` | `location, publisherName, subscriptionId, type` | Gets a list of virtual machine extension image versions. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `get` | `SELECT` | `location, publisherName, subscriptionId, type, version` |

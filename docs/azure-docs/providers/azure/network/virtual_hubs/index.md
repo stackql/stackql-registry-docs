@@ -29,21 +29,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `kind` | `string` | Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Parameters for VirtualHub. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualHubs_Get` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of a VirtualHub. |
-| `VirtualHubs_List` | `SELECT` | `subscriptionId` | Lists all the VirtualHubs in a subscription. |
-| `VirtualHubs_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the VirtualHubs in a resource group. |
-| `VirtualHubs_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, virtualHubName, data__location` | Creates a VirtualHub resource if it doesn't exist else updates the existing VirtualHub. |
-| `VirtualHubs_Delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualHubName` | Deletes a VirtualHub. |
-| `VirtualHubs_GetEffectiveVirtualHubRoutes` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` | Gets the effective routes configured for the Virtual Hub resource or the specified resource . |
-| `VirtualHubs_GetInboundRoutes` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` | Gets the inbound routes configured for the Virtual Hub on a particular connection. |
-| `VirtualHubs_GetOutboundRoutes` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` | Gets the outbound routes configured for the Virtual Hub on a particular connection. |
-| `VirtualHubs_UpdateTags` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` | Updates VirtualHub tags. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of a VirtualHub. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the VirtualHubs in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the VirtualHubs in a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, virtualHubName, data__location` | Creates a VirtualHub resource if it doesn't exist else updates the existing VirtualHub. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualHubName` | Deletes a VirtualHub. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the VirtualHubs in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the VirtualHubs in a resource group. |

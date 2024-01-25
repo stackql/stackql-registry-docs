@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkloadGroups_Get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId, workloadGroupName` | Gets a workload group |
-| `WorkloadGroups_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets the list of workload groups |
-| `WorkloadGroups_CreateOrUpdate` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId, workloadGroupName` | Creates or updates a workload group. |
-| `WorkloadGroups_Delete` | `DELETE` | `databaseName, resourceGroupName, serverName, subscriptionId, workloadGroupName` | Deletes a workload group. |
+| `get` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId, workloadGroupName` | Gets a workload group |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets the list of workload groups |
+| `create_or_update` | `INSERT` | `databaseName, resourceGroupName, serverName, subscriptionId, workloadGroupName` | Creates or updates a workload group. |
+| `delete` | `DELETE` | `databaseName, resourceGroupName, serverName, subscriptionId, workloadGroupName` | Deletes a workload group. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets the list of workload groups |

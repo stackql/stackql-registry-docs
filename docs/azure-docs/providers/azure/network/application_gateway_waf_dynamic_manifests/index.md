@@ -27,9 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | URL to get the next set of results. |
-| `value` | `array` | The list of application gateway waf manifest. |
+| `id` | `string` | Resource ID. |
+| `name` | `string` | Resource name. |
+| `properties` | `object` | Properties of ApplicationGatewayWafDynamicManifest. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ApplicationGatewayWafDynamicManifests_Get` | `SELECT` | `location, subscriptionId` |
+| `get` | `SELECT` | `location, subscriptionId` |
+| `_get` | `EXEC` | `location, subscriptionId` |

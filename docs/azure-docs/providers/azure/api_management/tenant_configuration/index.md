@@ -29,7 +29,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TenantConfiguration_Deploy` | `EXEC` | `configurationName, resourceGroupName, serviceName, subscriptionId` | This operation applies changes from the specified Git branch to the configuration database. This is a long running operation and could take several minutes to complete. |
-| `TenantConfiguration_GetSyncState` | `EXEC` | `configurationName, resourceGroupName, serviceName, subscriptionId` | Gets the status of the most recent synchronization between the configuration database and the Git repository. |
-| `TenantConfiguration_Save` | `EXEC` | `configurationName, resourceGroupName, serviceName, subscriptionId` | This operation creates a commit with the current configuration snapshot to the specified branch in the repository. This is a long running operation and could take several minutes to complete. |
-| `TenantConfiguration_Validate` | `EXEC` | `configurationName, resourceGroupName, serviceName, subscriptionId` | This operation validates the changes in the specified Git branch. This is a long running operation and could take several minutes to complete. |
+| `deploy` | `EXEC` | `configurationName, resourceGroupName, serviceName, subscriptionId` | This operation applies changes from the specified Git branch to the configuration database. This is a long running operation and could take several minutes to complete. |
+| `save` | `EXEC` | `configurationName, resourceGroupName, serviceName, subscriptionId` | This operation creates a commit with the current configuration snapshot to the specified branch in the repository. This is a long running operation and could take several minutes to complete. |
+| `validate` | `EXEC` | `configurationName, resourceGroupName, serviceName, subscriptionId` | This operation validates the changes in the specified Git branch. This is a long running operation and could take several minutes to complete. |

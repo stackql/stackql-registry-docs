@@ -29,10 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The alert rule arm id. |
 | `name` | `string` | The status name. |
-| `type` | `string` | The extended resource type name. |
 | `properties` | `object` | An alert status properties. |
+| `type` | `string` | The extended resource type name. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `MetricAlertsStatus_List` | `SELECT` | `resourceGroupName, ruleName, subscriptionId` |
-| `MetricAlertsStatus_ListByName` | `SELECT` | `resourceGroupName, ruleName, statusName, subscriptionId` |
+| `list` | `SELECT` | `resourceGroupName, ruleName, subscriptionId` |
+| `list_by_name` | `SELECT` | `resourceGroupName, ruleName, statusName, subscriptionId` |
+| `_list` | `EXEC` | `resourceGroupName, ruleName, subscriptionId` |
+| `_list_by_name` | `EXEC` | `resourceGroupName, ruleName, statusName, subscriptionId` |

@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DataWarehouseUserActivities_Get` | `SELECT` | `dataWarehouseUserActivityName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets the user activities of a data warehouse which includes running and suspended queries |
-| `DataWarehouseUserActivities_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | List the user activities of a data warehouse which includes running and suspended queries |
+| `get` | `SELECT` | `dataWarehouseUserActivityName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets the user activities of a data warehouse which includes running and suspended queries |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | List the user activities of a data warehouse which includes running and suspended queries |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | List the user activities of a data warehouse which includes running and suspended queries |

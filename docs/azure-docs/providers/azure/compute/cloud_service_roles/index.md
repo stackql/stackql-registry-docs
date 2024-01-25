@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource id |
 | `name` | `string` | Resource name |
-| `sku` | `object` | Describes the cloud service role sku. |
-| `type` | `string` | Resource type |
 | `location` | `string` | Resource location |
 | `properties` | `object` | The cloud service role properties. |
+| `sku` | `object` | Describes the cloud service role sku. |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CloudServiceRoles_Get` | `SELECT` | `cloudServiceName, resourceGroupName, roleName, subscriptionId` | Gets a role from a cloud service. |
-| `CloudServiceRoles_List` | `SELECT` | `cloudServiceName, resourceGroupName, subscriptionId` | Gets a list of all roles in a cloud service. Use nextLink property in the response to get the next page of roles. Do this till nextLink is null to fetch all the roles. |
+| `get` | `SELECT` | `cloudServiceName, resourceGroupName, roleName, subscriptionId` | Gets a role from a cloud service. |
+| `list` | `SELECT` | `cloudServiceName, resourceGroupName, subscriptionId` | Gets a list of all roles in a cloud service. Use nextLink property in the response to get the next page of roles. Do this till nextLink is null to fetch all the roles. |
+| `_list` | `EXEC` | `cloudServiceName, resourceGroupName, subscriptionId` | Gets a list of all roles in a cloud service. Use nextLink property in the response to get the next page of roles. Do this till nextLink is null to fetch all the roles. |

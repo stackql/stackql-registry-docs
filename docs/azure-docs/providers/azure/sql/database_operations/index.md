@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DatabaseOperations_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of operations performed on the database. |
-| `DatabaseOperations_Cancel` | `EXEC` | `databaseName, operationId, resourceGroupName, serverName, subscriptionId` | Cancels the asynchronous operation on the database. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of operations performed on the database. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of operations performed on the database. |
+| `cancel` | `EXEC` | `databaseName, operationId, resourceGroupName, serverName, subscriptionId` | Cancels the asynchronous operation on the database. |

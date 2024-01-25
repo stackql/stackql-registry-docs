@@ -29,5 +29,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Dimensions_ByExternalCloudProviderType` | `EXEC` | `externalCloudProviderId, externalCloudProviderType` | Lists the dimensions by the external cloud provider type. |
-| `Dimensions_List` | `EXEC` | `scope` | Lists the dimensions by the defined scope. |
+| `_by_external_cloud_provider_type` | `EXEC` | `externalCloudProviderId, externalCloudProviderType` | Lists the dimensions by the external cloud provider type. |
+| `_exec_list` | `EXEC` | `scope` | Lists the dimensions by the defined scope. |
+| `by_external_cloud_provider_type` | `EXEC` | `externalCloudProviderId, externalCloudProviderType` | Lists the dimensions by the external cloud provider type. |
+| `exec_list` | `EXEC` | `scope` | Lists the dimensions by the defined scope. |

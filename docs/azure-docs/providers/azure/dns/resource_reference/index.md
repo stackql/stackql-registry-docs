@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `DnsResourceReference_GetByTargetResources` | `EXEC` | `subscriptionId` |
+| `get_by_target_resources` | `EXEC` | `subscriptionId` |

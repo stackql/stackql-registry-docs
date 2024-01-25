@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Connectors_Get` | `SELECT` | `api-version, connectorName, subscriptionId` | Details of a specific cloud account connector |
-| `Connectors_List` | `SELECT` | `api-version, subscriptionId` | Cloud accounts connectors of a subscription |
-| `Connectors_CreateOrUpdate` | `INSERT` | `api-version, connectorName, subscriptionId` | Create a cloud account connector or update an existing one. Connect to your cloud account. For AWS, use either account credentials or role-based authentication. For GCP, use account organization credentials. |
-| `Connectors_Delete` | `DELETE` | `api-version, connectorName, subscriptionId` | Delete a cloud account connector from a subscription |
+| `get` | `SELECT` | `api-version, connectorName, subscriptionId` | Details of a specific cloud account connector |
+| `list` | `SELECT` | `api-version, subscriptionId` | Cloud accounts connectors of a subscription |
+| `create_or_update` | `INSERT` | `api-version, connectorName, subscriptionId` | Create a cloud account connector or update an existing one. Connect to your cloud account. For AWS, use either account credentials or role-based authentication. For GCP, use account organization credentials. |
+| `delete` | `DELETE` | `api-version, connectorName, subscriptionId` | Delete a cloud account connector from a subscription |
+| `_list` | `EXEC` | `api-version, subscriptionId` | Cloud accounts connectors of a subscription |

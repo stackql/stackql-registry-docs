@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkspaceSettings_Get` | `SELECT` | `api-version, subscriptionId, workspaceSettingName` | Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set |
-| `WorkspaceSettings_List` | `SELECT` | `api-version, subscriptionId` | Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set |
-| `WorkspaceSettings_Create` | `INSERT` | `api-version, subscriptionId, workspaceSettingName` | creating settings about where we should store your security data and logs |
-| `WorkspaceSettings_Delete` | `DELETE` | `api-version, subscriptionId, workspaceSettingName` | Deletes the custom workspace settings for this subscription. new VMs will report to the default workspace |
-| `WorkspaceSettings_Update` | `EXEC` | `api-version, subscriptionId, workspaceSettingName` | Settings about where we should store your security data and logs |
+| `get` | `SELECT` | `api-version, subscriptionId, workspaceSettingName` | Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set |
+| `list` | `SELECT` | `api-version, subscriptionId` | Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set |
+| `create` | `INSERT` | `api-version, subscriptionId, workspaceSettingName` | creating settings about where we should store your security data and logs |
+| `delete` | `DELETE` | `api-version, subscriptionId, workspaceSettingName` | Deletes the custom workspace settings for this subscription. new VMs will report to the default workspace |
+| `_list` | `EXEC` | `api-version, subscriptionId` | Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set |
+| `update` | `EXEC` | `api-version, subscriptionId, workspaceSettingName` | Settings about where we should store your security data and logs |

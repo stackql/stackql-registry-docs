@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagementConfigurations_Get` | `SELECT` | `managementConfigurationName, resourceGroupName, subscriptionId` | Retrieves the user ManagementConfiguration. |
-| `ManagementConfigurations_ListBySubscription` | `SELECT` | `subscriptionId` | Retrieves the ManagementConfigurations list. |
-| `ManagementConfigurations_CreateOrUpdate` | `INSERT` | `managementConfigurationName, resourceGroupName, subscriptionId` | Creates or updates the ManagementConfiguration. |
-| `ManagementConfigurations_Delete` | `DELETE` | `managementConfigurationName, resourceGroupName, subscriptionId` | Deletes the ManagementConfiguration in the subscription. |
+| `get` | `SELECT` | `managementConfigurationName, resourceGroupName, subscriptionId` | Retrieves the user ManagementConfiguration. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Retrieves the ManagementConfigurations list. |
+| `create_or_update` | `INSERT` | `managementConfigurationName, resourceGroupName, subscriptionId` | Creates or updates the ManagementConfiguration. |
+| `delete` | `DELETE` | `managementConfigurationName, resourceGroupName, subscriptionId` | Deletes the ManagementConfiguration in the subscription. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Retrieves the ManagementConfigurations list. |

@@ -27,13 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
+| `id` | `string` | Azure resource Id |
+| `name` | `string` | Azure resource name |
+| `location` | `string` | Resource location |
 | `properties` | `object` | The diagnostic settings Category. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| `tags` | `object` | Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters. |
+| `type` | `string` | Azure resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DiagnosticSettingsCategory_Get` | `SELECT` | `name, resourceUri` | Gets the diagnostic settings category for the specified resource. |
-| `DiagnosticSettingsCategory_List` | `SELECT` | `resourceUri` | Lists the diagnostic settings categories for the specified resource. |
+| `get` | `SELECT` | `name, resourceUri` | Gets the diagnostic settings category for the specified resource. |
+| `list` | `SELECT` | `resourceUri` | Lists the diagnostic settings categories for the specified resource. |
+| `_list` | `EXEC` | `resourceUri` | Lists the diagnostic settings categories for the specified resource. |

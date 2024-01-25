@@ -34,7 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnections_Get` | `SELECT` | `api-version, privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId` | Get private endpoint connection properties |
-| `PrivateEndpointConnections_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | List private endpoint connection properties |
-| `PrivateEndpointConnections_Delete` | `DELETE` | `api-version, privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId` | Delete private endpoint connection with the specified name |
-| `PrivateEndpointConnections_Update` | `EXEC` | `api-version, privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId, data__properties` | Update the status of a private endpoint connection with the specified name |
+| `get` | `SELECT` | `api-version, privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId` | Get private endpoint connection properties |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | List private endpoint connection properties |
+| `delete` | `DELETE` | `api-version, privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId` | Delete private endpoint connection with the specified name |
+| `update` | `EXEC` | `api-version, privateEndpointConnectionName, resourceGroupName, resourceName, subscriptionId, data__properties` | Update the status of a private endpoint connection with the specified name |

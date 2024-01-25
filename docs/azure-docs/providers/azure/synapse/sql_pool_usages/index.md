@@ -28,13 +28,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | The name of the usage metric. |
-| `resourceName` | `string` | The name of the resource. |
-| `unit` | `string` | The units of the usage metric. |
 | `currentValue` | `number` | The current value of the usage metric. |
 | `displayName` | `string` | The usage metric display name. |
 | `limit` | `number` | The current limit of the usage metric. |
 | `nextResetTime` | `string` | The next reset time for the usage metric (ISO8601 format). |
+| `resourceName` | `string` | The name of the resource. |
+| `unit` | `string` | The units of the usage metric. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `SqlPoolUsages_List` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` |
+| `list` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` |
+| `_list` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` |

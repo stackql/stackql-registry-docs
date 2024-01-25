@@ -29,8 +29,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DataFlowDebugSession_Create` | `INSERT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Creates a data flow debug session. |
-| `DataFlowDebugSession_Delete` | `DELETE` | `api-version, factoryName, resourceGroupName, subscriptionId` | Deletes a data flow debug session. |
-| `DataFlowDebugSession_AddDataFlow` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Add a data flow into debug session. |
-| `DataFlowDebugSession_ExecuteCommand` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Execute a data flow debug command. |
-| `DataFlowDebugSession_QueryByFactory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Query all active data flow debug sessions. |
+| `create` | `INSERT` | `api-version, factoryName, resourceGroupName, subscriptionId` | Creates a data flow debug session. |
+| `delete` | `DELETE` | `api-version, factoryName, resourceGroupName, subscriptionId` | Deletes a data flow debug session. |
+| `add_data_flow` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Add a data flow into debug session. |
+| `execute_command` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Execute a data flow debug command. |
+| `query_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` | Query all active data flow debug sessions. |

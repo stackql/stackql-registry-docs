@@ -25,33 +25,27 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `properties` | `object` | Tag contract Properties. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Tag_Get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId, tagId` | Gets the details of the tag specified by its identifier. |
-| `Tag_ListByApi` | `SELECT` | `apiId, resourceGroupName, serviceName, subscriptionId` | Lists all Tags associated with the API. |
-| `Tag_ListByOperation` | `SELECT` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId` | Lists all Tags associated with the Operation. |
-| `Tag_ListByProduct` | `SELECT` | `productId, resourceGroupName, serviceName, subscriptionId` | Lists all Tags associated with the Product. |
-| `Tag_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of tags defined within a service instance. |
-| `Tag_CreateOrUpdate` | `INSERT` | `resourceGroupName, serviceName, subscriptionId, tagId` | Creates a tag. |
-| `Tag_Delete` | `DELETE` | `If-Match, resourceGroupName, serviceName, subscriptionId, tagId` | Deletes specific tag of the API Management service instance. |
-| `Tag_AssignToApi` | `EXEC` | `apiId, resourceGroupName, serviceName, subscriptionId, tagId` | Assign tag to the Api. |
-| `Tag_AssignToOperation` | `EXEC` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId, tagId` | Assign tag to the Operation. |
-| `Tag_AssignToProduct` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId, tagId` | Assign tag to the Product. |
-| `Tag_DetachFromApi` | `EXEC` | `apiId, resourceGroupName, serviceName, subscriptionId, tagId` | Detach the tag from the Api. |
-| `Tag_DetachFromOperation` | `EXEC` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId, tagId` | Detach the tag from the Operation. |
-| `Tag_DetachFromProduct` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId, tagId` | Detach the tag from the Product. |
-| `Tag_GetByApi` | `EXEC` | `apiId, resourceGroupName, serviceName, subscriptionId, tagId` | Get tag associated with the API. |
-| `Tag_GetByOperation` | `EXEC` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId, tagId` | Get tag associated with the Operation. |
-| `Tag_GetByProduct` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId, tagId` | Get tag associated with the Product. |
-| `Tag_GetEntityState` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, tagId` | Gets the entity state version of the tag specified by its identifier. |
-| `Tag_GetEntityStateByApi` | `EXEC` | `apiId, resourceGroupName, serviceName, subscriptionId, tagId` | Gets the entity state version of the tag specified by its identifier. |
-| `Tag_GetEntityStateByOperation` | `EXEC` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId, tagId` | Gets the entity state version of the tag specified by its identifier. |
-| `Tag_GetEntityStateByProduct` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId, tagId` | Gets the entity state version of the tag specified by its identifier. |
-| `Tag_Update` | `EXEC` | `If-Match, resourceGroupName, serviceName, subscriptionId, tagId` | Updates the details of the tag specified by its identifier. |
+| `get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId, tagId` | Gets the details of the tag specified by its identifier. |
+| `list_by_api` | `SELECT` | `apiId, resourceGroupName, serviceName, subscriptionId` | Lists all Tags associated with the API. |
+| `list_by_operation` | `SELECT` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId` | Lists all Tags associated with the Operation. |
+| `list_by_product` | `SELECT` | `productId, resourceGroupName, serviceName, subscriptionId` | Lists all Tags associated with the Product. |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of tags defined within a service instance. |
+| `create_or_update` | `INSERT` | `resourceGroupName, serviceName, subscriptionId, tagId` | Creates a tag. |
+| `delete` | `DELETE` | `If-Match, resourceGroupName, serviceName, subscriptionId, tagId` | Deletes specific tag of the API Management service instance. |
+| `_list_by_api` | `EXEC` | `apiId, resourceGroupName, serviceName, subscriptionId` | Lists all Tags associated with the API. |
+| `_list_by_operation` | `EXEC` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId` | Lists all Tags associated with the Operation. |
+| `_list_by_product` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId` | Lists all Tags associated with the Product. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of tags defined within a service instance. |
+| `assign_to_api` | `EXEC` | `apiId, resourceGroupName, serviceName, subscriptionId, tagId` | Assign tag to the Api. |
+| `assign_to_operation` | `EXEC` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId, tagId` | Assign tag to the Operation. |
+| `assign_to_product` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId, tagId` | Assign tag to the Product. |
+| `detach_from_api` | `EXEC` | `apiId, resourceGroupName, serviceName, subscriptionId, tagId` | Detach the tag from the Api. |
+| `detach_from_operation` | `EXEC` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId, tagId` | Detach the tag from the Operation. |
+| `detach_from_product` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId, tagId` | Detach the tag from the Product. |
+| `get_by_api` | `EXEC` | `apiId, resourceGroupName, serviceName, subscriptionId, tagId` | Get tag associated with the API. |
+| `get_by_operation` | `EXEC` | `apiId, operationId, resourceGroupName, serviceName, subscriptionId, tagId` | Get tag associated with the Operation. |
+| `get_by_product` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId, tagId` | Get tag associated with the Product. |
+| `update` | `EXEC` | `If-Match, resourceGroupName, serviceName, subscriptionId, tagId` | Updates the details of the tag specified by its identifier. |

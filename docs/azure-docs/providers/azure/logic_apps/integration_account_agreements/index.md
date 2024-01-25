@@ -29,15 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets the resource name. |
+| `location` | `string` | The resource location. |
 | `properties` | `object` | The integration account agreement properties. |
 | `tags` | `object` | The resource tags. |
 | `type` | `string` | Gets the resource type. |
-| `location` | `string` | The resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationAccountAgreements_Get` | `SELECT` | `agreementName, api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets an integration account agreement. |
-| `IntegrationAccountAgreements_List` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account agreements. |
-| `IntegrationAccountAgreements_CreateOrUpdate` | `INSERT` | `agreementName, api-version, integrationAccountName, resourceGroupName, subscriptionId, data__properties` | Creates or updates an integration account agreement. |
-| `IntegrationAccountAgreements_Delete` | `DELETE` | `agreementName, api-version, integrationAccountName, resourceGroupName, subscriptionId` | Deletes an integration account agreement. |
-| `IntegrationAccountAgreements_ListContentCallbackUrl` | `EXEC` | `agreementName, api-version, integrationAccountName, resourceGroupName, subscriptionId` | Get the content callback url. |
+| `get` | `SELECT` | `agreementName, api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets an integration account agreement. |
+| `list` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account agreements. |
+| `create_or_update` | `INSERT` | `agreementName, api-version, integrationAccountName, resourceGroupName, subscriptionId, data__properties` | Creates or updates an integration account agreement. |
+| `delete` | `DELETE` | `agreementName, api-version, integrationAccountName, resourceGroupName, subscriptionId` | Deletes an integration account agreement. |
+| `_list` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | Gets a list of integration account agreements. |

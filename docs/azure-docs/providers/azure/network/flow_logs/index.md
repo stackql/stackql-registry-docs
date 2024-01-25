@@ -29,16 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `location` | `string` | Resource location. |
 | `properties` | `object` | Parameters that define the configuration of flow log. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FlowLogs_Get` | `SELECT` | `flowLogName, networkWatcherName, resourceGroupName, subscriptionId` | Gets a flow log resource by name. |
-| `FlowLogs_List` | `SELECT` | `networkWatcherName, resourceGroupName, subscriptionId` | Lists all flow log resources for the specified Network Watcher. |
-| `FlowLogs_CreateOrUpdate` | `INSERT` | `flowLogName, networkWatcherName, resourceGroupName, subscriptionId` | Create or update a flow log for the specified network security group. |
-| `FlowLogs_Delete` | `DELETE` | `flowLogName, networkWatcherName, resourceGroupName, subscriptionId` | Deletes the specified flow log resource. |
-| `FlowLogs_UpdateTags` | `EXEC` | `flowLogName, networkWatcherName, resourceGroupName, subscriptionId` | Update tags of the specified flow log. |
+| `get` | `SELECT` | `flowLogName, networkWatcherName, resourceGroupName, subscriptionId` | Gets a flow log resource by name. |
+| `list` | `SELECT` | `networkWatcherName, resourceGroupName, subscriptionId` | Lists all flow log resources for the specified Network Watcher. |
+| `create_or_update` | `INSERT` | `flowLogName, networkWatcherName, resourceGroupName, subscriptionId` | Create or update a flow log for the specified network security group. |
+| `delete` | `DELETE` | `flowLogName, networkWatcherName, resourceGroupName, subscriptionId` | Deletes the specified flow log resource. |
+| `_list` | `EXEC` | `networkWatcherName, resourceGroupName, subscriptionId` | Lists all flow log resources for the specified Network Watcher. |

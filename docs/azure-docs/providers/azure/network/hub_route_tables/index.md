@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Parameters for RouteTable. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `HubRouteTables_Get` | `SELECT` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Retrieves the details of a RouteTable. |
-| `HubRouteTables_List` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all RouteTables. |
-| `HubRouteTables_CreateOrUpdate` | `INSERT` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Creates a RouteTable resource if it doesn't exist else updates the existing RouteTable. |
-| `HubRouteTables_Delete` | `DELETE` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Deletes a RouteTable. |
+| `get` | `SELECT` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Retrieves the details of a RouteTable. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all RouteTables. |
+| `create_or_update` | `INSERT` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Creates a RouteTable resource if it doesn't exist else updates the existing RouteTable. |
+| `delete` | `DELETE` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Deletes a RouteTable. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all RouteTables. |

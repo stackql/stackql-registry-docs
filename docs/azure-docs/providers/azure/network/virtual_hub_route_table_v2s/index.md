@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualHubRouteTableV2s_Get` | `SELECT` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Retrieves the details of a VirtualHubRouteTableV2. |
-| `VirtualHubRouteTableV2s_List` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all VirtualHubRouteTableV2s. |
-| `VirtualHubRouteTableV2s_CreateOrUpdate` | `INSERT` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Creates a VirtualHubRouteTableV2 resource if it doesn't exist else updates the existing VirtualHubRouteTableV2. |
-| `VirtualHubRouteTableV2s_Delete` | `DELETE` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Deletes a VirtualHubRouteTableV2. |
+| `get` | `SELECT` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Retrieves the details of a VirtualHubRouteTableV2. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all VirtualHubRouteTableV2s. |
+| `create_or_update` | `INSERT` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Creates a VirtualHubRouteTableV2 resource if it doesn't exist else updates the existing VirtualHubRouteTableV2. |
+| `delete` | `DELETE` | `resourceGroupName, routeTableName, subscriptionId, virtualHubName` | Deletes a VirtualHubRouteTableV2. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all VirtualHubRouteTableV2s. |

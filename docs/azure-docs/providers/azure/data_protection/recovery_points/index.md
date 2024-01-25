@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RecoveryPoints_Get` | `SELECT` | `api-version, backupInstanceName, recoveryPointId, resourceGroupName, subscriptionId, vaultName` | Gets a Recovery Point using recoveryPointId for a Datasource. |
-| `RecoveryPoints_List` | `SELECT` | `api-version, backupInstanceName, resourceGroupName, subscriptionId, vaultName` | Returns a list of Recovery Points for a DataSource in a vault. |
+| `get` | `SELECT` | `backupInstanceName, recoveryPointId, resourceGroupName, subscriptionId, vaultName` | Gets a Recovery Point using recoveryPointId for a Datasource. |
+| `list` | `SELECT` | `backupInstanceName, resourceGroupName, subscriptionId, vaultName` | Returns a list of Recovery Points for a DataSource in a vault. |
+| `_list` | `EXEC` | `backupInstanceName, resourceGroupName, subscriptionId, vaultName` | Returns a list of Recovery Points for a DataSource in a vault. |

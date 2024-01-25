@@ -27,12 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `kind` | `string` | Kind of geo backup policy.  This is metadata used for the Azure portal experience. |
 | `location` | `string` | Backup policy location. |
 | `properties` | `object` | The properties of the geo backup policy. |
-| `kind` | `string` | Kind of geo backup policy.  This is metadata used for the Azure portal experience. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolGeoBackupPolicies_Get` | `SELECT` | `geoBackupPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get the specified SQL pool geo backup policy |
-| `SqlPoolGeoBackupPolicies_List` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get list of SQL pool geo backup policies |
-| `SqlPoolGeoBackupPolicies_CreateOrUpdate` | `INSERT` | `geoBackupPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName, data__properties` | Updates a SQL Pool geo backup policy. |
+| `get` | `SELECT` | `geoBackupPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get the specified SQL pool geo backup policy |
+| `list` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get list of SQL pool geo backup policies |
+| `create_or_update` | `INSERT` | `geoBackupPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName, data__properties` | Updates a SQL Pool geo backup policy. |
+| `_list` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get list of SQL pool geo backup policies |

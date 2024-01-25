@@ -27,20 +27,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource Name |
-| `location` | `string` | Gets or sets the location. |
-| `properties` | `object` | Defines the resource properties. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource Type |
 | `extendedLocation` | `object` | The extended location. |
+| `location` | `string` | The geo-location where the resource lives |
+| `properties` | `object` | Defines the resource properties. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AvailabilitySets_Get` | `SELECT` | `availabilitySetName, resourceGroupName, subscriptionId` | Implements AvailabilitySet GET method. |
-| `AvailabilitySets_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List of AvailabilitySets in a resource group. |
-| `AvailabilitySets_ListBySubscription` | `SELECT` | `subscriptionId` | List of AvailabilitySets in a subscription. |
-| `AvailabilitySets_CreateOrUpdate` | `INSERT` | `availabilitySetName, resourceGroupName, subscriptionId` | Onboards the ScVmm availability set as an Azure resource. |
-| `AvailabilitySets_Delete` | `DELETE` | `availabilitySetName, resourceGroupName, subscriptionId` | Deregisters the ScVmm availability set from Azure. |
-| `AvailabilitySets_Update` | `EXEC` | `availabilitySetName, resourceGroupName, subscriptionId` | Updates the AvailabilitySets resource. |
+| `get` | `SELECT` | `availabilitySetResourceName, resourceGroupName, subscriptionId` | Implements AvailabilitySet GET method. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List of AvailabilitySets in a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | List of AvailabilitySets in a subscription. |
+| `create_or_update` | `INSERT` | `availabilitySetResourceName, resourceGroupName, subscriptionId, data__extendedLocation, data__properties` | Onboards the ScVmm availability set as an Azure resource. |
+| `delete` | `DELETE` | `availabilitySetResourceName, resourceGroupName, subscriptionId` | Deregisters the ScVmm availability set from Azure. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List of AvailabilitySets in a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | List of AvailabilitySets in a subscription. |
+| `update` | `EXEC` | `availabilitySetResourceName, resourceGroupName, subscriptionId` | Updates the AvailabilitySets resource. |

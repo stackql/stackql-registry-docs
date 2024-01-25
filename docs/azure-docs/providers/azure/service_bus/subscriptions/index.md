@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Description of Subscription Resource. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Subscriptions_Get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId, subscriptionName, topicName` | Returns a subscription description for the specified topic. |
-| `Subscriptions_ListByTopic` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId, topicName` | List all the subscriptions under a specified topic. |
-| `Subscriptions_CreateOrUpdate` | `INSERT` | `namespaceName, resourceGroupName, subscriptionId, subscriptionName, topicName` | Creates a topic subscription. |
-| `Subscriptions_Delete` | `DELETE` | `namespaceName, resourceGroupName, subscriptionId, subscriptionName, topicName` | Deletes a subscription from the specified topic. |
+| `get` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId, subscriptionName, topicName` | Returns a subscription description for the specified topic. |
+| `list_by_topic` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId, topicName` | List all the subscriptions under a specified topic. |
+| `create_or_update` | `INSERT` | `namespaceName, resourceGroupName, subscriptionId, subscriptionName, topicName` | Creates a topic subscription. |
+| `delete` | `DELETE` | `namespaceName, resourceGroupName, subscriptionId, subscriptionName, topicName` | Deletes a subscription from the specified topic. |
+| `_list_by_topic` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId, topicName` | List all the subscriptions under a specified topic. |

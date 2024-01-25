@@ -37,8 +37,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualRouters_Get` | `SELECT` | `resourceGroupName, subscriptionId, virtualRouterName` | Gets the specified Virtual Router. |
-| `VirtualRouters_List` | `SELECT` | `subscriptionId` | Gets all the Virtual Routers in a subscription. |
-| `VirtualRouters_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Virtual Routers in a resource group. |
-| `VirtualRouters_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, virtualRouterName` | Creates or updates the specified Virtual Router. |
-| `VirtualRouters_Delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualRouterName` | Deletes the specified Virtual Router. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, virtualRouterName` | Gets the specified Virtual Router. |
+| `list` | `SELECT` | `subscriptionId` | Gets all the Virtual Routers in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all Virtual Routers in a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, virtualRouterName` | Creates or updates the specified Virtual Router. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualRouterName` | Deletes the specified Virtual Router. |
+| `_list` | `EXEC` | `subscriptionId` | Gets all the Virtual Routers in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all Virtual Routers in a resource group. |

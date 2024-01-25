@@ -27,9 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `SaaS_Delete` | `DELETE` | `resourceId` | Deletes the specified SaaS. |
-| `SaaS_CreateResource` | `EXEC` |  | Creates a SaaS resource. |
-| `SaaS_GetResource` | `EXEC` | `resourceId` | Gets information about the specified SaaS. |
-| `SaaS_UpdateResource` | `EXEC` | `resourceId` | Updates a SaaS resource. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `delete` | `DELETE` | `resourceId` |

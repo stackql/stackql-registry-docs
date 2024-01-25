@@ -29,22 +29,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
+| `extendedLocation` | `object` | The complex type of the extended location. |
 | `location` | `string` | Resource location |
 | `properties` | `object` |  |
 | `tags` | `object` | Resource tags |
 | `type` | `string` | Resource type |
-| `extendedLocation` | `object` | The complex type of the extended location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DiskAccesses_Get` | `SELECT` | `diskAccessName, resourceGroupName, subscriptionId` | Gets information about a disk access resource. |
-| `DiskAccesses_List` | `SELECT` | `subscriptionId` | Lists all the disk access resources under a subscription. |
-| `DiskAccesses_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the disk access resources under a resource group. |
-| `DiskAccesses_CreateOrUpdate` | `INSERT` | `diskAccessName, resourceGroupName, subscriptionId` | Creates or updates a disk access resource |
-| `DiskAccesses_Delete` | `DELETE` | `diskAccessName, resourceGroupName, subscriptionId` | Deletes a disk access resource. |
-| `DiskAccesses_DeleteAPrivateEndpointConnection` | `EXEC` | `diskAccessName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes a private endpoint connection under a disk access resource. |
-| `DiskAccesses_GetAPrivateEndpointConnection` | `EXEC` | `diskAccessName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets information about a private endpoint connection under a disk access resource. |
-| `DiskAccesses_GetPrivateLinkResources` | `EXEC` | `diskAccessName, resourceGroupName, subscriptionId` | Gets the private link resources possible under disk access resource |
-| `DiskAccesses_ListPrivateEndpointConnections` | `EXEC` | `diskAccessName, resourceGroupName, subscriptionId` | List information about private endpoint connections under a disk access resource |
-| `DiskAccesses_Update` | `EXEC` | `diskAccessName, resourceGroupName, subscriptionId` | Updates (patches) a disk access resource. |
-| `DiskAccesses_UpdateAPrivateEndpointConnection` | `EXEC` | `diskAccessName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Approve or reject a private endpoint connection under disk access resource, this can't be used to create a new private endpoint connection. |
+| `get` | `SELECT` | `diskAccessName, resourceGroupName, subscriptionId` | Gets information about a disk access resource. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the disk access resources under a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the disk access resources under a resource group. |
+| `create_or_update` | `INSERT` | `diskAccessName, resourceGroupName, subscriptionId` | Creates or updates a disk access resource |
+| `delete` | `DELETE` | `diskAccessName, resourceGroupName, subscriptionId` | Deletes a disk access resource. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the disk access resources under a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the disk access resources under a resource group. |
+| `update` | `EXEC` | `diskAccessName, resourceGroupName, subscriptionId` | Updates (patches) a disk access resource. |

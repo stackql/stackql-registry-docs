@@ -36,5 +36,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExpressRoutePortsLocations_Get` | `SELECT` | `locationName, subscriptionId` | Retrieves a single ExpressRoutePort peering location, including the list of available bandwidths available at said peering location. |
-| `ExpressRoutePortsLocations_List` | `SELECT` | `subscriptionId` | Retrieves all ExpressRoutePort peering locations. Does not return available bandwidths for each location. Available bandwidths can only be obtained when retrieving a specific peering location. |
+| `get` | `SELECT` | `locationName, subscriptionId` | Retrieves a single ExpressRoutePort peering location, including the list of available bandwidths available at said peering location. |
+| `list` | `SELECT` | `subscriptionId` | Retrieves all ExpressRoutePort peering locations. Does not return available bandwidths for each location. Available bandwidths can only be obtained when retrieving a specific peering location. |
+| `_list` | `EXEC` | `subscriptionId` | Retrieves all ExpressRoutePort peering locations. Does not return available bandwidths for each location. Available bandwidths can only be obtained when retrieving a specific peering location. |

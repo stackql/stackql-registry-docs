@@ -35,4 +35,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `privateEndPointConnections_ListByFactory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` |
+| `list_by_factory` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` |
+| `_list_by_factory` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` |

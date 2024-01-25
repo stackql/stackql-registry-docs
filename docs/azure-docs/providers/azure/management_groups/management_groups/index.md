@@ -34,9 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagementGroups_Get` | `SELECT` | `groupId` | Get the details of the management group.<br /> |
-| `ManagementGroups_List` | `SELECT` |  | List management groups for the authenticated user.<br /> |
-| `ManagementGroups_CreateOrUpdate` | `INSERT` | `groupId` | Create or update a management group.<br />If a management group is already created and a subsequent create request is issued with different properties, the management group properties will be updated.<br /> |
-| `ManagementGroups_Delete` | `DELETE` | `groupId` | Delete management group.<br />If a management group contains child resources, the request will fail.<br /> |
-| `ManagementGroups_GetDescendants` | `EXEC` | `groupId` | List all entities that descend from a management group.<br /> |
-| `ManagementGroups_Update` | `EXEC` | `groupId` | Update a management group.<br /> |
+| `get` | `SELECT` | `groupId` | Get the details of the management group.<br /> |
+| `list` | `SELECT` |  | List management groups for the authenticated user.<br /> |
+| `create_or_update` | `INSERT` | `groupId` | Create or update a management group.<br />If a management group is already created and a subsequent create request is issued with different properties, the management group properties will be updated.<br /> |
+| `delete` | `DELETE` | `groupId` | Delete management group.<br />If a management group contains child resources, the request will fail.<br /> |
+| `_list` | `EXEC` |  | List management groups for the authenticated user.<br /> |
+| `update` | `EXEC` | `groupId` | Update a management group.<br /> |

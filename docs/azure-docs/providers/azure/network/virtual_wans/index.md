@@ -29,17 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Parameters for VirtualWAN. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualWans_Get` | `SELECT` | `VirtualWANName, resourceGroupName, subscriptionId` | Retrieves the details of a VirtualWAN. |
-| `VirtualWans_List` | `SELECT` | `subscriptionId` | Lists all the VirtualWANs in a subscription. |
-| `VirtualWans_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the VirtualWANs in a resource group. |
-| `VirtualWans_CreateOrUpdate` | `INSERT` | `VirtualWANName, resourceGroupName, subscriptionId, data__location` | Creates a VirtualWAN resource if it doesn't exist else updates the existing VirtualWAN. |
-| `VirtualWans_Delete` | `DELETE` | `VirtualWANName, resourceGroupName, subscriptionId` | Deletes a VirtualWAN. |
-| `VirtualWans_UpdateTags` | `EXEC` | `VirtualWANName, resourceGroupName, subscriptionId` | Updates a VirtualWAN tags. |
+| `get` | `SELECT` | `VirtualWANName, resourceGroupName, subscriptionId` | Retrieves the details of a VirtualWAN. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the VirtualWANs in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all the VirtualWANs in a resource group. |
+| `create_or_update` | `INSERT` | `VirtualWANName, resourceGroupName, subscriptionId, data__location` | Creates a VirtualWAN resource if it doesn't exist else updates the existing VirtualWAN. |
+| `delete` | `DELETE` | `VirtualWANName, resourceGroupName, subscriptionId` | Deletes a VirtualWAN. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the VirtualWANs in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all the VirtualWANs in a resource group. |

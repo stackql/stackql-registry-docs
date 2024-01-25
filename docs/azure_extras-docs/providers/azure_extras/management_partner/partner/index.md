@@ -29,13 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Identifier of the partner |
 | `name` | `string` | Name of the partner |
-| `type` | `string` | Type of resource. "Microsoft.ManagementPartner/partners" |
 | `etag` | `integer` | Type of the partner |
 | `properties` | `object` | this is the management partner properties |
+| `type` | `string` | Type of resource. "Microsoft.ManagementPartner/partners" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Partner_Get` | `SELECT` | `partnerId` | Get the management partner using the partnerId, objectId and tenantId. |
-| `Partner_Create` | `INSERT` | `partnerId` | Create a management partner for the objectId and tenantId. |
-| `Partner_Delete` | `DELETE` | `partnerId` | Delete the management partner for the objectId and tenantId. |
-| `Partner_Update` | `EXEC` | `partnerId` | Update the management partner for the objectId and tenantId. |
+| `get` | `SELECT` | `partnerId` | Get the management partner using the partnerId, objectId and tenantId. |
+| `create` | `INSERT` | `partnerId` | Create a management partner for the objectId and tenantId. |
+| `delete` | `DELETE` | `partnerId` | Delete the management partner for the objectId and tenantId. |
+| `update` | `EXEC` | `partnerId` | Update the management partner for the objectId and tenantId. |

@@ -28,8 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RegisteredServers_Get` | `SELECT` | `resourceGroupName, serverId, storageSyncServiceName, subscriptionId` | Get a given registered server. |
-| `RegisteredServers_ListByStorageSyncService` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a given registered server list. |
-| `RegisteredServers_Create` | `INSERT` | `resourceGroupName, serverId, storageSyncServiceName, subscriptionId` | Add a new registered server. |
-| `RegisteredServers_Delete` | `DELETE` | `resourceGroupName, serverId, storageSyncServiceName, subscriptionId` | Delete the given registered server. |
-| `RegisteredServers_triggerRollover` | `EXEC` | `resourceGroupName, serverId, storageSyncServiceName, subscriptionId` | Triggers Server certificate rollover. |
+| `get` | `SELECT` | `resourceGroupName, serverId, storageSyncServiceName, subscriptionId` | Get a given registered server. |
+| `list_by_storage_sync_service` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a given registered server list. |
+| `create` | `INSERT` | `resourceGroupName, serverId, storageSyncServiceName, subscriptionId` | Add a new registered server. |
+| `delete` | `DELETE` | `resourceGroupName, serverId, storageSyncServiceName, subscriptionId` | Delete the given registered server. |
+| `_list_by_storage_sync_service` | `EXEC` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a given registered server list. |
+| `trigger_rollover` | `EXEC` | `resourceGroupName, serverId, storageSyncServiceName, subscriptionId` | Triggers Server certificate rollover. |
+| `update` | `EXEC` | `resourceGroupName, serverId, storageSyncServiceName, subscriptionId` | Update registered server. |

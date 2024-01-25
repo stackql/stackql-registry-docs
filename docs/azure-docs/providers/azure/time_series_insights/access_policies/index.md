@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AccessPolicies_Get` | `SELECT` | `accessPolicyName, environmentName, resourceGroupName, subscriptionId` | Gets the access policy with the specified name in the specified environment. |
-| `AccessPolicies_ListByEnvironment` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Lists all the available access policies associated with the environment. |
-| `AccessPolicies_CreateOrUpdate` | `INSERT` | `accessPolicyName, environmentName, resourceGroupName, subscriptionId, data__properties` | Create or update an access policy in the specified environment. |
-| `AccessPolicies_Delete` | `DELETE` | `accessPolicyName, environmentName, resourceGroupName, subscriptionId` | Deletes the access policy with the specified name in the specified subscription, resource group, and environment |
-| `AccessPolicies_Update` | `EXEC` | `accessPolicyName, environmentName, resourceGroupName, subscriptionId` | Updates the access policy with the specified name in the specified subscription, resource group, and environment. |
+| `get` | `SELECT` | `accessPolicyName, environmentName, resourceGroupName, subscriptionId` | Gets the access policy with the specified name in the specified environment. |
+| `list_by_environment` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Lists all the available access policies associated with the environment. |
+| `create_or_update` | `INSERT` | `accessPolicyName, environmentName, resourceGroupName, subscriptionId, data__properties` | Create or update an access policy in the specified environment. |
+| `delete` | `DELETE` | `accessPolicyName, environmentName, resourceGroupName, subscriptionId` | Deletes the access policy with the specified name in the specified subscription, resource group, and environment |
+| `_list_by_environment` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` | Lists all the available access policies associated with the environment. |
+| `update` | `EXEC` | `accessPolicyName, environmentName, resourceGroupName, subscriptionId` | Updates the access policy with the specified name in the specified subscription, resource group, and environment. |

@@ -27,16 +27,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
+| `id` | `string` | Resource Id |
+| `name` | `string` | Resource name |
+| `etag` | `string` | Resource etag |
+| `location` | `string` | Resource location |
 | `properties` | `object` | Properties of the Domain Service. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Resource tags |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DomainServices_Get` | `SELECT` | `domainServiceName, resourceGroupName, subscriptionId` | The Get Domain Service operation retrieves a json representation of the Domain Service. |
-| `DomainServices_List` | `SELECT` | `subscriptionId` | The List Domain Services in Subscription operation lists all the domain services available under the given subscription (and across all resource groups within that subscription). |
-| `DomainServices_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | The List Domain Services in Resource Group operation lists all the domain services available under the given resource group. |
-| `DomainServices_CreateOrUpdate` | `INSERT` | `domainServiceName, resourceGroupName, subscriptionId` | The Create Domain Service operation creates a new domain service with the specified parameters. If the specific service already exists, then any patchable properties will be updated and any immutable properties will remain unchanged. |
-| `DomainServices_Delete` | `DELETE` | `domainServiceName, resourceGroupName, subscriptionId` | The Delete Domain Service operation deletes an existing Domain Service. |
-| `DomainServices_Update` | `EXEC` | `domainServiceName, resourceGroupName, subscriptionId` | The Update Domain Service operation can be used to update the existing deployment. The update call only supports the properties listed in the PATCH body. |
+| `get` | `SELECT` | `domainServiceName, resourceGroupName, subscriptionId` | The Get Domain Service operation retrieves a json representation of the Domain Service. |
+| `list` | `SELECT` | `subscriptionId` | The List Domain Services in Subscription operation lists all the domain services available under the given subscription (and across all resource groups within that subscription). |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | The List Domain Services in Resource Group operation lists all the domain services available under the given resource group. |
+| `create_or_update` | `INSERT` | `domainServiceName, resourceGroupName, subscriptionId` | The Create Domain Service operation creates a new domain service with the specified parameters. If the specific service already exists, then any patchable properties will be updated and any immutable properties will remain unchanged. |
+| `delete` | `DELETE` | `domainServiceName, resourceGroupName, subscriptionId` | The Delete Domain Service operation deletes an existing Domain Service. |
+| `_list` | `EXEC` | `subscriptionId` | The List Domain Services in Subscription operation lists all the domain services available under the given subscription (and across all resource groups within that subscription). |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | The List Domain Services in Resource Group operation lists all the domain services available under the given resource group. |
+| `update` | `EXEC` | `domainServiceName, resourceGroupName, subscriptionId` | The Update Domain Service operation can be used to update the existing deployment. The update call only supports the properties listed in the PATCH body. |

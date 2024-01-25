@@ -34,10 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkflowTriggers_Get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Gets a workflow trigger. |
-| `WorkflowTriggers_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow triggers. |
-| `WorkflowTriggers_GetSchemaJson` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Get the trigger schema as JSON. |
-| `WorkflowTriggers_ListCallbackUrl` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Get the callback URL for a workflow trigger. |
-| `WorkflowTriggers_Reset` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Resets a workflow trigger. |
-| `WorkflowTriggers_Run` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Runs a workflow trigger. |
-| `WorkflowTriggers_SetState` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName, data__source` | Sets the state of a workflow trigger. |
+| `get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Gets a workflow trigger. |
+| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow triggers. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow triggers. |
+| `reset` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Resets a workflow trigger. |
+| `run` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName` | Runs a workflow trigger. |
+| `set_state` | `EXEC` | `api-version, resourceGroupName, subscriptionId, triggerName, workflowName, data__source` | Sets the state of a workflow trigger. |

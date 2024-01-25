@@ -29,16 +29,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Unique identifier of the resource. |
 | `name` | `string` | Resource name. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
 | `location` | `string` | Resource location. |
 | `plan` | `object` | Plan data for an extension resource. |
 | `properties` | `object` | Resource properties. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Extensions_Get` | `SELECT` | `accountResourceName, extensionResourceName, resourceGroupName, subscriptionId` | Gets the details of an extension associated with a Visual Studio Team Services account resource. |
-| `Extensions_ListByAccount` | `SELECT` | `accountResourceName, resourceGroupName, subscriptionId` | Gets the details of the extension resources created within the resource group. |
-| `Extensions_Create` | `INSERT` | `accountResourceName, extensionResourceName, resourceGroupName, subscriptionId` | Registers the extension with a Visual Studio Team Services account. |
-| `Extensions_Delete` | `DELETE` | `accountResourceName, extensionResourceName, resourceGroupName, subscriptionId` | Removes an extension resource registration for a Visual Studio Team Services account. |
-| `Extensions_Update` | `EXEC` | `accountResourceName, extensionResourceName, resourceGroupName, subscriptionId` | Updates an existing extension registration for the Visual Studio Team Services account. |
+| `get` | `SELECT` | `accountResourceName, extensionResourceName, resourceGroupName, subscriptionId` | Gets the details of an extension associated with a Visual Studio Team Services account resource. |
+| `list_by_account` | `SELECT` | `accountResourceName, resourceGroupName, subscriptionId` | Gets the details of the extension resources created within the resource group. |
+| `create` | `INSERT` | `accountResourceName, extensionResourceName, resourceGroupName, subscriptionId` | Registers the extension with a Visual Studio Team Services account. |
+| `delete` | `DELETE` | `accountResourceName, extensionResourceName, resourceGroupName, subscriptionId` | Removes an extension resource registration for a Visual Studio Team Services account. |
+| `_list_by_account` | `EXEC` | `accountResourceName, resourceGroupName, subscriptionId` | Gets the details of the extension resources created within the resource group. |
+| `update` | `EXEC` | `accountResourceName, extensionResourceName, resourceGroupName, subscriptionId` | Updates an existing extension registration for the Visual Studio Team Services account. |

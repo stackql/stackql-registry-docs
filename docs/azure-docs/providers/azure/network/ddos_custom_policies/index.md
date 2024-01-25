@@ -37,7 +37,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DdosCustomPolicies_Get` | `SELECT` | `ddosCustomPolicyName, resourceGroupName, subscriptionId` | Gets information about the specified DDoS custom policy. |
-| `DdosCustomPolicies_CreateOrUpdate` | `INSERT` | `ddosCustomPolicyName, resourceGroupName, subscriptionId` | Creates or updates a DDoS custom policy. |
-| `DdosCustomPolicies_Delete` | `DELETE` | `ddosCustomPolicyName, resourceGroupName, subscriptionId` | Deletes the specified DDoS custom policy. |
-| `DdosCustomPolicies_UpdateTags` | `EXEC` | `ddosCustomPolicyName, resourceGroupName, subscriptionId` | Update a DDoS custom policy tags. |
+| `get` | `SELECT` | `ddosCustomPolicyName, resourceGroupName, subscriptionId` | Gets information about the specified DDoS custom policy. |
+| `create_or_update` | `INSERT` | `ddosCustomPolicyName, resourceGroupName, subscriptionId` | Creates or updates a DDoS custom policy. |
+| `delete` | `DELETE` | `ddosCustomPolicyName, resourceGroupName, subscriptionId` | Deletes the specified DDoS custom policy. |

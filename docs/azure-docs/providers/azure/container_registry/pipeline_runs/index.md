@@ -25,17 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
-| `properties` | `object` | The properties of a pipeline run. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PipelineRuns_Get` | `SELECT` | `pipelineRunName, registryName, resourceGroupName, subscriptionId` | Gets the detailed information for a given pipeline run. |
-| `PipelineRuns_List` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the pipeline runs for the specified container registry. |
-| `PipelineRuns_Create` | `INSERT` | `pipelineRunName, registryName, resourceGroupName, subscriptionId` | Creates a pipeline run for a container registry with the specified parameters |
-| `PipelineRuns_Delete` | `DELETE` | `pipelineRunName, registryName, resourceGroupName, subscriptionId` | Deletes a pipeline run from a container registry. |
+| `get` | `SELECT` | `pipelineRunName, registryName, resourceGroupName, subscriptionId` | Gets the detailed information for a given pipeline run. |
+| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the pipeline runs for the specified container registry. |
+| `create` | `INSERT` | `pipelineRunName, registryName, resourceGroupName, subscriptionId` | Creates a pipeline run for a container registry with the specified parameters |
+| `delete` | `DELETE` | `pipelineRunName, registryName, resourceGroupName, subscriptionId` | Deletes a pipeline run from a container registry. |
+| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` | Lists all the pipeline runs for the specified container registry. |

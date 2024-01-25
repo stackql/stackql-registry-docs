@@ -25,16 +25,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
-| `eTag` | `string` | eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not. |
-| `properties` | `object` | The lot properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Lots_ListByBillingAccount` | `SELECT` | `billingAccountId` | Lists all Microsoft Azure consumption commitments for a billing account. The API is only supported for Microsoft Customer Agreements (MCA) and Direct Enterprise Agreement (EA)  billing accounts. |
-| `Lots_ListByBillingProfile` | `SELECT` | `billingAccountId, billingProfileId` | Lists all Azure credits for a billing account or a billing profile. The API is only supported for Microsoft Customer Agreements (MCA) billing accounts. |
-| `Lots_ListByCustomer` | `SELECT` | `billingAccountId, customerId` | Lists all Azure credits for a customer. The API is only supported for Microsoft Partner  Agreements (MPA) billing accounts. |
+| `list_by_billing_account` | `SELECT` | `billingAccountId` | Lists all Microsoft Azure consumption commitments for a billing account. The API is only supported for Microsoft Customer Agreements (MCA) and Direct Enterprise Agreement (EA)  billing accounts. |
+| `list_by_billing_profile` | `SELECT` | `billingAccountId, billingProfileId` | Lists all Azure credits for a billing account or a billing profile. The API is only supported for Microsoft Customer Agreements (MCA) billing accounts. |
+| `list_by_customer` | `SELECT` | `billingAccountId, customerId` | Lists all Azure credits for a customer. The API is only supported for Microsoft Partner  Agreements (MPA) billing accounts. |
+| `_list_by_billing_account` | `EXEC` | `billingAccountId` | Lists all Microsoft Azure consumption commitments for a billing account. The API is only supported for Microsoft Customer Agreements (MCA) and Direct Enterprise Agreement (EA)  billing accounts. |
+| `_list_by_billing_profile` | `EXEC` | `billingAccountId, billingProfileId` | Lists all Azure credits for a billing account or a billing profile. The API is only supported for Microsoft Customer Agreements (MCA) billing accounts. |
+| `_list_by_customer` | `EXEC` | `billingAccountId, customerId` | Lists all Azure credits for a customer. The API is only supported for Microsoft Partner  Agreements (MPA) billing accounts. |

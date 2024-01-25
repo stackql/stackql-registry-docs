@@ -29,10 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `type` | `string` | Resource type. |
 | `properties` | `object` | Definition of WidgetType. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WidgetTypes_Get` | `SELECT` | `hubName, resourceGroupName, subscriptionId, widgetTypeName` | Gets a widget type in the specified hub. |
-| `WidgetTypes_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all available widget types in the specified hub. |
+| `get` | `SELECT` | `hubName, resourceGroupName, subscriptionId, widgetTypeName` | Gets a widget type in the specified hub. |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` | Gets all available widget types in the specified hub. |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` | Gets all available widget types in the specified hub. |

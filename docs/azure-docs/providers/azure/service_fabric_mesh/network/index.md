@@ -27,14 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `tags` | `object` | Resource tags. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Describes properties of a network resource. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Network_Get` | `SELECT` | `api-version, networkResourceName, resourceGroupName, subscriptionId` | Gets the information about the network resource with the given name. The information include the description and other properties of the network. |
-| `Network_ListByResourceGroup` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Gets the information about all network resources in a given resource group. The information include the description and other properties of the Network. |
-| `Network_ListBySubscription` | `SELECT` | `api-version, subscriptionId` | Gets the information about all network resources in a given resource group. The information include the description and other properties of the network. |
-| `Network_Create` | `INSERT` | `api-version, networkResourceName, resourceGroupName, subscriptionId, data__properties` | Creates a network resource with the specified name, description and properties. If a network resource with the same name exists, then it is updated with the specified description and properties. |
-| `Network_Delete` | `DELETE` | `api-version, networkResourceName, resourceGroupName, subscriptionId` | Deletes the network resource identified by the name. |
+| `get` | `SELECT` | `api-version, networkResourceName, resourceGroupName, subscriptionId` | Gets the information about the network resource with the given name. The information include the description and other properties of the network. |
+| `list_by_resource_group` | `SELECT` | `api-version, resourceGroupName, subscriptionId` | Gets the information about all network resources in a given resource group. The information include the description and other properties of the Network. |
+| `list_by_subscription` | `SELECT` | `api-version, subscriptionId` | Gets the information about all network resources in a given resource group. The information include the description and other properties of the network. |
+| `create` | `INSERT` | `api-version, networkResourceName, resourceGroupName, subscriptionId, data__properties` | Creates a network resource with the specified name, description and properties. If a network resource with the same name exists, then it is updated with the specified description and properties. |
+| `delete` | `DELETE` | `api-version, networkResourceName, resourceGroupName, subscriptionId` | Deletes the network resource identified by the name. |
+| `_list_by_resource_group` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | Gets the information about all network resources in a given resource group. The information include the description and other properties of the Network. |
+| `_list_by_subscription` | `EXEC` | `api-version, subscriptionId` | Gets the information about all network resources in a given resource group. The information include the description and other properties of the network. |

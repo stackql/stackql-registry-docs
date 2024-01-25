@@ -34,5 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AdvancedThreatProtection_Get` | `SELECT` | `api-version, resourceId, settingName` | Gets the Advanced Threat Protection settings for the specified resource. |
-| `AdvancedThreatProtection_Create` | `INSERT` | `api-version, resourceId, settingName` | Creates or updates the Advanced Threat Protection settings on a specified resource. |
+| `get` | `SELECT` | `api-version, resourceId, settingName` | Gets the Advanced Threat Protection settings for the specified resource. |
+| `create` | `INSERT` | `api-version, resourceId, settingName` | Creates or updates the Advanced Threat Protection settings on a specified resource. |

@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Hybrid Kubernetes  
+Hybrid Kubernetes Service Allows You To Manage Your On-Premise Kubernetes Clusters From Azure By Onboarding Them To Azure Arc. The Hybrid Kubernetes API Allows You To Create, List, Update And Delete Your Arc Enabled Kubernetes Clusters.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>8</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -31,15 +31,16 @@ Hybrid Kubernetes
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.hybrid_kubernetes</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Hybrid Kubernetes (Microsoft.Kubernetes)</td></tr>
-<tr><td><b>Description</b></td><td>Hybrid Kubernetes</td></tr>
-<tr><td><b>Id</b></td><td><code>hybrid_kubernetes:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Hybrid Kubernetes API</td></tr>
+<tr><td><b>Description</b></td><td>Hybrid Kubernetes Service Allows You To Manage Your On-Premise Kubernetes Clusters From Azure By Onboarding Them To Azure Arc. The Hybrid Kubernetes API Allows You To Create, List, Update And Delete Your Arc Enabled Kubernetes Clusters.</td></tr>
+<tr><td><b>Id</b></td><td><code>hybrid_kubernetes:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/hybrid_kubernetes/connected_cluster/">connected_cluster</a><br />
+<a href="/providers/azure/hybrid_kubernetes/connected_cluster_cluster_user_credential/">connected_cluster_cluster_user_credential</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/hybrid_kubernetes/operations/">operations</a><br />

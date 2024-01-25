@@ -27,8 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `VirtualMachines_GetAsyncOperationStatus` | `EXEC` | `clusterName, operationId, resourceGroupName, subscriptionId` | Gets the async operation status. |
-| `VirtualMachines_ListHosts` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Lists the HDInsight clusters hosts |
-| `VirtualMachines_RestartHosts` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | Restarts the specified HDInsight cluster hosts. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `restart_hosts` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` |

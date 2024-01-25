@@ -27,10 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | Array of results. |
 | `nextLink` | `string` | Link to retrieve next page of results. |
+| `value` | `array` | Array of results. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `JobVersions_ListByJob` | `SELECT` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Gets all versions of a job. |
-| `JobVersions_Get` | `EXEC` | `jobAgentName, jobName, jobVersion, resourceGroupName, serverName, subscriptionId` | Gets a job version. |
+| `list_by_job` | `SELECT` | `jobAgentName, jobName, resourceGroupName, serverName, subscriptionId` | Gets all versions of a job. |
+| `exec_get` | `EXEC` | `jobAgentName, jobName, jobVersion, resourceGroupName, serverName, subscriptionId` | Gets a job version. |

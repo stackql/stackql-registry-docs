@@ -29,15 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource id. |
 | `name` | `string` | Gets the resource name. |
-| `tags` | `object` | The resource tags. |
-| `type` | `string` | Gets the resource type. |
 | `location` | `string` | The resource location. |
 | `properties` | `object` | The assembly properties definition. |
+| `tags` | `object` | The resource tags. |
+| `type` | `string` | Gets the resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationAccountAssemblies_Get` | `SELECT` | `api-version, assemblyArtifactName, integrationAccountName, resourceGroupName, subscriptionId` | Get an assembly for an integration account. |
-| `IntegrationAccountAssemblies_List` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | List the assemblies for an integration account. |
-| `IntegrationAccountAssemblies_CreateOrUpdate` | `INSERT` | `api-version, assemblyArtifactName, integrationAccountName, resourceGroupName, subscriptionId, data__properties` | Create or update an assembly for an integration account. |
-| `IntegrationAccountAssemblies_Delete` | `DELETE` | `api-version, assemblyArtifactName, integrationAccountName, resourceGroupName, subscriptionId` | Delete an assembly for an integration account. |
-| `IntegrationAccountAssemblies_ListContentCallbackUrl` | `EXEC` | `api-version, assemblyArtifactName, integrationAccountName, resourceGroupName, subscriptionId` | Get the content callback url for an integration account assembly. |
+| `get` | `SELECT` | `api-version, assemblyArtifactName, integrationAccountName, resourceGroupName, subscriptionId` | Get an assembly for an integration account. |
+| `list` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | List the assemblies for an integration account. |
+| `create_or_update` | `INSERT` | `api-version, assemblyArtifactName, integrationAccountName, resourceGroupName, subscriptionId, data__properties` | Create or update an assembly for an integration account. |
+| `delete` | `DELETE` | `api-version, assemblyArtifactName, integrationAccountName, resourceGroupName, subscriptionId` | Delete an assembly for an integration account. |
+| `_list` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | List the assemblies for an integration account. |

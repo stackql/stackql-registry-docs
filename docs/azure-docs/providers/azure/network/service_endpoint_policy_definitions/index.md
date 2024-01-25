@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Service Endpoint policy definition resource. |
 | `type` | `string` | The type of the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServiceEndpointPolicyDefinitions_Get` | `SELECT` | `resourceGroupName, serviceEndpointPolicyDefinitionName, serviceEndpointPolicyName, subscriptionId` | Get the specified service endpoint policy definitions from service endpoint policy. |
-| `ServiceEndpointPolicyDefinitions_ListByResourceGroup` | `SELECT` | `resourceGroupName, serviceEndpointPolicyName, subscriptionId` | Gets all service endpoint policy definitions in a service end point policy. |
-| `ServiceEndpointPolicyDefinitions_CreateOrUpdate` | `INSERT` | `resourceGroupName, serviceEndpointPolicyDefinitionName, serviceEndpointPolicyName, subscriptionId` | Creates or updates a service endpoint policy definition in the specified service endpoint policy. |
-| `ServiceEndpointPolicyDefinitions_Delete` | `DELETE` | `resourceGroupName, serviceEndpointPolicyDefinitionName, serviceEndpointPolicyName, subscriptionId` | Deletes the specified ServiceEndpoint policy definitions. |
+| `get` | `SELECT` | `resourceGroupName, serviceEndpointPolicyDefinitionName, serviceEndpointPolicyName, subscriptionId` | Get the specified service endpoint policy definitions from service endpoint policy. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, serviceEndpointPolicyName, subscriptionId` | Gets all service endpoint policy definitions in a service end point policy. |
+| `create_or_update` | `INSERT` | `resourceGroupName, serviceEndpointPolicyDefinitionName, serviceEndpointPolicyName, subscriptionId` | Creates or updates a service endpoint policy definition in the specified service endpoint policy. |
+| `delete` | `DELETE` | `resourceGroupName, serviceEndpointPolicyDefinitionName, serviceEndpointPolicyName, subscriptionId` | Deletes the specified ServiceEndpoint policy definitions. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, serviceEndpointPolicyName, subscriptionId` | Gets all service endpoint policy definitions in a service end point policy. |

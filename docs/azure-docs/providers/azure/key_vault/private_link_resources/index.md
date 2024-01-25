@@ -29,11 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified identifier of the key vault resource. |
 | `name` | `string` | Name of the key vault resource. |
+| `location` | `string` | Azure location of the key vault resource. |
 | `properties` | `object` | Properties of a private link resource. |
 | `tags` | `object` | Tags assigned to the key vault resource. |
 | `type` | `string` | Resource type of the key vault resource. |
-| `location` | `string` | Azure location of the key vault resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `PrivateLinkResources_ListByVault` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` |
+| `list_by_vault` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` |
+| `_list_by_vault` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` |

@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The fully qualified path of the registration definition. |
 | `name` | `string` | The name of the registration definition. |
-| `plan` | `object` | Plan for the resource. |
+| `plan` | `object` | The details for the Managed Services offer’s plan in Azure Marketplace. |
 | `properties` | `object` | The properties of a registration definition. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions). |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RegistrationDefinitions_Get` | `SELECT` | `registrationDefinitionId, scope` | Gets the registration definition details. |
-| `RegistrationDefinitions_List` | `SELECT` | `scope` | Gets a list of the registration definitions. |
-| `RegistrationDefinitions_CreateOrUpdate` | `INSERT` | `registrationDefinitionId, scope` | Creates or updates a registration definition. |
-| `RegistrationDefinitions_Delete` | `DELETE` | `registrationDefinitionId, scope` | Deletes the registration definition. |
+| `get` | `SELECT` | `registrationDefinitionId, scope` | Gets the registration definition details. |
+| `list` | `SELECT` | `scope` | Gets a list of the registration definitions. |
+| `create_or_update` | `INSERT` | `registrationDefinitionId, scope` | Creates or updates a registration definition. |
+| `delete` | `DELETE` | `registrationDefinitionId, scope` | Deletes the registration definition. |
+| `_list` | `EXEC` | `scope` | Gets a list of the registration definitions. |

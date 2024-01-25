@@ -27,12 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties of a database restore point |
 | `location` | `string` | Resource location. |
+| `properties` | `object` | Properties of a database restore point |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolRestorePoints_Get` | `SELECT` | `resourceGroupName, restorePointName, sqlPoolName, subscriptionId, workspaceName` | Gets a restore point. |
-| `SqlPoolRestorePoints_List` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get SQL pool backup information |
-| `SqlPoolRestorePoints_Create` | `INSERT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName, data__restorePointLabel` | Creates a restore point for a data warehouse. |
-| `SqlPoolRestorePoints_Delete` | `DELETE` | `resourceGroupName, restorePointName, sqlPoolName, subscriptionId, workspaceName` | Deletes a restore point. |
+| `get` | `SELECT` | `resourceGroupName, restorePointName, sqlPoolName, subscriptionId, workspaceName` | Gets a restore point. |
+| `list` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get SQL pool backup information |
+| `create` | `INSERT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName, data__restorePointLabel` | Creates a restore point for a data warehouse. |
+| `delete` | `DELETE` | `resourceGroupName, restorePointName, sqlPoolName, subscriptionId, workspaceName` | Deletes a restore point. |
+| `_list` | `EXEC` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get SQL pool backup information |

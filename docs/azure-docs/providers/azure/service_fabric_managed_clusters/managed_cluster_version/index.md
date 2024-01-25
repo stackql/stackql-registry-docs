@@ -34,7 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedClusterVersion_Get` | `SELECT` | `api-version, clusterVersion, location, subscriptionId` | Gets information about an available Service Fabric managed cluster code version. |
-| `ManagedClusterVersion_List` | `SELECT` | `api-version, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by location. |
-| `ManagedClusterVersion_ListByEnvironment` | `SELECT` | `api-version, environment, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by environment. |
-| `ManagedClusterVersion_GetByEnvironment` | `EXEC` | `api-version, clusterVersion, environment, location, subscriptionId` | Gets information about an available Service Fabric cluster code version by environment. |
+| `get` | `SELECT` | `api-version, clusterVersion, location, subscriptionId` | Gets information about an available Service Fabric managed cluster code version. |
+| `list` | `SELECT` | `api-version, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by location. |
+| `list_by_environment` | `SELECT` | `api-version, environment, location, subscriptionId` | Gets all available code versions for Service Fabric cluster resources by environment. |
+| `get_by_environment` | `EXEC` | `api-version, clusterVersion, environment, location, subscriptionId` | Gets information about an available Service Fabric cluster code version by environment. |

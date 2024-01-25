@@ -33,7 +33,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Steps_Get` | `SELECT` | `resourceGroupName, stepName, subscriptionId` |  |
-| `Steps_List` | `SELECT` | `resourceGroupName, subscriptionId` |  |
-| `Steps_CreateOrUpdate` | `INSERT` | `resourceGroupName, stepName, subscriptionId, data__properties` | Synchronously creates a new step or updates an existing step. |
-| `Steps_Delete` | `DELETE` | `resourceGroupName, stepName, subscriptionId` |  |
+| `get` | `SELECT` | `resourceGroupName, stepName, subscriptionId` |  |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` |  |
+| `create_or_update` | `INSERT` | `resourceGroupName, stepName, subscriptionId, data__properties` | Synchronously creates a new step or updates an existing step. |
+| `delete` | `DELETE` | `resourceGroupName, stepName, subscriptionId` |  |

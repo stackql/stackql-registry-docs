@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `type` | `string` | Resource type |
 | `properties` | `object` | The properties that are associated with a transformation. |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Transformations_Get` | `SELECT` | `jobName, resourceGroupName, subscriptionId, transformationName` | Gets details about the specified transformation. |
-| `Transformations_CreateOrReplace` | `INSERT` | `jobName, resourceGroupName, subscriptionId, transformationName` | Creates a transformation or replaces an already existing transformation under an existing streaming job. |
-| `Transformations_Update` | `EXEC` | `jobName, resourceGroupName, subscriptionId, transformationName` | Updates an existing transformation under an existing streaming job. This can be used to partially update (ie. update one or two properties) a transformation without affecting the rest the job or transformation definition. |
+| `get` | `SELECT` | `jobName, resourceGroupName, subscriptionId, transformationName` | Gets details about the specified transformation. |
+| `create_or_replace` | `INSERT` | `jobName, resourceGroupName, subscriptionId, transformationName` | Creates a transformation or replaces an already existing transformation under an existing streaming job. |
+| `update` | `EXEC` | `jobName, resourceGroupName, subscriptionId, transformationName` | Updates an existing transformation under an existing streaming job. This can be used to partially update (ie. update one or two properties) a transformation without affecting the rest the job or transformation definition. |

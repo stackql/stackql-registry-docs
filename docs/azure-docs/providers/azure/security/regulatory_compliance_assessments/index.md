@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RegulatoryComplianceAssessments_Get` | `SELECT` | `api-version, regulatoryComplianceAssessmentName, regulatoryComplianceControlName, regulatoryComplianceStandardName, subscriptionId` | Supported regulatory compliance details and state for selected assessment |
-| `RegulatoryComplianceAssessments_List` | `SELECT` | `api-version, regulatoryComplianceControlName, regulatoryComplianceStandardName, subscriptionId` | Details and state of assessments mapped to selected regulatory compliance control |
+| `get` | `SELECT` | `api-version, regulatoryComplianceAssessmentName, regulatoryComplianceControlName, regulatoryComplianceStandardName, subscriptionId` | Supported regulatory compliance details and state for selected assessment |
+| `list` | `SELECT` | `api-version, regulatoryComplianceControlName, regulatoryComplianceStandardName, subscriptionId` | Details and state of assessments mapped to selected regulatory compliance control |
+| `_list` | `EXEC` | `api-version, regulatoryComplianceControlName, regulatoryComplianceStandardName, subscriptionId` | Details and state of assessments mapped to selected regulatory compliance control |

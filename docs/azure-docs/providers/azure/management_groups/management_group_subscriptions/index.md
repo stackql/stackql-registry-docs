@@ -29,7 +29,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagementGroupSubscriptions_Create` | `INSERT` | `groupId, subscriptionId` | Associates existing subscription with the management group.<br /> |
-| `ManagementGroupSubscriptions_Delete` | `DELETE` | `groupId, subscriptionId` | De-associates subscription from the management group.<br /> |
-| `ManagementGroupSubscriptions_GetSubscription` | `EXEC` | `groupId, subscriptionId` | Retrieves details about given subscription which is associated with the management group.<br /> |
-| `ManagementGroupSubscriptions_GetSubscriptionsUnderManagementGroup` | `EXEC` | `groupId` | Retrieves details about all subscriptions which are associated with the management group.<br /> |
+| `create` | `INSERT` | `groupId, subscriptionId` | Associates existing subscription with the management group.<br /> |
+| `delete` | `DELETE` | `groupId, subscriptionId` | De-associates subscription from the management group.<br /> |

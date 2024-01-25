@@ -29,19 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `location` | `string` | Resource location. |
-| `tags` | `object` | Resource tags. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `location` | `string` | Resource location. |
 | `properties` | `object` | Nat Gateway properties. |
-| `type` | `string` | Resource type. |
 | `sku` | `object` | SKU of nat gateway. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 | `zones` | `array` | A list of availability zones denoting the zone in which Nat Gateway should be deployed. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `NatGateways_Get` | `SELECT` | `natGatewayName, resourceGroupName, subscriptionId` | Gets the specified nat gateway in a specified resource group. |
-| `NatGateways_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all nat gateways in a resource group. |
-| `NatGateways_ListAll` | `SELECT` | `subscriptionId` | Gets all the Nat Gateways in a subscription. |
-| `NatGateways_CreateOrUpdate` | `INSERT` | `natGatewayName, resourceGroupName, subscriptionId` | Creates or updates a nat gateway. |
-| `NatGateways_Delete` | `DELETE` | `natGatewayName, resourceGroupName, subscriptionId` | Deletes the specified nat gateway. |
-| `NatGateways_UpdateTags` | `EXEC` | `natGatewayName, resourceGroupName, subscriptionId` | Updates nat gateway tags. |
+| `get` | `SELECT` | `natGatewayName, resourceGroupName, subscriptionId` | Gets the specified nat gateway in a specified resource group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all nat gateways in a resource group. |
+| `create_or_update` | `INSERT` | `natGatewayName, resourceGroupName, subscriptionId` | Creates or updates a nat gateway. |
+| `delete` | `DELETE` | `natGatewayName, resourceGroupName, subscriptionId` | Deletes the specified nat gateway. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all nat gateways in a resource group. |

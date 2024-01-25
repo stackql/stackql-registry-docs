@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Secrets_Get` | `SELECT` | `profileName, resourceGroupName, secretName, subscriptionId` | Gets an existing Secret within a profile. |
-| `Secrets_ListByProfile` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Lists existing AzureFrontDoor secrets. |
-| `Secrets_Create` | `INSERT` | `profileName, resourceGroupName, secretName, subscriptionId` | Creates a new Secret within the specified profile. |
-| `Secrets_Delete` | `DELETE` | `profileName, resourceGroupName, secretName, subscriptionId` | Deletes an existing Secret within profile. |
+| `get` | `SELECT` | `profileName, resourceGroupName, secretName, subscriptionId` | Gets an existing Secret within a profile. |
+| `list_by_profile` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Lists existing AzureFrontDoor secrets. |
+| `create` | `INSERT` | `profileName, resourceGroupName, secretName, subscriptionId` | Creates a new Secret within the specified profile. |
+| `delete` | `DELETE` | `profileName, resourceGroupName, secretName, subscriptionId` | Deletes an existing Secret within profile. |
+| `_list_by_profile` | `EXEC` | `profileName, resourceGroupName, subscriptionId` | Lists existing AzureFrontDoor secrets. |

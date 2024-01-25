@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `QueryTexts_Get` | `SELECT` | `queryId, resourceGroupName, serverName, subscriptionId` | Retrieve the Query-Store query texts for the queryId. |
-| `QueryTexts_ListByServer` | `SELECT` | `queryIds, resourceGroupName, serverName, subscriptionId` | Retrieve the Query-Store query texts for specified queryIds. |
+| `get` | `SELECT` | `queryId, resourceGroupName, serverName, subscriptionId` | Retrieve the Query-Store query texts for the queryId. |
+| `list_by_server` | `SELECT` | `queryIds, resourceGroupName, serverName, subscriptionId` | Retrieve the Query-Store query texts for specified queryIds. |
+| `_list_by_server` | `EXEC` | `queryIds, resourceGroupName, serverName, subscriptionId` | Retrieve the Query-Store query texts for specified queryIds. |

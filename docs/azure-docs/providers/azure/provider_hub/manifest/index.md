@@ -27,7 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `CheckinManifest` | `EXEC` | `providerNamespace, subscriptionId, data__baselineArmManifestLocation, data__environment` | Checkin the manifest. |
-| `GenerateManifest` | `EXEC` | `providerNamespace, subscriptionId` | Generates the manifest for the given provider. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `manifest` | `EXEC` | `providerNamespace, subscriptionId, data__baselineArmManifestLocation, data__environment` |

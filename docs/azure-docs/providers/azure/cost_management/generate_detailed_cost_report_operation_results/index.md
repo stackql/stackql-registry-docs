@@ -27,11 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The id of the long running operation. |
+| `id` | `string` | The ARM resource id of the long running operation. |
 | `name` | `string` | The name of the long running operation. |
 | `properties` | `object` | The URL to download the generated report. |
 | `type` | `string` | The type of the long running operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `GenerateDetailedCostReportOperationResults_Get` | `SELECT` | `operationId, scope` |
+| `get` | `SELECT` | `operationId, scope` |

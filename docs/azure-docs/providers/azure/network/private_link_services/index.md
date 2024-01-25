@@ -29,25 +29,21 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `extendedLocation` | `object` | ExtendedLocation complex type. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties of the private link service. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `extendedLocation` | `object` | ExtendedLocation complex type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkServices_Get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Gets the specified private link service by resource group. |
-| `PrivateLinkServices_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all private link services in a resource group. |
-| `PrivateLinkServices_ListBySubscription` | `SELECT` | `subscriptionId` | Gets all private link service in a subscription. |
-| `PrivateLinkServices_CreateOrUpdate` | `INSERT` | `resourceGroupName, serviceName, subscriptionId` | Creates or updates an private link service in the specified resource group. |
-| `PrivateLinkServices_Delete` | `DELETE` | `resourceGroupName, serviceName, subscriptionId` | Deletes the specified private link service. |
-| `PrivateLinkServices_CheckPrivateLinkServiceVisibility` | `EXEC` | `location, subscriptionId` | Checks whether the subscription is visible to private link service. |
-| `PrivateLinkServices_CheckPrivateLinkServiceVisibilityByResourceGroup` | `EXEC` | `location, resourceGroupName, subscriptionId` | Checks whether the subscription is visible to private link service in the specified resource group. |
-| `PrivateLinkServices_DeletePrivateEndpointConnection` | `EXEC` | `peConnectionName, resourceGroupName, serviceName, subscriptionId` | Delete private end point connection for a private link service in a subscription. |
-| `PrivateLinkServices_GetPrivateEndpointConnection` | `EXEC` | `peConnectionName, resourceGroupName, serviceName, subscriptionId` | Get the specific private end point connection by specific private link service in the resource group. |
-| `PrivateLinkServices_ListAutoApprovedPrivateLinkServices` | `EXEC` | `location, subscriptionId` | Returns all of the private link service ids that can be linked to a Private Endpoint with auto approved in this subscription in this region. |
-| `PrivateLinkServices_ListAutoApprovedPrivateLinkServicesByResourceGroup` | `EXEC` | `location, resourceGroupName, subscriptionId` | Returns all of the private link service ids that can be linked to a Private Endpoint with auto approved in this subscription in this region. |
-| `PrivateLinkServices_ListPrivateEndpointConnections` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Gets all private end point connections for a specific private link service. |
-| `PrivateLinkServices_UpdatePrivateEndpointConnection` | `EXEC` | `peConnectionName, resourceGroupName, serviceName, subscriptionId` | Approve or reject private end point connection for a private link service in a subscription. |
+| `get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Gets the specified private link service by resource group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all private link services in a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Gets all private link service in a subscription. |
+| `create_or_update` | `INSERT` | `resourceGroupName, serviceName, subscriptionId` | Creates or updates an private link service in the specified resource group. |
+| `delete` | `DELETE` | `resourceGroupName, serviceName, subscriptionId` | Deletes the specified private link service. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all private link services in a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Gets all private link service in a subscription. |
+| `check_private_link_service_visibility` | `EXEC` | `location, subscriptionId` | Checks whether the subscription is visible to private link service. |
+| `check_private_link_service_visibility_by_resource_group` | `EXEC` | `location, resourceGroupName, subscriptionId` | Checks whether the subscription is visible to private link service in the specified resource group. |

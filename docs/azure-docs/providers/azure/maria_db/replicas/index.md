@@ -29,9 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties of a server. |
-| `sku` | `object` | Billing information related properties of a server. |
+| `sku` | `object` | The resource model definition representing SKU |
 | `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Replicas_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` |

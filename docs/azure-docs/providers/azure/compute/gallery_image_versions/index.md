@@ -29,15 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource name |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
 | `location` | `string` | Resource location |
 | `properties` | `object` | Describes the properties of a gallery image version. |
+| `tags` | `object` | Resource tags |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GalleryImageVersions_Get` | `SELECT` | `galleryImageName, galleryImageVersionName, galleryName, resourceGroupName, subscriptionId` | Retrieves information about a gallery image version. |
-| `GalleryImageVersions_ListByGalleryImage` | `SELECT` | `galleryImageName, galleryName, resourceGroupName, subscriptionId` | List gallery image versions in a gallery image definition. |
-| `GalleryImageVersions_CreateOrUpdate` | `INSERT` | `galleryImageName, galleryImageVersionName, galleryName, resourceGroupName, subscriptionId` | Create or update a gallery image version. |
-| `GalleryImageVersions_Delete` | `DELETE` | `galleryImageName, galleryImageVersionName, galleryName, resourceGroupName, subscriptionId` | Delete a gallery image version. |
-| `GalleryImageVersions_Update` | `EXEC` | `galleryImageName, galleryImageVersionName, galleryName, resourceGroupName, subscriptionId` | Update a gallery image version. |
+| `get` | `SELECT` | `galleryImageName, galleryImageVersionName, galleryName, resourceGroupName, subscriptionId` | Retrieves information about a gallery image version. |
+| `list_by_gallery_image` | `SELECT` | `galleryImageName, galleryName, resourceGroupName, subscriptionId` | List gallery image versions in a gallery image definition. |
+| `create_or_update` | `INSERT` | `galleryImageName, galleryImageVersionName, galleryName, resourceGroupName, subscriptionId` | Create or update a gallery image version. |
+| `delete` | `DELETE` | `galleryImageName, galleryImageVersionName, galleryName, resourceGroupName, subscriptionId` | Delete a gallery image version. |
+| `_list_by_gallery_image` | `EXEC` | `galleryImageName, galleryName, resourceGroupName, subscriptionId` | List gallery image versions in a gallery image definition. |
+| `update` | `EXEC` | `galleryImageName, galleryImageVersionName, galleryName, resourceGroupName, subscriptionId` | Update a gallery image version. |

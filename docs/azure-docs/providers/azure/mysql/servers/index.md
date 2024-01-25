@@ -27,21 +27,24 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `identity` | `object` | Properties to configure Identity for Bring your Own Keys |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties of a server. |
-| `sku` | `object` | The resource model definition representing SKU |
+| `sku` | `object` | Billing information related properties of a server. |
 | `tags` | `object` | Resource tags. |
-| `identity` | `object` | Azure Active Directory identity configuration for a resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Servers_Get` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets information about a server. |
-| `Servers_List` | `SELECT` | `subscriptionId` | List all the servers in a given subscription. |
-| `Servers_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List all the servers in a given resource group. |
-| `Servers_Create` | `INSERT` | `resourceGroupName, serverName, subscriptionId, data__location, data__properties` | Creates a new server or updates an existing server. The update action will overwrite the existing server. |
-| `Servers_Delete` | `DELETE` | `resourceGroupName, serverName, subscriptionId` | Deletes a server. |
-| `Servers_Restart` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Restarts a server. |
-| `Servers_Start` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Starts a stopped server. |
-| `Servers_Stop` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Stops a running server. |
-| `Servers_Update` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Updates an existing server. The request body can contain one to many of the properties present in the normal server definition. |
-| `Servers_Upgrade` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Upgrade server version. |
+| `get` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets information about a server. |
+| `list` | `SELECT` | `subscriptionId` | List all the servers in a given subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all the servers in a given resource group. |
+| `create` | `INSERT` | `resourceGroupName, serverName, subscriptionId` | Creates a new server or updates an existing server. The update action will overwrite the existing server. |
+| `delete` | `DELETE` | `resourceGroupName, serverName, subscriptionId` | Deletes a server. |
+| `_list` | `EXEC` | `subscriptionId` | List all the servers in a given subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all the servers in a given resource group. |
+| `failover` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Manual failover a server. |
+| `reset_gtid` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Resets GTID on a server. |
+| `restart` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Restarts a server. |
+| `start` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Starts a server. |
+| `stop` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Stops a server. |
+| `update` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Updates an existing server. The request body can contain one to many of the properties present in the normal server definition. |

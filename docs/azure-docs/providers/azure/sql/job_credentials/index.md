@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `JobCredentials_Get` | `SELECT` | `credentialName, jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a jobs credential. |
-| `JobCredentials_ListByAgent` | `SELECT` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a list of jobs credentials. |
-| `JobCredentials_CreateOrUpdate` | `INSERT` | `credentialName, jobAgentName, resourceGroupName, serverName, subscriptionId` | Creates or updates a job credential. |
-| `JobCredentials_Delete` | `DELETE` | `credentialName, jobAgentName, resourceGroupName, serverName, subscriptionId` | Deletes a job credential. |
+| `get` | `SELECT` | `credentialName, jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a jobs credential. |
+| `list_by_agent` | `SELECT` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a list of jobs credentials. |
+| `create_or_update` | `INSERT` | `credentialName, jobAgentName, resourceGroupName, serverName, subscriptionId` | Creates or updates a job credential. |
+| `delete` | `DELETE` | `credentialName, jobAgentName, resourceGroupName, serverName, subscriptionId` | Deletes a job credential. |
+| `_list_by_agent` | `EXEC` | `jobAgentName, resourceGroupName, serverName, subscriptionId` | Gets a list of jobs credentials. |

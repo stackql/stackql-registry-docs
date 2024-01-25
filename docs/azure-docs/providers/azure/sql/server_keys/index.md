@@ -27,13 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Properties for a server key execution. |
 | `kind` | `string` | Kind of encryption protector. This is metadata used for the Azure portal experience. |
 | `location` | `string` | Resource location. |
+| `properties` | `object` | Properties for a server key execution. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerKeys_Get` | `SELECT` | `keyName, resourceGroupName, serverName, subscriptionId` | Gets a server key. |
-| `ServerKeys_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server keys. |
-| `ServerKeys_CreateOrUpdate` | `INSERT` | `keyName, resourceGroupName, serverName, subscriptionId` | Creates or updates a server key. |
-| `ServerKeys_Delete` | `DELETE` | `keyName, resourceGroupName, serverName, subscriptionId` | Deletes the server key with the given name. |
+| `get` | `SELECT` | `keyName, resourceGroupName, serverName, subscriptionId` | Gets a server key. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server keys. |
+| `create_or_update` | `INSERT` | `keyName, resourceGroupName, serverName, subscriptionId` | Creates or updates a server key. |
+| `delete` | `DELETE` | `keyName, resourceGroupName, serverName, subscriptionId` | Deletes the server key with the given name. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of server keys. |

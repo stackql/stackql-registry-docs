@@ -29,17 +29,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `location` | `string` | Resource location. |
 | `properties` | `object` | Network profile properties. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `NetworkProfiles_Get` | `SELECT` | `networkProfileName, resourceGroupName, subscriptionId` | Gets the specified network profile in a specified resource group. |
-| `NetworkProfiles_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all network profiles in a resource group. |
-| `NetworkProfiles_ListAll` | `SELECT` | `subscriptionId` | Gets all the network profiles in a subscription. |
-| `NetworkProfiles_CreateOrUpdate` | `INSERT` | `networkProfileName, resourceGroupName, subscriptionId` | Creates or updates a network profile. |
-| `NetworkProfiles_Delete` | `DELETE` | `networkProfileName, resourceGroupName, subscriptionId` | Deletes the specified network profile. |
-| `NetworkProfiles_UpdateTags` | `EXEC` | `networkProfileName, resourceGroupName, subscriptionId` | Updates network profile tags. |
+| `get` | `SELECT` | `networkProfileName, resourceGroupName, subscriptionId` | Gets the specified network profile in a specified resource group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all network profiles in a resource group. |
+| `create_or_update` | `INSERT` | `networkProfileName, resourceGroupName, subscriptionId` | Creates or updates a network profile. |
+| `delete` | `DELETE` | `networkProfileName, resourceGroupName, subscriptionId` | Deletes the specified network profile. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all network profiles in a resource group. |

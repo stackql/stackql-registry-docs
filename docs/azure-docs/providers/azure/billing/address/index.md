@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Address_Validate` | `EXEC` | `data__addressLine1, data__country` |
+| `validate` | `EXEC` | `data__addressLine1, data__country` |

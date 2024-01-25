@@ -28,9 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AFDOriginGroups_Get` | `SELECT` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Gets an existing origin group within a profile. |
-| `AFDOriginGroups_ListByProfile` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Lists all of the existing origin groups within a profile. |
-| `AFDOriginGroups_Create` | `INSERT` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Creates a new origin group within the specified profile. |
-| `AFDOriginGroups_Delete` | `DELETE` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Deletes an existing origin group within a profile. |
-| `AFDOriginGroups_ListResourceUsage` | `EXEC` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Checks the quota and actual usage of endpoints under the given CDN profile. |
-| `AFDOriginGroups_Update` | `EXEC` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Updates an existing origin group within a profile. |
+| `get` | `SELECT` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Gets an existing origin group within a profile. |
+| `list_by_profile` | `SELECT` | `profileName, resourceGroupName, subscriptionId` | Lists all of the existing origin groups within a profile. |
+| `create` | `INSERT` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Creates a new origin group within the specified profile. |
+| `delete` | `DELETE` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Deletes an existing origin group within a profile. |
+| `_list_by_profile` | `EXEC` | `profileName, resourceGroupName, subscriptionId` | Lists all of the existing origin groups within a profile. |
+| `update` | `EXEC` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Updates an existing origin group within a profile. |

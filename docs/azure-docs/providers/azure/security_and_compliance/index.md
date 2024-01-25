@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Security and Compliance  
+Security And Compliance Management Client  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Security and Compliance
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>21</b></span><br />
 <span>total selectable resources:&nbsp;<b>20</b></span><br />
-<span>total methods:&nbsp;<b>74</b></span><br />
+<span>total methods:&nbsp;<b>99</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Security and Compliance
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.security_and_compliance</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Security and Compliance (Microsoft.SecurityAndCompliance)</td></tr>
-<tr><td><b>Description</b></td><td>Security and Compliance</td></tr>
-<tr><td><b>Id</b></td><td><code>security_and_compliance:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Security And Compliance</td></tr>
+<tr><td><b>Description</b></td><td>Security And Compliance Management Client</td></tr>
+<tr><td><b>Id</b></td><td><code>security_and_compliance:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -34,4 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `SecurityConnectorApplications_List` | `SELECT` | `api-version, resourceGroupName, securityConnectorName, subscriptionId` |
+| `list` | `SELECT` | `api-version, resourceGroupName, securityConnectorName, subscriptionId` |
+| `_list` | `EXEC` | `api-version, resourceGroupName, securityConnectorName, subscriptionId` |

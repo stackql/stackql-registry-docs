@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `NetworkManagerCommits_Post` | `EXEC` | `data__commitType, data__targetLocations` |
+| `post` | `EXEC` | `data__commitType, data__targetLocations` |

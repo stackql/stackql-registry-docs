@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `object` | ARM Usage Name |
+| `currentValue` | `integer` | Usage current value. |
 | `limit` | `integer` | Usage limit. |
 | `requestedLimit` | `integer` | Usage requested limit. |
 | `type` | `string` | Resource type. |
 | `unit` | `string` | Usage unit. |
-| `currentValue` | `integer` | Usage current value. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Usages_ListByInstancePool` | `SELECT` | `instancePoolName, resourceGroupName, subscriptionId` |
+| `list_by_instance_pool` | `SELECT` | `instancePoolName, resourceGroupName, subscriptionId` |
+| `_list_by_instance_pool` | `EXEC` | `instancePoolName, resourceGroupName, subscriptionId` |

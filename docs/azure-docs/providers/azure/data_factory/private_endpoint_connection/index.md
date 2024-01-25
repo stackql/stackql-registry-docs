@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The resource identifier. |
 | `name` | `string` | The resource name. |
-| `type` | `string` | The resource type. |
 | `etag` | `string` | Etag identifies change in the resource. |
 | `properties` | `object` | A remote private endpoint connection |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnection_Get` | `SELECT` | `api-version, factoryName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets a private endpoint connection |
-| `PrivateEndpointConnection_CreateOrUpdate` | `INSERT` | `api-version, factoryName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Approves or rejects a private endpoint connection |
-| `PrivateEndpointConnection_Delete` | `DELETE` | `api-version, factoryName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes a private endpoint connection |
+| `get` | `SELECT` | `api-version, factoryName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets a private endpoint connection |
+| `create_or_update` | `INSERT` | `api-version, factoryName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Approves or rejects a private endpoint connection |
+| `delete` | `DELETE` | `api-version, factoryName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes a private endpoint connection |

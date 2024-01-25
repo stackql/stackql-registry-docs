@@ -32,4 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ElasticPoolActivities_ListByElasticPool` | `SELECT` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` |
+| `list_by_elastic_pool` | `SELECT` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` |
+| `_list_by_elastic_pool` | `EXEC` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` |

@@ -28,9 +28,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationLinks_Get` | `SELECT` | `databaseName, linkId, resourceGroupName, serverName, subscriptionId` | Gets a replication link. |
-| `ReplicationLinks_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of replication links on database. |
-| `ReplicationLinks_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of replication links. |
-| `ReplicationLinks_Delete` | `DELETE` | `databaseName, linkId, resourceGroupName, serverName, subscriptionId` | Deletes the replication link. |
-| `ReplicationLinks_Failover` | `EXEC` | `databaseName, linkId, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. |
-| `ReplicationLinks_FailoverAllowDataLoss` | `EXEC` | `databaseName, linkId, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server allowing data loss. |
+| `get` | `SELECT` | `databaseName, linkId, resourceGroupName, serverName, subscriptionId` | Gets a replication link. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of replication links on database. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of replication links. |
+| `delete` | `DELETE` | `databaseName, linkId, resourceGroupName, serverName, subscriptionId` | Deletes the replication link. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of replication links on database. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of replication links. |
+| `failover` | `EXEC` | `databaseName, linkId, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server. |
+| `failover_allow_data_loss` | `EXEC` | `databaseName, linkId, resourceGroupName, serverName, subscriptionId` | Fails over from the current primary server to this server allowing data loss. |

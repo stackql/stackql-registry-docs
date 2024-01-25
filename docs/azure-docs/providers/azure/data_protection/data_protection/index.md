@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `DataProtection_CheckFeatureSupport` | `EXEC` | `api-version, location, subscriptionId, data__objectType` |
+| `check_feature_support` | `EXEC` | `location, subscriptionId, data__objectType` |

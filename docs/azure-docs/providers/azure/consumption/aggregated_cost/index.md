@@ -27,7 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `AggregatedCost_GetByManagementGroup` | `EXEC` | `managementGroupId` | Provides the aggregate cost of a management group and all child management groups by current billing period. |
-| `AggregatedCost_GetForBillingPeriodByManagementGroup` | `EXEC` | `billingPeriodName, managementGroupId` | Provides the aggregate cost of a management group and all child management groups by specified billing period |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `get_by_management_group` | `EXEC` | `managementGroupId` |

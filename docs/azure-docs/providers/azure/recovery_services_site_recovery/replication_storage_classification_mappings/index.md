@@ -35,8 +35,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationStorageClassificationMappings_Get` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationMappingName, storageClassificationName, subscriptionId` | Gets the details of the specified storage classification mapping. |
-| `ReplicationStorageClassificationMappings_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the storage classification mappings in the vault. |
-| `ReplicationStorageClassificationMappings_ListByReplicationStorageClassifications` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationName, subscriptionId` | Lists the storage classification mappings for the fabric. |
-| `ReplicationStorageClassificationMappings_Create` | `INSERT` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationMappingName, storageClassificationName, subscriptionId` | The operation to create a storage classification mapping. |
-| `ReplicationStorageClassificationMappings_Delete` | `DELETE` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationMappingName, storageClassificationName, subscriptionId` | The operation to delete a storage classification mapping. |
+| `get` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationMappingName, storageClassificationName, subscriptionId` | Gets the details of the specified storage classification mapping. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the storage classification mappings in the vault. |
+| `list_by_replication_storage_classifications` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationName, subscriptionId` | Lists the storage classification mappings for the fabric. |
+| `create` | `INSERT` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationMappingName, storageClassificationName, subscriptionId` | The operation to create a storage classification mapping. |
+| `delete` | `DELETE` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationMappingName, storageClassificationName, subscriptionId` | The operation to delete a storage classification mapping. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the storage classification mappings in the vault. |
+| `_list_by_replication_storage_classifications` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, storageClassificationName, subscriptionId` | Lists the storage classification mappings for the fabric. |

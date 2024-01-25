@@ -27,15 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | The properties of the file share. |
 | `etag` | `string` | Resource Etag. |
+| `properties` | `object` | The properties of the file share. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FileShares_Get` | `SELECT` | `accountName, resourceGroupName, shareName, subscriptionId` | Gets properties of a specified share. |
-| `FileShares_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all shares. |
-| `FileShares_Create` | `INSERT` | `accountName, resourceGroupName, shareName, subscriptionId` | Creates a new share under the specified account as described by request body. The share resource includes metadata and properties for that share. It does not include a list of the files contained by the share.  |
-| `FileShares_Delete` | `DELETE` | `accountName, resourceGroupName, shareName, subscriptionId` | Deletes specified share under its account. |
-| `FileShares_Lease` | `EXEC` | `accountName, resourceGroupName, shareName, subscriptionId, data__action` | The Lease Share operation establishes and manages a lock on a share for delete operations. The lock duration can be 15 to 60 seconds, or can be infinite. |
-| `FileShares_Restore` | `EXEC` | `accountName, resourceGroupName, shareName, subscriptionId, data__deletedShareName, data__deletedShareVersion` | Restore a file share within a valid retention days if share soft delete is enabled |
-| `FileShares_Update` | `EXEC` | `accountName, resourceGroupName, shareName, subscriptionId` | Updates share properties as specified in request body. Properties not mentioned in the request will not be changed. Update fails if the specified share does not already exist.  |
+| `get` | `SELECT` | `accountName, resourceGroupName, shareName, subscriptionId` | Gets properties of a specified share. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all shares. |
+| `create` | `INSERT` | `accountName, resourceGroupName, shareName, subscriptionId` | Creates a new share under the specified account as described by request body. The share resource includes metadata and properties for that share. It does not include a list of the files contained by the share.  |
+| `delete` | `DELETE` | `accountName, resourceGroupName, shareName, subscriptionId` | Deletes specified share under its account. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Lists all shares. |
+| `lease` | `EXEC` | `accountName, resourceGroupName, shareName, subscriptionId, data__action` | The Lease Share operation establishes and manages a lock on a share for delete operations. The lock duration can be 15 to 60 seconds, or can be infinite. |
+| `restore` | `EXEC` | `accountName, resourceGroupName, shareName, subscriptionId, data__deletedShareName, data__deletedShareVersion` | Restore a file share within a valid retention days if share soft delete is enabled |
+| `update` | `EXEC` | `accountName, resourceGroupName, shareName, subscriptionId` | Updates share properties as specified in request body. Properties not mentioned in the request will not be changed. Update fails if the specified share does not already exist.  |

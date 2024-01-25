@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExpressRouteLinks_Get` | `SELECT` | `expressRoutePortName, linkName, resourceGroupName, subscriptionId` | Retrieves the specified ExpressRouteLink resource. |
-| `ExpressRouteLinks_List` | `SELECT` | `expressRoutePortName, resourceGroupName, subscriptionId` | Retrieve the ExpressRouteLink sub-resources of the specified ExpressRoutePort resource. |
+| `get` | `SELECT` | `expressRoutePortName, linkName, resourceGroupName, subscriptionId` | Retrieves the specified ExpressRouteLink resource. |
+| `list` | `SELECT` | `expressRoutePortName, resourceGroupName, subscriptionId` | Retrieve the ExpressRouteLink sub-resources of the specified ExpressRoutePort resource. |
+| `_list` | `EXEC` | `expressRoutePortName, resourceGroupName, subscriptionId` | Retrieve the ExpressRouteLink sub-resources of the specified ExpressRoutePort resource. |

@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `CreateRecommendedActionSession` | `EXEC` | `advisorName, databaseName, resourceGroupName, serverName, subscriptionId` |
+| `recommended_action_sessions` | `EXEC` | `advisorName, databaseName, resourceGroupName, serverName, subscriptionId` |

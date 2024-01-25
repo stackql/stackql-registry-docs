@@ -29,13 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `properties` | `object` | Describes properties of an governanceRule |
+| `properties` | `object` | Describes properties of an governance rule |
 | `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GovernanceRules_Get` | `SELECT` | `api-version, ruleId, subscriptionId` | Get a specific governanceRule for the requested scope by ruleId |
-| `GovernanceRules_CreateOrUpdate` | `INSERT` | `api-version, ruleId, subscriptionId` | Creates or update a security GovernanceRule on the given subscription. |
-| `GovernanceRules_Delete` | `DELETE` | `api-version, ruleId, subscriptionId` | Delete a GovernanceRule over a given scope |
-| `GovernanceRules_RuleIdExecuteSingleSecurityConnector` | `EXEC` | `api-version, resourceGroupName, ruleId, securityConnectorName, subscriptionId` | Execute a security GovernanceRule on the given security connector. |
-| `GovernanceRules_RuleIdExecuteSingleSubscription` | `EXEC` | `api-version, ruleId, subscriptionId` | Execute a security GovernanceRule on the given subscription. |
+| `get` | `SELECT` | `api-version, ruleId, scope` | Get a specific governance rule for the requested scope by ruleId |
+| `list` | `SELECT` | `api-version, scope` | Get a list of all relevant governance rules over a scope |
+| `create_or_update` | `INSERT` | `api-version, ruleId, scope` | Creates or updates a governance rule over a given scope |
+| `delete` | `DELETE` | `api-version, ruleId, scope` | Delete a Governance rule over a given scope |
+| `_list` | `EXEC` | `api-version, scope` | Get a list of all relevant governance rules over a scope |
+| `execute` | `EXEC` | `api-version, ruleId, scope` | Execute a governance rule |
+| `operation_results` | `EXEC` | `api-version, operationId, ruleId, scope` | Get governance rules long run operation result for the requested scope by ruleId and operationId |

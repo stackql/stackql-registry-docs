@@ -34,5 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ScopeAccessReviewDefaultSettings_Get` | `SELECT` | `scope` |
-| `ScopeAccessReviewDefaultSettings_Put` | `EXEC` | `scope` |
+| `get` | `SELECT` | `scope` |
+| `put` | `EXEC` | `scope` |

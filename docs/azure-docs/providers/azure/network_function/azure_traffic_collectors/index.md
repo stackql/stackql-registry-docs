@@ -29,16 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Azure Traffic Collector resource properties. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Resource tags. |
+| `type` | `string` | Resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AzureTrafficCollectors_Get` | `SELECT` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Gets the specified Azure Traffic Collector in a specified resource group |
-| `AzureTrafficCollectors_CreateOrUpdate` | `INSERT` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Creates or updates a Azure Traffic Collector resource |
-| `AzureTrafficCollectors_Delete` | `DELETE` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Deletes a specified Azure Traffic Collector resource. |
-| `AzureTrafficCollectors_UpdateTags` | `EXEC` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Updates the specified Azure Traffic Collector tags. |
+| `get` | `SELECT` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Gets the specified Azure Traffic Collector in a specified resource group |
+| `create_or_update` | `INSERT` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Creates or updates a Azure Traffic Collector resource |
+| `delete` | `DELETE` | `azureTrafficCollectorName, resourceGroupName, subscriptionId` | Deletes a specified Azure Traffic Collector resource. |

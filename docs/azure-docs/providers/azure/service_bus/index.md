@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Service Bus  
+Azure Service Bus Provides Cloud-Enabled Communication With Enterprise Messaging And Relayed Communication That Helps You Connect On-Premises Solutions With The Cloud.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>66</b></span><br />
+<span>total resources:&nbsp;<b>25</b></span><br />
+<span>total selectable resources:&nbsp;<b>24</b></span><br />
+<span>total methods:&nbsp;<b>82</b></span><br />
 </div>
 </div>
 
@@ -31,25 +31,40 @@ Service Bus
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.service_bus</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Service Bus (Microsoft.ServiceBus)</td></tr>
-<tr><td><b>Description</b></td><td>Service Bus</td></tr>
-<tr><td><b>Id</b></td><td><code>service_bus:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Service Bus</td></tr>
+<tr><td><b>Description</b></td><td>Azure Service Bus Provides Cloud-Enabled Communication With Enterprise Messaging And Relayed Communication That Helps You Connect On-Premises Solutions With The Cloud.</td></tr>
+<tr><td><b>Id</b></td><td><code>service_bus:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/service_bus/disaster_recovery_configs/">disaster_recovery_configs</a><br />
+<a href="/providers/azure/service_bus/disaster_recovery_configs_authorization_rule/">disaster_recovery_configs_authorization_rule</a><br />
+<a href="/providers/azure/service_bus/disaster_recovery_configs_authorization_rules/">disaster_recovery_configs_authorization_rules</a><br />
+<a href="/providers/azure/service_bus/disaster_recovery_configs_keys/">disaster_recovery_configs_keys</a><br />
 <a href="/providers/azure/service_bus/migration_configs/">migration_configs</a><br />
+<a href="/providers/azure/service_bus/migration_configs_and_start_migration/">migration_configs_and_start_migration</a><br />
 <a href="/providers/azure/service_bus/namespaces/">namespaces</a><br />
+<a href="/providers/azure/service_bus/namespaces_authorization_rule/">namespaces_authorization_rule</a><br />
+<a href="/providers/azure/service_bus/namespaces_authorization_rules/">namespaces_authorization_rules</a><br />
+<a href="/providers/azure/service_bus/namespaces_keys/">namespaces_keys</a><br />
+<a href="/providers/azure/service_bus/namespaces_network_rule_set/">namespaces_network_rule_set</a><br />
+<a href="/providers/azure/service_bus/namespaces_network_rule_sets/">namespaces_network_rule_sets</a><br />
 <a href="/providers/azure/service_bus/operations/">operations</a><br />
-<a href="/providers/azure/service_bus/private_endpoint_connections/">private_endpoint_connections</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/azure/service_bus/private_endpoint_connections/">private_endpoint_connections</a><br />
 <a href="/providers/azure/service_bus/private_link_resources/">private_link_resources</a><br />
 <a href="/providers/azure/service_bus/queues/">queues</a><br />
+<a href="/providers/azure/service_bus/queues_authorization_rule/">queues_authorization_rule</a><br />
+<a href="/providers/azure/service_bus/queues_authorization_rules/">queues_authorization_rules</a><br />
+<a href="/providers/azure/service_bus/queues_keys/">queues_keys</a><br />
 <a href="/providers/azure/service_bus/rules/">rules</a><br />
 <a href="/providers/azure/service_bus/subscriptions/">subscriptions</a><br />
 <a href="/providers/azure/service_bus/topics/">topics</a><br />
+<a href="/providers/azure/service_bus/topics_authorization_rule/">topics_authorization_rule</a><br />
+<a href="/providers/azure/service_bus/topics_authorization_rules/">topics_authorization_rules</a><br />
+<a href="/providers/azure/service_bus/topics_keys/">topics_keys</a><br />
 </div>
 </div>

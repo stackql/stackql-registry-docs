@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Information about the network manager connection. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagementGroupNetworkManagerConnections_Get` | `SELECT` |  | Get a specified connection created by this management group. |
-| `ManagementGroupNetworkManagerConnections_List` | `SELECT` | `managementGroupId` | List all network manager connections created by this management group. |
-| `ManagementGroupNetworkManagerConnections_CreateOrUpdate` | `INSERT` |  | Create a network manager connection on this management group. |
-| `ManagementGroupNetworkManagerConnections_Delete` | `DELETE` |  | Delete specified pending connection created by this management group. |
+| `get` | `SELECT` |  | Get a specified connection created by this management group. |
+| `list` | `SELECT` | `managementGroupId` | List all network manager connections created by this management group. |
+| `create_or_update` | `INSERT` |  | Create a network manager connection on this management group. |
+| `delete` | `DELETE` |  | Delete specified pending connection created by this management group. |
+| `_list` | `EXEC` | `managementGroupId` | List all network manager connections created by this management group. |

@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnections_Get` | `SELECT` | `policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection associated with the given policy. |
-| `PrivateEndpointConnections_ListByPolicyName` | `SELECT` | `policyName, resourceGroupName, subscriptionId` | Lists all Private Endpoint Connections for the given policy. |
-| `PrivateEndpointConnections_Create` | `INSERT` | `policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Creates specified private endpoint connection associated with the given policy. |
-| `PrivateEndpointConnections_Delete` | `DELETE` | `policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection associated with the given policy. |
+| `get` | `SELECT` | `policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection associated with the given policy. |
+| `list_by_policy_name` | `SELECT` | `policyName, resourceGroupName, subscriptionId` | Lists all Private Endpoint Connections for the given policy. |
+| `create` | `INSERT` | `policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Creates specified private endpoint connection associated with the given policy. |
+| `delete` | `DELETE` | `policyName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes the specified private endpoint connection associated with the given policy. |
+| `_list_by_policy_name` | `EXEC` | `policyName, resourceGroupName, subscriptionId` | Lists all Private Endpoint Connections for the given policy. |

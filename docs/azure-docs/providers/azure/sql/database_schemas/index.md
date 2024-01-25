@@ -32,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DatabaseSchemas_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database schemas |
-| `DatabaseSchemas_Get` | `EXEC` | `databaseName, resourceGroupName, schemaName, serverName, subscriptionId` | Get database schema |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | List database schemas |
+| `exec_get` | `EXEC` | `databaseName, resourceGroupName, schemaName, serverName, subscriptionId` | Get database schema |

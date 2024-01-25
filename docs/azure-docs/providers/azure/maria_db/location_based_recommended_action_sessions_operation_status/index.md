@@ -33,4 +33,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `LocationBasedRecommendedActionSessionsOperationStatus_Get` | `SELECT` | `locationName, operationId, subscriptionId` |
+| `get` | `SELECT` | `locationName, operationId, subscriptionId` |

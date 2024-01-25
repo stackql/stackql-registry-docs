@@ -29,11 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
+| `properties` | `object` | Properties of a private link resource. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `properties` | `object` | Properties of a private link resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResourcesComp_Get` | `SELECT` | `groupName, resourceGroupName, resourceName, subscriptionId` | Gets a private link resource that need to be created for a service. |
-| `PrivateLinkResourcesComp_ListByService` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the private link resources that need to be created for a service. |
+| `get` | `SELECT` | `groupName, resourceGroupName, resourceName, subscriptionId` | Gets a private link resource that need to be created for a service. |
+| `list_by_service` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the private link resources that need to be created for a service. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Gets the private link resources that need to be created for a service. |

@@ -34,5 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BillingProperty_Get` | `SELECT` | `subscriptionId` | Get the billing properties for a subscription. This operation is not supported for billing accounts with agreement type Enterprise Agreement. |
-| `BillingProperty_Update` | `EXEC` | `subscriptionId` | Updates the billing property of a subscription. Currently, cost center can be updated. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
+| `get` | `SELECT` | `subscriptionId` | Get the billing properties for a subscription. This operation is not supported for billing accounts with agreement type Enterprise Agreement. |
+| `update` | `EXEC` | `subscriptionId` | Updates the billing property of a subscription. Currently, cost center can be updated. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |

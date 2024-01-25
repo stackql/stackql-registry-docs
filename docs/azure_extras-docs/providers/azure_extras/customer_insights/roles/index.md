@@ -34,4 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Roles_ListByHub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` |
+| `list_by_hub` | `SELECT` | `hubName, resourceGroupName, subscriptionId` |
+| `_list_by_hub` | `EXEC` | `hubName, resourceGroupName, subscriptionId` |

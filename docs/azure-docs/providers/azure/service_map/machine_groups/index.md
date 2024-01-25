@@ -27,14 +27,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `properties` | `object` | Resource properties. |
 | `etag` | `string` | Resource ETAG. |
 | `kind` | `string` | Additional resource type qualifier. |
+| `properties` | `object` | Resource properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `MachineGroups_Get` | `SELECT` | `machineGroupName, resourceGroupName, subscriptionId, workspaceName` | Returns the specified machine group as it existed during the specified time interval. |
-| `MachineGroups_ListByWorkspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Returns all machine groups during the specified time interval. |
-| `MachineGroups_Create` | `INSERT` | `resourceGroupName, subscriptionId, workspaceName` | Creates a new machine group. |
-| `MachineGroups_Delete` | `DELETE` | `machineGroupName, resourceGroupName, subscriptionId, workspaceName` | Deletes the specified Machine Group. |
-| `MachineGroups_Update` | `EXEC` | `machineGroupName, resourceGroupName, subscriptionId, workspaceName` | Updates a machine group. |
+| `get` | `SELECT` | `machineGroupName, resourceGroupName, subscriptionId, workspaceName` | Returns the specified machine group as it existed during the specified time interval. |
+| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Returns all machine groups during the specified time interval. |
+| `create` | `INSERT` | `resourceGroupName, subscriptionId, workspaceName` | Creates a new machine group. |
+| `delete` | `DELETE` | `machineGroupName, resourceGroupName, subscriptionId, workspaceName` | Deletes the specified Machine Group. |
+| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Returns all machine groups during the specified time interval. |
+| `update` | `EXEC` | `machineGroupName, resourceGroupName, subscriptionId, workspaceName` | Updates a machine group. |

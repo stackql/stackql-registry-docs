@@ -28,7 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DeletedServers_Get` | `SELECT` | `deletedServerName, locationName, subscriptionId` | Gets a deleted server. |
-| `DeletedServers_List` | `SELECT` | `subscriptionId` | Gets a list of all deleted servers in a subscription. |
-| `DeletedServers_ListByLocation` | `SELECT` | `locationName, subscriptionId` | Gets a list of deleted servers for a location. |
-| `DeletedServers_Recover` | `EXEC` | `deletedServerName, locationName, subscriptionId` | Recovers a deleted server. |
+| `get` | `SELECT` | `deletedServerName, locationName, subscriptionId` | Gets a deleted server. |
+| `list` | `SELECT` | `subscriptionId` | Gets a list of all deleted servers in a subscription. |
+| `list_by_location` | `SELECT` | `locationName, subscriptionId` | Gets a list of deleted servers for a location. |
+| `_list` | `EXEC` | `subscriptionId` | Gets a list of all deleted servers in a subscription. |
+| `_list_by_location` | `EXEC` | `locationName, subscriptionId` | Gets a list of deleted servers for a location. |
+| `recover` | `EXEC` | `deletedServerName, locationName, subscriptionId` | Recovers a deleted server. |

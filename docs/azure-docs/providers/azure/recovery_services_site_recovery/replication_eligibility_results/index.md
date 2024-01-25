@@ -29,10 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Gets Unique ARM identifier for this object. |
 | `name` | `string` | Gets the name of this object. |
-| `type` | `string` | Gets the object type. |
 | `properties` | `object` | Properties model for replication eligibility results API. |
+| `type` | `string` | Gets the object type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ReplicationEligibilityResults_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, virtualMachineName` |
-| `ReplicationEligibilityResults_Get` | `EXEC` | `api-version, resourceGroupName, subscriptionId, virtualMachineName` |
+| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId, virtualMachineName` |
+| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId, virtualMachineName` |
+| `exec_get` | `EXEC` | `api-version, resourceGroupName, subscriptionId, virtualMachineName` |

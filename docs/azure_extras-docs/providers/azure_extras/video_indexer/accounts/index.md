@@ -35,10 +35,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Accounts_Get` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the properties of an Azure Video Indexer account. |
-| `Accounts_List` | `SELECT` | `subscriptionId` | List all Azure Video Indexer accounts available under the subscription |
-| `Accounts_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | List all Azure Video Indexer accounts available under the resource group |
-| `Accounts_CreateOrUpdate` | `INSERT` | `accountName, resourceGroupName, subscriptionId` | Creates or updates an Azure Video Indexer account. |
-| `Accounts_Delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId` | Delete an Azure Video Indexer account. |
-| `Accounts_CheckNameAvailability` | `EXEC` | `subscriptionId, data__name, data__type` | Checks that the Video Indexer account name is valid and is not already in use. |
-| `Accounts_Update` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Updates the properties of an existing Azure Video Indexer account. |
+| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Gets the properties of an Azure Video Indexer account. |
+| `list` | `SELECT` | `subscriptionId` | List all Azure Video Indexer accounts available under the subscription |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | List all Azure Video Indexer accounts available under the resource group |
+| `create_or_update` | `INSERT` | `accountName, resourceGroupName, subscriptionId` | Creates or updates an Azure Video Indexer account. |
+| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId` | Delete an Azure Video Indexer account. |
+| `_list` | `EXEC` | `subscriptionId` | List all Azure Video Indexer accounts available under the subscription |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | List all Azure Video Indexer accounts available under the resource group |
+| `check_name_availability` | `EXEC` | `subscriptionId, data__name, data__type` | Checks that the Video Indexer account name is valid and is not already in use. |
+| `update` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Updates the properties of an existing Azure Video Indexer account. |

@@ -28,6 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Configurations_List` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Gets all configuration information for an HDI cluster. |
-| `Configurations_Get` | `EXEC` | `clusterName, configurationName, resourceGroupName, subscriptionId` | The configuration object for the specified cluster. This API is not recommended and might be removed in the future. Please consider using List configurations API instead. |
-| `Configurations_Update` | `EXEC` | `clusterName, configurationName, resourceGroupName, subscriptionId` | Configures the HTTP settings on the specified cluster. This API is deprecated, please use UpdateGatewaySettings in cluster endpoint instead. |
+| `list` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | Gets all configuration information for an HDI cluster. |
+| `exec_get` | `EXEC` | `clusterName, configurationName, resourceGroupName, subscriptionId` | The configuration object for the specified cluster. This API is not recommended and might be removed in the future. Please consider using List configurations API instead. |
+| `update` | `EXEC` | `clusterName, configurationName, resourceGroupName, subscriptionId` | Configures the HTTP settings on the specified cluster. This API is deprecated, please use UpdateGatewaySettings in cluster endpoint instead. |

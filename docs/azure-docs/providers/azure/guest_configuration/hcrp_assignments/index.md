@@ -32,7 +32,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GuestConfigurationHCRPAssignments_Get` | `SELECT` | `guestConfigurationAssignmentName, machineName, resourceGroupName, subscriptionId` | Get information about a guest configuration assignment |
-| `GuestConfigurationHCRPAssignments_List` | `SELECT` | `machineName, resourceGroupName, subscriptionId` | List all guest configuration assignments for an ARC machine. |
-| `GuestConfigurationHCRPAssignments_CreateOrUpdate` | `INSERT` | `guestConfigurationAssignmentName, machineName, resourceGroupName, subscriptionId` | Creates an association between a ARC machine and guest configuration |
-| `GuestConfigurationHCRPAssignments_Delete` | `DELETE` | `guestConfigurationAssignmentName, machineName, resourceGroupName, subscriptionId` | Delete a guest configuration assignment |
+| `get` | `SELECT` | `guestConfigurationAssignmentName, machineName, resourceGroupName, subscriptionId` | Get information about a guest configuration assignment |
+| `list` | `SELECT` | `machineName, resourceGroupName, subscriptionId` | List all guest configuration assignments for an ARC machine. |
+| `create_or_update` | `INSERT` | `guestConfigurationAssignmentName, machineName, resourceGroupName, subscriptionId` | Creates an association between a ARC machine and guest configuration |
+| `delete` | `DELETE` | `guestConfigurationAssignmentName, machineName, resourceGroupName, subscriptionId` | Delete a guest configuration assignment |
+| `_list` | `EXEC` | `machineName, resourceGroupName, subscriptionId` | List all guest configuration assignments for an ARC machine. |

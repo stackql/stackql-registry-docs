@@ -36,4 +36,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Operations_List` | `SELECT` |  |
+| `list` | `SELECT` |  |
+| `_list` | `EXEC` |  |

@@ -28,5 +28,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlPoolMetadataSyncConfigs_Get` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get the metadata sync configuration for a SQL pool |
-| `SqlPoolMetadataSyncConfigs_Create` | `INSERT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Set the metadata sync configuration for a SQL pool |
+| `get` | `SELECT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Get the metadata sync configuration for a SQL pool |
+| `create` | `INSERT` | `resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Set the metadata sync configuration for a SQL pool |

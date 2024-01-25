@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `IntegrationServiceEnvironmentNetworkHealth_Get` | `EXEC` | `api-version, integrationServiceEnvironmentName, resourceGroup, subscriptionId` |
+| `exec_get` | `EXEC` | `api-version, integrationServiceEnvironmentName, resourceGroup, subscriptionId` |

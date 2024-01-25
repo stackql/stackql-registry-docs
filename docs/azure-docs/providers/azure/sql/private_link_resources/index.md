@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResources_Get` | `SELECT` | `groupName, resourceGroupName, serverName, subscriptionId` | Gets a private link resource for SQL server. |
-| `PrivateLinkResources_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets the private link resources for SQL server. |
+| `get` | `SELECT` | `groupName, resourceGroupName, serverName, subscriptionId` | Gets a private link resource for SQL server. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets the private link resources for SQL server. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets the private link resources for SQL server. |

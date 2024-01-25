@@ -27,15 +27,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The full qualified ARM ID of an event. |
-| `name` | `string` | The ID that uniquely identifies an event.  |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
-| `etag` | `string` | The etag for the resource. |
+| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `name` | `string` | The name of the resource |
 | `location` | `string` | Resource Location. |
 | `properties` | `object` | The properties of the reservation recommendation. |
 | `sku` | `string` | Resource sku |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ReservationRecommendationDetails_Get` | `SELECT` | `lookBackPeriod, product, region, resourceScope, scope, term` |
+| `get` | `SELECT` | `lookBackPeriod, product, region, resourceScope, scope, term` |

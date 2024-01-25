@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Capabilities_Get` | `SELECT` | `api-version, capabilityName, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Get a Capability resource that extends a Target resource. |
-| `Capabilities_List` | `SELECT` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Get a list of Capability resources that extend a Target resource.. |
-| `Capabilities_CreateOrUpdate` | `INSERT` | `api-version, capabilityName, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Create or update a Capability resource that extends a Target resource. |
-| `Capabilities_Delete` | `DELETE` | `api-version, capabilityName, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Delete a Capability that extends a Target resource. |
+| `get` | `SELECT` | `api-version, capabilityName, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Get a Capability resource that extends a Target resource. |
+| `list` | `SELECT` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Get a list of Capability resources that extend a Target resource.. |
+| `create_or_update` | `INSERT` | `api-version, capabilityName, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Create or update a Capability resource that extends a Target resource. |
+| `delete` | `DELETE` | `api-version, capabilityName, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Delete a Capability that extends a Target resource. |
+| `_list` | `EXEC` | `api-version, parentProviderNamespace, parentResourceName, parentResourceType, resourceGroupName, subscriptionId, targetName` | Get a list of Capability resources that extend a Target resource.. |

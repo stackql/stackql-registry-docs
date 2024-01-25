@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SecureScores_Get` | `SELECT` | `api-version, secureScoreName, subscriptionId` | Get secure score for a specific Microsoft Defender for Cloud initiative within your current scope. For the ASC Default initiative, use 'ascScore'. |
-| `SecureScores_List` | `SELECT` | `api-version, subscriptionId` | List secure scores for all your Microsoft Defender for Cloud initiatives within your current scope. |
+| `get` | `SELECT` | `api-version, secureScoreName, subscriptionId` | Get secure score for a specific Microsoft Defender for Cloud initiative within your current scope. For the ASC Default initiative, use 'ascScore'. |
+| `list` | `SELECT` | `api-version, subscriptionId` | List secure scores for all your Microsoft Defender for Cloud initiatives within your current scope. |
+| `_list` | `EXEC` | `api-version, subscriptionId` | List secure scores for all your Microsoft Defender for Cloud initiatives within your current scope. |

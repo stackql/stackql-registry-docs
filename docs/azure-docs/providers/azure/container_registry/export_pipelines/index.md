@@ -27,17 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
-| `properties` | `object` | The properties of an export pipeline. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. |
 | `identity` | `object` | Managed identity for the resource. |
 | `location` | `string` | The location of the export pipeline. |
+| `properties` | `object` | The properties of an export pipeline. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExportPipelines_Get` | `SELECT` | `exportPipelineName, registryName, resourceGroupName, subscriptionId` | Gets the properties of the export pipeline. |
-| `ExportPipelines_List` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all export pipelines for the specified container registry. |
-| `ExportPipelines_Create` | `INSERT` | `exportPipelineName, registryName, resourceGroupName, subscriptionId` | Creates an export pipeline for a container registry with the specified parameters. |
-| `ExportPipelines_Delete` | `DELETE` | `exportPipelineName, registryName, resourceGroupName, subscriptionId` | Deletes an export pipeline from a container registry. |
+| `get` | `SELECT` | `exportPipelineName, registryName, resourceGroupName, subscriptionId` | Gets the properties of the export pipeline. |
+| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all export pipelines for the specified container registry. |
+| `create` | `INSERT` | `exportPipelineName, registryName, resourceGroupName, subscriptionId` | Creates an export pipeline for a container registry with the specified parameters. |
+| `delete` | `DELETE` | `exportPipelineName, registryName, resourceGroupName, subscriptionId` | Deletes an export pipeline from a container registry. |
+| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` | Lists all export pipelines for the specified container registry. |

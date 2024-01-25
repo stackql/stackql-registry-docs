@@ -34,9 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnection_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists all private endpoint connections of the API Management service instance. |
-| `PrivateEndpointConnection_CreateOrUpdate` | `INSERT` | `privateEndpointConnectionName, resourceGroupName, serviceName, subscriptionId` | Creates a new Private Endpoint Connection or updates an existing one. |
-| `PrivateEndpointConnection_Delete` | `DELETE` | `privateEndpointConnectionName, resourceGroupName, serviceName, subscriptionId` | Deletes the specified Private Endpoint Connection. |
-| `PrivateEndpointConnection_GetByName` | `EXEC` | `privateEndpointConnectionName, resourceGroupName, serviceName, subscriptionId` | Gets the details of the Private Endpoint Connection specified by its identifier. |
-| `PrivateEndpointConnection_GetPrivateLinkResource` | `EXEC` | `privateLinkSubResourceName, resourceGroupName, serviceName, subscriptionId` | Gets the private link resources |
-| `PrivateEndpointConnection_ListPrivateLinkResources` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Gets the private link resources |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists all private endpoint connections of the API Management service instance. |
+| `create_or_update` | `INSERT` | `privateEndpointConnectionName, resourceGroupName, serviceName, subscriptionId` | Creates a new Private Endpoint Connection or updates an existing one. |
+| `delete` | `DELETE` | `privateEndpointConnectionName, resourceGroupName, serviceName, subscriptionId` | Deletes the specified Private Endpoint Connection. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists all private endpoint connections of the API Management service instance. |
+| `get_by_name` | `EXEC` | `privateEndpointConnectionName, resourceGroupName, serviceName, subscriptionId` | Gets the details of the Private Endpoint Connection specified by its identifier. |

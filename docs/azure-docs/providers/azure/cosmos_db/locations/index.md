@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Locations_Get` | `SELECT` | `location, subscriptionId` | Get the properties of an existing Cosmos DB location |
-| `Locations_List` | `SELECT` | `subscriptionId` | List Cosmos DB locations and their properties |
+| `get` | `SELECT` | `location, subscriptionId` | Get the properties of an existing Cosmos DB location |
+| `list` | `SELECT` | `subscriptionId` | List Cosmos DB locations and their properties |
+| `_list` | `EXEC` | `subscriptionId` | List Cosmos DB locations and their properties |

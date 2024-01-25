@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FirewallPolicyIdpsSignaturesOverrides_List` | `SELECT` | `firewallPolicyName, resourceGroupName, subscriptionId` | Returns all signatures overrides objects for a specific policy as a list containing a single value. |
-| `FirewallPolicyIdpsSignaturesOverrides_Get` | `EXEC` | `firewallPolicyName, resourceGroupName, subscriptionId` | Returns all signatures overrides for a specific policy. |
-| `FirewallPolicyIdpsSignaturesOverrides_Patch` | `EXEC` | `firewallPolicyName, resourceGroupName, subscriptionId` | Will update the status of policy's signature overrides for IDPS |
-| `FirewallPolicyIdpsSignaturesOverrides_Put` | `EXEC` | `firewallPolicyName, resourceGroupName, subscriptionId` | Will override/create a new signature overrides for the policy's IDPS |
+| `list` | `SELECT` | `firewallPolicyName, resourceGroupName, subscriptionId` | Returns all signatures overrides objects for a specific policy as a list containing a single value. |
+| `_list` | `EXEC` | `firewallPolicyName, resourceGroupName, subscriptionId` | Returns all signatures overrides objects for a specific policy as a list containing a single value. |
+| `exec_get` | `EXEC` | `firewallPolicyName, resourceGroupName, subscriptionId` | Returns all signatures overrides for a specific policy. |
+| `patch` | `EXEC` | `firewallPolicyName, resourceGroupName, subscriptionId` | Will update the status of policy's signature overrides for IDPS |
+| `put` | `EXEC` | `firewallPolicyName, resourceGroupName, subscriptionId` | Will override/create a new signature overrides for the policy's IDPS |

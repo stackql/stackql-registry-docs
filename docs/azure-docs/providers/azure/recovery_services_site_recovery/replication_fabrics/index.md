@@ -35,12 +35,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationFabrics_Get` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Gets the details of an Azure Site Recovery fabric. |
-| `ReplicationFabrics_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets a list of the Azure Site Recovery fabrics in the vault. |
-| `ReplicationFabrics_Create` | `INSERT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to create an Azure Site Recovery fabric (for e.g. Hyper-V site). |
-| `ReplicationFabrics_Delete` | `DELETE` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to delete or remove an Azure Site Recovery fabric. |
-| `ReplicationFabrics_CheckConsistency` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to perform a consistency check on the fabric. |
-| `ReplicationFabrics_MigrateToAad` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to migrate an Azure Site Recovery fabric to AAD. |
-| `ReplicationFabrics_Purge` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to purge(force delete) an Azure Site Recovery fabric. |
-| `ReplicationFabrics_ReassociateGateway` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to move replications from a process server to another process server. |
-| `ReplicationFabrics_RenewCertificate` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Renews the connection certificate for the ASR replication fabric. |
+| `get` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Gets the details of an Azure Site Recovery fabric. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets a list of the Azure Site Recovery fabrics in the vault. |
+| `create` | `INSERT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to create an Azure Site Recovery fabric (for e.g. Hyper-V site). |
+| `delete` | `DELETE` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to delete or remove an Azure Site Recovery fabric. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Gets a list of the Azure Site Recovery fabrics in the vault. |
+| `check_consistency` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to perform a consistency check on the fabric. |
+| `migrate_to_aad` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to migrate an Azure Site Recovery fabric to AAD. |
+| `purge` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to purge(force delete) an Azure Site Recovery fabric. |
+| `reassociate_gateway` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | The operation to move replications from a process server to another process server. |
+| `renew_certificate` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Renews the connection certificate for the ASR replication fabric. |

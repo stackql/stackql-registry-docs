@@ -34,6 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkflowRuns_Get` | `SELECT` | `api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a workflow run. |
-| `WorkflowRuns_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow runs. |
-| `WorkflowRuns_Cancel` | `EXEC` | `api-version, resourceGroupName, runName, subscriptionId, workflowName` | Cancels a workflow run. |
+| `get` | `SELECT` | `api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a workflow run. |
+| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow runs. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId, workflowName` | Gets a list of workflow runs. |
+| `cancel` | `EXEC` | `api-version, resourceGroupName, runName, subscriptionId, workflowName` | Cancels a workflow run. |

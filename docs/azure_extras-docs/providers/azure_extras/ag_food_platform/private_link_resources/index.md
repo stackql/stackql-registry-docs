@@ -27,7 +27,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `id` | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
 | `name` | `string` | The name of the resource |
 | `properties` | `object` | Properties of a private link resource. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateLinkResources_Get` | `SELECT` | `farmBeatsResourceName, resourceGroupName, subResourceName, subscriptionId` | Get Private link resource object. |
-| `PrivateLinkResources_ListByResource` | `SELECT` | `farmBeatsResourceName, resourceGroupName, subscriptionId` | Get list of Private link resources. |
+| `get` | `SELECT` | `dataManagerForAgricultureResourceName, resourceGroupName, subResourceName, subscriptionId` | Get Private link resource object. |
+| `list_by_resource` | `SELECT` | `dataManagerForAgricultureResourceName, resourceGroupName, subscriptionId` | Get list of Private link resources. |
+| `_list_by_resource` | `EXEC` | `dataManagerForAgricultureResourceName, resourceGroupName, subscriptionId` | Get list of Private link resources. |

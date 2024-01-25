@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Storage Cache  
+Use Azure HPC Cache To Speed Up NFS File Access For Read-Intensive High-Performance Computing (HPC) Workloads.  By Caching Files In Azure, Azure HPC Cache Brings The Scalability Of Cloud Computing To Your Existing Workflow. This Service Can Be Used Even For Workflows Where Your Data Is Stored Across WAN Links, Such As In Your Local Data Center Network-Attached Storage (NAS) Environment.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>30</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>49</b></span><br />
 </div>
 </div>
 
@@ -31,14 +31,15 @@ Storage Cache
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.storage_cache</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Storage Cache (Microsoft.StorageCache)</td></tr>
-<tr><td><b>Description</b></td><td>Storage Cache</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_cache:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure HPC Cache</td></tr>
+<tr><td><b>Description</b></td><td>Use Azure HPC Cache To Speed Up NFS File Access For Read-Intensive High-Performance Computing (HPC) Workloads.  By Caching Files In Azure, Azure HPC Cache Brings The Scalability Of Cloud Computing To Your Existing Workflow. This Service Can Be Used Even For Workflows Where Your Data Is Stored Across WAN Links, Such As In Your Local Data Center Network-Attached Storage (NAS) Environment.</td></tr>
+<tr><td><b>Id</b></td><td><code>storage_cache:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/azure/storage_cache/aml_filesystems/">aml_filesystems</a><br />
 <a href="/providers/azure/storage_cache/asc_operations/">asc_operations</a><br />
 <a href="/providers/azure/storage_cache/asc_usages/">asc_usages</a><br />
 <a href="/providers/azure/storage_cache/caches/">caches</a><br />

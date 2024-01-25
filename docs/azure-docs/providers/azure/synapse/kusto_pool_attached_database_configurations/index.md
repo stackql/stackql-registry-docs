@@ -27,13 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Class representing the an attached database configuration properties of kind specific. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `KustoPoolAttachedDatabaseConfigurations_Get` | `SELECT` | `attachedDatabaseConfigurationName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns an attached database configuration. |
-| `KustoPoolAttachedDatabaseConfigurations_ListByKustoPool` | `SELECT` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of attached database configurations of the given Kusto Pool. |
-| `KustoPoolAttachedDatabaseConfigurations_CreateOrUpdate` | `INSERT` | `attachedDatabaseConfigurationName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Creates or updates an attached database configuration. |
-| `KustoPoolAttachedDatabaseConfigurations_Delete` | `DELETE` | `attachedDatabaseConfigurationName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Deletes the attached database configuration with the given name. |
+| `get` | `SELECT` | `attachedDatabaseConfigurationName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns an attached database configuration. |
+| `list_by_kusto_pool` | `SELECT` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of attached database configurations of the given Kusto Pool. |
+| `create_or_update` | `INSERT` | `attachedDatabaseConfigurationName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Creates or updates an attached database configuration. |
+| `delete` | `DELETE` | `attachedDatabaseConfigurationName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Deletes the attached database configuration with the given name. |
+| `_list_by_kusto_pool` | `EXEC` | `kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Returns the list of attached database configurations of the given Kusto Pool. |

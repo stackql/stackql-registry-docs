@@ -25,15 +25,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `properties` | `object` | Pricing properties for the relevant scope |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `Pricings_Get` | `SELECT` | `api-version, pricingName, subscriptionId` | Gets a provided Microsoft Defender for Cloud pricing configuration in the subscription. |
-| `Pricings_List` | `SELECT` | `api-version, subscriptionId` | Lists Microsoft Defender for Cloud pricing configurations in the subscription. |
-| `Pricings_Update` | `EXEC` | `api-version, pricingName, subscriptionId` | Updates a provided Microsoft Defender for Cloud pricing configuration in the subscription. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `update` | `EXEC` | `api-version, pricingName, subscriptionId` |

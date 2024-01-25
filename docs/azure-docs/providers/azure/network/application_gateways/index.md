@@ -29,30 +29,22 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
-| `tags` | `object` | Resource tags. |
-| `properties` | `object` | Properties of the application gateway. |
-| `location` | `string` | Resource location. |
-| `identity` | `object` | Identity for the resource. |
-| `zones` | `array` | A list of availability zones denoting where the resource needs to come from. |
 | `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `identity` | `object` | Identity for the resource. |
+| `location` | `string` | Resource location. |
+| `properties` | `object` | Properties of the application gateway. |
+| `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
+| `zones` | `array` | A list of availability zones denoting where the resource needs to come from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ApplicationGateways_Get` | `SELECT` | `applicationGatewayName, resourceGroupName, subscriptionId` | Gets the specified application gateway. |
-| `ApplicationGateways_List` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all application gateways in a resource group. |
-| `ApplicationGateways_ListAll` | `SELECT` | `subscriptionId` | Gets all the application gateways in a subscription. |
-| `ApplicationGateways_CreateOrUpdate` | `INSERT` | `applicationGatewayName, resourceGroupName, subscriptionId` | Creates or updates the specified application gateway. |
-| `ApplicationGateways_Delete` | `DELETE` | `applicationGatewayName, resourceGroupName, subscriptionId` | Deletes the specified application gateway. |
-| `ApplicationGateways_BackendHealth` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Gets the backend health of the specified application gateway in a resource group. |
-| `ApplicationGateways_BackendHealthOnDemand` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group. |
-| `ApplicationGateways_GetSslPredefinedPolicy` | `EXEC` | `predefinedPolicyName, subscriptionId` | Gets Ssl predefined policy with the specified policy name. |
-| `ApplicationGateways_ListAvailableRequestHeaders` | `EXEC` | `subscriptionId` | Lists all available request headers. |
-| `ApplicationGateways_ListAvailableResponseHeaders` | `EXEC` | `subscriptionId` | Lists all available response headers. |
-| `ApplicationGateways_ListAvailableServerVariables` | `EXEC` | `subscriptionId` | Lists all available server variables. |
-| `ApplicationGateways_ListAvailableSslOptions` | `EXEC` | `subscriptionId` | Lists available Ssl options for configuring Ssl policy. |
-| `ApplicationGateways_ListAvailableSslPredefinedPolicies` | `EXEC` | `subscriptionId` | Lists all SSL predefined policies for configuring Ssl policy. |
-| `ApplicationGateways_ListAvailableWafRuleSets` | `EXEC` | `subscriptionId` | Lists all available web application firewall rule sets. |
-| `ApplicationGateways_Start` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Starts the specified application gateway. |
-| `ApplicationGateways_Stop` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Stops the specified application gateway in a resource group. |
-| `ApplicationGateways_UpdateTags` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Updates the specified application gateway tags. |
+| `get` | `SELECT` | `applicationGatewayName, resourceGroupName, subscriptionId` | Gets the specified application gateway. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all application gateways in a resource group. |
+| `create_or_update` | `INSERT` | `applicationGatewayName, resourceGroupName, subscriptionId` | Creates or updates the specified application gateway. |
+| `delete` | `DELETE` | `applicationGatewayName, resourceGroupName, subscriptionId` | Deletes the specified application gateway. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all application gateways in a resource group. |
+| `backend_health` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Gets the backend health of the specified application gateway in a resource group. |
+| `backend_health_on_demand` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group. |
+| `start` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Starts the specified application gateway. |
+| `stop` | `EXEC` | `applicationGatewayName, resourceGroupName, subscriptionId` | Stops the specified application gateway in a resource group. |

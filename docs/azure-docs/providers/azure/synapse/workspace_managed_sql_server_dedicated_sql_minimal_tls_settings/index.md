@@ -32,6 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkspaceManagedSqlServerDedicatedSQLMinimalTlsSettings_Get` | `SELECT` | `dedicatedSQLminimalTlsSettingsName, resourceGroupName, subscriptionId, workspaceName` | Get workspace managed sql server's minimal tls settings. |
-| `WorkspaceManagedSqlServerDedicatedSQLMinimalTlsSettings_List` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | List workspace managed sql server's minimal tls settings. |
-| `WorkspaceManagedSqlServerDedicatedSQLMinimalTlsSettings_Update` | `EXEC` | `dedicatedSQLminimalTlsSettingsName, resourceGroupName, subscriptionId, workspaceName` | Update workspace managed sql server's minimal tls settings. |
+| `get` | `SELECT` | `dedicatedSQLminimalTlsSettingsName, resourceGroupName, subscriptionId, workspaceName` | Get workspace managed sql server's minimal tls settings. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | List workspace managed sql server's minimal tls settings. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | List workspace managed sql server's minimal tls settings. |
+| `update` | `EXEC` | `dedicatedSQLminimalTlsSettingsName, resourceGroupName, subscriptionId, workspaceName` | Update workspace managed sql server's minimal tls settings. |

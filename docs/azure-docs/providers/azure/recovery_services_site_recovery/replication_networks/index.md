@@ -35,6 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationNetworks_Get` | `SELECT` | `api-version, fabricName, networkName, resourceGroupName, resourceName, subscriptionId` | Gets the details of a network. |
-| `ReplicationNetworks_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the networks available in a vault. |
-| `ReplicationNetworks_ListByReplicationFabrics` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists the networks available for a fabric. |
+| `get` | `SELECT` | `api-version, fabricName, networkName, resourceGroupName, resourceName, subscriptionId` | Gets the details of a network. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the networks available in a vault. |
+| `list_by_replication_fabrics` | `SELECT` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists the networks available for a fabric. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the networks available in a vault. |
+| `_list_by_replication_fabrics` | `EXEC` | `api-version, fabricName, resourceGroupName, resourceName, subscriptionId` | Lists the networks available for a fabric. |

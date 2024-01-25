@@ -27,22 +27,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id represents the complete path to the resource. |
-| `name` | `string` | Resource name associated with the resource. |
 | `identity` | `object` | Identity details |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
-| `location` | `string` | Resource location. |
 | `properties` | `object` | Backup Vault |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `eTag` | `string` | Optional ETag. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BackupVaults_Get` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` | Returns a resource belonging to a resource group. |
-| `BackupVaults_CreateOrUpdate` | `INSERT` | `api-version, resourceGroupName, subscriptionId, vaultName, data__location, data__properties` | Creates or updates a BackupVault resource belonging to a resource group. |
-| `BackupVaults_Delete` | `DELETE` | `api-version, resourceGroupName, subscriptionId, vaultName` | Deletes a BackupVault resource from the resource group. |
-| `BackupVaults_CheckNameAvailability` | `EXEC` | `api-version, location, resourceGroupName, subscriptionId` |  |
-| `BackupVaults_GetInResourceGroup` | `EXEC` | `api-version, resourceGroupName, subscriptionId` | Returns resource collection belonging to a resource group. |
-| `BackupVaults_GetInSubscription` | `EXEC` | `api-version, subscriptionId` | Returns resource collection belonging to a subscription. |
-| `BackupVaults_Update` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName` | Updates a BackupVault resource belonging to a resource group. For example, updating tags for a resource. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, vaultName` | Returns a resource belonging to a resource group. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, vaultName, data__properties` | Creates or updates a BackupVault resource belonging to a resource group. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, vaultName` | Deletes a BackupVault resource from the resource group. |
+| `_get_in_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Returns resource collection belonging to a resource group. |
+| `_get_in_subscription` | `EXEC` | `subscriptionId` | Returns resource collection belonging to a subscription. |
+| `check_name_availability` | `EXEC` | `location, resourceGroupName, subscriptionId` |  |
+| `get_in_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Returns resource collection belonging to a resource group. |
+| `get_in_subscription` | `EXEC` | `subscriptionId` | Returns resource collection belonging to a subscription. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, vaultName` | Updates a BackupVault resource belonging to a resource group. For example, updating tags for a resource. |

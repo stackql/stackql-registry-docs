@@ -28,6 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkspaceSqlAadAdmins_Get` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Gets a workspace SQL active directory admin |
-| `WorkspaceSqlAadAdmins_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, workspaceName` | Creates or updates a workspace SQL active directory admin |
-| `WorkspaceSqlAadAdmins_Delete` | `DELETE` | `resourceGroupName, subscriptionId, workspaceName` | Deletes a workspace SQL active directory admin |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Gets a workspace SQL active directory admin |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, workspaceName` | Creates or updates a workspace SQL active directory admin |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, workspaceName` | Deletes a workspace SQL active directory admin |

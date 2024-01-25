@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `EnrollmentAccounts_Get` | `SELECT` | `name` | Gets a enrollment account by name. |
-| `EnrollmentAccounts_List` | `SELECT` |  | Lists the enrollment accounts the caller has access to. |
+| `get` | `SELECT` | `name` | Gets a enrollment account by name. |
+| `list` | `SELECT` |  | Lists the enrollment accounts the caller has access to. |
+| `_list` | `EXEC` |  | Lists the enrollment accounts the caller has access to. |

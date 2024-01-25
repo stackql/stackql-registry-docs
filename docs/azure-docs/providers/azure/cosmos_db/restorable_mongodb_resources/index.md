@@ -29,10 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource identifier of the ARM resource. |
 | `name` | `string` | The name of the ARM resource. |
-| `type` | `string` | The type of Azure resource. |
 | `collectionNames` | `array` | The names of the collections available for restore. |
 | `databaseName` | `string` | The name of the database available for restore. |
+| `type` | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `RestorableMongodbResources_List` | `SELECT` | `instanceId, location, subscriptionId` |
+| `list` | `SELECT` | `instanceId, location, subscriptionId` |
+| `_list` | `EXEC` | `instanceId, location, subscriptionId` |

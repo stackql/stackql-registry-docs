@@ -25,14 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | Properties of a favorite process identifier. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FavoriteProcesses_Get` | `SELECT` | `favoriteProcessResourceName, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a favorite process for a Test Base Package. |
-| `FavoriteProcesses_List` | `SELECT` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Lists the favorite processes for a specific package. |
-| `FavoriteProcesses_Create` | `INSERT` | `favoriteProcessResourceName, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Create or replace a favorite process for a Test Base Package. |
-| `FavoriteProcesses_Delete` | `DELETE` | `favoriteProcessResourceName, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Deletes a favorite process for a specific package. |
+| `get` | `SELECT` | `favoriteProcessResourceName, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a favorite process for a Test Base Package. |
+| `list` | `SELECT` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Lists the favorite processes for a specific package. |
+| `create` | `INSERT` | `favoriteProcessResourceName, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Create or replace a favorite process for a Test Base Package. |
+| `delete` | `DELETE` | `favoriteProcessResourceName, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Deletes a favorite process for a specific package. |
+| `_list` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Lists the favorite processes for a specific package. |

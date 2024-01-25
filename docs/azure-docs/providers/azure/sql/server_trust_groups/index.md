@@ -28,8 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerTrustGroups_Get` | `SELECT` | `locationName, resourceGroupName, serverTrustGroupName, subscriptionId` | Gets a server trust group. |
-| `ServerTrustGroups_ListByInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a server trust groups by instance name. |
-| `ServerTrustGroups_ListByLocation` | `SELECT` | `locationName, resourceGroupName, subscriptionId` | Lists a server trust group. |
-| `ServerTrustGroups_CreateOrUpdate` | `INSERT` | `locationName, resourceGroupName, serverTrustGroupName, subscriptionId` | Creates or updates a server trust group. |
-| `ServerTrustGroups_Delete` | `DELETE` | `locationName, resourceGroupName, serverTrustGroupName, subscriptionId` | Deletes a server trust group. |
+| `get` | `SELECT` | `locationName, resourceGroupName, serverTrustGroupName, subscriptionId` | Gets a server trust group. |
+| `list_by_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a server trust groups by instance name. |
+| `list_by_location` | `SELECT` | `locationName, resourceGroupName, subscriptionId` | Lists a server trust group. |
+| `create_or_update` | `INSERT` | `locationName, resourceGroupName, serverTrustGroupName, subscriptionId` | Creates or updates a server trust group. |
+| `delete` | `DELETE` | `locationName, resourceGroupName, serverTrustGroupName, subscriptionId` | Deletes a server trust group. |
+| `_list_by_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a server trust groups by instance name. |
+| `_list_by_location` | `EXEC` | `locationName, resourceGroupName, subscriptionId` | Lists a server trust group. |

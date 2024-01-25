@@ -35,9 +35,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateStoreCollectionOffer_Get` | `SELECT` | `collectionId, offerId, privateStoreId` | Gets information about a specific offer. |
-| `PrivateStoreCollectionOffer_List` | `SELECT` | `collectionId, privateStoreId` | Get a list of all private offers in the given private store and collection |
-| `PrivateStoreCollectionOffer_CreateOrUpdate` | `INSERT` | `collectionId, offerId, privateStoreId` | Update or add an offer to a specific collection of the private store. |
-| `PrivateStoreCollectionOffer_Delete` | `DELETE` | `collectionId, offerId, privateStoreId` | Deletes an offer from the given collection of private store. |
-| `PrivateStoreCollectionOffer_Post` | `EXEC` | `collectionId, offerId, privateStoreId` | Delete Private store offer. This is a workaround. |
-| `PrivateStoreCollectionOffer_UpsertOfferWithMultiContext` | `EXEC` | `collectionId, offerId, privateStoreId` | Upsert an offer with multiple context details. |
+| `get` | `SELECT` | `collectionId, offerId, privateStoreId` | Gets information about a specific offer. |
+| `list` | `SELECT` | `collectionId, privateStoreId` | Get a list of all private offers in the given private store and collection |
+| `create_or_update` | `INSERT` | `collectionId, offerId, privateStoreId` | Update or add an offer to a specific collection of the private store. |
+| `delete` | `DELETE` | `collectionId, offerId, privateStoreId` | Deletes an offer from the given collection of private store. |
+| `_list` | `EXEC` | `collectionId, privateStoreId` | Get a list of all private offers in the given private store and collection |
+| `post` | `EXEC` | `collectionId, offerId, privateStoreId` | Delete Private store offer. This is a workaround. |
+| `upsert_offer_with_multi_context` | `EXEC` | `collectionId, offerId, privateStoreId` | Upsert an offer with multiple context details. |

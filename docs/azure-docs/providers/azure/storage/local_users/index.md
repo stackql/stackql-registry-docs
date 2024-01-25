@@ -35,9 +35,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `LocalUsers_Get` | `SELECT` | `accountName, resourceGroupName, subscriptionId, username` | Get the local user of the storage account by username. |
-| `LocalUsers_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | List the local users associated with the storage account. |
-| `LocalUsers_CreateOrUpdate` | `INSERT` | `accountName, resourceGroupName, subscriptionId, username` | Create or update the properties of a local user associated with the storage account |
-| `LocalUsers_Delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId, username` | Deletes the local user associated with the specified storage account. |
-| `LocalUsers_ListKeys` | `EXEC` | `accountName, resourceGroupName, subscriptionId, username` | List SSH authorized keys and shared key of the local user. |
-| `LocalUsers_RegeneratePassword` | `EXEC` | `accountName, resourceGroupName, subscriptionId, username` | Regenerate the local user SSH password. |
+| `get` | `SELECT` | `accountName, resourceGroupName, subscriptionId, username` | Get the local user of the storage account by username. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | List the local users associated with the storage account. |
+| `create_or_update` | `INSERT` | `accountName, resourceGroupName, subscriptionId, username` | Create or update the properties of a local user associated with the storage account |
+| `delete` | `DELETE` | `accountName, resourceGroupName, subscriptionId, username` | Deletes the local user associated with the specified storage account. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | List the local users associated with the storage account. |
+| `regenerate_password` | `EXEC` | `accountName, resourceGroupName, subscriptionId, username` | Regenerate the local user SSH password. |

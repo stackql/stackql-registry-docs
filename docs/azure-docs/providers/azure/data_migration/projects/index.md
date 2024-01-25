@@ -29,17 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `tags` | `object` |  |
-| `type` | `string` |  |
 | `etag` | `string` | HTTP strong entity tag value. This is ignored if submitted. |
 | `location` | `string` |  |
 | `properties` | `object` | Project-specific properties |
 | `systemData` | `object` |  |
+| `tags` | `object` |  |
+| `type` | `string` |  |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Projects_Get` | `SELECT` |  | The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project. |
-| `Projects_List` | `SELECT` | `api-version, groupName, serviceName, subscriptionId` | The project resource is a nested resource representing a stored migration project. This method returns a list of projects owned by a service resource. |
-| `Projects_CreateOrUpdate` | `INSERT` |  | The project resource is a nested resource representing a stored migration project. The PUT method creates a new project or updates an existing one. |
-| `Projects_Delete` | `DELETE` |  | The project resource is a nested resource representing a stored migration project. The DELETE method deletes a project. |
-| `Projects_Update` | `EXEC` |  | The project resource is a nested resource representing a stored migration project. The PATCH method updates an existing project. |
+| `get` | `SELECT` |  | The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project. |
+| `list` | `SELECT` | `api-version, groupName, serviceName, subscriptionId` | The project resource is a nested resource representing a stored migration project. This method returns a list of projects owned by a service resource. |
+| `create_or_update` | `INSERT` |  | The project resource is a nested resource representing a stored migration project. The PUT method creates a new project or updates an existing one. |
+| `delete` | `DELETE` |  | The project resource is a nested resource representing a stored migration project. The DELETE method deletes a project. |
+| `_list` | `EXEC` | `api-version, groupName, serviceName, subscriptionId` | The project resource is a nested resource representing a stored migration project. This method returns a list of projects owned by a service resource. |
+| `update` | `EXEC` |  | The project resource is a nested resource representing a stored migration project. The PATCH method updates an existing project. |

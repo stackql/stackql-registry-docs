@@ -27,27 +27,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Resource Id |
-| `name` | `string` | Resource name |
+| `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | NotificationHub properties. |
-| `sku` | `object` | The Sku description for a namespace |
-| `tags` | `object` | Resource tags |
-| `type` | `string` | Resource type |
-| `location` | `string` | Resource location |
+| `sku` | `object` | The resource model definition representing SKU |
+| `tags` | `object` | Resource tags. |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `NotificationHubs_Get` | `SELECT` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` | Lists the notification hubs associated with a namespace. |
-| `NotificationHubs_List` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` | Lists the notification hubs associated with a namespace. |
-| `NotificationHubs_CreateOrUpdate` | `INSERT` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId, data__properties` | Creates/Update a NotificationHub in a namespace. |
-| `NotificationHubs_Delete` | `DELETE` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` | Deletes a notification hub associated with a namespace. |
-| `NotificationHubs_CheckNotificationHubAvailability` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId, data__name` | Checks the availability of the given notificationHub in a namespace. |
-| `NotificationHubs_CreateOrUpdateAuthorizationRule` | `EXEC` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId, data__properties` | Creates/Updates an authorization rule for a NotificationHub |
-| `NotificationHubs_DebugSend` | `EXEC` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` | test send a push notification |
-| `NotificationHubs_DeleteAuthorizationRule` | `EXEC` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId` | Deletes a notificationHub authorization rule |
-| `NotificationHubs_GetAuthorizationRule` | `EXEC` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId` | Gets an authorization rule for a NotificationHub by name. |
-| `NotificationHubs_GetPnsCredentials` | `EXEC` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` | Lists the PNS Credentials associated with a notification hub . |
-| `NotificationHubs_ListAuthorizationRules` | `EXEC` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` | Gets the authorization rules for a NotificationHub. |
-| `NotificationHubs_ListKeys` | `EXEC` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId` | Gets the Primary and Secondary ConnectionStrings to the NotificationHub  |
-| `NotificationHubs_Patch` | `EXEC` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` | Patch a NotificationHub in a namespace. |
-| `NotificationHubs_RegenerateKeys` | `EXEC` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId` | Regenerates the Primary/Secondary Keys to the NotificationHub Authorization Rule |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `get` | `SELECT` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
+| `list` | `SELECT` | `namespaceName, resourceGroupName, subscriptionId` |
+| `create_or_update` | `INSERT` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId, data__location` |
+| `delete` | `DELETE` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
+| `_list` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId` |
+| `check_notification_hub_availability` | `EXEC` | `namespaceName, resourceGroupName, subscriptionId, data__name` |
+| `debug_send` | `EXEC` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` |
+| `regenerate_keys` | `EXEC` | `authorizationRuleName, namespaceName, notificationHubName, resourceGroupName, subscriptionId, data__policyKey` |
+| `update` | `EXEC` | `namespaceName, notificationHubName, resourceGroupName, subscriptionId` |

@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | The name of the resource that is unique within a resource group. This name can be used to access the resource. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `properties` | `object` | Properties of ExpressRoutePort Authorization. |
 | `type` | `string` | Type of the resource. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExpressRoutePortAuthorizations_Get` | `SELECT` | `authorizationName, expressRoutePortName, resourceGroupName, subscriptionId` | Gets the specified authorization from the specified express route port. |
-| `ExpressRoutePortAuthorizations_List` | `SELECT` | `expressRoutePortName, resourceGroupName, subscriptionId` | Gets all authorizations in an express route port. |
-| `ExpressRoutePortAuthorizations_CreateOrUpdate` | `INSERT` | `authorizationName, expressRoutePortName, resourceGroupName, subscriptionId` | Creates or updates an authorization in the specified express route port. |
-| `ExpressRoutePortAuthorizations_Delete` | `DELETE` | `authorizationName, expressRoutePortName, resourceGroupName, subscriptionId` | Deletes the specified authorization from the specified express route port. |
+| `get` | `SELECT` | `authorizationName, expressRoutePortName, resourceGroupName, subscriptionId` | Gets the specified authorization from the specified express route port. |
+| `list` | `SELECT` | `expressRoutePortName, resourceGroupName, subscriptionId` | Gets all authorizations in an express route port. |
+| `create_or_update` | `INSERT` | `authorizationName, expressRoutePortName, resourceGroupName, subscriptionId` | Creates or updates an authorization in the specified express route port. |
+| `delete` | `DELETE` | `authorizationName, expressRoutePortName, resourceGroupName, subscriptionId` | Deletes the specified authorization from the specified express route port. |
+| `_list` | `EXEC` | `expressRoutePortName, resourceGroupName, subscriptionId` | Gets all authorizations in an express route port. |

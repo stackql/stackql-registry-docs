@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IscsiTargets_Get` | `SELECT` | `diskPoolName, iscsiTargetName, resourceGroupName, subscriptionId` | Get an iSCSI Target. |
-| `IscsiTargets_ListByDiskPool` | `SELECT` | `diskPoolName, resourceGroupName, subscriptionId` | Get iSCSI Targets in a Disk pool. |
-| `IscsiTargets_CreateOrUpdate` | `INSERT` | `diskPoolName, iscsiTargetName, resourceGroupName, subscriptionId, data__properties` | Create or Update an iSCSI Target. |
-| `IscsiTargets_Delete` | `DELETE` | `diskPoolName, iscsiTargetName, resourceGroupName, subscriptionId` | Delete an iSCSI Target. |
-| `IscsiTargets_Update` | `EXEC` | `diskPoolName, iscsiTargetName, resourceGroupName, subscriptionId, data__properties` | Update an iSCSI Target. |
+| `get` | `SELECT` | `diskPoolName, iscsiTargetName, resourceGroupName, subscriptionId` | Get an iSCSI Target. |
+| `list_by_disk_pool` | `SELECT` | `diskPoolName, resourceGroupName, subscriptionId` | Get iSCSI Targets in a Disk pool. |
+| `create_or_update` | `INSERT` | `diskPoolName, iscsiTargetName, resourceGroupName, subscriptionId, data__properties` | Create or Update an iSCSI Target. |
+| `delete` | `DELETE` | `diskPoolName, iscsiTargetName, resourceGroupName, subscriptionId` | Delete an iSCSI Target. |
+| `_list_by_disk_pool` | `EXEC` | `diskPoolName, resourceGroupName, subscriptionId` | Get iSCSI Targets in a Disk pool. |
+| `update` | `EXEC` | `diskPoolName, iscsiTargetName, resourceGroupName, subscriptionId, data__properties` | Update an iSCSI Target. |

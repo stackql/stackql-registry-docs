@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServiceObjectives_Get` | `SELECT` | `resourceGroupName, serverName, serviceObjectiveName, subscriptionId` | Gets a database service objective. |
-| `ServiceObjectives_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Returns database service objectives. |
+| `get` | `SELECT` | `resourceGroupName, serverName, serviceObjectiveName, subscriptionId` | Gets a database service objective. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Returns database service objectives. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Returns database service objectives. |

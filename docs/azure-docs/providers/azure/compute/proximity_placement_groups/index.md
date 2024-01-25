@@ -37,9 +37,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ProximityPlacementGroups_Get` | `SELECT` | `proximityPlacementGroupName, resourceGroupName, subscriptionId` | Retrieves information about a proximity placement group . |
-| `ProximityPlacementGroups_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all proximity placement groups in a resource group. |
-| `ProximityPlacementGroups_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all proximity placement groups in a subscription. |
-| `ProximityPlacementGroups_CreateOrUpdate` | `INSERT` | `proximityPlacementGroupName, resourceGroupName, subscriptionId` | Create or update a proximity placement group. |
-| `ProximityPlacementGroups_Delete` | `DELETE` | `proximityPlacementGroupName, resourceGroupName, subscriptionId` | Delete a proximity placement group. |
-| `ProximityPlacementGroups_Update` | `EXEC` | `proximityPlacementGroupName, resourceGroupName, subscriptionId` | Update a proximity placement group. |
+| `get` | `SELECT` | `proximityPlacementGroupName, resourceGroupName, subscriptionId` | Retrieves information about a proximity placement group . |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all proximity placement groups in a resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all proximity placement groups in a subscription. |
+| `create_or_update` | `INSERT` | `proximityPlacementGroupName, resourceGroupName, subscriptionId` | Create or update a proximity placement group. |
+| `delete` | `DELETE` | `proximityPlacementGroupName, resourceGroupName, subscriptionId` | Delete a proximity placement group. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all proximity placement groups in a resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all proximity placement groups in a subscription. |
+| `update` | `EXEC` | `proximityPlacementGroupName, resourceGroupName, subscriptionId` | Update a proximity placement group. |

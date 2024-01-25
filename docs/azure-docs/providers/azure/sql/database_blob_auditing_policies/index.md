@@ -32,6 +32,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DatabaseBlobAuditingPolicies_Get` | `SELECT` | `blobAuditingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's blob auditing policy. |
-| `DatabaseBlobAuditingPolicies_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Lists auditing settings of a database. |
-| `DatabaseBlobAuditingPolicies_CreateOrUpdate` | `INSERT` | `blobAuditingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId` | Creates or updates a database's blob auditing policy. |
+| `get` | `SELECT` | `blobAuditingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database's blob auditing policy. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Lists auditing settings of a database. |
+| `create_or_update` | `INSERT` | `blobAuditingPolicyName, databaseName, resourceGroupName, serverName, subscriptionId` | Creates or updates a database's blob auditing policy. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Lists auditing settings of a database. |

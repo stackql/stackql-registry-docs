@@ -25,18 +25,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `properties` | `object` | Diagnostic Entity Properties |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Diagnostic_Get` | `SELECT` | `diagnosticId, resourceGroupName, serviceName, subscriptionId` | Gets the details of the Diagnostic specified by its identifier. |
-| `Diagnostic_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists all diagnostics of the API Management service instance. |
-| `Diagnostic_CreateOrUpdate` | `INSERT` | `diagnosticId, resourceGroupName, serviceName, subscriptionId` | Creates a new Diagnostic or updates an existing one. |
-| `Diagnostic_Delete` | `DELETE` | `If-Match, diagnosticId, resourceGroupName, serviceName, subscriptionId` | Deletes the specified Diagnostic. |
-| `Diagnostic_GetEntityTag` | `EXEC` | `diagnosticId, resourceGroupName, serviceName, subscriptionId` | Gets the entity state (Etag) version of the Diagnostic specified by its identifier. |
-| `Diagnostic_Update` | `EXEC` | `If-Match, diagnosticId, resourceGroupName, serviceName, subscriptionId` | Updates the details of the Diagnostic specified by its identifier. |
+| `get` | `SELECT` | `diagnosticId, resourceGroupName, serviceName, subscriptionId` | Gets the details of the Diagnostic specified by its identifier. |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists all diagnostics of the API Management service instance. |
+| `create_or_update` | `INSERT` | `diagnosticId, resourceGroupName, serviceName, subscriptionId` | Creates a new Diagnostic or updates an existing one. |
+| `delete` | `DELETE` | `If-Match, diagnosticId, resourceGroupName, serviceName, subscriptionId` | Deletes the specified Diagnostic. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists all diagnostics of the API Management service instance. |
+| `update` | `EXEC` | `If-Match, diagnosticId, resourceGroupName, serviceName, subscriptionId` | Updates the details of the Diagnostic specified by its identifier. |

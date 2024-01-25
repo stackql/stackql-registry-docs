@@ -1,0 +1,32 @@
+---
+title: managed_environment_diagnostics_detectors
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - managed_environment_diagnostics_detectors
+  - container_apps
+  - azure    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>managed_environment_diagnostics_detectors</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>azure.container_apps.managed_environment_diagnostics_detectors</code></td></tr>
+</tbody></table>
+
+## Fields
+## Methods
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` |
+| `_list` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` |

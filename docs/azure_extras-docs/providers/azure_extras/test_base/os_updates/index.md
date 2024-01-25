@@ -25,12 +25,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | Properties of an OS Update. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `OSUpdates_Get` | `SELECT` | `osUpdateResourceName, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets an OS Update by name in which the package was tested before. |
-| `OSUpdates_List` | `SELECT` | `osUpdateType, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Lists the OS Updates in which the package were tested before. |
+| `get` | `SELECT` | `osUpdateResourceName, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets an OS Update by name in which the package was tested before. |
+| `list` | `SELECT` | `osUpdateType, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Lists the OS Updates in which the package were tested before. |
+| `_list` | `EXEC` | `osUpdateType, packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Lists the OS Updates in which the package were tested before. |

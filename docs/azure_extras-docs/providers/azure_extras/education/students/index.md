@@ -29,13 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 | `properties` | `object` | Student detail properties |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Students_Get` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName, studentAlias` | Get the details for a specific student in the specified lab by student alias |
-| `Students_List` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | Get a list of details about students that are associated with the specified lab. |
-| `Students_CreateOrUpdate` | `INSERT` | `billingAccountName, billingProfileName, invoiceSectionName, studentAlias` | Create and add a new student to the specified lab or update the details of an existing student in a lab. Note the student must have a valid tenant to accept the lab after they have been added to lab. |
-| `Students_Delete` | `DELETE` | `billingAccountName, billingProfileName, invoiceSectionName, studentAlias` | Delete the specified student based on the student alias. |
+| `get` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName, studentAlias` | Get the details for a specific student in the specified lab by student alias |
+| `list` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | Get a list of details about students that are associated with the specified lab. |
+| `create_or_update` | `INSERT` | `billingAccountName, billingProfileName, invoiceSectionName, studentAlias` | Create and add a new student to the specified lab or update the details of an existing student in a lab. Note the student must have a valid tenant to accept the lab after they have been added to lab. |
+| `delete` | `DELETE` | `billingAccountName, billingProfileName, invoiceSectionName, studentAlias` | Delete the specified student based on the student alias. |
+| `_list` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName` | Get a list of details about students that are associated with the specified lab. |

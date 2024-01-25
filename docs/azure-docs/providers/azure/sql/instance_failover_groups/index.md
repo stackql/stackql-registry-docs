@@ -28,9 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `InstanceFailoverGroups_Get` | `SELECT` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Gets a failover group. |
-| `InstanceFailoverGroups_ListByLocation` | `SELECT` | `locationName, resourceGroupName, subscriptionId` | Lists the failover groups in a location. |
-| `InstanceFailoverGroups_CreateOrUpdate` | `INSERT` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Creates or updates a failover group. |
-| `InstanceFailoverGroups_Delete` | `DELETE` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Deletes a failover group. |
-| `InstanceFailoverGroups_Failover` | `EXEC` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Fails over from the current primary managed instance to this managed instance. |
-| `InstanceFailoverGroups_ForceFailoverAllowDataLoss` | `EXEC` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Fails over from the current primary managed instance to this managed instance. This operation might result in data loss. |
+| `get` | `SELECT` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Gets a failover group. |
+| `list_by_location` | `SELECT` | `locationName, resourceGroupName, subscriptionId` | Lists the failover groups in a location. |
+| `create_or_update` | `INSERT` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Creates or updates a failover group. |
+| `delete` | `DELETE` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Deletes a failover group. |
+| `_list_by_location` | `EXEC` | `locationName, resourceGroupName, subscriptionId` | Lists the failover groups in a location. |
+| `failover` | `EXEC` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Fails over from the current primary managed instance to this managed instance. |
+| `force_failover_allow_data_loss` | `EXEC` | `failoverGroupName, locationName, resourceGroupName, subscriptionId` | Fails over from the current primary managed instance to this managed instance. This operation might result in data loss. |

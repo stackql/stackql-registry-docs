@@ -35,9 +35,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Bots_Get` | `SELECT` | `botName, resourceGroupName, subscriptionId` | Get a HealthBot. |
-| `Bots_List` | `SELECT` | `subscriptionId` | Returns all the resources of a particular type belonging to a subscription. |
-| `Bots_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Returns all the resources of a particular type belonging to a resource group |
-| `Bots_Create` | `INSERT` | `botName, resourceGroupName, subscriptionId, data__sku` | Create a new Azure Health Bot. |
-| `Bots_Delete` | `DELETE` | `botName, resourceGroupName, subscriptionId` | Delete a HealthBot. |
-| `Bots_Update` | `EXEC` | `botName, resourceGroupName, subscriptionId` | Patch a HealthBot. |
+| `get` | `SELECT` | `botName, resourceGroupName, subscriptionId` | Get a HealthBot. |
+| `list` | `SELECT` | `subscriptionId` | Returns all the resources of a particular type belonging to a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Returns all the resources of a particular type belonging to a resource group |
+| `create` | `INSERT` | `botName, resourceGroupName, subscriptionId, data__sku` | Create a new Azure Health Bot. |
+| `delete` | `DELETE` | `botName, resourceGroupName, subscriptionId` | Delete a HealthBot. |
+| `_list` | `EXEC` | `subscriptionId` | Returns all the resources of a particular type belonging to a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Returns all the resources of a particular type belonging to a resource group |
+| `regenerate_api_jwt_secret` | `EXEC` | `botName, resourceGroupName, subscriptionId` | Regenerate the API JWT Secret of a HealthBot. |
+| `update` | `EXEC` | `botName, resourceGroupName, subscriptionId` | Patch a HealthBot. |

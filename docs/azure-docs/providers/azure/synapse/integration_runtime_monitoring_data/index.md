@@ -32,4 +32,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `IntegrationRuntimeMonitoringData_List` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` |
+| `list` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` |

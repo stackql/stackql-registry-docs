@@ -29,9 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The access review decision id. |
 | `name` | `string` | The access review decision name. |
-| `type` | `string` | The resource type. |
 | `properties` | `object` | Approval Step. |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ScopeAccessReviewInstanceDecisions_List` | `SELECT` | `id, scheduleDefinitionId, scope` |
+| `list` | `SELECT` | `id, scheduleDefinitionId, scope` |
+| `_list` | `EXEC` | `id, scheduleDefinitionId, scope` |

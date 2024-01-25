@@ -29,12 +29,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the resource. |
 | `name` | `string` | The name of the resource. |
-| `type` | `string` | The type of the resource. |
 | `properties` | `object` | The properties that define a Connection Monitor Test. |
+| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ConnectionMonitorTests_Get` | `SELECT` | `connectionMonitorTestName, peeringServiceName, resourceGroupName, subscriptionId` | Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service. |
-| `ConnectionMonitorTests_ListByPeeringService` | `SELECT` | `peeringServiceName, resourceGroupName, subscriptionId` | Lists all connection monitor tests under the given subscription, resource group and peering service. |
-| `ConnectionMonitorTests_CreateOrUpdate` | `INSERT` | `connectionMonitorTestName, peeringServiceName, resourceGroupName, subscriptionId` | Creates or updates a connection monitor test with the specified name under the given subscription, resource group and peering service. |
-| `ConnectionMonitorTests_Delete` | `DELETE` | `connectionMonitorTestName, peeringServiceName, resourceGroupName, subscriptionId` | Deletes an existing connection monitor test with the specified name under the given subscription, resource group and peering service. |
+| `get` | `SELECT` | `connectionMonitorTestName, peeringServiceName, resourceGroupName, subscriptionId` | Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service. |
+| `list_by_peering_service` | `SELECT` | `peeringServiceName, resourceGroupName, subscriptionId` | Lists all connection monitor tests under the given subscription, resource group and peering service. |
+| `create_or_update` | `INSERT` | `connectionMonitorTestName, peeringServiceName, resourceGroupName, subscriptionId` | Creates or updates a connection monitor test with the specified name under the given subscription, resource group and peering service. |
+| `delete` | `DELETE` | `connectionMonitorTestName, peeringServiceName, resourceGroupName, subscriptionId` | Deletes an existing connection monitor test with the specified name under the given subscription, resource group and peering service. |
+| `_list_by_peering_service` | `EXEC` | `peeringServiceName, resourceGroupName, subscriptionId` | Lists all connection monitor tests under the given subscription, resource group and peering service. |

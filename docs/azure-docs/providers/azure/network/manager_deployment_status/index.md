@@ -27,9 +27,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `value` | `array` | Gets a page of Network Manager Deployment Status |
 | `skipToken` | `string` | When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data. |
+| `value` | `array` | Gets a page of Network Manager Deployment Status |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `NetworkManagerDeploymentStatus_List` | `SELECT` |  |
+| `list` | `SELECT` |  |

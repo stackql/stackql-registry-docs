@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkspaceManagedSqlServerBlobAuditingPolicies_Get` | `SELECT` | `blobAuditingPolicyName, resourceGroupName, subscriptionId, workspaceName` | Get a workspace managed sql server's blob auditing policy. |
-| `WorkspaceManagedSqlServerBlobAuditingPolicies_ListByWorkspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | List workspace managed sql server's blob auditing policies. |
-| `WorkspaceManagedSqlServerBlobAuditingPolicies_CreateOrUpdate` | `INSERT` | `blobAuditingPolicyName, resourceGroupName, subscriptionId, workspaceName` | Create or Update a workspace managed sql server's blob auditing policy. |
+| `get` | `SELECT` | `blobAuditingPolicyName, resourceGroupName, subscriptionId, workspaceName` | Get a workspace managed sql server's blob auditing policy. |
+| `list_by_workspace` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | List workspace managed sql server's blob auditing policies. |
+| `create_or_update` | `INSERT` | `blobAuditingPolicyName, resourceGroupName, subscriptionId, workspaceName` | Create or Update a workspace managed sql server's blob auditing policy. |
+| `_list_by_workspace` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | List workspace managed sql server's blob auditing policies. |

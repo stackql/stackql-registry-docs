@@ -29,12 +29,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource identifier of the ARM resource. |
 | `name` | `string` | The name of the ARM resource. |
-| `type` | `string` | The type of Azure resource. |
 | `location` | `string` | The location of the resource group to which the resource belongs. |
 | `properties` | `object` | The properties of a restorable database account. |
+| `type` | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RestorableDatabaseAccounts_List` | `SELECT` | `subscriptionId` | Lists all the restorable Azure Cosmos DB database accounts available under the subscription. This call requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read' permission. |
-| `RestorableDatabaseAccounts_ListByLocation` | `SELECT` | `location, subscriptionId` | Lists all the restorable Azure Cosmos DB database accounts available under the subscription and in a region.  This call requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read' permission. |
-| `RestorableDatabaseAccounts_GetByLocation` | `EXEC` | `instanceId, location, subscriptionId` | Retrieves the properties of an existing Azure Cosmos DB restorable database account.  This call requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read/*' permission. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the restorable Azure Cosmos DB database accounts available under the subscription. This call requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read' permission. |
+| `list_by_location` | `SELECT` | `location, subscriptionId` | Lists all the restorable Azure Cosmos DB database accounts available under the subscription and in a region.  This call requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read' permission. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the restorable Azure Cosmos DB database accounts available under the subscription. This call requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read' permission. |
+| `_list_by_location` | `EXEC` | `location, subscriptionId` | Lists all the restorable Azure Cosmos DB database accounts available under the subscription and in a region.  This call requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read' permission. |
+| `get_by_location` | `EXEC` | `instanceId, location, subscriptionId` | Retrieves the properties of an existing Azure Cosmos DB restorable database account.  This call requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read/*' permission. |

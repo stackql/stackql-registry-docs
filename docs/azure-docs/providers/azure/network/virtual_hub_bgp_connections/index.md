@@ -33,8 +33,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `properties` | `object` | Properties of the bgp connection. |
 | `type` | `string` | Connection type. |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `VirtualHubBgpConnections_List` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` | Retrieves the details of all VirtualHubBgpConnections. |
-| `VirtualHubBgpConnections_ListAdvertisedRoutes` | `EXEC` | `connectionName, hubName, resourceGroupName, subscriptionId` | Retrieves a list of routes the virtual hub bgp connection is advertising to the specified peer. |
-| `VirtualHubBgpConnections_ListLearnedRoutes` | `EXEC` | `connectionName, hubName, resourceGroupName, subscriptionId` | Retrieves a list of routes the virtual hub bgp connection has learned. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, virtualHubName` |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, virtualHubName` |

@@ -37,4 +37,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ServerUsages_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` |

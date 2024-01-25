@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnections_Get` | `SELECT` | `configStoreName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection associated with the configuration store. |
-| `PrivateEndpointConnections_ListByConfigurationStore` | `SELECT` | `configStoreName, resourceGroupName, subscriptionId` | Lists all private endpoint connections for a configuration store. |
-| `PrivateEndpointConnections_CreateOrUpdate` | `INSERT` | `configStoreName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Update the state of the specified private endpoint connection associated with the configuration store. |
-| `PrivateEndpointConnections_Delete` | `DELETE` | `configStoreName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes a private endpoint connection. |
+| `get` | `SELECT` | `configStoreName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets the specified private endpoint connection associated with the configuration store. |
+| `list_by_configuration_store` | `SELECT` | `configStoreName, resourceGroupName, subscriptionId` | Lists all private endpoint connections for a configuration store. |
+| `create_or_update` | `INSERT` | `configStoreName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Update the state of the specified private endpoint connection associated with the configuration store. This operation cannot be used to create a private endpoint connection. Private endpoint connections must be created with the Network resource provider. |
+| `delete` | `DELETE` | `configStoreName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Deletes a private endpoint connection. |
+| `_list_by_configuration_store` | `EXEC` | `configStoreName, resourceGroupName, subscriptionId` | Lists all private endpoint connections for a configuration store. |

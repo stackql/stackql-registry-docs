@@ -27,11 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Properties of a server DevOps audit settings. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerDevOpsAuditSettings_Get` | `SELECT` | `devOpsAuditingSettingsName, resourceGroupName, serverName, subscriptionId` | Gets a server's DevOps audit settings. |
-| `ServerDevOpsAuditSettings_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists DevOps audit settings of a server. |
-| `ServerDevOpsAuditSettings_CreateOrUpdate` | `INSERT` | `devOpsAuditingSettingsName, resourceGroupName, serverName, subscriptionId` | Creates or updates a server's DevOps audit settings. |
+| `get` | `SELECT` | `devOpsAuditingSettingsName, resourceGroupName, serverName, subscriptionId` | Gets a server's DevOps audit settings. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Lists DevOps audit settings of a server. |
+| `create_or_update` | `INSERT` | `devOpsAuditingSettingsName, resourceGroupName, serverName, subscriptionId` | Creates or updates a server's DevOps audit settings. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Lists DevOps audit settings of a server. |

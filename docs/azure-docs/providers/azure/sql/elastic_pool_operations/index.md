@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ElasticPoolOperations_ListByElasticPool` | `SELECT` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` | Gets a list of operations performed on the elastic pool. |
-| `ElasticPoolOperations_Cancel` | `EXEC` | `elasticPoolName, operationId, resourceGroupName, serverName, subscriptionId` | Cancels the asynchronous operation on the elastic pool. |
+| `list_by_elastic_pool` | `SELECT` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` | Gets a list of operations performed on the elastic pool. |
+| `_list_by_elastic_pool` | `EXEC` | `elasticPoolName, resourceGroupName, serverName, subscriptionId` | Gets a list of operations performed on the elastic pool. |
+| `cancel` | `EXEC` | `elasticPoolName, operationId, resourceGroupName, serverName, subscriptionId` | Cancels the asynchronous operation on the elastic pool. |

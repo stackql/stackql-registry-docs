@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Agreements_Get` | `SELECT` | `agreementName, billingAccountName` | Gets an agreement by ID. |
-| `Agreements_ListByBillingAccount` | `SELECT` | `billingAccountName` | Lists the agreements for a billing account. |
+| `get` | `SELECT` | `agreementName, billingAccountName` | Gets an agreement by ID. |
+| `list_by_billing_account` | `SELECT` | `billingAccountName` | Lists the agreements for a billing account. |
+| `_list_by_billing_account` | `EXEC` | `billingAccountName` | Lists the agreements for a billing account. |

@@ -25,17 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `properties` | `object` | Gateway hostname configuration details. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `GatewayHostnameConfiguration_Get` | `SELECT` | `gatewayId, hcId, resourceGroupName, serviceName, subscriptionId` | Get details of a hostname configuration |
-| `GatewayHostnameConfiguration_ListByService` | `SELECT` | `gatewayId, resourceGroupName, serviceName, subscriptionId` | Lists the collection of hostname configurations for the specified gateway. |
-| `GatewayHostnameConfiguration_CreateOrUpdate` | `INSERT` | `gatewayId, hcId, resourceGroupName, serviceName, subscriptionId` | Creates of updates hostname configuration for a Gateway. |
-| `GatewayHostnameConfiguration_Delete` | `DELETE` | `If-Match, gatewayId, hcId, resourceGroupName, serviceName, subscriptionId` | Deletes the specified hostname configuration from the specified Gateway. |
-| `GatewayHostnameConfiguration_GetEntityTag` | `EXEC` | `gatewayId, hcId, resourceGroupName, serviceName, subscriptionId` | Checks that hostname configuration entity specified by identifier exists for specified Gateway entity. |
+| `get` | `SELECT` | `gatewayId, hcId, resourceGroupName, serviceName, subscriptionId` | Get details of a hostname configuration |
+| `list_by_service` | `SELECT` | `gatewayId, resourceGroupName, serviceName, subscriptionId` | Lists the collection of hostname configurations for the specified gateway. |
+| `create_or_update` | `INSERT` | `gatewayId, hcId, resourceGroupName, serviceName, subscriptionId` | Creates of updates hostname configuration for a Gateway. |
+| `delete` | `DELETE` | `If-Match, gatewayId, hcId, resourceGroupName, serviceName, subscriptionId` | Deletes the specified hostname configuration from the specified Gateway. |
+| `_list_by_service` | `EXEC` | `gatewayId, resourceGroupName, serviceName, subscriptionId` | Lists the collection of hostname configurations for the specified gateway. |

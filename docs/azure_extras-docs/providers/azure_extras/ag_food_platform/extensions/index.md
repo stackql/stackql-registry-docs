@@ -27,14 +27,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `eTag` | `string` | The ETag value to implement optimistic concurrency. |
 | `properties` | `object` | Extension resource properties. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Extensions_Get` | `SELECT` | `extensionId, farmBeatsResourceName, resourceGroupName, subscriptionId` | Get installed extension details by extension id. |
-| `Extensions_ListByFarmBeats` | `SELECT` | `farmBeatsResourceName, resourceGroupName, subscriptionId` | Get installed extensions details. |
-| `Extensions_Create` | `INSERT` | `extensionId, farmBeatsResourceName, resourceGroupName, subscriptionId` | Install extension. |
-| `Extensions_Delete` | `DELETE` | `extensionId, farmBeatsResourceName, resourceGroupName, subscriptionId` | Uninstall extension. |
-| `Extensions_Update` | `EXEC` | `extensionId, farmBeatsResourceName, resourceGroupName, subscriptionId` | Upgrade to latest extension. |
+| `get` | `SELECT` | `dataManagerForAgricultureResourceName, extensionId, resourceGroupName, subscriptionId` | Get installed extension details by extension id. |
+| `list_by_data_manager_for_agriculture` | `SELECT` | `dataManagerForAgricultureResourceName, resourceGroupName, subscriptionId` | Get installed extensions details. |
+| `create_or_update` | `INSERT` | `dataManagerForAgricultureResourceName, extensionId, resourceGroupName, subscriptionId` | Install or Update extension. Additional Api Properties are merged patch and if the extension is updated to a new version then the obsolete entries will be auto deleted from Additional Api Properties. |
+| `delete` | `DELETE` | `dataManagerForAgricultureResourceName, extensionId, resourceGroupName, subscriptionId` | Uninstall extension. |
+| `_list_by_data_manager_for_agriculture` | `EXEC` | `dataManagerForAgricultureResourceName, resourceGroupName, subscriptionId` | Get installed extensions details. |

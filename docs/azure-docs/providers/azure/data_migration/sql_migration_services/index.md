@@ -37,14 +37,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SqlMigrationServices_Get` | `SELECT` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Retrieve the Database Migration Service |
-| `SqlMigrationServices_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Retrieve all SQL migration services in the resource group. |
-| `SqlMigrationServices_ListBySubscription` | `SELECT` | `subscriptionId` | Retrieve all SQL migration services in the subscriptions. |
-| `SqlMigrationServices_CreateOrUpdate` | `INSERT` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Create or Update Database Migration Service. |
-| `SqlMigrationServices_Delete` | `DELETE` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Delete Database Migration Service. |
-| `SqlMigrationServices_Update` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Update Database Migration Service. |
-| `SqlMigrationServices_deleteNode` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Delete the integration runtime node. |
-| `SqlMigrationServices_listAuthKeys` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Retrieve the List of Authentication Keys for Self Hosted Integration Runtime. |
-| `SqlMigrationServices_listMigrations` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Retrieve the List of database migrations attached to the service. |
-| `SqlMigrationServices_listMonitoringData` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service. |
-| `SqlMigrationServices_regenerateAuthKeys` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Regenerate a new set of Authentication Keys for Self Hosted Integration Runtime. |
+| `get` | `SELECT` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Retrieve the Database Migration Service |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Retrieve all SQL migration services in the resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Retrieve all SQL migration services in the subscriptions. |
+| `create_or_update` | `INSERT` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Create or Update Database Migration Service. |
+| `delete` | `DELETE` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Delete Database Migration Service. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Retrieve all SQL migration services in the resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Retrieve all SQL migration services in the subscriptions. |
+| `regenerate_auth_keys` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Regenerate a new set of Authentication Keys for Self Hosted Integration Runtime. |
+| `update` | `EXEC` | `resourceGroupName, sqlMigrationServiceName, subscriptionId` | Update Database Migration Service. |

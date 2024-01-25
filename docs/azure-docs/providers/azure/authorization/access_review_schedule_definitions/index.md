@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AccessReviewScheduleDefinitions_List` | `SELECT` | `subscriptionId` | Get access review schedule definitions |
-| `AccessReviewScheduleDefinitions_DeleteById` | `DELETE` | `scheduleDefinitionId, subscriptionId` | Delete access review schedule definition |
-| `AccessReviewScheduleDefinitions_CreateOrUpdateById` | `EXEC` | `scheduleDefinitionId, subscriptionId` | Create or Update access review schedule definition. |
-| `AccessReviewScheduleDefinitions_GetById` | `EXEC` | `scheduleDefinitionId, subscriptionId` | Get single access review definition |
-| `AccessReviewScheduleDefinitions_Stop` | `EXEC` | `scheduleDefinitionId, subscriptionId` | Stop access review definition |
+| `list` | `SELECT` | `subscriptionId` | Get access review schedule definitions |
+| `delete_by_id` | `DELETE` | `scheduleDefinitionId, subscriptionId` | Delete access review schedule definition |
+| `_list` | `EXEC` | `subscriptionId` | Get access review schedule definitions |
+| `create_or_update_by_id` | `EXEC` | `scheduleDefinitionId, subscriptionId` | Create or Update access review schedule definition. |
+| `get_by_id` | `EXEC` | `scheduleDefinitionId, subscriptionId` | Get single access review definition |
+| `stop` | `EXEC` | `scheduleDefinitionId, subscriptionId` | Stop access review definition |

@@ -25,14 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | The properties of a configuration. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Configurations_Get` | `SELECT` | `configurationName, resourceGroupName, serverName, subscriptionId` | Gets information about a configuration of server. |
-| `Configurations_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List all the configurations in a given server. |
-| `Configurations_Put` | `EXEC` | `configurationName, resourceGroupName, serverName, subscriptionId` | Updates a configuration of a server. |
-| `Configurations_Update` | `EXEC` | `configurationName, resourceGroupName, serverName, subscriptionId` | Updates a configuration of a server. |
+| `get` | `SELECT` | `configurationName, resourceGroupName, serverName, subscriptionId` | Gets information about a configuration of server. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | List all the configurations in a given server. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | List all the configurations in a given server. |
+| `put` | `EXEC` | `configurationName, resourceGroupName, serverName, subscriptionId` | Updates a configuration of a server. |
+| `update` | `EXEC` | `configurationName, resourceGroupName, serverName, subscriptionId` | Updates a configuration of a server. |

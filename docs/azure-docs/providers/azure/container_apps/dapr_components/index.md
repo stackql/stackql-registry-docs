@@ -28,8 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DaprComponents_Get` | `SELECT` | `componentName, environmentName, resourceGroupName, subscriptionId` |  |
-| `DaprComponents_List` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` |  |
-| `DaprComponents_CreateOrUpdate` | `INSERT` | `componentName, environmentName, resourceGroupName, subscriptionId` | Creates or updates a Dapr Component in a Managed Environment. |
-| `DaprComponents_Delete` | `DELETE` | `componentName, environmentName, resourceGroupName, subscriptionId` | Delete a Dapr Component from a Managed Environment. |
-| `DaprComponents_ListSecrets` | `EXEC` | `componentName, environmentName, resourceGroupName, subscriptionId` |  |
+| `get` | `SELECT` | `componentName, environmentName, resourceGroupName, subscriptionId` |  |
+| `list` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` |  |
+| `create_or_update` | `INSERT` | `componentName, environmentName, resourceGroupName, subscriptionId` | Creates or updates a Dapr Component in a Managed Environment. |
+| `delete` | `DELETE` | `componentName, environmentName, resourceGroupName, subscriptionId` | Delete a Dapr Component from a Managed Environment. |
+| `_list` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` |  |

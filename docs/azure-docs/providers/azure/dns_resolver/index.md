@@ -21,7 +21,7 @@ The DNS Resolver Management Client.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>34</b></span><br />
+<span>total methods:&nbsp;<b>42</b></span><br />
 </div>
 </div>
 
@@ -31,16 +31,16 @@ The DNS Resolver Management Client.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.dns_resolver</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Dns Resolver Management Client (Microsoft.Network)</td></tr>
+<tr><td><b>Title</b></td><td>Dns Resolver</td></tr>
 <tr><td><b>Description</b></td><td>The DNS Resolver Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>dns_resolver:v23.03.00121</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dns_resolver:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/dns_resolver/dns_forwarding_rulesets/">dns_forwarding_rulesets</a><br />
-<a href="/providers/azure/dns_resolver/dns_resolver/">dns_resolver</a><br />
+<a href="/providers/azure/dns_resolver/dns_resolvers/">dns_resolvers</a><br />
 <a href="/providers/azure/dns_resolver/forwarding_rules/">forwarding_rules</a><br />
 </div>
 <div class="providerDocColumn">

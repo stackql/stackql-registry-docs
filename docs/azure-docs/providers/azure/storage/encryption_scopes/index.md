@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `EncryptionScopes_Get` | `SELECT` | `accountName, encryptionScopeName, resourceGroupName, subscriptionId` | Returns the properties for the specified encryption scope. |
-| `EncryptionScopes_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all the encryption scopes available under the specified storage account. |
-| `EncryptionScopes_Patch` | `EXEC` | `accountName, encryptionScopeName, resourceGroupName, subscriptionId` | Update encryption scope properties as specified in the request body. Update fails if the specified encryption scope does not already exist. |
-| `EncryptionScopes_Put` | `EXEC` | `accountName, encryptionScopeName, resourceGroupName, subscriptionId` | Synchronously creates or updates an encryption scope under the specified storage account. If an encryption scope is already created and a subsequent request is issued with different properties, the encryption scope properties will be updated per the specified request. |
+| `get` | `SELECT` | `accountName, encryptionScopeName, resourceGroupName, subscriptionId` | Returns the properties for the specified encryption scope. |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | Lists all the encryption scopes available under the specified storage account. |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | Lists all the encryption scopes available under the specified storage account. |
+| `patch` | `EXEC` | `accountName, encryptionScopeName, resourceGroupName, subscriptionId` | Update encryption scope properties as specified in the request body. Update fails if the specified encryption scope does not already exist. |
+| `put` | `EXEC` | `accountName, encryptionScopeName, resourceGroupName, subscriptionId` | Synchronously creates or updates an encryption scope under the specified storage account. If an encryption scope is already created and a subsequent request is issued with different properties, the encryption scope properties will be updated per the specified request. |

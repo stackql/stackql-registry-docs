@@ -35,5 +35,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VpnSiteLinks_Get` | `SELECT` | `resourceGroupName, subscriptionId, vpnSiteLinkName, vpnSiteName` | Retrieves the details of a VPN site link. |
-| `VpnSiteLinks_ListByVpnSite` | `SELECT` | `resourceGroupName, subscriptionId, vpnSiteName` | Lists all the vpnSiteLinks in a resource group for a vpn site. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, vpnSiteLinkName, vpnSiteName` | Retrieves the details of a VPN site link. |
+| `list_by_vpn_site` | `SELECT` | `resourceGroupName, subscriptionId, vpnSiteName` | Lists all the vpnSiteLinks in a resource group for a vpn site. |
+| `_list_by_vpn_site` | `EXEC` | `resourceGroupName, subscriptionId, vpnSiteName` | Lists all the vpnSiteLinks in a resource group for a vpn site. |

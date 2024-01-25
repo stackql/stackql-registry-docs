@@ -33,6 +33,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DatabaseAdvisors_Get` | `SELECT` | `advisorName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database advisor. |
-| `DatabaseAdvisors_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database advisors. |
-| `DatabaseAdvisors_Update` | `EXEC` | `advisorName, databaseName, resourceGroupName, serverName, subscriptionId` | Updates a database advisor. |
+| `get` | `SELECT` | `advisorName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets a database advisor. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database advisors. |
+| `update` | `EXEC` | `advisorName, databaseName, resourceGroupName, serverName, subscriptionId` | Updates a database advisor. |

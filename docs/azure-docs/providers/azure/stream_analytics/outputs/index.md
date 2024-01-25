@@ -34,9 +34,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Outputs_Get` | `SELECT` | `jobName, outputName, resourceGroupName, subscriptionId` | Gets details about the specified output. |
-| `Outputs_ListByStreamingJob` | `SELECT` | `jobName, resourceGroupName, subscriptionId` | Lists all of the outputs under the specified streaming job. |
-| `Outputs_CreateOrReplace` | `INSERT` | `jobName, outputName, resourceGroupName, subscriptionId` | Creates an output or replaces an already existing output under an existing streaming job. |
-| `Outputs_Delete` | `DELETE` | `jobName, outputName, resourceGroupName, subscriptionId` | Deletes an output from the streaming job. |
-| `Outputs_Test` | `EXEC` | `jobName, outputName, resourceGroupName, subscriptionId` | Tests whether an output’s datasource is reachable and usable by the Azure Stream Analytics service. |
-| `Outputs_Update` | `EXEC` | `jobName, outputName, resourceGroupName, subscriptionId` | Updates an existing output under an existing streaming job. This can be used to partially update (ie. update one or two properties) an output without affecting the rest the job or output definition. |
+| `get` | `SELECT` | `jobName, outputName, resourceGroupName, subscriptionId` | Gets details about the specified output. |
+| `list_by_streaming_job` | `SELECT` | `jobName, resourceGroupName, subscriptionId` | Lists all of the outputs under the specified streaming job. |
+| `create_or_replace` | `INSERT` | `jobName, outputName, resourceGroupName, subscriptionId` | Creates an output or replaces an already existing output under an existing streaming job. |
+| `delete` | `DELETE` | `jobName, outputName, resourceGroupName, subscriptionId` | Deletes an output from the streaming job. |
+| `_list_by_streaming_job` | `EXEC` | `jobName, resourceGroupName, subscriptionId` | Lists all of the outputs under the specified streaming job. |
+| `test` | `EXEC` | `jobName, outputName, resourceGroupName, subscriptionId` | Tests whether an output’s datasource is reachable and usable by the Azure Stream Analytics service. |
+| `update` | `EXEC` | `jobName, outputName, resourceGroupName, subscriptionId` | Updates an existing output under an existing streaming job. This can be used to partially update (ie. update one or two properties) an output without affecting the rest the job or output definition. |

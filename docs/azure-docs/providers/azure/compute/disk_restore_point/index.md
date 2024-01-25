@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DiskRestorePoint_Get` | `SELECT` | `diskRestorePointName, resourceGroupName, restorePointCollectionName, subscriptionId, vmRestorePointName` | Get disk restorePoint resource |
-| `DiskRestorePoint_ListByRestorePoint` | `SELECT` | `resourceGroupName, restorePointCollectionName, subscriptionId, vmRestorePointName` | Lists diskRestorePoints under a vmRestorePoint. |
-| `DiskRestorePoint_GrantAccess` | `EXEC` | `diskRestorePointName, resourceGroupName, restorePointCollectionName, subscriptionId, vmRestorePointName, data__access, data__durationInSeconds` | Grants access to a diskRestorePoint. |
-| `DiskRestorePoint_RevokeAccess` | `EXEC` | `diskRestorePointName, resourceGroupName, restorePointCollectionName, subscriptionId, vmRestorePointName` | Revokes access to a diskRestorePoint. |
+| `get` | `SELECT` | `diskRestorePointName, resourceGroupName, restorePointCollectionName, subscriptionId, vmRestorePointName` | Get disk restorePoint resource |
+| `list_by_restore_point` | `SELECT` | `resourceGroupName, restorePointCollectionName, subscriptionId, vmRestorePointName` | Lists diskRestorePoints under a vmRestorePoint. |
+| `_list_by_restore_point` | `EXEC` | `resourceGroupName, restorePointCollectionName, subscriptionId, vmRestorePointName` | Lists diskRestorePoints under a vmRestorePoint. |
+| `grant_access` | `EXEC` | `diskRestorePointName, resourceGroupName, restorePointCollectionName, subscriptionId, vmRestorePointName, data__access, data__durationInSeconds` | Grants access to a diskRestorePoint. |
+| `revoke_access` | `EXEC` | `diskRestorePointName, resourceGroupName, restorePointCollectionName, subscriptionId, vmRestorePointName` | Revokes access to a diskRestorePoint. |

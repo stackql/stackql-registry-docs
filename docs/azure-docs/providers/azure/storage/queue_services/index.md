@@ -29,11 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 | `properties` | `` | The properties of a storage account’s Queue service. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `QueueServices_List` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | List all queue services for the storage account |
-| `QueueServices_GetServiceProperties` | `EXEC` | `accountName, queueServiceName, resourceGroupName, subscriptionId` | Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. |
-| `QueueServices_SetServiceProperties` | `EXEC` | `accountName, queueServiceName, resourceGroupName, subscriptionId` | Sets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.  |
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` | List all queue services for the storage account |
+| `_list` | `EXEC` | `accountName, resourceGroupName, subscriptionId` | List all queue services for the storage account |
+| `set_service_properties` | `EXEC` | `accountName, queueServiceName, resourceGroupName, subscriptionId` | Sets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.  |

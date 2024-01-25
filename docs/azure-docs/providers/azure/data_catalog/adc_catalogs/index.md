@@ -37,8 +37,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ADCCatalogs_Get` | `SELECT` | `catalogName, resourceGroupName, subscriptionId` | The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog. |
-| `ADCCatalogs_CreateOrUpdate` | `INSERT` | `catalogName, resourceGroupName, subscriptionId` | The Create Azure Data Catalog service operation creates a new data catalog service with the specified parameters. If the specific service already exists, then any patchable properties will be updated and any immutable properties will remain unchanged. |
-| `ADCCatalogs_Delete` | `DELETE` | `catalogName, resourceGroupName, subscriptionId` | The Delete Azure Data Catalog Service operation deletes an existing data catalog. |
-| `ADCCatalogs_ListtByResourceGroup` | `EXEC` | `resourceGroupName, subscriptionId` | The List catalogs in Resource Group operation lists all the Azure Data Catalogs available under the given resource group. |
-| `ADCCatalogs_Update` | `EXEC` | `catalogName, resourceGroupName, subscriptionId` | The Update Azure Data Catalog Service operation can be used to update the existing deployment. The update call only supports the properties listed in the PATCH body. |
+| `get` | `SELECT` | `catalogName, resourceGroupName, subscriptionId` | The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog. |
+| `create_or_update` | `INSERT` | `catalogName, resourceGroupName, subscriptionId` | The Create Azure Data Catalog service operation creates a new data catalog service with the specified parameters. If the specific service already exists, then any patchable properties will be updated and any immutable properties will remain unchanged. |
+| `delete` | `DELETE` | `catalogName, resourceGroupName, subscriptionId` | The Delete Azure Data Catalog Service operation deletes an existing data catalog. |
+| `update` | `EXEC` | `catalogName, resourceGroupName, subscriptionId` | The Update Azure Data Catalog Service operation can be used to update the existing deployment. The update call only supports the properties listed in the PATCH body. |

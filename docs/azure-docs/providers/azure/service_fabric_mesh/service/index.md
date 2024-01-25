@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Service_Get` | `SELECT` | `api-version, applicationResourceName, resourceGroupName, serviceResourceName, subscriptionId` | Gets the information about the service resource with the given name. The information include the description and other properties of the service. |
-| `Service_List` | `SELECT` | `api-version, applicationResourceName, resourceGroupName, subscriptionId` | Gets the information about all services of an application resource. The information include the description and other properties of the Service. |
+| `get` | `SELECT` | `api-version, applicationResourceName, resourceGroupName, serviceResourceName, subscriptionId` | Gets the information about the service resource with the given name. The information include the description and other properties of the service. |
+| `list` | `SELECT` | `api-version, applicationResourceName, resourceGroupName, subscriptionId` | Gets the information about all services of an application resource. The information include the description and other properties of the Service. |
+| `_list` | `EXEC` | `api-version, applicationResourceName, resourceGroupName, subscriptionId` | Gets the information about all services of an application resource. The information include the description and other properties of the Service. |

@@ -36,7 +36,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Operations_List` | `SELECT` |  | Lists all the operations supported by Microsoft.ProviderHub. |
-| `Operations_ListByProviderRegistration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the operations supported by the given provider. |
-| `Operations_CreateOrUpdate` | `INSERT` | `providerNamespace, subscriptionId, data__contents` | Creates or updates the operation supported by the given provider. |
-| `Operations_Delete` | `DELETE` | `providerNamespace, subscriptionId` | Deletes an operation. |
+| `list` | `SELECT` |  | Lists all the operations supported by Microsoft.ProviderHub. |
+| `list_by_provider_registration` | `SELECT` | `providerNamespace, subscriptionId` | Gets the operations supported by the given provider. |
+| `create_or_update` | `INSERT` | `providerNamespace, subscriptionId, data__contents` | Creates or updates the operation supported by the given provider. |
+| `delete` | `DELETE` | `providerNamespace, subscriptionId` | Deletes an operation. |
+| `_list` | `EXEC` |  | Lists all the operations supported by Microsoft.ProviderHub. |

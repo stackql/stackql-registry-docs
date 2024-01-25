@@ -35,4 +35,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Notifications_List` | `SELECT` | `api-version, principalId, subscription` |
+| `list` | `SELECT` | `api-version, principalId, subscription` |
+| `_list` | `EXEC` | `api-version, principalId, subscription` |

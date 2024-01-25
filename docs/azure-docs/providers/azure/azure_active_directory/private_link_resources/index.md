@@ -29,10 +29,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The unique resource identifier of the Azure AD PrivateLink Policy. |
 | `name` | `string` | The name of the Azure AD PrivateLink Policy. |
-| `type` | `string` | The type of Azure resource. |
 | `properties` | `object` | Properties of a private link resource. |
+| `type` | `string` | The type of Azure resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `PrivateLinkResources_Get` | `SELECT` | `groupName, policyName, resourceGroupName, subscriptionId` |
-| `PrivateLinkResources_ListByPrivateLinkPolicy` | `SELECT` | `policyName, resourceGroupName, subscriptionId` |
+| `get` | `SELECT` | `groupName, policyName, resourceGroupName, subscriptionId` |
+| `list_by_private_link_policy` | `SELECT` | `policyName, resourceGroupName, subscriptionId` |
+| `_list_by_private_link_policy` | `EXEC` | `policyName, resourceGroupName, subscriptionId` |

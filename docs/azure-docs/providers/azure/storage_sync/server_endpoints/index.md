@@ -28,9 +28,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ServerEndpoints_Get` | `SELECT` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Get a ServerEndpoint. |
-| `ServerEndpoints_ListBySyncGroup` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId, syncGroupName` | Get a ServerEndpoint list. |
-| `ServerEndpoints_Create` | `INSERT` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Create a new ServerEndpoint. |
-| `ServerEndpoints_Delete` | `DELETE` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Delete a given ServerEndpoint. |
-| `ServerEndpoints_Update` | `EXEC` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Patch a given ServerEndpoint. |
-| `ServerEndpoints_recallAction` | `EXEC` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Recall a server endpoint. |
+| `get` | `SELECT` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Get a ServerEndpoint. |
+| `list_by_sync_group` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId, syncGroupName` | Get a ServerEndpoint list. |
+| `create` | `INSERT` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Create a new ServerEndpoint. |
+| `delete` | `DELETE` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Delete a given ServerEndpoint. |
+| `_list_by_sync_group` | `EXEC` | `resourceGroupName, storageSyncServiceName, subscriptionId, syncGroupName` | Get a ServerEndpoint list. |
+| `recall_action` | `EXEC` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Recall a server endpoint. |
+| `update` | `EXEC` | `resourceGroupName, serverEndpointName, storageSyncServiceName, subscriptionId, syncGroupName` | Patch a given ServerEndpoint. |

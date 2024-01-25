@@ -28,12 +28,13 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | `name` | `string` | Resource name |
-| `properties` | `object` | Describes the properties of a gallery image version. |
-| `type` | `string` | Resource type |
 | `identifier` | `object` | The identifier information of community gallery. |
 | `location` | `string` | Resource location |
+| `properties` | `object` | Describes the properties of a gallery image version. |
+| `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CommunityGalleryImageVersions_Get` | `SELECT` | `galleryImageName, galleryImageVersionName, location, publicGalleryName, subscriptionId` | Get a community gallery image version. |
-| `CommunityGalleryImageVersions_List` | `SELECT` | `galleryImageName, location, publicGalleryName, subscriptionId` | List community gallery image versions inside an image. |
+| `get` | `SELECT` | `galleryImageName, galleryImageVersionName, location, publicGalleryName, subscriptionId` | Get a community gallery image version. |
+| `list` | `SELECT` | `galleryImageName, location, publicGalleryName, subscriptionId` | List community gallery image versions inside an image. |
+| `_list` | `EXEC` | `galleryImageName, location, publicGalleryName, subscriptionId` | List community gallery image versions inside an image. |

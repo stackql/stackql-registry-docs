@@ -37,11 +37,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `NodeTypes_Get` | `SELECT` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Get a Service Fabric node type of a given managed cluster. |
-| `NodeTypes_ListByManagedClusters` | `SELECT` | `api-version, clusterName, resourceGroupName, subscriptionId` | Gets all Node types of the specified managed cluster. |
-| `NodeTypes_CreateOrUpdate` | `INSERT` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Create or update a Service Fabric node type of a given managed cluster. |
-| `NodeTypes_Delete` | `DELETE` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Delete a Service Fabric node type of a given managed cluster. |
-| `NodeTypes_DeleteNode` | `EXEC` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId, data__nodes` | Deletes one or more nodes on the node type. It will disable the fabric nodes, trigger a delete on the VMs and removes the state from the cluster. |
-| `NodeTypes_Reimage` | `EXEC` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId, data__nodes` | Reimages one or more nodes on the node type. It will disable the fabric nodes, trigger a reimage on the VMs and activate the nodes back again. |
-| `NodeTypes_Restart` | `EXEC` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId, data__nodes` | Restarts one or more nodes on the node type. It will disable the fabric nodes, trigger a restart on the VMs and activate the nodes back again. |
-| `NodeTypes_Update` | `EXEC` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Update the configuration of a node type of a given managed cluster, only updating tags. |
+| `get` | `SELECT` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Get a Service Fabric node type of a given managed cluster. |
+| `list_by_managed_clusters` | `SELECT` | `api-version, clusterName, resourceGroupName, subscriptionId` | Gets all Node types of the specified managed cluster. |
+| `create_or_update` | `INSERT` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Create or update a Service Fabric node type of a given managed cluster. |
+| `delete` | `DELETE` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Delete a Service Fabric node type of a given managed cluster. |
+| `_list_by_managed_clusters` | `EXEC` | `api-version, clusterName, resourceGroupName, subscriptionId` | Gets all Node types of the specified managed cluster. |
+| `reimage` | `EXEC` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Reimages one or more nodes on the node type. It will disable the fabric nodes, trigger a reimage on the VMs and activate the nodes back again. |
+| `restart` | `EXEC` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Restarts one or more nodes on the node type. It will disable the fabric nodes, trigger a restart on the VMs and activate the nodes back again. |
+| `update` | `EXEC` | `api-version, clusterName, nodeTypeName, resourceGroupName, subscriptionId` | Update the configuration of a node type of a given managed cluster, only updating tags. |

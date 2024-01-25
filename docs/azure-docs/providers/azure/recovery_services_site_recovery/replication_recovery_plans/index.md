@@ -35,15 +35,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationRecoveryPlans_Get` | `SELECT` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | Gets the details of the recovery plan. |
-| `ReplicationRecoveryPlans_List` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the recovery plans in the vault. |
-| `ReplicationRecoveryPlans_Create` | `INSERT` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to create a recovery plan. |
-| `ReplicationRecoveryPlans_Delete` | `DELETE` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | Delete a recovery plan. |
-| `ReplicationRecoveryPlans_FailoverCancel` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | The operation to cancel the failover of a recovery plan. |
-| `ReplicationRecoveryPlans_FailoverCommit` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | The operation to commit the failover of a recovery plan. |
-| `ReplicationRecoveryPlans_PlannedFailover` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to start the planned failover of a recovery plan. |
-| `ReplicationRecoveryPlans_Reprotect` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | The operation to reprotect(reverse replicate) a recovery plan. |
-| `ReplicationRecoveryPlans_TestFailover` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to start the test failover of a recovery plan. |
-| `ReplicationRecoveryPlans_TestFailoverCleanup` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to cleanup test failover of a recovery plan. |
-| `ReplicationRecoveryPlans_UnplannedFailover` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to start the unplanned failover of a recovery plan. |
-| `ReplicationRecoveryPlans_Update` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | The operation to update a recovery plan. |
+| `get` | `SELECT` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | Gets the details of the recovery plan. |
+| `list` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the recovery plans in the vault. |
+| `create` | `INSERT` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to create a recovery plan. |
+| `delete` | `DELETE` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | Delete a recovery plan. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, resourceName, subscriptionId` | Lists the recovery plans in the vault. |
+| `failover_cancel` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | The operation to cancel the failover of a recovery plan. |
+| `failover_commit` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | The operation to commit the failover of a recovery plan. |
+| `planned_failover` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to start the planned failover of a recovery plan. |
+| `reprotect` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | The operation to reprotect(reverse replicate) a recovery plan. |
+| `test_failover` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to start the test failover of a recovery plan. |
+| `test_failover_cleanup` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to cleanup test failover of a recovery plan. |
+| `unplanned_failover` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId, data__properties` | The operation to start the unplanned failover of a recovery plan. |
+| `update` | `EXEC` | `api-version, recoveryPlanName, resourceGroupName, resourceName, subscriptionId` | The operation to update a recovery plan. |

@@ -36,7 +36,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationAccountBatchConfigurations_Get` | `SELECT` | `api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId` | Get a batch configuration for an integration account. |
-| `IntegrationAccountBatchConfigurations_List` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | List the batch configurations for an integration account. |
-| `IntegrationAccountBatchConfigurations_CreateOrUpdate` | `INSERT` | `api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId, data__properties` | Create or update a batch configuration for an integration account. |
-| `IntegrationAccountBatchConfigurations_Delete` | `DELETE` | `api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId` | Delete a batch configuration for an integration account. |
+| `get` | `SELECT` | `api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId` | Get a batch configuration for an integration account. |
+| `list` | `SELECT` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | List the batch configurations for an integration account. |
+| `create_or_update` | `INSERT` | `api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId, data__properties` | Create or update a batch configuration for an integration account. |
+| `delete` | `DELETE` | `api-version, batchConfigurationName, integrationAccountName, resourceGroupName, subscriptionId` | Delete a batch configuration for an integration account. |
+| `_list` | `EXEC` | `api-version, integrationAccountName, resourceGroupName, subscriptionId` | List the batch configurations for an integration account. |

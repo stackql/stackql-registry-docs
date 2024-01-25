@@ -25,15 +25,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Resource Id. |
-| `name` | `string` | Resource name. |
-| `properties` | `object` | The event properties. |
-| `type` | `string` | Resource type. |
-| `eTag` | `string` | eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Events_ListByBillingAccount` | `SELECT` | `billingAccountId` |
-| `Events_ListByBillingProfile` | `SELECT` | `billingAccountId, billingProfileId, endDate, startDate` |
+| `list_by_billing_account` | `SELECT` | `billingAccountId` |
+| `list_by_billing_profile` | `SELECT` | `billingAccountId, billingProfileId, endDate, startDate` |
+| `_list_by_billing_account` | `EXEC` | `billingAccountId` |
+| `_list_by_billing_profile` | `EXEC` | `billingAccountId, billingProfileId, endDate, startDate` |

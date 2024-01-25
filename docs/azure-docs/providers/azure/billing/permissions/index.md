@@ -32,7 +32,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `BillingPermissions_ListByBillingAccount` | `SELECT` | `billingAccountName` | Lists the billing permissions the caller has on a billing account. |
-| `BillingPermissions_ListByBillingProfile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the billing permissions the caller has on a billing profile. |
-| `BillingPermissions_ListByCustomer` | `SELECT` | `billingAccountName, customerName` | Lists the billing permissions the caller has for a customer. |
-| `BillingPermissions_ListByInvoiceSections` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | Lists the billing permissions the caller has on an invoice section. |
+| `list_by_billing_account` | `SELECT` | `billingAccountName` | Lists the billing permissions the caller has on a billing account. |
+| `list_by_billing_profile` | `SELECT` | `billingAccountName, billingProfileName` | Lists the billing permissions the caller has on a billing profile. |
+| `list_by_customer` | `SELECT` | `billingAccountName, customerName` | Lists the billing permissions the caller has for a customer. |
+| `list_by_invoice_sections` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | Lists the billing permissions the caller has on an invoice section. |
+| `_list_by_billing_account` | `EXEC` | `billingAccountName` | Lists the billing permissions the caller has on a billing account. |
+| `_list_by_billing_profile` | `EXEC` | `billingAccountName, billingProfileName` | Lists the billing permissions the caller has on a billing profile. |
+| `_list_by_customer` | `EXEC` | `billingAccountName, customerName` | Lists the billing permissions the caller has for a customer. |
+| `_list_by_invoice_sections` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName` | Lists the billing permissions the caller has on an invoice section. |

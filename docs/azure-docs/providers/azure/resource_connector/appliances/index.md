@@ -27,21 +27,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `tags` | `object` | Resource tags. |
 | `identity` | `object` | Identity for the resource. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | Properties for an appliance. |
+| `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Appliances_Get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the details of an Appliance with a specified resource group and name. |
-| `Appliances_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of Appliances in the specified subscription and resource group. The operation returns properties of each Appliance. |
-| `Appliances_ListBySubscription` | `SELECT` | `subscriptionId` | Gets a list of Appliances in the specified subscription. The operation returns properties of each Appliance |
-| `Appliances_CreateOrUpdate` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Creates or updates an Appliance in the specified Subscription and Resource Group. |
-| `Appliances_Delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Deletes an Appliance with the specified Resource Name, Resource Group, and Subscription Id. |
-| `Appliances_GetUpgradeGraph` | `EXEC` | `resourceGroupName, resourceName, subscriptionId, upgradeGraph` | Gets the upgrade graph of an Appliance with a specified resource group and name and specific release train. |
-| `Appliances_ListClusterCustomerUserCredential` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Returns the cluster customer user credentials for the dedicated appliance. |
-| `Appliances_ListClusterUserCredential` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Returns the cluster user credentials for the dedicated appliance. |
-| `Appliances_ListOperations` | `EXEC` |  | Lists all available Appliances operations. |
-| `Appliances_Update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Updates an Appliance with the specified Resource Name in the specified Resource Group and Subscription. |
+| `get` | `SELECT` | `resourceGroupName, resourceName, subscriptionId` | Gets the details of an Appliance with a specified resource group and name. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets a list of Appliances in the specified subscription and resource group. The operation returns properties of each Appliance. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Gets a list of Appliances in the specified subscription. The operation returns properties of each Appliance |
+| `create_or_update` | `INSERT` | `resourceGroupName, resourceName, subscriptionId` | Creates or updates an Appliance in the specified Subscription and Resource Group. |
+| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` | Deletes an Appliance with the specified Resource Name, Resource Group, and Subscription Id. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets a list of Appliances in the specified subscription and resource group. The operation returns properties of each Appliance. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Gets a list of Appliances in the specified subscription. The operation returns properties of each Appliance |
+| `update` | `EXEC` | `resourceGroupName, resourceName, subscriptionId` | Updates an Appliance with the specified Resource Name in the specified Resource Group and Subscription. |

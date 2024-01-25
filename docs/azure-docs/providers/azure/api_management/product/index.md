@@ -25,19 +25,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `properties` | `object` | Product profile. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Product_Get` | `SELECT` | `productId, resourceGroupName, serviceName, subscriptionId` | Gets the details of the product specified by its identifier. |
-| `Product_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of products in the specified service instance. |
-| `Product_CreateOrUpdate` | `INSERT` | `productId, resourceGroupName, serviceName, subscriptionId` | Creates or Updates a product. |
-| `Product_Delete` | `DELETE` | `If-Match, productId, resourceGroupName, serviceName, subscriptionId` | Delete product. |
-| `Product_GetEntityTag` | `EXEC` | `productId, resourceGroupName, serviceName, subscriptionId` | Gets the entity state (Etag) version of the product specified by its identifier. |
-| `Product_ListByTags` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of products associated with tags. |
-| `Product_Update` | `EXEC` | `If-Match, productId, resourceGroupName, serviceName, subscriptionId` | Update existing product details. |
+| `get` | `SELECT` | `productId, resourceGroupName, serviceName, subscriptionId` | Gets the details of the product specified by its identifier. |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of products in the specified service instance. |
+| `create_or_update` | `INSERT` | `productId, resourceGroupName, serviceName, subscriptionId` | Creates or Updates a product. |
+| `delete` | `DELETE` | `If-Match, productId, resourceGroupName, serviceName, subscriptionId` | Delete product. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of products in the specified service instance. |
+| `_list_by_tags` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of products associated with tags. |
+| `list_by_tags` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of products associated with tags. |
+| `update` | `EXEC` | `If-Match, productId, resourceGroupName, serviceName, subscriptionId` | Update existing product details. |

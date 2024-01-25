@@ -13,7 +13,7 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Storage Sync  
+Azure File Sync Enables You To Centralize Your Organizations File Shares In Azure Files, While Keeping The Flexibility, Performance, And Compatibility Of A Windows File Server. While Some Users Might Opt To Keep A Full Copy Of Their Data Locally, Azure File Sync Additionally Has The Ability To Transform Windows Server Into A Quick Cache Of Your Azure File Share. You Can Use Any Protocol Thats Available On Windows Server To Access Your Data Locally, Including SMB, NFS, And FTPS. You Can Have As Many Caches As You Need Across The World.  
     
 :::info Service Summary
 
@@ -21,7 +21,7 @@ Storage Sync
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>10</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>44</b></span><br />
+<span>total methods:&nbsp;<b>55</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ Storage Sync
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.storage_sync</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Storage Sync (Microsoft.StorageSync)</td></tr>
-<tr><td><b>Description</b></td><td>Storage Sync</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_sync:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure File Sync</td></tr>
+<tr><td><b>Description</b></td><td>Azure File Sync Enables You To Centralize Your Organizations File Shares In Azure Files, While Keeping The Flexibility, Performance, And Compatibility Of A Windows File Server. While Some Users Might Opt To Keep A Full Copy Of Their Data Locally, Azure File Sync Additionally Has The Ability To Transform Windows Server Into A Quick Cache Of Your Azure File Share. You Can Use Any Protocol Thats Available On Windows Server To Access Your Data Locally, Including SMB, NFS, And FTPS. You Can Have As Many Caches As You Need Across The World.</td></tr>
+<tr><td><b>Id</b></td><td><code>storage_sync:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources

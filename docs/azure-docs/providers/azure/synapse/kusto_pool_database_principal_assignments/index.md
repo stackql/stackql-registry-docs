@@ -32,8 +32,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `KustoPoolDatabasePrincipalAssignments_Get` | `SELECT` | `databaseName, kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Gets a Kusto pool database principalAssignment. |
-| `KustoPoolDatabasePrincipalAssignments_List` | `SELECT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Lists all Kusto pool database principalAssignments. |
-| `KustoPoolDatabasePrincipalAssignments_CreateOrUpdate` | `INSERT` | `databaseName, kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Creates a Kusto pool database principalAssignment. |
-| `KustoPoolDatabasePrincipalAssignments_Delete` | `DELETE` | `databaseName, kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Deletes a Kusto pool principalAssignment. |
-| `KustoPoolDatabasePrincipalAssignments_CheckNameAvailability` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__name, data__type` | Checks that the database principal assignment is valid and is not already in use. |
+| `get` | `SELECT` | `databaseName, kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Gets a Kusto pool database principalAssignment. |
+| `list` | `SELECT` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Lists all Kusto pool database principalAssignments. |
+| `create_or_update` | `INSERT` | `databaseName, kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Creates a Kusto pool database principalAssignment. |
+| `delete` | `DELETE` | `databaseName, kustoPoolName, principalAssignmentName, resourceGroupName, subscriptionId, workspaceName` | Deletes a Kusto pool principalAssignment. |
+| `_list` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName` | Lists all Kusto pool database principalAssignments. |
+| `check_name_availability` | `EXEC` | `databaseName, kustoPoolName, resourceGroupName, subscriptionId, workspaceName, data__name, data__type` | Checks that the database principal assignment is valid and is not already in use. |

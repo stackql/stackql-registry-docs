@@ -27,17 +27,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified identifier of the resource. |
-| `name` | `string` | Name of the resource. |
-| `type` | `string` | Type of the resource. |
+| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `name` | `string` | The name of the resource |
 | `properties` | `object` | Properties of the Channel. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Channels_Get` | `SELECT` | `channelName, partnerNamespaceName, resourceGroupName, subscriptionId` | Get properties of a channel. |
-| `Channels_ListByPartnerNamespace` | `SELECT` | `partnerNamespaceName, resourceGroupName, subscriptionId` | List all the channels in a partner namespace. |
-| `Channels_CreateOrUpdate` | `INSERT` | `channelName, partnerNamespaceName, resourceGroupName, subscriptionId` | Synchronously creates or updates a new channel with the specified parameters. |
-| `Channels_Delete` | `DELETE` | `channelName, partnerNamespaceName, resourceGroupName, subscriptionId` | Delete an existing channel. |
-| `Channels_GetFullUrl` | `EXEC` | `channelName, partnerNamespaceName, resourceGroupName, subscriptionId` | Get the full endpoint URL of a partner destination channel. |
-| `Channels_Update` | `EXEC` | `channelName, partnerNamespaceName, resourceGroupName, subscriptionId` | Synchronously updates a channel with the specified parameters. |
+| `get` | `SELECT` | `channelName, partnerNamespaceName, resourceGroupName, subscriptionId` | Get properties of a channel. |
+| `list_by_partner_namespace` | `SELECT` | `partnerNamespaceName, resourceGroupName, subscriptionId` | List all the channels in a partner namespace. |
+| `create_or_update` | `INSERT` | `channelName, partnerNamespaceName, resourceGroupName, subscriptionId` | Synchronously creates or updates a new channel with the specified parameters. |
+| `delete` | `DELETE` | `channelName, partnerNamespaceName, resourceGroupName, subscriptionId` | Delete an existing channel. |
+| `_list_by_partner_namespace` | `EXEC` | `partnerNamespaceName, resourceGroupName, subscriptionId` | List all the channels in a partner namespace. |
+| `update` | `EXEC` | `channelName, partnerNamespaceName, resourceGroupName, subscriptionId` | Synchronously updates a channel with the specified parameters. |

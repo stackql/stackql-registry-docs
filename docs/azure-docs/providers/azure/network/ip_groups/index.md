@@ -29,17 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
+| `location` | `string` | Resource location. |
 | `properties` | `object` | The IpGroups property information. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
-| `location` | `string` | Resource location. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IpGroups_Get` | `SELECT` | `ipGroupsName, resourceGroupName, subscriptionId` | Gets the specified ipGroups. |
-| `IpGroups_List` | `SELECT` | `subscriptionId` | Gets all IpGroups in a subscription. |
-| `IpGroups_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all IpGroups in a resource group. |
-| `IpGroups_CreateOrUpdate` | `INSERT` | `ipGroupsName, resourceGroupName, subscriptionId` | Creates or updates an ipGroups in a specified resource group. |
-| `IpGroups_Delete` | `DELETE` | `ipGroupsName, resourceGroupName, subscriptionId` | Deletes the specified ipGroups. |
-| `IpGroups_UpdateGroups` | `EXEC` | `ipGroupsName, resourceGroupName, subscriptionId` | Updates tags of an IpGroups resource. |
+| `get` | `SELECT` | `ipGroupsName, resourceGroupName, subscriptionId` | Gets the specified ipGroups. |
+| `list` | `SELECT` | `subscriptionId` | Gets all IpGroups in a subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all IpGroups in a resource group. |
+| `create_or_update` | `INSERT` | `ipGroupsName, resourceGroupName, subscriptionId` | Creates or updates an ipGroups in a specified resource group. |
+| `delete` | `DELETE` | `ipGroupsName, resourceGroupName, subscriptionId` | Deletes the specified ipGroups. |
+| `_list` | `EXEC` | `subscriptionId` | Gets all IpGroups in a subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all IpGroups in a resource group. |

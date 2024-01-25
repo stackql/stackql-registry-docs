@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `JoinRequests_Get` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName, joinRequestName` | get student join requests |
-| `JoinRequests_List` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | get student join requests |
-| `JoinRequests_Approve` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName, joinRequestName` | Approve student joining the redeemable lab |
-| `JoinRequests_Deny` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName, joinRequestName` | Deny student joining the redeemable lab |
+| `get` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName, joinRequestName` | get student join requests |
+| `list` | `SELECT` | `billingAccountName, billingProfileName, invoiceSectionName` | get student join requests |
+| `_list` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName` | get student join requests |
+| `approve` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName, joinRequestName` | Approve student joining the redeemable lab |
+| `deny` | `EXEC` | `billingAccountName, billingProfileName, invoiceSectionName, joinRequestName` | Deny student joining the redeemable lab |

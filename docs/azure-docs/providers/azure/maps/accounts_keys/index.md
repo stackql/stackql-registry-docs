@@ -1,0 +1,37 @@
+---
+title: accounts_keys
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - accounts_keys
+  - maps
+  - azure    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>accounts_keys</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>azure.maps.accounts_keys</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `primaryKey` | `string` | The primary key for accessing the Maps REST APIs. |
+| `primaryKeyLastUpdated` | `string` | The last updated date and time of the primary key. |
+| `secondaryKey` | `string` | The secondary key for accessing the Maps REST APIs. |
+| `secondaryKeyLastUpdated` | `string` | The last updated date and time of the secondary key. |
+## Methods
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list` | `SELECT` | `accountName, resourceGroupName, subscriptionId` |

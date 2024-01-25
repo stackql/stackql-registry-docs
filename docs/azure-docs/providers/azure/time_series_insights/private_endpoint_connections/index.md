@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnections_Get` | `SELECT` | `environmentName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets the details of the private endpoint connection of the environment in the given resource group. |
-| `PrivateEndpointConnections_ListByEnvironment` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Gets a list of all private endpoint connections in the given environment. |
-| `PrivateEndpointConnections_CreateOrUpdate` | `INSERT` | `environmentName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Updates a Private Endpoint connection of the environment in the given resource group. |
-| `PrivateEndpointConnections_Delete` | `DELETE` | `environmentName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Disconnects the private endpoint connection and deletes it from the environment. |
+| `get` | `SELECT` | `environmentName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Gets the details of the private endpoint connection of the environment in the given resource group. |
+| `list_by_environment` | `SELECT` | `environmentName, resourceGroupName, subscriptionId` | Gets a list of all private endpoint connections in the given environment. |
+| `create_or_update` | `INSERT` | `environmentName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Updates a Private Endpoint connection of the environment in the given resource group. |
+| `delete` | `DELETE` | `environmentName, privateEndpointConnectionName, resourceGroupName, subscriptionId` | Disconnects the private endpoint connection and deletes it from the environment. |
+| `_list_by_environment` | `EXEC` | `environmentName, resourceGroupName, subscriptionId` | Gets a list of all private endpoint connections in the given environment. |

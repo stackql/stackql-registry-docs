@@ -27,8 +27,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `CloudServicesUpdateDomain_GetUpdateDomain` | `EXEC` | `cloudServiceName, resourceGroupName, subscriptionId, updateDomain` | Gets the specified update domain of a cloud service. Use nextLink property in the response to get the next page of update domains. Do this till nextLink is null to fetch all the update domains. |
-| `CloudServicesUpdateDomain_ListUpdateDomains` | `EXEC` | `cloudServiceName, resourceGroupName, subscriptionId` | Gets a list of all update domains in a cloud service. |
-| `CloudServicesUpdateDomain_WalkUpdateDomain` | `EXEC` | `cloudServiceName, resourceGroupName, subscriptionId, updateDomain` | Updates the role instances in the specified update domain. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `walk_update_domain` | `EXEC` | `cloudServiceName, resourceGroupName, subscriptionId, updateDomain` |

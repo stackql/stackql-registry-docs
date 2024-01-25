@@ -34,6 +34,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AdaptiveNetworkHardenings_Get` | `SELECT` | `adaptiveNetworkHardeningResourceName, api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId` | Gets a single Adaptive Network Hardening resource |
-| `AdaptiveNetworkHardenings_ListByExtendedResource` | `SELECT` | `api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId` | Gets a list of Adaptive Network Hardenings resources in scope of an extended resource. |
-| `AdaptiveNetworkHardenings_Enforce` | `EXEC` | `adaptiveNetworkHardeningEnforceAction, adaptiveNetworkHardeningResourceName, api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId, data__networkSecurityGroups, data__rules` | Enforces the given rules on the NSG(s) listed in the request |
+| `get` | `SELECT` | `adaptiveNetworkHardeningResourceName, api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId` | Gets a single Adaptive Network Hardening resource |
+| `list_by_extended_resource` | `SELECT` | `api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId` | Gets a list of Adaptive Network Hardenings resources in scope of an extended resource. |
+| `_list_by_extended_resource` | `EXEC` | `api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId` | Gets a list of Adaptive Network Hardenings resources in scope of an extended resource. |
+| `enforce` | `EXEC` | `adaptiveNetworkHardeningEnforceAction, adaptiveNetworkHardeningResourceName, api-version, resourceGroupName, resourceName, resourceNamespace, resourceType, subscriptionId, data__networkSecurityGroups, data__rules` | Enforces the given rules on the NSG(s) listed in the request |

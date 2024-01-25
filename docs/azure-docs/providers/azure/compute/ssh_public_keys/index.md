@@ -36,10 +36,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SshPublicKeys_Get` | `SELECT` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Retrieves information about an SSH public key. |
-| `SshPublicKeys_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the SSH public keys in the specified resource group. Use the nextLink property in the response to get the next page of SSH public keys. |
-| `SshPublicKeys_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all of the SSH public keys in the subscription. Use the nextLink property in the response to get the next page of SSH public keys. |
-| `SshPublicKeys_Create` | `INSERT` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Creates a new SSH public key resource. |
-| `SshPublicKeys_Delete` | `DELETE` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Delete an SSH public key. |
-| `SshPublicKeys_GenerateKeyPair` | `EXEC` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Generates and returns a public/private key pair and populates the SSH public key resource with the public key. The length of the key will be 3072 bits. This operation can only be performed once per SSH public key resource. |
-| `SshPublicKeys_Update` | `EXEC` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Updates a new SSH public key resource. |
+| `get` | `SELECT` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Retrieves information about an SSH public key. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Lists all of the SSH public keys in the specified resource group. Use the nextLink property in the response to get the next page of SSH public keys. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all of the SSH public keys in the subscription. Use the nextLink property in the response to get the next page of SSH public keys. |
+| `create` | `INSERT` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Creates a new SSH public key resource. |
+| `delete` | `DELETE` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Delete an SSH public key. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Lists all of the SSH public keys in the specified resource group. Use the nextLink property in the response to get the next page of SSH public keys. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all of the SSH public keys in the subscription. Use the nextLink property in the response to get the next page of SSH public keys. |
+| `generate_key_pair` | `EXEC` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Generates and returns a public/private key pair and populates the SSH public key resource with the public key. The length of the key will be 3072 bits. This operation can only be performed once per SSH public key resource. |
+| `update` | `EXEC` | `resourceGroupName, sshPublicKeyName, subscriptionId` | Updates a new SSH public key resource. |

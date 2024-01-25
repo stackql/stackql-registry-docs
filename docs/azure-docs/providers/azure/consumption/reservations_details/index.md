@@ -27,15 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The full qualified ARM ID of an event. |
-| `name` | `string` | The ID that uniquely identifies an event.  |
+| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `name` | `string` | The name of the resource |
 | `properties` | `object` | The properties of the reservation detail. |
-| `tags` | `object` | Resource tags. |
-| `type` | `string` | Resource type. |
-| `etag` | `string` | The etag for the resource. |
+| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| `ReservationsDetails_List` | `SELECT` | `resourceScope` | Lists the reservations details for the defined scope and provided date range. Note: ARM has a payload size limit of 12MB, so currently callers get 502 when the response size exceeds the ARM limit. In such cases, API call should be made with smaller date ranges. |
-| `ReservationsDetails_ListByReservationOrder` | `SELECT` | `$filter, reservationOrderId` | Lists the reservations details for provided date range. Note: ARM has a payload size limit of 12MB, so currently callers get 502 when the response size exceeds the ARM limit. In such cases, API call should be made with smaller date ranges. |
-| `ReservationsDetails_ListByReservationOrderAndReservation` | `SELECT` | `$filter, reservationId, reservationOrderId` | Lists the reservations details for provided date range. Note: ARM has a payload size limit of 12MB, so currently callers get 502 when the response size exceeds the ARM limit. In such cases, API call should be made with smaller date ranges. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list` | `SELECT` | `resourceScope` |
+| `list_by_reservation_order` | `SELECT` | `$filter, reservationOrderId` |
+| `list_by_reservation_order_and_reservation` | `SELECT` | `$filter, reservationId, reservationOrderId` |
+| `_list` | `EXEC` | `resourceScope` |
+| `_list_by_reservation_order` | `EXEC` | `$filter, reservationOrderId` |
+| `_list_by_reservation_order_and_reservation` | `EXEC` | `$filter, reservationId, reservationOrderId` |

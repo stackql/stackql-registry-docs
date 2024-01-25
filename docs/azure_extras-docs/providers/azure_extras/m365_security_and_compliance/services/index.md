@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Services_Delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` |
+| `delete` | `DELETE` | `resourceGroupName, resourceName, subscriptionId` |

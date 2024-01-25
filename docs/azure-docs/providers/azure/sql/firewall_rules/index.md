@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `FirewallRules_Get` | `SELECT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Gets a firewall rule. |
-| `FirewallRules_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of firewall rules. |
-| `FirewallRules_CreateOrUpdate` | `INSERT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Creates or updates a firewall rule. |
-| `FirewallRules_Delete` | `DELETE` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Deletes a firewall rule. |
-| `FirewallRules_Replace` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Replaces all firewall rules on the server. |
+| `get` | `SELECT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Gets a firewall rule. |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` | Gets a list of firewall rules. |
+| `create_or_update` | `INSERT` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Creates or updates a firewall rule. |
+| `delete` | `DELETE` | `firewallRuleName, resourceGroupName, serverName, subscriptionId` | Deletes a firewall rule. |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets a list of firewall rules. |
+| `replace` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Replaces all firewall rules on the server. |

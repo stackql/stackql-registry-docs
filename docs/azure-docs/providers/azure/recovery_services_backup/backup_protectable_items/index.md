@@ -37,4 +37,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `BackupProtectableItems_List` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` |
+| `list` | `SELECT` | `api-version, resourceGroupName, subscriptionId, vaultName` |
+| `_list` | `EXEC` | `api-version, resourceGroupName, subscriptionId, vaultName` |

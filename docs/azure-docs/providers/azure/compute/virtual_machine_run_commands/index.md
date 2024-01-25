@@ -29,18 +29,20 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The VM run command id. |
 | `description` | `string` | The VM run command description. |
+| `$schema` | `string` | The VM run command schema. |
 | `label` | `string` | The VM run command label. |
 | `osType` | `string` | The Operating System type. |
 | `parameters` | `array` | The parameters used by the script. |
 | `script` | `array` | The script to be executed. |
-| `$schema` | `string` | The VM run command schema. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualMachineRunCommands_Get` | `SELECT` | `commandId, location, subscriptionId` | Gets specific run command for a subscription in a location. |
-| `VirtualMachineRunCommands_List` | `SELECT` | `location, subscriptionId` | Lists all available run commands for a subscription in a location. |
-| `VirtualMachineRunCommands_ListByVirtualMachine` | `SELECT` | `resourceGroupName, subscriptionId, vmName` | The operation to get all run commands of a Virtual Machine. |
-| `VirtualMachineRunCommands_CreateOrUpdate` | `INSERT` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to create or update the run command. |
-| `VirtualMachineRunCommands_Delete` | `DELETE` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to delete the run command. |
-| `VirtualMachineRunCommands_GetByVirtualMachine` | `EXEC` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to get the run command. |
-| `VirtualMachineRunCommands_Update` | `EXEC` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to update the run command. |
+| `get` | `SELECT` | `commandId, location, subscriptionId` | Gets specific run command for a subscription in a location. |
+| `list` | `SELECT` | `location, subscriptionId` | Lists all available run commands for a subscription in a location. |
+| `list_by_virtual_machine` | `SELECT` | `resourceGroupName, subscriptionId, vmName` | The operation to get all run commands of a Virtual Machine. |
+| `create_or_update` | `INSERT` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to create or update the run command. |
+| `delete` | `DELETE` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to delete the run command. |
+| `_list` | `EXEC` | `location, subscriptionId` | Lists all available run commands for a subscription in a location. |
+| `_list_by_virtual_machine` | `EXEC` | `resourceGroupName, subscriptionId, vmName` | The operation to get all run commands of a Virtual Machine. |
+| `get_by_virtual_machine` | `EXEC` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to get the run command. |
+| `update` | `EXEC` | `resourceGroupName, runCommandName, subscriptionId, vmName` | The operation to update the run command. |

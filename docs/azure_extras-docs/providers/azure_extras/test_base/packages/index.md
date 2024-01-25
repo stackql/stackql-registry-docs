@@ -27,19 +27,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `etag` | `string` | Resource Etag. |
 | `location` | `string` | The geo-location where the resource lives |
 | `properties` | `object` | The properties of the Test Base Package. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `tags` | `object` | Resource tags. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Packages_Get` | `SELECT` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a Test Base Package. |
-| `Packages_ListByTestBaseAccount` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the packages under a Test Base Account. |
-| `Packages_Create` | `INSERT` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Create or replace (overwrite/recreate, with potential downtime) a Test Base Package. |
-| `Packages_Delete` | `DELETE` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Deletes a Test Base Package. |
-| `Packages_GetDownloadURL` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets the download URL of a package. |
-| `Packages_HardDelete` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Hard Delete a Test Base Package. |
-| `Packages_RunTest` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName, data__osName, data__testType` | Trigger a test run on the package. |
-| `Packages_Update` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Update an existing Test Base Package. |
+| `get` | `SELECT` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Gets a Test Base Package. |
+| `list_by_test_base_account` | `SELECT` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the packages under a Test Base Account. |
+| `create` | `INSERT` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Create or replace (overwrite/recreate, with potential downtime) a Test Base Package. |
+| `delete` | `DELETE` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Deletes a Test Base Package. |
+| `_list_by_test_base_account` | `EXEC` | `resourceGroupName, subscriptionId, testBaseAccountName` | Lists all the packages under a Test Base Account. |
+| `hard_delete` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Hard Delete a Test Base Package. |
+| `run_test` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Trigger a test run on the package. |
+| `update` | `EXEC` | `packageName, resourceGroupName, subscriptionId, testBaseAccountName` | Update an existing Test Base Package. |

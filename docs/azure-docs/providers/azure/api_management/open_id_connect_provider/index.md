@@ -25,19 +25,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `properties` | `object` | OpenID Connect Providers Contract. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `OpenIdConnectProvider_Get` | `SELECT` | `opid, resourceGroupName, serviceName, subscriptionId` | Gets specific OpenID Connect Provider without secrets. |
-| `OpenIdConnectProvider_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists of all the OpenId Connect Providers. |
-| `OpenIdConnectProvider_CreateOrUpdate` | `INSERT` | `opid, resourceGroupName, serviceName, subscriptionId` | Creates or updates the OpenID Connect Provider. |
-| `OpenIdConnectProvider_Delete` | `DELETE` | `If-Match, opid, resourceGroupName, serviceName, subscriptionId` | Deletes specific OpenID Connect Provider of the API Management service instance. |
-| `OpenIdConnectProvider_GetEntityTag` | `EXEC` | `opid, resourceGroupName, serviceName, subscriptionId` | Gets the entity state (Etag) version of the openIdConnectProvider specified by its identifier. |
-| `OpenIdConnectProvider_ListSecrets` | `EXEC` | `opid, resourceGroupName, serviceName, subscriptionId` | Gets the client secret details of the OpenID Connect Provider. |
-| `OpenIdConnectProvider_Update` | `EXEC` | `If-Match, opid, resourceGroupName, serviceName, subscriptionId` | Updates the specific OpenID Connect Provider. |
+| `get` | `SELECT` | `opid, resourceGroupName, serviceName, subscriptionId` | Gets specific OpenID Connect Provider without secrets. |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists of all the OpenId Connect Providers. |
+| `create_or_update` | `INSERT` | `opid, resourceGroupName, serviceName, subscriptionId` | Creates or updates the OpenID Connect Provider. |
+| `delete` | `DELETE` | `If-Match, opid, resourceGroupName, serviceName, subscriptionId` | Deletes specific OpenID Connect Provider of the API Management service instance. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists of all the OpenId Connect Providers. |
+| `update` | `EXEC` | `If-Match, opid, resourceGroupName, serviceName, subscriptionId` | Updates the specific OpenID Connect Provider. |

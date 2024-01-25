@@ -27,15 +27,16 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| `id` | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
 | `name` | `string` | The name of the resource |
-| `properties` | `object` | Properties of the PrivateEndpointConnectProperties. |
+| `properties` | `object` | Properties of the private endpoint connection. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnections_Get` | `SELECT` | `privateEndpointConnectionName, resourceGroupName, storageSyncServiceName, subscriptionId` | Gets the specified private endpoint connection associated with the storage sync service. |
-| `PrivateEndpointConnections_ListByStorageSyncService` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a PrivateEndpointConnection List. |
-| `PrivateEndpointConnections_Create` | `INSERT` | `privateEndpointConnectionName, resourceGroupName, storageSyncServiceName, subscriptionId` | Update the state of specified private endpoint connection associated with the storage sync service. |
-| `PrivateEndpointConnections_Delete` | `DELETE` | `privateEndpointConnectionName, resourceGroupName, storageSyncServiceName, subscriptionId` | Deletes the specified private endpoint connection associated with the storage sync service. |
+| `get` | `SELECT` | `privateEndpointConnectionName, resourceGroupName, storageSyncServiceName, subscriptionId` | Gets the specified private endpoint connection associated with the storage sync service. |
+| `list_by_storage_sync_service` | `SELECT` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a PrivateEndpointConnection List. |
+| `create` | `INSERT` | `privateEndpointConnectionName, resourceGroupName, storageSyncServiceName, subscriptionId` | Update the state of specified private endpoint connection associated with the storage sync service. |
+| `delete` | `DELETE` | `privateEndpointConnectionName, resourceGroupName, storageSyncServiceName, subscriptionId` | Deletes the specified private endpoint connection associated with the storage sync service. |
+| `_list_by_storage_sync_service` | `EXEC` | `resourceGroupName, storageSyncServiceName, subscriptionId` | Get a PrivateEndpointConnection List. |

@@ -29,9 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the resource. |
 | `name` | `string` | The name of the resource. |
-| `type` | `string` | The type of the resource. |
 | `properties` | `object` | The properties that define connectivity to the Peering Service Location. |
+| `type` | `string` | The type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `PeeringServiceLocations_List` | `SELECT` | `subscriptionId` |
+| `list` | `SELECT` | `subscriptionId` |
+| `_list` | `EXEC` | `subscriptionId` |

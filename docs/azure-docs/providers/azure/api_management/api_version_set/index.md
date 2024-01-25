@@ -25,18 +25,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `properties` | `object` | Properties of an API Version Set. |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ApiVersionSet_Get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId, versionSetId` | Gets the details of the Api Version Set specified by its identifier. |
-| `ApiVersionSet_ListByService` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of API Version Sets in the specified service instance. |
-| `ApiVersionSet_CreateOrUpdate` | `INSERT` | `resourceGroupName, serviceName, subscriptionId, versionSetId` | Creates or Updates a Api Version Set. |
-| `ApiVersionSet_Delete` | `DELETE` | `If-Match, resourceGroupName, serviceName, subscriptionId, versionSetId` | Deletes specific Api Version Set. |
-| `ApiVersionSet_GetEntityTag` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, versionSetId` | Gets the entity state (Etag) version of the Api Version Set specified by its identifier. |
-| `ApiVersionSet_Update` | `EXEC` | `If-Match, resourceGroupName, serviceName, subscriptionId, versionSetId` | Updates the details of the Api VersionSet specified by its identifier. |
+| `get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId, versionSetId` | Gets the details of the Api Version Set specified by its identifier. |
+| `list_by_service` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of API Version Sets in the specified service instance. |
+| `create_or_update` | `INSERT` | `resourceGroupName, serviceName, subscriptionId, versionSetId` | Creates or Updates a Api Version Set. |
+| `delete` | `DELETE` | `If-Match, resourceGroupName, serviceName, subscriptionId, versionSetId` | Deletes specific Api Version Set. |
+| `_list_by_service` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Lists a collection of API Version Sets in the specified service instance. |
+| `update` | `EXEC` | `If-Match, resourceGroupName, serviceName, subscriptionId, versionSetId` | Updates the details of the Api VersionSet specified by its identifier. |

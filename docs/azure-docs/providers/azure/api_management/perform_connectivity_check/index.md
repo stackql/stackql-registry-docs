@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `PerformConnectivityCheckAsync` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, data__destination, data__source` |
+| `perform_connectivity_check` | `EXEC` | `resourceGroupName, serviceName, subscriptionId, data__destination, data__source` |

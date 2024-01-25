@@ -34,5 +34,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DataMaskingPolicies_Get` | `SELECT` | `dataMaskingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Gets a Sql pool data masking policy. |
-| `DataMaskingPolicies_CreateOrUpdate` | `INSERT` | `dataMaskingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Creates or updates a Sql pool data masking policy |
+| `get` | `SELECT` | `dataMaskingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Gets a Sql pool data masking policy. |
+| `create_or_update` | `INSERT` | `dataMaskingPolicyName, resourceGroupName, sqlPoolName, subscriptionId, workspaceName` | Creates or updates a Sql pool data masking policy |

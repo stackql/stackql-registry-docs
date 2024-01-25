@@ -35,6 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AllowedConnections_Get` | `SELECT` | `api-version, ascLocation, connectionType, resourceGroupName, subscriptionId` | Gets the list of all possible traffic between resources for the subscription and location, based on connection type. |
-| `AllowedConnections_List` | `SELECT` | `api-version, subscriptionId` | Gets the list of all possible traffic between resources for the subscription |
-| `AllowedConnections_ListByHomeRegion` | `SELECT` | `api-version, ascLocation, subscriptionId` | Gets the list of all possible traffic between resources for the subscription and location. |
+| `get` | `SELECT` | `api-version, ascLocation, connectionType, resourceGroupName, subscriptionId` | Gets the list of all possible traffic between resources for the subscription and location, based on connection type. |
+| `list` | `SELECT` | `api-version, subscriptionId` | Gets the list of all possible traffic between resources for the subscription |
+| `list_by_home_region` | `SELECT` | `api-version, ascLocation, subscriptionId` | Gets the list of all possible traffic between resources for the subscription and location. |
+| `_list` | `EXEC` | `api-version, subscriptionId` | Gets the list of all possible traffic between resources for the subscription |
+| `_list_by_home_region` | `EXEC` | `api-version, ascLocation, subscriptionId` | Gets the list of all possible traffic between resources for the subscription and location. |

@@ -35,6 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ExternalSecuritySolutions_Get` | `SELECT` | `api-version, ascLocation, externalSecuritySolutionsName, resourceGroupName, subscriptionId` | Gets a specific external Security Solution. |
-| `ExternalSecuritySolutions_List` | `SELECT` | `api-version, subscriptionId` | Gets a list of external security solutions for the subscription. |
-| `ExternalSecuritySolutions_ListByHomeRegion` | `SELECT` | `api-version, ascLocation, subscriptionId` | Gets a list of external Security Solutions for the subscription and location. |
+| `get` | `SELECT` | `api-version, ascLocation, externalSecuritySolutionsName, resourceGroupName, subscriptionId` | Gets a specific external Security Solution. |
+| `list` | `SELECT` | `api-version, subscriptionId` | Gets a list of external security solutions for the subscription. |
+| `list_by_home_region` | `SELECT` | `api-version, ascLocation, subscriptionId` | Gets a list of external Security Solutions for the subscription and location. |
+| `_list` | `EXEC` | `api-version, subscriptionId` | Gets a list of external security solutions for the subscription. |
+| `_list_by_home_region` | `EXEC` | `api-version, ascLocation, subscriptionId` | Gets a list of external Security Solutions for the subscription and location. |

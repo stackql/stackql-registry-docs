@@ -27,9 +27,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `nextLink` | `string` | The link to fetch the next page of connected cluster API operations. |
-| `value` | `array` | The list of connected cluster API operations. |
+| `name` | `string` | Operation name: &#123;Microsoft.Kubernetes&#125;/&#123;resource&#125;/&#123;operation&#125; |
+| `display` | `object` | The object that represents the operation. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `Operations_Get` | `SELECT` |  |
+| `get` | `SELECT` |  |
+| `_get` | `EXEC` |  |

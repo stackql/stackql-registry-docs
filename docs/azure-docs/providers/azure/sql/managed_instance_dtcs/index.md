@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedInstanceDtcs_Get` | `SELECT` | `dtcName, managedInstanceName, resourceGroupName, subscriptionId` | Gets managed instance DTC settings. |
-| `ManagedInstanceDtcs_ListByManagedInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance DTC settings. |
-| `ManagedInstanceDtcs_CreateOrUpdate` | `INSERT` | `dtcName, managedInstanceName, resourceGroupName, subscriptionId` | Updates managed instance DTC settings. |
+| `get` | `SELECT` | `dtcName, managedInstanceName, resourceGroupName, subscriptionId` | Gets managed instance DTC settings. |
+| `list_by_managed_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance DTC settings. |
+| `create_or_update` | `INSERT` | `dtcName, managedInstanceName, resourceGroupName, subscriptionId` | Updates managed instance DTC settings. |
+| `_list_by_managed_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of managed instance DTC settings. |

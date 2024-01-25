@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RegulatoryComplianceStandards_Get` | `SELECT` | `api-version, regulatoryComplianceStandardName, subscriptionId` | Supported regulatory compliance details state for selected standard |
-| `RegulatoryComplianceStandards_List` | `SELECT` | `api-version, subscriptionId` | Supported regulatory compliance standards details and state |
+| `get` | `SELECT` | `api-version, regulatoryComplianceStandardName, subscriptionId` | Supported regulatory compliance details state for selected standard |
+| `list` | `SELECT` | `api-version, subscriptionId` | Supported regulatory compliance standards details and state |
+| `_list` | `EXEC` | `api-version, subscriptionId` | Supported regulatory compliance standards details and state |

@@ -29,14 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `kind` | `string` | Whether the rule is custom or default. |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AdminRules_Get` | `SELECT` |  | Gets a network manager security configuration admin rule. |
-| `AdminRules_List` | `SELECT` |  | List all network manager security configuration admin rules. |
-| `AdminRules_CreateOrUpdate` | `INSERT` | `data__kind` | Creates or updates an admin rule. |
-| `AdminRules_Delete` | `DELETE` |  | Deletes an admin rule. |
+| `get` | `SELECT` |  | Gets a network manager security configuration admin rule. |
+| `list` | `SELECT` |  | List all network manager security configuration admin rules. |
+| `create_or_update` | `INSERT` | `data__kind` | Creates or updates an admin rule. |
+| `delete` | `DELETE` |  | Deletes an admin rule. |
+| `_list` | `EXEC` |  | List all network manager security configuration admin rules. |

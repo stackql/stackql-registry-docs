@@ -38,9 +38,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AutoScaleVCores_Get` | `SELECT` | `resourceGroupName, subscriptionId, vcoreName` | Gets details about the specified auto scale v-core. |
-| `AutoScaleVCores_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the auto scale v-cores for the given resource group. |
-| `AutoScaleVCores_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all the auto scale v-cores for the given subscription. |
-| `AutoScaleVCores_Create` | `INSERT` | `resourceGroupName, subscriptionId, vcoreName, data__sku` | Provisions the specified auto scale v-core based on the configuration specified in the request. |
-| `AutoScaleVCores_Delete` | `DELETE` | `resourceGroupName, subscriptionId, vcoreName` | Deletes the specified auto scale v-core. |
-| `AutoScaleVCores_Update` | `EXEC` | `resourceGroupName, subscriptionId, vcoreName` | Updates the current state of the specified auto scale v-core. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, vcoreName` | Gets details about the specified auto scale v-core. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the auto scale v-cores for the given resource group. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all the auto scale v-cores for the given subscription. |
+| `create` | `INSERT` | `resourceGroupName, subscriptionId, vcoreName, data__sku` | Provisions the specified auto scale v-core based on the configuration specified in the request. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, vcoreName` | Deletes the specified auto scale v-core. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the auto scale v-cores for the given resource group. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all the auto scale v-cores for the given subscription. |
+| `update` | `EXEC` | `resourceGroupName, subscriptionId, vcoreName` | Updates the current state of the specified auto scale v-core. |

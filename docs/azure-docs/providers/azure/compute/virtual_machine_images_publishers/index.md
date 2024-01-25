@@ -1,0 +1,38 @@
+---
+title: virtual_machine_images_publishers
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - virtual_machine_images_publishers
+  - compute
+  - azure    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+  
+    
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>virtual_machine_images_publishers</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><code>azure.compute.virtual_machine_images_publishers</code></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `string` | Resource Id |
+| `name` | `string` | The name of the resource. |
+| `extendedLocation` | `object` | The complex type of the extended location. |
+| `location` | `string` | The supported Azure location of the resource. |
+| `tags` | `object` | Specifies the tags that are assigned to the virtual machine. For more information about using tags, see [Using tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags.md). |
+## Methods
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| `list` | `SELECT` | `location, subscriptionId` |

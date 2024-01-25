@@ -34,8 +34,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `RegisteredPrefixes_Get` | `SELECT` | `peeringName, registeredPrefixName, resourceGroupName, subscriptionId` | Gets an existing registered prefix with the specified name under the given subscription, resource group and peering. |
-| `RegisteredPrefixes_ListByPeering` | `SELECT` | `peeringName, resourceGroupName, subscriptionId` | Lists all registered prefixes under the given subscription, resource group and peering. |
-| `RegisteredPrefixes_CreateOrUpdate` | `INSERT` | `peeringName, registeredPrefixName, resourceGroupName, subscriptionId` | Creates a new registered prefix with the specified name under the given subscription, resource group and peering. |
-| `RegisteredPrefixes_Delete` | `DELETE` | `peeringName, registeredPrefixName, resourceGroupName, subscriptionId` | Deletes an existing registered prefix with the specified name under the given subscription, resource group and peering. |
-| `RegisteredPrefixes_Validate` | `EXEC` | `peeringName, registeredPrefixName, resourceGroupName, subscriptionId` | Validates an existing registered prefix with the specified name under the given subscription, resource group and peering. |
+| `get` | `SELECT` | `peeringName, registeredPrefixName, resourceGroupName, subscriptionId` | Gets an existing registered prefix with the specified name under the given subscription, resource group and peering. |
+| `list_by_peering` | `SELECT` | `peeringName, resourceGroupName, subscriptionId` | Lists all registered prefixes under the given subscription, resource group and peering. |
+| `create_or_update` | `INSERT` | `peeringName, registeredPrefixName, resourceGroupName, subscriptionId` | Creates a new registered prefix with the specified name under the given subscription, resource group and peering. |
+| `delete` | `DELETE` | `peeringName, registeredPrefixName, resourceGroupName, subscriptionId` | Deletes an existing registered prefix with the specified name under the given subscription, resource group and peering. |
+| `_list_by_peering` | `EXEC` | `peeringName, resourceGroupName, subscriptionId` | Lists all registered prefixes under the given subscription, resource group and peering. |
+| `validate` | `EXEC` | `peeringName, registeredPrefixName, resourceGroupName, subscriptionId` | Validates an existing registered prefix with the specified name under the given subscription, resource group and peering. |

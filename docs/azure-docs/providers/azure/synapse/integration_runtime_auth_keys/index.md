@@ -32,5 +32,5 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `IntegrationRuntimeAuthKeys_List` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` | List authentication keys in an integration runtime |
-| `IntegrationRuntimeAuthKeys_Regenerate` | `EXEC` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` | Regenerate the authentication key for an integration runtime |
+| `list` | `SELECT` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` | List authentication keys in an integration runtime |
+| `regenerate` | `EXEC` | `integrationRuntimeName, resourceGroupName, subscriptionId, workspaceName` | Regenerate the authentication key for an integration runtime |

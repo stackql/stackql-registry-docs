@@ -34,5 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DataServices_Get` | `SELECT` | `dataManagerName, dataServiceName, resourceGroupName, subscriptionId` | Gets the data service that matches the data service name given. |
-| `DataServices_ListByDataManager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets all the data services. |
+| `get` | `SELECT` | `dataManagerName, dataServiceName, resourceGroupName, subscriptionId` | Gets the data service that matches the data service name given. |
+| `list_by_data_manager` | `SELECT` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets all the data services. |
+| `_list_by_data_manager` | `EXEC` | `dataManagerName, resourceGroupName, subscriptionId` | This method gets all the data services. |

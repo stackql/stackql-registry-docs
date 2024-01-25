@@ -33,7 +33,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkspaceManagedSqlServerEncryptionProtector_Get` | `SELECT` | `encryptionProtectorName, resourceGroupName, subscriptionId, workspaceName` | Get workspace managed sql server's encryption protector. |
-| `WorkspaceManagedSqlServerEncryptionProtector_List` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Get list of encryption protectors for workspace managed sql server. |
-| `WorkspaceManagedSqlServerEncryptionProtector_CreateOrUpdate` | `INSERT` | `encryptionProtectorName, resourceGroupName, subscriptionId, workspaceName` | Updates workspace managed sql server's encryption protector. |
-| `WorkspaceManagedSqlServerEncryptionProtector_Revalidate` | `EXEC` | `encryptionProtectorName, resourceGroupName, subscriptionId, workspaceName` | Revalidates workspace managed sql server's existing encryption protector. |
+| `get` | `SELECT` | `encryptionProtectorName, resourceGroupName, subscriptionId, workspaceName` | Get workspace managed sql server's encryption protector. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Get list of encryption protectors for workspace managed sql server. |
+| `create_or_update` | `INSERT` | `encryptionProtectorName, resourceGroupName, subscriptionId, workspaceName` | Updates workspace managed sql server's encryption protector. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Get list of encryption protectors for workspace managed sql server. |
+| `revalidate` | `EXEC` | `encryptionProtectorName, resourceGroupName, subscriptionId, workspaceName` | Revalidates workspace managed sql server's existing encryption protector. |

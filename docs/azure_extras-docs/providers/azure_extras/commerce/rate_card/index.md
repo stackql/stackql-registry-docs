@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `OfferTerms` | `array` | A list of offer terms. |
 | `Currency` | `string` | The currency in which the rates are provided. |
 | `IsTaxIncluded` | `boolean` | All rates are pretax, so this will always be returned as 'false'. |
 | `Locale` | `string` | The culture in which the resource information is localized. |
 | `Meters` | `array` | A list of meters. |
+| `OfferTerms` | `array` | A list of offer terms. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `RateCard_Get` | `SELECT` | `$filter, subscriptionId` |
+| `get` | `SELECT` | `$filter, subscriptionId` |

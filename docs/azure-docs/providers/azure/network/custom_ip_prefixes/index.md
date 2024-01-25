@@ -29,19 +29,18 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `extendedLocation` | `object` | ExtendedLocation complex type. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Custom IP prefix properties. |
 | `tags` | `object` | Resource tags. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `type` | `string` | Resource type. |
 | `zones` | `array` | A list of availability zones denoting the IP allocated for the resource needs to come from. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `CustomIPPrefixes_Get` | `SELECT` | `customIpPrefixName, resourceGroupName, subscriptionId` | Gets the specified custom IP prefix in a specified resource group. |
-| `CustomIPPrefixes_List` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all custom IP prefixes in a resource group. |
-| `CustomIPPrefixes_ListAll` | `SELECT` | `subscriptionId` | Gets all the custom IP prefixes in a subscription. |
-| `CustomIPPrefixes_CreateOrUpdate` | `INSERT` | `customIpPrefixName, resourceGroupName, subscriptionId` | Creates or updates a custom IP prefix. |
-| `CustomIPPrefixes_Delete` | `DELETE` | `customIpPrefixName, resourceGroupName, subscriptionId` | Deletes the specified custom IP prefix. |
-| `CustomIPPrefixes_UpdateTags` | `EXEC` | `customIpPrefixName, resourceGroupName, subscriptionId` | Updates custom IP prefix tags. |
+| `get` | `SELECT` | `customIpPrefixName, resourceGroupName, subscriptionId` | Gets the specified custom IP prefix in a specified resource group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all custom IP prefixes in a resource group. |
+| `create_or_update` | `INSERT` | `customIpPrefixName, resourceGroupName, subscriptionId` | Creates or updates a custom IP prefix. |
+| `delete` | `DELETE` | `customIpPrefixName, resourceGroupName, subscriptionId` | Deletes the specified custom IP prefix. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all custom IP prefixes in a resource group. |

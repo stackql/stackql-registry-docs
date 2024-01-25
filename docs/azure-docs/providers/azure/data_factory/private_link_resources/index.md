@@ -25,7 +25,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| `id` | `string` | The resource identifier. |
+| `name` | `string` | The resource name. |
+| `etag` | `string` | Etag identifies change in the resource. |
+| `properties` | `object` | Properties of a private link resource |
+| `type` | `string` | The resource type. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `privateLinkResources_Get` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` |
+| `get` | `SELECT` | `api-version, factoryName, resourceGroupName, subscriptionId` |
+| `_get` | `EXEC` | `api-version, factoryName, resourceGroupName, subscriptionId` |

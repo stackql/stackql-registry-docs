@@ -29,10 +29,10 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
+| `location` | `string` | Resource Location |
 | `properties` | `object` | Supported operating systems properties. |
 | `type` | `string` | Resource Type |
-| `location` | `string` | Resource Location |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `SupportedOperatingSystems_Get` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` |
+| `get` | `SELECT` | `api-version, resourceGroupName, resourceName, subscriptionId` |

@@ -27,11 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Properties of a security alert policy. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DatabaseSecurityAlertPolicies_Get` | `SELECT` | `databaseName, resourceGroupName, securityAlertPolicyName, serverName, subscriptionId` | Gets a database's security alert policy. |
-| `DatabaseSecurityAlertPolicies_ListByDatabase` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database's security alert policies. |
-| `DatabaseSecurityAlertPolicies_CreateOrUpdate` | `INSERT` | `databaseName, resourceGroupName, securityAlertPolicyName, serverName, subscriptionId` | Creates or updates a database's security alert policy. |
+| `get` | `SELECT` | `databaseName, resourceGroupName, securityAlertPolicyName, serverName, subscriptionId` | Gets a database's security alert policy. |
+| `list_by_database` | `SELECT` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database's security alert policies. |
+| `create_or_update` | `INSERT` | `databaseName, resourceGroupName, securityAlertPolicyName, serverName, subscriptionId` | Creates or updates a database's security alert policy. |
+| `_list_by_database` | `EXEC` | `databaseName, resourceGroupName, serverName, subscriptionId` | Gets a list of database's security alert policies. |

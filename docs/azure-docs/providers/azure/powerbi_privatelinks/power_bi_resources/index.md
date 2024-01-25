@@ -29,15 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Specifies the resource identifier of the resource. |
 | `name` | `string` | Specifies the name of the resource. |
-| `tags` | `object` | Specifies the tags of the resource. |
-| `type` | `string` | Specifies the type of the resource. |
 | `location` | `string` | Specifies the location of the resource. |
 | `properties` | `object` |  |
 | `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Specifies the tags of the resource. |
+| `type` | `string` | Specifies the type of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PowerBIResources_ListByResourceName` | `SELECT` | `azureResourceName, resourceGroupName, subscriptionId` | Gets all the private link resources for the given Azure resource. |
-| `PowerBIResources_Create` | `INSERT` | `azureResourceName, resourceGroupName, subscriptionId` | Creates or updates a Private Link Service Resource for Power BI. |
-| `PowerBIResources_Delete` | `DELETE` | `azureResourceName, resourceGroupName, subscriptionId` | Deletes a Private Link Service Resource for Power BI. |
-| `PowerBIResources_Update` | `EXEC` | `azureResourceName, resourceGroupName, subscriptionId` | Creates or updates a Private Link Service Resource for Power BI. |
+| `list_by_resource_name` | `SELECT` | `azureResourceName, resourceGroupName, subscriptionId` | Gets all the private link resources for the given Azure resource. |
+| `create` | `INSERT` | `azureResourceName, resourceGroupName, subscriptionId` | Creates or updates a Private Link Service Resource for Power BI. |
+| `delete` | `DELETE` | `azureResourceName, resourceGroupName, subscriptionId` | Deletes a Private Link Service Resource for Power BI. |
+| `update` | `EXEC` | `azureResourceName, resourceGroupName, subscriptionId` | Creates or updates a Private Link Service Resource for Power BI. |

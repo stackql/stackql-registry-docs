@@ -37,18 +37,14 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Servers_List` | `SELECT` | `subscriptionId` | Lists all the Analysis Services servers for the given subscription. |
-| `Servers_ListByResourceGroup` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the Analysis Services servers for the given resource group. |
-| `Servers_Create` | `INSERT` | `resourceGroupName, serverName, subscriptionId` | Provisions the specified Analysis Services server based on the configuration specified in the request. |
-| `Servers_Delete` | `DELETE` | `resourceGroupName, serverName, subscriptionId` | Deletes the specified Analysis Services server. |
-| `Servers_CheckNameAvailability` | `EXEC` | `location, subscriptionId` | Check the name availability in the target location. |
-| `Servers_DissociateGateway` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Dissociates a Unified Gateway associated with the server. |
-| `Servers_GetDetails` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Gets details about the specified Analysis Services server. |
-| `Servers_ListGatewayStatus` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Return the gateway status of the specified Analysis Services server instance. |
-| `Servers_ListOperationResults` | `EXEC` | `location, operationId, subscriptionId` | List the result of the specified operation. |
-| `Servers_ListOperationStatuses` | `EXEC` | `location, operationId, subscriptionId` | List the status of operation. |
-| `Servers_ListSkusForExisting` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Lists eligible SKUs for an Analysis Services resource. |
-| `Servers_ListSkusForNew` | `EXEC` | `subscriptionId` | Lists eligible SKUs for Analysis Services resource provider. |
-| `Servers_Resume` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Resumes operation of the specified Analysis Services server instance. |
-| `Servers_Suspend` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Suspends operation of the specified Analysis Services server instance. |
-| `Servers_Update` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Updates the current state of the specified Analysis Services server. |
+| `list` | `SELECT` | `subscriptionId` | Lists all the Analysis Services servers for the given subscription. |
+| `list_by_resource_group` | `SELECT` | `resourceGroupName, subscriptionId` | Gets all the Analysis Services servers for the given resource group. |
+| `create` | `INSERT` | `resourceGroupName, serverName, subscriptionId` | Provisions the specified Analysis Services server based on the configuration specified in the request. |
+| `delete` | `DELETE` | `resourceGroupName, serverName, subscriptionId` | Deletes the specified Analysis Services server. |
+| `_list` | `EXEC` | `subscriptionId` | Lists all the Analysis Services servers for the given subscription. |
+| `_list_by_resource_group` | `EXEC` | `resourceGroupName, subscriptionId` | Gets all the Analysis Services servers for the given resource group. |
+| `check_name_availability` | `EXEC` | `location, subscriptionId` | Check the name availability in the target location. |
+| `dissociate_gateway` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Dissociates a Unified Gateway associated with the server. |
+| `resume` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Resumes operation of the specified Analysis Services server instance. |
+| `suspend` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Suspends operation of the specified Analysis Services server instance. |
+| `update` | `EXEC` | `resourceGroupName, serverName, subscriptionId` | Updates the current state of the specified Analysis Services server. |

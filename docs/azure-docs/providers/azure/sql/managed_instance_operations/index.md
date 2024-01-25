@@ -28,6 +28,7 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedInstanceOperations_Get` | `SELECT` | `managedInstanceName, operationId, resourceGroupName, subscriptionId` | Gets a management operation on a managed instance. |
-| `ManagedInstanceOperations_ListByManagedInstance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of operations performed on the managed instance. |
-| `ManagedInstanceOperations_Cancel` | `EXEC` | `managedInstanceName, operationId, resourceGroupName, subscriptionId` | Cancels the asynchronous operation on the managed instance. |
+| `get` | `SELECT` | `managedInstanceName, operationId, resourceGroupName, subscriptionId` | Gets a management operation on a managed instance. |
+| `list_by_managed_instance` | `SELECT` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of operations performed on the managed instance. |
+| `_list_by_managed_instance` | `EXEC` | `managedInstanceName, resourceGroupName, subscriptionId` | Gets a list of operations performed on the managed instance. |
+| `cancel` | `EXEC` | `managedInstanceName, operationId, resourceGroupName, subscriptionId` | Cancels the asynchronous operation on the managed instance. |

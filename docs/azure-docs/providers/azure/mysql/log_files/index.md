@@ -25,11 +25,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `name` | `string` | The name of the log file. |
-| `properties` | `object` | The properties of a log file. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `LogFiles_ListByServer` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `list_by_server` | `SELECT` | `resourceGroupName, serverName, subscriptionId` |
+| `_list_by_server` | `EXEC` | `resourceGroupName, serverName, subscriptionId` |

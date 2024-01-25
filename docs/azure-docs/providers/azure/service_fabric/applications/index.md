@@ -31,16 +31,17 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 | `name` | `string` | Azure resource name. |
 | `etag` | `string` | Azure resource etag. |
 | `identity` | `object` | Describes the managed identities for an Azure resource. |
-| `tags` | `object` | Azure resource tags. |
-| `properties` | `object` | The application resource properties. |
-| `type` | `string` | Azure resource type. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `location` | `string` | It will be deprecated in New API, resource location depends on the parent resource. |
+| `properties` | `object` | The application resource properties. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
+| `tags` | `object` | Azure resource tags. |
+| `type` | `string` | Azure resource type. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Applications_Get` | `SELECT` | `api-version, applicationName, clusterName, resourceGroupName, subscriptionId` | Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource. |
-| `Applications_List` | `SELECT` | `api-version, clusterName, resourceGroupName, subscriptionId` | Gets all application resources created or in the process of being created in the Service Fabric cluster resource. |
-| `Applications_CreateOrUpdate` | `INSERT` | `api-version, applicationName, clusterName, resourceGroupName, subscriptionId` | Create or update a Service Fabric application resource with the specified name. |
-| `Applications_Delete` | `DELETE` | `api-version, applicationName, clusterName, resourceGroupName, subscriptionId` | Delete a Service Fabric application resource with the specified name. |
-| `Applications_Update` | `EXEC` | `api-version, applicationName, clusterName, resourceGroupName, subscriptionId` | Update a Service Fabric application resource with the specified name. |
+| `get` | `SELECT` | `api-version, applicationName, clusterName, resourceGroupName, subscriptionId` | Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource. |
+| `list` | `SELECT` | `api-version, clusterName, resourceGroupName, subscriptionId` | Gets all application resources created or in the process of being created in the Service Fabric cluster resource. |
+| `create_or_update` | `INSERT` | `api-version, applicationName, clusterName, resourceGroupName, subscriptionId` | Create or update a Service Fabric application resource with the specified name. |
+| `delete` | `DELETE` | `api-version, applicationName, clusterName, resourceGroupName, subscriptionId` | Delete a Service Fabric application resource with the specified name. |
+| `_list` | `EXEC` | `api-version, clusterName, resourceGroupName, subscriptionId` | Gets all application resources created or in the process of being created in the Service Fabric cluster resource. |
+| `update` | `EXEC` | `api-version, applicationName, clusterName, resourceGroupName, subscriptionId` | Update a Service Fabric application resource with the specified name. |

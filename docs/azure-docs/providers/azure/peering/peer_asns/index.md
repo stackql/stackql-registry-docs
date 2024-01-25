@@ -34,7 +34,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PeerAsns_Get` | `SELECT` | `peerAsnName, subscriptionId` | Gets the peer ASN with the specified name under the given subscription. |
-| `PeerAsns_ListBySubscription` | `SELECT` | `subscriptionId` | Lists all of the peer ASNs under the given subscription. |
-| `PeerAsns_CreateOrUpdate` | `INSERT` | `peerAsnName, subscriptionId` | Creates a new peer ASN or updates an existing peer ASN with the specified name under the given subscription. |
-| `PeerAsns_Delete` | `DELETE` | `peerAsnName, subscriptionId` | Deletes an existing peer ASN with the specified name under the given subscription. |
+| `get` | `SELECT` | `peerAsnName, subscriptionId` | Gets the peer ASN with the specified name under the given subscription. |
+| `list_by_subscription` | `SELECT` | `subscriptionId` | Lists all of the peer ASNs under the given subscription. |
+| `create_or_update` | `INSERT` | `peerAsnName, subscriptionId` | Creates a new peer ASN or updates an existing peer ASN with the specified name under the given subscription. |
+| `delete` | `DELETE` | `peerAsnName, subscriptionId` | Deletes an existing peer ASN with the specified name under the given subscription. |
+| `_list_by_subscription` | `EXEC` | `subscriptionId` | Lists all of the peer ASNs under the given subscription. |

@@ -25,13 +25,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `properties` | `object` | The properties of a server group role. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `Roles_ListByServerGroup` | `SELECT` | `resourceGroupName, serverGroupName, subscriptionId` | List all the roles in a given server group. |
-| `Roles_Create` | `INSERT` | `resourceGroupName, roleName, serverGroupName, subscriptionId` | Creates a new role or updates an existing role. |
-| `Roles_Delete` | `DELETE` | `resourceGroupName, roleName, serverGroupName, subscriptionId` | Deletes a server group role. |
+| `get` | `SELECT` | `clusterName, resourceGroupName, roleName, subscriptionId` | Gets information about a cluster role. |
+| `list_by_cluster` | `SELECT` | `clusterName, resourceGroupName, subscriptionId` | List all the roles in a given cluster. |
+| `create` | `INSERT` | `clusterName, resourceGroupName, roleName, subscriptionId, data__properties` | Creates a new role or updates an existing role. |
+| `delete` | `DELETE` | `clusterName, resourceGroupName, roleName, subscriptionId` | Deletes a cluster role. |
+| `_list_by_cluster` | `EXEC` | `clusterName, resourceGroupName, subscriptionId` | List all the roles in a given cluster. |

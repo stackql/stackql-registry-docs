@@ -29,12 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | The ID of the cloud. |
 | `name` | `string` | The name of the cloud. |
+| `changeNumber` | `string` | The iteration number. |
 | `cloud` | `string` | The name of the cloud. |
 | `nextLink` | `string` | The URL to get next page of service tag information resources. |
 | `type` | `string` | The azure resource type. |
 | `values` | `array` | The list of service tag information resources. |
-| `changeNumber` | `string` | The iteration number. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `ServiceTags_List` | `SELECT` | `location, subscriptionId` |
+| `list` | `SELECT` | `location, subscriptionId` |

@@ -29,23 +29,19 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource ID. |
 | `name` | `string` | Resource name. |
+| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | VirtualNetworkGatewayConnection properties. |
 | `tags` | `object` | Resource tags. |
 | `type` | `string` | Resource type. |
-| `etag` | `string` | A unique read-only string that changes whenever the resource is updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualNetworkGatewayConnections_Get` | `SELECT` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Gets the specified virtual network gateway connection by resource group. |
-| `VirtualNetworkGatewayConnections_List` | `SELECT` | `resourceGroupName, subscriptionId` | The List VirtualNetworkGatewayConnections operation retrieves all the virtual network gateways connections created. |
-| `VirtualNetworkGatewayConnections_CreateOrUpdate` | `INSERT` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName, data__properties` | Creates or updates a virtual network gateway connection in the specified resource group. |
-| `VirtualNetworkGatewayConnections_Delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Deletes the specified virtual network Gateway connection. |
-| `VirtualNetworkGatewayConnections_GetIkeSas` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Lists IKE Security Associations for the virtual network gateway connection in the specified resource group. |
-| `VirtualNetworkGatewayConnections_GetSharedKey` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | The Get VirtualNetworkGatewayConnectionSharedKey operation retrieves information about the specified virtual network gateway connection shared key through Network resource provider. |
-| `VirtualNetworkGatewayConnections_ResetConnection` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Resets the virtual network gateway connection specified. |
-| `VirtualNetworkGatewayConnections_ResetSharedKey` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName, data__keyLength` | The VirtualNetworkGatewayConnectionResetSharedKey operation resets the virtual network gateway connection shared key for passed virtual network gateway connection in the specified resource group through Network resource provider. |
-| `VirtualNetworkGatewayConnections_SetSharedKey` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName, data__value` | The Put VirtualNetworkGatewayConnectionSharedKey operation sets the virtual network gateway connection shared key for passed virtual network gateway connection in the specified resource group through Network resource provider. |
-| `VirtualNetworkGatewayConnections_StartPacketCapture` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Starts packet capture on virtual network gateway connection in the specified resource group. |
-| `VirtualNetworkGatewayConnections_StopPacketCapture` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Stops packet capture on virtual network gateway connection in the specified resource group. |
-| `VirtualNetworkGatewayConnections_UpdateTags` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Updates a virtual network gateway connection tags. |
+| `get` | `SELECT` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Gets the specified virtual network gateway connection by resource group. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId` | The List VirtualNetworkGatewayConnections operation retrieves all the virtual network gateways connections created. |
+| `create_or_update` | `INSERT` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName, data__properties` | Creates or updates a virtual network gateway connection in the specified resource group. |
+| `delete` | `DELETE` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Deletes the specified virtual network Gateway connection. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId` | The List VirtualNetworkGatewayConnections operation retrieves all the virtual network gateways connections created. |
+| `reset_connection` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName` | Resets the virtual network gateway connection specified. |
+| `reset_shared_key` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName, data__keyLength` | The VirtualNetworkGatewayConnectionResetSharedKey operation resets the virtual network gateway connection shared key for passed virtual network gateway connection in the specified resource group through Network resource provider. |
+| `set_shared_key` | `EXEC` | `resourceGroupName, subscriptionId, virtualNetworkGatewayConnectionName, data__value` | The Put VirtualNetworkGatewayConnectionSharedKey operation sets the virtual network gateway connection shared key for passed virtual network gateway connection in the specified resource group through Network resource provider. |

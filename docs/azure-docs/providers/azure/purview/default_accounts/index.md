@@ -36,6 +36,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DefaultAccounts_Get` | `SELECT` | `api-version, scopeTenantId, scopeType` | Get the default account for the scope. |
-| `DefaultAccounts_Remove` | `EXEC` | `api-version, scopeTenantId, scopeType` | Removes the default account from the scope. |
-| `DefaultAccounts_Set` | `EXEC` | `api-version` | Sets the default account for the scope. |
+| `get` | `SELECT` | `api-version, scopeTenantId, scopeType` | Get the default account for the scope. |
+| `remove` | `EXEC` | `api-version, scopeTenantId, scopeType` | Removes the default account from the scope. |
+| `set` | `EXEC` | `api-version` | Sets the default account for the scope. |

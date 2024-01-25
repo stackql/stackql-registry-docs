@@ -27,10 +27,11 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 | `properties` | `object` | Job run properties. |
+| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `JobRuns_Get` | `SELECT` | `jobDefinitionName, jobRunName, projectName, resourceGroupName, storageMoverName, subscriptionId` | Gets a Job Run resource. |
-| `JobRuns_List` | `SELECT` | `jobDefinitionName, projectName, resourceGroupName, storageMoverName, subscriptionId` | Lists all Job Runs in a Job Definition. |
+| `get` | `SELECT` | `jobDefinitionName, jobRunName, projectName, resourceGroupName, storageMoverName, subscriptionId` | Gets a Job Run resource. |
+| `list` | `SELECT` | `jobDefinitionName, projectName, resourceGroupName, storageMoverName, subscriptionId` | Lists all Job Runs in a Job Definition. |
+| `_list` | `EXEC` | `jobDefinitionName, projectName, resourceGroupName, storageMoverName, subscriptionId` | Lists all Job Runs in a Job Definition. |

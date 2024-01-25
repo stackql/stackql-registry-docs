@@ -28,7 +28,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `PrivateEndpointConnections_Get` | `SELECT` |  | Gets a private endpoint connection. |
-| `PrivateEndpointConnections_List` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Lists private endpoint connection in workspace. |
-| `PrivateEndpointConnections_Create` | `INSERT` |  | Approve or reject a private endpoint connection. |
-| `PrivateEndpointConnections_Delete` | `DELETE` |  | Delete a private endpoint connection. |
+| `get` | `SELECT` |  | Gets a private endpoint connection. |
+| `list` | `SELECT` | `resourceGroupName, subscriptionId, workspaceName` | Lists private endpoint connection in workspace. |
+| `create` | `INSERT` |  | Approve or reject a private endpoint connection. |
+| `delete` | `DELETE` |  | Delete a private endpoint connection. |
+| `_list` | `EXEC` | `resourceGroupName, subscriptionId, workspaceName` | Lists private endpoint connection in workspace. |

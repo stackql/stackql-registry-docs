@@ -28,8 +28,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `AFDOrigins_Get` | `SELECT` | `originGroupName, originName, profileName, resourceGroupName, subscriptionId` | Gets an existing origin within an origin group. |
-| `AFDOrigins_ListByOriginGroup` | `SELECT` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origins within an origin group. |
-| `AFDOrigins_Create` | `INSERT` | `originGroupName, originName, profileName, resourceGroupName, subscriptionId` | Creates a new origin within the specified origin group. |
-| `AFDOrigins_Delete` | `DELETE` | `originGroupName, originName, profileName, resourceGroupName, subscriptionId` | Deletes an existing origin within an origin group. |
-| `AFDOrigins_Update` | `EXEC` | `originGroupName, originName, profileName, resourceGroupName, subscriptionId` | Updates an existing origin within an origin group. |
+| `get` | `SELECT` | `originGroupName, originName, profileName, resourceGroupName, subscriptionId` | Gets an existing origin within an origin group. |
+| `list_by_origin_group` | `SELECT` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origins within an origin group. |
+| `create` | `INSERT` | `originGroupName, originName, profileName, resourceGroupName, subscriptionId` | Creates a new origin within the specified origin group. |
+| `delete` | `DELETE` | `originGroupName, originName, profileName, resourceGroupName, subscriptionId` | Deletes an existing origin within an origin group. |
+| `_list_by_origin_group` | `EXEC` | `originGroupName, profileName, resourceGroupName, subscriptionId` | Lists all of the existing origins within an origin group. |
+| `update` | `EXEC` | `originGroupName, originName, profileName, resourceGroupName, subscriptionId` | Updates an existing origin within an origin group. |

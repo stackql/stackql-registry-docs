@@ -27,12 +27,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
+| `kind` | `string` | Resource kind. |
 | `location` | `string` | Resource location. |
 | `properties` | `object` | Properties for a Database, Server or Elastic Pool Recommended Action. |
-| `kind` | `string` | Resource kind. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `DatabaseRecommendedActions_Get` | `SELECT` | `advisorName, databaseName, recommendedActionName, resourceGroupName, serverName, subscriptionId` | Gets a database recommended action. |
-| `DatabaseRecommendedActions_ListByDatabaseAdvisor` | `SELECT` | `advisorName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets list of Database Recommended Actions. |
-| `DatabaseRecommendedActions_Update` | `EXEC` | `advisorName, databaseName, recommendedActionName, resourceGroupName, serverName, subscriptionId` | Updates a database recommended action. |
+| `get` | `SELECT` | `advisorName, databaseName, recommendedActionName, resourceGroupName, serverName, subscriptionId` | Gets a database recommended action. |
+| `list_by_database_advisor` | `SELECT` | `advisorName, databaseName, resourceGroupName, serverName, subscriptionId` | Gets list of Database Recommended Actions. |
+| `update` | `EXEC` | `advisorName, databaseName, recommendedActionName, resourceGroupName, serverName, subscriptionId` | Updates a database recommended action. |

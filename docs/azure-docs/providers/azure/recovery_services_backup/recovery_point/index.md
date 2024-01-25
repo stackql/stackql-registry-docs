@@ -29,4 +29,4 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| `MoveRecoveryPoint` | `EXEC` | `api-version, containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName` |
+| `recovery_point` | `EXEC` | `api-version, containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName` |

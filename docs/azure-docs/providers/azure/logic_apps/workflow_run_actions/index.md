@@ -34,6 +34,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `WorkflowRunActions_Get` | `SELECT` | `actionName, api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a workflow run action. |
-| `WorkflowRunActions_List` | `SELECT` | `api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a list of workflow run actions. |
-| `WorkflowRunActions_ListExpressionTraces` | `EXEC` | `actionName, api-version, resourceGroupName, runName, subscriptionId, workflowName` | Lists a workflow run expression trace. |
+| `get` | `SELECT` | `actionName, api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a workflow run action. |
+| `list` | `SELECT` | `api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a list of workflow run actions. |
+| `_list` | `EXEC` | `api-version, resourceGroupName, runName, subscriptionId, workflowName` | Gets a list of workflow run actions. |

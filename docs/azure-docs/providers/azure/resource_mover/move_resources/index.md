@@ -35,7 +35,8 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `MoveResources_Get` | `SELECT` | `api-version, moveCollectionName, moveResourceName, resourceGroupName, subscriptionId` | Gets the Move Resource. |
-| `MoveResources_List` | `SELECT` | `api-version, moveCollectionName, resourceGroupName, subscriptionId` | Lists the Move Resources in the move collection. |
-| `MoveResources_Create` | `INSERT` | `api-version, moveCollectionName, moveResourceName, resourceGroupName, subscriptionId` | Creates or updates a Move Resource in the move collection. |
-| `MoveResources_Delete` | `DELETE` | `api-version, moveCollectionName, moveResourceName, resourceGroupName, subscriptionId` | Deletes a Move Resource from the move collection. |
+| `get` | `SELECT` | `api-version, moveCollectionName, moveResourceName, resourceGroupName, subscriptionId` | Gets the Move Resource. |
+| `list` | `SELECT` | `api-version, moveCollectionName, resourceGroupName, subscriptionId` | Lists the Move Resources in the move collection. |
+| `create` | `INSERT` | `api-version, moveCollectionName, moveResourceName, resourceGroupName, subscriptionId` | Creates or updates a Move Resource in the move collection. |
+| `delete` | `DELETE` | `api-version, moveCollectionName, moveResourceName, resourceGroupName, subscriptionId` | Deletes a Move Resource from the move collection. |
+| `_list` | `EXEC` | `api-version, moveCollectionName, resourceGroupName, subscriptionId` | Lists the Move Resources in the move collection. |

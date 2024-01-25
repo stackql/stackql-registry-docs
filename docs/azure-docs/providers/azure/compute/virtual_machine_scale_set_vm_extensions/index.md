@@ -29,13 +29,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | The name of the extension. |
+| `location` | `string` | The location of the extension. |
 | `properties` | `object` | Describes the properties of a Virtual Machine Extension. |
 | `type` | `string` | Resource type |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `VirtualMachineScaleSetVMExtensions_Get` | `SELECT` | `instanceId, resourceGroupName, subscriptionId, vmExtensionName, vmScaleSetName` | The operation to get the VMSS VM extension. |
-| `VirtualMachineScaleSetVMExtensions_List` | `SELECT` | `instanceId, resourceGroupName, subscriptionId, vmScaleSetName` | The operation to get all extensions of an instance in Virtual Machine Scaleset. |
-| `VirtualMachineScaleSetVMExtensions_CreateOrUpdate` | `INSERT` | `instanceId, resourceGroupName, subscriptionId, vmExtensionName, vmScaleSetName` | The operation to create or update the VMSS VM extension. |
-| `VirtualMachineScaleSetVMExtensions_Delete` | `DELETE` | `instanceId, resourceGroupName, subscriptionId, vmExtensionName, vmScaleSetName` | The operation to delete the VMSS VM extension. |
-| `VirtualMachineScaleSetVMExtensions_Update` | `EXEC` | `instanceId, resourceGroupName, subscriptionId, vmExtensionName, vmScaleSetName` | The operation to update the VMSS VM extension. |
+| `get` | `SELECT` | `instanceId, resourceGroupName, subscriptionId, vmExtensionName, vmScaleSetName` | The operation to get the VMSS VM extension. |
+| `list` | `SELECT` | `instanceId, resourceGroupName, subscriptionId, vmScaleSetName` | The operation to get all extensions of an instance in Virtual Machine Scaleset. |
+| `create_or_update` | `INSERT` | `instanceId, resourceGroupName, subscriptionId, vmExtensionName, vmScaleSetName` | The operation to create or update the VMSS VM extension. |
+| `delete` | `DELETE` | `instanceId, resourceGroupName, subscriptionId, vmExtensionName, vmScaleSetName` | The operation to delete the VMSS VM extension. |
+| `_list` | `EXEC` | `instanceId, resourceGroupName, subscriptionId, vmScaleSetName` | The operation to get all extensions of an instance in Virtual Machine Scaleset. |
+| `update` | `EXEC` | `instanceId, resourceGroupName, subscriptionId, vmExtensionName, vmScaleSetName` | The operation to update the VMSS VM extension. |

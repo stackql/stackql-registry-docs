@@ -29,11 +29,12 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 |:-----|:---------|:------------|
 | `id` | `string` | Resource Id |
 | `name` | `string` | Resource Name |
+| `location` | `string` | Resource Location |
 | `properties` | `object` | Replication protected item custom data details. |
 | `type` | `string` | Resource Type |
-| `location` | `string` | Resource Location |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ReplicationProtectableItems_Get` | `SELECT` | `api-version, fabricName, protectableItemName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to get the details of a protectable item. |
-| `ReplicationProtectableItems_ListByReplicationProtectionContainers` | `SELECT` | `api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Lists the protectable items in a protection container. |
+| `get` | `SELECT` | `api-version, fabricName, protectableItemName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | The operation to get the details of a protectable item. |
+| `list_by_replication_protection_containers` | `SELECT` | `api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Lists the protectable items in a protection container. |
+| `_list_by_replication_protection_containers` | `EXEC` | `api-version, fabricName, protectionContainerName, resourceGroupName, resourceName, subscriptionId` | Lists the protectable items in a protection container. |

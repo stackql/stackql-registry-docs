@@ -13,15 +13,15 @@ description: Query, deploy and manage Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
-Management Groups  
+Management Groups Enable You To Manage Access, Policies, And Compliance For Your Azure Subscriptions.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>20</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>24</b></span><br />
 </div>
 </div>
 
@@ -31,20 +31,23 @@ Management Groups
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure.management_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Management Groups (Microsoft.Management)</td></tr>
-<tr><td><b>Description</b></td><td>Management Groups</td></tr>
-<tr><td><b>Id</b></td><td><code>management_groups:v23.03.00121</code></td></tr>
+<tr><td><b>Title</b></td><td>Management Groups</td></tr>
+<tr><td><b>Description</b></td><td>Management Groups Enable You To Manage Access, Policies, And Compliance For Your Azure Subscriptions.</td></tr>
+<tr><td><b>Id</b></td><td><code>management_groups:v24.01.00199</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/management_groups/check_name_availability/">check_name_availability</a><br />
+<a href="/providers/azure/management_groups/descendants/">descendants</a><br />
 <a href="/providers/azure/management_groups/entities/">entities</a><br />
 <a href="/providers/azure/management_groups/hierarchy_settings/">hierarchy_settings</a><br />
 <a href="/providers/azure/management_groups/management_group_subscriptions/">management_group_subscriptions</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/azure/management_groups/management_group_subscriptions_subscription/">management_group_subscriptions_subscription</a><br />
+<a href="/providers/azure/management_groups/management_group_subscriptions_subscriptions_under_management_group/">management_group_subscriptions_subscriptions_under_management_group</a><br />
 <a href="/providers/azure/management_groups/management_groups/">management_groups</a><br />
 <a href="/providers/azure/management_groups/operations/">operations</a><br />
 <a href="/providers/azure/management_groups/tenant_backfill/">tenant_backfill</a><br />

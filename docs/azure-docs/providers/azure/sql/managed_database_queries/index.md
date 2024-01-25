@@ -28,5 +28,6 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `ManagedDatabaseQueries_ListByQuery` | `SELECT` | `databaseName, managedInstanceName, queryId, resourceGroupName, subscriptionId` | Get query execution statistics by query id. |
-| `ManagedDatabaseQueries_Get` | `EXEC` | `databaseName, managedInstanceName, queryId, resourceGroupName, subscriptionId` | Get query by query id. |
+| `list_by_query` | `SELECT` | `databaseName, managedInstanceName, queryId, resourceGroupName, subscriptionId` | Get query execution statistics by query id. |
+| `_list_by_query` | `EXEC` | `databaseName, managedInstanceName, queryId, resourceGroupName, subscriptionId` | Get query execution statistics by query id. |
+| `exec_get` | `EXEC` | `databaseName, managedInstanceName, queryId, resourceGroupName, subscriptionId` | Get query by query id. |

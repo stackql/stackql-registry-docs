@@ -27,19 +27,15 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| `id` | `string` | The resource ID. |
-| `name` | `string` | The name of the resource. |
-| `systemData` | `object` | Metadata pertaining to creation and last modification of the resource. |
-| `type` | `string` | The type of the resource. |
 | `identity` | `object` | Managed identity for the resource. |
 | `location` | `string` | The location of the resource |
 | `properties` | `object` | The properties of task run. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `TaskRuns_Get` | `SELECT` | `registryName, resourceGroupName, subscriptionId, taskRunName` | Gets the detailed information for a given task run. |
-| `TaskRuns_List` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the task runs for a specified container registry. |
-| `TaskRuns_Create` | `INSERT` | `registryName, resourceGroupName, subscriptionId, taskRunName` | Creates a task run for a container registry with the specified parameters. |
-| `TaskRuns_Delete` | `DELETE` | `registryName, resourceGroupName, subscriptionId, taskRunName` | Deletes a specified task run resource. |
-| `TaskRuns_GetDetails` | `EXEC` | `registryName, resourceGroupName, subscriptionId, taskRunName` | Gets the detailed information for a given task run that includes all secrets. |
-| `TaskRuns_Update` | `EXEC` | `registryName, resourceGroupName, subscriptionId, taskRunName` | Updates a task run with the specified parameters. |
+| `get` | `SELECT` | `registryName, resourceGroupName, subscriptionId, taskRunName` | Gets the detailed information for a given task run. |
+| `list` | `SELECT` | `registryName, resourceGroupName, subscriptionId` | Lists all the task runs for a specified container registry. |
+| `create` | `INSERT` | `registryName, resourceGroupName, subscriptionId, taskRunName` | Creates a task run for a container registry with the specified parameters. |
+| `delete` | `DELETE` | `registryName, resourceGroupName, subscriptionId, taskRunName` | Deletes a specified task run resource. |
+| `_list` | `EXEC` | `registryName, resourceGroupName, subscriptionId` | Lists all the task runs for a specified container registry. |
+| `update` | `EXEC` | `registryName, resourceGroupName, subscriptionId, taskRunName` | Updates a task run with the specified parameters. |

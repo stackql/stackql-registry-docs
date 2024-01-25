@@ -25,16 +25,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| `id` | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| `name` | `string` | The name of the resource |
-| `type` | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
-| `properties` | `object` | Sign-up settings contract properties. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| `SignUpSettings_Get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Get Sign Up Settings for the Portal |
-| `SignUpSettings_CreateOrUpdate` | `INSERT` | `resourceGroupName, serviceName, subscriptionId` | Create or Update Sign-Up settings. |
-| `SignUpSettings_GetEntityTag` | `EXEC` | `resourceGroupName, serviceName, subscriptionId` | Gets the entity state (Etag) version of the SignUpSettings. |
-| `SignUpSettings_Update` | `EXEC` | `If-Match, resourceGroupName, serviceName, subscriptionId` | Update Sign-Up settings. |
+| `get` | `SELECT` | `resourceGroupName, serviceName, subscriptionId` | Get Sign Up Settings for the Portal |
+| `create_or_update` | `INSERT` | `resourceGroupName, serviceName, subscriptionId` | Create or Update Sign-Up settings. |
+| `update` | `EXEC` | `If-Match, resourceGroupName, serviceName, subscriptionId` | Update Sign-Up settings. |
