@@ -191,6 +191,16 @@ provider_data = {
       'description': ' Additional Azure cloud computing services by Microsoft.',
       'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
   },
+  'azure_isv': {
+      'meta_description': 'Query, deploy and manage Azure resources using SQL',
+      'description': ' Provision, manage, and integrate independent software vendor services on Azure.',
+      'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
+  },
+  'azure_stack': {
+      'meta_description': 'Query, deploy and manage Azure resources using SQL',
+      'description': ' Build and run hybrid apps across datacenters, edge locations, remote offices, and the cloud.',
+      'image': '/img/providers/azure/stackql-azure-provider-featured-image.png' 
+  },    
   'linode': {
       'meta_description': 'Query, deploy and manage Linode resources using SQL',
       'description': ' Cloud Computing Services by Akamai.',
@@ -463,6 +473,24 @@ StackQL uses Azure application credentials obtained using the `az login` command
 StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 """,
   },
+# 
+# Azure ISV
+# 
+  'azure_isv': {
+    'custom': True,
+    'custom_markdown': """
+StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+""",
+  },
+# 
+# Azure Stack
+# 
+  'azure_stack': {
+    'custom': True,
+    'custom_markdown': """
+StackQL uses Azure application credentials obtained using the `az login` command from the Azure SDK.  For more information, see [here](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+""",
+  },    
 # 
 # k8s
 # 
