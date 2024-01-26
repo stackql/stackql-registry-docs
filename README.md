@@ -25,6 +25,8 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy PagerDuty | [![Netlify Status](https://api.netlify.com/api/v1/badges/76c8752a-32d8-48e2-81ad-29b9e8f53edd/deploy-status)](https://app.netlify.com/sites/stackql-pagerduty-docs/deploys) | [pagerduty-docs.stackql.io](https://pagerduty-docs.stackql.io)<br/>[pagerduty.stackql.io](https://pagerduty.stackql.io) |
 | Netlify Deploy Homebrew | [![Netlify Status](https://api.netlify.com/api/v1/badges/2343d34d-5061-4d83-98e6-475fb2150c94/deploy-status)](https://app.netlify.com/sites/stackql-homebrew-docs/deploys) | [homebrew-docs.stackql.io](https://homebrew-docs.stackql.io)<br/>[homebrew.stackql.io](https://homebrew.stackql.io) |
 | Netlify Deploy Datadog | [![Netlify Status](https://api.netlify.com/api/v1/badges/9e76122d-09bd-4938-a50f-3b4196e94f0c/deploy-status)](https://app.netlify.com/sites/stackql-datadog-docs/deploys) | [datadog-docs.stackql.io](https://datadog-docs.stackql.io)<br/>[datadog.stackql.io](https://datadog.stackql.io) |
+| Netlify Deploy Azure ISV | [![Netlify Status](https://api.netlify.com/api/v1/badges/35fc840c-0494-462f-9b3f-cbd3418a3c78/deploy-status)](https://app.netlify.com/sites/stackql-azure-isv-docs/deploys) | [azure-isv-docs.stackql.io](https://azure-isv-docs.stackql.io)<br/>[azure-isv.stackql.io](https://azure-isv.stackql.io) |
+| Netlify Deploy Azure Stack | [![Netlify Status](https://api.netlify.com/api/v1/badges/53abcb20-0194-41dd-b466-4d933cfffcad/deploy-status)](https://app.netlify.com/sites/stackql-azure-stack-docs/deploys) | [azure-stack-docs.stackql.io](https://azure-stack-docs.stackql.io)<br/>[azure-stack.stackql.io](https://azure-stack.stackql.io) |
 
 
 ## Adding Docs for a New Provider

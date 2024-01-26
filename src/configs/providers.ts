@@ -1,6 +1,5 @@
 import siteConfig from '@generated/docusaurus.config';
 
-
 export const providers = [
     {name: 'google', description: 'Cloud computing services offered by Google.', title: 'Google'},
     {name: 'googleadmin', description: 'Google Workspace identity services.', title: 'Google Admin'},
@@ -11,8 +10,10 @@ export const providers = [
     {name: 'linode', description: 'Cloud computing services by Akamai.', title: 'Linode'},
     {name: 'netlify', description: 'Web development and content distribution platform.', title: 'Netlify'},
     {name: 'okta', description: 'Authentication and authorization services.', title: 'Okta'},
-    {name: 'sumologic', description: 'Unified logs and metrics analytics platform.', title: 'Sumologic'},
     {name: 'azure_extras', description: 'Additional Azure cloud computing services by Microsoft.', title: 'Azure Extras'},
+    {name: 'azure_isv', description: 'Independent Software Vendor Services on Azure.', title: 'Azure Native ISV'},
+    {name: 'azure_stack', description: 'Azure Hybrid Apps Across Datacenters, Edge Locations, etc', title: 'Azure Stack'},
+    {name: 'sumologic', description: 'Unified logs and metrics analytics platform.', title: 'Sumologic'},
     {name: 'firebase', description: 'Mobile and web application development platform.', title: 'Firebase'},
     {name: 'k8s', description: 'Open source container management platform.', title: 'Kubernetes'},
     {name: 'vercel', description: 'Cloud platform for serverless deployment and hosting of web applications.', title: 'Vercel'},

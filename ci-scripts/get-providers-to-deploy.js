@@ -10,6 +10,8 @@ const allProviders = [
     'aws', 
     'azure', 
     'azure_extras',
+    'azure_isv',
+    'azure_stack',
     'digitalocean',
     'firebase', 
     'github', 
