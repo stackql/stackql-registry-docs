@@ -33,7 +33,7 @@ Microsoft Azure Hybrid Data Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Hybrid Data Manager</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Azure Hybrid Data Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>hybrid_data_manager:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>hybrid_data_manager:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

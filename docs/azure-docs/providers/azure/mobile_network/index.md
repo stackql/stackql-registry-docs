@@ -33,7 +33,7 @@ Azure Private 5G Core Is An Azure Cloud Service For Deploying And Managing 5G Co
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Private 5G Core Mobile Network</td></tr>
 <tr><td><b>Description</b></td><td>Azure Private 5G Core Is An Azure Cloud Service For Deploying And Managing 5G Core Network Functions On An Azure Stack Edge Device, As Part Of An On-Premises Private Mobile Network For Enterprises. The 5G Core Network Functions Connect With Standard 4G And 5G Standalone Radio Access Networks (RANs) To Provide High Performance, Low Latency, And Secure Connectivity For 5G Internet Of Things (IoT) Devices. Azure Private 5G Core Gives Enterprises Full Control And Visibility Of Their Private Mobile Networks.</td></tr>
-<tr><td><b>Id</b></td><td><code>mobile_network:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>mobile_network:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

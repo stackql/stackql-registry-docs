@@ -33,7 +33,7 @@ Managed Identities For Azure Resources Provides Azure Services With An Automatic
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Managed Service Identity</td></tr>
 <tr><td><b>Description</b></td><td>Managed Identities For Azure Resources Provides Azure Services With An Automatically Managed Identity In Azure Active Directory. You Can Use This Identity To Authenticate To Any Service That Supports Azure AD Authentication, Without Having Credentials In Your Code.</td></tr>
-<tr><td><b>Id</b></td><td><code>managed_identity:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>managed_identity:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

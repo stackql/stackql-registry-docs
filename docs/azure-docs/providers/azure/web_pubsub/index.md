@@ -33,7 +33,7 @@ Azure Web PubSub Is A Service That Enables You To Build Real-Time Messaging Web 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Web PubSub</td></tr>
 <tr><td><b>Description</b></td><td>Azure Web PubSub Is A Service That Enables You To Build Real-Time Messaging Web Applications Using WebSockets And The Publish-Subscribe Pattern. Any Platform Supporting WebSocket APIs Can Connect To The Service Easily, For Example. Web Pages, Mobile Applications, Edge Devices, And So On. The Service Manages The WebSocket Connections For You And Allows Up To 100K Concurrent Connections. It Provides Powerful APIs For You To Manage These Clients And Deliver Real-Time Messages.</td></tr>
-<tr><td><b>Id</b></td><td><code>web_pubsub:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>web_pubsub:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Use Azure HPC Cache To Speed Up NFS File Access For Read-Intensive High-Performa
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure HPC Cache</td></tr>
 <tr><td><b>Description</b></td><td>Use Azure HPC Cache To Speed Up NFS File Access For Read-Intensive High-Performance Computing (HPC) Workloads.  By Caching Files In Azure, Azure HPC Cache Brings The Scalability Of Cloud Computing To Your Existing Workflow. This Service Can Be Used Even For Workflows Where Your Data Is Stored Across WAN Links, Such As In Your Local Data Center Network-Attached Storage (NAS) Environment.</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_cache:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storage_cache:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

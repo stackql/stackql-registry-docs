@@ -33,7 +33,7 @@ Azure Managed Grafana Is A Monitoring And Data Visualization Service. Azure Mana
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Dashboard (Azure Managed Grafana)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Managed Grafana Is A Monitoring And Data Visualization Service. Azure Managed Grafana Is Built As A Fully Managed Azure Service Operated And Supported By Microsoft.</td></tr>
-<tr><td><b>Id</b></td><td><code>dashboard:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dashboard:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

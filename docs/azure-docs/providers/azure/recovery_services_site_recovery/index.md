@@ -33,7 +33,7 @@ Azure Site Recovery Contributes To Your Business Continuity And Disaster Recover
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Recovery Services Site Recovery</td></tr>
 <tr><td><b>Description</b></td><td>Azure Site Recovery Contributes To Your Business Continuity And Disaster Recovery (BCDR) Strategy By Keeping Apps And Workloads Available During Outages. Site Recovery Replicates On-Premises And Azure Workloads To A Secondary Location. When An Outage Occurs, You Fail Over To The Secondary Location. You Recover Apps To The Primary Site When It’S Up And Running Again.</td></tr>
-<tr><td><b>Id</b></td><td><code>recovery_services_site_recovery:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>recovery_services_site_recovery:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

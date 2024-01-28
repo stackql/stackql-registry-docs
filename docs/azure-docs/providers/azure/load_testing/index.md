@@ -33,7 +33,7 @@ Azure Load Testing Preview Is A Fully Managed Load-Testing Service That Enables 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Load Testing</td></tr>
 <tr><td><b>Description</b></td><td>Azure Load Testing Preview Is A Fully Managed Load-Testing Service That Enables You To Generate High-Scale Load. The Service Simulates Traffic For Your Applications, Regardless Of Where Theyre Hosted. Developers, Testers, And Quality Assurance (QA) Engineers Can Use It To Optimize Application Performance, Scalability, Or Capacity.</td></tr>
-<tr><td><b>Id</b></td><td><code>load_testing:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>load_testing:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

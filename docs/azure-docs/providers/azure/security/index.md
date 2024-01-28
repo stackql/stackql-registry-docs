@@ -33,7 +33,7 @@ Microsoft Security Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Security</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Security Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>security:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>security:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Azure Cognitive Services Enables Natural And Contextual Interaction With Tools T
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Cognitive Services</td></tr>
 <tr><td><b>Description</b></td><td>Azure Cognitive Services Enables Natural And Contextual Interaction With Tools That Augment The Users Experiences Using The Power Of Machine-Based Intelligence. The Operations In The Azure Cognitive Services REST API Provide Operations For Managing Your Cognitive Services Accounts.</td></tr>
-<tr><td><b>Id</b></td><td><code>cognitive_services:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cognitive_services:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Microsoft Azure Offers A Cloud Infrastructure With A Wide Range Of Integrated Cl
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BareMetal Infrastructure On Azure</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Azure Offers A Cloud Infrastructure With A Wide Range Of Integrated Cloud Services To Meet Your Business Needs. In Some Cases, Though, You May Need To Run Services On Bare Metal Servers Without A Virtualization Layer. You May Need Root Access And Control Over The Operating System (OS). To Meet This Need, Azure Offers BareMetal Infrastructure For Several High-Value, Mission-Critical Applications.</td></tr>
-<tr><td><b>Id</b></td><td><code>bare_metal_infrastructure:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bare_metal_infrastructure:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

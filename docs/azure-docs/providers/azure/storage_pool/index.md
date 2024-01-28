@@ -33,7 +33,7 @@ Microsoft Azure Storage Pool Allows Your Applications And Workloads To Access A 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Storage Pool</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Azure Storage Pool Allows Your Applications And Workloads To Access A Group Of Managed Disks From A Single Endpoint.</td></tr>
-<tr><td><b>Id</b></td><td><code>storage_pool:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storage_pool:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

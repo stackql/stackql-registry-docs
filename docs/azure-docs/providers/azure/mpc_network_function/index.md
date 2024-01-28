@@ -33,7 +33,7 @@ Mobile Packet Core Network Function Management API
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Mobile Packet Core Network Function</td></tr>
 <tr><td><b>Description</b></td><td>Mobile Packet Core Network Function Management API</td></tr>
-<tr><td><b>Id</b></td><td><code>mpc_network_function:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>mpc_network_function:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

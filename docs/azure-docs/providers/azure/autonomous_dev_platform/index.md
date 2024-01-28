@@ -33,7 +33,7 @@ Microsoft Autonomous Development Platform
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Autonomous Development Platform</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Autonomous Development Platform</td></tr>
-<tr><td><b>Id</b></td><td><code>autonomous_dev_platform:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>autonomous_dev_platform:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

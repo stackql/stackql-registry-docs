@@ -33,7 +33,7 @@ Azure Custom Providers Enable You Define To Custom APIs That Can Be Used To Enri
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Custom Providers</td></tr>
 <tr><td><b>Description</b></td><td>Azure Custom Providers Enable You Define To Custom APIs That Can Be Used To Enrich The Default Azure Experience.</td></tr>
-<tr><td><b>Id</b></td><td><code>custom_providers:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>custom_providers:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

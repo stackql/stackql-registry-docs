@@ -33,7 +33,7 @@ The Azure Subscription APIs Allow You To Create And Manage Your Subscriptions Pr
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Subscription</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Subscription APIs Allow You To Create And Manage Your Subscriptions Programmatically. The APIs Currently Support Subscriptions That Are Billed To An Enterprise Agreement Or A Microsoft Customer Agreement Billing Account.</td></tr>
-<tr><td><b>Id</b></td><td><code>subscription:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>subscription:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

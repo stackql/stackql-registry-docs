@@ -33,7 +33,7 @@ Azure Resource Graph Enables You To Get Full Visibility Into Your Environments B
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Resource Graph</td></tr>
 <tr><td><b>Description</b></td><td>Azure Resource Graph Enables You To Get Full Visibility Into Your Environments By Providing High Performance And Powerful Querying Capability Across All Your Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>resource_graph:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>resource_graph:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Azure Maps Is A Set Of Mapping And Geospatial Services That Enable Developers An
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Maps</td></tr>
 <tr><td><b>Description</b></td><td>Azure Maps Is A Set Of Mapping And Geospatial Services That Enable Developers And Organizations To Build Intelligent Location-Based Experiences For Applications Across Many Different Industries And Use Cases. Use Azure Maps To Bring Maps, Geocoding, Location Search, Routing, Real-Time Traffic, Geolocation, Time Zone Information And Weather Data Into Your Web, Mobile And Server-Side Solutions.</td></tr>
-<tr><td><b>Id</b></td><td><code>maps:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>maps:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

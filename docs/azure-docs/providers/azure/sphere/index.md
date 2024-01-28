@@ -33,7 +33,7 @@ Azure Sphere Resource Management API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Sphere Provider Client</td></tr>
 <tr><td><b>Description</b></td><td>Azure Sphere Resource Management API.</td></tr>
-<tr><td><b>Id</b></td><td><code>sphere:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>sphere:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Azure App Service Lets You Run Web Apps, Mobile App Back Ends, And API Apps In A
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure App Service (Web Apps)</td></tr>
 <tr><td><b>Description</b></td><td>Azure App Service Lets You Run Web Apps, Mobile App Back Ends, And API Apps In Azure.</td></tr>
-<tr><td><b>Id</b></td><td><code>app_service:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>app_service:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

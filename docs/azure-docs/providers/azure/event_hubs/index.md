@@ -33,7 +33,7 @@ Azure Event Hubs Is A Highly Scalable Data Ingress Service That Ingests Millions
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Event Hubs</td></tr>
 <tr><td><b>Description</b></td><td>Azure Event Hubs Is A Highly Scalable Data Ingress Service That Ingests Millions Of Events Per Second So That You Can Process And Analyze The Massive Amounts Of Data Produced By Your Connected Devices And Applications. Once Data Is Collected Into An Event Hub, It Can Be Transformed And Stored Using Any Real-Time Analytics Provider Or Batching/Storage Adapters.</td></tr>
-<tr><td><b>Id</b></td><td><code>event_hubs:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>event_hubs:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

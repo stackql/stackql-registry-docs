@@ -33,7 +33,7 @@ Azure Kubernetes Fleet Manager (Fleet) Enables At-Scale Management Of Multiple A
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Kubernetes Fleet Manager</td></tr>
 <tr><td><b>Description</b></td><td>Azure Kubernetes Fleet Manager (Fleet) Enables At-Scale Management Of Multiple Azure Kubernetes Service (AKS) Clusters</td></tr>
-<tr><td><b>Id</b></td><td><code>fleet:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>fleet:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

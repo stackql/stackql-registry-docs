@@ -33,7 +33,7 @@ The Billing Benefits API Gives You Access To Billing Benefits (Savings Plan) Ope
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Billing Benefits</td></tr>
 <tr><td><b>Description</b></td><td>The Billing Benefits API Gives You Access To Billing Benefits (Savings Plan) Operations.</td></tr>
-<tr><td><b>Id</b></td><td><code>billing_benefits:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>billing_benefits:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

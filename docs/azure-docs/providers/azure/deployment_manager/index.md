@@ -33,7 +33,7 @@ Deployment Manager Enables You To Use Safe Deployment Practices When Deploying Y
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Deployment Manager</td></tr>
 <tr><td><b>Description</b></td><td>Deployment Manager Enables You To Use Safe Deployment Practices When Deploying Your Service Across Many Regions.</td></tr>
-<tr><td><b>Id</b></td><td><code>deployment_manager:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>deployment_manager:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Azure API Center Helps You Develop And Maintain A Structured Inventory Of Your O
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure API Center</td></tr>
 <tr><td><b>Description</b></td><td>Azure API Center Helps You Develop And Maintain A Structured Inventory Of Your Organizations APIs. API Center Enables API Discovery, Reuse, And Governance At Scale.</td></tr>
-<tr><td><b>Id</b></td><td><code>api_center:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>api_center:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

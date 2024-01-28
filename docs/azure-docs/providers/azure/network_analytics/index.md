@@ -33,7 +33,7 @@ Microsoft Network Analytics Management API
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Network Analytics</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Network Analytics Management API</td></tr>
-<tr><td><b>Id</b></td><td><code>network_analytics:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>network_analytics:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

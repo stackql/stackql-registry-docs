@@ -33,7 +33,7 @@ Most Operations, Support, And Troubleshooting Performed By Microsoft Personnel A
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Customer Lockbox For Microsoft Azure</td></tr>
 <tr><td><b>Description</b></td><td>Most Operations, Support, And Troubleshooting Performed By Microsoft Personnel And Sub-Processors Do Not Require Access To Customer Data. In Those Rare Circumstances Where Such Access Is Required, Customer Lockbox For Microsoft Azure Provides An Interface For Customers To Review And Approve Or Reject Customer Data Access Requests. It Is Used In Cases Where A Microsoft Engineer Needs To Access Customer Data, Whether In Response To A Customer-Initiated Support Ticket Or A Problem Identified By Microsoft.</td></tr>
-<tr><td><b>Id</b></td><td><code>customer_lockbox:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>customer_lockbox:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

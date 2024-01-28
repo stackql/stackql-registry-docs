@@ -33,7 +33,7 @@ The Azure Billing APIs Allow You To View And Manage Your Billing Details Program
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Billing</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Billing APIs Allow You To View And Manage Your Billing Details Programmatically. Operation Groups Listed Below Do Not Support All Billing Accounts. Supported Billing Accounts Are Specified In The Table.</td></tr>
-<tr><td><b>Id</b></td><td><code>billing:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>billing:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

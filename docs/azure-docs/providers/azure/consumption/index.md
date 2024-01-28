@@ -33,7 +33,7 @@ The Azure Consumption APIs Give You Programmatic Access To Cost And Usage Data F
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Consumption</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Consumption APIs Give You Programmatic Access To Cost And Usage Data For Your Azure Resources. The APIs Currently Only Support Enterprise Enrollments, Web Direct Subscriptions (With A Few Exceptions), And CSP Azure Plan Subscriptions.</td></tr>
-<tr><td><b>Id</b></td><td><code>consumption:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>consumption:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Azure Relay Provides Cloud-Enabled Communication With Enterprise Messaging And R
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Relay</td></tr>
 <tr><td><b>Description</b></td><td>Azure Relay Provides Cloud-Enabled Communication With Enterprise Messaging And Relayed Communication That Helps You Connect On-Premises Solutions With The Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>relay:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>relay:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Azure Operator Nexus - Network Cloud APIs Provide Management Of The On-Premises 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Operator Nexus - Network Cloud</td></tr>
 <tr><td><b>Description</b></td><td>Azure Operator Nexus - Network Cloud APIs Provide Management Of The On-Premises Clusters And Their Resources, Such As, Racks, Bare Metal Hosts, Virtual Machines, Workload Networks And More.</td></tr>
-<tr><td><b>Id</b></td><td><code>nexus:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>nexus:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

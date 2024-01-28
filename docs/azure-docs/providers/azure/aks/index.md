@@ -33,7 +33,7 @@ AKS Manages Your Hosted Kubernetes Environment, Making It Quick And Easy To Depl
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Kubernetes Service (AKS)</td></tr>
 <tr><td><b>Description</b></td><td>AKS Manages Your Hosted Kubernetes Environment, Making It Quick And Easy To Deploy And Manage Containerized Applications Without Container Orchestration Expertise. It Also Eliminates The Burden Of Ongoing Operations And Maintenance By Provisioning, Upgrading, And Scaling Resources On Demand, Without Taking Your Applications Offline.</td></tr>
-<tr><td><b>Id</b></td><td><code>aks:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>aks:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

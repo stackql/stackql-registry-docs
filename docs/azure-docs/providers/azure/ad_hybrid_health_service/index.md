@@ -33,7 +33,7 @@ REST APIs For Azure Active Directory Connect Health
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AD Hybrid Health Service</td></tr>
 <tr><td><b>Description</b></td><td>REST APIs For Azure Active Directory Connect Health</td></tr>
-<tr><td><b>Id</b></td><td><code>ad_hybrid_health_service:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ad_hybrid_health_service:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

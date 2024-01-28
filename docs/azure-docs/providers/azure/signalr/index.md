@@ -33,7 +33,7 @@ Azure SignalR Service Is A Fully-Managed Service That Allows Developers To Focus
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure SignalR Service</td></tr>
 <tr><td><b>Description</b></td><td>Azure SignalR Service Is A Fully-Managed Service That Allows Developers To Focus On Building Real-Time Web Experiences Without Worrying About Capacity Provisioning, Reliable Connections, Scaling, Encryption Or Authentication.</td></tr>
-<tr><td><b>Id</b></td><td><code>signalr:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>signalr:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

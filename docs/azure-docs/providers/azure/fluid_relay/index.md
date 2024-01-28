@@ -33,7 +33,7 @@ Easily Add Real-Time Collaborative Experiences To Your Apps With Fluid Framework
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Fluid Relay</td></tr>
 <tr><td><b>Description</b></td><td>Easily Add Real-Time Collaborative Experiences To Your Apps With Fluid Framework.</td></tr>
-<tr><td><b>Id</b></td><td><code>fluid_relay:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>fluid_relay:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

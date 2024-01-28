@@ -33,7 +33,7 @@ Azure Private DNS Provides A Reliable And Secure DNS Service For Your Virtual Ne
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Private DNS</td></tr>
 <tr><td><b>Description</b></td><td>Azure Private DNS Provides A Reliable And Secure DNS Service For Your Virtual Networks. Azure Private DNS Manages And Resolves Domain Names In The Virtual Network Without The Need To Configure A Custom DNS Solution.</td></tr>
-<tr><td><b>Id</b></td><td><code>private_dns:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>private_dns:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

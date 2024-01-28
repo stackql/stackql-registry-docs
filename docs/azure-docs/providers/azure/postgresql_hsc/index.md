@@ -33,7 +33,7 @@ DB For PostgreSql HSC
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>DB For PostgreSql HSC</td></tr>
 <tr><td><b>Description</b></td><td>DB For PostgreSql HSC</td></tr>
-<tr><td><b>Id</b></td><td><code>postgresql_hsc:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>postgresql_hsc:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

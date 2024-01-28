@@ -15,9 +15,9 @@ id: azure-doc
 slug: /providers/azure
 
 ---
- Cloud computing services operated by Microsoft.  
+Cloud computing services operated by Microsoft.  
     
-:::info Provider Summary (v24.01.00199)
+:::info Provider Summary (v24.01.00201)
 
 <div class="row">
 <div class="providerDocColumn">
@@ -26,7 +26,7 @@ slug: /providers/azure
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3920</b></span><br />
-<span>total selectable resources:&nbsp;<b>3500</b></span><br />
+<span>total selectable resources:&nbsp;<b>3502</b></span><br />
 </div>
 </div>
 

@@ -33,7 +33,7 @@ The Microsoft Azure Network Management API Provides A RESTful Set Of Web Service
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Network Management Client</td></tr>
 <tr><td><b>Description</b></td><td>The Microsoft Azure Network Management API Provides A RESTful Set Of Web Services That Interact With Microsoft Azure Networks Service To Manage Your Network Resources. The API Has Entities That Capture The Relationship Between An End User And The Microsoft Azure Networks Service.</td></tr>
-<tr><td><b>Id</b></td><td><code>network:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>network:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

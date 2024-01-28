@@ -128,12 +128,33 @@ const config = {
           to: '/',
           label: 'Providers',
           position: 'left',
-        },        
+        },  
         {
-          to: '/blog',
-          label: 'Blog',
+          type: 'dropdown',
+          label: 'Resources',
           position: 'left',
-        },
+          items: [
+            {
+              href: 'https://github.com/stackql/stackql-actions-demo',
+              label: 'GitHub Actions',
+            },
+            {
+              to: '/blog',
+              label: 'Blog',
+              activeBasePath: 'blog',
+            },
+            {
+              to: '/cookbooks',
+              label: 'Cookbooks',
+              activeBasePath: 'cookbooks',
+            },
+          ],
+        },        
+        // {
+        //   to: '/blog',
+        //   label: 'Blog',
+        //   position: 'left',
+        // },
         {
           href: 'https://github.com/stackql/stackql',
           position: 'right',

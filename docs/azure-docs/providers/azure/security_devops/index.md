@@ -33,7 +33,7 @@ REST APIs For Defender For DevOps
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Security DevOps</td></tr>
 <tr><td><b>Description</b></td><td>REST APIs For Defender For DevOps</td></tr>
-<tr><td><b>Id</b></td><td><code>security_devops:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>security_devops:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

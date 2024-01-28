@@ -33,7 +33,7 @@ Azure Managed Applications Enable You To Offer Cloud Solutions That Are Easy For
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Managed Applications</td></tr>
 <tr><td><b>Description</b></td><td>Azure Managed Applications Enable You To Offer Cloud Solutions That Are Easy For Consumers To Deploy And Operate. The Publisher Implements The Infrastructure And Provides Ongoing Support. The Resources Are Deployed To A Resource Group Thats Managed By The Publisher Of The App.</td></tr>
-<tr><td><b>Id</b></td><td><code>managed_applications:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>managed_applications:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

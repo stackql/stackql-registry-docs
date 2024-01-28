@@ -33,7 +33,7 @@ Data Box Data Transfer Products Help You Move Data To Azure When Busy Networks A
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Data Box</td></tr>
 <tr><td><b>Description</b></td><td>Data Box Data Transfer Products Help You Move Data To Azure When Busy Networks Aren’T An Option. Use Data Box Family Of Products Such As Data Box, Data Box Disk, And Data Box Heavy To Move Large Amounts Of Data To Azure When You’Re Limited By Time, Network Availability, Or Costs. Move Your Data To Azure Using Common Copy Tools Such As Robocopy. All Data Is AES-Encrypted, And The Devices Are Wiped Clean After Upload In Accordance With NIST Special Publication 800-88 Revision 1 Standards.</td></tr>
-<tr><td><b>Id</b></td><td><code>data_box:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_box:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

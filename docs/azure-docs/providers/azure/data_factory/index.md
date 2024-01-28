@@ -33,7 +33,7 @@ Azure Data Factory Is A Cloud-Based Data Integration Service That Orchestrates A
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Data Factory</td></tr>
 <tr><td><b>Description</b></td><td>Azure Data Factory Is A Cloud-Based Data Integration Service That Orchestrates And Automates The Movement And Transformation Of Data. You Can Create Data Integration Solutions Using The Data Factory Service That Can Ingest Data From Various Data Stores, Transform/Process The Data, And Publish The Result Data To The Data Stores.</td></tr>
-<tr><td><b>Id</b></td><td><code>data_factory:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_factory:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

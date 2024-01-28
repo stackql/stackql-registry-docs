@@ -20,7 +20,7 @@ Azure Database For PostgreSQL Provides A Managed Database Service For App Develo
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>25</b></span><br />
-<span>total selectable resources:&nbsp;<b>17</b></span><br />
+<span>total selectable resources:&nbsp;<b>19</b></span><br />
 <span>total methods:&nbsp;<b>80</b></span><br />
 </div>
 </div>
@@ -33,7 +33,7 @@ Azure Database For PostgreSQL Provides A Managed Database Service For App Develo
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Database For PostgreSQL</td></tr>
 <tr><td><b>Description</b></td><td>Azure Database For PostgreSQL Provides A Managed Database Service For App Development And Deployment That Allows You To Stand Up A PostgreSQL Database In Minutes And Scale On The Fly - On The Cloud You Trust Most.</td></tr>
-<tr><td><b>Id</b></td><td><code>postgresql:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>postgresql:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -47,7 +47,7 @@ Azure Database For PostgreSQL Provides A Managed Database Service For App Develo
 <a href="/providers/azure/postgresql/customoperation/">customoperation</a><br />
 <a href="/providers/azure/postgresql/databases/">databases</a><br />
 <a href="/providers/azure/postgresql/firewall_rules/">firewall_rules</a><br />
-<a href="/providers/azure/postgresql/flexible_server/">flexible_server</a><br />
+<a href="/providers/azure/postgresql/flexible_server_ltr_backup/">flexible_server_ltr_backup</a><br />
 <a href="/providers/azure/postgresql/get_private_dns_zone_suffix/">get_private_dns_zone_suffix</a><br />
 <a href="/providers/azure/postgresql/location_based_capabilities/">location_based_capabilities</a><br />
 <a href="/providers/azure/postgresql/log_files/">log_files</a><br />

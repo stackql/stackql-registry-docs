@@ -33,7 +33,7 @@ Azure App Configuration Provides A Service To Centrally Manage Application Setti
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure App Configuration</td></tr>
 <tr><td><b>Description</b></td><td>Azure App Configuration Provides A Service To Centrally Manage Application Settings And Feature Flags. Modern Programs, Especially Programs Running In A Cloud, Generally Have Many Components That Are Distributed In Nature. Spreading Configuration Settings Across These Components Can Lead To Hard-To-Troubleshoot Errors During An Application Deployment. Use App Configuration To Store All The Settings For Your Application And Secure Their Accesses In One Place.</td></tr>
-<tr><td><b>Id</b></td><td><code>app_configuration:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>app_configuration:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

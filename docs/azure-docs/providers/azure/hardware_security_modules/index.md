@@ -33,7 +33,7 @@ Azure Cloud HSM Is A Single-Tenant HSM Solution, Granting Customers Administrati
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Azure Hardware Security Modules (HSM)</td></tr>
 <tr><td><b>Description</b></td><td>Azure Cloud HSM Is A Single-Tenant HSM Solution, Granting Customers Administrative Control Over A Highly Available HSM Cluster For Various Functionalities Like PKCS#11, TDE, SSL/TLS Processing, And Custom Applications, While Microsoft Manages Service Provisioning, Patching, And Hosting.</td></tr>
-<tr><td><b>Id</b></td><td><code>hardware_security_modules:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>hardware_security_modules:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources
