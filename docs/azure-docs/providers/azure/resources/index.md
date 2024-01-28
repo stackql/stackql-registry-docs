@@ -33,7 +33,7 @@ Azure Resource Manager Enables You To Deploy And Manage The Infrastructure For Y
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Resource Manager</td></tr>
 <tr><td><b>Description</b></td><td>Azure Resource Manager Enables You To Deploy And Manage The Infrastructure For Your Azure Solutions. You Organize Related Resources In Resource Groups, And Deploy Your Resources With JSON Templates.</td></tr>
-<tr><td><b>Id</b></td><td><code>resources:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>resources:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

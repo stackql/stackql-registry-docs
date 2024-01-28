@@ -1,9 +1,9 @@
 ---
-title: flexible_server
+title: flexible_server_ltr_backup
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - flexible_server
+  - flexible_server_ltr_backup
   - postgresql
   - azure    
   - stackql
@@ -19,9 +19,9 @@ image: /img/providers/azure/stackql-azure-provider-featured-image.png
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>flexible_server</code></td></tr>
+<tr><td><b>Name</b></td><td><code>flexible_server_ltr_backup</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><code>azure.postgresql.flexible_server</code></td></tr>
+<tr><td><b>Id</b></td><td><code>azure.postgresql.flexible_server_ltr_backup</code></td></tr>
 </tbody></table>
 
 ## Fields

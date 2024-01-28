@@ -33,7 +33,7 @@ Azure Migrate Helps You To Migrate To Azure. Azure Migrate Provides A Centralize
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Migrate Projects</td></tr>
 <tr><td><b>Description</b></td><td>Azure Migrate Helps You To Migrate To Azure. Azure Migrate Provides A Centralized Hub To Track Discovery, Assessment, And Migration Of On-Premises Infrastructure, Applications, And Data To Azure. The Hub Provides Azure Tools For Assessment And Migration, As Well As Third-Party Independent Software Vendor (ISV) Offerings.</td></tr>
-<tr><td><b>Id</b></td><td><code>migrate_projects:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>migrate_projects:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

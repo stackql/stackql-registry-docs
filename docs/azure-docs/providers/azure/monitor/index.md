@@ -33,7 +33,7 @@ Use The Azure Monitor REST API To Get Insights Into Your Azure Resources Using T
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Monitor</td></tr>
 <tr><td><b>Description</b></td><td>Use The Azure Monitor REST API To Get Insights Into Your Azure Resources Using The Following Groups Of Operations.</td></tr>
-<tr><td><b>Id</b></td><td><code>monitor:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>monitor:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

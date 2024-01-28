@@ -33,7 +33,7 @@ Azure Recovery Services Data Replication Provides Your Business With The Capabil
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Recovery Services Data Replication</td></tr>
 <tr><td><b>Description</b></td><td>Azure Recovery Services Data Replication Provides Your Business With The Capabilities To Replicate And Migrate From Supported Platforms (I.E., Hyper-V And VMware) To Azure Stack HCI. The Data Movement Stays Entirely On-Premises And Azure Migrate Is Utilized As The Management Plane.</td></tr>
-<tr><td><b>Id</b></td><td><code>data_replication:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_replication:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

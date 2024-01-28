@@ -33,7 +33,7 @@ Azure Blueprints Enables The Creation Of An Azure Native Package Of Artifacts (R
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Blueprints</td></tr>
 <tr><td><b>Description</b></td><td>Azure Blueprints Enables The Creation Of An Azure Native Package Of Artifacts (Resource Groups, Policies, Role Assignments, Resource Manager Templates And More) That Can Be Dynamically Deployed To Subscriptions To Create Consistent, Repeatable Environments.</td></tr>
-<tr><td><b>Id</b></td><td><code>blueprints:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>blueprints:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

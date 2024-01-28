@@ -33,7 +33,7 @@ Use Key Vault To Safeguard And Manage Cryptographic Keys, Certificates And Secre
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Key Vault</td></tr>
 <tr><td><b>Description</b></td><td>Use Key Vault To Safeguard And Manage Cryptographic Keys, Certificates And Secrets Used By Cloud Applications And Services.</td></tr>
-<tr><td><b>Id</b></td><td><code>key_vault:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>key_vault:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

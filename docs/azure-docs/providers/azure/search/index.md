@@ -33,7 +33,7 @@ Azure AI Search (Formerly Known As "Azure Cognitive Search") Provides Secure Inf
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure AI Search (Formerly Known As Azure Cognitive Search) </td></tr>
 <tr><td><b>Description</b></td><td>Azure AI Search (Formerly Known As "Azure Cognitive Search") Provides Secure Information Retrieval At Scale Over User-Owned Content In Traditional And Conversational Search Applications.</td></tr>
-<tr><td><b>Id</b></td><td><code>search:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>search:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

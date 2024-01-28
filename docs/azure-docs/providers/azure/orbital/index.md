@@ -33,7 +33,7 @@ Azure Orbital Ground Station Allows You To Schedule Contacts With Spacecrafts On
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Orbital Ground Station</td></tr>
 <tr><td><b>Description</b></td><td>Azure Orbital Ground Station Allows You To Schedule Contacts With Spacecrafts On A Pay-As-You-Go Basis To Ingest Data From The Spacecraft, Monitor The Spacecraft Health And Status, Or Transmit Commands To The Spacecraft. Incoming Data Is Delivered To Your Private Virtual Network Allowing It To Be Processed Or Stored In Azure.</td></tr>
-<tr><td><b>Id</b></td><td><code>orbital:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>orbital:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

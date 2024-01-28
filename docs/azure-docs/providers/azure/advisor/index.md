@@ -33,7 +33,7 @@ Azure Advisor Is A Personalized Cloud Consultant That Helps You Follow Best Prac
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Advisor</td></tr>
 <tr><td><b>Description</b></td><td>Azure Advisor Is A Personalized Cloud Consultant That Helps You Follow Best Practices To Optimize Your Azure Deployments.</td></tr>
-<tr><td><b>Id</b></td><td><code>advisor:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>advisor:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

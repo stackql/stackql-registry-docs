@@ -33,7 +33,7 @@ Azure Frequently Updates Its Infrastructure To Improve Reliability, Performance,
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Maintenance</td></tr>
 <tr><td><b>Description</b></td><td>Azure Frequently Updates Its Infrastructure To Improve Reliability, Performance, And Security, Or To Launch New Features. Most Updates Have Zero Impact On Virtual Machines.</td></tr>
-<tr><td><b>Id</b></td><td><code>maintenance:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>maintenance:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

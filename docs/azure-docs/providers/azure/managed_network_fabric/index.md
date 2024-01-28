@@ -33,7 +33,7 @@ Self Service Experience For Azure Network Fabric API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Network Fabric Management Service API</td></tr>
 <tr><td><b>Description</b></td><td>Self Service Experience For Azure Network Fabric API.</td></tr>
-<tr><td><b>Id</b></td><td><code>managed_network_fabric:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>managed_network_fabric:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

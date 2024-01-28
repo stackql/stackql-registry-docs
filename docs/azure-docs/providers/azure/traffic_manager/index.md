@@ -33,7 +33,7 @@ Microsoft Azure Traffic Manager Allows You To Control The Distribution Of User T
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Traffic Manager</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Azure Traffic Manager Allows You To Control The Distribution Of User Traffic For Service Endpoints In Different Datacenters. Service Endpoints Supported By Traffic Manager Include Azure VMs, Web Apps, And Cloud Services. You Can Also Use Traffic Manager With External, Non-Azure Endpoints.</td></tr>
-<tr><td><b>Id</b></td><td><code>traffic_manager:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>traffic_manager:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

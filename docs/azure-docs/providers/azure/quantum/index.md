@@ -33,7 +33,7 @@ Use Python And Q#, A Language For Quantum Programming, To Create And Submit Quan
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Quantum</td></tr>
 <tr><td><b>Description</b></td><td>Use Python And Q#, A Language For Quantum Programming, To Create And Submit Quantum Programs In The Azure Portal, Or Set Up Your Own Local Development Environment With The Quantum Development Kit (QDK) To Write Quantum Programs.</td></tr>
-<tr><td><b>Id</b></td><td><code>quantum:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>quantum:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

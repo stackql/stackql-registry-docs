@@ -33,7 +33,7 @@ Azure Spring Apps Provides A Managed Service That Enables Java Developers To Bui
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Spring Apps</td></tr>
 <tr><td><b>Description</b></td><td>Azure Spring Apps Provides A Managed Service That Enables Java Developers To Build And Run Spring-Boot Based Microservices On Azure With No Code Changes.</td></tr>
-<tr><td><b>Id</b></td><td><code>spring_apps:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>spring_apps:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

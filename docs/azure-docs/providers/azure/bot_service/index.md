@@ -33,7 +33,7 @@ Azure Bot Service Is A Platform For Creating Smart Conversational Agents.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Bot Service</td></tr>
 <tr><td><b>Description</b></td><td>Azure Bot Service Is A Platform For Creating Smart Conversational Agents.</td></tr>
-<tr><td><b>Id</b></td><td><code>bot_service:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bot_service:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

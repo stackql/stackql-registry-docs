@@ -33,7 +33,7 @@ DNC Web Api Provides Way To Create, Get And Delete Dnc Controller
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Delegated Network Controller (DNC)</td></tr>
 <tr><td><b>Description</b></td><td>DNC Web Api Provides Way To Create, Get And Delete Dnc Controller</td></tr>
-<tr><td><b>Id</b></td><td><code>delegated_network:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>delegated_network:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

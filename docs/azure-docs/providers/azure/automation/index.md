@@ -33,7 +33,7 @@ The Azure Automation Service Provides A Highly Reliable And Scalable Workflow Ex
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Automation</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Automation Service Provides A Highly Reliable And Scalable Workflow Execution Engine To Automate Frequently Repeated Management Tasks. The Processes Are Automated Through Runbooks, Which Are Windows PowerShell Workflows Run In The Azure Automation Execution Engine. You Can Use This API To Create, Update, Read, And Delete Automation Resources, Including Runbooks And Runbook Jobs. In Addition You Can Manage Assets Such As Variables, Schedules, Windows PowerShell Modules, Credentials, And Certificates.</td></tr>
-<tr><td><b>Id</b></td><td><code>automation:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>automation:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

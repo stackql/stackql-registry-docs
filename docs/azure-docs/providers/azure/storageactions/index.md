@@ -33,7 +33,7 @@ The Azure Storage Actions Management API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Storage Actions Management Client</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Storage Actions Management API.</td></tr>
-<tr><td><b>Id</b></td><td><code>storageactions:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storageactions:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ The Service Connector Service Is An Extension Resource Provider That Helps You C
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Connector</td></tr>
 <tr><td><b>Description</b></td><td>The Service Connector Service Is An Extension Resource Provider That Helps You Connect Azure Compute Service To Backing Services Easily.</td></tr>
-<tr><td><b>Id</b></td><td><code>service_connector:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_connector:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -65,6 +65,7 @@
 	 --ifm-color-content: #2d3748;
 	/*--ifm-navbar-link-color: var(--ifm-font-color-base);
 	*/
+	 --ifm-dropdown-link-color: var(--ifm-menu-color);
 	 --ifm-navbar-link-color: var(--ifm-menu-color);
 	 --ifm-menu-color-background-active: var(--ifm-color-emphasis-200);
 
@@ -132,6 +133,13 @@ html[data-theme='dark'] .react-toggle-thumb {
  .navbar__item {
 	 font-weight: 700;
 }
+.navbar__link {
+	font-weight: 700;
+}
+.dropdown__link {
+	font-weight: 700;
+}
+
  .navbar--fixed-top {
 	 margin: 1.5rem 0;
 	/* max-width: 1236px;
@@ -516,3 +524,37 @@ html[data-theme='dark'] .contactFormHeading {
 	margin: 0;
 	padding: 0;
 }
+
+.dropdown__link {
+    border-radius: 0.25rem;
+    color: var(--ifm-dropdown-link-color);
+    display: block;
+    font-size: var(--ifm-font-size-base);
+    margin-top: 0.2rem;
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
+  }
+
+.dropdown__link:hover,
+    .dropdown__link--active {
+      background-color: var(--ifm-dropdown-hover-background-color);
+      color: var(--ifm-dropdown-link-color);
+      text-decoration: none;
+    }
+
+.dropdown__link--active,
+    .dropdown__link--active:hover {
+      --ifm-dropdown-link-color: var(--ifm-link-color);
+    }
+
+.dropdown > .navbar__link:after {
+    border-color: currentColor transparent;
+    border-style: solid;
+    border-width: 0.4em 0.4em 0;
+    content: '';
+    display: inline-block;
+    margin-left: 0.3em;
+    position: relative;
+    top: 2px;
+    transform: translateY(-50%);
+  }

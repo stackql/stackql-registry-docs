@@ -33,7 +33,7 @@ Manage The Azure Resource For An Azure Active Directory B2C Tenant And GuestUsag
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Active Directory B2C</td></tr>
 <tr><td><b>Description</b></td><td>Manage The Azure Resource For An Azure Active Directory B2C Tenant And GuestUsages Resource For External Identities In Azure AD</td></tr>
-<tr><td><b>Id</b></td><td><code>aad_b2c:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>aad_b2c:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

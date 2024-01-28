@@ -33,7 +33,7 @@ Use The Azure Synapse Analytics REST APIs To Create And Manage Azure Synapse Res
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Synapse Analytics</td></tr>
 <tr><td><b>Description</b></td><td>Use The Azure Synapse Analytics REST APIs To Create And Manage Azure Synapse Resources Through Azure Resource Manager And Azure Synapse Endpoints. All Task Operations Conform To The HTTP/1.1 Protocol Specification And Most Operations Return An X-Ms-Request-Id Header That Can Be Used To Obtain Information About The Request.</td></tr>
-<tr><td><b>Id</b></td><td><code>synapse:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>synapse:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

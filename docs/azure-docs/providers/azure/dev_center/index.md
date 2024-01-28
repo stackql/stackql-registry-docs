@@ -33,7 +33,7 @@ Microsoft Dev Box Is A Service That Enables You To Provide Preconfigured Cloud-B
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dev Center</td></tr>
 <tr><td><b>Description</b></td><td>Microsoft Dev Box Is A Service That Enables You To Provide Preconfigured Cloud-Based Workstations To Your Users Through Dev Centers. Developers, Testers, QA Professionals, And Others Who Need To Get Productive Quickly On New Projects Can Self-Serve Multiple Dev Boxes Customized For Their Workloads.</td></tr>
-<tr><td><b>Id</b></td><td><code>dev_center:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dev_center:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

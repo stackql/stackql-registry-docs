@@ -33,7 +33,7 @@ Creates A Microsoft Purview Management Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Microsoft Policy Client</td></tr>
 <tr><td><b>Description</b></td><td>Creates A Microsoft Purview Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>purview_policy:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>purview_policy:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

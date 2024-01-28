@@ -33,7 +33,7 @@ Manage Persistent Storage Volumes For Stateful Container Applications.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Container Storage</td></tr>
 <tr><td><b>Description</b></td><td>Manage Persistent Storage Volumes For Stateful Container Applications.</td></tr>
-<tr><td><b>Id</b></td><td><code>container_storage:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container_storage:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

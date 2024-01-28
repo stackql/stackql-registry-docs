@@ -33,7 +33,7 @@ Azure Container Apps Allows You To Run Containerized Applications Without Worryi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Container Apps</td></tr>
 <tr><td><b>Description</b></td><td>Azure Container Apps Allows You To Run Containerized Applications Without Worrying About Orchestration Or Infrastructure.</td></tr>
-<tr><td><b>Id</b></td><td><code>container_apps:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container_apps:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

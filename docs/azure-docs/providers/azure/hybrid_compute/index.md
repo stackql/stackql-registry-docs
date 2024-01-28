@@ -33,7 +33,7 @@ Azure Arc Enables You To Manage Servers Running Outside Of Azure Using Azure Res
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Hybrid Compute</td></tr>
 <tr><td><b>Description</b></td><td>Azure Arc Enables You To Manage Servers Running Outside Of Azure Using Azure Resource Manager. Each Server Is Represented In Azure As A Hybrid Compute Machine Resource. Once A Server Is Managed With Azure Arc, You Can Deploy Agents, Scripts, Or Configurations To The Machine Using Extensions. The Hybrid Compute API Allows You To Create, List, Update And Delete Your Azure Arc Enabled Servers And Any Extensions Associated With Them.</td></tr>
-<tr><td><b>Id</b></td><td><code>hybrid_compute:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>hybrid_compute:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

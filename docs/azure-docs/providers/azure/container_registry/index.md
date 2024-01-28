@@ -33,7 +33,7 @@ Azure Container Registry Is A Managed Docker Registry Service For Storing And Ma
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Container Registry</td></tr>
 <tr><td><b>Description</b></td><td>Azure Container Registry Is A Managed Docker Registry Service For Storing And Managing Your Private Docker Container Images And Other Artifacts. Push Docker Container Images To A Private Registry As Part Of Your Development Workflows. Pull Images From A Registry To Your Container Deployments With Orchestration Tools Or Other Azure Services.</td></tr>
-<tr><td><b>Id</b></td><td><code>container_registry:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container_registry:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

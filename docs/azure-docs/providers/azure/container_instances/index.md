@@ -33,7 +33,7 @@ Azure Container Instances Offers The Fastest And Simplest Way To Run A Container
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Container Instances</td></tr>
 <tr><td><b>Description</b></td><td>Azure Container Instances Offers The Fastest And Simplest Way To Run A Container In Azure, Without Having To Provision Any Virtual Machines And Without Having To Adopt A Higher-Level Service. </td></tr>
-<tr><td><b>Id</b></td><td><code>container_instances:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container_instances:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

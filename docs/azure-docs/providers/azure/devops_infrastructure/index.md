@@ -33,7 +33,7 @@ Managed DevOps Infrastructure Resource Provider.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Managed DevOps Infrastructure</td></tr>
 <tr><td><b>Description</b></td><td>Managed DevOps Infrastructure Resource Provider.</td></tr>
-<tr><td><b>Id</b></td><td><code>devops_infrastructure:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>devops_infrastructure:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

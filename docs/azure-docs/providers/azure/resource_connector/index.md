@@ -33,7 +33,7 @@ Defines A Connector That Connects Other Resources To A Resource Group. Implement
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Resource Connector</td></tr>
 <tr><td><b>Description</b></td><td>Defines A Connector That Connects Other Resources To A Resource Group. Implementations Of This Class Can Let Users Browse Resources Inside A Specific Resource Group.</td></tr>
-<tr><td><b>Id</b></td><td><code>resource_connector:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>resource_connector:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

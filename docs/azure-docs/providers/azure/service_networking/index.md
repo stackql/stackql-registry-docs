@@ -33,7 +33,7 @@ Application Gateway For Containers Is An Application (Layer 7) Load Balancing An
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Networking (Application Gateway For Containers)</td></tr>
 <tr><td><b>Description</b></td><td>Application Gateway For Containers Is An Application (Layer 7) Load Balancing And Dynamic Traffic Management Product For Workloads Running In A Kubernetes Cluster. It Extends Azures Application Load Balancing Portfolio And Is An Offering Under The Application Gateway Product Family.</td></tr>
-<tr><td><b>Id</b></td><td><code>service_networking:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_networking:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

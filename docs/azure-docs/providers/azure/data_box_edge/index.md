@@ -33,7 +33,7 @@ Azure Data Box Edge And Azure Data Box Gateway Are On-Premises Storage Solutions
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Data Box Edge And Azure Data Box Gateway</td></tr>
 <tr><td><b>Description</b></td><td>Azure Data Box Edge And Azure Data Box Gateway Are On-Premises Storage Solutions That Allow You To Send The Data Over The Network To Azure. Data Box Gateway Is A Virtual Device Based On A Virtual Machine Provisioned In Your Virtualized Environment Or Hypervisor. Data Box Edge Uses A Physical Device Supplied By Microsoft To Accelerate The Secure Data Transfer. Data Box Edge Has All The Capabilities Of Data Box Gateway And Is Additionally Equipped With AI-Enabled Edge Computing Capabilities That Help Analyze, Process, Or Filter Data As It Moves To Azure.</td></tr>
-<tr><td><b>Id</b></td><td><code>data_box_edge:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>data_box_edge:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

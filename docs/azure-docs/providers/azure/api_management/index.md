@@ -33,7 +33,7 @@ Azure API Management Provides A REST API For Performing Operations On Selected E
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure API Management</td></tr>
 <tr><td><b>Description</b></td><td>Azure API Management Provides A REST API For Performing Operations On Selected Entities, Such As Users, Groups, Products, And Subscriptions. This Reference Provides A Guide For Working With The API Management REST API, And Specific Reference Information For Each Available Operation, Grouped By Entity.</td></tr>
-<tr><td><b>Id</b></td><td><code>api_management:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>api_management:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ The IoT Hub Device Provisioning Service Is A Helper Service For IoT Hub That Ena
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure IoT Hub Device Provisioning Service</td></tr>
 <tr><td><b>Description</b></td><td>The IoT Hub Device Provisioning Service Is A Helper Service For IoT Hub That Enables Automatic Device Provisioning To A Specified IoT Hub Without Requiring Human Intervention. You Can Use The Device Provisioning Service To Provision Millions Of Devices In A Secure And Scalable Manner.</td></tr>
-<tr><td><b>Id</b></td><td><code>iot_hub_device_provisioning:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>iot_hub_device_provisioning:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ The Azure Mixed Reality REST API Provides Programmatic Access To Create, Query, 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Mixed Reality</td></tr>
 <tr><td><b>Description</b></td><td>The Azure Mixed Reality REST API Provides Programmatic Access To Create, Query, And Delete Azure Mixed Reality Resources. To Perform Operations On Azure Mixed Reality Resources, You Send HTTPS Requests With A Supported Method: GET, POST, PUT, PATCH Or DELETE To An Endpoint That Targets A Resource Collection Or A Specific Resource. This Section Explains How To Work With Resources By Using The REST API.</td></tr>
-<tr><td><b>Id</b></td><td><code>mixed_reality:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>mixed_reality:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -33,7 +33,7 @@ Train And Deploy Models And Manage The ML Lifecycle (MLOps) With Azure Machine L
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Machine Learning Experimentation</td></tr>
 <tr><td><b>Description</b></td><td>Train And Deploy Models And Manage The ML Lifecycle (MLOps) With Azure Machine Learning. Tutorials, Code Examples, API References, And More.</td></tr>
-<tr><td><b>Id</b></td><td><code>ml_experimentation:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ml_experimentation:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

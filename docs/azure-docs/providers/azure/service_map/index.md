@@ -33,7 +33,7 @@ Service Map Automatically Discovers Application Components On Windows And Linux 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Map</td></tr>
 <tr><td><b>Description</b></td><td>Service Map Automatically Discovers Application Components On Windows And Linux Systems And Maps The Communication Between Services. It Allows You To View Your Servers As You Think Of Them – As Interconnected Systems That Deliver Critical Services. Service Map Shows Connections Between Servers, Processes, And Ports Across Any TCP-Connected Architecture With No Configuration Required Other Than Installation Of An Agent.</td></tr>
-<tr><td><b>Id</b></td><td><code>service_map:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>service_map:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources

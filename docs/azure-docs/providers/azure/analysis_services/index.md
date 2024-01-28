@@ -33,7 +33,7 @@ Built On The Proven Analytics Engine In Microsoft SQL Server Analysis Services, 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Analysis Services</td></tr>
 <tr><td><b>Description</b></td><td>Built On The Proven Analytics Engine In Microsoft SQL Server Analysis Services, Azure Analysis Services Provides Enterprise-Grade Data Modeling In The Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>analysis_services:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>analysis_services:v24.01.00201</code></td></tr>
 </tbody></table>
 
 ## Resources
