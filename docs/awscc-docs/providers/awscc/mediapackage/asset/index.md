@@ -43,22 +43,6 @@ Gets an individual <code>asset</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>asset</code> resource, the following permissions are required:
-
-### Read
-```json
-mediapackage-vod:DescribeAsset
-```
-
-### Delete
-```json
-mediapackage-vod:DescribeAsset,
-mediapackage-vod:DeleteAsset
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -74,5 +58,21 @@ source_role_arn,
 tags
 FROM awscc.mediapackage.asset
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '{Id}';
 ```
+
+## Permissions
+
+To operate on the <code>asset</code> resource, the following permissions are required:
+
+### Read
+```json
+mediapackage-vod:DescribeAsset
+```
+
+### Delete
+```json
+mediapackage-vod:DescribeAsset,
+mediapackage-vod:DeleteAsset
+```
+

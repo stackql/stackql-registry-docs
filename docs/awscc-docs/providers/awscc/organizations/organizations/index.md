@@ -35,6 +35,15 @@ Retrieves a list of <code>organizations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.organizations.organizations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>organizations</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ organizations:ListRoots
 organizations:DescribeOrganization
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.organizations.organizations
-WHERE region = 'us-east-1'
-```

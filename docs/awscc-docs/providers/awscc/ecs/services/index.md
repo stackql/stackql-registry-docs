@@ -36,6 +36,16 @@ Retrieves a list of <code>services</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+service_arn,
+cluster
+FROM awscc.ecs.services
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>services</code> resource, the following permissions are required:
@@ -55,13 +65,3 @@ ecs:ListClusters,
 ecs:ListServices
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-service_arn,
-cluster
-FROM awscc.ecs.services
-WHERE region = 'us-east-1'
-```

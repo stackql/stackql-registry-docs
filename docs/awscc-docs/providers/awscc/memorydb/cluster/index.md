@@ -62,32 +62,6 @@ Gets an individual <code>cluster</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>cluster</code> resource, the following permissions are required:
-
-### Read
-```json
-memorydb:DescribeClusters,
-memorydb:ListTags
-```
-
-### Update
-```json
-memorydb:UpdateCluster,
-memorydb:DescribeClusters,
-memorydb:ListTags,
-memorydb:TagResource,
-memorydb:UntagResource
-```
-
-### Delete
-```json
-memorydb:DeleteCluster,
-memorydb:DescribeClusters
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -122,5 +96,31 @@ auto_minor_version_upgrade,
 tags
 FROM awscc.memorydb.cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterName&gt;'
+AND data__Identifier = '{ClusterName}';
 ```
+
+## Permissions
+
+To operate on the <code>cluster</code> resource, the following permissions are required:
+
+### Read
+```json
+memorydb:DescribeClusters,
+memorydb:ListTags
+```
+
+### Update
+```json
+memorydb:UpdateCluster,
+memorydb:DescribeClusters,
+memorydb:ListTags,
+memorydb:TagResource,
+memorydb:UntagResource
+```
+
+### Delete
+```json
+memorydb:DeleteCluster,
+memorydb:DescribeClusters
+```
+

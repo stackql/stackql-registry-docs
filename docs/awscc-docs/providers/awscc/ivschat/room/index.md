@@ -42,6 +42,23 @@ Gets an individual <code>room</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+id,
+name,
+logging_configuration_identifiers,
+maximum_message_length,
+maximum_message_rate_per_second,
+message_review_handler,
+tags
+FROM awscc.ivschat.room
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>room</code> resource, the following permissions are required:
@@ -66,20 +83,3 @@ ivschat:DeleteRoom,
 ivschat:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-id,
-name,
-logging_configuration_identifiers,
-maximum_message_length,
-maximum_message_rate_per_second,
-message_review_handler,
-tags
-FROM awscc.ivschat.room
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

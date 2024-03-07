@@ -38,6 +38,19 @@ Gets an individual <code>robot_application_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application,
+current_revision_id,
+application_version,
+arn
+FROM awscc.robomaker.robot_application_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>robot_application_version</code> resource, the following permissions are required:
@@ -53,16 +66,3 @@ robomaker:DescribeRobotApplication
 robomaker:DescribeRobotApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application,
-current_revision_id,
-application_version,
-arn
-FROM awscc.robomaker.robot_application_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -42,6 +42,24 @@ Gets an individual <code>table</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+database_name,
+table_name,
+retention_properties,
+schema,
+magnetic_store_write_properties,
+tags
+FROM awscc.timestream.table
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DatabaseName}';
+AND data__Identifier = '{TableName}';
+```
+
 ## Permissions
 
 To operate on the <code>table</code> resource, the following permissions are required:
@@ -74,21 +92,3 @@ timestream:DescribeEndpoints,
 timestream:DescribeTable
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-database_name,
-table_name,
-retention_properties,
-schema,
-magnetic_store_write_properties,
-tags
-FROM awscc.timestream.table
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatabaseName&gt;'
-AND data__Identifier = '&lt;TableName&gt;'
-```

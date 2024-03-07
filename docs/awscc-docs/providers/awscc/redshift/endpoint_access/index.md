@@ -45,6 +45,26 @@ Gets an individual <code>endpoint_access</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+address,
+cluster_identifier,
+vpc_security_groups,
+resource_owner,
+endpoint_status,
+endpoint_name,
+endpoint_create_time,
+subnet_group_name,
+port,
+vpc_security_group_ids,
+vpc_endpoint
+FROM awscc.redshift.endpoint_access
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EndpointName}';
+```
+
 ## Permissions
 
 To operate on the <code>endpoint_access</code> resource, the following permissions are required:
@@ -88,23 +108,3 @@ ec2:DescribeSubnets,
 ec2:DescribeVpcEndpoint
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-address,
-cluster_identifier,
-vpc_security_groups,
-resource_owner,
-endpoint_status,
-endpoint_name,
-endpoint_create_time,
-subnet_group_name,
-port,
-vpc_security_group_ids,
-vpc_endpoint
-FROM awscc.redshift.endpoint_access
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EndpointName&gt;'
-```

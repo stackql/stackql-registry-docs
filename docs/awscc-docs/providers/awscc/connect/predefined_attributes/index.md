@@ -36,6 +36,16 @@ Retrieves a list of <code>predefined_attributes</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+name
+FROM awscc.connect.predefined_attributes
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>predefined_attributes</code> resource, the following permissions are required:
@@ -50,13 +60,3 @@ connect:CreatePredefinedAttribute
 connect:ListPredefinedAttributes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-name
-FROM awscc.connect.predefined_attributes
-WHERE region = 'us-east-1'
-```

@@ -42,6 +42,23 @@ Gets an individual <code>accessor</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+billing_token,
+creation_date,
+id,
+status,
+accessor_type,
+network_type,
+tags
+FROM awscc.managedblockchain.accessor
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>accessor</code> resource, the following permissions are required:
@@ -64,20 +81,3 @@ managedblockchain:UntagResource
 managedblockchain:DeleteAccessor
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-billing_token,
-creation_date,
-id,
-status,
-accessor_type,
-network_type,
-tags
-FROM awscc.managedblockchain.accessor
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

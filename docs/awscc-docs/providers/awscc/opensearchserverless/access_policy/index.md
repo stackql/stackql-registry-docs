@@ -38,6 +38,20 @@ Gets an individual <code>access_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+type,
+description,
+policy
+FROM awscc.opensearchserverless.access_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Type}';
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>access_policy</code> resource, the following permissions are required:
@@ -59,17 +73,3 @@ aoss:DeleteAccessPolicy,
 aoss:GetAccessPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-type,
-description,
-policy
-FROM awscc.opensearchserverless.access_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Type&gt;'
-AND data__Identifier = '&lt;Name&gt;'
-```

@@ -45,6 +45,26 @@ Gets an individual <code>simple_ad</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+directory_id,
+alias,
+dns_ip_addresses,
+create_alias,
+description,
+enable_sso,
+name,
+password,
+short_name,
+size,
+vpc_settings
+FROM awscc.directoryservice.simple_ad
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DirectoryId}';
+```
+
 ## Permissions
 
 To operate on the <code>simple_ad</code> resource, the following permissions are required:
@@ -73,23 +93,3 @@ ec2:RevokeSecurityGroupEgress,
 ec2:DeleteTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-directory_id,
-alias,
-dns_ip_addresses,
-create_alias,
-description,
-enable_sso,
-name,
-password,
-short_name,
-size,
-vpc_settings
-FROM awscc.directoryservice.simple_ad
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DirectoryId&gt;'
-```

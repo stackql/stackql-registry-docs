@@ -35,6 +35,15 @@ Retrieves a list of <code>wireless_devices</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.iotwireless.wireless_devices
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>wireless_devices</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iotwireless:ListWirelessDevices,
 iotwireless:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.iotwireless.wireless_devices
-WHERE region = 'us-east-1'
-```

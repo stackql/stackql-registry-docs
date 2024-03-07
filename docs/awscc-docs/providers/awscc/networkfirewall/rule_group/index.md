@@ -42,6 +42,23 @@ Gets an individual <code>rule_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+rule_group_name,
+rule_group_arn,
+rule_group_id,
+rule_group,
+type,
+capacity,
+description,
+tags
+FROM awscc.networkfirewall.rule_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RuleGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>rule_group</code> resource, the following permissions are required:
@@ -69,20 +86,3 @@ network-firewall:DescribeRuleGroup,
 network-firewall:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-rule_group_name,
-rule_group_arn,
-rule_group_id,
-rule_group,
-type,
-capacity,
-description,
-tags
-FROM awscc.networkfirewall.rule_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleGroupArn&gt;'
-```

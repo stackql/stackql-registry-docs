@@ -35,6 +35,15 @@ Retrieves a list of <code>topic_inline_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+topic_arn
+FROM awscc.sns.topic_inline_policies
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>topic_inline_policies</code> resource, the following permissions are required:
@@ -45,12 +54,3 @@ sns:SetTopicAttributes,
 sns:GetTopicAttributes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-topic_arn
-FROM awscc.sns.topic_inline_policies
-WHERE region = 'us-east-1'
-```

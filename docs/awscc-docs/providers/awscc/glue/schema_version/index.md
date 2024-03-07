@@ -37,6 +37,18 @@ Gets an individual <code>schema_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+schema,
+schema_definition,
+version_id
+FROM awscc.glue.schema_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '{VersionId}';
+```
+
 ## Permissions
 
 To operate on the <code>schema_version</code> resource, the following permissions are required:
@@ -52,15 +64,3 @@ glue:DeleteSchemaVersions,
 glue:GetSchemaVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-schema,
-schema_definition,
-version_id
-FROM awscc.glue.schema_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VersionId&gt;'
-```

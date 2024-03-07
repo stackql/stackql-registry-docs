@@ -35,6 +35,15 @@ Retrieves a list of <code>inference_components</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+inference_component_arn
+FROM awscc.sagemaker.inference_components
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>inference_components</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ sagemaker:DescribeInferenceComponent,
 sagemaker:ListTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-inference_component_arn
-FROM awscc.sagemaker.inference_components
-WHERE region = 'us-east-1'
-```

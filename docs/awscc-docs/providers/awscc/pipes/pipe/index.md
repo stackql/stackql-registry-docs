@@ -51,6 +51,32 @@ Gets an individual <code>pipe</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+creation_time,
+current_state,
+description,
+desired_state,
+enrichment,
+enrichment_parameters,
+last_modified_time,
+log_configuration,
+name,
+role_arn,
+source,
+source_parameters,
+state_reason,
+tags,
+target,
+target_parameters
+FROM awscc.pipes.pipe
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>pipe</code> resource, the following permissions are required:
@@ -92,29 +118,3 @@ logs:GetLogDelivery,
 logs:ListLogDeliveries
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-creation_time,
-current_state,
-description,
-desired_state,
-enrichment,
-enrichment_parameters,
-last_modified_time,
-log_configuration,
-name,
-role_arn,
-source,
-source_parameters,
-state_reason,
-tags,
-target,
-target_parameters
-FROM awscc.pipes.pipe
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

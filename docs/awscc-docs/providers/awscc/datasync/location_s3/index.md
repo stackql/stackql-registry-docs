@@ -41,6 +41,22 @@ Gets an individual <code>location_s3</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+s3_config,
+s3_bucket_arn,
+subdirectory,
+s3_storage_class,
+tags,
+location_arn,
+location_uri
+FROM awscc.datasync.location_s3
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LocationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>location_s3</code> resource, the following permissions are required:
@@ -64,19 +80,3 @@ datasync:UntagResource
 datasync:DeleteLocation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-s3_config,
-s3_bucket_arn,
-subdirectory,
-s3_storage_class,
-tags,
-location_arn,
-location_uri
-FROM awscc.datasync.location_s3
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationArn&gt;'
-```

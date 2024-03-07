@@ -41,6 +41,23 @@ Gets an individual <code>principal_permissions</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+catalog,
+principal,
+resource,
+permissions,
+permissions_with_grant_option,
+principal_identifier,
+resource_identifier
+FROM awscc.lakeformation.principal_permissions
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PrincipalIdentifier}';
+AND data__Identifier = '{ResourceIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>principal_permissions</code> resource, the following permissions are required:
@@ -60,20 +77,3 @@ glue:GetTable,
 glue:GetDatabase
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-catalog,
-principal,
-resource,
-permissions,
-permissions_with_grant_option,
-principal_identifier,
-resource_identifier
-FROM awscc.lakeformation.principal_permissions
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PrincipalIdentifier&gt;'
-AND data__Identifier = '&lt;ResourceIdentifier&gt;'
-```

@@ -59,34 +59,6 @@ Gets an individual <code>domain</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>domain</code> resource, the following permissions are required:
-
-### Read
-```json
-es:DescribeDomain,
-es:ListTags
-```
-
-### Update
-```json
-es:UpdateDomain,
-es:UpgradeDomain,
-es:DescribeDomain,
-es:AddTags,
-es:RemoveTags,
-es:ListTags,
-es:DescribeDomainChangeProgress
-```
-
-### Delete
-```json
-es:DeleteDomain,
-es:DescribeDomain
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -118,5 +90,33 @@ off_peak_window_options,
 software_update_options
 FROM awscc.opensearchservice.domain
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
+AND data__Identifier = '{DomainName}';
 ```
+
+## Permissions
+
+To operate on the <code>domain</code> resource, the following permissions are required:
+
+### Read
+```json
+es:DescribeDomain,
+es:ListTags
+```
+
+### Update
+```json
+es:UpdateDomain,
+es:UpgradeDomain,
+es:DescribeDomain,
+es:AddTags,
+es:RemoveTags,
+es:ListTags,
+es:DescribeDomainChangeProgress
+```
+
+### Delete
+```json
+es:DeleteDomain,
+es:DescribeDomain
+```
+

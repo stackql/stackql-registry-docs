@@ -42,6 +42,23 @@ Gets an individual <code>resolver_rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resolver_endpoint_id,
+domain_name,
+name,
+rule_type,
+tags,
+target_ips,
+arn,
+resolver_rule_id
+FROM awscc.route53resolver.resolver_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ResolverRuleId}';
+```
+
 ## Permissions
 
 To operate on the <code>resolver_rule</code> resource, the following permissions are required:
@@ -67,20 +84,3 @@ route53resolver:DeleteResolverRule,
 route53resolver:GetResolverRule
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resolver_endpoint_id,
-domain_name,
-name,
-rule_type,
-tags,
-target_ips,
-arn,
-resolver_rule_id
-FROM awscc.route53resolver.resolver_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResolverRuleId&gt;'
-```

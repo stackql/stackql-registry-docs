@@ -42,6 +42,24 @@ Gets an individual <code>lifecycle_hook</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+auto_scaling_group_name,
+default_result,
+heartbeat_timeout,
+lifecycle_hook_name,
+lifecycle_transition,
+notification_metadata,
+notification_target_ar_n,
+role_ar_n
+FROM awscc.autoscaling.lifecycle_hook
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AutoScalingGroupName}';
+AND data__Identifier = '{LifecycleHookName}';
+```
+
 ## Permissions
 
 To operate on the <code>lifecycle_hook</code> resource, the following permissions are required:
@@ -64,21 +82,3 @@ autoscaling:DeleteLifecycleHook,
 autoscaling:DescribeLifecycleHooks
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-auto_scaling_group_name,
-default_result,
-heartbeat_timeout,
-lifecycle_hook_name,
-lifecycle_transition,
-notification_metadata,
-notification_target_ar_n,
-role_ar_n
-FROM awscc.autoscaling.lifecycle_hook
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AutoScalingGroupName&gt;'
-AND data__Identifier = '&lt;LifecycleHookName&gt;'
-```

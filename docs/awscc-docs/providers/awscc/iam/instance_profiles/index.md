@@ -35,6 +35,15 @@ Retrieves a list of <code>instance_profiles</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_profile_name
+FROM awscc.iam.instance_profiles
+
+```
+
 ## Permissions
 
 To operate on the <code>instance_profiles</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iam:GetInstanceProfile
 iam:ListInstanceProfiles
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_profile_name
-FROM awscc.iam.instance_profiles
-
-```

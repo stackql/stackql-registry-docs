@@ -40,6 +40,21 @@ Gets an individual <code>alert</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+alert_name,
+arn,
+alert_description,
+anomaly_detector_arn,
+alert_sensitivity_threshold,
+action
+FROM awscc.lookoutmetrics.alert
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>alert</code> resource, the following permissions are required:
@@ -54,18 +69,3 @@ lookoutmetrics:DescribeAlert
 lookoutmetrics:DeleteAlert
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-alert_name,
-arn,
-alert_description,
-anomaly_detector_arn,
-alert_sensitivity_threshold,
-action
-FROM awscc.lookoutmetrics.alert
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -38,6 +38,20 @@ Gets an individual <code>target_account_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+experiment_template_id,
+account_id,
+role_arn,
+description
+FROM awscc.fis.target_account_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ExperimentTemplateId}';
+AND data__Identifier = '{AccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>target_account_configuration</code> resource, the following permissions are required:
@@ -57,17 +71,3 @@ fis:UpdateTargetAccountConfiguration
 fis:DeleteTargetAccountConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-experiment_template_id,
-account_id,
-role_arn,
-description
-FROM awscc.fis.target_account_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ExperimentTemplateId&gt;'
-AND data__Identifier = '&lt;AccountId&gt;'
-```

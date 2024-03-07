@@ -37,6 +37,17 @@ Retrieves a list of <code>refresh_schedules</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+aws_account_id,
+data_set_id,
+schedule/schedule_id
+FROM awscc.quicksight.refresh_schedules
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>refresh_schedules</code> resource, the following permissions are required:
@@ -52,14 +63,3 @@ quicksight:DescribeRefreshSchedule
 quicksight:ListRefreshSchedules
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-aws_account_id,
-data_set_id,
-schedule/schedule_id
-FROM awscc.quicksight.refresh_schedules
-WHERE region = 'us-east-1'
-```

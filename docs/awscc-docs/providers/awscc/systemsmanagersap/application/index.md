@@ -42,6 +42,23 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application_id,
+application_type,
+arn,
+credentials,
+instances,
+sap_instance_number,
+sid,
+tags
+FROM awscc.systemsmanagersap.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>application</code> resource, the following permissions are required:
@@ -66,20 +83,3 @@ ssm-sap:DeregisterApplication,
 ssm-sap:GetApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application_id,
-application_type,
-arn,
-credentials,
-instances,
-sap_instance_number,
-sid,
-tags
-FROM awscc.systemsmanagersap.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

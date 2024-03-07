@@ -44,6 +44,25 @@ Gets an individual <code>inference_scheduler</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+data_delay_offset_in_minutes,
+data_input_configuration,
+data_output_configuration,
+data_upload_frequency,
+inference_scheduler_name,
+model_name,
+role_arn,
+server_side_kms_key_id,
+tags,
+inference_scheduler_arn
+FROM awscc.lookoutequipment.inference_scheduler
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InferenceSchedulerName}';
+```
+
 ## Permissions
 
 To operate on the <code>inference_scheduler</code> resource, the following permissions are required:
@@ -68,22 +87,3 @@ lookoutequipment:StopInferenceScheduler,
 lookoutequipment:StartInferenceScheduler
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-data_delay_offset_in_minutes,
-data_input_configuration,
-data_output_configuration,
-data_upload_frequency,
-inference_scheduler_name,
-model_name,
-role_arn,
-server_side_kms_key_id,
-tags,
-inference_scheduler_arn
-FROM awscc.lookoutequipment.inference_scheduler
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InferenceSchedulerName&gt;'
-```

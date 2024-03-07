@@ -36,6 +36,16 @@ Retrieves a list of <code>themes</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+theme_id,
+aws_account_id
+FROM awscc.quicksight.themes
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>themes</code> resource, the following permissions are required:
@@ -55,13 +65,3 @@ quicksight:ListTagsForResource
 quicksight:ListThemes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-theme_id,
-aws_account_id
-FROM awscc.quicksight.themes
-WHERE region = 'us-east-1'
-```

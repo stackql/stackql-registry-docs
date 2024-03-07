@@ -58,28 +58,6 @@ Gets an individual <code>event_source_mapping</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>event_source_mapping</code> resource, the following permissions are required:
-
-### Delete
-```json
-lambda:DeleteEventSourceMapping,
-lambda:GetEventSourceMapping
-```
-
-### Read
-```json
-lambda:GetEventSourceMapping
-```
-
-### Update
-```json
-lambda:UpdateEventSourceMapping,
-lambda:GetEventSourceMapping
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -110,5 +88,27 @@ scaling_config,
 document_db_event_source_config
 FROM awscc.lambda.event_source_mapping
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '{Id}';
 ```
+
+## Permissions
+
+To operate on the <code>event_source_mapping</code> resource, the following permissions are required:
+
+### Delete
+```json
+lambda:DeleteEventSourceMapping,
+lambda:GetEventSourceMapping
+```
+
+### Read
+```json
+lambda:GetEventSourceMapping
+```
+
+### Update
+```json
+lambda:UpdateEventSourceMapping,
+lambda:GetEventSourceMapping
+```
+

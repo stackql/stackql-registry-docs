@@ -52,6 +52,33 @@ Gets an individual <code>inference_experiment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+type,
+description,
+role_arn,
+endpoint_name,
+endpoint_metadata,
+schedule,
+kms_key,
+data_storage_config,
+model_variants,
+shadow_mode_config,
+tags,
+creation_time,
+last_modified_time,
+status,
+status_reason,
+desired_state
+FROM awscc.sagemaker.inference_experiment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>inference_experiment</code> resource, the following permissions are required:
@@ -81,30 +108,3 @@ sagemaker:DeleteTags,
 sagemaker:ListTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-type,
-description,
-role_arn,
-endpoint_name,
-endpoint_metadata,
-schedule,
-kms_key,
-data_storage_config,
-model_variants,
-shadow_mode_config,
-tags,
-creation_time,
-last_modified_time,
-status,
-status_reason,
-desired_state
-FROM awscc.sagemaker.inference_experiment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

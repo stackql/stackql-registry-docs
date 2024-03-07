@@ -39,6 +39,20 @@ Gets an individual <code>rule_groups_namespace</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+workspace,
+name,
+data,
+arn,
+tags
+FROM awscc.aps.rule_groups_namespace
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>rule_groups_namespace</code> resource, the following permissions are required:
@@ -64,17 +78,3 @@ aps:DeleteRuleGroupsNamespace,
 aps:DescribeRuleGroupsNamespace
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-workspace,
-name,
-data,
-arn,
-tags
-FROM awscc.aps.rule_groups_namespace
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

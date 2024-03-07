@@ -42,6 +42,23 @@ Gets an individual <code>replicator</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+replicator_arn,
+replicator_name,
+current_version,
+description,
+kafka_clusters,
+replication_info_list,
+service_execution_role_arn,
+tags
+FROM awscc.msk.replicator
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ReplicatorArn}';
+```
+
 ## Permissions
 
 To operate on the <code>replicator</code> resource, the following permissions are required:
@@ -69,20 +86,3 @@ kafka:ListTagsForResource,
 kafka:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-replicator_arn,
-replicator_name,
-current_version,
-description,
-kafka_clusters,
-replication_info_list,
-service_execution_role_arn,
-tags
-FROM awscc.msk.replicator
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ReplicatorArn&gt;'
-```

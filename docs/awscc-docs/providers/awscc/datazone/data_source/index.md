@@ -56,29 +56,6 @@ Gets an individual <code>data_source</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>data_source</code> resource, the following permissions are required:
-
-### Read
-```json
-datazone:GetDataSource
-```
-
-### Update
-```json
-datazone:UpdateDataSource,
-datazone:GetDataSource,
-datazone:DeleteDataSource
-```
-
-### Delete
-```json
-datazone:DeleteDataSource,
-datazone:GetDataSource
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -107,6 +84,29 @@ type,
 updated_at
 FROM awscc.datazone.data_source
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainId&gt;'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '{DomainId}';
+AND data__Identifier = '{Id}';
 ```
+
+## Permissions
+
+To operate on the <code>data_source</code> resource, the following permissions are required:
+
+### Read
+```json
+datazone:GetDataSource
+```
+
+### Update
+```json
+datazone:UpdateDataSource,
+datazone:GetDataSource,
+datazone:DeleteDataSource
+```
+
+### Delete
+```json
+datazone:DeleteDataSource,
+datazone:GetDataSource
+```
+

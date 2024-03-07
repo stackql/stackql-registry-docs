@@ -42,6 +42,24 @@ Gets an individual <code>restore_testing_selection</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+iam_role_arn,
+protected_resource_arns,
+protected_resource_conditions,
+protected_resource_type,
+restore_metadata_overrides,
+restore_testing_plan_name,
+restore_testing_selection_name,
+validation_window_hours
+FROM awscc.backup.restore_testing_selection
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RestoreTestingPlanName}';
+AND data__Identifier = '{RestoreTestingSelectionName}';
+```
+
 ## Permissions
 
 To operate on the <code>restore_testing_selection</code> resource, the following permissions are required:
@@ -64,21 +82,3 @@ backup:DeleteRestoreTestingSelection,
 backup:GetRestoreTestingSelection
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-iam_role_arn,
-protected_resource_arns,
-protected_resource_conditions,
-protected_resource_type,
-restore_metadata_overrides,
-restore_testing_plan_name,
-restore_testing_selection_name,
-validation_window_hours
-FROM awscc.backup.restore_testing_selection
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestoreTestingPlanName&gt;'
-AND data__Identifier = '&lt;RestoreTestingSelectionName&gt;'
-```

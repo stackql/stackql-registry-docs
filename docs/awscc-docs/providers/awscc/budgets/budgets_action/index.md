@@ -43,6 +43,25 @@ Gets an individual <code>budgets_action</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+action_id,
+budget_name,
+notification_type,
+action_type,
+action_threshold,
+execution_role_arn,
+approval_model,
+subscribers,
+definition
+FROM awscc.budgets.budgets_action
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ActionId}';
+AND data__Identifier = '{BudgetName}';
+```
+
 ## Permissions
 
 To operate on the <code>budgets_action</code> resource, the following permissions are required:
@@ -63,22 +82,3 @@ iam:PassRole
 budgets:DeleteBudgetAction
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-action_id,
-budget_name,
-notification_type,
-action_type,
-action_threshold,
-execution_role_arn,
-approval_model,
-subscribers,
-definition
-FROM awscc.budgets.budgets_action
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ActionId&gt;'
-AND data__Identifier = '&lt;BudgetName&gt;'
-```

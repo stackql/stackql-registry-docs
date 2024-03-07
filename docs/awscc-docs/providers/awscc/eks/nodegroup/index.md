@@ -54,6 +54,35 @@ Gets an individual <code>nodegroup</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+ami_type,
+capacity_type,
+cluster_name,
+disk_size,
+force_update_enabled,
+instance_types,
+labels,
+launch_template,
+nodegroup_name,
+node_role,
+release_version,
+remote_access,
+scaling_config,
+subnets,
+tags,
+taints,
+update_config,
+version,
+id,
+arn
+FROM awscc.eks.nodegroup
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>nodegroup</code> resource, the following permissions are required:
@@ -82,32 +111,3 @@ eks:UpdateNodegroupConfig,
 eks:UpdateNodegroupVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-ami_type,
-capacity_type,
-cluster_name,
-disk_size,
-force_update_enabled,
-instance_types,
-labels,
-launch_template,
-nodegroup_name,
-node_role,
-release_version,
-remote_access,
-scaling_config,
-subnets,
-tags,
-taints,
-update_config,
-version,
-id,
-arn
-FROM awscc.eks.nodegroup
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -50,23 +50,6 @@ Gets an individual <code>container_recipe</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>container_recipe</code> resource, the following permissions are required:
-
-### Read
-```json
-imagebuilder:GetContainerRecipe
-```
-
-### Delete
-```json
-imagebuilder:UnTagResource,
-imagebuilder:GetContainerRecipe,
-imagebuilder:DeleteContainerRecipe
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -89,5 +72,22 @@ working_directory,
 tags
 FROM awscc.imagebuilder.container_recipe
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '{Arn}';
 ```
+
+## Permissions
+
+To operate on the <code>container_recipe</code> resource, the following permissions are required:
+
+### Read
+```json
+imagebuilder:GetContainerRecipe
+```
+
+### Delete
+```json
+imagebuilder:UnTagResource,
+imagebuilder:GetContainerRecipe,
+imagebuilder:DeleteContainerRecipe
+```
+

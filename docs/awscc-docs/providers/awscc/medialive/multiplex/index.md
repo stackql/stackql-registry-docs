@@ -44,6 +44,25 @@ Gets an individual <code>multiplex</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+availability_zones,
+destinations,
+id,
+multiplex_settings,
+name,
+pipelines_running_count,
+program_count,
+state,
+tags
+FROM awscc.medialive.multiplex
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>multiplex</code> resource, the following permissions are required:
@@ -67,22 +86,3 @@ medialive:DeleteMultiplex,
 medialive:DescribeMultiplex
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-availability_zones,
-destinations,
-id,
-multiplex_settings,
-name,
-pipelines_running_count,
-program_count,
-state,
-tags
-FROM awscc.medialive.multiplex
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

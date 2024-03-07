@@ -38,6 +38,19 @@ Gets an individual <code>user_access_logging_settings</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+associated_portal_arns,
+kinesis_stream_arn,
+tags,
+user_access_logging_settings_arn
+FROM awscc.workspacesweb.user_access_logging_settings
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserAccessLoggingSettingsArn}';
+```
+
 ## Permissions
 
 To operate on the <code>user_access_logging_settings</code> resource, the following permissions are required:
@@ -65,16 +78,3 @@ workspaces-web:GetUserAccessLoggingSettings,
 workspaces-web:DeleteUserAccessLoggingSettings
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-associated_portal_arns,
-kinesis_stream_arn,
-tags,
-user_access_logging_settings_arn
-FROM awscc.workspacesweb.user_access_logging_settings
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserAccessLoggingSettingsArn&gt;'
-```

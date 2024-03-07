@@ -39,6 +39,21 @@ Gets an individual <code>event_invoke_config</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+destination_config,
+function_name,
+maximum_event_age_in_seconds,
+maximum_retry_attempts,
+qualifier
+FROM awscc.lambda.event_invoke_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FunctionName}';
+AND data__Identifier = '{Qualifier}';
+```
+
 ## Permissions
 
 To operate on the <code>event_invoke_config</code> resource, the following permissions are required:
@@ -58,18 +73,3 @@ lambda:UpdateFunctionEventInvokeConfig
 lambda:DeleteFunctionEventInvokeConfig
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-destination_config,
-function_name,
-maximum_event_age_in_seconds,
-maximum_retry_attempts,
-qualifier
-FROM awscc.lambda.event_invoke_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FunctionName&gt;'
-AND data__Identifier = '&lt;Qualifier&gt;'
-```

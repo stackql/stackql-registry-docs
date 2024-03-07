@@ -44,6 +44,25 @@ Gets an individual <code>game_session_queue</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+timeout_in_seconds,
+destinations,
+player_latency_policies,
+custom_event_data,
+notification_target,
+filter_configuration,
+priority_configuration,
+arn,
+tags
+FROM awscc.gamelift.game_session_queue
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>game_session_queue</code> resource, the following permissions are required:
@@ -68,22 +87,3 @@ gamelift:TagResource,
 gamelift:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-timeout_in_seconds,
-destinations,
-player_latency_policies,
-custom_event_data,
-notification_target,
-filter_configuration,
-priority_configuration,
-arn,
-tags
-FROM awscc.gamelift.game_session_queue
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

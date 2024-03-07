@@ -47,6 +47,28 @@ Gets an individual <code>source_api_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+source_api_identifier,
+merged_api_identifier,
+description,
+source_api_association_config,
+association_id,
+association_arn,
+source_api_id,
+source_api_arn,
+merged_api_id,
+merged_api_arn,
+source_api_association_status,
+source_api_association_status_detail,
+last_successful_merge_date
+FROM awscc.appsync.source_api_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AssociationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>source_api_association</code> resource, the following permissions are required:
@@ -72,25 +94,3 @@ appsync:DisassociateMergedGraphqlApi,
 appsync:ListSourceApiAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-source_api_identifier,
-merged_api_identifier,
-description,
-source_api_association_config,
-association_id,
-association_arn,
-source_api_id,
-source_api_arn,
-merged_api_id,
-merged_api_arn,
-source_api_association_status,
-source_api_association_status_detail,
-last_successful_merge_date
-FROM awscc.appsync.source_api_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssociationArn&gt;'
-```

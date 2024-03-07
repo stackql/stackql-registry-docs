@@ -49,6 +49,30 @@ Gets an individual <code>branch</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_id,
+arn,
+basic_auth_config,
+backend,
+branch_name,
+build_spec,
+description,
+enable_auto_build,
+enable_performance_mode,
+enable_pull_request_preview,
+environment_variables,
+framework,
+pull_request_environment_name,
+stage,
+tags
+FROM awscc.amplify.branch
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>branch</code> resource, the following permissions are required:
@@ -94,27 +118,3 @@ sns:Unsubscribe,
 iam:PassRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_id,
-arn,
-basic_auth_config,
-backend,
-branch_name,
-build_spec,
-description,
-enable_auto_build,
-enable_performance_mode,
-enable_pull_request_preview,
-environment_variables,
-framework,
-pull_request_environment_name,
-stage,
-tags
-FROM awscc.amplify.branch
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

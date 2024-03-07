@@ -36,6 +36,16 @@ Retrieves a list of <code>application_fleet_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+fleet_name,
+application_arn
+FROM awscc.appstream.application_fleet_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>application_fleet_associations</code> resource, the following permissions are required:
@@ -46,13 +56,3 @@ appstream:AssociateApplicationFleet,
 appstream:DescribeApplicationFleetAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-fleet_name,
-application_arn
-FROM awscc.appstream.application_fleet_associations
-WHERE region = 'us-east-1'
-```

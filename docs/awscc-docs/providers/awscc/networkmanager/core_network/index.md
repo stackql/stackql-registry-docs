@@ -45,6 +45,26 @@ Gets an individual <code>core_network</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+global_network_id,
+core_network_id,
+core_network_arn,
+policy_document,
+description,
+created_at,
+state,
+segments,
+edges,
+owner_account,
+tags
+FROM awscc.networkmanager.core_network
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CoreNetworkId}';
+```
+
 ## Permissions
 
 To operate on the <code>core_network</code> resource, the following permissions are required:
@@ -77,23 +97,3 @@ networkmanager:GetCoreNetworkPolicy,
 ec2:DescribeRegions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-global_network_id,
-core_network_id,
-core_network_arn,
-policy_document,
-description,
-created_at,
-state,
-segments,
-edges,
-owner_account,
-tags
-FROM awscc.networkmanager.core_network
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CoreNetworkId&gt;'
-```

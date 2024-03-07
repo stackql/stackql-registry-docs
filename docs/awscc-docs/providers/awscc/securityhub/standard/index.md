@@ -37,6 +37,18 @@ Gets an individual <code>standard</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+standards_subscription_arn,
+standards_arn,
+disabled_standards_controls
+FROM awscc.securityhub.standard
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StandardsSubscriptionArn}';
+```
+
 ## Permissions
 
 To operate on the <code>standard</code> resource, the following permissions are required:
@@ -59,15 +71,3 @@ securityhub:GetEnabledStandards,
 securityhub:BatchDisableStandards
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-standards_subscription_arn,
-standards_arn,
-disabled_standards_controls
-FROM awscc.securityhub.standard
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StandardsSubscriptionArn&gt;'
-```

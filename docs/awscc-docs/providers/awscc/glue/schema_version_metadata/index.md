@@ -37,6 +37,20 @@ Gets an individual <code>schema_version_metadata</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+schema_version_id,
+key,
+value
+FROM awscc.glue.schema_version_metadata
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SchemaVersionId}';
+AND data__Identifier = '{Key}';
+AND data__Identifier = '{Value}';
+```
+
 ## Permissions
 
 To operate on the <code>schema_version_metadata</code> resource, the following permissions are required:
@@ -51,17 +65,3 @@ glue:querySchemaVersionMetadata
 glue:removeSchemaVersionMetadata
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-schema_version_id,
-key,
-value
-FROM awscc.glue.schema_version_metadata
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SchemaVersionId&gt;'
-AND data__Identifier = '&lt;Key&gt;'
-AND data__Identifier = '&lt;Value&gt;'
-```

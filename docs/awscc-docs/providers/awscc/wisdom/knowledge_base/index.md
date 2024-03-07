@@ -43,6 +43,24 @@ Gets an individual <code>knowledge_base</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+knowledge_base_arn,
+knowledge_base_id,
+knowledge_base_type,
+name,
+rendering_configuration,
+server_side_encryption_configuration,
+source_configuration,
+tags
+FROM awscc.wisdom.knowledge_base
+WHERE region = 'us-east-1'
+AND data__Identifier = '{KnowledgeBaseId}';
+```
+
 ## Permissions
 
 To operate on the <code>knowledge_base</code> resource, the following permissions are required:
@@ -65,21 +83,3 @@ wisdom:DeleteKnowledgeBase
 wisdom:GetKnowledgeBase
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-knowledge_base_arn,
-knowledge_base_id,
-knowledge_base_type,
-name,
-rendering_configuration,
-server_side_encryption_configuration,
-source_configuration,
-tags
-FROM awscc.wisdom.knowledge_base
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;KnowledgeBaseId&gt;'
-```

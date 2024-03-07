@@ -35,6 +35,15 @@ Retrieves a list of <code>stored_queries</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+query_name
+FROM awscc.config.stored_queries
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>stored_queries</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ config:TagResource
 config:ListStoredQueries
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-query_name
-FROM awscc.config.stored_queries
-WHERE region = 'us-east-1'
-```

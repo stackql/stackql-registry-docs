@@ -35,6 +35,15 @@ Retrieves a list of <code>cis_scan_configurations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.inspectorv2.cis_scan_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>cis_scan_configurations</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ inspector2:ListCisScanConfigurations,
 inspector2:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.inspectorv2.cis_scan_configurations
-WHERE region = 'us-east-1'
-```

@@ -47,6 +47,28 @@ Gets an individual <code>tracker</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+create_time,
+description,
+event_bridge_enabled,
+kms_key_enable_geospatial_queries,
+kms_key_id,
+position_filtering,
+pricing_plan,
+pricing_plan_data_source,
+tags,
+tracker_arn,
+tracker_name,
+update_time,
+arn
+FROM awscc.location.tracker
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TrackerName}';
+```
+
 ## Permissions
 
 To operate on the <code>tracker</code> resource, the following permissions are required:
@@ -74,25 +96,3 @@ geo:DeleteTracker,
 geo:DescribeTracker
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-create_time,
-description,
-event_bridge_enabled,
-kms_key_enable_geospatial_queries,
-kms_key_id,
-position_filtering,
-pricing_plan,
-pricing_plan_data_source,
-tags,
-tracker_arn,
-tracker_name,
-update_time,
-arn
-FROM awscc.location.tracker
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrackerName&gt;'
-```

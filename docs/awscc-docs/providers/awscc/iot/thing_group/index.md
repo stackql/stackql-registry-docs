@@ -41,6 +41,22 @@ Gets an individual <code>thing_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+thing_group_name,
+parent_group_name,
+query_string,
+thing_group_properties,
+tags
+FROM awscc.iot.thing_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ThingGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>thing_group</code> resource, the following permissions are required:
@@ -68,19 +84,3 @@ iot:TagResource,
 iot:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-thing_group_name,
-parent_group_name,
-query_string,
-thing_group_properties,
-tags
-FROM awscc.iot.thing_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ThingGroupName&gt;'
-```

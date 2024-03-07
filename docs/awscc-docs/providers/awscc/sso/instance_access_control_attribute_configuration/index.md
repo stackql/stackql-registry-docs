@@ -37,6 +37,18 @@ Gets an individual <code>instance_access_control_attribute_configuration</code> 
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+instance_access_control_attribute_configuration,
+access_control_attributes
+FROM awscc.sso.instance_access_control_attribute_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InstanceArn}';
+```
+
 ## Permissions
 
 To operate on the <code>instance_access_control_attribute_configuration</code> resource, the following permissions are required:
@@ -58,15 +70,3 @@ sso:DeleteInstanceAccessControlAttributeConfiguration,
 sso:DescribeInstanceAccessControlAttributeConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-instance_access_control_attribute_configuration,
-access_control_attributes
-FROM awscc.sso.instance_access_control_attribute_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceArn&gt;'
-```

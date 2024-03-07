@@ -44,6 +44,26 @@ Gets an individual <code>streaming_image</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+ec2_image_id,
+encryption_configuration,
+eula_ids,
+name,
+owner,
+platform,
+streaming_image_id,
+studio_id,
+tags
+FROM awscc.nimblestudio.streaming_image
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StudioId}';
+AND data__Identifier = '{StreamingImageId}';
+```
+
 ## Permissions
 
 To operate on the <code>streaming_image</code> resource, the following permissions are required:
@@ -77,23 +97,3 @@ kms:ListGrants,
 kms:RetireGrant
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-ec2_image_id,
-encryption_configuration,
-eula_ids,
-name,
-owner,
-platform,
-streaming_image_id,
-studio_id,
-tags
-FROM awscc.nimblestudio.streaming_image
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StudioId&gt;'
-AND data__Identifier = '&lt;StreamingImageId&gt;'
-```

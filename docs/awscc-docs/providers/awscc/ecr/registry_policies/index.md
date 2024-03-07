@@ -35,6 +35,15 @@ Retrieves a list of <code>registry_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+registry_id
+FROM awscc.ecr.registry_policies
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>registry_policies</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ ecr:PutRegistryPolicy
 ecr:GetRegistryPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-registry_id
-FROM awscc.ecr.registry_policies
-WHERE region = 'us-east-1'
-```

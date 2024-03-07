@@ -42,6 +42,23 @@ Gets an individual <code>packaging_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+packaging_group_id,
+arn,
+cmaf_package,
+dash_package,
+hls_package,
+mss_package,
+tags
+FROM awscc.mediapackage.packaging_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>packaging_configuration</code> resource, the following permissions are required:
@@ -57,20 +74,3 @@ mediapackage-vod:DescribePackagingConfiguration,
 mediapackage-vod:DeletePackagingConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-packaging_group_id,
-arn,
-cmaf_package,
-dash_package,
-hls_package,
-mss_package,
-tags
-FROM awscc.mediapackage.packaging_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

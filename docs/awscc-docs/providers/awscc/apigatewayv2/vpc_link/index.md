@@ -39,6 +39,20 @@ Gets an individual <code>vpc_link</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+vpc_link_id,
+subnet_ids,
+security_group_ids,
+tags,
+name
+FROM awscc.apigatewayv2.vpc_link
+WHERE region = 'us-east-1'
+AND data__Identifier = '{VpcLinkId}';
+```
+
 ## Permissions
 
 To operate on the <code>vpc_link</code> resource, the following permissions are required:
@@ -71,17 +85,3 @@ iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-vpc_link_id,
-subnet_ids,
-security_group_ids,
-tags,
-name
-FROM awscc.apigatewayv2.vpc_link
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VpcLinkId&gt;'
-```

@@ -39,6 +39,21 @@ Gets an individual <code>user_pool_risk_configuration_attachment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+user_pool_id,
+client_id,
+risk_exception_configuration,
+compromised_credentials_risk_configuration,
+account_takeover_risk_configuration
+FROM awscc.cognito.user_pool_risk_configuration_attachment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserPoolId}';
+AND data__Identifier = '{ClientId}';
+```
+
 ## Permissions
 
 To operate on the <code>user_pool_risk_configuration_attachment</code> resource, the following permissions are required:
@@ -61,18 +76,3 @@ cognito-idp:SetRiskConfiguration,
 cognito-idp:DescribeRiskConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-user_pool_id,
-client_id,
-risk_exception_configuration,
-compromised_credentials_risk_configuration,
-account_takeover_risk_configuration
-FROM awscc.cognito.user_pool_risk_configuration_attachment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserPoolId&gt;'
-AND data__Identifier = '&lt;ClientId&gt;'
-```

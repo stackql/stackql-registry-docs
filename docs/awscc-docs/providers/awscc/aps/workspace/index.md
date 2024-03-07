@@ -42,6 +42,23 @@ Gets an individual <code>workspace</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+workspace_id,
+alias,
+arn,
+alert_manager_definition,
+prometheus_endpoint,
+logging_configuration,
+kms_key_arn,
+tags
+FROM awscc.aps.workspace
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>workspace</code> resource, the following permissions are required:
@@ -85,20 +102,3 @@ aps:DeleteLoggingConfiguration,
 logs:DeleteLogDelivery
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-workspace_id,
-alias,
-arn,
-alert_manager_definition,
-prometheus_endpoint,
-logging_configuration,
-kms_key_arn,
-tags
-FROM awscc.aps.workspace
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

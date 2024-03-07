@@ -38,6 +38,20 @@ Gets an individual <code>permission</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+actions,
+certificate_authority_arn,
+principal,
+source_account
+FROM awscc.acmpca.permission
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CertificateAuthorityArn}';
+AND data__Identifier = '{Principal}';
+```
+
 ## Permissions
 
 To operate on the <code>permission</code> resource, the following permissions are required:
@@ -52,17 +66,3 @@ acm-pca:ListPermissions
 acm-pca:DeletePermission
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-actions,
-certificate_authority_arn,
-principal,
-source_account
-FROM awscc.acmpca.permission
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateAuthorityArn&gt;'
-AND data__Identifier = '&lt;Principal&gt;'
-```

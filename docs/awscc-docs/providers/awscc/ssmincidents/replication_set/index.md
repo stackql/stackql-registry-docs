@@ -38,6 +38,19 @@ Gets an individual <code>replication_set</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+regions,
+deletion_protected,
+tags
+FROM awscc.ssmincidents.replication_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>replication_set</code> resource, the following permissions are required:
@@ -65,16 +78,3 @@ ssm-incidents:DeleteReplicationSet,
 ssm-incidents:GetReplicationSet
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-regions,
-deletion_protected,
-tags
-FROM awscc.ssmincidents.replication_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

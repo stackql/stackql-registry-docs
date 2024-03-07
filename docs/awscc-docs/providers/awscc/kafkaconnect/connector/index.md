@@ -47,6 +47,28 @@ Gets an individual <code>connector</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+capacity,
+connector_arn,
+connector_configuration,
+connector_description,
+connector_name,
+kafka_cluster,
+kafka_cluster_client_authentication,
+kafka_cluster_encryption_in_transit,
+kafka_connect_version,
+log_delivery,
+plugins,
+service_execution_role_arn,
+worker_configuration
+FROM awscc.kafkaconnect.connector
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConnectorArn}';
+```
+
 ## Permissions
 
 To operate on the <code>connector</code> resource, the following permissions are required:
@@ -81,25 +103,3 @@ s3:PutBucketPolicy,
 firehose:TagDeliveryStream
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-capacity,
-connector_arn,
-connector_configuration,
-connector_description,
-connector_name,
-kafka_cluster,
-kafka_cluster_client_authentication,
-kafka_cluster_encryption_in_transit,
-kafka_connect_version,
-log_delivery,
-plugins,
-service_execution_role_arn,
-worker_configuration
-FROM awscc.kafkaconnect.connector
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectorArn&gt;'
-```

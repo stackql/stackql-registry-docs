@@ -43,6 +43,24 @@ Gets an individual <code>slack_channel_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+slack_workspace_id,
+slack_channel_id,
+configuration_name,
+iam_role_arn,
+sns_topic_arns,
+logging_level,
+arn,
+guardrail_policies,
+user_role_required
+FROM awscc.chatbot.slack_channel_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>slack_channel_configuration</code> resource, the following permissions are required:
@@ -63,21 +81,3 @@ iam:PassRole
 chatbot:DeleteSlackChannelConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-slack_workspace_id,
-slack_channel_id,
-configuration_name,
-iam_role_arn,
-sns_topic_arns,
-logging_level,
-arn,
-guardrail_policies,
-user_role_required
-FROM awscc.chatbot.slack_channel_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

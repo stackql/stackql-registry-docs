@@ -35,6 +35,15 @@ Retrieves a list of <code>batch_scram_secrets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_arn
+FROM awscc.msk.batch_scram_secrets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>batch_scram_secrets</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ kms:DescribeKey,
 secretsmanager:GetSecretValue
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_arn
-FROM awscc.msk.batch_scram_secrets
-WHERE region = 'us-east-1'
-```

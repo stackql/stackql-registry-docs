@@ -39,6 +39,20 @@ Gets an individual <code>static_ip</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+static_ip_name,
+attached_to,
+is_attached,
+ip_address,
+static_ip_arn
+FROM awscc.lightsail.static_ip
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StaticIpName}';
+```
+
 ## Permissions
 
 To operate on the <code>static_ip</code> resource, the following permissions are required:
@@ -65,17 +79,3 @@ lightsail:GetStaticIps,
 lightsail:ReleaseStaticIp
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-static_ip_name,
-attached_to,
-is_attached,
-ip_address,
-static_ip_arn
-FROM awscc.lightsail.static_ip
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StaticIpName&gt;'
-```

@@ -46,6 +46,27 @@ Gets an individual <code>instance_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_profile_arn,
+instance_profile_identifier,
+availability_zone,
+description,
+kms_key_arn,
+publicly_accessible,
+network_type,
+instance_profile_name,
+instance_profile_creation_time,
+subnet_group_identifier,
+vpc_security_groups,
+tags
+FROM awscc.dms.instance_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InstanceProfileArn}';
+```
+
 ## Permissions
 
 To operate on the <code>instance_profile</code> resource, the following permissions are required:
@@ -71,24 +92,3 @@ dms:ListTagsForResource
 dms:DeleteInstanceProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_profile_arn,
-instance_profile_identifier,
-availability_zone,
-description,
-kms_key_arn,
-publicly_accessible,
-network_type,
-instance_profile_name,
-instance_profile_creation_time,
-subnet_group_identifier,
-vpc_security_groups,
-tags
-FROM awscc.dms.instance_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceProfileArn&gt;'
-```

@@ -39,6 +39,20 @@ Gets an individual <code>dataset_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+dataset_group_arn,
+name,
+kms_key_arn,
+role_arn,
+domain
+FROM awscc.personalize.dataset_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DatasetGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>dataset_group</code> resource, the following permissions are required:
@@ -54,17 +68,3 @@ personalize:DescribeDatasetGroup,
 personalize:DeleteDatasetGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-dataset_group_arn,
-name,
-kms_key_arn,
-role_arn,
-domain
-FROM awscc.personalize.dataset_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatasetGroupArn&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>mount_targets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.efs.mount_targets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>mount_targets</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ elasticfilesystem:DescribeMountTargets,
 elasticfilesystem:DescribeMountTargetSecurityGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.efs.mount_targets
-WHERE region = 'us-east-1'
-```

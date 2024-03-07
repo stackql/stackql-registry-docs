@@ -36,6 +36,16 @@ Retrieves a list of <code>member_invitations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+graph_arn,
+member_id
+FROM awscc.detective.member_invitations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>member_invitations</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ detective:ListGraphs,
 detective:ListMembers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-graph_arn,
-member_id
-FROM awscc.detective.member_invitations
-WHERE region = 'us-east-1'
-```

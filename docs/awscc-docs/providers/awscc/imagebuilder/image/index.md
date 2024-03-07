@@ -48,24 +48,6 @@ Gets an individual <code>image</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>image</code> resource, the following permissions are required:
-
-### Read
-```json
-imagebuilder:GetImage
-```
-
-### Delete
-```json
-imagebuilder:GetImage,
-imagebuilder:DeleteImage,
-imagebuilder:UnTagResource,
-imagebuilder:CancelImageCreation
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -86,5 +68,23 @@ execution_role,
 tags
 FROM awscc.imagebuilder.image
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '{Arn}';
 ```
+
+## Permissions
+
+To operate on the <code>image</code> resource, the following permissions are required:
+
+### Read
+```json
+imagebuilder:GetImage
+```
+
+### Delete
+```json
+imagebuilder:GetImage,
+imagebuilder:DeleteImage,
+imagebuilder:UnTagResource,
+imagebuilder:CancelImageCreation
+```
+

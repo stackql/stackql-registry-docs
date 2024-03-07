@@ -48,6 +48,29 @@ Gets an individual <code>event_subscription</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+subscription_name,
+sns_topic_arn,
+source_type,
+source_ids,
+event_categories,
+severity,
+enabled,
+tags,
+customer_aws_id,
+cust_subscription_id,
+status,
+subscription_creation_time,
+source_ids_list,
+event_categories_list
+FROM awscc.redshift.event_subscription
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SubscriptionName}';
+```
+
 ## Permissions
 
 To operate on the <code>event_subscription</code> resource, the following permissions are required:
@@ -75,26 +98,3 @@ redshift:DescribeTags,
 redshift:DeleteTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-subscription_name,
-sns_topic_arn,
-source_type,
-source_ids,
-event_categories,
-severity,
-enabled,
-tags,
-customer_aws_id,
-cust_subscription_id,
-status,
-subscription_creation_time,
-source_ids_list,
-event_categories_list
-FROM awscc.redshift.event_subscription
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SubscriptionName&gt;'
-```

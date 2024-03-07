@@ -37,6 +37,17 @@ Retrieves a list of <code>instance_storage_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+association_id,
+resource_type
+FROM awscc.connect.instance_storage_configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>instance_storage_configs</code> resource, the following permissions are required:
@@ -62,14 +73,3 @@ connect:ListInstanceStorageConfigs,
 ds:DescribeDirectories
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-association_id,
-resource_type
-FROM awscc.connect.instance_storage_configs
-WHERE region = 'us-east-1'
-```

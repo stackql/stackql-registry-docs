@@ -43,6 +43,24 @@ Gets an individual <code>api_key</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+a_pi_key_id,
+customer_id,
+description,
+enabled,
+generate_distinct_id,
+name,
+stage_keys,
+tags,
+value
+FROM awscc.apigateway.api_key
+WHERE region = 'us-east-1'
+AND data__Identifier = '{APIKeyId}';
+```
+
 ## Permissions
 
 To operate on the <code>api_key</code> resource, the following permissions are required:
@@ -66,21 +84,3 @@ apigateway:DELETE,
 apigateway:GET
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-a_pi_key_id,
-customer_id,
-description,
-enabled,
-generate_distinct_id,
-name,
-stage_keys,
-tags,
-value
-FROM awscc.apigateway.api_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;APIKeyId&gt;'
-```

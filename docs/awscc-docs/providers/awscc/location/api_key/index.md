@@ -46,6 +46,27 @@ Gets an individual <code>api_key</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+create_time,
+description,
+expire_time,
+force_update,
+key_arn,
+key_name,
+no_expiry,
+restrictions,
+tags,
+update_time,
+force_delete,
+arn
+FROM awscc.location.api_key
+WHERE region = 'us-east-1'
+AND data__Identifier = '{KeyName}';
+```
+
 ## Permissions
 
 To operate on the <code>api_key</code> resource, the following permissions are required:
@@ -80,24 +101,3 @@ geo:DeleteKey,
 geo:DescribeKey
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-create_time,
-description,
-expire_time,
-force_update,
-key_arn,
-key_name,
-no_expiry,
-restrictions,
-tags,
-update_time,
-force_delete,
-arn
-FROM awscc.location.api_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;KeyName&gt;'
-```

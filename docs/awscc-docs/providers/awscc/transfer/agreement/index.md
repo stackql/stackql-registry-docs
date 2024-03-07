@@ -44,6 +44,26 @@ Gets an individual <code>agreement</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+server_id,
+local_profile_id,
+partner_profile_id,
+base_directory,
+access_role,
+status,
+tags,
+agreement_id,
+arn
+FROM awscc.transfer.agreement
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AgreementId}';
+AND data__Identifier = '{ServerId}';
+```
+
 ## Permissions
 
 To operate on the <code>agreement</code> resource, the following permissions are required:
@@ -66,23 +86,3 @@ iam:PassRole
 transfer:DeleteAgreement
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-server_id,
-local_profile_id,
-partner_profile_id,
-base_directory,
-access_role,
-status,
-tags,
-agreement_id,
-arn
-FROM awscc.transfer.agreement
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AgreementId&gt;'
-AND data__Identifier = '&lt;ServerId&gt;'
-```

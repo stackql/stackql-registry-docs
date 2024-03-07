@@ -40,6 +40,21 @@ Gets an individual <code>profiling_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+profiling_group_name,
+compute_platform,
+agent_permissions,
+anomaly_detection_notification_configuration,
+arn,
+tags
+FROM awscc.codeguruprofiler.profiling_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ProfilingGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>profiling_group</code> resource, the following permissions are required:
@@ -69,18 +84,3 @@ codeguru-profiler:ListTagsForResource
 codeguru-profiler:DeleteProfilingGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-profiling_group_name,
-compute_platform,
-agent_permissions,
-anomaly_detection_notification_configuration,
-arn,
-tags
-FROM awscc.codeguruprofiler.profiling_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProfilingGroupName&gt;'
-```

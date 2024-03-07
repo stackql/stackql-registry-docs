@@ -41,6 +41,21 @@ Gets an individual <code>server_certificate</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+certificate_body,
+certificate_chain,
+server_certificate_name,
+path,
+private_key,
+arn,
+tags
+FROM awscc.iam.server_certificate
+WHERE data__Identifier = '{ServerCertificateName}';
+```
+
 ## Permissions
 
 To operate on the <code>server_certificate</code> resource, the following permissions are required:
@@ -63,18 +78,3 @@ iam:GetServerCertificate
 iam:DeleteServerCertificate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-certificate_body,
-certificate_chain,
-server_certificate_name,
-path,
-private_key,
-arn,
-tags
-FROM awscc.iam.server_certificate
-WHERE data__Identifier = '&lt;ServerCertificateName&gt;'
-```

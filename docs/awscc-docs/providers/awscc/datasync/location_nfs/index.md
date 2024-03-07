@@ -41,6 +41,22 @@ Gets an individual <code>location_nfs</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+mount_options,
+on_prem_config,
+server_hostname,
+subdirectory,
+tags,
+location_arn,
+location_uri
+FROM awscc.datasync.location_nfs
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LocationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>location_nfs</code> resource, the following permissions are required:
@@ -65,19 +81,3 @@ datasync:UpdateLocationNfs
 datasync:DeleteLocation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-mount_options,
-on_prem_config,
-server_hostname,
-subdirectory,
-tags,
-location_arn,
-location_uri
-FROM awscc.datasync.location_nfs
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationArn&gt;'
-```

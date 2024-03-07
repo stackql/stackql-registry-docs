@@ -47,6 +47,29 @@ Gets an individual <code>object_type</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+object_type_name,
+allow_profile_creation,
+description,
+encryption_key,
+expiration_days,
+fields,
+keys,
+created_at,
+last_updated_at,
+source_last_updated_timestamp_format,
+tags,
+template_id
+FROM awscc.customerprofiles.object_type
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainName}';
+AND data__Identifier = '{ObjectTypeName}';
+```
+
 ## Permissions
 
 To operate on the <code>object_type</code> resource, the following permissions are required:
@@ -69,26 +92,3 @@ profile:TagResource
 profile:DeleteProfileObjectType
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-object_type_name,
-allow_profile_creation,
-description,
-encryption_key,
-expiration_days,
-fields,
-keys,
-created_at,
-last_updated_at,
-source_last_updated_timestamp_format,
-tags,
-template_id
-FROM awscc.customerprofiles.object_type
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-AND data__Identifier = '&lt;ObjectTypeName&gt;'
-```

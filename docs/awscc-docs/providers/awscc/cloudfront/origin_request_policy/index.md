@@ -37,6 +37,17 @@ Gets an individual <code>origin_request_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+last_modified_time,
+origin_request_policy_config
+FROM awscc.cloudfront.origin_request_policy
+WHERE data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>origin_request_policy</code> resource, the following permissions are required:
@@ -58,14 +69,3 @@ cloudfront:UpdateOriginRequestPolicy,
 cloudfront:GetOriginRequestPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-last_modified_time,
-origin_request_policy_config
-FROM awscc.cloudfront.origin_request_policy
-WHERE data__Identifier = '&lt;Id&gt;'
-```

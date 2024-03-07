@@ -35,6 +35,15 @@ Retrieves a list of <code>replication_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+replication_config_arn
+FROM awscc.dms.replication_configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>replication_configs</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ dms:DescribeReplicationConfigs,
 dms:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-replication_config_arn
-FROM awscc.dms.replication_configs
-WHERE region = 'us-east-1'
-```

@@ -39,6 +39,21 @@ Gets an individual <code>model</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+content_type,
+description,
+name,
+rest_api_id,
+schema
+FROM awscc.apigateway.model
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RestApiId}';
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>model</code> resource, the following permissions are required:
@@ -60,18 +75,3 @@ apigateway:GET,
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-content_type,
-description,
-name,
-rest_api_id,
-schema
-FROM awscc.apigateway.model
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;Name&gt;'
-```

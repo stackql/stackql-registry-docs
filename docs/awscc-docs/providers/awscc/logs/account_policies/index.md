@@ -37,6 +37,17 @@ Retrieves a list of <code>account_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_id,
+policy_type,
+policy_name
+FROM awscc.logs.account_policies
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>account_policies</code> resource, the following permissions are required:
@@ -59,14 +70,3 @@ iam:PassRole
 logs:DescribeAccountPolicies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_id,
-policy_type,
-policy_name
-FROM awscc.logs.account_policies
-WHERE region = 'us-east-1'
-```

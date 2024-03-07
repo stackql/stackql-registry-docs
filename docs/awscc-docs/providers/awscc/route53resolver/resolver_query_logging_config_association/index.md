@@ -41,6 +41,22 @@ Gets an individual <code>resolver_query_logging_config_association</code> resour
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+resolver_query_log_config_id,
+resource_id,
+status,
+error,
+error_message,
+creation_time
+FROM awscc.route53resolver.resolver_query_logging_config_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>resolver_query_logging_config_association</code> resource, the following permissions are required:
@@ -60,19 +76,3 @@ route53resolver:ListResolverQueryLogConfigAssociations,
 route53resolver:GetResolverQueryLogConfigAssociation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-resolver_query_log_config_id,
-resource_id,
-status,
-error,
-error_message,
-creation_time
-FROM awscc.route53resolver.resolver_query_logging_config_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -42,6 +42,23 @@ Gets an individual <code>contact_flow_module</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+contact_flow_module_arn,
+name,
+content,
+description,
+state,
+status,
+tags
+FROM awscc.connect.contact_flow_module
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ContactFlowModuleArn}';
+```
+
 ## Permissions
 
 To operate on the <code>contact_flow_module</code> resource, the following permissions are required:
@@ -65,20 +82,3 @@ connect:TagResource,
 connect:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-contact_flow_module_arn,
-name,
-content,
-description,
-state,
-status,
-tags
-FROM awscc.connect.contact_flow_module
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ContactFlowModuleArn&gt;'
-```

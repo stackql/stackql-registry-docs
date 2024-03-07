@@ -62,28 +62,6 @@ Gets an individual <code>environment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>environment</code> resource, the following permissions are required:
-
-### Read
-```json
-airflow:GetEnvironment
-```
-
-### Update
-```json
-airflow:UpdateEnvironment,
-airflow:TagResource,
-airflow:UntagResource
-```
-
-### Delete
-```json
-airflow:DeleteEnvironment
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -118,5 +96,27 @@ database_vpc_endpoint_service,
 webserver_vpc_endpoint_service
 FROM awscc.mwaa.environment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '{Name}';
 ```
+
+## Permissions
+
+To operate on the <code>environment</code> resource, the following permissions are required:
+
+### Read
+```json
+airflow:GetEnvironment
+```
+
+### Update
+```json
+airflow:UpdateEnvironment,
+airflow:TagResource,
+airflow:UntagResource
+```
+
+### Delete
+```json
+airflow:DeleteEnvironment
+```
+

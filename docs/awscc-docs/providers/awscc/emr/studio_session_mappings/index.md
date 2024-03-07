@@ -37,6 +37,17 @@ Retrieves a list of <code>studio_session_mappings</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+studio_id,
+identity_type,
+identity_name
+FROM awscc.emr.studio_session_mappings
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>studio_session_mappings</code> resource, the following permissions are required:
@@ -59,14 +70,3 @@ sso:AssociateProfile
 elasticmapreduce:ListStudioSessionMappings
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-studio_id,
-identity_type,
-identity_name
-FROM awscc.emr.studio_session_mappings
-WHERE region = 'us-east-1'
-```

@@ -51,6 +51,32 @@ Gets an individual <code>namespace</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+admin_password_secret_kms_key_id,
+admin_user_password,
+admin_username,
+db_name,
+default_iam_role_arn,
+iam_roles,
+kms_key_id,
+log_exports,
+manage_admin_password,
+namespace,
+namespace_name,
+tags,
+final_snapshot_name,
+final_snapshot_retention_period,
+namespace_resource_policy,
+redshift_idc_application_arn,
+snapshot_copy_configurations
+FROM awscc.redshiftserverless.namespace
+WHERE region = 'us-east-1'
+AND data__Identifier = '{NamespaceName}';
+```
+
 ## Permissions
 
 To operate on the <code>namespace</code> resource, the following permissions are required:
@@ -107,29 +133,3 @@ secretsmanager:DeleteSecret,
 redshift:DeleteResourcePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-admin_password_secret_kms_key_id,
-admin_user_password,
-admin_username,
-db_name,
-default_iam_role_arn,
-iam_roles,
-kms_key_id,
-log_exports,
-manage_admin_password,
-namespace,
-namespace_name,
-tags,
-final_snapshot_name,
-final_snapshot_retention_period,
-namespace_resource_policy,
-redshift_idc_application_arn,
-snapshot_copy_configurations
-FROM awscc.redshiftserverless.namespace
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;NamespaceName&gt;'
-```

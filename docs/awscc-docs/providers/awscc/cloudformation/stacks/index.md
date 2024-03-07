@@ -35,6 +35,15 @@ Retrieves a list of <code>stacks</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+stack_id
+FROM awscc.cloudformation.stacks
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>stacks</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ iam:PassRole
 cloudformation:ListStacks
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-stack_id
-FROM awscc.cloudformation.stacks
-WHERE region = 'us-east-1'
-```

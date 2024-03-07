@@ -45,6 +45,27 @@ Gets an individual <code>bot_alias</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+bot_alias_id,
+bot_id,
+arn,
+bot_alias_status,
+bot_alias_locale_settings,
+bot_alias_name,
+bot_version,
+conversation_log_settings,
+description,
+sentiment_analysis_settings,
+bot_alias_tags
+FROM awscc.lex.bot_alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '{BotAliasId}';
+AND data__Identifier = '{BotId}';
+```
+
 ## Permissions
 
 To operate on the <code>bot_alias</code> resource, the following permissions are required:
@@ -68,24 +89,3 @@ lex:DescribeBotAlias
 lex:DeleteBotAlias
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-bot_alias_id,
-bot_id,
-arn,
-bot_alias_status,
-bot_alias_locale_settings,
-bot_alias_name,
-bot_version,
-conversation_log_settings,
-description,
-sentiment_analysis_settings,
-bot_alias_tags
-FROM awscc.lex.bot_alias
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BotAliasId&gt;'
-AND data__Identifier = '&lt;BotId&gt;'
-```

@@ -45,6 +45,27 @@ Gets an individual <code>link</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+link_arn,
+link_id,
+global_network_id,
+site_id,
+bandwidth,
+provider,
+description,
+tags,
+type,
+created_at,
+state
+FROM awscc.networkmanager.link
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GlobalNetworkId}';
+AND data__Identifier = '{LinkId}';
+```
+
 ## Permissions
 
 To operate on the <code>link</code> resource, the following permissions are required:
@@ -69,24 +90,3 @@ networkmanager:GetLinks,
 networkmanager:DeleteLink
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-link_arn,
-link_id,
-global_network_id,
-site_id,
-bandwidth,
-provider,
-description,
-tags,
-type,
-created_at,
-state
-FROM awscc.networkmanager.link
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalNetworkId&gt;'
-AND data__Identifier = '&lt;LinkId&gt;'
-```

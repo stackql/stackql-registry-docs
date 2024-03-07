@@ -40,6 +40,21 @@ Gets an individual <code>tls_inspection_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+t_ls_inspection_configuration_name,
+t_ls_inspection_configuration_arn,
+t_ls_inspection_configuration,
+t_ls_inspection_configuration_id,
+description,
+tags
+FROM awscc.networkfirewall.tls_inspection_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TLSInspectionConfigurationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>tls_inspection_configuration</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ network-firewall:DescribeTLSInspectionConfiguration,
 network-firewall:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-t_ls_inspection_configuration_name,
-t_ls_inspection_configuration_arn,
-t_ls_inspection_configuration,
-t_ls_inspection_configuration_id,
-description,
-tags
-FROM awscc.networkfirewall.tls_inspection_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TLSInspectionConfigurationArn&gt;'
-```

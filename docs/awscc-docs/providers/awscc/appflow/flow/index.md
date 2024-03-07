@@ -45,6 +45,26 @@ Gets an individual <code>flow</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+flow_arn,
+flow_name,
+description,
+k_ms_arn,
+trigger_config,
+flow_status,
+source_flow_config,
+destination_flow_config_list,
+tasks,
+tags,
+metadata_catalog_config
+FROM awscc.appflow.flow
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FlowName}';
+```
+
 ## Permissions
 
 To operate on the <code>flow</code> resource, the following permissions are required:
@@ -78,23 +98,3 @@ secretsmanager:PutResourcePolicy
 appflow:DeleteFlow
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-flow_arn,
-flow_name,
-description,
-k_ms_arn,
-trigger_config,
-flow_status,
-source_flow_config,
-destination_flow_config_list,
-tasks,
-tags,
-metadata_catalog_config
-FROM awscc.appflow.flow
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FlowName&gt;'
-```

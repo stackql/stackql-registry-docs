@@ -35,6 +35,15 @@ Retrieves a list of <code>cidr_collections</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.route53.cidr_collections
+
+```
+
 ## Permissions
 
 To operate on the <code>cidr_collections</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ route53:ListCidrCollections,
 route53:ListCidrBlocks
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.route53.cidr_collections
-
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>quick_connects</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+quick_connect_arn
+FROM awscc.connect.quick_connects
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>quick_connects</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ connect:TagResource
 connect:ListQuickConnects
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-quick_connect_arn
-FROM awscc.connect.quick_connects
-WHERE region = 'us-east-1'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>access_grants_locations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_grants_location_id
+FROM awscc.s3.access_grants_locations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>access_grants_locations</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ s3:TagResource
 s3:ListAccessGrantsLocations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_grants_location_id
-FROM awscc.s3.access_grants_locations
-WHERE region = 'us-east-1'
-```

@@ -52,27 +52,6 @@ Gets an individual <code>resolver</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>resolver</code> resource, the following permissions are required:
-
-### Read
-```json
-appsync:GetResolver
-```
-
-### Update
-```json
-s3:GetObject,
-appsync:UpdateResolver
-```
-
-### Delete
-```json
-appsync:DeleteResolver
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -97,5 +76,26 @@ type_name,
 metrics_config
 FROM awscc.appsync.resolver
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResolverArn&gt;'
+AND data__Identifier = '{ResolverArn}';
 ```
+
+## Permissions
+
+To operate on the <code>resolver</code> resource, the following permissions are required:
+
+### Read
+```json
+appsync:GetResolver
+```
+
+### Update
+```json
+s3:GetObject,
+appsync:UpdateResolver
+```
+
+### Delete
+```json
+appsync:DeleteResolver
+```
+

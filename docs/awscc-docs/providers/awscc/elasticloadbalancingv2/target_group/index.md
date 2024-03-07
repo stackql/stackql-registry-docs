@@ -57,6 +57,38 @@ Gets an individual <code>target_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+ip_address_type,
+health_check_interval_seconds,
+load_balancer_arns,
+matcher,
+health_check_path,
+port,
+targets,
+health_check_enabled,
+protocol_version,
+unhealthy_threshold_count,
+health_check_timeout_seconds,
+name,
+vpc_id,
+target_group_full_name,
+healthy_threshold_count,
+health_check_protocol,
+target_group_attributes,
+target_type,
+health_check_port,
+target_group_arn,
+protocol,
+target_group_name,
+tags
+FROM awscc.elasticloadbalancingv2.target_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TargetGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>target_group</code> resource, the following permissions are required:
@@ -87,35 +119,3 @@ elasticloadbalancing:AddTags,
 elasticloadbalancing:RemoveTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-ip_address_type,
-health_check_interval_seconds,
-load_balancer_arns,
-matcher,
-health_check_path,
-port,
-targets,
-health_check_enabled,
-protocol_version,
-unhealthy_threshold_count,
-health_check_timeout_seconds,
-name,
-vpc_id,
-target_group_full_name,
-healthy_threshold_count,
-health_check_protocol,
-target_group_attributes,
-target_type,
-health_check_port,
-target_group_arn,
-protocol,
-target_group_name,
-tags
-FROM awscc.elasticloadbalancingv2.target_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TargetGroupArn&gt;'
-```

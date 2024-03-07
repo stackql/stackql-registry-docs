@@ -37,6 +37,19 @@ Gets an individual <code>documentation_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+documentation_version,
+rest_api_id
+FROM awscc.apigateway.documentation_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DocumentationVersion}';
+AND data__Identifier = '{RestApiId}';
+```
+
 ## Permissions
 
 To operate on the <code>documentation_version</code> resource, the following permissions are required:
@@ -57,16 +70,3 @@ apigateway:PATCH
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-documentation_version,
-rest_api_id
-FROM awscc.apigateway.documentation_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DocumentationVersion&gt;'
-AND data__Identifier = '&lt;RestApiId&gt;'
-```

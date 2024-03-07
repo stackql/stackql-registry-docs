@@ -44,22 +44,6 @@ Gets an individual <code>resource_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>resource_version</code> resource, the following permissions are required:
-
-### Read
-```json
-cloudformation:DescribeType
-```
-
-### Delete
-```json
-cloudformation:DeregisterType,
-cloudformation:DescribeType
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -76,5 +60,21 @@ version_id,
 visibility
 FROM awscc.cloudformation.resource_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '{Arn}';
 ```
+
+## Permissions
+
+To operate on the <code>resource_version</code> resource, the following permissions are required:
+
+### Read
+```json
+cloudformation:DescribeType
+```
+
+### Delete
+```json
+cloudformation:DeregisterType,
+cloudformation:DescribeType
+```
+

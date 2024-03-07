@@ -44,6 +44,25 @@ Gets an individual <code>repository</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+repository_name,
+name,
+domain_name,
+domain_owner,
+description,
+arn,
+external_connections,
+upstreams,
+permissions_policy_document,
+tags
+FROM awscc.codeartifact.repository
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>repository</code> resource, the following permissions are required:
@@ -74,22 +93,3 @@ codeartifact:DeleteRepository,
 codeartifact:DescribeRepository
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-repository_name,
-name,
-domain_name,
-domain_owner,
-description,
-arn,
-external_connections,
-upstreams,
-permissions_policy_document,
-tags
-FROM awscc.codeartifact.repository
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

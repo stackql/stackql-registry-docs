@@ -42,6 +42,23 @@ Gets an individual <code>hypervisor</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+host,
+hypervisor_arn,
+kms_key_arn,
+log_group_arn,
+name,
+password,
+tags,
+username
+FROM awscc.backupgateway.hypervisor
+WHERE region = 'us-east-1'
+AND data__Identifier = '{HypervisorArn}';
+```
+
 ## Permissions
 
 To operate on the <code>hypervisor</code> resource, the following permissions are required:
@@ -68,20 +85,3 @@ backup-gateway:GetHypervisor,
 backup-gateway:ListHypervisors
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-host,
-hypervisor_arn,
-kms_key_arn,
-log_group_arn,
-name,
-password,
-tags,
-username
-FROM awscc.backupgateway.hypervisor
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;HypervisorArn&gt;'
-```

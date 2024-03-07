@@ -40,6 +40,21 @@ Gets an individual <code>network_settings</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+associated_portal_arns,
+network_settings_arn,
+security_group_ids,
+subnet_ids,
+tags,
+vpc_id
+FROM awscc.workspacesweb.network_settings
+WHERE region = 'us-east-1'
+AND data__Identifier = '{NetworkSettingsArn}';
+```
+
 ## Permissions
 
 To operate on the <code>network_settings</code> resource, the following permissions are required:
@@ -66,18 +81,3 @@ workspaces-web:GetNetworkSettings,
 workspaces-web:DeleteNetworkSettings
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-associated_portal_arns,
-network_settings_arn,
-security_group_ids,
-subnet_ids,
-tags,
-vpc_id
-FROM awscc.workspacesweb.network_settings
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;NetworkSettingsArn&gt;'
-```

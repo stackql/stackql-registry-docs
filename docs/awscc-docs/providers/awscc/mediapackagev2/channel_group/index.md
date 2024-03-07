@@ -41,6 +41,22 @@ Gets an individual <code>channel_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+channel_group_name,
+created_at,
+description,
+egress_domain,
+modified_at,
+tags
+FROM awscc.mediapackagev2.channel_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>channel_group</code> resource, the following permissions are required:
@@ -64,19 +80,3 @@ mediapackagev2:GetChannelGroup,
 mediapackagev2:DeleteChannelGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-channel_group_name,
-created_at,
-description,
-egress_domain,
-modified_at,
-tags
-FROM awscc.mediapackagev2.channel_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

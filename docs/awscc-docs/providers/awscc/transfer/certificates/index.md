@@ -35,6 +35,15 @@ Retrieves a list of <code>certificates</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+certificate_id
+FROM awscc.transfer.certificates
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>certificates</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ transfer:TagResource
 transfer:ListCertificates
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-certificate_id
-FROM awscc.transfer.certificates
-WHERE region = 'us-east-1'
-```

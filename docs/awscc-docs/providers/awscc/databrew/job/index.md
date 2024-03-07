@@ -54,30 +54,6 @@ Gets an individual <code>job</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>job</code> resource, the following permissions are required:
-
-### Read
-```json
-databrew:DescribeJob,
-databrew:ListTagsForResource,
-iam:ListRoles
-```
-
-### Update
-```json
-databrew:UpdateProfileJob,
-databrew:UpdateRecipeJob,
-iam:PassRole
-```
-
-### Delete
-```json
-databrew:DeleteJob
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -104,5 +80,29 @@ profile_configuration,
 validation_configurations
 FROM awscc.databrew.job
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '{Name}';
 ```
+
+## Permissions
+
+To operate on the <code>job</code> resource, the following permissions are required:
+
+### Read
+```json
+databrew:DescribeJob,
+databrew:ListTagsForResource,
+iam:ListRoles
+```
+
+### Update
+```json
+databrew:UpdateProfileJob,
+databrew:UpdateRecipeJob,
+iam:PassRole
+```
+
+### Delete
+```json
+databrew:DeleteJob
+```
+

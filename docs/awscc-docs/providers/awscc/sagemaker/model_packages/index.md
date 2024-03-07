@@ -35,6 +35,15 @@ Retrieves a list of <code>model_packages</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+model_package_arn
+FROM awscc.sagemaker.model_packages
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>model_packages</code> resource, the following permissions are required:
@@ -62,12 +71,3 @@ s3:GetObject
 sagemaker:ListModelPackages
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-model_package_arn
-FROM awscc.sagemaker.model_packages
-WHERE region = 'us-east-1'
-```

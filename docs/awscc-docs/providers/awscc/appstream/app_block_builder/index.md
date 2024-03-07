@@ -47,6 +47,28 @@ Gets an individual <code>app_block_builder</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+arn,
+description,
+display_name,
+platform,
+access_endpoints,
+tags,
+vpc_config,
+enable_default_internet_access,
+iam_role_arn,
+created_time,
+instance_type,
+app_block_arns
+FROM awscc.appstream.app_block_builder
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>app_block_builder</code> resource, the following permissions are required:
@@ -79,25 +101,3 @@ appstream:DisassociateAppBlockBuilderAppBlock,
 appstream:DescribeAppBlockBuilderAppBlockAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-arn,
-description,
-display_name,
-platform,
-access_endpoints,
-tags,
-vpc_config,
-enable_default_internet_access,
-iam_role_arn,
-created_time,
-instance_type,
-app_block_arns
-FROM awscc.appstream.app_block_builder
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

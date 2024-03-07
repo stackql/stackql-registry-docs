@@ -36,6 +36,18 @@ Gets an individual <code>approved_origin</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+origin,
+instance_id
+FROM awscc.connect.approved_origin
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InstanceId}';
+AND data__Identifier = '{Origin}';
+```
+
 ## Permissions
 
 To operate on the <code>approved_origin</code> resource, the following permissions are required:
@@ -51,15 +63,3 @@ connect:DisassociateApprovedOrigin,
 connect:ListApprovedOrigins
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-origin,
-instance_id
-FROM awscc.connect.approved_origin
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceId&gt;'
-AND data__Identifier = '&lt;Origin&gt;'
-```

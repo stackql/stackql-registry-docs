@@ -44,6 +44,25 @@ Gets an individual <code>matching_workflow</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+workflow_name,
+description,
+input_source_config,
+output_source_config,
+resolution_techniques,
+role_arn,
+tags,
+workflow_arn,
+created_at,
+updated_at
+FROM awscc.entityresolution.matching_workflow
+WHERE region = 'us-east-1'
+AND data__Identifier = '{WorkflowName}';
+```
+
 ## Permissions
 
 To operate on the <code>matching_workflow</code> resource, the following permissions are required:
@@ -73,22 +92,3 @@ kms:CreateGrant,
 kms:DescribeKey
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-workflow_name,
-description,
-input_source_config,
-output_source_config,
-resolution_techniques,
-role_arn,
-tags,
-workflow_arn,
-created_at,
-updated_at
-FROM awscc.entityresolution.matching_workflow
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkflowName&gt;'
-```

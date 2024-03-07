@@ -38,6 +38,18 @@ Gets an individual <code>saml_provider</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+saml_metadata_document,
+arn,
+tags
+FROM awscc.iam.saml_provider
+WHERE data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>saml_provider</code> resource, the following permissions are required:
@@ -61,15 +73,3 @@ iam:UntagSAMLProvider
 iam:DeleteSAMLProvider
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-saml_metadata_document,
-arn,
-tags
-FROM awscc.iam.saml_provider
-WHERE data__Identifier = '&lt;Arn&gt;'
-```

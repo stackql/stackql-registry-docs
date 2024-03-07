@@ -50,6 +50,32 @@ Gets an individual <code>component_type</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+workspace_id,
+component_type_id,
+description,
+extends_from,
+functions,
+is_singleton,
+property_definitions,
+property_groups,
+composite_component_types,
+arn,
+creation_date_time,
+update_date_time,
+status,
+is_abstract,
+is_schema_initialized,
+tags
+FROM awscc.iottwinmaker.component_type
+WHERE region = 'us-east-1'
+AND data__Identifier = '{WorkspaceId}';
+AND data__Identifier = '{ComponentTypeId}';
+```
+
 ## Permissions
 
 To operate on the <code>component_type</code> resource, the following permissions are required:
@@ -78,29 +104,3 @@ iottwinmaker:GetComponentType,
 iottwinmaker:GetWorkspace
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-workspace_id,
-component_type_id,
-description,
-extends_from,
-functions,
-is_singleton,
-property_definitions,
-property_groups,
-composite_component_types,
-arn,
-creation_date_time,
-update_date_time,
-status,
-is_abstract,
-is_schema_initialized,
-tags
-FROM awscc.iottwinmaker.component_type
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkspaceId&gt;'
-AND data__Identifier = '&lt;ComponentTypeId&gt;'
-```

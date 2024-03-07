@@ -35,6 +35,15 @@ Retrieves a list of <code>db_proxy_endpoints</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+d_bproxy_endpoint_name
+FROM awscc.rds.db_proxy_endpoints
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>db_proxy_endpoints</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ rds:DescribeDBProxyEndpoints
 rds:DescribeDBProxyEndpoints
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-d_bproxy_endpoint_name
-FROM awscc.rds.db_proxy_endpoints
-WHERE region = 'us-east-1'
-```

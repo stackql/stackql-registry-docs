@@ -36,6 +36,16 @@ Retrieves a list of <code>studio_components</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+studio_component_id,
+studio_id
+FROM awscc.nimblestudio.studio_components
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>studio_components</code> resource, the following permissions are required:
@@ -57,13 +67,3 @@ ds:DescribeDirectories
 nimble:ListStudioComponents
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-studio_component_id,
-studio_id
-FROM awscc.nimblestudio.studio_components
-WHERE region = 'us-east-1'
-```

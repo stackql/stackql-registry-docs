@@ -40,6 +40,22 @@ Gets an individual <code>member</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+status,
+member_id,
+email,
+message,
+disable_email_notification,
+detector_id
+FROM awscc.guardduty.member
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DetectorId}';
+AND data__Identifier = '{MemberId}';
+```
+
 ## Permissions
 
 To operate on the <code>member</code> resource, the following permissions are required:
@@ -66,19 +82,3 @@ guardduty:StopMonitoringMembers,
 guardduty:InviteMembers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-status,
-member_id,
-email,
-message,
-disable_email_notification,
-detector_id
-FROM awscc.guardduty.member
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DetectorId&gt;'
-AND data__Identifier = '&lt;MemberId&gt;'
-```

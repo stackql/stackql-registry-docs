@@ -38,6 +38,18 @@ Retrieves a list of <code>data_cells_filters</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+table_catalog_id,
+database_name,
+table_name,
+name
+FROM awscc.lakeformation.data_cells_filters
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>data_cells_filters</code> resource, the following permissions are required:
@@ -53,15 +65,3 @@ glue:GetTable
 lakeformation:ListDataCellsFilter
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-table_catalog_id,
-database_name,
-table_name,
-name
-FROM awscc.lakeformation.data_cells_filters
-WHERE region = 'us-east-1'
-```

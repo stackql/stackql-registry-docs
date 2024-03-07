@@ -39,6 +39,20 @@ Gets an individual <code>backup_plan</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+backup_plan,
+backup_plan_tags,
+backup_plan_arn,
+backup_plan_id,
+version_id
+FROM awscc.backup.backup_plan
+WHERE region = 'us-east-1'
+AND data__Identifier = '{BackupPlanId}';
+```
+
 ## Permissions
 
 To operate on the <code>backup_plan</code> resource, the following permissions are required:
@@ -63,17 +77,3 @@ backup:TagResource,
 backup:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-backup_plan,
-backup_plan_tags,
-backup_plan_arn,
-backup_plan_id,
-version_id
-FROM awscc.backup.backup_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BackupPlanId&gt;'
-```

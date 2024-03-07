@@ -35,6 +35,15 @@ Retrieves a list of <code>zonal_autoshift_configurations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_identifier
+FROM awscc.arczonalshift.zonal_autoshift_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>zonal_autoshift_configurations</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ iam:CreateServiceLinkedRole
 arc-zonal-shift:ListManagedResources
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_identifier
-FROM awscc.arczonalshift.zonal_autoshift_configurations
-WHERE region = 'us-east-1'
-```

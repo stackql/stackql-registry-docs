@@ -41,6 +41,22 @@ Gets an individual <code>connection</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+connection_arn,
+connection_name,
+connection_status,
+owner_account_id,
+provider_type,
+host_arn,
+tags
+FROM awscc.codestarconnections.connection
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConnectionArn}';
+```
+
 ## Permissions
 
 To operate on the <code>connection</code> resource, the following permissions are required:
@@ -63,19 +79,3 @@ codestar-connections:UntagResource
 codestar-connections:DeleteConnection
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-connection_arn,
-connection_name,
-connection_status,
-owner_account_id,
-provider_type,
-host_arn,
-tags
-FROM awscc.codestarconnections.connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectionArn&gt;'
-```

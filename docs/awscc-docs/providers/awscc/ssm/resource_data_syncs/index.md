@@ -35,6 +35,15 @@ Retrieves a list of <code>resource_data_syncs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+sync_name
+FROM awscc.ssm.resource_data_syncs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resource_data_syncs</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ ssm:ListResourceDataSync
 ssm:ListResourceDataSync
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-sync_name
-FROM awscc.ssm.resource_data_syncs
-WHERE region = 'us-east-1'
-```

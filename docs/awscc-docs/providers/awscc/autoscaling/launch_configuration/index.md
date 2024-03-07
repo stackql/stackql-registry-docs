@@ -53,22 +53,6 @@ Gets an individual <code>launch_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>launch_configuration</code> resource, the following permissions are required:
-
-### Read
-```json
-autoscaling:DescribeLaunchConfigurations
-```
-
-### Delete
-```json
-autoscaling:DeleteLaunchConfiguration,
-autoscaling:DescribeLaunchConfigurations
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -94,5 +78,21 @@ spot_price,
 user_data
 FROM awscc.autoscaling.launch_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LaunchConfigurationName&gt;'
+AND data__Identifier = '{LaunchConfigurationName}';
 ```
+
+## Permissions
+
+To operate on the <code>launch_configuration</code> resource, the following permissions are required:
+
+### Read
+```json
+autoscaling:DescribeLaunchConfigurations
+```
+
+### Delete
+```json
+autoscaling:DeleteLaunchConfiguration,
+autoscaling:DescribeLaunchConfigurations
+```
+

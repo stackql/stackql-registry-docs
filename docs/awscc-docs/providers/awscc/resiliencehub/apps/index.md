@@ -35,6 +35,15 @@ Retrieves a list of <code>apps</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_arn
+FROM awscc.resiliencehub.apps
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>apps</code> resource, the following permissions are required:
@@ -68,12 +77,3 @@ resiliencehub:*
 resiliencehub:ListApps
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_arn
-FROM awscc.resiliencehub.apps
-WHERE region = 'us-east-1'
-```

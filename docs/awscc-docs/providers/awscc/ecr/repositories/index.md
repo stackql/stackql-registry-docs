@@ -35,6 +35,15 @@ Retrieves a list of <code>repositories</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+repository_name
+FROM awscc.ecr.repositories
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>repositories</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ kms:RetireGrant
 ecr:DescribeRepositories
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-repository_name
-FROM awscc.ecr.repositories
-WHERE region = 'us-east-1'
-```

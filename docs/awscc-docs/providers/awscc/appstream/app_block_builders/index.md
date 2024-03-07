@@ -35,6 +35,15 @@ Retrieves a list of <code>app_block_builders</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.appstream.app_block_builders
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>app_block_builders</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ iam:PassRole
 appstream:DescribeAppBlockBuilders
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.appstream.app_block_builders
-WHERE region = 'us-east-1'
-```

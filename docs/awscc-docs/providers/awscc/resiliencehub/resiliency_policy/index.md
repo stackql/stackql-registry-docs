@@ -41,6 +41,22 @@ Gets an individual <code>resiliency_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+policy_name,
+policy_description,
+data_location_constraint,
+tier,
+policy,
+policy_arn,
+tags
+FROM awscc.resiliencehub.resiliency_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PolicyArn}';
+```
+
 ## Permissions
 
 To operate on the <code>resiliency_policy</code> resource, the following permissions are required:
@@ -66,19 +82,3 @@ resiliencehub:DeleteResiliencyPolicy,
 resiliencehub:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-policy_name,
-policy_description,
-data_location_constraint,
-tier,
-policy,
-policy_arn,
-tags
-FROM awscc.resiliencehub.resiliency_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PolicyArn&gt;'
-```

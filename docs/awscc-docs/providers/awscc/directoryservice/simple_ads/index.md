@@ -35,6 +35,15 @@ Retrieves a list of <code>simple_ads</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+directory_id
+FROM awscc.directoryservice.simple_ads
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>simple_ads</code> resource, the following permissions are required:
@@ -60,12 +69,3 @@ ec2:CreateTags
 ds:DescribeDirectories
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-directory_id
-FROM awscc.directoryservice.simple_ads
-WHERE region = 'us-east-1'
-```

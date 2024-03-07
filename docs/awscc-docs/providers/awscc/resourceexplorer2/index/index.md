@@ -38,6 +38,19 @@ Gets an individual <code>index</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+tags,
+type,
+index_state
+FROM awscc.resourceexplorer2.index
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>index</code> resource, the following permissions are required:
@@ -63,16 +76,3 @@ resource-explorer-2:UntagResource
 resource-explorer-2:GetIndex
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-tags,
-type,
-index_state
-FROM awscc.resourceexplorer2.index
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

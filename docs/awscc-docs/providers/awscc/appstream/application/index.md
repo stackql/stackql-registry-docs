@@ -48,27 +48,6 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>application</code> resource, the following permissions are required:
-
-### Read
-```json
-appstream:DescribeApplications
-```
-
-### Update
-```json
-appstream:UpdateApplication,
-s3:GetObject
-```
-
-### Delete
-```json
-appstream:DeleteApplication
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -89,5 +68,26 @@ attributes_to_delete,
 created_time
 FROM awscc.appstream.application
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '{Arn}';
 ```
+
+## Permissions
+
+To operate on the <code>application</code> resource, the following permissions are required:
+
+### Read
+```json
+appstream:DescribeApplications
+```
+
+### Update
+```json
+appstream:UpdateApplication,
+s3:GetObject
+```
+
+### Delete
+```json
+appstream:DeleteApplication
+```
+

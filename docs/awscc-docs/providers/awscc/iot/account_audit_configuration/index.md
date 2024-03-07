@@ -38,6 +38,19 @@ Gets an individual <code>account_audit_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_id,
+audit_check_configurations,
+audit_notification_target_configurations,
+role_arn
+FROM awscc.iot.account_audit_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>account_audit_configuration</code> resource, the following permissions are required:
@@ -60,16 +73,3 @@ iot:DescribeAccountAuditConfiguration,
 iot:DeleteAccountAuditConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_id,
-audit_check_configurations,
-audit_notification_target_configurations,
-role_arn
-FROM awscc.iot.account_audit_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountId&gt;'
-```

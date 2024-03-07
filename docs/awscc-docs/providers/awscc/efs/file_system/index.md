@@ -49,6 +49,30 @@ Gets an individual <code>file_system</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+file_system_id,
+arn,
+encrypted,
+file_system_tags,
+kms_key_id,
+lifecycle_policies,
+file_system_protection,
+performance_mode,
+provisioned_throughput_in_mibps,
+throughput_mode,
+file_system_policy,
+bypass_policy_lockout_safety_check,
+backup_policy,
+availability_zone_name,
+replication_configuration
+FROM awscc.efs.file_system
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FileSystemId}';
+```
+
 ## Permissions
 
 To operate on the <code>file_system</code> resource, the following permissions are required:
@@ -94,27 +118,3 @@ elasticfilesystem:DeleteReplicationConfiguration,
 elasticfilesystem:DescribeReplicationConfigurations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-file_system_id,
-arn,
-encrypted,
-file_system_tags,
-kms_key_id,
-lifecycle_policies,
-file_system_protection,
-performance_mode,
-provisioned_throughput_in_mibps,
-throughput_mode,
-file_system_policy,
-bypass_policy_lockout_safety_check,
-backup_policy,
-availability_zone_name,
-replication_configuration
-FROM awscc.efs.file_system
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FileSystemId&gt;'
-```

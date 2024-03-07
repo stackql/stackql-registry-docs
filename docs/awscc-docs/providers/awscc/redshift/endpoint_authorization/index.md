@@ -46,6 +46,28 @@ Gets an individual <code>endpoint_authorization</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+grantor,
+grantee,
+cluster_identifier,
+authorize_time,
+cluster_status,
+status,
+allowed_all_vp_cs,
+allowed_vp_cs,
+endpoint_count,
+account,
+vpc_ids,
+force
+FROM awscc.redshift.endpoint_authorization
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ClusterIdentifier}';
+AND data__Identifier = '{Account}';
+```
+
 ## Permissions
 
 To operate on the <code>endpoint_authorization</code> resource, the following permissions are required:
@@ -75,25 +97,3 @@ ec2:DescribeInternetGateways,
 ec2:DescribeSubnets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-grantor,
-grantee,
-cluster_identifier,
-authorize_time,
-cluster_status,
-status,
-allowed_all_vp_cs,
-allowed_vp_cs,
-endpoint_count,
-account,
-vpc_ids,
-force
-FROM awscc.redshift.endpoint_authorization
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterIdentifier&gt;'
-AND data__Identifier = '&lt;Account&gt;'
-```

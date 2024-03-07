@@ -35,6 +35,15 @@ Retrieves a list of <code>resource_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.inspector.resource_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resource_groups</code> resource, the following permissions are required:
@@ -44,12 +53,3 @@ To operate on the <code>resource_groups</code> resource, the following permissio
 inspector:CreateResourceGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.inspector.resource_groups
-WHERE region = 'us-east-1'
-```

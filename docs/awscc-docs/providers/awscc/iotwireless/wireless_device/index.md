@@ -46,6 +46,27 @@ Gets an individual <code>wireless_device</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+type,
+name,
+description,
+destination_name,
+lo_ra_wa_n,
+tags,
+arn,
+id,
+thing_arn,
+thing_name,
+last_uplink_received_at,
+positioning
+FROM awscc.iotwireless.wireless_device
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>wireless_device</code> resource, the following permissions are required:
@@ -70,24 +91,3 @@ iotwireless:DeleteWirelessDevice,
 iotwireless:DisassociateWirelessDeviceFromThing
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-type,
-name,
-description,
-destination_name,
-lo_ra_wa_n,
-tags,
-arn,
-id,
-thing_arn,
-thing_name,
-last_uplink_received_at,
-positioning
-FROM awscc.iotwireless.wireless_device
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

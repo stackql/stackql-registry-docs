@@ -46,6 +46,27 @@ Gets an individual <code>outpost_resolver</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+creator_request_id,
+name,
+arn,
+outpost_arn,
+preferred_instance_type,
+status,
+status_message,
+instance_count,
+creation_time,
+modification_time,
+tags
+FROM awscc.route53resolver.outpost_resolver
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>outpost_resolver</code> resource, the following permissions are required:
@@ -73,24 +94,3 @@ route53resolver:ListOutpostResolvers,
 route53resolver:ListResolverEndpoints
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-creator_request_id,
-name,
-arn,
-outpost_arn,
-preferred_instance_type,
-status,
-status_message,
-instance_count,
-creation_time,
-modification_time,
-tags
-FROM awscc.route53resolver.outpost_resolver
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

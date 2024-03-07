@@ -43,6 +43,24 @@ Gets an individual <code>wireless_gateway</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+tags,
+lo_ra_wa_n,
+arn,
+id,
+thing_arn,
+thing_name,
+last_uplink_received_at
+FROM awscc.iotwireless.wireless_gateway
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>wireless_gateway</code> resource, the following permissions are required:
@@ -67,21 +85,3 @@ iotwireless:DeleteWirelessGateway,
 iotwireless:DisassociateWirelessGatewayFromThing
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-tags,
-lo_ra_wa_n,
-arn,
-id,
-thing_arn,
-thing_name,
-last_uplink_received_at
-FROM awscc.iotwireless.wireless_gateway
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

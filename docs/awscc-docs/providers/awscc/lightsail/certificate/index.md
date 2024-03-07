@@ -40,6 +40,21 @@ Gets an individual <code>certificate</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+certificate_name,
+domain_name,
+subject_alternative_names,
+certificate_arn,
+status,
+tags
+FROM awscc.lightsail.certificate
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CertificateName}';
+```
+
 ## Permissions
 
 To operate on the <code>certificate</code> resource, the following permissions are required:
@@ -62,18 +77,3 @@ lightsail:DeleteCertificate,
 lightsail:GetCertificates
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-certificate_name,
-domain_name,
-subject_alternative_names,
-certificate_arn,
-status,
-tags
-FROM awscc.lightsail.certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateName&gt;'
-```

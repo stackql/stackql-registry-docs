@@ -43,6 +43,24 @@ Gets an individual <code>dataset</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+actions,
+late_data_rules,
+dataset_name,
+content_delivery_rules,
+triggers,
+versioning_configuration,
+id,
+retention_period,
+tags
+FROM awscc.iotanalytics.dataset
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DatasetName}';
+```
+
 ## Permissions
 
 To operate on the <code>dataset</code> resource, the following permissions are required:
@@ -65,21 +83,3 @@ iotanalytics:UntagResource
 iotanalytics:DeleteDataset
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-actions,
-late_data_rules,
-dataset_name,
-content_delivery_rules,
-triggers,
-versioning_configuration,
-id,
-retention_period,
-tags
-FROM awscc.iotanalytics.dataset
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatasetName&gt;'
-```

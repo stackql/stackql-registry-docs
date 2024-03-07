@@ -38,6 +38,20 @@ Gets an individual <code>aggregation_authorization</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+authorized_account_id,
+authorized_aws_region,
+aggregation_authorization_arn,
+tags
+FROM awscc.config.aggregation_authorization
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AuthorizedAccountId}';
+AND data__Identifier = '{AuthorizedAwsRegion}';
+```
+
 ## Permissions
 
 To operate on the <code>aggregation_authorization</code> resource, the following permissions are required:
@@ -63,17 +77,3 @@ config:DeleteAggregationAuthorization,
 config:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-authorized_account_id,
-authorized_aws_region,
-aggregation_authorization_arn,
-tags
-FROM awscc.config.aggregation_authorization
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AuthorizedAccountId&gt;'
-AND data__Identifier = '&lt;AuthorizedAwsRegion&gt;'
-```

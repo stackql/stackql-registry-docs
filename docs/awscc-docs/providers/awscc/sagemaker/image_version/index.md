@@ -49,6 +49,30 @@ Gets an individual <code>image_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+image_name,
+image_arn,
+image_version_arn,
+base_image,
+container_image,
+version,
+alias,
+aliases,
+vendor_guidance,
+job_type,
+m_lframework,
+programming_lang,
+processor,
+horovod,
+release_notes
+FROM awscc.sagemaker.image_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ImageVersionArn}';
+```
+
 ## Permissions
 
 To operate on the <code>image_version</code> resource, the following permissions are required:
@@ -71,27 +95,3 @@ sagemaker:DeleteImageVersion,
 sagemaker:DescribeImageVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-image_name,
-image_arn,
-image_version_arn,
-base_image,
-container_image,
-version,
-alias,
-aliases,
-vendor_guidance,
-job_type,
-m_lframework,
-programming_lang,
-processor,
-horovod,
-release_notes
-FROM awscc.sagemaker.image_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ImageVersionArn&gt;'
-```

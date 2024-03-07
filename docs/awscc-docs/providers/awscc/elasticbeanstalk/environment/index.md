@@ -47,6 +47,28 @@ Gets an individual <code>environment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+platform_arn,
+application_name,
+description,
+environment_name,
+operations_role,
+tier,
+version_label,
+endpoint_ur_l,
+option_settings,
+template_name,
+solution_stack_name,
+c_na_me_prefix,
+tags
+FROM awscc.elasticbeanstalk.environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EnvironmentName}';
+```
+
 ## Permissions
 
 To operate on the <code>environment</code> resource, the following permissions are required:
@@ -74,25 +96,3 @@ elasticbeanstalk:DescribeEnvironments,
 elasticbeanstalk:TerminateEnvironment
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-platform_arn,
-application_name,
-description,
-environment_name,
-operations_role,
-tier,
-version_label,
-endpoint_ur_l,
-option_settings,
-template_name,
-solution_stack_name,
-c_na_me_prefix,
-tags
-FROM awscc.elasticbeanstalk.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentName&gt;'
-```

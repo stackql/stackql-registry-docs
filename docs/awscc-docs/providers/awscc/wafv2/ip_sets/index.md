@@ -37,6 +37,17 @@ Retrieves a list of <code>ip_sets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+id,
+scope
+FROM awscc.wafv2.ip_sets
+
+```
+
 ## Permissions
 
 To operate on the <code>ip_sets</code> resource, the following permissions are required:
@@ -53,14 +64,3 @@ wafv2:ListTagsForResource
 wafv2:listIPSets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-id,
-scope
-FROM awscc.wafv2.ip_sets
-
-```

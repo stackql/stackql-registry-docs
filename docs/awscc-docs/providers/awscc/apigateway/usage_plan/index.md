@@ -41,6 +41,22 @@ Gets an individual <code>usage_plan</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+api_stages,
+description,
+quota,
+tags,
+throttle,
+usage_plan_name
+FROM awscc.apigateway.usage_plan
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>usage_plan</code> resource, the following permissions are required:
@@ -65,19 +81,3 @@ apigateway:GET,
 apigateway:PATCH
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-api_stages,
-description,
-quota,
-tags,
-throttle,
-usage_plan_name
-FROM awscc.apigateway.usage_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

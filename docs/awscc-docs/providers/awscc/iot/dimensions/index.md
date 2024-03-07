@@ -35,6 +35,15 @@ Retrieves a list of <code>dimensions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.iot.dimensions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>dimensions</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ iot:TagResource
 iot:ListDimensions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.iot.dimensions
-WHERE region = 'us-east-1'
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>authorizers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+rest_api_id,
+authorizer_id
+FROM awscc.apigateway.authorizers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>authorizers</code> resource, the following permissions are required:
@@ -51,13 +61,3 @@ iam:PassRole
 apigateway:GET
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-rest_api_id,
-authorizer_id
-FROM awscc.apigateway.authorizers
-WHERE region = 'us-east-1'
-```

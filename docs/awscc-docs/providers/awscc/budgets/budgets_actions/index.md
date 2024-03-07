@@ -36,6 +36,16 @@ Retrieves a list of <code>budgets_actions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+action_id,
+budget_name
+FROM awscc.budgets.budgets_actions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>budgets_actions</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ budgets:DescribeBudgetActionsForAccount,
 budgets:DescribeBudgetActionsForBudget
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-action_id,
-budget_name
-FROM awscc.budgets.budgets_actions
-WHERE region = 'us-east-1'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>realtime_log_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.cloudfront.realtime_log_configs
+
+```
+
 ## Permissions
 
 To operate on the <code>realtime_log_configs</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ iam:PassRole
 cloudfront:ListRealtimeLogConfigs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.cloudfront.realtime_log_configs
-
-```

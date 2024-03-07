@@ -42,6 +42,23 @@ Gets an individual <code>frauddetector_list</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+variable_type,
+created_time,
+last_updated_time,
+tags,
+elements
+FROM awscc.frauddetector.frauddetector_list
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>frauddetector_list</code> resource, the following permissions are required:
@@ -69,20 +86,3 @@ frauddetector:DeleteList,
 frauddetector:GetListsMetadata
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-description,
-variable_type,
-created_time,
-last_updated_time,
-tags,
-elements
-FROM awscc.frauddetector.frauddetector_list
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

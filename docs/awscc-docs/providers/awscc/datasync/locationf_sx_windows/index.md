@@ -43,6 +43,24 @@ Gets an individual <code>locationf_sx_windows</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain,
+fsx_filesystem_arn,
+password,
+security_group_arns,
+subdirectory,
+user,
+tags,
+location_arn,
+location_uri
+FROM awscc.datasync.locationf_sx_windows
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LocationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>locationf_sx_windows</code> resource, the following permissions are required:
@@ -66,21 +84,3 @@ datasync:UntagResource
 datasync:DeleteLocation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain,
-fsx_filesystem_arn,
-password,
-security_group_arns,
-subdirectory,
-user,
-tags,
-location_arn,
-location_uri
-FROM awscc.datasync.locationf_sx_windows
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationArn&gt;'
-```

@@ -50,6 +50,31 @@ Gets an individual <code>database</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+relational_database_name,
+database_arn,
+availability_zone,
+relational_database_blueprint_id,
+relational_database_bundle_id,
+master_database_name,
+master_username,
+master_user_password,
+preferred_backup_window,
+preferred_maintenance_window,
+publicly_accessible,
+ca_certificate_identifier,
+backup_retention,
+rotate_master_user_password,
+relational_database_parameters,
+tags
+FROM awscc.lightsail.database
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RelationalDatabaseName}';
+```
+
 ## Permissions
 
 To operate on the <code>database</code> resource, the following permissions are required:
@@ -77,28 +102,3 @@ lightsail:GetRelationalDatabase,
 lightsail:GetRelationalDatabases
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-relational_database_name,
-database_arn,
-availability_zone,
-relational_database_blueprint_id,
-relational_database_bundle_id,
-master_database_name,
-master_username,
-master_user_password,
-preferred_backup_window,
-preferred_maintenance_window,
-publicly_accessible,
-ca_certificate_identifier,
-backup_retention,
-rotate_master_user_password,
-relational_database_parameters,
-tags
-FROM awscc.lightsail.database
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RelationalDatabaseName&gt;'
-```

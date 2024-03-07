@@ -49,6 +49,31 @@ Gets an individual <code>vpc_connection</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+aws_account_id,
+name,
+v_pc_connection_id,
+v_pc_id,
+security_group_ids,
+subnet_ids,
+dns_resolvers,
+status,
+availability_status,
+network_interfaces,
+role_arn,
+created_time,
+last_updated_time,
+tags
+FROM awscc.quicksight.vpc_connection
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AwsAccountId}';
+AND data__Identifier = '{VPCConnectionId}';
+```
+
 ## Permissions
 
 To operate on the <code>vpc_connection</code> resource, the following permissions are required:
@@ -77,28 +102,3 @@ quicksight:ListTagsForResource,
 iam:PassRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-aws_account_id,
-name,
-v_pc_connection_id,
-v_pc_id,
-security_group_ids,
-subnet_ids,
-dns_resolvers,
-status,
-availability_status,
-network_interfaces,
-role_arn,
-created_time,
-last_updated_time,
-tags
-FROM awscc.quicksight.vpc_connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-AND data__Identifier = '&lt;VPCConnectionId&gt;'
-```

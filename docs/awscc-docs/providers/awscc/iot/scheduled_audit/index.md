@@ -41,6 +41,22 @@ Gets an individual <code>scheduled_audit</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+scheduled_audit_name,
+frequency,
+day_of_month,
+day_of_week,
+target_check_names,
+scheduled_audit_arn,
+tags
+FROM awscc.iot.scheduled_audit
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ScheduledAuditName}';
+```
+
 ## Permissions
 
 To operate on the <code>scheduled_audit</code> resource, the following permissions are required:
@@ -65,19 +81,3 @@ iot:DescribeScheduledAudit,
 iot:DeleteScheduledAudit
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-scheduled_audit_name,
-frequency,
-day_of_month,
-day_of_week,
-target_check_names,
-scheduled_audit_arn,
-tags
-FROM awscc.iot.scheduled_audit
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ScheduledAuditName&gt;'
-```

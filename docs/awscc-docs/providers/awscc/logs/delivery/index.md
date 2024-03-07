@@ -40,6 +40,21 @@ Gets an individual <code>delivery</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+delivery_id,
+arn,
+delivery_source_name,
+delivery_destination_arn,
+delivery_destination_type,
+tags
+FROM awscc.logs.delivery
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DeliveryId}';
+```
+
 ## Permissions
 
 To operate on the <code>delivery</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ logs:ListTagsForResource,
 logs:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-delivery_id,
-arn,
-delivery_source_name,
-delivery_destination_arn,
-delivery_destination_type,
-tags
-FROM awscc.logs.delivery
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DeliveryId&gt;'
-```

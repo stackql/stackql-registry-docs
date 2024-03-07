@@ -39,6 +39,20 @@ Gets an individual <code>policy_store</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+description,
+policy_store_id,
+validation_settings,
+schema
+FROM awscc.verifiedpermissions.policy_store
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PolicyStoreId}';
+```
+
 ## Permissions
 
 To operate on the <code>policy_store</code> resource, the following permissions are required:
@@ -70,17 +84,3 @@ verifiedpermissions:UpdatePolicyStore,
 verifiedpermissions:DeletePolicyStore
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-description,
-policy_store_id,
-validation_settings,
-schema
-FROM awscc.verifiedpermissions.policy_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PolicyStoreId&gt;'
-```

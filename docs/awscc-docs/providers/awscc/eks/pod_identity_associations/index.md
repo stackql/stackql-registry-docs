@@ -35,6 +35,15 @@ Retrieves a list of <code>pod_identity_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+association_arn
+FROM awscc.eks.pod_identity_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>pod_identity_associations</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ iam:GetRole
 eks:ListPodIdentityAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-association_arn
-FROM awscc.eks.pod_identity_associations
-WHERE region = 'us-east-1'
-```

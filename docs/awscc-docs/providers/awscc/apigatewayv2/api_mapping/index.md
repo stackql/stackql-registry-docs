@@ -39,6 +39,21 @@ Gets an individual <code>api_mapping</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+api_mapping_id,
+domain_name,
+stage,
+api_mapping_key,
+api_id
+FROM awscc.apigatewayv2.api_mapping
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApiMappingId}';
+AND data__Identifier = '{DomainName}';
+```
+
 ## Permissions
 
 To operate on the <code>api_mapping</code> resource, the following permissions are required:
@@ -60,18 +75,3 @@ apigateway:GET
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-api_mapping_id,
-domain_name,
-stage,
-api_mapping_key,
-api_id
-FROM awscc.apigatewayv2.api_mapping
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiMappingId&gt;'
-AND data__Identifier = '&lt;DomainName&gt;'
-```

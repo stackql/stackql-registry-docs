@@ -40,6 +40,21 @@ Gets an individual <code>component_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+component_name,
+component_version,
+inline_recipe,
+lambda_function,
+tags
+FROM awscc.greengrassv2.component_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>component_version</code> resource, the following permissions are required:
@@ -63,18 +78,3 @@ greengrass:UntagResource
 greengrass:DeleteComponent
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-component_name,
-component_version,
-inline_recipe,
-lambda_function,
-tags
-FROM awscc.greengrassv2.component_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

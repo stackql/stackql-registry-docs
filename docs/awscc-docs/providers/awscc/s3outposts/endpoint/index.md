@@ -46,21 +46,6 @@ Gets an individual <code>endpoint</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>endpoint</code> resource, the following permissions are required:
-
-### Read
-```json
-s3-outposts:ListEndpoints
-```
-
-### Delete
-```json
-s3-outposts:DeleteEndpoint
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -79,5 +64,20 @@ customer_owned_ipv4_pool,
 failed_reason
 FROM awscc.s3outposts.endpoint
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '{Arn}';
 ```
+
+## Permissions
+
+To operate on the <code>endpoint</code> resource, the following permissions are required:
+
+### Read
+```json
+s3-outposts:ListEndpoints
+```
+
+### Delete
+```json
+s3-outposts:DeleteEndpoint
+```
+

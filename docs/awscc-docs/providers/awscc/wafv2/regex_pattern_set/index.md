@@ -41,6 +41,23 @@ Gets an individual <code>regex_pattern_set</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+description,
+name,
+id,
+regular_expression_list,
+scope,
+tags
+FROM awscc.wafv2.regex_pattern_set
+WHERE data__Identifier = '{Name}';
+AND data__Identifier = '{Id}';
+AND data__Identifier = '{Scope}';
+```
+
 ## Permissions
 
 To operate on the <code>regex_pattern_set</code> resource, the following permissions are required:
@@ -64,20 +81,3 @@ wafv2:GetRegexPatternSet,
 wafv2:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-description,
-name,
-id,
-regular_expression_list,
-scope,
-tags
-FROM awscc.wafv2.regex_pattern_set
-WHERE data__Identifier = '&lt;Name&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;Scope&gt;'
-```

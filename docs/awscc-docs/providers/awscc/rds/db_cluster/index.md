@@ -92,47 +92,6 @@ Gets an individual <code>db_cluster</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>db_cluster</code> resource, the following permissions are required:
-
-### Read
-```json
-rds:DescribeDBClusters
-```
-
-### Update
-```json
-ec2:DescribeSecurityGroups,
-iam:PassRole,
-rds:AddRoleToDBCluster,
-rds:AddTagsToResource,
-rds:DescribeDBClusters,
-rds:DescribeDBSubnetGroups,
-rds:DescribeEvents,
-rds:DescribeGlobalClusters,
-rds:DisableHttpEndpoint,
-rds:EnableHttpEndpoint,
-rds:ModifyDBCluster,
-rds:ModifyDBInstance,
-rds:RemoveFromGlobalCluster,
-rds:RemoveRoleFromDBCluster,
-rds:RemoveTagsFromResource,
-secretsmanager:CreateSecret,
-secretsmanager:TagResource
-```
-
-### Delete
-```json
-rds:CreateDBClusterSnapshot,
-rds:DeleteDBCluster,
-rds:DeleteDBInstance,
-rds:DescribeDBClusters,
-rds:DescribeGlobalClusters,
-rds:RemoveFromGlobalCluster
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -197,5 +156,46 @@ use_latest_restorable_time,
 vpc_security_group_ids
 FROM awscc.rds.db_cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBClusterIdentifier&gt;'
+AND data__Identifier = '{DBClusterIdentifier}';
 ```
+
+## Permissions
+
+To operate on the <code>db_cluster</code> resource, the following permissions are required:
+
+### Read
+```json
+rds:DescribeDBClusters
+```
+
+### Update
+```json
+ec2:DescribeSecurityGroups,
+iam:PassRole,
+rds:AddRoleToDBCluster,
+rds:AddTagsToResource,
+rds:DescribeDBClusters,
+rds:DescribeDBSubnetGroups,
+rds:DescribeEvents,
+rds:DescribeGlobalClusters,
+rds:DisableHttpEndpoint,
+rds:EnableHttpEndpoint,
+rds:ModifyDBCluster,
+rds:ModifyDBInstance,
+rds:RemoveFromGlobalCluster,
+rds:RemoveRoleFromDBCluster,
+rds:RemoveTagsFromResource,
+secretsmanager:CreateSecret,
+secretsmanager:TagResource
+```
+
+### Delete
+```json
+rds:CreateDBClusterSnapshot,
+rds:DeleteDBCluster,
+rds:DeleteDBInstance,
+rds:DescribeDBClusters,
+rds:DescribeGlobalClusters,
+rds:RemoveFromGlobalCluster
+```
+

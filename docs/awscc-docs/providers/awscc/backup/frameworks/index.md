@@ -35,6 +35,15 @@ Retrieves a list of <code>frameworks</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+framework_arn
+FROM awscc.backup.frameworks
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>frameworks</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ iam:CreateServiceLinkedRole
 backup:ListFrameworks
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-framework_arn
-FROM awscc.backup.frameworks
-WHERE region = 'us-east-1'
-```

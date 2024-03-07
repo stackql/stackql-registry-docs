@@ -37,6 +37,18 @@ Gets an individual <code>queue_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+policy_document,
+queues
+FROM awscc.sqs.queue_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>queue_policy</code> resource, the following permissions are required:
@@ -51,15 +63,3 @@ sqs:SetQueueAttributes
 sqs:SetQueueAttributes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-policy_document,
-queues
-FROM awscc.sqs.queue_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>object_types</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+object_type_name
+FROM awscc.customerprofiles.object_types
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>object_types</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ profile:TagResource
 profile:ListProfileObjectTypes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-object_type_name
-FROM awscc.customerprofiles.object_types
-WHERE region = 'us-east-1'
-```

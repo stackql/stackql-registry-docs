@@ -43,6 +43,24 @@ Gets an individual <code>data_repository_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+association_id,
+resource_ar_n,
+file_system_id,
+file_system_path,
+data_repository_path,
+batch_import_meta_data_on_create,
+imported_file_chunk_size,
+s3,
+tags
+FROM awscc.fsx.data_repository_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AssociationId}';
+```
+
 ## Permissions
 
 To operate on the <code>data_repository_association</code> resource, the following permissions are required:
@@ -71,21 +89,3 @@ fsx:DescribeDataRepositoryAssociations,
 fsx:DeleteDataRepositoryAssociation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-association_id,
-resource_ar_n,
-file_system_id,
-file_system_path,
-data_repository_path,
-batch_import_meta_data_on_create,
-imported_file_chunk_size,
-s3,
-tags
-FROM awscc.fsx.data_repository_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssociationId&gt;'
-```

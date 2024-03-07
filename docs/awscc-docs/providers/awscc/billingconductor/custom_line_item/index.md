@@ -47,6 +47,28 @@ Gets an individual <code>custom_line_item</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+custom_line_item_charge_details,
+billing_group_arn,
+billing_period_range,
+arn,
+creation_time,
+last_modified_time,
+association_size,
+product_code,
+currency_code,
+account_id,
+tags
+FROM awscc.billingconductor.custom_line_item
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>custom_line_item</code> resource, the following permissions are required:
@@ -79,25 +101,3 @@ billingconductor:ListResourcesAssociatedToCustomLineItem,
 billingconductor:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-custom_line_item_charge_details,
-billing_group_arn,
-billing_period_range,
-arn,
-creation_time,
-last_modified_time,
-association_size,
-product_code,
-currency_code,
-account_id,
-tags
-FROM awscc.billingconductor.custom_line_item
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

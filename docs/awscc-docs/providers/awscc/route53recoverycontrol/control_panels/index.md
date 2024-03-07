@@ -35,6 +35,15 @@ Retrieves a list of <code>control_panels</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+control_panel_arn
+FROM awscc.route53recoverycontrol.control_panels
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>control_panels</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ route53-recovery-control-config:TagResource
 route53-recovery-control-config:ListControlPanels
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-control_panel_arn
-FROM awscc.route53recoverycontrol.control_panels
-WHERE region = 'us-east-1'
-```

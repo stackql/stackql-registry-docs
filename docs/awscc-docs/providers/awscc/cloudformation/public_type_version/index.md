@@ -42,17 +42,6 @@ Gets an individual <code>public_type_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>public_type_version</code> resource, the following permissions are required:
-
-### Read
-```json
-cloudformation:DescribeType,
-cloudformation:DescribePublisher
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -67,5 +56,16 @@ log_delivery_bucket,
 type
 FROM awscc.cloudformation.public_type_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PublicTypeArn&gt;'
+AND data__Identifier = '{PublicTypeArn}';
 ```
+
+## Permissions
+
+To operate on the <code>public_type_version</code> resource, the following permissions are required:
+
+### Read
+```json
+cloudformation:DescribeType,
+cloudformation:DescribePublisher
+```
+

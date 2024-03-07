@@ -38,6 +38,18 @@ Gets an individual <code>service_linked_role</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+role_name,
+custom_suffix,
+description,
+a_ws_service_name
+FROM awscc.iam.service_linked_role
+WHERE data__Identifier = '{RoleName}';
+```
+
 ## Permissions
 
 To operate on the <code>service_linked_role</code> resource, the following permissions are required:
@@ -60,15 +72,3 @@ iam:GetServiceLinkedRoleDeletionStatus,
 iam:GetRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-role_name,
-custom_suffix,
-description,
-a_ws_service_name
-FROM awscc.iam.service_linked_role
-WHERE data__Identifier = '&lt;RoleName&gt;'
-```

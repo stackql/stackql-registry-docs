@@ -35,6 +35,15 @@ Retrieves a list of <code>organizational_units</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.organizations.organizational_units
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>organizational_units</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ organizations:TagResource
 organizations:ListOrganizationalUnitsForParent
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.organizations.organizational_units
-WHERE region = 'us-east-1'
-```

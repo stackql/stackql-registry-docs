@@ -46,6 +46,27 @@ Gets an individual <code>service_network_vpc_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+created_at,
+security_group_ids,
+id,
+service_network_arn,
+service_network_id,
+service_network_identifier,
+service_network_name,
+status,
+vpc_id,
+vpc_identifier,
+tags
+FROM awscc.vpclattice.service_network_vpc_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>service_network_vpc_association</code> resource, the following permissions are required:
@@ -72,24 +93,3 @@ vpc-lattice:DeleteServiceNetworkVpcAssociation,
 vpc-lattice:GetServiceNetworkVpcAssociation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-created_at,
-security_group_ids,
-id,
-service_network_arn,
-service_network_id,
-service_network_identifier,
-service_network_name,
-status,
-vpc_id,
-vpc_identifier,
-tags
-FROM awscc.vpclattice.service_network_vpc_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

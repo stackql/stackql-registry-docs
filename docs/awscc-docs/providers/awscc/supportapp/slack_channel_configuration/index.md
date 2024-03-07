@@ -42,6 +42,24 @@ Gets an individual <code>slack_channel_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+team_id,
+channel_id,
+channel_name,
+notify_on_create_or_reopen_case,
+notify_on_add_correspondence_to_case,
+notify_on_resolve_case,
+notify_on_case_severity,
+channel_role_arn
+FROM awscc.supportapp.slack_channel_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TeamId}';
+AND data__Identifier = '{ChannelId}';
+```
+
 ## Permissions
 
 To operate on the <code>slack_channel_configuration</code> resource, the following permissions are required:
@@ -63,21 +81,3 @@ supportapp:DeleteSlackChannelConfiguration,
 supportapp:ListSlackChannelConfigurations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-team_id,
-channel_id,
-channel_name,
-notify_on_create_or_reopen_case,
-notify_on_add_correspondence_to_case,
-notify_on_resolve_case,
-notify_on_case_severity,
-channel_role_arn
-FROM awscc.supportapp.slack_channel_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TeamId&gt;'
-AND data__Identifier = '&lt;ChannelId&gt;'
-```

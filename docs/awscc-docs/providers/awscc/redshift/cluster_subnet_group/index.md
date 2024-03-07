@@ -38,6 +38,19 @@ Gets an individual <code>cluster_subnet_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+subnet_ids,
+tags,
+cluster_subnet_group_name
+FROM awscc.redshift.cluster_subnet_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ClusterSubnetGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>cluster_subnet_group</code> resource, the following permissions are required:
@@ -94,16 +107,3 @@ ec2:DescribeSubnets,
 ec2:DescribeVpcs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-subnet_ids,
-tags,
-cluster_subnet_group_name
-FROM awscc.redshift.cluster_subnet_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterSubnetGroupName&gt;'
-```

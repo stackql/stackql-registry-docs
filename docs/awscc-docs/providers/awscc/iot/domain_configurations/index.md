@@ -35,6 +35,15 @@ Retrieves a list of <code>domain_configurations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_configuration_name
+FROM awscc.iot.domain_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>domain_configurations</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ acm:GetCertificate
 iot:ListDomainConfigurations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_configuration_name
-FROM awscc.iot.domain_configurations
-WHERE region = 'us-east-1'
-```

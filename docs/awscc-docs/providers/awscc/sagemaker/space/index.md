@@ -43,6 +43,25 @@ Gets an individual <code>space</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+space_arn,
+domain_id,
+space_name,
+space_settings,
+tags,
+ownership_settings,
+space_sharing_settings,
+space_display_name,
+url
+FROM awscc.sagemaker.space
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainId}';
+AND data__Identifier = '{SpaceName}';
+```
+
 ## Permissions
 
 To operate on the <code>space</code> resource, the following permissions are required:
@@ -64,22 +83,3 @@ sagemaker:DeleteSpace,
 sagemaker:DescribeSpace
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-space_arn,
-domain_id,
-space_name,
-space_settings,
-tags,
-ownership_settings,
-space_sharing_settings,
-space_display_name,
-url
-FROM awscc.sagemaker.space
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainId&gt;'
-AND data__Identifier = '&lt;SpaceName&gt;'
-```

@@ -38,6 +38,21 @@ Gets an individual <code>studio_session_mapping</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+identity_name,
+identity_type,
+session_policy_arn,
+studio_id
+FROM awscc.emr.studio_session_mapping
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StudioId}';
+AND data__Identifier = '{IdentityType}';
+AND data__Identifier = '{IdentityName}';
+```
+
 ## Permissions
 
 To operate on the <code>studio_session_mapping</code> resource, the following permissions are required:
@@ -81,18 +96,3 @@ sso:ListProfiles,
 sso:DisassociateProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-identity_name,
-identity_type,
-session_policy_arn,
-studio_id
-FROM awscc.emr.studio_session_mapping
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StudioId&gt;'
-AND data__Identifier = '&lt;IdentityType&gt;'
-AND data__Identifier = '&lt;IdentityName&gt;'
-```

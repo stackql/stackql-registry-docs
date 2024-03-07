@@ -35,6 +35,15 @@ Retrieves a list of <code>urls</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+function_arn
+FROM awscc.lambda.urls
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>urls</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ lambda:CreateFunctionUrlConfig
 lambda:ListFunctionUrlConfigs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-function_arn
-FROM awscc.lambda.urls
-WHERE region = 'us-east-1'
-```

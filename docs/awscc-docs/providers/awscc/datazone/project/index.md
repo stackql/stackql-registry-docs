@@ -43,6 +43,25 @@ Gets an individual <code>project</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+created_at,
+created_by,
+description,
+domain_id,
+domain_identifier,
+glossary_terms,
+id,
+last_updated_at,
+name
+FROM awscc.datazone.project
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainId}';
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>project</code> resource, the following permissions are required:
@@ -64,22 +83,3 @@ datazone:DeleteProject,
 datazone:GetProject
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-created_at,
-created_by,
-description,
-domain_id,
-domain_identifier,
-glossary_terms,
-id,
-last_updated_at,
-name
-FROM awscc.datazone.project
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainId&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-```

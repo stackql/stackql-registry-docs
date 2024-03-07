@@ -41,6 +41,22 @@ Gets an individual <code>api_destination</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+connection_arn,
+arn,
+invocation_rate_limit_per_second,
+invocation_endpoint,
+http_method
+FROM awscc.events.api_destination
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>api_destination</code> resource, the following permissions are required:
@@ -62,19 +78,3 @@ events:DeleteApiDestination,
 events:DescribeApiDestination
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-connection_arn,
-arn,
-invocation_rate_limit_per_second,
-invocation_endpoint,
-http_method
-FROM awscc.events.api_destination
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

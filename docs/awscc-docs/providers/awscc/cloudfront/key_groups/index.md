@@ -35,6 +35,15 @@ Retrieves a list of <code>key_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.cloudfront.key_groups
+
+```
+
 ## Permissions
 
 To operate on the <code>key_groups</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ cloudfront:CreateKeyGroup
 cloudfront:ListKeyGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.cloudfront.key_groups
-
-```

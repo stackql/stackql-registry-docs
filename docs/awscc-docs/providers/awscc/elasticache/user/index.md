@@ -44,6 +44,25 @@ Gets an individual <code>user</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+status,
+user_id,
+user_name,
+engine,
+access_string,
+no_password_required,
+passwords,
+arn,
+authentication_mode,
+tags
+FROM awscc.elasticache.user
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserId}';
+```
+
 ## Permissions
 
 To operate on the <code>user</code> resource, the following permissions are required:
@@ -69,22 +88,3 @@ elasticache:DeleteUser,
 elasticache:DescribeUsers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-status,
-user_id,
-user_name,
-engine,
-access_string,
-no_password_required,
-passwords,
-arn,
-authentication_mode,
-tags
-FROM awscc.elasticache.user
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserId&gt;'
-```

@@ -45,6 +45,26 @@ Gets an individual <code>profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+business_name,
+created_at,
+email,
+log_group_name,
+logging,
+modified_at,
+name,
+phone,
+profile_arn,
+profile_id,
+tags
+FROM awscc.b2bi.profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ProfileId}';
+```
+
 ## Permissions
 
 To operate on the <code>profile</code> resource, the following permissions are required:
@@ -69,23 +89,3 @@ logs:DeleteLogDelivery,
 logs:ListLogDeliveries
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-business_name,
-created_at,
-email,
-log_group_name,
-logging,
-modified_at,
-name,
-phone,
-profile_arn,
-profile_id,
-tags
-FROM awscc.b2bi.profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProfileId&gt;'
-```

@@ -38,6 +38,19 @@ Gets an individual <code>schedule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+job_names,
+cron_expression,
+name,
+tags
+FROM awscc.databrew.schedule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>schedule</code> resource, the following permissions are required:
@@ -59,16 +72,3 @@ databrew:UpdateSchedule
 databrew:DeleteSchedule
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-job_names,
-cron_expression,
-name,
-tags
-FROM awscc.databrew.schedule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

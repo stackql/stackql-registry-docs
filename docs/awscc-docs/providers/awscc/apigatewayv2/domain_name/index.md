@@ -40,6 +40,21 @@ Gets an individual <code>domain_name</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+mutual_tls_authentication,
+regional_hosted_zone_id,
+regional_domain_name,
+domain_name,
+domain_name_configurations,
+tags
+FROM awscc.apigatewayv2.domain_name
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainName}';
+```
+
 ## Permissions
 
 To operate on the <code>domain_name</code> resource, the following permissions are required:
@@ -62,18 +77,3 @@ apigateway:GET,
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-mutual_tls_authentication,
-regional_hosted_zone_id,
-regional_domain_name,
-domain_name,
-domain_name_configurations,
-tags
-FROM awscc.apigatewayv2.domain_name
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-```

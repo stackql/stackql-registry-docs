@@ -40,6 +40,21 @@ Gets an individual <code>cis_scan_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+scan_name,
+security_level,
+schedule,
+targets,
+arn,
+tags
+FROM awscc.inspectorv2.cis_scan_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>cis_scan_configuration</code> resource, the following permissions are required:
@@ -66,18 +81,3 @@ inspector2:DeleteCisScanConfiguration,
 inspector2:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-scan_name,
-security_level,
-schedule,
-targets,
-arn,
-tags
-FROM awscc.inspectorv2.cis_scan_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>file_systems</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+file_system_id
+FROM awscc.efs.file_systems
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>file_systems</code> resource, the following permissions are required:
@@ -64,12 +73,3 @@ elasticfilesystem:DescribeLifecycleConfiguration,
 elasticfilesystem:DescribeReplicationConfigurations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-file_system_id
-FROM awscc.efs.file_systems
-WHERE region = 'us-east-1'
-```

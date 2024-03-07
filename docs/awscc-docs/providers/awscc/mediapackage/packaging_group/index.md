@@ -40,6 +40,21 @@ Gets an individual <code>packaging_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+domain_name,
+authorization,
+tags,
+egress_access_logs
+FROM awscc.mediapackage.packaging_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>packaging_group</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ mediapackage-vod:DescribePackagingGroup,
 mediapackage-vod:DeletePackagingGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-domain_name,
-authorization,
-tags,
-egress_access_logs
-FROM awscc.mediapackage.packaging_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

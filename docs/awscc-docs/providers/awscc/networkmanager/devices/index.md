@@ -36,6 +36,16 @@ Retrieves a list of <code>devices</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+global_network_id,
+device_id
+FROM awscc.networkmanager.devices
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>devices</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ networkmanager:TagResource
 networkmanager:GetDevices
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-global_network_id,
-device_id
-FROM awscc.networkmanager.devices
-WHERE region = 'us-east-1'
-```

@@ -41,6 +41,22 @@ Gets an individual <code>discoverer</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+discoverer_arn,
+discoverer_id,
+description,
+source_arn,
+cross_account,
+state,
+tags
+FROM awscc.eventschemas.discoverer
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DiscovererArn}';
+```
+
 ## Permissions
 
 To operate on the <code>discoverer</code> resource, the following permissions are required:
@@ -70,19 +86,3 @@ events:DisableRule,
 events:RemoveTargets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-discoverer_arn,
-discoverer_id,
-description,
-source_arn,
-cross_account,
-state,
-tags
-FROM awscc.eventschemas.discoverer
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DiscovererArn&gt;'
-```

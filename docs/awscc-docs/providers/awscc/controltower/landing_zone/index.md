@@ -42,6 +42,23 @@ Gets an individual <code>landing_zone</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+landing_zone_identifier,
+arn,
+status,
+latest_available_version,
+drift_status,
+manifest,
+version,
+tags
+FROM awscc.controltower.landing_zone
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LandingZoneIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>landing_zone</code> resource, the following permissions are required:
@@ -114,20 +131,3 @@ iam:DetachRolePolicy,
 iam:DeleteRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-landing_zone_identifier,
-arn,
-status,
-latest_available_version,
-drift_status,
-manifest,
-version,
-tags
-FROM awscc.controltower.landing_zone
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LandingZoneIdentifier&gt;'
-```

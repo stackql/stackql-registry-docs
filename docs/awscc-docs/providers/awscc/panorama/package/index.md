@@ -40,6 +40,21 @@ Gets an individual <code>package</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+package_name,
+package_id,
+arn,
+storage_location,
+created_time,
+tags
+FROM awscc.panorama.package
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PackageId}';
+```
+
 ## Permissions
 
 To operate on the <code>package</code> resource, the following permissions are required:
@@ -79,18 +94,3 @@ s3:GetObject,
 s3:GetObjectVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-package_name,
-package_id,
-arn,
-storage_location,
-created_time,
-tags
-FROM awscc.panorama.package
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PackageId&gt;'
-```

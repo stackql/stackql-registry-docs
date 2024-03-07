@@ -42,6 +42,23 @@ Gets an individual <code>work_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+tags,
+work_group_configuration,
+work_group_configuration_updates,
+creation_time,
+state,
+recursive_delete_option
+FROM awscc.athena.work_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>work_group</code> resource, the following permissions are required:
@@ -76,20 +93,3 @@ kms:Decrypt,
 kms:GenerateDataKey
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-tags,
-work_group_configuration,
-work_group_configuration_updates,
-creation_time,
-state,
-recursive_delete_option
-FROM awscc.athena.work_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

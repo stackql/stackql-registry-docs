@@ -42,6 +42,23 @@ Gets an individual <code>task_definition</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+auto_create_tasks,
+update,
+lo_ra_wa_nupdate_gateway_task_entry,
+id,
+task_definition_type,
+arn,
+tags
+FROM awscc.iotwireless.task_definition
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>task_definition</code> resource, the following permissions are required:
@@ -57,20 +74,3 @@ iotwireless:ListTagsForResource
 iotwireless:DeleteWirelessGatewayTaskDefinition
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-auto_create_tasks,
-update,
-lo_ra_wa_nupdate_gateway_task_entry,
-id,
-task_definition_type,
-arn,
-tags
-FROM awscc.iotwireless.task_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>vpc_connections</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+aws_account_id,
+v_pc_connection_id
+FROM awscc.quicksight.vpc_connections
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>vpc_connections</code> resource, the following permissions are required:
@@ -54,13 +64,3 @@ iam:PassRole
 quicksight:ListVPCConnections
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-aws_account_id,
-v_pc_connection_id
-FROM awscc.quicksight.vpc_connections
-WHERE region = 'us-east-1'
-```

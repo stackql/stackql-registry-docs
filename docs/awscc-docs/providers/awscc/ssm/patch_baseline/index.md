@@ -49,6 +49,30 @@ Gets an individual <code>patch_baseline</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+default_baseline,
+operating_system,
+description,
+approval_rules,
+sources,
+name,
+rejected_patches,
+approved_patches,
+rejected_patches_action,
+patch_groups,
+approved_patches_compliance_level,
+approved_patches_enable_non_security,
+global_filters,
+tags
+FROM awscc.ssm.patch_baseline
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>patch_baseline</code> resource, the following permissions are required:
@@ -78,27 +102,3 @@ ssm:GetDefaultPatchBaseline,
 ssm:RegisterDefaultPatchBaseline
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-default_baseline,
-operating_system,
-description,
-approval_rules,
-sources,
-name,
-rejected_patches,
-approved_patches,
-rejected_patches_action,
-patch_groups,
-approved_patches_compliance_level,
-approved_patches_enable_non_security,
-global_filters,
-tags
-FROM awscc.ssm.patch_baseline
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

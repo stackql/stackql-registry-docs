@@ -43,6 +43,25 @@ Gets an individual <code>faq</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+index_id,
+name,
+description,
+file_format,
+s3_path,
+role_arn,
+tags,
+arn
+FROM awscc.kendra.faq
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+AND data__Identifier = '{IndexId}';
+```
+
 ## Permissions
 
 To operate on the <code>faq</code> resource, the following permissions are required:
@@ -66,22 +85,3 @@ kendra:DeleteFaq,
 kendra:DescribeFaq
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-index_id,
-name,
-description,
-file_format,
-s3_path,
-role_arn,
-tags,
-arn
-FROM awscc.kendra.faq
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;IndexId&gt;'
-```

@@ -42,6 +42,23 @@ Gets an individual <code>pricing_plan</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+pricing_rule_arns,
+size,
+description,
+creation_time,
+last_modified_time,
+tags
+FROM awscc.billingconductor.pricing_plan
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>pricing_plan</code> resource, the following permissions are required:
@@ -71,20 +88,3 @@ billingconductor:DeletePricingPlan,
 billingconductor:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-pricing_rule_arns,
-size,
-description,
-creation_time,
-last_modified_time,
-tags
-FROM awscc.billingconductor.pricing_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

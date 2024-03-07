@@ -36,6 +36,16 @@ Retrieves a list of <code>event_streams</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+event_stream_name
+FROM awscc.customerprofiles.event_streams
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>event_streams</code> resource, the following permissions are required:
@@ -53,13 +63,3 @@ profile:TagResource
 profile:ListEventStreams
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-event_stream_name
-FROM awscc.customerprofiles.event_streams
-WHERE region = 'us-east-1'
-```

@@ -42,6 +42,23 @@ Gets an individual <code>safety_rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+assertion_rule,
+gating_rule,
+name,
+safety_rule_arn,
+control_panel_arn,
+status,
+rule_config,
+tags
+FROM awscc.route53recoverycontrol.safety_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SafetyRuleArn}';
+```
+
 ## Permissions
 
 To operate on the <code>safety_rule</code> resource, the following permissions are required:
@@ -67,20 +84,3 @@ route53-recovery-control-config:DescribeSafetyRule,
 route53-recovery-control-config:DeleteSafetyRule
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-assertion_rule,
-gating_rule,
-name,
-safety_rule_arn,
-control_panel_arn,
-status,
-rule_config,
-tags
-FROM awscc.route53recoverycontrol.safety_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SafetyRuleArn&gt;'
-```

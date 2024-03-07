@@ -35,6 +35,15 @@ Retrieves a list of <code>auto_scaling_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+auto_scaling_group_name
+FROM awscc.autoscaling.auto_scaling_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>auto_scaling_groups</code> resource, the following permissions are required:
@@ -60,12 +69,3 @@ ssm:GetParameters
 autoscaling:*
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-auto_scaling_group_name
-FROM awscc.autoscaling.auto_scaling_groups
-WHERE region = 'us-east-1'
-```

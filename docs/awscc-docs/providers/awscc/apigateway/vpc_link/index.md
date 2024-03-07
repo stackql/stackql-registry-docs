@@ -39,6 +39,20 @@ Gets an individual <code>vpc_link</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+tags,
+target_arns,
+vpc_link_id
+FROM awscc.apigateway.vpc_link
+WHERE region = 'us-east-1'
+AND data__Identifier = '{VpcLinkId}';
+```
+
 ## Permissions
 
 To operate on the <code>vpc_link</code> resource, the following permissions are required:
@@ -74,17 +88,3 @@ ec2:DescribeVpcEndpointServiceConfigurations,
 ec2:ModifyVpcEndpointServicePermissions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-tags,
-target_arns,
-vpc_link_id
-FROM awscc.apigateway.vpc_link
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VpcLinkId&gt;'
-```

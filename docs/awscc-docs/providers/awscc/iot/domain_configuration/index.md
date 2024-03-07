@@ -47,6 +47,28 @@ Gets an individual <code>domain_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_configuration_name,
+authorizer_config,
+domain_name,
+server_certificate_arns,
+service_type,
+validation_certificate_arn,
+arn,
+domain_configuration_status,
+domain_type,
+server_certificate_config,
+server_certificates,
+tls_config,
+tags
+FROM awscc.iot.domain_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainConfigurationName}';
+```
+
 ## Permissions
 
 To operate on the <code>domain_configuration</code> resource, the following permissions are required:
@@ -73,25 +95,3 @@ iot:DeleteDomainConfiguration,
 iot:UpdateDomainConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_configuration_name,
-authorizer_config,
-domain_name,
-server_certificate_arns,
-service_type,
-validation_certificate_arn,
-arn,
-domain_configuration_status,
-domain_type,
-server_certificate_config,
-server_certificates,
-tls_config,
-tags
-FROM awscc.iot.domain_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainConfigurationName&gt;'
-```

@@ -42,6 +42,24 @@ Gets an individual <code>ip_set</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+description,
+name,
+id,
+scope,
+i_paddress_version,
+addresses,
+tags
+FROM awscc.wafv2.ip_set
+WHERE data__Identifier = '{Name}';
+AND data__Identifier = '{Id}';
+AND data__Identifier = '{Scope}';
+```
+
 ## Permissions
 
 To operate on the <code>ip_set</code> resource, the following permissions are required:
@@ -65,21 +83,3 @@ wafv2:GetIPSet,
 wafv2:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-description,
-name,
-id,
-scope,
-i_paddress_version,
-addresses,
-tags
-FROM awscc.wafv2.ip_set
-WHERE data__Identifier = '&lt;Name&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;Scope&gt;'
-```

@@ -40,6 +40,22 @@ Gets an individual <code>deployment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+deployment_id,
+deployment_canary_settings,
+description,
+rest_api_id,
+stage_description,
+stage_name
+FROM awscc.apigateway.deployment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DeploymentId}';
+AND data__Identifier = '{RestApiId}';
+```
+
 ## Permissions
 
 To operate on the <code>deployment</code> resource, the following permissions are required:
@@ -63,19 +79,3 @@ apigateway:GET,
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-deployment_id,
-deployment_canary_settings,
-description,
-rest_api_id,
-stage_description,
-stage_name
-FROM awscc.apigateway.deployment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DeploymentId&gt;'
-AND data__Identifier = '&lt;RestApiId&gt;'
-```

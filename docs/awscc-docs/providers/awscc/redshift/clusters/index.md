@@ -35,6 +35,15 @@ Retrieves a list of <code>clusters</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_identifier
+FROM awscc.redshift.clusters
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>clusters</code> resource, the following permissions are required:
@@ -81,12 +90,3 @@ redshift:DescribeTags,
 redshift:DescribeClusters
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_identifier
-FROM awscc.redshift.clusters
-WHERE region = 'us-east-1'
-```

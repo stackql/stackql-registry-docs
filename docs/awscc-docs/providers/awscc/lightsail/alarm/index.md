@@ -47,6 +47,28 @@ Gets an individual <code>alarm</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+alarm_name,
+monitored_resource_name,
+metric_name,
+comparison_operator,
+contact_protocols,
+alarm_arn,
+datapoints_to_alarm,
+evaluation_periods,
+notification_enabled,
+notification_triggers,
+threshold,
+treat_missing_data,
+state
+FROM awscc.lightsail.alarm
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AlarmName}';
+```
+
 ## Permissions
 
 To operate on the <code>alarm</code> resource, the following permissions are required:
@@ -68,25 +90,3 @@ lightsail:DeleteAlarm,
 lightsail:GetAlarms
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-alarm_name,
-monitored_resource_name,
-metric_name,
-comparison_operator,
-contact_protocols,
-alarm_arn,
-datapoints_to_alarm,
-evaluation_periods,
-notification_enabled,
-notification_triggers,
-threshold,
-treat_missing_data,
-state
-FROM awscc.lightsail.alarm
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AlarmName&gt;'
-```

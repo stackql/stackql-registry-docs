@@ -40,6 +40,21 @@ Gets an individual <code>anomaly_detector</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+anomaly_detector_name,
+anomaly_detector_description,
+anomaly_detector_config,
+metric_set_list,
+kms_key_arn
+FROM awscc.lookoutmetrics.anomaly_detector
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>anomaly_detector</code> resource, the following permissions are required:
@@ -63,18 +78,3 @@ lookoutmetrics:DescribeAnomalyDetector,
 lookoutmetrics:DeleteAnomalyDetector
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-anomaly_detector_name,
-anomaly_detector_description,
-anomaly_detector_config,
-metric_set_list,
-kms_key_arn
-FROM awscc.lookoutmetrics.anomaly_detector
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

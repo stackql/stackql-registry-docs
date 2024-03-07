@@ -35,6 +35,15 @@ Retrieves a list of <code>vpc_attachments</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+attachment_id
+FROM awscc.networkmanager.vpc_attachments
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>vpc_attachments</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ iam:CreateServiceLinkedRole
 networkmanager:ListAttachments
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-attachment_id
-FROM awscc.networkmanager.vpc_attachments
-WHERE region = 'us-east-1'
-```

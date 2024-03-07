@@ -35,6 +35,15 @@ Retrieves a list of <code>endpoint_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+endpoint_group_arn
+FROM awscc.globalaccelerator.endpoint_groups
+
+```
+
 ## Permissions
 
 To operate on the <code>endpoint_groups</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ globalaccelerator:ListListeners
 globalaccelerator:ListEndpointGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-endpoint_group_arn
-FROM awscc.globalaccelerator.endpoint_groups
-
-```

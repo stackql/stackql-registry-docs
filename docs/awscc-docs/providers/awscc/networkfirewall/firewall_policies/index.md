@@ -35,6 +35,15 @@ Retrieves a list of <code>firewall_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+firewall_policy_arn
+FROM awscc.networkfirewall.firewall_policies
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>firewall_policies</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ network-firewall:ListRuleGroups
 network-firewall:ListFirewallPolicies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-firewall_policy_arn
-FROM awscc.networkfirewall.firewall_policies
-WHERE region = 'us-east-1'
-```

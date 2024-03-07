@@ -38,6 +38,19 @@ Gets an individual <code>topic_rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+rule_name,
+topic_rule_payload,
+tags
+FROM awscc.iot.topic_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RuleName}';
+```
+
 ## Permissions
 
 To operate on the <code>topic_rule</code> resource, the following permissions are required:
@@ -64,16 +77,3 @@ iot:GetTopicRule,
 iot:DeleteTopicRule
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-rule_name,
-topic_rule_payload,
-tags
-FROM awscc.iot.topic_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleName&gt;'
-```

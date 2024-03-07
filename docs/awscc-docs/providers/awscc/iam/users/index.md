@@ -35,6 +35,15 @@ Retrieves a list of <code>users</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+user_name
+FROM awscc.iam.users
+
+```
+
 ## Permissions
 
 To operate on the <code>users</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ iam:TagUser
 iam:listUsers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-user_name
-FROM awscc.iam.users
-
-```

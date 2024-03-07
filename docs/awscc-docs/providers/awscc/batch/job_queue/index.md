@@ -41,6 +41,22 @@ Gets an individual <code>job_queue</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+job_queue_name,
+job_queue_arn,
+compute_environment_order,
+priority,
+state,
+scheduling_policy_arn,
+tags
+FROM awscc.batch.job_queue
+WHERE region = 'us-east-1'
+AND data__Identifier = '{JobQueueArn}';
+```
+
 ## Permissions
 
 To operate on the <code>job_queue</code> resource, the following permissions are required:
@@ -65,19 +81,3 @@ Batch:DescribeJobQueues,
 Batch:DeleteJobQueue
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-job_queue_name,
-job_queue_arn,
-compute_environment_order,
-priority,
-state,
-scheduling_policy_arn,
-tags
-FROM awscc.batch.job_queue
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;JobQueueArn&gt;'
-```

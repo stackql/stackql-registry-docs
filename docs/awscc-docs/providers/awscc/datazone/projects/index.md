@@ -36,6 +36,16 @@ Retrieves a list of <code>projects</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_id,
+id
+FROM awscc.datazone.projects
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>projects</code> resource, the following permissions are required:
@@ -51,13 +61,3 @@ datazone:GetProject
 datazone:ListProjects
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_id,
-id
-FROM awscc.datazone.projects
-WHERE region = 'us-east-1'
-```

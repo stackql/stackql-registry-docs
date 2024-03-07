@@ -36,6 +36,16 @@ Retrieves a list of <code>integrations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+uri
+FROM awscc.customerprofiles.integrations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>integrations</code> resource, the following permissions are required:
@@ -59,13 +69,3 @@ profile:TagResource
 profile:ListIntegrations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-uri
-FROM awscc.customerprofiles.integrations
-WHERE region = 'us-east-1'
-```

@@ -49,6 +49,30 @@ Gets an individual <code>monitor</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+created_at,
+modified_at,
+monitor_arn,
+monitor_name,
+processing_status,
+processing_status_info,
+resources,
+resources_to_add,
+resources_to_remove,
+status,
+tags,
+max_city_networks_to_monitor,
+traffic_percentage_to_monitor,
+internet_measurements_log_delivery,
+health_events_config
+FROM awscc.internetmonitor.monitor
+WHERE region = 'us-east-1'
+AND data__Identifier = '{MonitorName}';
+```
+
 ## Permissions
 
 To operate on the <code>monitor</code> resource, the following permissions are required:
@@ -86,27 +110,3 @@ internetmonitor:GetMonitor,
 logs:DeleteLogDelivery
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-created_at,
-modified_at,
-monitor_arn,
-monitor_name,
-processing_status,
-processing_status_info,
-resources,
-resources_to_add,
-resources_to_remove,
-status,
-tags,
-max_city_networks_to_monitor,
-traffic_percentage_to_monitor,
-internet_measurements_log_delivery,
-health_events_config
-FROM awscc.internetmonitor.monitor
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MonitorName&gt;'
-```

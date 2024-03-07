@@ -39,6 +39,20 @@ Gets an individual <code>custom_metric</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+metric_name,
+display_name,
+metric_type,
+metric_arn,
+tags
+FROM awscc.iot.custom_metric
+WHERE region = 'us-east-1'
+AND data__Identifier = '{MetricName}';
+```
+
 ## Permissions
 
 To operate on the <code>custom_metric</code> resource, the following permissions are required:
@@ -63,17 +77,3 @@ iot:DescribeCustomMetric,
 iot:DeleteCustomMetric
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-metric_name,
-display_name,
-metric_type,
-metric_arn,
-tags
-FROM awscc.iot.custom_metric
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MetricName&gt;'
-```

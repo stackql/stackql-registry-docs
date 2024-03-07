@@ -42,6 +42,23 @@ Gets an individual <code>pipeline</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+activate,
+description,
+name,
+parameter_objects,
+parameter_values,
+pipeline_objects,
+pipeline_tags,
+pipeline_id
+FROM awscc.datapipeline.pipeline
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PipelineId}';
+```
+
 ## Permissions
 
 To operate on the <code>pipeline</code> resource, the following permissions are required:
@@ -75,20 +92,3 @@ datapipeline:GetPipelineDefinition,
 datapipeline:RemoveTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-activate,
-description,
-name,
-parameter_objects,
-parameter_values,
-pipeline_objects,
-pipeline_tags,
-pipeline_id
-FROM awscc.datapipeline.pipeline
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PipelineId&gt;'
-```

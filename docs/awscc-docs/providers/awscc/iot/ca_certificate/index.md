@@ -44,6 +44,25 @@ Gets an individual <code>ca_certificate</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+c_acertificate_pem,
+verification_certificate_pem,
+status,
+certificate_mode,
+auto_registration_status,
+remove_auto_registration,
+registration_config,
+id,
+arn,
+tags
+FROM awscc.iot.ca_certificate
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>ca_certificate</code> resource, the following permissions are required:
@@ -72,22 +91,3 @@ iot:DeleteCACertificate,
 iot:DescribeCACertificate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-c_acertificate_pem,
-verification_certificate_pem,
-status,
-certificate_mode,
-auto_registration_status,
-remove_auto_registration,
-registration_config,
-id,
-arn,
-tags
-FROM awscc.iot.ca_certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -38,6 +38,19 @@ Gets an individual <code>directory_config</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+organizational_unit_distinguished_names,
+service_account_credentials,
+directory_name,
+certificate_based_auth_properties
+FROM awscc.appstream.directory_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DirectoryName}';
+```
+
 ## Permissions
 
 To operate on the <code>directory_config</code> resource, the following permissions are required:
@@ -75,16 +88,3 @@ iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-organizational_unit_distinguished_names,
-service_account_credentials,
-directory_name,
-certificate_based_auth_properties
-FROM awscc.appstream.directory_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DirectoryName&gt;'
-```

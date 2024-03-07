@@ -41,6 +41,23 @@ Gets an individual <code>filter</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+action,
+description,
+detector_id,
+finding_criteria,
+rank,
+name,
+tags
+FROM awscc.guardduty.filter
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DetectorId}';
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>filter</code> resource, the following permissions are required:
@@ -65,20 +82,3 @@ guardduty:GetFilter,
 guardduty:ListFilters
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-action,
-description,
-detector_id,
-finding_criteria,
-rank,
-name,
-tags
-FROM awscc.guardduty.filter
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DetectorId&gt;'
-AND data__Identifier = '&lt;Name&gt;'
-```

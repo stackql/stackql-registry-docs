@@ -35,6 +35,15 @@ Retrieves a list of <code>associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+association_id
+FROM awscc.ssm.associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>associations</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ ssm:GetCalendarState
 ssm:ListAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-association_id
-FROM awscc.ssm.associations
-WHERE region = 'us-east-1'
-```

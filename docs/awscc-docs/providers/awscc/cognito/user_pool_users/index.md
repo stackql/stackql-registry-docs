@@ -36,6 +36,16 @@ Retrieves a list of <code>user_pool_users</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+user_pool_id,
+username
+FROM awscc.cognito.user_pool_users
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>user_pool_users</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ iam:PassRole
 cognito-idp:ListUsers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-user_pool_id,
-username
-FROM awscc.cognito.user_pool_users
-WHERE region = 'us-east-1'
-```

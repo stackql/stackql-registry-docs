@@ -35,6 +35,15 @@ Retrieves a list of <code>subnet_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cache_subnet_group_name
+FROM awscc.elasticache.subnet_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>subnet_groups</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ elasticache:ListTagsForResource
 elasticache:DescribeCacheSubnetGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cache_subnet_group_name
-FROM awscc.elasticache.subnet_groups
-WHERE region = 'us-east-1'
-```

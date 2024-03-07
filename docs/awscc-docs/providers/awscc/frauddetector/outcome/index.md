@@ -40,6 +40,21 @@ Gets an individual <code>outcome</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+tags,
+description,
+arn,
+created_time,
+last_updated_time
+FROM awscc.frauddetector.outcome
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>outcome</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ frauddetector:GetOutcomes,
 frauddetector:DeleteOutcome
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-tags,
-description,
-arn,
-created_time,
-last_updated_time
-FROM awscc.frauddetector.outcome
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

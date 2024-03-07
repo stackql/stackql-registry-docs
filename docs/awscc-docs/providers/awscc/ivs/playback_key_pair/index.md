@@ -39,6 +39,20 @@ Gets an individual <code>playback_key_pair</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+public_key_material,
+fingerprint,
+arn,
+tags
+FROM awscc.ivs.playback_key_pair
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>playback_key_pair</code> resource, the following permissions are required:
@@ -62,17 +76,3 @@ ivs:DeletePlaybackKeyPair,
 ivs:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-public_key_material,
-fingerprint,
-arn,
-tags
-FROM awscc.ivs.playback_key_pair
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

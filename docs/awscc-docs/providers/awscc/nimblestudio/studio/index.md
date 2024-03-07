@@ -44,6 +44,25 @@ Gets an individual <code>studio</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+admin_role_arn,
+display_name,
+home_region,
+sso_client_id,
+studio_encryption_configuration,
+studio_id,
+studio_name,
+studio_url,
+tags,
+user_role_arn
+FROM awscc.nimblestudio.studio
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StudioId}';
+```
+
 ## Permissions
 
 To operate on the <code>studio</code> resource, the following permissions are required:
@@ -83,22 +102,3 @@ sso:DeleteManagedApplicationInstance,
 sso:GetManagedApplicationInstance
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-admin_role_arn,
-display_name,
-home_region,
-sso_client_id,
-studio_encryption_configuration,
-studio_id,
-studio_name,
-studio_url,
-tags,
-user_role_arn
-FROM awscc.nimblestudio.studio
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StudioId&gt;'
-```

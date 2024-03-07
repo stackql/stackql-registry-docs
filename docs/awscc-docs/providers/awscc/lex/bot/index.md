@@ -47,6 +47,28 @@ Gets an individual <code>bot</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+name,
+description,
+role_arn,
+data_privacy,
+idle_session_tt_lin_seconds,
+bot_locales,
+bot_file_s3_location,
+bot_tags,
+test_bot_alias_tags,
+auto_build_bot_locales,
+test_bot_alias_settings
+FROM awscc.lex.bot
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>bot</code> resource, the following permissions are required:
@@ -106,25 +128,3 @@ lex:DeleteBotAlias,
 lex:DeleteCustomVocabulary
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-name,
-description,
-role_arn,
-data_privacy,
-idle_session_tt_lin_seconds,
-bot_locales,
-bot_file_s3_location,
-bot_tags,
-test_bot_alias_tags,
-auto_build_bot_locales,
-test_bot_alias_settings
-FROM awscc.lex.bot
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

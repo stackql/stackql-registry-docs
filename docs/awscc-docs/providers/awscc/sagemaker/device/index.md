@@ -37,6 +37,18 @@ Gets an individual <code>device</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+device_fleet_name,
+device,
+tags
+FROM awscc.sagemaker.device
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Device/DeviceName}';
+```
+
 ## Permissions
 
 To operate on the <code>device</code> resource, the following permissions are required:
@@ -56,15 +68,3 @@ sagemaker:UpdateDevices
 sagemaker:DeregisterDevices
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-device_fleet_name,
-device,
-tags
-FROM awscc.sagemaker.device
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Device/DeviceName&gt;'
-```

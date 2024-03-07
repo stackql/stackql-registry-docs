@@ -40,6 +40,21 @@ Gets an individual <code>browser_settings</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+additional_encryption_context,
+associated_portal_arns,
+browser_policy,
+browser_settings_arn,
+customer_managed_key,
+tags
+FROM awscc.workspacesweb.browser_settings
+WHERE region = 'us-east-1'
+AND data__Identifier = '{BrowserSettingsArn}';
+```
+
 ## Permissions
 
 To operate on the <code>browser_settings</code> resource, the following permissions are required:
@@ -79,18 +94,3 @@ kms:GenerateDataKey,
 kms:Decrypt
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-additional_encryption_context,
-associated_portal_arns,
-browser_policy,
-browser_settings_arn,
-customer_managed_key,
-tags
-FROM awscc.workspacesweb.browser_settings
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BrowserSettingsArn&gt;'
-```

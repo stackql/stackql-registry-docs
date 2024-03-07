@@ -40,6 +40,21 @@ Gets an individual <code>configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+server_properties,
+kafka_versions_list,
+arn,
+latest_revision
+FROM awscc.msk.configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>configuration</code> resource, the following permissions are required:
@@ -61,18 +76,3 @@ kafka:UpdateConfiguration,
 kafka:DescribeConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-server_properties,
-kafka_versions_list,
-arn,
-latest_revision
-FROM awscc.msk.configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

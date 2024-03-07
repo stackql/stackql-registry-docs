@@ -46,6 +46,27 @@ Gets an individual <code>transit_gateway_peering</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+core_network_id,
+core_network_arn,
+transit_gateway_arn,
+transit_gateway_peering_attachment_id,
+peering_id,
+state,
+edge_location,
+resource_arn,
+owner_account_id,
+peering_type,
+created_at,
+tags
+FROM awscc.networkmanager.transit_gateway_peering
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PeeringId}';
+```
+
 ## Permissions
 
 To operate on the <code>transit_gateway_peering</code> resource, the following permissions are required:
@@ -72,24 +93,3 @@ networkmanager:GetTransitGatewayPeering,
 ec2:DescribeRegions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-core_network_id,
-core_network_arn,
-transit_gateway_arn,
-transit_gateway_peering_attachment_id,
-peering_id,
-state,
-edge_location,
-resource_arn,
-owner_account_id,
-peering_type,
-created_at,
-tags
-FROM awscc.networkmanager.transit_gateway_peering
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PeeringId&gt;'
-```

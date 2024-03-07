@@ -36,6 +36,16 @@ Retrieves a list of <code>members</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+detector_id,
+member_id
+FROM awscc.guardduty.members
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>members</code> resource, the following permissions are required:
@@ -51,13 +61,3 @@ guardduty:GetMembers
 guardduty:ListMembers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-detector_id,
-member_id
-FROM awscc.guardduty.members
-WHERE region = 'us-east-1'
-```

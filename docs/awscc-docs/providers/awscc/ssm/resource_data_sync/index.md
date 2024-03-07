@@ -43,6 +43,24 @@ Gets an individual <code>resource_data_sync</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+s3_destination,
+k_ms_key_arn,
+sync_source,
+bucket_name,
+bucket_region,
+sync_format,
+sync_name,
+sync_type,
+bucket_prefix
+FROM awscc.ssm.resource_data_sync
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SyncName}';
+```
+
 ## Permissions
 
 To operate on the <code>resource_data_sync</code> resource, the following permissions are required:
@@ -64,21 +82,3 @@ ssm:UpdateResourceDataSync
 ssm:ListResourceDataSync
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-s3_destination,
-k_ms_key_arn,
-sync_source,
-bucket_name,
-bucket_region,
-sync_format,
-sync_name,
-sync_type,
-bucket_prefix
-FROM awscc.ssm.resource_data_sync
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SyncName&gt;'
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>permissions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+function_name,
+id
+FROM awscc.lambda.permissions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>permissions</code> resource, the following permissions are required:
@@ -50,13 +60,3 @@ lambda:AddPermission
 lambda:GetPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-function_name,
-id
-FROM awscc.lambda.permissions
-WHERE region = 'us-east-1'
-```

@@ -36,6 +36,17 @@ Gets an individual <code>bucket_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+bucket,
+policy_document
+FROM awscc.s3express.bucket_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Bucket}';
+```
+
 ## Permissions
 
 To operate on the <code>bucket_policy</code> resource, the following permissions are required:
@@ -57,14 +68,3 @@ s3express:GetBucketPolicy,
 s3express:DeleteBucketPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-bucket,
-policy_document
-FROM awscc.s3express.bucket_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Bucket&gt;'
-```

@@ -42,6 +42,24 @@ Gets an individual <code>integration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+uri,
+flow_definition,
+object_type_name,
+created_at,
+last_updated_at,
+tags,
+object_type_names
+FROM awscc.customerprofiles.integration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainName}';
+AND data__Identifier = '{Uri}';
+```
+
 ## Permissions
 
 To operate on the <code>integration</code> resource, the following permissions are required:
@@ -81,21 +99,3 @@ profile:UntagResource,
 profile:TagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-uri,
-flow_definition,
-object_type_name,
-created_at,
-last_updated_at,
-tags,
-object_type_names
-FROM awscc.customerprofiles.integration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-AND data__Identifier = '&lt;Uri&gt;'
-```

@@ -38,6 +38,21 @@ Gets an individual <code>origin_endpoint_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+channel_group_name,
+channel_name,
+origin_endpoint_name,
+policy
+FROM awscc.mediapackagev2.origin_endpoint_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ChannelGroupName}';
+AND data__Identifier = '{ChannelName}';
+AND data__Identifier = '{OriginEndpointName}';
+```
+
 ## Permissions
 
 To operate on the <code>origin_endpoint_policy</code> resource, the following permissions are required:
@@ -59,18 +74,3 @@ mediapackagev2:GetOriginEndpointPolicy,
 mediapackagev2:DeleteOriginEndpointPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-channel_group_name,
-channel_name,
-origin_endpoint_name,
-policy
-FROM awscc.mediapackagev2.origin_endpoint_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ChannelGroupName&gt;'
-AND data__Identifier = '&lt;ChannelName&gt;'
-AND data__Identifier = '&lt;OriginEndpointName&gt;'
-```

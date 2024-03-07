@@ -38,6 +38,19 @@ Gets an individual <code>eventschemas_registry</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+registry_name,
+description,
+registry_arn,
+tags
+FROM awscc.eventschemas.eventschemas_registry
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RegistryArn}';
+```
+
 ## Permissions
 
 To operate on the <code>eventschemas_registry</code> resource, the following permissions are required:
@@ -62,16 +75,3 @@ schemas:DescribeRegistry,
 schemas:DeleteRegistry
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-registry_name,
-description,
-registry_arn,
-tags
-FROM awscc.eventschemas.eventschemas_registry
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RegistryArn&gt;'
-```

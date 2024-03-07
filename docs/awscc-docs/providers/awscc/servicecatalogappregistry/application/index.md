@@ -42,6 +42,23 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+name,
+description,
+tags,
+application_tag_key,
+application_tag_value,
+application_name
+FROM awscc.servicecatalogappregistry.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>application</code> resource, the following permissions are required:
@@ -66,20 +83,3 @@ iam:CreateServiceLinkedRole
 servicecatalog:DeleteApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-name,
-description,
-tags,
-application_tag_key,
-application_tag_value,
-application_name
-FROM awscc.servicecatalogappregistry.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -43,6 +43,25 @@ Gets an individual <code>addon</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_name,
+addon_name,
+addon_version,
+preserve_on_delete,
+resolve_conflicts,
+service_account_role_arn,
+configuration_values,
+arn,
+tags
+FROM awscc.eks.addon
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ClusterName}';
+AND data__Identifier = '{AddonName}';
+```
+
 ## Permissions
 
 To operate on the <code>addon</code> resource, the following permissions are required:
@@ -69,22 +88,3 @@ eks:TagResource,
 eks:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_name,
-addon_name,
-addon_version,
-preserve_on_delete,
-resolve_conflicts,
-service_account_role_arn,
-configuration_values,
-arn,
-tags
-FROM awscc.eks.addon
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterName&gt;'
-AND data__Identifier = '&lt;AddonName&gt;'
-```

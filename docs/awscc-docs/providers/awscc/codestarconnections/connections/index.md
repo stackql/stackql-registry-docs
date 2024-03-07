@@ -35,6 +35,15 @@ Retrieves a list of <code>connections</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+connection_arn
+FROM awscc.codestarconnections.connections
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>connections</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ codestar-connections:ListConnections,
 codestar-connections:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-connection_arn
-FROM awscc.codestarconnections.connections
-WHERE region = 'us-east-1'
-```

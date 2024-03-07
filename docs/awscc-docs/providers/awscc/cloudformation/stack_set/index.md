@@ -50,6 +50,31 @@ Gets an individual <code>stack_set</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+stack_set_name,
+stack_set_id,
+administration_role_ar_n,
+auto_deployment,
+capabilities,
+description,
+execution_role_name,
+operation_preferences,
+stack_instances_group,
+parameters,
+permission_model,
+tags,
+template_body,
+template_ur_l,
+call_as,
+managed_execution
+FROM awscc.cloudformation.stack_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StackSetId}';
+```
+
 ## Permissions
 
 To operate on the <code>stack_set</code> resource, the following permissions are required:
@@ -86,28 +111,3 @@ cloudformation:ListStackSetOperationResults,
 cloudformation:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-stack_set_name,
-stack_set_id,
-administration_role_ar_n,
-auto_deployment,
-capabilities,
-description,
-execution_role_name,
-operation_preferences,
-stack_instances_group,
-parameters,
-permission_model,
-tags,
-template_body,
-template_ur_l,
-call_as,
-managed_execution
-FROM awscc.cloudformation.stack_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StackSetId&gt;'
-```

@@ -46,6 +46,27 @@ Gets an individual <code>location_object_storage</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_key,
+agent_arns,
+bucket_name,
+secret_key,
+server_certificate,
+server_hostname,
+server_port,
+server_protocol,
+subdirectory,
+tags,
+location_arn,
+location_uri
+FROM awscc.datasync.location_object_storage
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LocationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>location_object_storage</code> resource, the following permissions are required:
@@ -70,24 +91,3 @@ datasync:UpdateLocationObjectStorage
 datasync:DeleteLocation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_key,
-agent_arns,
-bucket_name,
-secret_key,
-server_certificate,
-server_hostname,
-server_port,
-server_protocol,
-subdirectory,
-tags,
-location_arn,
-location_uri
-FROM awscc.datasync.location_object_storage
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationArn&gt;'
-```

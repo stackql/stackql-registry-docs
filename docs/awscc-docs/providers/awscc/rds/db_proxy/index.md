@@ -47,6 +47,28 @@ Gets an individual <code>db_proxy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+auth,
+d_bproxy_arn,
+d_bproxy_name,
+debug_logging,
+endpoint,
+engine_family,
+idle_client_timeout,
+require_tl_s,
+role_arn,
+tags,
+vpc_id,
+vpc_security_group_ids,
+vpc_subnet_ids
+FROM awscc.rds.db_proxy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DBProxyName}';
+```
+
 ## Permissions
 
 To operate on the <code>db_proxy</code> resource, the following permissions are required:
@@ -70,25 +92,3 @@ rds:DescribeDBProxies,
 rds:DeleteDBProxy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-auth,
-d_bproxy_arn,
-d_bproxy_name,
-debug_logging,
-endpoint,
-engine_family,
-idle_client_timeout,
-require_tl_s,
-role_arn,
-tags,
-vpc_id,
-vpc_security_group_ids,
-vpc_subnet_ids
-FROM awscc.rds.db_proxy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBProxyName&gt;'
-```

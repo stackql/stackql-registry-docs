@@ -42,6 +42,23 @@ Gets an individual <code>framework</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+framework_name,
+framework_description,
+framework_arn,
+deployment_status,
+creation_time,
+framework_controls,
+framework_status,
+framework_tags
+FROM awscc.backup.framework
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FrameworkArn}';
+```
+
 ## Permissions
 
 To operate on the <code>framework</code> resource, the following permissions are required:
@@ -67,20 +84,3 @@ backup:DeleteFramework,
 backup:DescribeFramework
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-framework_name,
-framework_description,
-framework_arn,
-deployment_status,
-creation_time,
-framework_controls,
-framework_status,
-framework_tags
-FROM awscc.backup.framework
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FrameworkArn&gt;'
-```

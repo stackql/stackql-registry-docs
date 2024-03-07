@@ -35,6 +35,15 @@ Retrieves a list of <code>applications</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.servicecatalogappregistry.applications
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>applications</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ iam:CreateServiceLinkedRole
 servicecatalog:ListApplications
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.servicecatalogappregistry.applications
-WHERE region = 'us-east-1'
-```

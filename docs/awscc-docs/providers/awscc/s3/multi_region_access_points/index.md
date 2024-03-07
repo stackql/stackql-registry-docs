@@ -35,6 +35,15 @@ Retrieves a list of <code>multi_region_access_points</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.s3.multi_region_access_points
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>multi_region_access_points</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ s3:GetMultiRegionAccessPoint
 s3:ListMultiRegionAccessPoints
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.s3.multi_region_access_points
-WHERE region = 'us-east-1'
-```

@@ -43,6 +43,24 @@ Gets an individual <code>feature</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+project,
+name,
+description,
+evaluation_strategy,
+variations,
+default_variation,
+entity_overrides,
+tags
+FROM awscc.evidently.feature
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>feature</code> resource, the following permissions are required:
@@ -69,21 +87,3 @@ evidently:UntagResource,
 evidently:GetFeature
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-project,
-name,
-description,
-evaluation_strategy,
-variations,
-default_variation,
-entity_overrides,
-tags
-FROM awscc.evidently.feature
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>bots</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.lex.bots
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>bots</code> resource, the following permissions are required:
@@ -78,12 +87,3 @@ lex:UpdateBotAlias
 lex:ListBots
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.lex.bots
-WHERE region = 'us-east-1'
-```

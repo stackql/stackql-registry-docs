@@ -35,6 +35,15 @@ Retrieves a list of <code>connect_peers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+connect_peer_id
+FROM awscc.networkmanager.connect_peers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>connect_peers</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ ec2:DescribeRegions
 networkmanager:ListConnectPeers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-connect_peer_id
-FROM awscc.networkmanager.connect_peers
-WHERE region = 'us-east-1'
-```

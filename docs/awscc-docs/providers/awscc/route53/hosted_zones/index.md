@@ -35,6 +35,15 @@ Retrieves a list of <code>hosted_zones</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.route53.hosted_zones
+
+```
+
 ## Permissions
 
 To operate on the <code>hosted_zones</code> resource, the following permissions are required:
@@ -58,12 +67,3 @@ route53:ListQueryLoggingConfigs,
 route53:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.route53.hosted_zones
-
-```

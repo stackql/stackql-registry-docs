@@ -35,6 +35,15 @@ Retrieves a list of <code>in_app_templates</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+template_name
+FROM awscc.pinpoint.in_app_templates
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>in_app_templates</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ mobiletargeting:GetInAppTemplate,
 mobiletargeting:ListTemplates
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-template_name
-FROM awscc.pinpoint.in_app_templates
-WHERE region = 'us-east-1'
-```

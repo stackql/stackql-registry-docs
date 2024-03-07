@@ -35,6 +35,15 @@ Retrieves a list of <code>assets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+asset_id
+FROM awscc.iotsitewise.assets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>assets</code> resource, the following permissions are required:
@@ -57,12 +66,3 @@ iotsitewise:ListAssetModels,
 iotsitewise:ListAssets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-asset_id
-FROM awscc.iotsitewise.assets
-WHERE region = 'us-east-1'
-```

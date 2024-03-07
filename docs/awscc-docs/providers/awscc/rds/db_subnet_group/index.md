@@ -38,6 +38,19 @@ Gets an individual <code>db_subnet_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+d_bsubnet_group_description,
+d_bsubnet_group_name,
+subnet_ids,
+tags
+FROM awscc.rds.db_subnet_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DBSubnetGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>db_subnet_group</code> resource, the following permissions are required:
@@ -64,16 +77,3 @@ rds:DescribeDBSubnetGroups,
 rds:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-d_bsubnet_group_description,
-d_bsubnet_group_name,
-subnet_ids,
-tags
-FROM awscc.rds.db_subnet_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBSubnetGroupName&gt;'
-```

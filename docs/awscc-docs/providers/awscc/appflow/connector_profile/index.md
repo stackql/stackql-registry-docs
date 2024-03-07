@@ -42,6 +42,23 @@ Gets an individual <code>connector_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+connector_profile_arn,
+connector_label,
+connector_profile_name,
+k_ms_arn,
+connector_type,
+connection_mode,
+connector_profile_config,
+credentials_arn
+FROM awscc.appflow.connector_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConnectorProfileName}';
+```
+
 ## Permissions
 
 To operate on the <code>connector_profile</code> resource, the following permissions are required:
@@ -70,20 +87,3 @@ secretsmanager:GetSecretValue,
 secretsmanager:PutResourcePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-connector_profile_arn,
-connector_label,
-connector_profile_name,
-k_ms_arn,
-connector_type,
-connection_mode,
-connector_profile_config,
-credentials_arn
-FROM awscc.appflow.connector_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectorProfileName&gt;'
-```

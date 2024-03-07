@@ -35,6 +35,15 @@ Retrieves a list of <code>knowledge_bases</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+knowledge_base_id
+FROM awscc.wisdom.knowledge_bases
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>knowledge_bases</code> resource, the following permissions are required:
@@ -60,12 +69,3 @@ wisdom:TagResource
 wisdom:ListKnowledgeBases
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-knowledge_base_id
-FROM awscc.wisdom.knowledge_bases
-WHERE region = 'us-east-1'
-```

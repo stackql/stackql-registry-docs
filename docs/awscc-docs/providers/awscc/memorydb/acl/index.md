@@ -39,6 +39,20 @@ Gets an individual <code>acl</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+status,
+a_cl_name,
+user_names,
+arn,
+tags
+FROM awscc.memorydb.acl
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ACLName}';
+```
+
 ## Permissions
 
 To operate on the <code>acl</code> resource, the following permissions are required:
@@ -65,17 +79,3 @@ memorydb:DeleteACL,
 memorydb:DescribeACLs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-status,
-a_cl_name,
-user_names,
-arn,
-tags
-FROM awscc.memorydb.acl
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ACLName&gt;'
-```

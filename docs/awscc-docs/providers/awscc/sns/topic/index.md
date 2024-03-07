@@ -47,6 +47,28 @@ Gets an individual <code>topic</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+display_name,
+kms_master_key_id,
+data_protection_policy,
+subscription,
+fifo_topic,
+content_based_deduplication,
+archive_policy,
+tags,
+topic_name,
+topic_arn,
+signature_version,
+tracing_config,
+delivery_status_logging
+FROM awscc.sns.topic
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TopicArn}';
+```
+
 ## Permissions
 
 To operate on the <code>topic</code> resource, the following permissions are required:
@@ -81,25 +103,3 @@ sns:GetTopicAttributes,
 sns:DeleteTopic
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-display_name,
-kms_master_key_id,
-data_protection_policy,
-subscription,
-fifo_topic,
-content_based_deduplication,
-archive_policy,
-tags,
-topic_name,
-topic_arn,
-signature_version,
-tracing_config,
-delivery_status_logging
-FROM awscc.sns.topic
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TopicArn&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>functions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+function_ar_n
+FROM awscc.cloudfront.functions
+
+```
+
 ## Permissions
 
 To operate on the <code>functions</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ cloudfront:DescribeFunction
 cloudfront:ListFunctions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-function_ar_n
-FROM awscc.cloudfront.functions
-
-```

@@ -41,6 +41,23 @@ Gets an individual <code>entitlement</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+stack_name,
+description,
+app_visibility,
+attributes,
+created_time,
+last_modified_time
+FROM awscc.appstream.entitlement
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StackName}';
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>entitlement</code> resource, the following permissions are required:
@@ -60,20 +77,3 @@ appstream:UpdateEntitlement
 appstream:DeleteEntitlement
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-stack_name,
-description,
-app_visibility,
-attributes,
-created_time,
-last_modified_time
-FROM awscc.appstream.entitlement
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StackName&gt;'
-AND data__Identifier = '&lt;Name&gt;'
-```

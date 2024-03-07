@@ -36,6 +36,16 @@ Retrieves a list of <code>bot_versions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+bot_id,
+bot_version
+FROM awscc.lex.bot_versions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>bot_versions</code> resource, the following permissions are required:
@@ -54,13 +64,3 @@ lex:BuildBotLocale
 lex:ListBotVersions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-bot_id,
-bot_version
-FROM awscc.lex.bot_versions
-WHERE region = 'us-east-1'
-```

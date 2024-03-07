@@ -37,6 +37,18 @@ Gets an individual <code>log_delivery_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+user_pool_id,
+log_configurations
+FROM awscc.cognito.log_delivery_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>log_delivery_configuration</code> resource, the following permissions are required:
@@ -74,15 +86,3 @@ logs:DescribeResourcePolicies,
 logs:DescribeLogGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-user_pool_id,
-log_configurations
-FROM awscc.cognito.log_delivery_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

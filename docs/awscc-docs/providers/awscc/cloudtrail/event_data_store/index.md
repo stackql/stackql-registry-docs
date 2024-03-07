@@ -52,6 +52,33 @@ Gets an individual <code>event_data_store</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+advanced_event_selectors,
+created_timestamp,
+event_data_store_arn,
+federation_enabled,
+federation_role_arn,
+multi_region_enabled,
+name,
+organization_enabled,
+billing_mode,
+retention_period,
+status,
+termination_protection_enabled,
+updated_timestamp,
+kms_key_id,
+tags,
+insight_selectors,
+insights_destination,
+ingestion_enabled
+FROM awscc.cloudtrail.event_data_store
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EventDataStoreArn}';
+```
+
 ## Permissions
 
 To operate on the <code>event_data_store</code> resource, the following permissions are required:
@@ -100,30 +127,3 @@ glue:DeleteTable,
 lakeformation:DeregisterResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-advanced_event_selectors,
-created_timestamp,
-event_data_store_arn,
-federation_enabled,
-federation_role_arn,
-multi_region_enabled,
-name,
-organization_enabled,
-billing_mode,
-retention_period,
-status,
-termination_protection_enabled,
-updated_timestamp,
-kms_key_id,
-tags,
-insight_selectors,
-insights_destination,
-ingestion_enabled
-FROM awscc.cloudtrail.event_data_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EventDataStoreArn&gt;'
-```

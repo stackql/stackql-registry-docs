@@ -35,6 +35,15 @@ Retrieves a list of <code>custom_data_identifiers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.macie.custom_data_identifiers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>custom_data_identifiers</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ macie2:TagResource
 macie2:ListCustomDataIdentifiers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.macie.custom_data_identifiers
-WHERE region = 'us-east-1'
-```

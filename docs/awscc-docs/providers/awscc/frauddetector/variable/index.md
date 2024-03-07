@@ -44,6 +44,25 @@ Gets an individual <code>variable</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+data_source,
+data_type,
+default_value,
+description,
+tags,
+variable_type,
+arn,
+created_time,
+last_updated_time
+FROM awscc.frauddetector.variable
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>variable</code> resource, the following permissions are required:
@@ -69,22 +88,3 @@ frauddetector:GetVariables,
 frauddetector:DeleteVariable
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-data_source,
-data_type,
-default_value,
-description,
-tags,
-variable_type,
-arn,
-created_time,
-last_updated_time
-FROM awscc.frauddetector.variable
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

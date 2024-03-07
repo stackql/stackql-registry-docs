@@ -39,6 +39,20 @@ Gets an individual <code>user_hierarchy_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+user_hierarchy_group_arn,
+parent_group_arn,
+name,
+tags
+FROM awscc.connect.user_hierarchy_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserHierarchyGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>user_hierarchy_group</code> resource, the following permissions are required:
@@ -61,17 +75,3 @@ connect:TagResource,
 connect:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-user_hierarchy_group_arn,
-parent_group_arn,
-name,
-tags
-FROM awscc.connect.user_hierarchy_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserHierarchyGroupArn&gt;'
-```

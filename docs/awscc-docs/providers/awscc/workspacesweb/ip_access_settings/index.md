@@ -43,6 +43,24 @@ Gets an individual <code>ip_access_settings</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+additional_encryption_context,
+associated_portal_arns,
+creation_date,
+customer_managed_key,
+description,
+display_name,
+ip_access_settings_arn,
+ip_rules,
+tags
+FROM awscc.workspacesweb.ip_access_settings
+WHERE region = 'us-east-1'
+AND data__Identifier = '{IpAccessSettingsArn}';
+```
+
 ## Permissions
 
 To operate on the <code>ip_access_settings</code> resource, the following permissions are required:
@@ -83,21 +101,3 @@ kms:GenerateDataKey,
 kms:Decrypt
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-additional_encryption_context,
-associated_portal_arns,
-creation_date,
-customer_managed_key,
-description,
-display_name,
-ip_access_settings_arn,
-ip_rules,
-tags
-FROM awscc.workspacesweb.ip_access_settings
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;IpAccessSettingsArn&gt;'
-```

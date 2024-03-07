@@ -55,28 +55,6 @@ Gets an individual <code>flow_source</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>flow_source</code> resource, the following permissions are required:
-
-### Read
-```json
-mediaconnect:DescribeFlow
-```
-
-### Update
-```json
-mediaconnect:DescribeFlow,
-mediaconnect:UpdateFlowSource
-```
-
-### Delete
-```json
-mediaconnect:DescribeFlow,
-mediaconnect:RemoveFlowSource
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -104,5 +82,27 @@ vpc_interface_name,
 whitelist_cidr
 FROM awscc.mediaconnect.flow_source
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SourceArn&gt;'
+AND data__Identifier = '{SourceArn}';
 ```
+
+## Permissions
+
+To operate on the <code>flow_source</code> resource, the following permissions are required:
+
+### Read
+```json
+mediaconnect:DescribeFlow
+```
+
+### Update
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:UpdateFlowSource
+```
+
+### Delete
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:RemoveFlowSource
+```
+

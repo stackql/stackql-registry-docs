@@ -45,6 +45,26 @@ Gets an individual <code>type_activation</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+execution_role_arn,
+publisher_id,
+logging_config,
+public_type_arn,
+auto_update,
+type_name_alias,
+version_bump,
+major_version,
+type_name,
+type
+FROM awscc.cloudformation.type_activation
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>type_activation</code> resource, the following permissions are required:
@@ -67,23 +87,3 @@ cloudformation:DeactivateType,
 cloudformation:DescribeType
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-execution_role_arn,
-publisher_id,
-logging_config,
-public_type_arn,
-auto_update,
-type_name_alias,
-version_bump,
-major_version,
-type_name,
-type
-FROM awscc.cloudformation.type_activation
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>default_view_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+associated_aws_principal
+FROM awscc.resourceexplorer2.default_view_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>default_view_associations</code> resource, the following permissions are required:
@@ -45,12 +54,3 @@ resource-explorer-2:GetDefaultView,
 resource-explorer-2:AssociateDefaultView
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-associated_aws_principal
-FROM awscc.resourceexplorer2.default_view_associations
-WHERE region = 'us-east-1'
-```

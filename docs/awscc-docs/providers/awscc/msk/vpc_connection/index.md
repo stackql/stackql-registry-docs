@@ -41,6 +41,22 @@ Gets an individual <code>vpc_connection</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+authentication,
+client_subnets,
+target_cluster_arn,
+security_groups,
+tags,
+vpc_id
+FROM awscc.msk.vpc_connection
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>vpc_connection</code> resource, the following permissions are required:
@@ -73,19 +89,3 @@ kms:CreateGrant,
 kms:DescribeKey
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-authentication,
-client_subnets,
-target_cluster_arn,
-security_groups,
-tags,
-vpc_id
-FROM awscc.msk.vpc_connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

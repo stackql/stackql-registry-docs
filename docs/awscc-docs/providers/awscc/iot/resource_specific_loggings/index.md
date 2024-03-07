@@ -35,6 +35,15 @@ Retrieves a list of <code>resource_specific_loggings</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+target_id
+FROM awscc.iot.resource_specific_loggings
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resource_specific_loggings</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ iot:SetV2LoggingLevel
 iot:ListV2LoggingLevels
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-target_id
-FROM awscc.iot.resource_specific_loggings
-WHERE region = 'us-east-1'
-```

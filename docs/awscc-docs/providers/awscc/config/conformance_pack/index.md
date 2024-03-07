@@ -41,6 +41,22 @@ Gets an individual <code>conformance_pack</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+conformance_pack_name,
+delivery_s3_bucket,
+delivery_s3_key_prefix,
+template_body,
+template_s3_uri,
+template_ss_mdocument_details,
+conformance_pack_input_parameters
+FROM awscc.config.conformance_pack
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConformancePackName}';
+```
+
 ## Permissions
 
 To operate on the <code>conformance_pack</code> resource, the following permissions are required:
@@ -66,19 +82,3 @@ config:DeleteConformancePack,
 config:DescribeConformancePackStatus
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-conformance_pack_name,
-delivery_s3_bucket,
-delivery_s3_key_prefix,
-template_body,
-template_s3_uri,
-template_ss_mdocument_details,
-conformance_pack_input_parameters
-FROM awscc.config.conformance_pack
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConformancePackName&gt;'
-```

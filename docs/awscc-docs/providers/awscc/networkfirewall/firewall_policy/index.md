@@ -40,6 +40,21 @@ Gets an individual <code>firewall_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+firewall_policy_name,
+firewall_policy_arn,
+firewall_policy,
+firewall_policy_id,
+description,
+tags
+FROM awscc.networkfirewall.firewall_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FirewallPolicyArn}';
+```
+
 ## Permissions
 
 To operate on the <code>firewall_policy</code> resource, the following permissions are required:
@@ -67,18 +82,3 @@ network-firewall:DescribeFirewallPolicy,
 network-firewall:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-firewall_policy_name,
-firewall_policy_arn,
-firewall_policy,
-firewall_policy_id,
-description,
-tags
-FROM awscc.networkfirewall.firewall_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FirewallPolicyArn&gt;'
-```

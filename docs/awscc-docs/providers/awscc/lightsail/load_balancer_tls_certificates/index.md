@@ -36,6 +36,16 @@ Retrieves a list of <code>load_balancer_tls_certificates</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+certificate_name,
+load_balancer_name
+FROM awscc.lightsail.load_balancer_tls_certificates
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>load_balancer_tls_certificates</code> resource, the following permissions are required:
@@ -55,13 +65,3 @@ lightsail:GetLoadBalancerTlsCertificates,
 lightsail:GetLoadBalancer
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-certificate_name,
-load_balancer_name
-FROM awscc.lightsail.load_balancer_tls_certificates
-WHERE region = 'us-east-1'
-```

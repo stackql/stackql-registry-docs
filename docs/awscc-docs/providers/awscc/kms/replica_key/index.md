@@ -42,6 +42,23 @@ Gets an individual <code>replica_key</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+pending_window_in_days,
+key_policy,
+primary_key_arn,
+enabled,
+key_id,
+arn,
+tags
+FROM awscc.kms.replica_key
+WHERE region = 'us-east-1'
+AND data__Identifier = '{KeyId}';
+```
+
 ## Permissions
 
 To operate on the <code>replica_key</code> resource, the following permissions are required:
@@ -70,20 +87,3 @@ kms:DescribeKey,
 kms:ScheduleKeyDeletion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-pending_window_in_days,
-key_policy,
-primary_key_arn,
-enabled,
-key_id,
-arn,
-tags
-FROM awscc.kms.replica_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;KeyId&gt;'
-```

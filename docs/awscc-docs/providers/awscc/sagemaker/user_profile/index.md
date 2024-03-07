@@ -41,6 +41,23 @@ Gets an individual <code>user_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+user_profile_arn,
+domain_id,
+single_sign_on_user_identifier,
+single_sign_on_user_value,
+user_profile_name,
+user_settings,
+tags
+FROM awscc.sagemaker.user_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserProfileName}';
+AND data__Identifier = '{DomainId}';
+```
+
 ## Permissions
 
 To operate on the <code>user_profile</code> resource, the following permissions are required:
@@ -65,20 +82,3 @@ sagemaker:DeleteUserProfile,
 sagemaker:DescribeUserProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-user_profile_arn,
-domain_id,
-single_sign_on_user_identifier,
-single_sign_on_user_value,
-user_profile_name,
-user_settings,
-tags
-FROM awscc.sagemaker.user_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserProfileName&gt;'
-AND data__Identifier = '&lt;DomainId&gt;'
-```

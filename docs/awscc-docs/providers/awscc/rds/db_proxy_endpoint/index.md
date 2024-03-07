@@ -44,6 +44,25 @@ Gets an individual <code>db_proxy_endpoint</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+d_bproxy_endpoint_name,
+d_bproxy_endpoint_arn,
+d_bproxy_name,
+vpc_id,
+vpc_security_group_ids,
+vpc_subnet_ids,
+endpoint,
+target_role,
+is_default,
+tags
+FROM awscc.rds.db_proxy_endpoint
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DBProxyEndpointName}';
+```
+
 ## Permissions
 
 To operate on the <code>db_proxy_endpoint</code> resource, the following permissions are required:
@@ -67,22 +86,3 @@ rds:DescribeDBProxyEndpoints,
 rds:DeleteDBProxyEndpoint
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-d_bproxy_endpoint_name,
-d_bproxy_endpoint_arn,
-d_bproxy_name,
-vpc_id,
-vpc_security_group_ids,
-vpc_subnet_ids,
-endpoint,
-target_role,
-is_default,
-tags
-FROM awscc.rds.db_proxy_endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBProxyEndpointName&gt;'
-```

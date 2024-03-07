@@ -35,6 +35,15 @@ Retrieves a list of <code>key_value_stores</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.cloudfront.key_value_stores
+
+```
+
 ## Permissions
 
 To operate on the <code>key_value_stores</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ s3:GetBucketLocation
 cloudfront:ListKeyValueStores
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.cloudfront.key_value_stores
-
-```

@@ -52,6 +52,33 @@ Gets an individual <code>queue</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+queue_url,
+arn,
+content_based_deduplication,
+deduplication_scope,
+delay_seconds,
+fifo_queue,
+fifo_throughput_limit,
+kms_data_key_reuse_period_seconds,
+kms_master_key_id,
+sqs_managed_sse_enabled,
+maximum_message_size,
+message_retention_period,
+queue_name,
+receive_message_wait_time_seconds,
+redrive_allow_policy,
+redrive_policy,
+tags,
+visibility_timeout
+FROM awscc.sqs.queue
+WHERE region = 'us-east-1'
+AND data__Identifier = '{QueueUrl}';
+```
+
 ## Permissions
 
 To operate on the <code>queue</code> resource, the following permissions are required:
@@ -77,30 +104,3 @@ sqs:DeleteQueue,
 sqs:GetQueueAttributes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-queue_url,
-arn,
-content_based_deduplication,
-deduplication_scope,
-delay_seconds,
-fifo_queue,
-fifo_throughput_limit,
-kms_data_key_reuse_period_seconds,
-kms_master_key_id,
-sqs_managed_sse_enabled,
-maximum_message_size,
-message_retention_period,
-queue_name,
-receive_message_wait_time_seconds,
-redrive_allow_policy,
-redrive_policy,
-tags,
-visibility_timeout
-FROM awscc.sqs.queue
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;QueueUrl&gt;'
-```

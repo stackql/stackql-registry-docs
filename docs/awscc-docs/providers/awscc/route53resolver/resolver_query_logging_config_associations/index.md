@@ -35,6 +35,15 @@ Retrieves a list of <code>resolver_query_logging_config_associations</code> in a
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.route53resolver.resolver_query_logging_config_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resolver_query_logging_config_associations</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ resolverquerylogging:ListConfigAssociations,
 route53resolver:ListResolverQueryLogConfigAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.route53resolver.resolver_query_logging_config_associations
-WHERE region = 'us-east-1'
-```

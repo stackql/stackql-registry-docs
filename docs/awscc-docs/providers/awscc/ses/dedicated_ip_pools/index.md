@@ -35,6 +35,15 @@ Retrieves a list of <code>dedicated_ip_pools</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+pool_name
+FROM awscc.ses.dedicated_ip_pools
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>dedicated_ip_pools</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ ses:GetDedicatedIps
 ses:ListDedicatedIpPools
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-pool_name
-FROM awscc.ses.dedicated_ip_pools
-WHERE region = 'us-east-1'
-```

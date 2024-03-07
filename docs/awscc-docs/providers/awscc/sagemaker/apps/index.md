@@ -38,6 +38,18 @@ Retrieves a list of <code>apps</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_name,
+app_type,
+domain_id,
+user_profile_name
+FROM awscc.sagemaker.apps
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>apps</code> resource, the following permissions are required:
@@ -53,15 +65,3 @@ sagemaker:DescribeApp
 sagemaker:ListApps
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_name,
-app_type,
-domain_id,
-user_profile_name
-FROM awscc.sagemaker.apps
-WHERE region = 'us-east-1'
-```

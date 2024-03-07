@@ -59,6 +59,40 @@ Gets an individual <code>bucket</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+accelerate_configuration,
+access_control,
+analytics_configurations,
+bucket_encryption,
+bucket_name,
+cors_configuration,
+intelligent_tiering_configurations,
+inventory_configurations,
+lifecycle_configuration,
+logging_configuration,
+metrics_configurations,
+notification_configuration,
+object_lock_configuration,
+object_lock_enabled,
+ownership_controls,
+public_access_block_configuration,
+replication_configuration,
+tags,
+versioning_configuration,
+website_configuration,
+arn,
+domain_name,
+dual_stack_domain_name,
+regional_domain_name,
+website_ur_l
+FROM awscc.s3.bucket
+WHERE region = 'us-east-1'
+AND data__Identifier = '{BucketName}';
+```
+
 ## Permissions
 
 To operate on the <code>bucket</code> resource, the following permissions are required:
@@ -125,37 +159,3 @@ s3:DeleteBucket,
 s3:ListBucket
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-accelerate_configuration,
-access_control,
-analytics_configurations,
-bucket_encryption,
-bucket_name,
-cors_configuration,
-intelligent_tiering_configurations,
-inventory_configurations,
-lifecycle_configuration,
-logging_configuration,
-metrics_configurations,
-notification_configuration,
-object_lock_configuration,
-object_lock_enabled,
-ownership_controls,
-public_access_block_configuration,
-replication_configuration,
-tags,
-versioning_configuration,
-website_configuration,
-arn,
-domain_name,
-dual_stack_domain_name,
-regional_domain_name,
-website_ur_l
-FROM awscc.s3.bucket
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BucketName&gt;'
-```

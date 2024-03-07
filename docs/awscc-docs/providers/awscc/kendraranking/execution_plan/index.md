@@ -40,6 +40,21 @@ Gets an individual <code>execution_plan</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+description,
+tags,
+name,
+capacity_units
+FROM awscc.kendraranking.execution_plan
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>execution_plan</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ kendra-ranking:DescribeRescoreExecutionPlan,
 kendra-ranking:DeleteRescoreExecutionPlan
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-description,
-tags,
-name,
-capacity_units
-FROM awscc.kendraranking.execution_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

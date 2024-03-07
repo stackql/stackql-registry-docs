@@ -35,6 +35,15 @@ Retrieves a list of <code>certificate_authorities</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.acmpca.certificate_authorities
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>certificate_authorities</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ acm-pca:ListCertificateAuthorities,
 acm-pca:ListTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.acmpca.certificate_authorities
-WHERE region = 'us-east-1'
-```

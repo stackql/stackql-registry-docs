@@ -47,6 +47,28 @@ Gets an individual <code>domain</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_id,
+arn,
+auto_sub_domain_creation_patterns,
+auto_sub_domain_ia_mrole,
+certificate_record,
+certificate,
+certificate_settings,
+domain_name,
+domain_status,
+update_status,
+enable_auto_sub_domain,
+status_reason,
+sub_domain_settings
+FROM awscc.amplify.domain
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>domain</code> resource, the following permissions are required:
@@ -77,25 +99,3 @@ amplify:TagResource,
 amplify:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_id,
-arn,
-auto_sub_domain_creation_patterns,
-auto_sub_domain_ia_mrole,
-certificate_record,
-certificate,
-certificate_settings,
-domain_name,
-domain_status,
-update_status,
-enable_auto_sub_domain,
-status_reason,
-sub_domain_settings
-FROM awscc.amplify.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

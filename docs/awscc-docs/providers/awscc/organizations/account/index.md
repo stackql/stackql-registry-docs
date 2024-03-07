@@ -44,6 +44,25 @@ Gets an individual <code>account</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_name,
+email,
+role_name,
+parent_ids,
+tags,
+account_id,
+arn,
+joined_method,
+joined_timestamp,
+status
+FROM awscc.organizations.account
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>account</code> resource, the following permissions are required:
@@ -71,22 +90,3 @@ organizations:ListTagsForResource
 organizations:CloseAccount
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_name,
-email,
-role_name,
-parent_ids,
-tags,
-account_id,
-arn,
-joined_method,
-joined_timestamp,
-status
-FROM awscc.organizations.account
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountId&gt;'
-```

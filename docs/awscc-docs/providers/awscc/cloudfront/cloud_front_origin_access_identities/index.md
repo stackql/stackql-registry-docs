@@ -35,6 +35,15 @@ Retrieves a list of <code>cloud_front_origin_access_identities</code> in a regio
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.cloudfront.cloud_front_origin_access_identities
+
+```
+
 ## Permissions
 
 To operate on the <code>cloud_front_origin_access_identities</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ cloudfront:CreateCloudFrontOriginAccessIdentity
 cloudfront:ListCloudFrontOriginAccessIdentities
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.cloudfront.cloud_front_origin_access_identities
-
-```

@@ -44,6 +44,25 @@ Gets an individual <code>graph</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+deletion_protection,
+graph_name,
+provisioned_memory,
+public_connectivity,
+replica_count,
+tags,
+vector_search_configuration,
+endpoint,
+graph_arn,
+graph_id
+FROM awscc.neptunegraph.graph
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GraphId}';
+```
+
 ## Permissions
 
 To operate on the <code>graph</code> resource, the following permissions are required:
@@ -79,22 +98,3 @@ kms:CreateGrant,
 kms:Decrypt
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-deletion_protection,
-graph_name,
-provisioned_memory,
-public_connectivity,
-replica_count,
-tags,
-vector_search_configuration,
-endpoint,
-graph_arn,
-graph_id
-FROM awscc.neptunegraph.graph
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GraphId&gt;'
-```

@@ -40,6 +40,21 @@ Gets an individual <code>global_network</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+id,
+description,
+tags,
+created_at,
+state
+FROM awscc.networkmanager.global_network
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>global_network</code> resource, the following permissions are required:
@@ -64,18 +79,3 @@ networkmanager:DeleteGlobalNetwork,
 networkmanager:DescribeGlobalNetworks
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-id,
-description,
-tags,
-created_at,
-state
-FROM awscc.networkmanager.global_network
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

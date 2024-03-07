@@ -41,6 +41,22 @@ Gets an individual <code>rotation</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+contact_ids,
+start_time,
+time_zone_id,
+recurrence,
+tags,
+arn
+FROM awscc.ssmcontacts.rotation
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>rotation</code> resource, the following permissions are required:
@@ -70,19 +86,3 @@ ssm-contacts:ListTagsForResource,
 ssm-contacts:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-contact_ids,
-start_time,
-time_zone_id,
-recurrence,
-tags,
-arn
-FROM awscc.ssmcontacts.rotation
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

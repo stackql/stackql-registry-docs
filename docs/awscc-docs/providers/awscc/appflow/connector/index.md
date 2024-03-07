@@ -39,6 +39,20 @@ Gets an individual <code>connector</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+connector_label,
+connector_arn,
+connector_provisioning_type,
+connector_provisioning_config,
+description
+FROM awscc.appflow.connector
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConnectorLabel}';
+```
+
 ## Permissions
 
 To operate on the <code>connector</code> resource, the following permissions are required:
@@ -59,17 +73,3 @@ appflow:UpdateConnectorRegistration,
 lambda:InvokeFunction
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-connector_label,
-connector_arn,
-connector_provisioning_type,
-connector_provisioning_config,
-description
-FROM awscc.appflow.connector
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectorLabel&gt;'
-```

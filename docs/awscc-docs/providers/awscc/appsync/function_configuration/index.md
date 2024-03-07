@@ -50,27 +50,6 @@ Gets an individual <code>function_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>function_configuration</code> resource, the following permissions are required:
-
-### Read
-```json
-appsync:GetFunction
-```
-
-### Update
-```json
-s3:GetObject,
-appsync:UpdateFunction
-```
-
-### Delete
-```json
-appsync:DeleteFunction
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -93,5 +72,26 @@ runtime,
 sync_config
 FROM awscc.appsync.function_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FunctionArn&gt;'
+AND data__Identifier = '{FunctionArn}';
 ```
+
+## Permissions
+
+To operate on the <code>function_configuration</code> resource, the following permissions are required:
+
+### Read
+```json
+appsync:GetFunction
+```
+
+### Update
+```json
+s3:GetObject,
+appsync:UpdateFunction
+```
+
+### Delete
+```json
+appsync:DeleteFunction
+```
+

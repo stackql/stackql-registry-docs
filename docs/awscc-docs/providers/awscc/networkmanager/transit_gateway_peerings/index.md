@@ -35,6 +35,15 @@ Retrieves a list of <code>transit_gateway_peerings</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+peering_id
+FROM awscc.networkmanager.transit_gateway_peerings
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>transit_gateway_peerings</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ ec2:DescribeRegions
 networkmanager:ListPeerings
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-peering_id
-FROM awscc.networkmanager.transit_gateway_peerings
-WHERE region = 'us-east-1'
-```

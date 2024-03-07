@@ -47,6 +47,28 @@ Gets an individual <code>state_machine</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+definition_string,
+role_arn,
+state_machine_name,
+state_machine_type,
+state_machine_revision_id,
+logging_configuration,
+tracing_configuration,
+definition_s3_location,
+definition_substitutions,
+definition,
+tags
+FROM awscc.stepfunctions.state_machine
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>state_machine</code> resource, the following permissions are required:
@@ -72,25 +94,3 @@ states:DeleteStateMachine,
 states:DescribeStateMachine
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-definition_string,
-role_arn,
-state_machine_name,
-state_machine_type,
-state_machine_revision_id,
-logging_configuration,
-tracing_configuration,
-definition_s3_location,
-definition_substitutions,
-definition,
-tags
-FROM awscc.stepfunctions.state_machine
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

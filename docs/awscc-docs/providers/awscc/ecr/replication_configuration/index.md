@@ -36,6 +36,17 @@ Gets an individual <code>replication_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+replication_configuration,
+registry_id
+FROM awscc.ecr.replication_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RegistryId}';
+```
+
 ## Permissions
 
 To operate on the <code>replication_configuration</code> resource, the following permissions are required:
@@ -59,14 +70,3 @@ ecr:PutReplicationConfiguration,
 iam:CreateServiceLinkedRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-replication_configuration,
-registry_id
-FROM awscc.ecr.replication_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RegistryId&gt;'
-```

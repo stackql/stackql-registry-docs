@@ -35,6 +35,15 @@ Retrieves a list of <code>model_explainability_job_definitions</code> in a regio
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+job_definition_arn
+FROM awscc.sagemaker.model_explainability_job_definitions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>model_explainability_job_definitions</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ sagemaker:ListModelExplainabilityJobDefinitions,
 sagemaker:ListTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-job_definition_arn
-FROM awscc.sagemaker.model_explainability_job_definitions
-WHERE region = 'us-east-1'
-```

@@ -41,6 +41,22 @@ Gets an individual <code>fleet</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+creation_time,
+description,
+id,
+last_modification_time,
+signal_catalog_arn,
+tags
+FROM awscc.iotfleetwise.fleet
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>fleet</code> resource, the following permissions are required:
@@ -66,19 +82,3 @@ iotfleetwise:GetFleet,
 iotfleetwise:DeleteFleet
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-creation_time,
-description,
-id,
-last_modification_time,
-signal_catalog_arn,
-tags
-FROM awscc.iotfleetwise.fleet
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -39,6 +39,21 @@ Gets an individual <code>request_validator</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+request_validator_id,
+name,
+rest_api_id,
+validate_request_body,
+validate_request_parameters
+FROM awscc.apigateway.request_validator
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RestApiId}';
+AND data__Identifier = '{RequestValidatorId}';
+```
+
 ## Permissions
 
 To operate on the <code>request_validator</code> resource, the following permissions are required:
@@ -59,18 +74,3 @@ apigateway:DELETE
 apigateway:GET
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-request_validator_id,
-name,
-rest_api_id,
-validate_request_body,
-validate_request_parameters
-FROM awscc.apigateway.request_validator
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;RequestValidatorId&gt;'
-```

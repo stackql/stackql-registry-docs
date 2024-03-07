@@ -38,6 +38,20 @@ Gets an individual <code>customer_gateway_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+global_network_id,
+customer_gateway_arn,
+device_id,
+link_id
+FROM awscc.networkmanager.customer_gateway_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GlobalNetworkId}';
+AND data__Identifier = '{CustomerGatewayArn}';
+```
+
 ## Permissions
 
 To operate on the <code>customer_gateway_association</code> resource, the following permissions are required:
@@ -52,17 +66,3 @@ networkmanager:GetCustomerGatewayAssociations
 networkmanager:DisassociateCustomerGateway
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-global_network_id,
-customer_gateway_arn,
-device_id,
-link_id
-FROM awscc.networkmanager.customer_gateway_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalNetworkId&gt;'
-AND data__Identifier = '&lt;CustomerGatewayArn&gt;'
-```

@@ -47,6 +47,28 @@ Gets an individual <code>connect_peer</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+peer_address,
+core_network_address,
+bgp_options,
+inside_cidr_blocks,
+core_network_id,
+connect_attachment_id,
+connect_peer_id,
+edge_location,
+state,
+created_at,
+configuration,
+subnet_arn,
+tags
+FROM awscc.networkmanager.connect_peer
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConnectPeerId}';
+```
+
 ## Permissions
 
 To operate on the <code>connect_peer</code> resource, the following permissions are required:
@@ -72,25 +94,3 @@ networkmanager:DeleteConnectPeer,
 ec2:DescribeRegions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-peer_address,
-core_network_address,
-bgp_options,
-inside_cidr_blocks,
-core_network_id,
-connect_attachment_id,
-connect_peer_id,
-edge_location,
-state,
-created_at,
-configuration,
-subnet_arn,
-tags
-FROM awscc.networkmanager.connect_peer
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectPeerId&gt;'
-```

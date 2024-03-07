@@ -35,6 +35,15 @@ Retrieves a list of <code>report_definitions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+report_name
+FROM awscc.cur.report_definitions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>report_definitions</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ cur:PutReportDefinition
 cur:DescribeReportDefinitions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-report_name
-FROM awscc.cur.report_definitions
-WHERE region = 'us-east-1'
-```

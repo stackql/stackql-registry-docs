@@ -50,6 +50,31 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+architecture,
+name,
+release_label,
+type,
+initial_capacity,
+maximum_capacity,
+tags,
+auto_start_configuration,
+auto_stop_configuration,
+image_configuration,
+monitoring_configuration,
+runtime_configuration,
+network_configuration,
+arn,
+application_id,
+worker_type_specifications
+FROM awscc.emrserverless.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationId}';
+```
+
 ## Permissions
 
 To operate on the <code>application</code> resource, the following permissions are required:
@@ -93,28 +118,3 @@ emr-serverless:DeleteApplication,
 emr-serverless:GetApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-architecture,
-name,
-release_label,
-type,
-initial_capacity,
-maximum_capacity,
-tags,
-auto_start_configuration,
-auto_stop_configuration,
-image_configuration,
-monitoring_configuration,
-runtime_configuration,
-network_configuration,
-arn,
-application_id,
-worker_type_specifications
-FROM awscc.emrserverless.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationId&gt;'
-```

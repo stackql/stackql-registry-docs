@@ -40,6 +40,21 @@ Gets an individual <code>named_query</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+database,
+description,
+query_string,
+work_group,
+named_query_id
+FROM awscc.athena.named_query
+WHERE region = 'us-east-1'
+AND data__Identifier = '{NamedQueryId}';
+```
+
 ## Permissions
 
 To operate on the <code>named_query</code> resource, the following permissions are required:
@@ -54,18 +69,3 @@ athena:GetNamedQuery
 athena:DeleteNamedQuery
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-database,
-description,
-query_string,
-work_group,
-named_query_id
-FROM awscc.athena.named_query
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;NamedQueryId&gt;'
-```

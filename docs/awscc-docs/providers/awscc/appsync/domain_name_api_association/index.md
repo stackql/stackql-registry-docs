@@ -37,6 +37,18 @@ Gets an individual <code>domain_name_api_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+api_id,
+api_association_identifier
+FROM awscc.appsync.domain_name_api_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApiAssociationIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>domain_name_api_association</code> resource, the following permissions are required:
@@ -58,15 +70,3 @@ appsync:GetApiAssociation
 appsync:GetApiAssociation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-api_id,
-api_association_identifier
-FROM awscc.appsync.domain_name_api_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiAssociationIdentifier&gt;'
-```

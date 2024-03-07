@@ -37,6 +37,18 @@ Gets an individual <code>client_certificate</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+client_certificate_id,
+description,
+tags
+FROM awscc.apigateway.client_certificate
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ClientCertificateId}';
+```
+
 ## Permissions
 
 To operate on the <code>client_certificate</code> resource, the following permissions are required:
@@ -59,15 +71,3 @@ apigateway:DELETE
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-client_certificate_id,
-description,
-tags
-FROM awscc.apigateway.client_certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClientCertificateId&gt;'
-```

@@ -45,6 +45,26 @@ Gets an individual <code>collaboration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+tags,
+collaboration_identifier,
+creator_display_name,
+creator_member_abilities,
+data_encryption_metadata,
+description,
+members,
+name,
+query_log_status,
+creator_payment_configuration
+FROM awscc.cleanrooms.collaboration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CollaborationIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>collaboration</code> resource, the following permissions are required:
@@ -76,23 +96,3 @@ cleanrooms:ListMembers,
 cleanrooms:ListCollaborations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-tags,
-collaboration_identifier,
-creator_display_name,
-creator_member_abilities,
-data_encryption_metadata,
-description,
-members,
-name,
-query_log_status,
-creator_payment_configuration
-FROM awscc.cleanrooms.collaboration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CollaborationIdentifier&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>acls</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+a_cl_name
+FROM awscc.memorydb.acls
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>acls</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ memorydb:DescribeACLs,
 memorydb:ListTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-a_cl_name
-FROM awscc.memorydb.acls
-WHERE region = 'us-east-1'
-```

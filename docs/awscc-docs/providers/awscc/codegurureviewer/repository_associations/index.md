@@ -35,6 +35,15 @@ Retrieves a list of <code>repository_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+association_arn
+FROM awscc.codegurureviewer.repository_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>repository_associations</code> resource, the following permissions are required:
@@ -64,12 +73,3 @@ s3:ListBucket
 codeguru-reviewer:ListRepositoryAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-association_arn
-FROM awscc.codegurureviewer.repository_associations
-WHERE region = 'us-east-1'
-```

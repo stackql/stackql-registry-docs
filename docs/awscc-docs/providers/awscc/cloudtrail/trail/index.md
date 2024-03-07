@@ -52,6 +52,33 @@ Gets an individual <code>trail</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cloud_watch_logs_log_group_arn,
+cloud_watch_logs_role_arn,
+enable_log_file_validation,
+advanced_event_selectors,
+event_selectors,
+include_global_service_events,
+is_logging,
+is_multi_region_trail,
+is_organization_trail,
+k_ms_key_id,
+s3_bucket_name,
+s3_key_prefix,
+sns_topic_name,
+tags,
+trail_name,
+arn,
+sns_topic_arn,
+insight_selectors
+FROM awscc.cloudtrail.trail
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TrailName}';
+```
+
 ## Permissions
 
 To operate on the <code>trail</code> resource, the following permissions are required:
@@ -89,30 +116,3 @@ CloudTrail:DescribeTrails
 CloudTrail:DeleteTrail
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cloud_watch_logs_log_group_arn,
-cloud_watch_logs_role_arn,
-enable_log_file_validation,
-advanced_event_selectors,
-event_selectors,
-include_global_service_events,
-is_logging,
-is_multi_region_trail,
-is_organization_trail,
-k_ms_key_id,
-s3_bucket_name,
-s3_key_prefix,
-sns_topic_name,
-tags,
-trail_name,
-arn,
-sns_topic_arn,
-insight_selectors
-FROM awscc.cloudtrail.trail
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrailName&gt;'
-```

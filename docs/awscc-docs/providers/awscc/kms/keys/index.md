@@ -35,6 +35,15 @@ Retrieves a list of <code>keys</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+key_id
+FROM awscc.kms.keys
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>keys</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ kms:ListKeys,
 kms:DescribeKey
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-key_id
-FROM awscc.kms.keys
-WHERE region = 'us-east-1'
-```

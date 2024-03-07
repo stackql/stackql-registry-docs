@@ -39,6 +39,19 @@ Gets an individual <code>oidc_provider</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+client_id_list,
+url,
+thumbprint_list,
+arn,
+tags
+FROM awscc.iam.oidc_provider
+WHERE data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>oidc_provider</code> resource, the following permissions are required:
@@ -64,16 +77,3 @@ iam:ListOpenIDConnectProviderTags
 iam:DeleteOpenIDConnectProvider
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-client_id_list,
-url,
-thumbprint_list,
-arn,
-tags
-FROM awscc.iam.oidc_provider
-WHERE data__Identifier = '&lt;Arn&gt;'
-```

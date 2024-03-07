@@ -42,6 +42,24 @@ Gets an individual <code>load_balancer_tls_certificate</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+load_balancer_name,
+certificate_name,
+certificate_domain_name,
+certificate_alternative_names,
+load_balancer_tls_certificate_arn,
+is_attached,
+https_redirection_enabled,
+status
+FROM awscc.lightsail.load_balancer_tls_certificate
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CertificateName}';
+AND data__Identifier = '{LoadBalancerName}';
+```
+
 ## Permissions
 
 To operate on the <code>load_balancer_tls_certificate</code> resource, the following permissions are required:
@@ -67,21 +85,3 @@ lightsail:GetLoadBalancerTlsCertificates,
 lightsail:GetLoadBalancer
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-load_balancer_name,
-certificate_name,
-certificate_domain_name,
-certificate_alternative_names,
-load_balancer_tls_certificate_arn,
-is_attached,
-https_redirection_enabled,
-status
-FROM awscc.lightsail.load_balancer_tls_certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateName&gt;'
-AND data__Identifier = '&lt;LoadBalancerName&gt;'
-```

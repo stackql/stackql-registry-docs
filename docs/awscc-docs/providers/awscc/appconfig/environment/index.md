@@ -40,6 +40,22 @@ Gets an individual <code>environment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+environment_id,
+application_id,
+name,
+description,
+monitors,
+tags
+FROM awscc.appconfig.environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationId}';
+AND data__Identifier = '{EnvironmentId}';
+```
+
 ## Permissions
 
 To operate on the <code>environment</code> resource, the following permissions are required:
@@ -64,19 +80,3 @@ appconfig:GetEnvironment,
 appconfig:DeleteEnvironment
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-environment_id,
-application_id,
-name,
-description,
-monitors,
-tags
-FROM awscc.appconfig.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationId&gt;'
-AND data__Identifier = '&lt;EnvironmentId&gt;'
-```

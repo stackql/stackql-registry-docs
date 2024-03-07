@@ -40,6 +40,21 @@ Gets an individual <code>campaign</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+connect_instance_arn,
+dialer_config,
+arn,
+name,
+outbound_call_config,
+tags
+FROM awscc.connectcampaigns.campaign
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>campaign</code> resource, the following permissions are required:
@@ -64,18 +79,3 @@ connect-campaigns:UntagResource,
 connect-campaigns:DescribeCampaign
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-connect_instance_arn,
-dialer_config,
-arn,
-name,
-outbound_call_config,
-tags
-FROM awscc.connectcampaigns.campaign
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

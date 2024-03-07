@@ -43,6 +43,26 @@ Gets an individual <code>custom_action_type</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+category,
+configuration_properties,
+input_artifact_details,
+output_artifact_details,
+provider,
+settings,
+tags,
+version,
+id
+FROM awscc.codepipeline.custom_action_type
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Category}';
+AND data__Identifier = '{Provider}';
+AND data__Identifier = '{Version}';
+```
+
 ## Permissions
 
 To operate on the <code>custom_action_type</code> resource, the following permissions are required:
@@ -66,23 +86,3 @@ codepipeline:DeleteCustomActionType,
 codepipeline:ListActionTypes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-category,
-configuration_properties,
-input_artifact_details,
-output_artifact_details,
-provider,
-settings,
-tags,
-version,
-id
-FROM awscc.codepipeline.custom_action_type
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Category&gt;'
-AND data__Identifier = '&lt;Provider&gt;'
-AND data__Identifier = '&lt;Version&gt;'
-```

@@ -47,6 +47,28 @@ Gets an individual <code>identity_pool</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+push_sync,
+cognito_identity_providers,
+developer_provider_name,
+cognito_streams,
+supported_login_providers,
+name,
+cognito_events,
+id,
+identity_pool_name,
+allow_unauthenticated_identities,
+saml_provider_ar_ns,
+open_id_connect_provider_ar_ns,
+allow_classic_flow
+FROM awscc.cognito.identity_pool
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>identity_pool</code> resource, the following permissions are required:
@@ -70,25 +92,3 @@ iam:PassRole
 cognito-identity:DeleteIdentityPool
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-push_sync,
-cognito_identity_providers,
-developer_provider_name,
-cognito_streams,
-supported_login_providers,
-name,
-cognito_events,
-id,
-identity_pool_name,
-allow_unauthenticated_identities,
-saml_provider_ar_ns,
-open_id_connect_provider_ar_ns,
-allow_classic_flow
-FROM awscc.cognito.identity_pool
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

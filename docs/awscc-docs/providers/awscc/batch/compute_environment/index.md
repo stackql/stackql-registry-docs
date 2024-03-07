@@ -45,6 +45,26 @@ Gets an individual <code>compute_environment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+compute_environment_arn,
+compute_environment_name,
+compute_resources,
+replace_compute_environment,
+service_role,
+state,
+tags,
+type,
+update_policy,
+unmanagedv_cpus,
+eks_configuration
+FROM awscc.batch.compute_environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ComputeEnvironmentArn}';
+```
+
 ## Permissions
 
 To operate on the <code>compute_environment</code> resource, the following permissions are required:
@@ -73,23 +93,3 @@ Iam:PassRole,
 Eks:DescribeCluster
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-compute_environment_arn,
-compute_environment_name,
-compute_resources,
-replace_compute_environment,
-service_role,
-state,
-tags,
-type,
-update_policy,
-unmanagedv_cpus,
-eks_configuration
-FROM awscc.batch.compute_environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ComputeEnvironmentArn&gt;'
-```

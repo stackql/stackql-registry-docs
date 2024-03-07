@@ -46,6 +46,27 @@ Gets an individual <code>inference_component</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+inference_component_arn,
+inference_component_name,
+endpoint_arn,
+endpoint_name,
+variant_name,
+failure_reason,
+specification,
+runtime_config,
+inference_component_status,
+creation_time,
+last_modified_time,
+tags
+FROM awscc.sagemaker.inference_component
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InferenceComponentArn}';
+```
+
 ## Permissions
 
 To operate on the <code>inference_component</code> resource, the following permissions are required:
@@ -73,24 +94,3 @@ sagemaker:DescribeInferenceComponent,
 sagemaker:ListTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-inference_component_arn,
-inference_component_name,
-endpoint_arn,
-endpoint_name,
-variant_name,
-failure_reason,
-specification,
-runtime_config,
-inference_component_status,
-creation_time,
-last_modified_time,
-tags
-FROM awscc.sagemaker.inference_component
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InferenceComponentArn&gt;'
-```

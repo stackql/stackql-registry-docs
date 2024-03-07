@@ -36,6 +36,16 @@ Retrieves a list of <code>security_keys</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_id,
+association_id
+FROM awscc.connect.security_keys
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>security_keys</code> resource, the following permissions are required:
@@ -50,13 +60,3 @@ connect:AssociateSecurityKey
 connect:ListSecurityKeys
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_id,
-association_id
-FROM awscc.connect.security_keys
-WHERE region = 'us-east-1'
-```

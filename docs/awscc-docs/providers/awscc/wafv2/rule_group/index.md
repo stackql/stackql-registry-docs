@@ -47,6 +47,29 @@ Gets an individual <code>rule_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+capacity,
+description,
+name,
+id,
+scope,
+rules,
+visibility_config,
+tags,
+label_namespace,
+custom_response_bodies,
+available_labels,
+consumed_labels
+FROM awscc.wafv2.rule_group
+WHERE data__Identifier = '{Name}';
+AND data__Identifier = '{Id}';
+AND data__Identifier = '{Scope}';
+```
+
 ## Permissions
 
 To operate on the <code>rule_group</code> resource, the following permissions are required:
@@ -70,26 +93,3 @@ wafv2:GetRuleGroup,
 wafv2:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-capacity,
-description,
-name,
-id,
-scope,
-rules,
-visibility_config,
-tags,
-label_namespace,
-custom_response_bodies,
-available_labels,
-consumed_labels
-FROM awscc.wafv2.rule_group
-WHERE data__Identifier = '&lt;Name&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;Scope&gt;'
-```

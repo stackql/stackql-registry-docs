@@ -35,6 +35,15 @@ Retrieves a list of <code>users</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+user_arn
+FROM awscc.connect.users
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>users</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ connect:AssociateUserProficiencies
 connect:ListUsers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-user_arn
-FROM awscc.connect.users
-WHERE region = 'us-east-1'
-```

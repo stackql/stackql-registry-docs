@@ -45,6 +45,26 @@ Gets an individual <code>replication_config</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+replication_config_identifier,
+replication_config_arn,
+source_endpoint_arn,
+target_endpoint_arn,
+replication_type,
+compute_config,
+replication_settings,
+supplemental_settings,
+resource_identifier,
+table_mappings,
+tags
+FROM awscc.dms.replication_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ReplicationConfigArn}';
+```
+
 ## Permissions
 
 To operate on the <code>replication_config</code> resource, the following permissions are required:
@@ -76,23 +96,3 @@ iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-replication_config_identifier,
-replication_config_arn,
-source_endpoint_arn,
-target_endpoint_arn,
-replication_type,
-compute_config,
-replication_settings,
-supplemental_settings,
-resource_identifier,
-table_mappings,
-tags
-FROM awscc.dms.replication_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ReplicationConfigArn&gt;'
-```

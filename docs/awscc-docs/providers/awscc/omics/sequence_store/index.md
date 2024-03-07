@@ -42,6 +42,23 @@ Gets an individual <code>sequence_store</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+creation_time,
+description,
+name,
+fallback_location,
+sequence_store_id,
+sse_config,
+tags
+FROM awscc.omics.sequence_store
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SequenceStoreId}';
+```
+
 ## Permissions
 
 To operate on the <code>sequence_store</code> resource, the following permissions are required:
@@ -57,20 +74,3 @@ omics:ListTagsForResource
 omics:DeleteSequenceStore
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-creation_time,
-description,
-name,
-fallback_location,
-sequence_store_id,
-sse_config,
-tags
-FROM awscc.omics.sequence_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SequenceStoreId&gt;'
-```

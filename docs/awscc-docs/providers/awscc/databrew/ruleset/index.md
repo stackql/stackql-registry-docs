@@ -39,6 +39,20 @@ Gets an individual <code>ruleset</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+target_arn,
+rules,
+tags
+FROM awscc.databrew.ruleset
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>ruleset</code> resource, the following permissions are required:
@@ -60,17 +74,3 @@ databrew:UpdateRuleset
 databrew:DeleteRuleset
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-target_arn,
-rules,
-tags
-FROM awscc.databrew.ruleset
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

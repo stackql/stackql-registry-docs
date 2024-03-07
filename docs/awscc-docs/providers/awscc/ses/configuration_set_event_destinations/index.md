@@ -35,6 +35,15 @@ Retrieves a list of <code>configuration_set_event_destinations</code> in a regio
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.ses.configuration_set_event_destinations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>configuration_set_event_destinations</code> resource, the following permissions are required:
@@ -46,12 +55,3 @@ ses:GetConfigurationSetEventDestinations,
 ses:DescribeConfigurationSet
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.ses.configuration_set_event_destinations
-WHERE region = 'us-east-1'
-```

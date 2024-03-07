@@ -35,6 +35,15 @@ Gets an individual <code>dnssec</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+hosted_zone_id
+FROM awscc.route53.dnssec
+WHERE data__Identifier = '{HostedZoneId}';
+```
+
 ## Permissions
 
 To operate on the <code>dnssec</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ kms:Sign,
 kms:CreateGrant
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-hosted_zone_id
-FROM awscc.route53.dnssec
-WHERE data__Identifier = '&lt;HostedZoneId&gt;'
-```

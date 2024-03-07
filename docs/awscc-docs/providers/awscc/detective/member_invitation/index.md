@@ -39,6 +39,21 @@ Gets an individual <code>member_invitation</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+graph_arn,
+member_id,
+member_email_address,
+disable_email_notification,
+message
+FROM awscc.detective.member_invitation
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GraphArn}';
+AND data__Identifier = '{MemberId}';
+```
+
 ## Permissions
 
 To operate on the <code>member_invitation</code> resource, the following permissions are required:
@@ -53,18 +68,3 @@ detective:GetMembers
 detective:DeleteMembers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-graph_arn,
-member_id,
-member_email_address,
-disable_email_notification,
-message
-FROM awscc.detective.member_invitation
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GraphArn&gt;'
-AND data__Identifier = '&lt;MemberId&gt;'
-```

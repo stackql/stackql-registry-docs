@@ -46,6 +46,27 @@ Gets an individual <code>billing_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+primary_account_id,
+computation_preference,
+account_grouping,
+size,
+status,
+status_reason,
+creation_time,
+last_modified_time,
+tags
+FROM awscc.billingconductor.billing_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>billing_group</code> resource, the following permissions are required:
@@ -78,24 +99,3 @@ billingconductor:UntagResource,
 billingconductor:UpdateBillingGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-description,
-primary_account_id,
-computation_preference,
-account_grouping,
-size,
-status,
-status_reason,
-creation_time,
-last_modified_time,
-tags
-FROM awscc.billingconductor.billing_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

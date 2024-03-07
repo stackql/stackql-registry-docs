@@ -36,6 +36,17 @@ Gets an individual <code>notification_channel</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+config,
+id
+FROM awscc.devopsguru.notification_channel
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>notification_channel</code> resource, the following permissions are required:
@@ -51,14 +62,3 @@ devops-guru:ListNotificationChannels
 devops-guru:ListNotificationChannels
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-config,
-id
-FROM awscc.devopsguru.notification_channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>db_clusters</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+d_bcluster_identifier
+FROM awscc.rds.db_clusters
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>db_clusters</code> resource, the following permissions are required:
@@ -62,12 +71,3 @@ secretsmanager:TagResource
 rds:DescribeDBClusters
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-d_bcluster_identifier
-FROM awscc.rds.db_clusters
-WHERE region = 'us-east-1'
-```

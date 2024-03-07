@@ -37,6 +37,17 @@ Gets an individual <code>health_check</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+health_check_id,
+health_check_config,
+health_check_tags
+FROM awscc.route53.health_check
+WHERE data__Identifier = '{HealthCheckId}';
+```
+
 ## Permissions
 
 To operate on the <code>health_check</code> resource, the following permissions are required:
@@ -60,14 +71,3 @@ cloudwatch:DescribeAlarms
 route53:DeleteHealthCheck
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-health_check_id,
-health_check_config,
-health_check_tags
-FROM awscc.route53.health_check
-WHERE data__Identifier = '&lt;HealthCheckId&gt;'
-```

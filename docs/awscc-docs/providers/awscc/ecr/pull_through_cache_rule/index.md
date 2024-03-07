@@ -38,6 +38,19 @@ Gets an individual <code>pull_through_cache_rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+ecr_repository_prefix,
+upstream_registry_url,
+credential_arn,
+upstream_registry
+FROM awscc.ecr.pull_through_cache_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EcrRepositoryPrefix}';
+```
+
 ## Permissions
 
 To operate on the <code>pull_through_cache_rule</code> resource, the following permissions are required:
@@ -62,16 +75,3 @@ ecr:DescribePullThroughCacheRules,
 ecr:DeletePullThroughCacheRule
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-ecr_repository_prefix,
-upstream_registry_url,
-credential_arn,
-upstream_registry
-FROM awscc.ecr.pull_through_cache_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EcrRepositoryPrefix&gt;'
-```

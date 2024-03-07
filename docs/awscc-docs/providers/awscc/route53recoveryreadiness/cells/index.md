@@ -35,6 +35,15 @@ Retrieves a list of <code>cells</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cell_name
+FROM awscc.route53recoveryreadiness.cells
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>cells</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ route53-recovery-readiness:TagResource
 route53-recovery-readiness:ListCells
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cell_name
-FROM awscc.route53recoveryreadiness.cells
-WHERE region = 'us-east-1'
-```

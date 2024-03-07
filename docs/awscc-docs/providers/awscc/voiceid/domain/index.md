@@ -39,6 +39,20 @@ Gets an individual <code>domain</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+domain_id,
+name,
+server_side_encryption_configuration,
+tags
+FROM awscc.voiceid.domain
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainId}';
+```
+
 ## Permissions
 
 To operate on the <code>domain</code> resource, the following permissions are required:
@@ -69,17 +83,3 @@ voiceid:DescribeDomain,
 kms:Decrypt
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-domain_id,
-name,
-server_side_encryption_configuration,
-tags
-FROM awscc.voiceid.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainId&gt;'
-```

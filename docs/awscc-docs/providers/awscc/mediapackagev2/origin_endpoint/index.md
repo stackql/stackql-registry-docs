@@ -47,6 +47,28 @@ Gets an individual <code>origin_endpoint</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+channel_group_name,
+channel_name,
+container_type,
+created_at,
+description,
+hls_manifests,
+low_latency_hls_manifests,
+modified_at,
+origin_endpoint_name,
+segment,
+startover_window_seconds,
+tags
+FROM awscc.mediapackagev2.origin_endpoint
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>origin_endpoint</code> resource, the following permissions are required:
@@ -71,25 +93,3 @@ mediapackagev2:GetOriginEndpoint,
 mediapackagev2:DeleteOriginEndpoint
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-channel_group_name,
-channel_name,
-container_type,
-created_at,
-description,
-hls_manifests,
-low_latency_hls_manifests,
-modified_at,
-origin_endpoint_name,
-segment,
-startover_window_seconds,
-tags
-FROM awscc.mediapackagev2.origin_endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

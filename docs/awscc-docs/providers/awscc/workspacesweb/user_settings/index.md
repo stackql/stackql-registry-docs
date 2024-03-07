@@ -47,6 +47,28 @@ Gets an individual <code>user_settings</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+additional_encryption_context,
+associated_portal_arns,
+cookie_synchronization_configuration,
+copy_allowed,
+customer_managed_key,
+disconnect_timeout_in_minutes,
+download_allowed,
+idle_disconnect_timeout_in_minutes,
+paste_allowed,
+print_allowed,
+tags,
+upload_allowed,
+user_settings_arn
+FROM awscc.workspacesweb.user_settings
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserSettingsArn}';
+```
+
 ## Permissions
 
 To operate on the <code>user_settings</code> resource, the following permissions are required:
@@ -84,25 +106,3 @@ kms:GenerateDataKey,
 kms:Decrypt
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-additional_encryption_context,
-associated_portal_arns,
-cookie_synchronization_configuration,
-copy_allowed,
-customer_managed_key,
-disconnect_timeout_in_minutes,
-download_allowed,
-idle_disconnect_timeout_in_minutes,
-paste_allowed,
-print_allowed,
-tags,
-upload_allowed,
-user_settings_arn
-FROM awscc.workspacesweb.user_settings
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserSettingsArn&gt;'
-```

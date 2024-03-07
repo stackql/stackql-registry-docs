@@ -35,6 +35,15 @@ Retrieves a list of <code>resolver_rule_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resolver_rule_association_id
+FROM awscc.route53resolver.resolver_rule_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resolver_rule_associations</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ ec2:DescribeVpcs
 route53resolver:ListResolverRuleAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resolver_rule_association_id
-FROM awscc.route53resolver.resolver_rule_associations
-WHERE region = 'us-east-1'
-```

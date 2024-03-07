@@ -38,6 +38,19 @@ Gets an individual <code>resource_specific_logging</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+target_type,
+target_name,
+log_level,
+target_id
+FROM awscc.iot.resource_specific_logging
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TargetId}';
+```
+
 ## Permissions
 
 To operate on the <code>resource_specific_logging</code> resource, the following permissions are required:
@@ -59,16 +72,3 @@ iot:ListV2LoggingLevels,
 iot:DeleteV2LoggingLevel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-target_type,
-target_name,
-log_level,
-target_id
-FROM awscc.iot.resource_specific_logging
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TargetId&gt;'
-```

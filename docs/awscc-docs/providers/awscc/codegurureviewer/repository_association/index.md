@@ -41,6 +41,22 @@ Gets an individual <code>repository_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+type,
+owner,
+bucket_name,
+connection_arn,
+association_arn,
+tags
+FROM awscc.codegurureviewer.repository_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AssociationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>repository_association</code> resource, the following permissions are required:
@@ -62,19 +78,3 @@ codestar-connections:UntagResource,
 codestar-connections:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-type,
-owner,
-bucket_name,
-connection_arn,
-association_arn,
-tags
-FROM awscc.codegurureviewer.repository_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssociationArn&gt;'
-```

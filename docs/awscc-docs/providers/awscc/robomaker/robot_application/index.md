@@ -41,6 +41,22 @@ Gets an individual <code>robot_application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+sources,
+environment,
+robot_software_suite,
+current_revision_id,
+arn,
+tags
+FROM awscc.robomaker.robot_application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>robot_application</code> resource, the following permissions are required:
@@ -67,19 +83,3 @@ robomaker:DescribeRobotApplication,
 robomaker:DeleteRobotApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-sources,
-environment,
-robot_software_suite,
-current_revision_id,
-arn,
-tags
-FROM awscc.robomaker.robot_application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

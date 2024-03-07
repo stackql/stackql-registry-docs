@@ -36,6 +36,16 @@ Retrieves a list of <code>enabled_controls</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+target_identifier,
+control_identifier
+FROM awscc.controltower.enabled_controls
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>enabled_controls</code> resource, the following permissions are required:
@@ -61,13 +71,3 @@ organizations:DescribePolicy
 controltower:ListEnabledControls
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-target_identifier,
-control_identifier
-FROM awscc.controltower.enabled_controls
-WHERE region = 'us-east-1'
-```

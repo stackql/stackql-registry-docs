@@ -39,6 +39,20 @@ Gets an individual <code>access_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_policy_id,
+access_policy_arn,
+access_policy_identity,
+access_policy_permission,
+access_policy_resource
+FROM awscc.iotsitewise.access_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccessPolicyId}';
+```
+
 ## Permissions
 
 To operate on the <code>access_policy</code> resource, the following permissions are required:
@@ -60,17 +74,3 @@ iotsitewise:DescribeAccessPolicy,
 iotsitewise:DeleteAccessPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_policy_id,
-access_policy_arn,
-access_policy_identity,
-access_policy_permission,
-access_policy_resource
-FROM awscc.iotsitewise.access_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccessPolicyId&gt;'
-```

@@ -40,6 +40,21 @@ Gets an individual <code>user</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+status,
+user_name,
+access_string,
+authentication_mode,
+arn,
+tags
+FROM awscc.memorydb.user
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserName}';
+```
+
 ## Permissions
 
 To operate on the <code>user</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ memorydb:DeleteUser,
 memorydb:DescribeUsers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-status,
-user_name,
-access_string,
-authentication_mode,
-arn,
-tags
-FROM awscc.memorydb.user
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserName&gt;'
-```

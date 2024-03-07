@@ -35,6 +35,15 @@ Retrieves a list of <code>instance_access_control_attribute_configurations</code
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn
+FROM awscc.sso.instance_access_control_attribute_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>instance_access_control_attribute_configurations</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ sso:DescribeInstanceAccessControlAttributeConfiguration
 sso:DescribeInstanceAccessControlAttributeConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn
-FROM awscc.sso.instance_access_control_attribute_configurations
-WHERE region = 'us-east-1'
-```

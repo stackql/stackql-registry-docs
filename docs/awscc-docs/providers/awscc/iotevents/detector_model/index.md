@@ -41,6 +41,22 @@ Gets an individual <code>detector_model</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+detector_model_definition,
+detector_model_description,
+detector_model_name,
+evaluation_method,
+key,
+role_arn,
+tags
+FROM awscc.iotevents.detector_model
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DetectorModelName}';
+```
+
 ## Permissions
 
 To operate on the <code>detector_model</code> resource, the following permissions are required:
@@ -68,19 +84,3 @@ iotevents:DeleteDetectorModel,
 iotevents:DescribeDetectorModel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-detector_model_definition,
-detector_model_description,
-detector_model_name,
-evaluation_method,
-key,
-role_arn,
-tags
-FROM awscc.iotevents.detector_model
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DetectorModelName&gt;'
-```

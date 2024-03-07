@@ -36,6 +36,16 @@ Retrieves a list of <code>filters</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+detector_id,
+name
+FROM awscc.guardduty.filters
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>filters</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ guardduty:TagResource
 guardduty:ListFilters
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-detector_id,
-name
-FROM awscc.guardduty.filters
-WHERE region = 'us-east-1'
-```

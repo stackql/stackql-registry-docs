@@ -35,6 +35,15 @@ Retrieves a list of <code>registries</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+registry_arn
+FROM awscc.eventschemas.registries
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>registries</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ schemas:TagResource
 schemas:ListRegistries
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-registry_arn
-FROM awscc.eventschemas.registries
-WHERE region = 'us-east-1'
-```

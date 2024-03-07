@@ -35,6 +35,15 @@ Retrieves a list of <code>channels</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.mediapackagev2.channels
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>channels</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ mediapackagev2:CreateChannel
 mediapackagev2:ListChannels
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.mediapackagev2.channels
-WHERE region = 'us-east-1'
-```

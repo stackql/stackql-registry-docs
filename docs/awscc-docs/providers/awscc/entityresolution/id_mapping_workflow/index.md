@@ -44,6 +44,25 @@ Gets an individual <code>id_mapping_workflow</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+workflow_name,
+description,
+input_source_config,
+output_source_config,
+id_mapping_techniques,
+role_arn,
+tags,
+workflow_arn,
+created_at,
+updated_at
+FROM awscc.entityresolution.id_mapping_workflow
+WHERE region = 'us-east-1'
+AND data__Identifier = '{WorkflowName}';
+```
+
 ## Permissions
 
 To operate on the <code>id_mapping_workflow</code> resource, the following permissions are required:
@@ -73,22 +92,3 @@ entityresolution:GetIdMappingWorkflow,
 entityresolution:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-workflow_name,
-description,
-input_source_config,
-output_source_config,
-id_mapping_techniques,
-role_arn,
-tags,
-workflow_arn,
-created_at,
-updated_at
-FROM awscc.entityresolution.id_mapping_workflow
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkflowName&gt;'
-```

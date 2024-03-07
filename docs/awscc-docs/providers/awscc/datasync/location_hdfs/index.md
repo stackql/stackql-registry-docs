@@ -49,6 +49,30 @@ Gets an individual <code>location_hdfs</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name_nodes,
+block_size,
+replication_factor,
+kms_key_provider_uri,
+qop_configuration,
+authentication_type,
+simple_user,
+kerberos_principal,
+kerberos_keytab,
+kerberos_krb5_conf,
+tags,
+agent_arns,
+subdirectory,
+location_arn,
+location_uri
+FROM awscc.datasync.location_hdfs
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LocationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>location_hdfs</code> resource, the following permissions are required:
@@ -73,27 +97,3 @@ datasync:UntagResource
 datasync:DeleteLocation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name_nodes,
-block_size,
-replication_factor,
-kms_key_provider_uri,
-qop_configuration,
-authentication_type,
-simple_user,
-kerberos_principal,
-kerberos_keytab,
-kerberos_krb5_conf,
-tags,
-agent_arns,
-subdirectory,
-location_arn,
-location_uri
-FROM awscc.datasync.location_hdfs
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationArn&gt;'
-```

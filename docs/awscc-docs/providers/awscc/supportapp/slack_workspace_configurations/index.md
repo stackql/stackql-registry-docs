@@ -35,6 +35,15 @@ Retrieves a list of <code>slack_workspace_configurations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+team_id
+FROM awscc.supportapp.slack_workspace_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>slack_workspace_configurations</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ supportapp:ListSlackWorkspaceConfigurations
 supportapp:ListSlackWorkspaceConfigurations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-team_id
-FROM awscc.supportapp.slack_workspace_configurations
-WHERE region = 'us-east-1'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>replication_sets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.ssmincidents.replication_sets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>replication_sets</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ iam:CreateServiceLinkedRole
 ssm-incidents:ListReplicationSets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.ssmincidents.replication_sets
-WHERE region = 'us-east-1'
-```

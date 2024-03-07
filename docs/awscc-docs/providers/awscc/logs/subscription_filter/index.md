@@ -40,6 +40,22 @@ Gets an individual <code>subscription_filter</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+filter_name,
+destination_arn,
+filter_pattern,
+log_group_name,
+role_arn,
+distribution
+FROM awscc.logs.subscription_filter
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FilterName}';
+AND data__Identifier = '{LogGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>subscription_filter</code> resource, the following permissions are required:
@@ -61,19 +77,3 @@ logs:DescribeSubscriptionFilters
 logs:DeleteSubscriptionFilter
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-filter_name,
-destination_arn,
-filter_pattern,
-log_group_name,
-role_arn,
-distribution
-FROM awscc.logs.subscription_filter
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FilterName&gt;'
-AND data__Identifier = '&lt;LogGroupName&gt;'
-```

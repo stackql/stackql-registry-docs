@@ -39,6 +39,20 @@ Gets an individual <code>access_grants_location</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_grants_location_arn,
+access_grants_location_id,
+iam_role_arn,
+location_scope,
+tags
+FROM awscc.s3.access_grants_location
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccessGrantsLocationId}';
+```
+
 ## Permissions
 
 To operate on the <code>access_grants_location</code> resource, the following permissions are required:
@@ -60,17 +74,3 @@ s3:TagResource,
 iam:PassRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_grants_location_arn,
-access_grants_location_id,
-iam_role_arn,
-location_scope,
-tags
-FROM awscc.s3.access_grants_location
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccessGrantsLocationId&gt;'
-```

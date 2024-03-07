@@ -35,6 +35,15 @@ Retrieves a list of <code>contact_flow_modules</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+contact_flow_module_arn
+FROM awscc.connect.contact_flow_modules
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>contact_flow_modules</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ connect:TagResource
 connect:ListContactFlowModules
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-contact_flow_module_arn
-FROM awscc.connect.contact_flow_modules
-WHERE region = 'us-east-1'
-```

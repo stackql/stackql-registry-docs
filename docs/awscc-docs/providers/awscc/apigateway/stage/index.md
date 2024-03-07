@@ -48,6 +48,30 @@ Gets an individual <code>stage</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_log_setting,
+cache_cluster_enabled,
+cache_cluster_size,
+canary_setting,
+client_certificate_id,
+deployment_id,
+description,
+documentation_version,
+method_settings,
+rest_api_id,
+stage_name,
+tags,
+tracing_enabled,
+variables
+FROM awscc.apigateway.stage
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RestApiId}';
+AND data__Identifier = '{StageName}';
+```
+
 ## Permissions
 
 To operate on the <code>stage</code> resource, the following permissions are required:
@@ -70,27 +94,3 @@ apigateway:DELETE
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_log_setting,
-cache_cluster_enabled,
-cache_cluster_size,
-canary_setting,
-client_certificate_id,
-deployment_id,
-description,
-documentation_version,
-method_settings,
-rest_api_id,
-stage_name,
-tags,
-tracing_enabled,
-variables
-FROM awscc.apigateway.stage
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;StageName&gt;'
-```

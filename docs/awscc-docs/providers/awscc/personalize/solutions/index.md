@@ -35,6 +35,15 @@ Retrieves a list of <code>solutions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+solution_arn
+FROM awscc.personalize.solutions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>solutions</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ personalize:DescribeSolution
 personalize:ListSolutions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-solution_arn
-FROM awscc.personalize.solutions
-WHERE region = 'us-east-1'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>distributions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.cloudfront.distributions
+
+```
+
 ## Permissions
 
 To operate on the <code>distributions</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ cloudfront:TagResource
 cloudfront:ListDistributions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.cloudfront.distributions
-
-```

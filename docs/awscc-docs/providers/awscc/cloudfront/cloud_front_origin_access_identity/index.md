@@ -37,6 +37,17 @@ Gets an individual <code>cloud_front_origin_access_identity</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cloud_front_origin_access_identity_config,
+id,
+s3_canonical_user_id
+FROM awscc.cloudfront.cloud_front_origin_access_identity
+WHERE data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>cloud_front_origin_access_identity</code> resource, the following permissions are required:
@@ -58,14 +69,3 @@ cloudfront:UpdateCloudFrontOriginAccessIdentity,
 cloudfront:GetCloudFrontOriginAccessIdentity
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cloud_front_origin_access_identity_config,
-id,
-s3_canonical_user_id
-FROM awscc.cloudfront.cloud_front_origin_access_identity
-WHERE data__Identifier = '&lt;Id&gt;'
-```

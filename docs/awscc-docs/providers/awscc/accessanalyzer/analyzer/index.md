@@ -40,6 +40,21 @@ Gets an individual <code>analyzer</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+analyzer_name,
+archive_rules,
+arn,
+tags,
+type,
+analyzer_configuration
+FROM awscc.accessanalyzer.analyzer
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>analyzer</code> resource, the following permissions are required:
@@ -66,18 +81,3 @@ access-analyzer:UpdateArchiveRule
 access-analyzer:DeleteAnalyzer
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-analyzer_name,
-archive_rules,
-arn,
-tags,
-type,
-analyzer_configuration
-FROM awscc.accessanalyzer.analyzer
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

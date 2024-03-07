@@ -45,6 +45,26 @@ Gets an individual <code>log_anomaly_detector</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_id,
+kms_key_id,
+detector_name,
+log_group_arn_list,
+evaluation_frequency,
+filter_pattern,
+anomaly_detector_status,
+anomaly_visibility_time,
+creation_time_stamp,
+last_modified_time_stamp,
+anomaly_detector_arn
+FROM awscc.logs.log_anomaly_detector
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AnomalyDetectorArn}';
+```
+
 ## Permissions
 
 To operate on the <code>log_anomaly_detector</code> resource, the following permissions are required:
@@ -64,23 +84,3 @@ logs:UpdateLogAnomalyDetector
 logs:DeleteLogAnomalyDetector
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_id,
-kms_key_id,
-detector_name,
-log_group_arn_list,
-evaluation_frequency,
-filter_pattern,
-anomaly_detector_status,
-anomaly_visibility_time,
-creation_time_stamp,
-last_modified_time_stamp,
-anomaly_detector_arn
-FROM awscc.logs.log_anomaly_detector
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AnomalyDetectorArn&gt;'
-```

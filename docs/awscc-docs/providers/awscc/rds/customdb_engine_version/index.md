@@ -44,6 +44,26 @@ Gets an individual <code>customdb_engine_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+database_installation_files_s3_bucket_name,
+database_installation_files_s3_prefix,
+description,
+engine,
+engine_version,
+k_ms_key_id,
+manifest,
+d_bengine_version_arn,
+status,
+tags
+FROM awscc.rds.customdb_engine_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Engine}';
+AND data__Identifier = '{EngineVersion}';
+```
+
 ## Permissions
 
 To operate on the <code>customdb_engine_version</code> resource, the following permissions are required:
@@ -67,23 +87,3 @@ rds:DeleteCustomDBEngineVersion,
 rds:DescribeDBEngineVersions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-database_installation_files_s3_bucket_name,
-database_installation_files_s3_prefix,
-description,
-engine,
-engine_version,
-k_ms_key_id,
-manifest,
-d_bengine_version_arn,
-status,
-tags
-FROM awscc.rds.customdb_engine_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Engine&gt;'
-AND data__Identifier = '&lt;EngineVersion&gt;'
-```

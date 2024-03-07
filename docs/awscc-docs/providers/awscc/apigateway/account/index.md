@@ -36,6 +36,17 @@ Gets an individual <code>account</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+cloud_watch_role_arn
+FROM awscc.apigateway.account
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>account</code> resource, the following permissions are required:
@@ -52,14 +63,3 @@ iam:GetRole,
 iam:PassRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-cloud_watch_role_arn
-FROM awscc.apigateway.account
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

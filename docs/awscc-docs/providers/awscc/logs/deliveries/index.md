@@ -35,6 +35,15 @@ Retrieves a list of <code>deliveries</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+delivery_id
+FROM awscc.logs.deliveries
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>deliveries</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ logs:DescribeDeliveries,
 logs:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-delivery_id
-FROM awscc.logs.deliveries
-WHERE region = 'us-east-1'
-```

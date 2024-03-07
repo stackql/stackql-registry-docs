@@ -37,6 +37,18 @@ Gets an individual <code>logging_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+firewall_name,
+firewall_arn,
+logging_configuration
+FROM awscc.networkfirewall.logging_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FirewallArn}';
+```
+
 ## Permissions
 
 To operate on the <code>logging_configuration</code> resource, the following permissions are required:
@@ -75,15 +87,3 @@ network-firewall:UpdateLoggingConfiguration,
 network-firewall:DescribeLoggingConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-firewall_name,
-firewall_arn,
-logging_configuration
-FROM awscc.networkfirewall.logging_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FirewallArn&gt;'
-```

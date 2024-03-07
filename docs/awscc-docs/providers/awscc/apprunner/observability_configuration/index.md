@@ -40,6 +40,21 @@ Gets an individual <code>observability_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+observability_configuration_arn,
+observability_configuration_name,
+observability_configuration_revision,
+latest,
+trace_configuration,
+tags
+FROM awscc.apprunner.observability_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ObservabilityConfigurationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>observability_configuration</code> resource, the following permissions are required:
@@ -54,18 +69,3 @@ apprunner:DescribeObservabilityConfiguration
 apprunner:DeleteObservabilityConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-observability_configuration_arn,
-observability_configuration_name,
-observability_configuration_revision,
-latest,
-trace_configuration,
-tags
-FROM awscc.apprunner.observability_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ObservabilityConfigurationArn&gt;'
-```

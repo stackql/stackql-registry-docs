@@ -36,6 +36,16 @@ Retrieves a list of <code>flow_vpc_interfaces</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+flow_arn,
+name
+FROM awscc.mediaconnect.flow_vpc_interfaces
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>flow_vpc_interfaces</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ mediaconnect:AddFlowVpcInterfaces
 mediaconnect:DescribeFlow
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-flow_arn,
-name
-FROM awscc.mediaconnect.flow_vpc_interfaces
-WHERE region = 'us-east-1'
-```

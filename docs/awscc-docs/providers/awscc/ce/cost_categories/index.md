@@ -35,6 +35,15 @@ Retrieves a list of <code>cost_categories</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.ce.cost_categories
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>cost_categories</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ ce:CreateCostCategoryDefinition
 ce:ListCostCategoryDefinitions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.ce.cost_categories
-WHERE region = 'us-east-1'
-```

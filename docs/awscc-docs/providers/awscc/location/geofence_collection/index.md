@@ -44,6 +44,25 @@ Gets an individual <code>geofence_collection</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+collection_arn,
+collection_name,
+create_time,
+description,
+kms_key_id,
+pricing_plan,
+pricing_plan_data_source,
+tags,
+update_time,
+arn
+FROM awscc.location.geofence_collection
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CollectionName}';
+```
+
 ## Permissions
 
 To operate on the <code>geofence_collection</code> resource, the following permissions are required:
@@ -71,22 +90,3 @@ geo:DeleteGeofenceCollection,
 geo:DescribeGeofenceCollection
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-collection_arn,
-collection_name,
-create_time,
-description,
-kms_key_id,
-pricing_plan,
-pricing_plan_data_source,
-tags,
-update_time,
-arn
-FROM awscc.location.geofence_collection
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CollectionName&gt;'
-```

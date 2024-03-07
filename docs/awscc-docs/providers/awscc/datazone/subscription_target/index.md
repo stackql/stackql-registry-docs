@@ -51,28 +51,6 @@ Gets an individual <code>subscription_target</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>subscription_target</code> resource, the following permissions are required:
-
-### Read
-```json
-datazone:GetSubscriptionTarget
-```
-
-### Update
-```json
-datazone:UpdateSubscriptionTarget,
-datazone:GetSubscriptionTarget,
-iam:PassRole
-```
-
-### Delete
-```json
-datazone:DeleteSubscriptionTarget
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -96,7 +74,29 @@ updated_at,
 updated_by
 FROM awscc.datazone.subscription_target
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainId&gt;'
-AND data__Identifier = '&lt;EnvironmentId&gt;'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '{DomainId}';
+AND data__Identifier = '{EnvironmentId}';
+AND data__Identifier = '{Id}';
 ```
+
+## Permissions
+
+To operate on the <code>subscription_target</code> resource, the following permissions are required:
+
+### Read
+```json
+datazone:GetSubscriptionTarget
+```
+
+### Update
+```json
+datazone:UpdateSubscriptionTarget,
+datazone:GetSubscriptionTarget,
+iam:PassRole
+```
+
+### Delete
+```json
+datazone:DeleteSubscriptionTarget
+```
+

@@ -35,6 +35,15 @@ Retrieves a list of <code>routing_controls</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+routing_control_arn
+FROM awscc.route53recoverycontrol.routing_controls
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>routing_controls</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ route53-recovery-control-config:DescribeCluster
 route53-recovery-control-config:ListRoutingControls
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-routing_control_arn
-FROM awscc.route53recoverycontrol.routing_controls
-WHERE region = 'us-east-1'
-```

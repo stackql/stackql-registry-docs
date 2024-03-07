@@ -35,6 +35,15 @@ Retrieves a list of <code>collections</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+collection_id
+FROM awscc.rekognition.collections
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>collections</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ rekognition:TagResource
 rekognition:ListCollections
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-collection_id
-FROM awscc.rekognition.collections
-WHERE region = 'us-east-1'
-```

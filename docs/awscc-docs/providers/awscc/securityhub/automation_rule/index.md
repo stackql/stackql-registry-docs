@@ -46,6 +46,27 @@ Gets an individual <code>automation_rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+rule_arn,
+rule_status,
+rule_order,
+description,
+rule_name,
+created_at,
+updated_at,
+created_by,
+is_terminal,
+actions,
+criteria,
+tags
+FROM awscc.securityhub.automation_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RuleArn}';
+```
+
 ## Permissions
 
 To operate on the <code>automation_rule</code> resource, the following permissions are required:
@@ -71,24 +92,3 @@ securityhub:BatchDeleteAutomationRules,
 securityhub:BatchGetAutomationRules
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-rule_arn,
-rule_status,
-rule_order,
-description,
-rule_name,
-created_at,
-updated_at,
-created_by,
-is_terminal,
-actions,
-criteria,
-tags
-FROM awscc.securityhub.automation_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleArn&gt;'
-```

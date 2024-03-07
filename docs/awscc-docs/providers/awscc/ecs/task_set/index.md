@@ -46,6 +46,29 @@ Gets an individual <code>task_set</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster,
+external_id,
+id,
+launch_type,
+load_balancers,
+network_configuration,
+platform_version,
+scale,
+service,
+service_registries,
+tags,
+task_definition
+FROM awscc.ecs.task_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Cluster}';
+AND data__Identifier = '{Service}';
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>task_set</code> resource, the following permissions are required:
@@ -69,26 +92,3 @@ ecs:DeleteTaskSet,
 ecs:DescribeTaskSets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster,
-external_id,
-id,
-launch_type,
-load_balancers,
-network_configuration,
-platform_version,
-scale,
-service,
-service_registries,
-tags,
-task_definition
-FROM awscc.ecs.task_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Cluster&gt;'
-AND data__Identifier = '&lt;Service&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-```

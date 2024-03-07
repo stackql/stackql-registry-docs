@@ -44,6 +44,25 @@ Gets an individual <code>load_balancer</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+load_balancer_name,
+load_balancer_arn,
+instance_port,
+ip_address_type,
+attached_instances,
+health_check_path,
+session_stickiness_enabled,
+session_stickiness_lb_cookie_duration_seconds,
+tls_policy_name,
+tags
+FROM awscc.lightsail.load_balancer
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LoadBalancerName}';
+```
+
 ## Permissions
 
 To operate on the <code>load_balancer</code> resource, the following permissions are required:
@@ -73,22 +92,3 @@ lightsail:GetLoadBalancer,
 lightsail:GetLoadBalancers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-load_balancer_name,
-load_balancer_arn,
-instance_port,
-ip_address_type,
-attached_instances,
-health_check_path,
-session_stickiness_enabled,
-session_stickiness_lb_cookie_duration_seconds,
-tls_policy_name,
-tags
-FROM awscc.lightsail.load_balancer
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LoadBalancerName&gt;'
-```

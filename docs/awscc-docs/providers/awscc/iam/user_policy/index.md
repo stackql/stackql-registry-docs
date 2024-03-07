@@ -37,6 +37,18 @@ Gets an individual <code>user_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+policy_document,
+policy_name,
+user_name
+FROM awscc.iam.user_policy
+WHERE data__Identifier = '{PolicyName}';
+AND data__Identifier = '{UserName}';
+```
+
 ## Permissions
 
 To operate on the <code>user_policy</code> resource, the following permissions are required:
@@ -58,15 +70,3 @@ iam:DeleteUserPolicy,
 iam:GetUserPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-policy_document,
-policy_name,
-user_name
-FROM awscc.iam.user_policy
-WHERE data__Identifier = '&lt;PolicyName&gt;'
-AND data__Identifier = '&lt;UserName&gt;'
-```

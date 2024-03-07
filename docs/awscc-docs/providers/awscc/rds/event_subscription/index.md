@@ -41,6 +41,22 @@ Gets an individual <code>event_subscription</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+tags,
+subscription_name,
+enabled,
+event_categories,
+sns_topic_arn,
+source_ids,
+source_type
+FROM awscc.rds.event_subscription
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SubscriptionName}';
+```
+
 ## Permissions
 
 To operate on the <code>event_subscription</code> resource, the following permissions are required:
@@ -68,19 +84,3 @@ rds:DeleteEventSubscription,
 rds:DescribeEventSubscriptions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-tags,
-subscription_name,
-enabled,
-event_categories,
-sns_topic_arn,
-source_ids,
-source_type
-FROM awscc.rds.event_subscription
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SubscriptionName&gt;'
-```

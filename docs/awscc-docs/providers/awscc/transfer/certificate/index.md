@@ -49,28 +49,6 @@ Gets an individual <code>certificate</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>certificate</code> resource, the following permissions are required:
-
-### Read
-```json
-transfer:DescribeCertificate
-```
-
-### Update
-```json
-transfer:UpdateCertificate,
-transfer:UnTagResource,
-transfer:TagResource
-```
-
-### Delete
-```json
-transfer:DeleteCertificate
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -92,5 +70,27 @@ not_before_date,
 not_after_date
 FROM awscc.transfer.certificate
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateId&gt;'
+AND data__Identifier = '{CertificateId}';
 ```
+
+## Permissions
+
+To operate on the <code>certificate</code> resource, the following permissions are required:
+
+### Read
+```json
+transfer:DescribeCertificate
+```
+
+### Update
+```json
+transfer:UpdateCertificate,
+transfer:UnTagResource,
+transfer:TagResource
+```
+
+### Delete
+```json
+transfer:DeleteCertificate
+```
+

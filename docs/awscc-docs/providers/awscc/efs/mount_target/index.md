@@ -39,6 +39,20 @@ Gets an individual <code>mount_target</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+ip_address,
+file_system_id,
+security_groups,
+subnet_id
+FROM awscc.efs.mount_target
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>mount_target</code> resource, the following permissions are required:
@@ -62,17 +76,3 @@ elasticfilesystem:DescribeMountTargets,
 elasticfilesystem:DeleteMountTarget
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-ip_address,
-file_system_id,
-security_groups,
-subnet_id
-FROM awscc.efs.mount_target
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

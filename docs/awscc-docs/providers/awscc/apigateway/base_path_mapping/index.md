@@ -38,6 +38,20 @@ Gets an individual <code>base_path_mapping</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+base_path,
+domain_name,
+rest_api_id,
+stage
+FROM awscc.apigateway.base_path_mapping
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainName}';
+AND data__Identifier = '{BasePath}';
+```
+
 ## Permissions
 
 To operate on the <code>base_path_mapping</code> resource, the following permissions are required:
@@ -59,17 +73,3 @@ apigateway:PATCH
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-base_path,
-domain_name,
-rest_api_id,
-stage
-FROM awscc.apigateway.base_path_mapping
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-AND data__Identifier = '&lt;BasePath&gt;'
-```

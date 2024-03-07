@@ -36,6 +36,17 @@ Gets an individual <code>storage_lens</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+storage_lens_configuration,
+tags
+FROM awscc.s3.storage_lens
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StorageLensConfiguration/Id}';
+```
+
 ## Permissions
 
 To operate on the <code>storage_lens</code> resource, the following permissions are required:
@@ -65,14 +76,3 @@ s3:DeleteStorageLensConfiguration,
 s3:DeleteStorageLensConfigurationTagging
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-storage_lens_configuration,
-tags
-FROM awscc.s3.storage_lens
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StorageLensConfiguration/Id&gt;'
-```

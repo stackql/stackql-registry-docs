@@ -45,6 +45,28 @@ Gets an individual <code>service</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+application_identifier,
+description,
+endpoint_type,
+environment_identifier,
+lambda_endpoint,
+name,
+service_identifier,
+url_endpoint,
+vpc_id,
+tags
+FROM awscc.refactorspaces.service
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EnvironmentIdentifier}';
+AND data__Identifier = '{ApplicationIdentifier}';
+AND data__Identifier = '{ServiceIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>service</code> resource, the following permissions are required:
@@ -72,25 +94,3 @@ ec2:DeleteTransitGatewayVpcAttachment,
 ec2:DeleteTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-application_identifier,
-description,
-endpoint_type,
-environment_identifier,
-lambda_endpoint,
-name,
-service_identifier,
-url_endpoint,
-vpc_id,
-tags
-FROM awscc.refactorspaces.service
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentIdentifier&gt;'
-AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
-AND data__Identifier = '&lt;ServiceIdentifier&gt;'
-```

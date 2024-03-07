@@ -35,6 +35,15 @@ Retrieves a list of <code>image_versions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+image_version_arn
+FROM awscc.sagemaker.image_versions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>image_versions</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ sagemaker:DescribeImageVersion
 sagemaker:ListImageVersions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-image_version_arn
-FROM awscc.sagemaker.image_versions
-WHERE region = 'us-east-1'
-```

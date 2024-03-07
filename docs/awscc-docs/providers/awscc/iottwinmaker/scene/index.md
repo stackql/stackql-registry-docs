@@ -45,6 +45,27 @@ Gets an individual <code>scene</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+scene_id,
+arn,
+description,
+content_location,
+creation_date_time,
+update_date_time,
+tags,
+workspace_id,
+capabilities,
+scene_metadata,
+generated_scene_metadata
+FROM awscc.iottwinmaker.scene
+WHERE region = 'us-east-1'
+AND data__Identifier = '{WorkspaceId}';
+AND data__Identifier = '{SceneId}';
+```
+
 ## Permissions
 
 To operate on the <code>scene</code> resource, the following permissions are required:
@@ -73,24 +94,3 @@ iottwinmaker:GetScene,
 iottwinmaker:GetWorkspace
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-scene_id,
-arn,
-description,
-content_location,
-creation_date_time,
-update_date_time,
-tags,
-workspace_id,
-capabilities,
-scene_metadata,
-generated_scene_metadata
-FROM awscc.iottwinmaker.scene
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkspaceId&gt;'
-AND data__Identifier = '&lt;SceneId&gt;'
-```

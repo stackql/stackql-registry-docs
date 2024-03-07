@@ -35,6 +35,15 @@ Retrieves a list of <code>replicators</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+replicator_arn
+FROM awscc.msk.replicators
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>replicators</code> resource, the following permissions are required:
@@ -61,12 +70,3 @@ kafka:TagResource
 kafka:ListReplicators
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-replicator_arn
-FROM awscc.msk.replicators
-WHERE region = 'us-east-1'
-```

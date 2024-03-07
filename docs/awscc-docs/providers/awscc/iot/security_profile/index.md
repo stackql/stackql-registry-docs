@@ -43,6 +43,24 @@ Gets an individual <code>security_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+security_profile_name,
+security_profile_description,
+behaviors,
+alert_targets,
+additional_metrics_to_retain_v2,
+metrics_export_config,
+tags,
+target_arns,
+security_profile_arn
+FROM awscc.iot.security_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SecurityProfileName}';
+```
+
 ## Permissions
 
 To operate on the <code>security_profile</code> resource, the following permissions are required:
@@ -72,21 +90,3 @@ iot:DescribeSecurityProfile,
 iot:DeleteSecurityProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-security_profile_name,
-security_profile_description,
-behaviors,
-alert_targets,
-additional_metrics_to_retain_v2,
-metrics_export_config,
-tags,
-target_arns,
-security_profile_arn
-FROM awscc.iot.security_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SecurityProfileName&gt;'
-```

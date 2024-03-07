@@ -46,6 +46,27 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application_id,
+application_arn,
+application_name,
+application_description,
+application_url,
+application_state,
+application_creation_date,
+application_last_update_date,
+role_arn,
+sso_client_id,
+error_message,
+tags
+FROM awscc.iotfleethub.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationId}';
+```
+
 ## Permissions
 
 To operate on the <code>application</code> resource, the following permissions are required:
@@ -70,24 +91,3 @@ iotfleethub:DescribeApplication,
 sso:DeleteManagedApplicationInstance
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application_id,
-application_arn,
-application_name,
-application_description,
-application_url,
-application_state,
-application_creation_date,
-application_last_update_date,
-role_arn,
-sso_client_id,
-error_message,
-tags
-FROM awscc.iotfleethub.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationId&gt;'
-```

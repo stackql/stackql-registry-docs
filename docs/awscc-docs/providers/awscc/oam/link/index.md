@@ -40,6 +40,21 @@ Gets an individual <code>link</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+label,
+label_template,
+resource_types,
+sink_identifier,
+tags
+FROM awscc.oam.link
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>link</code> resource, the following permissions are required:
@@ -67,18 +82,3 @@ oam:DeleteLink,
 oam:GetLink
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-label,
-label_template,
-resource_types,
-sink_identifier,
-tags
-FROM awscc.oam.link
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

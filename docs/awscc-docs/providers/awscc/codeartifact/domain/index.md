@@ -41,6 +41,22 @@ Gets an individual <code>domain</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+name,
+owner,
+encryption_key,
+permissions_policy_document,
+tags,
+arn
+FROM awscc.codeartifact.domain
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>domain</code> resource, the following permissions are required:
@@ -67,19 +83,3 @@ codeartifact:DeleteDomain,
 codeartifact:DescribeDomain
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-name,
-owner,
-encryption_key,
-permissions_policy_document,
-tags,
-arn
-FROM awscc.codeartifact.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -40,6 +40,21 @@ Gets an individual <code>private_graph_endpoint</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+graph_identifier,
+security_group_ids,
+subnet_ids,
+vpc_id,
+private_graph_endpoint_identifier,
+vpc_endpoint_id
+FROM awscc.neptunegraph.private_graph_endpoint
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PrivateGraphEndpointIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>private_graph_endpoint</code> resource, the following permissions are required:
@@ -70,18 +85,3 @@ neptune-graph:DeletePrivateGraphEndpoint,
 neptune-graph:GetPrivateGraphEndpoint
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-graph_identifier,
-security_group_ids,
-subnet_ids,
-vpc_id,
-private_graph_endpoint_identifier,
-vpc_endpoint_id
-FROM awscc.neptunegraph.private_graph_endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PrivateGraphEndpointIdentifier&gt;'
-```

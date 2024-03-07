@@ -44,23 +44,6 @@ Gets an individual <code>workflow</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>workflow</code> resource, the following permissions are required:
-
-### Read
-```json
-imagebuilder:GetWorkflow
-```
-
-### Delete
-```json
-imagebuilder:GetWorkflow,
-imagebuilder:UnTagResource,
-imagebuilder:DeleteWorkflow
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -77,5 +60,22 @@ kms_key_id,
 tags
 FROM awscc.imagebuilder.workflow
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '{Arn}';
 ```
+
+## Permissions
+
+To operate on the <code>workflow</code> resource, the following permissions are required:
+
+### Read
+```json
+imagebuilder:GetWorkflow
+```
+
+### Delete
+```json
+imagebuilder:GetWorkflow,
+imagebuilder:UnTagResource,
+imagebuilder:DeleteWorkflow
+```
+

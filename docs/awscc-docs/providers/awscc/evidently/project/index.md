@@ -40,6 +40,21 @@ Gets an individual <code>project</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+data_delivery,
+app_config_resource,
+tags
+FROM awscc.evidently.project
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>project</code> resource, the following permissions are required:
@@ -98,18 +113,3 @@ appconfig:DeleteExtensionAssociation,
 appconfig:DeleteConfigurationProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-description,
-data_delivery,
-app_config_resource,
-tags
-FROM awscc.evidently.project
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

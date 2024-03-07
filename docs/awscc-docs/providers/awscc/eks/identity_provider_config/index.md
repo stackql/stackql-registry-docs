@@ -40,6 +40,23 @@ Gets an individual <code>identity_provider_config</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_name,
+type,
+identity_provider_config_name,
+oidc,
+tags,
+identity_provider_config_arn
+FROM awscc.eks.identity_provider_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '{IdentityProviderConfigName}';
+AND data__Identifier = '{ClusterName}';
+AND data__Identifier = '{Type}';
+```
+
 ## Permissions
 
 To operate on the <code>identity_provider_config</code> resource, the following permissions are required:
@@ -62,20 +79,3 @@ eks:DisassociateIdentityProviderConfig,
 eks:DescribeIdentityProviderConfig
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_name,
-type,
-identity_provider_config_name,
-oidc,
-tags,
-identity_provider_config_arn
-FROM awscc.eks.identity_provider_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;IdentityProviderConfigName&gt;'
-AND data__Identifier = '&lt;ClusterName&gt;'
-AND data__Identifier = '&lt;Type&gt;'
-```

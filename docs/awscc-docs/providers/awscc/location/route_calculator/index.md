@@ -43,6 +43,24 @@ Gets an individual <code>route_calculator</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+calculator_arn,
+calculator_name,
+create_time,
+data_source,
+description,
+pricing_plan,
+tags,
+update_time,
+arn
+FROM awscc.location.route_calculator
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CalculatorName}';
+```
+
 ## Permissions
 
 To operate on the <code>route_calculator</code> resource, the following permissions are required:
@@ -67,21 +85,3 @@ geo:DeleteRouteCalculator,
 geo:DescribeRouteCalculator
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-calculator_arn,
-calculator_name,
-create_time,
-data_source,
-description,
-pricing_plan,
-tags,
-update_time,
-arn
-FROM awscc.location.route_calculator
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CalculatorName&gt;'
-```

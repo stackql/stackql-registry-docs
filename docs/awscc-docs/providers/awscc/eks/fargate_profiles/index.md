@@ -36,6 +36,16 @@ Retrieves a list of <code>fargate_profiles</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_name,
+fargate_profile_name
+FROM awscc.eks.fargate_profiles
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>fargate_profiles</code> resource, the following permissions are required:
@@ -55,13 +65,3 @@ eks:TagResource
 eks:ListFargateProfiles
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_name,
-fargate_profile_name
-FROM awscc.eks.fargate_profiles
-WHERE region = 'us-east-1'
-```

@@ -47,6 +47,29 @@ Gets an individual <code>entity</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+entity_id,
+entity_name,
+status,
+has_child_entities,
+parent_entity_id,
+arn,
+description,
+creation_date_time,
+update_date_time,
+tags,
+workspace_id,
+components,
+composite_components
+FROM awscc.iottwinmaker.entity
+WHERE region = 'us-east-1'
+AND data__Identifier = '{WorkspaceId}';
+AND data__Identifier = '{EntityId}';
+```
+
 ## Permissions
 
 To operate on the <code>entity</code> resource, the following permissions are required:
@@ -83,26 +106,3 @@ iottwinmaker:GetWorkspace,
 iottwinmaker:DeleteEntity
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-entity_id,
-entity_name,
-status,
-has_child_entities,
-parent_entity_id,
-arn,
-description,
-creation_date_time,
-update_date_time,
-tags,
-workspace_id,
-components,
-composite_components
-FROM awscc.iottwinmaker.entity
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkspaceId&gt;'
-AND data__Identifier = '&lt;EntityId&gt;'
-```

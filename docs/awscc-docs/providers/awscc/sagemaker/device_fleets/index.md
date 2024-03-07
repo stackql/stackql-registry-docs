@@ -35,6 +35,15 @@ Retrieves a list of <code>device_fleets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+device_fleet_name
+FROM awscc.sagemaker.device_fleets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>device_fleets</code> resource, the following permissions are required:
@@ -45,12 +54,3 @@ sagemaker:CreateDeviceFleet,
 iam:PassRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-device_fleet_name
-FROM awscc.sagemaker.device_fleets
-WHERE region = 'us-east-1'
-```

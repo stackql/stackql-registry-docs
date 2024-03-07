@@ -35,6 +35,15 @@ Retrieves a list of <code>layer_version_permissions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.lambda.layer_version_permissions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>layer_version_permissions</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ lambda:AddLayerVersionPermission
 lambda:GetLayerVersionPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.lambda.layer_version_permissions
-WHERE region = 'us-east-1'
-```

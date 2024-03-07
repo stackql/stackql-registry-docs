@@ -39,6 +39,20 @@ Gets an individual <code>domain_name</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+description,
+certificate_arn,
+app_sync_domain_name,
+hosted_zone_id
+FROM awscc.appsync.domain_name
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainName}';
+```
+
 ## Permissions
 
 To operate on the <code>domain_name</code> resource, the following permissions are required:
@@ -59,17 +73,3 @@ appsync:UpdateDomainName
 appsync:GetDomainName
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-description,
-certificate_arn,
-app_sync_domain_name,
-hosted_zone_id
-FROM awscc.appsync.domain_name
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-```

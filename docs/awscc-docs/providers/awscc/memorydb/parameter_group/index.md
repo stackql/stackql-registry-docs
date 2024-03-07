@@ -40,6 +40,21 @@ Gets an individual <code>parameter_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+parameter_group_name,
+family,
+description,
+tags,
+parameters,
+a_rn
+FROM awscc.memorydb.parameter_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ParameterGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>parameter_group</code> resource, the following permissions are required:
@@ -66,18 +81,3 @@ memorydb:UntagResource
 memorydb:DeleteParameterGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-parameter_group_name,
-family,
-description,
-tags,
-parameters,
-a_rn
-FROM awscc.memorydb.parameter_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ParameterGroupName&gt;'
-```

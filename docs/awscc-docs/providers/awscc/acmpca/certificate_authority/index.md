@@ -45,6 +45,26 @@ Gets an individual <code>certificate_authority</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+type,
+key_algorithm,
+signing_algorithm,
+subject,
+revocation_configuration,
+tags,
+certificate_signing_request,
+csr_extensions,
+key_storage_security_standard,
+usage_mode
+FROM awscc.acmpca.certificate_authority
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>certificate_authority</code> resource, the following permissions are required:
@@ -70,23 +90,3 @@ acm-pca:DeleteCertificateAuthority,
 acm-pca:DescribeCertificateAuthority
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-type,
-key_algorithm,
-signing_algorithm,
-subject,
-revocation_configuration,
-tags,
-certificate_signing_request,
-csr_extensions,
-key_storage_security_standard,
-usage_mode
-FROM awscc.acmpca.certificate_authority
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

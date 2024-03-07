@@ -43,6 +43,24 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application_configuration,
+application_description,
+application_mode,
+application_name,
+runtime_environment,
+service_execution_role,
+run_configuration,
+application_maintenance_configuration,
+tags
+FROM awscc.kinesisanalyticsv2.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationName}';
+```
+
 ## Permissions
 
 To operate on the <code>application</code> resource, the following permissions are required:
@@ -71,21 +89,3 @@ kinesisanalytics:DescribeApplication,
 kinesisanalytics:DeleteApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application_configuration,
-application_description,
-application_mode,
-application_name,
-runtime_environment,
-service_execution_role,
-run_configuration,
-application_maintenance_configuration,
-tags
-FROM awscc.kinesisanalyticsv2.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationName&gt;'
-```

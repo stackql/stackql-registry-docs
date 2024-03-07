@@ -35,6 +35,15 @@ Retrieves a list of <code>route_calculators</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+calculator_name
+FROM awscc.location.route_calculators
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>route_calculators</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ geo:UntagResource
 geo:ListRouteCalculators
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-calculator_name
-FROM awscc.location.route_calculators
-WHERE region = 'us-east-1'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>storage_systems</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+storage_system_arn
+FROM awscc.datasync.storage_systems
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>storage_systems</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ iam:CreateServiceLinkedRole
 datasync:ListStorageSystems
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-storage_system_arn
-FROM awscc.datasync.storage_systems
-WHERE region = 'us-east-1'
-```

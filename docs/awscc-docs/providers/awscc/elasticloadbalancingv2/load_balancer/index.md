@@ -49,6 +49,30 @@ Gets an individual <code>load_balancer</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+ip_address_type,
+security_groups,
+load_balancer_attributes,
+scheme,
+d_ns_name,
+name,
+load_balancer_name,
+load_balancer_full_name,
+subnets,
+type,
+canonical_hosted_zone_id,
+tags,
+load_balancer_arn,
+subnet_mappings,
+enforce_security_group_inbound_rules_on_private_link_traffic
+FROM awscc.elasticloadbalancingv2.load_balancer
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LoadBalancerArn}';
+```
+
 ## Permissions
 
 To operate on the <code>load_balancer</code> resource, the following permissions are required:
@@ -76,27 +100,3 @@ elasticloadbalancing:AddTags,
 elasticloadbalancing:RemoveTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-ip_address_type,
-security_groups,
-load_balancer_attributes,
-scheme,
-d_ns_name,
-name,
-load_balancer_name,
-load_balancer_full_name,
-subnets,
-type,
-canonical_hosted_zone_id,
-tags,
-load_balancer_arn,
-subnet_mappings,
-enforce_security_group_inbound_rules_on_private_link_traffic
-FROM awscc.elasticloadbalancingv2.load_balancer
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LoadBalancerArn&gt;'
-```

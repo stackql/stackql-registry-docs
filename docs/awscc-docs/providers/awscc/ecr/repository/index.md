@@ -44,6 +44,25 @@ Gets an individual <code>repository</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+empty_on_delete,
+lifecycle_policy,
+repository_name,
+repository_policy_text,
+tags,
+arn,
+repository_uri,
+image_tag_mutability,
+image_scanning_configuration,
+encryption_configuration
+FROM awscc.ecr.repository
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RepositoryName}';
+```
+
 ## Permissions
 
 To operate on the <code>repository</code> resource, the following permissions are required:
@@ -79,22 +98,3 @@ ecr:DeleteRepository,
 kms:RetireGrant
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-empty_on_delete,
-lifecycle_policy,
-repository_name,
-repository_policy_text,
-tags,
-arn,
-repository_uri,
-image_tag_mutability,
-image_scanning_configuration,
-encryption_configuration
-FROM awscc.ecr.repository
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RepositoryName&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>service_actions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.servicecatalog.service_actions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>service_actions</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ iam:GetRole
 servicecatalog:ListServiceActions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.servicecatalog.service_actions
-WHERE region = 'us-east-1'
-```

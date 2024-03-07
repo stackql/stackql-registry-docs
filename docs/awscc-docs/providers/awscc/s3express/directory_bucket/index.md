@@ -38,6 +38,19 @@ Gets an individual <code>directory_bucket</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+bucket_name,
+location_name,
+data_redundancy,
+arn
+FROM awscc.s3express.directory_bucket
+WHERE region = 'us-east-1'
+AND data__Identifier = '{BucketName}';
+```
+
 ## Permissions
 
 To operate on the <code>directory_bucket</code> resource, the following permissions are required:
@@ -53,16 +66,3 @@ s3express:DeleteBucket,
 s3express:ListAllMyDirectoryBuckets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-bucket_name,
-location_name,
-data_redundancy,
-arn
-FROM awscc.s3express.directory_bucket
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BucketName&gt;'
-```

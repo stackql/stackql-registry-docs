@@ -48,6 +48,30 @@ Gets an individual <code>device</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+device_arn,
+device_id,
+description,
+tags,
+global_network_id,
+a_ws_location,
+location,
+model,
+serial_number,
+site_id,
+type,
+vendor,
+created_at,
+state
+FROM awscc.networkmanager.device
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GlobalNetworkId}';
+AND data__Identifier = '{DeviceId}';
+```
+
 ## Permissions
 
 To operate on the <code>device</code> resource, the following permissions are required:
@@ -72,27 +96,3 @@ networkmanager:GetDevices,
 networkmanager:DeleteDevice
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-device_arn,
-device_id,
-description,
-tags,
-global_network_id,
-a_ws_location,
-location,
-model,
-serial_number,
-site_id,
-type,
-vendor,
-created_at,
-state
-FROM awscc.networkmanager.device
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalNetworkId&gt;'
-AND data__Identifier = '&lt;DeviceId&gt;'
-```

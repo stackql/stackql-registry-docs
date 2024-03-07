@@ -38,6 +38,19 @@ Gets an individual <code>resolverdnssec_config</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+owner_id,
+resource_id,
+validation_status
+FROM awscc.route53resolver.resolverdnssec_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>resolverdnssec_config</code> resource, the following permissions are required:
@@ -56,16 +69,3 @@ route53resolver:ListResolverDnssecConfigs,
 ec2:DescribeVpcs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-owner_id,
-resource_id,
-validation_status
-FROM awscc.route53resolver.resolverdnssec_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

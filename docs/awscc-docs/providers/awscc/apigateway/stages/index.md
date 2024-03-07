@@ -36,6 +36,16 @@ Retrieves a list of <code>stages</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+rest_api_id,
+stage_name
+FROM awscc.apigateway.stages
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>stages</code> resource, the following permissions are required:
@@ -53,13 +63,3 @@ apigateway:PUT
 apigateway:GET
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-rest_api_id,
-stage_name
-FROM awscc.apigateway.stages
-WHERE region = 'us-east-1'
-```

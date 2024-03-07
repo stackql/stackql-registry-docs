@@ -44,6 +44,25 @@ Gets an individual <code>storage_system</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+server_configuration,
+server_credentials,
+secrets_manager_arn,
+system_type,
+agent_arns,
+cloud_watch_log_group_arn,
+name,
+tags,
+storage_system_arn,
+connectivity_status
+FROM awscc.datasync.storage_system
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StorageSystemArn}';
+```
+
 ## Permissions
 
 To operate on the <code>storage_system</code> resource, the following permissions are required:
@@ -74,22 +93,3 @@ secretsmanager:DescribeSecret,
 secretsmanager:DeleteSecret
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-server_configuration,
-server_credentials,
-secrets_manager_arn,
-system_type,
-agent_arns,
-cloud_watch_log_group_arn,
-name,
-tags,
-storage_system_arn,
-connectivity_status
-FROM awscc.datasync.storage_system
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StorageSystemArn&gt;'
-```

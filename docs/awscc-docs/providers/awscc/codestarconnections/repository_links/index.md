@@ -35,6 +35,15 @@ Retrieves a list of <code>repository_links</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+repository_link_arn
+FROM awscc.codestarconnections.repository_links
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>repository_links</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ codestar-connections:ListRepositoryLinks,
 codestar-connections:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-repository_link_arn
-FROM awscc.codestarconnections.repository_links
-WHERE region = 'us-east-1'
-```

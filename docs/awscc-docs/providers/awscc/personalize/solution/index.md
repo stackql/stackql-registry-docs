@@ -42,6 +42,23 @@ Gets an individual <code>solution</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+solution_arn,
+event_type,
+dataset_group_arn,
+perform_auto_ml,
+perform_hp_o,
+recipe_arn,
+solution_config
+FROM awscc.personalize.solution
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SolutionArn}';
+```
+
 ## Permissions
 
 To operate on the <code>solution</code> resource, the following permissions are required:
@@ -57,20 +74,3 @@ personalize:DeleteSolution,
 personalize:DescribeSolution
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-solution_arn,
-event_type,
-dataset_group_arn,
-perform_auto_ml,
-perform_hp_o,
-recipe_arn,
-solution_config
-FROM awscc.personalize.solution
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SolutionArn&gt;'
-```

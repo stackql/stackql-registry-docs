@@ -35,6 +35,15 @@ Retrieves a list of <code>endpoints</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.s3outposts.endpoints
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>endpoints</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ s3-outposts:CreateEndpoint
 s3-outposts:ListEndpoints
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.s3outposts.endpoints
-WHERE region = 'us-east-1'
-```

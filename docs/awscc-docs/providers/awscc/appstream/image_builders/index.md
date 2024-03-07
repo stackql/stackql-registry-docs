@@ -35,6 +35,15 @@ Retrieves a list of <code>image_builders</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.appstream.image_builders
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>image_builders</code> resource, the following permissions are required:
@@ -67,12 +76,3 @@ iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.appstream.image_builders
-WHERE region = 'us-east-1'
-```

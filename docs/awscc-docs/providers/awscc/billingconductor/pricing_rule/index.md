@@ -49,6 +49,30 @@ Gets an individual <code>pricing_rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+scope,
+type,
+modifier_percentage,
+service,
+billing_entity,
+tiering,
+usage_type,
+operation,
+associated_pricing_plan_count,
+creation_time,
+last_modified_time,
+tags
+FROM awscc.billingconductor.pricing_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>pricing_rule</code> resource, the following permissions are required:
@@ -74,27 +98,3 @@ billingconductor:ListPricingRules,
 billingconductor:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-description,
-scope,
-type,
-modifier_percentage,
-service,
-billing_entity,
-tiering,
-usage_type,
-operation,
-associated_pricing_plan_count,
-creation_time,
-last_modified_time,
-tags
-FROM awscc.billingconductor.pricing_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

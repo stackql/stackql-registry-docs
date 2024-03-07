@@ -40,6 +40,21 @@ Gets an individual <code>dataflow_endpoint_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+endpoint_details,
+contact_pre_pass_duration_seconds,
+contact_post_pass_duration_seconds,
+tags
+FROM awscc.groundstation.dataflow_endpoint_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>dataflow_endpoint_group</code> resource, the following permissions are required:
@@ -56,18 +71,3 @@ groundstation:DeleteDataflowEndpointGroup,
 groundstation:GetDataflowEndpointGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-endpoint_details,
-contact_pre_pass_duration_seconds,
-contact_post_pass_duration_seconds,
-tags
-FROM awscc.groundstation.dataflow_endpoint_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -42,6 +42,23 @@ Gets an individual <code>signal_catalog</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+creation_time,
+description,
+last_modification_time,
+name,
+node_counts,
+nodes,
+tags
+FROM awscc.iotfleetwise.signal_catalog
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>signal_catalog</code> resource, the following permissions are required:
@@ -69,20 +86,3 @@ iotfleetwise:GetSignalCatalog,
 iotfleetwise:DeleteSignalCatalog
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-creation_time,
-description,
-last_modification_time,
-name,
-node_counts,
-nodes,
-tags
-FROM awscc.iotfleetwise.signal_catalog
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

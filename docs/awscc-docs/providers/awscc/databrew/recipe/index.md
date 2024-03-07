@@ -38,6 +38,19 @@ Gets an individual <code>recipe</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+name,
+steps,
+tags
+FROM awscc.databrew.recipe
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>recipe</code> resource, the following permissions are required:
@@ -59,16 +72,3 @@ databrew:DeleteRecipeVersion
 databrew:UpdateRecipe
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-name,
-steps,
-tags
-FROM awscc.databrew.recipe
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

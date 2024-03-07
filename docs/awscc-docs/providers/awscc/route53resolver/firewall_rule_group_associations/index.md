@@ -35,6 +35,15 @@ Retrieves a list of <code>firewall_rule_group_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.route53resolver.firewall_rule_group_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>firewall_rule_group_associations</code> resource, the following permissions are required:
@@ -59,12 +68,3 @@ lambda:*,
 s3:*
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.route53resolver.firewall_rule_group_associations
-WHERE region = 'us-east-1'
-```

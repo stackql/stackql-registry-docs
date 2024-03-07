@@ -42,6 +42,23 @@ Gets an individual <code>schema_mapping</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+schema_name,
+description,
+mapped_input_fields,
+tags,
+schema_arn,
+created_at,
+updated_at,
+has_workflows
+FROM awscc.entityresolution.schema_mapping
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SchemaName}';
+```
+
 ## Permissions
 
 To operate on the <code>schema_mapping</code> resource, the following permissions are required:
@@ -67,20 +84,3 @@ entityresolution:TagResource,
 entityresolution:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-schema_name,
-description,
-mapped_input_fields,
-tags,
-schema_arn,
-created_at,
-updated_at,
-has_workflows
-FROM awscc.entityresolution.schema_mapping
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SchemaName&gt;'
-```

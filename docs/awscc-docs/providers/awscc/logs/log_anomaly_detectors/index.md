@@ -35,6 +35,15 @@ Retrieves a list of <code>log_anomaly_detectors</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+anomaly_detector_arn
+FROM awscc.logs.log_anomaly_detectors
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>log_anomaly_detectors</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ logs:CreateLogAnomalyDetector
 logs:ListLogAnomalyDetectors
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-anomaly_detector_arn
-FROM awscc.logs.log_anomaly_detectors
-WHERE region = 'us-east-1'
-```

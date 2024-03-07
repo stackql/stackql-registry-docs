@@ -35,6 +35,15 @@ Retrieves a list of <code>location_s3s</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+location_arn
+FROM awscc.datasync.location_s3s
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>location_s3s</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ iam:PassRole
 datasync:ListLocations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-location_arn
-FROM awscc.datasync.location_s3s
-WHERE region = 'us-east-1'
-```

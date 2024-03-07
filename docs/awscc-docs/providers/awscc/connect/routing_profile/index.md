@@ -43,6 +43,24 @@ Gets an individual <code>routing_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+name,
+description,
+media_concurrencies,
+default_outbound_queue_arn,
+routing_profile_arn,
+queue_configs,
+tags,
+agent_availability_timer
+FROM awscc.connect.routing_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RoutingProfileArn}';
+```
+
 ## Permissions
 
 To operate on the <code>routing_profile</code> resource, the following permissions are required:
@@ -73,21 +91,3 @@ connect:ListRoutingProfileQueues,
 connect:UpdateRoutingProfileAgentAvailabilityTimer
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-name,
-description,
-media_concurrencies,
-default_outbound_queue_arn,
-routing_profile_arn,
-queue_configs,
-tags,
-agent_availability_timer
-FROM awscc.connect.routing_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RoutingProfileArn&gt;'
-```

@@ -40,6 +40,21 @@ Gets an individual <code>prompt</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+name,
+description,
+s3_uri,
+prompt_arn,
+tags
+FROM awscc.connect.prompt
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PromptArn}';
+```
+
 ## Permissions
 
 To operate on the <code>prompt</code> resource, the following permissions are required:
@@ -61,18 +76,3 @@ connect:UntagResource
 connect:DeletePrompt
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-name,
-description,
-s3_uri,
-prompt_arn,
-tags
-FROM awscc.connect.prompt
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PromptArn&gt;'
-```

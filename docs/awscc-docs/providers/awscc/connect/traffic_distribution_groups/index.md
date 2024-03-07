@@ -35,6 +35,15 @@ Retrieves a list of <code>traffic_distribution_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+traffic_distribution_group_arn
+FROM awscc.connect.traffic_distribution_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>traffic_distribution_groups</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ connect:TagResource
 connect:ListTrafficDistributionGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-traffic_distribution_group_arn
-FROM awscc.connect.traffic_distribution_groups
-WHERE region = 'us-east-1'
-```

@@ -41,6 +41,22 @@ Gets an individual <code>quick_connect</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+name,
+description,
+quick_connect_config,
+quick_connect_arn,
+tags,
+quick_connect_type
+FROM awscc.connect.quick_connect
+WHERE region = 'us-east-1'
+AND data__Identifier = '{QuickConnectArn}';
+```
+
 ## Permissions
 
 To operate on the <code>quick_connect</code> resource, the following permissions are required:
@@ -64,19 +80,3 @@ connect:TagResource,
 connect:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-name,
-description,
-quick_connect_config,
-quick_connect_arn,
-tags,
-quick_connect_type
-FROM awscc.connect.quick_connect
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;QuickConnectArn&gt;'
-```

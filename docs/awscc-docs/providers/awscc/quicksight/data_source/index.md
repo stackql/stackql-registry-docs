@@ -50,6 +50,32 @@ Gets an individual <code>data_source</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+alternate_data_source_parameters,
+arn,
+aws_account_id,
+created_time,
+credentials,
+data_source_id,
+data_source_parameters,
+error_info,
+last_updated_time,
+name,
+permissions,
+ssl_properties,
+status,
+tags,
+type,
+vpc_connection_properties
+FROM awscc.quicksight.data_source
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AwsAccountId}';
+AND data__Identifier = '{DataSourceId}';
+```
+
 ## Permissions
 
 To operate on the <code>data_source</code> resource, the following permissions are required:
@@ -80,29 +106,3 @@ quicksight:DeleteDataSource,
 quicksight:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-alternate_data_source_parameters,
-arn,
-aws_account_id,
-created_time,
-credentials,
-data_source_id,
-data_source_parameters,
-error_info,
-last_updated_time,
-name,
-permissions,
-ssl_properties,
-status,
-tags,
-type,
-vpc_connection_properties
-FROM awscc.quicksight.data_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-AND data__Identifier = '&lt;DataSourceId&gt;'
-```

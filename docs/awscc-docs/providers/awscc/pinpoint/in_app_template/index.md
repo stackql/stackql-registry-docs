@@ -41,6 +41,22 @@ Gets an individual <code>in_app_template</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+content,
+custom_config,
+layout,
+tags,
+template_description,
+template_name
+FROM awscc.pinpoint.in_app_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TemplateName}';
+```
+
 ## Permissions
 
 To operate on the <code>in_app_template</code> resource, the following permissions are required:
@@ -63,19 +79,3 @@ mobiletargeting:UpdateInAppTemplate,
 mobiletargeting:GetInAppTemplate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-content,
-custom_config,
-layout,
-tags,
-template_description,
-template_name
-FROM awscc.pinpoint.in_app_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TemplateName&gt;'
-```

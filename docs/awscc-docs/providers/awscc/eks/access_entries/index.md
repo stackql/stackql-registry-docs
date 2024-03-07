@@ -36,6 +36,16 @@ Retrieves a list of <code>access_entries</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+principal_arn,
+cluster_name
+FROM awscc.eks.access_entries
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>access_entries</code> resource, the following permissions are required:
@@ -54,13 +64,3 @@ eks:ListAssociatedAccessPolicies
 eks:ListAccessEntries
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-principal_arn,
-cluster_name
-FROM awscc.eks.access_entries
-WHERE region = 'us-east-1'
-```

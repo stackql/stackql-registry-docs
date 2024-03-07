@@ -35,6 +35,15 @@ Retrieves a list of <code>resource_collections</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_collection_type
+FROM awscc.devopsguru.resource_collections
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resource_collections</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ devops-guru:GetResourceCollection
 devops-guru:GetResourceCollection
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_collection_type
-FROM awscc.devopsguru.resource_collections
-WHERE region = 'us-east-1'
-```

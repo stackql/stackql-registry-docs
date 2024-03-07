@@ -42,21 +42,6 @@ Gets an individual <code>dataset</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>dataset</code> resource, the following permissions are required:
-
-### Read
-```json
-forecast:DescribeDataset
-```
-
-### Delete
-```json
-forecast:DeleteDataset
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -71,5 +56,20 @@ schema,
 tags
 FROM awscc.forecast.dataset
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '{Arn}';
 ```
+
+## Permissions
+
+To operate on the <code>dataset</code> resource, the following permissions are required:
+
+### Read
+```json
+forecast:DescribeDataset
+```
+
+### Delete
+```json
+forecast:DeleteDataset
+```
+

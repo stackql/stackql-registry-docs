@@ -53,29 +53,6 @@ Gets an individual <code>environment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>environment</code> resource, the following permissions are required:
-
-### Read
-```json
-datazone:GetEnvironment
-```
-
-### Update
-```json
-datazone:UpdateEnvironment,
-datazone:GetEnvironment,
-datazone:DeleteEnvironment
-```
-
-### Delete
-```json
-datazone:DeleteEnvironment,
-datazone:GetEnvironment
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -101,6 +78,29 @@ updated_at,
 user_parameters
 FROM awscc.datazone.environment
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainId&gt;'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '{DomainId}';
+AND data__Identifier = '{Id}';
 ```
+
+## Permissions
+
+To operate on the <code>environment</code> resource, the following permissions are required:
+
+### Read
+```json
+datazone:GetEnvironment
+```
+
+### Update
+```json
+datazone:UpdateEnvironment,
+datazone:GetEnvironment,
+datazone:DeleteEnvironment
+```
+
+### Delete
+```json
+datazone:DeleteEnvironment,
+datazone:GetEnvironment
+```
+

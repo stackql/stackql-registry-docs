@@ -42,21 +42,6 @@ Gets an individual <code>hosted_configuration_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>hosted_configuration_version</code> resource, the following permissions are required:
-
-### Read
-```json
-appconfig:GetHostedConfigurationVersion
-```
-
-### Delete
-```json
-appconfig:DeleteHostedConfigurationVersion
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -71,7 +56,22 @@ latest_version_number,
 version_label
 FROM awscc.appconfig.hosted_configuration_version
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationId&gt;'
-AND data__Identifier = '&lt;ConfigurationProfileId&gt;'
-AND data__Identifier = '&lt;VersionNumber&gt;'
+AND data__Identifier = '{ApplicationId}';
+AND data__Identifier = '{ConfigurationProfileId}';
+AND data__Identifier = '{VersionNumber}';
 ```
+
+## Permissions
+
+To operate on the <code>hosted_configuration_version</code> resource, the following permissions are required:
+
+### Read
+```json
+appconfig:GetHostedConfigurationVersion
+```
+
+### Delete
+```json
+appconfig:DeleteHostedConfigurationVersion
+```
+

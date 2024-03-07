@@ -39,6 +39,20 @@ Gets an individual <code>serverless_cluster</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+cluster_name,
+vpc_configs,
+client_authentication,
+tags
+FROM awscc.msk.serverless_cluster
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>serverless_cluster</code> resource, the following permissions are required:
@@ -55,17 +69,3 @@ kafka:DescribeClusterV2,
 ec2:DeleteVpcEndpoints
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-cluster_name,
-vpc_configs,
-client_authentication,
-tags
-FROM awscc.msk.serverless_cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```
