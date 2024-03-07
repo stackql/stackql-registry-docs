@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pricing_plans</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 billingconductor:CreatePricingPlan,
 billingconductor:AssociatePricingRules,
 billingconductor:ListPricingPlans,
 billingconductor:TagResource,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 billingconductor:ListPricingPlans,
 billingconductor:ListPricingRulesAssociatedToPricingPlan,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 
 ## Example

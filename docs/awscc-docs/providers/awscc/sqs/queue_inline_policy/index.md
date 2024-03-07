@@ -41,20 +41,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>queue_inline_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sqs:GetQueueAttributes,
-sqs:GetQueueUrl</pre>
+sqs:GetQueueUrl
+```
 
 ### Delete
-<pre>
+```json
 sqs:SetQueueAttributes,
-sqs:GetQueueAttributes</pre>
+sqs:GetQueueAttributes
+```
 
 ### Update
-<pre>
+```json
 sqs:SetQueueAttributes,
 sqs:GetQueueAttributes,
-sqs:GetQueueUrl</pre>
+sqs:GetQueueUrl
+```
 
 
 ## Example

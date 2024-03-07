@@ -48,16 +48,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificate</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-acm-pca:GetCertificate</pre>
+```json
+acm-pca:GetCertificate
+```
 
 ### Delete
-<pre>
-acm-pca:GetCertificate</pre>
-
-### Update
-<pre>
-</pre>
+```json
+acm-pca:GetCertificate
+```
 
 
 ## Example

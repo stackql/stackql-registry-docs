@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connector_profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appflow:CreateConnectorProfile,
 kms:ListKeys,
 kms:DescribeKey,
@@ -50,11 +50,13 @@ kms:ListGrants,
 iam:PassRole,
 secretsmanager:CreateSecret,
 secretsmanager:GetSecretValue,
-secretsmanager:PutResourcePolicy</pre>
+secretsmanager:PutResourcePolicy
+```
 
 ### List
-<pre>
-appflow:DescribeConnectorProfiles</pre>
+```json
+appflow:DescribeConnectorProfiles
+```
 
 
 ## Example

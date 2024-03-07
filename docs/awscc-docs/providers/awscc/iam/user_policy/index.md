@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iam:GetUserPolicy</pre>
+```json
+iam:GetUserPolicy
+```
 
 ### Update
-<pre>
+```json
 iam:PutUserPolicy,
-iam:GetUserPolicy</pre>
+iam:GetUserPolicy
+```
 
 ### Delete
-<pre>
+```json
 iam:DeleteUserPolicy,
-iam:GetUserPolicy</pre>
+iam:GetUserPolicy
+```
 
 
 ## Example

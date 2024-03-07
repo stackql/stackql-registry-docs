@@ -47,22 +47,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribeRule</pre>
+```json
+connect:DescribeRule
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteRule,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateRule,
 cases:GetTemplate,
 cases:ListFields,
 cases:ListFieldOptions,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

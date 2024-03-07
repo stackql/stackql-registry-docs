@@ -46,20 +46,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>destination</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetDestination,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 iotwireless:UpdateDestination,
 iotwireless:UntagResource,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Delete
-<pre>
-iotwireless:DeleteDestination</pre>
+```json
+iotwireless:DeleteDestination
+```
 
 
 ## Example

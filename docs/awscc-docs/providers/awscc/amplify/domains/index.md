@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domains</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 amplify:CreateDomainAssociation,
 route53:ListHostedZones,
 route53:ChangeResourceRecordSets,
 iam:PassRole,
-amplify:TagResource</pre>
+amplify:TagResource
+```
 
 ### List
-<pre>
+```json
 amplify:ListDomainAssociations,
 iam:PassRole,
-amplify:ListTagsForResource</pre>
+amplify:ListTagsForResource
+```
 
 
 ## Example

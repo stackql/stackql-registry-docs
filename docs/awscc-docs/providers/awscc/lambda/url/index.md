@@ -46,16 +46,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>url</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lambda:GetFunctionUrlConfig</pre>
+```json
+lambda:GetFunctionUrlConfig
+```
 
 ### Update
-<pre>
-lambda:UpdateFunctionUrlConfig</pre>
+```json
+lambda:UpdateFunctionUrlConfig
+```
 
 ### Delete
-<pre>
-lambda:DeleteFunctionUrlConfig</pre>
+```json
+lambda:DeleteFunctionUrlConfig
+```
 
 
 ## Example

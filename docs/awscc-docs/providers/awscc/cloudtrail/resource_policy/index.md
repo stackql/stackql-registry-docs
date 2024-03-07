@@ -41,17 +41,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-CloudTrail:GetResourcePolicy</pre>
+```json
+CloudTrail:GetResourcePolicy
+```
 
 ### Update
-<pre>
+```json
 CloudTrail:PutResourcePolicy,
-CloudTrail:GetResourcePolicy</pre>
+CloudTrail:GetResourcePolicy
+```
 
 ### Delete
-<pre>
-CloudTrail:DeleteResourcePolicy</pre>
+```json
+CloudTrail:DeleteResourcePolicy
+```
 
 
 ## Example

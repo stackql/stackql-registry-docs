@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trust_store_revocation</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 elasticloadbalancing:DescribeTrustStoreRevocations,
-elasticloadbalancing:RemoveTrustStoreRevocations</pre>
+elasticloadbalancing:RemoveTrustStoreRevocations
+```
 
 ### Read
-<pre>
-elasticloadbalancing:DescribeTrustStoreRevocations</pre>
+```json
+elasticloadbalancing:DescribeTrustStoreRevocations
+```
 
 
 ## Example

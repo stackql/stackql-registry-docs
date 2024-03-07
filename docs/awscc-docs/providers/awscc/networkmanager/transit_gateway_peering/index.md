@@ -51,23 +51,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>transit_gateway_peering</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 networkmanager:GetTransitGatewayPeering,
-networkmanager:TagResource</pre>
+networkmanager:TagResource
+```
 
 ### Update
-<pre>
+```json
 networkmanager:TagResource,
 networkmanager:UntagResource,
 networkmanager:ListTagsForResource,
 networkmanager:GetTransitGatewayPeering,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:DeletePeering,
 networkmanager:GetTransitGatewayPeering,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 
 ## Example

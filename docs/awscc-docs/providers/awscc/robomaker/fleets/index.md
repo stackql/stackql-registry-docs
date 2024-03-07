@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fleets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-robomaker:CreateFleet</pre>
+```json
+robomaker:CreateFleet
+```
 
 ### List
-<pre>
-robomaker:ListFleets</pre>
+```json
+robomaker:ListFleets
+```
 
 
 ## Example

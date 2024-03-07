@@ -51,24 +51,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>inference_component</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateInferenceComponent,
 sagemaker:UpdateInferenceComponentRuntimeConfig,
 sagemaker:DescribeInferenceComponent,
 sagemaker:AddTags,
 sagemaker:ListTags,
-sagemaker:DeleteTags</pre>
+sagemaker:DeleteTags
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DescribeInferenceComponent,
 sagemaker:DeleteInferenceComponent,
-sagemaker:DeleteTags</pre>
+sagemaker:DeleteTags
+```
 
 ### Read
-<pre>
+```json
 sagemaker:DescribeInferenceComponent,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 
 ## Example

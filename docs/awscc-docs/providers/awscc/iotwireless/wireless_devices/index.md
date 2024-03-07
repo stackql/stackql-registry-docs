@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>wireless_devices</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotwireless:CreateWirelessDevice,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 iotwireless:ListWirelessDevices,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 
 ## Example

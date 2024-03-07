@@ -52,20 +52,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rule_group</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 wafv2:DeleteRuleGroup,
-wafv2:GetRuleGroup</pre>
+wafv2:GetRuleGroup
+```
 
 ### Read
-<pre>
+```json
 wafv2:GetRuleGroup,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 wafv2:UpdateRuleGroup,
 wafv2:GetRuleGroup,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 
 ## Example

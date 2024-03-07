@@ -44,18 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_grants_location</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-s3:GetAccessGrantsLocation</pre>
+```json
+s3:GetAccessGrantsLocation
+```
 
 ### Delete
-<pre>
-s3:DeleteAccessGrantsLocation</pre>
+```json
+s3:DeleteAccessGrantsLocation
+```
 
 ### Update
-<pre>
+```json
 s3:UpdateAccessGrantsLocation,
 s3:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

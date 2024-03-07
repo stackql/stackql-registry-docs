@@ -46,20 +46,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>quick_connect</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribeQuickConnect</pre>
+```json
+connect:DescribeQuickConnect
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteQuickConnect,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateQuickConnectName,
 connect:UpdateQuickConnectConfig,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

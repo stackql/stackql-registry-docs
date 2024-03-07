@@ -48,16 +48,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>anomaly_subscription</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ce:GetAnomalySubscriptions</pre>
+```json
+ce:GetAnomalySubscriptions
+```
 
 ### Update
-<pre>
-ce:UpdateAnomalySubscription</pre>
+```json
+ce:UpdateAnomalySubscription
+```
 
 ### Delete
-<pre>
-ce:DeleteAnomalySubscription</pre>
+```json
+ce:DeleteAnomalySubscription
+```
 
 
 ## Example

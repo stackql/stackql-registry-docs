@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>analyzers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 access-analyzer:CreateAnalyzer,
 access-analyzer:TagResource,
 iam:CreateServiceLinkedRole,
 organizations:ListAWSServiceAccessForOrganization,
-organizations:ListDelegatedAdministrators</pre>
+organizations:ListDelegatedAdministrators
+```
 
 ### List
-<pre>
-access-analyzer:ListAnalyzers</pre>
+```json
+access-analyzer:ListAnalyzers
+```
 
 
 ## Example

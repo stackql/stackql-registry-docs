@@ -40,19 +40,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>deliveries</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 logs:CreateDelivery,
 logs:GetDelivery,
 logs:DescribeDeliveries,
 logs:ListTagsForResource,
 logs:TagResource,
 logs:GetDeliverySource,
-logs:GetDeliveryDestination</pre>
+logs:GetDeliveryDestination
+```
 
 ### List
-<pre>
+```json
 logs:DescribeDeliveries,
-logs:ListTagsForResource</pre>
+logs:ListTagsForResource
+```
 
 
 ## Example

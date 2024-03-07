@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_pool_role_attachments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cognito-identity:GetIdentityPoolRoles,
 cognito-identity:SetIdentityPoolRoles,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-cognito-identity:GetIdentityPoolRoles</pre>
+```json
+cognito-identity:GetIdentityPoolRoles
+```
 
 
 ## Example

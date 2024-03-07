@@ -49,20 +49,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment_blueprint_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-datazone:GetEnvironmentBlueprintConfiguration</pre>
+```json
+datazone:GetEnvironmentBlueprintConfiguration
+```
 
 ### Update
-<pre>
+```json
 datazone:DeleteEnvironmentBlueprintConfiguration,
 iam:PassRole,
 datazone:GetEnvironmentBlueprintConfiguration,
-datazone:PutEnvironmentBlueprintConfiguration</pre>
+datazone:PutEnvironmentBlueprintConfiguration
+```
 
 ### Delete
-<pre>
+```json
 datazone:GetEnvironmentBlueprintConfiguration,
-datazone:DeleteEnvironmentBlueprintConfiguration</pre>
+datazone:DeleteEnvironmentBlueprintConfiguration
+```
 
 
 ## Example

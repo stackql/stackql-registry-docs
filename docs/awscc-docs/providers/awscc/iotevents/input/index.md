@@ -43,22 +43,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>input</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotevents:DescribeInput,
-iotevents:ListTagsForResource</pre>
+iotevents:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotevents:UpdateInput,
 iotevents:DescribeInput,
 iotevents:ListTagsForResource,
 iotevents:UntagResource,
-iotevents:TagResource</pre>
+iotevents:TagResource
+```
 
 ### Delete
-<pre>
+```json
 iotevents:DeleteInput,
-iotevents:DescribeInput</pre>
+iotevents:DescribeInput
+```
 
 
 ## Example

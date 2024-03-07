@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>readiness_checks</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53-recovery-readiness:CreateReadinessCheck,
 route53-recovery-readiness:GetResourceSet,
 route53-recovery-readiness:GetReadinessCheck,
 route53-recovery-readiness:ListTagsForResources,
-route53-recovery-readiness:TagResource</pre>
+route53-recovery-readiness:TagResource
+```
 
 ### List
-<pre>
+```json
 route53-recovery-readiness:ListReadinessChecks,
-route53-recovery-readiness:GetReadinessChecks</pre>
+route53-recovery-readiness:GetReadinessChecks
+```
 
 
 ## Example

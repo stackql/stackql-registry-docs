@@ -45,19 +45,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_provider_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-eks:DescribeIdentityProviderConfig</pre>
+```json
+eks:DescribeIdentityProviderConfig
+```
 
 ### Update
-<pre>
+```json
 eks:DescribeIdentityProviderConfig,
 eks:TagResource,
-eks:UntagResource</pre>
+eks:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 eks:DisassociateIdentityProviderConfig,
-eks:DescribeIdentityProviderConfig</pre>
+eks:DescribeIdentityProviderConfig
+```
 
 
 ## Example

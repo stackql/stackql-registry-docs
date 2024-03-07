@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>apis</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apigateway:POST,
 apigateway:PUT,
-s3:getObject</pre>
+s3:getObject
+```
 
 ### List
-<pre>
+```json
 apigateway:GET,
-s3:getObject</pre>
+s3:getObject
+```
 
 
 ## Example

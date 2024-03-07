@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>collections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 rekognition:CreateCollection,
 rekognition:DescribeCollection,
 rekognition:ListTagsForResource,
-rekognition:TagResource</pre>
+rekognition:TagResource
+```
 
 ### List
-<pre>
-rekognition:ListCollections</pre>
+```json
+rekognition:ListCollections
+```
 
 
 ## Example

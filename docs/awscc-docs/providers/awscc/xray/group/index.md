@@ -44,20 +44,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 xray:GetGroup,
-xray:ListTagsForResource</pre>
+xray:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 xray:UpdateGroup,
 xray:TagResource,
 xray:UntagResource,
-xray:ListTagsForResource</pre>
+xray:ListTagsForResource
+```
 
 ### Delete
-<pre>
-xray:DeleteGroup</pre>
+```json
+xray:DeleteGroup
+```
 
 
 ## Example

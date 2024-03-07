@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>datasets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-forecast:CreateDataset</pre>
+```json
+forecast:CreateDataset
+```
 
 ### List
-<pre>
-forecast:ListDatasets</pre>
+```json
+forecast:ListDatasets
+```
 
 
 ## Example

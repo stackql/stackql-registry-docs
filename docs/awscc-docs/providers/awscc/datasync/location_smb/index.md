@@ -49,21 +49,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>location_smb</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 datasync:DescribeLocationSmb,
-datasync:ListTagsForResource</pre>
+datasync:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 datasync:DescribeLocationSmb,
 datasync:ListTagsForResource,
 datasync:TagResource,
 datasync:UntagResource,
-datasync:UpdateLocationSmb</pre>
+datasync:UpdateLocationSmb
+```
 
 ### Delete
-<pre>
-datasync:DeleteLocation</pre>
+```json
+datasync:DeleteLocation
+```
 
 
 ## Example

@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cidr_collection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53:ListCidrCollections,
-route53:ListCidrBlocks</pre>
+route53:ListCidrBlocks
+```
 
 ### Update
-<pre>
-route53:ChangeCidrCollection</pre>
+```json
+route53:ChangeCidrCollection
+```
 
 ### Delete
-<pre>
+```json
 route53:DeleteCidrCollection,
-route53:ChangeCidrCollection</pre>
+route53:ChangeCidrCollection
+```
 
 
 ## Example

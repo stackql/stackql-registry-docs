@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>applications</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 kms:Create*,
 kms:Describe*,
 kms:Enable*,
@@ -64,11 +64,13 @@ iam:CreateServiceLinkedRole,
 ec2:CreateNetworkInterface,
 ecr:BatchGetImage,
 ecr:DescribeImages,
-ecr:GetDownloadUrlForLayer</pre>
+ecr:GetDownloadUrlForLayer
+```
 
 ### List
-<pre>
-emr-serverless:ListApplications</pre>
+```json
+emr-serverless:ListApplications
+```
 
 
 ## Example

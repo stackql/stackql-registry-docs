@@ -43,21 +43,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>eventschemas_registry</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-schemas:DescribeRegistry</pre>
+```json
+schemas:DescribeRegistry
+```
 
 ### Update
-<pre>
+```json
 schemas:DescribeRegistry,
 schemas:UpdateRegistry,
 schemas:TagResource,
 schemas:UntagResource,
-schemas:ListTagsForResource</pre>
+schemas:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 schemas:DescribeRegistry,
-schemas:DeleteRegistry</pre>
+schemas:DeleteRegistry
+```
 
 
 ## Example

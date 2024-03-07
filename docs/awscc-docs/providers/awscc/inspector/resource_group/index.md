@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-inspector:CreateResourceGroup</pre>
+```json
+inspector:CreateResourceGroup
+```
 
 ### Delete
-<pre>
-inspector:CreateResourceGroup</pre>
+```json
+inspector:CreateResourceGroup
+```
 
 
 ## Example

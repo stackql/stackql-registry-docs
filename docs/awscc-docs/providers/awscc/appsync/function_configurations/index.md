@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>function_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3:GetObject,
-appsync:CreateFunction</pre>
+appsync:CreateFunction
+```
 
 ### List
-<pre>
-appsync:ListFunctions</pre>
+```json
+appsync:ListFunctions
+```
 
 
 ## Example

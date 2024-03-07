@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>metric_streams</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudwatch:PutMetricStream,
 cloudwatch:GetMetricStream,
 cloudwatch:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-cloudwatch:ListMetricStreams</pre>
+```json
+cloudwatch:ListMetricStreams
+```
 
 
 ## Example

@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>approved_origins</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:AssociateApprovedOrigin,
-connect:ListApprovedOrigins</pre>
+connect:ListApprovedOrigins
+```
 
 ### List
-<pre>
-connect:ListApprovedOrigins</pre>
+```json
+connect:ListApprovedOrigins
+```
 
 
 ## Example

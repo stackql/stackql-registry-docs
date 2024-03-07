@@ -40,13 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>module_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudformation:DescribeType,
 cloudformation:DescribeTypeRegistration,
 cloudformation:ListTypeVersions,
 cloudformation:RegisterType,
 s3:GetObject,
-s3:ListBucket</pre>
+s3:ListBucket
+```
 
 
 ## Example

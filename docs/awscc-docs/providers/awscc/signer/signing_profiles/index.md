@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>signing_profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 signer:PutSigningProfile,
-signer:TagResource</pre>
+signer:TagResource
+```
 
 ### List
-<pre>
-signer:ListSigningProfiles</pre>
+```json
+signer:ListSigningProfiles
+```
 
 
 ## Example

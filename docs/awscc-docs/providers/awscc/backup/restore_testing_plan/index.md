@@ -46,22 +46,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>restore_testing_plan</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 backup:GetRestoreTestingPlan,
-backup:ListTags</pre>
+backup:ListTags
+```
 
 ### Update
-<pre>
+```json
 backup:UpdateRestoreTestingPlan,
 backup:TagResource,
 backup:UntagResource,
 backup:GetRestoreTestingPlan,
-backup:ListTags</pre>
+backup:ListTags
+```
 
 ### Delete
-<pre>
+```json
 backup:DeleteRestoreTestingPlan,
-backup:GetRestoreTestingPlan</pre>
+backup:GetRestoreTestingPlan
+```
 
 
 ## Example

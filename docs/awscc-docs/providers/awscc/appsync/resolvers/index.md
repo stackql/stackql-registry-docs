@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolvers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3:GetObject,
 appsync:CreateResolver,
-appsync:GetResolver</pre>
+appsync:GetResolver
+```
 
 ### List
-<pre>
-appsync:ListResolvers</pre>
+```json
+appsync:ListResolvers
+```
 
 
 ## Example

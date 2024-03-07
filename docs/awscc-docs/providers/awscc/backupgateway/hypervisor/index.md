@@ -47,23 +47,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hypervisor</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 backup-gateway:GetHypervisor,
-backup-gateway:ListHypervisors</pre>
+backup-gateway:ListHypervisors
+```
 
 ### Update
-<pre>
+```json
 backup-gateway:UpdateHypervisor,
 backup-gateway:GetHypervisor,
 backup-gateway:ListHypervisors,
 backup-gateway:ImportHypervisorConfiguration,
-backup-gateway:DeleteHypervisor</pre>
+backup-gateway:DeleteHypervisor
+```
 
 ### Delete
-<pre>
+```json
 backup-gateway:DeleteHypervisor,
 backup-gateway:GetHypervisor,
-backup-gateway:ListHypervisors</pre>
+backup-gateway:ListHypervisors
+```
 
 
 ## Example

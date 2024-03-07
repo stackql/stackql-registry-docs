@@ -52,17 +52,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apprunner:DescribeService</pre>
+```json
+apprunner:DescribeService
+```
 
 ### Update
-<pre>
+```json
 apprunner:UpdateService,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-apprunner:DeleteService</pre>
+```json
+apprunner:DeleteService
+```
 
 
 ## Example

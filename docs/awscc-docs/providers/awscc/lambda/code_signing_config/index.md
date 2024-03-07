@@ -44,16 +44,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>code_signing_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lambda:GetCodeSigningConfig</pre>
+```json
+lambda:GetCodeSigningConfig
+```
 
 ### Update
-<pre>
-lambda:UpdateCodeSigningConfig</pre>
+```json
+lambda:UpdateCodeSigningConfig
+```
 
 ### Delete
-<pre>
-lambda:DeleteCodeSigningConfig</pre>
+```json
+lambda:DeleteCodeSigningConfig
+```
 
 
 ## Example

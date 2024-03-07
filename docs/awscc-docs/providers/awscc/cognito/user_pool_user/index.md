@@ -47,12 +47,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_pool_user</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cognito-idp:AdminGetUser</pre>
+```json
+cognito-idp:AdminGetUser
+```
 
 ### Delete
-<pre>
-cognito-idp:AdminDeleteUser</pre>
+```json
+cognito-idp:AdminDeleteUser
+```
 
 
 ## Example

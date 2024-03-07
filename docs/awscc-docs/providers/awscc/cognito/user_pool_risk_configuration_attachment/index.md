@@ -44,19 +44,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_pool_risk_configuration_attachment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cognito-idp:DescribeRiskConfiguration</pre>
+```json
+cognito-idp:DescribeRiskConfiguration
+```
 
 ### Update
-<pre>
+```json
 cognito-idp:SetRiskConfiguration,
 cognito-idp:DescribeRiskConfiguration,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 cognito-idp:SetRiskConfiguration,
-cognito-idp:DescribeRiskConfiguration</pre>
+cognito-idp:DescribeRiskConfiguration
+```
 
 
 ## Example

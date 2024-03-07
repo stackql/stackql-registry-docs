@@ -41,16 +41,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bot_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lex:CreateBotVersion,
 lex:DescribeBotVersion,
 lex:DescribeBot,
 lex:DescribeBotLocale,
-lex:BuildBotLocale</pre>
+lex:BuildBotLocale
+```
 
 ### List
-<pre>
-lex:ListBotVersions</pre>
+```json
+lex:ListBotVersions
+```
 
 
 ## Example

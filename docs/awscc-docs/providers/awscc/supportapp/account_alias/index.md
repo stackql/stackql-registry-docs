@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>account_alias</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-supportapp:GetAccountAlias</pre>
+```json
+supportapp:GetAccountAlias
+```
 
 ### Update
-<pre>
+```json
 supportapp:PutAccountAlias,
-supportapp:GetAccountAlias</pre>
+supportapp:GetAccountAlias
+```
 
 ### Delete
-<pre>
+```json
 supportapp:DeleteAccountAlias,
-supportapp:GetAccountAlias</pre>
+supportapp:GetAccountAlias
+```
 
 
 ## Example

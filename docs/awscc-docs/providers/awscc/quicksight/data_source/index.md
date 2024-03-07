@@ -55,27 +55,30 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_source</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 quicksight:DescribeDataSource,
 quicksight:DescribeDataSourcePermissions,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 quicksight:DescribeDataSource,
 quicksight:DescribeDataSourcePermissions,
 quicksight:UpdateDataSource,
 quicksight:UpdateDataSourcePermissions,
 quicksight:TagResource,
 quicksight:UntagResource,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 quicksight:DescribeDataSource,
 quicksight:DescribeDataSourcePermissions,
 quicksight:DeleteDataSource,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 
 ## Example

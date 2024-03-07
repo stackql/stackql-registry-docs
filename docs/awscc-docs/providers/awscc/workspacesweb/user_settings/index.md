@@ -52,16 +52,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_settings</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 workspaces-web:GetUserSettings,
 workspaces-web:ListTagsForResource,
 kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Update
-<pre>
+```json
 workspaces-web:UpdateUserSettings,
 workspaces-web:TagResource,
 workspaces-web:UntagResource,
@@ -70,16 +71,18 @@ workspaces-web:ListTagsForResource,
 kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Delete
-<pre>
+```json
 workspaces-web:GetUserSettings,
 workspaces-web:DeleteUserSettings,
 kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 
 ## Example

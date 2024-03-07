@@ -60,22 +60,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>campaign</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotfleetwise:GetCampaign,
-iotfleetwise:ListTagsForResource</pre>
+iotfleetwise:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotfleetwise:GetCampaign,
 iotfleetwise:ListTagsForResource,
 iotfleetwise:UpdateCampaign,
 iotfleetwise:TagResource,
-iotfleetwise:UntagResource</pre>
+iotfleetwise:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 iotfleetwise:DeleteCampaign,
-iotfleetwise:GetCampaign</pre>
+iotfleetwise:GetCampaign
+```
 
 
 ## Example

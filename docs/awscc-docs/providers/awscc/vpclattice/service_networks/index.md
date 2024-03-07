@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_networks</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 vpc-lattice:GetServiceNetwork,
 vpc-lattice:ListTagsForResource,
 vpc-lattice:CreateServiceNetwork,
 vpc-lattice:TagResource,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-vpc-lattice:ListServiceNetworks</pre>
+```json
+vpc-lattice:ListServiceNetworks
+```
 
 
 ## Example

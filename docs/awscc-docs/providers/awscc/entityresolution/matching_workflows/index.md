@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>matching_workflows</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 entityresolution:CreateMatchingWorkflow,
 entityresolution:GetMatchingWorkflow,
 entityresolution:TagResource,
 kms:CreateGrant,
 kms:DescribeKey,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-entityresolution:ListMatchingWorkflows</pre>
+```json
+entityresolution:ListMatchingWorkflows
+```
 
 
 ## Example

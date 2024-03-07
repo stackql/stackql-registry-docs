@@ -50,18 +50,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>composite_alarm</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cloudwatch:DescribeAlarms</pre>
+```json
+cloudwatch:DescribeAlarms
+```
 
 ### Update
-<pre>
+```json
 cloudwatch:DescribeAlarms,
-cloudwatch:PutCompositeAlarm</pre>
+cloudwatch:PutCompositeAlarm
+```
 
 ### Delete
-<pre>
+```json
 cloudwatch:DescribeAlarms,
-cloudwatch:DeleteAlarms</pre>
+cloudwatch:DeleteAlarms
+```
 
 
 ## Example

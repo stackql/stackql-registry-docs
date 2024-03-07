@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>email_identities</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ses:CreateEmailIdentity,
 ses:PutEmailIdentityMailFromAttributes,
 ses:PutEmailIdentityFeedbackAttributes,
 ses:PutEmailIdentityDkimAttributes,
-ses:GetEmailIdentity</pre>
+ses:GetEmailIdentity
+```
 
 ### List
-<pre>
-ses:ListEmailIdentities</pre>
+```json
+ses:ListEmailIdentities
+```
 
 
 ## Example

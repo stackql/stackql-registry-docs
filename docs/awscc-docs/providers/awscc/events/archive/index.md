@@ -45,18 +45,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>archive</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 events:DescribeArchive,
-events:DeleteArchive</pre>
+events:DeleteArchive
+```
 
 ### Update
-<pre>
+```json
 events:DescribeArchive,
-events:UpdateArchive</pre>
+events:UpdateArchive
+```
 
 ### Read
-<pre>
-events:DescribeArchive</pre>
+```json
+events:DescribeArchive
+```
 
 
 ## Example

@@ -50,12 +50,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>core_network</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 networkmanager:GetCoreNetwork,
-networkmanager:GetCoreNetworkPolicy</pre>
+networkmanager:GetCoreNetworkPolicy
+```
 
 ### Update
-<pre>
+```json
 networkmanager:UpdateCoreNetwork,
 networkmanager:GetCoreNetwork,
 networkmanager:ListTagsForResource,
@@ -64,15 +65,17 @@ networkmanager:GetCoreNetworkPolicy,
 networkmanager:ExecuteCoreNetworkChangeSet,
 networkmanager:TagResource,
 networkmanager:UntagResource,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:DeleteCoreNetwork,
 networkmanager:UntagResource,
 networkmanager:GetCoreNetwork,
 networkmanager:GetCoreNetworkPolicy,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 
 ## Example

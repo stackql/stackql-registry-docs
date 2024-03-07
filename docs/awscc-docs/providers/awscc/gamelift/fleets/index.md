@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fleets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 gamelift:CreateFleet,
 gamelift:DescribeFleetAttributes,
 gamelift:DescribeFleetLocationAttributes,
 gamelift:UpdateFleetCapacity,
 gamelift:DescribeFleetLocationCapacity,
 gamelift:PutScalingPolicy,
-gamelift:DescribeScalingPolicies</pre>
+gamelift:DescribeScalingPolicies
+```
 
 ### List
-<pre>
-gamelift:ListFleets</pre>
+```json
+gamelift:ListFleets
+```
 
 
 ## Example

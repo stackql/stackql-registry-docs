@@ -44,21 +44,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dimension</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeDimension,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateDimension,
 iot:ListTagsForResource,
 iot:UntagResource,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### Delete
-<pre>
+```json
 iot:DescribeDimension,
-iot:DeleteDimension</pre>
+iot:DeleteDimension
+```
 
 
 ## Example

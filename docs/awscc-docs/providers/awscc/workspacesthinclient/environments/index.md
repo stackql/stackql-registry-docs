@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 thinclient:CreateEnvironment,
 thinclient:TagResource,
 thinclient:ListTagsForResource,
@@ -51,15 +51,17 @@ workspaces-web:GetUserSettings,
 kms:DescribeKey,
 kms:Encrypt,
 kms:Decrypt,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### List
-<pre>
+```json
 thinclient:ListEnvironment,
 thinclient:ListTagsForResource,
 kms:DescribeKey,
 kms:Encrypt,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 
 ## Example

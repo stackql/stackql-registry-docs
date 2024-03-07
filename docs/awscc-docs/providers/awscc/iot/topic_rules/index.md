@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topic_rules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 iot:CreateTopicRule,
 iot:GetTopicRule,
 iot:TagResource,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### List
-<pre>
-iot:ListTopicRules</pre>
+```json
+iot:ListTopicRules
+```
 
 
 ## Example

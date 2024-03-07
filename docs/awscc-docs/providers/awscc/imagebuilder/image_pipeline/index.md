@@ -54,21 +54,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>image_pipeline</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 imagebuilder:GetImagePipeline,
 imagebuilder:UpdateImagePipeline,
-imagebuilder:GetWorkflow</pre>
+imagebuilder:GetWorkflow
+```
 
 ### Read
-<pre>
-imagebuilder:GetImagePipeline</pre>
+```json
+imagebuilder:GetImagePipeline
+```
 
 ### Delete
-<pre>
+```json
 imagebuilder:UnTagResource,
 imagebuilder:GetImagePipeline,
-imagebuilder:DeleteImagePipeline</pre>
+imagebuilder:DeleteImagePipeline
+```
 
 
 ## Example

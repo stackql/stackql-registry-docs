@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dataset</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-personalize:DescribeDataset</pre>
+```json
+personalize:DescribeDataset
+```
 
 ### Update
-<pre>
+```json
 personalize:DescribeDataset,
 personalize:CreateDatasetImportJob,
 personalize:DescribeDatasetImportJob,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 personalize:DeleteDataset,
-personalize:DescribeDataset</pre>
+personalize:DescribeDataset
+```
 
 
 ## Example

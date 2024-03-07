@@ -48,17 +48,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>routing_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 connect:DescribeRoutingProfile,
-connect:ListRoutingProfileQueues</pre>
+connect:ListRoutingProfileQueues
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteRoutingProfile,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Update
-<pre>
+```json
 connect:AssociateRoutingProfileQueues,
 connect:DisassociateRoutingProfileQueues,
 connect:UpdateRoutingProfileConcurrency,
@@ -68,7 +70,8 @@ connect:UpdateRoutingProfileQueues,
 connect:TagResource,
 connect:UntagResource,
 connect:ListRoutingProfileQueues,
-connect:UpdateRoutingProfileAgentAvailabilityTimer</pre>
+connect:UpdateRoutingProfileAgentAvailabilityTimer
+```
 
 
 ## Example

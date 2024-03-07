@@ -50,21 +50,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 b2bi:GetProfile,
-b2bi:ListTagsForResource</pre>
+b2bi:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 b2bi:TagResource,
 b2bi:UntagResource,
-b2bi:UpdateProfile</pre>
+b2bi:UpdateProfile
+```
 
 ### Delete
-<pre>
+```json
 b2bi:DeleteProfile,
 logs:DeleteLogDelivery,
-logs:ListLogDeliveries</pre>
+logs:ListLogDeliveries
+```
 
 
 ## Example

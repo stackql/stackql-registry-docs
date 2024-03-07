@@ -46,19 +46,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>signing_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-signer:GetSigningProfile</pre>
+```json
+signer:GetSigningProfile
+```
 
 ### Delete
-<pre>
+```json
 signer:CancelSigningProfile,
-signer:GetSigningProfile</pre>
+signer:GetSigningProfile
+```
 
 ### Update
-<pre>
+```json
 signer:TagResource,
 signer:UntagResource,
-signer:GetSigningProfile</pre>
+signer:GetSigningProfile
+```
 
 
 ## Example

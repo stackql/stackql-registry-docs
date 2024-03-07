@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>logging_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ivschat:CreateLoggingConfiguration,
 ivschat:GetLoggingConfiguration,
 logs:CreateLogDelivery,
@@ -51,12 +51,14 @@ s3:PutBucketPolicy,
 s3:GetBucketPolicy,
 iam:CreateServiceLinkedRole,
 firehose:TagDeliveryStream,
-ivschat:TagResource</pre>
+ivschat:TagResource
+```
 
 ### List
-<pre>
+```json
 ivschat:ListLoggingConfigurations,
-ivschat:ListTagsForResource</pre>
+ivschat:ListTagsForResource
+```
 
 
 ## Example

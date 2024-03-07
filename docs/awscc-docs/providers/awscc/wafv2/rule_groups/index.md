@@ -42,14 +42,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rule_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 wafv2:CreateRuleGroup,
 wafv2:GetRuleGroup,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 ### List
-<pre>
-wafv2:listRuleGroups</pre>
+```json
+wafv2:listRuleGroups
+```
 
 
 ## Example

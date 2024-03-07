@@ -58,22 +58,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scheduled_query</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 timestream:DescribeScheduledQuery,
 timestream:ListTagsForResource,
-timestream:DescribeEndpoints</pre>
+timestream:DescribeEndpoints
+```
 
 ### Update
-<pre>
+```json
 timestream:UpdateScheduledQuery,
 timestream:TagResource,
 timestream:UntagResource,
-timestream:DescribeEndpoints</pre>
+timestream:DescribeEndpoints
+```
 
 ### Delete
-<pre>
+```json
 timestream:DeleteScheduledQuery,
-timestream:DescribeEndpoints</pre>
+timestream:DescribeEndpoints
+```
 
 
 ## Example

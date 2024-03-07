@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>module_default_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudformation:DescribeType,
-cloudformation:SetTypeDefaultVersion</pre>
+cloudformation:SetTypeDefaultVersion
+```
 
 ### List
-<pre>
-cloudformation:ListTypes</pre>
+```json
+cloudformation:ListTypes
+```
 
 
 ## Example

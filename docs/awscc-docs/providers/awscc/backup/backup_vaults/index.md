@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>backup_vaults</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 backup:TagResource,
 backup:CreateBackupVault,
 backup:PutBackupVaultAccessPolicy,
@@ -52,11 +52,13 @@ kms:CreateGrant,
 kms:GenerateDataKey,
 kms:Decrypt,
 kms:RetireGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### List
-<pre>
-backup:ListBackupVaults</pre>
+```json
+backup:ListBackupVaults
+```
 
 
 ## Example

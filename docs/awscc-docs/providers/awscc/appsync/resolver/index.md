@@ -57,17 +57,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolver</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appsync:GetResolver</pre>
+```json
+appsync:GetResolver
+```
 
 ### Update
-<pre>
+```json
 s3:GetObject,
-appsync:UpdateResolver</pre>
+appsync:UpdateResolver
+```
 
 ### Delete
-<pre>
-appsync:DeleteResolver</pre>
+```json
+appsync:DeleteResolver
+```
 
 
 ## Example

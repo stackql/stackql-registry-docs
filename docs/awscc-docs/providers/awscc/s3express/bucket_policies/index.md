@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bucket_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3express:GetBucketPolicy,
-s3express:PutBucketPolicy</pre>
+s3express:PutBucketPolicy
+```
 
 ### List
-<pre>
+```json
 s3express:GetBucketPolicy,
-s3express:ListAllMyDirectoryBuckets</pre>
+s3express:ListAllMyDirectoryBuckets
+```
 
 
 ## Example

@@ -94,16 +94,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 redshift:DescribeClusters,
 redshift:DescribeLoggingStatus,
 redshift:DescribeSnapshotCopyGrant,
 redshift:DescribeClusterDbRevisions,
 redshift:DescribeTags,
-redshift:GetResourcePolicy</pre>
+redshift:GetResourcePolicy
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 redshift:DescribeClusters,
 redshift:ModifyCluster,
@@ -130,13 +131,15 @@ redshift:FailoverPrimaryCompute,
 redshift:PutResourcePolicy,
 redshift:GetResourcePolicy,
 redshift:DeleteResourcePolicy,
-cloudwatch:PutMetricData</pre>
+cloudwatch:PutMetricData
+```
 
 ### Delete
-<pre>
+```json
 redshift:DescribeTags,
 redshift:DescribeClusters,
-redshift:DeleteCluster</pre>
+redshift:DeleteCluster
+```
 
 
 ## Example

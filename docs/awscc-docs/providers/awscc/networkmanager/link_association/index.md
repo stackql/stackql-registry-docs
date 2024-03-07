@@ -42,12 +42,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>link_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:GetLinkAssociations</pre>
+```json
+networkmanager:GetLinkAssociations
+```
 
 ### Delete
-<pre>
-networkmanager:DisassociateLink</pre>
+```json
+networkmanager:DisassociateLink
+```
 
 
 ## Example

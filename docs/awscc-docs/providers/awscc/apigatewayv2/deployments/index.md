@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>deployments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-apigateway:POST</pre>
+```json
+apigateway:POST
+```
 
 ### List
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 
 ## Example

@@ -50,22 +50,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificate_authority</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 acm-pca:DescribeCertificateAuthority,
 acm-pca:GetCertificateAuthorityCsr,
-acm-pca:ListTags</pre>
+acm-pca:ListTags
+```
 
 ### Update
-<pre>
+```json
 acm-pca:ListTags,
 acm-pca:TagCertificateAuthority,
 acm-pca:UntagCertificateAuthority,
-acm-pca:UpdateCertificateAuthority</pre>
+acm-pca:UpdateCertificateAuthority
+```
 
 ### Delete
-<pre>
+```json
 acm-pca:DeleteCertificateAuthority,
-acm-pca:DescribeCertificateAuthority</pre>
+acm-pca:DescribeCertificateAuthority
+```
 
 
 ## Example

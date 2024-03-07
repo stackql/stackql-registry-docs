@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application_fleet_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appstream:DescribeApplicationFleetAssociations</pre>
+```json
+appstream:DescribeApplicationFleetAssociations
+```
 
 ### Delete
-<pre>
+```json
 appstream:DisassociateApplicationFleet,
-appstream:DescribeApplicationFleetAssociations</pre>
+appstream:DescribeApplicationFleetAssociations
+```
 
 
 ## Example

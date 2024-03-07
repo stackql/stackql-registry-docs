@@ -47,18 +47,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>work_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 athena:GetWorkGroup,
-athena:ListTagsForResource</pre>
+athena:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 athena:DeleteWorkGroup,
 athena:GetWorkGroup,
-athena:UntagResource</pre>
+athena:UntagResource
+```
 
 ### Update
-<pre>
+```json
 athena:UpdateWorkGroup,
 athena:TagResource,
 athena:UntagResource,
@@ -71,7 +73,8 @@ s3:AbortMultipartUpload,
 s3:PutObject,
 s3:ListMultipartUploadParts,
 kms:Decrypt,
-kms:GenerateDataKey</pre>
+kms:GenerateDataKey
+```
 
 
 ## Example

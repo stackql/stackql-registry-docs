@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>group_membership</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-identitystore:DescribeGroupMembership</pre>
+```json
+identitystore:DescribeGroupMembership
+```
 
 ### Delete
-<pre>
+```json
 identitystore:DeleteGroupMembership,
-identitystore:DescribeGroupMembership</pre>
+identitystore:DescribeGroupMembership
+```
 
 
 ## Example

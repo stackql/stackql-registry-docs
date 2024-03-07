@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>destinations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 iotwireless:CreateDestination,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 iotwireless:ListDestinations,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 
 ## Example

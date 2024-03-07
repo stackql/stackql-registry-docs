@@ -59,23 +59,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>serverless_cache</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 elasticache:DescribeServerlessCaches,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 elasticache:ModifyServerlessCache,
 elasticache:DescribeServerlessCaches,
 elasticache:AddTagsToResource,
 elasticache:ListTagsForResource,
-elasticache:RemoveTagsFromResource</pre>
+elasticache:RemoveTagsFromResource
+```
 
 ### Delete
-<pre>
+```json
 elasticache:DeleteServerlessCache,
 elasticache:DescribeServerlessCaches,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 
 ## Example

@@ -43,17 +43,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>template_group_access_control_entry</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-pca-connector-ad:GetTemplateGroupAccessControlEntry</pre>
+```json
+pca-connector-ad:GetTemplateGroupAccessControlEntry
+```
 
 ### Update
-<pre>
-pca-connector-ad:UpdateTemplateGroupAccessControlEntry</pre>
+```json
+pca-connector-ad:UpdateTemplateGroupAccessControlEntry
+```
 
 ### Delete
-<pre>
+```json
 pca-connector-ad:DeleteTemplateGroupAccessControlEntry,
-pca-connector-ad:GetTemplateGroupAccessControlEntry</pre>
+pca-connector-ad:GetTemplateGroupAccessControlEntry
+```
 
 
 ## Example

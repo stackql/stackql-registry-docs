@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>subnet_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticache:CreateCacheSubnetGroup,
 elasticache:AddTagsToResource,
 elasticache:DescribeCacheSubnetGroups,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 ### List
-<pre>
-elasticache:DescribeCacheSubnetGroups</pre>
+```json
+elasticache:DescribeCacheSubnetGroups
+```
 
 
 ## Example

@@ -52,20 +52,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_pool</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cognito-identity:DescribeIdentityPool</pre>
+```json
+cognito-identity:DescribeIdentityPool
+```
 
 ### Update
-<pre>
+```json
 cognito-identity:UpdateIdentityPool,
 cognito-identity:DescribeIdentityPool,
 cognito-sync:SetIdentityPoolConfiguration,
 cognito-sync:SetCognitoEvents,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-cognito-identity:DeleteIdentityPool</pre>
+```json
+cognito-identity:DeleteIdentityPool
+```
 
 
 ## Example

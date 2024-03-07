@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain_names</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appsync:CreateDomainName,
 appsync:GetDomainName,
 acm:DescribeCertificate,
-cloudfront:UpdateDistribution</pre>
+cloudfront:UpdateDistribution
+```
 
 ### List
-<pre>
-appsync:ListDomainNames</pre>
+```json
+appsync:ListDomainNames
+```
 
 
 ## Example

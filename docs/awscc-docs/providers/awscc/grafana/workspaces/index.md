@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workspaces</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 grafana:CreateWorkspace,
 grafana:DescribeWorkspace,
 grafana:DescribeWorkspaceAuthentication,
@@ -57,13 +57,15 @@ ec2:DescribeSubnets,
 ec2:DescribeVpcs,
 iam:CreateServiceLinkedRole,
 sso:ListApplicationInstances,
-sso:GetApplicationInstance</pre>
+sso:GetApplicationInstance
+```
 
 ### List
-<pre>
+```json
 grafana:ListWorkspaces,
 grafana:DescribeWorkspaceAuthentication,
-grafana:DescribeWorkspaceConfiguration</pre>
+grafana:DescribeWorkspaceConfiguration
+```
 
 
 ## Example

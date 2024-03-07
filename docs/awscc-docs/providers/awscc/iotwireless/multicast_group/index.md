@@ -48,21 +48,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>multicast_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetMulticastGroup,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotwireless:UpdateMulticastGroup,
 iotwireless:UntagResource,
 iotwireless:ListTagsForResource,
 iotwireless:AssociateWirelessDeviceWithMulticastGroup,
-iotwireless:DisassociateWirelessDeviceFromMulticastGroup</pre>
+iotwireless:DisassociateWirelessDeviceFromMulticastGroup
+```
 
 ### Delete
-<pre>
-iotwireless:DeleteMulticastGroup</pre>
+```json
+iotwireless:DeleteMulticastGroup
+```
 
 
 ## Example

@@ -47,12 +47,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipeline</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 datapipeline:GetPipelineDefinition,
-datapipeline:DescribePipelines</pre>
+datapipeline:DescribePipelines
+```
 
 ### Update
-<pre>
+```json
 datapipeline:PutPipelineDefinition,
 datapipeline:AddTags,
 datapipeline:RemoveTags,
@@ -63,14 +64,16 @@ datapipeline:ValidatePipelineDefinition,
 datapipeline:DescribePipelines,
 datapipeline:AddTags,
 datapipeline:RemoveTags,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 datapipeline:DeletePipeline,
 datapipeline:DescribePipelines,
 datapipeline:GetPipelineDefinition,
-datapipeline:RemoveTags</pre>
+datapipeline:RemoveTags
+```
 
 
 ## Example

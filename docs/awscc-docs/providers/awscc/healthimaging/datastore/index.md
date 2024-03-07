@@ -47,19 +47,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>datastore</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 medical-imaging:GetDatastore,
-medical-imaging:ListTagsForResource</pre>
+medical-imaging:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 medical-imaging:DeleteDatastore,
 medical-imaging:GetDatastore,
 medical-imaging:UntagResource,
 kms:DescribeKey,
 kms:RetireGrant,
 kms:GenerateDataKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 
 ## Example

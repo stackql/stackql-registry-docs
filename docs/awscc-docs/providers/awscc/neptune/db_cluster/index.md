@@ -68,13 +68,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_cluster</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rds:DescribeDBClusters,
 rds:ListTagsForResource,
-kms:*</pre>
+kms:*
+```
 
 ### Update
-<pre>
+```json
 ec2:DescribeSecurityGroups,
 iam:PassRole,
 rds:AddRoleToDBCluster,
@@ -89,10 +90,11 @@ rds:ModifyDBInstance,
 rds:RemoveFromGlobalCluster,
 rds:RemoveRoleFromDBCluster,
 rds:RemoveTagsFromResource,
-kms:*</pre>
+kms:*
+```
 
 ### Delete
-<pre>
+```json
 rds:DeleteDBCluster,
 rds:DeleteDBInstance,
 rds:DescribeDBClusters,
@@ -100,7 +102,8 @@ rds:DescribeGlobalClusters,
 rds:ListTagsForResource,
 rds:RemoveFromGlobalCluster,
 rds:CreateDBClusterSnapshot,
-kms:*</pre>
+kms:*
+```
 
 
 ## Example

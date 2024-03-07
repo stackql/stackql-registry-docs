@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_proxy_target_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 rds:DescribeDBProxies,
 rds:DescribeDBProxyTargetGroups,
 rds:ModifyDBProxyTargetGroup,
-rds:RegisterDBProxyTargets</pre>
+rds:RegisterDBProxyTargets
+```
 
 ### List
-<pre>
-rds:DescribeDBProxyTargetGroups</pre>
+```json
+rds:DescribeDBProxyTargetGroups
+```
 
 
 ## Example

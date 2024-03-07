@@ -45,19 +45,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>robot</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-robomaker:DescribeRobot</pre>
+```json
+robomaker:DescribeRobot
+```
 
 ### Delete
-<pre>
+```json
 robomaker:DescribeRobot,
 robomaker:DeleteRobot,
-robomaker:DeregisterRobot</pre>
+robomaker:DeregisterRobot
+```
 
 ### Update
-<pre>
+```json
 robomaker:TagResource,
-robomaker:UntagResource</pre>
+robomaker:UntagResource
+```
 
 
 ## Example

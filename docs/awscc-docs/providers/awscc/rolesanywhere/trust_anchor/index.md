@@ -46,12 +46,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trust_anchor</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rolesanywhere:GetTrustAnchor,
-rolesanywhere:ListTagsForResource</pre>
+rolesanywhere:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 acm-pca:GetCertificateAuthorityCertificate,
 rolesanywhere:ListTagsForResource,
 rolesanywhere:TagResource,
@@ -61,11 +62,13 @@ rolesanywhere:DisableTrustAnchor,
 rolesanywhere:UpdateTrustAnchor,
 rolesanywhere:GetTrustAnchor,
 rolesanywhere:PutNotificationSettings,
-rolesanywhere:ResetNotificationSettings</pre>
+rolesanywhere:ResetNotificationSettings
+```
 
 ### Delete
-<pre>
-rolesanywhere:DeleteTrustAnchor</pre>
+```json
+rolesanywhere:DeleteTrustAnchor
+```
 
 
 ## Example

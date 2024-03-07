@@ -44,15 +44,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>segment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 evidently:GetSegment,
-evidently:ListTagsForResource</pre>
+evidently:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 evidently:DeleteSegment,
 evidently:GetSegment,
-evidently:UntagResource</pre>
+evidently:UntagResource
+```
 
 
 ## Example

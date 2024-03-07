@@ -48,22 +48,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_provider</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 dms:ListDataProviders,
 dms:DescribeDataProviders,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 dms:UpdateDataProvider,
 dms:ModifyDataProvider,
 dms:AddTagsToResource,
 dms:RemoveTagsToResource,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 ### Delete
-<pre>
-dms:DeleteDataProvider</pre>
+```json
+dms:DeleteDataProvider
+```
 
 
 ## Example

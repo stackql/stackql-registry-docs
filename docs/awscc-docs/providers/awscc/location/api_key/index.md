@@ -51,11 +51,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>api_key</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-geo:DescribeKey</pre>
+```json
+geo:DescribeKey
+```
 
 ### Update
-<pre>
+```json
 geo:CreateKey,
 geo:DescribeKey,
 geo:TagResource,
@@ -70,12 +71,14 @@ geo:SearchPlaceIndexForSuggestions,
 geo:GetPlace,
 geo:CalculateRoute,
 geo:CalculateRouteMatrix,
-geo:UpdateKey</pre>
+geo:UpdateKey
+```
 
 ### Delete
-<pre>
+```json
 geo:DeleteKey,
-geo:DescribeKey</pre>
+geo:DescribeKey
+```
 
 
 ## Example

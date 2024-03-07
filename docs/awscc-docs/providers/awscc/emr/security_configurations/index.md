@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>security_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticmapreduce:CreateSecurityConfiguration,
-elasticmapreduce:DescribeSecurityConfiguration</pre>
+elasticmapreduce:DescribeSecurityConfiguration
+```
 
 ### List
-<pre>
-elasticmapreduce:ListSecurityConfigurations</pre>
+```json
+elasticmapreduce:ListSecurityConfigurations
+```
 
 
 ## Example

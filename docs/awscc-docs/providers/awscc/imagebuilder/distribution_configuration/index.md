@@ -44,22 +44,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>distribution_configuration</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 ec2:DescribeLaunchTemplates,
 ec2:CreateLaunchTemplateVersion,
 ec2:ModifyLaunchTemplate,
 imagebuilder:GetDistributionConfiguration,
-imagebuilder:UpdateDistributionConfiguration</pre>
+imagebuilder:UpdateDistributionConfiguration
+```
 
 ### Read
-<pre>
-imagebuilder:GetDistributionConfiguration</pre>
+```json
+imagebuilder:GetDistributionConfiguration
+```
 
 ### Delete
-<pre>
+```json
 imagebuilder:GetDistributionConfiguration,
 imagebuilder:UnTagResource,
-imagebuilder:DeleteDistributionConfiguration</pre>
+imagebuilder:DeleteDistributionConfiguration
+```
 
 
 ## Example

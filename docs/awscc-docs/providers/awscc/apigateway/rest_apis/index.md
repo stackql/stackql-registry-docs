@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rest_apis</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apigateway:GET,
 apigateway:POST,
 apigateway:PUT,
 apigateway:PATCH,
 apigateway:UpdateRestApiPolicy,
 s3:GetObject,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 
 ## Example

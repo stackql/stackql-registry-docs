@@ -48,17 +48,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scheduled_action</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-autoscaling:DescribeScheduledActions</pre>
+```json
+autoscaling:DescribeScheduledActions
+```
 
 ### Update
-<pre>
-autoscaling:PutScheduledUpdateGroupAction</pre>
+```json
+autoscaling:PutScheduledUpdateGroupAction
+```
 
 ### Delete
-<pre>
+```json
 autoscaling:DeleteScheduledAction,
-autoscaling:DescribeScheduledActions</pre>
+autoscaling:DescribeScheduledActions
+```
 
 
 ## Example

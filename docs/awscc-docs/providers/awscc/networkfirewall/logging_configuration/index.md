@@ -42,13 +42,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>logging_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 logs:GetLogDelivery,
 logs:ListLogDeliveries,
-network-firewall:DescribeLoggingConfiguration</pre>
+network-firewall:DescribeLoggingConfiguration
+```
 
 ### Update
-<pre>
+```json
 logs:CreateLogDelivery,
 logs:DeleteLogDelivery,
 logs:GetLogDelivery,
@@ -62,15 +63,17 @@ logs:DescribeLogGroups,
 iam:CreateServiceLinkedRole,
 firehose:TagDeliveryStream,
 network-firewall:UpdateLoggingConfiguration,
-network-firewall:DescribeLoggingConfiguration</pre>
+network-firewall:DescribeLoggingConfiguration
+```
 
 ### Delete
-<pre>
+```json
 logs:DeleteLogDelivery,
 logs:ListLogDeliveries,
 logs:GetLogDelivery,
 network-firewall:UpdateLoggingConfiguration,
-network-firewall:DescribeLoggingConfiguration</pre>
+network-firewall:DescribeLoggingConfiguration
+```
 
 
 ## Example

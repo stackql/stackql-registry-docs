@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>integrations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 rds:CreateIntegration,
 rds:DescribeIntegrations,
 rds:AddTagsToResource,
 kms:CreateGrant,
 kms:DescribeKey,
-redshift:CreateInboundIntegration</pre>
+redshift:CreateInboundIntegration
+```
 
 ### List
-<pre>
-rds:DescribeIntegrations</pre>
+```json
+rds:DescribeIntegrations
+```
 
 
 ## Example

@@ -41,18 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>account</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 ### Update
-<pre>
+```json
 apigateway:PATCH,
 iam:GetRole,
-iam:PassRole</pre>
-
-### Delete
-<pre>
-</pre>
+iam:PassRole
+```
 
 
 ## Example

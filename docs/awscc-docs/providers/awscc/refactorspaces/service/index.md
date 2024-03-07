@@ -50,12 +50,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 refactor-spacess:GetService,
-refactor-spaces:ListTagsForResource</pre>
+refactor-spaces:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 refactor-spaces:DeleteService,
 refactor-spaces:GetService,
 refactor-spaces:UntagResource,
@@ -68,7 +69,8 @@ ec2:DeleteSecurityGroup,
 ec2:DeleteRoute,
 ec2:RevokeSecurityGroupIngress,
 ec2:DeleteTransitGatewayVpcAttachment,
-ec2:DeleteTags</pre>
+ec2:DeleteTags
+```
 
 
 ## Example

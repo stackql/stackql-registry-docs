@@ -45,24 +45,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>thing_type</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 iot:DescribeThingType,
 iot:DeleteThingType,
-iot:DeprecateThingType</pre>
+iot:DeprecateThingType
+```
 
 ### Read
-<pre>
+```json
 iot:DescribeThingType,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:DescribeThingType,
 iot:UpdateThingType,
 iot:ListTagsForResource,
 iot:TagResource,
 iot:UntagResource,
-iot:DeprecateThingType</pre>
+iot:DeprecateThingType
+```
 
 
 ## Example

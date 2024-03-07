@@ -46,13 +46,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_log_subscription</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 vpc-lattice:GetAccessLogSubscription,
 vpc-lattice:ListTagsForResource,
-logs:GetLogDelivery</pre>
+logs:GetLogDelivery
+```
 
 ### Update
-<pre>
+```json
 vpc-lattice:GetAccessLogSubscription,
 vpc-lattice:UpdateAccessLogSubscription,
 vpc-lattice:TagResource,
@@ -73,10 +74,11 @@ s3:GetBucketPolicy,
 s3:PutBucketPolicy,
 firehose:TagDeliveryStream,
 firehose:CreateDeliveryStream,
-firehose:DescribeDeliveryStream</pre>
+firehose:DescribeDeliveryStream
+```
 
 ### Delete
-<pre>
+```json
 vpc-lattice:DeleteAccessLogSubscription,
 vpc-lattice:UntagResource,
 logs:DeleteLogDelivery,
@@ -87,7 +89,8 @@ s3:PutBucketLogging,
 iam:GetServiceLinkedRoleDeletionStatus,
 iam:DeleteServiceLinkedRole,
 firehose:DeleteDeliveryStream,
-firehose:UntagDeliveryStream</pre>
+firehose:UntagDeliveryStream
+```
 
 
 ## Example

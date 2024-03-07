@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>wal_workspaces</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 emrwal:CreateWorkspace,
 emrwal:TagResource,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-emrwal:ListWorkspaces</pre>
+```json
+emrwal:ListWorkspaces
+```
 
 
 ## Example

@@ -49,19 +49,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>agreement</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-transfer:DescribeAgreement</pre>
+```json
+transfer:DescribeAgreement
+```
 
 ### Update
-<pre>
+```json
 transfer:UpdateAgreement,
 transfer:UnTagResource,
 transfer:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-transfer:DeleteAgreement</pre>
+```json
+transfer:DeleteAgreement
+```
 
 
 ## Example

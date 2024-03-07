@@ -41,17 +41,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_sources</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 quicksight:CreateDataSource,
 quicksight:DescribeDataSource,
 quicksight:DescribeDataSourcePermissions,
 quicksight:TagResource,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 quicksight:DescribeDataSource,
-quicksight:ListDataSources</pre>
+quicksight:ListDataSources
+```
 
 
 ## Example

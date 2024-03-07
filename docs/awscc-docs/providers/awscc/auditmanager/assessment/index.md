@@ -52,19 +52,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assessment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-auditmanager:GetAssessment</pre>
+```json
+auditmanager:GetAssessment
+```
 
 ### Update
-<pre>
+```json
 auditmanager:UpdateAssessment,
 auditmanager:UpdateAssessmentStatus,
 auditmanager:BatchCreateDelegationByAssessment,
-auditmanager:BatchDeleteDelegationByAssessment</pre>
+auditmanager:BatchDeleteDelegationByAssessment
+```
 
 ### Delete
-<pre>
-auditmanager:DeleteAssessment</pre>
+```json
+auditmanager:DeleteAssessment
+```
 
 
 ## Example

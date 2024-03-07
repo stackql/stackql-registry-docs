@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_endpoints</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 aoss:BatchGetVpcEndpoint,
 aoss:CreateVpcEndpoint,
 ec2:CreateVpcEndpoint,
@@ -58,12 +58,14 @@ route53:ListResourceRecordSets,
 route53:ListHostedZonesByName,
 route53:CreateHostedZone,
 route53:ListHostedZonesByVPC,
-route53:AssociateVPCWithHostedZone</pre>
+route53:AssociateVPCWithHostedZone
+```
 
 ### List
-<pre>
+```json
 aoss:ListVpcEndpoints,
-ec2:DescribeVpcEndpoints</pre>
+ec2:DescribeVpcEndpoints
+```
 
 
 ## Example

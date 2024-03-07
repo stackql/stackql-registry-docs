@@ -53,16 +53,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>global_table</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 dynamodb:Describe*,
 dynamodb:GetResourcePolicy,
 application-autoscaling:Describe*,
 cloudwatch:PutMetricData,
 dynamodb:ListTagsOfResource,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Update
-<pre>
+```json
 dynamodb:Describe*,
 dynamodb:CreateTableReplica,
 dynamodb:UpdateTable,
@@ -103,10 +104,11 @@ kms:CreateGrant,
 kms:DescribeKey,
 kms:ListAliases,
 kms:RevokeGrant,
-cloudwatch:PutMetricData</pre>
+cloudwatch:PutMetricData
+```
 
 ### Delete
-<pre>
+```json
 dynamodb:Describe*,
 dynamodb:DeleteTable,
 application-autoscaling:DeleteScalingPolicy,
@@ -115,7 +117,8 @@ application-autoscaling:DeregisterScalableTarget,
 application-autoscaling:Describe*,
 application-autoscaling:PutScalingPolicy,
 application-autoscaling:PutScheduledAction,
-application-autoscaling:RegisterScalableTarget</pre>
+application-autoscaling:RegisterScalableTarget
+```
 
 
 ## Example

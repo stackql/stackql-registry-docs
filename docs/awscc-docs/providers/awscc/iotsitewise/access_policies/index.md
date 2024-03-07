@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-iotsitewise:CreateAccessPolicy</pre>
+```json
+iotsitewise:CreateAccessPolicy
+```
 
 ### List
-<pre>
-iotsitewise:ListAccessPolicies</pre>
+```json
+iotsitewise:ListAccessPolicies
+```
 
 
 ## Example

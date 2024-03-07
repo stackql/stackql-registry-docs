@@ -43,16 +43,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ssm:GetResourcePolicies</pre>
+```json
+ssm:GetResourcePolicies
+```
 
 ### Update
-<pre>
-ssm:PutResourcePolicy</pre>
+```json
+ssm:PutResourcePolicy
+```
 
 ### Delete
-<pre>
-ssm:DeleteResourcePolicy</pre>
+```json
+ssm:DeleteResourcePolicy
+```
 
 
 ## Example

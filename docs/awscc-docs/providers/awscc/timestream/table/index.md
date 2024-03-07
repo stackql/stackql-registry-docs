@@ -47,13 +47,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>table</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 timestream:DescribeTable,
 timestream:DescribeEndpoints,
-timestream:ListTagsForResource</pre>
+timestream:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 timestream:UpdateTable,
 timestream:DescribeEndpoints,
 timestream:TagResource,
@@ -63,13 +64,15 @@ s3:GetObject,
 s3:GetBucketAcl,
 kms:GenerateDataKey*,
 kms:DescribeKey,
-kms:Encrypt</pre>
+kms:Encrypt
+```
 
 ### Delete
-<pre>
+```json
 timestream:DeleteTable,
 timestream:DescribeEndpoints,
-timestream:DescribeTable</pre>
+timestream:DescribeTable
+```
 
 
 ## Example

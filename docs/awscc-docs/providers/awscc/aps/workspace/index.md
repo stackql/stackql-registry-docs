@@ -47,14 +47,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workspace</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 aps:DescribeWorkspace,
 aps:ListTagsForResource,
 aps:DescribeAlertManagerDefinition,
-aps:DescribeLoggingConfiguration</pre>
+aps:DescribeLoggingConfiguration
+```
 
 ### Update
-<pre>
+```json
 aps:UpdateWorkspaceAlias,
 aps:DescribeWorkspace,
 aps:TagResource,
@@ -72,15 +73,17 @@ logs:GetLogDelivery,
 logs:UpdateLogDelivery,
 logs:ListLogDeliveries,
 logs:DeleteLogDelivery,
-logs:PutResourcePolicy</pre>
+logs:PutResourcePolicy
+```
 
 ### Delete
-<pre>
+```json
 aps:DeleteWorkspace,
 aps:DescribeWorkspace,
 aps:DeleteAlertManagerDefinition,
 aps:DeleteLoggingConfiguration,
-logs:DeleteLogDelivery</pre>
+logs:DeleteLogDelivery
+```
 
 
 ## Example

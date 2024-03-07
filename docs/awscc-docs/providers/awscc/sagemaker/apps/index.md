@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>apps</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateApp,
-sagemaker:DescribeApp</pre>
+sagemaker:DescribeApp
+```
 
 ### List
-<pre>
-sagemaker:ListApps</pre>
+```json
+sagemaker:ListApps
+```
 
 
 ## Example

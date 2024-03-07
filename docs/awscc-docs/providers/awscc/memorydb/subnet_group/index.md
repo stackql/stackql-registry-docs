@@ -44,22 +44,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>subnet_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 memorydb:DescribeSubnetGroups,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 ### Update
-<pre>
+```json
 memorydb:UpdateSubnetGroup,
 memorydb:DescribeSubnetGroups,
 memorydb:ListTags,
 memorydb:TagResource,
-memorydb:UntagResource</pre>
+memorydb:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 memorydb:DeleteSubnetGroup,
-memorydb:DescribeSubnetGroups</pre>
+memorydb:DescribeSubnetGroups
+```
 
 
 ## Example

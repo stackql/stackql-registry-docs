@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>firewalls</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ec2:CreateVpcEndpoint,
 ec2:DescribeVpcEndpoints,
 ec2:DescribeSubnets,
@@ -52,11 +52,13 @@ network-firewall:DescribeRuleGroup,
 network-firewall:TagResource,
 network-firewall:AssociateSubnets,
 network-firewall:AssociateFirewallPolicy,
-network-firewall:DescribeFirewall</pre>
+network-firewall:DescribeFirewall
+```
 
 ### List
-<pre>
-network-firewall:ListFirewalls</pre>
+```json
+network-firewall:ListFirewalls
+```
 
 
 ## Example

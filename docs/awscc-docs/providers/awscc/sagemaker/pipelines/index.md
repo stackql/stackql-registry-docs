@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipelines</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 s3:GetObject,
 sagemaker:CreatePipeline,
 sagemaker:DescribePipeline,
 sagemaker:AddTags,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### List
-<pre>
-sagemaker:ListPipelines</pre>
+```json
+sagemaker:ListPipelines
+```
 
 
 ## Example

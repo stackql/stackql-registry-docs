@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tags</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-lakeformation:CreateLFTag</pre>
+```json
+lakeformation:CreateLFTag
+```
 
 ### List
-<pre>
-lakeformation:ListLFTags</pre>
+```json
+lakeformation:ListLFTags
+```
 
 
 ## Example

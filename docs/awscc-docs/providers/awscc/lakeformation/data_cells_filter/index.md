@@ -46,12 +46,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_cells_filter</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
-lakeformation:DeleteDataCellsFilter</pre>
+```json
+lakeformation:DeleteDataCellsFilter
+```
 
 ### Read
-<pre>
-lakeformation:ListDataCellsFilter</pre>
+```json
+lakeformation:ListDataCellsFilter
+```
 
 
 ## Example

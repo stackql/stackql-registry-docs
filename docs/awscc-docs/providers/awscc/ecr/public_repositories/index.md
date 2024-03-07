@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>public_repositories</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecr-public:CreateRepository,
 ecr-public:SetRepositoryPolicy,
 ecr-public:PutRepositoryCatalogData,
-ecr-public:TagResource</pre>
+ecr-public:TagResource
+```
 
 ### List
-<pre>
-ecr-public:DescribeRepositories</pre>
+```json
+ecr-public:DescribeRepositories
+```
 
 
 ## Example

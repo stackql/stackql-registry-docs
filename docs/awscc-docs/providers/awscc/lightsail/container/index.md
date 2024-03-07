@@ -50,21 +50,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>container</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lightsail:GetContainerServices</pre>
+```json
+lightsail:GetContainerServices
+```
 
 ### Delete
-<pre>
+```json
 lightsail:DeleteContainerService,
-lightsail:GetContainerServices</pre>
+lightsail:GetContainerServices
+```
 
 ### Update
-<pre>
+```json
 lightsail:CreateContainerServiceDeployment,
 lightsail:GetContainerServices,
 lightsail:TagResource,
 lightsail:UntagResource,
-lightsail:UpdateContainerService</pre>
+lightsail:UpdateContainerService
+```
 
 
 ## Example

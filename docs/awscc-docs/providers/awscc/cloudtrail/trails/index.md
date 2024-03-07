@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trails</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 CloudTrail:CreateTrail,
 CloudTrail:StartLogging,
 CloudTrail:AddTags,
@@ -50,17 +50,19 @@ iam:GetRole,
 iam:PassRole,
 iam:CreateServiceLinkedRole,
 organizations:DescribeOrganization,
-organizations:ListAWSServiceAccessForOrganization</pre>
+organizations:ListAWSServiceAccessForOrganization
+```
 
 ### List
-<pre>
+```json
 CloudTrail:ListTrails,
 CloudTrail:GetTrail,
 CloudTrail:GetTrailStatus,
 CloudTrail:ListTags,
 CloudTrail:GetEventSelectors,
 CloudTrail:GetInsightSelectors,
-CloudTrail:DescribeTrails</pre>
+CloudTrail:DescribeTrails
+```
 
 
 ## Example

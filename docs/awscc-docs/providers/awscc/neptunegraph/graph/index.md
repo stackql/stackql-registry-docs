@@ -49,15 +49,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>graph</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 neptune-graph:GetGraph,
 neptune-graph:ListTagsForResource,
 kms:DescribeKey,
 kms:CreateGrant,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 neptune-graph:GetGraph,
 neptune-graph:ListTagsForResource,
@@ -66,15 +67,17 @@ neptune-graph:UntagResource,
 neptune-graph:UpdateGraph,
 kms:DescribeKey,
 kms:CreateGrant,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Delete
-<pre>
+```json
 neptune-graph:DeleteGraph,
 neptune-graph:GetGraph,
 kms:DescribeKey,
 kms:CreateGrant,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 
 ## Example

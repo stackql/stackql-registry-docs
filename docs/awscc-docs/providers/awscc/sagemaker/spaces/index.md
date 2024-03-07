@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>spaces</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateSpace,
-sagemaker:DescribeSpace</pre>
+sagemaker:DescribeSpace
+```
 
 ### List
-<pre>
-sagemaker:ListSpaces</pre>
+```json
+sagemaker:ListSpaces
+```
 
 
 ## Example

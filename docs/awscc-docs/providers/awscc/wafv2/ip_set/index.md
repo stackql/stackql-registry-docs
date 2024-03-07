@@ -47,20 +47,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>ip_set</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 wafv2:DeleteIPSet,
-wafv2:GetIPSet</pre>
+wafv2:GetIPSet
+```
 
 ### Read
-<pre>
+```json
 wafv2:GetIPSet,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 wafv2:UpdateIPSet,
 wafv2:GetIPSet,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 
 ## Example

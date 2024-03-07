@@ -51,17 +51,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 connect:DescribeUser,
-connect:ListUserProficiencies</pre>
+connect:ListUserProficiencies
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteUser,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateUserIdentityInfo,
 connect:UpdateUserPhoneConfig,
 connect:UpdateUserRoutingProfile,
@@ -71,7 +73,8 @@ connect:TagResource,
 connect:UntagResource,
 connect:AssociateUserProficiencies,
 connect:DisassociateUserProficiencies,
-connect:UpdateUserProficiencies</pre>
+connect:UpdateUserProficiencies
+```
 
 
 ## Example

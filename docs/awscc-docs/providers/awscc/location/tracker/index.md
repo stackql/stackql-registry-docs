@@ -52,24 +52,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tracker</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 geo:DescribeTracker,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Update
-<pre>
+```json
 geo:CreateTracker,
 geo:DescribeTracker,
 geo:TagResource,
 geo:UntagResource,
 kms:DescribeKey,
 kms:CreateGrant,
-geo:UpdateTracker</pre>
+geo:UpdateTracker
+```
 
 ### Delete
-<pre>
+```json
 geo:DeleteTracker,
-geo:DescribeTracker</pre>
+geo:DescribeTracker
+```
 
 
 ## Example

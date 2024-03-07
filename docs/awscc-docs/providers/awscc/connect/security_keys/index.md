@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>security_keys</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-connect:AssociateSecurityKey</pre>
+```json
+connect:AssociateSecurityKey
+```
 
 ### List
-<pre>
-connect:ListSecurityKeys</pre>
+```json
+connect:ListSecurityKeys
+```
 
 
 ## Example

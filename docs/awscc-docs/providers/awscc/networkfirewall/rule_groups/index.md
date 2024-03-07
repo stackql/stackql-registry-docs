@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rule_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 network-firewall:CreateRuleGroup,
 network-firewall:DescribeRuleGroup,
 network-firewall:TagResource,
 network-firewall:ListRuleGroups,
 iam:CreateServiceLinkedRole,
-ec2:GetManagedPrefixListEntries</pre>
+ec2:GetManagedPrefixListEntries
+```
 
 ### List
-<pre>
-network-firewall:ListRuleGroups</pre>
+```json
+network-firewall:ListRuleGroups
+```
 
 
 ## Example

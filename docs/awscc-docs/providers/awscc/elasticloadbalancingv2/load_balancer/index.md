@@ -54,24 +54,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>load_balancer</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 elasticloadbalancing:DescribeLoadBalancers,
-elasticloadbalancing:DeleteLoadBalancer</pre>
+elasticloadbalancing:DeleteLoadBalancer
+```
 
 ### Read
-<pre>
+```json
 elasticloadbalancing:DescribeLoadBalancers,
 elasticloadbalancing:DescribeLoadBalancerAttributes,
-elasticloadbalancing:DescribeTags</pre>
+elasticloadbalancing:DescribeTags
+```
 
 ### Update
-<pre>
+```json
 elasticloadbalancing:ModifyLoadBalancerAttributes,
 elasticloadbalancing:SetSubnets,
 elasticloadbalancing:SetIpAddressType,
 elasticloadbalancing:SetSecurityGroups,
 elasticloadbalancing:AddTags,
-elasticloadbalancing:RemoveTags</pre>
+elasticloadbalancing:RemoveTags
+```
 
 
 ## Example

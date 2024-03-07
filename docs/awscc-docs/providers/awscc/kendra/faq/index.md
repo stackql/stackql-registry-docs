@@ -48,20 +48,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>faq</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 kendra:ListTagsForResource,
 kendra:UntagResource,
-kendra:TagResource</pre>
+kendra:TagResource
+```
 
 ### Read
-<pre>
+```json
 kendra:DescribeFaq,
-kendra:ListTagsForResource</pre>
+kendra:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 kendra:DeleteFaq,
-kendra:DescribeFaq</pre>
+kendra:DescribeFaq
+```
 
 
 ## Example

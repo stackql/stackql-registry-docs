@@ -49,26 +49,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>decoder_manifest</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotfleetwise:GetDecoderManifest,
 iotfleetwise:ListDecoderManifestSignals,
 iotfleetwise:ListDecoderManifestNetworkInterfaces,
-iotfleetwise:ListTagsForResource</pre>
+iotfleetwise:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotfleetwise:UpdateDecoderManifest,
 iotfleetwise:GetDecoderManifest,
 iotfleetwise:ListDecoderManifestSignals,
 iotfleetwise:ListDecoderManifestNetworkInterfaces,
 iotfleetwise:ListTagsForResource,
 iotfleetwise:TagResource,
-iotfleetwise:UntagResource</pre>
+iotfleetwise:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 iotfleetwise:DeleteDecoderManifest,
-iotfleetwise:GetDecoderManifest</pre>
+iotfleetwise:GetDecoderManifest
+```
 
 
 ## Example

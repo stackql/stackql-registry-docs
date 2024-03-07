@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>profiling_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sns:Publish,
 codeguru-profiler:AddNotificationChannels,
 codeguru-profiler:CreateProfilingGroup,
 codeguru-profiler:PutPermission,
-codeguru-profiler:TagResource</pre>
+codeguru-profiler:TagResource
+```
 
 ### List
-<pre>
+```json
 codeguru-profiler:ListProfilingGroups,
-codeguru-profiler:ListTagsForResource</pre>
+codeguru-profiler:ListTagsForResource
+```
 
 
 ## Example

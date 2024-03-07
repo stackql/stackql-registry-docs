@@ -46,16 +46,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_ingress_connection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apprunner:DescribeVpcIngressConnection</pre>
+```json
+apprunner:DescribeVpcIngressConnection
+```
 
 ### Update
-<pre>
-apprunner:UpdateVpcIngressConnection</pre>
+```json
+apprunner:UpdateVpcIngressConnection
+```
 
 ### Delete
-<pre>
-apprunner:DeleteVpcIngressConnection</pre>
+```json
+apprunner:DeleteVpcIngressConnection
+```
 
 
 ## Example

@@ -48,12 +48,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>response_plan</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ssm-incidents:GetResponsePlan,
-ssm-incidents:ListTagsForResource</pre>
+ssm-incidents:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ssm-incidents:UpdateResponsePlan,
 ssm-incidents:GetResponsePlan,
 ssm-incidents:TagResource,
@@ -62,12 +63,14 @@ ssm-incidents:ListTagsForResource,
 iam:PassRole,
 secretsmanager:GetSecretValue,
 kms:Decrypt,
-kms:GenerateDataKey*</pre>
+kms:GenerateDataKey*
+```
 
 ### Delete
-<pre>
+```json
 ssm-incidents:DeleteResponsePlan,
-ssm-incidents:GetResponsePlan</pre>
+ssm-incidents:GetResponsePlan
+```
 
 
 ## Example

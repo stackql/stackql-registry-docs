@@ -48,18 +48,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>project</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-datazone:GetProject</pre>
+```json
+datazone:GetProject
+```
 
 ### Update
-<pre>
+```json
 datazone:UpdateProject,
-datazone:GetProject</pre>
+datazone:GetProject
+```
 
 ### Delete
-<pre>
+```json
 datazone:DeleteProject,
-datazone:GetProject</pre>
+datazone:GetProject
+```
 
 
 ## Example

@@ -45,21 +45,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>campaign</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect-campaigns:DescribeCampaign</pre>
+```json
+connect-campaigns:DescribeCampaign
+```
 
 ### Delete
-<pre>
-connect-campaigns:DeleteCampaign</pre>
+```json
+connect-campaigns:DeleteCampaign
+```
 
 ### Update
-<pre>
+```json
 connect-campaigns:UpdateCampaignDialerConfig,
 connect-campaigns:UpdateCampaignName,
 connect-campaigns:UpdateCampaignOutboundCallConfig,
 connect-campaigns:TagResource,
 connect-campaigns:UntagResource,
-connect-campaigns:DescribeCampaign</pre>
+connect-campaigns:DescribeCampaign
+```
 
 
 ## Example

@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>queues</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:CreateQueue,
-connect:TagResource</pre>
+connect:TagResource
+```
 
 ### List
-<pre>
+```json
 connect:ListQueues,
-connect:ListQueueQuickConnects</pre>
+connect:ListQueueQuickConnects
+```
 
 
 ## Example

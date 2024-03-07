@@ -44,14 +44,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_cluster_parameter_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rds:DescribeDBClusterParameterGroups,
 rds:DescribeDBClusterParameters,
 rds:DescribeEngineDefaultClusterParameters,
-rds:ListTagsForResource</pre>
+rds:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 rds:AddTagsToResource,
 rds:DescribeDBClusterParameterGroups,
 rds:DescribeDBClusterParameters,
@@ -60,11 +61,13 @@ rds:DescribeEngineDefaultClusterParameters,
 rds:ListTagsForResource,
 rds:ModifyDBClusterParameterGroup,
 rds:RemoveTagsFromResource,
-rds:ResetDBClusterParameterGroup</pre>
+rds:ResetDBClusterParameterGroup
+```
 
 ### Delete
-<pre>
-rds:DeleteDBClusterParameterGroup</pre>
+```json
+rds:DeleteDBClusterParameterGroup
+```
 
 
 ## Example

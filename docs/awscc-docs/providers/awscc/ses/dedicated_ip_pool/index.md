@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dedicated_ip_pool</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ses:GetDedicatedIpPool,
-ses:GetDedicatedIps</pre>
+ses:GetDedicatedIps
+```
 
 ### Update
-<pre>
+```json
 ses:PutDedicatedIpPoolScalingAttributes,
-ses:GetDedicatedIpPool</pre>
+ses:GetDedicatedIpPool
+```
 
 ### Delete
-<pre>
-ses:DeleteDedicatedIpPool</pre>
+```json
+ses:DeleteDedicatedIpPool
+```
 
 
 ## Example

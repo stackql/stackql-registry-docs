@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-logs:DescribeResourcePolicies</pre>
+```json
+logs:DescribeResourcePolicies
+```
 
 ### Update
-<pre>
+```json
 logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
-logs:DeleteResourcePolicy</pre>
+logs:DeleteResourcePolicy
+```
 
 ### Delete
-<pre>
-logs:DeleteResourcePolicy</pre>
+```json
+logs:DeleteResourcePolicy
+```
 
 
 ## Example

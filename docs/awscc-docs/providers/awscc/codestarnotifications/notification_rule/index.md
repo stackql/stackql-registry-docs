@@ -50,19 +50,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>notification_rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-codestar-notifications:describeNotificationRule</pre>
+```json
+codestar-notifications:describeNotificationRule
+```
 
 ### Delete
-<pre>
+```json
 codestar-notifications:deleteNotificationRule,
-codestar-notifications:describeNotificationRule</pre>
+codestar-notifications:describeNotificationRule
+```
 
 ### Update
-<pre>
+```json
 codestar-notifications:updateNotificationRule,
 codestar-notifications:TagResource,
-codestar-notifications:UntagResource</pre>
+codestar-notifications:UntagResource
+```
 
 
 ## Example

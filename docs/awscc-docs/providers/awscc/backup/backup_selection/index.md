@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>backup_selection</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 backup:GetBackupSelection,
-backup:DeleteBackupSelection</pre>
+backup:DeleteBackupSelection
+```
 
 ### Read
-<pre>
-backup:GetBackupSelection</pre>
+```json
+backup:GetBackupSelection
+```
 
 
 ## Example

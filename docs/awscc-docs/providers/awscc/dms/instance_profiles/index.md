@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance_profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 dms:CreateInstanceProfile,
 dms:ListInstanceProfiles,
 dms:DescribeInstanceProfiles,
 dms:AddTagsToResource,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 dms:ListInstanceProfiles,
 dms:DescribeInstanceProfiles,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 
 ## Example

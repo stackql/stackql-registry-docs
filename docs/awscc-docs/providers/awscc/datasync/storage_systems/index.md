@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>storage_systems</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datasync:AddStorageSystem,
 datasync:DescribeStorageSystem,
 datasync:ListTagsForResource,
 datasync:TagResource,
 secretsmanager:CreateSecret,
 secretsmanager:DescribeSecret,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-datasync:ListStorageSystems</pre>
+```json
+datasync:ListStorageSystems
+```
 
 
 ## Example

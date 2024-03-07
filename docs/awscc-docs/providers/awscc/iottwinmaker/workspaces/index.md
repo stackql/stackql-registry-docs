@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workspaces</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 iottwinmaker:CreateWorkspace,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
-iottwinmaker:TagResource</pre>
+iottwinmaker:TagResource
+```
 
 ### List
-<pre>
+```json
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
-iottwinmaker:ListWorkspaces</pre>
+iottwinmaker:ListWorkspaces
+```
 
 
 ## Example

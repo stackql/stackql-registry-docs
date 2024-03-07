@@ -40,19 +40,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domains</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 voiceid:CreateDomain,
 voiceid:DescribeDomain,
 voiceid:TagResource,
 voiceid:ListTagsForResource,
 kms:CreateGrant,
 kms:DescribeKey,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### List
-<pre>
+```json
 voiceid:ListDomains,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 
 ## Example

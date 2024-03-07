@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>thing_types</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:DescribeThingType,
 iot:ListTagsForResource,
 iot:CreateThingType,
 iot:DeprecateThingType,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### List
-<pre>
+```json
 iot:ListThingTypes,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 
 ## Example

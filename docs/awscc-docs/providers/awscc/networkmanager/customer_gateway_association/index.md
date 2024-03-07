@@ -43,12 +43,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>customer_gateway_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:GetCustomerGatewayAssociations</pre>
+```json
+networkmanager:GetCustomerGatewayAssociations
+```
 
 ### Delete
-<pre>
-networkmanager:DisassociateCustomerGateway</pre>
+```json
+networkmanager:DisassociateCustomerGateway
+```
 
 
 ## Example

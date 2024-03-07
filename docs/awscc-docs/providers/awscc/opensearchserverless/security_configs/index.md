@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>security_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-aoss:CreateSecurityConfig</pre>
+```json
+aoss:CreateSecurityConfig
+```
 
 ### List
-<pre>
-aoss:ListSecurityConfigs</pre>
+```json
+aoss:ListSecurityConfigs
+```
 
 
 ## Example

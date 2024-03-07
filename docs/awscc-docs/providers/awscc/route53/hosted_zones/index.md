@@ -40,21 +40,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hosted_zones</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53:CreateHostedZone,
 route53:CreateQueryLoggingConfig,
 route53:ChangeTagsForResource,
 route53:GetChange,
 route53:AssociateVPCWithHostedZone,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 ### List
-<pre>
+```json
 route53:GetHostedZone,
 route53:ListHostedZones,
 route53:ListHostedZonesByName,
 route53:ListQueryLoggingConfigs,
-route53:ListTagsForResource</pre>
+route53:ListTagsForResource
+```
 
 
 ## Example

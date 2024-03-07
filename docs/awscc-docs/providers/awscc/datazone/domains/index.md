@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domains</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datazone:CreateDomain,
 datazone:UpdateDomain,
 datazone:GetDomain,
 datazone:TagResource,
 sso:CreateManagedApplicationInstance,
 sso:DeleteManagedApplicationInstance,
-sso:PutApplicationAssignmentConfiguration</pre>
+sso:PutApplicationAssignmentConfiguration
+```
 
 ### List
-<pre>
-datazone:ListDomains</pre>
+```json
+datazone:ListDomains
+```
 
 
 ## Example

@@ -46,28 +46,31 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_package_group</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteModelPackageGroup,
 sagemaker:DescribeModelPackageGroup,
 sagemaker:GetModelPackageGroupPolicy,
-sagemaker:DeleteModelPackageGroupPolicy</pre>
+sagemaker:DeleteModelPackageGroupPolicy
+```
 
 ### Read
-<pre>
+```json
 sagemaker:DescribeModelPackageGroup,
 sagemaker:GetModelPackageGroupPolicy,
 sagemaker:PutModelPackageGroupPolicy,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Update
-<pre>
+```json
 sagemaker:DescribeModelPackageGroup,
 sagemaker:GetModelPackageGroupPolicy,
 sagemaker:DeleteModelPackageGroupPolicy,
 sagemaker:PutModelPackageGroupPolicy,
 sagemaker:ListTags,
 sagemaker:AddTags,
-sagemaker:DeleteTags</pre>
+sagemaker:DeleteTags
+```
 
 
 ## Example

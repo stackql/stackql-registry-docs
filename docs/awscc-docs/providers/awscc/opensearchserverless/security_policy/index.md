@@ -43,21 +43,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>security_policy</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 aoss:GetSecurityPolicy,
 aoss:UpdateSecurityPolicy,
 kms:DescribeKey,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### Delete
-<pre>
+```json
 aoss:GetSecurityPolicy,
-aoss:DeleteSecurityPolicy</pre>
+aoss:DeleteSecurityPolicy
+```
 
 ### Read
-<pre>
+```json
 aoss:GetSecurityPolicy,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 
 ## Example

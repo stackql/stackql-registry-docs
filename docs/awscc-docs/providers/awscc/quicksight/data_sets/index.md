@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 quicksight:DescribeDataSet,
 quicksight:DescribeDataSetPermissions,
 quicksight:DescribeIngestion,
@@ -52,12 +52,14 @@ quicksight:PassDataSet,
 quicksight:TagResource,
 quicksight:ListTagsForResource,
 quicksight:DescribeDataSetRefreshProperties,
-quicksight:PutDataSetRefreshProperties</pre>
+quicksight:PutDataSetRefreshProperties
+```
 
 ### List
-<pre>
+```json
 quicksight:DescribeDataSet,
-quicksight:ListDataSets</pre>
+quicksight:ListDataSets
+```
 
 
 ## Example

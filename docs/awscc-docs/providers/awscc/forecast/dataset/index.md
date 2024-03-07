@@ -47,12 +47,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dataset</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-forecast:DescribeDataset</pre>
+```json
+forecast:DescribeDataset
+```
 
 ### Delete
-<pre>
-forecast:DeleteDataset</pre>
+```json
+forecast:DeleteDataset
+```
 
 
 ## Example

@@ -43,22 +43,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stage</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ivs:GetStage,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ivs:GetStage,
 ivs:UpdateStage,
 ivs:TagResource,
 ivs:UnTagResource,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 ivs:DeleteStage,
-ivs:UnTagResource</pre>
+ivs:UnTagResource
+```
 
 
 ## Example

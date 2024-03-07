@@ -51,22 +51,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>feature_group</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateFeatureGroup,
 sagemaker:DescribeFeatureGroup,
 sagemaker:AddTags,
 sagemaker:ListTags,
-sagemaker:DeleteTags</pre>
+sagemaker:DeleteTags
+```
 
 ### Read
-<pre>
+```json
 sagemaker:DescribeFeatureGroup,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteFeatureGroup,
-sagemaker:DescribeFeatureGroup</pre>
+sagemaker:DescribeFeatureGroup
+```
 
 
 ## Example

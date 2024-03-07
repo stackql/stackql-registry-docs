@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tables</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 timestream:CreateTable,
 timestream:DescribeEndpoints,
 timestream:TagResource,
@@ -50,12 +50,14 @@ s3:GetObject,
 s3:GetBucketAcl,
 kms:GenerateDataKey*,
 kms:DescribeKey,
-kms:Encrypt</pre>
+kms:Encrypt
+```
 
 ### List
-<pre>
+```json
 timestream:ListTables,
-timestream:DescribeEndpoints</pre>
+timestream:DescribeEndpoints
+```
 
 
 ## Example

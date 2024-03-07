@@ -44,22 +44,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>billing_group</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 iot:DescribeBillingGroup,
-iot:DeleteBillingGroup</pre>
+iot:DeleteBillingGroup
+```
 
 ### Read
-<pre>
+```json
 iot:DescribeBillingGroup,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:DescribeBillingGroup,
 iot:UpdateBillingGroup,
 iot:ListTagsForResource,
 iot:TagResource,
-iot:UntagResource</pre>
+iot:UntagResource
+```
 
 
 ## Example

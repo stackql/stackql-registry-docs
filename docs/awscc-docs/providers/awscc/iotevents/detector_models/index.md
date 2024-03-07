@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>detector_models</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotevents:CreateDetectorModel,
 iotevents:UpdateInputRouting,
 iotevents:DescribeDetectorModel,
 iotevents:ListTagsForResource,
 iotevents:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-iotevents:ListDetectorModels</pre>
+```json
+iotevents:ListDetectorModels
+```
 
 
 ## Example

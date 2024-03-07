@@ -42,17 +42,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-elasticbeanstalk:DescribeApplications</pre>
+```json
+elasticbeanstalk:DescribeApplications
+```
 
 ### Update
-<pre>
+```json
 elasticbeanstalk:UpdateApplication,
-elasticbeanstalk:UpdateApplicationResourceLifecycle</pre>
+elasticbeanstalk:UpdateApplicationResourceLifecycle
+```
 
 ### Delete
-<pre>
-elasticbeanstalk:DeleteApplication</pre>
+```json
+elasticbeanstalk:DeleteApplication
+```
 
 
 ## Example

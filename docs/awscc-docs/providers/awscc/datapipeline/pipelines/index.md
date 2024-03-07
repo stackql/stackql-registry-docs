@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipelines</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datapipeline:CreatePipeline,
 datapipeline:PutPipelineDefinition,
 datapipeline:GetPipelineDefinition,
@@ -48,11 +48,13 @@ datapipeline:DescribePipelines,
 datapipeline:ValidatePipelineDefinition,
 datapipeline:ActivatePipeline,
 datapipeline:AddTags,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-datapipeline:ListPipelines</pre>
+```json
+datapipeline:ListPipelines
+```
 
 
 ## Example

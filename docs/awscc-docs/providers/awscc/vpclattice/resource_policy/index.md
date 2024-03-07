@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-vpc-lattice:GetResourcePolicy</pre>
+```json
+vpc-lattice:GetResourcePolicy
+```
 
 ### Update
-<pre>
+```json
 vpc-lattice:GetResourcePolicy,
-vpc-lattice:PutResourcePolicy</pre>
+vpc-lattice:PutResourcePolicy
+```
 
 ### Delete
-<pre>
+```json
 vpc-lattice:GetResourcePolicy,
-vpc-lattice:DeleteResourcePolicy</pre>
+vpc-lattice:DeleteResourcePolicy
+```
 
 
 ## Example

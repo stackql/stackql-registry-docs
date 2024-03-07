@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>transformers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 b2bi:CreateTransformer,
 b2bi:TagResource,
 b2bi:UpdateTransformer,
@@ -52,11 +52,13 @@ logs:DescribeLogStreams,
 logs:DescribeResourcePolicies,
 logs:ListLogDeliveries,
 logs:PutLogEvents,
-logs:PutResourcePolicy</pre>
+logs:PutResourcePolicy
+```
 
 ### List
-<pre>
-b2bi:ListTransformers</pre>
+```json
+b2bi:ListTransformers
+```
 
 
 ## Example

@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>urls</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-lambda:CreateFunctionUrlConfig</pre>
+```json
+lambda:CreateFunctionUrlConfig
+```
 
 ### List
-<pre>
-lambda:ListFunctionUrlConfigs</pre>
+```json
+lambda:ListFunctionUrlConfigs
+```
 
 
 ## Example

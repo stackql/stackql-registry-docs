@@ -47,20 +47,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>contact_flow_module</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribeContactFlowModule</pre>
+```json
+connect:DescribeContactFlowModule
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteContactFlowModule,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateContactFlowModuleMetadata,
 connect:UpdateContactFlowModuleContent,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

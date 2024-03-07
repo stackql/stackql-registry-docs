@@ -54,19 +54,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>image_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-sagemaker:DescribeImageVersion</pre>
+```json
+sagemaker:DescribeImageVersion
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateImageVersion,
 sagemaker:DescribeImageVersion,
-sagemaker:ListAliases</pre>
+sagemaker:ListAliases
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteImageVersion,
-sagemaker:DescribeImageVersion</pre>
+sagemaker:DescribeImageVersion
+```
 
 
 ## Example

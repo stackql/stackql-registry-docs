@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scaling_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 application-autoscaling:DescribeScalingPolicies,
-application-autoscaling:PutScalingPolicy</pre>
+application-autoscaling:PutScalingPolicy
+```
 
 ### List
-<pre>
-application-autoscaling:DescribeScalingPolicies</pre>
+```json
+application-autoscaling:DescribeScalingPolicies
+```
 
 
 ## Example

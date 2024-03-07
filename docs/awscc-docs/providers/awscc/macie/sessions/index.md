@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sessions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 macie2:GetMacieSession,
-macie2:EnableMacie</pre>
+macie2:EnableMacie
+```
 
 ### List
-<pre>
-macie2:GetMacieSession</pre>
+```json
+macie2:GetMacieSession
+```
 
 
 ## Example

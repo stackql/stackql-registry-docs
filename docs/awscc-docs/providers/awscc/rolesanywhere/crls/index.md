@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>crls</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 rolesanywhere:ImportCrl,
 rolesanywhere:TagResource,
-rolesanywhere:ListTagsForResource</pre>
+rolesanywhere:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 rolesanywhere:ListCrls,
-rolesanywhere:ListTagsForResource</pre>
+rolesanywhere:ListTagsForResource
+```
 
 
 ## Example

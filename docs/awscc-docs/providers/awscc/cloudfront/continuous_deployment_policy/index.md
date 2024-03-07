@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>continuous_deployment_policy</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteContinuousDeploymentPolicy,
-cloudfront:GetContinuousDeploymentPolicy</pre>
+cloudfront:GetContinuousDeploymentPolicy
+```
 
 ### Read
-<pre>
-cloudfront:GetContinuousDeploymentPolicy</pre>
+```json
+cloudfront:GetContinuousDeploymentPolicy
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateContinuousDeploymentPolicy,
-cloudfront:GetContinuousDeploymentPolicy</pre>
+cloudfront:GetContinuousDeploymentPolicy
+```
 
 
 ## Example

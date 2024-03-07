@@ -45,12 +45,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>observability_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apprunner:DescribeObservabilityConfiguration</pre>
+```json
+apprunner:DescribeObservabilityConfiguration
+```
 
 ### Delete
-<pre>
-apprunner:DeleteObservabilityConfiguration</pre>
+```json
+apprunner:DeleteObservabilityConfiguration
+```
 
 
 ## Example

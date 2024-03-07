@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment_profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datazone:CreateEnvironmentProfile,
-datazone:GetEnvironmentProfile</pre>
+datazone:GetEnvironmentProfile
+```
 
 ### List
-<pre>
-datazone:ListEnvironmentProfiles</pre>
+```json
+datazone:ListEnvironmentProfiles
+```
 
 
 ## Example

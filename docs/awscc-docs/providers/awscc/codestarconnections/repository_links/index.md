@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>repository_links</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 codestar-connections:CreateRepositoryLink,
 codestar-connections:TagResource,
 codestar-connections:UseConnection,
 codestar-connections:PassConnection,
 codestar-connections:GetConnection,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
+```json
 codestar-connections:ListRepositoryLinks,
-codestar-connections:ListTagsForResource</pre>
+codestar-connections:ListTagsForResource
+```
 
 
 ## Example

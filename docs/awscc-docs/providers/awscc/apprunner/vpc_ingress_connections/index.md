@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_ingress_connections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apprunner:CreateVpcIngressConnection,
 apprunner:DescribeVpcIngressConnection,
 ec2:DescribeVpcs,
 ec2:DescribeVpcEndpoints,
 ec2:DescribeSubnets,
-apprunner:TagResource</pre>
+apprunner:TagResource
+```
 
 ### List
-<pre>
-apprunner:ListVpcIngressConnections</pre>
+```json
+apprunner:ListVpcIngressConnections
+```
 
 
 ## Example

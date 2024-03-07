@@ -48,20 +48,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>view</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribeView</pre>
+```json
+connect:DescribeView
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteView,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateViewMetadata,
 connect:UpdateViewContent,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

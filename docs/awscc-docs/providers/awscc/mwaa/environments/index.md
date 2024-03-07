@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-airflow:CreateEnvironment</pre>
+```json
+airflow:CreateEnvironment
+```
 
 ### List
-<pre>
-airflow:ListEnvironments</pre>
+```json
+airflow:ListEnvironments
+```
 
 
 ## Example

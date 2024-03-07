@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scripts</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 gamelift:CreateScript,
 gamelift:ListTagsForResource,
 gamelift:TagResource,
 gamelift:DescribeScript,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 gamelift:ListScripts,
-gamelift:DescribeScript</pre>
+gamelift:DescribeScript
+```
 
 
 ## Example

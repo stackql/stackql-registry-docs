@@ -43,17 +43,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>session</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-macie2:GetMacieSession</pre>
+```json
+macie2:GetMacieSession
+```
 
 ### Update
-<pre>
+```json
 macie2:GetMacieSession,
-macie2:UpdateMacieSession</pre>
+macie2:UpdateMacieSession
+```
 
 ### Delete
-<pre>
-macie2:DisableMacie</pre>
+```json
+macie2:DisableMacie
+```
 
 
 ## Example

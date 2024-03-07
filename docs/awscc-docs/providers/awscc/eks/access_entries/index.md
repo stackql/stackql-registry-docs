@@ -41,16 +41,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_entries</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 eks:CreateAccessEntry,
 eks:DescribeAccessEntry,
 eks:AssociateAccessPolicy,
 eks:TagResource,
-eks:ListAssociatedAccessPolicies</pre>
+eks:ListAssociatedAccessPolicies
+```
 
 ### List
-<pre>
-eks:ListAccessEntries</pre>
+```json
+eks:ListAccessEntries
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sinks</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 oam:CreateSink,
 oam:PutSinkPolicy,
 oam:GetSinkPolicy,
-oam:GetSink</pre>
+oam:GetSink
+```
 
 ### List
-<pre>
-oam:ListSinks</pre>
+```json
+oam:ListSinks
+```
 
 
 ## Example

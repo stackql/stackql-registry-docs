@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>app_image_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateAppImageConfig,
-sagemaker:DescribeAppImageConfig</pre>
+sagemaker:DescribeAppImageConfig
+```
 
 ### List
-<pre>
-sagemaker:ListAppImageConfigs</pre>
+```json
+sagemaker:ListAppImageConfigs
+```
 
 
 ## Example

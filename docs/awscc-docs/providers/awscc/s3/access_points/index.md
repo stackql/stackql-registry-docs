@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_points</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3:CreateAccessPoint,
 s3:PutAccessPointPolicy,
-s3:PutAccessPointPublicAccessBlock</pre>
+s3:PutAccessPointPublicAccessBlock
+```
 
 ### List
-<pre>
-s3:ListAccessPoints</pre>
+```json
+s3:ListAccessPoints
+```
 
 
 ## Example

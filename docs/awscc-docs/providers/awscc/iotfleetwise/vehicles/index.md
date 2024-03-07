@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vehicles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotfleetwise:GetVehicle,
 iotfleetwise:CreateVehicle,
 iot:CreateThing,
 iot:DescribeThing,
 iotfleetwise:ListTagsForResource,
 iotfleetwise:ListVehicles,
-iotfleetwise:TagResource</pre>
+iotfleetwise:TagResource
+```
 
 ### List
-<pre>
-iotfleetwise:ListVehicles</pre>
+```json
+iotfleetwise:ListVehicles
+```
 
 
 ## Example

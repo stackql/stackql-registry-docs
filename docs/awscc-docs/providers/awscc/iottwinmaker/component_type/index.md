@@ -55,25 +55,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>component_type</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iottwinmaker:GetComponentType,
 iottwinmaker:GetWorkspace,
-iottwinmaker:ListTagsForResource</pre>
+iottwinmaker:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iottwinmaker:GetComponentType,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource,
 iottwinmaker:UntagResource,
-iottwinmaker:UpdateComponentType</pre>
+iottwinmaker:UpdateComponentType
+```
 
 ### Delete
-<pre>
+```json
 iottwinmaker:DeleteComponentType,
 iottwinmaker:GetComponentType,
-iottwinmaker:GetWorkspace</pre>
+iottwinmaker:GetWorkspace
+```
 
 
 ## Example

@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>state_machine_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 states:PublishStateMachineVersion,
 states:ListStateMachineVersions,
-states:DescribeStateMachine</pre>
+states:DescribeStateMachine
+```
 
 ### List
-<pre>
-states:ListStateMachineVersions</pre>
+```json
+states:ListStateMachineVersions
+```
 
 
 ## Example

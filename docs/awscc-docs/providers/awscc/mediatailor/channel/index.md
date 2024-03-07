@@ -48,22 +48,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channel</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediatailor:DescribeChannel</pre>
+```json
+mediatailor:DescribeChannel
+```
 
 ### Update
-<pre>
+```json
 mediatailor:UpdateChannel,
 mediatailor:TagResource,
 mediatailor:UntagResource,
 iam:CreateServiceLinkedRole,
 mediatailor:ConfigureLogsForChannel,
-mediatailor:DescribeChannel</pre>
+mediatailor:DescribeChannel
+```
 
 ### Delete
-<pre>
+```json
 mediatailor:DeleteChannel,
-mediatailor:DescribeChannel</pre>
+mediatailor:DescribeChannel
+```
 
 
 ## Example

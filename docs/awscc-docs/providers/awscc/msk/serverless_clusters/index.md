@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>serverless_clusters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 kafka:CreateClusterV2,
 kafka:TagResource,
 kafka:DescribeClusterV2,
@@ -50,11 +50,13 @@ ec2:DescribeVpcAttribute,
 ec2:DescribeSubnets,
 ec2:DescribeVpcEndpoints,
 ec2:DescribeVpcs,
-ec2:DescribeSecurityGroups</pre>
+ec2:DescribeSecurityGroups
+```
 
 ### List
-<pre>
-kafka:ListClustersV2</pre>
+```json
+kafka:ListClustersV2
+```
 
 
 ## Example

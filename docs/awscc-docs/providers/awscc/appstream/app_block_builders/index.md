@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>app_block_builders</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appstream:CreateAppBlockBuilder,
 appstream:DescribeAppBlockBuilders,
 appstream:StartAppBlockBuilder,
 appstream:AssociateAppBlockBuilderAppBlock,
 appstream:DescribeAppBlockBuilderAppBlockAssociations,
 appstream:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-appstream:DescribeAppBlockBuilders</pre>
+```json
+appstream:DescribeAppBlockBuilders
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>inputs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotevents:CreateInput,
 iotevents:TagResource,
 iotevents:DescribeInput,
-iotevents:ListTagsForResource</pre>
+iotevents:ListTagsForResource
+```
 
 ### List
-<pre>
-iotevents:ListInputs</pre>
+```json
+iotevents:ListInputs
+```
 
 
 ## Example

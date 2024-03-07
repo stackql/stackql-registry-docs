@@ -43,25 +43,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 verifiedpermissions:CreatePolicy,
 verifiedpermissions:GetPolicy,
 verifiedpermissions:UpdatePolicy,
-verifiedpermissions:DeletePolicy</pre>
+verifiedpermissions:DeletePolicy
+```
 
 ### Update
-<pre>
+```json
 verifiedpermissions:CreatePolicy,
 verifiedpermissions:GetPolicy,
 verifiedpermissions:UpdatePolicy,
-verifiedpermissions:DeletePolicy</pre>
+verifiedpermissions:DeletePolicy
+```
 
 ### Delete
-<pre>
+```json
 verifiedpermissions:CreatePolicy,
 verifiedpermissions:GetPolicy,
 verifiedpermissions:UpdatePolicy,
-verifiedpermissions:DeletePolicy</pre>
+verifiedpermissions:DeletePolicy
+```
 
 
 ## Example

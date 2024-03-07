@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance_access_control_attribute_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sso:CreateInstanceAccessControlAttributeConfiguration,
 sso:UpdateApplicationProfileForAWSAccountInstance,
-sso:DescribeInstanceAccessControlAttributeConfiguration</pre>
+sso:DescribeInstanceAccessControlAttributeConfiguration
+```
 
 ### List
-<pre>
-sso:DescribeInstanceAccessControlAttributeConfiguration</pre>
+```json
+sso:DescribeInstanceAccessControlAttributeConfiguration
+```
 
 
 ## Example

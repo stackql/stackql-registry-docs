@@ -46,24 +46,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>thing_group</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 iot:DescribeThingGroup,
 iot:DeleteThingGroup,
-iot:DeleteDynamicThingGroup</pre>
+iot:DeleteDynamicThingGroup
+```
 
 ### Read
-<pre>
+```json
 iot:DescribeThingGroup,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:ListTagsForResource,
 iot:DescribeThingGroup,
 iot:UpdateThingGroup,
 iot:UpdateDynamicThingGroup,
 iot:TagResource,
-iot:UntagResource</pre>
+iot:UntagResource
+```
 
 
 ## Example

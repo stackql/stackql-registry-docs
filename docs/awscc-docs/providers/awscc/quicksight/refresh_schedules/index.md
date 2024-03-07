@@ -42,13 +42,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>refresh_schedules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 quicksight:CreateRefreshSchedule,
-quicksight:DescribeRefreshSchedule</pre>
+quicksight:DescribeRefreshSchedule
+```
 
 ### List
-<pre>
-quicksight:ListRefreshSchedules</pre>
+```json
+quicksight:ListRefreshSchedules
+```
 
 
 ## Example

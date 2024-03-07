@@ -46,13 +46,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>layer_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lambda:GetLayerVersion</pre>
+```json
+lambda:GetLayerVersion
+```
 
 ### Delete
-<pre>
+```json
 lambda:GetLayerVersion,
-lambda:DeleteLayerVersion</pre>
+lambda:DeleteLayerVersion
+```
 
 
 ## Example

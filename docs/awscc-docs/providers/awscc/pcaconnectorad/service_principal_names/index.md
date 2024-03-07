@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_principal_names</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ds:UpdateAuthorizedApplication,
 pca-connector-ad:GetServicePrincipalName,
-pca-connector-ad:CreateServicePrincipalName</pre>
+pca-connector-ad:CreateServicePrincipalName
+```
 
 ### List
-<pre>
-pca-connector-ad:ListServicePrincipalNames</pre>
+```json
+pca-connector-ad:ListServicePrincipalNames
+```
 
 
 ## Example

@@ -40,9 +40,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>default_view_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 resource-explorer-2:GetDefaultView,
-resource-explorer-2:AssociateDefaultView</pre>
+resource-explorer-2:AssociateDefaultView
+```
 
 
 ## Example

@@ -47,27 +47,30 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>deployment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 greengrass:GetDeployment,
 iot:DescribeJob,
 iot:DescribeThing,
 iot:DescribeThingGroup,
-iot:GetThingShadow</pre>
+iot:GetThingShadow
+```
 
 ### Update
-<pre>
+```json
 greengrass:GetDeployment,
 greengrass:TagResource,
 greengrass:UntagResource,
-iot:DescribeJob</pre>
+iot:DescribeJob
+```
 
 ### Delete
-<pre>
+```json
 greengrass:DeleteDeployment,
 greengrass:CancelDeployment,
 iot:CancelJob,
 iot:DeleteJob,
-iot:DescribeJob</pre>
+iot:DescribeJob
+```
 
 
 ## Example

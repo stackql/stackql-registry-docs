@@ -42,17 +42,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assessment_target</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 inspector:DescribeAssessmentTargets,
-inspector:UpdateAssessmentTarget</pre>
+inspector:UpdateAssessmentTarget
+```
 
 ### Read
-<pre>
-inspector:DescribeAssessmentTargets</pre>
+```json
+inspector:DescribeAssessmentTargets
+```
 
 ### Delete
-<pre>
-inspector:DeleteAssessmentTarget</pre>
+```json
+inspector:DeleteAssessmentTarget
+```
 
 
 ## Example

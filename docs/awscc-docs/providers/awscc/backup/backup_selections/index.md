@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>backup_selections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 backup:CreateBackupSelection,
 iam:GetRole,
 iam:PassRole,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-backup:ListBackupSelections</pre>
+```json
+backup:ListBackupSelections
+```
 
 
 ## Example

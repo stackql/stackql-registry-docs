@@ -40,9 +40,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_point_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3:PutAccessPointPolicyForObjectLambda,
-s3:GetAccessPointPolicyForObjectLambda</pre>
+s3:GetAccessPointPolicyForObjectLambda
+```
 
 
 ## Example

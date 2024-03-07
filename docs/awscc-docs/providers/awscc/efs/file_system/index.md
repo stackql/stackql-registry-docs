@@ -54,15 +54,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>file_system</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 elasticfilesystem:DescribeBackupPolicy,
 elasticfilesystem:DescribeFileSystemPolicy,
 elasticfilesystem:DescribeFileSystems,
 elasticfilesystem:DescribeLifecycleConfiguration,
-elasticfilesystem:DescribeReplicationConfigurations</pre>
+elasticfilesystem:DescribeReplicationConfigurations
+```
 
 ### Update
-<pre>
+```json
 elasticfilesystem:CreateReplicationConfiguration,
 elasticfilesystem:DeleteFileSystemPolicy,
 elasticfilesystem:DescribeBackupPolicy,
@@ -82,14 +83,16 @@ elasticfilesystem:UpdateFileSystem,
 elasticfilesystem:UpdateFileSystemProtection,
 kms:DescribeKey,
 kms:GenerateDataKeyWithoutPlaintext,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### Delete
-<pre>
+```json
 elasticfilesystem:DescribeFileSystems,
 elasticfilesystem:DeleteFileSystem,
 elasticfilesystem:DeleteReplicationConfiguration,
-elasticfilesystem:DescribeReplicationConfigurations</pre>
+elasticfilesystem:DescribeReplicationConfigurations
+```
 
 
 ## Example

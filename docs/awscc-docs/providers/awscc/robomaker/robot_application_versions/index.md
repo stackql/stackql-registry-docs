@@ -40,14 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>robot_application_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 robomaker:CreateRobotApplicationVersion,
 s3:GetObject,
 ecr:BatchGetImage,
 ecr:GetAuthorizationToken,
 ecr:BatchCheckLayerAvailability,
 ecr-public:GetAuthorizationToken,
-sts:GetServiceBearerToken</pre>
+sts:GetServiceBearerToken
+```
 
 
 ## Example

@@ -44,19 +44,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_hierarchy_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribeUserHierarchyGroup</pre>
+```json
+connect:DescribeUserHierarchyGroup
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteUserHierarchyGroup,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateUserHierarchyGroupName,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

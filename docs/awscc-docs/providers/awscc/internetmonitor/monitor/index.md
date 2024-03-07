@@ -54,13 +54,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>monitor</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 internetmonitor:GetMonitor,
 internetmonitor:ListTagsForResource,
-logs:GetLogDelivery</pre>
+logs:GetLogDelivery
+```
 
 ### Update
-<pre>
+```json
 internetmonitor:CreateMonitor,
 internetmonitor:GetMonitor,
 internetmonitor:UpdateMonitor,
@@ -74,14 +75,16 @@ logs:ListLogDeliveries,
 s3:GetBucketPolicy,
 s3:PutBucketPolicy,
 s3:ListBucket,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 internetmonitor:UpdateMonitor,
 internetmonitor:DeleteMonitor,
 internetmonitor:GetMonitor,
-logs:DeleteLogDelivery</pre>
+logs:DeleteLogDelivery
+```
 
 
 ## Example

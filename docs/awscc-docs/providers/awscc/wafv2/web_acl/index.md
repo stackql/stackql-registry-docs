@@ -55,20 +55,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>web_acl</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 wafv2:DeleteWebACL,
-wafv2:GetWebACL</pre>
+wafv2:GetWebACL
+```
 
 ### Read
-<pre>
+```json
 wafv2:GetWebACL,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 wafv2:UpdateWebACL,
 wafv2:GetWebACL,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 
 ## Example

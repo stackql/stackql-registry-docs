@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>agents</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datasync:CreateAgent,
 datasync:TagResource,
 datasync:DescribeAgent,
@@ -48,11 +48,13 @@ datasync:ListTagsForResource,
 ec2:DescribeNetworkInterfaces,
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
-ec2:DescribeVpcEndpoints</pre>
+ec2:DescribeVpcEndpoints
+```
 
 ### List
-<pre>
-datasync:ListAgents</pre>
+```json
+datasync:ListAgents
+```
 
 
 ## Example

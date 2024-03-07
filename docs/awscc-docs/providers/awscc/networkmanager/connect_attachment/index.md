@@ -55,22 +55,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connect_attachment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:GetConnectAttachment</pre>
+```json
+networkmanager:GetConnectAttachment
+```
 
 ### Update
-<pre>
+```json
 networkmanager:GetConnectAttachment,
 networkmanager:ListTagsForResource,
 networkmanager:TagResource,
 networkmanager:UntagResource,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:GetConnectAttachment,
 networkmanager:DeleteAttachment,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 
 ## Example

@@ -44,21 +44,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>backup_plan</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 backup:GetBackupPlan,
-backup:ListTags</pre>
+backup:ListTags
+```
 
 ### Delete
-<pre>
+```json
 backup:GetBackupPlan,
-backup:DeleteBackupPlan</pre>
+backup:DeleteBackupPlan
+```
 
 ### Update
-<pre>
+```json
 backup:UpdateBackupPlan,
 backup:ListTags,
 backup:TagResource,
-backup:UntagResource</pre>
+backup:UntagResource
+```
 
 
 ## Example

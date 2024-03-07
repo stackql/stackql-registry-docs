@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>notification_rules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-codestar-notifications:createNotificationRule</pre>
+```json
+codestar-notifications:createNotificationRule
+```
 
 ### List
-<pre>
-codestar-notifications:listNotificationRules</pre>
+```json
+codestar-notifications:listNotificationRules
+```
 
 
 ## Example

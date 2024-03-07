@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain_name_api_association</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 appsync:DisassociateApi,
-appsync:GetApiAssociation</pre>
+appsync:GetApiAssociation
+```
 
 ### Update
-<pre>
+```json
 appsync:AssociateApi,
-appsync:GetApiAssociation</pre>
+appsync:GetApiAssociation
+```
 
 ### Read
-<pre>
-appsync:GetApiAssociation</pre>
+```json
+appsync:GetApiAssociation
+```
 
 
 ## Example

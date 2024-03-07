@@ -40,11 +40,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>experiments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 evidently:CreateExperiment,
 evidently:TagResource,
 evidently:GetExperiment,
-evidently:StartExperiment</pre>
+evidently:StartExperiment
+```
 
 
 ## Example

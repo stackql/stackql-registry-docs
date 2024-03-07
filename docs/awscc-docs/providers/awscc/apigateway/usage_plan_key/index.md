@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>usage_plan_key</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 ### Delete
-<pre>
+```json
 apigateway:DELETE,
-apigateway:GET</pre>
+apigateway:GET
+```
 
 
 ## Example

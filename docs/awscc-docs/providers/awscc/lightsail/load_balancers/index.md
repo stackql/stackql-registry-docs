@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>load_balancers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lightsail:CreateLoadBalancer,
 lightsail:GetLoadBalancer,
 lightsail:GetLoadBalancers,
@@ -49,11 +49,13 @@ lightsail:AttachInstancesToLoadBalancer,
 lightsail:DetachInstancesFromLoadBalancer,
 lightsail:UpdateLoadBalancerAttribute,
 lightsail:TagResource,
-lightsail:UntagResource</pre>
+lightsail:UntagResource
+```
 
 ### List
-<pre>
-lightsail:GetLoadBalancers</pre>
+```json
+lightsail:GetLoadBalancers
+```
 
 
 ## Example

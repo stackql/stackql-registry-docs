@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>game_server_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 gamelift:CreateGameServerGroup,
 gamelift:TagResource,
 gamelift:DescribeGameServerGroup,
@@ -65,11 +65,13 @@ autoscaling:ResumeProcesses,
 autoscaling:SetInstanceProtection,
 autoscaling:UpdateAutoScalingGroup,
 events:PutRule,
-events:PutTargets</pre>
+events:PutTargets
+```
 
 ### List
-<pre>
-gamelift:ListGameServerGroups</pre>
+```json
+gamelift:ListGameServerGroups
+```
 
 
 ## Example

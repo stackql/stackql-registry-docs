@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stages</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apigateway:POST,
 apigateway:PATCH,
 apigateway:GET,
-apigateway:PUT</pre>
+apigateway:PUT
+```
 
 ### List
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 
 ## Example

@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_quality_job_definitions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateDataQualityJobDefinition,
 sagemaker:DescribeDataQualityJobDefinition,
 sagemaker:AddTags,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 sagemaker:ListDataQualityJobDefinitions,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 
 ## Example

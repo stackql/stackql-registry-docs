@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:GetRole,
 iam:GetPolicy,
 iam:PassRole,
 rolesanywhere:CreateProfile,
 rolesanywhere:TagResource,
-rolesanywhere:ListTagsForResource</pre>
+rolesanywhere:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 rolesanywhere:ListProfiles,
-rolesanywhere:ListTagsForResource</pre>
+rolesanywhere:ListTagsForResource
+```
 
 
 ## Example

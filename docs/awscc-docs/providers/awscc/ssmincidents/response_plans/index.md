@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>response_plans</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ssm-incidents:CreateResponsePlan,
 ssm-incidents:GetResponsePlan,
 ssm-incidents:TagResource,
@@ -48,11 +48,13 @@ ssm-incidents:ListTagsForResource,
 iam:PassRole,
 secretsmanager:GetSecretValue,
 kms:Decrypt,
-kms:GenerateDataKey*</pre>
+kms:GenerateDataKey*
+```
 
 ### List
-<pre>
-ssm-incidents:ListResponsePlans</pre>
+```json
+ssm-incidents:ListResponsePlans
+```
 
 
 ## Example

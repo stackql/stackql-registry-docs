@@ -43,12 +43,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>attribute_group_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-servicecatalog:ListAttributeGroupsForApplication</pre>
+```json
+servicecatalog:ListAttributeGroupsForApplication
+```
 
 ### Delete
-<pre>
-servicecatalog:DisassociateAttributeGroup</pre>
+```json
+servicecatalog:DisassociateAttributeGroup
+```
 
 
 ## Example

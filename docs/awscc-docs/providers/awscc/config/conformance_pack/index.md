@@ -46,22 +46,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>conformance_pack</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-config:DescribeConformancePacks</pre>
+```json
+config:DescribeConformancePacks
+```
 
 ### Update
-<pre>
+```json
 config:PutConformancePack,
 config:DescribeConformancePackStatus,
 s3:GetObject,
 s3:GetBucketAcl,
 iam:CreateServiceLinkedRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 config:DeleteConformancePack,
-config:DescribeConformancePackStatus</pre>
+config:DescribeConformancePackStatus
+```
 
 
 ## Example

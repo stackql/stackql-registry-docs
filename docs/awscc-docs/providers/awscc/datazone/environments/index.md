@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datazone:CreateEnvironment,
 datazone:GetEnvironment,
-datazone:DeleteEnvironment</pre>
+datazone:DeleteEnvironment
+```
 
 ### List
-<pre>
-datazone:ListEnvironments</pre>
+```json
+datazone:ListEnvironments
+```
 
 
 ## Example

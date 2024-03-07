@@ -47,20 +47,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>security_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 connect:DescribeSecurityProfile,
-connect:ListSecurityProfilePermissions</pre>
+connect:ListSecurityProfilePermissions
+```
 
 ### Update
-<pre>
+```json
 connect:TagResource,
 connect:UpdateSecurityProfile,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteSecurityProfile,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

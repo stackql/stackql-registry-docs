@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_bias_job_definitions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateModelBiasJobDefinition,
 sagemaker:DescribeModelBiasJobDefinition,
 iam:PassRole,
-sagemaker:AddTags</pre>
+sagemaker:AddTags
+```
 
 ### List
-<pre>
+```json
 sagemaker:ListModelBiasJobDefinitions,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 
 ## Example

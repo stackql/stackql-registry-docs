@@ -49,13 +49,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>target_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 vpc-lattice:GetTargetGroup,
 vpc-lattice:ListTargets,
-vpc-lattice:ListTagsForResource</pre>
+vpc-lattice:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 vpc-lattice:UpdateTargetGroup,
 vpc-lattice:GetTargetGroup,
 vpc-lattice:ListTargets,
@@ -71,15 +72,17 @@ lambda:RemovePermission,
 lambda:AddPermission,
 vpc-lattice:TagResource,
 vpc-lattice:UntagResource,
-vpc-lattice:ListTagsForResource</pre>
+vpc-lattice:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 vpc-lattice:DeleteTargetGroup,
 vpc-lattice:GetTargetGroup,
 vpc-lattice:DeregisterTargets,
 vpc-lattice:ListTargets,
-lambda:RemovePermission</pre>
+lambda:RemovePermission
+```
 
 
 ## Example

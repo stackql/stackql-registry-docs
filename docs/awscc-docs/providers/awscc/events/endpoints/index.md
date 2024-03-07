@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>endpoints</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 events:CreateEndpoint,
 events:DescribeEndpoint,
 route53:GetHealthCheck,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-events:ListEndpoints</pre>
+```json
+events:ListEndpoints
+```
 
 
 ## Example

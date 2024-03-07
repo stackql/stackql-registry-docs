@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_sources</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datazone:CreateDataSource,
 iam:PassRole,
 datazone:GetDataSource,
-datazone:DeleteDataSource</pre>
+datazone:DeleteDataSource
+```
 
 ### List
-<pre>
-datazone:ListDataSources</pre>
+```json
+datazone:ListDataSources
+```
 
 
 ## Example

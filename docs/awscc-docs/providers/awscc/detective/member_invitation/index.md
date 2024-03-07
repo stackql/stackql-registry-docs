@@ -44,16 +44,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>member_invitation</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-detective:GetMembers</pre>
-
-### Update
-<pre>
-</pre>
+```json
+detective:GetMembers
+```
 
 ### Delete
-<pre>
-detective:DeleteMembers</pre>
+```json
+detective:DeleteMembers
+```
 
 
 ## Example

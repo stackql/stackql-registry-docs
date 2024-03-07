@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance_access_control_attribute_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-sso:DescribeInstanceAccessControlAttributeConfiguration</pre>
+```json
+sso:DescribeInstanceAccessControlAttributeConfiguration
+```
 
 ### Update
-<pre>
+```json
 sso:UpdateInstanceAccessControlAttributeConfiguration,
-sso:DescribeInstanceAccessControlAttributeConfiguration</pre>
+sso:DescribeInstanceAccessControlAttributeConfiguration
+```
 
 ### Delete
-<pre>
+```json
 sso:DeleteInstanceAccessControlAttributeConfiguration,
-sso:DescribeInstanceAccessControlAttributeConfiguration</pre>
+sso:DescribeInstanceAccessControlAttributeConfiguration
+```
 
 
 ## Example

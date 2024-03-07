@@ -44,14 +44,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>gateway</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediaconnect:DescribeGateway</pre>
+```json
+mediaconnect:DescribeGateway
+```
 
 ### Delete
-<pre>
+```json
 iam:CreateServiceLinkedRole,
 mediaconnect:DescribeGateway,
-mediaconnect:DeleteGateway</pre>
+mediaconnect:DeleteGateway
+```
 
 
 ## Example

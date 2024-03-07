@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>default_view_association</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 resource-explorer-2:GetDefaultView,
-resource-explorer-2:AssociateDefaultView</pre>
+resource-explorer-2:AssociateDefaultView
+```
 
 ### Read
-<pre>
-resource-explorer-2:GetDefaultView</pre>
+```json
+resource-explorer-2:GetDefaultView
+```
 
 ### Delete
-<pre>
+```json
 resource-explorer-2:GetDefaultView,
-resource-explorer-2:DisassociateDefaultView</pre>
+resource-explorer-2:DisassociateDefaultView
+```
 
 
 ## Example

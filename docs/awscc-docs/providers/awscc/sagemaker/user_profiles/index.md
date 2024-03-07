@@ -41,16 +41,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateUserProfile,
 sagemaker:DescribeUserProfile,
 sagemaker:DescribeImage,
 sagemaker:DescribeImageVersion,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-sagemaker:ListUserProfiles</pre>
+```json
+sagemaker:ListUserProfiles
+```
 
 
 ## Example

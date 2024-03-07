@@ -4,6 +4,8 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - aws
+  - aws cloud control
+  - cloud control api
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -15,7 +17,7 @@ id: awscc-doc
 slug: /providers/awscc
 
 ---
-Cloud services from AWS.
+Cloud services from AWS using the Cloud Control API.
 
 :::info Provider Summary (v24.03.00206)
 
@@ -51,8 +53,8 @@ The following system environment variables are used for authentication by defaul
 
 - `AWS_ACCESS_KEY_ID` - AWS Access Key ID (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
 - `AWS_SECRET_ACCESS_KEY` - AWS Secret Access Key (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
-- `AWS_SESSION_TOKEN` - [__OPTIONAL:__ only required if using `aws sts assume-role`] AWS Session Token (see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html))
-
+- `AWS_SESSION_TOKEN` - [*OPTIONAL:* only required if using `aws sts assume-role`] AWS Session Token (see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html))
+  
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
 <details>
@@ -85,7 +87,7 @@ The following parameter is required for the `awscc` provider:
 
 - `region` - AWS region (e.g. `us-east-1`)
 
-This parameter must be supplied to the `WHERE` clause of each `SELECT` statement, with the exception of global services such as `iam`, `route53`, `cloudfront`, etc.
+This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
 
 ## Services
 <div class="row">

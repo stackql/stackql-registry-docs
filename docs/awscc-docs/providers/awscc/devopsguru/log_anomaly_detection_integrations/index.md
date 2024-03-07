@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>log_anomaly_detection_integrations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 devops-guru:DescribeServiceIntegration,
 devops-guru:UpdateServiceIntegration,
 logs:TagLogGroup,
-logs:UntagLogGroup</pre>
+logs:UntagLogGroup
+```
 
 ### List
-<pre>
-devops-guru:DescribeServiceIntegration</pre>
+```json
+devops-guru:DescribeServiceIntegration
+```
 
 
 ## Example

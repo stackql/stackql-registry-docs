@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trust_stores</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 workspaces-web:CreateTrustStore,
 workspaces-web:GetTrustStore,
 workspaces-web:GetTrustStoreCertificate,
 workspaces-web:ListTrustStoreCertificates,
 workspaces-web:ListTagsForResource,
-workspaces-web:TagResource</pre>
+workspaces-web:TagResource
+```
 
 ### List
-<pre>
+```json
 workspaces-web:ListTrustStores,
-workspaces-web:ListTrustStoreCertificates</pre>
+workspaces-web:ListTrustStoreCertificates
+```
 
 
 ## Example

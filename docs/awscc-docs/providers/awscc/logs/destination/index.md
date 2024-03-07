@@ -44,19 +44,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>destination</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-logs:DescribeDestinations</pre>
+```json
+logs:DescribeDestinations
+```
 
 ### Update
-<pre>
+```json
 logs:PutDestination,
 logs:PutDestinationPolicy,
 logs:DescribeDestinations,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-logs:DeleteDestination</pre>
+```json
+logs:DeleteDestination
+```
 
 
 ## Example

@@ -58,23 +58,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>api</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 apigateway:PATCH,
 apigateway:GET,
 apigateway:PUT,
 apigateway:POST,
-s3:getObject</pre>
+s3:getObject
+```
 
 ### Read
-<pre>
+```json
 apigateway:GET,
-s3:getObject</pre>
+s3:getObject
+```
 
 ### Delete
-<pre>
+```json
 apigateway:GET,
 apigateway:DELETE,
-s3:getObject</pre>
+s3:getObject
+```
 
 
 ## Example

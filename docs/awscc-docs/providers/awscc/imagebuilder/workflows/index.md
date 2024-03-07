@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workflows</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:GetRole,
 kms:GenerateDataKey*,
 kms:Encrypt,
@@ -50,11 +50,13 @@ s3:HeadBucket,
 s3:GetBucketLocation,
 imagebuilder:TagResource,
 imagebuilder:GetWorkflow,
-imagebuilder:CreateWorkflow</pre>
+imagebuilder:CreateWorkflow
+```
 
 ### List
-<pre>
-imagebuilder:ListWorkflows</pre>
+```json
+imagebuilder:ListWorkflows
+```
 
 
 ## Example

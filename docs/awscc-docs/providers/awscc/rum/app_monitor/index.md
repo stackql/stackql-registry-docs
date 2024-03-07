@@ -46,7 +46,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>app_monitor</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rum:GetAppMonitor,
 dynamodb:GetItem,
 s3:GetObject,
@@ -54,10 +54,11 @@ s3:DoesObjectExist,
 s3:GetObjectAcl,
 rum:ListTagsForResource,
 rum:ListRumMetricsDestinations,
-rum:BatchGetRumMetricDefinitions</pre>
+rum:BatchGetRumMetricDefinitions
+```
 
 ### Update
-<pre>
+```json
 rum:UpdateAppMonitor,
 dynamodb:GetItem,
 dynamodb:PutItem,
@@ -86,10 +87,11 @@ rum:ListRumMetricsDestinations,
 rum:BatchCreateRumMetricDefinitions,
 rum:BatchDeleteRumMetricDefinitions,
 rum:BatchGetRumMetricDefinitions,
-rum:UpdateRumMetricDefinition</pre>
+rum:UpdateRumMetricDefinition
+```
 
 ### Delete
-<pre>
+```json
 rum:DeleteAppMonitor,
 dynamodb:DeleteItem,
 dynamodb:Query,
@@ -98,7 +100,8 @@ s3:DeleteObject,
 s3:DoesObjectExist,
 rum:UntagResource,
 rum:DeleteRumMetricsDestination,
-rum:BatchDeleteRumMetricDefinitions</pre>
+rum:BatchDeleteRumMetricDefinitions
+```
 
 
 ## Example

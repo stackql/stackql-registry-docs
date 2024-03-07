@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stream_processors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 rekognition:CreateStreamProcessor,
 iam:PassRole,
 rekognition:DescribeStreamProcessor,
 rekognition:ListTagsForResource,
-rekognition:TagResource</pre>
+rekognition:TagResource
+```
 
 ### List
-<pre>
-rekognition:ListStreamProcessors</pre>
+```json
+rekognition:ListStreamProcessors
+```
 
 
 ## Example

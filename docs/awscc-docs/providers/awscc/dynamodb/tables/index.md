@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tables</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 dynamodb:CreateTable,
 dynamodb:DescribeImport,
 dynamodb:DescribeTable,
@@ -76,11 +76,13 @@ logs:PutLogEvents,
 logs:PutRetentionPolicy,
 s3:GetObject,
 s3:GetObjectMetadata,
-s3:ListBucket</pre>
+s3:ListBucket
+```
 
 ### List
-<pre>
-dynamodb:ListTables</pre>
+```json
+dynamodb:ListTables
+```
 
 
 ## Example

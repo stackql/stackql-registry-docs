@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_subnet_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateServiceLinkedRole,
 rds:CreateDBSubnetGroup,
 rds:DescribeDBSubnetGroups,
 rds:AddTagsToResource,
 rds:RemoveTagsFromResource,
-rds:ListTagsForResource</pre>
+rds:ListTagsForResource
+```
 
 ### List
-<pre>
-rds:DescribeDBSubnetGroups</pre>
+```json
+rds:DescribeDBSubnetGroups
+```
 
 
 ## Example

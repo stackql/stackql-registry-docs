@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>locationf_sx_lustre</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 datasync:DescribeLocationFsxLustre,
-datasync:ListTagsForResource</pre>
+datasync:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 datasync:DescribeLocationFsxLustre,
 datasync:ListTagsForResource,
 datasync:TagResource,
-datasync:UntagResource</pre>
+datasync:UntagResource
+```
 
 ### Delete
-<pre>
-datasync:DeleteLocation</pre>
+```json
+datasync:DeleteLocation
+```
 
 
 ## Example

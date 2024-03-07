@@ -58,15 +58,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 thinclient:GetEnvironment,
 thinclient:ListTagsForResource,
 kms:DescribeKey,
 kms:Encrypt,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Update
-<pre>
+```json
 appstream:DescribeStacks,
 workspaces:DescribeWorkspaceDirectories,
 workspaces-web:GetPortal,
@@ -80,14 +81,16 @@ kms:DescribeKey,
 kms:Encrypt,
 kms:Decrypt,
 kms:CreateGrant,
-kms:RetireGrant</pre>
+kms:RetireGrant
+```
 
 ### Delete
-<pre>
+```json
 thinclient:DeleteEnvironment,
 thinclient:UntagResource,
 kms:DescribeKey,
-kms:RetireGrant</pre>
+kms:RetireGrant
+```
 
 
 ## Example

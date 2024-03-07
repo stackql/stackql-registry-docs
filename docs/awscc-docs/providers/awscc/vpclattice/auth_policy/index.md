@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>auth_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-vpc-lattice:GetAuthPolicy</pre>
+```json
+vpc-lattice:GetAuthPolicy
+```
 
 ### Update
-<pre>
+```json
 vpc-lattice:GetAuthPolicy,
-vpc-lattice:PutAuthPolicy</pre>
+vpc-lattice:PutAuthPolicy
+```
 
 ### Delete
-<pre>
+```json
 vpc-lattice:GetAuthPolicy,
-vpc-lattice:DeleteAuthPolicy</pre>
+vpc-lattice:DeleteAuthPolicy
+```
 
 
 ## Example

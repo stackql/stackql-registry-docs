@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>slack_workspace_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 supportapp:RegisterSlackWorkspaceForOrganization,
-supportapp:ListSlackWorkspaceConfigurations</pre>
+supportapp:ListSlackWorkspaceConfigurations
+```
 
 ### List
-<pre>
-supportapp:ListSlackWorkspaceConfigurations</pre>
+```json
+supportapp:ListSlackWorkspaceConfigurations
+```
 
 
 ## Example

@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>health_checks</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53:CreateHealthCheck,
 route53:ChangeTagsForResource,
 cloudwatch:DescribeAlarms,
-route53-recovery-control-config:DescribeRoutingControl</pre>
+route53-recovery-control-config:DescribeRoutingControl
+```
 
 ### List
-<pre>
+```json
 route53:ListHealthChecks,
-route53:ListTagsForResource</pre>
+route53:ListTagsForResource
+```
 
 
 ## Example

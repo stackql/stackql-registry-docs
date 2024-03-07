@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain_names</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-apigateway:*</pre>
+```json
+apigateway:*
+```
 
 ### List
-<pre>
-apigateway:*</pre>
+```json
+apigateway:*
+```
 
 
 ## Example

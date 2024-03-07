@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>logging_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 logs:CreateLogDelivery,
 logs:GetLogDelivery,
 logs:ListLogDeliveries,
@@ -52,13 +52,15 @@ logs:DescribeLogGroups,
 iam:CreateServiceLinkedRole,
 firehose:TagDeliveryStream,
 network-firewall:UpdateLoggingConfiguration,
-network-firewall:DescribeLoggingConfiguration</pre>
+network-firewall:DescribeLoggingConfiguration
+```
 
 ### List
-<pre>
+```json
 logs:GetLogDelivery,
 logs:ListLogDeliveries,
-network-firewall:DescribeLoggingConfiguration</pre>
+network-firewall:DescribeLoggingConfiguration
+```
 
 
 ## Example

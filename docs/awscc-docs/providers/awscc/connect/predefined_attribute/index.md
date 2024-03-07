@@ -42,16 +42,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>predefined_attribute</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribePredefinedAttribute</pre>
+```json
+connect:DescribePredefinedAttribute
+```
 
 ### Delete
-<pre>
-connect:DeletePredefinedAttribute</pre>
+```json
+connect:DeletePredefinedAttribute
+```
 
 ### Update
-<pre>
-connect:UpdatePredefinedAttribute</pre>
+```json
+connect:UpdatePredefinedAttribute
+```
 
 
 ## Example

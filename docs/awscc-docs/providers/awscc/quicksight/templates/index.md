@@ -41,18 +41,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 quicksight:DescribeTemplate,
 quicksight:DescribeTemplatePermissions,
 quicksight:CreateTemplate,
 quicksight:DescribeAnalysis,
 quicksight:TagResource,
 quicksight:UntagResource,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### List
-<pre>
-quicksight:ListTemplates</pre>
+```json
+quicksight:ListTemplates
+```
 
 
 ## Example

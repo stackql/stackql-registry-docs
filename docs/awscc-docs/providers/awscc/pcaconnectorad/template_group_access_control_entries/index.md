@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>template_group_access_control_entries</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-pca-connector-ad:CreateTemplateGroupAccessControlEntry</pre>
+```json
+pca-connector-ad:CreateTemplateGroupAccessControlEntry
+```
 
 ### List
-<pre>
-pca-connector-ad:ListTemplateGroupAccessControlEntries</pre>
+```json
+pca-connector-ad:ListTemplateGroupAccessControlEntries
+```
 
 
 ## Example

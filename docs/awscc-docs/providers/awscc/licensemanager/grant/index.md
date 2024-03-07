@@ -47,16 +47,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>grant</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-license-manager:GetGrant</pre>
+```json
+license-manager:GetGrant
+```
 
 ### Update
-<pre>
-license-manager:CreateGrantVersion</pre>
+```json
+license-manager:CreateGrantVersion
+```
 
 ### Delete
-<pre>
-license-manager:DeleteGrant</pre>
+```json
+license-manager:DeleteGrant
+```
 
 
 ## Example

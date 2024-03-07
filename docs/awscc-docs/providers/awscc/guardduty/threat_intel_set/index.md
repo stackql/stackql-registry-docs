@@ -46,23 +46,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>threat_intel_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-guardduty:GetThreatIntelSet</pre>
+```json
+guardduty:GetThreatIntelSet
+```
 
 ### Delete
-<pre>
+```json
 guardduty:ListDetectors,
 guardduty:ListThreatIntelSets,
 guardduty:DeleteThreatIntelSet,
 guardduty:GetThreatIntelSet,
-iam:DeleteRolePolicy</pre>
+iam:DeleteRolePolicy
+```
 
 ### Update
-<pre>
+```json
 guardduty:UpdateThreatIntelSet,
 guardduty:GetThreatIntelSet,
 guardduty:ListThreatIntelSets,
-iam:PutRolePolicy</pre>
+iam:PutRolePolicy
+```
 
 
 ## Example

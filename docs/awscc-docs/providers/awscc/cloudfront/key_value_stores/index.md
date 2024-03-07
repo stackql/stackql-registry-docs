@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>key_value_stores</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudfront:CreateKeyValueStore,
 cloudfront:DescribeKeyValueStore,
 s3:GetObject,
 s3:HeadObject,
-s3:GetBucketLocation</pre>
+s3:GetBucketLocation
+```
 
 ### List
-<pre>
-cloudfront:ListKeyValueStores</pre>
+```json
+cloudfront:ListKeyValueStores
+```
 
 
 ## Example

@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>applications</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 codedeploy:CreateApplication,
-codedeploy:TagResource</pre>
+codedeploy:TagResource
+```
 
 ### List
-<pre>
-codedeploy:ListApplications</pre>
+```json
+codedeploy:ListApplications
+```
 
 
 ## Example

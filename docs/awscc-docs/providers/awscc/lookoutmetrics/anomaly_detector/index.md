@@ -45,20 +45,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>anomaly_detector</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lookoutmetrics:DescribeAnomalyDetector,
 lookoutmetrics:DescribeMetricSet,
-lookoutmetrics:ListMetricSets</pre>
+lookoutmetrics:ListMetricSets
+```
 
 ### Update
-<pre>
+```json
 lookoutmetrics:UpdateAnomalyDetector,
-lookoutmetrics:UpdateMetricSet</pre>
+lookoutmetrics:UpdateMetricSet
+```
 
 ### Delete
-<pre>
+```json
 lookoutmetrics:DescribeAnomalyDetector,
-lookoutmetrics:DeleteAnomalyDetector</pre>
+lookoutmetrics:DeleteAnomalyDetector
+```
 
 
 ## Example

@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>distribution_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:GetRole,
 iam:CreateServiceLinkedRole,
 ec2:DescribeLaunchTemplates,
@@ -48,11 +48,13 @@ ec2:CreateLaunchTemplateVersion,
 ec2:ModifyLaunchTemplate,
 imagebuilder:TagResource,
 imagebuilder:GetDistributionConfiguration,
-imagebuilder:CreateDistributionConfiguration</pre>
+imagebuilder:CreateDistributionConfiguration
+```
 
 ### List
-<pre>
-imagebuilder:ListDistributionConfigurations</pre>
+```json
+imagebuilder:ListDistributionConfigurations
+```
 
 
 ## Example

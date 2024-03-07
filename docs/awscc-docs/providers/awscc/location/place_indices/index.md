@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>place_indices</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 geo:CreatePlaceIndex,
 geo:DescribePlaceIndex,
 geo:TagResource,
-geo:UntagResource</pre>
+geo:UntagResource
+```
 
 ### List
-<pre>
-geo:ListPlaceIndexes</pre>
+```json
+geo:ListPlaceIndexes
+```
 
 
 ## Example

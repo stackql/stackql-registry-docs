@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hours_of_operations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:CreateHoursOfOperation,
-connect:TagResource</pre>
+connect:TagResource
+```
 
 ### List
-<pre>
-connect:ListHoursOfOperations</pre>
+```json
+connect:ListHoursOfOperations
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>campaigns</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect-campaigns:CreateCampaign,
 connect-campaigns:DescribeCampaign,
 connect-campaigns:TagResource,
 connect:DescribeContactFlow,
 connect:DescribeInstance,
-connect:DescribeQueue</pre>
+connect:DescribeQueue
+```
 
 ### List
-<pre>
-connect-campaigns:ListCampaigns</pre>
+```json
+connect-campaigns:ListCampaigns
+```
 
 
 ## Example

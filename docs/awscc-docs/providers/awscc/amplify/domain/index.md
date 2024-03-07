@@ -52,27 +52,30 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 amplify:DeleteDomainAssociation,
 iam:PassRole,
-amplify:DeleteDomainAssociation</pre>
+amplify:DeleteDomainAssociation
+```
 
 ### Read
-<pre>
+```json
 amplify:GetDomainAssociation,
 route53:ListHostedZones,
 iam:PassRole,
-amplify:ListTagsForResource</pre>
+amplify:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 amplify:UpdateDomainAssociation,
 route53:ListHostedZones,
 route53:ChangeResourceRecordSets,
 iam:PassRole,
 amplify:ListTagsForResource,
 amplify:TagResource,
-amplify:UntagResource</pre>
+amplify:UntagResource
+```
 
 
 ## Example

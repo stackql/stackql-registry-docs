@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>recording_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ivs:CreateRecordingConfiguration,
 ivs:GetRecordingConfiguration,
 ivs:TagResource,
@@ -49,13 +49,15 @@ iam:PutRolePolicy,
 iam:AttachRolePolicy,
 s3:ListBucket,
 s3:GetBucketLocation,
-cloudformation:ListExports</pre>
+cloudformation:ListExports
+```
 
 ### List
-<pre>
+```json
 ivs:ListRecordingConfigurations,
 s3:GetBucketLocation,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 
 ## Example

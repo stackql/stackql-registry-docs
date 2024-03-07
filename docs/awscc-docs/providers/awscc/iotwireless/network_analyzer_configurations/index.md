@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>network_analyzer_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotwireless:CreateNetworkAnalyzerConfiguration,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 iotwireless:ListNetworkAnalyzerConfigurations,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 
 ## Example

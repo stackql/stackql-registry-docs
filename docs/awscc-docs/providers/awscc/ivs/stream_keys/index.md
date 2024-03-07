@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stream_keys</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ivs:TagResource,
 ivs:UntagResource,
-ivs:CreateStreamKey</pre>
+ivs:CreateStreamKey
+```
 
 ### List
-<pre>
+```json
 ivs:ListStreamKeys,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 
 ## Example

@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>projects</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datazone:CreateProject,
-datazone:GetProject</pre>
+datazone:GetProject
+```
 
 ### List
-<pre>
-datazone:ListProjects</pre>
+```json
+datazone:ListProjects
+```
 
 
 ## Example

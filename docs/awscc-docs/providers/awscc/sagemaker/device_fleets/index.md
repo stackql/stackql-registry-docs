@@ -40,9 +40,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>device_fleets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateDeviceFleet,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

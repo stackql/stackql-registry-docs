@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>gateways</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotsitewise:CreateGateway,
 iotsitewise:DescribeGateway,
 iotsitewise:DescribeGatewayCapabilityConfiguration,
@@ -50,11 +50,13 @@ iam:GetRole,
 greengrass:GetCoreDevice,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
-iot:DescribeThing</pre>
+iot:DescribeThing
+```
 
 ### List
-<pre>
-iotsitewise:ListGateways</pre>
+```json
+iotsitewise:ListGateways
+```
 
 
 ## Example

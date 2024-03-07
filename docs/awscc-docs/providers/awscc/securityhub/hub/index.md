@@ -45,21 +45,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hub</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 securityhub:DescribeHub,
-securityhub:ListTagsForResource</pre>
+securityhub:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 securityhub:DescribeHub,
 securityhub:UpdateSecurityHubConfiguration,
 securityhub:TagResource,
 securityhub:UntagResource,
-securityhub:ListTagsForResource</pre>
+securityhub:ListTagsForResource
+```
 
 ### Delete
-<pre>
-securityhub:DisableSecurityHub</pre>
+```json
+securityhub:DisableSecurityHub
+```
 
 
 ## Example

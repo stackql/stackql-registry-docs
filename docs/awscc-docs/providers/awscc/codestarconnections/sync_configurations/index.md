@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sync_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 codestar-connections:CreateSyncConfiguration,
 codestar-connections:PassRepository,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 codestar-connections:ListSyncConfigurations,
-codestar-connections:ListRepositoryLinks</pre>
+codestar-connections:ListRepositoryLinks
+```
 
 
 ## Example

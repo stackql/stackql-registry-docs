@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>repositories</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 codeartifact:CreateRepository,
 codeartifact:DescribeRepository,
 codeartifact:PutRepositoryPermissionsPolicy,
 codeartifact:AssociateExternalConnection,
 codeartifact:AssociateWithDownstreamRepository,
-codeartifact:TagResource</pre>
+codeartifact:TagResource
+```
 
 ### List
-<pre>
-codeartifact:ListRepositories</pre>
+```json
+codeartifact:ListRepositories
+```
 
 
 ## Example

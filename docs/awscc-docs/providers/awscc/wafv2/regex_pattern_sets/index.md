@@ -42,14 +42,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>regex_pattern_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 wafv2:CreateRegexPatternSet,
 wafv2:GetRegexPatternSet,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 ### List
-<pre>
-wafv2:listRegexPatternSets</pre>
+```json
+wafv2:listRegexPatternSets
+```
 
 
 ## Example

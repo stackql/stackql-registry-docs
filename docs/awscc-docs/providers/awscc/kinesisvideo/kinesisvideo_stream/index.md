@@ -46,19 +46,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>kinesisvideo_stream</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-kinesisvideo:DescribeStream</pre>
+```json
+kinesisvideo:DescribeStream
+```
 
 ### Update
-<pre>
+```json
 kinesisvideo:DescribeStream,
 kinesisvideo:UpdateStream,
-kinesisvideo:UpdateDataRetention</pre>
+kinesisvideo:UpdateDataRetention
+```
 
 ### Delete
-<pre>
+```json
 kinesisvideo:DescribeStream,
-kinesisvideo:DeleteStream</pre>
+kinesisvideo:DeleteStream
+```
 
 
 ## Example

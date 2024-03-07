@@ -42,7 +42,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>routes</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 refactor-spaces:CreateRoute,
 refactor-spaces:GetRoute,
 refactor-spaces:TagResource,
@@ -64,12 +64,14 @@ elasticloadbalancing:AddTags,
 elasticloadbalancing:RegisterTargets,
 elasticloadbalancing:DescribeTargetHealth,
 ec2:DescribeSubnets,
-tag:GetResources</pre>
+tag:GetResources
+```
 
 ### List
-<pre>
+```json
 refactor-spaces:ListRoutes,
-refactor-spaces:ListTagsForResource</pre>
+refactor-spaces:ListTagsForResource
+```
 
 
 ## Example

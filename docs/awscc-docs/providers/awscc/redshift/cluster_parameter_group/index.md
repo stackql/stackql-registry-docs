@@ -44,14 +44,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster_parameter_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 redshift:DescribeClusterParameterGroups,
 initech:DescribeReport,
 redshift:DescribeClusterParameters,
-redshift:DescribeTags</pre>
+redshift:DescribeTags
+```
 
 ### Update
-<pre>
+```json
 redshift:DescribeClusterParameterGroups,
 redshift:ResetClusterParameterGroup,
 redshift:ModifyClusterParameterGroup,
@@ -59,15 +60,17 @@ redshift:DescribeClusterParameters,
 redshift:DescribeTags,
 redshift:CreateTags,
 redshift:DeleteTags,
-initech:UpdateReport</pre>
+initech:UpdateReport
+```
 
 ### Delete
-<pre>
+```json
 redshift:DescribeTags,
 redshift:DescribeClusterParameterGroups,
 redshift:DeleteClusterParameterGroup,
 redshift:DescribeClusterParameters,
-initech:DeleteReport</pre>
+initech:DeleteReport
+```
 
 
 ## Example

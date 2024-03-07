@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>findings_filters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 macie2:GetFindingsFilter,
 macie2:CreateFindingsFilter,
-macie2:TagResource</pre>
+macie2:TagResource
+```
 
 ### List
-<pre>
-macie2:ListFindingsFilters</pre>
+```json
+macie2:ListFindingsFilters
+```
 
 
 ## Example

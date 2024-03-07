@@ -48,23 +48,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>project</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sagemaker:DescribeProject,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Update
-<pre>
+```json
 sagemaker:DescribeProject,
 sagemaker:ListTags,
 sagemaker:AddTags,
-sagemaker:DeleteTags</pre>
+sagemaker:DeleteTags
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteProject,
 sagemaker:DescribeProject,
 servicecatalog:TerminateProvisionedProduct,
-servicecatalog:DescribeRecord</pre>
+servicecatalog:DescribeRecord
+```
 
 
 ## Example

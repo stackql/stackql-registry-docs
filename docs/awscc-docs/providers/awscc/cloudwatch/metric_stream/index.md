@@ -52,21 +52,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>metric_stream</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 cloudwatch:PutMetricStream,
 cloudwatch:GetMetricStream,
 cloudwatch:TagResource,
 cloudwatch:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 cloudwatch:DeleteMetricStream,
-cloudwatch:GetMetricStream</pre>
+cloudwatch:GetMetricStream
+```
 
 ### Read
-<pre>
-cloudwatch:GetMetricStream</pre>
+```json
+cloudwatch:GetMetricStream
+```
 
 
 ## Example

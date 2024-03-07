@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assistants</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 kms:CreateGrant,
 kms:DescribeKey,
 wisdom:CreateAssistant,
-wisdom:TagResource</pre>
+wisdom:TagResource
+```
 
 ### List
-<pre>
-wisdom:ListAssistants</pre>
+```json
+wisdom:ListAssistants
+```
 
 
 ## Example

@@ -49,13 +49,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>repository</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 codeartifact:DescribeRepository,
 codeartifact:GetRepositoryPermissionsPolicy,
-codeartifact:ListTagsForResource</pre>
+codeartifact:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 codeartifact:PutRepositoryPermissionsPolicy,
 codeartifact:DeleteRepositoryPermissionsPolicy,
 codeartifact:AssociateExternalConnection,
@@ -64,12 +65,14 @@ codeartifact:UpdateRepository,
 codeartifact:DescribeRepository,
 codeartifact:AssociateWithDownstreamRepository,
 codeartifact:TagResource,
-codeartifact:UntagResource</pre>
+codeartifact:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 codeartifact:DeleteRepository,
-codeartifact:DescribeRepository</pre>
+codeartifact:DescribeRepository
+```
 
 
 ## Example

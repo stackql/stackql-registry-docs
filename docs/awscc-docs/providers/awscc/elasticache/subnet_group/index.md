@@ -43,22 +43,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>subnet_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 elasticache:DescribeCacheSubnetGroups,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 elasticache:DeleteCacheSubnetGroup,
 elasticache:DescribeCacheSubnetGroups,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 elasticache:ModifyCacheSubnetGroup,
 elasticache:DescribeCacheSubnetGroups,
 elasticache:AddTagsToResource,
-elasticache:RemoveTagsFromResource</pre>
+elasticache:RemoveTagsFromResource
+```
 
 
 ## Example

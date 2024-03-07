@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>state_machine_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-states:DescribeStateMachine</pre>
+```json
+states:DescribeStateMachine
+```
 
 ### Delete
-<pre>
+```json
 states:DeleteStateMachineVersion,
-states:DescribeStateMachine</pre>
+states:DescribeStateMachine
+```
 
 
 ## Example

@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>budgets_actions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 budgets:CreateBudgetAction,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 budgets:DescribeBudgetActionsForAccount,
-budgets:DescribeBudgetActionsForBudget</pre>
+budgets:DescribeBudgetActionsForBudget
+```
 
 
 ## Example

@@ -42,23 +42,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>directory_registration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 pca-connector-ad:ListTagsForResource,
-pca-connector-ad:GetDirectoryRegistration</pre>
+pca-connector-ad:GetDirectoryRegistration
+```
 
 ### Delete
-<pre>
+```json
 pca-connector-ad:GetDirectoryRegistration,
 pca-connector-ad:DeleteDirectoryRegistration,
 ds:DescribeDirectories,
 ds:UnauthorizeApplication,
-ds:UpdateAuthorizedApplication</pre>
+ds:UpdateAuthorizedApplication
+```
 
 ### Update
-<pre>
+```json
 pca-connector-ad:ListTagsForResource,
 pca-connector-ad:TagResource,
-pca-connector-ad:UntagResource</pre>
+pca-connector-ad:UntagResource
+```
 
 
 ## Example

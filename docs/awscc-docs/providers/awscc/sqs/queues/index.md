@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>queues</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sqs:CreateQueue,
 sqs:GetQueueUrl,
 sqs:GetQueueAttributes,
 sqs:ListQueueTags,
-sqs:TagQueue</pre>
+sqs:TagQueue
+```
 
 ### List
-<pre>
-sqs:ListQueues</pre>
+```json
+sqs:ListQueues
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 events:DescribeRule,
 events:PutRule,
-events:PutTargets</pre>
+events:PutTargets
+```
 
 ### List
-<pre>
-events:ListRules</pre>
+```json
+events:ListRules
+```
 
 
 ## Example

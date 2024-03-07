@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>replica_keys</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 kms:ReplicateKey,
 kms:CreateKey,
 kms:DescribeKey,
 kms:DisableKey,
-kms:TagResource</pre>
+kms:TagResource
+```
 
 ### List
-<pre>
+```json
 kms:ListKeys,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 
 ## Example

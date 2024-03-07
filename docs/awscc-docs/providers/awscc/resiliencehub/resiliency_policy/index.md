@@ -46,22 +46,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resiliency_policy</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 resiliencehub:DescribeResiliencyPolicy,
 resiliencehub:UpdateResiliencyPolicy,
 resiliencehub:TagResource,
 resiliencehub:UntagResource,
-resiliencehub:ListTagsForResource</pre>
+resiliencehub:ListTagsForResource
+```
 
 ### Read
-<pre>
+```json
 resiliencehub:DescribeResiliencyPolicy,
-resiliencehub:ListTagsForResource</pre>
+resiliencehub:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 resiliencehub:DeleteResiliencyPolicy,
-resiliencehub:UntagResource</pre>
+resiliencehub:UntagResource
+```
 
 
 ## Example

@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>users</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateLoginProfile,
 iam:AddUserToGroup,
 iam:PutUserPolicy,
 iam:AttachUserPolicy,
 iam:CreateUser,
 iam:GetUser,
-iam:TagUser</pre>
+iam:TagUser
+```
 
 ### List
-<pre>
-iam:listUsers</pre>
+```json
+iam:listUsers
+```
 
 
 ## Example

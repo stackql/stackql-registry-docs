@@ -43,16 +43,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>query_definition</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-logs:DescribeQueryDefinitions</pre>
+```json
+logs:DescribeQueryDefinitions
+```
 
 ### Update
-<pre>
-logs:PutQueryDefinition</pre>
+```json
+logs:PutQueryDefinition
+```
 
 ### Delete
-<pre>
-logs:DeleteQueryDefinition</pre>
+```json
+logs:DeleteQueryDefinition
+```
 
 
 ## Example

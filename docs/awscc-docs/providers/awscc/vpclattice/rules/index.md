@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 vpc-lattice:CreateRule,
 vpc-lattice:GetRule,
 vpc-lattice:ListTagsForResource,
-vpc-lattice:TagResource</pre>
+vpc-lattice:TagResource
+```
 
 ### List
-<pre>
-vpc-lattice:ListRules</pre>
+```json
+vpc-lattice:ListRules
+```
 
 
 ## Example

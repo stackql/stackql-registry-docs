@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>applications</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ssm-sap:RegisterApplication,
 ssm-sap:GetApplication,
 ssm-sap:TagResource,
-ssm-sap:ListTagsForResource</pre>
+ssm-sap:ListTagsForResource
+```
 
 ### List
-<pre>
-ssm-sap:ListApplications</pre>
+```json
+ssm-sap:ListApplications
+```
 
 
 ## Example

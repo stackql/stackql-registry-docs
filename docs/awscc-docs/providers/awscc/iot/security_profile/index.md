@@ -48,13 +48,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>security_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:DescribeSecurityProfile,
 iot:ListTagsForResource,
-iot:ListTargetsForSecurityProfile</pre>
+iot:ListTargetsForSecurityProfile
+```
 
 ### Update
-<pre>
+```json
 iot:UpdateSecurityProfile,
 iot:ListTargetsForSecurityProfile,
 iot:AttachSecurityProfile,
@@ -62,12 +63,14 @@ iot:DetachSecurityProfile,
 iot:ListTagsForResource,
 iot:UntagResource,
 iot:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 iot:DescribeSecurityProfile,
-iot:DeleteSecurityProfile</pre>
+iot:DeleteSecurityProfile
+```
 
 
 ## Example

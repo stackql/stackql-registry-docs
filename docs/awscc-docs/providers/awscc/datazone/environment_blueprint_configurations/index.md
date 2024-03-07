@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment_blueprint_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datazone:ListEnvironmentBlueprints,
 iam:PassRole,
 datazone:GetEnvironmentBlueprintConfiguration,
-datazone:PutEnvironmentBlueprintConfiguration</pre>
+datazone:PutEnvironmentBlueprintConfiguration
+```
 
 ### List
-<pre>
-datazone:ListEnvironmentBlueprintConfigurations</pre>
+```json
+datazone:ListEnvironmentBlueprintConfigurations
+```
 
 
 ## Example

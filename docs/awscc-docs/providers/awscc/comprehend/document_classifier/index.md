@@ -52,13 +52,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>document_classifier</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 comprehend:DescribeDocumentClassifier,
 comprehend:DescribeResourcePolicy,
-comprehend:ListTagsForResource</pre>
+comprehend:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 comprehend:PutResourcePolicy,
 comprehend:DeleteResourcePolicy,
@@ -66,12 +67,14 @@ comprehend:DescribeResourcePolicy,
 comprehend:DescribeDocumentClassifier,
 comprehend:ListTagsForResource,
 comprehend:TagResource,
-comprehend:UntagResource</pre>
+comprehend:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 comprehend:DescribeDocumentClassifier,
-comprehend:DeleteDocumentClassifier</pre>
+comprehend:DeleteDocumentClassifier
+```
 
 
 ## Example

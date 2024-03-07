@@ -49,21 +49,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>place_index</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-geo:DescribePlaceIndex</pre>
+```json
+geo:DescribePlaceIndex
+```
 
 ### Update
-<pre>
+```json
 geo:CreatePlaceIndex,
 geo:DescribePlaceIndex,
 geo:TagResource,
 geo:UntagResource,
-geo:UpdatePlaceIndex</pre>
+geo:UpdatePlaceIndex
+```
 
 ### Delete
-<pre>
+```json
 geo:DeletePlaceIndex,
-geo:DescribePlaceIndex</pre>
+geo:DescribePlaceIndex
+```
 
 
 ## Example

@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>standards</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 securityhub:GetEnabledStandards,
 securityhub:BatchEnableStandards,
-securityhub:UpdateStandardsControl</pre>
+securityhub:UpdateStandardsControl
+```
 
 ### List
-<pre>
-securityhub:GetEnabledStandards</pre>
+```json
+securityhub:GetEnabledStandards
+```
 
 
 ## Example

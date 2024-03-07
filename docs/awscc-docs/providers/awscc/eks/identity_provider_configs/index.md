@@ -42,15 +42,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_provider_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 eks:DescribeUpdate,
 eks:AssociateIdentityProviderConfig,
 eks:DescribeIdentityProviderConfig,
-eks:TagResource</pre>
+eks:TagResource
+```
 
 ### List
-<pre>
-eks:ListIdentityProviderConfigs</pre>
+```json
+eks:ListIdentityProviderConfigs
+```
 
 
 ## Example

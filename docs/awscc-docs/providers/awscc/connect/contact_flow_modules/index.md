@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>contact_flow_modules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:CreateContactFlowModule,
-connect:TagResource</pre>
+connect:TagResource
+```
 
 ### List
-<pre>
-connect:ListContactFlowModules</pre>
+```json
+connect:ListContactFlowModules
+```
 
 
 ## Example

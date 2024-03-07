@@ -46,21 +46,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>protection_group</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 shield:DeleteProtectionGroup,
-shield:UntagResource</pre>
+shield:UntagResource
+```
 
 ### Read
-<pre>
+```json
 shield:DescribeProtectionGroup,
-shield:ListTagsForResource</pre>
+shield:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 shield:UpdateProtectionGroup,
 shield:ListTagsForResource,
 shield:TagResource,
-shield:UntagResource</pre>
+shield:UntagResource
+```
 
 
 ## Example

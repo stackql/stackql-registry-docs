@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bots</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 lex:DescribeBot,
 lex:CreateUploadUrl,
@@ -70,11 +70,13 @@ lex:CreateCustomVocabulary,
 lex:UpdateCustomVocabulary,
 lex:DeleteCustomVocabulary,
 s3:GetObject,
-lex:UpdateBotAlias</pre>
+lex:UpdateBotAlias
+```
 
 ### List
-<pre>
-lex:ListBots</pre>
+```json
+lex:ListBots
+```
 
 
 ## Example

@@ -43,17 +43,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>integration_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 connect:ListBots,
 connect:ListLambdaFunctions,
-connect:ListIntegrationAssociations</pre>
-
-### Update
-<pre>
-</pre>
+connect:ListIntegrationAssociations
+```
 
 ### Delete
-<pre>
+```json
 connect:DescribeInstance,
 ds:DescribeDirectories,
 app-integrations:DeleteEventIntegrationAssociation,
@@ -71,7 +68,8 @@ lex:DeleteResourcePolicyStatement,
 lambda:RemovePermission,
 iam:GetRolePolicy,
 iam:DeleteRolePolicy,
-iam:PutRolePolicy</pre>
+iam:PutRolePolicy
+```
 
 
 ## Example

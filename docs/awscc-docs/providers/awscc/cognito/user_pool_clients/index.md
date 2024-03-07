@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_pool_clients</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cognito-idp:CreateUserPoolClient,
 iam:PassRole,
 iam:PutRolePolicy,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-cognito-idp:ListUserPoolClients</pre>
+```json
+cognito-idp:ListUserPoolClients
+```
 
 
 ## Example

@@ -45,18 +45,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fleet</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 codebuild:BatchGetFleets,
-codebuild:DeleteFleet</pre>
+codebuild:DeleteFleet
+```
 
 ### Read
-<pre>
-codebuild:BatchGetFleets</pre>
+```json
+codebuild:BatchGetFleets
+```
 
 ### Update
-<pre>
+```json
 codebuild:BatchGetFleets,
-codebuild:UpdateFleet</pre>
+codebuild:UpdateFleet
+```
 
 
 ## Example

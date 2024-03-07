@@ -62,23 +62,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stack</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 cloudformation:DescribeStacks,
 cloudformation:UpdateStack,
 cloudformation:UpdateTerminationProtection,
 cloudformation:SetStackPolicy,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 cloudformation:DescribeStacks,
-cloudformation:DeleteStack</pre>
+cloudformation:DeleteStack
+```
 
 ### Read
-<pre>
+```json
 cloudformation:DescribeStacks,
 cloudformation:GetStackPolicy,
-cloudformation:GetTemplate</pre>
+cloudformation:GetTemplate
+```
 
 
 ## Example

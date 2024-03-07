@@ -47,22 +47,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trust_store</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 elasticloadbalancing:DescribeTrustStores,
-elasticloadbalancing:DeleteTrustStore</pre>
+elasticloadbalancing:DeleteTrustStore
+```
 
 ### Read
-<pre>
+```json
 elasticloadbalancing:DescribeTrustStores,
-elasticloadbalancing:DescribeTags</pre>
+elasticloadbalancing:DescribeTags
+```
 
 ### Update
-<pre>
+```json
 elasticloadbalancing:ModifyTrustStore,
 elasticloadbalancing:AddTags,
 elasticloadbalancing:RemoveTags,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 
 ## Example

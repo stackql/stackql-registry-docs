@@ -42,16 +42,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>device</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-sagemaker:DescribeDevice</pre>
+```json
+sagemaker:DescribeDevice
+```
 
 ### Update
-<pre>
-sagemaker:UpdateDevices</pre>
+```json
+sagemaker:UpdateDevices
+```
 
 ### Delete
-<pre>
-sagemaker:DeregisterDevices</pre>
+```json
+sagemaker:DeregisterDevices
+```
 
 
 ## Example

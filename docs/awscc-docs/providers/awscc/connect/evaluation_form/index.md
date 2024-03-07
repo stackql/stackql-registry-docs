@@ -47,23 +47,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>evaluation_form</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 connect:DescribeEvaluationForm,
-connect:ListEvaluationFormVersions</pre>
+connect:ListEvaluationFormVersions
+```
 
 ### Update
-<pre>
+```json
 connect:UpdateEvaluationForm,
 connect:ListEvaluationFormVersions,
 connect:ActivateEvaluationForm,
 connect:DeactivateEvaluationForm,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteEvaluationForm,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

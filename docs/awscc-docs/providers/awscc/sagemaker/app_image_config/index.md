@@ -44,18 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>app_image_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-sagemaker:DescribeAppImageConfig</pre>
+```json
+sagemaker:DescribeAppImageConfig
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateAppImageConfig,
-sagemaker:DescribeAppImageConfig</pre>
+sagemaker:DescribeAppImageConfig
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteAppImageConfig,
-sagemaker:DescribeAppImageConfig</pre>
+sagemaker:DescribeAppImageConfig
+```
 
 
 ## Example

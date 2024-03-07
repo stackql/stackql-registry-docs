@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>execution_plan</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 kendra-ranking:DescribeRescoreExecutionPlan,
-kendra-ranking:ListTagsForResource</pre>
+kendra-ranking:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 kendra-ranking:DescribeRescoreExecutionPlan,
 kendra-ranking:UpdateRescoreExecutionPlan,
 kendra-ranking:ListTagsForResource,
 kendra-ranking:TagResource,
-kendra-ranking:UntagResource</pre>
+kendra-ranking:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 kendra-ranking:DescribeRescoreExecutionPlan,
-kendra-ranking:DeleteRescoreExecutionPlan</pre>
+kendra-ranking:DeleteRescoreExecutionPlan
+```
 
 
 ## Example

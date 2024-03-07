@@ -48,12 +48,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>permission</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lambda:GetPolicy</pre>
+```json
+lambda:GetPolicy
+```
 
 ### Delete
-<pre>
-lambda:RemovePermission</pre>
+```json
+lambda:RemovePermission
+```
 
 
 ## Example

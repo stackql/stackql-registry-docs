@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domains</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 profile:CreateDomain,
-profile:TagResource</pre>
+profile:TagResource
+```
 
 ### List
-<pre>
-profile:ListDomains</pre>
+```json
+profile:ListDomains
+```
 
 
 ## Example

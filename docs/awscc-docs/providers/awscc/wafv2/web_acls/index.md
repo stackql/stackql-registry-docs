@@ -42,14 +42,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>web_acls</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 wafv2:CreateWebACL,
 wafv2:GetWebACL,
-wafv2:ListTagsForResource</pre>
+wafv2:ListTagsForResource
+```
 
 ### List
-<pre>
-wafv2:listWebACLs</pre>
+```json
+wafv2:listWebACLs
+```
 
 
 ## Example

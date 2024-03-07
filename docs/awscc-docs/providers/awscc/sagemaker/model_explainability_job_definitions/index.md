@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_explainability_job_definitions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateModelExplainabilityJobDefinition,
 sagemaker:DescribeModelExplainabilityJobDefinition,
 iam:PassRole,
-sagemaker:AddTags</pre>
+sagemaker:AddTags
+```
 
 ### List
-<pre>
+```json
 sagemaker:ListModelExplainabilityJobDefinitions,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 
 ## Example

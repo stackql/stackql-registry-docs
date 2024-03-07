@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>buckets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lightsail:CreateBucket,
 lightsail:GetBuckets,
 lightsail:GetInstance,
@@ -48,11 +48,13 @@ lightsail:UpdateBucket,
 lightsail:UpdateBucketBundle,
 lightsail:SetResourceAccessForBucket,
 lightsail:TagResource,
-lightsail:UntagResource</pre>
+lightsail:UntagResource
+```
 
 ### List
-<pre>
-lightsail:GetBuckets</pre>
+```json
+lightsail:GetBuckets
+```
 
 
 ## Example

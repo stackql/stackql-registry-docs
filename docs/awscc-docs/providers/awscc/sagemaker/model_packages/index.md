@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_packages</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecr:BatchGetImage,
 ecr:DescribeImages,
 ecr:StartImageScan,
@@ -54,11 +54,13 @@ sagemaker:DescribeTransformJob,
 sagemaker:DescribeModelPackage,
 sagemaker:ListTags,
 iam:PassRole,
-s3:GetObject</pre>
+s3:GetObject
+```
 
 ### List
-<pre>
-sagemaker:ListModelPackages</pre>
+```json
+sagemaker:ListModelPackages
+```
 
 
 ## Example

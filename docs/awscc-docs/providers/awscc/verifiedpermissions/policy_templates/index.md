@@ -41,19 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policy_templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 verifiedpermissions:CreatePolicyTemplate,
 verifiedpermissions:GetPolicyTemplate,
 verifiedpermissions:UpdatePolicyTemplate,
-verifiedpermissions:DeletePolicyTemplate</pre>
+verifiedpermissions:DeletePolicyTemplate
+```
 
 ### List
-<pre>
+```json
 verifiedpermissions:CreatePolicyTemplate,
 verifiedpermissions:GetPolicyTemplate,
 verifiedpermissions:UpdatePolicyTemplate,
 verifiedpermissions:DeletePolicyTemplate,
-verifiedpermissions:ListPolicyTemplates</pre>
+verifiedpermissions:ListPolicyTemplates
+```
 
 
 ## Example

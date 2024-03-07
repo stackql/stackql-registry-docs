@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_connections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ec2:CreateVpcEndpoint,
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
@@ -58,13 +58,15 @@ kafka:CreateVpcConnection,
 kafka:DescribeVpcConnection,
 kafka:TagResource,
 kms:CreateGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### List
-<pre>
+```json
 kafka:ListVpcConnections,
 kms:CreateGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 
 ## Example

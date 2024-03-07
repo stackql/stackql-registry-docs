@@ -48,20 +48,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>experiment_template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 fis:GetExperimentTemplate,
-fis:ListTagsForResource</pre>
+fis:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 fis:UpdateExperimentTemplate,
 fis:TagResource,
 fis:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-fis:DeleteExperimentTemplate</pre>
+```json
+fis:DeleteExperimentTemplate
+```
 
 
 ## Example

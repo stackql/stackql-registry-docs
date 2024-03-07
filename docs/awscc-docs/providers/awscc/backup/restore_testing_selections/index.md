@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>restore_testing_selections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 backup:CreateRestoreTestingSelection,
 backup:GetRestoreTestingSelection,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-backup:ListRestoreTestingSelections</pre>
+```json
+backup:ListRestoreTestingSelections
+```
 
 
 ## Example

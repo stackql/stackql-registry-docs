@@ -48,13 +48,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>asset</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediapackage-vod:DescribeAsset</pre>
+```json
+mediapackage-vod:DescribeAsset
+```
 
 ### Delete
-<pre>
+```json
 mediapackage-vod:DescribeAsset,
-mediapackage-vod:DeleteAsset</pre>
+mediapackage-vod:DeleteAsset
+```
 
 
 ## Example

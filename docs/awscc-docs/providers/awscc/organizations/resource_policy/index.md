@@ -43,21 +43,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 organizations:DescribeResourcePolicy,
-organizations:ListTagsForResource</pre>
+organizations:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 organizations:DescribeResourcePolicy,
 organizations:PutResourcePolicy,
 organizations:ListTagsForResource,
 organizations:TagResource,
-organizations:UntagResource</pre>
+organizations:UntagResource
+```
 
 ### Delete
-<pre>
-organizations:DeleteResourcePolicy</pre>
+```json
+organizations:DeleteResourcePolicy
+```
 
 
 ## Example

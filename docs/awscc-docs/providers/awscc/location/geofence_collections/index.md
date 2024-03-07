@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>geofence_collections</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 geo:CreateGeofenceCollection,
 geo:DescribeGeofenceCollection,
 geo:TagResource,
 geo:UntagResource,
 kms:DescribeKey,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### List
-<pre>
-geo:ListGeofenceCollections</pre>
+```json
+geo:ListGeofenceCollections
+```
 
 
 ## Example

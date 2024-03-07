@@ -50,28 +50,31 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>collaboration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 cleanrooms:GetCollaboration,
 cleanrooms:ListMembers,
-cleanrooms:ListTagsForResource</pre>
+cleanrooms:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 cleanrooms:UpdateCollaboration,
 cleanrooms:GetCollaboration,
 cleanrooms:ListMembers,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
-cleanrooms:UntagResource</pre>
+cleanrooms:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 cleanrooms:DeleteCollaboration,
 cleanrooms:GetCollaboration,
 cleanrooms:ListTagsForResource,
 cleanrooms:UntagResource,
 cleanrooms:ListMembers,
-cleanrooms:ListCollaborations</pre>
+cleanrooms:ListCollaborations
+```
 
 
 ## Example

@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>contact_list</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ses:GetContactList</pre>
+```json
+ses:GetContactList
+```
 
 ### Update
-<pre>
+```json
 ses:UpdateContactList,
 ses:UntagResource,
-ses:TagResource</pre>
+ses:TagResource
+```
 
 ### Delete
-<pre>
-ses:DeleteContactList</pre>
+```json
+ses:DeleteContactList
+```
 
 
 ## Example

@@ -46,19 +46,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lambda:GetFunctionConfiguration,
 lambda:GetProvisionedConcurrencyConfig,
-lambda:GetRuntimeManagementConfig</pre>
+lambda:GetRuntimeManagementConfig
+```
 
 ### Delete
-<pre>
+```json
 lambda:GetFunctionConfiguration,
-lambda:DeleteFunction</pre>
-
-### Update
-<pre>
-</pre>
+lambda:DeleteFunction
+```
 
 
 ## Example

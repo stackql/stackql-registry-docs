@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domains</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 codeartifact:CreateDomain,
 codeartifact:DescribeDomain,
 codeartifact:PutDomainPermissionsPolicy,
 codeartifact:GetDomainPermissionsPolicy,
-codeartifact:TagResource</pre>
+codeartifact:TagResource
+```
 
 ### List
-<pre>
-codeartifact:ListDomains</pre>
+```json
+codeartifact:ListDomains
+```
 
 
 ## Example

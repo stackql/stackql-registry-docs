@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>gateways</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateServiceLinkedRole,
 mediaconnect:CreateGateway,
-mediaconnect:DescribeGateway</pre>
+mediaconnect:DescribeGateway
+```
 
 ### List
-<pre>
-mediaconnect:ListGateways</pre>
+```json
+mediaconnect:ListGateways
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>endpoint_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 globalaccelerator:CreateEndpointGroup,
 globalaccelerator:DescribeEndpointGroup,
 globalaccelerator:DescribeAccelerator,
 globalaccelerator:DescribeListener,
 globalaccelerator:ListAccelerators,
-globalaccelerator:ListListeners</pre>
+globalaccelerator:ListListeners
+```
 
 ### List
-<pre>
-globalaccelerator:ListEndpointGroups</pre>
+```json
+globalaccelerator:ListEndpointGroups
+```
 
 
 ## Example

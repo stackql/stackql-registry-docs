@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>datasets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-iotanalytics:CreateDataset</pre>
+```json
+iotanalytics:CreateDataset
+```
 
 ### List
-<pre>
-iotanalytics:ListDatasets</pre>
+```json
+iotanalytics:ListDatasets
+```
 
 
 ## Example

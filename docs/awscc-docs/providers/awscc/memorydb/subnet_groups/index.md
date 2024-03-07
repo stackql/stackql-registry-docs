@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>subnet_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 memorydb:CreateSubnetGroup,
 memorydb:DescribeSubnetGroups,
 memorydb:TagResource,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 ### List
-<pre>
-memorydb:DescribeSubnetGroups</pre>
+```json
+memorydb:DescribeSubnetGroups
+```
 
 
 ## Example

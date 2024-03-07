@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>type_activations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudformation:ActivateType,
 cloudformation:DescribeType,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-cloudformation:ListTypes</pre>
+```json
+cloudformation:ListTypes
+```
 
 
 ## Example

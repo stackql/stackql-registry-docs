@@ -46,26 +46,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment_template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 proton:GetEnvironmentTemplate,
 proton:ListTagsForResource,
-kms:*</pre>
+kms:*
+```
 
 ### Update
-<pre>
+```json
 proton:CreateEnvironmentTemplate,
 proton:ListTagsForResource,
 proton:TagResource,
 proton:UntagResource,
 proton:UpdateEnvironmentTemplate,
 proton:GetEnvironmentTemplate,
-kms:*</pre>
+kms:*
+```
 
 ### Delete
-<pre>
+```json
 proton:DeleteEnvironmentTemplate,
 proton:GetEnvironmentTemplate,
-kms:*</pre>
+kms:*
+```
 
 
 ## Example

@@ -48,20 +48,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>custom_action_type</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 codepipeline:ListActionTypes,
-codepipeline:ListTagsForResource</pre>
+codepipeline:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 codepipeline:ListActionTypes,
 codepipeline:TagResource,
-codepipeline:UntagResource</pre>
+codepipeline:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 codepipeline:DeleteCustomActionType,
-codepipeline:ListActionTypes</pre>
+codepipeline:ListActionTypes
+```
 
 
 ## Example

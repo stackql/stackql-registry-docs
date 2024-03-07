@@ -41,10 +41,11 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>tag_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lakeformation:AddLFTagsToResource,
 glue:GetDatabase,
-glue:GetTable</pre>
+glue:GetTable
+```
 
 
 ## Example

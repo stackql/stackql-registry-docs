@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_cluster_parameter_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateServiceLinkedRole,
 rds:AddTagsToResource,
 rds:CreateDBClusterParameterGroup,
@@ -50,11 +50,13 @@ rds:DescribeDBClusters,
 rds:DescribeEngineDefaultClusterParameters,
 rds:ListTagsForResource,
 rds:ModifyDBClusterParameterGroup,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 ### List
-<pre>
-rds:DescribeDBClusterParameterGroups</pre>
+```json
+rds:DescribeDBClusterParameterGroups
+```
 
 
 ## Example

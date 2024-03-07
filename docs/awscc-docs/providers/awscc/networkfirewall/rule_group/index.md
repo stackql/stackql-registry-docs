@@ -47,24 +47,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rule_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 network-firewall:DescribeRuleGroup,
-network-firewall:ListTagsForResources</pre>
+network-firewall:ListTagsForResources
+```
 
 ### Update
-<pre>
+```json
 network-firewall:UpdateRuleGroup,
 network-firewall:DescribeRuleGroup,
 network-firewall:TagResource,
 network-firewall:UntagResource,
 iam:CreateServiceLinkedRole,
-ec2:GetManagedPrefixListEntries</pre>
+ec2:GetManagedPrefixListEntries
+```
 
 ### Delete
-<pre>
+```json
 network-firewall:DeleteRuleGroup,
 network-firewall:DescribeRuleGroup,
-network-firewall:UntagResource</pre>
+network-firewall:UntagResource
+```
 
 
 ## Example

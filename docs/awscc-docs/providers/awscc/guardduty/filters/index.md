@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>filters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 guardduty:CreateFilter,
 guardduty:GetFilter,
-guardduty:TagResource</pre>
+guardduty:TagResource
+```
 
 ### List
-<pre>
-guardduty:ListFilters</pre>
+```json
+guardduty:ListFilters
+```
 
 
 ## Example

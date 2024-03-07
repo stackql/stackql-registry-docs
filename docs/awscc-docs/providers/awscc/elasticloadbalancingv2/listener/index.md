@@ -48,19 +48,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>listener</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 elasticloadbalancing:DeleteListener,
-elasticloadbalancing:DescribeListeners</pre>
+elasticloadbalancing:DescribeListeners
+```
 
 ### Read
-<pre>
-elasticloadbalancing:DescribeListeners</pre>
+```json
+elasticloadbalancing:DescribeListeners
+```
 
 ### Update
-<pre>
+```json
 elasticloadbalancing:ModifyListener,
 elasticloadbalancing:DescribeListeners,
-cognito-idp:DescribeUserPoolClient</pre>
+cognito-idp:DescribeUserPoolClient
+```
 
 
 ## Example

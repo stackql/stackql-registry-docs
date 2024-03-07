@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cloud_front_origin_access_identity</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteCloudFrontOriginAccessIdentity,
-cloudfront:GetCloudFrontOriginAccessIdentity</pre>
+cloudfront:GetCloudFrontOriginAccessIdentity
+```
 
 ### Read
-<pre>
-cloudfront:GetCloudFrontOriginAccessIdentity</pre>
+```json
+cloudfront:GetCloudFrontOriginAccessIdentity
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateCloudFrontOriginAccessIdentity,
-cloudfront:GetCloudFrontOriginAccessIdentity</pre>
+cloudfront:GetCloudFrontOriginAccessIdentity
+```
 
 
 ## Example

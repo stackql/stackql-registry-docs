@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>report_plan</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 backup:DescribeReportPlan,
-backup:ListTags</pre>
+backup:ListTags
+```
 
 ### Update
-<pre>
+```json
 backup:DescribeReportPlan,
 backup:UpdateReportPlan,
 backup:ListTags,
 backup:UntagResource,
-backup:TagResource</pre>
+backup:TagResource
+```
 
 ### Delete
-<pre>
+```json
 backup:DeleteReportPlan,
-backup:DescribeReportPlan</pre>
+backup:DescribeReportPlan
+```
 
 
 ## Example

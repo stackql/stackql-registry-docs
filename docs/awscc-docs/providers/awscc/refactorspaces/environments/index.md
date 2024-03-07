@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 refactor-spaces:CreateEnvironment,
 refactor-spaces:GetEnvironment,
 refactor-spaces:TagResource,
@@ -67,12 +67,14 @@ ram:GetResourceShareInvitations,
 ram:AcceptResourceShareInvitation,
 ram:DisassociateResourceShare,
 tag:GetResources,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
+```json
 refactor-spaces:ListEnvironments,
-refactor-spaces:ListTagsForResource</pre>
+refactor-spaces:ListTagsForResource
+```
 
 
 ## Example

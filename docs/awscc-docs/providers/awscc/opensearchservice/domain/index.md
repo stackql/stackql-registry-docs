@@ -64,24 +64,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 es:DescribeDomain,
-es:ListTags</pre>
+es:ListTags
+```
 
 ### Update
-<pre>
+```json
 es:UpdateDomain,
 es:UpgradeDomain,
 es:DescribeDomain,
 es:AddTags,
 es:RemoveTags,
 es:ListTags,
-es:DescribeDomainChangeProgress</pre>
+es:DescribeDomainChangeProgress
+```
 
 ### Delete
-<pre>
+```json
 es:DeleteDomain,
-es:DescribeDomain</pre>
+es:DescribeDomain
+```
 
 
 ## Example

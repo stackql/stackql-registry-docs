@@ -46,13 +46,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>project</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotsitewise:DescribeProject,
 iotsitewise:ListTagsForResource,
-iotsitewise:ListProjectAssets</pre>
+iotsitewise:ListProjectAssets
+```
 
 ### Update
-<pre>
+```json
 iotsitewise:DescribeProject,
 iotsitewise:UpdateProject,
 iotsitewise:BatchAssociateProjectAssets,
@@ -60,12 +61,14 @@ iotsitewise:BatchDisAssociateProjectAssets,
 iotsitewise:ListProjectAssets,
 iotsitewise:TagResource,
 iotsitewise:UntagResource,
-iotsitewise:ListTagsForResource</pre>
+iotsitewise:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 iotsitewise:DescribeProject,
-iotsitewise:DeleteProject</pre>
+iotsitewise:DeleteProject
+```
 
 
 ## Example

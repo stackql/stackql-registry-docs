@@ -44,16 +44,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hook_type_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cloudformation:BatchDescribeTypeConfigurations</pre>
+```json
+cloudformation:BatchDescribeTypeConfigurations
+```
 
 ### Update
-<pre>
-cloudformation:SetTypeConfiguration</pre>
+```json
+cloudformation:SetTypeConfiguration
+```
 
 ### Delete
-<pre>
-cloudformation:SetTypeConfiguration</pre>
+```json
+cloudformation:SetTypeConfiguration
+```
 
 
 ## Example

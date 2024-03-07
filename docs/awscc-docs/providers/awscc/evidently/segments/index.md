@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>segments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 evidently:CreateSegment,
 evidently:GetSegment,
-evidently:TagResource</pre>
+evidently:TagResource
+```
 
 ### List
-<pre>
+```json
 evidently:ListSegment,
-evidently:ListTagsForResource</pre>
+evidently:ListTagsForResource
+```
 
 
 ## Example

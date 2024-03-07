@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>studios</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 nimble:CreateStudio,
 nimble:GetStudio,
@@ -50,11 +50,13 @@ kms:Encrypt,
 kms:Decrypt,
 kms:CreateGrant,
 kms:ListGrants,
-kms:GenerateDataKey</pre>
+kms:GenerateDataKey
+```
 
 ### List
-<pre>
-nimble:ListStudios</pre>
+```json
+nimble:ListStudios
+```
 
 
 ## Example

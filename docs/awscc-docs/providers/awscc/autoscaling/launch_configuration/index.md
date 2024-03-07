@@ -58,13 +58,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>launch_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-autoscaling:DescribeLaunchConfigurations</pre>
+```json
+autoscaling:DescribeLaunchConfigurations
+```
 
 ### Delete
-<pre>
+```json
 autoscaling:DeleteLaunchConfiguration,
-autoscaling:DescribeLaunchConfigurations</pre>
+autoscaling:DescribeLaunchConfigurations
+```
 
 
 ## Example

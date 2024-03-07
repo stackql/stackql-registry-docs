@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>parameters</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ssm:PutParameter,
 ssm:AddTagsToResource,
-ssm:GetParameters</pre>
+ssm:GetParameters
+```
 
 ### List
-<pre>
-ssm:DescribeParameters</pre>
+```json
+ssm:DescribeParameters
+```
 
 
 ## Example

@@ -50,16 +50,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>log_anomaly_detector</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-logs:GetLogAnomalyDetector</pre>
+```json
+logs:GetLogAnomalyDetector
+```
 
 ### Update
-<pre>
-logs:UpdateLogAnomalyDetector</pre>
+```json
+logs:UpdateLogAnomalyDetector
+```
 
 ### Delete
-<pre>
-logs:DeleteLogAnomalyDetector</pre>
+```json
+logs:DeleteLogAnomalyDetector
+```
 
 
 ## Example

@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>replication_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ssm-incidents:CreateReplicationSet,
 ssm-incidents:ListReplicationSets,
 ssm-incidents:UpdateDeletionProtection,
 ssm-incidents:GetReplicationSet,
 ssm-incidents:TagResource,
 ssm-incidents:ListTagsForResource,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-ssm-incidents:ListReplicationSets</pre>
+```json
+ssm-incidents:ListReplicationSets
+```
 
 
 ## Example

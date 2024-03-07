@@ -47,26 +47,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>repository_link</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 codestar-connections:GetConnection,
 codestar-connections:ListTagsForResource,
 codestar-connections:PassConnection,
 codestar-connections:UseConnection,
 codestar-connections:TagResource,
 codestar-connections:UntagResource,
-codestar-connections:UpdateRepositoryLink</pre>
+codestar-connections:UpdateRepositoryLink
+```
 
 ### Read
-<pre>
+```json
 codestar-connections:GetRepositoryLink,
 codestar-connections:ListTagsForResource,
-codestar-connections:GetConnection</pre>
+codestar-connections:GetConnection
+```
 
 ### Delete
-<pre>
+```json
 codestar-connections:GetRepositoryLink,
 codestar-connections:DeleteRepositoryLink,
-codestar-connections:GetConnection</pre>
+codestar-connections:GetConnection
+```
 
 
 ## Example

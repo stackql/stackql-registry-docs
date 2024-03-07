@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediapackage-vod:CreateAsset,
 mediapackage-vod:DescribeAsset,
 mediapackage-vod:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 mediapackage-vod:ListAssets,
-mediapackage-vod:DescribePackagingGroup</pre>
+mediapackage-vod:DescribePackagingGroup
+```
 
 
 ## Example

@@ -44,21 +44,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_catalog</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 athena:GetDataCatalog,
-athena:ListTagsForResource</pre>
+athena:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 athena:UpdateDataCatalog,
 athena:TagResource,
 athena:GetDataCatalog,
 athena:UntagResource,
-athena:ListTagsForResource</pre>
+athena:ListTagsForResource
+```
 
 ### Delete
-<pre>
-athena:DeleteDataCatalog</pre>
+```json
+athena:DeleteDataCatalog
+```
 
 
 ## Example

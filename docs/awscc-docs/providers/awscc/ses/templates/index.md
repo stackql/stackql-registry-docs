@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ses:CreateEmailTemplate,
 ses:GetEmailTemplate,
 ses:CreateTemplate,
-ses:GetTemplate</pre>
+ses:GetTemplate
+```
 
 ### List
-<pre>
+```json
 ses:ListEmailTemplates,
-ses:ListTemplates</pre>
+ses:ListTemplates
+```
 
 
 ## Example

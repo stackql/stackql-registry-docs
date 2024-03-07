@@ -43,19 +43,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_pool_role_attachment</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cognito-identity:GetIdentityPoolRoles</pre>
+```json
+cognito-identity:GetIdentityPoolRoles
+```
 
 ### Update
-<pre>
+```json
 cognito-identity:GetIdentityPoolRoles,
 cognito-identity:SetIdentityPoolRoles,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 cognito-identity:GetIdentityPoolRoles,
-cognito-identity:SetIdentityPoolRoles</pre>
+cognito-identity:SetIdentityPoolRoles
+```
 
 
 ## Example

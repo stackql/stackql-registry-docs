@@ -44,20 +44,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vod_source</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediatailor:DescribeVodSource</pre>
+```json
+mediatailor:DescribeVodSource
+```
 
 ### Update
-<pre>
+```json
 mediatailor:DescribeVodSource,
 mediatailor:TagResource,
 mediatailor:UntagResource,
-mediatailor:UpdateVodSource</pre>
+mediatailor:UpdateVodSource
+```
 
 ### Delete
-<pre>
+```json
 mediatailor:DeleteVodSource,
-mediatailor:DescribeVodSource</pre>
+mediatailor:DescribeVodSource
+```
 
 
 ## Example

@@ -45,19 +45,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificate</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lightsail:GetCertificates</pre>
+```json
+lightsail:GetCertificates
+```
 
 ### Update
-<pre>
+```json
 lightsail:GetCertificates,
 lightsail:TagResource,
-lightsail:UntagResource</pre>
+lightsail:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 lightsail:DeleteCertificate,
-lightsail:GetCertificates</pre>
+lightsail:GetCertificates
+```
 
 
 ## Example

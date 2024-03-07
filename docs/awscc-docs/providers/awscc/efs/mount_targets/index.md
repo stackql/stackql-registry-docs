@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>mount_targets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticfilesystem:CreateMountTarget,
-elasticfilesystem:DescribeMountTargets</pre>
+elasticfilesystem:DescribeMountTargets
+```
 
 ### List
-<pre>
+```json
 elasticfilesystem:DescribeMountTargets,
-elasticfilesystem:DescribeMountTargetSecurityGroups</pre>
+elasticfilesystem:DescribeMountTargetSecurityGroups
+```
 
 
 ## Example

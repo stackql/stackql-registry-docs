@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dashboards</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotsitewise:CreateDashboard,
 iotsitewise:DescribeDashboard,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
 iotsitewise:DescribeAsset,
-iotsitewise:DescribeAssetModel</pre>
+iotsitewise:DescribeAssetModel
+```
 
 ### List
-<pre>
-iotsitewise:ListDashboards</pre>
+```json
+iotsitewise:ListDashboards
+```
 
 
 ## Example

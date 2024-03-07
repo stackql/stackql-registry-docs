@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudformation:DescribeTypeRegistration,
 cloudformation:RegisterType,
 iam:PassRole,
@@ -49,11 +49,13 @@ s3:ListBucket,
 kms:Decrypt,
 cloudformation:ListTypeVersions,
 cloudformation:DeregisterType,
-cloudformation:DescribeType</pre>
+cloudformation:DescribeType
+```
 
 ### List
-<pre>
-cloudformation:ListTypes</pre>
+```json
+cloudformation:ListTypes
+```
 
 
 ## Example

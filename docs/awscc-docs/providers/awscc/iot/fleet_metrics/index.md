@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fleet_metrics</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreateFleetMetric,
 iot:DescribeFleetMetric,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### List
-<pre>
-iot:ListFleetMetrics</pre>
+```json
+iot:ListFleetMetrics
+```
 
 
 ## Example

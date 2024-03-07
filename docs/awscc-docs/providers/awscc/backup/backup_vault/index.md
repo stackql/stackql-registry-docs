@@ -46,14 +46,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>backup_vault</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 backup:DescribeBackupVault,
 backup:GetBackupVaultNotifications,
 backup:GetBackupVaultAccessPolicy,
-backup:ListTags</pre>
+backup:ListTags
+```
 
 ### Update
-<pre>
+```json
 backup:DescribeBackupVault,
 backup:DeleteBackupVaultAccessPolicy,
 backup:DeleteBackupVaultNotifications,
@@ -63,11 +64,13 @@ backup:TagResource,
 backup:UntagResource,
 backup:PutBackupVaultAccessPolicy,
 backup:PutBackupVaultNotifications,
-backup:PutBackupVaultLockConfiguration</pre>
+backup:PutBackupVaultLockConfiguration
+```
 
 ### Delete
-<pre>
-backup:DeleteBackupVault</pre>
+```json
+backup:DeleteBackupVault
+```
 
 
 ## Example

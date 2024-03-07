@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channel_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediatailor:GetChannelPolicy</pre>
+```json
+mediatailor:GetChannelPolicy
+```
 
 ### Update
-<pre>
+```json
 mediatailor:PutChannelPolicy,
-mediatailor:GetChannelPolicy</pre>
+mediatailor:GetChannelPolicy
+```
 
 ### Delete
-<pre>
+```json
 mediatailor:DeleteChannelPolicy,
-mediatailor:GetChannelPolicy</pre>
+mediatailor:GetChannelPolicy
+```
 
 
 ## Example

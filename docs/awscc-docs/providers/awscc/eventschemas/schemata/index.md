@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schemata</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 schemas:DescribeSchema,
 schemas:CreateSchema,
-schemas:TagResource</pre>
+schemas:TagResource
+```
 
 ### List
-<pre>
+```json
 schemas:ListSchemas,
-schemas:ListSchemaVersions</pre>
+schemas:ListSchemaVersions
+```
 
 
 ## Example

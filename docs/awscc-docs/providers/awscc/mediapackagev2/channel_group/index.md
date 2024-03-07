@@ -46,20 +46,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channel_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediapackagev2:GetChannelGroup</pre>
+```json
+mediapackagev2:GetChannelGroup
+```
 
 ### Update
-<pre>
+```json
 mediapackagev2:TagResource,
 mediapackagev2:UntagResource,
 mediapackagev2:ListTagsForResource,
-mediapackagev2:UpdateChannelGroup</pre>
+mediapackagev2:UpdateChannelGroup
+```
 
 ### Delete
-<pre>
+```json
 mediapackagev2:GetChannelGroup,
-mediapackagev2:DeleteChannelGroup</pre>
+mediapackagev2:DeleteChannelGroup
+```
 
 
 ## Example

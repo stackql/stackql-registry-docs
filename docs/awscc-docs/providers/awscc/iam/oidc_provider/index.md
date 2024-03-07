@@ -44,22 +44,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>oidc_provider</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iam:GetOpenIDConnectProvider</pre>
+```json
+iam:GetOpenIDConnectProvider
+```
 
 ### Update
-<pre>
+```json
 iam:UpdateOpenIDConnectProviderThumbprint,
 iam:RemoveClientIDFromOpenIDConnectProvider,
 iam:AddClientIDToOpenIDConnectProvider,
 iam:GetOpenIDConnectProvider,
 iam:TagOpenIDConnectProvider,
 iam:UntagOpenIDConnectProvider,
-iam:ListOpenIDConnectProviderTags</pre>
+iam:ListOpenIDConnectProviderTags
+```
 
 ### Delete
-<pre>
-iam:DeleteOpenIDConnectProvider</pre>
+```json
+iam:DeleteOpenIDConnectProvider
+```
 
 
 ## Example

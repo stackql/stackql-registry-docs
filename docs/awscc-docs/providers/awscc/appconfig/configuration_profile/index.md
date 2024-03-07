@@ -50,20 +50,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configuration_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 appconfig:GetConfigurationProfile,
-appconfig:ListTagsForResource</pre>
+appconfig:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 appconfig:UpdateConfigurationProfile,
 appconfig:TagResource,
 appconfig:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-appconfig:DeleteConfigurationProfile</pre>
+```json
+appconfig:DeleteConfigurationProfile
+```
 
 
 ## Example

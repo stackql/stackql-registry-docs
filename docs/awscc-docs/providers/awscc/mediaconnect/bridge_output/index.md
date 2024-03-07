@@ -42,17 +42,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bridge_output</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediaconnect:DescribeBridge</pre>
+```json
+mediaconnect:DescribeBridge
+```
 
 ### Update
-<pre>
+```json
 mediaconnect:DescribeBridge,
-mediaconnect:UpdateBridgeOutput</pre>
+mediaconnect:UpdateBridgeOutput
+```
 
 ### Delete
-<pre>
-mediaconnect:RemoveBridgeOutput</pre>
+```json
+mediaconnect:RemoveBridgeOutput
+```
 
 
 ## Example

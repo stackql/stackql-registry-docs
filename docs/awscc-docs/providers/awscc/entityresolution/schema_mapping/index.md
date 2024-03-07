@@ -47,22 +47,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schema_mapping</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 entityresolution:GetSchemaMapping,
-entityresolution:ListTagsForResource</pre>
+entityresolution:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 entityresolution:DeleteSchemaMapping,
-entityresolution:GetSchemaMapping</pre>
+entityresolution:GetSchemaMapping
+```
 
 ### Update
-<pre>
+```json
 entityresolution:GetSchemaMapping,
 entityresolution:UpdateSchemaMapping,
 entityresolution:ListTagsForResource,
 entityresolution:TagResource,
-entityresolution:UntagResource</pre>
+entityresolution:UntagResource
+```
 
 
 ## Example

@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>log_stream</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-logs:DescribeLogStreams</pre>
+```json
+logs:DescribeLogStreams
+```
 
 ### Delete
-<pre>
-logs:DeleteLogStream</pre>
+```json
+logs:DeleteLogStream
+```
 
 
 ## Example

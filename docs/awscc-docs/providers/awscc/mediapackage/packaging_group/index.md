@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>packaging_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediapackage-vod:DescribePackagingGroup</pre>
+```json
+mediapackage-vod:DescribePackagingGroup
+```
 
 ### Update
-<pre>
+```json
 mediapackage-vod:DescribePackagingGroup,
 mediapackage-vod:UpdatePackagingGroup,
 mediapackage-vod:ConfigureLogs,
 mediapackage-vod:TagResource,
 iam:PassRole,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### Delete
-<pre>
+```json
 mediapackage-vod:DescribePackagingGroup,
-mediapackage-vod:DeletePackagingGroup</pre>
+mediapackage-vod:DeletePackagingGroup
+```
 
 
 ## Example

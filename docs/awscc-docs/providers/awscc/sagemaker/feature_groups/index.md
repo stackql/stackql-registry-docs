@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>feature_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 kms:CreateGrant,
 kms:DescribeKey,
@@ -51,11 +51,13 @@ glue:GetDatabase,
 sagemaker:CreateFeatureGroup,
 sagemaker:DescribeFeatureGroup,
 sagemaker:AddTags,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### List
-<pre>
-sagemaker:ListFeatureGroups</pre>
+```json
+sagemaker:ListFeatureGroups
+```
 
 
 ## Example

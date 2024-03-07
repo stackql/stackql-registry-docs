@@ -46,22 +46,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pod_identity_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-eks:DescribePodIdentityAssociation</pre>
+```json
+eks:DescribePodIdentityAssociation
+```
 
 ### Update
-<pre>
+```json
 eks:DescribePodIdentityAssociation,
 eks:UpdatePodIdentityAssociation,
 eks:TagResource,
 eks:UntagResource,
 iam:PassRole,
-iam:GetRole</pre>
+iam:GetRole
+```
 
 ### Delete
-<pre>
+```json
 eks:DeletePodIdentityAssociation,
-eks:DescribePodIdentityAssociation</pre>
+eks:DescribePodIdentityAssociation
+```
 
 
 ## Example

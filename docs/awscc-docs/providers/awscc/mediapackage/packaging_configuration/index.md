@@ -47,13 +47,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>packaging_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediapackage-vod:DescribePackagingConfiguration</pre>
+```json
+mediapackage-vod:DescribePackagingConfiguration
+```
 
 ### Delete
-<pre>
+```json
 mediapackage-vod:DescribePackagingConfiguration,
-mediapackage-vod:DeletePackagingConfiguration</pre>
+mediapackage-vod:DeletePackagingConfiguration
+```
 
 
 ## Example

@@ -42,13 +42,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_pool_user_to_group_attachment</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cognito-idp:AdminRemoveUserFromGroup,
-cognito-idp:AdminListGroupsForUser</pre>
+cognito-idp:AdminListGroupsForUser
+```
 
 ### Read
-<pre>
-cognito-idp:AdminListGroupsForUser</pre>
+```json
+cognito-idp:AdminListGroupsForUser
+```
 
 
 ## Example

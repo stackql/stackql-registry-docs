@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>option_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateServiceLinkedRole,
 rds:AddTagsToResource,
 rds:CreateOptionGroup,
 rds:DescribeOptionGroups,
 rds:ListTagsForResource,
 rds:ModifyOptionGroup,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 ### List
-<pre>
-rds:DescribeOptionGroups</pre>
+```json
+rds:DescribeOptionGroups
+```
 
 
 ## Example

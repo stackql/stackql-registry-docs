@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>component_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 greengrass:CreateComponentVersion,
 greengrass:DescribeComponent,
 greengrass:ListTagsForResource,
 greengrass:TagResource,
 lambda:GetFunction,
-s3:GetObject</pre>
+s3:GetObject
+```
 
 ### List
-<pre>
-greengrass:ListComponentVersions</pre>
+```json
+greengrass:ListComponentVersions
+```
 
 
 ## Example

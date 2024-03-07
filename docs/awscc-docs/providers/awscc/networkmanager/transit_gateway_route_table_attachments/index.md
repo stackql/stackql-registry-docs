@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>transit_gateway_route_table_attachments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:CreateTransitGatewayRouteTableAttachment,
 networkmanager:GetTransitGatewayRouteTableAttachment,
 networkmanager:TagResource,
 iam:CreateServiceLinkedRole,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### List
-<pre>
-networkmanager:ListAttachments</pre>
+```json
+networkmanager:ListAttachments
+```
 
 
 ## Example

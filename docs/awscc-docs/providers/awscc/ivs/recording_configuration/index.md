@@ -47,13 +47,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>recording_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ivs:GetRecordingConfiguration,
 s3:GetBucketLocation,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ivs:GetRecordingConfiguration,
 sts:AssumeRole,
 iam:CreateServiceLinkedRole,
@@ -62,13 +63,15 @@ iam:AttachRolePolicy,
 s3:ListBucket,
 ivs:TagResource,
 ivs:UntagResource,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 ivs:DeleteRecordingConfiguration,
 ivs:UntagResource,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 
 ## Example

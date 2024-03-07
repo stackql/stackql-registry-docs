@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>response_headers_policy</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteResponseHeadersPolicy,
-cloudfront:GetResponseHeadersPolicy</pre>
+cloudfront:GetResponseHeadersPolicy
+```
 
 ### Read
-<pre>
-cloudfront:GetResponseHeadersPolicy</pre>
+```json
+cloudfront:GetResponseHeadersPolicy
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateResponseHeadersPolicy,
-cloudfront:GetResponseHeadersPolicy</pre>
+cloudfront:GetResponseHeadersPolicy
+```
 
 
 ## Example

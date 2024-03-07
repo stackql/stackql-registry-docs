@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster_capacity_provider_associations</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ecs:DescribeClusters</pre>
+```json
+ecs:DescribeClusters
+```
 
 ### Update
-<pre>
+```json
 ecs:DescribeClusters,
-ecs:PutClusterCapacityProviders</pre>
+ecs:PutClusterCapacityProviders
+```
 
 ### Delete
-<pre>
+```json
 ecs:PutClusterCapacityProviders,
-ecs:DescribeClusters</pre>
+ecs:DescribeClusters
+```
 
 
 ## Example

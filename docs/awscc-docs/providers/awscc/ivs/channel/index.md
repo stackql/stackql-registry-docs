@@ -50,22 +50,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channel</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ivs:GetChannel,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ivs:GetChannel,
 ivs:UpdateChannel,
 ivs:TagResource,
 ivs:UnTagResource,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 ivs:DeleteChannel,
-ivs:UnTagResource</pre>
+ivs:UnTagResource
+```
 
 
 ## Example

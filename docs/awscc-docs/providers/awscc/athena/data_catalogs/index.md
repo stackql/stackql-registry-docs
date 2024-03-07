@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_catalogs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 athena:CreateDataCatalog,
-athena:TagResource</pre>
+athena:TagResource
+```
 
 ### List
-<pre>
-athena:ListDataCatalog</pre>
+```json
+athena:ListDataCatalog
+```
 
 
 ## Example

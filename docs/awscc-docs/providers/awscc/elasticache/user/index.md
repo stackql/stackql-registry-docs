@@ -49,22 +49,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 elasticache:DescribeUsers,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 elasticache:ModifyUser,
 elasticache:DescribeUsers,
 elasticache:ListTagsForResource,
 elasticache:AddTagsToResource,
-elasticache:RemoveTagsFromResource</pre>
+elasticache:RemoveTagsFromResource
+```
 
 ### Delete
-<pre>
+```json
 elasticache:DeleteUser,
-elasticache:DescribeUsers</pre>
+elasticache:DescribeUsers
+```
 
 
 ## Example

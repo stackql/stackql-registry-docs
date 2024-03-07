@@ -41,17 +41,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configured_table_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cleanrooms:CreateConfiguredTableAssociation,
 iam:PassRole,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:GetConfiguredTableAssociation,
-cleanrooms:ListConfiguredTableAssociations</pre>
+cleanrooms:ListConfiguredTableAssociations
+```
 
 ### List
-<pre>
-cleanrooms:ListConfiguredTableAssociations</pre>
+```json
+cleanrooms:ListConfiguredTableAssociations
+```
 
 
 ## Example

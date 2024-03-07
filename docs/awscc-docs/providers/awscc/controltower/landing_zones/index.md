@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>landing_zones</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 controltower:CreateLandingZone,
 controltower:GetLandingZoneOperation,
 controltower:ListTagsForResource,
@@ -71,11 +71,13 @@ organizations:ListRoots,
 sso:GetPeregrineStatus,
 sso:ListDirectoryAssociations,
 sso:StartPeregrine,
-sso:RegisterRegion</pre>
+sso:RegisterRegion
+```
 
 ### List
-<pre>
-controltower:ListLandingZones</pre>
+```json
+controltower:ListLandingZones
+```
 
 
 ## Example

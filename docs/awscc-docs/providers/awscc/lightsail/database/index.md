@@ -55,24 +55,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>database</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lightsail:GetRelationalDatabase,
-lightsail:GetRelationalDatabases</pre>
+lightsail:GetRelationalDatabases
+```
 
 ### Update
-<pre>
+```json
 lightsail:GetRelationalDatabase,
 lightsail:GetRelationalDatabases,
 lightsail:TagResource,
 lightsail:UntagResource,
 lightsail:UpdateRelationalDatabase,
-lightsail:UpdateRelationalDatabaseParameters</pre>
+lightsail:UpdateRelationalDatabaseParameters
+```
 
 ### Delete
-<pre>
+```json
 lightsail:DeleteRelationalDatabase,
 lightsail:GetRelationalDatabase,
-lightsail:GetRelationalDatabases</pre>
+lightsail:GetRelationalDatabases
+```
 
 
 ## Example

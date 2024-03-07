@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>integrations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 profile:GetIntegration,
 profile:PutIntegration,
 appflow:CreateFlow,
@@ -51,11 +51,13 @@ events:ListTargetsByRule,
 events:PutRule,
 events:PutTargets,
 events:PutEvents,
-profile:TagResource</pre>
+profile:TagResource
+```
 
 ### List
-<pre>
-profile:ListIntegrations</pre>
+```json
+profile:ListIntegrations
+```
 
 
 ## Example

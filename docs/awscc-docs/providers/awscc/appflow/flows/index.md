@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>flows</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appflow:CreateFlow,
 appflow:StartFlow,
 appflow:TagResource,
@@ -56,11 +56,13 @@ kms:DescribeKey,
 kms:ListAliases,
 kms:CreateGrant,
 secretsmanager:CreateSecret,
-secretsmanager:PutResourcePolicy</pre>
+secretsmanager:PutResourcePolicy
+```
 
 ### List
-<pre>
-appflow:ListFlows</pre>
+```json
+appflow:ListFlows
+```
 
 
 ## Example

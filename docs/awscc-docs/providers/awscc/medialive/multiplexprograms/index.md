@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>multiplexprograms</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 medialive:CreateMultiplexProgram,
-medialive:DescribeMultiplexProgram</pre>
+medialive:DescribeMultiplexProgram
+```
 
 ### List
-<pre>
-medialive:ListMultiplexPrograms</pre>
+```json
+medialive:ListMultiplexPrograms
+```
 
 
 ## Example

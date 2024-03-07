@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>microsoft_teams_channel_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 chatbot:CreateMicrosoftTeamsChannelConfiguration,
 iam:PassRole,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-chatbot:ListMicrosoftTeamsChannelConfigurations</pre>
+```json
+chatbot:ListMicrosoftTeamsChannelConfigurations
+```
 
 
 ## Example

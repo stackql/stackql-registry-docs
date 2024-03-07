@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>global_tables</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 dynamodb:CreateTable,
 dynamodb:CreateTableReplica,
 dynamodb:Describe*,
@@ -78,12 +78,14 @@ kms:ListAliases,
 kms:Decrypt,
 kms:RevokeGrant,
 cloudwatch:PutMetricData,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
+```json
 dynamodb:ListTables,
-cloudwatch:PutMetricData</pre>
+cloudwatch:PutMetricData
+```
 
 
 ## Example

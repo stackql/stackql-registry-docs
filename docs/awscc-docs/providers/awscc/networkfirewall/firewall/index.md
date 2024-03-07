@@ -51,12 +51,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>firewall</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 network-firewall:DescribeFirewall,
-network-firewall:ListTagsForResources</pre>
+network-firewall:ListTagsForResources
+```
 
 ### Update
-<pre>
+```json
 network-firewall:AssociateSubnets,
 network-firewall:DisassociateSubnets,
 network-firewall:UpdateFirewallDescription,
@@ -66,10 +67,11 @@ network-firewall:UpdateFirewallPolicyChangeProtection,
 network-firewall:AssociateFirewallPolicy,
 network-firewall:TagResource,
 network-firewall:UntagResource,
-network-firewall:DescribeFirewall</pre>
+network-firewall:DescribeFirewall
+```
 
 ### Delete
-<pre>
+```json
 ec2:DeleteVpcEndpoints,
 ec2:DescribeRouteTables,
 logs:DescribeLogGroups,
@@ -78,7 +80,8 @@ logs:GetLogDelivery,
 logs:ListLogDeliveries,
 network-firewall:DeleteFirewall,
 network-firewall:UntagResource,
-network-firewall:DescribeFirewall</pre>
+network-firewall:DescribeFirewall
+```
 
 
 ## Example

@@ -49,15 +49,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>studio</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 nimble:GetStudio,
 kms:Encrypt,
 kms:Decrypt,
 kms:ListGrants,
-kms:GenerateDataKey</pre>
+kms:GenerateDataKey
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 nimble:UpdateStudio,
 nimble:GetStudio,
@@ -65,10 +66,11 @@ kms:Encrypt,
 kms:Decrypt,
 kms:CreateGrant,
 kms:ListGrants,
-kms:GenerateDataKey</pre>
+kms:GenerateDataKey
+```
 
 ### Delete
-<pre>
+```json
 nimble:DeleteStudio,
 nimble:GetStudio,
 nimble:UntagResource,
@@ -78,7 +80,8 @@ kms:ListGrants,
 kms:RetireGrant,
 kms:GenerateDataKey,
 sso:DeleteManagedApplicationInstance,
-sso:GetManagedApplicationInstance</pre>
+sso:GetManagedApplicationInstance
+```
 
 
 ## Example

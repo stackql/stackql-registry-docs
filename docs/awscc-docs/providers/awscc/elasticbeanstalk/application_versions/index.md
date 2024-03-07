@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticbeanstalk:CreateApplicationVersion,
 elasticbeanstalk:DescribeApplicationVersions,
 s3:GetObject,
-s3:PutObject</pre>
+s3:PutObject
+```
 
 ### List
-<pre>
-elasticbeanstalk:DescribeApplicationVersions</pre>
+```json
+elasticbeanstalk:DescribeApplicationVersions
+```
 
 
 ## Example

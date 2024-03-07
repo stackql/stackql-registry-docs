@@ -41,16 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>project</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lookoutvision:DescribeProject</pre>
-
-### Update
-<pre>
-</pre>
+```json
+lookoutvision:DescribeProject
+```
 
 ### Delete
-<pre>
-lookoutvision:DeleteProject</pre>
+```json
+lookoutvision:DeleteProject
+```
 
 
 ## Example

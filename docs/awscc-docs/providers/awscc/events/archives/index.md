@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>archives</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 events:DescribeArchive,
-events:CreateArchive</pre>
+events:CreateArchive
+```
 
 ### List
-<pre>
-events:ListArchives</pre>
+```json
+events:ListArchives
+```
 
 
 ## Example

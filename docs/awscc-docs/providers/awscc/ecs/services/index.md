@@ -41,17 +41,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>services</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecs:CreateService,
 ecs:DescribeServices,
 iam:PassRole,
-ecs:TagResource</pre>
+ecs:TagResource
+```
 
 ### List
-<pre>
+```json
 ecs:DescribeServices,
 ecs:ListClusters,
-ecs:ListServices</pre>
+ecs:ListServices
+```
 
 
 ## Example

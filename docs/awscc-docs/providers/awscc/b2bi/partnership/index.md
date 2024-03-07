@@ -50,19 +50,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>partnership</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 b2bi:GetPartnership,
-b2bi:ListTagsForResource</pre>
+b2bi:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 b2bi:TagResource,
 b2bi:UntagResource,
-b2bi:UpdatePartnership</pre>
+b2bi:UpdatePartnership
+```
 
 ### Delete
-<pre>
-b2bi:DeletePartnership</pre>
+```json
+b2bi:DeletePartnership
+```
 
 
 ## Example

@@ -41,17 +41,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fargate_profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 eks:CreateFargateProfile,
 eks:DescribeFargateProfile,
 iam:GetRole,
 iam:PassRole,
 iam:CreateServiceLinkedRole,
-eks:TagResource</pre>
+eks:TagResource
+```
 
 ### List
-<pre>
-eks:ListFargateProfiles</pre>
+```json
+eks:ListFargateProfiles
+```
 
 
 ## Example

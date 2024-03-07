@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticache:CreateUserGroup,
 elasticache:DescribeUserGroups,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 elasticache:DescribeUserGroups,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 
 ## Example

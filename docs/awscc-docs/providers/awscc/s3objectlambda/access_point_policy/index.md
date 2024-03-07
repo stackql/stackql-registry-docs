@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_point_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-s3:GetAccessPointPolicyForObjectLambda</pre>
+```json
+s3:GetAccessPointPolicyForObjectLambda
+```
 
 ### Update
-<pre>
+```json
 s3:PutAccessPointPolicyForObjectLambda,
-s3:GetAccessPointPolicyForObjectLambda</pre>
+s3:GetAccessPointPolicyForObjectLambda
+```
 
 ### Delete
-<pre>
+```json
 s3:DeleteAccessPointPolicyForObjectLambda,
-s3:GetAccessPointPolicyForObjectLambda</pre>
+s3:GetAccessPointPolicyForObjectLambda
+```
 
 
 ## Example

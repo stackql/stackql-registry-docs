@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>flow_sources</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediaconnect:CreateFlow,
 mediaconnect:DescribeFlow,
 mediaconnect:AddFlowSources,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-mediaconnect:DescribeFlow</pre>
+```json
+mediaconnect:DescribeFlow
+```
 
 
 ## Example

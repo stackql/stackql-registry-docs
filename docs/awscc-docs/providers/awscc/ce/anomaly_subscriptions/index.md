@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>anomaly_subscriptions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ce:CreateAnomalySubscription,
-ce:TagResource</pre>
+ce:TagResource
+```
 
 ### List
-<pre>
-ce:GetAnomalySubscriptions</pre>
+```json
+ce:GetAnomalySubscriptions
+```
 
 
 ## Example

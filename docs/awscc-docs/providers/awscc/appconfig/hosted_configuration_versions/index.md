@@ -42,12 +42,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hosted_configuration_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-appconfig:CreateHostedConfigurationVersion</pre>
+```json
+appconfig:CreateHostedConfigurationVersion
+```
 
 ### List
-<pre>
-appconfig:ListHostedConfigurationVersions</pre>
+```json
+appconfig:ListHostedConfigurationVersions
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolver_rules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 route53resolver:CreateResolverRule,
 route53resolver:GetResolverRule,
 route53resolver:ListTagsForResource,
-route53resolver:TagResource</pre>
+route53resolver:TagResource
+```
 
 ### List
-<pre>
-route53resolver:ListResolverRules</pre>
+```json
+route53resolver:ListResolverRules
+```
 
 
 ## Example

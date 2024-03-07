@@ -46,19 +46,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>traffic_distribution_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribeTrafficDistributionGroup</pre>
+```json
+connect:DescribeTrafficDistributionGroup
+```
 
 ### Update
-<pre>
+```json
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteTrafficDistributionGroup,
 connect:DescribeTrafficDistributionGroup,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 
 ## Example

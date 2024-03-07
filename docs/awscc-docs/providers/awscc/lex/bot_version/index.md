@@ -43,13 +43,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bot_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lex:DescribeBotVersion</pre>
+```json
+lex:DescribeBotVersion
+```
 
 ### Delete
-<pre>
+```json
 lex:DeleteBotVersion,
-lex:DescribeBotVersion</pre>
+lex:DescribeBotVersion
+```
 
 
 ## Example

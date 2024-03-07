@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>origin_request_policy</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 cloudfront:DeleteOriginRequestPolicy,
-cloudfront:GetOriginRequestPolicy</pre>
+cloudfront:GetOriginRequestPolicy
+```
 
 ### Read
-<pre>
-cloudfront:GetOriginRequestPolicy</pre>
+```json
+cloudfront:GetOriginRequestPolicy
+```
 
 ### Update
-<pre>
+```json
 cloudfront:UpdateOriginRequestPolicy,
-cloudfront:GetOriginRequestPolicy</pre>
+cloudfront:GetOriginRequestPolicy
+```
 
 
 ## Example

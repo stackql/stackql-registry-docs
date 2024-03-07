@@ -49,18 +49,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>matching_workflow</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 entityresolution:GetMatchingWorkflow,
-entityresolution:ListTagsForResource</pre>
+entityresolution:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 entityresolution:DeleteMatchingWorkflow,
 entityresolution:GetMatchingWorkflow,
-entityresolution:UntagResource</pre>
+entityresolution:UntagResource
+```
 
 ### Update
-<pre>
+```json
 entityresolution:GetMatchingWorkflow,
 entityresolution:UpdateMatchingWorkflow,
 entityresolution:ListTagsForResource,
@@ -68,7 +70,8 @@ entityresolution:TagResource,
 entityresolution:UntagResource,
 iam:PassRole,
 kms:CreateGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 
 ## Example

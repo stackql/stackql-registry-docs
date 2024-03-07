@@ -49,18 +49,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>monitoring_schedule</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteMonitoringSchedule,
-sagemaker:DescribeMonitoringSchedule</pre>
+sagemaker:DescribeMonitoringSchedule
+```
 
 ### Read
-<pre>
-sagemaker:DescribeMonitoringSchedule</pre>
+```json
+sagemaker:DescribeMonitoringSchedule
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateMonitoringSchedule,
-sagemaker:DescribeMonitoringSchedule</pre>
+sagemaker:DescribeMonitoringSchedule
+```
 
 
 ## Example

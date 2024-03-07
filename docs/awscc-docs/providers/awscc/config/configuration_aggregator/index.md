@@ -44,12 +44,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configuration_aggregator</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 config:DescribeConfigurationAggregators,
-config:ListTagsForResource</pre>
+config:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 config:PutConfigurationAggregator,
 config:DescribeConfigurationAggregators,
 config:TagResource,
@@ -57,12 +58,14 @@ config:UntagResource,
 config:ListTagsForResource,
 iam:PassRole,
 organizations:EnableAWSServiceAccess,
-organizations:ListDelegatedAdministrators</pre>
+organizations:ListDelegatedAdministrators
+```
 
 ### Delete
-<pre>
+```json
 config:DeleteConfigurationAggregator,
-config:UntagResource</pre>
+config:UntagResource
+```
 
 
 ## Example

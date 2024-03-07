@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channels</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediapackagev2:TagResource,
-mediapackagev2:CreateChannel</pre>
+mediapackagev2:CreateChannel
+```
 
 ### List
-<pre>
-mediapackagev2:ListChannels</pre>
+```json
+mediapackagev2:ListChannels
+```
 
 
 ## Example

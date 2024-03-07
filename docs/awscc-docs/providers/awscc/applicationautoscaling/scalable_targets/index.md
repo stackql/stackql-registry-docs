@@ -42,7 +42,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scalable_targets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 application-autoscaling:DescribeScalableTargets,
 application-autoscaling:RegisterScalableTarget,
 application-autoscaling:DescribeScheduledActions,
@@ -54,11 +54,13 @@ cloudwatch:DeleteAlarms,
 cloudwatch:DescribeAlarms,
 lambda:GetProvisionedConcurrencyConfig,
 lambda:PutProvisionedConcurrencyConfig,
-lambda:DeleteProvisionedConcurrencyConfig</pre>
+lambda:DeleteProvisionedConcurrencyConfig
+```
 
 ### List
-<pre>
-application-autoscaling:DescribeScalableTargets</pre>
+```json
+application-autoscaling:DescribeScalableTargets
+```
 
 
 ## Example

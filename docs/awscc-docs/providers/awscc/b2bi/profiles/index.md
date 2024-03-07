@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 b2bi:CreateProfile,
 b2bi:TagResource,
 logs:CreateLogDelivery,
@@ -51,11 +51,13 @@ logs:DescribeLogStreams,
 logs:DescribeResourcePolicies,
 logs:ListLogDeliveries,
 logs:PutLogEvents,
-logs:PutResourcePolicy</pre>
+logs:PutResourcePolicy
+```
 
 ### List
-<pre>
-b2bi:ListProfiles</pre>
+```json
+b2bi:ListProfiles
+```
 
 
 ## Example

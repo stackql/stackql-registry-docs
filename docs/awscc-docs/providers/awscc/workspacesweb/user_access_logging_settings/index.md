@@ -43,24 +43,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_access_logging_settings</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 workspaces-web:GetUserAccessLoggingSettings,
-workspaces-web:ListTagsForResource</pre>
+workspaces-web:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 workspaces-web:UpdateUserAccessLoggingSettings,
 workspaces-web:TagResource,
 workspaces-web:UntagResource,
 workspaces-web:GetUserAccessLoggingSettings,
 workspaces-web:ListTagsForResource,
 kinesis:PutRecord,
-kinesis:PutRecords</pre>
+kinesis:PutRecords
+```
 
 ### Delete
-<pre>
+```json
 workspaces-web:GetUserAccessLoggingSettings,
-workspaces-web:DeleteUserAccessLoggingSettings</pre>
+workspaces-web:DeleteUserAccessLoggingSettings
+```
 
 
 ## Example

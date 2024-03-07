@@ -46,20 +46,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_point</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-elasticfilesystem:DescribeAccessPoints</pre>
+```json
+elasticfilesystem:DescribeAccessPoints
+```
 
 ### Delete
-<pre>
+```json
 elasticfilesystem:DeleteAccessPoint,
-elasticfilesystem:DescribeAccessPoints</pre>
+elasticfilesystem:DescribeAccessPoints
+```
 
 ### Update
-<pre>
+```json
 elasticfilesystem:DescribeAccessPoints,
 elasticfilesystem:ListTagsForResource,
 elasticfilesystem:TagResource,
-elasticfilesystem:UntagResource</pre>
+elasticfilesystem:UntagResource
+```
 
 
 ## Example

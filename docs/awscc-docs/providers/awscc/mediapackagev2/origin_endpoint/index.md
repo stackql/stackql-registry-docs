@@ -52,21 +52,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>origin_endpoint</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediapackagev2:GetOriginEndpoint</pre>
+```json
+mediapackagev2:GetOriginEndpoint
+```
 
 ### Update
-<pre>
+```json
 mediapackagev2:TagResource,
 mediapackagev2:UntagResource,
 mediapackagev2:ListTagsForResource,
 mediapackagev2:UpdateOriginEndpoint,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 mediapackagev2:GetOriginEndpoint,
-mediapackagev2:DeleteOriginEndpoint</pre>
+mediapackagev2:DeleteOriginEndpoint
+```
 
 
 ## Example

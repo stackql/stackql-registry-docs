@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>object_types</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 profile:GetProfileObjectType,
 profile:PutProfileObjectType,
-profile:TagResource</pre>
+profile:TagResource
+```
 
 ### List
-<pre>
-profile:ListProfileObjectTypes</pre>
+```json
+profile:ListProfileObjectTypes
+```
 
 
 ## Example

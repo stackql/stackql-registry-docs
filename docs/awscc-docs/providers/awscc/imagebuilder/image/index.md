@@ -53,15 +53,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>image</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-imagebuilder:GetImage</pre>
+```json
+imagebuilder:GetImage
+```
 
 ### Delete
-<pre>
+```json
 imagebuilder:GetImage,
 imagebuilder:DeleteImage,
 imagebuilder:UnTagResource,
-imagebuilder:CancelImageCreation</pre>
+imagebuilder:CancelImageCreation
+```
 
 
 ## Example

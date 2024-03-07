@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>layer_version_permissions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-lambda:AddLayerVersionPermission</pre>
+```json
+lambda:AddLayerVersionPermission
+```
 
 ### List
-<pre>
-lambda:GetLayerVersionPolicy</pre>
+```json
+lambda:GetLayerVersionPolicy
+```
 
 
 ## Example

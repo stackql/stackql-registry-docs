@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>profile_permissions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 signer:AddProfilePermission,
-signer:ListProfilePermissions</pre>
+signer:ListProfilePermissions
+```
 
 ### List
-<pre>
+```json
 signer:ListProfilePermissions,
-signer:GetSigningProfile</pre>
+signer:GetSigningProfile
+```
 
 
 ## Example

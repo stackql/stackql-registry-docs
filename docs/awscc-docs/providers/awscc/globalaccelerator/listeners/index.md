@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>listeners</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 globalaccelerator:CreateListener,
 globalaccelerator:DescribeListener,
-globalaccelerator:DescribeAccelerator</pre>
+globalaccelerator:DescribeAccelerator
+```
 
 ### List
-<pre>
-globalaccelerator:ListListeners</pre>
+```json
+globalaccelerator:ListListeners
+```
 
 
 ## Example

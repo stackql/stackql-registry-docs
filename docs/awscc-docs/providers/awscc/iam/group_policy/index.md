@@ -42,18 +42,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>group_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iam:GetGroupPolicy</pre>
+```json
+iam:GetGroupPolicy
+```
 
 ### Update
-<pre>
+```json
 iam:PutGroupPolicy,
-iam:GetGroupPolicy</pre>
+iam:GetGroupPolicy
+```
 
 ### Delete
-<pre>
+```json
 iam:DeleteGroupPolicy,
-iam:GetGroupPolicy</pre>
+iam:GetGroupPolicy
+```
 
 
 ## Example

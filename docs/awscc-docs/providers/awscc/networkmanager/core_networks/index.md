@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>core_networks</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:CreateCoreNetwork,
 networkmanager:GetCoreNetwork,
 networkmanager:GetCoreNetworkPolicy,
 networkmanager:TagResource,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### List
-<pre>
-networkmanager:ListCoreNetworks</pre>
+```json
+networkmanager:ListCoreNetworks
+```
 
 
 ## Example

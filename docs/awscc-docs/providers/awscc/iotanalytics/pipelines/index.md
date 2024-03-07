@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipelines</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-iotanalytics:CreatePipeline</pre>
+```json
+iotanalytics:CreatePipeline
+```
 
 ### List
-<pre>
-iotanalytics:ListPipelines</pre>
+```json
+iotanalytics:ListPipelines
+```
 
 
 ## Example

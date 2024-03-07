@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>organizational_units</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 organizations:CreateOrganizationalUnit,
 organizations:DescribeOrganizationalUnit,
 organizations:ListParents,
 organizations:ListTagsForResource,
-organizations:TagResource</pre>
+organizations:TagResource
+```
 
 ### List
-<pre>
-organizations:ListOrganizationalUnitsForParent</pre>
+```json
+organizations:ListOrganizationalUnitsForParent
+```
 
 
 ## Example

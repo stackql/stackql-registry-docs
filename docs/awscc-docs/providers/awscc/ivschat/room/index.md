@@ -47,21 +47,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>room</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 ivschat:GetRoom,
-ivschat:ListTagsForResource</pre>
+ivschat:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 ivschat:UpdateRoom,
 ivschat:TagResource,
 ivschat:UnTagResource,
-ivschat:ListTagsForResource</pre>
+ivschat:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 ivschat:DeleteRoom,
-ivschat:UntagResource</pre>
+ivschat:UntagResource
+```
 
 
 ## Example

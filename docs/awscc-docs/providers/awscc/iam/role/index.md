@@ -50,14 +50,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>role</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iam:GetRole,
 iam:ListAttachedRolePolicies,
 iam:ListRolePolicies,
-iam:GetRolePolicy</pre>
+iam:GetRolePolicy
+```
 
 ### Update
-<pre>
+```json
 iam:UpdateRole,
 iam:UpdateRoleDescription,
 iam:UpdateAssumeRolePolicy,
@@ -68,10 +69,11 @@ iam:PutRolePermissionsBoundary,
 iam:DeleteRolePolicy,
 iam:PutRolePolicy,
 iam:TagRole,
-iam:UntagRole</pre>
+iam:UntagRole
+```
 
 ### Delete
-<pre>
+```json
 iam:DeleteRole,
 iam:DetachRolePolicy,
 iam:DeleteRolePolicy,
@@ -79,7 +81,8 @@ iam:GetRole,
 iam:ListAttachedRolePolicies,
 iam:ListRolePolicies,
 iam:TagRole,
-iam:UntagRole</pre>
+iam:UntagRole
+```
 
 
 ## Example

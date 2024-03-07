@@ -41,12 +41,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_invoke_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-lambda:PutFunctionEventInvokeConfig</pre>
+```json
+lambda:PutFunctionEventInvokeConfig
+```
 
 ### List
-<pre>
-lambda:ListFunctionEventInvokeConfigs</pre>
+```json
+lambda:ListFunctionEventInvokeConfigs
+```
 
 
 ## Example

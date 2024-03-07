@@ -43,16 +43,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resource_default_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cloudformation:DescribeType</pre>
+```json
+cloudformation:DescribeType
+```
 
 ### Update
-<pre>
-cloudformation:SetTypeDefaultVersion</pre>
+```json
+cloudformation:SetTypeDefaultVersion
+```
 
 ### Delete
-<pre>
-</pre>
+```json
+
+```
 
 
 ## Example

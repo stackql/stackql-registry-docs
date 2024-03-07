@@ -46,23 +46,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>domain</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 codeartifact:DescribeDomain,
 codeartifact:GetDomainPermissionsPolicy,
-codeartifact:ListTagsForResource</pre>
+codeartifact:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 codeartifact:PutDomainPermissionsPolicy,
 codeartifact:DeleteDomainPermissionsPolicy,
 codeartifact:GetDomainPermissionsPolicy,
 codeartifact:TagResource,
-codeartifact:UntagResource</pre>
+codeartifact:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 codeartifact:DeleteDomain,
-codeartifact:DescribeDomain</pre>
+codeartifact:DescribeDomain
+```
 
 
 ## Example

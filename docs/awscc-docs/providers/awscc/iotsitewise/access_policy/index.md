@@ -44,18 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iotsitewise:DescribeAccessPolicy</pre>
+```json
+iotsitewise:DescribeAccessPolicy
+```
 
 ### Update
-<pre>
+```json
 iotsitewise:DescribeAccessPolicy,
-iotsitewise:UpdateAccessPolicy</pre>
+iotsitewise:UpdateAccessPolicy
+```
 
 ### Delete
-<pre>
+```json
 iotsitewise:DescribeAccessPolicy,
-iotsitewise:DeleteAccessPolicy</pre>
+iotsitewise:DeleteAccessPolicy
+```
 
 
 ## Example

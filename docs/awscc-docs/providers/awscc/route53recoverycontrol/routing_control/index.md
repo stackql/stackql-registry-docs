@@ -44,19 +44,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>routing_control</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-route53-recovery-control-config:DescribeRoutingControl</pre>
+```json
+route53-recovery-control-config:DescribeRoutingControl
+```
 
 ### Update
-<pre>
+```json
 route53-recovery-control-config:UpdateRoutingControl,
 route53-recovery-control-config:DescribeRoutingControl,
-route53-recovery-control-config:DescribeControlPanel</pre>
+route53-recovery-control-config:DescribeControlPanel
+```
 
 ### Delete
-<pre>
+```json
 route53-recovery-control-config:DescribeRoutingControl,
-route53-recovery-control-config:DeleteRoutingControl</pre>
+route53-recovery-control-config:DeleteRoutingControl
+```
 
 
 ## Example

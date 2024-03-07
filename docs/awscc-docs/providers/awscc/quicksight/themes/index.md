@@ -41,17 +41,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>themes</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 quicksight:DescribeTheme,
 quicksight:DescribeThemePermissions,
 quicksight:CreateTheme,
 quicksight:TagResource,
 quicksight:UntagResource,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### List
-<pre>
-quicksight:ListThemes</pre>
+```json
+quicksight:ListThemes
+```
 
 
 ## Example

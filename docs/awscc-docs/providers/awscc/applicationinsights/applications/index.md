@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>applications</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-*</pre>
+```json
+*
+```
 
 ### List
-<pre>
-*</pre>
+```json
+*
+```
 
 
 ## Example

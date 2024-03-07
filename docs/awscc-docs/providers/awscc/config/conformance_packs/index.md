@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>conformance_packs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 config:PutConformancePack,
 config:DescribeConformancePackStatus,
 config:DescribeConformancePacks,
 s3:GetObject,
 s3:GetBucketAcl,
 iam:CreateServiceLinkedRole,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-config:DescribeConformancePacks</pre>
+```json
+config:DescribeConformancePacks
+```
 
 
 ## Example

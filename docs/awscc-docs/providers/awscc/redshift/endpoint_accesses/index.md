@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>endpoint_accesses</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 redshift:CreateEndpointAccess,
 redshift:DescribeEndpointAccess,
 ec2:CreateClientVpnEndpoint,
@@ -49,10 +49,11 @@ ec2:DescribeVpcAttribute,
 ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
-ec2:DescribeSubnets</pre>
+ec2:DescribeSubnets
+```
 
 ### List
-<pre>
+```json
 redshift:DescribeEndpointAccess,
 ec2:DescribeClientVpnEndpoints,
 ec2:DescribeVpcEndpoints,
@@ -60,7 +61,8 @@ ec2:DescribeVpcAttribute,
 ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
-ec2:DescribeSubnets</pre>
+ec2:DescribeSubnets
+```
 
 
 ## Example

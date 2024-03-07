@@ -41,17 +41,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>notification_channel</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 fms:PutNotificationChannel,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Read
-<pre>
-fms:GetNotificationChannel</pre>
+```json
+fms:GetNotificationChannel
+```
 
 ### Delete
-<pre>
-fms:DeleteNotificationChannel</pre>
+```json
+fms:DeleteNotificationChannel
+```
 
 
 ## Example

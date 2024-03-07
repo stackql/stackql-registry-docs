@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>live_sources</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediatailor:CreateLiveSource,
 mediatailor:DescribeLiveSource,
-mediatailor:TagResource</pre>
+mediatailor:TagResource
+```
 
 ### List
-<pre>
-mediatailor:ListLiveSources</pre>
+```json
+mediatailor:ListLiveSources
+```
 
 
 ## Example

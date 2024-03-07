@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>functions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudfront:CreateFunction,
 cloudfront:PublishFunction,
-cloudfront:DescribeFunction</pre>
+cloudfront:DescribeFunction
+```
 
 ### List
-<pre>
-cloudfront:ListFunctions</pre>
+```json
+cloudfront:ListFunctions
+```
 
 
 ## Example

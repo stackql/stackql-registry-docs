@@ -48,18 +48,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bridge</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediaconnect:DescribeBridge</pre>
+```json
+mediaconnect:DescribeBridge
+```
 
 ### Update
-<pre>
+```json
 mediaconnect:DescribeBridge,
-mediaconnect:UpdateBridge</pre>
+mediaconnect:UpdateBridge
+```
 
 ### Delete
-<pre>
+```json
 mediaconnect:DescribeBridge,
-mediaconnect:DeleteBridge</pre>
+mediaconnect:DeleteBridge
+```
 
 
 ## Example

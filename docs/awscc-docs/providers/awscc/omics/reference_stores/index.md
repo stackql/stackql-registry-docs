@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>reference_stores</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 omics:CreateReferenceStore,
-omics:TagResource</pre>
+omics:TagResource
+```
 
 ### List
-<pre>
-omics:ListReferenceStores</pre>
+```json
+omics:ListReferenceStores
+```
 
 
 ## Example

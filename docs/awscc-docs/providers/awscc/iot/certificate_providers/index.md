@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificate_providers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreateCertificateProvider,
 iot:DescribeCertificateProvider,
 iot:TagResource,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### List
-<pre>
-iot:ListCertificateProviders</pre>
+```json
+iot:ListCertificateProviders
+```
 
 
 ## Example

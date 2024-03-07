@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>origin_endpoint_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediapackagev2:GetOriginEndpointPolicy</pre>
+```json
+mediapackagev2:GetOriginEndpointPolicy
+```
 
 ### Update
-<pre>
+```json
 mediapackagev2:GetOriginEndpointPolicy,
-mediapackagev2:PutOriginEndpointPolicy</pre>
+mediapackagev2:PutOriginEndpointPolicy
+```
 
 ### Delete
-<pre>
+```json
 mediapackagev2:GetOriginEndpointPolicy,
-mediapackagev2:DeleteOriginEndpointPolicy</pre>
+mediapackagev2:DeleteOriginEndpointPolicy
+```
 
 
 ## Example

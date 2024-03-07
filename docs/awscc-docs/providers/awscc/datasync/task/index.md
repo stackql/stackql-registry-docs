@@ -53,22 +53,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>task</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 datasync:DescribeTask,
-datasync:ListTagsForResource</pre>
+datasync:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 datasync:UpdateTask,
 datasync:DescribeTask,
 datasync:ListTagsForResource,
 datasync:TagResource,
 datasync:UntagResource,
 logs:DescribeLogGroups,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 datasync:DeleteTask,
 ec2:DescribeNetworkInterfaces,
 ec2:DeleteNetworkInterface,
@@ -77,7 +79,8 @@ ec2:DescribeSubnets,
 fsx:DescribeFileSystems,
 elasticfilesystem:DescribeFileSystems,
 elasticfilesystem:DescribeMountTargets,
-iam:GetRole</pre>
+iam:GetRole
+```
 
 
 ## Example

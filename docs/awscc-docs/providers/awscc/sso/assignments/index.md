@@ -45,7 +45,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assignments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sso:CreateAccountAssignment,
 sso:DescribeAccountAssignmentCreationStatus,
 sso:ListAccountAssignments,
@@ -54,12 +54,14 @@ iam:CreateSAMLProvider,
 iam:AttachRolePolicy,
 iam:PutRolePolicy,
 iam:CreateRole,
-iam:ListRolePolicies</pre>
+iam:ListRolePolicies
+```
 
 ### List
-<pre>
+```json
 sso:ListAccountAssignments,
-iam:ListRolePolicies</pre>
+iam:ListRolePolicies
+```
 
 
 ## Example

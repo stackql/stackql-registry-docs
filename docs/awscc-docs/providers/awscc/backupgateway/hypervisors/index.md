@@ -40,18 +40,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hypervisors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 backup-gateway:ImportHypervisorConfiguration,
 backup-gateway:GetHypervisor,
 backup-gateway:ListHypervisors,
 backup-gateway:TagResource,
 kms:CreateGrant,
 kms:Encrypt,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### List
-<pre>
-backup-gateway:ListHypervisors</pre>
+```json
+backup-gateway:ListHypervisors
+```
 
 
 ## Example

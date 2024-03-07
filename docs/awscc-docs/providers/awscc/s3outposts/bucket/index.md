@@ -44,20 +44,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bucket</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 s3-outposts:GetBucket,
 s3-outposts:GetBucketTagging,
-s3-outposts:GetLifecycleConfiguration</pre>
+s3-outposts:GetLifecycleConfiguration
+```
 
 ### Update
-<pre>
+```json
 s3-outposts:PutBucketTagging,
 s3-outposts:DeleteBucketTagging,
-s3-outposts:PutLifecycleConfiguration</pre>
+s3-outposts:PutLifecycleConfiguration
+```
 
 ### Delete
-<pre>
-s3-outposts:DeleteBucket</pre>
+```json
+s3-outposts:DeleteBucket
+```
 
 
 ## Example

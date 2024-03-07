@@ -41,17 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>project</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-rekognition:DescribeProjects</pre>
-
-### Update
-<pre>
-</pre>
+```json
+rekognition:DescribeProjects
+```
 
 ### Delete
-<pre>
+```json
 rekognition:DescribeProjects,
-rekognition:DeleteProject</pre>
+rekognition:DeleteProject
+```
 
 
 ## Example

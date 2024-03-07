@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>restore_testing_plans</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 backup:CreateRestoreTestingPlan,
 backup:TagResource,
 backup:GetRestoreTestingPlan,
-backup:ListTags</pre>
+backup:ListTags
+```
 
 ### List
-<pre>
-backup:ListRestoreTestingPlans</pre>
+```json
+backup:ListRestoreTestingPlans
+```
 
 
 ## Example

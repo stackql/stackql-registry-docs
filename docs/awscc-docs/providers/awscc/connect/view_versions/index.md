@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>view_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-connect:CreateViewVersion</pre>
+```json
+connect:CreateViewVersion
+```
 
 ### List
-<pre>
-connect:ListViewVersions</pre>
+```json
+connect:ListViewVersions
+```
 
 
 ## Example

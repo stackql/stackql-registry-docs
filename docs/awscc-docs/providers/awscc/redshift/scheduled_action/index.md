@@ -49,25 +49,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scheduled_action</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 redshift:DescribeScheduledActions,
-redshift:DescribeTags</pre>
+redshift:DescribeTags
+```
 
 ### Update
-<pre>
+```json
 redshift:DescribeScheduledActions,
 redshift:ModifyScheduledAction,
 redshift:PauseCluster,
 redshift:ResumeCluster,
 redshift:ResizeCluster,
 redshift:DescribeTags,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 redshift:DescribeTags,
 redshift:DescribeScheduledActions,
-redshift:DeleteScheduledAction</pre>
+redshift:DeleteScheduledAction
+```
 
 
 ## Example

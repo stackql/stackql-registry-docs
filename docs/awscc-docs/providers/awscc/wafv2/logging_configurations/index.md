@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>logging_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 wafv2:PutLoggingConfiguration,
 wafv2:GetLoggingConfiguration,
 firehose:ListDeliveryStreams,
@@ -51,11 +51,13 @@ s3:PutBucketPolicy,
 s3:GetBucketPolicy,
 logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
-logs:DescribeLogGroups</pre>
+logs:DescribeLogGroups
+```
 
 ### List
-<pre>
-wafv2:ListLoggingConfigurations</pre>
+```json
+wafv2:ListLoggingConfigurations
+```
 
 
 ## Example

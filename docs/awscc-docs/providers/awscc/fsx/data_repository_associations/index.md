@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>data_repository_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 fsx:CreateDataRepositoryAssociation,
 fsx:DescribeDataRepositoryAssociations,
 fsx:TagResource,
@@ -48,11 +48,13 @@ s3:ListBucket,
 s3:GetBucketPolicy,
 s3:PutBucketPolicy,
 iam:CreateServiceLinkedRole,
-iam:PutRolePolicy</pre>
+iam:PutRolePolicy
+```
 
 ### List
-<pre>
-fsx:DescribeDataRepositoryAssociations</pre>
+```json
+fsx:DescribeDataRepositoryAssociations
+```
 
 
 ## Example

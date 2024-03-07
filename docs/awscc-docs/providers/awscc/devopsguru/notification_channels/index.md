@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>notification_channels</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 devops-guru:AddNotificationChannel,
 devops-guru:ListNotificationChannels,
 sns:Publish,
 sns:GetTopicAttributes,
-sns:SetTopicAttributes</pre>
+sns:SetTopicAttributes
+```
 
 ### List
-<pre>
-devops-guru:ListNotificationChannels</pre>
+```json
+devops-guru:ListNotificationChannels
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>in_app_templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mobiletargeting:CreateInAppTemplate,
 mobiletargeting:GetInAppTemplate,
-mobiletargeting:TagResource</pre>
+mobiletargeting:TagResource
+```
 
 ### List
-<pre>
+```json
 mobiletargeting:GetInAppTemplate,
-mobiletargeting:ListTemplates</pre>
+mobiletargeting:ListTemplates
+```
 
 
 ## Example

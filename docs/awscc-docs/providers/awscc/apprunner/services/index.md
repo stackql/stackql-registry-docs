@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>services</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apprunner:CreateService,
 apprunner:TagResource,
 iam:PassRole,
@@ -51,12 +51,14 @@ logs:CreateLogStream,
 logs:PutLogEvents,
 logs:DescribeLogStreams,
 events:PutRule,
-events:PutTargets</pre>
+events:PutTargets
+```
 
 ### List
-<pre>
+```json
 apprunner:ListServices,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

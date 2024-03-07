@@ -47,19 +47,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>restore_testing_selection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-backup:GetRestoreTestingSelection</pre>
+```json
+backup:GetRestoreTestingSelection
+```
 
 ### Update
-<pre>
+```json
 backup:UpdateRestoreTestingSelection,
 backup:GetRestoreTestingSelection,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 backup:DeleteRestoreTestingSelection,
-backup:GetRestoreTestingSelection</pre>
+backup:GetRestoreTestingSelection
+```
 
 
 ## Example

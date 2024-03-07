@@ -40,10 +40,11 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>queue_inline_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sqs:SetQueueAttributes,
 sqs:GetQueueAttributes,
-sqs:GetQueueUrl</pre>
+sqs:GetQueueUrl
+```
 
 
 ## Example

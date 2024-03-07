@@ -41,12 +41,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>storage_lens</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 s3:GetStorageLensConfiguration,
-s3:GetStorageLensConfigurationTagging</pre>
+s3:GetStorageLensConfigurationTagging
+```
 
 ### Update
-<pre>
+```json
 s3:PutStorageLensConfiguration,
 s3:PutStorageLensConfigurationTagging,
 s3:GetStorageLensConfiguration,
@@ -55,12 +56,14 @@ organizations:DescribeOrganization,
 organizations:ListAccounts,
 organizations:ListAWSServiceAccessForOrganization,
 organizations:ListDelegatedAdministrators,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### Delete
-<pre>
+```json
 s3:DeleteStorageLensConfiguration,
-s3:DeleteStorageLensConfigurationTagging</pre>
+s3:DeleteStorageLensConfigurationTagging
+```
 
 
 ## Example

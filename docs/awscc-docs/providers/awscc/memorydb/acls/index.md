@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>acls</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 memorydb:CreateACL,
 memorydb:DescribeACLs,
 memorydb:TagResource,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 ### List
-<pre>
+```json
 memorydb:DescribeACLs,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 
 ## Example

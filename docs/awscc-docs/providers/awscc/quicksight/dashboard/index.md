@@ -58,13 +58,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dashboard</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 quicksight:DescribeDashboard,
 quicksight:DescribeDashboardPermissions,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 quicksight:DescribeDashboard,
 quicksight:DescribeDashboardPermissions,
 quicksight:UpdateDashboard,
@@ -76,12 +77,14 @@ quicksight:DescribeTheme,
 quicksight:PassDataSet,
 quicksight:TagResource,
 quicksight:UntagResource,
-quicksight:ListTagsForResource</pre>
+quicksight:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 quicksight:DescribeDashboard,
-quicksight:DeleteDashboard</pre>
+quicksight:DeleteDashboard
+```
 
 
 ## Example

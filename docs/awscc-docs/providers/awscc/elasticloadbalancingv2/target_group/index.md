@@ -62,19 +62,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>target_group</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 elasticloadbalancing:DeleteTargetGroup,
-elasticloadbalancing:DescribeTargetGroups</pre>
+elasticloadbalancing:DescribeTargetGroups
+```
 
 ### Read
-<pre>
+```json
 elasticloadbalancing:DescribeTargetGroups,
 elasticloadbalancing:DescribeTargetGroupAttributes,
 elasticloadbalancing:DescribeTargetHealth,
-elasticloadbalancing:DescribeTags</pre>
+elasticloadbalancing:DescribeTags
+```
 
 ### Update
-<pre>
+```json
 elasticloadbalancing:DescribeTargetGroups,
 elasticloadbalancing:ModifyTargetGroup,
 elasticloadbalancing:ModifyTargetGroupAttributes,
@@ -82,7 +84,8 @@ elasticloadbalancing:RegisterTargets,
 elasticloadbalancing:DescribeTargetHealth,
 elasticloadbalancing:DeregisterTargets,
 elasticloadbalancing:AddTags,
-elasticloadbalancing:RemoveTags</pre>
+elasticloadbalancing:RemoveTags
+```
 
 
 ## Example

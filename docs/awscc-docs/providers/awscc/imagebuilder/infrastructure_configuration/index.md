@@ -53,21 +53,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>infrastructure_configuration</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 sns:Publish,
 imagebuilder:GetInfrastructureConfiguration,
-imagebuilder:UpdateInfrastructureConfiguration</pre>
+imagebuilder:UpdateInfrastructureConfiguration
+```
 
 ### Read
-<pre>
-imagebuilder:GetInfrastructureConfiguration</pre>
+```json
+imagebuilder:GetInfrastructureConfiguration
+```
 
 ### Delete
-<pre>
+```json
 imagebuilder:UnTagResource,
 imagebuilder:GetInfrastructureConfiguration,
-imagebuilder:DeleteInfrastructureConfiguration</pre>
+imagebuilder:DeleteInfrastructureConfiguration
+```
 
 
 ## Example

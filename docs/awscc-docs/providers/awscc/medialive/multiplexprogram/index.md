@@ -46,18 +46,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>multiplexprogram</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-medialive:DescribeMultiplexProgram</pre>
+```json
+medialive:DescribeMultiplexProgram
+```
 
 ### Update
-<pre>
+```json
 medialive:UpdateMultiplexProgram,
-medialive:DescribeMultiplexProgram</pre>
+medialive:DescribeMultiplexProgram
+```
 
 ### Delete
-<pre>
+```json
 medialive:DeleteMultiplexProgram,
-medialive:DescribeMultiplexProgram</pre>
+medialive:DescribeMultiplexProgram
+```
 
 
 ## Example

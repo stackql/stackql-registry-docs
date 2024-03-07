@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>links</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:CreateLink,
 networkmanager:GetLinks,
-networkmanager:TagResource</pre>
+networkmanager:TagResource
+```
 
 ### List
-<pre>
-networkmanager:GetLinks</pre>
+```json
+networkmanager:GetLinks
+```
 
 
 ## Example

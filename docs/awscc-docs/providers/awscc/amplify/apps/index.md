@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>apps</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 amplify:GetApp,
 amplify:CreateApp,
 amplify:TagResource,
@@ -49,14 +49,16 @@ codecommit:PutRepositoryTriggers,
 codecommit:GetRepositoryTriggers,
 sns:CreateTopic,
 sns:Subscribe,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
+```json
 amplify:GetApp,
 amplify:ListApps,
 amplify:ListTagsForResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

@@ -45,16 +45,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>private_graph_endpoint</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-neptune-graph:GetPrivateGraphEndpoint</pre>
+```json
+neptune-graph:GetPrivateGraphEndpoint
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
-neptune-graph:GetPrivateGraphEndpoint</pre>
+neptune-graph:GetPrivateGraphEndpoint
+```
 
 ### Delete
-<pre>
+```json
 ec2:DeleteVpcEndpoints,
 ec2:DescribeVpcEndpoints,
 ec2:DescribeSecurityGroups,
@@ -65,7 +67,8 @@ ec2:DescribeAvailabilityZones,
 ec2:ModifyVpcEndpoint,
 route53:DisassociateVPCFromHostedZone,
 neptune-graph:DeletePrivateGraphEndpoint,
-neptune-graph:GetPrivateGraphEndpoint</pre>
+neptune-graph:GetPrivateGraphEndpoint
+```
 
 
 ## Example

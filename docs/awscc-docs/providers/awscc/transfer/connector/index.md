@@ -47,19 +47,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connector</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-transfer:DescribeConnector</pre>
+```json
+transfer:DescribeConnector
+```
 
 ### Update
-<pre>
+```json
 transfer:UpdateConnector,
 transfer:UnTagResource,
 transfer:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-transfer:DeleteConnector</pre>
+```json
+transfer:DeleteConnector
+```
 
 
 ## Example

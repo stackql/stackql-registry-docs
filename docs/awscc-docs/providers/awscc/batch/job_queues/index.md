@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>job_queues</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 Batch:CreateJobQueue,
 Batch:TagResource,
-Batch:DescribeJobQueues</pre>
+Batch:DescribeJobQueues
+```
 
 ### List
-<pre>
-Batch:DescribeJobQueues</pre>
+```json
+Batch:DescribeJobQueues
+```
 
 
 ## Example

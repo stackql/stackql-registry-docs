@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>response_headers_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-cloudfront:CreateResponseHeadersPolicy</pre>
+```json
+cloudfront:CreateResponseHeadersPolicy
+```
 
 ### List
-<pre>
-cloudfront:ListResponseHeadersPolicies</pre>
+```json
+cloudfront:ListResponseHeadersPolicies
+```
 
 
 ## Example

@@ -42,10 +42,11 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>methods</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apigateway:PUT,
 apigateway:GET,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

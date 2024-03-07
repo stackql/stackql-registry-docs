@@ -44,18 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>virtualmfa_device</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iam:ListVirtualMFADevices</pre>
+```json
+iam:ListVirtualMFADevices
+```
 
 ### Update
-<pre>
+```json
 iam:TagMFADevice,
-iam:UntagMFADevice</pre>
+iam:UntagMFADevice
+```
 
 ### Delete
-<pre>
+```json
 iam:DeleteVirtualMFADevice,
-iam:DeactivateMFADevice</pre>
+iam:DeactivateMFADevice
+```
 
 
 ## Example

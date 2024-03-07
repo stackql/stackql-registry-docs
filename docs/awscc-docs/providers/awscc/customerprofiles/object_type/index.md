@@ -52,19 +52,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>object_type</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-profile:GetProfileObjectType</pre>
+```json
+profile:GetProfileObjectType
+```
 
 ### Update
-<pre>
+```json
 profile:GetProfileObjectType,
 profile:PutProfileObjectType,
 profile:UntagResource,
-profile:TagResource</pre>
+profile:TagResource
+```
 
 ### Delete
-<pre>
-profile:DeleteProfileObjectType</pre>
+```json
+profile:DeleteProfileObjectType
+```
 
 
 ## Example

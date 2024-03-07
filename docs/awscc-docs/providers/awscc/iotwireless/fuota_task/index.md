@@ -52,12 +52,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fuota_task</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetFuotaTask,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 iotwireless:UpdateFuotaTask,
 iotwireless:UntagResource,
@@ -65,11 +66,13 @@ iotwireless:ListTagsForResource,
 iotwireless:AssociateMulticastGroupWithFuotaTask,
 iotwireless:DisassociateMulticastGroupFromFuotaTask,
 iotwireless:AssociateWirelessDeviceWithFuotaTask,
-iotwireless:DisassociateWirelessDeviceFromFuotaTask</pre>
+iotwireless:DisassociateWirelessDeviceFromFuotaTask
+```
 
 ### Delete
-<pre>
-iotwireless:DeleteFuotaTask</pre>
+```json
+iotwireless:DeleteFuotaTask
+```
 
 
 ## Example

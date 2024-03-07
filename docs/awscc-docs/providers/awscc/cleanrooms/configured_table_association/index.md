@@ -47,26 +47,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configured_table_association</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 cleanrooms:GetConfiguredTableAssociation,
-cleanrooms:ListTagsForResource</pre>
+cleanrooms:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 cleanrooms:UpdateConfiguredTableAssociation,
 cleanrooms:GetConfiguredTableAssociation,
 iam:PassRole,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
-cleanrooms:UntagResource</pre>
+cleanrooms:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 cleanrooms:DeleteConfiguredTableAssociation,
 cleanrooms:GetConfiguredTableAssociation,
 cleanrooms:ListConfiguredTableAssociations,
 cleanrooms:ListTagsForResource,
-cleanrooms:UntagResource</pre>
+cleanrooms:UntagResource
+```
 
 
 ## Example

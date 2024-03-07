@@ -46,14 +46,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>app</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sagemaker:DescribeApp,
-sagemaker:DescribeApp</pre>
+sagemaker:DescribeApp
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteApp,
-sagemaker:DescribeApp</pre>
+sagemaker:DescribeApp
+```
 
 
 ## Example

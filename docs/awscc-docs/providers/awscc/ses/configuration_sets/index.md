@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configuration_sets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-ses:CreateConfigurationSet</pre>
+```json
+ses:CreateConfigurationSet
+```
 
 ### List
-<pre>
-ses:ListConfigurationSets</pre>
+```json
+ses:ListConfigurationSets
+```
 
 
 ## Example

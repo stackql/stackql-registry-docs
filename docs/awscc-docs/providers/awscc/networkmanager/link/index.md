@@ -50,21 +50,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>link</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-networkmanager:GetLinks</pre>
+```json
+networkmanager:GetLinks
+```
 
 ### Update
-<pre>
+```json
 networkmanager:ListTagsForResource,
 networkmanager:TagResource,
 networkmanager:GetLinks,
 networkmanager:UntagResource,
-networkmanager:UpdateLink</pre>
+networkmanager:UpdateLink
+```
 
 ### Delete
-<pre>
+```json
 networkmanager:GetLinks,
-networkmanager:DeleteLink</pre>
+networkmanager:DeleteLink
+```
 
 
 ## Example

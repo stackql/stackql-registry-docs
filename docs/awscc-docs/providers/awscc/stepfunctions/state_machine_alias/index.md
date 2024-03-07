@@ -44,19 +44,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>state_machine_alias</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-states:DescribeStateMachineAlias</pre>
+```json
+states:DescribeStateMachineAlias
+```
 
 ### Update
-<pre>
+```json
 cloudwatch:DescribeAlarms,
 states:UpdateStateMachineAlias,
-states:DescribeStateMachineAlias</pre>
+states:DescribeStateMachineAlias
+```
 
 ### Delete
-<pre>
+```json
 states:DescribeStateMachineAlias,
-states:DeleteStateMachineAlias</pre>
+states:DeleteStateMachineAlias
+```
 
 
 ## Example

@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>images</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateImage,
 sagemaker:DescribeImage,
 iam:PassRole,
 sagemaker:AddTags,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### List
-<pre>
-sagemaker:ListImages</pre>
+```json
+sagemaker:ListImages
+```
 
 
 ## Example

@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>nodegroups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 eks:CreateNodegroup,
 eks:DescribeNodegroup,
 eks:TagResource,
@@ -57,11 +57,13 @@ ec2:RunInstances,
 iam:CreateServiceLinkedRole,
 iam:GetRole,
 iam:PassRole,
-iam:ListAttachedRolePolicies</pre>
+iam:ListAttachedRolePolicies
+```
 
 ### List
-<pre>
-eks:ListNodegroups</pre>
+```json
+eks:ListNodegroups
+```
 
 
 ## Example

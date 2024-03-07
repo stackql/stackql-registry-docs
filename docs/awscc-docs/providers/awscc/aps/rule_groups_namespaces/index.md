@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rule_groups_namespaces</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 aps:CreateRuleGroupsNamespace,
 aps:DescribeRuleGroupsNamespace,
-aps:TagResource</pre>
+aps:TagResource
+```
 
 ### List
-<pre>
+```json
 aps:ListRuleGroupsNamespaces,
-aps:ListTagsForResource</pre>
+aps:ListTagsForResource
+```
 
 
 ## Example

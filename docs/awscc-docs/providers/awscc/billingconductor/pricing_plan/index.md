@@ -47,26 +47,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pricing_plan</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 billingconductor:ListPricingPlans,
 billingconductor:ListPricingRulesAssociatedToPricingPlan,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 billingconductor:ListPricingPlans,
 billingconductor:UpdatePricingPlan,
 billingconductor:ListPricingRulesAssociatedToPricingPlan,
 billingconductor:AssociatePricingRules,
 billingconductor:DisassociatePricingRules,
 billingconductor:TagResource,
-billingconductor:UntagResource</pre>
+billingconductor:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 billingconductor:ListPricingPlans,
 billingconductor:DeletePricingPlan,
-billingconductor:UntagResource</pre>
+billingconductor:UntagResource
+```
 
 
 ## Example

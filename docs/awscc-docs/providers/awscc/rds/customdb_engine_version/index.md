@@ -49,20 +49,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>customdb_engine_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-rds:DescribeDBEngineVersions</pre>
+```json
+rds:DescribeDBEngineVersions
+```
 
 ### Update
-<pre>
+```json
 rds:AddTagsToResource,
 rds:DescribeDBEngineVersions,
 rds:ModifyCustomDBEngineVersion,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 ### Delete
-<pre>
+```json
 rds:DeleteCustomDBEngineVersion,
-rds:DescribeDBEngineVersions</pre>
+rds:DescribeDBEngineVersions
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>target_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticloadbalancing:CreateTargetGroup,
 elasticloadbalancing:DescribeTargetGroups,
 elasticloadbalancing:RegisterTargets,
 elasticloadbalancing:ModifyTargetGroupAttributes,
 elasticloadbalancing:DescribeTargetHealth,
-elasticloadbalancing:AddTags</pre>
+elasticloadbalancing:AddTags
+```
 
 ### List
-<pre>
-elasticloadbalancing:DescribeTargetGroups</pre>
+```json
+elasticloadbalancing:DescribeTargetGroups
+```
 
 
 ## Example

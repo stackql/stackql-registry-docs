@@ -44,32 +44,35 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_link</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 apigateway:PATCH,
 apigateway:GET,
 apigateway:PUT,
 ec2:CreateVpcEndpointServiceConfiguration,
 ec2:DeleteVpcEndpointServiceConfigurations,
 ec2:DescribeVpcEndpointServiceConfigurations,
-ec2:ModifyVpcEndpointServicePermissions</pre>
+ec2:ModifyVpcEndpointServicePermissions
+```
 
 ### Read
-<pre>
+```json
 apigateway:GET,
 ec2:CreateVpcEndpointServiceConfiguration,
 ec2:DeleteVpcEndpointServiceConfigurations,
 ec2:DescribeVpcEndpointServiceConfigurations,
-ec2:ModifyVpcEndpointServicePermissions</pre>
+ec2:ModifyVpcEndpointServicePermissions
+```
 
 ### Delete
-<pre>
+```json
 apigateway:GET,
 apigateway:DELETE,
 apigateway:PUT,
 ec2:CreateVpcEndpointServiceConfiguration,
 ec2:DeleteVpcEndpointServiceConfigurations,
 ec2:DescribeVpcEndpointServiceConfigurations,
-ec2:ModifyVpcEndpointServicePermissions</pre>
+ec2:ModifyVpcEndpointServicePermissions
+```
 
 
 ## Example

@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>protection_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 shield:CreateProtectionGroup,
-shield:TagResource</pre>
+shield:TagResource
+```
 
 ### List
-<pre>
-shield:ListProtectionGroups</pre>
+```json
+shield:ListProtectionGroups
+```
 
 
 ## Example

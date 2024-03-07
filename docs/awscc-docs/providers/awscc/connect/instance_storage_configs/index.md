@@ -42,7 +42,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance_storage_configs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:AssociateInstanceStorageConfig,
 connect:DescribeInstance,
 ds:DescribeDirectories,
@@ -52,13 +52,15 @@ iam:PutRolePolicy,
 kinesis:DescribeStream,
 kms:DescribeKey,
 kms:CreateGrant,
-firehose:DescribeDeliveryStream</pre>
+firehose:DescribeDeliveryStream
+```
 
 ### List
-<pre>
+```json
 connect:DescribeInstance,
 connect:ListInstanceStorageConfigs,
-ds:DescribeDirectories</pre>
+ds:DescribeDirectories
+```
 
 
 ## Example

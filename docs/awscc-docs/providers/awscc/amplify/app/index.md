@@ -58,25 +58,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>app</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 amplify:GetApp,
 amplify:DeleteApp,
 codecommit:GetRepository,
 codecommit:GetRepositoryTriggers,
 codecommit:PutRepositoryTriggers,
 sns:Unsubscribe,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Read
-<pre>
+```json
 amplify:GetApp,
 amplify:ListTagsForResource,
 codecommit:GetRepository,
 codecommit:GetRepositoryTriggers,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Update
-<pre>
+```json
 amplify:GetApp,
 amplify:UpdateApp,
 amplify:ListTagsForResource,
@@ -88,7 +90,8 @@ codecommit:GetRepositoryTriggers,
 sns:CreateTopic,
 sns:Subscribe,
 sns:Unsubscribe,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

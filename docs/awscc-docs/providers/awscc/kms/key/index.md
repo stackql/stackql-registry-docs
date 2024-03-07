@@ -52,14 +52,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>key</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 kms:DescribeKey,
 kms:GetKeyPolicy,
 kms:GetKeyRotationStatus,
-kms:ListResourceTags</pre>
+kms:ListResourceTags
+```
 
 ### Update
-<pre>
+```json
 kms:DescribeKey,
 kms:DisableKey,
 kms:DisableKeyRotation,
@@ -69,12 +70,14 @@ kms:PutKeyPolicy,
 kms:TagResource,
 kms:UntagResource,
 kms:UpdateKeyDescription,
-kms:ListResourceTags</pre>
+kms:ListResourceTags
+```
 
 ### Delete
-<pre>
+```json
 kms:DescribeKey,
-kms:ScheduleKeyDeletion</pre>
+kms:ScheduleKeyDeletion
+```
 
 
 ## Example

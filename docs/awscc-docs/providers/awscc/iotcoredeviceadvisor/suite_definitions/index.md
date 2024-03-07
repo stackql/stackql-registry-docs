@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>suite_definitions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:DescribeCertificate,
 iot:DescribeThing,
 iot:GetPolicy,
@@ -52,11 +52,13 @@ iot:ListThingPrincipals,
 iot:ListThings,
 iotdeviceadvisor:CreateSuiteDefinition,
 iotdeviceadvisor:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-iotdeviceadvisor:ListSuiteDefinitions</pre>
+```json
+iotdeviceadvisor:ListSuiteDefinitions
+```
 
 
 ## Example

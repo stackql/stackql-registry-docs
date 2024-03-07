@@ -47,24 +47,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_entry</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 eks:DescribeAccessEntry,
-eks:ListAssociatedAccessPolicies</pre>
+eks:ListAssociatedAccessPolicies
+```
 
 ### Update
-<pre>
+```json
 eks:DescribeAccessEntry,
 eks:ListAssociatedAccessPolicies,
 eks:UpdateAccessEntry,
 eks:AssociateAccessPolicy,
 eks:DisassociateAccessPolicy,
 eks:TagResource,
-eks:UntagResource</pre>
+eks:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 eks:DeleteAccessEntry,
-eks:DescribeAccessEntry</pre>
+eks:DescribeAccessEntry
+```
 
 
 ## Example

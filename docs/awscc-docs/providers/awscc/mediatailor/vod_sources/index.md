@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vod_sources</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediatailor:CreateVodSource,
 mediatailor:DescribeVodSource,
-mediatailor:TagResource</pre>
+mediatailor:TagResource
+```
 
 ### List
-<pre>
-mediatailor:ListVodSources</pre>
+```json
+mediatailor:ListVodSources
+```
 
 
 ## Example

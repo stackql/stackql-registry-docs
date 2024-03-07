@@ -55,17 +55,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>function_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appsync:GetFunction</pre>
+```json
+appsync:GetFunction
+```
 
 ### Update
-<pre>
+```json
 s3:GetObject,
-appsync:UpdateFunction</pre>
+appsync:UpdateFunction
+```
 
 ### Delete
-<pre>
-appsync:DeleteFunction</pre>
+```json
+appsync:DeleteFunction
+```
 
 
 ## Example

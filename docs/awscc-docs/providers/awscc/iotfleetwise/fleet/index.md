@@ -46,22 +46,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fleet</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotfleetwise:GetFleet,
-iotfleetwise:ListTagsForResource</pre>
+iotfleetwise:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotfleetwise:GetFleet,
 iotfleetwise:UpdateFleet,
 iotfleetwise:ListTagsForResource,
 iotfleetwise:TagResource,
-iotfleetwise:UntagResource</pre>
+iotfleetwise:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 iotfleetwise:GetFleet,
-iotfleetwise:DeleteFleet</pre>
+iotfleetwise:DeleteFleet
+```
 
 
 ## Example

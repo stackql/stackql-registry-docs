@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lightsail:CreateCertificate,
 lightsail:GetCertificates,
 lightsail:TagResource,
-lightsail:UntagResource</pre>
+lightsail:UntagResource
+```
 
 ### List
-<pre>
-lightsail:GetCertificates</pre>
+```json
+lightsail:GetCertificates
+```
 
 
 ## Example

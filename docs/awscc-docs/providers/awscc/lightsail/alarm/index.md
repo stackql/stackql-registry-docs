@@ -52,18 +52,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>alarm</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lightsail:GetAlarms</pre>
+```json
+lightsail:GetAlarms
+```
 
 ### Update
-<pre>
+```json
 lightsail:PutAlarm,
-lightsail:GetAlarms</pre>
+lightsail:GetAlarms
+```
 
 ### Delete
-<pre>
+```json
 lightsail:DeleteAlarm,
-lightsail:GetAlarms</pre>
+lightsail:GetAlarms
+```
 
 
 ## Example

@@ -43,23 +43,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>readiness_check</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53-recovery-readiness:GetReadinessCheck,
-route53-recovery-readiness:ListTagsForResources</pre>
+route53-recovery-readiness:ListTagsForResources
+```
 
 ### Update
-<pre>
+```json
 route53-recovery-readiness:UpdateReadinessCheck,
 route53-recovery-readiness:GetResourceSet,
 route53-recovery-readiness:GetReadinessCheck,
 route53-recovery-readiness:ListTagsForResources,
 route53-recovery-readiness:TagResource,
-route53-recovery-readiness:UntagResource</pre>
+route53-recovery-readiness:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 route53-recovery-readiness:DeleteReadinessCheck,
-route53-recovery-readiness:GetReadinessCheck</pre>
+route53-recovery-readiness:GetReadinessCheck
+```
 
 
 ## Example

@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>public_type_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudformation:TestType,
 cloudformation:DescribeType,
 cloudformation:PublishType,
 cloudformation:DescribePublisher,
 s3:GetObject,
-s3:PutObject</pre>
+s3:PutObject
+```
 
 ### List
-<pre>
-cloudformation:ListTypes</pre>
+```json
+cloudformation:ListTypes
+```
 
 
 ## Example

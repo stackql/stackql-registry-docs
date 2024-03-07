@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>registry_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecr:GetRegistryPolicy,
-ecr:PutRegistryPolicy</pre>
+ecr:PutRegistryPolicy
+```
 
 ### List
-<pre>
-ecr:GetRegistryPolicy</pre>
+```json
+ecr:GetRegistryPolicy
+```
 
 
 ## Example

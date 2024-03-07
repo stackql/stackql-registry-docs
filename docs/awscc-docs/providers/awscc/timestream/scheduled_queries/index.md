@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>scheduled_queries</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 timestream:CreateScheduledQuery,
-timestream:DescribeEndpoints</pre>
+timestream:DescribeEndpoints
+```
 
 ### List
-<pre>
+```json
 timestream:ListScheduledQueries,
-timestream:DescribeEndpoints</pre>
+timestream:DescribeEndpoints
+```
 
 
 ## Example

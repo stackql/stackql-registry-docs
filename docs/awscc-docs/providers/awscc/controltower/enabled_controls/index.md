@@ -41,7 +41,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>enabled_controls</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 controltower:ListEnabledControls,
 controltower:GetEnabledControl,
 controltower:GetControlOperation,
@@ -53,11 +53,13 @@ organizations:AttachPolicy,
 organizations:DetachPolicy,
 organizations:ListPoliciesForTarget,
 organizations:ListTargetsForPolicy,
-organizations:DescribePolicy</pre>
+organizations:DescribePolicy
+```
 
 ### List
-<pre>
-controltower:ListEnabledControls</pre>
+```json
+controltower:ListEnabledControls
+```
 
 
 ## Example

@@ -46,21 +46,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-sagemaker:DescribeUserProfile</pre>
+```json
+sagemaker:DescribeUserProfile
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateUserProfile,
 sagemaker:DescribeUserProfile,
 sagemaker:DescribeImage,
 sagemaker:DescribeImageVersion,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteUserProfile,
-sagemaker:DescribeUserProfile</pre>
+sagemaker:DescribeUserProfile
+```
 
 
 ## Example

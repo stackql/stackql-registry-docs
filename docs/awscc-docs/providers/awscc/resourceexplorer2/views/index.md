@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>views</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 resource-explorer-2:CreateView,
-resource-explorer-2:TagResource</pre>
+resource-explorer-2:TagResource
+```
 
 ### List
-<pre>
-resource-explorer-2:ListViews</pre>
+```json
+resource-explorer-2:ListViews
+```
 
 
 ## Example

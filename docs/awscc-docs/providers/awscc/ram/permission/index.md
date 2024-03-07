@@ -47,11 +47,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>permission</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-ram:GetPermission</pre>
+```json
+ram:GetPermission
+```
 
 ### Update
-<pre>
+```json
 ram:CreatePermissionVersion,
 ram:DeletePermissionVersion,
 ram:SetDefaultPermissionVersion,
@@ -60,12 +61,14 @@ ram:ReplacePermissionAssociations,
 ram:ListReplacePermissionAssociationsWork,
 ram:ListPermissionVersions,
 ram:UntagResource,
-ram:TagResource</pre>
+ram:TagResource
+```
 
 ### Delete
-<pre>
+```json
 ram:DeletePermissionVersion,
-ram:DeletePermission</pre>
+ram:DeletePermission
+```
 
 
 ## Example

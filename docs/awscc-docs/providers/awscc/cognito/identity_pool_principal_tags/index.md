@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_pool_principal_tags</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cognito-identity:GetPrincipalTagAttributeMap,
-cognito-identity:SetPrincipalTagAttributeMap</pre>
+cognito-identity:SetPrincipalTagAttributeMap
+```
 
 ### List
-<pre>
-cognito-identity:GetPrincipalTagAttributeMap</pre>
+```json
+cognito-identity:GetPrincipalTagAttributeMap
+```
 
 
 ## Example

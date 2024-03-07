@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>firewall_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 network-firewall:CreateFirewallPolicy,
 network-firewall:DescribeFirewallPolicy,
 network-firewall:ListTLSInspectionConfigurations,
 network-firewall:TagResource,
-network-firewall:ListRuleGroups</pre>
+network-firewall:ListRuleGroups
+```
 
 ### List
-<pre>
-network-firewall:ListFirewallPolicies</pre>
+```json
+network-firewall:ListFirewallPolicies
+```
 
 
 ## Example

@@ -54,13 +54,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>managed_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iam:GetPolicy,
 iam:ListEntitiesForPolicy,
-iam:GetPolicyVersion</pre>
+iam:GetPolicyVersion
+```
 
 ### Update
-<pre>
+```json
 iam:DetachRolePolicy,
 iam:GetPolicy,
 iam:ListPolicyVersions,
@@ -70,10 +71,11 @@ iam:CreatePolicyVersion,
 iam:DeletePolicyVersion,
 iam:AttachGroupPolicy,
 iam:AttachUserPolicy,
-iam:AttachRolePolicy</pre>
+iam:AttachRolePolicy
+```
 
 ### Delete
-<pre>
+```json
 iam:DetachRolePolicy,
 iam:GetPolicy,
 iam:ListPolicyVersions,
@@ -81,7 +83,8 @@ iam:DetachGroupPolicy,
 iam:DetachUserPolicy,
 iam:DeletePolicyVersion,
 iam:DeletePolicy,
-iam:ListEntitiesForPolicy</pre>
+iam:ListEntitiesForPolicy
+```
 
 
 ## Example

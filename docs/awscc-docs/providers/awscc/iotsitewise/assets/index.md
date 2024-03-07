@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotsitewise:AssociateAssets,
 iotsitewise:CreateAsset,
 iotsitewise:DescribeAsset,
@@ -48,12 +48,14 @@ iotsitewise:DescribeAssetModel,
 iotsitewise:ListAssociatedAssets,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
-iotsitewise:UpdateAssetProperty</pre>
+iotsitewise:UpdateAssetProperty
+```
 
 ### List
-<pre>
+```json
 iotsitewise:ListAssetModels,
-iotsitewise:ListAssets</pre>
+iotsitewise:ListAssets
+```
 
 
 ## Example

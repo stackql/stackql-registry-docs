@@ -57,26 +57,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>inference_experiment</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteInferenceExperiment,
 sagemaker:DescribeInferenceExperiment,
 sagemaker:StopInferenceExperiment,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Read
-<pre>
+```json
 sagemaker:DescribeInferenceExperiment,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateInferenceExperiment,
 sagemaker:StartInferenceExperiment,
 sagemaker:StopInferenceExperiment,
 sagemaker:DescribeInferenceExperiment,
 sagemaker:AddTags,
 sagemaker:DeleteTags,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 
 ## Example

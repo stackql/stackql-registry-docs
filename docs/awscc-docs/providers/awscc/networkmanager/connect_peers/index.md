@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connect_peers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 networkmanager:GetConnectPeer,
 networkmanager:CreateConnectPeer,
 networkmanager:TagResource,
-ec2:DescribeRegions</pre>
+ec2:DescribeRegions
+```
 
 ### List
-<pre>
-networkmanager:ListConnectPeers</pre>
+```json
+networkmanager:ListConnectPeers
+```
 
 
 ## Example

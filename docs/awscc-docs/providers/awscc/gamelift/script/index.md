@@ -47,23 +47,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>script</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 gamelift:DescribeScript,
 gamelift:ListScripts,
-gamelift:ListTagsForResource</pre>
+gamelift:ListTagsForResource
+```
 
 ### Delete
-<pre>
-gamelift:DeleteScript</pre>
+```json
+gamelift:DeleteScript
+```
 
 ### Update
-<pre>
+```json
 gamelift:DescribeScript,
 gamelift:UpdateScript,
 gamelift:ListTagsForResource,
 gamelift:TagResource,
 gamelift:UntagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

@@ -45,22 +45,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-events:DescribeConnection</pre>
+```json
+events:DescribeConnection
+```
 
 ### Update
-<pre>
+```json
 events:UpdateConnection,
 events:DescribeConnection,
 secretsmanager:CreateSecret,
 secretsmanager:UpdateSecret,
 secretsmanager:GetSecretValue,
-secretsmanager:PutSecretValue</pre>
+secretsmanager:PutSecretValue
+```
 
 ### Delete
-<pre>
+```json
 events:DeleteConnection,
-events:DescribeConnection</pre>
+events:DescribeConnection
+```
 
 
 ## Example

@@ -42,16 +42,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>security_key</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:ListSecurityKeys</pre>
-
-### Update
-<pre>
-</pre>
+```json
+connect:ListSecurityKeys
+```
 
 ### Delete
-<pre>
-connect:DisassociateSecurityKey</pre>
+```json
+connect:DisassociateSecurityKey
+```
 
 
 ## Example

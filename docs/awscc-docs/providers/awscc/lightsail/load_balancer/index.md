@@ -49,12 +49,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>load_balancer</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 lightsail:GetLoadBalancer,
-lightsail:GetLoadBalancers</pre>
+lightsail:GetLoadBalancers
+```
 
 ### Update
-<pre>
+```json
 lightsail:GetLoadBalancer,
 lightsail:GetLoadBalancers,
 lightsail:GetInstance,
@@ -62,13 +63,15 @@ lightsail:AttachInstancesToLoadBalancer,
 lightsail:DetachInstancesFromLoadBalancer,
 lightsail:UpdateLoadBalancerAttribute,
 lightsail:TagResource,
-lightsail:UntagResource</pre>
+lightsail:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 lightsail:DeleteLoadBalancer,
 lightsail:GetLoadBalancer,
-lightsail:GetLoadBalancers</pre>
+lightsail:GetLoadBalancers
+```
 
 
 ## Example

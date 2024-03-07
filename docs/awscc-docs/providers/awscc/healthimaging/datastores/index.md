@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>datastores</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 medical-imaging:CreateDatastore,
 medical-imaging:GetDatastore,
 kms:DescribeKey,
@@ -51,11 +51,13 @@ kms:Decrypt,
 lambda:InvokeFunction,
 medical-imaging:TagResource,
 medical-imaging:UntagResource,
-medical-imaging:ListTagsForResource</pre>
+medical-imaging:ListTagsForResource
+```
 
 ### List
-<pre>
-medical-imaging:ListDatastores</pre>
+```json
+medical-imaging:ListDatastores
+```
 
 
 ## Example

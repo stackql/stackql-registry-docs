@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>auto_scaling_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 autoscaling:*,
 cloudwatch:PutMetricAlarm,
 ec2:Describe*,
@@ -52,11 +52,13 @@ iam:CreateServiceLinkedRole,
 iam:PassRole,
 managed-fleets:GetAutoScalingGroup,
 managed-fleets:CreateAutoScalingGroup,
-ssm:GetParameters</pre>
+ssm:GetParameters
+```
 
 ### List
-<pre>
-autoscaling:*</pre>
+```json
+autoscaling:*
+```
 
 
 ## Example

@@ -42,13 +42,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_action_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 servicecatalog:AssociateServiceActionWithProvisioningArtifact,
-servicecatalog:ListServiceActionsForProvisioningArtifact</pre>
+servicecatalog:ListServiceActionsForProvisioningArtifact
+```
 
 ### List
-<pre>
-servicecatalog:ListServiceActionsForProvisioningArtifact</pre>
+```json
+servicecatalog:ListServiceActionsForProvisioningArtifact
+```
 
 
 ## Example

@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workgroups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ec2:DescribeVpcAttribute,
 ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
@@ -50,10 +50,11 @@ ec2:DescribeAccountAttributes,
 ec2:DescribeAvailabilityZones,
 redshift-serverless:CreateNamespace,
 redshift-serverless:CreateWorkgroup,
-redshift-serverless:GetWorkgroup</pre>
+redshift-serverless:GetWorkgroup
+```
 
 ### List
-<pre>
+```json
 ec2:DescribeVpcAttribute,
 ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
@@ -61,7 +62,8 @@ ec2:DescribeInternetGateways,
 ec2:DescribeSubnets,
 ec2:DescribeAccountAttributes,
 ec2:DescribeAvailabilityZones,
-redshift-serverless:ListWorkgroups</pre>
+redshift-serverless:ListWorkgroups
+```
 
 
 ## Example

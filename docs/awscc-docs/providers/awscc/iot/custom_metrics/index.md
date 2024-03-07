@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>custom_metrics</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreateCustomMetric,
-iot:TagResource</pre>
+iot:TagResource
+```
 
 ### List
-<pre>
-iot:ListCustomMetrics</pre>
+```json
+iot:ListCustomMetrics
+```
 
 
 ## Example

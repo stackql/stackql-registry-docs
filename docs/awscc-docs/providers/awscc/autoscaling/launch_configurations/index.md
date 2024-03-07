@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>launch_configurations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 autoscaling:CreateLaunchConfiguration,
 autoscaling:DescribeLaunchConfigurations,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-autoscaling:DescribeLaunchConfigurations</pre>
+```json
+autoscaling:DescribeLaunchConfigurations
+```
 
 
 ## Example

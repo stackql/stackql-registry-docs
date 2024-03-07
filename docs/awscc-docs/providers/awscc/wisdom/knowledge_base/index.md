@@ -48,19 +48,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>knowledge_base</code> resource, the following permissions are required:
 
 ### Update
-<pre>
-wisdom:GetKnowledgeBase</pre>
+```json
+wisdom:GetKnowledgeBase
+```
 
 ### Delete
-<pre>
+```json
 appflow:DeleteFlow,
 appflow:StopFlow,
 app-integrations:DeleteDataIntegrationAssociation,
-wisdom:DeleteKnowledgeBase</pre>
+wisdom:DeleteKnowledgeBase
+```
 
 ### Read
-<pre>
-wisdom:GetKnowledgeBase</pre>
+```json
+wisdom:GetKnowledgeBase
+```
 
 
 ## Example

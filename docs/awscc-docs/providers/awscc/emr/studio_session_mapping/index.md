@@ -43,17 +43,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>studio_session_mapping</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 elasticmapreduce:GetStudioSessionMapping,
 sso-directory:SearchUsers,
 sso-directory:SearchGroups,
 sso-directory:DescribeUser,
 sso-directory:DescribeGroup,
 sso:GetManagedApplicationInstance,
-sso:DescribeInstance</pre>
+sso:DescribeInstance
+```
 
 ### Update
-<pre>
+```json
 elasticmapreduce:GetStudioSessionMapping,
 elasticmapreduce:UpdateStudioSessionMapping,
 sso-directory:SearchUsers,
@@ -61,10 +62,11 @@ sso-directory:SearchGroups,
 sso-directory:DescribeUser,
 sso-directory:DescribeGroup,
 sso:GetManagedApplicationInstance,
-sso:DescribeInstance</pre>
+sso:DescribeInstance
+```
 
 ### Delete
-<pre>
+```json
 elasticmapreduce:GetStudioSessionMapping,
 elasticmapreduce:DeleteStudioSessionMapping,
 sso-directory:SearchUsers,
@@ -76,7 +78,8 @@ sso:DescribeInstance,
 sso:ListDirectoryAssociations,
 sso:GetProfile,
 sso:ListProfiles,
-sso:DisassociateProfile</pre>
+sso:DisassociateProfile
+```
 
 
 ## Example

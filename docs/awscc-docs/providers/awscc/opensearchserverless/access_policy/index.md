@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-aoss:GetAccessPolicy</pre>
+```json
+aoss:GetAccessPolicy
+```
 
 ### Update
-<pre>
+```json
 aoss:UpdateAccessPolicy,
-aoss:GetAccessPolicy</pre>
+aoss:GetAccessPolicy
+```
 
 ### Delete
-<pre>
+```json
 aoss:DeleteAccessPolicy,
-aoss:GetAccessPolicy</pre>
+aoss:GetAccessPolicy
+```
 
 
 ## Example

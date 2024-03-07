@@ -54,22 +54,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pricing_rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 billingconductor:ListPricingRules,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 billingconductor:UpdatePricingRule,
 billingconductor:ListPricingRules,
 billingconductor:TagResource,
-billingconductor:UntagResource</pre>
+billingconductor:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 billingconductor:DeletePricingRule,
 billingconductor:ListPricingRules,
-billingconductor:UntagResource</pre>
+billingconductor:UntagResource
+```
 
 
 ## Example

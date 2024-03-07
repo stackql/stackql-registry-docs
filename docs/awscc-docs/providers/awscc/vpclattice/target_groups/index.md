@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>target_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 vpc-lattice:CreateTargetGroup,
 vpc-lattice:GetTargetGroup,
 vpc-lattice:RegisterTargets,
@@ -55,11 +55,13 @@ ec2:DescribeAvailabilityZoneMappings,
 lambda:Invoke,
 lambda:AddPermission,
 elasticloadbalancing:DescribeLoadBalancers,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-vpc-lattice:ListTargetGroups</pre>
+```json
+vpc-lattice:ListTargetGroups
+```
 
 
 ## Example

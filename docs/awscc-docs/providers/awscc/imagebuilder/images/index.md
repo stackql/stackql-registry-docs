@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>images</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecr:BatchGetRepositoryScanningConfiguration,
 iam:GetRole,
 iam:PassRole,
@@ -52,11 +52,13 @@ imagebuilder:GetWorkflow,
 imagebuilder:GetImage,
 imagebuilder:CreateImage,
 imagebuilder:TagResource,
-inspector2:BatchGetAccountStatus</pre>
+inspector2:BatchGetAccountStatus
+```
 
 ### List
-<pre>
-imagebuilder:ListImages</pre>
+```json
+imagebuilder:ListImages
+```
 
 
 ## Example

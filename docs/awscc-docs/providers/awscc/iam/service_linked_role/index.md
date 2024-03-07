@@ -43,19 +43,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_linked_role</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iam:GetRole</pre>
+```json
+iam:GetRole
+```
 
 ### Update
-<pre>
+```json
 iam:UpdateRole,
-iam:GetRole</pre>
+iam:GetRole
+```
 
 ### Delete
-<pre>
+```json
 iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus,
-iam:GetRole</pre>
+iam:GetRole
+```
 
 
 ## Example

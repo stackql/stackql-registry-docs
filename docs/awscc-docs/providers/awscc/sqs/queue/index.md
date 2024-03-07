@@ -57,22 +57,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>queue</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sqs:GetQueueAttributes,
-sqs:ListQueueTags</pre>
+sqs:ListQueueTags
+```
 
 ### Update
-<pre>
+```json
 sqs:SetQueueAttributes,
 sqs:GetQueueAttributes,
 sqs:ListQueueTags,
 sqs:TagQueue,
-sqs:UntagQueue</pre>
+sqs:UntagQueue
+```
 
 ### Delete
-<pre>
+```json
 sqs:DeleteQueue,
-sqs:GetQueueAttributes</pre>
+sqs:GetQueueAttributes
+```
 
 
 ## Example

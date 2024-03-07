@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>listeners</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticloadbalancing:CreateListener,
 elasticloadbalancing:DescribeListeners,
-cognito-idp:DescribeUserPoolClient</pre>
+cognito-idp:DescribeUserPoolClient
+```
 
 ### List
-<pre>
-elasticloadbalancing:DescribeListeners</pre>
+```json
+elasticloadbalancing:DescribeListeners
+```
 
 
 ## Example

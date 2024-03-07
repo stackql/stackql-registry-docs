@@ -41,14 +41,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_pool_users</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cognito-idp:AdminCreateUser,
 cognito-idp:AdminGetUser,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-cognito-idp:ListUsers</pre>
+```json
+cognito-idp:ListUsers
+```
 
 
 ## Example

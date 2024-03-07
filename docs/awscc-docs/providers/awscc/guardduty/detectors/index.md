@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>detectors</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 guardduty:CreateDetector,
 guardduty:GetDetector,
 guardduty:TagResource,
 iam:CreateServiceLinkedRole,
-iam:GetRole</pre>
+iam:GetRole
+```
 
 ### List
-<pre>
-guardduty:ListDetectors</pre>
+```json
+guardduty:ListDetectors
+```
 
 
 ## Example

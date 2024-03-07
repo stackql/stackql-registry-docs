@@ -55,14 +55,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>container_recipe</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-imagebuilder:GetContainerRecipe</pre>
+```json
+imagebuilder:GetContainerRecipe
+```
 
 ### Delete
-<pre>
+```json
 imagebuilder:UnTagResource,
 imagebuilder:GetContainerRecipe,
-imagebuilder:DeleteContainerRecipe</pre>
+imagebuilder:DeleteContainerRecipe
+```
 
 
 ## Example

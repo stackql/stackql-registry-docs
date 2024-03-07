@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>apps</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cloudformation:DescribeStacks,
 cloudformation:ListStackResources,
 s3:GetBucketLocation,
@@ -60,11 +60,13 @@ sqs:GetQueueAttributes,
 sns:GetTopicAttributes,
 route53:List*,
 iam:PassRole,
-resiliencehub:*</pre>
+resiliencehub:*
+```
 
 ### List
-<pre>
-resiliencehub:ListApps</pre>
+```json
+resiliencehub:ListApps
+```
 
 
 ## Example

@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>saml_providers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateSAMLProvider,
 iam:GetSAMLProvider,
-iam:TagSAMLProvider</pre>
+iam:TagSAMLProvider
+```
 
 ### List
-<pre>
+```json
 iam:ListSAMLProviders,
-iam:GetSAMLProvider</pre>
+iam:GetSAMLProvider
+```
 
 
 ## Example

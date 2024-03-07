@@ -43,22 +43,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>aggregation_authorization</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 config:DescribeAggregationAuthorizations,
 config:TagResource,
 config:UntagResource,
-config:ListTagsForResource</pre>
+config:ListTagsForResource
+```
 
 ### Read
-<pre>
+```json
 config:DescribeAggregationAuthorizations,
-config:ListTagsForResource</pre>
+config:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 config:DescribeAggregationAuthorizations,
 config:DeleteAggregationAuthorization,
-config:UntagResource</pre>
+config:UntagResource
+```
 
 
 ## Example

@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_proxy_endpoints</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 rds:CreateDBProxyEndpoint,
-rds:DescribeDBProxyEndpoints</pre>
+rds:DescribeDBProxyEndpoints
+```
 
 ### List
-<pre>
-rds:DescribeDBProxyEndpoints</pre>
+```json
+rds:DescribeDBProxyEndpoints
+```
 
 
 ## Example

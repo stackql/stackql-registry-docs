@@ -40,21 +40,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>policy_stores</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 verifiedpermissions:CreatePolicyStore,
 verifiedpermissions:GetPolicyStore,
 verifiedpermissions:UpdatePolicyStore,
 verifiedpermissions:DeletePolicyStore,
-verifiedpermissions:PutSchema</pre>
+verifiedpermissions:PutSchema
+```
 
 ### List
-<pre>
+```json
 verifiedpermissions:CreatePolicyStore,
 verifiedpermissions:GetPolicyStore,
 verifiedpermissions:UpdatePolicyStore,
 verifiedpermissions:DeletePolicyStore,
 verifiedpermissions:ListPolicyStores,
-verifiedpermissions:GetSchema</pre>
+verifiedpermissions:GetSchema
+```
 
 
 ## Example

@@ -42,20 +42,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>health_check</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53:GetHealthCheck,
-route53:ListTagsForResource</pre>
+route53:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 route53:UpdateHealthCheck,
 route53:ChangeTagsForResource,
 route53:ListTagsForResource,
-cloudwatch:DescribeAlarms</pre>
+cloudwatch:DescribeAlarms
+```
 
 ### Delete
-<pre>
-route53:DeleteHealthCheck</pre>
+```json
+route53:DeleteHealthCheck
+```
 
 
 ## Example

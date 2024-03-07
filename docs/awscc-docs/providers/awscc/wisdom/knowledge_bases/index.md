@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>knowledge_bases</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appflow:CreateFlow,
 appflow:DeleteFlow,
 appflow:StartFlow,
@@ -52,11 +52,13 @@ kms:DescribeKey,
 kms:CreateGrant,
 kms:ListGrants,
 wisdom:CreateKnowledgeBase,
-wisdom:TagResource</pre>
+wisdom:TagResource
+```
 
 ### List
-<pre>
-wisdom:ListKnowledgeBases</pre>
+```json
+wisdom:ListKnowledgeBases
+```
 
 
 ## Example

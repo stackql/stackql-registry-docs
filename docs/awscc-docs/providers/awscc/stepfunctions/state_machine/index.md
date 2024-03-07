@@ -52,22 +52,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>state_machine</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 states:DescribeStateMachine,
-states:ListTagsForResource</pre>
+states:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 states:UpdateStateMachine,
 states:TagResource,
 states:UntagResource,
 states:ListTagsForResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 states:DeleteStateMachine,
-states:DescribeStateMachine</pre>
+states:DescribeStateMachine
+```
 
 
 ## Example

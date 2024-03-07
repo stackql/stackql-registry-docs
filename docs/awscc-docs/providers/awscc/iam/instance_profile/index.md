@@ -43,21 +43,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance_profile</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-iam:GetInstanceProfile</pre>
+```json
+iam:GetInstanceProfile
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 iam:RemoveRoleFromInstanceProfile,
 iam:AddRoleToInstanceProfile,
-iam:GetInstanceProfile</pre>
+iam:GetInstanceProfile
+```
 
 ### Delete
-<pre>
+```json
 iam:GetInstanceProfile,
 iam:RemoveRoleFromInstanceProfile,
-iam:DeleteInstanceProfile</pre>
+iam:DeleteInstanceProfile
+```
 
 
 ## Example

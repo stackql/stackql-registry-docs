@@ -46,22 +46,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>control_panel</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53-recovery-control-config:DescribeControlPanel,
-route53-recovery-control-config:ListTagsForResource</pre>
+route53-recovery-control-config:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 route53-recovery-control-config:UpdateControlPanel,
 route53-recovery-control-config:DescribeControlPanel,
 route53-recovery-control-config:ListTagsForResource,
 route53-recovery-control-config:TagResource,
-route53-recovery-control-config:UntagResource</pre>
+route53-recovery-control-config:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 route53-recovery-control-config:DeleteControlPanel,
-route53-recovery-control-config:DescribeControlPanel</pre>
+route53-recovery-control-config:DescribeControlPanel
+```
 
 
 ## Example

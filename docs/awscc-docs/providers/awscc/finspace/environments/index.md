@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 finspace:CreateEnvironment,
 finspace:GetEnvironment,
 finspace:ListEnvironments,
-sts:AssumeRole</pre>
+sts:AssumeRole
+```
 
 ### List
-<pre>
-finspace:ListEnvironments</pre>
+```json
+finspace:ListEnvironments
+```
 
 
 ## Example

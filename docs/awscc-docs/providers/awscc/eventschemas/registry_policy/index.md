@@ -43,18 +43,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>registry_policy</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 schemas:DeleteResourcePolicy,
-schemas:GetResourcePolicy</pre>
+schemas:GetResourcePolicy
+```
 
 ### Update
-<pre>
+```json
 schemas:PutResourcePolicy,
-schemas:GetResourcePolicy</pre>
+schemas:GetResourcePolicy
+```
 
 ### Read
-<pre>
-schemas:GetResourcePolicy</pre>
+```json
+schemas:GetResourcePolicy
+```
 
 
 ## Example

@@ -53,24 +53,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_subscription</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 redshift:DescribeEventSubscriptions,
-redshift:DescribeTags</pre>
+redshift:DescribeTags
+```
 
 ### Update
-<pre>
+```json
 redshift:ModifyEventSubscription,
 redshift:CreateTags,
 redshift:DescribeTags,
 redshift:DescribeEventSubscriptions,
-redshift:DeleteTags</pre>
+redshift:DeleteTags
+```
 
 ### Delete
-<pre>
+```json
 redshift:DescribeEventSubscriptions,
 redshift:DeleteEventSubscription,
 redshift:DescribeTags,
-redshift:DeleteTags</pre>
+redshift:DeleteTags
+```
 
 
 ## Example

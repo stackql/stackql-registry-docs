@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assessment_templates</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 inspector:CreateAssessmentTemplate,
 inspector:ListAssessmentTemplates,
-inspector:DescribeAssessmentTemplates</pre>
+inspector:DescribeAssessmentTemplates
+```
 
 ### List
-<pre>
-inspector:ListAssessmentTemplates</pre>
+```json
+inspector:ListAssessmentTemplates
+```
 
 
 ## Example

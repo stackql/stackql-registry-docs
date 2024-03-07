@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_points</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3:CreateAccessPointForObjectLambda,
 s3:PutAccessPointConfigurationForObjectLambda,
 s3:GetAccessPointForObjectLambda,
 s3:GetAccessPointPolicyStatusForObjectLambda,
-s3:GetAccessPointConfigurationForObjectLambda</pre>
+s3:GetAccessPointConfigurationForObjectLambda
+```
 
 ### List
-<pre>
-s3:ListAccessPointsForObjectLambda</pre>
+```json
+s3:ListAccessPointsForObjectLambda
+```
 
 
 ## Example

@@ -40,21 +40,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>patch_baselines</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ssm:CreatePatchBaseline,
 ssm:RegisterPatchBaselineForPatchGroup,
 ssm:AddTagsToResource,
 ssm:RemoveTagsFromResource,
 ssm:ListTagsForResource,
 ssm:GetDefaultPatchBaseline,
-ssm:RegisterDefaultPatchBaseline</pre>
+ssm:RegisterDefaultPatchBaseline
+```
 
 ### List
-<pre>
+```json
 ssm:DescribePatchBaselines,
 ssm:GetDefaultPatchBaseline,
 ssm:GetPatchBaseline,
-ssm:ListTagsForResource</pre>
+ssm:ListTagsForResource
+```
 
 
 ## Example

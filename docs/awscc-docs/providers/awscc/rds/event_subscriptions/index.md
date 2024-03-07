@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_subscriptions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateServiceLinkedRole,
 rds:CreateEventSubscription,
 rds:DescribeEventSubscriptions,
 rds:ListTagsForResource,
 rds:AddTagsToResource,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 ### List
-<pre>
-rds:DescribeEventSubscriptions</pre>
+```json
+rds:DescribeEventSubscriptions
+```
 
 
 ## Example

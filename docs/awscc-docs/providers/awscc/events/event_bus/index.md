@@ -44,21 +44,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_bus</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 events:DescribeEventBus,
-events:ListTagsForResource</pre>
+events:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 events:TagResource,
 events:UntagResource,
 events:PutPermission,
-events:DescribeEventBus</pre>
+events:DescribeEventBus
+```
 
 ### Delete
-<pre>
+```json
 events:DescribeEventBus,
-events:DeleteEventBus</pre>
+events:DeleteEventBus
+```
 
 
 ## Example

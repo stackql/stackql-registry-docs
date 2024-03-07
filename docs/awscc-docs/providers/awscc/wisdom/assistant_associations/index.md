@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>assistant_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 wisdom:CreateAssistantAssociation,
-wisdom:TagResource</pre>
+wisdom:TagResource
+```
 
 ### List
-<pre>
-wisdom:ListAssistantAssociations</pre>
+```json
+wisdom:ListAssistantAssociations
+```
 
 
 ## Example

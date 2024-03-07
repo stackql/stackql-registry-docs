@@ -48,17 +48,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>slack_channel_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-chatbot:DescribeSlackChannelConfigurations</pre>
+```json
+chatbot:DescribeSlackChannelConfigurations
+```
 
 ### Update
-<pre>
+```json
 chatbot:UpdateSlackChannelConfiguration,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
-chatbot:DeleteSlackChannelConfiguration</pre>
+```json
+chatbot:DeleteSlackChannelConfiguration
+```
 
 
 ## Example

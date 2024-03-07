@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_integrations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 app-integrations:CreateEventIntegration,
-app-integrations:TagResource</pre>
+app-integrations:TagResource
+```
 
 ### List
-<pre>
-app-integrations:ListEventIntegrations</pre>
+```json
+app-integrations:ListEventIntegrations
+```
 
 
 ## Example

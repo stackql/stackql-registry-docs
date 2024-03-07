@@ -48,19 +48,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>capability</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 b2bi:GetCapability,
-b2bi:ListTagsForResource</pre>
+b2bi:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 b2bi:TagResource,
 b2bi:UntagResource,
-b2bi:UpdateCapability</pre>
+b2bi:UpdateCapability
+```
 
 ### Delete
-<pre>
-b2bi:DeleteCapability</pre>
+```json
+b2bi:DeleteCapability
+```
 
 
 ## Example

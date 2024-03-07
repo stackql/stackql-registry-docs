@@ -40,19 +40,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_cards</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 sagemaker:CreateModelCard,
 kms:DescribeKey,
 kms:GenerateDataKey,
 kms:CreateGrant,
 sagemaker:DescribeModelPackageGroup,
 sagemaker:DescribeModelPackage,
-sagemaker:AddTags</pre>
+sagemaker:AddTags
+```
 
 ### List
-<pre>
+```json
 sagemaker:ListModelCards,
-sagemaker:ListModelCardVersions</pre>
+sagemaker:ListModelCardVersions
+```
 
 
 ## Example

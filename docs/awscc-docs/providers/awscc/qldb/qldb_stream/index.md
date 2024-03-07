@@ -48,20 +48,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>qldb_stream</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 qldb:CancelJournalKinesisStream,
-qldb:DescribeJournalKinesisStream</pre>
+qldb:DescribeJournalKinesisStream
+```
 
 ### Read
-<pre>
+```json
 qldb:DescribeJournalKinesisStream,
-qldb:ListTagsForResource</pre>
+qldb:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 qldb:DescribeJournalKinesisStream,
 qldb:UntagResource,
-qldb:TagResource</pre>
+qldb:TagResource
+```
 
 
 ## Example

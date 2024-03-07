@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>cluster_subnet_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 redshift:CreateClusterSubnetGroup,
 redshift:CreateTags,
 redshift:DescribeClusterSubnetGroups,
@@ -54,10 +54,11 @@ ec2:DescribeAvailabilityZones,
 ec2:DescribeInternetGateways,
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 ### List
-<pre>
+```json
 redshift:DescribeClusterSubnetGroups,
 redshift:DescribeTags,
 ec2:AllocateAddress,
@@ -69,7 +70,8 @@ ec2:DescribeAvailabilityZones,
 ec2:DescribeInternetGateways,
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 
 ## Example

@@ -46,23 +46,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>source_location</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-mediatailor:DescribeSourceLocation</pre>
+```json
+mediatailor:DescribeSourceLocation
+```
 
 ### Update
-<pre>
+```json
 mediatailor:DescribeSourceLocation,
 mediatailor:TagResource,
 mediatailor:UntagResource,
 mediatailor:UpdateSourceLocation,
 secretsmanager:DescribeSecret,
 secretsmanager:GetSecretValue,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### Delete
-<pre>
+```json
 mediatailor:DeleteSourceLocation,
-mediatailor:DescribeSourceLocation</pre>
+mediatailor:DescribeSourceLocation
+```
 
 
 ## Example

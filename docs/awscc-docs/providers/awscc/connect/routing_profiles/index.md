@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>routing_profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:CreateRoutingProfile,
-connect:TagResource</pre>
+connect:TagResource
+```
 
 ### List
-<pre>
+```json
 connect:ListRoutingProfiles,
-connect:ListRoutingProfileQueues</pre>
+connect:ListRoutingProfileQueues
+```
 
 
 ## Example

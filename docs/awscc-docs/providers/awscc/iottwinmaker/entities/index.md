@@ -41,21 +41,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>entities</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iottwinmaker:GetWorkspace,
 iottwinmaker:CreateEntity,
 iottwinmaker:GetEntity,
 iottwinmaker:ListComponents,
 iottwinmaker:ListProperties,
 iottwinmaker:ListTagsForResource,
-iottwinmaker:TagResource</pre>
+iottwinmaker:TagResource
+```
 
 ### List
-<pre>
+```json
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:GetEntity,
-iottwinmaker:ListEntities</pre>
+iottwinmaker:ListEntities
+```
 
 
 ## Example

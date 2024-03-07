@@ -43,27 +43,30 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>trust_store</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 workspaces-web:GetTrustStore,
 workspaces-web:GetTrustStoreCertificate,
 workspaces-web:ListTagsForResource,
-workspaces-web:ListTrustStoreCertificates</pre>
+workspaces-web:ListTrustStoreCertificates
+```
 
 ### Update
-<pre>
+```json
 workspaces-web:UpdateTrustStore,
 workspaces-web:TagResource,
 workspaces-web:UntagResource,
 workspaces-web:GetTrustStore,
 workspaces-web:GetTrustStoreCertificate,
 workspaces-web:ListTagsForResource,
-workspaces-web:ListTrustStoreCertificates</pre>
+workspaces-web:ListTrustStoreCertificates
+```
 
 ### Delete
-<pre>
+```json
 workspaces-web:GetTrustStore,
 workspaces-web:GetTrustStoreCertificate,
-workspaces-web:DeleteTrustStore</pre>
+workspaces-web:DeleteTrustStore
+```
 
 
 ## Example

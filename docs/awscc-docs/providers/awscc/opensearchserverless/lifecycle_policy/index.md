@@ -43,17 +43,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>lifecycle_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-aoss:BatchGetLifecyclePolicy</pre>
+```json
+aoss:BatchGetLifecyclePolicy
+```
 
 ### Update
-<pre>
+```json
 aoss:UpdateLifecyclePolicy,
-aoss:BatchGetLifecyclePolicy</pre>
+aoss:BatchGetLifecyclePolicy
+```
 
 ### Delete
-<pre>
-aoss:DeleteLifecyclePolicy</pre>
+```json
+aoss:DeleteLifecyclePolicy
+```
 
 
 ## Example

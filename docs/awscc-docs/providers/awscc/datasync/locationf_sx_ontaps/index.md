@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>locationf_sx_ontaps</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 datasync:CreateLocationFsxOntap,
 datasync:DescribeLocationFsxOntap,
 datasync:ListTagsForResource,
@@ -49,11 +49,13 @@ fsx:DescribeStorageVirtualMachines,
 fsx:DescribeFileSystems,
 ec2:DescribeNetworkInterfaces,
 ec2:DescribeSubnets,
-ec2:DescribeSecurityGroups</pre>
+ec2:DescribeSecurityGroups
+```
 
 ### List
-<pre>
-datasync:ListLocations</pre>
+```json
+datasync:ListLocations
+```
 
 
 ## Example

@@ -51,14 +51,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>billing_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 billingconductor:ListBillingGroups,
 billingconductor:ListAccountAssociations,
 organizations:ListAccounts,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 billingconductor:UpdateBillingGroup,
 billingconductor:ListAccountAssociations,
 organizations:ListAccounts,
@@ -66,14 +67,16 @@ billingconductor:AssociateAccounts,
 billingconductor:DisassociateAccounts,
 billingconductor:ListBillingGroups,
 billingconductor:TagResource,
-billingconductor:UntagResource</pre>
+billingconductor:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 billingconductor:DeleteBillingGroup,
 billingconductor:ListBillingGroups,
 billingconductor:UntagResource,
-billingconductor:UpdateBillingGroup</pre>
+billingconductor:UpdateBillingGroup
+```
 
 
 ## Example

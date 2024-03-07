@@ -41,15 +41,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>software_package_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iot:CreatePackageVersion,
 iot:GetPackageVersion,
 iot:TagResource,
-iot:GetIndexingConfiguration</pre>
+iot:GetIndexingConfiguration
+```
 
 ### List
-<pre>
-iot:ListPackageVersions</pre>
+```json
+iot:ListPackageVersions
+```
 
 
 ## Example

@@ -41,9 +41,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>permissions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 acm-pca:CreatePermission,
-acm-pca:ListPermissions</pre>
+acm-pca:ListPermissions
+```
 
 
 ## Example

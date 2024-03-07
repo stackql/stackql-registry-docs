@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>document_classifiers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:PassRole,
 comprehend:CreateDocumentClassifier,
 comprehend:DescribeDocumentClassifier,
 comprehend:DescribeResourcePolicy,
 comprehend:ListTagsForResource,
-textract:DetectDocumentText</pre>
+textract:DetectDocumentText
+```
 
 ### List
-<pre>
-comprehend:ListDocumentClassifiers</pre>
+```json
+comprehend:ListDocumentClassifiers
+```
 
 
 ## Example

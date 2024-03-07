@@ -45,24 +45,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 elasticache:DescribeUserGroups,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 elasticache:ModifyUserGroup,
 elasticache:DescribeUserGroups,
 elasticache:ListTagsForResource,
 elasticache:AddTagsToResource,
-elasticache:RemoveTagsFromResource</pre>
+elasticache:RemoveTagsFromResource
+```
 
 ### Delete
-<pre>
+```json
 elasticache:ModifyReplicationGroup,
 elasticache:DeleteUserGroup,
 elasticache:DescribeUserGroups,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 
 ## Example

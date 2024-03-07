@@ -40,19 +40,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>organization_admins</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 detective:EnableOrganizationAdminAccount,
 detective:ListOrganizationAdminAccount,
 iam:CreateServiceLinkedRole,
 organizations:RegisterDelegatedAdministrator,
 organizations:DescribeOrganization,
 organizations:EnableAWSServiceAccess,
-organizations:ListAccounts</pre>
+organizations:ListAccounts
+```
 
 ### List
-<pre>
+```json
 detective:ListOrganizationAdminAccount,
-organizations:DescribeOrganization</pre>
+organizations:DescribeOrganization
+```
 
 
 ## Example

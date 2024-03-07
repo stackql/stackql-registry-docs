@@ -45,18 +45,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_action</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-servicecatalog:DescribeServiceAction</pre>
+```json
+servicecatalog:DescribeServiceAction
+```
 
 ### Update
-<pre>
+```json
 servicecatalog:UpdateServiceAction,
 iam:GetRole,
-ssm:DescribeDocument</pre>
+ssm:DescribeDocument
+```
 
 ### Delete
-<pre>
-servicecatalog:DeleteServiceAction</pre>
+```json
+servicecatalog:DeleteServiceAction
+```
 
 
 ## Example

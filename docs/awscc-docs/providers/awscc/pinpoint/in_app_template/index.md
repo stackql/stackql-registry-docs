@@ -46,19 +46,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>in_app_template</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 mobiletargeting:DeleteInAppTemplate,
-mobiletargeting:GetInAppTemplate</pre>
+mobiletargeting:GetInAppTemplate
+```
 
 ### Read
-<pre>
+```json
 mobiletargeting:GetInAppTemplate,
-mobiletargeting:ListTemplates</pre>
+mobiletargeting:ListTemplates
+```
 
 ### Update
-<pre>
+```json
 mobiletargeting:UpdateInAppTemplate,
-mobiletargeting:GetInAppTemplate</pre>
+mobiletargeting:GetInAppTemplate
+```
 
 
 ## Example

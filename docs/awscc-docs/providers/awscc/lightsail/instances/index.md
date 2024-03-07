@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instances</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lightsail:CreateInstances,
 lightsail:GetInstances,
 lightsail:EnableAddOn,
@@ -54,11 +54,13 @@ lightsail:StopInstance,
 lightsail:GetDisk,
 lightsail:GetRegions,
 lightsail:TagResource,
-lightsail:UntagResource</pre>
+lightsail:UntagResource
+```
 
 ### List
-<pre>
-lightsail:GetInstances</pre>
+```json
+lightsail:GetInstances
+```
 
 
 ## Example

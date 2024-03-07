@@ -46,27 +46,30 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>service_template</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 proton:GetServiceTemplate,
 proton:ListTagsForResource,
-kms:*</pre>
+kms:*
+```
 
 ### Update
-<pre>
+```json
 proton:GetServiceTemplate,
 proton:CreateServiceTemplate,
 proton:ListTagsForResource,
 proton:TagResource,
 proton:UntagResource,
 proton:UpdateServiceTemplate,
-kms:*</pre>
+kms:*
+```
 
 ### Delete
-<pre>
+```json
 proton:DeleteServiceTemplate,
 proton:UntagResource,
 kms:*,
-proton:GetServiceTemplate</pre>
+proton:GetServiceTemplate
+```
 
 
 ## Example

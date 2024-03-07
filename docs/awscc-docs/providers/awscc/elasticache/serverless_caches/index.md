@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>serverless_caches</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticache:CreateServerlessCache,
 elasticache:DescribeServerlessCaches,
 elasticache:AddTagsToResource,
@@ -48,12 +48,14 @@ elasticache:ListTagsForResource,
 ec2:CreateTags,
 ec2:CreateVpcEndpoint,
 kms:CreateGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### List
-<pre>
+```json
 elasticache:DescribeServerlessCaches,
-elasticache:ListTagsForResource</pre>
+elasticache:ListTagsForResource
+```
 
 
 ## Example

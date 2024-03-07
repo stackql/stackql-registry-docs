@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_manifests</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iotfleetwise:CreateModelManifest,
 iotfleetwise:GetModelManifest,
 iotfleetwise:UpdateModelManifest,
 iotfleetwise:ListModelManifestNodes,
 iotfleetwise:ListTagsForResource,
-iotfleetwise:TagResource</pre>
+iotfleetwise:TagResource
+```
 
 ### List
-<pre>
-iotfleetwise:ListModelManifests</pre>
+```json
+iotfleetwise:ListModelManifests
+```
 
 
 ## Example

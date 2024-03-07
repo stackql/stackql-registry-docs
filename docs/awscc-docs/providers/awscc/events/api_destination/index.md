@@ -46,18 +46,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>api_destination</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-events:DescribeApiDestination</pre>
+```json
+events:DescribeApiDestination
+```
 
 ### Update
-<pre>
+```json
 events:UpdateApiDestination,
-events:DescribeApiDestination</pre>
+events:DescribeApiDestination
+```
 
 ### Delete
-<pre>
+```json
 events:DeleteApiDestination,
-events:DescribeApiDestination</pre>
+events:DescribeApiDestination
+```
 
 
 ## Example

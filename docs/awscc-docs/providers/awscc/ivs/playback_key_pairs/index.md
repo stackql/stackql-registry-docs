@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>playback_key_pairs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ivs:ImportPlaybackKeyPair,
-ivs:TagResource</pre>
+ivs:TagResource
+```
 
 ### List
-<pre>
+```json
 ivs:ListPlaybackKeyPairs,
-ivs:ListTagsForResource</pre>
+ivs:ListTagsForResource
+```
 
 
 ## Example

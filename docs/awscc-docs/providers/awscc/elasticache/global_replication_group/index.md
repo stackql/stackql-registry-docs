@@ -50,24 +50,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>global_replication_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-elasticache:DescribeGlobalReplicationGroups</pre>
+```json
+elasticache:DescribeGlobalReplicationGroups
+```
 
 ### Update
-<pre>
+```json
 elasticache:ModifyGlobalReplicationGroup,
 elasticache:FailoverGlobalReplicationGroup,
 elasticache:DescribeGlobalReplicationGroups,
 elasticache:IncreaseNodeGroupsInGlobalReplicationGroup,
 elasticache:DecreaseNodeGroupsInGlobalReplicationGroup,
 elasticache:DisassociateGlobalReplicationGroup,
-elasticache:RebalanceSlotsInGlobalReplicationGroup</pre>
+elasticache:RebalanceSlotsInGlobalReplicationGroup
+```
 
 ### Delete
-<pre>
+```json
 elasticache:DeleteGlobalReplicationGroup,
 elasticache:DisassociateGlobalReplicationGroup,
-elasticache:DescribeGlobalReplicationGroups</pre>
+elasticache:DescribeGlobalReplicationGroups
+```
 
 
 ## Example

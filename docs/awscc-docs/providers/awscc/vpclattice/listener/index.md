@@ -49,21 +49,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>listener</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 vpc-lattice:GetListener,
-vpc-lattice:ListTagsForResource</pre>
+vpc-lattice:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 vpc-lattice:UpdateListener,
 vpc-lattice:TagResource,
 vpc-lattice:UntagResource,
 vpc-lattice:GetListener,
-vpc-lattice:ListTagsForResource</pre>
+vpc-lattice:ListTagsForResource
+```
 
 ### Delete
-<pre>
-vpc-lattice:DeleteListener</pre>
+```json
+vpc-lattice:DeleteListener
+```
 
 
 ## Example

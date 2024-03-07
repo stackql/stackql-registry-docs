@@ -47,19 +47,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>findings_filter</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-macie2:GetFindingsFilter</pre>
+```json
+macie2:GetFindingsFilter
+```
 
 ### Update
-<pre>
+```json
 macie2:GetFindingsFilter,
 macie2:UpdateFindingsFilter,
 macie2:TagResource,
-macie2:UntagResource</pre>
+macie2:UntagResource
+```
 
 ### Delete
-<pre>
-macie2:DeleteFindingsFilter</pre>
+```json
+macie2:DeleteFindingsFilter
+```
 
 
 ## Example

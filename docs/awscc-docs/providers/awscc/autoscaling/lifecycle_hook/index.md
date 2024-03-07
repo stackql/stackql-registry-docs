@@ -47,19 +47,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>lifecycle_hook</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-autoscaling:DescribeLifecycleHooks</pre>
+```json
+autoscaling:DescribeLifecycleHooks
+```
 
 ### Update
-<pre>
+```json
 autoscaling:PutLifecycleHook,
 autoscaling:DescribeLifecycleHooks,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 autoscaling:DeleteLifecycleHook,
-autoscaling:DescribeLifecycleHooks</pre>
+autoscaling:DescribeLifecycleHooks
+```
 
 
 ## Example

@@ -41,17 +41,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>mission_profiles</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 groundstation:CreateMissionProfile,
 groundstation:GetMissionProfile,
 groundstation:TagResource,
 iam:PassRole,
 kms:DescribeKey,
-kms:CreateGrant</pre>
+kms:CreateGrant
+```
 
 ### List
-<pre>
-groundstation:ListMissionProfiles</pre>
+```json
+groundstation:ListMissionProfiles
+```
 
 
 ## Example

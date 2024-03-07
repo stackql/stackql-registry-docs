@@ -43,23 +43,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>database</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 timestream:DescribeDatabase,
 timestream:DescribeEndpoints,
-timestream:ListTagsForResource</pre>
+timestream:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 timestream:UpdateDatabase,
 timestream:DescribeDatabase,
 timestream:DescribeEndpoints,
 timestream:TagResource,
-timestream:UntagResource</pre>
+timestream:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 timestream:DeleteDatabase,
-timestream:DescribeEndpoints</pre>
+timestream:DescribeEndpoints
+```
 
 
 ## Example

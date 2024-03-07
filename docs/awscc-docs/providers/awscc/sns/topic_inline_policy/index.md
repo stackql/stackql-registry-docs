@@ -41,18 +41,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topic_inline_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-sns:GetTopicAttributes</pre>
+```json
+sns:GetTopicAttributes
+```
 
 ### Delete
-<pre>
+```json
 sns:SetTopicAttributes,
-sns:GetTopicAttributes</pre>
+sns:GetTopicAttributes
+```
 
 ### Update
-<pre>
+```json
 sns:SetTopicAttributes,
-sns:GetTopicAttributes</pre>
+sns:GetTopicAttributes
+```
 
 
 ## Example

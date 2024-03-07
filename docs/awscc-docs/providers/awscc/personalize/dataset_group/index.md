@@ -44,13 +44,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>dataset_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-personalize:DescribeDatasetGroup</pre>
+```json
+personalize:DescribeDatasetGroup
+```
 
 ### Delete
-<pre>
+```json
 personalize:DescribeDatasetGroup,
-personalize:DeleteDatasetGroup</pre>
+personalize:DeleteDatasetGroup
+```
 
 
 ## Example

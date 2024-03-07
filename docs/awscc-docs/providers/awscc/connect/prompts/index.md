@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>prompts</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 connect:CreatePrompt,
 connect:TagResource,
 s3:GetObject,
 kms:Decrypt,
-s3:GetObjectAcl</pre>
+s3:GetObjectAcl
+```
 
 ### List
-<pre>
-connect:ListPrompts</pre>
+```json
+connect:ListPrompts
+```
 
 
 ## Example

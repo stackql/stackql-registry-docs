@@ -45,23 +45,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>parameter_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 memorydb:DescribeParameterGroups,
-memorydb:ListTags</pre>
+memorydb:ListTags
+```
 
 ### Update
-<pre>
+```json
 memorydb:UpdateParameterGroup,
 memorydb:DescribeParameterGroups,
 memorydb:DescribeParameters,
 memorydb:DescribeClusters,
 memorydb:ListTags,
 memorydb:TagResource,
-memorydb:UntagResource</pre>
+memorydb:UntagResource
+```
 
 ### Delete
-<pre>
-memorydb:DeleteParameterGroup</pre>
+```json
+memorydb:DeleteParameterGroup
+```
 
 
 ## Example

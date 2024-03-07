@@ -47,25 +47,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>software_package_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:GetPackageVersion,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iot:UpdatePackageVersion,
 iot:GetPackageVersion,
 iot:ListTagsForResource,
 iot:TagResource,
 iot:UntagResource,
-iot:GetIndexingConfiguration</pre>
+iot:GetIndexingConfiguration
+```
 
 ### Delete
-<pre>
+```json
 iot:DeletePackageVersion,
 iot:UpdatePackageVersion,
 iot:GetPackageVersion,
-iot:GetIndexingConfiguration</pre>
+iot:GetIndexingConfiguration
+```
 
 
 ## Example

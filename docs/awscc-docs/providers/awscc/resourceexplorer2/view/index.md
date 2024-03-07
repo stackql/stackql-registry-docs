@@ -45,21 +45,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>view</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-resource-explorer-2:GetView</pre>
+```json
+resource-explorer-2:GetView
+```
 
 ### Update
-<pre>
+```json
 resource-explorer-2:UpdateView,
 resource-explorer-2:TagResource,
 resource-explorer-2:UntagResource,
-resource-explorer-2:ListTagsForResource</pre>
+resource-explorer-2:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 resource-explorer-2:DeleteView,
 resource-explorer-2:GetView,
-resource-explorer-2:UntagResource</pre>
+resource-explorer-2:UntagResource
+```
 
 
 ## Example

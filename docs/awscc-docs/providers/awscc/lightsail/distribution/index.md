@@ -52,11 +52,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>distribution</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-lightsail:GetDistributions</pre>
+```json
+lightsail:GetDistributions
+```
 
 ### Update
-<pre>
+```json
 lightsail:AttachCertificateToDistribution,
 lightsail:DetachCertificateFromDistribution,
 lightsail:GetCertificates,
@@ -65,12 +66,14 @@ lightsail:GetDistributions,
 lightsail:TagResource,
 lightsail:UntagResource,
 lightsail:UpdateDistribution,
-lightsail:UpdateDistributionBundle</pre>
+lightsail:UpdateDistributionBundle
+```
 
 ### Delete
-<pre>
+```json
 lightsail:DeleteDistribution,
-lightsail:GetDistributions</pre>
+lightsail:GetDistributions
+```
 
 
 ## Example

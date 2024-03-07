@@ -41,16 +41,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>alias</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-kms:ListAliases</pre>
+```json
+kms:ListAliases
+```
 
 ### Update
-<pre>
-kms:UpdateAlias</pre>
+```json
+kms:UpdateAlias
+```
 
 ### Delete
-<pre>
-kms:DeleteAlias</pre>
+```json
+kms:DeleteAlias
+```
 
 
 ## Example

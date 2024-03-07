@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>run_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 omics:CreateRunGroup,
-omics:TagResource</pre>
+omics:TagResource
+```
 
 ### List
-<pre>
-omics:ListRunGroups</pre>
+```json
+omics:ListRunGroups
+```
 
 
 ## Example

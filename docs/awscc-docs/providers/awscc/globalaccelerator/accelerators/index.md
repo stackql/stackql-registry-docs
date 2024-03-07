@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>accelerators</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 globalaccelerator:CreateAccelerator,
 globalaccelerator:DescribeAccelerator,
-globalaccelerator:TagResource</pre>
+globalaccelerator:TagResource
+```
 
 ### List
-<pre>
-globalaccelerator:ListAccelerators</pre>
+```json
+globalaccelerator:ListAccelerators
+```
 
 
 ## Example

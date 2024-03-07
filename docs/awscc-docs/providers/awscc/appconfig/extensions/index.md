@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>extensions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appconfig:CreateExtension,
 appconfig:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-appconfig:ListExtensions</pre>
+```json
+appconfig:ListExtensions
+```
 
 
 ## Example

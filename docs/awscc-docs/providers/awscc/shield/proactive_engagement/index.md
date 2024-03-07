@@ -42,24 +42,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>proactive_engagement</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 shield:DescribeSubscription,
 shield:DescribeEmergencyContactSettings,
 shield:UpdateEmergencyContactSettings,
-shield:DisableProactiveEngagement</pre>
+shield:DisableProactiveEngagement
+```
 
 ### Read
-<pre>
+```json
 shield:DescribeSubscription,
-shield:DescribeEmergencyContactSettings</pre>
+shield:DescribeEmergencyContactSettings
+```
 
 ### Update
-<pre>
+```json
 shield:DescribeSubscription,
 shield:DescribeEmergencyContactSettings,
 shield:UpdateEmergencyContactSettings,
 shield:EnableProactiveEngagement,
-shield:DisableProactiveEngagement</pre>
+shield:DisableProactiveEngagement
+```
 
 
 ## Example

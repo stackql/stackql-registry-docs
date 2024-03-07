@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>event_source_mappings</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 lambda:CreateEventSourceMapping,
-lambda:GetEventSourceMapping</pre>
+lambda:GetEventSourceMapping
+```
 
 ### List
-<pre>
-lambda:ListEventSourceMappings</pre>
+```json
+lambda:ListEventSourceMappings
+```
 
 
 ## Example

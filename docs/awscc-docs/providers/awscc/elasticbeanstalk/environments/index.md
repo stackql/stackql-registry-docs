@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 elasticbeanstalk:DescribeEnvironments,
 elasticbeanstalk:CreateEnvironment,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-elasticbeanstalk:DescribeEnvironments</pre>
+```json
+elasticbeanstalk:DescribeEnvironments
+```
 
 
 ## Example

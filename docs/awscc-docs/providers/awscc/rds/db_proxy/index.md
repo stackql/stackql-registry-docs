@@ -52,20 +52,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_proxy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-rds:DescribeDBProxies</pre>
+```json
+rds:DescribeDBProxies
+```
 
 ### Update
-<pre>
+```json
 rds:ModifyDBProxy,
 rds:AddTagsToResource,
 rds:RemoveTagsFromResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 rds:DescribeDBProxies,
-rds:DeleteDBProxy</pre>
+rds:DeleteDBProxy
+```
 
 
 ## Example

@@ -44,20 +44,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>user_pool_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-cognito-idp:GetGroup</pre>
+```json
+cognito-idp:GetGroup
+```
 
 ### Update
-<pre>
+```json
 cognito-idp:UpdateGroup,
 iam:PassRole,
-iam:PutRolePolicy</pre>
+iam:PutRolePolicy
+```
 
 ### Delete
-<pre>
+```json
 cognito-idp:DeleteGroup,
 cognito-idp:GetGroup,
-iam:PutRolePolicy</pre>
+iam:PutRolePolicy
+```
 
 
 ## Example

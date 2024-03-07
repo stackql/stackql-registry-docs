@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>fhir_datastores</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 healthlake:CreateFHIRDatastore,
 healthlake:DescribeFHIRDatastore,
 iam:PassRole,
@@ -57,11 +57,13 @@ glue:DeleteDatabase,
 lambda:InvokeFunction,
 healthlake:TagResource,
 healthlake:UntagResource,
-healthlake:ListTagsForResource</pre>
+healthlake:ListTagsForResource
+```
 
 ### List
-<pre>
-healthlake:ListFHIRDatastores</pre>
+```json
+healthlake:ListFHIRDatastores
+```
 
 
 ## Example

@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>gateway_responses</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apigateway:PUT,
-apigateway:GET</pre>
+apigateway:GET
+```
 
 ### List
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 
 ## Example

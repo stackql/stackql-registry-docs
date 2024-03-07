@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>oidc_providers</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateOpenIDConnectProvider,
 iam:TagOpenIDConnectProvider,
-iam:GetOpenIDConnectProvider</pre>
+iam:GetOpenIDConnectProvider
+```
 
 ### List
-<pre>
+```json
 iam:ListOpenIDConnectProvider,
-iam:GetOpenIDConnectProvider</pre>
+iam:GetOpenIDConnectProvider
+```
 
 
 ## Example

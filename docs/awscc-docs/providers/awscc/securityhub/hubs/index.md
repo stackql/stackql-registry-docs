@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hubs</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 securityhub:EnableSecurityHub,
 securityhub:UpdateSecurityHubConfiguration,
 securityhub:TagResource,
-securityhub:ListTagsForResource</pre>
+securityhub:ListTagsForResource
+```
 
 ### List
-<pre>
+```json
 securityhub:DescribeHub,
-securityhub:ListTagsForResource</pre>
+securityhub:ListTagsForResource
+```
 
 
 ## Example

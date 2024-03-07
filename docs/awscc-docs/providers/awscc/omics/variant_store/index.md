@@ -51,21 +51,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>variant_store</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-omics:GetVariantStore</pre>
+```json
+omics:GetVariantStore
+```
 
 ### Update
-<pre>
+```json
 omics:UpdateVariantStore,
 omics:TagResource,
 omics:UntagResource,
 omics:ListTagsForResource,
-omics:GetVariantStore</pre>
+omics:GetVariantStore
+```
 
 ### Delete
-<pre>
+```json
 omics:DeleteVariantStore,
-omics:ListVariantStores</pre>
+omics:ListVariantStores
+```
 
 
 ## Example

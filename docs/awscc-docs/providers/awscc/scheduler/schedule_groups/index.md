@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schedule_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 scheduler:TagResource,
 scheduler:CreateScheduleGroup,
 scheduler:GetScheduleGroup,
-scheduler:ListTagsForResource</pre>
+scheduler:ListTagsForResource
+```
 
 ### List
-<pre>
-scheduler:ListScheduleGroups</pre>
+```json
+scheduler:ListScheduleGroups
+```
 
 
 ## Example

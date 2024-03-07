@@ -47,22 +47,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>safety_rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53-recovery-control-config:DescribeSafetyRule,
-route53-recovery-control-config:ListTagsForResource</pre>
+route53-recovery-control-config:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 route53-recovery-control-config:UpdateSafetyRule,
 route53-recovery-control-config:DescribeSafetyRule,
 route53-recovery-control-config:ListTagsForResource,
 route53-recovery-control-config:TagResource,
-route53-recovery-control-config:UntagResource</pre>
+route53-recovery-control-config:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 route53-recovery-control-config:DescribeSafetyRule,
-route53-recovery-control-config:DeleteSafetyRule</pre>
+route53-recovery-control-config:DeleteSafetyRule
+```
 
 
 ## Example

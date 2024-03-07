@@ -46,19 +46,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>network_analyzer_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iotwireless:GetNetworkAnalyzerConfiguration,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iotwireless:UpdateNetworkAnalyzerConfiguration,
 iotwireless:UntagResource,
-iotwireless:ListTagsForResource</pre>
+iotwireless:ListTagsForResource
+```
 
 ### Delete
-<pre>
-iotwireless:DeleteNetworkAnalyzerConfiguration</pre>
+```json
+iotwireless:DeleteNetworkAnalyzerConfiguration
+```
 
 
 ## Example

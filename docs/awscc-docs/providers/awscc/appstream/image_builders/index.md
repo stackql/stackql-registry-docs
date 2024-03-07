@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>image_builders</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appstream:CreateImageBuilder,
 appstream:CreateImageBuilderStreamingURL,
 appstream:CreateStreamingURL,
@@ -50,10 +50,11 @@ appstream:StartImageBuilder,
 appstream:StopImageBuilder,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 ### List
-<pre>
+```json
 appstream:CreateImageBuilder,
 appstream:CreateImageBuilderStreamingURL,
 appstream:CreateStreamingURL,
@@ -63,7 +64,8 @@ appstream:StartImageBuilder,
 appstream:StopImageBuilder,
 iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 
 ## Example

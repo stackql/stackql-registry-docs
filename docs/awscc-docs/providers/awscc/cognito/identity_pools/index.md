@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_pools</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cognito-identity:CreateIdentityPool,
 cognito-sync:SetIdentityPoolConfiguration,
 cognito-sync:SetCognitoEvents,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-cognito-identity:ListIdentityPools</pre>
+```json
+cognito-identity:ListIdentityPools
+```
 
 
 ## Example

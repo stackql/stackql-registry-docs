@@ -41,16 +41,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appconfig:CreateEnvironment,
 appconfig:GetEnvironment,
 appconfig:ListTagsForResource,
 appconfig:TagResource,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-appconfig:ListEnvironments</pre>
+```json
+appconfig:ListEnvironments
+```
 
 
 ## Example

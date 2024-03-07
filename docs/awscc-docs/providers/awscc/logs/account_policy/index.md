@@ -45,11 +45,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>account_policy</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-logs:DescribeAccountPolicies</pre>
+```json
+logs:DescribeAccountPolicies
+```
 
 ### Update
-<pre>
+```json
 logs:PutAccountPolicy,
 logs:PutDataProtectionPolicy,
 logs:DescribeAccountPolicies,
@@ -60,15 +61,17 @@ logs:PutSubscriptionFilter,
 logs:DeleteSubscriptionFilter,
 s3:REST.PUT.OBJECT,
 firehose:TagDeliveryStream,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 logs:DeleteAccountPolicy,
 logs:DeleteDataProtectionPolicy,
 logs:DescribeAccountPolicies,
 logs:DeleteSubscriptionFilter,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 
 ## Example

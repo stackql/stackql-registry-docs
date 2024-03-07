@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>image_pipelines</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 ecr:BatchGetRepositoryScanningConfiguration,
 iam:GetRole,
 iam:PassRole,
@@ -52,11 +52,13 @@ imagebuilder:GetInfrastructureConfiguration,
 imagebuilder:GetDistributionConfiguration,
 imagebuilder:CreateImagePipeline,
 imagebuilder:GetWorkflow,
-inspector2:BatchGetAccountStatus</pre>
+inspector2:BatchGetAccountStatus
+```
 
 ### List
-<pre>
-imagebuilder:ListImagePipelines</pre>
+```json
+imagebuilder:ListImagePipelines
+```
 
 
 ## Example

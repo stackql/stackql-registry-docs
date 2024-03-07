@@ -51,19 +51,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>schedule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-scheduler:GetSchedule</pre>
+```json
+scheduler:GetSchedule
+```
 
 ### Update
-<pre>
+```json
 scheduler:UpdateSchedule,
 scheduler:GetSchedule,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 scheduler:DeleteSchedule,
-scheduler:GetSchedule</pre>
+scheduler:GetSchedule
+```
 
 
 ## Example

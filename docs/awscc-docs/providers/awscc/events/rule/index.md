@@ -48,26 +48,29 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iam:PassRole,
 events:DescribeRule,
-events:ListTargetsByRule</pre>
+events:ListTargetsByRule
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 events:DescribeRule,
 events:PutRule,
 events:RemoveTargets,
-events:PutTargets</pre>
+events:PutTargets
+```
 
 ### Delete
-<pre>
+```json
 iam:PassRole,
 events:DescribeRule,
 events:DeleteRule,
 events:RemoveTargets,
-events:ListTargetsByRule</pre>
+events:ListTargetsByRule
+```
 
 
 ## Example

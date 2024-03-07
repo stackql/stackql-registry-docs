@@ -48,19 +48,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sync_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-codestar-connections:GetSyncConfiguration</pre>
+```json
+codestar-connections:GetSyncConfiguration
+```
 
 ### Update
-<pre>
+```json
 codestar-connections:UpdateSyncConfiguration,
 codestar-connections:PassRepository,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 codestar-connections:DeleteSyncConfiguration,
-codestar-connections:GetSyncConfiguration</pre>
+codestar-connections:GetSyncConfiguration
+```
 
 
 ## Example

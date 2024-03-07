@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>directory_buckets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3express:CreateBucket,
-s3express:ListAllMyDirectoryBuckets</pre>
+s3express:ListAllMyDirectoryBuckets
+```
 
 ### List
-<pre>
-s3express:ListAllMyDirectoryBuckets</pre>
+```json
+s3express:ListAllMyDirectoryBuckets
+```
 
 
 ## Example

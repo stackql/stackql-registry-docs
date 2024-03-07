@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>proactive_engagements</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 shield:DescribeSubscription,
 shield:DescribeEmergencyContactSettings,
 shield:AssociateProactiveEngagementDetails,
 shield:UpdateEmergencyContactSettings,
-shield:EnableProactiveEngagement</pre>
+shield:EnableProactiveEngagement
+```
 
 ### List
-<pre>
+```json
 shield:DescribeSubscription,
-shield:DescribeEmergencyContactSettings</pre>
+shield:DescribeEmergencyContactSettings
+```
 
 
 ## Example

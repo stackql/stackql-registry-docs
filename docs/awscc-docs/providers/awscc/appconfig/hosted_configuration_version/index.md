@@ -47,12 +47,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>hosted_configuration_version</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-appconfig:GetHostedConfigurationVersion</pre>
+```json
+appconfig:GetHostedConfigurationVersion
+```
 
 ### Delete
-<pre>
-appconfig:DeleteHostedConfigurationVersion</pre>
+```json
+appconfig:DeleteHostedConfigurationVersion
+```
 
 
 ## Example

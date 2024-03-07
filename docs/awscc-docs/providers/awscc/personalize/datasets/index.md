@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>datasets</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 personalize:CreateDataset,
 personalize:DescribeDataset,
 personalize:CreateDatasetImportJob,
 personalize:DescribeDatasetImportJob,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### List
-<pre>
-personalize:ListDatasets</pre>
+```json
+personalize:ListDatasets
+```
 
 
 ## Example

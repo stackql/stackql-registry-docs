@@ -45,19 +45,22 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>listener_rule</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 elasticloadbalancing:DeleteRule,
-elasticloadbalancing:DescribeRules</pre>
+elasticloadbalancing:DescribeRules
+```
 
 ### Read
-<pre>
-elasticloadbalancing:DescribeRules</pre>
+```json
+elasticloadbalancing:DescribeRules
+```
 
 ### Update
-<pre>
+```json
 elasticloadbalancing:ModifyRule,
 elasticloadbalancing:SetRulePriorities,
-elasticloadbalancing:DescribeRules</pre>
+elasticloadbalancing:DescribeRules
+```
 
 
 ## Example

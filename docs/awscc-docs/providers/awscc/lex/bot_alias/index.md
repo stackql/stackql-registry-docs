@@ -50,20 +50,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>bot_alias</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 lex:UpdateBotAlias,
 lex:DescribeBotAlias,
 lex:ListTagsForResource,
 lex:TagResource,
-lex:UntagResource</pre>
+lex:UntagResource
+```
 
 ### Read
-<pre>
-lex:DescribeBotAlias</pre>
+```json
+lex:DescribeBotAlias
+```
 
 ### Delete
-<pre>
-lex:DeleteBotAlias</pre>
+```json
+lex:DeleteBotAlias
+```
 
 
 ## Example

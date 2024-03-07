@@ -45,18 +45,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>prompt</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-connect:DescribePrompt</pre>
+```json
+connect:DescribePrompt
+```
 
 ### Update
-<pre>
+```json
 connect:UpdatePrompt,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Delete
-<pre>
-connect:DeletePrompt</pre>
+```json
+connect:DeletePrompt
+```
 
 
 ## Example

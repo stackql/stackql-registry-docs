@@ -44,22 +44,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>connector</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 pca-connector-ad:ListTagsForResource,
-pca-connector-ad:GetConnector</pre>
+pca-connector-ad:GetConnector
+```
 
 ### Delete
-<pre>
+```json
 pca-connector-ad:GetConnector,
 pca-connector-ad:DeleteConnector,
 ec2:DeleteVpcEndpoints,
-ec2:DescribeVpcEndpoints</pre>
+ec2:DescribeVpcEndpoints
+```
 
 ### Update
-<pre>
+```json
 pca-connector-ad:ListTagsForResource,
 pca-connector-ad:TagResource,
-pca-connector-ad:UntagResource</pre>
+pca-connector-ad:UntagResource
+```
 
 
 ## Example

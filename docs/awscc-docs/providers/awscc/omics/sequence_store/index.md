@@ -47,13 +47,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sequence_store</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 omics:GetSequenceStore,
-omics:ListTagsForResource</pre>
+omics:ListTagsForResource
+```
 
 ### Delete
-<pre>
-omics:DeleteSequenceStore</pre>
+```json
+omics:DeleteSequenceStore
+```
 
 
 ## Example

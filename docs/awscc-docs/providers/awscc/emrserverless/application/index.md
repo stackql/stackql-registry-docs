@@ -55,11 +55,12 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-emr-serverless:GetApplication</pre>
+```json
+emr-serverless:GetApplication
+```
 
 ### Update
-<pre>
+```json
 emr-serverless:UpdateApplication,
 emr-serverless:TagResource,
 emr-serverless:UntagResource,
@@ -83,12 +84,14 @@ kms:CancelKeyDeletion,
 kms:GenerateDataKey,
 kms:TagResource,
 kms:UntagResource,
-kms:Decrypt</pre>
+kms:Decrypt
+```
 
 ### Delete
-<pre>
+```json
 emr-serverless:DeleteApplication,
-emr-serverless:GetApplication</pre>
+emr-serverless:GetApplication
+```
 
 
 ## Example

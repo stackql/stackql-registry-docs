@@ -49,28 +49,31 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>instance</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 connect:DescribeInstance,
 connect:ListInstanceAttributes,
-ds:DescribeDirectories</pre>
+ds:DescribeDirectories
+```
 
 ### Update
-<pre>
+```json
 connect:ListInstanceAttributes,
 connect:UpdateInstanceAttribute,
 iam:CreateServiceLinkedRole,
 iam:PutRolePolicy,
 connect:TagResource,
-connect:UntagResource</pre>
+connect:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 connect:DeleteInstance,
 connect:DescribeInstance,
 connect:UntagResource,
 ds:DeleteDirectory,
 ds:UnauthorizeApplication,
-ds:DescribeDirectories</pre>
+ds:DescribeDirectories
+```
 
 
 ## Example

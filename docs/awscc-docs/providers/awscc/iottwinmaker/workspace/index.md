@@ -47,22 +47,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>workspace</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iottwinmaker:GetWorkspace,
-iottwinmaker:ListTagsForResource</pre>
+iottwinmaker:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource,
 iottwinmaker:UntagResource,
-iottwinmaker:UpdateWorkspace</pre>
+iottwinmaker:UpdateWorkspace
+```
 
 ### Delete
-<pre>
+```json
 iottwinmaker:DeleteWorkspace,
-iottwinmaker:GetWorkspace</pre>
+iottwinmaker:GetWorkspace
+```
 
 
 ## Example

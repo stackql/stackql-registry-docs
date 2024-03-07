@@ -49,18 +49,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>microsoft_teams_channel_configuration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-chatbot:GetMicrosoftTeamsChannelConfiguration</pre>
+```json
+chatbot:GetMicrosoftTeamsChannelConfiguration
+```
 
 ### Update
-<pre>
+```json
 chatbot:UpdateMicrosoftTeamsChannelConfiguration,
-iam:PassRole</pre>
+iam:PassRole
+```
 
 ### Delete
-<pre>
+```json
 chatbot:GetMicrosoftTeamsChannelConfiguration,
-chatbot:DeleteMicrosoftTeamsChannelConfiguration</pre>
+chatbot:DeleteMicrosoftTeamsChannelConfiguration
+```
 
 
 ## Example

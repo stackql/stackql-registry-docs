@@ -40,15 +40,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 synthetics:CreateGroup,
 synthetics:AssociateResource,
 synthetics:TagResource,
-synthetics:GetGroup</pre>
+synthetics:GetGroup
+```
 
 ### List
-<pre>
-synthetics:ListGroups</pre>
+```json
+synthetics:ListGroups
+```
 
 
 ## Example

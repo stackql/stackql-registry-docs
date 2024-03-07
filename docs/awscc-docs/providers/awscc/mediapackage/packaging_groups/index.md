@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>packaging_groups</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 mediapackage-vod:CreatePackagingGroup,
 mediapackage-vod:DescribePackagingGroup,
 mediapackage-vod:TagResource,
 mediapackage-vod:ConfigureLogs,
 iam:PassRole,
-iam:CreateServiceLinkedRole</pre>
+iam:CreateServiceLinkedRole
+```
 
 ### List
-<pre>
-mediapackage-vod:ListPackagingGroups</pre>
+```json
+mediapackage-vod:ListPackagingGroups
+```
 
 
 ## Example

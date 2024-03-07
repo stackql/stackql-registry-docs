@@ -49,29 +49,32 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>environment_account_connection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 proton:GetEnvironmentAccountConnection,
 proton:ListTagsForResource,
 iam:PassRole,
-proton:GetEnvironmentAccountConnection</pre>
+proton:GetEnvironmentAccountConnection
+```
 
 ### Update
-<pre>
+```json
 proton:CreateEnvironmentAccountConnection,
 proton:ListTagsForResource,
 proton:TagResource,
 proton:UntagResource,
 proton:UpdateEnvironmentAccountConnection,
 iam:PassRole,
-proton:GetEnvironmentAccountConnection</pre>
+proton:GetEnvironmentAccountConnection
+```
 
 ### Delete
-<pre>
+```json
 proton:DeleteEnvironmentAccountConnection,
 proton:UntagResource,
 iam:PassRole,
 proton:ListTagsForResource,
-proton:GetEnvironmentAccountConnection</pre>
+proton:GetEnvironmentAccountConnection
+```
 
 
 ## Example

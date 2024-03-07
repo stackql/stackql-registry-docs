@@ -44,18 +44,21 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>certificate_authority_activation</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 acm-pca:GetCertificateAuthorityCertificate,
-acm-pca:DescribeCertificateAuthority</pre>
+acm-pca:DescribeCertificateAuthority
+```
 
 ### Delete
-<pre>
-acm-pca:UpdateCertificateAuthority</pre>
+```json
+acm-pca:UpdateCertificateAuthority
+```
 
 ### Update
-<pre>
+```json
 acm-pca:ImportCertificateAuthorityCertificate,
-acm-pca:UpdateCertificateAuthority</pre>
+acm-pca:UpdateCertificateAuthority
+```
 
 
 ## Example

@@ -40,13 +40,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>access_grants</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 s3:CreateAccessGrant,
-s3:TagResource</pre>
+s3:TagResource
+```
 
 ### List
-<pre>
-s3:ListAccessGrants</pre>
+```json
+s3:ListAccessGrants
+```
 
 
 ## Example

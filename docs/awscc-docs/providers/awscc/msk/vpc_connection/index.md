@@ -46,21 +46,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>vpc_connection</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 kafka:DescribeVpcConnection,
 kms:CreateGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Update
-<pre>
+```json
 kafka:DescribeVpcConnection,
 kms:CreateGrant,
 kms:DescribeKey,
 kafka:TagResource,
-kafka:UntagResource</pre>
+kafka:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 ec2:DeleteVpcEndpoint,
 ec2:DeleteVpcEndpoints,
 ec2:DescribeVpcEndpoints,
@@ -68,7 +70,8 @@ ec2:DescribeVpcEndpointConnections,
 kafka:DeleteVpcConnection,
 kafka:DescribeVpcConnection,
 kms:CreateGrant,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 
 ## Example

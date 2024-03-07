@@ -46,24 +46,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>ip_set</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-guardduty:GetIPSet</pre>
+```json
+guardduty:GetIPSet
+```
 
 ### Delete
-<pre>
+```json
 guardduty:GetDetector,
 guardduty:ListDetectors,
 guardduty:ListIPSets,
 guardduty:GetIPSet,
 guardduty:DeleteIPSet,
-iam:DeleteRolePolicy</pre>
+iam:DeleteRolePolicy
+```
 
 ### Update
-<pre>
+```json
 guardduty:UpdateIPSet,
 guardduty:GetIPSet,
 guardduty:ListIPSets,
-iam:PutRolePolicy</pre>
+iam:PutRolePolicy
+```
 
 
 ## Example

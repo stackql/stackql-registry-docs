@@ -52,25 +52,28 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>studio_component</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-nimble:GetStudioComponent</pre>
+```json
+nimble:GetStudioComponent
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 nimble:UpdateStudioComponent,
 nimble:GetStudioComponent,
 ds:AuthorizeApplication,
 ec2:DescribeSecurityGroups,
 fsx:DescribeFilesystems,
-ds:DescribeDirectories</pre>
+ds:DescribeDirectories
+```
 
 ### Delete
-<pre>
+```json
 nimble:DeleteStudioComponent,
 nimble:GetStudioComponent,
 nimble:UntagResource,
-ds:UnauthorizeApplication</pre>
+ds:UnauthorizeApplication
+```
 
 
 ## Example

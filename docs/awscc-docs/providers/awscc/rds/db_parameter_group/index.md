@@ -44,14 +44,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>db_parameter_group</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rds:DescribeDBParameterGroups,
 rds:DescribeDBParameters,
 rds:DescribeEngineDefaultParameters,
-rds:ListTagsForResource</pre>
+rds:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 rds:AddTagsToResource,
 rds:DescribeDBParameterGroups,
 rds:DescribeDBParameters,
@@ -59,11 +60,13 @@ rds:DescribeEngineDefaultParameters,
 rds:ListTagsForResource,
 rds:ModifyDBParameterGroup,
 rds:ResetDBParameterGroup,
-rds:RemoveTagsFromResource</pre>
+rds:RemoveTagsFromResource
+```
 
 ### Delete
-<pre>
-rds:DeleteDBParameterGroup</pre>
+```json
+rds:DeleteDBParameterGroup
+```
 
 
 ## Example

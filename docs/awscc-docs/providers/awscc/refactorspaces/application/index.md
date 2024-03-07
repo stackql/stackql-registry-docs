@@ -53,12 +53,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 refactor-spaces:GetApplication,
-refactor-spaces:ListTagsForResource</pre>
+refactor-spaces:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 refactor-spaces:GetApplication,
 refactor-spaces:DeleteApplication,
 refactor-spaces:UntagResource,
@@ -74,7 +75,8 @@ elasticloadbalancing:DeleteLoadBalancer,
 apigateway:Update*,
 apigateway:Delete*,
 apigateway:Get*,
-apigateway:Put*</pre>
+apigateway:Put*
+```
 
 
 ## Example

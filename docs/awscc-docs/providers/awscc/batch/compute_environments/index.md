@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>compute_environments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 Batch:CreateComputeEnvironment,
 Batch:TagResource,
 Batch:DescribeComputeEnvironments,
 iam:CreateServiceLinkedRole,
 Iam:PassRole,
-Eks:DescribeCluster</pre>
+Eks:DescribeCluster
+```
 
 ### List
-<pre>
-Batch:DescribeComputeEnvironments</pre>
+```json
+Batch:DescribeComputeEnvironments
+```
 
 
 ## Example

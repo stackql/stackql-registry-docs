@@ -40,14 +40,16 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sampling_rules</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 xray:CreateSamplingRule,
-xray:TagResource</pre>
+xray:TagResource
+```
 
 ### List
-<pre>
+```json
 xray:GetSamplingRules,
-xray:ListTagsForResource</pre>
+xray:ListTagsForResource
+```
 
 
 ## Example

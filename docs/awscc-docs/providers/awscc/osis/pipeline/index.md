@@ -51,12 +51,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>pipeline</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 osis:GetPipeline,
-osis:ListTagsForResource</pre>
+osis:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 osis:UpdatePipeline,
 osis:GetPipeline,
 osis:ListTagsForResource,
@@ -66,15 +67,17 @@ iam:PassRole,
 logs:GetLogDelivery,
 logs:UpdateLogDelivery,
 logs:ListLogDeliveries,
-kms:DescribeKey</pre>
+kms:DescribeKey
+```
 
 ### Delete
-<pre>
+```json
 osis:DeletePipeline,
 osis:GetPipeline,
 logs:GetLogDelivery,
 logs:DeleteLogDelivery,
-logs:ListLogDeliveries</pre>
+logs:ListLogDeliveries
+```
 
 
 ## Example

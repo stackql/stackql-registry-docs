@@ -45,17 +45,20 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>build</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-gamelift:DescribeBuild</pre>
+```json
+gamelift:DescribeBuild
+```
 
 ### Update
-<pre>
-gamelift:UpdateBuild</pre>
+```json
+gamelift:UpdateBuild
+```
 
 ### Delete
-<pre>
+```json
 gamelift:DescribeBuild,
-gamelift:DeleteBuild</pre>
+gamelift:DeleteBuild
+```
 
 
 ## Example

@@ -41,18 +41,11 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 
 To operate on the <code>primary_task_set</code> resource, the following permissions are required:
 
-### Read
-<pre>
-</pre>
-
 ### Update
-<pre>
+```json
 ecs:DescribeTaskSets,
-ecs:UpdateServicePrimaryTaskSet</pre>
-
-### Delete
-<pre>
-</pre>
+ecs:UpdateServicePrimaryTaskSet
+```
 
 
 ## Example

@@ -43,23 +43,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>topic_rule</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iot:GetTopicRule,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 iam:PassRole,
 iot:GetTopicRule,
 iot:ListTagsForResource,
 iot:ReplaceTopicRule,
 iot:TagResource,
-iot:UntagResource</pre>
+iot:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 iot:GetTopicRule,
-iot:DeleteTopicRule</pre>
+iot:DeleteTopicRule
+```
 
 
 ## Example

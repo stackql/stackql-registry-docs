@@ -47,12 +47,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>landing_zone</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 controltower:GetLandingZone,
-controltower:ListTagsForResource</pre>
+controltower:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 controltower:UpdateLandingZone,
 controltower:GetLandingZoneOperation,
 controltower:ListTagsForResource,
@@ -84,10 +85,11 @@ organizations:ListRoots,
 sso:GetPeregrineStatus,
 sso:ListDirectoryAssociations,
 sso:StartPeregrine,
-sso:RegisterRegion</pre>
+sso:RegisterRegion
+```
 
 ### Delete
-<pre>
+```json
 controltower:DeleteLandingZone,
 controltower:GetLandingZone,
 controltower:GetLandingZoneOperation,
@@ -109,7 +111,8 @@ sso:GetPeregrineStatus,
 sso:ListDirectoryAssociations,
 iam:DeleteRolePolicy,
 iam:DetachRolePolicy,
-iam:DeleteRole</pre>
+iam:DeleteRole
+```
 
 
 ## Example

@@ -55,20 +55,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>stream_processor</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 rekognition:DescribeStreamProcessor,
-rekognition:ListTagsForResource</pre>
+rekognition:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 rekognition:TagResource,
 rekognition:UntagResource,
 rekognition:ListTagsForResource,
-rekognition:DescribeStreamProcessor</pre>
+rekognition:DescribeStreamProcessor
+```
 
 ### Delete
-<pre>
-rekognition:DeleteStreamProcessor</pre>
+```json
+rekognition:DeleteStreamProcessor
+```
 
 
 ## Example

@@ -55,16 +55,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application_instance</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 panorama:DescribeApplicationInstance,
 panorama:DescribeApplicationInstanceDetails,
 panorama:ListTagsForResource,
 s3:ListObjects,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 ### Update
-<pre>
+```json
 panorama:ListTagsForResource,
 panorama:TagResource,
 panorama:UntagResource,
@@ -72,10 +73,11 @@ panorama:DescribeApplicationInstance,
 panorama:DescribeApplicationInstanceDetails,
 s3:ListObjects,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 ### Delete
-<pre>
+```json
 panorama:RemoveApplicationInstance,
 panorama:DescribeApplicationInstance,
 panorama:DescribeApplicationInstanceDetails,
@@ -84,7 +86,8 @@ s3:DeleteObjectVersion,
 s3:DeleteObjectVersionTagging,
 s3:ListObjects,
 s3:GetObject,
-s3:GetObjectVersion</pre>
+s3:GetObjectVersion
+```
 
 
 ## Example

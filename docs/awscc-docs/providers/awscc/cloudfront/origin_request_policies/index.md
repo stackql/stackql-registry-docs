@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>origin_request_policies</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-cloudfront:CreateOriginRequestPolicy</pre>
+```json
+cloudfront:CreateOriginRequestPolicy
+```
 
 ### List
-<pre>
-cloudfront:ListOriginRequestPolicies</pre>
+```json
+cloudfront:ListOriginRequestPolicies
+```
 
 
 ## Example

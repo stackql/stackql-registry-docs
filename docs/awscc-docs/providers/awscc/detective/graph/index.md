@@ -42,23 +42,26 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>graph</code> resource, the following permissions are required:
 
 ### Update
-<pre>
+```json
 detective:UntagResource,
 detective:TagResource,
 detective:ListTagsForResource,
 detective:UpdateOrganizationConfiguration,
-organizations:DescribeOrganization</pre>
+organizations:DescribeOrganization
+```
 
 ### Read
-<pre>
+```json
 detective:ListGraphs,
 detective:ListTagsForResource,
 detective:DescribeOrganizationConfiguration,
-organizations:DescribeOrganization</pre>
+organizations:DescribeOrganization
+```
 
 ### Delete
-<pre>
-detective:DeleteGraph</pre>
+```json
+detective:DeleteGraph
+```
 
 
 ## Example

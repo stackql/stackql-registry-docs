@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>deployments</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 greengrass:CreateDeployment,
 greengrass:GetDeployment,
 greengrass:TagResource,
@@ -52,15 +52,17 @@ iot:DescribeThing,
 iot:DescribeThingGroup,
 iot:GetThingShadow,
 iot:UpdateJob,
-iot:UpdateThingShadow</pre>
+iot:UpdateThingShadow
+```
 
 ### List
-<pre>
+```json
 greengrass:ListDeployments,
 iot:DescribeJob,
 iot:DescribeThing,
 iot:DescribeThingGroup,
-iot:GetThingShadow</pre>
+iot:GetThingShadow
+```
 
 
 ## Example

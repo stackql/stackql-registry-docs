@@ -40,16 +40,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>labels</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 frauddetector:GetLabels,
 frauddetector:PutLabel,
 frauddetector:ListTagsForResource,
-frauddetector:TagResource</pre>
+frauddetector:TagResource
+```
 
 ### List
-<pre>
+```json
 frauddetector:GetLabels,
-frauddetector:ListTagsForResource</pre>
+frauddetector:ListTagsForResource
+```
 
 
 ## Example

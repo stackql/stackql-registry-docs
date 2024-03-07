@@ -40,12 +40,14 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>query_definitions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
-logs:PutQueryDefinition</pre>
+```json
+logs:PutQueryDefinition
+```
 
 ### List
-<pre>
-logs:DescribeQueryDefinitions</pre>
+```json
+logs:DescribeQueryDefinitions
+```
 
 
 ## Example

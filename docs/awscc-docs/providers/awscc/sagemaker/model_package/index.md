@@ -66,22 +66,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>model_package</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 sagemaker:DescribeModelPackage,
-sagemaker:ListTags</pre>
+sagemaker:ListTags
+```
 
 ### Update
-<pre>
+```json
 sagemaker:UpdateModelPackage,
 sagemaker:DescribeModelPackage,
 sagemaker:ListTags,
 sagemaker:AddTags,
-sagemaker:DeleteTags</pre>
+sagemaker:DeleteTags
+```
 
 ### Delete
-<pre>
+```json
 sagemaker:DeleteModelPackage,
-sagemaker:DescribeModelPackage</pre>
+sagemaker:DescribeModelPackage
+```
 
 
 ## Example

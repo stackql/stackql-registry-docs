@@ -62,20 +62,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>server</code> resource, the following permissions are required:
 
 ### Delete
-<pre>
+```json
 opsworks-cm:DeleteServer,
-opsworks-cm:DescribeServers</pre>
+opsworks-cm:DescribeServers
+```
 
 ### Update
-<pre>
+```json
 opsworks-cm:UpdateServer,
 opsworks-cm:TagResource,
 opsworks-cm:UntagResource,
-opsworks-cm:DescribeServers</pre>
+opsworks-cm:DescribeServers
+```
 
 ### Read
-<pre>
-opsworks-cm:DescribeServers</pre>
+```json
+opsworks-cm:DescribeServers
+```
 
 
 ## Example

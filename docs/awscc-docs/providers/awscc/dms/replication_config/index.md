@@ -50,12 +50,13 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>replication_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 dms:DescribeReplicationConfigs,
-dms:ListTagsForResource</pre>
+dms:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 dms:ModifyReplicationConfig,
 dms:AddTagsToResource,
 dms:RemoveTagsToResource,
@@ -63,15 +64,17 @@ dms:ListTagsForResource,
 iam:CreateServiceLinkedRole,
 iam:AttachRolePolicy,
 iam:PutRolePolicy,
-iam:UpdateRoleDescription</pre>
+iam:UpdateRoleDescription
+```
 
 ### Delete
-<pre>
+```json
 dms:DescribeReplicationConfigs,
 dms:DeleteReplicationConfig,
 dms:ListTagsForResource,
 iam:DeleteServiceLinkedRole,
-iam:GetServiceLinkedRoleDeletionStatus</pre>
+iam:GetServiceLinkedRoleDeletionStatus
+```
 
 
 ## Example

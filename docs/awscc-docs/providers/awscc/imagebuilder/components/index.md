@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>components</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:CreateServiceLinkedRole,
 iam:GetRole,
 kms:GenerateDataKey*,
@@ -51,11 +51,13 @@ s3:HeadBucket,
 s3:GetBucketLocation,
 imagebuilder:TagResource,
 imagebuilder:GetComponent,
-imagebuilder:CreateComponent</pre>
+imagebuilder:CreateComponent
+```
 
 ### List
-<pre>
-imagebuilder:ListComponents</pre>
+```json
+imagebuilder:ListComponents
+```
 
 
 ## Example

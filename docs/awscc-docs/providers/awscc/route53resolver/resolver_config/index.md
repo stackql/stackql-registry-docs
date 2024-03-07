@@ -44,15 +44,17 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>resolver_config</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 route53resolver:GetResolverConfig,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 ### Delete
-<pre>
+```json
 route53resolver:UpdateResolverConfig,
 route53resolver:ListResolverConfigs,
-ec2:DescribeVpcs</pre>
+ec2:DescribeVpcs
+```
 
 
 ## Example

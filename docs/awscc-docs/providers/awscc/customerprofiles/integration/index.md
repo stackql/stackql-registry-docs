@@ -47,21 +47,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>integration</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-profile:GetIntegration</pre>
+```json
+profile:GetIntegration
+```
 
 ### Delete
-<pre>
+```json
 profile:DeleteIntegration,
 appflow:DeleteFlow,
 app-integrations:ListEventIntegrationAssociations,
 app-integrations:DeleteEventIntegrationAssociation,
 events:RemoveTargets,
 events:ListTargetsByRule,
-events:DeleteRule</pre>
+events:DeleteRule
+```
 
 ### Update
-<pre>
+```json
 profile:PutIntegration,
 profile:GetIntegration,
 appflow:CreateFlow,
@@ -76,7 +78,8 @@ events:PutRule,
 events:PutTargets,
 events:PutEvents,
 profile:UntagResource,
-profile:TagResource</pre>
+profile:TagResource
+```
 
 
 ## Example

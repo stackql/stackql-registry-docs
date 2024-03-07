@@ -40,17 +40,19 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>role_aliases</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 iam:GetRole,
 iam:PassRole,
 iot:CreateRoleAlias,
 iot:DescribeRoleAlias,
 iot:TagResource,
-iot:ListTagsForResource</pre>
+iot:ListTagsForResource
+```
 
 ### List
-<pre>
-iot:ListRoleAliases</pre>
+```json
+iot:ListRoleAliases
+```
 
 
 ## Example

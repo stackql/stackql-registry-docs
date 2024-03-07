@@ -44,20 +44,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>listener</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-globalaccelerator:DescribeListener</pre>
+```json
+globalaccelerator:DescribeListener
+```
 
 ### Update
-<pre>
+```json
 globalaccelerator:UpdateListener,
 globalaccelerator:DescribeListener,
-globalaccelerator:DescribeAccelerator</pre>
+globalaccelerator:DescribeAccelerator
+```
 
 ### Delete
-<pre>
+```json
 globalaccelerator:DescribeListener,
 globalaccelerator:DeleteListener,
-globalaccelerator:DescribeAccelerator</pre>
+globalaccelerator:DescribeAccelerator
+```
 
 
 ## Example

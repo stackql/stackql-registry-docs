@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>configured_tables</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 cleanrooms:CreateConfiguredTable,
 cleanrooms:DeleteConfiguredTable,
 cleanrooms:DeleteConfiguredTableAnalysisRule,
@@ -57,11 +57,13 @@ glue:BatchGetPartition,
 glue:GetSchemaVersion,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
-cleanrooms:ListConfiguredTables</pre>
+cleanrooms:ListConfiguredTables
+```
 
 ### List
-<pre>
-cleanrooms:ListConfiguredTables</pre>
+```json
+cleanrooms:ListConfiguredTables
+```
 
 
 ## Example

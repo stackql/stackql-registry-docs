@@ -47,22 +47,25 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>framework</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 backup:DescribeFramework,
-backup:ListTags</pre>
+backup:ListTags
+```
 
 ### Update
-<pre>
+```json
 backup:DescribeFramework,
 backup:UpdateFramework,
 backup:ListTags,
 backup:TagResource,
-backup:UntagResource</pre>
+backup:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 backup:DeleteFramework,
-backup:DescribeFramework</pre>
+backup:DescribeFramework
+```
 
 
 ## Example

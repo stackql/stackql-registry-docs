@@ -52,29 +52,32 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>custom_line_item</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 billingconductor:ListCustomLineItems,
 billingconductor:ListCustomLineItemVersions,
 billingconductor:ListResourcesAssociatedToCustomLineItem,
-billingconductor:ListTagsForResource</pre>
+billingconductor:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 billingconductor:UpdateCustomLineItem,
 billingconductor:ListCustomLineItems,
 billingconductor:ListResourcesAssociatedToCustomLineItem,
 billingconductor:BatchAssociateResourcesToCustomLineItem,
 billingconductor:BatchDisassociateResourcesFromCustomLineItem,
 billingconductor:TagResource,
-billingconductor:UntagResource</pre>
+billingconductor:UntagResource
+```
 
 ### Delete
-<pre>
+```json
 billingconductor:DeleteCustomLineItem,
 billingconductor:ListCustomLineItems,
 billingconductor:BatchDisassociateResourcesFromCustomLineItem,
 billingconductor:ListResourcesAssociatedToCustomLineItem,
-billingconductor:UntagResource</pre>
+billingconductor:UntagResource
+```
 
 
 ## Example

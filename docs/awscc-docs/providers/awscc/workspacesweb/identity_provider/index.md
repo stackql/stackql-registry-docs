@@ -44,24 +44,27 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>identity_provider</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 workspaces-web:GetIdentityProvider,
 workspaces-web:ListIdentityProviders,
-workspaces-web:ListTagsForResource</pre>
+workspaces-web:ListTagsForResource
+```
 
 ### Update
-<pre>
+```json
 workspaces-web:UpdateIdentityProvider,
 workspaces-web:TagResource,
 workspaces-web:UntagResource,
 workspaces-web:GetIdentityProvider,
 workspaces-web:ListIdentityProviders,
-workspaces-web:ListTagsForResource</pre>
+workspaces-web:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 workspaces-web:GetIdentityProvider,
-workspaces-web:DeleteIdentityProvider</pre>
+workspaces-web:DeleteIdentityProvider
+```
 
 
 ## Example

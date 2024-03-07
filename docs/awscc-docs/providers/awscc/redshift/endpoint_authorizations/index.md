@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>endpoint_authorizations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 redshift:AuthorizeEndpointAccess,
-redshift:DescribeEndpointAuthorization</pre>
+redshift:DescribeEndpointAuthorization
+```
 
 ### List
-<pre>
-redshift:DescribeEndpointAuthorization</pre>
+```json
+redshift:DescribeEndpointAuthorization
+```
 
 
 ## Example

@@ -40,7 +40,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>robot_applications</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 robomaker:CreateRobotApplication,
 robomaker:TagResource,
 robomaker:UntagResource,
@@ -48,11 +48,13 @@ ecr:BatchGetImage,
 ecr:GetAuthorizationToken,
 ecr:BatchCheckLayerAvailability,
 ecr-public:GetAuthorizationToken,
-sts:GetServiceBearerToken</pre>
+sts:GetServiceBearerToken
+```
 
 ### List
-<pre>
-robomaker:ListRobotApplications</pre>
+```json
+robomaker:ListRobotApplications
+```
 
 
 ## Example

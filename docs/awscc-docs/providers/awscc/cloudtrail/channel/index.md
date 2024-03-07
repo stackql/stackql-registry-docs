@@ -44,20 +44,23 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>channel</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 CloudTrail:GetChannel,
-CloudTrail:ListChannels</pre>
+CloudTrail:ListChannels
+```
 
 ### Update
-<pre>
+```json
 CloudTrail:UpdateChannel,
 CloudTrail:GetChannel,
 CloudTrail:AddTags,
-CloudTrail:RemoveTags</pre>
+CloudTrail:RemoveTags
+```
 
 ### Delete
-<pre>
-CloudTrail:DeleteChannel</pre>
+```json
+CloudTrail:DeleteChannel
+```
 
 
 ## Example

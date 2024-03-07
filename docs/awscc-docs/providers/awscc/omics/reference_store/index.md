@@ -46,13 +46,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>reference_store</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 omics:GetReferenceStore,
-omics:ListTagsForResource</pre>
+omics:ListTagsForResource
+```
 
 ### Delete
-<pre>
-omics:DeleteReferenceStore</pre>
+```json
+omics:DeleteReferenceStore
+```
 
 
 ## Example

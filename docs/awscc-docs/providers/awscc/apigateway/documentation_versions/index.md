@@ -41,13 +41,15 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>documentation_versions</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 apigateway:GET,
-apigateway:POST</pre>
+apigateway:POST
+```
 
 ### List
-<pre>
-apigateway:GET</pre>
+```json
+apigateway:GET
+```
 
 
 ## Example

@@ -48,21 +48,24 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>route_calculator</code> resource, the following permissions are required:
 
 ### Read
-<pre>
-geo:DescribeRouteCalculator</pre>
+```json
+geo:DescribeRouteCalculator
+```
 
 ### Update
-<pre>
+```json
 geo:CreateRouteCalculator,
 geo:DescribeRouteCalculator,
 geo:TagResource,
 geo:UntagResource,
-geo:UpdateRouteCalculator</pre>
+geo:UpdateRouteCalculator
+```
 
 ### Delete
-<pre>
+```json
 geo:DeleteRouteCalculator,
-geo:DescribeRouteCalculator</pre>
+geo:DescribeRouteCalculator
+```
 
 
 ## Example

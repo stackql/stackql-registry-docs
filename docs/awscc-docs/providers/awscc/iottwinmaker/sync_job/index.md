@@ -47,16 +47,18 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>sync_job</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 iottwinmaker:GetSyncJob,
 iottwinmaker:GetWorkspace,
-iottwinmaker:ListTagsForResource</pre>
+iottwinmaker:ListTagsForResource
+```
 
 ### Delete
-<pre>
+```json
 iottwinmaker:DeleteSyncJob,
 iottwinmaker:GetSyncJob,
-iottwinmaker:GetWorkspace</pre>
+iottwinmaker:GetWorkspace
+```
 
 
 ## Example

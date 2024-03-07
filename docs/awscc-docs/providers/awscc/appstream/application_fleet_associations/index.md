@@ -41,9 +41,10 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>application_fleet_associations</code> resource, the following permissions are required:
 
 ### Create
-<pre>
+```json
 appstream:AssociateApplicationFleet,
-appstream:DescribeApplicationFleetAssociations</pre>
+appstream:DescribeApplicationFleetAssociations
+```
 
 
 ## Example

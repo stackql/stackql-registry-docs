@@ -50,7 +50,7 @@ Currently only <code>SELECT</code> is supported for this resource resource.
 To operate on the <code>endpoint_access</code> resource, the following permissions are required:
 
 ### Read
-<pre>
+```json
 redshift:DescribeEndpointAccess,
 ec2:DescribeClientVpnEndpoints,
 ec2:DescribeVpcEndpoint,
@@ -58,10 +58,11 @@ ec2:DescribeVpcAttribute,
 ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
-ec2:DescribeSubnets</pre>
+ec2:DescribeSubnets
+```
 
 ### Update
-<pre>
+```json
 redshift:DescribeEndpointAccess,
 redshift:ModifyEndpointAccess,
 ec2:ModifyClientVpnEndpoint,
@@ -70,10 +71,11 @@ ec2:DescribeVpcAttribute,
 ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
-ec2:DescribeSubnets</pre>
+ec2:DescribeSubnets
+```
 
 ### Delete
-<pre>
+```json
 redshift:DeleteEndpointAccess,
 redshift:DescribeEndpointAccess,
 ec2:DeleteClientVpnEndpoint,
@@ -83,7 +85,8 @@ ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
 ec2:DescribeSubnets,
-ec2:DescribeVpcEndpoint</pre>
+ec2:DescribeVpcEndpoint
+```
 
 
 ## Example
