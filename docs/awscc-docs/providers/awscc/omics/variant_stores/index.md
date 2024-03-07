@@ -35,6 +35,15 @@ Retrieves a list of <code>variant_stores</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.omics.variant_stores
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>variant_stores</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ omics:GetVariantStore
 omics:ListVariantStores
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.omics.variant_stores
-WHERE region = 'us-east-1'
-```

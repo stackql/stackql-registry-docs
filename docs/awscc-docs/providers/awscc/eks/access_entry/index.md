@@ -42,6 +42,24 @@ Gets an individual <code>access_entry</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_name,
+principal_arn,
+username,
+tags,
+access_entry_arn,
+kubernetes_groups,
+access_policies,
+type
+FROM awscc.eks.access_entry
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PrincipalArn}';
+AND data__Identifier = '{ClusterName}';
+```
+
 ## Permissions
 
 To operate on the <code>access_entry</code> resource, the following permissions are required:
@@ -69,21 +87,3 @@ eks:DeleteAccessEntry,
 eks:DescribeAccessEntry
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_name,
-principal_arn,
-username,
-tags,
-access_entry_arn,
-kubernetes_groups,
-access_policies,
-type
-FROM awscc.eks.access_entry
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PrincipalArn&gt;'
-AND data__Identifier = '&lt;ClusterName&gt;'
-```

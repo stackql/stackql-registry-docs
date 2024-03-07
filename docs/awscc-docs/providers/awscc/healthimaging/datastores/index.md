@@ -35,6 +35,15 @@ Retrieves a list of <code>datastores</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+datastore_id
+FROM awscc.healthimaging.datastores
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>datastores</code> resource, the following permissions are required:
@@ -59,12 +68,3 @@ medical-imaging:ListTagsForResource
 medical-imaging:ListDatastores
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-datastore_id
-FROM awscc.healthimaging.datastores
-WHERE region = 'us-east-1'
-```

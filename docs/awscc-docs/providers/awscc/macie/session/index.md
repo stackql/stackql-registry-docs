@@ -38,6 +38,19 @@ Gets an individual <code>session</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+aws_account_id,
+status,
+finding_publishing_frequency,
+service_role
+FROM awscc.macie.session
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AwsAccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>session</code> resource, the following permissions are required:
@@ -58,16 +71,3 @@ macie2:UpdateMacieSession
 macie2:DisableMacie
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-aws_account_id,
-status,
-finding_publishing_frequency,
-service_role
-FROM awscc.macie.session
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-```

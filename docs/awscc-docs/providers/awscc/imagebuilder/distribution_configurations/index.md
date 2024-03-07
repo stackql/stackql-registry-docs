@@ -35,6 +35,15 @@ Retrieves a list of <code>distribution_configurations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.imagebuilder.distribution_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>distribution_configurations</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ imagebuilder:CreateDistributionConfiguration
 imagebuilder:ListDistributionConfigurations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.imagebuilder.distribution_configurations
-WHERE region = 'us-east-1'
-```

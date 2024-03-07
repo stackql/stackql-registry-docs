@@ -38,6 +38,19 @@ Gets an individual <code>alias</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+name,
+routing_strategy,
+alias_id
+FROM awscc.gamelift.alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AliasId}';
+```
+
 ## Permissions
 
 To operate on the <code>alias</code> resource, the following permissions are required:
@@ -57,16 +70,3 @@ gamelift:UpdateAlias
 gamelift:DeleteAlias
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-name,
-routing_strategy,
-alias_id
-FROM awscc.gamelift.alias
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AliasId&gt;'
-```

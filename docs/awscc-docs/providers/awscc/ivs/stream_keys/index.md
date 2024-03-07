@@ -35,6 +35,15 @@ Retrieves a list of <code>stream_keys</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.ivs.stream_keys
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>stream_keys</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ ivs:ListStreamKeys,
 ivs:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.ivs.stream_keys
-WHERE region = 'us-east-1'
-```

@@ -37,6 +37,18 @@ Gets an individual <code>vdm_attributes</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+vdm_attributes_resource_id,
+dashboard_attributes,
+guardian_attributes
+FROM awscc.ses.vdm_attributes
+WHERE region = 'us-east-1'
+AND data__Identifier = '{VdmAttributesResourceId}';
+```
+
 ## Permissions
 
 To operate on the <code>vdm_attributes</code> resource, the following permissions are required:
@@ -58,15 +70,3 @@ ses:PutAccountVdmAttributes,
 ses:GetAccount
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-vdm_attributes_resource_id,
-dashboard_attributes,
-guardian_attributes
-FROM awscc.ses.vdm_attributes
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;VdmAttributesResourceId&gt;'
-```

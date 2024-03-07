@@ -113,63 +113,6 @@ Gets an individual <code>db_instance</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>db_instance</code> resource, the following permissions are required:
-
-### Read
-```json
-ec2:DescribeAccountAttributes,
-ec2:DescribeAvailabilityZones,
-ec2:DescribeInternetGateways,
-ec2:DescribeSecurityGroups,
-ec2:DescribeSubnets,
-ec2:DescribeVpcAttribute,
-ec2:DescribeVpcs,
-rds:DescribeDBInstances
-```
-
-### Update
-```json
-ec2:DescribeAccountAttributes,
-ec2:DescribeAvailabilityZones,
-ec2:DescribeInternetGateways,
-ec2:DescribeSecurityGroups,
-ec2:DescribeSubnets,
-ec2:DescribeVpcAttribute,
-ec2:DescribeVpcs,
-iam:CreateServiceLinkedRole,
-iam:GetRole,
-iam:ListRoles,
-iam:PassRole,
-kms:CreateGrant,
-kms:DescribeKey,
-rds:AddRoleToDBInstance,
-rds:AddTagsToResource,
-rds:DescribeDBClusters,
-rds:DescribeDBEngineVersions,
-rds:DescribeDBInstances,
-rds:DescribeDBParameterGroups,
-rds:DescribeEvents,
-rds:ModifyDBInstance,
-rds:PromoteReadReplica,
-rds:RebootDBInstance,
-rds:RemoveRoleFromDBInstance,
-rds:RemoveTagsFromResource,
-rds:StartDBInstanceAutomatedBackupsReplication,
-rds:StopDBInstanceAutomatedBackupsReplication,
-secretsmanager:CreateSecret,
-secretsmanager:TagResource
-```
-
-### Delete
-```json
-rds:CreateDBSnapshot,
-rds:DeleteDBInstance,
-rds:DescribeDBInstances
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -255,5 +198,62 @@ use_latest_restorable_time,
 v_pc_security_groups
 FROM awscc.rds.db_instance
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBInstanceIdentifier&gt;'
+AND data__Identifier = '{DBInstanceIdentifier}';
 ```
+
+## Permissions
+
+To operate on the <code>db_instance</code> resource, the following permissions are required:
+
+### Read
+```json
+ec2:DescribeAccountAttributes,
+ec2:DescribeAvailabilityZones,
+ec2:DescribeInternetGateways,
+ec2:DescribeSecurityGroups,
+ec2:DescribeSubnets,
+ec2:DescribeVpcAttribute,
+ec2:DescribeVpcs,
+rds:DescribeDBInstances
+```
+
+### Update
+```json
+ec2:DescribeAccountAttributes,
+ec2:DescribeAvailabilityZones,
+ec2:DescribeInternetGateways,
+ec2:DescribeSecurityGroups,
+ec2:DescribeSubnets,
+ec2:DescribeVpcAttribute,
+ec2:DescribeVpcs,
+iam:CreateServiceLinkedRole,
+iam:GetRole,
+iam:ListRoles,
+iam:PassRole,
+kms:CreateGrant,
+kms:DescribeKey,
+rds:AddRoleToDBInstance,
+rds:AddTagsToResource,
+rds:DescribeDBClusters,
+rds:DescribeDBEngineVersions,
+rds:DescribeDBInstances,
+rds:DescribeDBParameterGroups,
+rds:DescribeEvents,
+rds:ModifyDBInstance,
+rds:PromoteReadReplica,
+rds:RebootDBInstance,
+rds:RemoveRoleFromDBInstance,
+rds:RemoveTagsFromResource,
+rds:StartDBInstanceAutomatedBackupsReplication,
+rds:StopDBInstanceAutomatedBackupsReplication,
+secretsmanager:CreateSecret,
+secretsmanager:TagResource
+```
+
+### Delete
+```json
+rds:CreateDBSnapshot,
+rds:DeleteDBInstance,
+rds:DescribeDBInstances
+```
+

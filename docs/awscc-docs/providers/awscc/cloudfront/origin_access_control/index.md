@@ -36,6 +36,16 @@ Gets an individual <code>origin_access_control</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+origin_access_control_config
+FROM awscc.cloudfront.origin_access_control
+WHERE data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>origin_access_control</code> resource, the following permissions are required:
@@ -57,13 +67,3 @@ cloudfront:UpdateOriginAccessControl,
 cloudfront:GetOriginAccessControl
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-origin_access_control_config
-FROM awscc.cloudfront.origin_access_control
-WHERE data__Identifier = '&lt;Id&gt;'
-```

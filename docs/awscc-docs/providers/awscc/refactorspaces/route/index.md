@@ -44,6 +44,27 @@ Gets an individual <code>route</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+path_resource_to_id,
+arn,
+application_identifier,
+environment_identifier,
+route_identifier,
+route_type,
+service_identifier,
+default_route,
+uri_path_route,
+tags
+FROM awscc.refactorspaces.route
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EnvironmentIdentifier}';
+AND data__Identifier = '{ApplicationIdentifier}';
+AND data__Identifier = '{RouteIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>route</code> resource, the following permissions are required:
@@ -110,24 +131,3 @@ ec2:DescribeSubnets,
 tag:GetResources
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-path_resource_to_id,
-arn,
-application_identifier,
-environment_identifier,
-route_identifier,
-route_type,
-service_identifier,
-default_route,
-uri_path_route,
-tags
-FROM awscc.refactorspaces.route
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentIdentifier&gt;'
-AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
-AND data__Identifier = '&lt;RouteIdentifier&gt;'
-```

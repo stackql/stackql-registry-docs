@@ -42,6 +42,24 @@ Gets an individual <code>site</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+site_arn,
+site_id,
+description,
+tags,
+global_network_id,
+location,
+created_at,
+state
+FROM awscc.networkmanager.site
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GlobalNetworkId}';
+AND data__Identifier = '{SiteId}';
+```
+
 ## Permissions
 
 To operate on the <code>site</code> resource, the following permissions are required:
@@ -66,21 +84,3 @@ networkmanager:GetSites,
 networkmanager:DeleteSite
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-site_arn,
-site_id,
-description,
-tags,
-global_network_id,
-location,
-created_at,
-state
-FROM awscc.networkmanager.site
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalNetworkId&gt;'
-AND data__Identifier = '&lt;SiteId&gt;'
-```

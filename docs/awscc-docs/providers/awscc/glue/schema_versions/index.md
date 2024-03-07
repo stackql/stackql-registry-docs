@@ -35,6 +35,15 @@ Retrieves a list of <code>schema_versions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+version_id
+FROM awscc.glue.schema_versions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>schema_versions</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ glue:GetSchemaByDefinition
 glue:ListSchemaVersions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-version_id
-FROM awscc.glue.schema_versions
-WHERE region = 'us-east-1'
-```

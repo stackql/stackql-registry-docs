@@ -47,6 +47,29 @@ Gets an individual <code>analysis_template</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+collaboration_arn,
+collaboration_identifier,
+tags,
+analysis_parameters,
+analysis_template_identifier,
+description,
+membership_arn,
+membership_identifier,
+name,
+schema,
+source,
+format
+FROM awscc.cleanrooms.analysis_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AnalysisTemplateIdentifier}';
+AND data__Identifier = '{MembershipIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>analysis_template</code> resource, the following permissions are required:
@@ -75,26 +98,3 @@ cleanrooms:ListTagsForResource,
 cleanrooms:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-collaboration_arn,
-collaboration_identifier,
-tags,
-analysis_parameters,
-analysis_template_identifier,
-description,
-membership_arn,
-membership_identifier,
-name,
-schema,
-source,
-format
-FROM awscc.cleanrooms.analysis_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AnalysisTemplateIdentifier&gt;'
-AND data__Identifier = '&lt;MembershipIdentifier&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>queue_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.sqs.queue_policies
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>queue_policies</code> resource, the following permissions are required:
@@ -44,12 +53,3 @@ To operate on the <code>queue_policies</code> resource, the following permission
 sqs:SetQueueAttributes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.sqs.queue_policies
-WHERE region = 'us-east-1'
-```

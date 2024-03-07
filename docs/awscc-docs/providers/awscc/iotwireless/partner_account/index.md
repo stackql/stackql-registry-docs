@@ -43,6 +43,24 @@ Gets an individual <code>partner_account</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+sidewalk,
+partner_account_id,
+partner_type,
+sidewalk_response,
+account_linked,
+sidewalk_update,
+fingerprint,
+arn,
+tags
+FROM awscc.iotwireless.partner_account
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PartnerAccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>partner_account</code> resource, the following permissions are required:
@@ -65,21 +83,3 @@ iotwireless:ListTagsForResource
 iotwireless:DisassociateAwsAccountFromPartnerAccount
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-sidewalk,
-partner_account_id,
-partner_type,
-sidewalk_response,
-account_linked,
-sidewalk_update,
-fingerprint,
-arn,
-tags
-FROM awscc.iotwireless.partner_account
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PartnerAccountId&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>identity_providers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+identity_provider_arn
+FROM awscc.workspacesweb.identity_providers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>identity_providers</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ workspaces-web:TagResource
 workspaces-web:ListIdentityProviders
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-identity_provider_arn
-FROM awscc.workspacesweb.identity_providers
-WHERE region = 'us-east-1'
-```

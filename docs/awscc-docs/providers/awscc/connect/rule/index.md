@@ -42,6 +42,23 @@ Gets an individual <code>rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+rule_arn,
+instance_arn,
+trigger_event_source,
+function,
+actions,
+publish_status,
+tags
+FROM awscc.connect.rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RuleArn}';
+```
+
 ## Permissions
 
 To operate on the <code>rule</code> resource, the following permissions are required:
@@ -67,20 +84,3 @@ connect:TagResource,
 connect:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-rule_arn,
-instance_arn,
-trigger_event_source,
-function,
-actions,
-publish_status,
-tags
-FROM awscc.connect.rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleArn&gt;'
-```

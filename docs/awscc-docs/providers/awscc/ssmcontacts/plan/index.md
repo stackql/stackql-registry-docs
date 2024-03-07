@@ -38,6 +38,19 @@ Gets an individual <code>plan</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+contact_id,
+stages,
+rotation_ids,
+arn
+FROM awscc.ssmcontacts.plan
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>plan</code> resource, the following permissions are required:
@@ -61,16 +74,3 @@ ssm-contacts:GetContact,
 ssm-contacts:AssociateContact
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-contact_id,
-stages,
-rotation_ids,
-arn
-FROM awscc.ssmcontacts.plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

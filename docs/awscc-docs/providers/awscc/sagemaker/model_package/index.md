@@ -61,32 +61,6 @@ Gets an individual <code>model_package</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>model_package</code> resource, the following permissions are required:
-
-### Read
-```json
-sagemaker:DescribeModelPackage,
-sagemaker:ListTags
-```
-
-### Update
-```json
-sagemaker:UpdateModelPackage,
-sagemaker:DescribeModelPackage,
-sagemaker:ListTags,
-sagemaker:AddTags,
-sagemaker:DeleteTags
-```
-
-### Delete
-```json
-sagemaker:DeleteModelPackage,
-sagemaker:DescribeModelPackage
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -120,5 +94,31 @@ additional_inference_specifications_to_add,
 model_package_status_details
 FROM awscc.sagemaker.model_package
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ModelPackageArn&gt;'
+AND data__Identifier = '{ModelPackageArn}';
 ```
+
+## Permissions
+
+To operate on the <code>model_package</code> resource, the following permissions are required:
+
+### Read
+```json
+sagemaker:DescribeModelPackage,
+sagemaker:ListTags
+```
+
+### Update
+```json
+sagemaker:UpdateModelPackage,
+sagemaker:DescribeModelPackage,
+sagemaker:ListTags,
+sagemaker:AddTags,
+sagemaker:DeleteTags
+```
+
+### Delete
+```json
+sagemaker:DeleteModelPackage,
+sagemaker:DescribeModelPackage
+```
+

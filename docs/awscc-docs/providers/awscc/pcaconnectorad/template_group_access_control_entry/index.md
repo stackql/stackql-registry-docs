@@ -38,6 +38,20 @@ Gets an individual <code>template_group_access_control_entry</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_rights,
+group_display_name,
+group_security_identifier,
+template_arn
+FROM awscc.pcaconnectorad.template_group_access_control_entry
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GroupSecurityIdentifier}';
+AND data__Identifier = '{TemplateArn}';
+```
+
 ## Permissions
 
 To operate on the <code>template_group_access_control_entry</code> resource, the following permissions are required:
@@ -58,17 +72,3 @@ pca-connector-ad:DeleteTemplateGroupAccessControlEntry,
 pca-connector-ad:GetTemplateGroupAccessControlEntry
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_rights,
-group_display_name,
-group_security_identifier,
-template_arn
-FROM awscc.pcaconnectorad.template_group_access_control_entry
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GroupSecurityIdentifier&gt;'
-AND data__Identifier = '&lt;TemplateArn&gt;'
-```

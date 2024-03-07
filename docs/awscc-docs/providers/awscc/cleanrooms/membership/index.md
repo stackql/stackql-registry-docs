@@ -43,6 +43,24 @@ Gets an individual <code>membership</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+tags,
+collaboration_arn,
+collaboration_creator_account_id,
+collaboration_identifier,
+membership_identifier,
+query_log_status,
+default_result_configuration,
+payment_configuration
+FROM awscc.cleanrooms.membership
+WHERE region = 'us-east-1'
+AND data__Identifier = '{MembershipIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>membership</code> resource, the following permissions are required:
@@ -88,21 +106,3 @@ logs:DescribeResourcePolicies,
 logs:GetLogDelivery
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-tags,
-collaboration_arn,
-collaboration_creator_account_id,
-collaboration_identifier,
-membership_identifier,
-query_log_status,
-default_result_configuration,
-payment_configuration
-FROM awscc.cleanrooms.membership
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MembershipIdentifier&gt;'
-```

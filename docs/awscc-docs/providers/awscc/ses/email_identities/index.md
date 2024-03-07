@@ -35,6 +35,15 @@ Retrieves a list of <code>email_identities</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+email_identity
+FROM awscc.ses.email_identities
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>email_identities</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ ses:GetEmailIdentity
 ses:ListEmailIdentities
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-email_identity
-FROM awscc.ses.email_identities
-WHERE region = 'us-east-1'
-```

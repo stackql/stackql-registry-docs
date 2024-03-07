@@ -46,6 +46,27 @@ Gets an individual <code>report_definition</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+report_name,
+time_unit,
+format,
+compression,
+additional_schema_elements,
+s3_bucket,
+s3_prefix,
+s3_region,
+additional_artifacts,
+refresh_closed_reports,
+report_versioning,
+billing_view_arn
+FROM awscc.cur.report_definition
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ReportName}';
+```
+
 ## Permissions
 
 To operate on the <code>report_definition</code> resource, the following permissions are required:
@@ -67,24 +88,3 @@ cur:DescribeReportDefinitions,
 cur:DeleteReportDefinition
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-report_name,
-time_unit,
-format,
-compression,
-additional_schema_elements,
-s3_bucket,
-s3_prefix,
-s3_region,
-additional_artifacts,
-refresh_closed_reports,
-report_versioning,
-billing_view_arn
-FROM awscc.cur.report_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ReportName&gt;'
-```

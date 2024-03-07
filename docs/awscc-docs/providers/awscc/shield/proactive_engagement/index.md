@@ -37,6 +37,17 @@ Gets an individual <code>proactive_engagement</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_id,
+proactive_engagement_status,
+emergency_contact_list
+FROM awscc.shield.proactive_engagement
+WHERE data__Identifier = '{AccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>proactive_engagement</code> resource, the following permissions are required:
@@ -64,14 +75,3 @@ shield:EnableProactiveEngagement,
 shield:DisableProactiveEngagement
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_id,
-proactive_engagement_status,
-emergency_contact_list
-FROM awscc.shield.proactive_engagement
-WHERE data__Identifier = '&lt;AccountId&gt;'
-```

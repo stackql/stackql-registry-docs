@@ -41,6 +41,22 @@ Gets an individual <code>channel</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+id,
+description,
+hls_ingest,
+tags,
+egress_access_logs,
+ingress_access_logs
+FROM awscc.mediapackage.channel
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>channel</code> resource, the following permissions are required:
@@ -62,19 +78,3 @@ iam:CreateServiceLinkedRole
 mediapackage:DeleteChannel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-id,
-description,
-hls_ingest,
-tags,
-egress_access_logs,
-ingress_access_logs
-FROM awscc.mediapackage.channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

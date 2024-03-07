@@ -35,6 +35,15 @@ Retrieves a list of <code>event_integrations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.appintegrations.event_integrations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>event_integrations</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ app-integrations:TagResource
 app-integrations:ListEventIntegrations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.appintegrations.event_integrations
-WHERE region = 'us-east-1'
-```

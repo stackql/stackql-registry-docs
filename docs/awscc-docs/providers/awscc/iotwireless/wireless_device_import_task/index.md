@@ -46,6 +46,27 @@ Gets an individual <code>wireless_device_import_task</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+destination_name,
+creation_date,
+sidewalk,
+status,
+status_reason,
+initialized_imported_devices_count,
+pending_imported_devices_count,
+onboarded_imported_devices_count,
+failed_imported_devices_count,
+tags
+FROM awscc.iotwireless.wireless_device_import_task
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>wireless_device_import_task</code> resource, the following permissions are required:
@@ -69,24 +90,3 @@ iam:PassRole
 iotwireless:DeleteWirelessDeviceImportTask
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-destination_name,
-creation_date,
-sidewalk,
-status,
-status_reason,
-initialized_imported_devices_count,
-pending_imported_devices_count,
-onboarded_imported_devices_count,
-failed_imported_devices_count,
-tags
-FROM awscc.iotwireless.wireless_device_import_task
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

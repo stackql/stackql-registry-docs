@@ -46,6 +46,27 @@ Gets an individual <code>firewall</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+firewall_name,
+firewall_arn,
+firewall_id,
+firewall_policy_arn,
+vpc_id,
+subnet_mappings,
+delete_protection,
+subnet_change_protection,
+firewall_policy_change_protection,
+description,
+endpoint_ids,
+tags
+FROM awscc.networkfirewall.firewall
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FirewallArn}';
+```
+
 ## Permissions
 
 To operate on the <code>firewall</code> resource, the following permissions are required:
@@ -83,24 +104,3 @@ network-firewall:UntagResource,
 network-firewall:DescribeFirewall
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-firewall_name,
-firewall_arn,
-firewall_id,
-firewall_policy_arn,
-vpc_id,
-subnet_mappings,
-delete_protection,
-subnet_change_protection,
-firewall_policy_change_protection,
-description,
-endpoint_ids,
-tags
-FROM awscc.networkfirewall.firewall
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FirewallArn&gt;'
-```

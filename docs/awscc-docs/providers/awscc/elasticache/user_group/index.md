@@ -40,6 +40,21 @@ Gets an individual <code>user_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+status,
+user_group_id,
+engine,
+user_ids,
+arn,
+tags
+FROM awscc.elasticache.user_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserGroupId}';
+```
+
 ## Permissions
 
 To operate on the <code>user_group</code> resource, the following permissions are required:
@@ -67,18 +82,3 @@ elasticache:DescribeUserGroups,
 elasticache:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-status,
-user_group_id,
-engine,
-user_ids,
-arn,
-tags
-FROM awscc.elasticache.user_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserGroupId&gt;'
-```

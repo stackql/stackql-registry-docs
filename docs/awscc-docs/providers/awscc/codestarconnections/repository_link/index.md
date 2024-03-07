@@ -42,6 +42,23 @@ Gets an individual <code>repository_link</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+connection_arn,
+provider_type,
+owner_id,
+repository_name,
+encryption_key_arn,
+repository_link_id,
+repository_link_arn,
+tags
+FROM awscc.codestarconnections.repository_link
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RepositoryLinkArn}';
+```
+
 ## Permissions
 
 To operate on the <code>repository_link</code> resource, the following permissions are required:
@@ -71,20 +88,3 @@ codestar-connections:DeleteRepositoryLink,
 codestar-connections:GetConnection
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-connection_arn,
-provider_type,
-owner_id,
-repository_name,
-encryption_key_arn,
-repository_link_id,
-repository_link_arn,
-tags
-FROM awscc.codestarconnections.repository_link
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RepositoryLinkArn&gt;'
-```

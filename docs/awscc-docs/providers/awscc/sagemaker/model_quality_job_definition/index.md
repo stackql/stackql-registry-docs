@@ -47,21 +47,6 @@ Gets an individual <code>model_quality_job_definition</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>model_quality_job_definition</code> resource, the following permissions are required:
-
-### Delete
-```json
-sagemaker:DeleteModelQualityJobDefinition
-```
-
-### Read
-```json
-sagemaker:DescribeModelQualityJobDefinition
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -81,5 +66,20 @@ tags,
 creation_time
 FROM awscc.sagemaker.model_quality_job_definition
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;JobDefinitionArn&gt;'
+AND data__Identifier = '{JobDefinitionArn}';
 ```
+
+## Permissions
+
+To operate on the <code>model_quality_job_definition</code> resource, the following permissions are required:
+
+### Delete
+```json
+sagemaker:DeleteModelQualityJobDefinition
+```
+
+### Read
+```json
+sagemaker:DescribeModelQualityJobDefinition
+```
+

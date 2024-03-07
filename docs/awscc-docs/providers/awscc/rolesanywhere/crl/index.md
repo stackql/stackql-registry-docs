@@ -40,6 +40,21 @@ Gets an individual <code>crl</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+crl_data,
+crl_id,
+enabled,
+name,
+trust_anchor_arn,
+tags
+FROM awscc.rolesanywhere.crl
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CrlId}';
+```
+
 ## Permissions
 
 To operate on the <code>crl</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ rolesanywhere:ListTagsForResource
 rolesanywhere:DeleteCrl
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-crl_data,
-crl_id,
-enabled,
-name,
-trust_anchor_arn,
-tags
-FROM awscc.rolesanywhere.crl
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CrlId&gt;'
-```

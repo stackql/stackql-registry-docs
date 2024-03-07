@@ -36,6 +36,16 @@ Retrieves a list of <code>environment_profiles</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_id,
+id
+FROM awscc.datazone.environment_profiles
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>environment_profiles</code> resource, the following permissions are required:
@@ -51,13 +61,3 @@ datazone:GetEnvironmentProfile
 datazone:ListEnvironmentProfiles
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_id,
-id
-FROM awscc.datazone.environment_profiles
-WHERE region = 'us-east-1'
-```

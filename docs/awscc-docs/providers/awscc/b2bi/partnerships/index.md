@@ -35,6 +35,15 @@ Retrieves a list of <code>partnerships</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+partnership_id
+FROM awscc.b2bi.partnerships
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>partnerships</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ s3:PutObject
 b2bi:ListPartnerships
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-partnership_id
-FROM awscc.b2bi.partnerships
-WHERE region = 'us-east-1'
-```

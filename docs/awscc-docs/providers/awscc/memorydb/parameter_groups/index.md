@@ -35,6 +35,15 @@ Retrieves a list of <code>parameter_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+parameter_group_name
+FROM awscc.memorydb.parameter_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>parameter_groups</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ memorydb:ListTags
 memorydb:DescribeParameterGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-parameter_group_name
-FROM awscc.memorydb.parameter_groups
-WHERE region = 'us-east-1'
-```

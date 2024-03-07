@@ -47,6 +47,28 @@ Gets an individual <code>firewall_domain_list</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+name,
+domain_count,
+status,
+status_message,
+managed_owner_name,
+creator_request_id,
+creation_time,
+modification_time,
+domains,
+domain_file_url,
+tags
+FROM awscc.route53resolver.firewall_domain_list
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>firewall_domain_list</code> resource, the following permissions are required:
@@ -81,25 +103,3 @@ lambda:*,
 s3:*
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-name,
-domain_count,
-status,
-status_message,
-managed_owner_name,
-creator_request_id,
-creation_time,
-modification_time,
-domains,
-domain_file_url,
-tags
-FROM awscc.route53resolver.firewall_domain_list
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

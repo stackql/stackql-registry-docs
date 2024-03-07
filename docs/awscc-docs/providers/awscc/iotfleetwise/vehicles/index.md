@@ -35,6 +35,15 @@ Retrieves a list of <code>vehicles</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.iotfleetwise.vehicles
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>vehicles</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ iotfleetwise:TagResource
 iotfleetwise:ListVehicles
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.iotfleetwise.vehicles
-WHERE region = 'us-east-1'
-```

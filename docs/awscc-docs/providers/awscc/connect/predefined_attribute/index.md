@@ -37,6 +37,19 @@ Gets an individual <code>predefined_attribute</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+name,
+values
+FROM awscc.connect.predefined_attribute
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InstanceArn}';
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>predefined_attribute</code> resource, the following permissions are required:
@@ -56,16 +69,3 @@ connect:DeletePredefinedAttribute
 connect:UpdatePredefinedAttribute
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-name,
-values
-FROM awscc.connect.predefined_attribute
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceArn&gt;'
-AND data__Identifier = '&lt;Name&gt;'
-```

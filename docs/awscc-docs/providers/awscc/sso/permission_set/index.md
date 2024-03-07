@@ -45,6 +45,27 @@ Gets an individual <code>permission_set</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+permission_set_arn,
+description,
+instance_arn,
+session_duration,
+relay_state_type,
+managed_policies,
+inline_policy,
+tags,
+customer_managed_policy_references,
+permissions_boundary
+FROM awscc.sso.permission_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InstanceArn}';
+AND data__Identifier = '{PermissionSetArn}';
+```
+
 ## Permissions
 
 To operate on the <code>permission_set</code> resource, the following permissions are required:
@@ -87,24 +108,3 @@ sso:DescribePermissionSetProvisioningStatus
 sso:DeletePermissionSet
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-permission_set_arn,
-description,
-instance_arn,
-session_duration,
-relay_state_type,
-managed_policies,
-inline_policy,
-tags,
-customer_managed_policy_references,
-permissions_boundary
-FROM awscc.sso.permission_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceArn&gt;'
-AND data__Identifier = '&lt;PermissionSetArn&gt;'
-```

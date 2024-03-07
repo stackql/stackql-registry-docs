@@ -35,6 +35,15 @@ Retrieves a list of <code>hypervisors</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+hypervisor_arn
+FROM awscc.backupgateway.hypervisors
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>hypervisors</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ kms:Decrypt
 backup-gateway:ListHypervisors
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-hypervisor_arn
-FROM awscc.backupgateway.hypervisors
-WHERE region = 'us-east-1'
-```

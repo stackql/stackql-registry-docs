@@ -35,6 +35,15 @@ Retrieves a list of <code>prompts</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+prompt_arn
+FROM awscc.connect.prompts
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>prompts</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ s3:GetObjectAcl
 connect:ListPrompts
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-prompt_arn
-FROM awscc.connect.prompts
-WHERE region = 'us-east-1'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>private_graph_endpoints</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+private_graph_endpoint_identifier
+FROM awscc.neptunegraph.private_graph_endpoints
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>private_graph_endpoints</code> resource, the following permissions are required:
@@ -62,12 +71,3 @@ neptune-graph:GetPrivateGraphEndpoint,
 neptune-graph:ListPrivateGraphEndpoints
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-private_graph_endpoint_identifier
-FROM awscc.neptunegraph.private_graph_endpoints
-WHERE region = 'us-east-1'
-```

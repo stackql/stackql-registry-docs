@@ -35,6 +35,15 @@ Retrieves a list of <code>resolver_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_id
+FROM awscc.route53resolver.resolver_configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resolver_configs</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ route53resolver:ListResolverConfigs,
 ec2:DescribeVpcs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_id
-FROM awscc.route53resolver.resolver_configs
-WHERE region = 'us-east-1'
-```

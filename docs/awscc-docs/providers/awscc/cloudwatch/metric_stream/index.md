@@ -47,6 +47,28 @@ Gets an individual <code>metric_stream</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+creation_date,
+exclude_filters,
+firehose_arn,
+include_filters,
+last_update_date,
+name,
+role_arn,
+state,
+output_format,
+statistics_configurations,
+tags,
+include_linked_accounts_metrics
+FROM awscc.cloudwatch.metric_stream
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>metric_stream</code> resource, the following permissions are required:
@@ -71,25 +93,3 @@ cloudwatch:GetMetricStream
 cloudwatch:GetMetricStream
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-creation_date,
-exclude_filters,
-firehose_arn,
-include_filters,
-last_update_date,
-name,
-role_arn,
-state,
-output_format,
-statistics_configurations,
-tags,
-include_linked_accounts_metrics
-FROM awscc.cloudwatch.metric_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

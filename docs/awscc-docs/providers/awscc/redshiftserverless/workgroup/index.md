@@ -46,6 +46,27 @@ Gets an individual <code>workgroup</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+workgroup_name,
+namespace_name,
+base_capacity,
+max_capacity,
+enhanced_vpc_routing,
+config_parameters,
+security_group_ids,
+subnet_ids,
+publicly_accessible,
+port,
+tags,
+workgroup
+FROM awscc.redshiftserverless.workgroup
+WHERE region = 'us-east-1'
+AND data__Identifier = '{WorkgroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>workgroup</code> resource, the following permissions are required:
@@ -91,24 +112,3 @@ redshift-serverless:GetWorkgroup,
 redshift-serverless:DeleteWorkgroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-workgroup_name,
-namespace_name,
-base_capacity,
-max_capacity,
-enhanced_vpc_routing,
-config_parameters,
-security_group_ids,
-subnet_ids,
-publicly_accessible,
-port,
-tags,
-workgroup
-FROM awscc.redshiftserverless.workgroup
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkgroupName&gt;'
-```

@@ -37,6 +37,17 @@ Retrieves a list of <code>task_sets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster,
+service,
+id
+FROM awscc.ecs.task_sets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>task_sets</code> resource, the following permissions are required:
@@ -48,14 +59,3 @@ ecs:DescribeTaskSets,
 ecs:TagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster,
-service,
-id
-FROM awscc.ecs.task_sets
-WHERE region = 'us-east-1'
-```

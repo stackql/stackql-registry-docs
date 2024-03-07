@@ -44,6 +44,25 @@ Gets an individual <code>data_integration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+id,
+data_integration_arn,
+name,
+kms_key,
+schedule_config,
+source_ur_i,
+tags,
+file_configuration,
+object_configuration
+FROM awscc.appintegrations.data_integration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>data_integration</code> resource, the following permissions are required:
@@ -90,22 +109,3 @@ kms:ListGrants,
 kms:ListKeys
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-id,
-data_integration_arn,
-name,
-kms_key,
-schedule_config,
-source_ur_i,
-tags,
-file_configuration,
-object_configuration
-FROM awscc.appintegrations.data_integration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

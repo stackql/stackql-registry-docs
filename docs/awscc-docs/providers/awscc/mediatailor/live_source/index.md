@@ -39,6 +39,21 @@ Gets an individual <code>live_source</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+http_package_configurations,
+live_source_name,
+source_location_name,
+tags
+FROM awscc.mediatailor.live_source
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LiveSourceName}';
+AND data__Identifier = '{SourceLocationName}';
+```
+
 ## Permissions
 
 To operate on the <code>live_source</code> resource, the following permissions are required:
@@ -62,18 +77,3 @@ mediatailor:DeleteLiveSource,
 mediatailor:DescribeLiveSource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-http_package_configurations,
-live_source_name,
-source_location_name,
-tags
-FROM awscc.mediatailor.live_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LiveSourceName&gt;'
-AND data__Identifier = '&lt;SourceLocationName&gt;'
-```

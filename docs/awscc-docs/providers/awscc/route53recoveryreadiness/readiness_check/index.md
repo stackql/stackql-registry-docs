@@ -38,6 +38,19 @@ Gets an individual <code>readiness_check</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_set_name,
+readiness_check_name,
+readiness_check_arn,
+tags
+FROM awscc.route53recoveryreadiness.readiness_check
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ReadinessCheckName}';
+```
+
 ## Permissions
 
 To operate on the <code>readiness_check</code> resource, the following permissions are required:
@@ -64,16 +77,3 @@ route53-recovery-readiness:DeleteReadinessCheck,
 route53-recovery-readiness:GetReadinessCheck
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_set_name,
-readiness_check_name,
-readiness_check_arn,
-tags
-FROM awscc.route53recoveryreadiness.readiness_check
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ReadinessCheckName&gt;'
-```

@@ -42,6 +42,23 @@ Gets an individual <code>agent</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+agent_name,
+activation_key,
+security_group_arns,
+subnet_arns,
+vpc_endpoint_id,
+endpoint_type,
+tags,
+agent_arn
+FROM awscc.datasync.agent
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AgentArn}';
+```
+
 ## Permissions
 
 To operate on the <code>agent</code> resource, the following permissions are required:
@@ -66,20 +83,3 @@ datasync:UntagResource
 datasync:DeleteAgent
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-agent_name,
-activation_key,
-security_group_arns,
-subnet_arns,
-vpc_endpoint_id,
-endpoint_type,
-tags,
-agent_arn
-FROM awscc.datasync.agent
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AgentArn&gt;'
-```

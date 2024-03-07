@@ -35,6 +35,15 @@ Retrieves a list of <code>connection_aliases</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+alias_id
+FROM awscc.workspaces.connection_aliases
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>connection_aliases</code> resource, the following permissions are required:
@@ -44,12 +53,3 @@ To operate on the <code>connection_aliases</code> resource, the following permis
 workspaces:CreateConnectionAlias
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-alias_id
-FROM awscc.workspaces.connection_aliases
-WHERE region = 'us-east-1'
-```

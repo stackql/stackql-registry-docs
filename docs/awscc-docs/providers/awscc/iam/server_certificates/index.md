@@ -35,6 +35,15 @@ Retrieves a list of <code>server_certificates</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+server_certificate_name
+FROM awscc.iam.server_certificates
+
+```
+
 ## Permissions
 
 To operate on the <code>server_certificates</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iam:ListServerCertificates,
 iam:GetServerCertificate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-server_certificate_name
-FROM awscc.iam.server_certificates
-
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>target_account_configurations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+experiment_template_id,
+account_id
+FROM awscc.fis.target_account_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>target_account_configurations</code> resource, the following permissions are required:
@@ -50,13 +60,3 @@ fis:CreateTargetAccountConfiguration
 fis:ListTargetAccountConfigurations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-experiment_template_id,
-account_id
-FROM awscc.fis.target_account_configurations
-WHERE region = 'us-east-1'
-```

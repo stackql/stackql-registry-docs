@@ -42,6 +42,24 @@ Gets an individual <code>event_stream</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+event_stream_name,
+uri,
+event_stream_arn,
+tags,
+created_at,
+state,
+destination_details
+FROM awscc.customerprofiles.event_stream
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainName}';
+AND data__Identifier = '{EventStreamName}';
+```
+
 ## Permissions
 
 To operate on the <code>event_stream</code> resource, the following permissions are required:
@@ -66,21 +84,3 @@ profile:DeleteEventStream,
 iam:DeleteRolePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-event_stream_name,
-uri,
-event_stream_arn,
-tags,
-created_at,
-state,
-destination_details
-FROM awscc.customerprofiles.event_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-AND data__Identifier = '&lt;EventStreamName&gt;'
-```

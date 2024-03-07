@@ -43,6 +43,24 @@ Gets an individual <code>channel</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+channel_name,
+filler_slate,
+log_configuration,
+outputs,
+playback_mode,
+tags,
+tier,
+time_shift_configuration
+FROM awscc.mediatailor.channel
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ChannelName}';
+```
+
 ## Permissions
 
 To operate on the <code>channel</code> resource, the following permissions are required:
@@ -68,21 +86,3 @@ mediatailor:DeleteChannel,
 mediatailor:DescribeChannel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-channel_name,
-filler_slate,
-log_configuration,
-outputs,
-playback_mode,
-tags,
-tier,
-time_shift_configuration
-FROM awscc.mediatailor.channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ChannelName&gt;'
-```

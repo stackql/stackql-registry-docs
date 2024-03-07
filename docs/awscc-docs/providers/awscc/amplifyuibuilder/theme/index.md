@@ -43,6 +43,26 @@ Gets an individual <code>theme</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_id,
+created_at,
+environment_name,
+id,
+modified_at,
+name,
+overrides,
+tags,
+values
+FROM awscc.amplifyuibuilder.theme
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AppId}';
+AND data__Identifier = '{EnvironmentName}';
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>theme</code> resource, the following permissions are required:
@@ -69,23 +89,3 @@ amplifyuibuilder:DeleteTheme,
 amplifyuibuilder:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_id,
-created_at,
-environment_name,
-id,
-modified_at,
-name,
-overrides,
-tags,
-values
-FROM awscc.amplifyuibuilder.theme
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppId&gt;'
-AND data__Identifier = '&lt;EnvironmentName&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-```

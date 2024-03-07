@@ -40,6 +40,21 @@ Gets an individual <code>flow</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+flow_arn,
+name,
+availability_zone,
+flow_availability_zone,
+source,
+source_failover_config
+FROM awscc.mediaconnect.flow
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FlowArn}';
+```
+
 ## Permissions
 
 To operate on the <code>flow</code> resource, the following permissions are required:
@@ -62,18 +77,3 @@ mediaconnect:DescribeFlow,
 mediaconnect:DeleteFlow
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-flow_arn,
-name,
-availability_zone,
-flow_availability_zone,
-source,
-source_failover_config
-FROM awscc.mediaconnect.flow
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FlowArn&gt;'
-```

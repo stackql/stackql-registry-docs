@@ -36,6 +36,16 @@ Retrieves a list of <code>sites</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+global_network_id,
+site_id
+FROM awscc.networkmanager.sites
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>sites</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ networkmanager:TagResource
 networkmanager:GetSites
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-global_network_id,
-site_id
-FROM awscc.networkmanager.sites
-WHERE region = 'us-east-1'
-```

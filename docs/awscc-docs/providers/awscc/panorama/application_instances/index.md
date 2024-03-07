@@ -35,6 +35,15 @@ Retrieves a list of <code>application_instances</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application_instance_id
+FROM awscc.panorama.application_instances
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>application_instances</code> resource, the following permissions are required:
@@ -61,12 +70,3 @@ s3:GetObject,
 s3:GetObjectVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application_instance_id
-FROM awscc.panorama.application_instances
-WHERE region = 'us-east-1'
-```

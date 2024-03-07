@@ -51,6 +51,33 @@ Gets an individual <code>analysis</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+analysis_id,
+arn,
+aws_account_id,
+created_time,
+data_set_arns,
+definition,
+errors,
+last_updated_time,
+name,
+parameters,
+permissions,
+sheets,
+source_entity,
+status,
+tags,
+theme_arn,
+validation_strategy
+FROM awscc.quicksight.analysis
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AnalysisId}';
+AND data__Identifier = '{AwsAccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>analysis</code> resource, the following permissions are required:
@@ -82,30 +109,3 @@ quicksight:DescribeAnalysis,
 quicksight:DeleteAnalysis
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-analysis_id,
-arn,
-aws_account_id,
-created_time,
-data_set_arns,
-definition,
-errors,
-last_updated_time,
-name,
-parameters,
-permissions,
-sheets,
-source_entity,
-status,
-tags,
-theme_arn,
-validation_strategy
-FROM awscc.quicksight.analysis
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AnalysisId&gt;'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-```

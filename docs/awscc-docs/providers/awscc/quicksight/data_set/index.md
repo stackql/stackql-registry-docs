@@ -56,6 +56,38 @@ Gets an individual <code>data_set</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+aws_account_id,
+column_groups,
+column_level_permission_rules,
+consumed_spice_capacity_in_bytes,
+created_time,
+data_set_id,
+dataset_parameters,
+field_folders,
+import_mode,
+last_updated_time,
+logical_table_map,
+name,
+output_columns,
+permissions,
+physical_table_map,
+row_level_permission_data_set,
+row_level_permission_tag_configuration,
+tags,
+ingestion_wait_policy,
+data_set_usage_configuration,
+data_set_refresh_properties
+FROM awscc.quicksight.data_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AwsAccountId}';
+AND data__Identifier = '{DataSetId}';
+```
+
 ## Permissions
 
 To operate on the <code>data_set</code> resource, the following permissions are required:
@@ -97,35 +129,3 @@ quicksight:DeleteDataSetRefreshProperties,
 quicksight:DescribeDataSetRefreshProperties
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-aws_account_id,
-column_groups,
-column_level_permission_rules,
-consumed_spice_capacity_in_bytes,
-created_time,
-data_set_id,
-dataset_parameters,
-field_folders,
-import_mode,
-last_updated_time,
-logical_table_map,
-name,
-output_columns,
-permissions,
-physical_table_map,
-row_level_permission_data_set,
-row_level_permission_tag_configuration,
-tags,
-ingestion_wait_policy,
-data_set_usage_configuration,
-data_set_refresh_properties
-FROM awscc.quicksight.data_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-AND data__Identifier = '&lt;DataSetId&gt;'
-```

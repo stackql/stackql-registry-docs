@@ -36,6 +36,16 @@ Retrieves a list of <code>masters</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+detector_id,
+master_id
+FROM awscc.guardduty.masters
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>masters</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ guardduty:GetMasterAccount
 guardduty:GetMasterAccount
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-detector_id,
-master_id
-FROM awscc.guardduty.masters
-WHERE region = 'us-east-1'
-```

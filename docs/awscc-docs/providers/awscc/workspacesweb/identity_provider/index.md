@@ -39,6 +39,20 @@ Gets an individual <code>identity_provider</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+identity_provider_arn,
+identity_provider_details,
+identity_provider_name,
+identity_provider_type,
+portal_arn
+FROM awscc.workspacesweb.identity_provider
+WHERE region = 'us-east-1'
+AND data__Identifier = '{IdentityProviderArn}';
+```
+
 ## Permissions
 
 To operate on the <code>identity_provider</code> resource, the following permissions are required:
@@ -66,17 +80,3 @@ workspaces-web:GetIdentityProvider,
 workspaces-web:DeleteIdentityProvider
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-identity_provider_arn,
-identity_provider_details,
-identity_provider_name,
-identity_provider_type,
-portal_arn
-FROM awscc.workspacesweb.identity_provider
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;IdentityProviderArn&gt;'
-```

@@ -43,6 +43,24 @@ Gets an individual <code>listener</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+ssl_policy,
+load_balancer_arn,
+default_actions,
+port,
+certificates,
+protocol,
+listener_arn,
+alpn_policy,
+mutual_authentication
+FROM awscc.elasticloadbalancingv2.listener
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ListenerArn}';
+```
+
 ## Permissions
 
 To operate on the <code>listener</code> resource, the following permissions are required:
@@ -65,21 +83,3 @@ elasticloadbalancing:DescribeListeners,
 cognito-idp:DescribeUserPoolClient
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-ssl_policy,
-load_balancer_arn,
-default_actions,
-port,
-certificates,
-protocol,
-listener_arn,
-alpn_policy,
-mutual_authentication
-FROM awscc.elasticloadbalancingv2.listener
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ListenerArn&gt;'
-```

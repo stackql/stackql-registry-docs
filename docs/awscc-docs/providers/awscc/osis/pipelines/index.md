@@ -35,6 +35,15 @@ Retrieves a list of <code>pipelines</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+pipeline_arn
+FROM awscc.osis.pipelines
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>pipelines</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ kms:DescribeKey
 osis:ListPipelines
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-pipeline_arn
-FROM awscc.osis.pipelines
-WHERE region = 'us-east-1'
-```

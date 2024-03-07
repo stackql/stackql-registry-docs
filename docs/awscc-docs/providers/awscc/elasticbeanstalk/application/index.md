@@ -37,6 +37,18 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application_name,
+description,
+resource_lifecycle_config
+FROM awscc.elasticbeanstalk.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationName}';
+```
+
 ## Permissions
 
 To operate on the <code>application</code> resource, the following permissions are required:
@@ -57,15 +69,3 @@ elasticbeanstalk:UpdateApplicationResourceLifecycle
 elasticbeanstalk:DeleteApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application_name,
-description,
-resource_lifecycle_config
-FROM awscc.elasticbeanstalk.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationName&gt;'
-```

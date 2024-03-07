@@ -50,6 +50,31 @@ Gets an individual <code>connect_attachment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+core_network_id,
+core_network_arn,
+attachment_id,
+owner_account_id,
+attachment_type,
+state,
+edge_location,
+resource_arn,
+attachment_policy_rule_number,
+segment_name,
+proposed_segment_change,
+tags,
+created_at,
+updated_at,
+transport_attachment_id,
+options
+FROM awscc.networkmanager.connect_attachment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AttachmentId}';
+```
+
 ## Permissions
 
 To operate on the <code>connect_attachment</code> resource, the following permissions are required:
@@ -75,28 +100,3 @@ networkmanager:DeleteAttachment,
 ec2:DescribeRegions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-core_network_id,
-core_network_arn,
-attachment_id,
-owner_account_id,
-attachment_type,
-state,
-edge_location,
-resource_arn,
-attachment_policy_rule_number,
-segment_name,
-proposed_segment_change,
-tags,
-created_at,
-updated_at,
-transport_attachment_id,
-options
-FROM awscc.networkmanager.connect_attachment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AttachmentId&gt;'
-```

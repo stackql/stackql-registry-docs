@@ -41,6 +41,22 @@ Gets an individual <code>pod_identity_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_name,
+role_arn,
+namespace,
+service_account,
+association_arn,
+association_id,
+tags
+FROM awscc.eks.pod_identity_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AssociationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>pod_identity_association</code> resource, the following permissions are required:
@@ -66,19 +82,3 @@ eks:DeletePodIdentityAssociation,
 eks:DescribePodIdentityAssociation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_name,
-role_arn,
-namespace,
-service_account,
-association_arn,
-association_id,
-tags
-FROM awscc.eks.pod_identity_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssociationArn&gt;'
-```

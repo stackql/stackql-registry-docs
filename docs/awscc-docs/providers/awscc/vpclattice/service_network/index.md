@@ -41,6 +41,22 @@ Gets an individual <code>service_network</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+created_at,
+id,
+last_updated_at,
+name,
+auth_type,
+tags
+FROM awscc.vpclattice.service_network
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>service_network</code> resource, the following permissions are required:
@@ -64,19 +80,3 @@ vpc-lattice:UntagResource
 vpc-lattice:DeleteServiceNetwork
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-created_at,
-id,
-last_updated_at,
-name,
-auth_type,
-tags
-FROM awscc.vpclattice.service_network
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

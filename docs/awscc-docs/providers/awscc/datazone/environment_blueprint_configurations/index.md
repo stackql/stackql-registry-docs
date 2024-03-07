@@ -36,6 +36,16 @@ Retrieves a list of <code>environment_blueprint_configurations</code> in a regio
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_id,
+environment_blueprint_id
+FROM awscc.datazone.environment_blueprint_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>environment_blueprint_configurations</code> resource, the following permissions are required:
@@ -53,13 +63,3 @@ datazone:PutEnvironmentBlueprintConfiguration
 datazone:ListEnvironmentBlueprintConfigurations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_id,
-environment_blueprint_id
-FROM awscc.datazone.environment_blueprint_configurations
-WHERE region = 'us-east-1'
-```

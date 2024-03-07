@@ -40,6 +40,21 @@ Gets an individual <code>gateway_response</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+rest_api_id,
+response_type,
+status_code,
+response_parameters,
+response_templates
+FROM awscc.apigateway.gateway_response
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>gateway_response</code> resource, the following permissions are required:
@@ -56,18 +71,3 @@ apigateway:GET,
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-rest_api_id,
-response_type,
-status_code,
-response_parameters,
-response_templates
-FROM awscc.apigateway.gateway_response
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

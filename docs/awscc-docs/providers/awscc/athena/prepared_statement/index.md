@@ -38,6 +38,20 @@ Gets an individual <code>prepared_statement</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+statement_name,
+work_group,
+description,
+query_statement
+FROM awscc.athena.prepared_statement
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StatementName}';
+AND data__Identifier = '{WorkGroup}';
+```
+
 ## Permissions
 
 To operate on the <code>prepared_statement</code> resource, the following permissions are required:
@@ -58,17 +72,3 @@ athena:DeletePreparedStatement,
 athena:GetPreparedStatement
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-statement_name,
-work_group,
-description,
-query_statement
-FROM awscc.athena.prepared_statement
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StatementName&gt;'
-AND data__Identifier = '&lt;WorkGroup&gt;'
-```

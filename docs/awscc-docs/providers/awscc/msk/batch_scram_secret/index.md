@@ -36,6 +36,17 @@ Gets an individual <code>batch_scram_secret</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_arn,
+secret_arn_list
+FROM awscc.msk.batch_scram_secret
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ClusterArn}';
+```
+
 ## Permissions
 
 To operate on the <code>batch_scram_secret</code> resource, the following permissions are required:
@@ -66,14 +77,3 @@ kms:DescribeKey,
 secretsmanager:GetSecretValue
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_arn,
-secret_arn_list
-FROM awscc.msk.batch_scram_secret
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterArn&gt;'
-```

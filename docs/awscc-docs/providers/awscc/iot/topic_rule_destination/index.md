@@ -39,6 +39,20 @@ Gets an individual <code>topic_rule_destination</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+status,
+http_url_properties,
+status_reason,
+vpc_properties
+FROM awscc.iot.topic_rule_destination
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>topic_rule_destination</code> resource, the following permissions are required:
@@ -61,17 +75,3 @@ iot:GetTopicRuleDestination,
 iot:DeleteTopicRuleDestination
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-status,
-http_url_properties,
-status_reason,
-vpc_properties
-FROM awscc.iot.topic_rule_destination
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

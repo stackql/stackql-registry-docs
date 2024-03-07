@@ -45,6 +45,26 @@ Gets an individual <code>fhir_datastore</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+created_at,
+datastore_arn,
+datastore_endpoint,
+datastore_id,
+datastore_name,
+datastore_status,
+datastore_type_version,
+preload_data_config,
+sse_configuration,
+identity_provider_configuration,
+tags
+FROM awscc.healthlake.fhir_datastore
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DatastoreId}';
+```
+
 ## Permissions
 
 To operate on the <code>fhir_datastore</code> resource, the following permissions are required:
@@ -79,23 +99,3 @@ glue:CreateDatabase,
 glue:DeleteDatabase
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-created_at,
-datastore_arn,
-datastore_endpoint,
-datastore_id,
-datastore_name,
-datastore_status,
-datastore_type_version,
-preload_data_config,
-sse_configuration,
-identity_provider_configuration,
-tags
-FROM awscc.healthlake.fhir_datastore
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatastoreId&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>signal_catalogs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.iotfleetwise.signal_catalogs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>signal_catalogs</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ iotfleetwise:TagResource
 iotfleetwise:ListSignalCatalogs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.iotfleetwise.signal_catalogs
-WHERE region = 'us-east-1'
-```

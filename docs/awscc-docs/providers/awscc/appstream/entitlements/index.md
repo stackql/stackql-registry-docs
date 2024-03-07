@@ -36,16 +36,6 @@ Retrieves a list of <code>entitlements</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>entitlements</code> resource, the following permissions are required:
-
-### Create
-```json
-appstream:CreateEntitlement
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -55,3 +45,13 @@ name
 FROM awscc.appstream.entitlements
 WHERE region = 'us-east-1'
 ```
+
+## Permissions
+
+To operate on the <code>entitlements</code> resource, the following permissions are required:
+
+### Create
+```json
+appstream:CreateEntitlement
+```
+

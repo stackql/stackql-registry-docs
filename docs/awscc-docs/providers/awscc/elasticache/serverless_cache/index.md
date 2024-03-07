@@ -54,33 +54,6 @@ Gets an individual <code>serverless_cache</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>serverless_cache</code> resource, the following permissions are required:
-
-### Read
-```json
-elasticache:DescribeServerlessCaches,
-elasticache:ListTagsForResource
-```
-
-### Update
-```json
-elasticache:ModifyServerlessCache,
-elasticache:DescribeServerlessCaches,
-elasticache:AddTagsToResource,
-elasticache:ListTagsForResource,
-elasticache:RemoveTagsFromResource
-```
-
-### Delete
-```json
-elasticache:DeleteServerlessCache,
-elasticache:DescribeServerlessCaches,
-elasticache:ListTagsForResource
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -107,5 +80,32 @@ a_rn,
 final_snapshot_name
 FROM awscc.elasticache.serverless_cache
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ServerlessCacheName&gt;'
+AND data__Identifier = '{ServerlessCacheName}';
 ```
+
+## Permissions
+
+To operate on the <code>serverless_cache</code> resource, the following permissions are required:
+
+### Read
+```json
+elasticache:DescribeServerlessCaches,
+elasticache:ListTagsForResource
+```
+
+### Update
+```json
+elasticache:ModifyServerlessCache,
+elasticache:DescribeServerlessCaches,
+elasticache:AddTagsToResource,
+elasticache:ListTagsForResource,
+elasticache:RemoveTagsFromResource
+```
+
+### Delete
+```json
+elasticache:DeleteServerlessCache,
+elasticache:DescribeServerlessCaches,
+elasticache:ListTagsForResource
+```
+

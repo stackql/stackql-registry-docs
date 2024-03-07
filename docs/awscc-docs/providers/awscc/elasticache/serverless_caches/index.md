@@ -35,6 +35,15 @@ Retrieves a list of <code>serverless_caches</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+serverless_cache_name
+FROM awscc.elasticache.serverless_caches
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>serverless_caches</code> resource, the following permissions are required:
@@ -57,12 +66,3 @@ elasticache:DescribeServerlessCaches,
 elasticache:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-serverless_cache_name
-FROM awscc.elasticache.serverless_caches
-WHERE region = 'us-east-1'
-```

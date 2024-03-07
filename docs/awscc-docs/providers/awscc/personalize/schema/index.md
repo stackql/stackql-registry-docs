@@ -38,6 +38,19 @@ Gets an individual <code>schema</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+schema_arn,
+schema,
+domain
+FROM awscc.personalize.schema
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SchemaArn}';
+```
+
 ## Permissions
 
 To operate on the <code>schema</code> resource, the following permissions are required:
@@ -53,16 +66,3 @@ personalize:DeleteSchema,
 personalize:DescribeSchema
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-schema_arn,
-schema,
-domain
-FROM awscc.personalize.schema
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SchemaArn&gt;'
-```

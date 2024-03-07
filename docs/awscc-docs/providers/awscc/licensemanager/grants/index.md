@@ -35,6 +35,15 @@ Retrieves a list of <code>grants</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+grant_arn
+FROM awscc.licensemanager.grants
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>grants</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ license-manager:CreateGrant
 license-manager:ListDistributedGrants
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-grant_arn
-FROM awscc.licensemanager.grants
-WHERE region = 'us-east-1'
-```

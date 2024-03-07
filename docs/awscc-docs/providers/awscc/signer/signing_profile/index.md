@@ -41,6 +41,22 @@ Gets an individual <code>signing_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+profile_name,
+profile_version,
+arn,
+profile_version_arn,
+signature_validity_period,
+platform_id,
+tags
+FROM awscc.signer.signing_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>signing_profile</code> resource, the following permissions are required:
@@ -63,19 +79,3 @@ signer:UntagResource,
 signer:GetSigningProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-profile_name,
-profile_version,
-arn,
-profile_version_arn,
-signature_validity_period,
-platform_id,
-tags
-FROM awscc.signer.signing_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -37,6 +37,18 @@ Gets an individual <code>tag</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+catalog_id,
+tag_key,
+tag_values
+FROM awscc.lakeformation.tag
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TagKey}';
+```
+
 ## Permissions
 
 To operate on the <code>tag</code> resource, the following permissions are required:
@@ -56,15 +68,3 @@ lakeformation:UpdateLFTag
 lakeformation:DeleteLFTag
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-catalog_id,
-tag_key,
-tag_values
-FROM awscc.lakeformation.tag
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TagKey&gt;'
-```

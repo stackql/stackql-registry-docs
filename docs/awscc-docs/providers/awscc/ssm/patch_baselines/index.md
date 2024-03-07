@@ -35,6 +35,15 @@ Retrieves a list of <code>patch_baselines</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.ssm.patch_baselines
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>patch_baselines</code> resource, the following permissions are required:
@@ -58,12 +67,3 @@ ssm:GetPatchBaseline,
 ssm:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.ssm.patch_baselines
-WHERE region = 'us-east-1'
-```

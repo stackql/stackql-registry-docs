@@ -35,6 +35,15 @@ Retrieves a list of <code>place_indices</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+index_name
+FROM awscc.location.place_indices
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>place_indices</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ geo:UntagResource
 geo:ListPlaceIndexes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-index_name
-FROM awscc.location.place_indices
-WHERE region = 'us-east-1'
-```

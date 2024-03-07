@@ -42,21 +42,6 @@ Gets an individual <code>auto_scaling_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>auto_scaling_configuration</code> resource, the following permissions are required:
-
-### Read
-```json
-apprunner:DescribeAutoScalingConfiguration
-```
-
-### Delete
-```json
-apprunner:DeleteAutoScalingConfiguration
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -71,5 +56,20 @@ latest,
 tags
 FROM awscc.apprunner.auto_scaling_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AutoScalingConfigurationArn&gt;'
+AND data__Identifier = '{AutoScalingConfigurationArn}';
 ```
+
+## Permissions
+
+To operate on the <code>auto_scaling_configuration</code> resource, the following permissions are required:
+
+### Read
+```json
+apprunner:DescribeAutoScalingConfiguration
+```
+
+### Delete
+```json
+apprunner:DeleteAutoScalingConfiguration
+```
+

@@ -43,6 +43,24 @@ Gets an individual <code>custom_data_identifier</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+regex,
+maximum_match_distance,
+keywords,
+ignore_words,
+id,
+arn,
+tags
+FROM awscc.macie.custom_data_identifier
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>custom_data_identifier</code> resource, the following permissions are required:
@@ -63,21 +81,3 @@ macie2:TagResource,
 macie2:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-regex,
-maximum_match_distance,
-keywords,
-ignore_words,
-id,
-arn,
-tags
-FROM awscc.macie.custom_data_identifier
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -42,6 +42,24 @@ Gets an individual <code>software_package_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+attributes,
+description,
+error_reason,
+package_name,
+package_version_arn,
+status,
+tags,
+version_name
+FROM awscc.iot.software_package_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PackageName}';
+AND data__Identifier = '{VersionName}';
+```
+
 ## Permissions
 
 To operate on the <code>software_package_version</code> resource, the following permissions are required:
@@ -70,21 +88,3 @@ iot:GetPackageVersion,
 iot:GetIndexingConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-attributes,
-description,
-error_reason,
-package_name,
-package_version_arn,
-status,
-tags,
-version_name
-FROM awscc.iot.software_package_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PackageName&gt;'
-AND data__Identifier = '&lt;VersionName&gt;'
-```

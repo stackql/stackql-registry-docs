@@ -36,6 +36,16 @@ Retrieves a list of <code>vod_sources</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+source_location_name,
+vod_source_name
+FROM awscc.mediatailor.vod_sources
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>vod_sources</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ mediatailor:TagResource
 mediatailor:ListVodSources
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-source_location_name,
-vod_source_name
-FROM awscc.mediatailor.vod_sources
-WHERE region = 'us-east-1'
-```

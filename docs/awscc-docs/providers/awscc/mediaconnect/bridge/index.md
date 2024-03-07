@@ -43,6 +43,24 @@ Gets an individual <code>bridge</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+bridge_arn,
+placement_arn,
+bridge_state,
+source_failover_config,
+outputs,
+sources,
+ingress_gateway_bridge,
+egress_gateway_bridge
+FROM awscc.mediaconnect.bridge
+WHERE region = 'us-east-1'
+AND data__Identifier = '{BridgeArn}';
+```
+
 ## Permissions
 
 To operate on the <code>bridge</code> resource, the following permissions are required:
@@ -64,21 +82,3 @@ mediaconnect:DescribeBridge,
 mediaconnect:DeleteBridge
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-bridge_arn,
-placement_arn,
-bridge_state,
-source_failover_config,
-outputs,
-sources,
-ingress_gateway_bridge,
-egress_gateway_bridge
-FROM awscc.mediaconnect.bridge
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BridgeArn&gt;'
-```

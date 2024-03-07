@@ -35,6 +35,15 @@ Retrieves a list of <code>multi_region_access_point_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+mrap_name
+FROM awscc.s3.multi_region_access_point_policies
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>multi_region_access_point_policies</code> resource, the following permissions are required:
@@ -45,12 +54,3 @@ s3:PutMultiRegionAccessPointPolicy,
 s3:DescribeMultiRegionAccessPointOperation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-mrap_name
-FROM awscc.s3.multi_region_access_point_policies
-WHERE region = 'us-east-1'
-```

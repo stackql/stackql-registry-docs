@@ -48,6 +48,29 @@ Gets an individual <code>game_server_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+auto_scaling_group_arn,
+auto_scaling_policy,
+balancing_strategy,
+delete_option,
+game_server_group_arn,
+game_server_group_name,
+game_server_protection_policy,
+instance_definitions,
+launch_template,
+max_size,
+min_size,
+role_arn,
+tags,
+vpc_subnets
+FROM awscc.gamelift.game_server_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GameServerGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>game_server_group</code> resource, the following permissions are required:
@@ -92,26 +115,3 @@ events:PutRule,
 events:PutTargets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-auto_scaling_group_arn,
-auto_scaling_policy,
-balancing_strategy,
-delete_option,
-game_server_group_arn,
-game_server_group_name,
-game_server_protection_policy,
-instance_definitions,
-launch_template,
-max_size,
-min_size,
-role_arn,
-tags,
-vpc_subnets
-FROM awscc.gamelift.game_server_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GameServerGroupArn&gt;'
-```

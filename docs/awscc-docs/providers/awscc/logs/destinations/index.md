@@ -35,6 +35,15 @@ Retrieves a list of <code>destinations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+destination_name
+FROM awscc.logs.destinations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>destinations</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iam:PassRole
 logs:DescribeDestinations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-destination_name
-FROM awscc.logs.destinations
-WHERE region = 'us-east-1'
-```

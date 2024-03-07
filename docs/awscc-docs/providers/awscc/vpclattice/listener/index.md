@@ -44,6 +44,25 @@ Gets an individual <code>listener</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+default_action,
+id,
+name,
+port,
+protocol,
+service_arn,
+service_id,
+service_identifier,
+tags
+FROM awscc.vpclattice.listener
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>listener</code> resource, the following permissions are required:
@@ -68,22 +87,3 @@ vpc-lattice:ListTagsForResource
 vpc-lattice:DeleteListener
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-default_action,
-id,
-name,
-port,
-protocol,
-service_arn,
-service_id,
-service_identifier,
-tags
-FROM awscc.vpclattice.listener
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

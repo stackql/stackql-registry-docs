@@ -38,6 +38,20 @@ Gets an individual <code>resource_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_arn,
+policy,
+policy_id,
+policy_hash
+FROM awscc.ssm.resource_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PolicyId}';
+AND data__Identifier = '{ResourceArn}';
+```
+
 ## Permissions
 
 To operate on the <code>resource_policy</code> resource, the following permissions are required:
@@ -57,17 +71,3 @@ ssm:PutResourcePolicy
 ssm:DeleteResourcePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_arn,
-policy,
-policy_id,
-policy_hash
-FROM awscc.ssm.resource_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PolicyId&gt;'
-AND data__Identifier = '&lt;ResourceArn&gt;'
-```

@@ -41,6 +41,25 @@ Gets an individual <code>app</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_arn,
+app_name,
+app_type,
+domain_id,
+resource_spec,
+tags,
+user_profile_name
+FROM awscc.sagemaker.app
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AppName}';
+AND data__Identifier = '{AppType}';
+AND data__Identifier = '{DomainId}';
+AND data__Identifier = '{UserProfileName}';
+```
+
 ## Permissions
 
 To operate on the <code>app</code> resource, the following permissions are required:
@@ -57,22 +76,3 @@ sagemaker:DeleteApp,
 sagemaker:DescribeApp
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_arn,
-app_name,
-app_type,
-domain_id,
-resource_spec,
-tags,
-user_profile_name
-FROM awscc.sagemaker.app
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppName&gt;'
-AND data__Identifier = '&lt;AppType&gt;'
-AND data__Identifier = '&lt;DomainId&gt;'
-AND data__Identifier = '&lt;UserProfileName&gt;'
-```

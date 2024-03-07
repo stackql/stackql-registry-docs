@@ -35,6 +35,15 @@ Retrieves a list of <code>flow_outputs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+output_arn
+FROM awscc.mediaconnect.flow_outputs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>flow_outputs</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ mediaconnect:AddFlowOutputs
 mediaconnect:DescribeFlow
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-output_arn
-FROM awscc.mediaconnect.flow_outputs
-WHERE region = 'us-east-1'
-```

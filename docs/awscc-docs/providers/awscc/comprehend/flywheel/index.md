@@ -43,6 +43,24 @@ Gets an individual <code>flywheel</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+active_model_arn,
+data_access_role_arn,
+data_lake_s3_uri,
+data_security_config,
+flywheel_name,
+model_type,
+tags,
+task_config,
+arn
+FROM awscc.comprehend.flywheel
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>flywheel</code> resource, the following permissions are required:
@@ -69,21 +87,3 @@ comprehend:DeleteFlywheel,
 comprehend:DescribeFlywheel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-active_model_arn,
-data_access_role_arn,
-data_lake_s3_uri,
-data_security_config,
-flywheel_name,
-model_type,
-tags,
-task_config,
-arn
-FROM awscc.comprehend.flywheel
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

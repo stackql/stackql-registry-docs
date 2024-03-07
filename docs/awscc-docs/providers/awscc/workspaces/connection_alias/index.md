@@ -39,6 +39,20 @@ Gets an individual <code>connection_alias</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+associations,
+alias_id,
+connection_string,
+connection_alias_state,
+tags
+FROM awscc.workspaces.connection_alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AliasId}';
+```
+
 ## Permissions
 
 To operate on the <code>connection_alias</code> resource, the following permissions are required:
@@ -53,17 +67,3 @@ workspaces:DescribeConnectionAliases
 workspaces:DeleteConnectionAlias
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-associations,
-alias_id,
-connection_string,
-connection_alias_state,
-tags
-FROM awscc.workspaces.connection_alias
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AliasId&gt;'
-```

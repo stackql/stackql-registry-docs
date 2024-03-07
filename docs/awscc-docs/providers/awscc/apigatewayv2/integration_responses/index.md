@@ -37,6 +37,17 @@ Retrieves a list of <code>integration_responses</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+api_id,
+integration_id,
+integration_response_id
+FROM awscc.apigatewayv2.integration_responses
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>integration_responses</code> resource, the following permissions are required:
@@ -51,14 +62,3 @@ apigateway:POST
 apigateway:GET
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-api_id,
-integration_id,
-integration_response_id
-FROM awscc.apigatewayv2.integration_responses
-WHERE region = 'us-east-1'
-```

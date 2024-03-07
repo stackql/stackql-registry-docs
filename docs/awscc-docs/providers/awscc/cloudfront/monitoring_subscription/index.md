@@ -36,6 +36,16 @@ Gets an individual <code>monitoring_subscription</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+distribution_id,
+monitoring_subscription
+FROM awscc.cloudfront.monitoring_subscription
+WHERE data__Identifier = '{DistributionId}';
+```
+
 ## Permissions
 
 To operate on the <code>monitoring_subscription</code> resource, the following permissions are required:
@@ -50,13 +60,3 @@ cloudfront:DeleteMonitoringSubscription
 cloudfront:GetMonitoringSubscription
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-distribution_id,
-monitoring_subscription
-FROM awscc.cloudfront.monitoring_subscription
-WHERE data__Identifier = '&lt;DistributionId&gt;'
-```

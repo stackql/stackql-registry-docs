@@ -43,6 +43,24 @@ Gets an individual <code>capacity_reservation</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+status,
+target_dpus,
+allocated_dpus,
+capacity_assignment_configuration,
+creation_time,
+last_successful_allocation_time,
+tags
+FROM awscc.athena.capacity_reservation
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>capacity_reservation</code> resource, the following permissions are required:
@@ -70,21 +88,3 @@ athena:GetCapacityReservation,
 athena:DeleteCapacityReservation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-status,
-target_dpus,
-allocated_dpus,
-capacity_assignment_configuration,
-creation_time,
-last_successful_allocation_time,
-tags
-FROM awscc.athena.capacity_reservation
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

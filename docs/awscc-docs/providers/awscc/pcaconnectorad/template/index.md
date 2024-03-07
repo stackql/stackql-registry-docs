@@ -40,6 +40,21 @@ Gets an individual <code>template</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+connector_arn,
+definition,
+name,
+reenroll_all_certificate_holders,
+tags,
+template_arn
+FROM awscc.pcaconnectorad.template
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TemplateArn}';
+```
+
 ## Permissions
 
 To operate on the <code>template</code> resource, the following permissions are required:
@@ -64,18 +79,3 @@ pca-connector-ad:GetTemplate,
 pca-connector-ad:DeleteTemplate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-connector_arn,
-definition,
-name,
-reenroll_all_certificate_holders,
-tags,
-template_arn
-FROM awscc.pcaconnectorad.template
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TemplateArn&gt;'
-```

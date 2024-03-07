@@ -39,6 +39,20 @@ Gets an individual <code>gateway</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+gateway_arn,
+gateway_state,
+egress_cidr_blocks,
+networks
+FROM awscc.mediaconnect.gateway
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GatewayArn}';
+```
+
 ## Permissions
 
 To operate on the <code>gateway</code> resource, the following permissions are required:
@@ -55,17 +69,3 @@ mediaconnect:DescribeGateway,
 mediaconnect:DeleteGateway
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-gateway_arn,
-gateway_state,
-egress_cidr_blocks,
-networks
-FROM awscc.mediaconnect.gateway
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GatewayArn&gt;'
-```

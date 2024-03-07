@@ -50,6 +50,31 @@ Gets an individual <code>stream_processor</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+kms_key_id,
+role_arn,
+kinesis_video_stream,
+face_search_settings,
+connected_home_settings,
+kinesis_data_stream,
+s3_destination,
+notification_channel,
+data_sharing_preference,
+polygon_regions_of_interest,
+bounding_box_regions_of_interest,
+status,
+status_message,
+tags
+FROM awscc.rekognition.stream_processor
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>stream_processor</code> resource, the following permissions are required:
@@ -73,28 +98,3 @@ rekognition:DescribeStreamProcessor
 rekognition:DeleteStreamProcessor
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-kms_key_id,
-role_arn,
-kinesis_video_stream,
-face_search_settings,
-connected_home_settings,
-kinesis_data_stream,
-s3_destination,
-notification_channel,
-data_sharing_preference,
-polygon_regions_of_interest,
-bounding_box_regions_of_interest,
-status,
-status_message,
-tags
-FROM awscc.rekognition.stream_processor
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

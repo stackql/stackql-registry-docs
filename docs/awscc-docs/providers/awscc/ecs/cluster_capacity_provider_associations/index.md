@@ -37,6 +37,18 @@ Gets an individual <code>cluster_capacity_provider_associations</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+capacity_providers,
+cluster,
+default_capacity_provider_strategy
+FROM awscc.ecs.cluster_capacity_provider_associations
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Cluster}';
+```
+
 ## Permissions
 
 To operate on the <code>cluster_capacity_provider_associations</code> resource, the following permissions are required:
@@ -58,15 +70,3 @@ ecs:PutClusterCapacityProviders,
 ecs:DescribeClusters
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-capacity_providers,
-cluster,
-default_capacity_provider_strategy
-FROM awscc.ecs.cluster_capacity_provider_associations
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Cluster&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>databases</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+relational_database_name
+FROM awscc.lightsail.databases
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>databases</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ lightsail:UpdateRelationalDatabaseParameters
 lightsail:GetRelationalDatabases
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-relational_database_name
-FROM awscc.lightsail.databases
-WHERE region = 'us-east-1'
-```

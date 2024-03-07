@@ -35,6 +35,15 @@ Retrieves a list of <code>accelerators</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+accelerator_arn
+FROM awscc.globalaccelerator.accelerators
+
+```
+
 ## Permissions
 
 To operate on the <code>accelerators</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ globalaccelerator:TagResource
 globalaccelerator:ListAccelerators
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-accelerator_arn
-FROM awscc.globalaccelerator.accelerators
-
-```

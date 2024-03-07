@@ -40,6 +40,26 @@ Gets an individual <code>assignment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+target_id,
+target_type,
+permission_set_arn,
+principal_type,
+principal_id
+FROM awscc.sso.assignment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InstanceArn}';
+AND data__Identifier = '{TargetId}';
+AND data__Identifier = '{TargetType}';
+AND data__Identifier = '{PermissionSetArn}';
+AND data__Identifier = '{PrincipalType}';
+AND data__Identifier = '{PrincipalId}';
+```
+
 ## Permissions
 
 To operate on the <code>assignment</code> resource, the following permissions are required:
@@ -60,23 +80,3 @@ iam:GetSAMLProvider,
 iam:ListRolePolicies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-target_id,
-target_type,
-permission_set_arn,
-principal_type,
-principal_id
-FROM awscc.sso.assignment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceArn&gt;'
-AND data__Identifier = '&lt;TargetId&gt;'
-AND data__Identifier = '&lt;TargetType&gt;'
-AND data__Identifier = '&lt;PermissionSetArn&gt;'
-AND data__Identifier = '&lt;PrincipalType&gt;'
-AND data__Identifier = '&lt;PrincipalId&gt;'
-```

@@ -41,6 +41,22 @@ Gets an individual <code>environment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+environment_identifier,
+name,
+network_fabric_type,
+arn,
+transit_gateway_id,
+tags
+FROM awscc.refactorspaces.environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EnvironmentIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>environment</code> resource, the following permissions are required:
@@ -65,19 +81,3 @@ ram:GetResourceShareAssociations,
 ram:DeleteResourceShare
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-environment_identifier,
-name,
-network_fabric_type,
-arn,
-transit_gateway_id,
-tags
-FROM awscc.refactorspaces.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentIdentifier&gt;'
-```

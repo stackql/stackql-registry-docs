@@ -41,6 +41,23 @@ Gets an individual <code>fargate_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_name,
+fargate_profile_name,
+pod_execution_role_arn,
+arn,
+subnets,
+selectors,
+tags
+FROM awscc.eks.fargate_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ClusterName}';
+AND data__Identifier = '{FargateProfileName}';
+```
+
 ## Permissions
 
 To operate on the <code>fargate_profile</code> resource, the following permissions are required:
@@ -64,20 +81,3 @@ eks:TagResource,
 eks:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_name,
-fargate_profile_name,
-pod_execution_role_arn,
-arn,
-subnets,
-selectors,
-tags
-FROM awscc.eks.fargate_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterName&gt;'
-AND data__Identifier = '&lt;FargateProfileName&gt;'
-```

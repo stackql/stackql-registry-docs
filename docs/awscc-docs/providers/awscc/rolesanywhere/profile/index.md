@@ -44,6 +44,25 @@ Gets an individual <code>profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+duration_seconds,
+enabled,
+managed_policy_arns,
+name,
+profile_arn,
+profile_id,
+require_instance_properties,
+role_arns,
+session_policy,
+tags
+FROM awscc.rolesanywhere.profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ProfileId}';
+```
+
 ## Permissions
 
 To operate on the <code>profile</code> resource, the following permissions are required:
@@ -72,22 +91,3 @@ rolesanywhere:ListTagsForResource
 rolesanywhere:DeleteProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-duration_seconds,
-enabled,
-managed_policy_arns,
-name,
-profile_arn,
-profile_id,
-require_instance_properties,
-role_arns,
-session_policy,
-tags
-FROM awscc.rolesanywhere.profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProfileId&gt;'
-```

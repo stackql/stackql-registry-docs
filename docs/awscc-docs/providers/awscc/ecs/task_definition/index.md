@@ -52,6 +52,33 @@ Gets an individual <code>task_definition</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+task_definition_arn,
+family,
+container_definitions,
+cpu,
+execution_role_arn,
+ephemeral_storage,
+inference_accelerators,
+memory,
+network_mode,
+placement_constraints,
+proxy_configuration,
+requires_compatibilities,
+task_role_arn,
+volumes,
+pid_mode,
+runtime_platform,
+ipc_mode,
+tags
+FROM awscc.ecs.task_definition
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TaskDefinitionArn}';
+```
+
 ## Permissions
 
 To operate on the <code>task_definition</code> resource, the following permissions are required:
@@ -79,30 +106,3 @@ iam:GetRole,
 iam:PassRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-task_definition_arn,
-family,
-container_definitions,
-cpu,
-execution_role_arn,
-ephemeral_storage,
-inference_accelerators,
-memory,
-network_mode,
-placement_constraints,
-proxy_configuration,
-requires_compatibilities,
-task_role_arn,
-volumes,
-pid_mode,
-runtime_platform,
-ipc_mode,
-tags
-FROM awscc.ecs.task_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TaskDefinitionArn&gt;'
-```

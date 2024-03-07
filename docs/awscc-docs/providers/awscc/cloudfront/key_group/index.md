@@ -37,6 +37,17 @@ Gets an individual <code>key_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+key_group_config,
+last_modified_time
+FROM awscc.cloudfront.key_group
+WHERE data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>key_group</code> resource, the following permissions are required:
@@ -58,14 +69,3 @@ cloudfront:UpdateKeyGroup,
 cloudfront:GetKeyGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-key_group_config,
-last_modified_time
-FROM awscc.cloudfront.key_group
-WHERE data__Identifier = '&lt;Id&gt;'
-```

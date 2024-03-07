@@ -37,6 +37,17 @@ Retrieves a list of <code>link_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+global_network_id,
+device_id,
+link_id
+FROM awscc.networkmanager.link_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>link_associations</code> resource, the following permissions are required:
@@ -52,14 +63,3 @@ networkmanager:AssociateLink
 networkmanager:GetLinkAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-global_network_id,
-device_id,
-link_id
-FROM awscc.networkmanager.link_associations
-WHERE region = 'us-east-1'
-```

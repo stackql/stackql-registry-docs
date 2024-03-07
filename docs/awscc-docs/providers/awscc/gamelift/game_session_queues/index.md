@@ -35,6 +35,15 @@ Retrieves a list of <code>game_session_queues</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.gamelift.game_session_queues
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>game_session_queues</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ gamelift:TagResource
 gamelift:DescribeGameSessionQueues
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.gamelift.game_session_queues
-WHERE region = 'us-east-1'
-```

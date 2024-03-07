@@ -36,6 +36,16 @@ Retrieves a list of <code>topics</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+aws_account_id,
+topic_id
+FROM awscc.quicksight.topics
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>topics</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ quicksight:DescribeTopicRefresh
 quicksight:ListTopics
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-aws_account_id,
-topic_id
-FROM awscc.quicksight.topics
-WHERE region = 'us-east-1'
-```

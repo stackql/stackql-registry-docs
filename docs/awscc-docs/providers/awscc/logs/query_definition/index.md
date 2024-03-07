@@ -38,6 +38,19 @@ Gets an individual <code>query_definition</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+query_string,
+log_group_names,
+query_definition_id
+FROM awscc.logs.query_definition
+WHERE region = 'us-east-1'
+AND data__Identifier = '{QueryDefinitionId}';
+```
+
 ## Permissions
 
 To operate on the <code>query_definition</code> resource, the following permissions are required:
@@ -57,16 +70,3 @@ logs:PutQueryDefinition
 logs:DeleteQueryDefinition
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-query_string,
-log_group_names,
-query_definition_id
-FROM awscc.logs.query_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;QueryDefinitionId&gt;'
-```

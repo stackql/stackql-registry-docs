@@ -45,6 +45,26 @@ Gets an individual <code>queue</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+description,
+hours_of_operation_arn,
+max_contacts,
+name,
+outbound_caller_config,
+queue_arn,
+status,
+quick_connect_arns,
+tags,
+type
+FROM awscc.connect.queue
+WHERE region = 'us-east-1'
+AND data__Identifier = '{QueueArn}';
+```
+
 ## Permissions
 
 To operate on the <code>queue</code> resource, the following permissions are required:
@@ -74,23 +94,3 @@ connect:TagResource,
 connect:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-description,
-hours_of_operation_arn,
-max_contacts,
-name,
-outbound_caller_config,
-queue_arn,
-status,
-quick_connect_arns,
-tags,
-type
-FROM awscc.connect.queue
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;QueueArn&gt;'
-```

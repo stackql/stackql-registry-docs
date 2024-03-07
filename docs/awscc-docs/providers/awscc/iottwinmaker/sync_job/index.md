@@ -42,6 +42,24 @@ Gets an individual <code>sync_job</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+workspace_id,
+sync_source,
+sync_role,
+creation_date_time,
+update_date_time,
+arn,
+state,
+tags
+FROM awscc.iottwinmaker.sync_job
+WHERE region = 'us-east-1'
+AND data__Identifier = '{WorkspaceId}';
+AND data__Identifier = '{SyncSource}';
+```
+
 ## Permissions
 
 To operate on the <code>sync_job</code> resource, the following permissions are required:
@@ -60,21 +78,3 @@ iottwinmaker:GetSyncJob,
 iottwinmaker:GetWorkspace
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-workspace_id,
-sync_source,
-sync_role,
-creation_date_time,
-update_date_time,
-arn,
-state,
-tags
-FROM awscc.iottwinmaker.sync_job
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;WorkspaceId&gt;'
-AND data__Identifier = '&lt;SyncSource&gt;'
-```

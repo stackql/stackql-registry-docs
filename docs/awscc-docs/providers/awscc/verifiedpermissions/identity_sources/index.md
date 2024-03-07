@@ -36,6 +36,16 @@ Retrieves a list of <code>identity_sources</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+identity_source_id,
+policy_store_id
+FROM awscc.verifiedpermissions.identity_sources
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>identity_sources</code> resource, the following permissions are required:
@@ -62,13 +72,3 @@ cognito-idp:DescribeUserPool,
 cognito-idp:ListUserPoolClients
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-identity_source_id,
-policy_store_id
-FROM awscc.verifiedpermissions.identity_sources
-WHERE region = 'us-east-1'
-```

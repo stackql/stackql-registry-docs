@@ -36,6 +36,17 @@ Gets an individual <code>account</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+expiry_events_configuration,
+account_id
+FROM awscc.certificatemanager.account
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>account</code> resource, the following permissions are required:
@@ -57,14 +68,3 @@ acm:GetAccountConfiguration,
 acm:PutAccountConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-expiry_events_configuration,
-account_id
-FROM awscc.certificatemanager.account
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountId&gt;'
-```

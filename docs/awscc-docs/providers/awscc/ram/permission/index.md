@@ -42,6 +42,23 @@ Gets an individual <code>permission</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+version,
+is_resource_type_default,
+permission_type,
+resource_type,
+policy_template,
+tags
+FROM awscc.ram.permission
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>permission</code> resource, the following permissions are required:
@@ -70,20 +87,3 @@ ram:DeletePermissionVersion,
 ram:DeletePermission
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-version,
-is_resource_type_default,
-permission_type,
-resource_type,
-policy_template,
-tags
-FROM awscc.ram.permission
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

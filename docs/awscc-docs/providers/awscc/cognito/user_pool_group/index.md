@@ -39,6 +39,21 @@ Gets an individual <code>user_pool_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+group_name,
+precedence,
+role_arn,
+user_pool_id
+FROM awscc.cognito.user_pool_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserPoolId}';
+AND data__Identifier = '{GroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>user_pool_group</code> resource, the following permissions are required:
@@ -62,18 +77,3 @@ cognito-idp:GetGroup,
 iam:PutRolePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-group_name,
-precedence,
-role_arn,
-user_pool_id
-FROM awscc.cognito.user_pool_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserPoolId&gt;'
-AND data__Identifier = '&lt;GroupName&gt;'
-```

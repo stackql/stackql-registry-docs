@@ -35,6 +35,15 @@ Retrieves a list of <code>anomaly_subscriptions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+subscription_arn
+FROM awscc.ce.anomaly_subscriptions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>anomaly_subscriptions</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ ce:TagResource
 ce:GetAnomalySubscriptions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-subscription_arn
-FROM awscc.ce.anomaly_subscriptions
-WHERE region = 'us-east-1'
-```

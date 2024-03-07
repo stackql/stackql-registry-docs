@@ -38,6 +38,20 @@ Gets an individual <code>documentation_part</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+documentation_part_id,
+location,
+properties,
+rest_api_id
+FROM awscc.apigateway.documentation_part
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DocumentationPartId}';
+AND data__Identifier = '{RestApiId}';
+```
+
 ## Permissions
 
 To operate on the <code>documentation_part</code> resource, the following permissions are required:
@@ -58,17 +72,3 @@ apigateway:PATCH
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-documentation_part_id,
-location,
-properties,
-rest_api_id
-FROM awscc.apigateway.documentation_part
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DocumentationPartId&gt;'
-AND data__Identifier = '&lt;RestApiId&gt;'
-```

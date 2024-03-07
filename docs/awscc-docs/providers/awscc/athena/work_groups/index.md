@@ -35,6 +35,15 @@ Retrieves a list of <code>work_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.athena.work_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>work_groups</code> resource, the following permissions are required:
@@ -60,12 +69,3 @@ kms:GenerateDataKey
 athena:ListWorkGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.athena.work_groups
-WHERE region = 'us-east-1'
-```

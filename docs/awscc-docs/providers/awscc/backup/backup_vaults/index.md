@@ -35,6 +35,15 @@ Retrieves a list of <code>backup_vaults</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+backup_vault_name
+FROM awscc.backup.backup_vaults
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>backup_vaults</code> resource, the following permissions are required:
@@ -60,12 +69,3 @@ kms:DescribeKey
 backup:ListBackupVaults
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-backup_vault_name
-FROM awscc.backup.backup_vaults
-WHERE region = 'us-east-1'
-```

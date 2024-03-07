@@ -39,6 +39,20 @@ Gets an individual <code>warm_pool</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+auto_scaling_group_name,
+max_group_prepared_capacity,
+min_size,
+pool_state,
+instance_reuse_policy
+FROM awscc.autoscaling.warm_pool
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AutoScalingGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>warm_pool</code> resource, the following permissions are required:
@@ -61,17 +75,3 @@ autoscaling:DescribeWarmPool,
 autoscaling:DescribeAutoScalingGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-auto_scaling_group_name,
-max_group_prepared_capacity,
-min_size,
-pool_state,
-instance_reuse_policy
-FROM awscc.autoscaling.warm_pool
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AutoScalingGroupName&gt;'
-```

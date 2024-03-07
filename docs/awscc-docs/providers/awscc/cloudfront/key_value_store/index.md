@@ -40,6 +40,20 @@ Gets an individual <code>key_value_store</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+id,
+status,
+name,
+comment,
+import_source
+FROM awscc.cloudfront.key_value_store
+WHERE data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>key_value_store</code> resource, the following permissions are required:
@@ -61,17 +75,3 @@ cloudfront:UpdateKeyValueStore,
 cloudfront:DescribeKeyValueStore
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-id,
-status,
-name,
-comment,
-import_source
-FROM awscc.cloudfront.key_value_store
-WHERE data__Identifier = '&lt;Name&gt;'
-```

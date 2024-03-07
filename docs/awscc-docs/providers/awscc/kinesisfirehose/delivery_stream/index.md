@@ -50,6 +50,31 @@ Gets an individual <code>delivery_stream</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+delivery_stream_encryption_configuration_input,
+delivery_stream_name,
+delivery_stream_type,
+elasticsearch_destination_configuration,
+amazonopensearchservice_destination_configuration,
+amazon_open_search_serverless_destination_configuration,
+extended_s3_destination_configuration,
+kinesis_stream_source_configuration,
+m_sk_source_configuration,
+redshift_destination_configuration,
+s3_destination_configuration,
+splunk_destination_configuration,
+http_endpoint_destination_configuration,
+snowflake_destination_configuration,
+tags
+FROM awscc.kinesisfirehose.delivery_stream
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DeliveryStreamName}';
+```
+
 ## Permissions
 
 To operate on the <code>delivery_stream</code> resource, the following permissions are required:
@@ -82,28 +107,3 @@ kms:RevokeGrant,
 kms:DescribeKey
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-delivery_stream_encryption_configuration_input,
-delivery_stream_name,
-delivery_stream_type,
-elasticsearch_destination_configuration,
-amazonopensearchservice_destination_configuration,
-amazon_open_search_serverless_destination_configuration,
-extended_s3_destination_configuration,
-kinesis_stream_source_configuration,
-m_sk_source_configuration,
-redshift_destination_configuration,
-s3_destination_configuration,
-splunk_destination_configuration,
-http_endpoint_destination_configuration,
-snowflake_destination_configuration,
-tags
-FROM awscc.kinesisfirehose.delivery_stream
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DeliveryStreamName&gt;'
-```

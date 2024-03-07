@@ -40,6 +40,21 @@ Gets an individual <code>resource_set</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+name,
+description,
+resource_type_list,
+resources,
+tags
+FROM awscc.fms.resource_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>resource_set</code> resource, the following permissions are required:
@@ -68,18 +83,3 @@ fms:ListTagsForResource
 fms:DeleteResourceSet
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-name,
-description,
-resource_type_list,
-resources,
-tags
-FROM awscc.fms.resource_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

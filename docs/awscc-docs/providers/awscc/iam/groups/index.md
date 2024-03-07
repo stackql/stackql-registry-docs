@@ -35,6 +35,15 @@ Retrieves a list of <code>groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+group_name
+FROM awscc.iam.groups
+
+```
+
 ## Permissions
 
 To operate on the <code>groups</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ iam:GetGroup
 iam:ListGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-group_name
-FROM awscc.iam.groups
-
-```

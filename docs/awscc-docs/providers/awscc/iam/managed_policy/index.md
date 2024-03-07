@@ -49,6 +49,29 @@ Gets an individual <code>managed_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+groups,
+managed_policy_name,
+path,
+policy_document,
+roles,
+users,
+policy_arn,
+attachment_count,
+create_date,
+update_date,
+default_version_id,
+is_attachable,
+permissions_boundary_usage_count,
+policy_id
+FROM awscc.iam.managed_policy
+WHERE data__Identifier = '{PolicyArn}';
+```
+
 ## Permissions
 
 To operate on the <code>managed_policy</code> resource, the following permissions are required:
@@ -86,26 +109,3 @@ iam:DeletePolicy,
 iam:ListEntitiesForPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-groups,
-managed_policy_name,
-path,
-policy_document,
-roles,
-users,
-policy_arn,
-attachment_count,
-create_date,
-update_date,
-default_version_id,
-is_attachable,
-permissions_boundary_usage_count,
-policy_id
-FROM awscc.iam.managed_policy
-WHERE data__Identifier = '&lt;PolicyArn&gt;'
-```

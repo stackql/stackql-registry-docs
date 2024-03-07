@@ -42,6 +42,24 @@ Gets an individual <code>configured_table_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+tags,
+configured_table_association_identifier,
+configured_table_identifier,
+description,
+membership_identifier,
+name,
+role_arn
+FROM awscc.cleanrooms.configured_table_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConfiguredTableAssociationIdentifier}';
+AND data__Identifier = '{MembershipIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>configured_table_association</code> resource, the following permissions are required:
@@ -71,21 +89,3 @@ cleanrooms:ListTagsForResource,
 cleanrooms:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-tags,
-configured_table_association_identifier,
-configured_table_identifier,
-description,
-membership_identifier,
-name,
-role_arn
-FROM awscc.cleanrooms.configured_table_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConfiguredTableAssociationIdentifier&gt;'
-AND data__Identifier = '&lt;MembershipIdentifier&gt;'
-```

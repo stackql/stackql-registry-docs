@@ -40,6 +40,20 @@ Retrieves a list of <code>assignments</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+target_id,
+target_type,
+permission_set_arn,
+principal_type,
+principal_id
+FROM awscc.sso.assignments
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>assignments</code> resource, the following permissions are required:
@@ -63,17 +77,3 @@ sso:ListAccountAssignments,
 iam:ListRolePolicies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-target_id,
-target_type,
-permission_set_arn,
-principal_type,
-principal_id
-FROM awscc.sso.assignments
-WHERE region = 'us-east-1'
-```

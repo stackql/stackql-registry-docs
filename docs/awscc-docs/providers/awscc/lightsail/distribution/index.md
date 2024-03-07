@@ -47,6 +47,28 @@ Gets an individual <code>distribution</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+distribution_name,
+distribution_arn,
+bundle_id,
+ip_address_type,
+cache_behaviors,
+cache_behavior_settings,
+default_cache_behavior,
+origin,
+status,
+able_to_update_bundle,
+is_enabled,
+certificate_name,
+tags
+FROM awscc.lightsail.distribution
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DistributionName}';
+```
+
 ## Permissions
 
 To operate on the <code>distribution</code> resource, the following permissions are required:
@@ -75,25 +97,3 @@ lightsail:DeleteDistribution,
 lightsail:GetDistributions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-distribution_name,
-distribution_arn,
-bundle_id,
-ip_address_type,
-cache_behaviors,
-cache_behavior_settings,
-default_cache_behavior,
-origin,
-status,
-able_to_update_bundle,
-is_enabled,
-certificate_name,
-tags
-FROM awscc.lightsail.distribution
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DistributionName&gt;'
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>sync_configurations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_name,
+sync_type
+FROM awscc.codestarconnections.sync_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>sync_configurations</code> resource, the following permissions are required:
@@ -53,13 +63,3 @@ codestar-connections:ListSyncConfigurations,
 codestar-connections:ListRepositoryLinks
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_name,
-sync_type
-FROM awscc.codestarconnections.sync_configurations
-WHERE region = 'us-east-1'
-```

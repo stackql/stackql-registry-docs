@@ -43,6 +43,24 @@ Gets an individual <code>simulation_application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+current_revision_id,
+rendering_engine,
+robot_software_suite,
+simulation_software_suite,
+sources,
+environment,
+tags
+FROM awscc.robomaker.simulation_application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>simulation_application</code> resource, the following permissions are required:
@@ -69,21 +87,3 @@ robomaker:DescribeSimulationApplication,
 robomaker:DeleteSimulationApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-current_revision_id,
-rendering_engine,
-robot_software_suite,
-simulation_software_suite,
-sources,
-environment,
-tags
-FROM awscc.robomaker.simulation_application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

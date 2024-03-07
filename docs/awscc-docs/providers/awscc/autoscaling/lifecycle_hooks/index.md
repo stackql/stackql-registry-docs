@@ -36,6 +36,16 @@ Retrieves a list of <code>lifecycle_hooks</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+auto_scaling_group_name,
+lifecycle_hook_name
+FROM awscc.autoscaling.lifecycle_hooks
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>lifecycle_hooks</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ iam:PassRole
 autoscaling:DescribeLifecycleHooks
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-auto_scaling_group_name,
-lifecycle_hook_name
-FROM awscc.autoscaling.lifecycle_hooks
-WHERE region = 'us-east-1'
-```

@@ -46,6 +46,28 @@ Gets an individual <code>mission_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+contact_pre_pass_duration_seconds,
+contact_post_pass_duration_seconds,
+minimum_viable_contact_duration_seconds,
+streams_kms_key,
+streams_kms_role,
+dataflow_edges,
+tracking_config_arn,
+tags,
+id,
+arn,
+region
+FROM awscc.groundstation.mission_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>mission_profile</code> resource, the following permissions are required:
@@ -76,25 +98,3 @@ groundstation:DeleteMissionProfile,
 groundstation:GetMissionProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-contact_pre_pass_duration_seconds,
-contact_post_pass_duration_seconds,
-minimum_viable_contact_duration_seconds,
-streams_kms_key,
-streams_kms_role,
-dataflow_edges,
-tracking_config_arn,
-tags,
-id,
-arn,
-region
-FROM awscc.groundstation.mission_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -43,6 +43,24 @@ Gets an individual <code>model_manifest</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+creation_time,
+description,
+last_modification_time,
+name,
+nodes,
+signal_catalog_arn,
+status,
+tags
+FROM awscc.iotfleetwise.model_manifest
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>model_manifest</code> resource, the following permissions are required:
@@ -70,21 +88,3 @@ iotfleetwise:DeleteModelManifest,
 iotfleetwise:GetModelManifest
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-creation_time,
-description,
-last_modification_time,
-name,
-nodes,
-signal_catalog_arn,
-status,
-tags
-FROM awscc.iotfleetwise.model_manifest
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

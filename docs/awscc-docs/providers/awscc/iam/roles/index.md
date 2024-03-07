@@ -35,6 +35,15 @@ Retrieves a list of <code>roles</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+role_name
+FROM awscc.iam.roles
+
+```
+
 ## Permissions
 
 To operate on the <code>roles</code> resource, the following permissions are required:
@@ -55,12 +64,3 @@ iam:GetRole
 iam:ListRoles
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-role_name
-FROM awscc.iam.roles
-
-```

@@ -41,6 +41,23 @@ Gets an individual <code>assistant_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+assistant_association_arn,
+assistant_arn,
+assistant_association_id,
+assistant_id,
+association,
+association_type,
+tags
+FROM awscc.wisdom.assistant_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AssistantAssociationId}';
+AND data__Identifier = '{AssistantId}';
+```
+
 ## Permissions
 
 To operate on the <code>assistant_association</code> resource, the following permissions are required:
@@ -60,20 +77,3 @@ wisdom:GetAssistantAssociation
 wisdom:DeleteAssistantAssociation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-assistant_association_arn,
-assistant_arn,
-assistant_association_id,
-assistant_id,
-association,
-association_type,
-tags
-FROM awscc.wisdom.assistant_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssistantAssociationId&gt;'
-AND data__Identifier = '&lt;AssistantId&gt;'
-```

@@ -38,6 +38,19 @@ Gets an individual <code>hook_default_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+type_version_arn,
+type_name,
+arn,
+version_id
+FROM awscc.cloudformation.hook_default_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>hook_default_version</code> resource, the following permissions are required:
@@ -52,16 +65,3 @@ cloudformation:DescribeType
 cloudformation:SetTypeDefaultVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-type_version_arn,
-type_name,
-arn,
-version_id
-FROM awscc.cloudformation.hook_default_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

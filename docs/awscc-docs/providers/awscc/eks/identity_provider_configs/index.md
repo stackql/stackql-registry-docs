@@ -37,6 +37,17 @@ Retrieves a list of <code>identity_provider_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+identity_provider_config_name,
+cluster_name,
+type
+FROM awscc.eks.identity_provider_configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>identity_provider_configs</code> resource, the following permissions are required:
@@ -54,14 +65,3 @@ eks:TagResource
 eks:ListIdentityProviderConfigs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-identity_provider_config_name,
-cluster_name,
-type
-FROM awscc.eks.identity_provider_configs
-WHERE region = 'us-east-1'
-```

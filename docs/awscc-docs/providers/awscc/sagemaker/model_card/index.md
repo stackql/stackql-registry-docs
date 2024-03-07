@@ -46,6 +46,27 @@ Gets an individual <code>model_card</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+model_card_arn,
+model_card_version,
+model_card_name,
+security_config,
+model_card_status,
+content,
+creation_time,
+created_by,
+last_modified_time,
+last_modified_by,
+model_card_processing_status,
+tags
+FROM awscc.sagemaker.model_card
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ModelCardName}';
+```
+
 ## Permissions
 
 To operate on the <code>model_card</code> resource, the following permissions are required:
@@ -84,24 +105,3 @@ sagemaker:ListTags,
 sagemaker:DeleteTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-model_card_arn,
-model_card_version,
-model_card_name,
-security_config,
-model_card_status,
-content,
-creation_time,
-created_by,
-last_modified_time,
-last_modified_by,
-model_card_processing_status,
-tags
-FROM awscc.sagemaker.model_card
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ModelCardName&gt;'
-```

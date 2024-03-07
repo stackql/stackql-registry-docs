@@ -58,6 +58,39 @@ Gets an individual <code>workspace</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+authentication_providers,
+sso_client_id,
+saml_configuration,
+network_access_control,
+vpc_configuration,
+saml_configuration_status,
+client_token,
+status,
+creation_timestamp,
+modification_timestamp,
+grafana_version,
+endpoint,
+account_access_type,
+organization_role_name,
+permission_type,
+stack_set_name,
+data_sources,
+description,
+id,
+name,
+notification_destinations,
+organizational_units,
+role_arn,
+plugin_admin_enabled
+FROM awscc.grafana.workspace
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>workspace</code> resource, the following permissions are required:
@@ -99,36 +132,3 @@ sso:DeleteManagedApplicationInstance,
 sso:DescribeRegisteredRegions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-authentication_providers,
-sso_client_id,
-saml_configuration,
-network_access_control,
-vpc_configuration,
-saml_configuration_status,
-client_token,
-status,
-creation_timestamp,
-modification_timestamp,
-grafana_version,
-endpoint,
-account_access_type,
-organization_role_name,
-permission_type,
-stack_set_name,
-data_sources,
-description,
-id,
-name,
-notification_destinations,
-organizational_units,
-role_arn,
-plugin_admin_enabled
-FROM awscc.grafana.workspace
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

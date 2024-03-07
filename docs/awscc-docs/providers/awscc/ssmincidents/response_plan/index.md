@@ -43,6 +43,24 @@ Gets an individual <code>response_plan</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+display_name,
+chat_channel,
+engagements,
+actions,
+integrations,
+tags,
+incident_template
+FROM awscc.ssmincidents.response_plan
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>response_plan</code> resource, the following permissions are required:
@@ -72,21 +90,3 @@ ssm-incidents:DeleteResponsePlan,
 ssm-incidents:GetResponsePlan
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-display_name,
-chat_channel,
-engagements,
-actions,
-integrations,
-tags,
-incident_template
-FROM awscc.ssmincidents.response_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

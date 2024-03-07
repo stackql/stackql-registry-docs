@@ -38,6 +38,19 @@ Gets an individual <code>access_grants_instance</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_grants_instance_arn,
+identity_center_arn,
+access_grants_instance_id,
+tags
+FROM awscc.s3.access_grants_instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccessGrantsInstanceArn}';
+```
+
 ## Permissions
 
 To operate on the <code>access_grants_instance</code> resource, the following permissions are required:
@@ -57,16 +70,3 @@ s3:DeleteAccessGrantsInstance
 s3:TagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_grants_instance_arn,
-identity_center_arn,
-access_grants_instance_id,
-tags
-FROM awscc.s3.access_grants_instance
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccessGrantsInstanceArn&gt;'
-```

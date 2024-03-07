@@ -41,6 +41,22 @@ Gets an individual <code>assistant</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+type,
+description,
+assistant_arn,
+assistant_id,
+server_side_encryption_configuration,
+tags,
+name
+FROM awscc.wisdom.assistant
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AssistantId}';
+```
+
 ## Permissions
 
 To operate on the <code>assistant</code> resource, the following permissions are required:
@@ -60,19 +76,3 @@ wisdom:GetAssistant
 wisdom:DeleteAssistant
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-type,
-description,
-assistant_arn,
-assistant_id,
-server_side_encryption_configuration,
-tags,
-name
-FROM awscc.wisdom.assistant
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssistantId&gt;'
-```

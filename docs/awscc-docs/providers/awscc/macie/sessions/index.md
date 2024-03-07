@@ -35,6 +35,15 @@ Retrieves a list of <code>sessions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+aws_account_id
+FROM awscc.macie.sessions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>sessions</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ macie2:EnableMacie
 macie2:GetMacieSession
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-aws_account_id
-FROM awscc.macie.sessions
-WHERE region = 'us-east-1'
-```

@@ -41,6 +41,21 @@ Gets an individual <code>function</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+auto_publish,
+function_ar_n,
+function_code,
+function_config,
+function_metadata,
+name,
+stage
+FROM awscc.cloudfront.function
+WHERE data__Identifier = '{FunctionARN}';
+```
+
 ## Permissions
 
 To operate on the <code>function</code> resource, the following permissions are required:
@@ -64,18 +79,3 @@ cloudfront:PublishFunction,
 cloudfront:DescribeFunction
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-auto_publish,
-function_ar_n,
-function_code,
-function_config,
-function_metadata,
-name,
-stage
-FROM awscc.cloudfront.function
-WHERE data__Identifier = '&lt;FunctionARN&gt;'
-```

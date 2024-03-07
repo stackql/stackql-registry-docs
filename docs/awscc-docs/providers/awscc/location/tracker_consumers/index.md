@@ -36,6 +36,16 @@ Retrieves a list of <code>tracker_consumers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+tracker_name,
+consumer_arn
+FROM awscc.location.tracker_consumers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>tracker_consumers</code> resource, the following permissions are required:
@@ -51,13 +61,3 @@ geo:ListTrackerConsumers
 geo:ListTrackerConsumers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-tracker_name,
-consumer_arn
-FROM awscc.location.tracker_consumers
-WHERE region = 'us-east-1'
-```

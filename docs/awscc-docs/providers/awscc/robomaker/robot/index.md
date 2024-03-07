@@ -40,6 +40,21 @@ Gets an individual <code>robot</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+fleet,
+architecture,
+greengrass_group_id,
+tags,
+name
+FROM awscc.robomaker.robot
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>robot</code> resource, the following permissions are required:
@@ -62,18 +77,3 @@ robomaker:TagResource,
 robomaker:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-fleet,
-architecture,
-greengrass_group_id,
-tags,
-name
-FROM awscc.robomaker.robot
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -39,6 +39,20 @@ Gets an individual <code>routing_control</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+routing_control_arn,
+control_panel_arn,
+name,
+status,
+cluster_arn
+FROM awscc.route53recoverycontrol.routing_control
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RoutingControlArn}';
+```
+
 ## Permissions
 
 To operate on the <code>routing_control</code> resource, the following permissions are required:
@@ -61,17 +75,3 @@ route53-recovery-control-config:DescribeRoutingControl,
 route53-recovery-control-config:DeleteRoutingControl
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-routing_control_arn,
-control_panel_arn,
-name,
-status,
-cluster_arn
-FROM awscc.route53recoverycontrol.routing_control
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RoutingControlArn&gt;'
-```

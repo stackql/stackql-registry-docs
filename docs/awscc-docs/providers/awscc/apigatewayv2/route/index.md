@@ -47,6 +47,29 @@ Gets an individual <code>route</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+route_id,
+route_response_selection_expression,
+request_models,
+operation_name,
+authorization_scopes,
+api_key_required,
+route_key,
+authorization_type,
+model_selection_expression,
+api_id,
+request_parameters,
+target,
+authorizer_id
+FROM awscc.apigatewayv2.route
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApiId}';
+AND data__Identifier = '{RouteId}';
+```
+
 ## Permissions
 
 To operate on the <code>route</code> resource, the following permissions are required:
@@ -69,26 +92,3 @@ apigateway:GET,
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-route_id,
-route_response_selection_expression,
-request_models,
-operation_name,
-authorization_scopes,
-api_key_required,
-route_key,
-authorization_type,
-model_selection_expression,
-api_id,
-request_parameters,
-target,
-authorizer_id
-FROM awscc.apigatewayv2.route
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiId&gt;'
-AND data__Identifier = '&lt;RouteId&gt;'
-```

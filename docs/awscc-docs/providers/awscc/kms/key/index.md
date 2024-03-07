@@ -47,6 +47,28 @@ Gets an individual <code>key</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+enabled,
+enable_key_rotation,
+key_policy,
+key_usage,
+origin,
+key_spec,
+multi_region,
+pending_window_in_days,
+tags,
+arn,
+key_id,
+bypass_policy_lockout_safety_check
+FROM awscc.kms.key
+WHERE region = 'us-east-1'
+AND data__Identifier = '{KeyId}';
+```
+
 ## Permissions
 
 To operate on the <code>key</code> resource, the following permissions are required:
@@ -79,25 +101,3 @@ kms:DescribeKey,
 kms:ScheduleKeyDeletion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-enabled,
-enable_key_rotation,
-key_policy,
-key_usage,
-origin,
-key_spec,
-multi_region,
-pending_window_in_days,
-tags,
-arn,
-key_id,
-bypass_policy_lockout_safety_check
-FROM awscc.kms.key
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;KeyId&gt;'
-```

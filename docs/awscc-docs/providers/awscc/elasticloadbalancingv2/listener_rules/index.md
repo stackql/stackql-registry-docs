@@ -35,6 +35,15 @@ Retrieves a list of <code>listener_rules</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+rule_arn
+FROM awscc.elasticloadbalancingv2.listener_rules
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>listener_rules</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ cognito-idp:DescribeUserPoolClient
 elasticloadbalancing:DescribeRules
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-rule_arn
-FROM awscc.elasticloadbalancingv2.listener_rules
-WHERE region = 'us-east-1'
-```

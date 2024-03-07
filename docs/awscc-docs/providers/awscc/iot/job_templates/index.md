@@ -35,6 +35,15 @@ Retrieves a list of <code>job_templates</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+job_template_id
+FROM awscc.iot.job_templates
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>job_templates</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iot:TagResource
 iot:ListJobTemplates
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-job_template_id
-FROM awscc.iot.job_templates
-WHERE region = 'us-east-1'
-```

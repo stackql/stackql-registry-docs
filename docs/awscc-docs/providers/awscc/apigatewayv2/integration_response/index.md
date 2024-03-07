@@ -42,6 +42,25 @@ Gets an individual <code>integration_response</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+integration_response_id,
+response_templates,
+template_selection_expression,
+response_parameters,
+content_handling_strategy,
+integration_id,
+integration_response_key,
+api_id
+FROM awscc.apigatewayv2.integration_response
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApiId}';
+AND data__Identifier = '{IntegrationId}';
+AND data__Identifier = '{IntegrationResponseId}';
+```
+
 ## Permissions
 
 To operate on the <code>integration_response</code> resource, the following permissions are required:
@@ -64,22 +83,3 @@ apigateway:GET,
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-integration_response_id,
-response_templates,
-template_selection_expression,
-response_parameters,
-content_handling_strategy,
-integration_id,
-integration_response_key,
-api_id
-FROM awscc.apigatewayv2.integration_response
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiId&gt;'
-AND data__Identifier = '&lt;IntegrationId&gt;'
-AND data__Identifier = '&lt;IntegrationResponseId&gt;'
-```

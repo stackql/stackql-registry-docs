@@ -36,6 +36,16 @@ Retrieves a list of <code>template_group_access_control_entries</code> in a regi
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+group_security_identifier,
+template_arn
+FROM awscc.pcaconnectorad.template_group_access_control_entries
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>template_group_access_control_entries</code> resource, the following permissions are required:
@@ -50,13 +60,3 @@ pca-connector-ad:CreateTemplateGroupAccessControlEntry
 pca-connector-ad:ListTemplateGroupAccessControlEntries
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-group_security_identifier,
-template_arn
-FROM awscc.pcaconnectorad.template_group_access_control_entries
-WHERE region = 'us-east-1'
-```

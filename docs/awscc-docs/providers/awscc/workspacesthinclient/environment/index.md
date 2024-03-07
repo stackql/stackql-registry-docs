@@ -53,6 +53,34 @@ Gets an individual <code>environment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+name,
+desktop_arn,
+desktop_endpoint,
+desktop_type,
+activation_code,
+registered_devices_count,
+software_set_update_schedule,
+maintenance_window,
+software_set_update_mode,
+desired_software_set_id,
+pending_software_set_id,
+pending_software_set_version,
+software_set_compliance_status,
+created_at,
+updated_at,
+arn,
+kms_key_arn,
+tags
+FROM awscc.workspacesthinclient.environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>environment</code> resource, the following permissions are required:
@@ -92,31 +120,3 @@ kms:DescribeKey,
 kms:RetireGrant
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-name,
-desktop_arn,
-desktop_endpoint,
-desktop_type,
-activation_code,
-registered_devices_count,
-software_set_update_schedule,
-maintenance_window,
-software_set_update_mode,
-desired_software_set_id,
-pending_software_set_id,
-pending_software_set_version,
-software_set_compliance_status,
-created_at,
-updated_at,
-arn,
-kms_key_arn,
-tags
-FROM awscc.workspacesthinclient.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

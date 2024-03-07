@@ -39,6 +39,20 @@ Gets an individual <code>app_image_config</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_image_config_arn,
+app_image_config_name,
+kernel_gateway_image_config,
+jupyter_lab_app_image_config,
+tags
+FROM awscc.sagemaker.app_image_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AppImageConfigName}';
+```
+
 ## Permissions
 
 To operate on the <code>app_image_config</code> resource, the following permissions are required:
@@ -60,17 +74,3 @@ sagemaker:DeleteAppImageConfig,
 sagemaker:DescribeAppImageConfig
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_image_config_arn,
-app_image_config_name,
-kernel_gateway_image_config,
-jupyter_lab_app_image_config,
-tags
-FROM awscc.sagemaker.app_image_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppImageConfigName&gt;'
-```

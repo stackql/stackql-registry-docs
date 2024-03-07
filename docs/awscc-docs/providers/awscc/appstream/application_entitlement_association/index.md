@@ -37,6 +37,20 @@ Gets an individual <code>application_entitlement_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+stack_name,
+entitlement_name,
+application_identifier
+FROM awscc.appstream.application_entitlement_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StackName}';
+AND data__Identifier = '{EntitlementName}';
+AND data__Identifier = '{ApplicationIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>application_entitlement_association</code> resource, the following permissions are required:
@@ -52,17 +66,3 @@ appstream:DisassociateApplicationFromEntitlement,
 appstream:ListEntitledApplications
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-stack_name,
-entitlement_name,
-application_identifier
-FROM awscc.appstream.application_entitlement_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StackName&gt;'
-AND data__Identifier = '&lt;EntitlementName&gt;'
-AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
-```

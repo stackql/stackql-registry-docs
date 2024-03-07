@@ -35,6 +35,15 @@ Retrieves a list of <code>wal_workspaces</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+w_al_workspace_name
+FROM awscc.emr.wal_workspaces
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>wal_workspaces</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ iam:CreateServiceLinkedRole
 emrwal:ListWorkspaces
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-w_al_workspace_name
-FROM awscc.emr.wal_workspaces
-WHERE region = 'us-east-1'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>public_keys</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.cloudfront.public_keys
+
+```
+
 ## Permissions
 
 To operate on the <code>public_keys</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ cloudfront:CreatePublicKey
 cloudfront:ListPublicKeys
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.cloudfront.public_keys
-
-```

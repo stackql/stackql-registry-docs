@@ -37,6 +37,17 @@ Gets an individual <code>cache_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cache_policy_config,
+id,
+last_modified_time
+FROM awscc.cloudfront.cache_policy
+WHERE data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>cache_policy</code> resource, the following permissions are required:
@@ -58,14 +69,3 @@ cloudfront:UpdateCachePolicy,
 cloudfront:GetCachePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cache_policy_config,
-id,
-last_modified_time
-FROM awscc.cloudfront.cache_policy
-WHERE data__Identifier = '&lt;Id&gt;'
-```

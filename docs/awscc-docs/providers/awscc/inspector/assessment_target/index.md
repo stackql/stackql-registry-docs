@@ -37,6 +37,18 @@ Gets an individual <code>assessment_target</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+assessment_target_name,
+resource_group_arn
+FROM awscc.inspector.assessment_target
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>assessment_target</code> resource, the following permissions are required:
@@ -57,15 +69,3 @@ inspector:DescribeAssessmentTargets
 inspector:DeleteAssessmentTarget
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-assessment_target_name,
-resource_group_arn
-FROM awscc.inspector.assessment_target
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

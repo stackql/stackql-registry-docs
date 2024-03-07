@@ -35,6 +35,15 @@ Retrieves a list of <code>drt_accesses</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_id
+FROM awscc.shield.drt_accesses
+
+```
+
 ## Permissions
 
 To operate on the <code>drt_accesses</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ s3:GetBucketPolicy,
 s3:PutBucketPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_id
-FROM awscc.shield.drt_accesses
-
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>deployment_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+deployment_config_name
+FROM awscc.codedeploy.deployment_configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>deployment_configs</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ codedeploy:CreateDeploymentConfig
 codedeploy:ListDeploymentConfigs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-deployment_config_name
-FROM awscc.codedeploy.deployment_configs
-WHERE region = 'us-east-1'
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>tag_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_identifier,
+tags_identifier
+FROM awscc.lakeformation.tag_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>tag_associations</code> resource, the following permissions are required:
@@ -47,13 +57,3 @@ glue:GetDatabase,
 glue:GetTable
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_identifier,
-tags_identifier
-FROM awscc.lakeformation.tag_associations
-WHERE region = 'us-east-1'
-```

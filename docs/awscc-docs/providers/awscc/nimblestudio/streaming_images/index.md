@@ -36,6 +36,16 @@ Retrieves a list of <code>streaming_images</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+studio_id,
+streaming_image_id
+FROM awscc.nimblestudio.streaming_images
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>streaming_images</code> resource, the following permissions are required:
@@ -63,13 +73,3 @@ kms:GenerateDataKey
 nimble:ListStreamingImages
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-studio_id,
-streaming_image_id
-FROM awscc.nimblestudio.streaming_images
-WHERE region = 'us-east-1'
-```

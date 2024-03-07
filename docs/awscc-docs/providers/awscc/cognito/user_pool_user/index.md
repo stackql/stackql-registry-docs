@@ -42,21 +42,6 @@ Gets an individual <code>user_pool_user</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>user_pool_user</code> resource, the following permissions are required:
-
-### Read
-```json
-cognito-idp:AdminGetUser
-```
-
-### Delete
-```json
-cognito-idp:AdminDeleteUser
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -71,6 +56,21 @@ validation_data,
 client_metadata
 FROM awscc.cognito.user_pool_user
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserPoolId&gt;'
-AND data__Identifier = '&lt;Username&gt;'
+AND data__Identifier = '{UserPoolId}';
+AND data__Identifier = '{Username}';
 ```
+
+## Permissions
+
+To operate on the <code>user_pool_user</code> resource, the following permissions are required:
+
+### Read
+```json
+cognito-idp:AdminGetUser
+```
+
+### Delete
+```json
+cognito-idp:AdminDeleteUser
+```
+

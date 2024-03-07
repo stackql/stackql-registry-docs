@@ -38,6 +38,19 @@ Gets an individual <code>resolver_rule_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+v_pc_id,
+resolver_rule_id,
+resolver_rule_association_id,
+name
+FROM awscc.route53resolver.resolver_rule_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ResolverRuleAssociationId}';
+```
+
 ## Permissions
 
 To operate on the <code>resolver_rule_association</code> resource, the following permissions are required:
@@ -53,16 +66,3 @@ route53resolver:DisassociateResolverRule,
 route53resolver:GetResolverRuleAssociation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-v_pc_id,
-resolver_rule_id,
-resolver_rule_association_id,
-name
-FROM awscc.route53resolver.resolver_rule_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResolverRuleAssociationId&gt;'
-```

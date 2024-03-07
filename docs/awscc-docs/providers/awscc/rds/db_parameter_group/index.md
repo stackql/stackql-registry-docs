@@ -39,6 +39,20 @@ Gets an individual <code>db_parameter_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+d_bparameter_group_name,
+description,
+family,
+parameters,
+tags
+FROM awscc.rds.db_parameter_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DBParameterGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>db_parameter_group</code> resource, the following permissions are required:
@@ -68,17 +82,3 @@ rds:RemoveTagsFromResource
 rds:DeleteDBParameterGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-d_bparameter_group_name,
-description,
-family,
-parameters,
-tags
-FROM awscc.rds.db_parameter_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBParameterGroupName&gt;'
-```

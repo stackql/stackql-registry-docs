@@ -48,6 +48,29 @@ Gets an individual <code>fleet_metric</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+metric_name,
+description,
+query_string,
+period,
+aggregation_field,
+query_version,
+index_name,
+unit,
+aggregation_type,
+metric_arn,
+creation_date,
+last_modified_date,
+version,
+tags
+FROM awscc.iot.fleet_metric
+WHERE region = 'us-east-1'
+AND data__Identifier = '{MetricName}';
+```
+
 ## Permissions
 
 To operate on the <code>fleet_metric</code> resource, the following permissions are required:
@@ -73,26 +96,3 @@ iot:DeleteFleetMetric,
 iot:DescribeFleetMetric
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-metric_name,
-description,
-query_string,
-period,
-aggregation_field,
-query_version,
-index_name,
-unit,
-aggregation_type,
-metric_arn,
-creation_date,
-last_modified_date,
-version,
-tags
-FROM awscc.iot.fleet_metric
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MetricName&gt;'
-```

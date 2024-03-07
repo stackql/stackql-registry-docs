@@ -36,6 +36,17 @@ Gets an individual <code>default_view_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+view_arn,
+associated_aws_principal
+FROM awscc.resourceexplorer2.default_view_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AssociatedAwsPrincipal}';
+```
+
 ## Permissions
 
 To operate on the <code>default_view_association</code> resource, the following permissions are required:
@@ -57,14 +68,3 @@ resource-explorer-2:GetDefaultView,
 resource-explorer-2:DisassociateDefaultView
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-view_arn,
-associated_aws_principal
-FROM awscc.resourceexplorer2.default_view_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssociatedAwsPrincipal&gt;'
-```

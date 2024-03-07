@@ -36,6 +36,16 @@ Retrieves a list of <code>scaling_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+scalable_dimension
+FROM awscc.applicationautoscaling.scaling_policies
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>scaling_policies</code> resource, the following permissions are required:
@@ -51,13 +61,3 @@ application-autoscaling:PutScalingPolicy
 application-autoscaling:DescribeScalingPolicies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-scalable_dimension
-FROM awscc.applicationautoscaling.scaling_policies
-WHERE region = 'us-east-1'
-```

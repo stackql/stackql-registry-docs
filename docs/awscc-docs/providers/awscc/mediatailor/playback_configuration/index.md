@@ -52,30 +52,6 @@ Gets an individual <code>playback_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>playback_configuration</code> resource, the following permissions are required:
-
-### Read
-```json
-mediatailor:GetPlaybackConfiguration
-```
-
-### Update
-```json
-mediatailor:PutPlaybackConfiguration,
-mediatailor:ConfigureLogsForPlaybackConfiguration,
-iam:CreateServiceLinkedRole,
-mediatailor:UntagResource,
-mediatailor:TagResource
-```
-
-### Delete
-```json
-mediatailor:DeletePlaybackConfiguration
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -100,5 +76,29 @@ transcode_profile_name,
 video_content_source_url
 FROM awscc.mediatailor.playback_configuration
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
+AND data__Identifier = '{Name}';
 ```
+
+## Permissions
+
+To operate on the <code>playback_configuration</code> resource, the following permissions are required:
+
+### Read
+```json
+mediatailor:GetPlaybackConfiguration
+```
+
+### Update
+```json
+mediatailor:PutPlaybackConfiguration,
+mediatailor:ConfigureLogsForPlaybackConfiguration,
+iam:CreateServiceLinkedRole,
+mediatailor:UntagResource,
+mediatailor:TagResource
+```
+
+### Delete
+```json
+mediatailor:DeletePlaybackConfiguration
+```
+

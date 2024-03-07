@@ -43,6 +43,25 @@ Gets an individual <code>launch_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+ec2_subnet_ids,
+launch_profile_id,
+launch_profile_protocol_versions,
+name,
+stream_configuration,
+studio_component_ids,
+studio_id,
+tags
+FROM awscc.nimblestudio.launch_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LaunchProfileId}';
+AND data__Identifier = '{StudioId}';
+```
+
 ## Permissions
 
 To operate on the <code>launch_profile</code> resource, the following permissions are required:
@@ -69,22 +88,3 @@ nimble:GetLaunchProfile,
 nimble:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-ec2_subnet_ids,
-launch_profile_id,
-launch_profile_protocol_versions,
-name,
-stream_configuration,
-studio_component_ids,
-studio_id,
-tags
-FROM awscc.nimblestudio.launch_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LaunchProfileId&gt;'
-AND data__Identifier = '&lt;StudioId&gt;'
-```

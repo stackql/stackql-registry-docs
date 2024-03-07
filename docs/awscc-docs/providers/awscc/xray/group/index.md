@@ -39,6 +39,20 @@ Gets an individual <code>group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+filter_expression,
+group_name,
+group_ar_n,
+insights_configuration,
+tags
+FROM awscc.xray.group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GroupARN}';
+```
+
 ## Permissions
 
 To operate on the <code>group</code> resource, the following permissions are required:
@@ -62,17 +76,3 @@ xray:ListTagsForResource
 xray:DeleteGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-filter_expression,
-group_name,
-group_ar_n,
-insights_configuration,
-tags
-FROM awscc.xray.group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GroupARN&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>load_balancers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+load_balancer_name
+FROM awscc.lightsail.load_balancers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>load_balancers</code> resource, the following permissions are required:
@@ -57,12 +66,3 @@ lightsail:UntagResource
 lightsail:GetLoadBalancers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-load_balancer_name
-FROM awscc.lightsail.load_balancers
-WHERE region = 'us-east-1'
-```

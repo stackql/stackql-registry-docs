@@ -38,6 +38,20 @@ Gets an individual <code>resource</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_id,
+rest_api_id,
+parent_id,
+path_part
+FROM awscc.apigateway.resource
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RestApiId}';
+AND data__Identifier = '{ResourceId}';
+```
+
 ## Permissions
 
 To operate on the <code>resource</code> resource, the following permissions are required:
@@ -58,17 +72,3 @@ apigateway:PATCH
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_id,
-rest_api_id,
-parent_id,
-path_part
-FROM awscc.apigateway.resource
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;ResourceId&gt;'
-```

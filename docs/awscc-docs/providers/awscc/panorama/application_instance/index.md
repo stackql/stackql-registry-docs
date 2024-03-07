@@ -50,6 +50,31 @@ Gets an individual <code>application_instance</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+default_runtime_context_device_name,
+status,
+default_runtime_context_device,
+description,
+application_instance_id_to_replace,
+created_time,
+health_status,
+manifest_overrides_payload,
+last_updated_time,
+runtime_role_arn,
+name,
+application_instance_id,
+status_description,
+manifest_payload,
+arn,
+tags
+FROM awscc.panorama.application_instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationInstanceId}';
+```
+
 ## Permissions
 
 To operate on the <code>application_instance</code> resource, the following permissions are required:
@@ -89,28 +114,3 @@ s3:GetObject,
 s3:GetObjectVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-default_runtime_context_device_name,
-status,
-default_runtime_context_device,
-description,
-application_instance_id_to_replace,
-created_time,
-health_status,
-manifest_overrides_payload,
-last_updated_time,
-runtime_role_arn,
-name,
-application_instance_id,
-status_description,
-manifest_payload,
-arn,
-tags
-FROM awscc.panorama.application_instance
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationInstanceId&gt;'
-```

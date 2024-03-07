@@ -45,6 +45,26 @@ Gets an individual <code>app</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+app_arn,
+resiliency_policy_arn,
+tags,
+app_template_body,
+resource_mappings,
+app_assessment_schedule,
+permission_model,
+event_subscriptions,
+drift_status
+FROM awscc.resiliencehub.app
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AppArn}';
+```
+
 ## Permissions
 
 To operate on the <code>app</code> resource, the following permissions are required:
@@ -88,23 +108,3 @@ resiliencehub:UntagResource,
 resiliencehub:ListApps
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-app_arn,
-resiliency_policy_arn,
-tags,
-app_template_body,
-resource_mappings,
-app_assessment_schedule,
-permission_model,
-event_subscriptions,
-drift_status
-FROM awscc.resiliencehub.app
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppArn&gt;'
-```

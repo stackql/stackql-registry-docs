@@ -35,6 +35,15 @@ Retrieves a list of <code>workspaces</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.aps.workspaces
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>workspaces</code> resource, the following permissions are required:
@@ -62,12 +71,3 @@ aps:ListWorkspaces,
 aps:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.aps.workspaces
-WHERE region = 'us-east-1'
-```

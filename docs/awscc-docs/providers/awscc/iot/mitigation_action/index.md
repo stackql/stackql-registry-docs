@@ -40,6 +40,21 @@ Gets an individual <code>mitigation_action</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+action_name,
+role_arn,
+tags,
+action_params,
+mitigation_action_arn,
+mitigation_action_id
+FROM awscc.iot.mitigation_action
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ActionName}';
+```
+
 ## Permissions
 
 To operate on the <code>mitigation_action</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ iot:DescribeMitigationAction,
 iot:DeleteMitigationAction
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-action_name,
-role_arn,
-tags,
-action_params,
-mitigation_action_arn,
-mitigation_action_id
-FROM awscc.iot.mitigation_action
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ActionName&gt;'
-```

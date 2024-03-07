@@ -40,6 +40,21 @@ Gets an individual <code>option_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+option_group_name,
+option_group_description,
+engine_name,
+major_engine_version,
+option_configurations,
+tags
+FROM awscc.rds.option_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{OptionGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>option_group</code> resource, the following permissions are required:
@@ -67,18 +82,3 @@ rds:ListTagsForResource,
 rds:RemoveTagsFromResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-option_group_name,
-option_group_description,
-engine_name,
-major_engine_version,
-option_configurations,
-tags
-FROM awscc.rds.option_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;OptionGroupName&gt;'
-```

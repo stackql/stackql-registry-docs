@@ -36,6 +36,16 @@ Retrieves a list of <code>analyses</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+analysis_id,
+aws_account_id
+FROM awscc.quicksight.analyses
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>analyses</code> resource, the following permissions are required:
@@ -58,13 +68,3 @@ quicksight:ListTagsForResource
 quicksight:ListAnalyses
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-analysis_id,
-aws_account_id
-FROM awscc.quicksight.analyses
-WHERE region = 'us-east-1'
-```

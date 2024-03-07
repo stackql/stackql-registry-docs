@@ -54,6 +54,35 @@ Gets an individual <code>instance</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+support_code,
+resource_type,
+is_static_ip,
+private_ip_address,
+public_ip_address,
+location,
+hardware,
+state,
+networking,
+user_name,
+ssh_key_name,
+instance_name,
+availability_zone,
+bundle_id,
+blueprint_id,
+add_ons,
+user_data,
+key_pair_name,
+tags,
+instance_arn
+FROM awscc.lightsail.instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InstanceName}';
+```
+
 ## Permissions
 
 To operate on the <code>instance</code> resource, the following permissions are required:
@@ -88,32 +117,3 @@ lightsail:TagResource,
 lightsail:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-support_code,
-resource_type,
-is_static_ip,
-private_ip_address,
-public_ip_address,
-location,
-hardware,
-state,
-networking,
-user_name,
-ssh_key_name,
-instance_name,
-availability_zone,
-bundle_id,
-blueprint_id,
-add_ons,
-user_data,
-key_pair_name,
-tags,
-instance_arn
-FROM awscc.lightsail.instance
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceName&gt;'
-```

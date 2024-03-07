@@ -35,6 +35,15 @@ Retrieves a list of <code>db_proxies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+d_bproxy_name
+FROM awscc.rds.db_proxies
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>db_proxies</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ iam:PassRole
 rds:DescribeDBProxies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-d_bproxy_name
-FROM awscc.rds.db_proxies
-WHERE region = 'us-east-1'
-```

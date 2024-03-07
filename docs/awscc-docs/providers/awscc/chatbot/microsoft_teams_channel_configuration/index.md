@@ -44,6 +44,25 @@ Gets an individual <code>microsoft_teams_channel_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+team_id,
+teams_channel_id,
+teams_tenant_id,
+configuration_name,
+iam_role_arn,
+sns_topic_arns,
+logging_level,
+arn,
+guardrail_policies,
+user_role_required
+FROM awscc.chatbot.microsoft_teams_channel_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>microsoft_teams_channel_configuration</code> resource, the following permissions are required:
@@ -65,22 +84,3 @@ chatbot:GetMicrosoftTeamsChannelConfiguration,
 chatbot:DeleteMicrosoftTeamsChannelConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-team_id,
-teams_channel_id,
-teams_tenant_id,
-configuration_name,
-iam_role_arn,
-sns_topic_arns,
-logging_level,
-arn,
-guardrail_policies,
-user_role_required
-FROM awscc.chatbot.microsoft_teams_channel_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -56,28 +56,6 @@ Gets an individual <code>alarm</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>alarm</code> resource, the following permissions are required:
-
-### Update
-```json
-cloudwatch:PutMetricAlarm,
-cloudwatch:DescribeAlarms
-```
-
-### Delete
-```json
-cloudwatch:DeleteAlarms,
-cloudwatch:DescribeAlarms
-```
-
-### Read
-```json
-cloudwatch:DescribeAlarms
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -106,5 +84,27 @@ datapoints_to_alarm,
 threshold
 FROM awscc.cloudwatch.alarm
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AlarmName&gt;'
+AND data__Identifier = '{AlarmName}';
 ```
+
+## Permissions
+
+To operate on the <code>alarm</code> resource, the following permissions are required:
+
+### Update
+```json
+cloudwatch:PutMetricAlarm,
+cloudwatch:DescribeAlarms
+```
+
+### Delete
+```json
+cloudwatch:DeleteAlarms,
+cloudwatch:DescribeAlarms
+```
+
+### Read
+```json
+cloudwatch:DescribeAlarms
+```
+

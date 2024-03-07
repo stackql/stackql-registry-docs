@@ -43,6 +43,24 @@ Gets an individual <code>multicast_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+lo_ra_wa_n,
+arn,
+id,
+tags,
+status,
+associate_wireless_device,
+disassociate_wireless_device
+FROM awscc.iotwireless.multicast_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>multicast_group</code> resource, the following permissions are required:
@@ -67,21 +85,3 @@ iotwireless:DisassociateWirelessDeviceFromMulticastGroup
 iotwireless:DeleteMulticastGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-lo_ra_wa_n,
-arn,
-id,
-tags,
-status,
-associate_wireless_device,
-disassociate_wireless_device
-FROM awscc.iotwireless.multicast_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

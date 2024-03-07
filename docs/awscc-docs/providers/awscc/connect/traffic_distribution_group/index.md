@@ -41,6 +41,22 @@ Gets an individual <code>traffic_distribution_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+traffic_distribution_group_arn,
+description,
+name,
+status,
+tags,
+is_default
+FROM awscc.connect.traffic_distribution_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TrafficDistributionGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>traffic_distribution_group</code> resource, the following permissions are required:
@@ -63,19 +79,3 @@ connect:DescribeTrafficDistributionGroup,
 connect:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-traffic_distribution_group_arn,
-description,
-name,
-status,
-tags,
-is_default
-FROM awscc.connect.traffic_distribution_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrafficDistributionGroupArn&gt;'
-```

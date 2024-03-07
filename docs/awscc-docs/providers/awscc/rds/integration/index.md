@@ -42,6 +42,23 @@ Gets an individual <code>integration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+integration_name,
+tags,
+source_arn,
+target_arn,
+integration_arn,
+k_ms_key_id,
+additional_encryption_context,
+create_time
+FROM awscc.rds.integration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{IntegrationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>integration</code> resource, the following permissions are required:
@@ -64,20 +81,3 @@ rds:DeleteIntegration,
 rds:DescribeIntegrations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-integration_name,
-tags,
-source_arn,
-target_arn,
-integration_arn,
-k_ms_key_id,
-additional_encryption_context,
-create_time
-FROM awscc.rds.integration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;IntegrationArn&gt;'
-```

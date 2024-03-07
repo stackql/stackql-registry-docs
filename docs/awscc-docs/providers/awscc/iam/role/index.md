@@ -45,6 +45,25 @@ Gets an individual <code>role</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+assume_role_policy_document,
+description,
+managed_policy_arns,
+max_session_duration,
+path,
+permissions_boundary,
+policies,
+role_id,
+role_name,
+tags
+FROM awscc.iam.role
+WHERE data__Identifier = '{RoleName}';
+```
+
 ## Permissions
 
 To operate on the <code>role</code> resource, the following permissions are required:
@@ -84,22 +103,3 @@ iam:TagRole,
 iam:UntagRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-assume_role_policy_document,
-description,
-managed_policy_arns,
-max_session_duration,
-path,
-permissions_boundary,
-policies,
-role_id,
-role_name,
-tags
-FROM awscc.iam.role
-WHERE data__Identifier = '&lt;RoleName&gt;'
-```

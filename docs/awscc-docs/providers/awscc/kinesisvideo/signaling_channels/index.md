@@ -35,6 +35,15 @@ Retrieves a list of <code>signaling_channels</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.kinesisvideo.signaling_channels
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>signaling_channels</code> resource, the following permissions are required:
@@ -45,12 +54,3 @@ kinesisvideo:CreateSignalingChannel,
 kinesisvideo:DescribeSignalingChannel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.kinesisvideo.signaling_channels
-WHERE region = 'us-east-1'
-```

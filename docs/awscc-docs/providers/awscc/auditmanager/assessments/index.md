@@ -35,6 +35,15 @@ Retrieves a list of <code>assessments</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+assessment_id
+FROM awscc.auditmanager.assessments
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>assessments</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ iam:PassRole
 auditmanager:ListAssessments
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-assessment_id
-FROM awscc.auditmanager.assessments
-WHERE region = 'us-east-1'
-```

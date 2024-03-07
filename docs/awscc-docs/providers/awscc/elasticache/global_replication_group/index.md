@@ -45,6 +45,26 @@ Gets an individual <code>global_replication_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+global_replication_group_id_suffix,
+automatic_failover_enabled,
+cache_node_type,
+engine_version,
+cache_parameter_group_name,
+global_node_group_count,
+global_replication_group_description,
+global_replication_group_id,
+members,
+status,
+regional_configurations
+FROM awscc.elasticache.global_replication_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GlobalReplicationGroupId}';
+```
+
 ## Permissions
 
 To operate on the <code>global_replication_group</code> resource, the following permissions are required:
@@ -72,23 +92,3 @@ elasticache:DisassociateGlobalReplicationGroup,
 elasticache:DescribeGlobalReplicationGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-global_replication_group_id_suffix,
-automatic_failover_enabled,
-cache_node_type,
-engine_version,
-cache_parameter_group_name,
-global_node_group_count,
-global_replication_group_description,
-global_replication_group_id,
-members,
-status,
-regional_configurations
-FROM awscc.elasticache.global_replication_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalReplicationGroupId&gt;'
-```

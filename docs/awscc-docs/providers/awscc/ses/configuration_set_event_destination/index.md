@@ -37,6 +37,18 @@ Gets an individual <code>configuration_set_event_destination</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+configuration_set_name,
+event_destination
+FROM awscc.ses.configuration_set_event_destination
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>configuration_set_event_destination</code> resource, the following permissions are required:
@@ -58,15 +70,3 @@ ses:GetConfigurationSetEventDestinations,
 ses:DescribeConfigurationSet
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-configuration_set_name,
-event_destination
-FROM awscc.ses.configuration_set_event_destination
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

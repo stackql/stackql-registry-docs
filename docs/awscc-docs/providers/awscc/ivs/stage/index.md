@@ -38,6 +38,19 @@ Gets an individual <code>stage</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+tags,
+active_session_id
+FROM awscc.ivs.stage
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>stage</code> resource, the following permissions are required:
@@ -63,16 +76,3 @@ ivs:DeleteStage,
 ivs:UnTagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-tags,
-active_session_id
-FROM awscc.ivs.stage
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

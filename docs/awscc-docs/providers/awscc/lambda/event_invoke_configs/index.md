@@ -36,6 +36,16 @@ Retrieves a list of <code>event_invoke_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+function_name,
+qualifier
+FROM awscc.lambda.event_invoke_configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>event_invoke_configs</code> resource, the following permissions are required:
@@ -50,13 +60,3 @@ lambda:PutFunctionEventInvokeConfig
 lambda:ListFunctionEventInvokeConfigs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-function_name,
-qualifier
-FROM awscc.lambda.event_invoke_configs
-WHERE region = 'us-east-1'
-```

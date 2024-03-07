@@ -38,6 +38,18 @@ Gets an individual <code>instance_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+path,
+roles,
+instance_profile_name,
+arn
+FROM awscc.iam.instance_profile
+WHERE data__Identifier = '{InstanceProfileName}';
+```
+
 ## Permissions
 
 To operate on the <code>instance_profile</code> resource, the following permissions are required:
@@ -62,15 +74,3 @@ iam:RemoveRoleFromInstanceProfile,
 iam:DeleteInstanceProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-path,
-roles,
-instance_profile_name,
-arn
-FROM awscc.iam.instance_profile
-WHERE data__Identifier = '&lt;InstanceProfileName&gt;'
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>resource_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+policy_id,
+resource_arn
+FROM awscc.ssm.resource_policies
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resource_policies</code> resource, the following permissions are required:
@@ -50,13 +60,3 @@ ssm:PutResourcePolicy
 ssm:GetResourcePolicies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-policy_id,
-resource_arn
-FROM awscc.ssm.resource_policies
-WHERE region = 'us-east-1'
-```

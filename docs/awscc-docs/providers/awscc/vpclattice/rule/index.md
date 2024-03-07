@@ -43,6 +43,24 @@ Gets an individual <code>rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+action,
+arn,
+id,
+listener_identifier,
+match,
+name,
+priority,
+service_identifier,
+tags
+FROM awscc.vpclattice.rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>rule</code> resource, the following permissions are required:
@@ -66,21 +84,3 @@ vpc-lattice:UntagResource
 vpc-lattice:DeleteRule
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-action,
-arn,
-id,
-listener_identifier,
-match,
-name,
-priority,
-service_identifier,
-tags
-FROM awscc.vpclattice.rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

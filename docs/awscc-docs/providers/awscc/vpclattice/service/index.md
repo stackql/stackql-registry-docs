@@ -45,6 +45,26 @@ Gets an individual <code>service</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+auth_type,
+created_at,
+dns_entry,
+id,
+last_updated_at,
+name,
+status,
+certificate_arn,
+custom_domain_name,
+tags
+FROM awscc.vpclattice.service
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>service</code> resource, the following permissions are required:
@@ -70,23 +90,3 @@ vpc-lattice:DeleteService,
 vpc-lattice:GetService
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-auth_type,
-created_at,
-dns_entry,
-id,
-last_updated_at,
-name,
-status,
-certificate_arn,
-custom_domain_name,
-tags
-FROM awscc.vpclattice.service
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

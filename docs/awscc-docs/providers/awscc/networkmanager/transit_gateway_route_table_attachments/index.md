@@ -35,6 +35,15 @@ Retrieves a list of <code>transit_gateway_route_table_attachments</code> in a re
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+attachment_id
+FROM awscc.networkmanager.transit_gateway_route_table_attachments
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>transit_gateway_route_table_attachments</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ ec2:DescribeRegions
 networkmanager:ListAttachments
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-attachment_id
-FROM awscc.networkmanager.transit_gateway_route_table_attachments
-WHERE region = 'us-east-1'
-```

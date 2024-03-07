@@ -39,6 +39,19 @@ Gets an individual <code>listener</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+listener_arn,
+accelerator_arn,
+port_ranges,
+protocol,
+client_affinity
+FROM awscc.globalaccelerator.listener
+WHERE data__Identifier = '{ListenerArn}';
+```
+
 ## Permissions
 
 To operate on the <code>listener</code> resource, the following permissions are required:
@@ -62,16 +75,3 @@ globalaccelerator:DeleteListener,
 globalaccelerator:DescribeAccelerator
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-listener_arn,
-accelerator_arn,
-port_ranges,
-protocol,
-client_affinity
-FROM awscc.globalaccelerator.listener
-WHERE data__Identifier = '&lt;ListenerArn&gt;'
-```

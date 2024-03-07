@@ -35,6 +35,15 @@ Retrieves a list of <code>assessment_templates</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.inspector.assessment_templates
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>assessment_templates</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ inspector:DescribeAssessmentTemplates
 inspector:ListAssessmentTemplates
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.inspector.assessment_templates
-WHERE region = 'us-east-1'
-```

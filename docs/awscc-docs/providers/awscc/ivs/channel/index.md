@@ -45,6 +45,26 @@ Gets an individual <code>channel</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+authorized,
+insecure_ingest,
+latency_mode,
+type,
+tags,
+playback_url,
+ingest_endpoint,
+recording_configuration_arn,
+preset
+FROM awscc.ivs.channel
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>channel</code> resource, the following permissions are required:
@@ -70,23 +90,3 @@ ivs:DeleteChannel,
 ivs:UnTagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-authorized,
-insecure_ingest,
-latency_mode,
-type,
-tags,
-playback_url,
-ingest_endpoint,
-recording_configuration_arn,
-preset
-FROM awscc.ivs.channel
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

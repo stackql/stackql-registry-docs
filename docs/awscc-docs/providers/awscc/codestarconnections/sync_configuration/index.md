@@ -43,6 +43,25 @@ Gets an individual <code>sync_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+owner_id,
+resource_name,
+repository_name,
+provider_type,
+branch,
+config_file,
+sync_type,
+role_arn,
+repository_link_id
+FROM awscc.codestarconnections.sync_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ResourceName}';
+AND data__Identifier = '{SyncType}';
+```
+
 ## Permissions
 
 To operate on the <code>sync_configuration</code> resource, the following permissions are required:
@@ -65,22 +84,3 @@ codestar-connections:DeleteSyncConfiguration,
 codestar-connections:GetSyncConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-owner_id,
-resource_name,
-repository_name,
-provider_type,
-branch,
-config_file,
-sync_type,
-role_arn,
-repository_link_id
-FROM awscc.codestarconnections.sync_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceName&gt;'
-AND data__Identifier = '&lt;SyncType&gt;'
-```

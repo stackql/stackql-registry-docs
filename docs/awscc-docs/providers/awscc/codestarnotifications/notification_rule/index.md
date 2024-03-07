@@ -45,6 +45,26 @@ Gets an individual <code>notification_rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+event_type_id,
+created_by,
+target_address,
+event_type_ids,
+status,
+detail_type,
+resource,
+targets,
+tags,
+name,
+arn
+FROM awscc.codestarnotifications.notification_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>notification_rule</code> resource, the following permissions are required:
@@ -67,23 +87,3 @@ codestar-notifications:TagResource,
 codestar-notifications:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-event_type_id,
-created_by,
-target_address,
-event_type_ids,
-status,
-detail_type,
-resource,
-targets,
-tags,
-name,
-arn
-FROM awscc.codestarnotifications.notification_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

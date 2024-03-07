@@ -44,6 +44,25 @@ Gets an individual <code>environment_account_connection</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+codebuild_role_arn,
+component_role_arn,
+environment_account_id,
+environment_name,
+id,
+management_account_id,
+role_arn,
+status,
+tags
+FROM awscc.proton.environment_account_connection
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>environment_account_connection</code> resource, the following permissions are required:
@@ -76,22 +95,3 @@ proton:ListTagsForResource,
 proton:GetEnvironmentAccountConnection
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-codebuild_role_arn,
-component_role_arn,
-environment_account_id,
-environment_name,
-id,
-management_account_id,
-role_arn,
-status,
-tags
-FROM awscc.proton.environment_account_connection
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -45,6 +45,26 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_group_name,
+application_ar_n,
+c_we_monitor_enabled,
+ops_center_enabled,
+ops_item_sn_stopic_arn,
+tags,
+custom_components,
+log_pattern_sets,
+auto_configuration_enabled,
+component_monitoring_settings,
+grouping_type
+FROM awscc.applicationinsights.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationARN}';
+```
+
 ## Permissions
 
 To operate on the <code>application</code> resource, the following permissions are required:
@@ -64,23 +84,3 @@ To operate on the <code>application</code> resource, the following permissions a
 *
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_group_name,
-application_ar_n,
-c_we_monitor_enabled,
-ops_center_enabled,
-ops_item_sn_stopic_arn,
-tags,
-custom_components,
-log_pattern_sets,
-auto_configuration_enabled,
-component_monitoring_settings,
-grouping_type
-FROM awscc.applicationinsights.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationARN&gt;'
-```

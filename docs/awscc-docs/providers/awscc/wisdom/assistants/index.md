@@ -35,6 +35,15 @@ Retrieves a list of <code>assistants</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+assistant_id
+FROM awscc.wisdom.assistants
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>assistants</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ wisdom:TagResource
 wisdom:ListAssistants
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-assistant_id
-FROM awscc.wisdom.assistants
-WHERE region = 'us-east-1'
-```

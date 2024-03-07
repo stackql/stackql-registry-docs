@@ -57,30 +57,6 @@ Gets an individual <code>server</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>server</code> resource, the following permissions are required:
-
-### Delete
-```json
-opsworks-cm:DeleteServer,
-opsworks-cm:DescribeServers
-```
-
-### Update
-```json
-opsworks-cm:UpdateServer,
-opsworks-cm:TagResource,
-opsworks-cm:UntagResource,
-opsworks-cm:DescribeServers
-```
-
-### Read
-```json
-opsworks-cm:DescribeServers
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -110,5 +86,29 @@ tags,
 engine
 FROM awscc.opsworkscm.server
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ServerName&gt;'
+AND data__Identifier = '{ServerName}';
 ```
+
+## Permissions
+
+To operate on the <code>server</code> resource, the following permissions are required:
+
+### Delete
+```json
+opsworks-cm:DeleteServer,
+opsworks-cm:DescribeServers
+```
+
+### Update
+```json
+opsworks-cm:UpdateServer,
+opsworks-cm:TagResource,
+opsworks-cm:UntagResource,
+opsworks-cm:DescribeServers
+```
+
+### Read
+```json
+opsworks-cm:DescribeServers
+```
+

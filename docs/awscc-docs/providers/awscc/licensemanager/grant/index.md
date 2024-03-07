@@ -42,6 +42,23 @@ Gets an individual <code>grant</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+grant_arn,
+grant_name,
+license_arn,
+home_region,
+version,
+allowed_operations,
+principals,
+status
+FROM awscc.licensemanager.grant
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GrantArn}';
+```
+
 ## Permissions
 
 To operate on the <code>grant</code> resource, the following permissions are required:
@@ -61,20 +78,3 @@ license-manager:CreateGrantVersion
 license-manager:DeleteGrant
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-grant_arn,
-grant_name,
-license_arn,
-home_region,
-version,
-allowed_operations,
-principals,
-status
-FROM awscc.licensemanager.grant
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GrantArn&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>access_points</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.s3objectlambda.access_points
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>access_points</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ s3:GetAccessPointConfigurationForObjectLambda
 s3:ListAccessPointsForObjectLambda
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.s3objectlambda.access_points
-WHERE region = 'us-east-1'
-```

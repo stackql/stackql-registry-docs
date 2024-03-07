@@ -35,6 +35,15 @@ Retrieves a list of <code>named_queries</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+named_query_id
+FROM awscc.athena.named_queries
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>named_queries</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ athena:CreateNamedQuery
 athena:ListNamedQueries
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-named_query_id
-FROM awscc.athena.named_queries
-WHERE region = 'us-east-1'
-```

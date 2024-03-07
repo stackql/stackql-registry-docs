@@ -35,6 +35,15 @@ Retrieves a list of <code>streams</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.kinesisvideo.streams
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>streams</code> resource, the following permissions are required:
@@ -45,12 +54,3 @@ kinesisvideo:DescribeStream,
 kinesisvideo:CreateStream
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.kinesisvideo.streams
-WHERE region = 'us-east-1'
-```

@@ -43,6 +43,24 @@ Gets an individual <code>capability</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+capability_arn,
+capability_id,
+configuration,
+created_at,
+instructions_documents,
+modified_at,
+name,
+tags,
+type
+FROM awscc.b2bi.capability
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CapabilityId}';
+```
+
 ## Permissions
 
 To operate on the <code>capability</code> resource, the following permissions are required:
@@ -65,21 +83,3 @@ b2bi:UpdateCapability
 b2bi:DeleteCapability
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-capability_arn,
-capability_id,
-configuration,
-created_at,
-instructions_documents,
-modified_at,
-name,
-tags,
-type
-FROM awscc.b2bi.capability
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CapabilityId&gt;'
-```

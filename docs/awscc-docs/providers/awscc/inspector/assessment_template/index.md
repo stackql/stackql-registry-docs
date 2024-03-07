@@ -40,6 +40,21 @@ Gets an individual <code>assessment_template</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+assessment_target_arn,
+duration_in_seconds,
+assessment_template_name,
+rules_package_arns,
+user_attributes_for_findings
+FROM awscc.inspector.assessment_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>assessment_template</code> resource, the following permissions are required:
@@ -54,18 +69,3 @@ inspector:DescribeAssessmentTemplates
 inspector:DeleteAssessmentTemplate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-assessment_target_arn,
-duration_in_seconds,
-assessment_template_name,
-rules_package_arns,
-user_attributes_for_findings
-FROM awscc.inspector.assessment_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

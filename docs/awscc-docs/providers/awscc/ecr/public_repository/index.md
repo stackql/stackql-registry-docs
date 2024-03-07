@@ -39,6 +39,20 @@ Gets an individual <code>public_repository</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+repository_name,
+repository_policy_text,
+arn,
+repository_catalog_data,
+tags
+FROM awscc.ecr.public_repository
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RepositoryName}';
+```
+
 ## Permissions
 
 To operate on the <code>public_repository</code> resource, the following permissions are required:
@@ -65,17 +79,3 @@ ecr-public:UntagResource
 ecr-public:DeleteRepository
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-repository_name,
-repository_policy_text,
-arn,
-repository_catalog_data,
-tags
-FROM awscc.ecr.public_repository
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RepositoryName&gt;'
-```

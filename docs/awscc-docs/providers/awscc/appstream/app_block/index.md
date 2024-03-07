@@ -44,21 +44,6 @@ Gets an individual <code>app_block</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>app_block</code> resource, the following permissions are required:
-
-### Read
-```json
-appstream:DescribeAppBlocks
-```
-
-### Delete
-```json
-appstream:DeleteAppBlock
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -75,5 +60,20 @@ packaging_type,
 post_setup_script_details
 FROM awscc.appstream.app_block
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
+AND data__Identifier = '{Arn}';
 ```
+
+## Permissions
+
+To operate on the <code>app_block</code> resource, the following permissions are required:
+
+### Read
+```json
+appstream:DescribeAppBlocks
+```
+
+### Delete
+```json
+appstream:DeleteAppBlock
+```
+

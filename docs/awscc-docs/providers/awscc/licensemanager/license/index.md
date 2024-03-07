@@ -47,26 +47,6 @@ Gets an individual <code>license</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>license</code> resource, the following permissions are required:
-
-### Read
-```json
-license-manager:GetLicense
-```
-
-### Update
-```json
-license-manager:CreateLicenseVersion
-```
-
-### Delete
-```json
-license-manager:DeleteLicense
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -86,5 +66,25 @@ status,
 version
 FROM awscc.licensemanager.license
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LicenseArn&gt;'
+AND data__Identifier = '{LicenseArn}';
 ```
+
+## Permissions
+
+To operate on the <code>license</code> resource, the following permissions are required:
+
+### Read
+```json
+license-manager:GetLicense
+```
+
+### Update
+```json
+license-manager:CreateLicenseVersion
+```
+
+### Delete
+```json
+license-manager:DeleteLicense
+```
+

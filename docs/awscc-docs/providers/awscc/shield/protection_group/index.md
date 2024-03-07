@@ -41,6 +41,21 @@ Gets an individual <code>protection_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+protection_group_id,
+protection_group_arn,
+aggregation,
+pattern,
+members,
+resource_type,
+tags
+FROM awscc.shield.protection_group
+WHERE data__Identifier = '{ProtectionGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>protection_group</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ shield:TagResource,
 shield:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-protection_group_id,
-protection_group_arn,
-aggregation,
-pattern,
-members,
-resource_type,
-tags
-FROM awscc.shield.protection_group
-WHERE data__Identifier = '&lt;ProtectionGroupArn&gt;'
-```

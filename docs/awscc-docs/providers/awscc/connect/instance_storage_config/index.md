@@ -42,6 +42,25 @@ Gets an individual <code>instance_storage_config</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+resource_type,
+association_id,
+storage_type,
+s3_config,
+kinesis_video_stream_config,
+kinesis_stream_config,
+kinesis_firehose_config
+FROM awscc.connect.instance_storage_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '{InstanceArn}';
+AND data__Identifier = '{AssociationId}';
+AND data__Identifier = '{ResourceType}';
+```
+
 ## Permissions
 
 To operate on the <code>instance_storage_config</code> resource, the following permissions are required:
@@ -79,22 +98,3 @@ s3:GetBucketLocation,
 kms:RetireGrant
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-resource_type,
-association_id,
-storage_type,
-s3_config,
-kinesis_video_stream_config,
-kinesis_stream_config,
-kinesis_firehose_config
-FROM awscc.connect.instance_storage_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;InstanceArn&gt;'
-AND data__Identifier = '&lt;AssociationId&gt;'
-AND data__Identifier = '&lt;ResourceType&gt;'
-```

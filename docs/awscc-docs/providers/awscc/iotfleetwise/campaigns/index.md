@@ -35,6 +35,15 @@ Retrieves a list of <code>campaigns</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.iotfleetwise.campaigns
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>campaigns</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ iotfleetwise:ListCampaigns,
 iotfleetwise:GetCampaign
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.iotfleetwise.campaigns
-WHERE region = 'us-east-1'
-```

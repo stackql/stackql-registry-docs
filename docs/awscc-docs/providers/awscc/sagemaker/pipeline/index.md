@@ -41,6 +41,22 @@ Gets an individual <code>pipeline</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+pipeline_name,
+pipeline_display_name,
+pipeline_description,
+pipeline_definition,
+role_arn,
+tags,
+parallelism_configuration
+FROM awscc.sagemaker.pipeline
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PipelineName}';
+```
+
 ## Permissions
 
 To operate on the <code>pipeline</code> resource, the following permissions are required:
@@ -67,19 +83,3 @@ sagemaker:ListTags
 sagemaker:DeletePipeline
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-pipeline_name,
-pipeline_display_name,
-pipeline_description,
-pipeline_definition,
-role_arn,
-tags,
-parallelism_configuration
-FROM awscc.sagemaker.pipeline
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PipelineName&gt;'
-```

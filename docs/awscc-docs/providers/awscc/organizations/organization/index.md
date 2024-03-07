@@ -41,6 +41,22 @@ Gets an individual <code>organization</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+feature_set,
+management_account_arn,
+management_account_id,
+management_account_email,
+root_id
+FROM awscc.organizations.organization
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>organization</code> resource, the following permissions are required:
@@ -57,19 +73,3 @@ organizations:DeleteOrganization,
 organizations:DescribeOrganization
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-feature_set,
-management_account_arn,
-management_account_id,
-management_account_email,
-root_id
-FROM awscc.organizations.organization
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

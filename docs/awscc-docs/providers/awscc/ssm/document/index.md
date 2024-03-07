@@ -44,6 +44,25 @@ Gets an individual <code>document</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+content,
+attachments,
+name,
+version_name,
+document_type,
+document_format,
+target_type,
+tags,
+requires,
+update_method
+FROM awscc.ssm.document
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>document</code> resource, the following permissions are required:
@@ -72,22 +91,3 @@ ssm:DeleteDocument,
 ssm:GetDocument
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-content,
-attachments,
-name,
-version_name,
-document_type,
-document_format,
-target_type,
-tags,
-requires,
-update_method
-FROM awscc.ssm.document
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

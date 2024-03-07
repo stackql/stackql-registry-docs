@@ -44,6 +44,25 @@ Gets an individual <code>decoder_manifest</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+creation_time,
+description,
+last_modification_time,
+model_manifest_arn,
+name,
+network_interfaces,
+signal_decoders,
+status,
+tags
+FROM awscc.iotfleetwise.decoder_manifest
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>decoder_manifest</code> resource, the following permissions are required:
@@ -73,22 +92,3 @@ iotfleetwise:DeleteDecoderManifest,
 iotfleetwise:GetDecoderManifest
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-creation_time,
-description,
-last_modification_time,
-model_manifest_arn,
-name,
-network_interfaces,
-signal_decoders,
-status,
-tags
-FROM awscc.iotfleetwise.decoder_manifest
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

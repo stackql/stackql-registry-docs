@@ -41,6 +41,22 @@ Gets an individual <code>network_analyzer_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+description,
+trace_content,
+wireless_devices,
+wireless_gateways,
+arn,
+tags
+FROM awscc.iotwireless.network_analyzer_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>network_analyzer_configuration</code> resource, the following permissions are required:
@@ -63,19 +79,3 @@ iotwireless:ListTagsForResource
 iotwireless:DeleteNetworkAnalyzerConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-description,
-trace_content,
-wireless_devices,
-wireless_gateways,
-arn,
-tags
-FROM awscc.iotwireless.network_analyzer_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

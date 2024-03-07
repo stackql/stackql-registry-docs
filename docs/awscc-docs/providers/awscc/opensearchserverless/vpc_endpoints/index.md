@@ -35,6 +35,15 @@ Retrieves a list of <code>vpc_endpoints</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.opensearchserverless.vpc_endpoints
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>vpc_endpoints</code> resource, the following permissions are required:
@@ -67,12 +76,3 @@ aoss:ListVpcEndpoints,
 ec2:DescribeVpcEndpoints
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.opensearchserverless.vpc_endpoints
-WHERE region = 'us-east-1'
-```

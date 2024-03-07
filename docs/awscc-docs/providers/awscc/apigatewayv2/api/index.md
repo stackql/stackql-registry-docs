@@ -53,6 +53,34 @@ Gets an individual <code>api</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+route_selection_expression,
+body_s3_location,
+description,
+api_endpoint,
+base_path,
+fail_on_warnings,
+disable_execute_api_endpoint,
+disable_schema_validation,
+name,
+target,
+credentials_arn,
+cors_configuration,
+version,
+protocol_type,
+route_key,
+api_id,
+body,
+tags,
+api_key_selection_expression
+FROM awscc.apigatewayv2.api
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApiId}';
+```
+
 ## Permissions
 
 To operate on the <code>api</code> resource, the following permissions are required:
@@ -79,31 +107,3 @@ apigateway:DELETE,
 s3:getObject
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-route_selection_expression,
-body_s3_location,
-description,
-api_endpoint,
-base_path,
-fail_on_warnings,
-disable_execute_api_endpoint,
-disable_schema_validation,
-name,
-target,
-credentials_arn,
-cors_configuration,
-version,
-protocol_type,
-route_key,
-api_id,
-body,
-tags,
-api_key_selection_expression
-FROM awscc.apigatewayv2.api
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApiId&gt;'
-```

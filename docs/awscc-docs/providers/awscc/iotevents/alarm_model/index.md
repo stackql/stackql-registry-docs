@@ -43,6 +43,24 @@ Gets an individual <code>alarm_model</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+alarm_model_name,
+alarm_model_description,
+role_arn,
+key,
+severity,
+alarm_rule,
+alarm_event_actions,
+alarm_capabilities,
+tags
+FROM awscc.iotevents.alarm_model
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AlarmModelName}';
+```
+
 ## Permissions
 
 To operate on the <code>alarm_model</code> resource, the following permissions are required:
@@ -70,21 +88,3 @@ iotevents:DeleteAlarmModel,
 iotevents:DescribeAlarmModel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-alarm_model_name,
-alarm_model_description,
-role_arn,
-key,
-severity,
-alarm_rule,
-alarm_event_actions,
-alarm_capabilities,
-tags
-FROM awscc.iotevents.alarm_model
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AlarmModelName&gt;'
-```

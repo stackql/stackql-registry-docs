@@ -47,6 +47,28 @@ Gets an individual <code>domain</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+created_at,
+description,
+domain_execution_role,
+id,
+kms_key_identifier,
+last_updated_at,
+managed_account_id,
+name,
+portal_url,
+single_sign_on,
+status,
+tags
+FROM awscc.datazone.domain
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>domain</code> resource, the following permissions are required:
@@ -73,25 +95,3 @@ datazone:DeleteDomain,
 datazone:GetDomain
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-created_at,
-description,
-domain_execution_role,
-id,
-kms_key_identifier,
-last_updated_at,
-managed_account_id,
-name,
-portal_url,
-single_sign_on,
-status,
-tags
-FROM awscc.datazone.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

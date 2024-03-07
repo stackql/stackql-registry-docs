@@ -35,6 +35,15 @@ Retrieves a list of <code>security_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.opensearchserverless.security_configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>security_configs</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ aoss:CreateSecurityConfig
 aoss:ListSecurityConfigs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.opensearchserverless.security_configs
-WHERE region = 'us-east-1'
-```

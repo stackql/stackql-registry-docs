@@ -39,6 +39,20 @@ Gets an individual <code>subnet_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+subnet_group_name,
+description,
+subnet_ids,
+tags,
+a_rn
+FROM awscc.memorydb.subnet_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SubnetGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>subnet_group</code> resource, the following permissions are required:
@@ -64,17 +78,3 @@ memorydb:DeleteSubnetGroup,
 memorydb:DescribeSubnetGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-subnet_group_name,
-description,
-subnet_ids,
-tags,
-a_rn
-FROM awscc.memorydb.subnet_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SubnetGroupName&gt;'
-```

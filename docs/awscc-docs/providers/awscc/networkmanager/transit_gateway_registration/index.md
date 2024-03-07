@@ -36,6 +36,18 @@ Gets an individual <code>transit_gateway_registration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+global_network_id,
+transit_gateway_arn
+FROM awscc.networkmanager.transit_gateway_registration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GlobalNetworkId}';
+AND data__Identifier = '{TransitGatewayArn}';
+```
+
 ## Permissions
 
 To operate on the <code>transit_gateway_registration</code> resource, the following permissions are required:
@@ -51,15 +63,3 @@ networkmanager:DeregisterTransitGateway,
 networkmanager:GetTransitGatewayRegistrations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-global_network_id,
-transit_gateway_arn
-FROM awscc.networkmanager.transit_gateway_registration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GlobalNetworkId&gt;'
-AND data__Identifier = '&lt;TransitGatewayArn&gt;'
-```

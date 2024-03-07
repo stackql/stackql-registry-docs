@@ -35,6 +35,15 @@ Retrieves a list of <code>simulation_application_versions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.robomaker.simulation_application_versions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>simulation_application_versions</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ ecr-public:GetAuthorizationToken,
 sts:GetServiceBearerToken
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.robomaker.simulation_application_versions
-WHERE region = 'us-east-1'
-```

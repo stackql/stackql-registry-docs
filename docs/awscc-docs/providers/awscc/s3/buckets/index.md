@@ -35,6 +35,15 @@ Retrieves a list of <code>buckets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+bucket_name
+FROM awscc.s3.buckets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>buckets</code> resource, the following permissions are required:
@@ -73,12 +82,3 @@ s3:PutIntelligentTieringConfiguration
 s3:ListAllMyBuckets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-bucket_name
-FROM awscc.s3.buckets
-WHERE region = 'us-east-1'
-```

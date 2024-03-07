@@ -35,6 +35,15 @@ Retrieves a list of <code>db_proxy_target_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+target_group_arn
+FROM awscc.rds.db_proxy_target_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>db_proxy_target_groups</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ rds:RegisterDBProxyTargets
 rds:DescribeDBProxyTargetGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-target_group_arn
-FROM awscc.rds.db_proxy_target_groups
-WHERE region = 'us-east-1'
-```

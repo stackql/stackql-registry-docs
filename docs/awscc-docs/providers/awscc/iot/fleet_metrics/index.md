@@ -35,6 +35,15 @@ Retrieves a list of <code>fleet_metrics</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+metric_name
+FROM awscc.iot.fleet_metrics
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>fleet_metrics</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ iot:TagResource
 iot:ListFleetMetrics
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-metric_name
-FROM awscc.iot.fleet_metrics
-WHERE region = 'us-east-1'
-```

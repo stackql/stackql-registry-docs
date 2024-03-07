@@ -35,6 +35,15 @@ Retrieves a list of <code>access_grants_instances</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_grants_instance_arn
+FROM awscc.s3.access_grants_instances
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>access_grants_instances</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ s3:TagResource
 s3:ListAccessGrantsInstances
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_grants_instance_arn
-FROM awscc.s3.access_grants_instances
-WHERE region = 'us-east-1'
-```

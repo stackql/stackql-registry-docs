@@ -43,6 +43,24 @@ Gets an individual <code>rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+event_bus_name,
+event_pattern,
+schedule_expression,
+description,
+state,
+targets,
+arn,
+role_arn,
+name
+FROM awscc.events.rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>rule</code> resource, the following permissions are required:
@@ -72,21 +90,3 @@ events:RemoveTargets,
 events:ListTargetsByRule
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-event_bus_name,
-event_pattern,
-schedule_expression,
-description,
-state,
-targets,
-arn,
-role_arn,
-name
-FROM awscc.events.rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

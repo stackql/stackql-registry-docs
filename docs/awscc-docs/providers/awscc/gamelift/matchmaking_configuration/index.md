@@ -52,6 +52,33 @@ Gets an individual <code>matchmaking_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+acceptance_required,
+acceptance_timeout_seconds,
+additional_player_count,
+backfill_mode,
+arn,
+creation_time,
+custom_event_data,
+description,
+flex_match_mode,
+game_properties,
+game_session_data,
+game_session_queue_arns,
+name,
+notification_target,
+request_timeout_seconds,
+rule_set_arn,
+rule_set_name,
+tags
+FROM awscc.gamelift.matchmaking_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>matchmaking_configuration</code> resource, the following permissions are required:
@@ -77,30 +104,3 @@ gamelift:TagResource,
 gamelift:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-acceptance_required,
-acceptance_timeout_seconds,
-additional_player_count,
-backfill_mode,
-arn,
-creation_time,
-custom_event_data,
-description,
-flex_match_mode,
-game_properties,
-game_session_data,
-game_session_queue_arns,
-name,
-notification_target,
-request_timeout_seconds,
-rule_set_arn,
-rule_set_name,
-tags
-FROM awscc.gamelift.matchmaking_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

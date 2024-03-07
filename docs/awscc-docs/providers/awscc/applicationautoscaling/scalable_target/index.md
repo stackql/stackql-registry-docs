@@ -43,6 +43,26 @@ Gets an individual <code>scalable_target</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+max_capacity,
+min_capacity,
+resource_id,
+role_ar_n,
+scalable_dimension,
+scheduled_actions,
+service_namespace,
+suspended_state
+FROM awscc.applicationautoscaling.scalable_target
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ResourceId}';
+AND data__Identifier = '{ScalableDimension}';
+AND data__Identifier = '{ServiceNamespace}';
+```
+
 ## Permissions
 
 To operate on the <code>scalable_target</code> resource, the following permissions are required:
@@ -73,23 +93,3 @@ lambda:DeleteProvisionedConcurrencyConfig
 application-autoscaling:DeregisterScalableTarget
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-max_capacity,
-min_capacity,
-resource_id,
-role_ar_n,
-scalable_dimension,
-scheduled_actions,
-service_namespace,
-suspended_state
-FROM awscc.applicationautoscaling.scalable_target
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceId&gt;'
-AND data__Identifier = '&lt;ScalableDimension&gt;'
-AND data__Identifier = '&lt;ServiceNamespace&gt;'
-```

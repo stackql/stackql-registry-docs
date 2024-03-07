@@ -39,6 +39,21 @@ Gets an individual <code>identity_source</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+configuration,
+details,
+identity_source_id,
+policy_store_id,
+principal_entity_type
+FROM awscc.verifiedpermissions.identity_source
+WHERE region = 'us-east-1'
+AND data__Identifier = '{IdentitySourceId}';
+AND data__Identifier = '{PolicyStoreId}';
+```
+
 ## Permissions
 
 To operate on the <code>identity_source</code> resource, the following permissions are required:
@@ -76,18 +91,3 @@ cognito-idp:DescribeUserPool,
 cognito-idp:ListUserPoolClients
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-configuration,
-details,
-identity_source_id,
-policy_store_id,
-principal_entity_type
-FROM awscc.verifiedpermissions.identity_source
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;IdentitySourceId&gt;'
-AND data__Identifier = '&lt;PolicyStoreId&gt;'
-```

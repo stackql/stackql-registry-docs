@@ -47,6 +47,29 @@ Gets an individual <code>theme</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+aws_account_id,
+base_theme_id,
+configuration,
+created_time,
+last_updated_time,
+name,
+permissions,
+tags,
+theme_id,
+type,
+version,
+version_description
+FROM awscc.quicksight.theme
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ThemeId}';
+AND data__Identifier = '{AwsAccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>theme</code> resource, the following permissions are required:
@@ -75,26 +98,3 @@ quicksight:DescribeTheme,
 quicksight:DeleteTheme
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-aws_account_id,
-base_theme_id,
-configuration,
-created_time,
-last_updated_time,
-name,
-permissions,
-tags,
-theme_id,
-type,
-version,
-version_description
-FROM awscc.quicksight.theme
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ThemeId&gt;'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-```

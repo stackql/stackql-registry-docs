@@ -40,6 +40,21 @@ Gets an individual <code>thing_type</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+thing_type_name,
+deprecate_thing_type,
+thing_type_properties,
+tags
+FROM awscc.iot.thing_type
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ThingTypeName}';
+```
+
 ## Permissions
 
 To operate on the <code>thing_type</code> resource, the following permissions are required:
@@ -67,18 +82,3 @@ iot:UntagResource,
 iot:DeprecateThingType
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-thing_type_name,
-deprecate_thing_type,
-thing_type_properties,
-tags
-FROM awscc.iot.thing_type
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ThingTypeName&gt;'
-```

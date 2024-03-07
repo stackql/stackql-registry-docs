@@ -38,6 +38,19 @@ Gets an individual <code>usage_plan_key</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+key_id,
+key_type,
+usage_plan_id,
+id
+FROM awscc.apigateway.usage_plan_key
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>usage_plan_key</code> resource, the following permissions are required:
@@ -53,16 +66,3 @@ apigateway:DELETE,
 apigateway:GET
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-key_id,
-key_type,
-usage_plan_id,
-id
-FROM awscc.apigateway.usage_plan_key
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

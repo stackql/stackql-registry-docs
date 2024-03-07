@@ -40,6 +40,21 @@ Gets an individual <code>attribute_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+name,
+description,
+attributes,
+tags
+FROM awscc.servicecatalogappregistry.attribute_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>attribute_group</code> resource, the following permissions are required:
@@ -63,18 +78,3 @@ servicecatalog:UntagResource
 servicecatalog:DeleteAttributeGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-name,
-description,
-attributes,
-tags
-FROM awscc.servicecatalogappregistry.attribute_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

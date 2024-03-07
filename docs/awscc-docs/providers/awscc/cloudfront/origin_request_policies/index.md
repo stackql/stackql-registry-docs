@@ -35,6 +35,15 @@ Retrieves a list of <code>origin_request_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.cloudfront.origin_request_policies
+
+```
+
 ## Permissions
 
 To operate on the <code>origin_request_policies</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ cloudfront:CreateOriginRequestPolicy
 cloudfront:ListOriginRequestPolicies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.cloudfront.origin_request_policies
-
-```

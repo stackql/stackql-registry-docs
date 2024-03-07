@@ -46,6 +46,27 @@ Gets an individual <code>domain_name</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+distribution_domain_name,
+distribution_hosted_zone_id,
+endpoint_configuration,
+mutual_tls_authentication,
+regional_domain_name,
+regional_hosted_zone_id,
+certificate_arn,
+regional_certificate_arn,
+ownership_verification_certificate_arn,
+security_policy,
+tags
+FROM awscc.apigateway.domain_name
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainName}';
+```
+
 ## Permissions
 
 To operate on the <code>domain_name</code> resource, the following permissions are required:
@@ -65,24 +86,3 @@ apigateway:*
 apigateway:*
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-distribution_domain_name,
-distribution_hosted_zone_id,
-endpoint_configuration,
-mutual_tls_authentication,
-regional_domain_name,
-regional_hosted_zone_id,
-certificate_arn,
-regional_certificate_arn,
-ownership_verification_certificate_arn,
-security_policy,
-tags
-FROM awscc.apigateway.domain_name
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-```

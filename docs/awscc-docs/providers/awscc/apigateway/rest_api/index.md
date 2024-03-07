@@ -51,6 +51,32 @@ Gets an individual <code>rest_api</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+rest_api_id,
+root_resource_id,
+api_key_source_type,
+binary_media_types,
+body,
+body_s3_location,
+clone_from,
+endpoint_configuration,
+description,
+disable_execute_api_endpoint,
+fail_on_warnings,
+name,
+minimum_compression_size,
+mode,
+policy,
+parameters,
+tags
+FROM awscc.apigateway.rest_api
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RestApiId}';
+```
+
 ## Permissions
 
 To operate on the <code>rest_api</code> resource, the following permissions are required:
@@ -76,29 +102,3 @@ iam:PassRole
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-rest_api_id,
-root_resource_id,
-api_key_source_type,
-binary_media_types,
-body,
-body_s3_location,
-clone_from,
-endpoint_configuration,
-description,
-disable_execute_api_endpoint,
-fail_on_warnings,
-name,
-minimum_compression_size,
-mode,
-policy,
-parameters,
-tags
-FROM awscc.apigateway.rest_api
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-```

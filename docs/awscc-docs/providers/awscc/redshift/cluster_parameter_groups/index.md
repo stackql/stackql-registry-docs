@@ -35,6 +35,15 @@ Retrieves a list of <code>cluster_parameter_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+parameter_group_name
+FROM awscc.redshift.cluster_parameter_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>cluster_parameter_groups</code> resource, the following permissions are required:
@@ -67,12 +76,3 @@ redshift:DescribeClusterParameters,
 initech:ListReports
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-parameter_group_name
-FROM awscc.redshift.cluster_parameter_groups
-WHERE region = 'us-east-1'
-```

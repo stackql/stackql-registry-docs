@@ -35,6 +35,15 @@ Retrieves a list of <code>organization_admins</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_id
+FROM awscc.detective.organization_admins
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>organization_admins</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ detective:ListOrganizationAdminAccount,
 organizations:DescribeOrganization
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_id
-FROM awscc.detective.organization_admins
-WHERE region = 'us-east-1'
-```

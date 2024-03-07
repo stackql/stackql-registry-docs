@@ -35,6 +35,15 @@ Retrieves a list of <code>monitoring_subscriptions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+distribution_id
+FROM awscc.cloudfront.monitoring_subscriptions
+
+```
+
 ## Permissions
 
 To operate on the <code>monitoring_subscriptions</code> resource, the following permissions are required:
@@ -44,12 +53,3 @@ To operate on the <code>monitoring_subscriptions</code> resource, the following 
 cloudfront:CreateMonitoringSubscription
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-distribution_id
-FROM awscc.cloudfront.monitoring_subscriptions
-
-```

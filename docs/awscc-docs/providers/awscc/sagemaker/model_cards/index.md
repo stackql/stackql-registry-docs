@@ -35,6 +35,15 @@ Retrieves a list of <code>model_cards</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+model_card_name
+FROM awscc.sagemaker.model_cards
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>model_cards</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ sagemaker:ListModelCards,
 sagemaker:ListModelCardVersions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-model_card_name
-FROM awscc.sagemaker.model_cards
-WHERE region = 'us-east-1'
-```

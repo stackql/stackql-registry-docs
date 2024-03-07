@@ -35,6 +35,15 @@ Retrieves a list of <code>access_log_subscriptions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.vpclattice.access_log_subscriptions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>access_log_subscriptions</code> resource, the following permissions are required:
@@ -68,12 +77,3 @@ iam:CreateServiceLinkedRole
 vpc-lattice:ListAccessLogSubscriptions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.vpclattice.access_log_subscriptions
-WHERE region = 'us-east-1'
-```

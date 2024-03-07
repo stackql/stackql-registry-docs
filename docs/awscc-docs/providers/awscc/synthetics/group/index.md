@@ -38,6 +38,19 @@ Gets an individual <code>group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+id,
+tags,
+resource_arns
+FROM awscc.synthetics.group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>group</code> resource, the following permissions are required:
@@ -65,16 +78,3 @@ synthetics:DeleteGroup,
 synthetics:GetGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-id,
-tags,
-resource_arns
-FROM awscc.synthetics.group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

@@ -49,28 +49,6 @@ Gets an individual <code>environment_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>environment_profile</code> resource, the following permissions are required:
-
-### Read
-```json
-datazone:GetEnvironmentProfile
-```
-
-### Update
-```json
-datazone:UpdateEnvironmentProfile,
-datazone:GetEnvironmentProfile
-```
-
-### Delete
-```json
-datazone:DeleteEnvironmentProfile,
-datazone:GetEnvironmentProfile
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -92,6 +70,28 @@ updated_at,
 user_parameters
 FROM awscc.datazone.environment_profile
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainId&gt;'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '{DomainId}';
+AND data__Identifier = '{Id}';
 ```
+
+## Permissions
+
+To operate on the <code>environment_profile</code> resource, the following permissions are required:
+
+### Read
+```json
+datazone:GetEnvironmentProfile
+```
+
+### Update
+```json
+datazone:UpdateEnvironmentProfile,
+datazone:GetEnvironmentProfile
+```
+
+### Delete
+```json
+datazone:DeleteEnvironmentProfile,
+datazone:GetEnvironmentProfile
+```
+

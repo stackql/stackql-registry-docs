@@ -35,6 +35,15 @@ Retrieves a list of <code>virtualmfa_devices</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+serial_number
+FROM awscc.iam.virtualmfa_devices
+
+```
+
 ## Permissions
 
 To operate on the <code>virtualmfa_devices</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ iam:ListVirtualMFADevices
 iam:ListVirtualMFADevices
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-serial_number
-FROM awscc.iam.virtualmfa_devices
-
-```

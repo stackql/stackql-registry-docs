@@ -35,6 +35,15 @@ Retrieves a list of <code>topic_rules</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+rule_name
+FROM awscc.iot.topic_rules
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>topic_rules</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ iot:ListTagsForResource
 iot:ListTopicRules
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-rule_name
-FROM awscc.iot.topic_rules
-WHERE region = 'us-east-1'
-```

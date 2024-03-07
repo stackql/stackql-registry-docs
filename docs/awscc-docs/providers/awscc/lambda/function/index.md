@@ -61,6 +61,42 @@ Gets an individual <code>function</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+tracing_config,
+vpc_config,
+runtime_management_config,
+reserved_concurrent_executions,
+snap_start,
+file_system_configs,
+function_name,
+runtime,
+kms_key_arn,
+package_type,
+code_signing_config_arn,
+layers,
+tags,
+image_config,
+memory_size,
+dead_letter_config,
+timeout,
+handler,
+snap_start_response,
+code,
+role,
+logging_config,
+environment,
+arn,
+ephemeral_storage,
+architectures
+FROM awscc.lambda.function
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FunctionName}';
+```
+
 ## Permissions
 
 To operate on the <code>function</code> resource, the following permissions are required:
@@ -112,39 +148,3 @@ lambda:GetFunction,
 ec2:DescribeNetworkInterfaces
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-tracing_config,
-vpc_config,
-runtime_management_config,
-reserved_concurrent_executions,
-snap_start,
-file_system_configs,
-function_name,
-runtime,
-kms_key_arn,
-package_type,
-code_signing_config_arn,
-layers,
-tags,
-image_config,
-memory_size,
-dead_letter_config,
-timeout,
-handler,
-snap_start_response,
-code,
-role,
-logging_config,
-environment,
-arn,
-ephemeral_storage,
-architectures
-FROM awscc.lambda.function
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FunctionName&gt;'
-```

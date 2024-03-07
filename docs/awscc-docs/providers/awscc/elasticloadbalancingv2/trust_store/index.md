@@ -42,6 +42,23 @@ Gets an individual <code>trust_store</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+ca_certificates_bundle_s3_bucket,
+ca_certificates_bundle_s3_key,
+ca_certificates_bundle_s3_object_version,
+status,
+number_of_ca_certificates,
+tags,
+trust_store_arn
+FROM awscc.elasticloadbalancingv2.trust_store
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TrustStoreArn}';
+```
+
 ## Permissions
 
 To operate on the <code>trust_store</code> resource, the following permissions are required:
@@ -67,20 +84,3 @@ s3:GetObject,
 s3:GetObjectVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-ca_certificates_bundle_s3_bucket,
-ca_certificates_bundle_s3_key,
-ca_certificates_bundle_s3_object_version,
-status,
-number_of_ca_certificates,
-tags,
-trust_store_arn
-FROM awscc.elasticloadbalancingv2.trust_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrustStoreArn&gt;'
-```

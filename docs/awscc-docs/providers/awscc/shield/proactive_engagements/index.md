@@ -35,6 +35,15 @@ Retrieves a list of <code>proactive_engagements</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_id
+FROM awscc.shield.proactive_engagements
+
+```
+
 ## Permissions
 
 To operate on the <code>proactive_engagements</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ shield:DescribeSubscription,
 shield:DescribeEmergencyContactSettings
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_id
-FROM awscc.shield.proactive_engagements
-
-```

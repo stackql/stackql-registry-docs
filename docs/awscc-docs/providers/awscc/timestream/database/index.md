@@ -38,6 +38,19 @@ Gets an individual <code>database</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+database_name,
+kms_key_id,
+tags
+FROM awscc.timestream.database
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DatabaseName}';
+```
+
 ## Permissions
 
 To operate on the <code>database</code> resource, the following permissions are required:
@@ -64,16 +77,3 @@ timestream:DeleteDatabase,
 timestream:DescribeEndpoints
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-database_name,
-kms_key_id,
-tags
-FROM awscc.timestream.database
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatabaseName&gt;'
-```

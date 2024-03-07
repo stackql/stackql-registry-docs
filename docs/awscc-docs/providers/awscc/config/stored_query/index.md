@@ -40,6 +40,21 @@ Gets an individual <code>stored_query</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+query_arn,
+query_id,
+query_name,
+query_description,
+query_expression,
+tags
+FROM awscc.config.stored_query
+WHERE region = 'us-east-1'
+AND data__Identifier = '{QueryName}';
+```
+
 ## Permissions
 
 To operate on the <code>stored_query</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ config:DeleteStoredQuery,
 config:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-query_arn,
-query_id,
-query_name,
-query_description,
-query_expression,
-tags
-FROM awscc.config.stored_query
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;QueryName&gt;'
-```

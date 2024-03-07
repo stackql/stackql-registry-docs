@@ -43,21 +43,6 @@ Gets an individual <code>permission</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>permission</code> resource, the following permissions are required:
-
-### Read
-```json
-lambda:GetPolicy
-```
-
-### Delete
-```json
-lambda:RemovePermission
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -73,6 +58,21 @@ source_account,
 source_arn
 FROM awscc.lambda.permission
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FunctionName&gt;'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '{FunctionName}';
+AND data__Identifier = '{Id}';
 ```
+
+## Permissions
+
+To operate on the <code>permission</code> resource, the following permissions are required:
+
+### Read
+```json
+lambda:GetPolicy
+```
+
+### Delete
+```json
+lambda:RemovePermission
+```
+

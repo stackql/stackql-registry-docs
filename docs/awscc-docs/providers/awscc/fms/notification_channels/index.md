@@ -35,6 +35,15 @@ Retrieves a list of <code>notification_channels</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+sns_topic_arn
+FROM awscc.fms.notification_channels
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>notification_channels</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ iam:PassRole
 fms:GetNotificationChannel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-sns_topic_arn
-FROM awscc.fms.notification_channels
-WHERE region = 'us-east-1'
-```

@@ -62,6 +62,43 @@ Gets an individual <code>fleet</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+scaling_policies,
+description,
+peer_vpc_id,
+apply_capacity,
+e_c2_inbound_permissions,
+compute_type,
+name,
+anywhere_configuration,
+instance_role_ar_n,
+fleet_id,
+certificate_configuration,
+instance_role_credentials_provider,
+desired_ec2_instances,
+server_launch_parameters,
+fleet_type,
+locations,
+new_game_session_protection_policy,
+script_id,
+max_size,
+runtime_configuration,
+log_paths,
+server_launch_path,
+min_size,
+peer_vpc_aws_account_id,
+metric_groups,
+build_id,
+resource_creation_limit_policy,
+e_c2_instance_type
+FROM awscc.gamelift.fleet
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FleetId}';
+```
+
 ## Permissions
 
 To operate on the <code>fleet</code> resource, the following permissions are required:
@@ -103,40 +140,3 @@ gamelift:DescribeScalingPolicies,
 gamelift:DeleteScalingPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-scaling_policies,
-description,
-peer_vpc_id,
-apply_capacity,
-e_c2_inbound_permissions,
-compute_type,
-name,
-anywhere_configuration,
-instance_role_ar_n,
-fleet_id,
-certificate_configuration,
-instance_role_credentials_provider,
-desired_ec2_instances,
-server_launch_parameters,
-fleet_type,
-locations,
-new_game_session_protection_policy,
-script_id,
-max_size,
-runtime_configuration,
-log_paths,
-server_launch_path,
-min_size,
-peer_vpc_aws_account_id,
-metric_groups,
-build_id,
-resource_creation_limit_policy,
-e_c2_instance_type
-FROM awscc.gamelift.fleet
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FleetId&gt;'
-```

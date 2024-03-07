@@ -43,6 +43,23 @@ Gets an individual <code>user</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+path,
+managed_policy_arns,
+policies,
+user_name,
+groups,
+arn,
+login_profile,
+tags,
+permissions_boundary
+FROM awscc.iam.user
+WHERE data__Identifier = '{UserName}';
+```
+
 ## Permissions
 
 To operate on the <code>user</code> resource, the following permissions are required:
@@ -95,20 +112,3 @@ iam:GetUser,
 iam:GetLoginProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-path,
-managed_policy_arns,
-policies,
-user_name,
-groups,
-arn,
-login_profile,
-tags,
-permissions_boundary
-FROM awscc.iam.user
-WHERE data__Identifier = '&lt;UserName&gt;'
-```

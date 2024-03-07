@@ -36,6 +36,16 @@ Retrieves a list of <code>sync_jobs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+workspace_id,
+sync_source
+FROM awscc.iottwinmaker.sync_jobs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>sync_jobs</code> resource, the following permissions are required:
@@ -57,13 +67,3 @@ iottwinmaker:ListSyncJobs,
 iottwinmaker:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-workspace_id,
-sync_source
-FROM awscc.iottwinmaker.sync_jobs
-WHERE region = 'us-east-1'
-```

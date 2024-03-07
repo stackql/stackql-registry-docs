@@ -35,6 +35,15 @@ Retrieves a list of <code>datasets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+dataset_name
+FROM awscc.iotanalytics.datasets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>datasets</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ iotanalytics:CreateDataset
 iotanalytics:ListDatasets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-dataset_name
-FROM awscc.iotanalytics.datasets
-WHERE region = 'us-east-1'
-```

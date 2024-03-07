@@ -41,6 +41,25 @@ Gets an individual <code>data_cells_filter</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+table_catalog_id,
+database_name,
+table_name,
+name,
+row_filter,
+column_names,
+column_wildcard
+FROM awscc.lakeformation.data_cells_filter
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TableCatalogId}';
+AND data__Identifier = '{DatabaseName}';
+AND data__Identifier = '{TableName}';
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>data_cells_filter</code> resource, the following permissions are required:
@@ -55,22 +74,3 @@ lakeformation:DeleteDataCellsFilter
 lakeformation:ListDataCellsFilter
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-table_catalog_id,
-database_name,
-table_name,
-name,
-row_filter,
-column_names,
-column_wildcard
-FROM awscc.lakeformation.data_cells_filter
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TableCatalogId&gt;'
-AND data__Identifier = '&lt;DatabaseName&gt;'
-AND data__Identifier = '&lt;TableName&gt;'
-AND data__Identifier = '&lt;Name&gt;'
-```

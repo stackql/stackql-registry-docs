@@ -38,6 +38,20 @@ Gets an individual <code>policy_template</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+policy_store_id,
+policy_template_id,
+statement
+FROM awscc.verifiedpermissions.policy_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PolicyStoreId}';
+AND data__Identifier = '{PolicyTemplateId}';
+```
+
 ## Permissions
 
 To operate on the <code>policy_template</code> resource, the following permissions are required:
@@ -66,17 +80,3 @@ verifiedpermissions:UpdatePolicyTemplate,
 verifiedpermissions:DeletePolicyTemplate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-policy_store_id,
-policy_template_id,
-statement
-FROM awscc.verifiedpermissions.policy_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PolicyStoreId&gt;'
-AND data__Identifier = '&lt;PolicyTemplateId&gt;'
-```

@@ -37,6 +37,17 @@ Retrieves a list of <code>resource_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application_arn,
+resource_arn,
+resource_type
+FROM awscc.servicecatalogappregistry.resource_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resource_associations</code> resource, the following permissions are required:
@@ -52,14 +63,3 @@ cloudformation:DescribeStacks
 servicecatalog:ListAssociatedResources
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application_arn,
-resource_arn,
-resource_type
-FROM awscc.servicecatalogappregistry.resource_associations
-WHERE region = 'us-east-1'
-```

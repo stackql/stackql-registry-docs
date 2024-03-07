@@ -35,6 +35,15 @@ Retrieves a list of <code>app_image_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_image_config_name
+FROM awscc.sagemaker.app_image_configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>app_image_configs</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ sagemaker:DescribeAppImageConfig
 sagemaker:ListAppImageConfigs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_image_config_name
-FROM awscc.sagemaker.app_image_configs
-WHERE region = 'us-east-1'
-```

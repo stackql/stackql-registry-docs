@@ -47,6 +47,29 @@ Gets an individual <code>studio_component</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+configuration,
+description,
+ec2_security_group_ids,
+initialization_scripts,
+name,
+runtime_role_arn,
+script_parameters,
+secure_initialization_role_arn,
+studio_component_id,
+studio_id,
+subtype,
+tags,
+type
+FROM awscc.nimblestudio.studio_component
+WHERE region = 'us-east-1'
+AND data__Identifier = '{StudioComponentId}';
+AND data__Identifier = '{StudioId}';
+```
+
 ## Permissions
 
 To operate on the <code>studio_component</code> resource, the following permissions are required:
@@ -75,26 +98,3 @@ nimble:UntagResource,
 ds:UnauthorizeApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-configuration,
-description,
-ec2_security_group_ids,
-initialization_scripts,
-name,
-runtime_role_arn,
-script_parameters,
-secure_initialization_role_arn,
-studio_component_id,
-studio_id,
-subtype,
-tags,
-type
-FROM awscc.nimblestudio.studio_component
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StudioComponentId&gt;'
-AND data__Identifier = '&lt;StudioId&gt;'
-```

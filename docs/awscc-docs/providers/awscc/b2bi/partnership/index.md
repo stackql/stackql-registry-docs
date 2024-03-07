@@ -45,6 +45,26 @@ Gets an individual <code>partnership</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+capabilities,
+created_at,
+email,
+modified_at,
+name,
+partnership_arn,
+partnership_id,
+phone,
+profile_id,
+tags,
+trading_partner_id
+FROM awscc.b2bi.partnership
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PartnershipId}';
+```
+
 ## Permissions
 
 To operate on the <code>partnership</code> resource, the following permissions are required:
@@ -67,23 +87,3 @@ b2bi:UpdatePartnership
 b2bi:DeletePartnership
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-capabilities,
-created_at,
-email,
-modified_at,
-name,
-partnership_arn,
-partnership_id,
-phone,
-profile_id,
-tags,
-trading_partner_id
-FROM awscc.b2bi.partnership
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PartnershipId&gt;'
-```

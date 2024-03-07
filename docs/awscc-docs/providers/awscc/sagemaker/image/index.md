@@ -40,6 +40,21 @@ Gets an individual <code>image</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+image_name,
+image_arn,
+image_role_arn,
+image_display_name,
+image_description,
+tags
+FROM awscc.sagemaker.image
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ImageArn}';
+```
+
 ## Permissions
 
 To operate on the <code>image</code> resource, the following permissions are required:
@@ -66,18 +81,3 @@ sagemaker:DeleteImage,
 sagemaker:DescribeImage
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-image_name,
-image_arn,
-image_role_arn,
-image_display_name,
-image_description,
-tags
-FROM awscc.sagemaker.image
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ImageArn&gt;'
-```

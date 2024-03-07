@@ -35,6 +35,15 @@ Retrieves a list of <code>account_aliases</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_alias_resource_id
+FROM awscc.supportapp.account_aliases
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>account_aliases</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ supportapp:GetAccountAlias
 supportapp:GetAccountAlias
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_alias_resource_id
-FROM awscc.supportapp.account_aliases
-WHERE region = 'us-east-1'
-```

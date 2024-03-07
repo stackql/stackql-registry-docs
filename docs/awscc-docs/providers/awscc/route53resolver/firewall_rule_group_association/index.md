@@ -48,6 +48,29 @@ Gets an individual <code>firewall_rule_group_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+firewall_rule_group_id,
+vpc_id,
+name,
+priority,
+mutation_protection,
+managed_owner_name,
+status,
+status_message,
+creator_request_id,
+creation_time,
+modification_time,
+tags
+FROM awscc.route53resolver.firewall_rule_group_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>firewall_rule_group_association</code> resource, the following permissions are required:
@@ -82,26 +105,3 @@ lambda:*,
 s3:*
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-firewall_rule_group_id,
-vpc_id,
-name,
-priority,
-mutation_protection,
-managed_owner_name,
-status,
-status_message,
-creator_request_id,
-creation_time,
-modification_time,
-tags
-FROM awscc.route53resolver.firewall_rule_group_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

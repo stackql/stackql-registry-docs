@@ -35,6 +35,15 @@ Retrieves a list of <code>identity_pool_role_attachments</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.cognito.identity_pool_role_attachments
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>identity_pool_role_attachments</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ iam:PassRole
 cognito-identity:GetIdentityPoolRoles
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.cognito.identity_pool_role_attachments
-WHERE region = 'us-east-1'
-```

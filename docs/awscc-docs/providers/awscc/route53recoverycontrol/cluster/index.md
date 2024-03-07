@@ -39,6 +39,20 @@ Gets an individual <code>cluster</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+cluster_arn,
+status,
+cluster_endpoints,
+tags
+FROM awscc.route53recoverycontrol.cluster
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ClusterArn}';
+```
+
 ## Permissions
 
 To operate on the <code>cluster</code> resource, the following permissions are required:
@@ -55,17 +69,3 @@ route53-recovery-control-config:DescribeCluster,
 route53-recovery-control-config:DeleteCluster
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-cluster_arn,
-status,
-cluster_endpoints,
-tags
-FROM awscc.route53recoverycontrol.cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterArn&gt;'
-```

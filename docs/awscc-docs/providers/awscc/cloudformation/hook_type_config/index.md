@@ -39,6 +39,20 @@ Gets an individual <code>hook_type_config</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+type_arn,
+type_name,
+configuration_arn,
+configuration,
+configuration_alias
+FROM awscc.cloudformation.hook_type_config
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConfigurationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>hook_type_config</code> resource, the following permissions are required:
@@ -58,17 +72,3 @@ cloudformation:SetTypeConfiguration
 cloudformation:SetTypeConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-type_arn,
-type_name,
-configuration_arn,
-configuration,
-configuration_alias
-FROM awscc.cloudformation.hook_type_config
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConfigurationArn&gt;'
-```

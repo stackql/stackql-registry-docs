@@ -47,6 +47,28 @@ Gets an individual <code>service</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+service_name,
+service_id,
+service_arn,
+service_url,
+status,
+source_configuration,
+instance_configuration,
+tags,
+encryption_configuration,
+health_check_configuration,
+observability_configuration,
+auto_scaling_configuration_arn,
+network_configuration
+FROM awscc.apprunner.service
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ServiceArn}';
+```
+
 ## Permissions
 
 To operate on the <code>service</code> resource, the following permissions are required:
@@ -67,25 +89,3 @@ iam:PassRole
 apprunner:DeleteService
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-service_name,
-service_id,
-service_arn,
-service_url,
-status,
-source_configuration,
-instance_configuration,
-tags,
-encryption_configuration,
-health_check_configuration,
-observability_configuration,
-auto_scaling_configuration_arn,
-network_configuration
-FROM awscc.apprunner.service
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ServiceArn&gt;'
-```

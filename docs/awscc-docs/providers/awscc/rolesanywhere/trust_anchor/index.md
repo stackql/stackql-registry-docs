@@ -41,6 +41,22 @@ Gets an individual <code>trust_anchor</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+enabled,
+name,
+notification_settings,
+source,
+tags,
+trust_anchor_id,
+trust_anchor_arn
+FROM awscc.rolesanywhere.trust_anchor
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TrustAnchorId}';
+```
+
 ## Permissions
 
 To operate on the <code>trust_anchor</code> resource, the following permissions are required:
@@ -70,19 +86,3 @@ rolesanywhere:ResetNotificationSettings
 rolesanywhere:DeleteTrustAnchor
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-enabled,
-name,
-notification_settings,
-source,
-tags,
-trust_anchor_id,
-trust_anchor_arn
-FROM awscc.rolesanywhere.trust_anchor
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrustAnchorId&gt;'
-```

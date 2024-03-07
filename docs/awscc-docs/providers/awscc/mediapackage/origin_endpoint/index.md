@@ -50,27 +50,6 @@ Gets an individual <code>origin_endpoint</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>origin_endpoint</code> resource, the following permissions are required:
-
-### Read
-```json
-mediapackage:DescribeOriginEndpoint
-```
-
-### Update
-```json
-mediapackage:UpdateOriginEndpoint,
-iam:PassRole
-```
-
-### Delete
-```json
-mediapackage:DeleteOriginEndpoint
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -93,5 +72,26 @@ cmaf_package,
 tags
 FROM awscc.mediapackage.origin_endpoint
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
+AND data__Identifier = '{Id}';
 ```
+
+## Permissions
+
+To operate on the <code>origin_endpoint</code> resource, the following permissions are required:
+
+### Read
+```json
+mediapackage:DescribeOriginEndpoint
+```
+
+### Update
+```json
+mediapackage:UpdateOriginEndpoint,
+iam:PassRole
+```
+
+### Delete
+```json
+mediapackage:DeleteOriginEndpoint
+```
+

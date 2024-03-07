@@ -35,6 +35,15 @@ Retrieves a list of <code>directory_registrations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+directory_registration_arn
+FROM awscc.pcaconnectorad.directory_registrations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>directory_registrations</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ ds:DescribeDirectories
 pca-connector-ad:ListDirectoryRegistrations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-directory_registration_arn
-FROM awscc.pcaconnectorad.directory_registrations
-WHERE region = 'us-east-1'
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>profile_permissions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+statement_id,
+profile_name
+FROM awscc.signer.profile_permissions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>profile_permissions</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ signer:ListProfilePermissions,
 signer:GetSigningProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-statement_id,
-profile_name
-FROM awscc.signer.profile_permissions
-WHERE region = 'us-east-1'
-```

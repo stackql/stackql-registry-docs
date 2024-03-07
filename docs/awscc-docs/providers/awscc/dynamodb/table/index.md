@@ -53,6 +53,34 @@ Gets an individual <code>table</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+s_se_specification,
+kinesis_stream_specification,
+stream_specification,
+contributor_insights_specification,
+import_source_specification,
+point_in_time_recovery_specification,
+provisioned_throughput,
+table_name,
+attribute_definitions,
+billing_mode,
+global_secondary_indexes,
+key_schema,
+local_secondary_indexes,
+arn,
+stream_arn,
+deletion_protection_enabled,
+table_class,
+tags,
+time_to_live_specification
+FROM awscc.dynamodb.table
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TableName}';
+```
+
 ## Permissions
 
 To operate on the <code>table</code> resource, the following permissions are required:
@@ -102,31 +130,3 @@ dynamodb:DeleteTable,
 dynamodb:DescribeTable
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-s_se_specification,
-kinesis_stream_specification,
-stream_specification,
-contributor_insights_specification,
-import_source_specification,
-point_in_time_recovery_specification,
-provisioned_throughput,
-table_name,
-attribute_definitions,
-billing_mode,
-global_secondary_indexes,
-key_schema,
-local_secondary_indexes,
-arn,
-stream_arn,
-deletion_protection_enabled,
-table_class,
-tags,
-time_to_live_specification
-FROM awscc.dynamodb.table
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TableName&gt;'
-```

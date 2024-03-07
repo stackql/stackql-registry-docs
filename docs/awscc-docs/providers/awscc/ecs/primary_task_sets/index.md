@@ -36,6 +36,16 @@ Retrieves a list of <code>primary_task_sets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster,
+service
+FROM awscc.ecs.primary_task_sets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>primary_task_sets</code> resource, the following permissions are required:
@@ -46,13 +56,3 @@ ecs:DescribeTaskSets,
 ecs:UpdateServicePrimaryTaskSet
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster,
-service
-FROM awscc.ecs.primary_task_sets
-WHERE region = 'us-east-1'
-```

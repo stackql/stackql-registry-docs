@@ -35,6 +35,15 @@ Retrieves a list of <code>resolvers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resolver_arn
+FROM awscc.appsync.resolvers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>resolvers</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ appsync:GetResolver
 appsync:ListResolvers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resolver_arn
-FROM awscc.appsync.resolvers
-WHERE region = 'us-east-1'
-```

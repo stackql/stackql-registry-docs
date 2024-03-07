@@ -41,6 +41,21 @@ Gets an individual <code>hosted_zone</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+hosted_zone_config,
+hosted_zone_tags,
+name,
+query_logging_config,
+v_pcs,
+name_servers
+FROM awscc.route53.hosted_zone
+WHERE data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>hosted_zone</code> resource, the following permissions are required:
@@ -73,18 +88,3 @@ route53:ListQueryLoggingConfigs,
 route53:GetChange
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-hosted_zone_config,
-hosted_zone_tags,
-name,
-query_logging_config,
-v_pcs,
-name_servers
-FROM awscc.route53.hosted_zone
-WHERE data__Identifier = '&lt;Id&gt;'
-```

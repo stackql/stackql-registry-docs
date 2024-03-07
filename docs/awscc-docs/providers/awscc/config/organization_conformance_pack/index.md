@@ -41,6 +41,22 @@ Gets an individual <code>organization_conformance_pack</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+organization_conformance_pack_name,
+template_s3_uri,
+template_body,
+delivery_s3_bucket,
+delivery_s3_key_prefix,
+conformance_pack_input_parameters,
+excluded_accounts
+FROM awscc.config.organization_conformance_pack
+WHERE region = 'us-east-1'
+AND data__Identifier = '{OrganizationConformancePackName}';
+```
+
 ## Permissions
 
 To operate on the <code>organization_conformance_pack</code> resource, the following permissions are required:
@@ -71,19 +87,3 @@ organizations:ListDelegatedAdministrators,
 organizations:EnableAWSServiceAccess
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-organization_conformance_pack_name,
-template_s3_uri,
-template_body,
-delivery_s3_bucket,
-delivery_s3_key_prefix,
-conformance_pack_input_parameters,
-excluded_accounts
-FROM awscc.config.organization_conformance_pack
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;OrganizationConformancePackName&gt;'
-```

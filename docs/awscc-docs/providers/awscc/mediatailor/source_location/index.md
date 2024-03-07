@@ -41,6 +41,22 @@ Gets an individual <code>source_location</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_configuration,
+arn,
+default_segment_delivery_configuration,
+http_configuration,
+segment_delivery_configurations,
+source_location_name,
+tags
+FROM awscc.mediatailor.source_location
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SourceLocationName}';
+```
+
 ## Permissions
 
 To operate on the <code>source_location</code> resource, the following permissions are required:
@@ -67,19 +83,3 @@ mediatailor:DeleteSourceLocation,
 mediatailor:DescribeSourceLocation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_configuration,
-arn,
-default_segment_delivery_configuration,
-http_configuration,
-segment_delivery_configurations,
-source_location_name,
-tags
-FROM awscc.mediatailor.source_location
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SourceLocationName&gt;'
-```

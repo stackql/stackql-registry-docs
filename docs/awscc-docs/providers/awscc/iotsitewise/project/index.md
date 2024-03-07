@@ -41,6 +41,22 @@ Gets an individual <code>project</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+portal_id,
+project_id,
+project_name,
+project_description,
+project_arn,
+asset_ids,
+tags
+FROM awscc.iotsitewise.project
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ProjectId}';
+```
+
 ## Permissions
 
 To operate on the <code>project</code> resource, the following permissions are required:
@@ -70,19 +86,3 @@ iotsitewise:DescribeProject,
 iotsitewise:DeleteProject
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-portal_id,
-project_id,
-project_name,
-project_description,
-project_arn,
-asset_ids,
-tags
-FROM awscc.iotsitewise.project
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProjectId&gt;'
-```

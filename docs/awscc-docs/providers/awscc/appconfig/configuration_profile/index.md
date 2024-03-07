@@ -45,6 +45,27 @@ Gets an individual <code>configuration_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+location_uri,
+type,
+description,
+validators,
+retrieval_role_arn,
+configuration_profile_id,
+application_id,
+tags,
+name,
+kms_key_identifier,
+kms_key_arn
+FROM awscc.appconfig.configuration_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationId}';
+AND data__Identifier = '{ConfigurationProfileId}';
+```
+
 ## Permissions
 
 To operate on the <code>configuration_profile</code> resource, the following permissions are required:
@@ -68,24 +89,3 @@ iam:PassRole
 appconfig:DeleteConfigurationProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-location_uri,
-type,
-description,
-validators,
-retrieval_role_arn,
-configuration_profile_id,
-application_id,
-tags,
-name,
-kms_key_identifier,
-kms_key_arn
-FROM awscc.appconfig.configuration_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationId&gt;'
-AND data__Identifier = '&lt;ConfigurationProfileId&gt;'
-```

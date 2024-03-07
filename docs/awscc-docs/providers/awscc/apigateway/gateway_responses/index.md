@@ -35,6 +35,15 @@ Retrieves a list of <code>gateway_responses</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.apigateway.gateway_responses
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>gateway_responses</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ apigateway:GET
 apigateway:GET
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.apigateway.gateway_responses
-WHERE region = 'us-east-1'
-```

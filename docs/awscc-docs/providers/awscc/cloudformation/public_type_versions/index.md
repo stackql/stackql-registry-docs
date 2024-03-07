@@ -35,6 +35,15 @@ Retrieves a list of <code>public_type_versions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+public_type_arn
+FROM awscc.cloudformation.public_type_versions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>public_type_versions</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ s3:PutObject
 cloudformation:ListTypes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-public_type_arn
-FROM awscc.cloudformation.public_type_versions
-WHERE region = 'us-east-1'
-```

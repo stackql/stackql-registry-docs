@@ -35,6 +35,15 @@ Retrieves a list of <code>logging_configurations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_arn
+FROM awscc.wafv2.logging_configurations
+
+```
+
 ## Permissions
 
 To operate on the <code>logging_configurations</code> resource, the following permissions are required:
@@ -59,12 +68,3 @@ logs:DescribeLogGroups
 wafv2:ListLoggingConfigurations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_arn
-FROM awscc.wafv2.logging_configurations
-
-```

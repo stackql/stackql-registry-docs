@@ -35,6 +35,15 @@ Retrieves a list of <code>site_to_site_vpn_attachments</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+attachment_id
+FROM awscc.networkmanager.site_to_site_vpn_attachments
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>site_to_site_vpn_attachments</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ networkmanager:TagResource
 networkmanager:ListAttachments
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-attachment_id
-FROM awscc.networkmanager.site_to_site_vpn_attachments
-WHERE region = 'us-east-1'
-```

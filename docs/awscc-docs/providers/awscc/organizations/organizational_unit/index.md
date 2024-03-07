@@ -39,6 +39,20 @@ Gets an individual <code>organizational_unit</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+id,
+name,
+parent_id,
+tags
+FROM awscc.organizations.organizational_unit
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>organizational_unit</code> resource, the following permissions are required:
@@ -65,17 +79,3 @@ organizations:UpdateOrganizationalUnit
 organizations:DeleteOrganizationalUnit
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-id,
-name,
-parent_id,
-tags
-FROM awscc.organizations.organizational_unit
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

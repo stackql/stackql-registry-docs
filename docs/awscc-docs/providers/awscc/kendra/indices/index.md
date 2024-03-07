@@ -35,6 +35,15 @@ Retrieves a list of <code>indices</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.kendra.indices
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>indices</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ kendra:TagResource
 kendra:ListIndices
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.kendra.indices
-WHERE region = 'us-east-1'
-```

@@ -36,6 +36,17 @@ Gets an individual <code>channel_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+channel_name,
+policy
+FROM awscc.mediatailor.channel_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ChannelName}';
+```
+
 ## Permissions
 
 To operate on the <code>channel_policy</code> resource, the following permissions are required:
@@ -57,14 +68,3 @@ mediatailor:DeleteChannelPolicy,
 mediatailor:GetChannelPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-channel_name,
-policy
-FROM awscc.mediatailor.channel_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ChannelName&gt;'
-```

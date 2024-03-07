@@ -44,6 +44,25 @@ Gets an individual <code>monitoring_schedule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+monitoring_schedule_arn,
+monitoring_schedule_name,
+monitoring_schedule_config,
+tags,
+creation_time,
+endpoint_name,
+failure_reason,
+last_modified_time,
+last_monitoring_execution_summary,
+monitoring_schedule_status
+FROM awscc.sagemaker.monitoring_schedule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{MonitoringScheduleArn}';
+```
+
 ## Permissions
 
 To operate on the <code>monitoring_schedule</code> resource, the following permissions are required:
@@ -65,22 +84,3 @@ sagemaker:UpdateMonitoringSchedule,
 sagemaker:DescribeMonitoringSchedule
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-monitoring_schedule_arn,
-monitoring_schedule_name,
-monitoring_schedule_config,
-tags,
-creation_time,
-endpoint_name,
-failure_reason,
-last_modified_time,
-last_monitoring_execution_summary,
-monitoring_schedule_status
-FROM awscc.sagemaker.monitoring_schedule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MonitoringScheduleArn&gt;'
-```

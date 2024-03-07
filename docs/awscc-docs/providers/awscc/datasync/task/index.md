@@ -48,6 +48,29 @@ Gets an individual <code>task</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+excludes,
+includes,
+tags,
+cloud_watch_log_group_arn,
+destination_location_arn,
+name,
+options,
+task_report_config,
+schedule,
+source_location_arn,
+task_arn,
+status,
+source_network_interface_arns,
+destination_network_interface_arns
+FROM awscc.datasync.task
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TaskArn}';
+```
+
 ## Permissions
 
 To operate on the <code>task</code> resource, the following permissions are required:
@@ -82,26 +105,3 @@ elasticfilesystem:DescribeMountTargets,
 iam:GetRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-excludes,
-includes,
-tags,
-cloud_watch_log_group_arn,
-destination_location_arn,
-name,
-options,
-task_report_config,
-schedule,
-source_location_arn,
-task_arn,
-status,
-source_network_interface_arns,
-destination_network_interface_arns
-FROM awscc.datasync.task
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TaskArn&gt;'
-```

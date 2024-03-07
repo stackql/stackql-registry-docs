@@ -38,6 +38,20 @@ Gets an individual <code>attribute_group_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application,
+attribute_group,
+application_arn,
+attribute_group_arn
+FROM awscc.servicecatalogappregistry.attribute_group_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationArn}';
+AND data__Identifier = '{AttributeGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>attribute_group_association</code> resource, the following permissions are required:
@@ -52,17 +66,3 @@ servicecatalog:ListAttributeGroupsForApplication
 servicecatalog:DisassociateAttributeGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application,
-attribute_group,
-application_arn,
-attribute_group_arn
-FROM awscc.servicecatalogappregistry.attribute_group_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationArn&gt;'
-AND data__Identifier = '&lt;AttributeGroupArn&gt;'
-```

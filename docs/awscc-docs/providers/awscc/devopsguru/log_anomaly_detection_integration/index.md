@@ -35,6 +35,16 @@ Gets an individual <code>log_anomaly_detection_integration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_id
+FROM awscc.devopsguru.log_anomaly_detection_integration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccountId}';
+```
+
 ## Permissions
 
 To operate on the <code>log_anomaly_detection_integration</code> resource, the following permissions are required:
@@ -59,13 +69,3 @@ logs:TagLogGroup,
 logs:UntagLogGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_id
-FROM awscc.devopsguru.log_anomaly_detection_integration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountId&gt;'
-```

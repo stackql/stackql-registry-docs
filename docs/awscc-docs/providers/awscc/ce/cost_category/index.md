@@ -41,6 +41,22 @@ Gets an individual <code>cost_category</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+effective_start,
+name,
+rule_version,
+rules,
+split_charge_rules,
+default_value
+FROM awscc.ce.cost_category
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>cost_category</code> resource, the following permissions are required:
@@ -60,19 +76,3 @@ ce:UpdateCostCategoryDefinition
 ce:DeleteCostCategoryDefinition
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-effective_start,
-name,
-rule_version,
-rules,
-split_charge_rules,
-default_value
-FROM awscc.ce.cost_category
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

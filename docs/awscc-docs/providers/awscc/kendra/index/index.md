@@ -46,6 +46,27 @@ Gets an individual <code>index</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+description,
+server_side_encryption_configuration,
+tags,
+name,
+role_arn,
+edition,
+document_metadata_configurations,
+capacity_units,
+user_context_policy,
+user_token_configurations
+FROM awscc.kendra.index
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>index</code> resource, the following permissions are required:
@@ -72,24 +93,3 @@ kendra:DescribeIndex,
 kendra:DeleteIndex
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-description,
-server_side_encryption_configuration,
-tags,
-name,
-role_arn,
-edition,
-document_metadata_configurations,
-capacity_units,
-user_context_policy,
-user_token_configurations
-FROM awscc.kendra.index
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

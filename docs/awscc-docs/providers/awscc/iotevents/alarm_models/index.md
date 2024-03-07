@@ -35,6 +35,15 @@ Retrieves a list of <code>alarm_models</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+alarm_model_name
+FROM awscc.iotevents.alarm_models
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>alarm_models</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ iam:PassRole
 iotevents:ListAlarmModels
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-alarm_model_name
-FROM awscc.iotevents.alarm_models
-WHERE region = 'us-east-1'
-```

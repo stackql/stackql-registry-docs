@@ -36,6 +36,16 @@ Retrieves a list of <code>prepared_statements</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+statement_name,
+work_group
+FROM awscc.athena.prepared_statements
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>prepared_statements</code> resource, the following permissions are required:
@@ -51,13 +61,3 @@ athena:GetPreparedStatement
 athena:ListPreparedStatements
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-statement_name,
-work_group
-FROM awscc.athena.prepared_statements
-WHERE region = 'us-east-1'
-```

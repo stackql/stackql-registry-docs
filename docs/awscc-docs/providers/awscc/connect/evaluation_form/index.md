@@ -42,6 +42,23 @@ Gets an individual <code>evaluation_form</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+title,
+description,
+evaluation_form_arn,
+instance_arn,
+items,
+scoring_strategy,
+status,
+tags
+FROM awscc.connect.evaluation_form
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EvaluationFormArn}';
+```
+
 ## Permissions
 
 To operate on the <code>evaluation_form</code> resource, the following permissions are required:
@@ -68,20 +85,3 @@ connect:DeleteEvaluationForm,
 connect:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-title,
-description,
-evaluation_form_arn,
-instance_arn,
-items,
-scoring_strategy,
-status,
-tags
-FROM awscc.connect.evaluation_form
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EvaluationFormArn&gt;'
-```

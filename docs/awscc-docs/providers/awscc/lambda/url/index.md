@@ -41,6 +41,22 @@ Gets an individual <code>url</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+target_function_arn,
+qualifier,
+auth_type,
+invoke_mode,
+function_arn,
+function_url,
+cors
+FROM awscc.lambda.url
+WHERE region = 'us-east-1'
+AND data__Identifier = '{FunctionArn}';
+```
+
 ## Permissions
 
 To operate on the <code>url</code> resource, the following permissions are required:
@@ -60,19 +76,3 @@ lambda:UpdateFunctionUrlConfig
 lambda:DeleteFunctionUrlConfig
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-target_function_arn,
-qualifier,
-auth_type,
-invoke_mode,
-function_arn,
-function_url,
-cors
-FROM awscc.lambda.url
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;FunctionArn&gt;'
-```

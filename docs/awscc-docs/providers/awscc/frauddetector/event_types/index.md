@@ -35,6 +35,15 @@ Retrieves a list of <code>event_types</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.frauddetector.event_types
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>event_types</code> resource, the following permissions are required:
@@ -65,12 +74,3 @@ frauddetector:GetEntityTypes,
 frauddetector:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.frauddetector.event_types
-WHERE region = 'us-east-1'
-```

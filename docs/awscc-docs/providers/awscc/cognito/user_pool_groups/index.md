@@ -36,6 +36,16 @@ Retrieves a list of <code>user_pool_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+user_pool_id,
+group_name
+FROM awscc.cognito.user_pool_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>user_pool_groups</code> resource, the following permissions are required:
@@ -53,13 +63,3 @@ cognito-idp:GetGroup
 cognito-idp:ListGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-user_pool_id,
-group_name
-FROM awscc.cognito.user_pool_groups
-WHERE region = 'us-east-1'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.groundstation.configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>configs</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ iam:PassRole
 groundstation:ListConfigs
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.groundstation.configs
-WHERE region = 'us-east-1'
-```

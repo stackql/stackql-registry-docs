@@ -44,6 +44,25 @@ Gets an individual <code>access_grant</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_grant_id,
+access_grants_location_id,
+tags,
+permission,
+application_arn,
+s3_prefix_type,
+grant_scope,
+access_grant_arn,
+grantee,
+access_grants_location_configuration
+FROM awscc.s3.access_grant
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccessGrantId}';
+```
+
 ## Permissions
 
 To operate on the <code>access_grant</code> resource, the following permissions are required:
@@ -63,22 +82,3 @@ s3:DeleteAccessGrant
 s3:TagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_grant_id,
-access_grants_location_id,
-tags,
-permission,
-application_arn,
-s3_prefix_type,
-grant_scope,
-access_grant_arn,
-grantee,
-access_grants_location_configuration
-FROM awscc.s3.access_grant
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccessGrantId&gt;'
-```

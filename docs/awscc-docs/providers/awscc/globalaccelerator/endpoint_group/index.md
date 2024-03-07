@@ -45,6 +45,25 @@ Gets an individual <code>endpoint_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+listener_arn,
+endpoint_group_region,
+endpoint_configurations,
+traffic_dial_percentage,
+health_check_port,
+health_check_protocol,
+health_check_path,
+health_check_interval_seconds,
+threshold_count,
+endpoint_group_arn,
+port_overrides
+FROM awscc.globalaccelerator.endpoint_group
+WHERE data__Identifier = '{EndpointGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>endpoint_group</code> resource, the following permissions are required:
@@ -69,22 +88,3 @@ globalaccelerator:DescribeEndpointGroup,
 globalaccelerator:DescribeAccelerator
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-listener_arn,
-endpoint_group_region,
-endpoint_configurations,
-traffic_dial_percentage,
-health_check_port,
-health_check_protocol,
-health_check_path,
-health_check_interval_seconds,
-threshold_count,
-endpoint_group_arn,
-port_overrides
-FROM awscc.globalaccelerator.endpoint_group
-WHERE data__Identifier = '&lt;EndpointGroupArn&gt;'
-```

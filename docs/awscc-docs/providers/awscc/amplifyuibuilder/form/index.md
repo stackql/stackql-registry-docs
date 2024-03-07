@@ -47,6 +47,30 @@ Gets an individual <code>form</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_id,
+cta,
+data_type,
+environment_name,
+fields,
+form_action_type,
+id,
+label_decorator,
+name,
+schema_version,
+sectional_elements,
+style,
+tags
+FROM awscc.amplifyuibuilder.form
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AppId}';
+AND data__Identifier = '{EnvironmentName}';
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>form</code> resource, the following permissions are required:
@@ -75,27 +99,3 @@ amplifyuibuilder:TagResource,
 amplifyuibuilder:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_id,
-cta,
-data_type,
-environment_name,
-fields,
-form_action_type,
-id,
-label_decorator,
-name,
-schema_version,
-sectional_elements,
-style,
-tags
-FROM awscc.amplifyuibuilder.form
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppId&gt;'
-AND data__Identifier = '&lt;EnvironmentName&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-```

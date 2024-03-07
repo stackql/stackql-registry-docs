@@ -35,6 +35,15 @@ Retrieves a list of <code>metric_streams</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name
+FROM awscc.cloudwatch.metric_streams
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>metric_streams</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iam:PassRole
 cloudwatch:ListMetricStreams
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name
-FROM awscc.cloudwatch.metric_streams
-WHERE region = 'us-east-1'
-```

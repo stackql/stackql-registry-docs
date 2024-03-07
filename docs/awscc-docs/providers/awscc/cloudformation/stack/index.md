@@ -57,33 +57,6 @@ Gets an individual <code>stack</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>stack</code> resource, the following permissions are required:
-
-### Update
-```json
-cloudformation:DescribeStacks,
-cloudformation:UpdateStack,
-cloudformation:UpdateTerminationProtection,
-cloudformation:SetStackPolicy,
-iam:PassRole
-```
-
-### Delete
-```json
-cloudformation:DescribeStacks,
-cloudformation:DeleteStack
-```
-
-### Read
-```json
-cloudformation:DescribeStacks,
-cloudformation:GetStackPolicy,
-cloudformation:GetTemplate
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -113,5 +86,32 @@ last_update_time,
 creation_time
 FROM awscc.cloudformation.stack
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;StackId&gt;'
+AND data__Identifier = '{StackId}';
 ```
+
+## Permissions
+
+To operate on the <code>stack</code> resource, the following permissions are required:
+
+### Update
+```json
+cloudformation:DescribeStacks,
+cloudformation:UpdateStack,
+cloudformation:UpdateTerminationProtection,
+cloudformation:SetStackPolicy,
+iam:PassRole
+```
+
+### Delete
+```json
+cloudformation:DescribeStacks,
+cloudformation:DeleteStack
+```
+
+### Read
+```json
+cloudformation:DescribeStacks,
+cloudformation:GetStackPolicy,
+cloudformation:GetTemplate
+```
+

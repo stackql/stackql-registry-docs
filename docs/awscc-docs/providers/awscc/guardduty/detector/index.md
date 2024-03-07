@@ -40,6 +40,21 @@ Gets an individual <code>detector</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+finding_publishing_frequency,
+enable,
+data_sources,
+features,
+id,
+tags
+FROM awscc.guardduty.detector
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>detector</code> resource, the following permissions are required:
@@ -65,18 +80,3 @@ iam:CreateServiceLinkedRole,
 iam:GetRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-finding_publishing_frequency,
-enable,
-data_sources,
-features,
-id,
-tags
-FROM awscc.guardduty.detector
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

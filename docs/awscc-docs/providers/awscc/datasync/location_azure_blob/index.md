@@ -44,6 +44,25 @@ Gets an individual <code>location_azure_blob</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+agent_arns,
+azure_blob_authentication_type,
+azure_blob_sas_configuration,
+azure_blob_container_url,
+azure_blob_type,
+azure_access_tier,
+subdirectory,
+tags,
+location_arn,
+location_uri
+FROM awscc.datasync.location_azure_blob
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LocationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>location_azure_blob</code> resource, the following permissions are required:
@@ -68,22 +87,3 @@ datasync:UpdateLocationAzureBlob
 datasync:DeleteLocation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-agent_arns,
-azure_blob_authentication_type,
-azure_blob_sas_configuration,
-azure_blob_container_url,
-azure_blob_type,
-azure_access_tier,
-subdirectory,
-tags,
-location_arn,
-location_uri
-FROM awscc.datasync.location_azure_blob
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationArn&gt;'
-```

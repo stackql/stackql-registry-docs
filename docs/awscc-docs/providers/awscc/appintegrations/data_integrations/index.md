@@ -35,6 +35,15 @@ Retrieves a list of <code>data_integrations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.appintegrations.data_integrations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>data_integrations</code> resource, the following permissions are required:
@@ -65,12 +74,3 @@ s3:GetEncryptionConfiguration
 app-integrations:ListDataIntegrations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.appintegrations.data_integrations
-WHERE region = 'us-east-1'
-```

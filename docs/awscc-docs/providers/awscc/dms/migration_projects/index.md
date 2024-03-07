@@ -35,6 +35,15 @@ Retrieves a list of <code>migration_projects</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+migration_project_arn
+FROM awscc.dms.migration_projects
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>migration_projects</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ dms:DescribeMigrationProjects,
 dms:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-migration_project_arn
-FROM awscc.dms.migration_projects
-WHERE region = 'us-east-1'
-```

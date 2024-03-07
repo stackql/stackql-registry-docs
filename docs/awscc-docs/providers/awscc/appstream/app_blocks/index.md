@@ -35,6 +35,15 @@ Retrieves a list of <code>app_blocks</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.appstream.app_blocks
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>app_blocks</code> resource, the following permissions are required:
@@ -48,12 +57,3 @@ s3:ListBucket,
 s3:GetBucketOwnershipControls
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.appstream.app_blocks
-WHERE region = 'us-east-1'
-```

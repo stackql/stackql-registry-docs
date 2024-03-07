@@ -48,6 +48,29 @@ Gets an individual <code>global_table</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+table_id,
+s_se_specification,
+stream_specification,
+replicas,
+write_provisioned_throughput_settings,
+table_name,
+attribute_definitions,
+billing_mode,
+global_secondary_indexes,
+key_schema,
+local_secondary_indexes,
+arn,
+stream_arn,
+time_to_live_specification
+FROM awscc.dynamodb.global_table
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TableName}';
+```
+
 ## Permissions
 
 To operate on the <code>global_table</code> resource, the following permissions are required:
@@ -120,26 +143,3 @@ application-autoscaling:PutScheduledAction,
 application-autoscaling:RegisterScalableTarget
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-table_id,
-s_se_specification,
-stream_specification,
-replicas,
-write_provisioned_throughput_settings,
-table_name,
-attribute_definitions,
-billing_mode,
-global_secondary_indexes,
-key_schema,
-local_secondary_indexes,
-arn,
-stream_arn,
-time_to_live_specification
-FROM awscc.dynamodb.global_table
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TableName&gt;'
-```

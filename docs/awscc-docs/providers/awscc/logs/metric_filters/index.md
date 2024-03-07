@@ -36,6 +36,16 @@ Retrieves a list of <code>metric_filters</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+log_group_name,
+filter_name
+FROM awscc.logs.metric_filters
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>metric_filters</code> resource, the following permissions are required:
@@ -51,13 +61,3 @@ logs:DescribeMetricFilters
 logs:DescribeMetricFilters
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-log_group_name,
-filter_name
-FROM awscc.logs.metric_filters
-WHERE region = 'us-east-1'
-```

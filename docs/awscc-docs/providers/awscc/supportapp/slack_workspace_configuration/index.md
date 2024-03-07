@@ -36,6 +36,17 @@ Gets an individual <code>slack_workspace_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+team_id,
+version_id
+FROM awscc.supportapp.slack_workspace_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TeamId}';
+```
+
 ## Permissions
 
 To operate on the <code>slack_workspace_configuration</code> resource, the following permissions are required:
@@ -57,14 +68,3 @@ supportapp:ListSlackWorkspaceConfigurations,
 supportapp:DeleteSlackWorkspaceConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-team_id,
-version_id
-FROM awscc.supportapp.slack_workspace_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TeamId&gt;'
-```

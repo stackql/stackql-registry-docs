@@ -44,6 +44,25 @@ Gets an individual <code>domain</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+dead_letter_queue_url,
+default_encryption_key,
+default_expiration_days,
+matching,
+rule_based_matching,
+stats,
+tags,
+created_at,
+last_updated_at
+FROM awscc.customerprofiles.domain
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainName}';
+```
+
 ## Permissions
 
 To operate on the <code>domain</code> resource, the following permissions are required:
@@ -66,22 +85,3 @@ profile:TagResource
 profile:DeleteDomain
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-dead_letter_queue_url,
-default_encryption_key,
-default_expiration_days,
-matching,
-rule_based_matching,
-stats,
-tags,
-created_at,
-last_updated_at
-FROM awscc.customerprofiles.domain
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-```

@@ -42,6 +42,23 @@ Gets an individual <code>connector</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_role,
+as2_config,
+sftp_config,
+arn,
+connector_id,
+logging_role,
+tags,
+url
+FROM awscc.transfer.connector
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConnectorId}';
+```
+
 ## Permissions
 
 To operate on the <code>connector</code> resource, the following permissions are required:
@@ -64,20 +81,3 @@ iam:PassRole
 transfer:DeleteConnector
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_role,
-as2_config,
-sftp_config,
-arn,
-connector_id,
-logging_role,
-tags,
-url
-FROM awscc.transfer.connector
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectorId&gt;'
-```

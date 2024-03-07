@@ -40,6 +40,21 @@ Gets an individual <code>db_proxy_target_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+d_bproxy_name,
+target_group_arn,
+target_group_name,
+connection_pool_configuration_info,
+d_binstance_identifiers,
+d_bcluster_identifiers
+FROM awscc.rds.db_proxy_target_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TargetGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>db_proxy_target_group</code> resource, the following permissions are required:
@@ -63,18 +78,3 @@ rds:DeregisterDBProxyTargets
 rds:DeregisterDBProxyTargets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-d_bproxy_name,
-target_group_arn,
-target_group_name,
-connection_pool_configuration_info,
-d_binstance_identifiers,
-d_bcluster_identifiers
-FROM awscc.rds.db_proxy_target_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TargetGroupArn&gt;'
-```

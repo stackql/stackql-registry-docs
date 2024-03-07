@@ -35,6 +35,15 @@ Retrieves a list of <code>oidc_providers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.iam.oidc_providers
+
+```
+
 ## Permissions
 
 To operate on the <code>oidc_providers</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iam:ListOpenIDConnectProvider,
 iam:GetOpenIDConnectProvider
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.iam.oidc_providers
-
-```

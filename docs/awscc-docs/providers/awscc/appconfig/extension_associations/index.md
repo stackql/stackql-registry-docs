@@ -35,6 +35,15 @@ Retrieves a list of <code>extension_associations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.appconfig.extension_associations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>extension_associations</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ appconfig:TagResource
 appconfig:ListExtensionAssociations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.appconfig.extension_associations
-WHERE region = 'us-east-1'
-```

@@ -42,6 +42,23 @@ Gets an individual <code>asset_model</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+asset_model_id,
+asset_model_arn,
+asset_model_name,
+asset_model_description,
+asset_model_properties,
+asset_model_composite_models,
+asset_model_hierarchies,
+tags
+FROM awscc.iotsitewise.asset_model
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AssetModelId}';
+```
+
 ## Permissions
 
 To operate on the <code>asset_model</code> resource, the following permissions are required:
@@ -67,20 +84,3 @@ iotsitewise:DescribeAssetModel,
 iotsitewise:DeleteAssetModel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-asset_model_id,
-asset_model_arn,
-asset_model_name,
-asset_model_description,
-asset_model_properties,
-asset_model_composite_models,
-asset_model_hierarchies,
-tags
-FROM awscc.iotsitewise.asset_model
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AssetModelId&gt;'
-```

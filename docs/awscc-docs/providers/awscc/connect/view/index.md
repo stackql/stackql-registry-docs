@@ -43,6 +43,24 @@ Gets an individual <code>view</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+view_arn,
+view_id,
+name,
+description,
+template,
+actions,
+view_content_sha256,
+tags
+FROM awscc.connect.view
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ViewArn}';
+```
+
 ## Permissions
 
 To operate on the <code>view</code> resource, the following permissions are required:
@@ -66,21 +84,3 @@ connect:TagResource,
 connect:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-view_arn,
-view_id,
-name,
-description,
-template,
-actions,
-view_content_sha256,
-tags
-FROM awscc.connect.view
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ViewArn&gt;'
-```

@@ -41,6 +41,23 @@ Gets an individual <code>multiplexprogram</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+channel_id,
+multiplex_id,
+multiplex_program_settings,
+preferred_channel_pipeline,
+packet_identifiers_map,
+pipeline_details,
+program_name
+FROM awscc.medialive.multiplexprogram
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ProgramName}';
+AND data__Identifier = '{MultiplexId}';
+```
+
 ## Permissions
 
 To operate on the <code>multiplexprogram</code> resource, the following permissions are required:
@@ -62,20 +79,3 @@ medialive:DeleteMultiplexProgram,
 medialive:DescribeMultiplexProgram
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-channel_id,
-multiplex_id,
-multiplex_program_settings,
-preferred_channel_pipeline,
-packet_identifiers_map,
-pipeline_details,
-program_name
-FROM awscc.medialive.multiplexprogram
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProgramName&gt;'
-AND data__Identifier = '&lt;MultiplexId&gt;'
-```

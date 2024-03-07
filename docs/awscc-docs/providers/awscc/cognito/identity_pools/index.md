@@ -35,6 +35,15 @@ Retrieves a list of <code>identity_pools</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.cognito.identity_pools
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>identity_pools</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iam:PassRole
 cognito-identity:ListIdentityPools
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.cognito.identity_pools
-WHERE region = 'us-east-1'
-```

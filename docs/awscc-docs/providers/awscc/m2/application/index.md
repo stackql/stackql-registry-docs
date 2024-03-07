@@ -43,6 +43,24 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application_arn,
+application_id,
+definition,
+description,
+engine_type,
+kms_key_id,
+name,
+role_arn,
+tags
+FROM awscc.m2.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ApplicationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>application</code> resource, the following permissions are required:
@@ -73,21 +91,3 @@ m2:GetApplication,
 m2:DeleteApplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application_arn,
-application_id,
-definition,
-description,
-engine_type,
-kms_key_id,
-name,
-role_arn,
-tags
-FROM awscc.m2.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ApplicationArn&gt;'
-```

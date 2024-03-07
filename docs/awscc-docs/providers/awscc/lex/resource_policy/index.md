@@ -38,6 +38,19 @@ Gets an individual <code>resource_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_arn,
+revision_id,
+policy,
+id
+FROM awscc.lex.resource_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>resource_policy</code> resource, the following permissions are required:
@@ -59,16 +72,3 @@ lex:DeleteResourcePolicy,
 lex:DescribeResourcePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_arn,
-revision_id,
-policy,
-id
-FROM awscc.lex.resource_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

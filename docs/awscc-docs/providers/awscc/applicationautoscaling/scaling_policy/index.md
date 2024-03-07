@@ -43,6 +43,25 @@ Gets an individual <code>scaling_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+policy_name,
+policy_type,
+resource_id,
+scalable_dimension,
+scaling_target_id,
+service_namespace,
+step_scaling_policy_configuration,
+target_tracking_scaling_policy_configuration,
+arn
+FROM awscc.applicationautoscaling.scaling_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+AND data__Identifier = '{ScalableDimension}';
+```
+
 ## Permissions
 
 To operate on the <code>scaling_policy</code> resource, the following permissions are required:
@@ -64,22 +83,3 @@ application-autoscaling:DescribeScalingPolicies,
 application-autoscaling:DeleteScalingPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-policy_name,
-policy_type,
-resource_id,
-scalable_dimension,
-scaling_target_id,
-service_namespace,
-step_scaling_policy_configuration,
-target_tracking_scaling_policy_configuration,
-arn
-FROM awscc.applicationautoscaling.scaling_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-AND data__Identifier = '&lt;ScalableDimension&gt;'
-```

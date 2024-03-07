@@ -36,6 +36,16 @@ Retrieves a list of <code>data_sources</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+aws_account_id,
+data_source_id
+FROM awscc.quicksight.data_sources
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>data_sources</code> resource, the following permissions are required:
@@ -55,13 +65,3 @@ quicksight:DescribeDataSource,
 quicksight:ListDataSources
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-aws_account_id,
-data_source_id
-FROM awscc.quicksight.data_sources
-WHERE region = 'us-east-1'
-```

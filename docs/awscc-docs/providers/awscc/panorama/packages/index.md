@@ -35,6 +35,15 @@ Retrieves a list of <code>packages</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+package_id
+FROM awscc.panorama.packages
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>packages</code> resource, the following permissions are required:
@@ -59,12 +68,3 @@ s3:GetObject,
 s3:GetObjectVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-package_id
-FROM awscc.panorama.packages
-WHERE region = 'us-east-1'
-```

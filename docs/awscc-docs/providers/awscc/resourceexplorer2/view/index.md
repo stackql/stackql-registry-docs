@@ -40,6 +40,21 @@ Gets an individual <code>view</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+filters,
+included_properties,
+scope,
+tags,
+view_arn,
+view_name
+FROM awscc.resourceexplorer2.view
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ViewArn}';
+```
+
 ## Permissions
 
 To operate on the <code>view</code> resource, the following permissions are required:
@@ -64,18 +79,3 @@ resource-explorer-2:GetView,
 resource-explorer-2:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-filters,
-included_properties,
-scope,
-tags,
-view_arn,
-view_name
-FROM awscc.resourceexplorer2.view
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ViewArn&gt;'
-```

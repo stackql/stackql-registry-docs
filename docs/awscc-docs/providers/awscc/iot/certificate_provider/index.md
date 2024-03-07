@@ -39,6 +39,20 @@ Gets an individual <code>certificate_provider</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+certificate_provider_name,
+lambda_function_arn,
+account_default_for_operations,
+tags,
+arn
+FROM awscc.iot.certificate_provider
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CertificateProviderName}';
+```
+
 ## Permissions
 
 To operate on the <code>certificate_provider</code> resource, the following permissions are required:
@@ -64,17 +78,3 @@ iot:DeleteCertificateProvider,
 iot:DescribeCertificateProvider
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-certificate_provider_name,
-lambda_function_arn,
-account_default_for_operations,
-tags,
-arn
-FROM awscc.iot.certificate_provider
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateProviderName&gt;'
-```

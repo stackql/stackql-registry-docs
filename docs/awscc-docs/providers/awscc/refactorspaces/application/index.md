@@ -48,6 +48,30 @@ Gets an individual <code>application</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+api_gateway_proxy,
+arn,
+api_gateway_id,
+vpc_link_id,
+nlb_arn,
+nlb_name,
+application_identifier,
+environment_identifier,
+name,
+proxy_type,
+vpc_id,
+stage_name,
+proxy_url,
+tags
+FROM awscc.refactorspaces.application
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EnvironmentIdentifier}';
+AND data__Identifier = '{ApplicationIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>application</code> resource, the following permissions are required:
@@ -78,27 +102,3 @@ apigateway:Get*,
 apigateway:Put*
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-api_gateway_proxy,
-arn,
-api_gateway_id,
-vpc_link_id,
-nlb_arn,
-nlb_name,
-application_identifier,
-environment_identifier,
-name,
-proxy_type,
-vpc_id,
-stage_name,
-proxy_url,
-tags
-FROM awscc.refactorspaces.application
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentIdentifier&gt;'
-AND data__Identifier = '&lt;ApplicationIdentifier&gt;'
-```

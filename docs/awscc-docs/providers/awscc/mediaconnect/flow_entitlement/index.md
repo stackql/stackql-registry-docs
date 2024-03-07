@@ -42,6 +42,23 @@ Gets an individual <code>flow_entitlement</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+flow_arn,
+entitlement_arn,
+data_transfer_subscriber_fee_percent,
+description,
+encryption,
+entitlement_status,
+name,
+subscribers
+FROM awscc.mediaconnect.flow_entitlement
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EntitlementArn}';
+```
+
 ## Permissions
 
 To operate on the <code>flow_entitlement</code> resource, the following permissions are required:
@@ -63,20 +80,3 @@ mediaconnect:DescribeFlow,
 mediaconnect:RevokeFlowEntitlement
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-flow_arn,
-entitlement_arn,
-data_transfer_subscriber_fee_percent,
-description,
-encryption,
-entitlement_status,
-name,
-subscribers
-FROM awscc.mediaconnect.flow_entitlement
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EntitlementArn&gt;'
-```

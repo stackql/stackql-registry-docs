@@ -44,6 +44,25 @@ Gets an individual <code>bucket</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+bucket_name,
+bundle_id,
+bucket_arn,
+object_versioning,
+access_rules,
+resources_receiving_access,
+read_only_access_accounts,
+tags,
+url,
+able_to_update_bundle
+FROM awscc.lightsail.bucket
+WHERE region = 'us-east-1'
+AND data__Identifier = '{BucketName}';
+```
+
 ## Permissions
 
 To operate on the <code>bucket</code> resource, the following permissions are required:
@@ -70,22 +89,3 @@ lightsail:TagResource,
 lightsail:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-bucket_name,
-bundle_id,
-bucket_arn,
-object_versioning,
-access_rules,
-resources_receiving_access,
-read_only_access_accounts,
-tags,
-url,
-able_to_update_bundle
-FROM awscc.lightsail.bucket
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BucketName&gt;'
-```

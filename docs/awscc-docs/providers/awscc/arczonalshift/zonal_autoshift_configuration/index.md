@@ -37,6 +37,18 @@ Gets an individual <code>zonal_autoshift_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+zonal_autoshift_status,
+practice_run_configuration,
+resource_identifier
+FROM awscc.arczonalshift.zonal_autoshift_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ResourceIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>zonal_autoshift_configuration</code> resource, the following permissions are required:
@@ -61,15 +73,3 @@ arc-zonal-shift:GetManagedResource,
 arc-zonal-shift:UpdateZonalAutoshiftConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-zonal_autoshift_status,
-practice_run_configuration,
-resource_identifier
-FROM awscc.arczonalshift.zonal_autoshift_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceIdentifier&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>locationf_sx_lustres</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+location_arn
+FROM awscc.datasync.locationf_sx_lustres
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>locationf_sx_lustres</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ ec2:DescribeSecurityGroups
 datasync:ListLocations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-location_arn
-FROM awscc.datasync.locationf_sx_lustres
-WHERE region = 'us-east-1'
-```

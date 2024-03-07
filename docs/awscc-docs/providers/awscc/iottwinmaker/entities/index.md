@@ -36,6 +36,16 @@ Retrieves a list of <code>entities</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+workspace_id,
+entity_id
+FROM awscc.iottwinmaker.entities
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>entities</code> resource, the following permissions are required:
@@ -59,13 +69,3 @@ iottwinmaker:GetEntity,
 iottwinmaker:ListEntities
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-workspace_id,
-entity_id
-FROM awscc.iottwinmaker.entities
-WHERE region = 'us-east-1'
-```

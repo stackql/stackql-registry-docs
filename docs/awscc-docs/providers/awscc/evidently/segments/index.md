@@ -35,6 +35,15 @@ Retrieves a list of <code>segments</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.evidently.segments
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>segments</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ evidently:ListSegment,
 evidently:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.evidently.segments
-WHERE region = 'us-east-1'
-```

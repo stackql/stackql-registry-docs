@@ -35,6 +35,15 @@ Retrieves a list of <code>discoverers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+discoverer_arn
+FROM awscc.eventschemas.discoverers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>discoverers</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ iam:CreateServiceLinkedRole
 schemas:ListDiscoverers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-discoverer_arn
-FROM awscc.eventschemas.discoverers
-WHERE region = 'us-east-1'
-```

@@ -40,6 +40,21 @@ Gets an individual <code>listener_rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+listener_arn,
+rule_arn,
+actions,
+priority,
+conditions,
+is_default
+FROM awscc.elasticloadbalancingv2.listener_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RuleArn}';
+```
+
 ## Permissions
 
 To operate on the <code>listener_rule</code> resource, the following permissions are required:
@@ -62,18 +77,3 @@ elasticloadbalancing:SetRulePriorities,
 elasticloadbalancing:DescribeRules
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-listener_arn,
-rule_arn,
-actions,
-priority,
-conditions,
-is_default
-FROM awscc.elasticloadbalancingv2.listener_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RuleArn&gt;'
-```

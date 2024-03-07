@@ -44,6 +44,24 @@ Gets an individual <code>accelerator</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+ip_address_type,
+ip_addresses,
+enabled,
+dns_name,
+ipv4_addresses,
+ipv6_addresses,
+dual_stack_dns_name,
+accelerator_arn,
+tags
+FROM awscc.globalaccelerator.accelerator
+WHERE data__Identifier = '{AcceleratorArn}';
+```
+
 ## Permissions
 
 To operate on the <code>accelerator</code> resource, the following permissions are required:
@@ -68,21 +86,3 @@ globalaccelerator:DeleteAccelerator,
 globalaccelerator:DescribeAccelerator
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-ip_address_type,
-ip_addresses,
-enabled,
-dns_name,
-ipv4_addresses,
-ipv6_addresses,
-dual_stack_dns_name,
-accelerator_arn,
-tags
-FROM awscc.globalaccelerator.accelerator
-WHERE data__Identifier = '&lt;AcceleratorArn&gt;'
-```

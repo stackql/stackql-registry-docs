@@ -48,6 +48,29 @@ Gets an individual <code>annotation_store</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+creation_time,
+description,
+id,
+name,
+reference,
+sse_config,
+status,
+status_message,
+store_arn,
+store_format,
+store_options,
+store_size_bytes,
+tags,
+update_time
+FROM awscc.omics.annotation_store
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>annotation_store</code> resource, the following permissions are required:
@@ -72,26 +95,3 @@ omics:DeleteAnnotationStore,
 omics:ListAnnotationStores
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-creation_time,
-description,
-id,
-name,
-reference,
-sse_config,
-status,
-status_message,
-store_arn,
-store_format,
-store_options,
-store_size_bytes,
-tags,
-update_time
-FROM awscc.omics.annotation_store
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>bridges</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+bridge_arn
+FROM awscc.mediaconnect.bridges
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>bridges</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ mediaconnect:DescribeBridge
 mediaconnect:ListBridges
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-bridge_arn
-FROM awscc.mediaconnect.bridges
-WHERE region = 'us-east-1'
-```

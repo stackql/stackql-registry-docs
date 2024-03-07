@@ -35,6 +35,15 @@ Retrieves a list of <code>keyspaces</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+keyspace_name
+FROM awscc.cassandra.keyspaces
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>keyspaces</code> resource, the following permissions are required:
@@ -56,12 +65,3 @@ cassandra:Select,
 cassandra:SelectMultiRegionResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-keyspace_name
-FROM awscc.cassandra.keyspaces
-WHERE region = 'us-east-1'
-```

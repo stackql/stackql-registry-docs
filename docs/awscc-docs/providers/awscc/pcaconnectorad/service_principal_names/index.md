@@ -36,6 +36,16 @@ Retrieves a list of <code>service_principal_names</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+connector_arn,
+directory_registration_arn
+FROM awscc.pcaconnectorad.service_principal_names
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>service_principal_names</code> resource, the following permissions are required:
@@ -52,13 +62,3 @@ pca-connector-ad:CreateServicePrincipalName
 pca-connector-ad:ListServicePrincipalNames
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-connector_arn,
-directory_registration_arn
-FROM awscc.pcaconnectorad.service_principal_names
-WHERE region = 'us-east-1'
-```

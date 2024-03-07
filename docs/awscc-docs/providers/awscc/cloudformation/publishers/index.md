@@ -35,6 +35,15 @@ Retrieves a list of <code>publishers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+publisher_id
+FROM awscc.cloudformation.publishers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>publishers</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ codestar-connections:UseConnection
 cloudformation:DescribePublisher
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-publisher_id
-FROM awscc.cloudformation.publishers
-WHERE region = 'us-east-1'
-```

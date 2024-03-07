@@ -35,6 +35,15 @@ Retrieves a list of <code>vpc_links</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+vpc_link_id
+FROM awscc.apigatewayv2.vpc_links
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>vpc_links</code> resource, the following permissions are required:
@@ -57,12 +66,3 @@ iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-vpc_link_id
-FROM awscc.apigatewayv2.vpc_links
-WHERE region = 'us-east-1'
-```

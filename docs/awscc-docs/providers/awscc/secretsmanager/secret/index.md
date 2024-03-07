@@ -42,6 +42,23 @@ Gets an individual <code>secret</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+kms_key_id,
+secret_string,
+generate_secret_string,
+replica_regions,
+id,
+tags,
+name
+FROM awscc.secretsmanager.secret
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>secret</code> resource, the following permissions are required:
@@ -70,20 +87,3 @@ secretsmanager:ReplicateSecretToRegions,
 secretsmanager:RemoveRegionsFromReplication
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-kms_key_id,
-secret_string,
-generate_secret_string,
-replica_regions,
-id,
-tags,
-name
-FROM awscc.secretsmanager.secret
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

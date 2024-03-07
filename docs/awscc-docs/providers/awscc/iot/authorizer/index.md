@@ -43,6 +43,24 @@ Gets an individual <code>authorizer</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+authorizer_function_arn,
+arn,
+authorizer_name,
+signing_disabled,
+status,
+token_key_name,
+token_signing_public_keys,
+enable_caching_for_http,
+tags
+FROM awscc.iot.authorizer
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AuthorizerName}';
+```
+
 ## Permissions
 
 To operate on the <code>authorizer</code> resource, the following permissions are required:
@@ -69,21 +87,3 @@ iot:DeleteAuthorizer,
 iot:DescribeAuthorizer
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-authorizer_function_arn,
-arn,
-authorizer_name,
-signing_disabled,
-status,
-token_key_name,
-token_signing_public_keys,
-enable_caching_for_http,
-tags
-FROM awscc.iot.authorizer
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AuthorizerName&gt;'
-```

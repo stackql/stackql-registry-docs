@@ -46,6 +46,27 @@ Gets an individual <code>pipeline</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+buffer_options,
+encryption_at_rest_options,
+log_publishing_options,
+max_units,
+min_units,
+pipeline_configuration_body,
+pipeline_name,
+tags,
+vpc_options,
+vpc_endpoints,
+pipeline_arn,
+ingest_endpoint_urls
+FROM awscc.osis.pipeline
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PipelineArn}';
+```
+
 ## Permissions
 
 To operate on the <code>pipeline</code> resource, the following permissions are required:
@@ -79,24 +100,3 @@ logs:DeleteLogDelivery,
 logs:ListLogDeliveries
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-buffer_options,
-encryption_at_rest_options,
-log_publishing_options,
-max_units,
-min_units,
-pipeline_configuration_body,
-pipeline_name,
-tags,
-vpc_options,
-vpc_endpoints,
-pipeline_arn,
-ingest_endpoint_urls
-FROM awscc.osis.pipeline
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PipelineArn&gt;'
-```

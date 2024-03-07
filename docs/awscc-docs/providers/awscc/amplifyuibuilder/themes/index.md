@@ -37,6 +37,17 @@ Retrieves a list of <code>themes</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_id,
+environment_name,
+id
+FROM awscc.amplifyuibuilder.themes
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>themes</code> resource, the following permissions are required:
@@ -55,14 +66,3 @@ amplify:GetApp,
 amplifyuibuilder:ListThemes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_id,
-environment_name,
-id
-FROM awscc.amplifyuibuilder.themes
-WHERE region = 'us-east-1'
-```

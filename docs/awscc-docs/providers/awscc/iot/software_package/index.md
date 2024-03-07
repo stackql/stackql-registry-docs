@@ -38,6 +38,19 @@ Gets an individual <code>software_package</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+package_arn,
+package_name,
+tags
+FROM awscc.iot.software_package
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PackageName}';
+```
+
 ## Permissions
 
 To operate on the <code>software_package</code> resource, the following permissions are required:
@@ -71,16 +84,3 @@ iot:GetIndexingConfiguration,
 iot:ListPackageVersions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-package_arn,
-package_name,
-tags
-FROM awscc.iot.software_package
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PackageName&gt;'
-```

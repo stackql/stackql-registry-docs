@@ -39,6 +39,20 @@ Gets an individual <code>vpc_endpoint</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+name,
+security_group_ids,
+subnet_ids,
+vpc_id
+FROM awscc.opensearchserverless.vpc_endpoint
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>vpc_endpoint</code> resource, the following permissions are required:
@@ -92,17 +106,3 @@ route53:ListHostedZonesByVPC,
 route53:AssociateVPCWithHostedZone
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-name,
-security_group_ids,
-subnet_ids,
-vpc_id
-FROM awscc.opensearchserverless.vpc_endpoint
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

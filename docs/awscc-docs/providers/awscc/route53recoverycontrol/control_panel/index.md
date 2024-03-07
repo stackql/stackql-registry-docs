@@ -41,6 +41,22 @@ Gets an individual <code>control_panel</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+cluster_arn,
+control_panel_arn,
+name,
+status,
+default_control_panel,
+routing_control_count,
+tags
+FROM awscc.route53recoverycontrol.control_panel
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ControlPanelArn}';
+```
+
 ## Permissions
 
 To operate on the <code>control_panel</code> resource, the following permissions are required:
@@ -66,19 +82,3 @@ route53-recovery-control-config:DeleteControlPanel,
 route53-recovery-control-config:DescribeControlPanel
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-cluster_arn,
-control_panel_arn,
-name,
-status,
-default_control_panel,
-routing_control_count,
-tags
-FROM awscc.route53recoverycontrol.control_panel
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ControlPanelArn&gt;'
-```

@@ -37,6 +37,17 @@ Gets an individual <code>public_key</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+created_time,
+id,
+public_key_config
+FROM awscc.cloudfront.public_key
+WHERE data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>public_key</code> resource, the following permissions are required:
@@ -58,14 +69,3 @@ cloudfront:UpdatePublicKey,
 cloudfront:GetPublicKey
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-created_time,
-id,
-public_key_config
-FROM awscc.cloudfront.public_key
-WHERE data__Identifier = '&lt;Id&gt;'
-```

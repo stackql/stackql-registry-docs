@@ -38,6 +38,19 @@ Gets an individual <code>pipeline</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+pipeline_name,
+tags,
+pipeline_activities
+FROM awscc.iotanalytics.pipeline
+WHERE region = 'us-east-1'
+AND data__Identifier = '{PipelineName}';
+```
+
 ## Permissions
 
 To operate on the <code>pipeline</code> resource, the following permissions are required:
@@ -60,16 +73,3 @@ iotanalytics:UntagResource
 iotanalytics:DeletePipeline
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-pipeline_name,
-tags,
-pipeline_activities
-FROM awscc.iotanalytics.pipeline
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PipelineName&gt;'
-```

@@ -39,6 +39,20 @@ Gets an individual <code>db_cluster_parameter_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+family,
+parameters,
+d_bcluster_parameter_group_name,
+tags
+FROM awscc.rds.db_cluster_parameter_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DBClusterParameterGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>db_cluster_parameter_group</code> resource, the following permissions are required:
@@ -69,17 +83,3 @@ rds:ResetDBClusterParameterGroup
 rds:DeleteDBClusterParameterGroup
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-family,
-parameters,
-d_bcluster_parameter_group_name,
-tags
-FROM awscc.rds.db_cluster_parameter_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBClusterParameterGroupName&gt;'
-```

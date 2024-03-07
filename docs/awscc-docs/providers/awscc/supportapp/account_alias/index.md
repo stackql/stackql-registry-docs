@@ -36,6 +36,17 @@ Gets an individual <code>account_alias</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_alias,
+account_alias_resource_id
+FROM awscc.supportapp.account_alias
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccountAliasResourceId}';
+```
+
 ## Permissions
 
 To operate on the <code>account_alias</code> resource, the following permissions are required:
@@ -57,14 +68,3 @@ supportapp:DeleteAccountAlias,
 supportapp:GetAccountAlias
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_alias,
-account_alias_resource_id
-FROM awscc.supportapp.account_alias
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountAliasResourceId&gt;'
-```

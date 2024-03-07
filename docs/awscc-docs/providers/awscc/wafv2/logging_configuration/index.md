@@ -39,6 +39,19 @@ Gets an individual <code>logging_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_arn,
+log_destination_configs,
+redacted_fields,
+managed_by_firewall_manager,
+logging_filter
+FROM awscc.wafv2.logging_configuration
+WHERE data__Identifier = '{ResourceArn}';
+```
+
 ## Permissions
 
 To operate on the <code>logging_configuration</code> resource, the following permissions are required:
@@ -70,16 +83,3 @@ wafv2:GetLoggingConfiguration,
 logs:DeleteLogDelivery
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_arn,
-log_destination_configs,
-redacted_fields,
-managed_by_firewall_manager,
-logging_filter
-FROM awscc.wafv2.logging_configuration
-WHERE data__Identifier = '&lt;ResourceArn&gt;'
-```

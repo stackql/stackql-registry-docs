@@ -47,6 +47,28 @@ Gets an individual <code>document_classifier</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+data_access_role_arn,
+input_data_config,
+output_data_config,
+language_code,
+model_kms_key_id,
+model_policy,
+document_classifier_name,
+mode,
+tags,
+version_name,
+volume_kms_key_id,
+vpc_config,
+arn
+FROM awscc.comprehend.document_classifier
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>document_classifier</code> resource, the following permissions are required:
@@ -76,25 +98,3 @@ comprehend:DescribeDocumentClassifier,
 comprehend:DeleteDocumentClassifier
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-data_access_role_arn,
-input_data_config,
-output_data_config,
-language_code,
-model_kms_key_id,
-model_policy,
-document_classifier_name,
-mode,
-tags,
-version_name,
-volume_kms_key_id,
-vpc_config,
-arn
-FROM awscc.comprehend.document_classifier
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -48,6 +48,29 @@ Gets an individual <code>workflow</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+creation_time,
+definition_uri,
+description,
+engine,
+id,
+main,
+name,
+parameter_template,
+status,
+accelerators,
+storage_capacity,
+tags,
+type
+FROM awscc.omics.workflow
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>workflow</code> resource, the following permissions are required:
@@ -72,26 +95,3 @@ omics:DeleteWorkflow,
 omics:GetWorkflow
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-creation_time,
-definition_uri,
-description,
-engine,
-id,
-main,
-name,
-parameter_template,
-status,
-accelerators,
-storage_capacity,
-tags,
-type
-FROM awscc.omics.workflow
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

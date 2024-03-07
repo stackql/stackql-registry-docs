@@ -41,6 +41,22 @@ Gets an individual <code>model_package_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+tags,
+model_package_group_arn,
+model_package_group_name,
+model_package_group_description,
+model_package_group_policy,
+creation_time,
+model_package_group_status
+FROM awscc.sagemaker.model_package_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ModelPackageGroupArn}';
+```
+
 ## Permissions
 
 To operate on the <code>model_package_group</code> resource, the following permissions are required:
@@ -72,19 +88,3 @@ sagemaker:AddTags,
 sagemaker:DeleteTags
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-tags,
-model_package_group_arn,
-model_package_group_name,
-model_package_group_description,
-model_package_group_policy,
-creation_time,
-model_package_group_status
-FROM awscc.sagemaker.model_package_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ModelPackageGroupArn&gt;'
-```

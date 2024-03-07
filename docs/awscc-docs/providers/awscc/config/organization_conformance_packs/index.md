@@ -35,6 +35,15 @@ Retrieves a list of <code>organization_conformance_packs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+organization_conformance_pack_name
+FROM awscc.config.organization_conformance_packs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>organization_conformance_packs</code> resource, the following permissions are required:
@@ -58,12 +67,3 @@ organizations:EnableAWSServiceAccess
 config:DescribeOrganizationConformancePacks
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-organization_conformance_pack_name
-FROM awscc.config.organization_conformance_packs
-WHERE region = 'us-east-1'
-```

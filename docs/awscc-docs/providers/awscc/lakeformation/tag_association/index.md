@@ -38,6 +38,20 @@ Gets an individual <code>tag_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource,
+l_ftags,
+resource_identifier,
+tags_identifier
+FROM awscc.lakeformation.tag_association
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ResourceIdentifier}';
+AND data__Identifier = '{TagsIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>tag_association</code> resource, the following permissions are required:
@@ -56,17 +70,3 @@ glue:GetDatabase,
 glue:GetTable
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource,
-l_ftags,
-resource_identifier,
-tags_identifier
-FROM awscc.lakeformation.tag_association
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ResourceIdentifier&gt;'
-AND data__Identifier = '&lt;TagsIdentifier&gt;'
-```

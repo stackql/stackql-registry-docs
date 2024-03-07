@@ -35,6 +35,15 @@ Retrieves a list of <code>access_points</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_point_id
+FROM awscc.efs.access_points
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>access_points</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ elasticfilesystem:DescribeAccessPoints
 elasticfilesystem:DescribeAccessPoints
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_point_id
-FROM awscc.efs.access_points
-WHERE region = 'us-east-1'
-```

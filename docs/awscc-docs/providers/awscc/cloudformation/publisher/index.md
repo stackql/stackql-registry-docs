@@ -40,16 +40,6 @@ Gets an individual <code>publisher</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>publisher</code> resource, the following permissions are required:
-
-### Read
-```json
-cloudformation:DescribePublisher
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -62,5 +52,15 @@ publisher_profile,
 identity_provider
 FROM awscc.cloudformation.publisher
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;PublisherId&gt;'
+AND data__Identifier = '{PublisherId}';
 ```
+
+## Permissions
+
+To operate on the <code>publisher</code> resource, the following permissions are required:
+
+### Read
+```json
+cloudformation:DescribePublisher
+```
+

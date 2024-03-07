@@ -44,6 +44,26 @@ Gets an individual <code>calculated_attribute_definition</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+domain_name,
+calculated_attribute_name,
+display_name,
+description,
+attribute_details,
+conditions,
+statistic,
+created_at,
+last_updated_at,
+tags
+FROM awscc.customerprofiles.calculated_attribute_definition
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DomainName}';
+AND data__Identifier = '{CalculatedAttributeName}';
+```
+
 ## Permissions
 
 To operate on the <code>calculated_attribute_definition</code> resource, the following permissions are required:
@@ -66,23 +86,3 @@ profile:TagResource
 profile:DeleteCalculatedAttributeDefinition
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-domain_name,
-calculated_attribute_name,
-display_name,
-description,
-attribute_details,
-conditions,
-statistic,
-created_at,
-last_updated_at,
-tags
-FROM awscc.customerprofiles.calculated_attribute_definition
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DomainName&gt;'
-AND data__Identifier = '&lt;CalculatedAttributeName&gt;'
-```

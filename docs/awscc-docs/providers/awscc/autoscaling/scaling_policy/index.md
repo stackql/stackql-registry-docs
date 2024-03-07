@@ -47,6 +47,28 @@ Gets an individual <code>scaling_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+metric_aggregation_type,
+policy_name,
+policy_type,
+predictive_scaling_configuration,
+scaling_adjustment,
+cooldown,
+step_adjustments,
+auto_scaling_group_name,
+min_adjustment_magnitude,
+target_tracking_configuration,
+estimated_instance_warmup,
+adjustment_type,
+arn
+FROM awscc.autoscaling.scaling_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>scaling_policy</code> resource, the following permissions are required:
@@ -69,25 +91,3 @@ autoscaling:DeletePolicy,
 autoscaling:DescribePolicies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-metric_aggregation_type,
-policy_name,
-policy_type,
-predictive_scaling_configuration,
-scaling_adjustment,
-cooldown,
-step_adjustments,
-auto_scaling_group_name,
-min_adjustment_magnitude,
-target_tracking_configuration,
-estimated_instance_warmup,
-adjustment_type,
-arn
-FROM awscc.autoscaling.scaling_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

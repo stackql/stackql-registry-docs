@@ -35,6 +35,15 @@ Retrieves a list of <code>state_machines</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.stepfunctions.state_machines
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>state_machines</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ s3:GetObject
 states:ListStateMachines
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.stepfunctions.state_machines
-WHERE region = 'us-east-1'
-```

@@ -47,6 +47,29 @@ Gets an individual <code>template</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+aws_account_id,
+created_time,
+definition,
+last_updated_time,
+name,
+permissions,
+source_entity,
+tags,
+template_id,
+validation_strategy,
+version,
+version_description
+FROM awscc.quicksight.template
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AwsAccountId}';
+AND data__Identifier = '{TemplateId}';
+```
+
 ## Permissions
 
 To operate on the <code>template</code> resource, the following permissions are required:
@@ -76,26 +99,3 @@ quicksight:DescribeTemplate,
 quicksight:DeleteTemplate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-aws_account_id,
-created_time,
-definition,
-last_updated_time,
-name,
-permissions,
-source_entity,
-tags,
-template_id,
-validation_strategy,
-version,
-version_description
-FROM awscc.quicksight.template
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-AND data__Identifier = '&lt;TemplateId&gt;'
-```

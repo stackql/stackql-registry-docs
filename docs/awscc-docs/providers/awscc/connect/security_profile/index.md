@@ -42,6 +42,23 @@ Gets an individual <code>security_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+allowed_access_control_tags,
+description,
+instance_arn,
+permissions,
+security_profile_arn,
+security_profile_name,
+tag_restricted_resources,
+tags
+FROM awscc.connect.security_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SecurityProfileArn}';
+```
+
 ## Permissions
 
 To operate on the <code>security_profile</code> resource, the following permissions are required:
@@ -65,20 +82,3 @@ connect:DeleteSecurityProfile,
 connect:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-allowed_access_control_tags,
-description,
-instance_arn,
-permissions,
-security_profile_arn,
-security_profile_name,
-tag_restricted_resources,
-tags
-FROM awscc.connect.security_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SecurityProfileArn&gt;'
-```

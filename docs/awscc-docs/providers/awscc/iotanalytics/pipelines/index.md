@@ -35,6 +35,15 @@ Retrieves a list of <code>pipelines</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+pipeline_name
+FROM awscc.iotanalytics.pipelines
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>pipelines</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ iotanalytics:CreatePipeline
 iotanalytics:ListPipelines
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-pipeline_name
-FROM awscc.iotanalytics.pipelines
-WHERE region = 'us-east-1'
-```

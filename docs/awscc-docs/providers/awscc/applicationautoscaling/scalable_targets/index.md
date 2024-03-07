@@ -37,6 +37,17 @@ Retrieves a list of <code>scalable_targets</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_id,
+scalable_dimension,
+service_namespace
+FROM awscc.applicationautoscaling.scalable_targets
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>scalable_targets</code> resource, the following permissions are required:
@@ -62,14 +73,3 @@ lambda:DeleteProvisionedConcurrencyConfig
 application-autoscaling:DescribeScalableTargets
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_id,
-scalable_dimension,
-service_namespace
-FROM awscc.applicationautoscaling.scalable_targets
-WHERE region = 'us-east-1'
-```

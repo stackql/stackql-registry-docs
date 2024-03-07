@@ -45,6 +45,26 @@ Gets an individual <code>container</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+service_name,
+power,
+container_arn,
+scale,
+public_domain_names,
+container_service_deployment,
+is_disabled,
+private_registry_access,
+url,
+principal_arn,
+tags
+FROM awscc.lightsail.container
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ServiceName}';
+```
+
 ## Permissions
 
 To operate on the <code>container</code> resource, the following permissions are required:
@@ -69,23 +89,3 @@ lightsail:UntagResource,
 lightsail:UpdateContainerService
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-service_name,
-power,
-container_arn,
-scale,
-public_domain_names,
-container_service_deployment,
-is_disabled,
-private_registry_access,
-url,
-principal_arn,
-tags
-FROM awscc.lightsail.container
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ServiceName&gt;'
-```

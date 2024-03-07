@@ -53,6 +53,34 @@ Gets an individual <code>app</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+access_token,
+app_id,
+app_name,
+arn,
+auto_branch_creation_config,
+basic_auth_config,
+build_spec,
+custom_headers,
+custom_rules,
+default_domain,
+description,
+enable_branch_auto_deletion,
+environment_variables,
+i_am_service_role,
+name,
+oauth_token,
+platform,
+repository,
+tags
+FROM awscc.amplify.app
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>app</code> resource, the following permissions are required:
@@ -93,31 +121,3 @@ sns:Unsubscribe,
 iam:PassRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-access_token,
-app_id,
-app_name,
-arn,
-auto_branch_creation_config,
-basic_auth_config,
-build_spec,
-custom_headers,
-custom_rules,
-default_domain,
-description,
-enable_branch_auto_deletion,
-environment_variables,
-i_am_service_role,
-name,
-oauth_token,
-platform,
-repository,
-tags
-FROM awscc.amplify.app
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

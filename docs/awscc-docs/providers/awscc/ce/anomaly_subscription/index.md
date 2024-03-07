@@ -43,6 +43,24 @@ Gets an individual <code>anomaly_subscription</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+subscription_arn,
+subscription_name,
+account_id,
+monitor_arn_list,
+subscribers,
+threshold,
+threshold_expression,
+frequency,
+resource_tags
+FROM awscc.ce.anomaly_subscription
+WHERE region = 'us-east-1'
+AND data__Identifier = '{SubscriptionArn}';
+```
+
 ## Permissions
 
 To operate on the <code>anomaly_subscription</code> resource, the following permissions are required:
@@ -62,21 +80,3 @@ ce:UpdateAnomalySubscription
 ce:DeleteAnomalySubscription
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-subscription_arn,
-subscription_name,
-account_id,
-monitor_arn_list,
-subscribers,
-threshold,
-threshold_expression,
-frequency,
-resource_tags
-FROM awscc.ce.anomaly_subscription
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;SubscriptionArn&gt;'
-```

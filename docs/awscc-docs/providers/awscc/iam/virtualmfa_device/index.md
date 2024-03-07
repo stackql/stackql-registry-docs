@@ -39,6 +39,19 @@ Gets an individual <code>virtualmfa_device</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+virtual_mfa_device_name,
+path,
+serial_number,
+users,
+tags
+FROM awscc.iam.virtualmfa_device
+WHERE data__Identifier = '{SerialNumber}';
+```
+
 ## Permissions
 
 To operate on the <code>virtualmfa_device</code> resource, the following permissions are required:
@@ -60,16 +73,3 @@ iam:DeleteVirtualMFADevice,
 iam:DeactivateMFADevice
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-virtual_mfa_device_name,
-path,
-serial_number,
-users,
-tags
-FROM awscc.iam.virtualmfa_device
-WHERE data__Identifier = '&lt;SerialNumber&gt;'
-```

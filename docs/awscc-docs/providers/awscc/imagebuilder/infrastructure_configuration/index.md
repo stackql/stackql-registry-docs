@@ -48,6 +48,29 @@ Gets an individual <code>infrastructure_configuration</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+instance_types,
+security_group_ids,
+logging,
+subnet_id,
+key_pair,
+terminate_instance_on_failure,
+instance_profile_name,
+instance_metadata_options,
+sns_topic_arn,
+resource_tags,
+tags
+FROM awscc.imagebuilder.infrastructure_configuration
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>infrastructure_configuration</code> resource, the following permissions are required:
@@ -72,26 +95,3 @@ imagebuilder:GetInfrastructureConfiguration,
 imagebuilder:DeleteInfrastructureConfiguration
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-description,
-instance_types,
-security_group_ids,
-logging,
-subnet_id,
-key_pair,
-terminate_instance_on_failure,
-instance_profile_name,
-instance_metadata_options,
-sns_topic_arn,
-resource_tags,
-tags
-FROM awscc.imagebuilder.infrastructure_configuration
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

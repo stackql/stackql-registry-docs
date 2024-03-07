@@ -36,6 +36,18 @@ Gets an individual <code>tracker_consumer</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+consumer_arn,
+tracker_name
+FROM awscc.location.tracker_consumer
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TrackerName}';
+AND data__Identifier = '{ConsumerArn}';
+```
+
 ## Permissions
 
 To operate on the <code>tracker_consumer</code> resource, the following permissions are required:
@@ -51,15 +63,3 @@ geo:ListTrackerConsumers
 geo:ListTrackerConsumers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-consumer_arn,
-tracker_name
-FROM awscc.location.tracker_consumer
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TrackerName&gt;'
-AND data__Identifier = '&lt;ConsumerArn&gt;'
-```

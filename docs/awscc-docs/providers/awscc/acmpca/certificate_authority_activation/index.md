@@ -39,6 +39,20 @@ Gets an individual <code>certificate_authority_activation</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+certificate_authority_arn,
+certificate,
+certificate_chain,
+status,
+complete_certificate_chain
+FROM awscc.acmpca.certificate_authority_activation
+WHERE region = 'us-east-1'
+AND data__Identifier = '{CertificateAuthorityArn}';
+```
+
 ## Permissions
 
 To operate on the <code>certificate_authority_activation</code> resource, the following permissions are required:
@@ -60,17 +74,3 @@ acm-pca:ImportCertificateAuthorityCertificate,
 acm-pca:UpdateCertificateAuthority
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-certificate_authority_arn,
-certificate,
-certificate_chain,
-status,
-complete_certificate_chain
-FROM awscc.acmpca.certificate_authority_activation
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;CertificateAuthorityArn&gt;'
-```

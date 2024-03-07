@@ -41,6 +41,22 @@ Gets an individual <code>certificate</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+c_acertificate_pem,
+certificate_pem,
+certificate_signing_request,
+certificate_mode,
+status,
+id,
+arn
+FROM awscc.iot.certificate
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>certificate</code> resource, the following permissions are required:
@@ -63,19 +79,3 @@ iot:UpdateCertificate,
 iot:DescribeCertificate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-c_acertificate_pem,
-certificate_pem,
-certificate_signing_request,
-certificate_mode,
-status,
-id,
-arn
-FROM awscc.iot.certificate
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

@@ -36,6 +36,16 @@ Retrieves a list of <code>key_signing_keys</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+hosted_zone_id,
+name
+FROM awscc.route53.key_signing_keys
+
+```
+
 ## Permissions
 
 To operate on the <code>key_signing_keys</code> resource, the following permissions are required:
@@ -55,13 +65,3 @@ route53:GetDNSSEC,
 route53:ListHostedZones
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-hosted_zone_id,
-name
-FROM awscc.route53.key_signing_keys
-
-```

@@ -51,6 +51,34 @@ Gets an individual <code>component</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+app_id,
+binding_properties,
+children,
+collection_properties,
+component_type,
+created_at,
+environment_name,
+events,
+id,
+modified_at,
+name,
+overrides,
+properties,
+schema_version,
+source_id,
+tags,
+variants
+FROM awscc.amplifyuibuilder.component
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AppId}';
+AND data__Identifier = '{EnvironmentName}';
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>component</code> resource, the following permissions are required:
@@ -78,31 +106,3 @@ amplifyuibuilder:GetComponent,
 amplifyuibuilder:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-app_id,
-binding_properties,
-children,
-collection_properties,
-component_type,
-created_at,
-environment_name,
-events,
-id,
-modified_at,
-name,
-overrides,
-properties,
-schema_version,
-source_id,
-tags,
-variants
-FROM awscc.amplifyuibuilder.component
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AppId&gt;'
-AND data__Identifier = '&lt;EnvironmentName&gt;'
-AND data__Identifier = '&lt;Id&gt;'
-```

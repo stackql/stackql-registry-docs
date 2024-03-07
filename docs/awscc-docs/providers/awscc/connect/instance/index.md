@@ -44,6 +44,25 @@ Gets an individual <code>instance</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+identity_management_type,
+instance_alias,
+created_time,
+service_role,
+instance_status,
+directory_id,
+attributes,
+tags
+FROM awscc.connect.instance
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>instance</code> resource, the following permissions are required:
@@ -75,22 +94,3 @@ ds:UnauthorizeApplication,
 ds:DescribeDirectories
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-identity_management_type,
-instance_alias,
-created_time,
-service_role,
-instance_status,
-directory_id,
-attributes,
-tags
-FROM awscc.connect.instance
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

@@ -39,6 +39,20 @@ Gets an individual <code>connector</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+certificate_authority_arn,
+connector_arn,
+directory_id,
+tags,
+vpc_information
+FROM awscc.pcaconnectorad.connector
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConnectorArn}';
+```
+
 ## Permissions
 
 To operate on the <code>connector</code> resource, the following permissions are required:
@@ -64,17 +78,3 @@ pca-connector-ad:TagResource,
 pca-connector-ad:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-certificate_authority_arn,
-connector_arn,
-directory_id,
-tags,
-vpc_information
-FROM awscc.pcaconnectorad.connector
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConnectorArn&gt;'
-```

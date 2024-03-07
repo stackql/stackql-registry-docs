@@ -35,6 +35,15 @@ Retrieves a list of <code>global_networks</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id
+FROM awscc.networkmanager.global_networks
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>global_networks</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iam:CreateServiceLinkedRole
 networkmanager:DescribeGlobalNetworks
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id
-FROM awscc.networkmanager.global_networks
-WHERE region = 'us-east-1'
-```

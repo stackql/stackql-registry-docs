@@ -35,6 +35,15 @@ Retrieves a list of <code>compute_environments</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+compute_environment_arn
+FROM awscc.batch.compute_environments
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>compute_environments</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ Eks:DescribeCluster
 Batch:DescribeComputeEnvironments
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-compute_environment_arn
-FROM awscc.batch.compute_environments
-WHERE region = 'us-east-1'
-```

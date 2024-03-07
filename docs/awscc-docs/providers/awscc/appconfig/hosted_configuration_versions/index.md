@@ -37,6 +37,17 @@ Retrieves a list of <code>hosted_configuration_versions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+application_id,
+configuration_profile_id,
+version_number
+FROM awscc.appconfig.hosted_configuration_versions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>hosted_configuration_versions</code> resource, the following permissions are required:
@@ -51,14 +62,3 @@ appconfig:CreateHostedConfigurationVersion
 appconfig:ListHostedConfigurationVersions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-application_id,
-configuration_profile_id,
-version_number
-FROM awscc.appconfig.hosted_configuration_versions
-WHERE region = 'us-east-1'
-```

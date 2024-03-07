@@ -35,6 +35,15 @@ Retrieves a list of <code>hook_default_versions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn
+FROM awscc.cloudformation.hook_default_versions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>hook_default_versions</code> resource, the following permissions are required:
@@ -49,12 +58,3 @@ cloudformation:SetTypeDefaultVersion
 cloudformation:ListTypes
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn
-FROM awscc.cloudformation.hook_default_versions
-WHERE region = 'us-east-1'
-```

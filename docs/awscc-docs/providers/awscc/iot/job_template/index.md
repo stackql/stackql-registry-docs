@@ -48,21 +48,6 @@ Gets an individual <code>job_template</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>job_template</code> resource, the following permissions are required:
-
-### Read
-```json
-iot:DescribeJobTemplate
-```
-
-### Delete
-```json
-iot:DeleteJobTemplate
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -83,5 +68,20 @@ destination_package_versions,
 tags
 FROM awscc.iot.job_template
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;JobTemplateId&gt;'
+AND data__Identifier = '{JobTemplateId}';
 ```
+
+## Permissions
+
+To operate on the <code>job_template</code> resource, the following permissions are required:
+
+### Read
+```json
+iot:DescribeJobTemplate
+```
+
+### Delete
+```json
+iot:DeleteJobTemplate
+```
+

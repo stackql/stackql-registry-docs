@@ -89,59 +89,6 @@ Gets an individual <code>cluster</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>cluster</code> resource, the following permissions are required:
-
-### Read
-```json
-redshift:DescribeClusters,
-redshift:DescribeLoggingStatus,
-redshift:DescribeSnapshotCopyGrant,
-redshift:DescribeClusterDbRevisions,
-redshift:DescribeTags,
-redshift:GetResourcePolicy
-```
-
-### Update
-```json
-iam:PassRole,
-redshift:DescribeClusters,
-redshift:ModifyCluster,
-redshift:ModifyClusterIamRoles,
-redshift:EnableLogging,
-redshift:CreateTags,
-redshift:DeleteTags,
-redshift:DescribeTags,
-redshift:DisableLogging,
-redshift:DescribeLoggingStatus,
-redshift:RebootCluster,
-redshift:EnableSnapshotCopy,
-redshift:DisableSnapshotCopy,
-redshift:ModifySnapshotCopyRetentionPeriod,
-redshift:ModifyAquaConfiguration,
-redshift:ResizeCluster,
-redshift:ModifyClusterMaintenance,
-redshift:DescribeClusterDbRevisions,
-redshift:ModifyClusterDbRevisions,
-redshift:PauseCluster,
-redshift:ResumeCluster,
-redshift:RotateEncryptionKey,
-redshift:FailoverPrimaryCompute,
-redshift:PutResourcePolicy,
-redshift:GetResourcePolicy,
-redshift:DeleteResourcePolicy,
-cloudwatch:PutMetricData
-```
-
-### Delete
-```json
-redshift:DescribeTags,
-redshift:DescribeClusters,
-redshift:DeleteCluster
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -203,5 +150,58 @@ master_password_secret_kms_key_id,
 master_password_secret_arn
 FROM awscc.redshift.cluster
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ClusterIdentifier&gt;'
+AND data__Identifier = '{ClusterIdentifier}';
 ```
+
+## Permissions
+
+To operate on the <code>cluster</code> resource, the following permissions are required:
+
+### Read
+```json
+redshift:DescribeClusters,
+redshift:DescribeLoggingStatus,
+redshift:DescribeSnapshotCopyGrant,
+redshift:DescribeClusterDbRevisions,
+redshift:DescribeTags,
+redshift:GetResourcePolicy
+```
+
+### Update
+```json
+iam:PassRole,
+redshift:DescribeClusters,
+redshift:ModifyCluster,
+redshift:ModifyClusterIamRoles,
+redshift:EnableLogging,
+redshift:CreateTags,
+redshift:DeleteTags,
+redshift:DescribeTags,
+redshift:DisableLogging,
+redshift:DescribeLoggingStatus,
+redshift:RebootCluster,
+redshift:EnableSnapshotCopy,
+redshift:DisableSnapshotCopy,
+redshift:ModifySnapshotCopyRetentionPeriod,
+redshift:ModifyAquaConfiguration,
+redshift:ResizeCluster,
+redshift:ModifyClusterMaintenance,
+redshift:DescribeClusterDbRevisions,
+redshift:ModifyClusterDbRevisions,
+redshift:PauseCluster,
+redshift:ResumeCluster,
+redshift:RotateEncryptionKey,
+redshift:FailoverPrimaryCompute,
+redshift:PutResourcePolicy,
+redshift:GetResourcePolicy,
+redshift:DeleteResourcePolicy,
+cloudwatch:PutMetricData
+```
+
+### Delete
+```json
+redshift:DescribeTags,
+redshift:DescribeClusters,
+redshift:DeleteCluster
+```
+

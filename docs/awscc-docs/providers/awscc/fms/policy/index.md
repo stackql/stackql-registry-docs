@@ -50,6 +50,31 @@ Gets an individual <code>policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+exclude_map,
+exclude_resource_tags,
+include_map,
+id,
+policy_name,
+policy_description,
+remediation_enabled,
+resource_tags,
+resource_type,
+resource_type_list,
+resource_set_ids,
+security_service_policy_data,
+arn,
+delete_all_policy_resources,
+resources_clean_up,
+tags
+FROM awscc.fms.policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>policy</code> resource, the following permissions are required:
@@ -85,28 +110,3 @@ fms:ListTagsForResource
 fms:DeletePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-exclude_map,
-exclude_resource_tags,
-include_map,
-id,
-policy_name,
-policy_description,
-remediation_enabled,
-resource_tags,
-resource_type,
-resource_type_list,
-resource_set_ids,
-security_service_policy_data,
-arn,
-delete_all_policy_resources,
-resources_clean_up,
-tags
-FROM awscc.fms.policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

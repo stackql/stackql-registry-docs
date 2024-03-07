@@ -43,6 +43,24 @@ Gets an individual <code>vehicle</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+association_behavior,
+attributes,
+creation_time,
+decoder_manifest_arn,
+name,
+last_modification_time,
+model_manifest_arn,
+tags
+FROM awscc.iotfleetwise.vehicle
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>vehicle</code> resource, the following permissions are required:
@@ -68,21 +86,3 @@ iotfleetwise:GetVehicle,
 iotfleetwise:DeleteVehicle
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-association_behavior,
-attributes,
-creation_time,
-decoder_manifest_arn,
-name,
-last_modification_time,
-model_manifest_arn,
-tags
-FROM awscc.iotfleetwise.vehicle
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

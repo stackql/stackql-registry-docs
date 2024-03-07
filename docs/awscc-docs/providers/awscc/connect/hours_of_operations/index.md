@@ -35,6 +35,15 @@ Retrieves a list of <code>hours_of_operations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+hours_of_operation_arn
+FROM awscc.connect.hours_of_operations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>hours_of_operations</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ connect:TagResource
 connect:ListHoursOfOperations
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-hours_of_operation_arn
-FROM awscc.connect.hours_of_operations
-WHERE region = 'us-east-1'
-```

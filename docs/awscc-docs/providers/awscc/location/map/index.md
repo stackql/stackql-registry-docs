@@ -43,6 +43,24 @@ Gets an individual <code>map</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+configuration,
+create_time,
+description,
+map_arn,
+map_name,
+pricing_plan,
+tags,
+update_time,
+arn
+FROM awscc.location.map
+WHERE region = 'us-east-1'
+AND data__Identifier = '{MapName}';
+```
+
 ## Permissions
 
 To operate on the <code>map</code> resource, the following permissions are required:
@@ -67,21 +85,3 @@ geo:DeleteMap,
 geo:DescribeMap
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-configuration,
-create_time,
-description,
-map_arn,
-map_name,
-pricing_plan,
-tags,
-update_time,
-arn
-FROM awscc.location.map
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MapName&gt;'
-```

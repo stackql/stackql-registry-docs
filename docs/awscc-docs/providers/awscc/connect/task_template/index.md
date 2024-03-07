@@ -45,6 +45,26 @@ Gets an individual <code>task_template</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+instance_arn,
+name,
+description,
+contact_flow_arn,
+constraints,
+defaults,
+fields,
+status,
+client_token,
+tags
+FROM awscc.connect.task_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>task_template</code> resource, the following permissions are required:
@@ -68,23 +88,3 @@ connect:UntagResource,
 connect:GetTaskTemplate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-instance_arn,
-name,
-description,
-contact_flow_arn,
-constraints,
-defaults,
-fields,
-status,
-client_token,
-tags
-FROM awscc.connect.task_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

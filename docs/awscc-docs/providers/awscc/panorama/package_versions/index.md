@@ -37,6 +37,17 @@ Retrieves a list of <code>package_versions</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+package_id,
+package_version,
+patch_version
+FROM awscc.panorama.package_versions
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>package_versions</code> resource, the following permissions are required:
@@ -51,14 +62,3 @@ s3:GetObject,
 s3:GetObjectVersion
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-package_id,
-package_version,
-patch_version
-FROM awscc.panorama.package_versions
-WHERE region = 'us-east-1'
-```

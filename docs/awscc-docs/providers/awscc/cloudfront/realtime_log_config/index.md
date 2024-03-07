@@ -39,6 +39,19 @@ Gets an individual <code>realtime_log_config</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+end_points,
+fields,
+name,
+sampling_rate
+FROM awscc.cloudfront.realtime_log_config
+WHERE data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>realtime_log_config</code> resource, the following permissions are required:
@@ -61,16 +74,3 @@ cloudfront:GetRealtimeLogConfig,
 iam:PassRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-end_points,
-fields,
-name,
-sampling_rate
-FROM awscc.cloudfront.realtime_log_config
-WHERE data__Identifier = '&lt;Arn&gt;'
-```

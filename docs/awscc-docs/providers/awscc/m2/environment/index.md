@@ -49,6 +49,30 @@ Gets an individual <code>environment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+description,
+engine_type,
+engine_version,
+environment_arn,
+environment_id,
+high_availability_config,
+instance_type,
+kms_key_id,
+name,
+preferred_maintenance_window,
+publicly_accessible,
+security_group_ids,
+storage_configurations,
+subnet_ids,
+tags
+FROM awscc.m2.environment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{EnvironmentArn}';
+```
+
 ## Permissions
 
 To operate on the <code>environment</code> resource, the following permissions are required:
@@ -75,27 +99,3 @@ m2:DeleteEnvironment,
 m2:GetEnvironment
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-description,
-engine_type,
-engine_version,
-environment_arn,
-environment_id,
-high_availability_config,
-instance_type,
-kms_key_id,
-name,
-preferred_maintenance_window,
-publicly_accessible,
-security_group_ids,
-storage_configurations,
-subnet_ids,
-tags
-FROM awscc.m2.environment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;EnvironmentArn&gt;'
-```

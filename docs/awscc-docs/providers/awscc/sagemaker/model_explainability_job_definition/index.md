@@ -47,21 +47,6 @@ Gets an individual <code>model_explainability_job_definition</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
-## Permissions
-
-To operate on the <code>model_explainability_job_definition</code> resource, the following permissions are required:
-
-### Delete
-```json
-sagemaker:DeleteModelExplainabilityJobDefinition
-```
-
-### Read
-```json
-sagemaker:DescribeModelExplainabilityJobDefinition
-```
-
-
 ## Example
 ```sql
 SELECT
@@ -81,5 +66,20 @@ tags,
 creation_time
 FROM awscc.sagemaker.model_explainability_job_definition
 WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;JobDefinitionArn&gt;'
+AND data__Identifier = '{JobDefinitionArn}';
 ```
+
+## Permissions
+
+To operate on the <code>model_explainability_job_definition</code> resource, the following permissions are required:
+
+### Delete
+```json
+sagemaker:DeleteModelExplainabilityJobDefinition
+```
+
+### Read
+```json
+sagemaker:DescribeModelExplainabilityJobDefinition
+```
+

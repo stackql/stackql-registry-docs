@@ -38,6 +38,18 @@ Gets an individual <code>distribution</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+distribution_config,
+domain_name,
+id,
+tags
+FROM awscc.cloudfront.distribution
+WHERE data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>distribution</code> resource, the following permissions are required:
@@ -66,15 +78,3 @@ cloudfront:TagResource,
 cloudfront:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-distribution_config,
-domain_name,
-id,
-tags
-FROM awscc.cloudfront.distribution
-WHERE data__Identifier = '&lt;Id&gt;'
-```

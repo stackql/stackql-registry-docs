@@ -41,6 +41,22 @@ Gets an individual <code>restore_testing_plan</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+recovery_point_selection,
+restore_testing_plan_arn,
+restore_testing_plan_name,
+schedule_expression,
+schedule_expression_timezone,
+start_window_hours,
+tags
+FROM awscc.backup.restore_testing_plan
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RestoreTestingPlanName}';
+```
+
 ## Permissions
 
 To operate on the <code>restore_testing_plan</code> resource, the following permissions are required:
@@ -66,19 +82,3 @@ backup:DeleteRestoreTestingPlan,
 backup:GetRestoreTestingPlan
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-recovery_point_selection,
-restore_testing_plan_arn,
-restore_testing_plan_name,
-schedule_expression,
-schedule_expression_timezone,
-start_window_hours,
-tags
-FROM awscc.backup.restore_testing_plan
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestoreTestingPlanName&gt;'
-```

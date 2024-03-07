@@ -37,6 +37,18 @@ Gets an individual <code>keyspace</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+keyspace_name,
+tags,
+replication_specification
+FROM awscc.cassandra.keyspace
+WHERE region = 'us-east-1'
+AND data__Identifier = '{KeyspaceName}';
+```
+
 ## Permissions
 
 To operate on the <code>keyspace</code> resource, the following permissions are required:
@@ -67,15 +79,3 @@ cassandra:Select,
 cassandra:SelectMultiRegionResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-keyspace_name,
-tags,
-replication_specification
-FROM awscc.cassandra.keyspace
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;KeyspaceName&gt;'
-```

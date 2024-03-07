@@ -42,6 +42,23 @@ Gets an individual <code>datastore</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+datastore_arn,
+datastore_name,
+datastore_id,
+datastore_status,
+kms_key_arn,
+created_at,
+updated_at,
+tags
+FROM awscc.healthimaging.datastore
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DatastoreId}';
+```
+
 ## Permissions
 
 To operate on the <code>datastore</code> resource, the following permissions are required:
@@ -63,20 +80,3 @@ kms:GenerateDataKey,
 kms:Decrypt
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-datastore_arn,
-datastore_name,
-datastore_id,
-datastore_status,
-kms_key_arn,
-created_at,
-updated_at,
-tags
-FROM awscc.healthimaging.datastore
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DatastoreId&gt;'
-```

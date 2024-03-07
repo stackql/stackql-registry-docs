@@ -39,6 +39,20 @@ Gets an individual <code>device_profile</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+lo_ra_wa_n,
+tags,
+arn,
+id
+FROM awscc.iotwireless.device_profile
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>device_profile</code> resource, the following permissions are required:
@@ -54,17 +68,3 @@ iotwireless:ListTagsForResource
 iotwireless:DeleteDeviceProfile
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-lo_ra_wa_n,
-tags,
-arn,
-id
-FROM awscc.iotwireless.device_profile
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-```

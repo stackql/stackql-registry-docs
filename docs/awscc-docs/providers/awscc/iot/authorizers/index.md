@@ -35,6 +35,15 @@ Retrieves a list of <code>authorizers</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+authorizer_name
+FROM awscc.iot.authorizers
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>authorizers</code> resource, the following permissions are required:
@@ -52,12 +61,3 @@ iot:ListTagsForResource
 iot:ListAuthorizers
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-authorizer_name
-FROM awscc.iot.authorizers
-WHERE region = 'us-east-1'
-```

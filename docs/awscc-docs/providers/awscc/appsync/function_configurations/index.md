@@ -35,6 +35,15 @@ Retrieves a list of <code>function_configurations</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+function_arn
+FROM awscc.appsync.function_configurations
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>function_configurations</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ appsync:CreateFunction
 appsync:ListFunctions
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-function_arn
-FROM awscc.appsync.function_configurations
-WHERE region = 'us-east-1'
-```

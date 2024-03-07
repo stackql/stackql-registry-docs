@@ -37,6 +37,18 @@ Gets an individual <code>graph</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+tags,
+auto_enable_members
+FROM awscc.detective.graph
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>graph</code> resource, the following permissions are required:
@@ -63,15 +75,3 @@ organizations:DescribeOrganization
 detective:DeleteGraph
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-tags,
-auto_enable_members
-FROM awscc.detective.graph
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

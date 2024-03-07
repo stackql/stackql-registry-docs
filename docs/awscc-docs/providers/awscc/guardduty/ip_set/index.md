@@ -41,6 +41,23 @@ Gets an individual <code>ip_set</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+format,
+activate,
+detector_id,
+name,
+location,
+tags
+FROM awscc.guardduty.ip_set
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Id}';
+AND data__Identifier = '{DetectorId}';
+```
+
 ## Permissions
 
 To operate on the <code>ip_set</code> resource, the following permissions are required:
@@ -68,20 +85,3 @@ guardduty:ListIPSets,
 iam:PutRolePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-format,
-activate,
-detector_id,
-name,
-location,
-tags
-FROM awscc.guardduty.ip_set
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Id&gt;'
-AND data__Identifier = '&lt;DetectorId&gt;'
-```

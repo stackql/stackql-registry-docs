@@ -35,6 +35,15 @@ Retrieves a list of <code>client_certificates</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+client_certificate_id
+FROM awscc.apigateway.client_certificates
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>client_certificates</code> resource, the following permissions are required:
@@ -51,12 +60,3 @@ apigateway:PUT
 apigateway:GET
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-client_certificate_id
-FROM awscc.apigateway.client_certificates
-WHERE region = 'us-east-1'
-```

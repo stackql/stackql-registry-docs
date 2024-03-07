@@ -53,6 +53,35 @@ Gets an individual <code>dashboard</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+aws_account_id,
+created_time,
+dashboard_id,
+dashboard_publish_options,
+definition,
+last_published_time,
+last_updated_time,
+link_entities,
+link_sharing_configuration,
+name,
+parameters,
+permissions,
+source_entity,
+tags,
+theme_arn,
+validation_strategy,
+version,
+version_description
+FROM awscc.quicksight.dashboard
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AwsAccountId}';
+AND data__Identifier = '{DashboardId}';
+```
+
 ## Permissions
 
 To operate on the <code>dashboard</code> resource, the following permissions are required:
@@ -86,32 +115,3 @@ quicksight:DescribeDashboard,
 quicksight:DeleteDashboard
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-aws_account_id,
-created_time,
-dashboard_id,
-dashboard_publish_options,
-definition,
-last_published_time,
-last_updated_time,
-link_entities,
-link_sharing_configuration,
-name,
-parameters,
-permissions,
-source_entity,
-tags,
-theme_arn,
-validation_strategy,
-version,
-version_description
-FROM awscc.quicksight.dashboard
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-AND data__Identifier = '&lt;DashboardId&gt;'
-```

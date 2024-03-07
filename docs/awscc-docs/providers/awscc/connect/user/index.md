@@ -46,6 +46,27 @@ Gets an individual <code>user</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+instance_arn,
+directory_user_id,
+hierarchy_group_arn,
+username,
+password,
+routing_profile_arn,
+identity_info,
+phone_config,
+security_profile_arns,
+user_arn,
+tags,
+user_proficiencies
+FROM awscc.connect.user
+WHERE region = 'us-east-1'
+AND data__Identifier = '{UserArn}';
+```
+
 ## Permissions
 
 To operate on the <code>user</code> resource, the following permissions are required:
@@ -76,24 +97,3 @@ connect:DisassociateUserProficiencies,
 connect:UpdateUserProficiencies
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-instance_arn,
-directory_user_id,
-hierarchy_group_arn,
-username,
-password,
-routing_profile_arn,
-identity_info,
-phone_config,
-security_profile_arns,
-user_arn,
-tags,
-user_proficiencies
-FROM awscc.connect.user
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;UserArn&gt;'
-```

@@ -44,6 +44,25 @@ Gets an individual <code>location_smb</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+agent_arns,
+domain,
+mount_options,
+password,
+server_hostname,
+subdirectory,
+user,
+tags,
+location_arn,
+location_uri
+FROM awscc.datasync.location_smb
+WHERE region = 'us-east-1'
+AND data__Identifier = '{LocationArn}';
+```
+
 ## Permissions
 
 To operate on the <code>location_smb</code> resource, the following permissions are required:
@@ -68,22 +87,3 @@ datasync:UpdateLocationSmb
 datasync:DeleteLocation
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-agent_arns,
-domain,
-mount_options,
-password,
-server_hostname,
-subdirectory,
-user,
-tags,
-location_arn,
-location_uri
-FROM awscc.datasync.location_smb
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;LocationArn&gt;'
-```

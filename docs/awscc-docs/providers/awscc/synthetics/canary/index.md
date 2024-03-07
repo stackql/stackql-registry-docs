@@ -51,6 +51,32 @@ Gets an individual <code>canary</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+name,
+id,
+state,
+code,
+artifact_s3_location,
+artifact_config,
+schedule,
+execution_role_arn,
+runtime_version,
+success_retention_period,
+failure_retention_period,
+tags,
+v_pc_config,
+run_config,
+start_canary_after_creation,
+visual_reference,
+delete_lambda_resources_on_canary_deletion
+FROM awscc.synthetics.canary
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Name}';
+```
+
 ## Permissions
 
 To operate on the <code>canary</code> resource, the following permissions are required:
@@ -94,29 +120,3 @@ synthetics:DeleteCanary,
 synthetics:GetCanary
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-name,
-id,
-state,
-code,
-artifact_s3_location,
-artifact_config,
-schedule,
-execution_role_arn,
-runtime_version,
-success_retention_period,
-failure_retention_period,
-tags,
-v_pc_config,
-run_config,
-start_canary_after_creation,
-visual_reference,
-delete_lambda_resources_on_canary_deletion
-FROM awscc.synthetics.canary
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Name&gt;'
-```

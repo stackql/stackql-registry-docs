@@ -35,6 +35,15 @@ Retrieves a list of <code>reference_stores</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+reference_store_id
+FROM awscc.omics.reference_stores
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>reference_stores</code> resource, the following permissions are required:
@@ -50,12 +59,3 @@ omics:TagResource
 omics:ListReferenceStores
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-reference_store_id
-FROM awscc.omics.reference_stores
-WHERE region = 'us-east-1'
-```

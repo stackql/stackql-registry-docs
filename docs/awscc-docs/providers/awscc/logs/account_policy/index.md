@@ -40,6 +40,23 @@ Gets an individual <code>account_policy</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+account_id,
+policy_name,
+policy_document,
+policy_type,
+scope,
+selection_criteria
+FROM awscc.logs.account_policy
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AccountId}';
+AND data__Identifier = '{PolicyType}';
+AND data__Identifier = '{PolicyName}';
+```
+
 ## Permissions
 
 To operate on the <code>account_policy</code> resource, the following permissions are required:
@@ -73,20 +90,3 @@ logs:DeleteSubscriptionFilter,
 iam:PassRole
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-account_id,
-policy_name,
-policy_document,
-policy_type,
-scope,
-selection_criteria
-FROM awscc.logs.account_policy
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AccountId&gt;'
-AND data__Identifier = '&lt;PolicyType&gt;'
-AND data__Identifier = '&lt;PolicyName&gt;'
-```

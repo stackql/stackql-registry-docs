@@ -43,6 +43,24 @@ Gets an individual <code>provisioning_template</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+template_arn,
+template_name,
+description,
+enabled,
+provisioning_role_arn,
+template_body,
+template_type,
+pre_provisioning_hook,
+tags
+FROM awscc.iot.provisioning_template
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TemplateName}';
+```
+
 ## Permissions
 
 To operate on the <code>provisioning_template</code> resource, the following permissions are required:
@@ -73,21 +91,3 @@ iot:DeleteProvisioningTemplate,
 iot:DescribeProvisioningTemplate
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-template_arn,
-template_name,
-description,
-enabled,
-provisioning_role_arn,
-template_body,
-template_type,
-pre_provisioning_hook,
-tags
-FROM awscc.iot.provisioning_template
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TemplateName&gt;'
-```

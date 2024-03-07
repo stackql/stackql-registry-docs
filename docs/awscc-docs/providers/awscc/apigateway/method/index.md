@@ -47,6 +47,30 @@ Gets an individual <code>method</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+api_key_required,
+authorization_scopes,
+authorization_type,
+authorizer_id,
+http_method,
+integration,
+method_responses,
+operation_name,
+request_models,
+request_parameters,
+request_validator_id,
+resource_id,
+rest_api_id
+FROM awscc.apigateway.method
+WHERE region = 'us-east-1'
+AND data__Identifier = '{RestApiId}';
+AND data__Identifier = '{ResourceId}';
+AND data__Identifier = '{HttpMethod}';
+```
+
 ## Permissions
 
 To operate on the <code>method</code> resource, the following permissions are required:
@@ -69,27 +93,3 @@ iam:PassRole
 apigateway:DELETE
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-api_key_required,
-authorization_scopes,
-authorization_type,
-authorizer_id,
-http_method,
-integration,
-method_responses,
-operation_name,
-request_models,
-request_parameters,
-request_validator_id,
-resource_id,
-rest_api_id
-FROM awscc.apigateway.method
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;RestApiId&gt;'
-AND data__Identifier = '&lt;ResourceId&gt;'
-AND data__Identifier = '&lt;HttpMethod&gt;'
-```

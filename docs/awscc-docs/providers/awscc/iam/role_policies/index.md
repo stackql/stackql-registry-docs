@@ -36,6 +36,16 @@ Retrieves a list of <code>role_policies</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+policy_name,
+role_name
+FROM awscc.iam.role_policies
+
+```
+
 ## Permissions
 
 To operate on the <code>role_policies</code> resource, the following permissions are required:
@@ -46,13 +56,3 @@ iam:PutRolePolicy,
 iam:GetRolePolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-policy_name,
-role_name
-FROM awscc.iam.role_policies
-
-```

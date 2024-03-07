@@ -43,6 +43,24 @@ Gets an individual <code>project</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+tags,
+project_arn,
+project_id,
+project_name,
+project_description,
+creation_time,
+service_catalog_provisioning_details,
+service_catalog_provisioned_product_details,
+project_status
+FROM awscc.sagemaker.project
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ProjectArn}';
+```
+
 ## Permissions
 
 To operate on the <code>project</code> resource, the following permissions are required:
@@ -69,21 +87,3 @@ servicecatalog:TerminateProvisionedProduct,
 servicecatalog:DescribeRecord
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-tags,
-project_arn,
-project_id,
-project_name,
-project_description,
-creation_time,
-service_catalog_provisioning_details,
-service_catalog_provisioned_product_details,
-project_status
-FROM awscc.sagemaker.project
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ProjectArn&gt;'
-```

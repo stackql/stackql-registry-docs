@@ -38,6 +38,21 @@ Gets an individual <code>refresh_schedule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+aws_account_id,
+data_set_id,
+schedule
+FROM awscc.quicksight.refresh_schedule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{AwsAccountId}';
+AND data__Identifier = '{DataSetId}';
+AND data__Identifier = '{Schedule/ScheduleId}';
+```
+
 ## Permissions
 
 To operate on the <code>refresh_schedule</code> resource, the following permissions are required:
@@ -59,18 +74,3 @@ quicksight:DescribeRefreshSchedule
 quicksight:DescribeRefreshSchedule
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-aws_account_id,
-data_set_id,
-schedule
-FROM awscc.quicksight.refresh_schedule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;AwsAccountId&gt;'
-AND data__Identifier = '&lt;DataSetId&gt;'
-AND data__Identifier = '&lt;Schedule/ScheduleId&gt;'
-```

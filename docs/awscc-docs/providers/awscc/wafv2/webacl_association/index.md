@@ -36,6 +36,17 @@ Gets an individual <code>webacl_association</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+resource_arn,
+web_ac_larn
+FROM awscc.wafv2.webacl_association
+WHERE data__Identifier = '{ResourceArn}';
+AND data__Identifier = '{WebACLArn}';
+```
+
 ## Permissions
 
 To operate on the <code>webacl_association</code> resource, the following permissions are required:
@@ -103,14 +114,3 @@ ec2:DescribeVerifiedAccessInstanceWebAclAssociations,
 ec2:GetVerifiedAccessInstanceWebAcl
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-resource_arn,
-web_ac_larn
-FROM awscc.wafv2.webacl_association
-WHERE data__Identifier = '&lt;ResourceArn&gt;'
-AND data__Identifier = '&lt;WebACLArn&gt;'
-```

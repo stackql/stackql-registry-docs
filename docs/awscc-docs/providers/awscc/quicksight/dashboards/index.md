@@ -36,6 +36,16 @@ Retrieves a list of <code>dashboards</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+aws_account_id,
+dashboard_id
+FROM awscc.quicksight.dashboards
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>dashboards</code> resource, the following permissions are required:
@@ -58,13 +68,3 @@ quicksight:ListTagsForResource
 quicksight:ListDashboards
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-aws_account_id,
-dashboard_id
-FROM awscc.quicksight.dashboards
-WHERE region = 'us-east-1'
-```

@@ -35,6 +35,15 @@ Retrieves a list of <code>trust_anchors</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+trust_anchor_id
+FROM awscc.rolesanywhere.trust_anchors
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>trust_anchors</code> resource, the following permissions are required:
@@ -53,12 +62,3 @@ rolesanywhere:ListTrustAnchors,
 rolesanywhere:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-trust_anchor_id
-FROM awscc.rolesanywhere.trust_anchors
-WHERE region = 'us-east-1'
-```

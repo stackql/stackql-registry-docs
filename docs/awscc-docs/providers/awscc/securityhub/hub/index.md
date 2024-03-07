@@ -40,6 +40,21 @@ Gets an individual <code>hub</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+a_rn,
+enable_default_standards,
+control_finding_generator,
+auto_enable_controls,
+tags,
+subscribed_at
+FROM awscc.securityhub.hub
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ARN}';
+```
+
 ## Permissions
 
 To operate on the <code>hub</code> resource, the following permissions are required:
@@ -64,18 +79,3 @@ securityhub:ListTagsForResource
 securityhub:DisableSecurityHub
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-a_rn,
-enable_default_standards,
-control_finding_generator,
-auto_enable_controls,
-tags,
-subscribed_at
-FROM awscc.securityhub.hub
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ARN&gt;'
-```

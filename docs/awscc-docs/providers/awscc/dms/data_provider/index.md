@@ -43,6 +43,24 @@ Gets an individual <code>data_provider</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+data_provider_name,
+data_provider_identifier,
+data_provider_arn,
+data_provider_creation_time,
+description,
+engine,
+exact_settings,
+settings,
+tags
+FROM awscc.dms.data_provider
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DataProviderArn}';
+```
+
 ## Permissions
 
 To operate on the <code>data_provider</code> resource, the following permissions are required:
@@ -68,21 +86,3 @@ dms:ListTagsForResource
 dms:DeleteDataProvider
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-data_provider_name,
-data_provider_identifier,
-data_provider_arn,
-data_provider_creation_time,
-description,
-engine,
-exact_settings,
-settings,
-tags
-FROM awscc.dms.data_provider
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DataProviderArn&gt;'
-```

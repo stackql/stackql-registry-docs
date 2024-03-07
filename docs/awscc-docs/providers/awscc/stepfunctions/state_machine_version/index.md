@@ -38,6 +38,19 @@ Gets an individual <code>state_machine_version</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+state_machine_arn,
+state_machine_revision_id,
+description
+FROM awscc.stepfunctions.state_machine_version
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>state_machine_version</code> resource, the following permissions are required:
@@ -53,16 +66,3 @@ states:DeleteStateMachineVersion,
 states:DescribeStateMachine
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-state_machine_arn,
-state_machine_revision_id,
-description
-FROM awscc.stepfunctions.state_machine_version
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

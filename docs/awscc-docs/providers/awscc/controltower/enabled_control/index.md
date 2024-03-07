@@ -38,6 +38,20 @@ Gets an individual <code>enabled_control</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+control_identifier,
+target_identifier,
+parameters,
+tags
+FROM awscc.controltower.enabled_control
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TargetIdentifier}';
+AND data__Identifier = '{ControlIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>enabled_control</code> resource, the following permissions are required:
@@ -80,17 +94,3 @@ controltower:GetEnabledControl,
 controltower:ListTagsForResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-control_identifier,
-target_identifier,
-parameters,
-tags
-FROM awscc.controltower.enabled_control
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TargetIdentifier&gt;'
-AND data__Identifier = '&lt;ControlIdentifier&gt;'
-```

@@ -63,6 +63,44 @@ Gets an individual <code>db_cluster</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+endpoint,
+read_endpoint,
+cluster_resource_id,
+associated_roles,
+availability_zones,
+backup_retention_period,
+copy_tags_to_snapshot,
+d_bcluster_identifier,
+d_bcluster_parameter_group_name,
+d_binstance_parameter_group_name,
+d_bport,
+d_bsubnet_group_name,
+deletion_protection,
+enable_cloudwatch_logs_exports,
+engine_version,
+iam_auth_enabled,
+kms_key_id,
+port,
+preferred_backup_window,
+preferred_maintenance_window,
+restore_to_time,
+restore_type,
+serverless_scaling_configuration,
+snapshot_identifier,
+source_db_cluster_identifier,
+storage_encrypted,
+tags,
+use_latest_restorable_time,
+vpc_security_group_ids
+FROM awscc.neptune.db_cluster
+WHERE region = 'us-east-1'
+AND data__Identifier = '{DBClusterIdentifier}';
+```
+
 ## Permissions
 
 To operate on the <code>db_cluster</code> resource, the following permissions are required:
@@ -105,41 +143,3 @@ rds:CreateDBClusterSnapshot,
 kms:*
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-endpoint,
-read_endpoint,
-cluster_resource_id,
-associated_roles,
-availability_zones,
-backup_retention_period,
-copy_tags_to_snapshot,
-d_bcluster_identifier,
-d_bcluster_parameter_group_name,
-d_binstance_parameter_group_name,
-d_bport,
-d_bsubnet_group_name,
-deletion_protection,
-enable_cloudwatch_logs_exports,
-engine_version,
-iam_auth_enabled,
-kms_key_id,
-port,
-preferred_backup_window,
-preferred_maintenance_window,
-restore_to_time,
-restore_type,
-serverless_scaling_configuration,
-snapshot_identifier,
-source_db_cluster_identifier,
-storage_encrypted,
-tags,
-use_latest_restorable_time,
-vpc_security_group_ids
-FROM awscc.neptune.db_cluster
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;DBClusterIdentifier&gt;'
-```

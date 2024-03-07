@@ -47,6 +47,28 @@ Gets an individual <code>migration_project</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+migration_project_name,
+migration_project_identifier,
+migration_project_arn,
+migration_project_creation_time,
+instance_profile_identifier,
+instance_profile_name,
+instance_profile_arn,
+transformation_rules,
+description,
+schema_conversion_application_attributes,
+source_data_provider_descriptors,
+target_data_provider_descriptors,
+tags
+FROM awscc.dms.migration_project
+WHERE region = 'us-east-1'
+AND data__Identifier = '{MigrationProjectArn}';
+```
+
 ## Permissions
 
 To operate on the <code>migration_project</code> resource, the following permissions are required:
@@ -73,25 +95,3 @@ iam:PassRole
 dms:DeleteMigrationProject
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-migration_project_name,
-migration_project_identifier,
-migration_project_arn,
-migration_project_creation_time,
-instance_profile_identifier,
-instance_profile_name,
-instance_profile_arn,
-transformation_rules,
-description,
-schema_conversion_application_attributes,
-source_data_provider_descriptors,
-target_data_provider_descriptors,
-tags
-FROM awscc.dms.migration_project
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;MigrationProjectArn&gt;'
-```

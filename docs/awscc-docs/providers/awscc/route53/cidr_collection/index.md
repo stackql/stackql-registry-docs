@@ -38,6 +38,18 @@ Gets an individual <code>cidr_collection</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+name,
+arn,
+locations
+FROM awscc.route53.cidr_collection
+WHERE data__Identifier = '{Id}';
+```
+
 ## Permissions
 
 To operate on the <code>cidr_collection</code> resource, the following permissions are required:
@@ -59,15 +71,3 @@ route53:DeleteCidrCollection,
 route53:ChangeCidrCollection
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-name,
-arn,
-locations
-FROM awscc.route53.cidr_collection
-WHERE data__Identifier = '&lt;Id&gt;'
-```

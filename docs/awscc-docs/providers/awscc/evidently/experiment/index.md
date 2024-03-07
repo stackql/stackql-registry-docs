@@ -47,6 +47,28 @@ Gets an individual <code>experiment</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+project,
+description,
+running_status,
+randomization_salt,
+treatments,
+metric_goals,
+sampling_rate,
+online_ab_config,
+segment,
+remove_segment,
+tags
+FROM awscc.evidently.experiment
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>experiment</code> resource, the following permissions are required:
@@ -74,25 +96,3 @@ evidently:UntagResource,
 evidently:GetExperiment
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-project,
-description,
-running_status,
-randomization_salt,
-treatments,
-metric_goals,
-sampling_rate,
-online_ab_config,
-segment,
-remove_segment,
-tags
-FROM awscc.evidently.experiment
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

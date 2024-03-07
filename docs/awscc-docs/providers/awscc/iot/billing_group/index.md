@@ -39,6 +39,20 @@ Gets an individual <code>billing_group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+id,
+arn,
+billing_group_name,
+tags,
+billing_group_properties
+FROM awscc.iot.billing_group
+WHERE region = 'us-east-1'
+AND data__Identifier = '{BillingGroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>billing_group</code> resource, the following permissions are required:
@@ -64,17 +78,3 @@ iot:TagResource,
 iot:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-id,
-arn,
-billing_group_name,
-tags,
-billing_group_properties
-FROM awscc.iot.billing_group
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;BillingGroupName&gt;'
-```

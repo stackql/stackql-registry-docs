@@ -35,6 +35,15 @@ Retrieves a list of <code>rule_groups</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+rule_group_arn
+FROM awscc.networkfirewall.rule_groups
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>rule_groups</code> resource, the following permissions are required:
@@ -54,12 +63,3 @@ ec2:GetManagedPrefixListEntries
 network-firewall:ListRuleGroups
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-rule_group_arn
-FROM awscc.networkfirewall.rule_groups
-WHERE region = 'us-east-1'
-```

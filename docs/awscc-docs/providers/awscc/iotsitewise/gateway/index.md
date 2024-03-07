@@ -39,6 +39,20 @@ Gets an individual <code>gateway</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+gateway_name,
+gateway_platform,
+tags,
+gateway_id,
+gateway_capability_summaries
+FROM awscc.iotsitewise.gateway
+WHERE region = 'us-east-1'
+AND data__Identifier = '{GatewayId}';
+```
+
 ## Permissions
 
 To operate on the <code>gateway</code> resource, the following permissions are required:
@@ -68,17 +82,3 @@ iotsitewise:DescribeGatewayCapabilityConfiguration,
 iotsitewise:DeleteGateway
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-gateway_name,
-gateway_platform,
-tags,
-gateway_id,
-gateway_capability_summaries
-FROM awscc.iotsitewise.gateway
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;GatewayId&gt;'
-```

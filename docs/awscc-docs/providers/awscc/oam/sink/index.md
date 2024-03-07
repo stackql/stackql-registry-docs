@@ -38,6 +38,19 @@ Gets an individual <code>sink</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+name,
+policy,
+tags
+FROM awscc.oam.sink
+WHERE region = 'us-east-1'
+AND data__Identifier = '{Arn}';
+```
+
 ## Permissions
 
 To operate on the <code>sink</code> resource, the following permissions are required:
@@ -64,16 +77,3 @@ oam:TagResource,
 oam:UntagResource
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-name,
-policy,
-tags
-FROM awscc.oam.sink
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;Arn&gt;'
-```

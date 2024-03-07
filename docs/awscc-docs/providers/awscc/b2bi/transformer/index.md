@@ -45,6 +45,26 @@ Gets an individual <code>transformer</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+created_at,
+edi_type,
+file_format,
+mapping_template,
+modified_at,
+name,
+sample_document,
+status,
+tags,
+transformer_arn,
+transformer_id
+FROM awscc.b2bi.transformer
+WHERE region = 'us-east-1'
+AND data__Identifier = '{TransformerId}';
+```
+
 ## Permissions
 
 To operate on the <code>transformer</code> resource, the following permissions are required:
@@ -69,23 +89,3 @@ logs:DeleteLogDelivery,
 logs:ListLogDeliveries
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-created_at,
-edi_type,
-file_format,
-mapping_template,
-modified_at,
-name,
-sample_document,
-status,
-tags,
-transformer_arn,
-transformer_id
-FROM awscc.b2bi.transformer
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;TransformerId&gt;'
-```

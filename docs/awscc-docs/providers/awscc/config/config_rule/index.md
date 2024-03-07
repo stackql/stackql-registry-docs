@@ -44,6 +44,25 @@ Gets an individual <code>config_rule</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+config_rule_id,
+description,
+scope,
+config_rule_name,
+arn,
+compliance,
+maximum_execution_frequency,
+source,
+input_parameters,
+evaluation_modes
+FROM awscc.config.config_rule
+WHERE region = 'us-east-1'
+AND data__Identifier = '{ConfigRuleName}';
+```
+
 ## Permissions
 
 To operate on the <code>config_rule</code> resource, the following permissions are required:
@@ -66,22 +85,3 @@ config:PutConfigRule,
 config:DescribeConfigRules
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-config_rule_id,
-description,
-scope,
-config_rule_name,
-arn,
-compliance,
-maximum_execution_frequency,
-source,
-input_parameters,
-evaluation_modes
-FROM awscc.config.config_rule
-WHERE region = 'us-east-1'
-AND data__Identifier = '&lt;ConfigRuleName&gt;'
-```

@@ -39,6 +39,19 @@ Gets an individual <code>group</code> resource
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+arn,
+group_name,
+managed_policy_arns,
+path,
+policies
+FROM awscc.iam.group
+WHERE data__Identifier = '{GroupName}';
+```
+
 ## Permissions
 
 To operate on the <code>group</code> resource, the following permissions are required:
@@ -73,16 +86,3 @@ iam:DeleteGroupPolicy,
 iam:GetGroupPolicy
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-arn,
-group_name,
-managed_policy_arns,
-path,
-policies
-FROM awscc.iam.group
-WHERE data__Identifier = '&lt;GroupName&gt;'
-```

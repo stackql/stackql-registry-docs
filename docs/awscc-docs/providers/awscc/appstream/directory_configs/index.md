@@ -35,6 +35,15 @@ Retrieves a list of <code>directory_configs</code> in a region
 ## Methods
 Currently only <code>SELECT</code> is supported for this resource resource.
 
+## Example
+```sql
+SELECT
+region,
+directory_name
+FROM awscc.appstream.directory_configs
+WHERE region = 'us-east-1'
+```
+
 ## Permissions
 
 To operate on the <code>directory_configs</code> resource, the following permissions are required:
@@ -61,12 +70,3 @@ iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus
 ```
 
-
-## Example
-```sql
-SELECT
-region,
-directory_name
-FROM awscc.appstream.directory_configs
-WHERE region = 'us-east-1'
-```
