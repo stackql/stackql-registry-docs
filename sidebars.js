@@ -18,6 +18,7 @@ const providers = [
   {name: 'googleadmin'},
   {name: 'azure'}, 
   {name: 'aws'},
+  {name: 'awscc'},  
   {name: 'digitalocean'},   
   {name: 'github'},
   {name: 'linode'},

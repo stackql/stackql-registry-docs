@@ -5,6 +5,7 @@ export const providers = [
     {name: 'googleadmin', description: 'Google Workspace identity services.', title: 'Google Admin'},
     {name: 'azure', description: 'Cloud computing services offered by Microsoft.', title: 'Microsoft Azure'},
     {name: 'aws', description: 'Cloud computing by Amazon Web Services.', title: 'AWS'},
+    {name: 'awscc', description: 'Cloud computing by Amazon Web Services.', title: 'AWS Cloud Control'},
     {name: 'digitalocean', description: 'Cloud computing services and Infrastructure as a Service (IaaS).', title: 'Digital Ocean'},
     {name: 'github', description: 'Web-based version-control and collaboration.', title: 'GitHub'},
     {name: 'linode', description: 'Cloud computing services by Akamai.', title: 'Linode'},
