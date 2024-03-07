@@ -1,5 +1,5 @@
 ---
-title: aws
+title: awscc
 hide_title: false
 hide_table_of_contents: false
 keywords:
@@ -11,8 +11,8 @@ keywords:
 description: Query, deploy and manage AWS resources using SQL
 custom_edit_url: null
 image: /img/providers/aws/stackql-aws-provider-featured-image.png
-id: aws-doc
-slug: /providers/aws
+id: awscc-doc
+slug: /providers/awscc
 
 ---
 Cloud services from AWS.
@@ -38,10 +38,10 @@ See also:
 
 ## Installation
 
-To pull the latest version of the `aws` provider, run the following command:  
+To pull the latest version of the `awscc` provider, run the following command:  
 
 ```bash
-REGISTRY PULL aws;
+REGISTRY PULL awscc;
 ```
 > To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
 
@@ -51,7 +51,8 @@ The following system environment variables are used for authentication by defaul
 
 - `AWS_ACCESS_KEY_ID` - AWS Access Key ID (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
 - `AWS_SECRET_ACCESS_KEY` - AWS Secret Access Key (see [How to Create AWS Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html))
-  
+- `AWS_SESSION_TOKEN` - [__OPTIONAL:__ only required if using `aws sts assume-role`] AWS Session Token (see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html))
+
 These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
 
 <details>
@@ -62,7 +63,7 @@ To use different environment variables (instead of the defaults), use the `--aut
 
 ```bash
 
-AUTH='{ "aws": { "type": "aws_signing_v4", "keyIDenvvar": "YOUR_ACCESS_KEY_ID_VAR", "credentialsenvvar": "YOUR_SECRET_KEY_VAR" }}'
+AUTH='{ "awscc": { "type": "aws_signing_v4", "keyIDenvvar": "YOUR_ACCESS_KEY_ID_VAR", "credentialsenvvar": "YOUR_SECRET_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
 
 ```
@@ -70,7 +71,7 @@ or using PowerShell:
 
 ```powershell
 
-$Auth = "{ 'aws': { 'type': 'aws_signing_v4',  'keyIDenvvar': 'YOUR_ACCESS_KEY_ID_VAR', 'credentialsenvvar': 'YOUR_SECRET_KEY_VAR' }}"
+$Auth = "{ 'awscc': { 'type': 'aws_signing_v4',  'keyIDenvvar': 'YOUR_ACCESS_KEY_ID_VAR', 'credentialsenvvar': 'YOUR_SECRET_KEY_VAR' }}"
 stackql.exe shell --auth=$Auth
 
 ```
@@ -80,11 +81,11 @@ stackql.exe shell --auth=$Auth
 ## Server Parameters
 
 
-The following parameter is required for the `aws` provider:  
+The following parameter is required for the `awscc` provider:  
 
 - `region` - AWS region (e.g. `us-east-1`)
 
-This parameter must be supplied to the `WHERE` clause of each `SELECT` statement.
+This parameter must be supplied to the `WHERE` clause of each `SELECT` statement, with the exception of global services such as `iam`, `route53`, `cloudfront`, etc.
 
 ## Services
 <div class="row">
